@@ -1,0 +1,635 @@
+# changeover.yml — Changeover. AP Macroeconomics on the top four floors of
+# Kesteven House, Halvern.
+#
+# THE PLACE SOLVES THIS COURSE'S PROBLEM. Every quantity in macroeconomics is
+# national, aggregated and invisible, which is why a first-person game has never
+# been set in one. A currency changeover makes all of them local for a fortnight:
+# the money supply is a mass of old notes on a platform scale, the multiplier is
+# a column in a ledger, the open economy arrives one telex at a time, and the
+# rate is set two floors above the room where the index is built.
+#
+# AND A HUNDRED AND EIGHTY METRES UP, IT MAKES THEM VISIBLE. The board took the
+# top four floors of the tallest building in Halvern because it was the only
+# vacant plate big enough, and the accident of that is the whole game: the queue
+# for the counter is on the plaza directly below, Vend Street — two thirds of the
+# basket — runs west from the door, and the port the trade figures come off is on
+# the horizon. Every quantity the course asks about has something out of the
+# window that it is a number for, and the player can look at both at once.
+#
+# The argument, both sides right on some day: Verhoeven needs the rate fixed on
+# Friday because wages and contracts have to be written against something, and
+# she is right on day 12 that an unfixed rate is its own kind of inflation. Radic
+# will not certify an index built on three weeks of prices, and he is right on
+# day 4 that the basket he was handed prices a city nobody lives in.
+#
+#   node tools/import-book.mjs books/changeover.yml changeover --verify
+
+theme:
+  id: changeover
+  title: Changeover
+  subtitle: Chief Economist · Halvern Currency Board
+
+groups:
+- id: STATS
+  code: STATS
+  name: Statistics Floor
+  color: '#6b7f8a'
+  desc: "Where the campaign's statistics floor work is done."
+  milestones: [Open the room, Read what it holds, Settle the question, Hand it on]
+- id: OPENEC
+  code: OPENEC
+  name: Open-Economy Floor
+  color: '#6b7f8a'
+  desc: "Where the campaign's open-economy floor work is done."
+  milestones: [Open the room, Read what it holds, Settle the question, Hand it on]
+- id: COUNTER
+  code: COUNTER
+  name: Counter Room
+  color: '#a8763c'
+  desc: Households, one at a time, with money in their hands.
+  defaultLeader: okonjo
+  milestones: [Open the counter, Read the queue, Set the terms, Ready for the fifteenth]
+- id: PRICES
+  code: PRICES
+  name: Price Room
+  color: '#3f8f7a'
+  desc: The basket, the index and what the index is an index of.
+  defaultLeader: radic
+  milestones: [Price the basket, Build the index, Defend it, Ready for the fifteenth]
+- id: NOTES
+  code: NOTES
+  name: Note Room
+  color: '#8a6f4a'
+  desc: The old currency, weighed on the way out of circulation.
+  defaultLeader: tulloch
+  milestones: [Weigh the returns, Count the supply, Reconcile it, Ready for the fifteenth]
+- id: BANKS
+  code: BANKS
+  name: Ledger Hall
+  color: '#5f7fa8'
+  desc: Reserves, deposits and what the banks can create out of both.
+  defaultLeader: iyer
+  milestones: [Read the reserves, Work the multiplier, Set the requirement, Ready for the fifteenth]
+- id: RATE
+  code: RATE
+  name: Rate Room
+  color: '#8a5c7f'
+  desc: The rate, the tools and the lag between them.
+  defaultLeader: verhoeven
+  milestones: [Read the market, Choose the tool, Time it, Ready for the fifteenth]
+- id: TRADE
+  code: TRADE
+  name: Wire Room
+  color: '#4a7f8a'
+  desc: The open economy, one wire at a time.
+  defaultLeader: sarkis
+  milestones: [Read the wires, Balance the account, Price the currency, Ready for the fifteenth]
+
+roster:
+- id: venn
+  name: "Mara Venn"
+  role: "Board Chair and mission authority"
+  division: STATS
+  bio: |
+    Mara Venn is Board Chair and mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: voss
+  name: "Eli Voss"
+  role: "counter operations lead"
+  division: RATE
+  bio: |
+    Eli Voss is counter operations lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: pell
+  name: "Idris Pell"
+  role: "national accounts chief"
+  division: COUNTER
+  bio: |
+    Idris Pell is national accounts chief. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: saye
+  name: "Lina Saye"
+  role: "price statistics lead"
+  division: STATS
+  bio: |
+    Lina Saye is price statistics lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: arendt
+  name: "Tomas Arendt"
+  role: "bank supervision lead"
+  division: RATE
+  bio: |
+    Tomas Arendt is bank supervision lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: corren
+  name: "Nia Corren"
+  role: "open-economy analyst"
+  division: OPENEC
+  bio: |
+    Nia Corren is open-economy analyst. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: dane
+  name: "Rhea Dane"
+  role: "finance minister"
+  division: RATE
+  bio: |
+    Rhea Dane is finance minister. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: vale
+  name: "Soren Vale"
+  role: "export council liaison"
+  division: COUNTER
+  bio: |
+    Soren Vale is export council liaison. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+
+glossary:
+# mission 1
+- name: Scarcity
+  aliases: [scarcity]   # TODO: the plurals and spellings the prose uses
+  def: "limited resources cannot satisfy every want, so every choice gives up an alternative."
+# mission 1
+- name: Opportunity cost
+  aliases: [opportunity cost]   # TODO: the plurals and spellings the prose uses
+  def: "the value of the best alternative given up."
+# mission 1
+- name: Equilibrium
+  aliases: [equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "the price and quantity where planned buying equals planned selling."
+# mission 2
+- name: GDP
+  aliases: [gdp]   # TODO: the plurals and spellings the prose uses
+  def: "the market value of final goods and services produced inside a country during a stated period."
+# mission 2
+- name: Consumption
+  aliases: [consumption]   # TODO: the plurals and spellings the prose uses
+  def: "household spending on goods and services."
+# mission 2
+- name: Investment
+  aliases: [investment]   # TODO: the plurals and spellings the prose uses
+  def: "business capital, inventory change, and new housing, not stock purchases."
+# mission 2
+- name: Net exports
+  aliases: [net exports]   # TODO: the plurals and spellings the prose uses
+  def: "exports minus imports."
+# mission 3
+- name: CPI
+  aliases: [cpi]   # TODO: the plurals and spellings the prose uses
+  def: "the current cost of a fixed consumer basket relative to its base-year cost, times 100."
+# mission 3
+- name: Inflation rate
+  aliases: [inflation rate]   # TODO: the plurals and spellings the prose uses
+  def: "the percent change in a price index."
+# mission 3
+- name: Substitution bias
+  aliases: [substitution bias]   # TODO: the plurals and spellings the prose uses
+  def: "CPI overstatement when consumers switch away from goods whose prices rise."
+# mission 4
+- name: Labor force
+  aliases: [labor force]   # TODO: the plurals and spellings the prose uses
+  def: "employed people plus unemployed people actively seeking work."
+# mission 4
+- name: Discouraged worker
+  aliases: [discouraged worker]   # TODO: the plurals and spellings the prose uses
+  def: "a person who wants work but stopped searching and is outside the labor force."
+# mission 4
+- name: Natural unemployment
+  aliases: [natural unemployment]   # TODO: the plurals and spellings the prose uses
+  def: "frictional plus structural unemployment."
+# mission 4
+- name: Recessionary gap
+  aliases: [recessionary gap]   # TODO: the plurals and spellings the prose uses
+  def: "real output below full-employment output."
+# mission 5
+- name: MPC
+  aliases: [mpc]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of an extra dollar of income consumed."
+# mission 5
+- name: MPS
+  aliases: [mps]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction saved; MPC plus MPS equals one."
+# mission 5
+- name: Multiplier
+  aliases: [multiplier]   # TODO: the plurals and spellings the prose uses
+  def: "total demand change divided by the initial policy change."
+# mission 6
+- name: AD
+  aliases: [ad]   # TODO: the plurals and spellings the prose uses
+  def: "C+I+G+NX at each price level."
+# mission 6
+- name: SRAS
+  aliases: [sras]   # TODO: the plurals and spellings the prose uses
+  def: "short-run production supplied at each price level."
+# mission 6
+- name: LRAS
+  aliases: [lras]   # TODO: the plurals and spellings the prose uses
+  def: "full-employment output, vertical at Yf."
+# mission 6
+- name: Stagflation
+  aliases: [stagflation]   # TODO: the plurals and spellings the prose uses
+  def: "higher prices with lower output."
+# mission 7
+- name: M1
+  aliases: [m1]   # TODO: the plurals and spellings the prose uses
+  def: "cash plus checking deposits. M2: M1 plus savings and money-market funds."
+# mission 7
+- name: Required reserves
+  aliases: [required reserves]   # TODO: the plurals and spellings the prose uses
+  def: "deposits times reserve ratio."
+# mission 7
+- name: Excess reserves
+  aliases: [excess reserves]   # TODO: the plurals and spellings the prose uses
+  def: "total minus required reserves."
+# mission 8
+- name: Money demand
+  aliases: [money demand]   # TODO: the plurals and spellings the prose uses
+  def: "desired liquid balances, lower at higher nominal interest."
+# mission 8
+- name: Money supply
+  aliases: [money supply]   # TODO: the plurals and spellings the prose uses
+  def: "central-bank-set quantity, vertical in the model."
+# mission 8
+- name: Real interest
+  aliases: [real interest]   # TODO: the plurals and spellings the prose uses
+  def: "nominal interest minus expected inflation."
+# mission 9
+- name: Appreciation
+  aliases: [appreciation]   # TODO: the plurals and spellings the prose uses
+  def: "a currency buys more foreign currency."
+# mission 9
+- name: Current account
+  aliases: [current account]   # TODO: the plurals and spellings the prose uses
+  def: "NX plus net income and net transfers."
+# mission 9
+- name: Financial account
+  aliases: [financial account]   # TODO: the plurals and spellings the prose uses
+  def: "cross-border asset purchases and sales."
+# mission 10
+- name: SRPC
+  aliases: [srpc]   # TODO: the plurals and spellings the prose uses
+  def: "short-run inverse inflation-unemployment relation."
+# mission 10
+- name: LRPC
+  aliases: [lrpc]   # TODO: the plurals and spellings the prose uses
+  def: "vertical curve at the natural rate."
+# mission 10
+- name: Money neutrality
+  aliases: [money neutrality]   # TODO: the plurals and spellings the prose uses
+  def: "long-run money changes alter prices, not real output."
+# mission 11
+- name: Self-correction
+  aliases: [self-correction]   # TODO: the plurals and spellings the prose uses
+  def: "wage and input-cost adjustment that shifts SRAS toward long-run equilibrium."
+# mission 11
+- name: Automatic stabilizer
+  aliases: [automatic stabilizer]   # TODO: the plurals and spellings the prose uses
+  def: "taxes or transfers that change without a new law."
+# mission 11
+- name: Economic growth
+  aliases: [economic growth]   # TODO: the plurals and spellings the prose uses
+  def: "rising real GDP per person."
+# mission 12
+- name: Conversion ratio
+  aliases: [conversion ratio]   # TODO: the plurals and spellings the prose uses
+  def: "old currency units exchanged for one new unit."
+# mission 12
+- name: Reserve clock
+  aliases: [reserve clock]   # TODO: the plurals and spellings the prose uses
+  def: "timed schedule that keeps required reserves available."
+# mission 13
+- name: Budget deficit
+  aliases: [budget deficit]   # TODO: the plurals and spellings the prose uses
+  def: "government spending above tax revenue."
+# mission 13
+- name: Crowding out
+  aliases: [crowding out]   # TODO: the plurals and spellings the prose uses
+  def: "government borrowing raises real interest and reduces private investment."
+# mission 14
+- name: Policy lag
+  aliases: [policy lag]   # TODO: the plurals and spellings the prose uses
+  def: "delay between action and full economic effect."
+# mission 14
+- name: Trigger
+  aliases: [trigger]   # TODO: the plurals and spellings the prose uses
+  def: "a precommitted threshold that activates action."
+
+warmups:
+  # THE MISSION-1 WARM-UP CARRIES NO STORY, deliberately — one sentence, purely
+  # functional, because on this morning the player has met nobody and the reason
+  # for the run is orientation itself (THREE_PASS_BRIEF mandate 4b). It still
+  # names Okonjo's job: this card is read before day 1's stake, so it is where
+  # `checkNames` sees her first.
+  greet:
+    title: Get round the four floors before the counter opens
+    why: >-
+      Ngozi Okonjo, the counter supervisor, wants you known to as many of the people on these
+      four floors as you can get round this morning.
+  trial-near:
+    title: Walk floor forty-five before you sign anything
+    why: >-
+      The counter room and the note room are at opposite ends of one corridor, and the arithmetic
+      runs between them in that order. Bram Tulloch, who manages the note room, walks every new
+      officer the length of the floor once, because the money coming out of circulation is weighed
+      across the corridor from the desk that decided how much of it to take.
+  follow:
+    title: Follow Novotny round her repricing
+    why: >-
+      Kata Novotny, a market trader from Vend Street, brings her price cards up to the price room
+      every morning and does not stop walking to explain them. Stay with her: the basket Emil
+      Radic, the chief statistician, has been handed prices a city that stopped existing, and her
+      stall — visible from the window, four hundred metres west — is the only place in Halvern
+      where the new one can be checked against something real.
+  hunt:
+    title: Six ledgers, and one of them does not reconcile
+    item: {name: ledger, plural: ledgers}
+    why: >-
+      Femi Adeyinka, the vault officer, has six regional ledgers out across these four floors and
+      a weighed total that does not match their sum. Find all six and read them. The gap between
+      the weighed returns and the ledgers is either an accounting error or several hundred thousand
+      marks that never came back.
+  canvass:
+    title: Ask everyone on the counter floor the same question
+    why: >-
+      The board is about to set a rate on the assumption that people will hold the new currency
+      rather than spend it at once. Ngozi Okonjo, the counter supervisor, has forty people who have
+      been on the plaza telephones since eight and will not put words in any of their mouths. Ask
+      each of them one question and count the answers — expectations are a policy instrument, and
+      this is the only instrument that measures them.
+  evade:
+    title: Keep clear of the treasury man until the index is certified
+    why: >-
+      Josiah Mbeya, the treasury liaison, wants the provisional inflation figure before the chief
+      statistician, Emil Radic, has certified the basket it rests on. Keep your distance until it is signed: a number
+      quoted
+      in a corridor arrives at the board with nobody's name on it and a basket nobody has examined.
+  tag:
+    title: Catch Sarkis before the wire closes
+    why: >-
+      Levon Sarkis, the trade and reserves officer, closes the wire room at four and the reserve
+      position for the week is only in his book. He is halfway down the corridor at speed with it
+      under his arm, and after four the rate has to be argued from last week's number.
+
+# ---------------------------------------------------------------- the fortnight
+
+missions:
+# <<< MISSIONS >>>
+
+copy:
+  # Floor 45 — the counter floor
+  COUNTER: <p>The counter room. The counters themselves are on the plaza a hundred and eighty metres down; 
+    what is here is the desk that decides the daily limit, and the window the queue is counted from.</p>
+  NOTES: <p>The note room. Three platform scales, a punch press and a goods hoist down to the furnace. The 
+    money supply, by weight, on its way out of existence.</p>
+  CASHIER: <p>The cashiers' room. Forty people who have been on the plaza telephones since eight, and the only
+    kettle above the fortieth floor.</p>
+  STRONG: <p>The strongroom. What is left of the reserve, two doors and a ledger between it and the 
+    corridor.</p>
+  # Floor 46 — the measurement floor
+  PRICES: <p>The price room. One basket, priced twice a month by hand, and the eleven-year series that hangs 
+    on it. Vend Street, which is two thirds of the basket, runs west from directly below the window.</p>
+  BANKS: <p>The ledger hall. Eleven regional banks, no computer, and every deposit in Halvern written down 
+    twice.</p>
+  CALC: <p>The calculating room. Nine comptometers, a rota on the door, and the only people in the building 
+    who see every figure before the board does.</p>
+  RETURNS: <p>The returns room. Where the regional dispatch notes are opened and checked against the tallies, 
+    in the order the post arrives rather than the order anybody wants.</p>
+  # Floor 47 — the wire floor
+  TRADE: <p>The wire room. Six correspondents in three time zones, and the only place that knows what the rest
+    of the world thinks a mark is worth.</p>
+  TELEX: <p>The telex room. Four machines and the cipher book, because a rate quoted on an open wire is a rate
+    anyone can trade against.</p>
+  PORT: <p>The port desk. Manifests off the quays you can see from the window, twelve kilometres north-east, 
+    and the customs tallies that turn them into a trade figure.</p>
+  PRESS: <p>The press room. One typewriter, and a rule that the board never publishes a figure it might have 
+    to correct.</p>
+  # Floor 48 — the board floor
+  RATE: <p>The rate room. The board meets along the glass, and the reserve book that decides what it can 
+    promise is in the cupboard behind the chair.</p>
+  DEALING: <p>The dealing desk. Two lines to the correspondent banks, kept open through the afternoon so the 
+    reserve position on the table is this hour's rather than this morning's.</p>
+  CHAIR: <p>The chair's office. Ada Verhoeven has been sleeping in it since the announcement, which everybody 
+    knows and nobody says.</p>
+  LOOKOUT: '<p>The observation room, open to the corridor. Everything on the board is out of this window: the queue
+    on the plaza, Vend Street, the port, and Ferrand Row where the bank used to be.</p>'
+  CANTEEN: <p>The staff canteen. Everybody in this building has argued about the rate in here, and none of it 
+    is minuted.</p>
+
+# ---------------------------------------------------------------------------
+# Review variants. Not spares: from day 3 every day carries a callback, and
+# `shapeMissions` only adds one where the oldest taught lesson has an unserved
+# `— Review` variant. Without these the campaign served none at all.
+#
+# Each is the base lesson's concept on a different case, on the base lesson's
+# own floor — the areas here are floor plates reached by lift, so a variant that
+# wanders to another room is a variant on another floor.
+lessons:
+- group: PRICES
+  title: The same list, twice — Review
+    # removed duplicate task: Say what each event does to a different index
+  place: Price Room
+  concept: 'A price index, and the basket it is an index of'
+  scene: >
+    Emil Radic, the chief statistician, keeps a second index for the port: a fixed list of
+    wholesale goods, priced monthly. Four things happened to it this month, and the board wants
+    each one accounted for separately.
+  guide: >-
+    Four events and four effects, on an index that prices something else entirely. Pair them by
+    asking one question of each event. Does it move a price on the list, a price off the list,
+    or the year the ratio is measured from? Where a listed price moves, its weight decides how
+    much of that movement reaches the number.
+  background:
+  - >-
+    Why weight is the whole of it. An index is one number standing for a list, and each item
+    enters in proportion to what households or firms spend on it. A fifth of the weight carries
+    a fifth of its own price change into the index, which is why arguing about the weights is
+    arguing about the figure.
+  - >-
+    What re-basing is and is not. Setting the base year to this month divides every future
+    cost by this month's cost instead of the old one. So the series reads 100 again without
+    a single price having moved. It changes what the number is measured from and never what
+    it is measuring.
+  assumes:
+  - the wholesale list is held fixed between the two months
+  - each item enters the index in proportion to its weight
+  takeaway: A fixed-weight index sees the prices and weights in its own basket; reweighting and substitution 
+    change what the index represents.
+  format: PROTOCOL
+  task: Match each event to what it does to the wholesale index.
+  columns:
+  - What happened at the port
+  - What it does to the index
+  scenarios:
+  - Coal, a fifth of the wholesale list by weight, doubles in price.
+  - Imported flour, which the wholesale list does not name, doubles in price.
+  - The base year is re-set to this month and the same list is priced again.
+  - Buyers switch to a cheaper grade of timber, and the list is left as it was.
+  choices:
+  - The index rises by about a fifth of the doubling, because that is the weight the item carries.
+  - The index does not move at all, because a price the list does not name is a price it cannot see.
+  - The index reads 100 with no price having changed, because the ratio is measured from here now.
+  - The index overstates what buyers now spend, because a fixed list cannot follow a substitution.
+  mapping: [0, 1, 2, 3]
+  rebuttals:
+  - A listed price enters in proportion to its weight, so a fifth of the list carries a fifth of the change.
+  - An index prices its own list, so a good that is not on the list cannot move it however far its price runs.
+  - Re-basing changes the year the ratio is divided by, which puts the series back to 100 without touching a 
+    price.
+  - Holding the list fixed is what makes two months comparable, and it is also what makes a substitution 
+    invisible.
+  answerText: >-
+    Coal carries a fifth of its doubling in; flour off the list does nothing; re-basing returns the
+    index to 100 with no price moved; and the substitution goes unseen, which is what a fixed list costs.
+  why: >-
+    A price outside the basket cannot directly move this particular index. A listed price contributes according
+    to its weight in the simplified exercise. Re-basing changes the reference point, not the underlying prices.
+    And when buyers substitute away from a relatively expensive item, a strict fixed-basket measure can overstate
+    the cost increase they actually experience. The lesson is to keep “price change” separate from “which basket
+    and weights are being priced.”
+
+- group: COUNTER
+  title: Forty people, and what they have heard — Review
+  task: Decide what the board says to the plaza
+  place: Counter Room
+  concept: 'Expectations, credibility, and why a promise is a policy instrument'
+  takesAsRead:
+  - 'The short-run trade-off between inflation and unemployment'
+  scene: >
+    Ngozi Okonjo, the counter supervisor, has a rumour on the plaza that the counter shuts at noon
+    on Friday. It is not true. The queue has doubled again since eight and nobody at the window can
+    say otherwise.
+  guide: >-
+    Four things the board could put on the plaza, and each is a statement about the future that
+    the queue will act on this morning. Ask of each whether it gives people something they can
+    check afterwards. Then ask what it costs the board on the fifteenth if the thing they
+    checked turns out to have been wrong.
+  background:
+  - >-
+    Why a promise is an instrument rather than a courtesy. People queue on what they expect,
+    so the belief moves before any policy does. A statement that can be checked later either
+    earns the board a cheaper way to move expectations next time or spends one it already had.
+  - >-
+    Why silence is not neutral. The plaza will have an expectation whether or not the board
+    supplies one, and it will be supplied by whoever is talking. The choice is not between
+    saying something and saying nothing; it is between the board's account and the rumour's.
+  assumes:
+  - the rumour is false and the counter will open as usual on Friday
+  takeaway: A statement people can check afterwards moves expectations; one they cannot is noise.
+  format: TRIAGE
+  question: What should the board put on the plaza this morning?
+  choices:
+  - Publish the closing times for every day to the fifteenth
+  - Deny the rumour and say nothing further
+  - Promise the counter stays open as long as there is a queue
+  - Wait until the rate is fixed on Friday and announce everything at once
+  answer: Publish the closing times for every day to the fifteenth
+  why: >-
+    A denial is a claim about a rumour rather than about the counter, and it leaves people with
+    nothing to hold the board to. A dated schedule does: anybody can check it on Friday, and a
+    promise that survives being checked is what makes the next one worth acting on. Open as long
+    as there is a queue cannot be kept on a day like the fifteenth. A promise broken once costs
+    more than the silence it replaced. Waiting concedes the plaza to whoever is talking.
+  rebuttals:
+  - A denial gives the queue nothing to check on Friday, so it cannot earn the board any credit.
+  - A promise the counter cannot keep on the fifteenth spends credibility instead of building it.
+  - The plaza will have an expectation by Friday whether the board supplies one or the rumour does.
+
+- group: NOTES
+  title: Money on a platform scale — Review
+    # removed duplicate task: Place four things against the jobs money has to do
+  place: Note Room
+  concept: 'What counts as money, and the three things it has to do'
+  takesAsRead:
+  - 'Demand, supply and the price that clears a market'
+  scene: >
+    Femi Adeyinka, the vault officer, has four things in front of him that Halvern is using as
+    money this fortnight. Only one of them was issued by the board. Tulloch wants each one placed
+    against the jobs money has to do.
+  guide: >-
+    Money has three jobs: it settles a payment, it holds value between now and later, and it is
+    the ruler prices are quoted in. Take each of the four in turn and ask which job it is doing
+    and which it is failing. Nothing here fails all three, and one of them is failing none.
+  background:
+  - >-
+    Why the three jobs are listed separately. Most of the time one thing does all three and
+    nobody has cause to tell them apart. A changeover pulls them apart for a fortnight, which
+    is why a currency board is the one place the distinction is operational rather than
+    academic.
+  - >-
+    Which job fails first under inflation. Holding value goes before settling payments does.
+    People keep taking the notes and stop keeping them. So the same money changes hands
+    faster while nobody wants to be holding it at the end of the week.
+  assumes:
+  - all four are circulating in Halvern during the changeover fortnight
+  takeaway: Money does three separate jobs, and a thing can do one of them while failing another.
+  format: PROTOCOL
+  task: Match each thing to the job of money it is doing or failing.
+  columns:
+  - What is circulating
+  - Which job it is doing
+  scenarios:
+  - Old marks, which the counter will still exchange until the fifteenth.
+  - Board scrip, dated and redeemable, that the tram company takes and the bakery will not.
+  - Wage envelopes held back a week because nobody knows what they will buy.
+  - Stall prices on Vend Street, chalked in old marks and in new ones side by side.
+  choices:
+  - Still settling payments, because whoever it is handed to takes it, and that is all that job asks.
+  - Failing to settle payments, because something only some sellers accept has to be swapped first.
+  - Failing to hold value, because keeping it is a bet and people would rather hold goods.
+  - Working as the ruler twice over, because prices can be quoted in a currency nobody is paying in.
+  mapping: [0, 1, 2, 3]
+  rebuttals:
+  - Acceptance is the whole of that job, and the counter being open is what keeps the old notes accepted.
+  - Scrip half the city refuses has to be exchanged for something else before it can settle anything.
+  - Wages held back would still buy bread today; what is in doubt is what they buy next week.
+  - Two currencies chalked side by side is one of them being used purely as the unit prices are stated in.
+  answerText: >-
+    Old marks still settle payments; the scrip fails to; the held-back wages fail to hold value;
+    and the double-chalked prices are the unit of account doing its job in two currencies at once.
+  why: >-
+    The three jobs come apart during a changeover, which is the only time most people notice there
+    are three. Old marks still settle payments, because acceptance is all that job asks and the
+    counter is still open. Scrip half the city will not take fails there, whatever is printed on
+    it. Wages held back are a store-of-value failure and nothing else; they would still buy bread
+    today. And two currencies chalked side by side is one of them working purely as the unit
+    prices are quoted in.
+
+- group: BANKS
+  title: Somebody else's loan — Review
+    # removed duplicate task: Order the entries one deposit produces
+  place: Ledger Hall
+  concept: 'Fractional reserve banking: a deposit is somebody else’s loan'
+  scene: >
+    Ruth Haldane, who manages the largest of the eleven regional banks, has a single
+    ten-thousand-mark deposit walked in this morning. Iyer wants the four ledger entries it
+    produces set out in the order they happen.
+  guide: >-
+    Four entries from one deposit. Order them in time, and settle each by asking what has to have
+    been written before it can be written at all. Three of the four are on Haldane's own ledger
+    and one is not, which is a hint about where the last of them belongs.
+  background:
+  - >-
+    Why only one of the four is a decision. The deposit arriving and the payment leaving are
+    things that happen to the bank. The split between what is held and what is lent is the
+    one entry somebody chooses. That is exactly why a reserve requirement is a policy tool
+    and the other three entries are not.
+  - >-
+    What the third entry actually creates. A loan is not handed over in cash; it is credited to
+    an account, and an account balance is a deposit. So the borrower has money that did not
+    exist that morning, and the bank's books balance because the loan is an asset against it.
+  assumes:
+  - the bank holds a fraction of each deposit and lends the rest
+  takeaway: In the simplified bank-ledger sequence, lending creates a deposit; the reserve rule constrains the
+    model but does not mechanically determine every real-world loan.
+  format: SEQUENCE
+  task: Put the four ledger entries in the order they are written.
+  cards:
+  - The ten thousand is written up as a deposit, and the bank's cash rises by the same amount.
+  - A fraction of it is set aside as reserves, and the rest is recorded as lendable.
+  - A builder is lent that rest, credited to an account he holds at the same bank.
+  - The builder pays a supplier, and the money appears as a deposit at a second bank.
+  order: [0, 1, 2, 3]
+  axis: Put the four entries in the order they are written, earliest first. Each one needs something already 
+    on the books before it can be made, so the order is what has to have happened rather than what matters 
+    most.
+  ends: [written first, written last]
+  answerText: >-
+    The deposit, then the split into reserves and lendable funds, then the loan credited to the
+    builder's account, then the same money arriving as a deposit at a second bank.
+  why: >-
+    Nothing can be set aside out of money the bank does not yet hold, so the deposit is written
+    first. The split into reserves and lendable funds comes next, and it is the only entry that
+    is a decision rather than a consequence. The loan follows, and the thing worth noticing is
+    that it is credited as a deposit. The builder now has an account balance that did not exist
+    this morning. When he spends it, the same balance turns up at a second bank.

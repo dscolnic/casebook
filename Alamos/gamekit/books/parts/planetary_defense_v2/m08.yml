@@ -1,0 +1,212 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Orbit Narrows"
+  card:
+    header: "IMPACT WINDOW: 7 DAYS, 12 HOURS"
+    title: "THE ORBIT NARROWS"
+    goNow: "Go to the Radar Range and meet Tomás Ibarra at the radar console, then carry the traced packet to Orbit Determination."
+    body: "Optical angles describe direction, while radar adds distance and radial speed. Together they can shrink the encounter cloud dramatically, but duplicated measurements can create false precision. Transfer only traced evidence, refit the orbit, and test which planning statement survives. By the end of the mission, you will issue a revised impact probability with its assumptions attached."
+    objective: "Combine optical and radar evidence into a revised impact probability without double-counting shared errors."
+  objective: "Combine optical and radar evidence into a revised impact probability without double-counting shared errors."
+  stake: "Optical angles describe direction, while radar adds distance and radial speed. Together they can shrink the encounter cloud dramatically, but duplicated measurements can create false precision. Transfer only traced evidence, refit the orbit, and test which planning statement survives. By the end of the mission, you will issue a revised impact probability with its assumptions attached."
+  takeaway: "Stronger evidence narrows uncertainty without abolishing it. ---"
+  segue: "Mission decision: Report a 63% chance of impact. Treat impact as the lead case for plans. Keep the miss paths and the wide land band in view."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Optical angles and radar range constrain different parts of an orbit."
+  - "Measurement weight depends on uncertainty and covariance, not the number of rows."
+  - "An impact probability describes an ensemble of allowed paths, not a single certain trajectory."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-bistatic-radar-range
+    # On arrival at Bistatic Radar Range | automatic | 
+    on: { enter: true, at: RADAR }
+    world: "Tomás transfers only products with complete provenance."
+    panel: "THE ORBIT NARROWS / MISSION ACTIVE"
+    # unlocks: Stop 29.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-29
+    # After Stop 29 | automatic | 
+    on: { after: [1] }
+    world: "Malik balances optical and radar weights."
+    panel: "THE ORBIT NARROWS / FIRST RESULT LOGGED"
+    # unlocks: The Orbit Determination Center waypoint and Stop 30.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-30
+    # After Stop 30 | automatic | 
+    on: { after: [2] }
+    world: "The b-plane cloud contracts across Earth's disk."
+    panel: "THE ORBIT NARROWS / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 31.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-31
+    # After Stop 31 | automatic | 
+    on: { after: [3] }
+    world: "Mira asks for the strongest defensible sentence, not the largest number."
+    panel: "THE ORBIT NARROWS / DECISION EVIDENCE READY"
+    # unlocks: Stop 32.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THE ORBIT NARROWS / MISSION DECISION LOGGED"
+    # unlocks: Mission 8 outcome, metric screen, concept review, and Mission 9 briefing.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 29: Transfer the evidence chain
+  #     Concept: data fusion; Keystone: provenance; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L4; Story role: evidence.
+  #     placement: CHAIN, at radar-console.
+  - group: ORBIT
+    at: radar-console
+    title: "Transfer the evidence chain"
+    concept: "data fusion"
+    reason: "The orbit team needs to know which radar products share corrections."
+    scene: "Four radar products are ready, but two inherit the same archive-clock correction and cannot count as independent confirmation. Build the evidence chain from raw packets through calibration to released range and Doppler products."
+    motivation: "Provenance prevents correlated products from masquerading as separate evidence."
+    format: CHAIN
+    question: "Submit the completed evidence chain and name the correction shared by the range and Doppler products."
+    answerText: "Shared correction C links two products even though their reported units differ."
+    why: "CHAIN exposes dependency through transformations."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Different output columns do not guarantee independent error sources.
+    # correct result: Mark A-products as correlated; preserve B-range as independent.
+    # state/output: FUSION MANIFEST signed; travel to ORBIT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   chain:
+    #     transfers:
+    #       - {id: raw_a, label: Raw packet A to correction C, carries: uncorrected echo samples and archive time}
+    #       - {id: range_a, label: Correction C to range product A, carries: corrected round-trip delay}
+    #       - {id: doppler_a, label: Correction C to Doppler product A, carries: corrected frequency shift and shared time provenance}
+    #       - {id: raw_b, label: Raw packet B to clock B, carries: independent echo samples and time}
+    #       - {id: range_b, label: Clock B to range product B, carries: independent round-trip delay}
+    #       - {id: gain, label: Calibration pulse to gain model, carries: echo-power calibration}
+    #     order: [raw_a, range_a, doppler_a, raw_b, range_b, gain]
+    #     decoys:
+    #       - {id: independent_a_products, label: Treat range A and Doppler A as independent}
+    #       - {id: clock_b_to_a, label: Route packet A through independent clock B}
+    #     governing_relationship: Range A and Doppler A share correction C; range B has an independent clock path.
+    #     correct: [raw_a, range_a, doppler_a, raw_b, range_b, gain]
+
+  # --- Stop 30: Balance the fit
+  #     Concept: weighted fit; Keystone: uncertainty/modeling; Area: Orbit Determination Center; Learning role: INTRODUCE; Difficulty: L5; Story role: model.
+  #     placement: BALANCE, at fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Balance the fit"
+    concept: "weighted fit"
+    reason: "One precise radar point must not erase the sky-plane information in many optical points."
+    scene: "The radar range has tiny uncertainty, while optical positions provide the longer time baseline and transverse motion. Balance the datasets by documented uncertainty and correlation, then reject equal weighting and simple vote counting."
+    motivation: "Complementary geometry, properly weighted, constrains more orbit dimensions than either dataset alone."
+    format: BALANCE
+    question: "Choose and justify the defensible fusion weighting."
+    answerText: "Precision controls weight, covariance prevents double-counting, and optical timing preserves transverse information."
+    why: "BALANCE trades influence according to information content and dependence."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The smallest error bar does not make every other geometric constraint irrelevant.
+    # correct result: Weight by uncertainty while grouping correlated radar products.
+    # state/output: COMBINED FIT converges; Stop 31 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: Defensible fused orbit, value: one, unit: solution}
+    #     streams:
+    #       - {id: optical, label: Optical sky-plane positions, information: sky-plane position and long time baseline, correlation_group: optical_pipeline, count: true}
+    #       - {id: radar_range, label: Independent radar range, information: line-of-sight distance, correlation_group: radar_clock, count: true}
+    #       - {id: radar_doppler, label: Radar Doppler, information: radial motion, correlation_group: radar_clock, count: true}
+    #       - {id: clock_diagnostic, label: Archive-clock diagnostic, information: provenance for radar products, correlation_group: radar_clock, count: false}
+    #     candidates:
+    #       - Equal weight per row
+    #       - Radar only
+    #       - Inverse-variance weighting with covariance groups
+    #       - Majority vote by observatory
+    #     correctChoice: Inverse-variance weighting with covariance groups
+    #     rationale: Weight by documented uncertainty while preventing correlated products from being counted as independent.
+
+  # --- Stop 31: Read the b-plane cloud
+  #     Concept: encounter uncertainty; Keystone: probability/visualization; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: interpretation.
+  #     placement: CLOUD, at astro-bench.
+  - group: ORBIT
+    at: astro-bench
+    title: "Read the b-plane cloud"
+    concept: "encounter uncertainty"
+    reason: "The fitted orbit must be translated into an impact probability without treating the nominal point as destiny."
+    scene: "The combined trials form a narrow cloud crossing Earth's b-plane disk; 63 percent intersect the disk. Classify the remaining miss solutions and state what the cloud does and does not establish."
+    motivation: "Impact probability is the fraction of justified orbit trials that intersect Earth under the model."
+    format: CLOUD
+    question: "Submit the impact and miss fractions in percent and one operational conclusion: IMPACT LEADING CASE or IMPACT CERTAIN."
+    answerText: "Planning should intensify while observations continue to test both impact and miss solutions."
+    why: "A probability cloud represents distributed uncertainty, not a single certain track."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A nominal trajectory cannot replace the ensemble that produced the probability.
+    # correct result: Impact is the leading case at 63%, with a material 37% miss set.
+    # state/output: IMPACT PROBABILITY 63%; corridor work unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:
+    #     total_weighted_trials: 10000
+    #     impact_trials: 6300
+    #     miss_trials: 3700
+    #     points:
+    #       - {id: impact_set, setting: Earth intersection, reading: 6300 weighted trials}
+    #       - {id: miss_set, setting: outside Earth, reading: 3700 weighted trials}
+    #     equation: probability_percent = count / total_weighted_trials * 100
+    #     expected: {impact_percent: 63, miss_percent: 37}
+    #     correct_conclusion: impact_leading_case
+    #     rejected_conclusion: impact_certain
+
+  # --- Stop 32: Stress the planning sentence
+  #     Concept: robust conclusion; Keystone: decisions/uncertainty; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Malik Rowan beside fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Stress the planning sentence"
+    person: rowan
+    concept: "robust conclusion"
+    reason: "The public statement must survive justified changes in weighting and one-data-source removal."
+    scene: "Malik reruns the fit with conservative optical errors, doubled radar errors, and each observatory removed once. Probabilities range from 55 to 69 percent, so test which proposed planning statement survives every run."
+    motivation: "Robust actions can survive meaningful numerical variation."
+    format: STRESS
+    question: "Submit the minimum and maximum probability in percent and one statement that survives every test."
+    answerText: "Every justified run remains above 50%, but none removes location uncertainty."
+    why: "Stress testing separates a stable decision from unstable precision."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not promote a robust majority into certainty or a fixed impact point.
+    # correct result: State that impact is the leading case and preparation should intensify.
+    # state/output: 63% CONDITIONAL UPDATE released.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     assumption_runs:
+    #       - {label: conservative optical errors, probability_percent: 55}
+    #       - {label: doubled radar errors, probability_percent: 59}
+    #       - {label: leave-one-observatory-out, probability_percent: [57, 69]}
+    #     planning_boundary_percent: 50
+    #     candidates:
+    #       - Impact is certain
+    #       - No action is needed
+    #       - Impact remains the leading case and preparation should intensify
+    #       - The exact corridor is fixed
+    #     correctChoice: Impact remains the leading case and preparation should intensify
+    #     correct_conclusion: impact_remains_leading_case_and_preparation_intensifies
+

@@ -1,0 +1,183 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Two Shifts"
+  card:
+    header: "10 DAYS"
+    title: "Two Shifts"
+    goNow: "Go to PRICES and meet Lina Saye, price statistics lead, at the AD-AS wall."
+    body: "The fiscal package can close the demand gap, but it cannot explain why prices rose while output fell. Aggregate demand is total planned spending, while short-run aggregate supply rises with output because many wages adjust slowly. You will locate equilibrium, shift both curves, and test policy. By the end of the mission, decide which problem fiscal policy should target."
+    objective: "Separate weak demand from cost-push inflation."
+  objective: "Separate weak demand from cost-push inflation."
+  stake: "The fiscal package can close the demand gap, but it cannot explain why prices rose while output fell. Aggregate demand is total planned spending, while short-run aggregate supply rises with output because many wages adjust slowly. You will locate equilibrium, shift both curves, and test policy. By the end of the mission, decide which problem fiscal policy should target."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Aim policy at the weak demand gap. Treat the energy shock on its own. More spending can raise output and prices. It cannot fix a fuel supply shock. The claim of broad price abuse does not hold."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-prices
+    # On arrival at PRICES | ad-as-wall | automatic
+    on: { enter: true, at: PRICES }
+    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate weak demand from cost-push inflation. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Separate weak demand from cost-push inflation."
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "Start with why ad slopes down. We need evidence the next decision can use."
+  - id: after-stop-21
+    # After Stop 21 | ad-as-wall | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Lina Saye says, , and Stop 22 unlocks."
+    panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "Lower prices raise real wealth, reduce money demand and interest, and can depreciate the currency, increasing C, I, and NX."
+  - id: after-stop-22
+    # After Stop 22 | gap-calculator | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in PRICES → RATE only if the route requires travel, then."
+    panel: "PRICES → RATE"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "The imported-energy shock shifts SRAS left."
+  - id: after-stop-23
+    # After Stop 23 | ad-as-wall | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 24 unlocks."
+    panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "Halvern has a recessionary gap plus an adverse supply shock."
+  - id: at-mission-end
+    # At mission end | ad-as-wall | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 6 EVIDENCE: RECORDED"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "Use fiscal policy to close the demand gap, not to promise lower supply-driven prices."
+    - who: arrival-lina   # Arrival Lina
+      say: "One price can rise for two very different reasons."
+    - who: saye   # the bible's "travel waypoint", from this mission's own goNow line
+      say: "Take the two-shift model to the Rate Room."
+
+  stops:
+  # --- Stop 21: Why AD slopes down
+  #     Concept: AD slope; Keystone: AD; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L2; Story role: foundation.
+  #     placement: CHOICE, asked by Lina Saye beside ad-as-wall.
+  - group: RATE
+    at: ad-as-wall
+    title: "Why AD slopes down"
+    person: saye
+    concept: "AD slope"
+    reason: "The wall must distinguish movement along AD from a shift."
+    scene: "The price level falls while taxes, government purchases, and foreign conditions stay fixed. Identify the three channels that increase quantity demanded before moving any curve on the policy wall today."
+    motivation: "A price-level change moves along AD; spending conditions shift AD."
+    format: CHOICE
+    question: "Select exactly one explanation from the four distinct choices below."
+    choices:
+    - "Wealth, interest-rate, and exchange-rate effects."
+    - "Higher taxes."
+    - "Higher productivity."
+    - "Higher wages."
+    answer: "Wealth, interest-rate, and exchange-rate effects."
+    answerText: "\"Lower prices raise real wealth, reduce money demand and interest, and can depreciate the currency, increasing C, I, and NX.\""
+    why: "A price-level change moves along AD; spending conditions shift AD."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: slope labels appear.
+    # CONVERTED. The bible's payload was:
+    #   choices:[{id:A,label:"wealth, interest-rate, and exchange-rate effects"},{id:B,label:"higher taxes"},{id:C,label:"higher productivity"},{id:D,label:"higher wages"}]; answer:A; rebuttals:{B:"Higher taxes shift AD left; they do not explain its downward slope.",C:"Higher productivity shifts aggregate supply; it does not create movement along AD.",D:"Higher wages change costs and SRAS; they are not one of the three AD slope effects."}.
+    # The labels and the key are already in place above; the payload's keyed
+    # rebuttals are what was still owed, verbatim, in the bible's B/C/D order.
+    rebuttals:
+    - "Higher taxes shift AD left; they do not explain its downward slope."
+    - "Higher productivity shifts aggregate supply; it does not create movement along AD."
+    - "Higher wages change costs and SRAS; they are not one of the three AD slope effects."
+
+  # --- Stop 22: Diagnose the shock
+  #     Concept: SRAS shifters; Keystone: AD-AS; Area: Rate Room; Learning role: COMBINE; Difficulty: L4; Story role: Twist 1.
+  #     placement: DIAGNOSIS, at ad-as-wall.
+  - group: RATE
+    at: ad-as-wall
+    title: "Diagnose the shock"
+    concept: "SRAS shifters"
+    reason: "The port wire can now be tested against both curves."
+    scene: "With AD behavior fixed, the panel shows price level up, real output down, oil input cost up 18%, and government purchases unchanged. Select the curve change that fits every reading."
+    motivation: "A leftward SRAS shift explains stagflation without inventing a demand boom."
+    format: DIAGNOSIS
+    question: "Select one diagnosis and submit the curve change: AD right, AD left, SRAS right, or SRAS left."
+    answerText: "\"The imported-energy shock shifts SRAS left.\""
+    why: "A leftward SRAS shift explains stagflation without inventing a demand boom."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A leftward SRAS shift explains stagflation without inventing a demand boom.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: RATE unlocks.
+    # CONVERTED. The bible's payload was:
+    #   readings:[PL↑,Y↓,oil↑18%,G flat]; choices:[AD_right,AD_left,SRAS_right,SRAS_left]; answer:SRAS_left.
+    # Two model conversions and no new content. Each reading is one string in the
+    # bible and a zone plus a value in the engine, so each is split at its own
+    # arrow or quantity. The four candidates are bare ids in the payload and are
+    # spelled out on this stop's own prompt — "AD right, AD left, SRAS right, or
+    # SRAS left" — so those are the labels, and the grade compares labels.
+    readings:
+    - { zone: "PL", value: "↑" }
+    - { zone: "Y", value: "↓" }
+    - { zone: "oil", value: "↑18%" }
+    - { zone: "G", value: "flat" }
+    choices:
+    - "AD right"
+    - "AD left"
+    - "SRAS right"
+    - "SRAS left"
+    answer: "SRAS left"
+
+  # --- Stop 23: Place both gaps
+  #     Concept: equilibrium/gaps; Keystone: AD-AS; Area: Rate Room; Learning role: RETRIEVE; Difficulty: L4; Story role: synthesis.
+  #     placement: BALANCE, at gap-calculator.
+  - group: RATE
+    at: gap-calculator
+    title: "Place both gaps"
+    concept: "equilibrium/gaps"
+    reason: "Policy must count demand weakness without double-counting supply damage."
+    scene: "Because SRAS moved left, current output is 685.2 while Yf remains 720.0 billion, and the price level is elevated. Close the model with one recessionary gap and one supply shock."
+    motivation: "One graph can show why lowering inflation and unemployment together is difficult."
+    format: BALANCE
+    question: "Toggle relevant readings and submit the model conclusion."
+    answerText: "\"Halvern has a recessionary gap plus an adverse supply shock.\""
+    why: "One graph can show why lowering inflation and unemployment together is difficult."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. One graph can show why lowering inflation and unemployment together is difficult.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"actual_output",value:685.2,unit:"billion RATE",counts:true},{id:"full_employment_output",value:720.0,unit:"billion RATE",counts:true},{id:"oil_cost_index",value:18,unit:"index points",counts:true},{id:"nominal_output",value:740,unit:"billion RATE",counts:false,reason:"price-level contaminated nominal measure"}],correct:{output_gap:-34.8,shock:"adverse supply shock"},answerText:"Real output is 34.8 billion below full employment while the oil-cost reading identifies an adverse supply shock; nominal output does not count in the real gap."}
+
+  # --- Stop 24: Aim fiscal policy
+  #     Concept: fiscal dilemma; Keystone: fiscal/AD-AS; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Lina Saye beside ad-as-wall.
+  - group: RATE
+    at: ad-as-wall
+    title: "Aim fiscal policy"
+    person: saye
+    concept: "fiscal dilemma"
+    reason: "The minister must state what the package can and cannot do."
+    scene: "The model now contains weak demand and cost-push inflation at once. Stress the 8.7-billion package across oil-cost changes from 0% through 18%, then submit the claim that survives every case."
+    motivation: "Fiscal expansion raises AD; it does not shift damaged SRAS right."
+    format: STRESS
+    question: "Inspect all four settings and submit one surviving conclusion."
+    answerText: "\"Use fiscal policy to close the demand gap, not to promise lower supply-driven prices.\""
+    why: "Fiscal expansion raises AD; it does not shift damaged SRAS right."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Fiscal expansion raises AD; it does not shift damaged SRAS right.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 6 signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   assumption:oil shock 0..18 step6; candidates:[closes_demand_gap survives all,lowers_prices survives none,cures_supply survives none]; correct:closes_demand_gap.
+

@@ -1,0 +1,153 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "First-Week Cover"
+  card:
+    header: "2 DAYS"
+    title: "First-Week Cover"
+    goNow: "Go to TRADE and meet Nia Corren at the port wire."
+    body: "The narrower bridge limits crowding out, and the campaign appears ready, but an overnight fuel disruption shifts short-run supply again. The legal ratio can remain sound even when an imported input raises prices and cuts output. You will stress the full model and precommit action thresholds. By the end of the mission, decide whether to delay conversion or add first-week cover."
+    objective: "Protect launch without confusing a supply shock with a broken currency."
+  objective: "Protect launch without confusing a supply shock with a broken currency."
+  stake: "The narrower bridge limits crowding out, and the campaign appears ready, but an overnight fuel disruption shifts short-run supply again. The legal ratio can remain sound even when an imported input raises prices and cuts output. You will stress the full model and precommit action thresholds. By the end of the mission, decide whether to delay conversion or add first-week cover."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Do not delay conversion. add temporary first-week cover. The fuel shock is real. But the 4.15 ratio and payments remain sound. The board posts joint action."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-open-economy-floor
+    # On arrival at Open-Economy Floor | s53-shock-identity | automatic
+    on: { enter: true, at: TODO }   # s53-shock-identity
+    world: "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Protect launch without confusing a supply shock with a broken currency. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Protect launch without confusing a supply shock with a broken currency."
+    bubbles:
+    - who: nia-corren   # Nia Corren
+      say: "Start with shock identity. We need evidence the next decision can use."
+  - id: after-stop-53
+    # After Stop 53 | s54-pass-through-test | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Nia Corren says, , and Stop 54 unlocks."
+    panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    bubbles:
+    - who: nia-corren   # Nia Corren
+      say: "The fuel disruption shifts SRAS left; 4.15 and payments remain sound."
+  - id: after-stop-54
+    # After Stop 54 | s55-full-model-stress | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in TRADE → PRICES → RATE only if the route requires travel, then."
+    panel: "TRADE → PRICES → RATE"
+    bubbles:
+    - who: nia-corren   # Nia Corren
+      say: "The direct basket effect is 2.4%; restoration returns baseline."
+  - id: after-stop-55
+    # After Stop 55 | s56-write-thresholds-first | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 56 unlocks."
+    panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    bubbles:
+    - who: nia-corren   # Nia Corren
+      say: "Proceed at 4.15 with temporary first-week cover."
+  - id: at-mission-end
+    # At mission end | s53-shock-identity | automatic
+    on: { enter: true, at: TODO }   # s53-shock-identity
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 14 EVIDENCE: RECORDED"
+    bubbles:
+    - who: nia-corren   # Nia Corren
+      say: "Proceed with cover; buy bonds only at the joint output/payment trigger and stop at the CPI limit."
+
+  stops:
+  # --- Stop 53: Shock identity
+  #     Concept: supply shock; Keystone: AD-AS; Area: Rate Room; Learning role: RETRIEVE; Difficulty: L4; Story role: L4.
+  #     placement: DIAGNOSIS, at s53-shock-identity.
+  - group: RATE
+    at: TODO               # the fixture it is asked at
+    title: "Shock identity"
+    concept: "supply shock"
+    reason: "Delay is justified only if the currency caused the failure."
+    scene: "Fuel imports fall 12%, input prices rise, real output falls, the legal 4.15 ratio clears, and payment failures stay at zero. Select the diagnosis fitting every reading for the board."
+    motivation: "A real supply shock can hurt output without invalidating the currency conversion."
+    format: DIAGNOSIS
+    question: "Select one diagnosis—real supply shock, bad conversion ratio, aggregate-demand boom, or money run—and submit the conclusion."
+    answerText: "\"The fuel disruption shifts SRAS left; 4.15 and payments remain sound.\""
+    why: "A real supply shock can hurt output without invalidating the currency conversion."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A real supply shock can hurt output without invalidating the currency conversion.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   answer:SRAS_left_real_shock; alternatives:[bad_ratio,AD_boom,money_run].
+
+  # --- Stop 54: Pass-through test
+  #     Concept: CPI/supply; Keystone: inflation; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L4; Story role: L4.
+  #     placement: VERIFY, at s54-pass-through-test.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Pass-through test"
+    concept: "CPI/supply"
+    reason: "First-week cover needs a measured price corridor."
+    scene: "The basket gives fuel a 20% weight, and fuel prices are predicted to rise 12% while all other basket prices stay fixed. Predict the direct CPI effect before revealing the new basket."
+    motivation: "A bounded relative-price shock should not be mistaken for unlimited inflation."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Use direct CPI effect=price change×basket weight with 12% and 20% and submit the effect in percentage points."
+    answerText: "\"The direct basket effect is 2.4%; restoration returns baseline.\""
+    why: "A bounded relative-price shock should not be mistaken for unlimited inflation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A bounded relative-price shock should not be mistaken for unlimited inflation.
+    # correct result: The direct CPI effect is 2.4 percentage points; returning fuel to baseline returns the direct effect to zero.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{prediction:{equation:"direct CPI effect=fuel weight×fuel price change",inputs:{weight:0.20,price_change:12,unit:"percent"},correct:2.4,tolerance:0.05,submit_unit:"percentage points"},lock:"basket reveal stays locked until 2.4 points is committed",action:"reveal first-week basket with other prices fixed",measurement:{CPI_change:2.4,unit:"percentage points"},restore:{fuel_price_change:0,CPI_change:0,remeasure:true},correct_conclusion:"bounded relative-price shock"}
+
+  # --- Stop 55: Full model stress
+  #     Concept: integrated policy; Keystone: all keystones; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: L5.
+  #     placement: STRESS, asked by Nia Corren beside s55-full-model-stress.
+  - group: RATE
+    title: "Full model stress"
+    person: TODO   # the roster id of whoever asks it
+    concept: "integrated policy"
+    reason: "The plan must survive fuel shocks from 8% to 16%."
+    scene: "Because the direct price effect is bounded, stress delay, unconditional easing, and conversion-plus-cover across fuel shocks of 8%, 12%, and 16%. Submit the plan that preserves payments and limits the output loss."
+    motivation: "Robust policy preserves the sound ratio while treating the separate real shock."
+    format: STRESS
+    question: "Inspect three settings and submit one plan."
+    answerText: "\"Proceed at 4.15 with temporary first-week cover.\""
+    why: "Robust policy preserves the sound ratio while treating the separate real shock."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Robust policy preserves the sound ratio while treating the separate real shock.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   range:8..16 step4; candidates:[delay,unconditional_ease,conversion_cover]; correct:conversion_cover.
+
+  # --- Stop 56: Write thresholds first
+  #     Concept: conditional policy; Keystone: policy lag; Area: Rate Room; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at s56-write-thresholds-first.
+  - group: RATE
+    at: TODO               # the fixture it is asked at
+    title: "Write thresholds first"
+    concept: "conditional policy"
+    reason: "The board must commit rules before launch data arrive."
+    scene: "The robust plan proceeds, but emergency bond buying must not activate from one noisy price print. Write output and payment thresholds before the sealed first-week update appears in the Rate Book."
+    motivation: "Precommitment makes intervention reversible and evidence-based."
+    format: TRIGGER
+    question: "Enter all three numeric thresholds, submit the rule, then reveal the sealed update; expected response is a trigger plan."
+    answerText: "\"Proceed with cover; buy bonds only at the joint output/payment trigger and stop at the CPI limit.\""
+    why: "Precommitment makes intervention reversible and evidence-based."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Precommitment makes intervention reversible and evidence-based.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 14; READINESS locks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   rule:"Buy bonds only if real-output nowcast ≤680b AND payment failures ≥2%; stop if CPI companion ≥6.5%"; scale:{min:0,max:10,anchors:[680,2,6.5]}; objective:"protect output/payments"; direction:"buy bonds"; consequence_limit:"CPI 6.5".
+

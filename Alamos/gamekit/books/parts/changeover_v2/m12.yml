@@ -1,0 +1,180 @@
+# ============================================================ MISSION 12
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "4.15 On The Clock"
+  card:
+    header: "4 DAYS"
+    title: "4.15 on the Clock"
+    goNow: "Go to NOTES and meet Eli Voss at the conversion trays."
+    body: "The temporary bridge covers the policy lag, and the legal conversion must now survive a full rehearsal. At 4.15 old crowns per RATE, timing across notes, reserves, and foreign dealing matters as much as the arithmetic. You will convert balances, verify reserve arrival, and trace appreciation. By the end of the mission, decide whether 4.15 is operationally safe."
+    objective: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
+  objective: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
+  stake: "The temporary bridge covers the policy lag, and the legal conversion must now survive a full rehearsal. At 4.15 old crowns per RATE, timing across notes, reserves, and foreign dealing matters as much as the arithmetic. You will convert balances, verify reserve arrival, and trace appreciation. By the end of the mission, decide whether 4.15 is operationally safe."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Use the 4.15 exchange rate. Exact tray math, reserve timing, and customs data agree. The full test now works. Yet new state debt is pushing real rates up."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-note-hall
+    # On arrival at Note Hall | conversion-trays | automatic
+    on: { enter: true, at: NOTES }
+    world: "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Certify the conversion ratio with cash, bank, and foreign-market evidence. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Start with convert the tray. We need evidence the next decision can use."
+  - id: after-stop-45
+    # After Stop 45 | reserve-clock | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Eli Voss says, , and Stop 46 unlocks."
+    panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "The tray becomes 10,000 RATE."
+  - id: after-stop-46
+    # After Stop 46 | payment-wires | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS → TRADE only if the route requires travel, then."
+    panel: "NOTES → BANKS → TRADE"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "The reserve arrives exactly at the inclusive 1,000-RATE requirement."
+  - id: after-stop-47
+    # After Stop 47 | custody-desk | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 48 unlocks."
+    panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Three channels share the 4.00 shortcut; independent customs supports 4.15."
+  - id: at-mission-end
+    # At mission end | conversion-trays | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 12 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Approve 4.15 after replacing every 4.00 shortcut."
+
+  stops:
+  # --- Stop 45: Convert the tray
+  #     Concept: conversion arithmetic; Keystone: real/nominal; Area: Rate Room; Learning role: PRACTICE; Difficulty: L2; Story role: L2.
+  #     placement: DERIVE, at conversion-trays.
+  - group: RATE
+    at: conversion-trays
+    title: "Convert the tray"
+    concept: "conversion arithmetic"
+    reason: "The physical tray must equal the legal ledger."
+    scene: "A tray contains 41,500 old crowns, and the legal ratio is 4.15 crowns per RATE. Calculate the new balance before the notes can leave custody in the Rate Book."
+    motivation: "Exact conversion prevents rounding from creating a false price jump."
+    format: DERIVE
+    question: "derive 41,500/4.15=10,000 RATE; submit RATE."
+    answerText: "\"The tray becomes 10,000 RATE.\""
+    why: "Exact conversion prevents rounding from creating a false price jump."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Exact conversion prevents rounding from creating a false price jump.
+    # correct result: 10,000 ±0.01.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"new RATE balance","givens":["old balance=41,500 crowns","conversion=4.15 crowns per RATE"],"lines":[{"id":"L1","expression":"RATE=crowns/(crowns per RATE)","license":"state governing relationship"},{"id":"L2","expression":"RATE=41,500/4.15=10,000","license":"substitute displayed values"}],"keyed_order":["L1","L2"],"decoys":["172,225 RATE","9,638 RATE"],"correct_result":"10,000 RATE","answerText":"The tray converts to exactly 10,000 RATE; division by crowns per RATE cancels the old unit."}
+
+  # --- Stop 46: Reserve clock
+  #     Concept: reserve timing; Keystone: banking; Area: Bank Supervision; Learning role: RETRIEVE; Difficulty: L4; Story role: L4.
+  #     placement: VERIFY, at reserve-clock.
+  - group: BANKS
+    at: reserve-clock
+    title: "Reserve clock"
+    concept: "reserve timing"
+    reason: "The converted deposit cannot clear before required reserves arrive."
+    scene: "The 10,000-RATE deposit requires 10% reserves, and 1,000 RATE is scheduled at minute 6. Predict the minimum reserve before opening the clearing gate clearly for the next board decision."
+    motivation: "Correct totals can still fail when their timing differs."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Use required reserves=deposit×reserve ratio with 10,000 RATE and 10% and submit the required reserve in RATE."
+    answerText: "\"The reserve arrives exactly at the inclusive 1,000-RATE requirement.\""
+    why: "Correct totals can still fail when their timing differs."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Correct totals can still fail when their timing differs.
+    # correct result: The bank needs 1,000 RATE and has exactly 1,000 RATE at minute 6, so the inclusive rule permits clearing then.
+    # state/output: Record the result and unlock the next named stop.
+    # CONVERTED. The bible's payload was:
+    #   verify:{prediction:{equation:"required reserves=deposit×reserve ratio",inputs:{deposit:10000,unit:"RATE",reserve_ratio:0.10},correct:1000,tolerance:0.01,submit_unit:"RATE"},lock:"clock stays locked until 1,000 RATE is committed",action:"advance clock to minute 6",measurement:{minute:6,reserves:1000,unit:"RATE"},decision_rule:"clear if reserves are at least the requirement",correct_conclusion:"clear at minute 6"}
+    # MODEL CONVERSION, as at stop 29. The bible states one correct prediction with
+    # a tolerance; this engine has the player dial a prediction on a range and then
+    # compares it against what the measurement finds.
+    #   · `truth` is the bible's `correct`, 1,000 RATE, and the bible's measurement
+    #     finds the same 1,000 at minute 6
+    #   · `passRatio` is the bible's own tolerance of 0.01 RATE said as a ratio of
+    #     1,000: 999.99/1000 and 1000.01/1000
+    #   · the dial runs 0 to 10,000 — nothing held, up to the whole deposit the
+    #     bible puts on the board — in steps of 10 RATE, wide enough that not every
+    #     position passes, which is what the importer requires
+    relationship: "required reserves = deposit × reserve ratio, so 10,000 RATE × 0.10"
+    verify:
+      prediction:
+        label: "Required reserve on the converted deposit"
+        unit: "RATE"
+        min: 0
+        max: 10000
+        step: 10
+      truth: 1000
+      passRatio: [0.99999, 1.00001]
+      intervention:
+        label: "Advance clock to minute 6"
+        note: "The clock stays locked until 1,000 RATE is committed."
+      measurement:
+        label: "Reserves on the clock at minute 6"
+        note: "Clear if reserves are at least the requirement."
+      moral: "Clear at minute 6."
+      commit: "Report the required reserve"
+
+  # --- Stop 47: Foreign echo
+  #     Concept: conversion/forex; Keystone: open economy; Area: Open-Economy Floor; Learning role: RETRIEVE; Difficulty: L4; Story role: L4.
+  #     placement: TRACE, at payment-wires.
+  - group: OPENEC
+    at: payment-wires
+    title: "Foreign echo"
+    concept: "conversion/forex"
+    reason: "A domestic pass must not hide a shared foreign quote error."
+    scene: "Because the bank clock passes, trace the shop labels, bond quote, export invoice, and independent customs receipt. Determine which channels inherit the old 4.00 shortcut and which preserve 4.15."
+    motivation: "Shared conversion dependence can manufacture agreement across prices and assets."
+    format: TRACE
+    question: "Open dependencies and submit conclusion."
+    answerText: "\"Three channels share the 4.00 shortcut; independent customs supports 4.15.\""
+    why: "Shared conversion dependence can manufacture agreement across prices and assets."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Shared conversion dependence can manufacture agreement across prices and assets.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"shops",label:"shop labels",dependency:"4.00 shortcut table",target_dependent:true},{id:"bond",label:"bond quote",dependency:"4.00 shortcut table",target_dependent:true},{id:"exports",label:"export invoice",dependency:"4.00 shortcut table",target_dependent:true},{id:"customs",label:"customs receipt",dependency:"direct 4.15 conversion",independent:true}],shared_upstream:"4.00 shortcut table",correct_conclusion:"three dependent channels are biased; customs supports 4.15",answerText:"Shop, bond, and export agreement is redundant because all use 4.00; the independent customs receipt supports 4.15."}
+
+  # --- Stop 48: Operationally safe
+  #     Concept: certification; Keystone: evidence integrity; Area: Rate Room; Learning role: COMBINE; Difficulty: L5; Story role: L5.
+  #     placement: ATTEST, asked by Eli Voss beside custody-desk.
+  - group: RATE
+    at: custody-desk
+    title: "Operationally safe"
+    person: voss
+    concept: "certification"
+    reason: "Three systems must back the rehearsal certificate."
+    scene: "The tray converts exactly, reserves arrive at the inclusive threshold, and independent customs rejects the shortcut table. Verify those three claims and reject the uncorrected shop-label claim in the Rate Book."
+    motivation: "Operational safety requires arithmetic, timing, and independent market evidence."
+    format: ATTEST
+    question: "Spend three marks and submit certification."
+    answerText: "\"Approve 4.15 after replacing every 4.00 shortcut.\""
+    why: "Operational safety requires arithmetic, timing, and independent market evidence."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Operational safety requires arithmetic, timing, and independent market evidence.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 12.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:3,claims:[{id:"tray",label:"tray converts to 10,000 RATE",signed:true,backed:true,critical:true},{id:"reserve",label:"1,000 RATE reserve arrives at minute 6",signed:true,backed:true,critical:true},{id:"customs",label:"customs uses 4.15",signed:true,backed:true,critical:false},{id:"shop_labels",label:"uncorrected shop labels are safe",signed:true,backed:false,critical:true}],correct_verified:["tray","reserve","customs"],critical_unbacked:"shop_labels",answerText:"Verify the tray, reserve, and customs claims; reject the critical shop-label claim because its 4.00 source remains uncorrected."}
+

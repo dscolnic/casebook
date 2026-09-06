@@ -1,0 +1,243 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Fast Is Not the Same as More"
+  card:
+    header: "5 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "FAST IS NOT THE SAME AS MORE"
+    goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the equilibrium board."
+    body: "The hidden run proves that lowering the temperature prevented a thermal runaway. The safe setting is slower, but reaction speed does not determine the final methane amount. At the Reactor, Cold End, and Plant Control, use equilibrium, product removal, pressure, and heat limits to compare operating plans. By the end of the mission, choose a plan that can recover methane without crossing the thermal limit."
+    objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
+  objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
+  stake: "The hidden run proves that lowering the temperature prevented a thermal runaway. The safe setting is slower, but reaction speed does not determine the final methane amount. At the Reactor, Cold End, and Plant Control, use equilibrium, product removal, pressure, and heat limits to compare operating plans. By the end of the mission, choose a plan that can recover methane without crossing the thermal limit."
+  takeaway: "Kinetics sets speed; equilibrium sets the composition approached."
+  segue: "Mission decision: Use lower heat, higher pressure, and water removal. This plan keeps a safe heat margin and raises the final methane share. Two plans with the same early speed did not make the same final amount. The next test asks if the water and hydrogen loop can feed this plan."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Kinetics determines speed; equilibrium determines final composition."
+  - "For an exothermic reaction, raising temperature can speed the approach while reducing the equilibrium methane yield."
+  - "Removing a product or raising pressure can favor methane production without returning to the dangerous temperature."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-reactor-hall
+    # On arrival at Reactor Hall | automatic | 
+    on: { enter: true, at: EQUIL }
+    world: "The safe operating point sits below the thermal limit but behind the methane schedule."
+    panel: "MISSION 11 - FAST IS NOT THE SAME AS MORE"
+    # unlocks: Stop 41 at the equilibrium board; Stop 42 unlocks immediately after Stop 41.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "Temperature changes how quickly we move. Equilibrium determines where the reaction can finish. We need a plan that satisfies both."
+  - id: after-stops-41-and-42
+    # After Stops 41 and 42 | equilibrium board | automatic response
+    on: { after: [1, 2] }
+    world: "The equilibrium expression and completed ICE table reveal the methane-yield ceiling at the current condition."
+    panel: "NEXT TASK - STOP 43: PUSH THE BALANCE ON PURPOSE"
+    # unlocks: The Cold End waypoint and Stop 43.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "Raising temperature may speed this exothermic reaction while lowering its equilibrium methane yield. Look for a different lever."
+  - id: after-stop-43
+    # After Stop 43 | Cold End | automatic experiment
+    on: { after: [3] }
+    world: "Cho removes product water at fixed temperature; methane conversion rises, then returns when the baseline is restored."
+    panel: "PRODUCT REMOVAL INCREASES CH4 YIELD WITHOUT RAISING TEMPERATURE."
+    # unlocks: The Plant Control waypoint and Stop 44.
+    bubbles:
+    - who: cho   # Cho
+      say: "The separator can pull the reaction forward and return that water to the plant."
+  - id: after-stop-44
+    # After Stop 44 | Plant Control | automatic integrated decision
+    on: { after: [4] }
+    world: "Two equal-rate plans appear; Thermal margin and equilibrium yield eliminate the hotter plan."
+    panel: "VALIDATED PLAN - LOWER TEMPERATURE / HIGHER PRESSURE / PRODUCT WATER REMOVAL."
+    # unlocks: The Mission 11 outcome beat.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "One plan. One set of limits. Reactor, separator, and control room sign together."
+  - id: at-mission-end
+    # At mission end | Plant Control | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "Herrera and Sundqvist sign the same operating card; Demir overlays the power required for compression, cooling, and separation."
+    panel: "NEXT ROUTE - ICE CUT -\\> WATER PLANT -\\> ELECTROLYSIS HALL."
+    # unlocks: Mission 12 briefing and the Ice Cut waypoint.
+    bubbles:
+    - who: demir   # Demir
+      say: "This plan can make the fuel. It also spends power in three places, and its hydrogen still comes from recycled water."
+    - who: abiola   # Abiola
+      say: "Then we stop treating the plant like separate rooms."
+
+  stops:
+  # --- Stop 41: Build the equilibrium expression
+  #     Concept: equilibrium expressions; Keystone: equilibrium and reaction quotient; Area: Reactor Hall; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: CHOICE, asked at Dr. Tomás Herrera beside equil-stub.
+  - group: EQUIL
+    at: equil-stub
+    title: "Build the equilibrium expression"
+    person: herrera
+    concept: "equilibrium expressions"
+    reason: "A safer operating plan needs the correct expression for final composition."
+    scene: "To replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. This expression defines the balance the recovery plan must satisfy."
+    motivation: "The expression defines the methane-water balance the safer operating plan must reach."
+    format: CHOICE
+    question: "Which Kc expression matches the gas-phase Sabatier equation?"
+    choices:
+    - "\\[CH4\\]\\[H2O\\]^2 / (\\[CO2\\]\\[H2\\]^4)"
+    - "\\[CH4\\]\\[H2O\\] / (\\[CO2\\]\\[H2\\])"
+    - "\\[CO2\\]\\[H2\\]^4 / (\\[CH4\\]\\[H2O\\]^2)"
+    - "\\[CH4\\]^1\\[H2O\\]^2 - \\[CO2\\]^1\\[H2\\]^4"
+    answer: "\\[CH4\\]\\[H2O\\]^2 / (\\[CO2\\]\\[H2\\]^4)"
+    answerText: "Kc = [CH4][H2O]^2 / ([CO2][H2]^4)."
+    why: "Coefficients become exponents; products are over reactants; equilibrium expressions multiply activities rather than subtracting concentrations."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) The balanced coefficients become exponents, so H2O must be squared and H2 raised to the fourth power. (3) Products belong in the numerator and reactants in the denominator for the reaction as written. (4) An equilibrium expression multiplies concentration terms; it does not subtract the reactant product from the product product.
+    # correct result: First choice.
+    # state/output: Unlock ICE board.
+
+  # --- Stop 42: Complete the ICE table
+  #     Concept: ICE stoichiometry; Keystone: equilibrium and stoichiometry; Area: Reactor Hall; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+  #     placement: BALANCE, at ice-board.
+  - group: EQUIL
+    at: ice-board
+    title: "Complete the ICE table"
+    concept: "ICE stoichiometry"
+    reason: "The equilibrium ceiling must be calculated before another control is changed."
+    scene: "Use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature. The result sets the methane ceiling at the safe temperature."
+    motivation: "The equilibrium ceiling tells the crew how much methane is possible after the reaction has enough time."
+    format: BALANCE
+    question: "Complete changes and equilibrium concentrations, then calculate Kc for this training condition."
+    answerText: "The equilibrium row is 0.40, 1.60, 0.60, and 1.20 M, giving Kc about 0.33."
+    why: "Every change is tied to one reaction extent x and multiplied by coefficients. Hydrogen changes by -4x; water by +2x. The balanced row is the guardrail against treating each concentration independently."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If H2 falls by 0.60, point to coefficient four. If water becomes 0.60, point to coefficient two.
+    # correct result: Change -0.60 CO2, -2.40 H2, +0.60 CH4, +1.20 H2O; equilibrium 0.40, 1.60, 0.60, 1.20 M. Kc=(0.60)(1.20)^2/\[(0.40)(1.60)^4\] = 0.329 (about 0.33).
+    # state/output: Model predicts that lowering product-water activity can drive more conversion.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: "ICE table for 1.00 L vessel", reaction: "CO2 + 4H2 <=> CH4 + 2H2O"}
+    #     streams:
+    #       - {id: co2, label: "CO2", initial_M: 1.00, change_M: -0.60, equilibrium_M: 0.40}
+    #       - {id: h2, label: "H2", initial_M: 4.00, change_M: -2.40, equilibrium_M: 1.60}
+    #       - {id: ch4, label: "CH4", initial_M: 0.00, change_M: 0.60, equilibrium_M: 0.60}
+    #       - {id: h2o, label: "H2O", initial_M: 0.00, change_M: 1.20, equilibrium_M: 1.20}
+    #       - {id: catalyst, label: "Solid nickel catalyst", count: false, reason: "not part of the ICE concentration row or Kc expression"}
+    #     closure: {Kc: 0.3296, tolerance: 0.01}
+    #     correct_action: "Use one extent x with coefficients -1, -4, +1, +2, then calculate Kc."
+
+  # --- Stop 43: Push the balance on purpose
+  #     Concept: Le Châtelier/Q vs K; Keystone: equilibrium and reaction quotient; Area: Reactor Hall; Learning role: COMBINE; Difficulty: L3; Story role: experiment.
+  #     placement: CONTROL, operated at coldline-tap.
+  - group: EQUIL
+    at: coldline
+    title: "Push the balance on purpose"
+    concept: "Le Châtelier/Q vs K"
+    reason: "Product removal offers a yield test without raising dangerous temperature."
+    scene: "Because the temperature cannot simply be raised, remove product water at fixed temperature to test whether separation can increase methane yield safely. Reversal will show whether the yield gain truly follows product removal."
+    motivation: "Product removal can raise methane yield without recreating the dangerous high temperature."
+    format: CONTROL
+    # MODEL CONVERSION. The bible offers three candidate changes and a conversion
+    # that goes 60 -> 68 under the right one and returns to 60. The engine's
+    # CONTROL board takes the candidates, the quantities held fixed, and the
+    # signed change in the reading: `response` is 68 - 60, `noise` the bible's
+    # noise band, `truth` its `correct`.
+    control:
+      observable: { label: "Methane conversion", unit: percent }
+      variables:
+      - { id: water_removal, label: "Remove product water" }
+      - { id: inert_n2, label: "Add inert N2 at fixed volume" }
+      - { id: pressure_bar, label: "Compress mixture" }
+      held: ["Temperature", "Feed composition"]
+      truth: water_removal
+      baseline: 60
+      response: 8
+      noise: 1
+      run: "Run the measurement"
+      commit: "Name the change"
+    question: "Use a controlled change to increase methane yield without raising temperature, then reverse it."
+    answerText: "Remove product water at fixed temperature, measure the higher conversion, then restore the baseline."
+    why: "Removing a product lowers Q below K, so the reaction moves forward until Q=K again. The equilibrium constant at fixed temperature does not change. An inert gas at fixed volume raises total pressure but not component partial pressures."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Adding inert N2 at fixed volume raises total pressure but does not change the reacting gases' partial pressures, so it does not shift this equilibrium. Failing to restore the baseline leaves the controlled change unverified.
+    # correct result: Remove product water (preferred) or compress within limit; demonstration expects water removal and reversal.
+    # state/output: Cho approves enhanced condensate removal; water_recycle_available = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:
+    #     variables:
+    #       - {id: water_removal, label: "Remove product water", baseline: 0, test: 1, unit: state}
+    #       - {id: inert_n2, label: "Add inert N2 at fixed volume", baseline: 0, test: 1, unit: state}
+    #       - {id: pressure_bar, label: "Compress mixture", baseline: 8, test: 12, unit: bar}
+    #     candidates: [water_removal, inert_n2, pressure_bar]
+    #     response: {label: "Methane conversion", baseline: 60, water_removal: 68, inert_n2: 60, pressure_bar: 65, after_restore: 60, unit: percent, noise_band: 1}
+    #     fixed: {temperature_K: 550, feed_composition: unchanged}
+    #     required_sequence: [change_water_removal_only, measure, restore, measure_again]
+    #     correct: water_removal
+
+  # --- Stop 44: Two plans look equally fast
+  #     Concept: kinetics vs equilibrium; Keystone: gas pressure, kinetics, equilibrium, and energy; Area: Reactor Hall; Learning role: RETRIEVE; Difficulty: L4; Story role: decision.
+  #     placement: DEGENERACY, at operating-point-board.
+  - group: EQUIL
+    at: operating-point-board
+    title: "Two plans look equally fast"
+    concept: "kinetics vs equilibrium"
+    reason: "Equal rates must be separated by gas, equilibrium, and thermal constraints."
+    scene: "Combine rate, equilibrium, pressure, and heat limits to choose between two plans that initially appear equally fast. Only the plan that survives all three kinds of physics can be approved."
+    motivation: "Equal speed is not enough; the plan must also make sufficient methane and remain safe."
+    format: DEGENERACY
+    # CONVERTED from the payload below. `first_locus` -> `locus` and its label ->
+    # the observable both plans match on; `second_locus` -> `second`;
+    # `truth_pair` -> `truth`; the bible's single `tolerance: 2` is carried on both
+    # controls, and its `physics` line is the second measurement's hint.
+    degeneracy:
+      controls:
+      - { id: temperature_K, label: "Temperature", min: 545, max: 575, step: 5, unit: K }
+      - { id: pressure_bar, label: "Pressure", min: 8, max: 13, step: 1, unit: bar }
+      observable: { label: "Equal immediate rate index" }
+      locus:
+      - { a: 575, b: 8 }
+      - { a: 570, b: 9 }
+      - { a: 565, b: 10 }
+      - { a: 558, b: 11 }
+      - { a: 550, b: 12 }
+      second:
+        label: "Equilibrium methane fraction >=70% and inlet peak <600 K"
+        apply: "Apply the second measurement"
+        locus:
+        - { a: 550, b: 12 }
+        - { a: 550, b: 13 }
+        - { a: 545, b: 13 }
+      truth: { a: 550, b: 12 }
+      tolerance: { a: 2, b: 2 }
+      hint: "Exothermic equilibrium, gas-mole compression, and thermal margin"
+      commit: "Report the operating point"
+    question: "Add the physical constraints that separate the equal-rate plans."
+    answerText: "Use 550 K and 12 bar with water removal; it alone meets rate, equilibrium-yield, and heat limits."
+    why: "Equal immediate rates do not imply equal final composition or safety. The extra physics collapses the degeneracy."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Choosing the hotter equal-rate plan uses speed as the only criterion and ignores its poorer exothermic equilibrium yield and smaller thermal margin. The extra constraints are what separate the plans.
+    # correct result: Plan B survives: lower temperature improves exothermic equilibrium and thermal margin; higher pressure favors three product gas moles over five reactant gas moles. Plan A violates equilibrium fraction and approaches heat limit.
+    # state/output: Set validated_operating_point = {T:550K,P:12bar}; visible plan board turns amber, not green, pending loop and power checks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:
+    #     controls:
+    #       - {id: temperature_K, label: "Temperature", min: 545, max: 575, step: 5}
+    #       - {id: pressure_bar, label: "Pressure", min: 8, max: 13, step: 1}
+    #     tolerance: 2
+    #     first_locus:
+    #       label: "Equal immediate rate index"
+    #       points: [[575,8],[570,9],[565,10],[558,11],[550,12]]
+    #     second_locus:
+    #       label: "Equilibrium methane fraction >=70% and inlet peak <600 K"
+    #       physics: "Exothermic equilibrium, gas-mole compression, and thermal margin"
+    #       points: [[550,12],[550,13],[545,13]]
+    #     truth_pair: {temperature_K: 550, pressure_bar: 12}
+    #     correct: "Choose the lower-temperature, higher-pressure point and keep product-water removal."
+

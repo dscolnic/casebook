@@ -1,0 +1,157 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Four Screens, One Wire"
+  card:
+    header: "9 DAYS;"
+    title: "Four Screens, One Wire"
+    goNow: "Field Station, Noor Haddad at mill array."
+    body: "The reduced shot stayed within the energy limit, yet all four field mills jumped by the same amount at the same microsecond. Agreement can be false when channels share a return path. You will derive circuit constraints, trace dependencies, and compare an independent sensor. By the end of the mission, decide whether the mill agreement can remain evidence in the report."
+    objective: "Test whether the four mill channels are independent."
+  objective: "Test whether the four mill channels are independent."
+  stake: "The reduced shot stayed within the energy limit, yet all four field mills jumped by the same amount at the same microsecond. Agreement can be false when channels share a return path. You will derive circuit constraints, trace dependencies, and compare an independent sensor. By the end of the mission, decide whether the mill agreement can remain evidence in the report."
+  takeaway: "Remove the four-mill agreement as independent evidence. ---"
+  segue: "Mission decision: The mills share one ground reference. The battery logger is separate. Isolating channel C removes the jump. The archive now points to the buried loop."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-field-station
+    # On arrival at Field Station | s25-trace-the-shared-reference | automatic
+    on: { enter: true, at: TODO }   # s25-trace-the-shared-reference
+    world: "accepted FIELD/bubble/four traces aligned/→S1; S1 correct/waypoint/trace dependency lights to SHOT/ALL FOUR MILLS → SHOT GROUND REFERENCE→travel; enter SHOT/bubble/hidden branch icon/The trunk is short by 3.0 mA.→S2; S3 correct/panel/jump disappears then returns/ISOLATE: 0.03; RESTORE: 0.80 kV/m→S4; S4 correct/world/report pieces 1-3 marked SHARED REFERENCE—NOT INDEPENDENT/Evidence removed; layer model retained.→outcome."
+    panel: "Noor Haddad, data and safety analyst: \"Independent of what?\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Independent of what?"
+  - id: after-stop-25
+    # After Stop 25 | s26-derive-the-missing-branch-current | automatic
+    on: { after: [1] }
+    world: "The trace the shared reference result remains visible while the derive the missing branch current fixture lights."
+    panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 25 result to settle derive the missing branch current."
+  - id: after-stop-26
+    # After Stop 26 | s27-isolate-reference-c | automatic
+    on: { after: [2] }
+    world: "The derive the missing branch current result remains visible while the isolate reference c fixture lights."
+    panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 26 result to settle isolate reference c."
+  - id: after-stop-27
+    # After Stop 27 | s28-quantify-common-mode-error | automatic
+    on: { after: [3] }
+    world: "The isolate reference c result remains visible while the quantify common-mode error fixture lights."
+    panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 27 result to settle quantify common-mode error."
+  - id: at-mission-end
+    # At mission end | s25-trace-the-shared-reference | automatic
+    on: { enter: true, at: TODO }   # s25-trace-the-shared-reference
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 7 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Four agreeing mill channels are not independent because they share SHOT ground; the isolated battery logger breaks the pattern."
+    - who: text   # Text
+      say: "Only isolating channel C reference removes the jump beyond the noise band, and restoration returns it."
+
+  stops:
+  # --- Stop 25: Trace the Shared Reference
+  #     Concept: dependencies; Keystone: K7,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L4 reveal.
+  #     placement: TRACE, at s25-trace-the-shared-reference.
+  - group: COUPLE
+    at: mill-bench
+    title: "Trace the Shared Reference"
+    concept: "dependencies"
+    reason: "identical jumps may share infrastructure."
+    scene: "The four mills agree to the microsecond, while a battery logger does not jump. Open every channel's power, clock, and reference dependencies to find what the agreeing screens share.\", and record the result with its physical justification in the station report."
+    motivation: "common upstream hardware makes correlated readings less independent than their number suggests."
+    format: TRACE
+    question: "Open the power, clock, and reference dependencies for all five channels, name the shared upstream resource, and submit whether the four mills are independent."
+    answerText: "The completed check shows all four mills share SHOT ground; they are not independent."
+    why: "common upstream hardware makes correlated readings less independent than their number suggests."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Count upstream dependencies, not screen names; the battery logger is the independent channel.
+    # correct result: All four mills share SHOT ground; they are not independent.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"mill_A",label:"mill A",dependency:"SHOT ground reference",target_dependent:true},{id:"mill_B",label:"mill B",dependency:"SHOT ground reference",target_dependent:true},{id:"mill_C",label:"mill C",dependency:"SHOT ground reference",target_dependent:true},{id:"mill_D",label:"mill D",dependency:"SHOT ground reference",target_dependent:true},{id:"battery",label:"battery logger",dependency:"isolated battery reference",independent:true}],shared_upstream:"SHOT ground reference",correct_conclusion:"the agreeing mills share a reference; the battery logger is independent",answerText:"Four agreeing mill channels are not independent because they share SHOT ground; the isolated battery logger breaks the pattern."}
+
+  # --- Stop 26: Derive the Missing Branch Current
+  #     Concept: junction rule; Keystone: K7; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L3.
+  #     placement: DERIVE, at s26-derive-the-missing-branch-current.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive the Missing Branch Current"
+    concept: "junction rule"
+    reason: "trace result must be checked against charge conservation."
+    scene: "At Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Derive the missing branch current and its direction.\", and record the result with its physical justification in the station report."
+    motivation: "Kirchhoff's junction rule exposes current on an undocumented path."
+    format: DERIVE
+    question: "Build three Kirchhoff-junction lines, name charge conservation and algebra where used, and submit the missing current in mA with its direction."
+    answerText: "The completed check shows missing current is 3.0 mA outward. KCL conserves charge."
+    why: "Kirchhoff's junction rule exposes current on an undocumented path."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Sum all four 2.0 mA returns before subtracting the 5.0 mA trunk.
+    # correct result: Missing current is 3.0 mA outward. KCL conserves charge.
+    # state/output: unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines ΣIin=ΣIout(charge conservation), 8.0=5.0+Ix(substitute), Ix=3.0mA outward(solve). Prompt submit mA/direction.
+
+  # --- Stop 27: Isolate Reference C
+  #     Concept: causal reference test; Keystone: K7,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4 reversal.
+  #     placement: CONTROL, at s27-isolate-reference-c.
+  - group: COUPLE
+    at: mill-bench
+    title: "Isolate Reference C"
+    concept: "causal reference test"
+    reason: "shared topology suggests correlation, but controlled reversal must establish cause."
+    scene: "Because 3.0 mA leaves by an undocumented branch, switch only channel C to an isolated reference, then restore it. Keep field source, gain, clock, and sampling fixed.\", and record the result with its physical justification in the station report."
+    motivation: "disappearance and return of the jump establishes that the reference path causes it."
+    format: CONTROL
+    question: "Change only channel C's reference, keep field source, gain, clock, and sampling fixed, measure the jump before, during, and after isolation, restore the original reference, and submit one causal conclusion."
+    answerText: "The completed check shows isolation removes and restoration returns the jump. That reversal establishes reference causation."
+    why: "disappearance and return of the jump establishes that the reference path causes it."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Change only reference C; changing gain or clock does not test the traced cause.
+    # correct result: Isolation removes and restoration returns the jump. That reversal establishes reference causation.
+    # state/output: unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"reference_C",label:"channel C reference"},{id:"gain_C",label:"channel C gain"},{id:"clock_C",label:"channel C clock"}],correct_control:"reference_C",baseline:{jump:0.80,unit:"kV/m"},response:{setting:"isolated",jump:0.03,unit:"kV/m"},noise_band:{value:0.05,unit:"kV/m"},fixed:["field source","gain","clock","sampling"],measure_when:"after each setting settles",restore:{required:true,setting:"original reference",remeasure:true},correct_conclusion:"the shared reference causes the jump",answerText:"Only isolating channel C reference removes the jump beyond the noise band, and restoration returns it."}
+
+  # --- Stop 28: Quantify Common-Mode Error
+  #     Concept: Ohm drop and Joule power; Keystone: K7,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4 decision.
+  #     placement: BALLPARK, at s28-quantify-common-mode-error.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Quantify Common-Mode Error"
+    concept: "Ohm drop and Joule power"
+    reason: "the report needs the size and heating cost of reference error."
+    scene: "The reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Estimate the recorded voltage and instantaneous lead power, and the team needs this result before it acts."
+    motivation: "a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale."
+    format: BALLPARK
+    question: "Using I=3.0 mA, R=120 Ω, and V_true=-4.2 V, assemble IR, V_true+IR, and I²R; submit voltage drop, recorded voltage, and lead power with units."
+    answerText: "Vdrop=(.003)(120)=.360 V; Vrecord=-4.2+.360=-3.840 V; P=(.003)²(120)=1.08 mW."
+    why: "a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep the true voltage sign and use I²R—not VI with the sensor voltage—for lead power.
+    # correct result: Vdrop=.360 V, Vrecord=-3.840 V, P=1.08 mW. Ohm and Joule relations quantify common error.
+    # state/output: report piece7.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate={labels:[I,R,Vtrue],values:[.003,120,-4.2],slots:[Vdrop,Vrecord,P],template:[IR,Vtrue+IR,I²R],formula:[.360,-3.840,.00108],correct:[.360,-3.840,.00108],target:[V,V,W],tolerance:[.005,.005,.00005]}.
+

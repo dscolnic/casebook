@@ -1,0 +1,227 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Arm Nine"
+  card:
+    header: "7 DAYS UNTIL COUNTY INSPECTION"
+    title: "ARM NINE"
+    goNow: "Go to the Ferris Wheel machine room and meet Luka Kovač, the mechanical lead, beside the arm-nine file."
+    body: "Hart's override stopped a growing swing, but the Ferris Wheel now has a 41 mm surface indication on arm nine. A force becomes more effective at turning when it acts farther from the axle, and wind adds load across the gondola face. Calculate the moments, test uncertain wind, and prewrite operating limits. By the end of the mission, decide whether the wheel can operate and under what restrictions."
+    objective: "Set a defensible load-and-wind envelope for the Ferris Wheel."
+  objective: "Set a defensible load-and-wind envelope for the Ferris Wheel."
+  stake: "Hart's override stopped a growing swing, but the Ferris Wheel now has a 41 mm surface indication on arm nine. A force becomes more effective at turning when it acts farther from the axle, and wind adds load across the gondola face. Calculate the moments, test uncertain wind, and prewrite operating limits. By the end of the mission, decide whether the wheel can operate and under what restrictions."
+  takeaway: "A load model can bound operation, but it cannot certify an unmeasured material condition."
+  segue: "Mission decision: The Ferris Wheel may run only after an outside check of arm nine. Its load must stay balanced, and wind must stay below 8.0 m/s. The model sets these limits but cannot clear the arm mark. The coaster is next."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Torque depends on force, angle, and lever arm."
+  - "Equal forces at different radii do not produce equal torque."
+  - "A visible indication is evidence requiring evaluation, not an automatic verdict."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-ferris-wheel-machine-room
+    # On arrival at Ferris Wheel machine room | automatic | 
+    on: { enter: true, at: WHEEL }
+    world: "Kovač measures the indication instead of covering it."
+    panel: "STOP 33-34 READY"
+    # unlocks: Stops 33-34.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "Forty-one millimetres is a size, not a judgment."
+  - id: after-stop-34
+    # After Stop 34 | automatic | 
+    on: { after: [2] }
+    world: "Chen asks for the historical wind cases beside Brennan's load records."
+    panel: "STOP 35 READY"
+    # unlocks: Stop 35.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-35
+    # After Stop 35 | automatic | 
+    on: { after: [3] }
+    world: "Wind cases above the proposed envelope darken."
+    panel: "STOP 36 READY"
+    # unlocks: Stop 36.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "Take the surviving rule back to the brake drum."
+  - id: after-stop-36
+    # After Stop 36 | automatic | 
+    on: { after: [4] }
+    world: "Wind and loading limits print; the crane barricade remains around arm nine."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "Coaster profile drawing becomes active."
+    panel: "MISSION 9 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 33: Balance the wheel
+  #     Concept: Torque equilibrium; Keystone: torque; Area: Ferris Wheel machine room; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALANCE, asked at hub-schedule.
+  - group: WHEEL
+    at: hub-schedule
+    title: "Balance the wheel"
+    concept: "Torque equilibrium"
+    reason: "Uneven loading must be corrected before any powered wheel test."
+    scene: "Twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Reassign the movable loads until the net torque about the axle is acceptably close to zero."
+    motivation: "Balanced torque prevents an avoidable angular surge when the brake releases."
+    format: BALANCE
+    question: "Given clockwise moment -126.0 kN m, counterclockwise moment +124.6 kN m, hub-weight moment 0 kN m, and acceptance band +/-2.0 kN m, use tau_net = sum tau. Submit the included moment streams, one signed net-torque number in kN m, and one pass/fail conclusion."
+    answerText: "The arranged test load is rotationally balanced within tolerance."
+    why: "A force through the axle has zero lever arm and creates no torque about that axis."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Force magnitude alone is not torque; include perpendicular distance.
+    # correct result: Submit -1.4 kN·m; accept within fictional ±2.0 kN·m tolerance.
+    # state/output: Lock the test gondola positions.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: "Net torque", value: 0, unit: "kN m"}
+    #     streams:
+    #       - {id: cw, label: "Clockwise loaded gondolas", value: -126.0, unit: "kN m", count: true}
+    #       - {id: ccw, label: "Counterclockwise loaded gondolas", value: 124.6, unit: "kN m", count: true}
+    #       - {id: hub_weight, label: "Hub weight through axle", value: 0, unit: "kN m", count: false}
+    #     tolerance: 2.0
+    #     correct_action: "Count off-axis moments; exclude weight acting through the axle."
+    # HELD BACK. The engine's ledger needs at least three streams that count and
+    # at least one of them `hidden` — the removal term that does not announce
+    # itself is the whole format, and it also has to be big enough that leaving it
+    # out misses the total. The bible has three rows, of which two count and none
+    # is hidden, and its two counting rows already close on the total exactly.
+    # Owed by the bible: a third counting stream and an unannounced one.
+
+  # --- Stop 34: Build the braking response
+  #     Concept: Rotational dynamics; Keystone: torque and inertia; Area: Ferris Wheel machine room; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, asked at machine-room-board.
+  - group: WHEEL
+    at: machine-room-board
+    title: "Build the braking response"
+    concept: "Rotational dynamics"
+    reason: "The brake limit must connect its torque to the wheel's angular deceleration."
+    scene: "The wheel is balanced, but balance does not predict how quickly it stops. Derive the relationship between brake torque, rotational inertia, angular deceleration, and the wheel's total predicted stopping angle."
+    motivation: "The same brake torque stops a larger rotational inertia more slowly."
+    format: DERIVE
+    question: "Using F_brake = kx, tau = rF_brake, tau = Ialpha, and 0 = omega0^2 + 2alpha Delta theta, submit one ordered symbolic derivation for positive stopping angle and a conclusion stating how I, omega0, and brake torque change that angle."
+    answerText: "The spring supplies brake force; stopping angle grows with rotational inertia and initial angular speed squared, and falls with brake torque."
+    why: "Linear and rotational dynamics have matching structures, with torque, inertia, angular acceleration, and angular displacement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep brake angular acceleration opposite the initial angular velocity.
+    # correct result: Order torque → angular deceleration → stop time → stop angle; Δθ∝Iω₀²/τb.
+    # state/output: Add rotational stop model to the wheel panel.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: spring, expression: "F_brake = kx", rule: "Hooke's law for brake-band spring"}
+    #       - {id: dynamics, expression: "sum tau = rF_brake = I alpha", rule: "torque and rotational Newton's second law"}
+    #       - {id: acceleration, expression: "alpha = -rkx/I", rule: "brake opposes rotation"}
+    #       - {id: kinematics, expression: "0 = omega0^2 + 2 alpha delta_theta", rule: "constant angular acceleration"}
+    #       - {id: stop, expression: "delta_theta = I omega0^2/(2 tau_brake)", rule: "solve for positive stopping angle"}
+    #     order: [spring,dynamics,acceleration,kinematics,stop]
+    #     decoys:
+    #       - {expression: "delta_theta = tau_brake/(2I omega0^2)", rule: "invert the work-energy dependence"}
+    # HELD BACK. The bible writes a derivation as an ordered list of lines plus a
+    # single decoy for the whole thing. The engine grades it line by line: every
+    # step needs at least three candidate lines, a `why` on each wrong one saying
+    # what it costs, and one wrong branch marked `survives` so the step cannot be
+    # passed by spotting the malformed option. Owed by the bible: per-step
+    # candidate sets, a rebuttal on each wrong candidate, and which wrong branch
+    # survives. Also `start` and `goal` — the line it begins from, and the FORM it
+    # is going to, which is not the same as the answer.
+
+  # --- Stop 35: Stress the wind assumption
+  #     Concept: Uncertain wind load; Keystone: torque and model limits; Area: Brennan's workshop; Learning role: APPLY; Difficulty: L4; Story role: clue.
+  #     placement: STRESS, asked at Linh Chen beside bench-notebooks.
+  - group: WORKSHOP
+    at: bench-notebooks
+    title: "Stress the wind assumption"
+    person: chen
+    concept: "Uncertain wind load"
+    reason: "The wheel limit must survive reasonable changes in wind and occupied gondolas."
+    scene: "The gondola shell presents a broad face to wind, and force uncertainty grows with gust speed. Move wind and loading assumptions through their ranges and watch which operating limits remain defensible."
+    motivation: "A robust operating envelope must pass across plausible conditions, not only at the favored estimate."
+    format: STRESS
+    question: "Vary wind speed from 4 m/s to 12 m/s in 1 m/s steps and occupied gondolas from 6 to 24 in steps of 6. Submit one stress-test conclusion selecting the operating envelope that survives and naming any unresolved inspection condition."
+    answerText: "The 8.0 m/s balanced-load envelope survives; unrestricted wind and an uninspected arm do not."
+    why: "Wind moment rises across the range, and the material-condition claim is not supplied by the torque model."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (unrestricted) The 12 m/s cases fail the torque envelope. (mark_safe) A 41 mm indication alone does not establish material strength or remove the inspection hold.
+    # correct result: Choice 2 - 8.0 m/s wind cap plus balanced loading and arm-nine inspection.
+    # state/output: Store candidate envelope and inspection hold.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     assumptions:
+    #       - {id: wind, label: "Wind speed", min: 4, max: 12, step: 1, unit: m/s}
+    #       - {id: occupied, label: "Occupied gondolas", min: 6, max: 24, step: 6}
+    #     candidates:
+    #       - {id: unrestricted, label: "Operate to 12 m/s", survives: false}
+    #       - {id: bounded, label: "Operate to 8 m/s with balanced loading", survives: true}
+    #       - {id: mark_safe, label: "Treat 41 mm indication as proven safe", survives: false}
+    #     correct: bounded
+    #     conclusion: "The 8.0 m/s balanced-load envelope survives; unrestricted wind and the uninspected arm do not."
+    # HELD BACK. The engine's STRESS is a table under one moving assumption: three
+    # or more candidates scored on two or more named criteria, a `feasible` entry
+    # per candidate saying how far into the pessimistic end it survives, and
+    # `optimiseOn` — the criterion the nominal makes the wrong candidate look best
+    # on, which is the trap. The bible gives the candidates and a survives flag
+    # and nothing to score them with; it also moves two assumptions at once, and
+    # the engine has one slider. Owed by the bible: the criteria, a score per
+    # candidate per criterion, the assumption value each candidate needs, which
+    # criterion the nominal flatters, and a nominal on the single slider.
+
+  # --- Stop 36: Commit the wheel limits
+  #     Concept: Operating thresholds; Keystone: torque and model limits; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, asked at brake-drum.
+  - group: WORKSHOP
+    at: brake-drum
+    title: "Commit the wheel limits"
+    concept: "Operating thresholds"
+    reason: "Operators need automatic actions for wind, load imbalance, and unresolved arm condition."
+    scene: "Torque balance and wind stress now define a restricted region, while arm nine still requires inspection. Commit the complete stop rule before the forecast and passenger loading pattern are revealed."
+    motivation: "The written rule converts uncertain loads into clear action without pretending the arm is certified."
+    format: TRIGGER
+    question: "Using the tested wind boundary 8.0 m/s, the +/-2.0 kN m loading-moment tolerance, and the unresolved arm-nine inspection, submit one operating-rule setting that states every prerequisite and uses an inclusive wind shutdown at or above its numerical value in m/s."
+    answerText: "Require independent arm-nine inspection, balanced loading, and shutdown at wind of 8.0 m/s or greater."
+    why: "The model supports loads only inside that envelope; physical inspection remains a separate binding condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not hide an unresolved condition behind a numerical operating limit.
+    # correct result: Submit shutdown setting 8.0 m/s, comparator at_or_above, plus balance and inspection rules.
+    # state/output: Set ride_status.wheel = restricted_pending_inspection.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     decision_rule: "Operate only after arm-nine inspection; stop at or above wind threshold or outside balance tolerance."
+    #     scale: {min: 5, max: 12, step: 0.5, unit: m/s}
+    #     anchors: [{value: 8.0, label: "stressed operating limit"},{value: 12.0, label: "failed unrestricted case"}]
+    #     objective: "Protect bounded wind and loading moments."
+    #     direction: at_or_above
+    #     consequence_limit: {value: 8.0, unit: m/s, inclusive: true}
+    #     correct: 8.0
+    #     tolerance: 0.01
+    #     conclusion: "Require the arm-nine inspection and balanced loading, then stop at wind of 8.0 m/s or greater."
+    # HELD BACK, for the same reason as mission 3 stop 4: the engine's TRIGGER
+    # grades a threshold against a live feed, and needs a stream of at least three
+    # updates carrying a reading and the lead time still left, plus the lead time
+    # and firing window of the one rule. The bible gives the scale, the anchors
+    # and the keyed 8.0 m/s and no feed. Owed by the bible: the update stream and
+    # the rule's lead time and window.
+

@@ -1,0 +1,201 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "One Park, Not Seven Machines"
+  card:
+    header: "3 DAYS UNTIL COUNTY INSPECTION"
+    title: "ONE PARK, NOT SEVEN MACHINES"
+    goNow: "Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, at the drive panel."
+    body: "The bumper cars and tower pass their tested limits, but three rotating rides still compete for power, staff, and safe timing. A setting acceptable by itself may fail when another ride changes the shared load or operating sequence. Cross the Carousel, Pirate Ship, and Ferris Wheel to combine their constraints. By the end of the mission, decide the joint operating envelope for all three rides."
+    objective: "Write one compatible operating plan for the three rotating rides."
+  objective: "Write one compatible operating plan for the three rotating rides."
+  stake: "The bumper cars and tower pass their tested limits, but three rotating rides still compete for power, staff, and safe timing. A setting acceptable by itself may fail when another ride changes the shared load or operating sequence. Cross the Carousel, Pirate Ship, and Ferris Wheel to combine their constraints. By the end of the mission, decide the joint operating envelope for all three rides."
+  takeaway: "Individually safe machines may require a shared operating rule."
+  segue: "Mission decision: The three rides need one shared work plan. Carousel speed stays below 4.20 m/s. Pirate Ship drive time stays outside 5.70 to 6.30 s. The wheel needs its check, wind below 8.0 m/s, and saved stop power."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Rotational inertia depends on how mass is distributed."
+  - "Two individually acceptable settings can conflict through shared resources."
+  - "A complete operating rule includes normal settings and automatic stop conditions."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-carousel-drive-house
+    # On arrival at Carousel Drive House | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Idowu shows two settings that fit chair angle alone."
+    panel: "STOP 49 READY"
+    # unlocks: Stop 49.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "A second constraint decides which one the park can live with."
+  - id: after-stop-49
+    # After Stop 49 | automatic | 
+    on: { after: [1] }
+    world: "The forbidden 5.70-6.30 s band appears; move to the Wheel after the timing plan is fixed."
+    panel: "STOP 50 READY"
+    # unlocks: Stop 50.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-50
+    # After Stop 50 | automatic | 
+    on: { after: [2] }
+    world: "Rotational stopping demand posts beside the wind envelope."
+    panel: "STOP 51 READY"
+    # unlocks: Stop 51.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-51
+    # After Stop 51 | automatic | 
+    on: { after: [3] }
+    world: "Shared capacity is allocated with shutdown reserve protected."
+    panel: "STOP 52 READY"
+    # unlocks: Stop 52.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Three operating cards print and the corresponding midway lights switch on."
+    panel: "MISSION 13 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 49: Collapse the setting degeneracy
+  #     Concept: Competing settings; Keystone: circular motion and models; Area: Carousel Drive House; Learning role: COMBINE; Difficulty: L4; Story role: obstacle.
+  #     placement: DEGENERACY, asked at joint-setting-board.
+  - group: CAROUSEL
+    title: "Collapse the setting degeneracy"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Competing settings"
+    reason: "Chair angle alone permits two operating plans that differ in shared power and shutdown demand."
+    scene: "Several speed and radius pairs produce the same chair angle, so that observation alone cannot choose the schedule. Apply the fixed five-metre radius and protected-power condition to collapse the alternatives."
+    motivation: "A measured radius and resource limit turn a mathematical family into one physical setting."
+    format: DEGENERACY
+    question: "Adjust both controls: chair radius r from 4.0 m to 6.0 m in 0.5 m steps and chair speed v from 3.4 m/s to 4.6 m/s in 0.2 m/s steps. Apply the 18.0-degree angle locus from tan theta = v^2/(rg) with g = 9.80 m/s^2, then apply measured radius r = 5.0 m and shared-power limit v <= 4.0 m/s. Submit one numerical parameter pair (r in m, v in m/s)."
+    answerText: "The physical ride and shared-power rule select a 5.0 m radius and 4.0 m/s speed."
+    why: "The angle relation alone admits many pairs; measured geometry and available power add independent constraints."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A point on the first curve is not unique until the physical constraints are applied.
+    # correct result: Submit numerical pair (5.0 m, 4.0 m/s).
+    # state/output: Lock Carousel joint-setting card.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:
+    #     controls:
+    #       - {id: radius, label: "Chair radius", min: 4.0, max: 6.0, step: 0.5, unit: m}
+    #       - {id: speed, label: "Chair speed", min: 3.4, max: 4.6, step: 0.2, unit: m/s}
+    #     required_submission: {type: numerical_parameter_pair, order: [radius, speed], units: [m, m/s]}
+    #     tolerance: 0.1
+    #     first_locus: {label: "18-degree chair angle", points: [[4.0,3.57],[4.5,3.79],[5.0,3.99],[5.5,4.19],[6.0,4.37]]}
+    #     second_locus: {label: "Measured radius and shared-power limit", points: [[5.0,3.8],[5.0,4.0],[5.0,4.2]]}
+    #     physical_constraint: "r = 5.0 m measured; v <= 4.0 m/s during joint schedule"
+    #     truth_pair: {radius: 5.0, speed: 4.0}
+
+  # --- Stop 50: Derive rotational stop demand
+  #     Concept: Rotational energy and momentum; Keystone: rotation; Area: Ferris Wheel machine room; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, asked at machine-room-board.
+  - group: WHEEL
+    title: "Derive rotational stop demand"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Rotational energy and momentum"
+    reason: "Shared shutdown reserve must cover the rotating energy that cannot vanish instantly."
+    scene: "The wheel's balanced test load increases rotational inertia without changing its operating angular speed. Derive how angular momentum, stored energy, and required stopping work scale with that outward mass distribution."
+    motivation: "Moving mass outward increases the demand placed on the same emergency brake."
+    format: DERIVE
+    question: "Using I = sum mr^2, L = Iomega, K_rot = 0.5Iomega^2, and tau_brake Delta theta = K_rot, submit one ordered symbolic derivation and one conclusion stating how moving mass outward changes stopping demand at fixed omega."
+    answerText: "Outward mass raises I, angular momentum, stored rotational energy, and stopping work at fixed angular speed."
+    why: "Radius enters inertia as r²."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Total mass alone does not set rotational inertia; distribution matters.
+    # correct result: Order mass distribution → rotational inertia → angular momentum/energy → brake demand.
+    # state/output: Add wheel shutdown demand to shared plan.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: inertia, expression: "I = sum m r^2", rule: "rotational inertia of distributed masses"}
+    #       - {id: momentum, expression: "L = I omega", rule: "angular momentum for fixed-axis rotation"}
+    #       - {id: energy, expression: "Krot = 0.5 I omega^2", rule: "rotational kinetic energy"}
+    #       - {id: work, expression: "tau_brake delta_theta = Krot", rule: "brake work removes rotational energy"}
+    #     order: [inertia,momentum,energy,work]
+    #     decoys:
+    #       - {expression: "I = sum mr", rule: "omit the squared radius in rotational inertia"}
+
+  # --- Stop 51: Allocate shared capacity
+  #     Concept: Resource coupling; Keystone: energy and systems; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: ALLOCATE, asked at wheel-case-stand.
+  - group: COASTER
+    at: station-wheel
+    title: "Allocate shared capacity"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Resource coupling"
+    reason: "Normal operation cannot consume the reserve required to stop every active ride."
+    scene: "The three rides need operating power, monitoring, and a protected emergency reserve. Allocate the 100-point block so the schedule runs two rides at once without losing required emergency shutdown capacity."
+    motivation: "Reserve capacity is part of a safe physical system, not unused waste."
+    format: ALLOCATE
+    question: "From a 100-point shared-capacity pool, submit one numerical allocation among Carousel 24, Pirate Ship 28, Ferris Wheel 30, independent monitoring 8, and protected shutdown reserve 18; run exactly two rides now, fund monitoring, protect reserve, and identify the deferred ride."
+    answerText: "Run Carousel and Pirate Ship with monitoring and protected reserve; schedule the Ferris Wheel in the next block."
+    why: "All three together exceed the pool. Sequential operation preserves the required 18-point shutdown reserve."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not spend protected reserve to make an impossible simultaneous schedule appear possible.
+    # correct result: Allocation: run Carousel and Pirate Ship; reserve Ferris Wheel for next block; protect shutdown reserve.
+    # state/output: Print alternating schedule.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:
+    #     pool: 100
+    #     items:
+    #       - {id: carousel, label: "Carousel operating block", cost: 24, required: true}
+    #       - {id: ship, label: "Pirate Ship operating block", cost: 28, required: true}
+    #       - {id: wheel, label: "Ferris Wheel operating block", cost: 30, required: false}
+    #       - {id: monitor, label: "Independent monitoring", cost: 8, required: true}
+    #       - {id: shutdown, label: "Protected shutdown reserve", cost: 18, protected: true, required: true}
+    #     questions: ["Which two rides run together?", "Is monitoring funded?", "Is shutdown reserve protected?"]
+    #     correct_allocation: {carousel: 24, ship: 28, wheel: 0, monitor: 8, shutdown: 18}
+
+  # --- Stop 52: Commit the joint rules
+  #     Concept: Coupled thresholds; Keystone: circular, oscillation, rotation; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, asked at ship-rule-console.
+  - group: BUMPER
+    at: floor-console
+    title: "Commit the joint rules"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Coupled thresholds"
+    reason: "Operators need one rule covering speed, timing, wind, and simultaneous operation."
+    scene: "The joint schedule is funded, but it still needs automatic stop conditions. Commit the carousel speed, pirate timing exclusion, wheel wind limit, and non-overlap rule before the operating scenario appears."
+    motivation: "A combined rule prevents one safe subsystem from pushing another outside its validated range."
+    format: TRIGGER
+    question: "Submit one operating-rule plan containing these numerical settings and actions: stop Carousel at or above 4.20 m/s; forbid Pirate Ship drive intervals from 5.70 s through 6.30 s; stop Ferris Wheel at or above 8.0 m/s wind; and prevent Ferris Wheel overlap with the two-ride block."
+    answerText: "Enforce the 4.20 m/s carousel stop, forbid pirate drive intervals from 5.70-6.30 s, stop the wheel at 8.0 m/s wind, and prevent forbidden overlap."
+    why: "Each threshold comes from a different physical mechanism and all must hold together."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A joint plan fails if even one binding subsystem limit is omitted.
+    # correct result: Submit joint rule set: Carousel 4.20 m/s; Pirate Ship exclude 5.70-6.30 s; Wheel wind stop 8.0 m/s; no forbidden overlap.
+    # state/output: Set joint_rotating_plan = verified.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     decision_rule: "Stop or block operation when any validated boundary is reached."
+    #     scale: {min: 0, max: 10, step: 0.1, unit: mixed_rule_index}
+    #     anchors:
+    #       - {value: 4.20, label: "Carousel stop speed m/s"}
+    #       - {value: 5.70, label: "Pirate forbidden interval lower s"}
+    #       - {value: 6.30, label: "Pirate forbidden interval upper s"}
+    #       - {value: 8.0, label: "Wheel wind stop m/s"}
+    #     objective: "Enforce all four named limits and never overlap wheel with the two-ride block."
+    #     correct_rule: {carousel_speed_at_or_above: 4.20, pirate_drive_interval_forbidden: [5.70,6.30], wheel_wind_at_or_above: 8.0, wheel_overlap: false}
+    #     conclusion: "Enforce all four operating limits and block Ferris Wheel overlap with the two-ride block."
+

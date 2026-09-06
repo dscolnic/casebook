@@ -1,0 +1,230 @@
+# ============================================================ MISSION 12
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Line We Promise"
+  card:
+    header: "IMPACT WINDOW: 3 DAYS"
+    title: "THE LINE WE PROMISE"
+    goNow: "Go to the Consequences Lab, carry the response envelope to the Town Emergency Office, and publish the final rules from Coordination."
+    body: "Emergency action has costs, so the team needs rules that connect evidence to proportionate protection. Waiting for the next alarming map invites inconsistent decisions and unequal treatment. Define thresholds, allocate scarce capacity, rehearse the protocol, and publish claims that remain true under revision. By the end of the mission, you will approve a staged response plan before knowing which branch benefits from it."
+    objective: "Approve a staged response plan before the next orbit result is known."
+  objective: "Approve a staged response plan before the next orbit result is known."
+  stake: "Emergency action has costs, so the team needs rules that connect evidence to proportionate protection. Waiting for the next alarming map invites inconsistent decisions and unequal treatment. Define thresholds, allocate scarce capacity, rehearse the protocol, and publish claims that remain true under revision. By the end of the mission, you will approve a staged response plan before knowing which branch benefits from it."
+  takeaway: "Decide the rule before the result tests your courage. ---"
+  segue: "Mission decision: Approve the staged plan. Start with broad steps that can be undone. Use strong orders only for a narrow, checked danger zone. Stand down places that the full path rules out."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Reversible preparation can begin under broader uncertainty than disruptive evacuation."
+  - "Action rules should include likelihood, consequence, time, exposure, and verification."
+  - "Publishing the rule before the result reduces motivated changes and unequal treatment."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-entry-consequences-lab
+    # On arrival at Entry & Consequences Lab | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Evelyn presents conditional consequence envelopes."
+    panel: "THE LINE WE PROMISE / MISSION ACTIVE"
+    # unlocks: Stop 45.
+    bubbles:
+    - who: jordan-hale   # Jordan Hale
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-45
+    # After Stop 45 | automatic | 
+    on: { after: [1] }
+    world: "Jordan exposes the thirty-day evacuation lead versus eleven-day discovery warning."
+    panel: "THE LINE WE PROMISE / FIRST RESULT LOGGED"
+    # unlocks: The Emergency Management Office waypoint and Stop 46.
+    bubbles:
+    - who: jordan-hale   # Jordan Hale
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-46
+    # After Stop 46 | automatic | 
+    on: { after: [2] }
+    world: "The player assigns staged actions to escalating evidence."
+    panel: "THE LINE WE PROMISE / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 47.
+    bubbles:
+    - who: jordan-hale   # Jordan Hale
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-47
+    # After Stop 47 | automatic | 
+    on: { after: [3] }
+    world: "Mira publishes the rule before the next orbit update."
+    panel: "THE LINE WE PROMISE / DECISION EVIDENCE READY"
+    # unlocks: The Coordination Office waypoint and Stop 48.
+    bubbles:
+    - who: jordan-hale   # Jordan Hale
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THE LINE WE PROMISE / MISSION DECISION LOGGED"
+    # unlocks: Mission 12 outcome, metric screen, concept review, and Mission 13 briefing.
+    bubbles:
+    - who: jordan-hale   # Jordan Hale
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 45: Draw the action thresholds
+  #     Concept: staged response; Keystone: thresholds/decisions; Area: Emergency Management Office; Learning role: REINFORCE; Difficulty: L5; Story role: design.
+  #     placement: TRIGGER, at risk-display.
+  - group: IMPACT
+    at: risk-display
+    title: "Draw the action thresholds"
+    concept: "staged response"
+    reason: "Each response step needs a condition stronger than anxiety and earlier than certainty."
+    scene: "Define four escalating states for watch, resource staging, targeted protective order, and verified stand-down across the response system. Use probability, corridor population, warning time, and independent verification so each trigger is observable."
+    motivation: "Proportionate thresholds connect uncertain evidence to reversible or irreversible action."
+    format: TRIGGER
+    question: "Write and commit all four thresholds before updates unlock; then submit the four-stage threshold-to-action mapping."
+    answerText: "Reversible preparation begins earlier; disruptive orders require narrower, independently verified evidence."
+    why: "TRIGGER binds a measurable condition to a predefined action."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   One probability threshold cannot govern actions with radically different costs.
+    # correct result: Correct four trigger-action matches.
+    # state/output: RESPONSE LADDER drafted.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     stages:
+    #       - {id: watch, threshold: "impact probability > 1% and diameter > 10 m", action: maintain watch}
+    #       - {id: stage, threshold: "impact probability > 50% and the corridor contains population", action: stage reversible resources}
+    #       - {id: order, threshold: "impact probability >= 90%, diameter >= 20 m, narrow populated three-sigma corridor, independent verification, and warning time < 2 days", action: issue targeted protective order}
+    #       - {id: stand_down, threshold: "verified complete corridor excludes the jurisdiction", action: stand down that jurisdiction}
+    #     updates_hidden_until_commit: true
+    #     blind_updates:
+    #       - {id: update_watch, reading: "p = 1.2%, D = 15 m, no populated corridor", keyed_action: maintain watch}
+    #       - {id: update_stage, reading: "p = 63%, populated corridor, warning time = 3 days", keyed_action: stage reversible resources}
+    #       - {id: update_order, reading: "p = 91%, D = 32 m, 180000 people, independent pass, warning time < 2 days", keyed_action: issue targeted protective order}
+    #       - {id: update_stand_down, reading: "complete three-sigma corridor excludes jurisdiction", keyed_action: stand down that jurisdiction}
+    #     correct_conclusion: match_all_four_updates_to_the_committed_ladder
+
+  # --- Stop 46: Allocate limited capacity
+  #     Concept: emergency resources; Keystone: optimization/equity; Area: Emergency Management Office; Learning role: INTRODUCE; Difficulty: L5; Story role: decision.
+  #     placement: ALLOCATE, at evac-desk.
+  - group: OPS
+    at: desk
+    title: "Allocate limited capacity"
+    concept: "emergency resources"
+    reason: "The office cannot simultaneously move every person in the broad corridor."
+    scene: "Nine million people lie under the current warning, full evacuation normally needs about thirty days, and discovery provided eleven. Allocate transport, shelters, medical teams, and communication capacity to reversible staging first."
+    motivation: "Scarcity makes prioritization part of risk reduction, not an administrative afterthought."
+    format: ALLOCATE
+    question: "Submit one five-category allocation totaling 100 points that preserves at least 20 points in reserve."
+    answerText: "Staging buys speed without imposing the harms of premature mass movement."
+    why: "ALLOCATE distributes finite resources against expected need, reversibility, and equity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Spending everything now leaves no capacity when the corridor narrows.
+    # correct result: Stage targeted capacity and retain a reserve; do not order corridor-wide evacuation.
+    # state/output: TOWN readiness package reaches 80%.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:
+    #     pool: {label: First-wave capacity, value: 100, unit: points}
+    #     items:
+    #       - {id: transport, label: Mobility-limited transport, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: shelters, label: Shelter readiness, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: hospitals, label: Hospital continuity, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: communications, label: Multilingual alerts, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: reserve, label: Reserve, cost_per_unit: 1, min: 20, max: 40, step: 5, unit: points}
+    #     questions:
+    #       - {id: mobility, label: "Can mobility-limited residents be reached?", required: true, needs: {transport: 10}}
+    #       - {id: continuity, label: "Can shelters and hospitals stay ready?", required: true, needs: {shelters: 10, hospitals: 10}}
+    #       - {id: access, label: "Can every county receive accessible alerts?", required: true, needs: {communications: 10}}
+    #       - {id: extra_comfort, label: "Can optional comfort sites be expanded now?", required: false, needs: {shelters: 30}}
+    #     correct: {transport: 20, shelters: 20, hospitals: 20, communications: 20, reserve: 20}
+    #     pass_rule: total = 100; each operational item >= 10; reserve >= 20
+    #     forbidden_action: move_all_nine_million_people_now
+
+  # --- Stop 47: Rehearse the decision protocol
+  #     Concept: emergency decision; Keystone: procedure/verification; Area: Emergency Management Office; Learning role: REINFORCE; Difficulty: L5; Story role: application.
+  #     placement: PROTOCOL, at threshold-board.
+  - group: TODO            # the curriculum area this teaches for
+    at: threshold-board
+    title: "Rehearse the decision protocol"
+    concept: "emergency decision"
+    reason: "Evidence must move from scientists to emergency action without an improvised handoff."
+    scene: "Arrange the complete handoff from verified orbit update through consequence overlay, jurisdiction check, authorization, accessible public message, and scheduled reassessment. Insert an independent scientific verification gate before any protective order."
+    motivation: "A protocol preserves both speed and error checking under deadline pressure."
+    format: PROTOCOL
+    question: "Build the order-and-reassessment protocol."
+    choices:
+    - "Verify the orbit update"
+    - "Overlay consequences"
+    - "Check jurisdiction"
+    - "Perform independent scientific verification"
+    - "Obtain authorization"
+    - "Issue an accessible message"
+    - "Schedule reassessment"
+    answerText: "Every order carries its evidence, authority, message, and next review time."
+    why: "PROTOCOL makes a complex response repeatable across teams."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A technically correct map cannot issue or explain an order by itself.
+    # correct result: Complete the seven-step protocol with verification before authorization.
+    # state/output: RESPONSE PROTOCOL rehearsed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios:
+    #     - New orbit result arrives
+    #     - Consequences are mapped
+    #     - A jurisdiction is implicated
+    #     - Evidence must be independently checked
+    #     - Authority decides
+    #     - Public receives instructions
+    #     - Conditions may change
+    #   choices:
+    #     - Verify the orbit update
+    #     - Overlay consequences
+    #     - Check jurisdiction
+    #     - Perform independent scientific verification
+    #     - Obtain authorization
+    #     - Issue an accessible message
+    #     - Schedule reassessment
+    #   mapping:
+    #     orbit_arrives: Verify the orbit update
+    #     consequences_mapped: Overlay consequences
+    #     jurisdiction_implicated: Check jurisdiction
+    #     evidence_check: Perform independent scientific verification
+    #     authority_decides: Obtain authorization
+    #     public_instructions: Issue an accessible message
+    #     conditions_change: Schedule reassessment
+
+  # --- Stop 48: Sign the public claims
+  #     Concept: risk communication; Keystone: evidence/ethics; Area: Emergency Management Office; Learning role: REINFORCE; Difficulty: L5; Story role: communication.
+  #     placement: ATTEST, asked by Mira Chen beside scopeboard.
+  - group: OPS
+    at: scopeboard
+    title: "Sign the public claims"
+    person: TODO   # the roster id of whoever asks it
+    concept: "risk communication"
+    reason: "The published plan must say what is known, conditional, and still unknown."
+    scene: "Review five proposed public statements and sign only those supported by the current campaign evidence. Each accepted line must name its condition, intended action, and next update without promising certainty."
+    motivation: "Trust grows when institutional claims remain valid after honest scientific revision."
+    format: ATTEST
+    question: "Attest the defensible response-plan statements."
+    answerText: "The plan is firm about actions precisely because it is honest about uncertainty."
+    why: "ATTEST requires explicit evidence ownership for public claims."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Confidence in a process is not permission to overstate its inputs.
+    # correct result: Sign the three conditional statements and reject both absolute claims.
+    # state/output: PRECOMMITTED RESPONSE PLAN published.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 5
+    #     claims:
+    #       - {id: leading_case, text: "A 63% impact probability makes impact the leading planning case.", backed: true, critical: true}
+    #       - {id: staging, text: "The broad corridor supports reversible staging, not mass evacuation.", backed: true, critical: true}
+    #       - {id: order_rule, text: "A protective order requires a narrow independently verified damaging corridor.", backed: true, critical: true}
+    #       - {id: city_hit, text: "A named city will be hit.", backed: false, critical: true}
+    #       - {id: deflection, text: "A last-minute deflection can still save us.", backed: false, critical: true}
+    #     correct_signed: [leading_case, staging, order_rule]
+

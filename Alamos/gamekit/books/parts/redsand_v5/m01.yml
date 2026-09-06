@@ -1,0 +1,211 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Shortfall"
+  card:
+    header: "15 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "THE SHORTFALL"
+    goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the carbon ledger."
+    body: "The ascent vehicle still lacks the methane fuel needed to carry the crew home. The crew suspects a leak, but closing the wrong valves could waste a shift and reduce production. At Plant Control, classify samples, convert tank mass into moles, and account for the carbon entering and leaving the plant. By the end of the mission, decide whether a large methane leak can explain the shortage."
+    objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
+  objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
+  stake: "The ascent vehicle still lacks the methane fuel needed to carry the crew home. The crew suspects a leak, but closing the wrong valves could waste a shift and reduce production. At Plant Control, classify samples, convert tank mass into moles, and account for the carbon entering and leaving the plant. By the end of the mission, decide whether a large methane leak can explain the shortage."
+  takeaway: "A nearly closed carbon ledger weakens a large methane-leak explanation; it does not identify the real cause."
+  segue: "Mission decision: A large methane leak cannot explain the fuel gap. The new count finds 99.8% of the carbon. Work on random valves stops. The plant still needs fuel. The next test asks if the air intake brings in enough carbon dioxide."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Matter can change form during a reaction, but atoms are not created or destroyed."
+  - "A mass shortage is not automatically a leak; first ask whether the unit conversion and atom count close."
+  - "Chemical formulas show how many atoms of each element are present in one particle."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-plant-control
+    # On arrival at Plant Control | automatic | 
+    on: { enter: true, at: GIBBS }
+    world: "The four-bar HUD opens at METHANE 82%, OXYGEN 88%, POWER 72%, and INTEGRITY 70%; Two technicians reach for different valve controls; Abiola steps between them and locks both panels."
+    panel: "MISSION 1 - THE SHORTFALL"
+    # unlocks: Stop 1 at the sample tray.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "Those valves stay open until we know whether matter is actually missing. We have fifteen shifts to make the fuel that gets us home. Start with the ledger."
+  - id: after-stop-1
+    # After Stop 1 | sample tray | automatic correct-answer response
+    on: { after: [1] }
+    world: "The four sample labels separate into ATOM, MOLECULE, and ION columns."
+    panel: "NEXT TASK - STOP 2: HOW MUCH METHANE IS MISSING?"
+    # unlocks: Stop 2 at the conversion board; Stop 3 unlocks immediately after Stop 2.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "Good. If the software calls every object the same kind of particle, the count can be correct and the conclusion can still be wrong."
+  - id: after-stops-2-and-3
+    # After Stops 2 and 3 | conversion board | automatic transition
+    on: { after: [2, 3] }
+    world: "The scale reading, moles, and molecule count connect with a continuous illuminated unit path."
+    panel: "MASS -\\> MOLES -\\> MOLECULES."
+    # unlocks: Stop 4 at the carbon ledger.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "Now the tank scale and the reactor model are speaking the same language. Open the carbon ledger."
+  - id: after-stop-4
+    # After Stop 4 | carbon ledger | automatic discovery
+    on: { after: [4] }
+    world: "The carbon streams close to within 0.2%; The red leak warning changes to amber, but the methane shortfall remains red."
+    panel: "CARBON ACCOUNTED FOR: 99.8% / METHANE TARGET: NOT MET."
+    # unlocks: The Mission 1 outcome beat.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "We are still short of methane. We may not be short of carbon."
+  - id: at-mission-end
+    # At mission end | Plant Control | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "Sundqvist's static portrait appears in the radio-bubble HUD while the Atmosphere Intake waypoint pulses on the map."
+    panel: "NEXT DESTINATION - ATMOSPHERE INTAKE."
+    # unlocks: Mission 2 briefing and the Atmosphere Intake waypoint.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "Then the Martian air may never be reaching the reactor in the first place."
+    - who: abiola   # Abiola
+      say: "Do not increase compressor power. The Propellant Lead will test that claim first."
+
+  stops:
+  # --- Stop 1: Labels on the sample tray
+  #     Concept: particles; Keystone: particles, moles, and molar mass; Area: Plant Control; Learning role: INTRODUCE; Difficulty: L1; Story role: obstacle.
+  #     placement: CHOICE, asked at Commander Laila Abiola beside sample-tray.
+  - group: GIBBS
+    at: sample-tray
+    title: "Labels on the sample tray"
+    person: abiola
+    concept: "particles"
+    reason: "The ledger cannot be trusted until every sample type is identified."
+    scene: "Before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. This gives every later calculation a trustworthy starting point."
+    motivation: "Correct labels prevent the plant from counting unlike particles as though they were interchangeable."
+    format: CHOICE
+    question: "Which classification is completely correct?"
+    choices:
+    - "Ar is an atom; CH4 and CO2 are molecules; H+ is an ion."
+    - "All four are molecules because each symbol describes matter."
+    - "Ar and H+ are atoms; CH4 and CO2 are ions."
+    - "CO2 is an atom because it is one chemical formula."
+    answer: "Ar is an atom; CH4 and CO2 are molecules; H+ is an ion."
+    answerText: "Ar is an atom; CH4 and CO2 are molecules; H+ is an ion."
+    why: "Ar is a single neutral atom. CH4 and CO2 contain bonded atoms and are neutral molecules. H+ has a positive charge, so it is an ion. \"Particle\" is the umbrella word; it does not erase these distinctions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) A formula can name an atom, molecule, or ion; the word formula does not decide. (3) H+ is charged, while CH4 and CO2 have no net charge. (4) One written formula can contain several atoms.
+    # correct result: Choice 1.
+    # state/output: Set evidence_flags.particle_labels = true; unlock the conversion board.
+
+  # --- Stop 2: How much methane is missing?
+  #     Concept: grams-moles-particles; Keystone: particles, moles, and molar mass; Area: Plant Control; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALLPARK, at conversion-board.
+  - group: GIBBS
+    at: conversion-board
+    title: "How much methane is missing?"
+    concept: "grams-moles-particles"
+    reason: "The tank scale and reactor model must use the same amount units."
+    scene: "With the samples labeled correctly, convert the reported methane shortage from tank mass into the molecule count used by the reactor model. The result lets the two records be compared without guessing."
+    motivation: "The crew cannot compare a tank scale with molecular production until both are expressed through moles."
+    format: BALLPARK
+    question: "Estimate the number of methane molecules represented by the shortfall."
+    # CONVERTED from the bible's `data` and `correct result` lines below. The four
+    # tiles are the bible's four data numbers; the target and tolerance are its
+    # "target 6.0 x 10^28, tolerance ±6%", said as a number (6% of 6.0e28 = 3.6e27).
+    estimate:
+      question: "Estimate the number of methane molecules represented by the shortfall."
+      relationship: "molecules = mass in grams ÷ molar mass × Avogadro's number"
+      labels:
+      - "1.60×10³ kg"
+      - "1000 g/kg"
+      - "16.04 g/mol CH4"
+      - "6.022×10²³ molecules/mol"
+      values: [1600, 1000, 16.04, 6.022e23]
+      slots: 4
+      template: '{0} × {1} ÷ {2} × {3}'
+      formula: a*b/c*d
+      correct: [0, 1, 2, 3]
+      target: 6.0e28
+      tolerance: 3.6e27
+      units: "CH4 molecules"
+    answerText: "The shortfall represents about 6.01 x 10^28 methane molecules."
+    why: "Kilograms must become grams before dividing by grams per mole. The result is about 9.98 x 10^4 mol, and each mole represents Avogadro's number of molecules. Multiplying mass directly by Avogadro's number skips molar mass and gives meaningless units."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If near 6 x 10^25, the kilogram-to-gram factor was missed. If near 9.98 x 10^4, the player stopped at moles. If the player multiplies by 16.04, remind them that molar mass divides grams into mole-sized groups.
+    # data: 1.60 x 10^3 kg; 1000 g/kg; 16.04 g/mol CH4; 6.022 x 10^23 molecules/mol.
+    # correct result: 6.01 x 10^28 CH4 molecules; target 6.0 x 10^28, tolerance ±6%.
+    # state/output: Update the wall display from kilograms to both kilograms and kilomoles; no inventory change.
+
+  # --- Stop 3: Rebuild the conversion
+  #     Concept: dimensional analysis; Keystone: particles, moles, and molar mass; Area: Plant Control; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: SEQUENCE, at conversion-board.
+  - group: GIBBS
+    at: conversion-board
+    title: "Rebuild the conversion"
+    concept: "dimensional analysis"
+    reason: "A deleted conversion could create the shortage the crew thinks it sees."
+    scene: "Because a deleted formula could create a false shortage, rebuild the full mass-to-molecules conversion before trusting yesterday's estimate. A complete unit path will expose whether the estimate is artificial before repairs begin."
+    motivation: "A broken unit chain could create a false shortfall and send technicians after a leak that does not exist."
+    format: SEQUENCE
+    question: "Put the methane conversion workflow in order."
+    # CONVERTED from the bible's `data` line below; `correct result: As listed`.
+    cards:
+    - "Read tank mass in kg"
+    - "Convert kg to g"
+    - "Divide by CH4 molar mass"
+    - "Multiply by Avogadro's number"
+    - "Report molecules with units"
+    order: [0, 1, 2, 3, 4]
+    answerText: "Use mass, convert to grams, divide by molar mass, multiply by Avogadro's number, and report particles."
+    why: "Dimensional analysis is a path whose units cancel. Kilograms cannot cancel grams per mole until kilograms become grams. Dividing by molar mass leaves moles; multiplying by molecules per mole leaves molecules. The unit trail is also an error detector."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Highlight the first adjacent pair whose units cannot cancel. Do not reveal the full order until a second failed commit.
+    # data: Read tank mass in kg / Convert kg to g / Divide by CH4 molar mass / Multiply by Avogadro's number / Report molecules with units.
+    # correct result: As listed.
+    # state/output: Set evidence_flags.conversion_rebuilt = true; carbon ledger becomes interactable.
+
+  # --- Stop 4: Close the first carbon ledger
+  #     Concept: atom conservation; Keystone: balancing and stoichiometry; Area: Plant Control; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: BALANCE, at ledger.
+  - group: GIBBS
+    at: ledger
+    title: "Close the first carbon ledger"
+    concept: "atom conservation"
+    reason: "The first repair decision depends on whether carbon is actually missing."
+    scene: "Use the corrected counts to total every carbon stream and decide whether enough carbon is actually missing to support a large methane leak. The closed balance will determine whether leak work should continue."
+    motivation: "If carbon is still inside the process, the supposedly missing methane may never have leaked."
+    format: BALANCE
+    question: "Count the legitimate carbon streams and close the ledger."
+    # CONVERTED from the payload below. `target` -> `total`; `count:` -> `countable:`;
+    # `closure.tolerance` -> `tolerance`; `closure.residual` becomes the hidden
+    # stream, which is what the engine's ledger is short by until it is found.
+    balance:
+      total: { amount: 100.0, unit: "kmol C", label: "Carbon entering interval" }
+      tolerance: 0.1
+      streams:
+      - { id: methane_product, label: "Carbon in methane product", value: 81.6, unit: "kmol C" }
+      - { id: recycle_co2, label: "Carbon in recycle CO2", value: 17.9, unit: "kmol C" }
+      - { id: sample_and_vents, label: "Carbon in samples and measured vents", value: 0.3, unit: "kmol C" }
+      - { id: water, label: "Water coproduct", value: 160.0, unit: "kmol H2O", countable: false }
+      - { id: unassigned, label: "Carbon unassigned", value: 0.2, unit: "kmol C", hidden: true }
+      commit: "Report the total carbon"
+    answerText: "The ledger accounts for 99.8 kmol C and leaves only 0.2 kmol C unassigned."
+    why: "One mole of CO2 and one mole of CH4 each contain one mole of carbon atoms. Add carbon streams as carbon, not total molecular mass. A 0.2% residual can be measurement uncertainty; it cannot explain an 18% methane schedule shortfall. This does not yet prove there is no leak, but it makes a large carbon leak a poor explanation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not count water; it contains no carbon. Do not multiply CH4 by four; the subscript four counts hydrogen atoms. Do not treat the 18% schedule gap as a carbon stream.
+    # data: total 100.0 kmol C; visible streams 81.6, 17.9, 0.3; hidden closure 0.2 kmol C; tolerance 0.1 kmol.
+    # correct result: 99.8 kmol C is directly accounted for and only 0.2 kmol C (0.2%) is unassigned.
+    # state/output: Set evidence_flags.carbon_nearly_closed = true; add Casebook card CARBON CLOSES; increase crew_trust by one.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: "Carbon entering interval", value: 100.0, unit: "kmol C"}
+    #     streams:
+    #       - {id: methane_product, label: "Carbon in methane product", value: 81.6, unit: "kmol C", count: true}
+    #       - {id: recycle_co2, label: "Carbon in recycle CO2", value: 17.9, unit: "kmol C", count: true}
+    #       - {id: sample_and_vents, label: "Carbon in samples and measured vents", value: 0.3, unit: "kmol C", count: true}
+    #       - {id: water, label: "Water coproduct", value: 160.0, unit: "kmol H2O", count: false}
+    #     closure: {value: 99.8, unit: "kmol C", residual: 0.2, tolerance: 0.1}
+    #     correct_action: "Count the three carbon-bearing streams; exclude water and the schedule gap."
+

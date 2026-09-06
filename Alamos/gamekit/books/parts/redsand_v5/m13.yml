@@ -1,0 +1,230 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Power"
+  card:
+    header: "3 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "POWER"
+    goNow: "Go to the Solar Array and meet Yusuf Demir, the power and life-support officer, at the live power board."
+    body: "The recycle loop can restore hydrogen, but electrolysis, cooling, purification, refrigeration, and the habitat all need the same limited power. A dust front has reduced the solar array's output. At the Array, Battery Bank, and Electrolysis Hall, trace electron flow and turn available current into gas production. By the end of the mission, allocate power so the crew, reactor, and propellant all remain safe."
+    objective: "Turn the available electricity into launch gases while protecting every critical system."
+  objective: "Turn the available electricity into launch gases while protecting every critical system."
+  stake: "The recycle loop can restore hydrogen, but electrolysis, cooling, purification, refrigeration, and the habitat all need the same limited power. A dust front has reduced the solar array's output. At the Array, Battery Bank, and Electrolysis Hall, trace electron flow and turn available current into gas production. By the end of the mission, allocate power so the crew, reactor, and propellant all remain safe."
+  takeaway: "A power allocation is scientific when every funded load protects a named consequence."
+  segue: "Mission decision: Run the power cell only while the habitat, cooling, cleanup, and cold tanks stay safe. The plan turns the available charge into hydrogen and finishes the oxygen goal. Both amount bars now read full. The launch clock starts. A new vial now tests what full really means."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Reduction occurs at the cathode and oxidation occurs at the anode in both driven and spontaneous cells."
+  - "Electrons travel through the outside circuit; ions move through the liquid to keep charge balanced."
+  - "Producing more gas is not a valid plan if cooling, purification, refrigeration, or habitat power falls below its required minimum."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-array-shed
+    # On arrival at Array Shed | automatic | 
+    on: { enter: true, at: ARRAY }
+    world: "Red dust moves across the panels and the available-power bar falls in real time."
+    panel: "MISSION 13 - POWER"
+    # unlocks: Stop 49 at the live power meter; Stop 50 unlocks immediately after Stop 49.
+    bubbles:
+    - who: demir   # Demir
+      say: "Every kilowatt now has a consequence. Electrolysis makes launch gases, but cooling protects the reactor, refrigeration protects the product, and the habitat keeps us alive. Count before you allocate."
+  - id: after-stops-49-and-50
+    # After Stops 49 and 50 | array power-routing display | automatic response
+    on: { after: [1, 2] }
+    world: "Electron flow and ion motion complete the electrolyzer circuit; hydrogen and oxygen outlets illuminate on opposite sides."
+    panel: "MOVE TO BATTERY GALLERY."
+    # unlocks: The Battery Gallery travel beat.
+    bubbles:
+    - who: demir   # Demir
+      say: "Now the electrical path and the chemical products agree. Check the battery floor before promising current we cannot sustain."
+  - id: on-arrival-at-battery-bank
+    # On arrival at Battery Bank | automatic constraint reveal | 
+    on: { enter: true, at: BATT }
+    world: "HABITAT MINIMUM, COOLING MINIMUM, and EMERGENCY RESERVE lock as protected loads."
+    panel: "AVAILABLE FOR RECOVERY OPERATIONS - UPDATED."
+    # unlocks: The Battery Gallery waypoint, followed by the Electrolysis Hall waypoint and Stops 51-52.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "These loads are not bargaining chips. Whatever remains can recover propellant."
+  - id: after-stops-51-and-52
+    # After Stops 51 and 52 | Electrolysis Hall | automatic decision
+    on: { after: [3, 4] }
+    world: "The calculated hydrogen amount populates the production forecast; The accepted allocation powers electrolysis, cooling, purification, refrigeration, habitat, and reserve without crossing any minimum."
+    panel: "MISSION DECISION READY"
+    # unlocks: The Mission 13 outcome beat.
+    bubbles:
+    - who: demir   # Demir
+      say: "The plan does not maximize one machine. It keeps the entire route to launch alive."
+  - id: at-mission-end
+    # At mission end | Electrolysis Hall | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "Electrolyzer stacks start; Hydrogen and oxygen climb; the reactor holds its validated operating point; At dawn, both main indicators switch to FULL and the ascent checklist begins; Achebe waits beside the final console with a sealed vial and an active speech icon."
+    panel: "LAUNCH HOLD - INDEPENDENT ASSAY DISAGREES."
+    # unlocks: Mission 14 briefing and the Tank Farm waypoint.
+    bubbles:
+    - who: achebe   # Achebe
+      say: "Stop the countdown. Batch C does not match the green quality channel."
+
+  stops:
+  # --- Stop 49: Name oxidation and reduction
+  #     Concept: redox; Keystone: redox and electrochemistry; Area: Electrolysis Hall; Learning role: INTRODUCE; Difficulty: L1; Story role: obstacle.
+  #     placement: CHOICE, asked at Yusuf Demir beside array-controller.
+  - group: ELEC
+    at: array-controller
+    title: "Name oxidation and reduction"
+    person: cho
+    concept: "redox"
+    reason: "Gas routing depends on knowing which electrode makes hydrogen and oxygen."
+    scene: "Before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The correct half-reactions keep the product lines from being routed backward."
+    motivation: "Electron direction tells the crew where hydrogen and oxygen form and prevents the gases from being routed backward."
+    format: CHOICE
+    question: "In alkaline electrolysis, which statement is correct?"
+    choices:
+    - "Water is reduced at the cathode to form H2; hydroxide is oxidized at the anode to form O2"
+    - "H2 forms by oxidation at the anode."
+    - "Both gases form by reduction."
+    - "Electron coefficients change the tabulated potential when equations are multiplied."
+    answer: "Water is reduced at the cathode to form H2; hydroxide is oxidized at the anode to form O2"
+    answerText: "Water is reduced at the cathode to H2, while hydroxide is oxidized at the anode to O2."
+    why: "Reduction gains electrons at the cathode; oxidation loses them at the anode. Scaling a half-reaction does not scale an electrode potential."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) Hydrogen forms at the cathode by reduction; oxidation occurs at the anode. (3) The two electrodes perform opposite redox processes: reduction at the cathode and oxidation at the anode. (4) Multiplying a half-reaction changes stoichiometric electron count, not the tabulated electrode potential.
+    # correct result: First choice.
+    # state/output: Enable cell-direction schematic.
+
+  # --- Stop 50: Assemble electron and ion flow
+  #     Concept: half-reactions and circuit; Keystone: redox and electrochemistry; Area: Electrolysis Hall; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: SEQUENCE, at cell-stacks.
+  - group: ELEC
+    at: cell-stacks
+    title: "Assemble electron and ion flow"
+    concept: "half-reactions and circuit"
+    reason: "Both the electron circuit and ion path must close before startup."
+    scene: "Assemble the electron and ion paths to confirm that the powered cell can split water without shorting or mixing products. The assembled path will expose any impossible break in charge balance."
+    motivation: "Both paths must close before electrical power can become launch gases."
+    format: SEQUENCE
+    # CONVERTED from the bible's `data` line below; its `correct result` is the
+    # cyclic order as listed.
+    cards:
+    - "External supply pushes electrons to cathode"
+    - "cathode reduction forms H2"
+    - "ions carry charge through electrolyte"
+    - "anode oxidation forms O2 and releases electrons"
+    - "electrons return through external supply"
+    order: [0, 1, 2, 3, 4]
+    question: "Put the circuit and ion-transfer events in a defensible operating order."
+    answerText: "The supply drives cathode electrons, ions close charge through electrolyte, and anode electrons return through the outer circuit."
+    why: "Electrons travel through the external circuit; ions close charge balance through electrolyte. Mixing those paths makes impossible diagrams."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Electrons belong in the external circuit, not through the electrolyte; ions carry charge through the liquid. Placing gas formation before the corresponding electrode reaction breaks the electrochemical path.
+    # data: External supply pushes electrons to cathode / cathode reduction forms H2 / ions carry charge through electrolyte / anode oxidation forms O2 and releases electrons / electrons return through external supply.
+    # correct result: Cyclic order as listed, with note that the processes occur continuously rather than one molecule at a time.
+    # state/output: Battery reserve floor fixed at 160 kWh.
+
+  # --- Stop 51: Turn current into hydrogen
+  #     Concept: Faraday's law; Keystone: redox and electrochemistry; Area: Electrolysis Hall; Learning role: INTRODUCE; Difficulty: L2; Story role: calculation.
+  #     placement: BALLPARK, at stack-sheet.
+  - group: ELEC
+    at: stack
+    title: "Turn current into hydrogen"
+    concept: "Faraday's law"
+    reason: "Power allocation needs predicted hydrogen, not amperes alone."
+    scene: "Convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone. The result converts the remaining operating time into a real gas yield."
+    motivation: "This calculation tells the crew exactly how much ascent propellant the remaining power can buy."
+    format: BALLPARK
+    # CONVERTED from the bible's Data (current 10,000 A for 8.00 h; current
+    # efficiency 92.0%; 2 e- per H2; molar mass H2 2.016 g/mol) and its worked
+    # Calculation (Q = 10,000 x 28,800 = 2.88e8 C; mol e- = 2985). The Faraday
+    # constant is the divisor that calculation uses to reach 2985 mol of
+    # electrons. Target is its 2.77 kg as grams, tolerance its ±3%.
+    estimate:
+      question: "Estimate collected hydrogen mass."
+      relationship: "grams H2 = current × seconds ÷ the Faraday constant ÷ 2 electrons × current efficiency × molar mass"
+      labels:
+      - "10,000 A"
+      - "28,800 s"
+      - "96,485 C/mol"
+      - "2 electrons per H2"
+      - "0.920 current efficiency"
+      - "2.016 g/mol H2"
+      values: [10000, 28800, 96485, 2, 0.920, 2.016]
+      slots: 6
+      template: '{0} × {1} ÷ {2} ÷ {3} × {4} × {5}'
+      formula: a*b/c/d*e*f
+      correct: [0, 1, 2, 3, 4, 5]
+      target: 2768
+      tolerance: 83
+      units: "g H2"
+    question: "Estimate collected hydrogen mass."
+    answerText: "The run produces about 2.77 kg H2 after the 92% current efficiency is applied."
+    why: "Time must be seconds because an ampere is coulomb per second. Divide electron moles by two, then apply current efficiency and molar mass."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Eight hours used directly undercounts by 3600; forgetting two electrons doubles hydrogen; forgetting efficiency gives the theoretical 3.01 kg.
+    # correct result: 2.77 kg; tolerance ±3%.
+    # state/output: Converts requested recovery hydrogen into required stack-hours.
+
+  # --- Stop 52: Allocate the recovery power
+  #     Concept: electrochemistry under constraints; Keystone: redox and electrochemistry; Area: Electrolysis Hall; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: ALLOCATE, operated at stack-power-controller.
+  - group: ELEC
+    at: stack
+    title: "Allocate the recovery power"
+    concept: "electrochemistry under constraints"
+    reason: "The dust-limited power pool must protect every binding system constraint."
+    scene: "Use that yield and the protected minimums to divide dust-limited power among electrolysis and the systems that keep the crew and propellant safe. The committed plan must make gas without recreating earlier failures."
+    motivation: "Making more gas does not get the crew home if the same plan overheats the reactor, spoils the batch, or shuts down life support."
+    format: ALLOCATE
+    # CONVERTED from the payload below — already the engine's model, a subset
+    # funded out of a pool: `pool.value` -> `pool.amount`, each item's `cost`
+    # unchanged, each question's `needs` -> `requires`.
+    #
+    # BIBLE GAP, and the one refusal left on this stop: the engine needs at least
+    # one question the plan is ALLOWED to forgo, and all four of the bible's are
+    # marked `required: true`. Its own optional item, the battery fast charge, has
+    # no question attached to it. Written as the bible has it rather than
+    # demoting one of its required checks.
+    allocate:
+      pool: { amount: 600, unit: kWh, mode: scalar }
+      items:
+      - { id: habitat, label: "Protected habitat load", cost: 180 }
+      - { id: cooling, label: "Reactor thermal control", cost: 120 }
+      - { id: purification, label: "Product purification", cost: 80 }
+      - { id: electrolysis, label: "Recovery electrolysis", cost: 160 }
+      - { id: refrigeration, label: "Tank refrigeration", cost: 60 }
+      - { id: fast_charge, label: "Optional battery fast charge", cost: 60 }
+      answers:
+      - { question: "Does the habitat remain safe?", requires: [habitat], required: true }
+      - { question: "Does the reactor remain below the validated heat limit?", requires: [cooling], required: true }
+      - { question: "Will recovered product stay within specification?", requires: [purification, refrigeration], required: true }
+      - { question: "Will electrolysis replace required hydrogen?", requires: [electrolysis], required: true }
+      commit: "Commit the plan"
+    question: "Build a plan that keeps crew safe, prevents another hot spot, purifies Batch C precursor gas, and produces recovery hydrogen."
+    answerText: "Fund habitat 180, cooling 120, purification 80, electrolysis 160, and refrigeration 60 kWh; omit fast charging."
+    why: "Every funded item answers a known constraint. The reserve is valuable but can be restored after the dust front; losing refrigeration wastes existing propellant, and losing purification creates off-spec product. The full pool requires accepting no discretionary margin this shift."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If purification is cut, show that production may increase while quality degrades. If thermal control is cut, invoke the Mission 10 boundary. If habitat is cut, block commitment.
+    # correct result: Fund habitat 180 + thermal 120 + purification 80 + electrolysis 160 + refrigeration 60 = 600; omit fast-charge reserve.
+    # state/output: power_plan_recovery = true; methane and oxygen projections reach target at start of Mission 14.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:
+    #     pool: {label: "Dust-limited electrical energy", value: 600, unit: kWh}
+    #     items:
+    #       - {id: habitat, label: "Protected habitat load", cost: 180}
+    #       - {id: cooling, label: "Reactor thermal control", cost: 120}
+    #       - {id: purification, label: "Product purification", cost: 80}
+    #       - {id: electrolysis, label: "Recovery electrolysis", cost: 160}
+    #       - {id: refrigeration, label: "Tank refrigeration", cost: 60}
+    #       - {id: fast_charge, label: "Optional battery fast charge", cost: 60}
+    #     questions:
+    #       - {id: crew_safe, label: "Does the habitat remain safe?", required: true, needs: [habitat]}
+    #       - {id: heat_safe, label: "Does the reactor remain below the validated heat limit?", required: true, needs: [cooling]}
+    #       - {id: fuel_clean, label: "Will recovered product stay within specification?", required: true, needs: [purification, refrigeration]}
+    #       - {id: replace_h2, label: "Will electrolysis replace required hydrogen?", required: true, needs: [electrolysis]}
+    #     correct: [habitat, cooling, purification, electrolysis, refrigeration]
+    #     pass_rule: "All required questions answered and total cost <=600 kWh."
+

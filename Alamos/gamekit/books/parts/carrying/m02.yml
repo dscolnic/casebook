@@ -1,0 +1,164 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Groundwater Recharge Estimate"
+  card:
+    header: "14 DAYS TO THE FERRY VOTE"
+    title: "Water That Comes Back"
+    goNow: "Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the rain bench."
+    body: "Yesterday defined the island system; today its freshwater ledger must close. Rain becomes usable groundwater only after losses to runoff, evaporation, and plants. At Waterworks, calculate recharge and test how dry years change it. By the end of the mission, decide the annual withdrawal ceiling the ferry study may use."
+    objective: "Set a reproducible groundwater recharge estimate."
+  objective: "Set a reproducible groundwater recharge estimate."
+  stake: "Yesterday defined the island system; today its freshwater ledger must close. Rain becomes usable groundwater only after losses to runoff, evaporation, and plants. At Waterworks, calculate recharge and test how dry years change it. By the end of the mission, decide the annual withdrawal ceiling the ferry study may use."
+  takeaway: "Withheld data tests whether a planning rule generalizes. ---"
+  segue: "Mission decision: Use 136,800 cubic metres per year as the planning withdrawal ceiling. It includes runoff, plant use, storage, dry years. And gauge bias. The ferry still appears possible. But chloride has begun rising before the summer visitor peak."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A watershed routes precipitation toward runoff, storage, plants, or groundwater."
+  - "Averages can hide drought years that control safe withdrawal."
+  - "Preserve units through area, depth, and volume calculations."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-waterworks
+    # On arrival at Waterworks | s05-route-one-year-of-rain | automatic
+    on: { enter: true, at: TODO }   # s05-route-one-year-of-rain
+    world: "Nkemdi compares fourteen rain years while the automatic gauge under-reads in wind."
+    panel: "MISSION 2: ROUTE ONE YEAR OF RAIN OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Start with route one year of rain. We need evidence the next decision can use."
+  - id: after-stop-5
+    # After Stop 5 | s06-convert-depth-to-volume | automatic
+    on: { after: [1] }
+    world: "After Stop 1: Keep the new evidence visible and."
+    panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Use the Stop 5 result to settle convert depth to volume."
+  - id: after-stop-6
+    # After Stop 6 | s07-freeze-the-estimate | automatic
+    on: { after: [2] }
+    world: "After Stop 2: Update the persistent panel and or the evidence-led waypoint."
+    panel: "STOP 6 RECORDED - STOP 7 OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Use the Stop 6 result to settle freeze the estimate."
+  - id: after-stop-7
+    # After Stop 7 | s08-set-the-ceiling | automatic
+    on: { after: [3] }
+    world: "After Stop 3: Show the combined result and unlock the decision stop."
+    panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Use the Stop 7 result to settle set the ceiling."
+  - id: at-mission-end
+    # At mission end | s05-route-one-year-of-rain | automatic
+    on: { enter: true, at: TODO }   # s05-route-one-year-of-rain
+    world: "Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue."
+    panel: "MISSION 2 EVIDENCE: RECORDED"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: arrival-bubble   # Arrival bubble
+      say: "Use the hand record; the roof gauge loses rain in crosswind."
+    - who: arrival-bubble   # Arrival bubble
+      say: "Use the hand record; the roof gauge loses rain in crosswind."
+    - who: text   # Text
+      say: "Recharge is 150 mm/year; ferry imports do not count in the water balance."
+
+  stops:
+  # --- Stop 5: Route one year of rain
+  #     Concept: water budget; Keystone: water quantity; Area: Waterworks; Learning role: INTRODUCE; Difficulty: L2; Story role: foundation.
+  #     placement: BALANCE, at s05-route-one-year-of-rain.
+  - group: WATER
+    at: rain-bench
+    title: "Route one year of rain"
+    concept: "water budget"
+    reason: "Recharge cannot be estimated until every millimetre of rain has a destination."
+    scene: "The island ledger now has a water page, but its four destination rows are blank. Close the annual depth balance before converting any part of the rainfall into groundwater, and the team needs this result before it acts."
+    motivation: "Recharge is only the fraction left after runoff, plant use, evaporation, and storage change."
+    format: BALANCE
+    question: "Using precipitation 900 mm/yr, evapotranspiration 510 mm/yr, runoff 210 mm/yr, and soil-storage increase 30 mm/yr, select every stream that counts and submit recharge in mm/yr."
+    answerText: "The completed check shows 900-510-210-30=150 mm/yr recharge."
+    why: "The full input must be conserved; feedback displays the unclosed remainder."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Counting ferry imports in the rainfall ledger mixes a zero, unrelated transport stream into the hydrologic balance; omitting storage or recharge leaves rainfall unclosed.
+    # correct result: 900-510-210-30=150 mm/yr recharge.
+    # state/output: Recharge row reads 150 mm/yr; unlocks Stop 2.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"precipitation",direction:"in",value:900,unit:"mm/year",counts:true},{id:"evapotranspiration",direction:"out",value:510,unit:"mm/year",counts:true},{id:"runoff",direction:"out",value:210,unit:"mm/year",counts:true},{id:"storage_increase",direction:"out",value:30,unit:"mm/year",counts:true},{id:"ferry_import",direction:"none",value:0,unit:"mm/year",counts:false,reason:"not a hydrologic flux"}],equation:"recharge=P-ET-runoff-storage increase",correct:150,tolerance:1,answerText:"Recharge is 150 mm/year; ferry imports do not count in the water balance."}
+
+  # --- Stop 6: Convert depth to volume
+  #     Concept: unit conversion; Keystone: water quantity; Area: Waterworks; Learning role: PRACTICE; Difficulty: L2; Story role: evidence.
+  #     placement: BALLPARK, at s06-convert-depth-to-volume.
+  - group: WATER
+    at: TODO               # the fixture it is asked at
+    title: "Convert depth to volume"
+    concept: "unit conversion"
+    reason: "The council allocates cubic metres, not millimetres of rain."
+    scene: "With recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Convert the depth across the mapped recharge zone without counting paved harbour land, and the team needs this result before it acts."
+    motivation: "A correct volume makes household and ferry demand comparable to natural replacement."
+    format: BALLPARK
+    question: "Assemble and submit annual recharge volume using 150 mm/yr, 0.001 m/mm, and 1.20 km² of recharge area with 1,000,000 m²/km². Answer in m³/yr."
+    answerText: "The completed check shows 150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr."
+    why: "One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Using 150 mm as 150 m or leaving 1.20 km2 unconverted changes the volume by orders of magnitude; paved harbour land is outside the mapped recharge area.
+    # correct result: 150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr.
+    # state/output: Gauge shows 180,000 m³/yr; unlocks Stop 2.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate.labels=[depth,mm_to_m,area,km2_to_m2]; values=[150,0.001,1.20,1000000]; slots=4; formula=product; correct=180000; target=180000; tolerance=0.02.
+
+  # --- Stop 7: Freeze the estimate
+  #     Concept: model validation; Keystone: uncertainty/evidence; Area: Chapel Council Room; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
+  #     placement: HOLDOUT, at s07-freeze-the-estimate.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Freeze the estimate"
+    concept: "model validation"
+    reason: "The mean-year estimate must survive years it was not fitted to."
+    scene: "The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe."
+    motivation: "A model that fails withheld dry years cannot set a permanent withdrawal ceiling."
+    format: HOLDOUT
+    question: "Fit either mean recharge, 20th-percentile recharge, or wet-year recharge to years 1-10; click FREEZE; reveal years 11-14; submit the rule that keeps withdrawal below recharge in at least three of four years."
+    answerText: "The completed check shows use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions."
+    why: "Holdout years test generalization; wet or mean rules overfit favorable conditions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Choosing the wet-year or mean rule overfits favorable years; choosing a rule that fails more than one hidden dry year violates the stated three-of-four criterion.
+    # correct result: Use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions.
+    # state/output: Dry-year warnings appear; unlocks Stop 2.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout.training={mean:180000,p20:144000,wet:220000}; hidden=[151000,139000,146000,128000]; criteria="withdrawal <= recharge in >=3/4"; correct_rule=p20; frozen_before_reveal=true.
+
+  # --- Stop 8: Set the ceiling
+  #     Concept: uncertainty margin; Keystone: uncertainty/evidence; Area: Chapel Council Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Nkemdi Okafor beside s08-set-the-ceiling.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Set the ceiling"
+    person: okafor
+    concept: "uncertainty margin"
+    reason: "Nkemdi must publish one planning ceiling that survives gauge and climate uncertainty."
+    scene: "Because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Stress the estimate across the hand-gauge range and choose a ceiling the council can defend."
+    motivation: "Planning below the lower credible recharge protects the aquifer when observations are imperfect."
+    format: STRESS
+    question: "Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge."
+    answerText: "The completed check shows 144,000 x 0.95 = 136,800 m³/yr; adopt that conservative ceiling."
+    why: "Negative bias lowers credible recharge; feedback shows which candidates fail at -5%."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A ceiling of 144,000 m3/year or more ignores the -5% rainfall bias; 180,000 uses the unprotected mean rather than the minimum credible recharge.
+    # correct result: 144,000 x 0.95 = 136,800 m³/yr; adopt that conservative ceiling.
+    # state/output: Ceiling posted; clue for Day 4; delivery piece 2 posts.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress.assumption=rain_bias; range=[-0.05,0.05]; base=144000; candidates=[136800,144000,151200,180000]; correct=136800; rule="ceiling <= minimum credible recharge".
+

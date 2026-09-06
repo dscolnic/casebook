@@ -1,0 +1,222 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Moving Point"
+  card:
+    header: "IMPACT WINDOW: 11 DAYS"
+    title: "THE MOVING POINT"
+    goNow: "Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the scopeboard."
+    body: "A survey camera has marked one faint point that moves while the stars stay fixed. Real asteroids shift between timed images, but hot pixels, satellites, and bad image alignment can imitate that motion. At the Coordination Office, inspect the six discovery frames and the pipeline record. By the end of the mission, decide whether this alert deserves the range's limited follow-up time."
+    objective: "Decide whether the moving point is a credible asteroid detection."
+  objective: "Decide whether the moving point is a credible asteroid detection."
+  stake: "A survey camera has marked one faint point that moves while the stars stay fixed. Real asteroids shift between timed images, but hot pixels, satellites, and bad image alignment can imitate that motion. At the Coordination Office, inspect the six discovery frames and the pipeline record. By the end of the mission, decide whether this alert deserves the range's limited follow-up time."
+  takeaway: "Verify the moving object before inferring its orbit, size, or danger. ---"
+  segue: "Mission decision: Spend follow-up time on the alert. Four clean images show one point moving while the stars stay fixed. The range accepts a real object but does not yet claim an impact or a size. The orbit team now has to learn where it is going."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Stars define a nearly fixed background over a few minutes."
+  - "A real nearby object should move smoothly across several calibrated images."
+  - "One convincing-looking frame is weaker than several independent checks."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coordination-office
+    # On arrival at Coordination Office | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Lena Ortiz, survey and discovery lead, drags a satellite trail away from the candidate and says, \"Show me the pixels before anyone shows me a probability.\" Timer pauses; Continue unlocks Stop 1."
+    panel: "THE MOVING POINT / MISSION ACTIVE"
+    # unlocks: Stop 1.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-1
+    # After Stop 1 | automatic | 
+    on: { after: [1] }
+    world: "The scopeboard labels four frames CONSISTENT MOTION and one frame CONTAMINATED, NOT DISCARDED."
+    panel: "THE MOVING POINT / FIRST RESULT LOGGED"
+    # unlocks: Stop 2.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-2
+    # After Stop 2 | automatic | 
+    on: { after: [2] }
+    world: "The pipeline path lights from calibrated image to linked tracklet; the plate archive drawer opens."
+    panel: "THE MOVING POINT / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 3.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-3
+    # After Stop 3 | automatic | 
+    on: { after: [3] }
+    world: "The detector map marks the hot pixel elsewhere; the 0.7 s timestamp offset receives a yellow CHECK tag."
+    panel: "THE MOVING POINT / DECISION EVIDENCE READY"
+    # unlocks: Stop 4.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Mira Chen, International NEO Response Director, moves the alert from AUTOMATED to HUMAN-VERIFIED and opens the Orbit Determination call."
+    panel: "THE MOVING POINT / MISSION DECISION LOGGED"
+    # unlocks: Mission 1 outcome, metric screen, concept review, and Mission 2 briefing.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 1: What moved?
+  #     Concept: apparent motion; Keystone: measurement versus inference; Area: Survey Telescope; Learning role: INTRODUCE; Difficulty: L1; Story role: clue.
+  #     placement: CHOICE, asked by Lena Ortiz beside scopeboard.
+  - group: OPS
+    at: scopeboard
+    title: "What moved?"
+    person: TODO   # the roster id of whoever asks it
+    concept: "apparent motion"
+    reason: "Lena needs a physical test before protecting the alert from automatic rejection."
+    scene: "Six timed images show one faint point beside fixed stars, a long satellite streak, and a known bad detector column. The first task is to identify which pattern can represent one object moving through the sky."
+    motivation: "Choosing the physical motion pattern decides whether the remaining frames deserve a linked-track test."
+    format: CHOICE
+    question: "Select the observation that is hardest for an artifact to imitate."
+    choices:
+    - "A point appears once on a known bad detector column."
+    - "A point shifts smoothly across four timed frames while stars remain fixed."
+    - "A straight bright streak crosses one exposure."
+    - "Every star shifts by the same amount after image alignment."
+    answer: "A point shifts smoothly across four timed frames while stars remain fixed."
+    answerText: "The repeated point moves while the reference stars do not, so it can be one nearby object."
+    why: "Differential motion across calibrated images is evidence for a moving source; one-frame features are not."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   in the interaction block, keyed per option
+    # correct result: Smooth motion in four frames against fixed stars.
+    # state/output: Candidate frames gain a REAL-MOTION flag; Stop 2 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   question: Which observation best supports a real nearby object?
+    #   choices:
+    #     - A point appears once on a known bad detector column.
+    #     - A point shifts smoothly across four timed frames while stars remain fixed.
+    #     - A straight bright streak crosses one exposure.
+    #     - Every star shifts by the same amount after image alignment.
+    #   answer: A point shifts smoothly across four timed frames while stars remain fixed.
+    #   why: Differential motion repeated in calibrated frames supports one moving source without making an orbit or size claim.
+    #   rebuttals:
+    #     "A point appears once on a known bad detector column.": A detector-fixed feature stays tied to the same pixels and supplies no repeated sky path.
+    #     "A straight bright streak crosses one exposure.": A one-frame streak can be a satellite and does not reproduce the candidate's four timed point detections.
+    #     "Every star shifts by the same amount after image alignment.": Motion shared by the entire star field signals a registration error, not one nearby moving body.
+
+  # --- Stop 2: Rebuild the discovery chain
+  #     Concept: discovery pipeline; Keystone: telescope limits; Area: Survey Telescope; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: SEQUENCE, at archive-bench.
+  - group: OPS
+    at: TODO               # the fixture it is asked at
+    title: "Rebuild the discovery chain"
+    concept: "discovery pipeline"
+    reason: "The moving pattern matters only if each image reached the alert through a valid processing chain."
+    scene: "With physical motion identified, the team must prove that calibration and linking happened before the alert was issued. Rebuild the pipeline so a later reviewer can see where a false point would have entered."
+    motivation: "A correctly ordered record exposes which checks are independent and where the timestamp clue belongs."
+    format: SEQUENCE
+    question: "Put the discovery steps in the order needed to make the alert auditable."
+    answerText: "The alert is meaningful because calibrated detections were linked before the candidate was promoted."
+    why: "Linking before calibration or artifact checks can turn detector or alignment errors into false motion."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Begin with what converts pixels and timestamps into comparable sky measurements.
+    # correct result: Calibration → detection → linking → catalog/artifact comparison → alert.
+    # state/output: The pipeline path illuminates; the archive drawer and Stop 3 unlock.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards:
+    #     - Calibrate detector and sky coordinates
+    #     - Detect sources in each exposure
+    #     - Link positions consistent with one moving object
+    #     - Compare with known objects and artifact masks
+    #     - Issue candidate alert for human review
+    #   order:
+    #     - Calibrate detector and sky coordinates
+    #     - Detect sources in each exposure
+    #     - Link positions consistent with one moving object
+    #     - Compare with known objects and artifact masks
+    #     - Issue candidate alert for human review
+
+  # --- Stop 3: Explain every clue
+  #     Concept: artifact rejection; Keystone: measurement versus inference; Area: Survey Telescope; Learning role: COMBINE; Difficulty: L3; Story role: clue.
+  #     placement: CASEBOOK, asked by Lena Ortiz beside review-desk.
+  - group: OPS
+    at: desk
+    title: "Explain every clue"
+    person: TODO   # the roster id of whoever asks it
+    concept: "artifact rejection"
+    reason: "One unexplained clue is enough to block a human-verified detection."
+    scene: "Because the pipeline is now ordered, each suspicious feature can be tied to a physical cause or left unresolved. Match the frame evidence to explanations before the director accepts the moving point as real."
+    motivation: "Explaining the satellite, hot pixel, star alignment, and candidate separately prevents one cause from being stretched to fit every feature."
+    format: CASEBOOK
+    question: "Match each observation to the explanation that accounts for it without contradicting the others."
+    choices:
+    - "Smooth moving source"
+    - "Satellite trail"
+    - "Hot pixel"
+    - "Successful image registration"
+    answerText: "Each artifact has its own signature, and none explains the candidate's repeated smooth motion."
+    why: "A valid explanation must fit the relevant observation without breaking quiet evidence elsewhere."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Ask whether the feature stays on one detector location, crosses one exposure, or moves between sky coordinates.
+    # correct result: Candidate→moving source; line→satellite; fixed point→hot pixel; stars→good registration.
+    # state/output: Three false features receive labels; the candidate remains unmasked; Stop 4 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios:
+    #     - Candidate shifts 18, 19, and 18 arcsec between clean frames.
+    #     - Bright line crosses only frame 3.
+    #     - Fixed bright point lies on detector column 1842 in every dark frame.
+    #     - All catalog stars align within 0.12 arcsec.
+    #   choices:
+    #     - Smooth moving source
+    #     - Satellite trail
+    #     - Hot pixel
+    #     - Successful image registration
+    #   mapping:
+    #     candidate: Smooth moving source
+    #     line: Satellite trail
+    #     fixed_point: Hot pixel
+    #     stars: Successful image registration
+
+  # --- Stop 4: Certify only what is known
+  #     Concept: claim verification; Keystone: thresholds and verification; Area: Coordination Office; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: ATTEST, asked by Mira Chen beside delivery-desk.
+  - group: OPS
+    at: desk
+    title: "Certify only what is known"
+    person: TODO   # the roster id of whoever asks it
+    concept: "claim verification"
+    reason: "Mira will release follow-up time only for claims backed by records the range can defend."
+    scene: "Because every image feature now has an explanation, the detection claim can be audited without claiming an orbit or size. Verify the statements that are backed, and leave the tempting unsupported statements unsigned."
+    motivation: "A narrow verified claim starts the next investigation without turning assumptions into facts."
+    format: ATTEST
+    question: "Sign every claim the evidence supports and no claim that still depends on an assumption."
+    answerText: "The range has a credible moving-object detection, not yet an impact prediction."
+    why: "Scientific attestation separates direct evidence from model-dependent conclusions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If a statement requires distance, orbit, albedo, or an unaudited timestamp, it is not yet backed.
+    # correct result: Sign motion and artifact rejection only.
+    # state/output: Alert status becomes HUMAN-VERIFIED; ORBIT call unlocks; the timestamp CHECK tag persists.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 4
+    #     claims:
+    #       - {id: motion, text: The source moves smoothly in four calibrated frames, backed: true, critical: true}
+    #       - {id: artifact, text: Known detector and satellite artifacts do not explain it, backed: true, critical: true}
+    #       - {id: time, text: All timestamps are independently verified, backed: false, critical: true}
+    #       - {id: impact, text: The object will strike Earth, backed: false, critical: true}
+    #       - {id: size, text: The object is about 100 m wide, backed: false, critical: false}
+    #     correct_claims: [motion, artifact]
+    #     answerText: Certify a real moving source; do not certify its orbit, impact, size, or the one offset timestamp.
+

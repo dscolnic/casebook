@@ -1,0 +1,166 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Basket"
+  card:
+    header: "13 DAYS TO CHANGEOVER"
+    title: "The Basket"
+    goNow: "Go to PRICES and meet Lina Saye, price statistics lead, at the basket table."
+    body: "Real GDP showed that prices, not output, drove the headline, but the price measure may overstate what families face. A consumer price index prices the same basket over time, so old weights and forced substitutions can distort it. You will rebuild the basket and calculate inflation. By the end of the mission, decide whether to keep or revise the official index."
+    objective: "Test whether the fixed basket represents current household costs."
+  objective: "Test whether the fixed basket represents current household costs."
+  stake: "Real GDP showed that prices, not output, drove the headline, but the price measure may overstate what families face. A consumer price index prices the same basket over time, so old weights and forced substitutions can distort it. You will rebuild the basket and calculate inflation. By the end of the mission, decide whether to keep or revise the official index."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: The gap is 34.8 billion RATE. Job data show weak demand. The fuel shock raised prices. Next, test how spending moves through the economy."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-prices
+    # On arrival at PRICES | basket-table | automatic
+    on: { enter: true, at: PRICES }
+    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Test whether the fixed basket represents current household costs. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Test whether the fixed basket represents current household costs."
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "Start with price the fixed basket. We need evidence the next decision can use."
+  - id: after-stop-9
+    # After Stop 9 | price-history-board | automatic
+    on: { after: [1] }
+    world: "The price the fixed basket result remains visible while the calculate the printed inflation fixture lights."
+    panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "The fixed basket CPI is 108."
+  - id: after-stop-10
+    # After Stop 10 | basket-table | automatic
+    on: { after: [2] }
+    world: "The calculate the printed inflation result remains visible while the does the basket represent families? fixture lights."
+    panel: "108−100"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "The official basket reports 5.88% inflation."
+  - id: after-stop-11
+    # After Stop 11 | basket-table | automatic
+    on: { after: [3] }
+    world: "The does the basket represent families? result remains visible while the keep history and repair representation fixture lights."
+    panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "Inflation is positive, but 5.88% depends strongly on the stale energy weight."
+  - id: at-mission-end
+    # At mission end | basket-table | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 3 signed; port-energy clue logged; Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 3 EVIDENCE: RECORDED"
+    bubbles:
+    - who: saye   # Lina Saye
+      say: "The arithmetic stays. The claim gets narrower."
+    - who: saye   # the bible's "arrival", from this mission's own goNow line
+      say: "If we change the basket whenever it hurts, it is no index. If we never change it, it may be nobody's basket."
+
+  stops:
+  # --- Stop 9: Price the fixed basket
+  #     Concept: CPI; Keystone: inflation; Area: Statistics Floor; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: DERIVE, at basket-table.
+  - group: STATS
+    at: basket-table
+    title: "Price the fixed basket"
+    concept: "CPI"
+    reason: "Lina needs the official price level reproduced before its weights are challenged."
+    scene: "The base basket cost 200 crowns; the identical quantities now cost 216 crowns after shops apply conversion labels. Build the CPI calculation first, so any later criticism begins from the official method rather than suspicion."
+    motivation: "Reproducing the index separates a calculation error from a design problem."
+    format: DERIVE
+    question: "Use CPI=current/base×100; build the derivation and submit the index, no unit."
+    answerText: "The completed check shows 108 ±0.1. **answerText:** \"The fixed basket CPI is 108.\"."
+    why: "Reproducing the index separates a calculation error from a design problem."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   CPI is an index, not 8%.
+    # correct result: 108 ±0.1. **answerText:** "The fixed basket CPI is 108."
+    # state/output: S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["CPI=216/200×100","CPI=1.08×100","CPI=108"],licenses:["definition","division","scale"],correct_order:[1,2,3]}
+
+  # --- Stop 10: Calculate the printed inflation
+  #     Concept: inflation rate; Keystone: inflation; Area: Statistics Floor; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, at price-history-board.
+  - group: STATS
+    at: price-history-board
+    title: "Calculate the printed inflation"
+    concept: "inflation rate"
+    reason: "The warning needs a rate, not just an index level."
+    scene: "With the new CPI fixed at 108 and last year's CPI at 102, calculate the percentage change the public bulletin will show. The board must know the exact headline before testing whether it represents households."
+    motivation: "Inflation is the percentage change in the index, not the index's distance from 100."
+    format: DERIVE
+    question: "Use (108−102)/102×100%; derive and submit the inflation rate in percent."
+    answerText: "The completed check shows 5.88%, ±0.05. **answerText:** \"The official basket reports 5.88% inflation.\"."
+    why: "Inflation is the percentage change in the index, not the index's distance from 100."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   108−100 is not the year-to-year rate.
+    # correct result: 5.88%, ±0.05. **answerText:** "The official basket reports 5.88% inflation."
+    # state/output: headline posts; S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["ΔCPI=6","6/102=0.0588235","inflation=5.88%"],licenses:["difference","relative change","percent"],correct_order:[1,2,3]}
+
+  # --- Stop 11: Does the basket represent families?
+  #     Concept: CPI bias/weights; Keystone: Evidence integrity; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L4; Story role: reversal.
+  #     placement: STRESS, asked by Lina Saye beside basket-table.
+  - group: STATS
+    at: basket-table
+    title: "Does the basket represent families?"
+    person: saye
+    concept: "CPI bias/weights"
+    reason: "A valid calculation may still answer the wrong household question."
+    scene: "Because the official rate is 5.88%, Lina tests the old 30% imported-energy weight against current household shares of 15% to 25%. Move the weight through that range and watch which inflation conclusions survive."
+    motivation: "Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement."
+    format: STRESS
+    question: "Move the weight from 15% through 30%, inspect every displayed inflation rate, and submit the conclusion that survives the full range. **answerText:** \"Inflation is positive, but 5.88% depends strongly on the stale energy weight.\""
+    answerText: "The completed check shows the keyed result shown by the completed interaction."
+    why: "Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: revised basket unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:{assumption:"imported-energy weight",min:0.15,max:0.30,step:0.05,candidates:[{id:"broad_5_88",survives:[0.30]},{id:"range",survives:[0.15,0.20,0.25,0.30]},{id:"zero",survives:[]}],readings:{0.15:3.1,0.20:3.7,0.25:4.4,0.30:5.88},correct:"range"}
+
+  # --- Stop 12: Keep history and repair representation
+  #     Concept: index publication; Keystone: Evidence/inflation; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: VALUE, asked by Lina Saye beside basket-table.
+  - group: STATS
+    at: basket-table
+    title: "Keep history and repair representation"
+    person: saye
+    concept: "index publication"
+    reason: "The board can fund only one publication repair before tomorrow's bulletin."
+    scene: "The official method is reproducible, yet its energy weight overstates many households' current exposure. Choose the evidence package that preserves the historical series while revealing how a representative current basket changes the result."
+    motivation: "Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias."
+    format: VALUE
+    question: "Spend exactly 60 evidence points and submit the publication plan. **answerText:** \"Keep the fixed CPI and publish a current-weight companion with the weight audit.\""
+    answerText: "The completed check shows the keyed result shown by the completed interaction."
+    why: "Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 3 signed; port-energy clue logged.
+    # CONVERTED. The bible's payload was:
+    #   value:{budget:60,options:[{id:"parallel",cost:45,required:true,axis:"fixed CPI plus current-weight companion"},{id:"audit",cost:15,required:true,axis:"weight audit"},{id:"ads",cost:30,axis:"publicity"},{id:"erase",cost:25,axis:"replace history"}],correct:["parallel","audit"]}
+    # `budget` becomes `budget.amount`; the bible's `required` — which is also its
+    # `correct` list — is the engine's `decisive`. The bible names each option only
+    # by its `axis`, so that phrase is the option's label as well; no wording of it
+    # is changed. 45+15+30+25 = 115 against 60, and the two decisive ones cost 60.
+    value:
+      budget: { amount: 60, unit: "evidence points" }
+      options:
+      - { id: parallel, label: "fixed CPI plus current-weight companion", axis: "fixed CPI plus current-weight companion", cost: 45, decisive: true }
+      - { id: audit, label: "weight audit", axis: "weight audit", cost: 15, decisive: true }
+      - { id: ads, label: "publicity", axis: "publicity", cost: 30 }
+      - { id: erase, label: "replace history", axis: "replace history", cost: 25 }
+

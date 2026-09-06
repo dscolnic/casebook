@@ -1,0 +1,181 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Missing Outcomes"
+  card:
+    header: "DAY 7 - BOARD IN 9 DAYS"
+    title: "The Missing Outcomes"
+    goNow: "Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the query map."
+    body: "The amendment repairs enrollment, but many rural outcomes are still missing at day 30. Regression predicts one quantitative variable from another and residuals show where the prediction fails. At Site Operations, model missingness by travel distance, then test its residual pattern at Data Management. By the end of the mission, decide whether complete-case analysis is defensible."
+    objective: "Set the missing-data rule."
+  objective: "Set the missing-data rule."
+  stake: "The amendment repairs enrollment, but many rural outcomes are still missing at day 30. Regression predicts one quantitative variable from another and residuals show where the prediction fails. At Site Operations, model missingness by travel distance, then test its residual pattern at Data Management. By the end of the mission, decide whether complete-case analysis is defensible."
+  takeaway: "Residual patterns test model form."
+  segue: "Mission decision: Do not use only patients with complete records. Recover results by travel band. Delay grows with travel distance. One fast site changes the fitted line. The fix needs four more days of follow-up."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Describe direction, form, strength, and outliers."
+  - "Correlation measures linear association, not causation."
+  - "Extrapolation beyond observed x-values is unreliable."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-monitors-room
+    # On arrival at Monitors' Room | query-map | automatic
+    on: { enter: true, at: SITE }
+    world: "Arrival: MONITOR entry; query map visible; Eli says, ; timer pauses; - After S1-S2: fitted line appears; waypoint TAKE MODEL ID L7 TO DATA; travel unlocks. - DATA arrival/after S3: residual candidates render; selected field remains; - Final: restored influence control; panel reads DISTANCE-LINKED; binder 7 fills; outcome unlocks."
+    panel: "MISSION 7: DESCRIBE THE RELATIONSHIP OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "The missing rows have addresses"
+  - id: after-stop-25
+    # After Stop 25 | monitor-desk | automatic
+    on: { after: [1] }
+    world: "The describe the relationship result remains visible while the build and read the line fixture lights."
+    panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "Use the Stop 25 result to settle build and read the line."
+  - id: after-stop-26
+    # After Stop 26 | deletion-diagnostic | automatic
+    on: { after: [2] }
+    world: "The build and read the line result remains visible while the read the residual fixture lights."
+    panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "Use the Stop 26 result to settle read the residual."
+  - id: after-stop-27
+    # After Stop 27 | site-comparison-board | automatic
+    on: { after: [3] }
+    world: "The read the residual result remains visible while the test the fast-site point fixture lights."
+    panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "Use the Stop 27 result to settle test the fast-site point."
+  - id: at-mission-end
+    # At mission end | query-map | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 7 EVIDENCE: RECORDED"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 25: Describe the Relationship
+  #     Concept: scatterplot/correlation; Keystone: keystone regression/sampling bias; Area: Endpoint Adjudication; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: CHOICE, asked by Eli Navarro beside query-map.
+  - group: ENDP
+    at: query-map
+    title: "Describe the Relationship"
+    person: navarro
+    concept: "scatterplot/correlation"
+    reason: "The team needs an honest description before fitting a line."
+    scene: "Rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. Describe direction, form, strength, and the unusual point without claiming causation."
+    motivation: "If delay is associated with distance, complete cases may systematically omit remote patients."
+    format: CHOICE
+    question: "Submit one selection from the four distinct choice items below."
+    choices:
+    - "Strong positive, roughly linear association with one high-leverage point."
+    - "Strong negative linear association with no unusual points."
+    - "No association because correlation does not prove causation."
+    - "A categorical difference that should be shown with a bar chart."
+    answer: "Strong positive, roughly linear association with one high-leverage point."
+    answerText: "The completed check shows strong positive, roughly linear association with a high-leverage point. Use correlation only for two quantitative variables."
+    why: "If delay is associated with distance, complete cases may systematically omit remote patients."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: Strong positive, roughly linear association with a high-leverage point. Use correlation only for two quantitative variables.
+    # state/output: relationship tag; S2.
+
+  # --- Stop 26: Build and Read the Line
+  #     Concept: LSRL; Keystone: keystone regression; Area: Endpoint Adjudication; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, at monitor-desk.
+  - group: ENDP
+    at: monitor-desk
+    title: "Build and Read the Line"
+    concept: "LSRL"
+    reason: "Monitors need a prediction rule to prioritize overdue visits."
+    scene: "The scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Derive slope and intercept, then interpret both values in patient follow-up context."
+    motivation: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning."
+    format: DERIVE
+    question: "b=.8(4/20)=.16 day/km; a=6-.16(50)=-2 days; y-hat=-2+.16x. Licenses slope formula, passes through means, substitute. Submit pair b=.16 day/km, a=-2 days."
+    answerText: "The completed check shows each additional kilometer predicts .16 more day of delay. The -2-day intercept at 0 km is not meaningful here; do not extrapolate beyond observed distances."
+    why: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   pair: b in day/km, a in days
+    # correct result: Each additional kilometer predicts .16 more day of delay. The -2-day intercept at 0 km is not meaningful here; do not extrapolate beyond observed distances.
+    # state/output: line drawn; travel unlock.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"least-squares slope and intercept","givens":["r=0.80","xbar=50 km","sx=20 km","ybar=6 days","sy=4 days"],"lines":[{"id":"L1","expression":"b=r(sy/sx)=0.8(4/20)=0.16 day/km","license":"state governing relationship"},{"id":"L2","expression":"a=ybar-bxbar=6-0.16(50)=-2 days","license":"substitute displayed values"},{"id":"L3","expression":"yhat=-2+0.16x","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["b=4.0","a=+2"],"correct_result":"b=0.16 day/km, a=-2 days","answerText":"Each added kilometre predicts 0.16 day more delay; the -2-day intercept lies outside a meaningful context."}
+
+  # --- Stop 27: Read the Residual
+  #     Concept: residual plots/nonlinearity; Keystone: keystone regression; Area: Endpoint Adjudication; Learning role: PRACTICE; Difficulty: L3; Story role: reveal.
+  #     placement: RESIDUAL, at deletion-diagnostic.
+  - group: ENDP
+    at: deletion-diagnostic
+    title: "Read the Residual"
+    concept: "residual plots/nonlinearity"
+    reason: "A good correlation can still hide a model failure that biases recovered outcomes."
+    scene: "With the line established, Data Management reveals residuals by distance band. Compare the candidate residual fields and reject the lowest-RMS fit if it leaves a curved or fan-shaped pattern behind."
+    motivation: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete."
+    format: RESIDUAL
+    question: "fields A random scatter RMS2.1, B U-shape RMS1.8, C fan RMS1.9; correct A despite higher RMS; residual sign labels positive=underprediction, negative=overprediction."
+    answerText: "The completed check shows choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS."
+    why: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Lowest RMS always wins; reject structured error
+    # correct result: Choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS.
+    # state/output: random-field model retained; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual: {visible_prompt: "fields A random scatter RMS2.1, B U-shape RMS1.8, C fan RMS1.9; correct A despite higher RMS; residual sign labels positive=underprediction, negative=overprediction.", keyed_result: "Choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS.", feedback: "Lowest RMS always wins; reject structured error", answerText: "Use the keyed result and explanation printed below."}
+
+  # --- Stop 28: Test the Fast-Site Point
+  #     Concept: outlier/leverage/influence and missingness; Keystone: keystone regression/sampling bias; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: CONTROL, at site-comparison-board.
+  - group: ENDP
+    at: site-comparison-board
+    title: "Test the Fast-Site Point"
+    concept: "outlier/leverage/influence and missingness"
+    reason: "The complete-case rule depends on whether one extreme-x site controls the line."
+    scene: "The residual field is acceptable, but the far-right fast-site point may pull the fitted slope. Remove that point while holding all other records fixed, refit, measure slope change, then restore it."
+    motivation: "A substantial line change makes the point influential and blocks an unqualified complete-case analysis."
+    format: CONTROL
+    question: "Choose fast-site point from candidate controls fast-site point, ordinary residual-outlier point, and display scale. Measure slope at 0.16 day/km, change only the fast-site-point control by removing that point while all other records and the fitted method remain fixed, measure the slope after refitting, restore the point and remeasure, then submit both slopes and whether the point is influential."
+    # MODEL CONVERSION. The bible's `candidates` are the engine's `variables` and
+    # `correct_control` is its `truth`; `fixed` is `held`; `noise_band.value` is
+    # `noise`. The one real conversion is `response`: the bible states the two
+    # slopes (0.16 day/km before, 0.10 day/km after the refit) and the engine
+    # wants the signed change between them, so 0.10 - 0.16 = -0.06 day/km.
+    # The restore step is the engine's own behaviour and needs no field.
+    control:
+      observable: { label: "Slope", unit: "day/km" }
+      variables:
+      - { id: fast_site, label: "fast-site point" }
+      - { id: residual_outlier, label: "ordinary residual-outlier point" }
+      - { id: display_scale, label: "display scale" }
+      held: ["all other records", "least-squares method"]
+      truth: fast_site
+      baseline: 0.16
+      response: -0.06
+      noise: 0.005
+      changeVerb: "Remove"
+      run: "Refit the line"
+      commit: "Name the influential control"
+    answerText: "Removal changes slope from .16 to .10, a large change, so the point is influential. Complete cases overrepresent nearby patients."
+    why: "A substantial line change makes the point influential and blocks an unqualified complete-case analysis."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   three readings in day/km and conclusion pair
+    # correct result: Baseline 0.16 day/km; refit 0.10 day/km; restored reading 0.16 day/km; conclusion pair influential and reject unadjusted complete cases; numeric tolerance 0.005 day/km.
+    # state/output: MISSINGNESS: DISTANCE-LINKED; binder 7; M8.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"fast_site",label:"fast-site point"},{id:"residual_outlier",label:"ordinary residual-outlier point"},{id:"display_scale",label:"display scale"}],correct_control:"fast_site",baseline:{slope:0.16,unit:"day/km"},response:{slope:0.10,unit:"day/km"},noise_band:{value:0.005,unit:"day/km"},fixed:["all other records","least-squares method"],measure_when:"after each refit",restore:{required:true,slope:0.16,unit:"day/km",remeasure:true},correct_conclusion:"influential point",answerText:"Removing the fast-site point changes slope from 0.16 to 0.10 day/km, far beyond noise; restoration recovers 0.16."}
+

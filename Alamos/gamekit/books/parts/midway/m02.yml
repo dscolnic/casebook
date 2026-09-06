@@ -1,0 +1,192 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "What Pushes Back"
+  card:
+    header: "14 DAYS UNTIL COUNTY INSPECTION"
+    title: "WHAT PUSHES BACK"
+    goNow: "Go to the Pirate Ship console and meet Luka Kovač, the mechanical lead, beside the seat frame."
+    body: "The Ferris Wheel brake matched its prediction, so one common brake failure is less certain. The pirate ship carries riders through supports that must balance weight before the ship ever swings. At its console, choose the system, draw the forces, and test the loaded frame. By the end of the mission, decide whether a weak support explains the October stop."
+    objective: "Decide whether the pirate ship's supports fail under the required static load."
+  objective: "Decide whether the pirate ship's supports fail under the required static load."
+  stake: "The Ferris Wheel brake matched its prediction, so one common brake failure is less certain. The pirate ship carries riders through supports that must balance weight before the ship ever swings. At its console, choose the system, draw the forces, and test the loaded frame. By the end of the mission, decide whether a weak support explains the October stop."
+  takeaway: "A static pass rules out a weak support under that load; it does not certify driven motion."
+  segue: "Mission decision: A weak support did not cause the October stop. The loaded frame holds the expected weight. It returns to zero after the load is gone. The next test will study the force that turns a ride."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Draw forces acting on the chosen system, not forces it exerts on other objects."
+  - "A stationary object may have several nonzero forces whose vector sum is zero."
+  - "The normal force or support force is not automatically equal to one object's weight."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-pirate-ship-console
+    # On arrival at Pirate Ship console | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Kovač checks the unloaded frame."
+    panel: "STOP 5 READY"
+    # unlocks: Stop 5.
+    bubbles:
+    - who: luka-kova   # Luka Kovač
+      say: "Before we blame controls, prove the machine can carry people while standing still."
+  - id: after-stop-5
+    # After Stop 5 | automatic | 
+    on: { after: [1] }
+    world: "A boundary appears around ship plus riders."
+    panel: "SYSTEM CHOSEN"
+    # unlocks: Stop 6.
+    bubbles:
+    - who: luka-kova   # Luka Kovač
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stops-6-and-7
+    # After Stops 6 and 7 | automatic | 
+    on: { after: [2, 3] }
+    world: "Both support arrows illuminate at 79.4 kN."
+    panel: "STOP 8 READY"
+    # unlocks: Stop 8.
+    bubbles:
+    - who: luka-kova   # Luka Kovač
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-8
+    # After Stop 8 | automatic | 
+    on: { after: [4] }
+    world: "The loaded frame remains level and lateral gauges stay quiet."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: luka-kova   # Luka Kovač
+      say: "The supports carry the load. That does not tell us what the drive did."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The Carousel Drive House waypoint activates."
+    panel: "NEXT QUESTION: WHAT FORCE MAKES A RIDE TURN?"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: luka-kova   # Luka Kovač
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 5: Choose the system
+  #     Concept: system boundary; Keystone: systems and forces; Area: Pirate Ship console; Learning role: INTRODUCE; Difficulty: L1; Story role: obstacle.
+  #     placement: CHOICE, asked at Luka Kovač beside seat-frame.
+  - group: SHIP
+    at: seat-frame
+    title: "Choose the system"
+    person: kovac
+    concept: "system boundary"
+    reason: "The load calculation changes if riders are left outside the chosen system."
+    scene: "The empty ship and sixty riders will be tested together, but the notebooks list their masses separately. Choose a system that includes everything the two main supports must carry during the test."
+    motivation: "The system boundary decides which masses belong in the support-load calculation."
+    format: CHOICE
+    question: "Submit one system-setting choice for the static support test: ship plus all riders, riders only, one support only, or Earth plus the entire park."
+    choices:
+    - "Ship plus all riders"
+    - "Riders only"
+    - "One support only"
+    - "Earth plus the entire park"
+    answer: "Ship plus all riders"
+    answerText: "Choose the ship plus all riders as the system."
+    why: "Both supports act on the combined vehicle-and-rider load. Leaving riders outside omits weight; choosing one support alone does not describe what the pair carries."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) Riders only omits the ship's weight. (3) One support only analyzes a support instead of the carried load. (4) Earth plus the entire park makes the relevant support interaction internal and includes unrelated objects.
+    # correct result: Choice 1 - ship plus all riders.
+    # state/output: Draw the system boundary and unlock the FBD rail.
+
+  # --- Stop 6: Build the force picture
+  #     Concept: free-body diagram method; Keystone: systems and forces; Area: Pirate Ship console; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: SEQUENCE, asked at arm-trestles.
+  - group: SHIP
+    at: arm-trestles
+    title: "Build the force picture"
+    person: TODO   # the roster id of whoever asks it
+    concept: "free-body diagram method"
+    reason: "The calculation needs every external force and no reaction-force duplicates."
+    scene: "With the combined system chosen, build its free-body diagram before inserting numbers. The ordered method prevents the ship's own forces on the supports from being drawn as extra forces on the ship."
+    motivation: "A correct diagram keeps Newton's third-law partner forces on different systems."
+    format: SEQUENCE
+    question: "Submit one ordered plan containing all five free-body-diagram steps, from drawing the chosen system through writing sum Fy = 0."
+    answerText: "Isolate the system, draw only external forces, choose an axis, and then write the component equation."
+    why: "Forces the ship exerts on the supports are third-law partners acting on another system. They do not belong on this diagram."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If a reaction force appears on the same diagram, ask which object that force acts on.
+    # correct result: Order: isolate system → external forces → axis → component equation.
+    # state/output: Display the completed FBD above the bench.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards: ["Draw the chosen system", "Add total weight downward", "Add left and right support forces upward", "Choose vertical positive", "Write sum Fy = 0"]
+    #   order: ["Draw the chosen system", "Add total weight downward", "Add left and right support forces upward", "Choose vertical positive", "Write sum Fy = 0"]
+
+  # --- Stop 7: Divide the load
+  #     Concept: static equilibrium; Keystone: systems and forces; Area: Pirate Ship console; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: BALANCE, asked at ship-console-board.
+  - group: SHIP
+    at: floor-console
+    title: "Divide the load"
+    person: TODO   # the roster id of whoever asks it
+    concept: "static equilibrium"
+    reason: "Hart needs the expected support reading before applying the test mass."
+    scene: "The force diagram now shows only total weight and two upward support forces. Calculate the equal reading expected from each support so the live gauges have a prewritten target before loading."
+    motivation: "Equal support readings are predicted only because the test load is centered and acceleration is zero."
+    format: BALANCE
+    question: "Given empty-ship mass 12,000 kg, 60 riders at 70 kg each, g = 9.80 m/s^2, two equal supports, and F_left + F_right = mg, submit the included force streams, total weight in kN, and one support-force number in kN."
+    answerText: "Each support should carry 79.38 kN during the centered static test."
+    why: "In equilibrium, Fleft + Fright - mg = 0. Symmetry makes the two upward forces equal."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not set each support equal to the full weight; together they balance it.
+    # correct result: Total 158.76 kN; left support 79.38 kN; right support 79.38 kN.
+    # state/output: Put 79.4 kN target marks on both gauges.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: "Total downward weight", value: 158.76, unit: kN}
+    #     streams:
+    #       - {id: left, label: "Left support", value: 79.38, unit: kN, count: true}
+    #       - {id: right, label: "Right support", value: 79.38, unit: kN, count: true}
+    #       - {id: drive, label: "Horizontal drive while off", value: 0, unit: kN, count: false}
+    #     correct_action: "Count both vertical supports; exclude the unpowered drive."
+
+  # --- Stop 8: Diagnose the loaded frame
+  #     Concept: net force and support response; Keystone: systems and forces; Area: Pirate Ship console; Learning role: COMBINE; Difficulty: L3; Story role: decision.
+  #     placement: DIAGNOSIS, asked at ship-diagnostic-panel.
+  - group: SHIP
+    title: "Diagnose the loaded frame"
+    person: TODO   # the roster id of whoever asks it
+    concept: "net force and support response"
+    reason: "The weak-support theory must fit the load readings, including the quiet sideways gauges."
+    scene: "The centered test mass is now on the ship, and both supports settle near the predicted value. Read every channel, including the quiet lateral gauges, before naming the condition of the frame."
+    motivation: "A failed support must create a force imbalance or deformation pattern that the full panel can reveal."
+    format: DIAGNOSIS
+    question: "Submit one conclusion that explains the left reading 79.6 kN, right reading 79.2 kN, lateral force 0.3 kN, and permanent offset 0.0 mm together."
+    choices:
+    - "{id: weak_left, label: \"Weak left support\", mechanism: \"Would shift load or leave offset.\"}"
+    - "{id: bent_frame, label: \"Bent frame\", mechanism: \"Would create lateral load or permanent offset.\"}"
+    - "{id: static_pass, label: \"Static load path matches the force model\", mechanism: \"Both vertical readings match and quiet channels stay quiet.\"}"
+    - "{id: no_gravity, label: \"Weight vanished\", mechanism: \"Measured upward forces still balance weight.\"}"
+    answerText: "The static load path matches the force model; a weak support does not explain the October stop."
+    why: "The two readings sum to the expected weight, remain nearly equal, and show no lateral load or permanent offset."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (weak_left) A weak left support should shift the vertical load split or leave offset; neither occurs. (bent_frame) A bent frame should create lateral force or permanent offset; both channels stay quiet. (no_gravity) The measured support forces still balance weight, so gravity has not vanished.
+    # correct result: Select static_pass; reject weak-support, bent-frame, and gravity-change diagnoses.
+    # state/output: Set evidence_flags.ship_static_pass = true; support lamps turn amber.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "PIRATE SHIP STATIC LOAD TEST"
+    #   readings:
+    #     - {zone: left, label: "Left vertical", value: "79.6 kN", state: quiet}
+    #     - {zone: right, label: "Right vertical", value: "79.2 kN", state: quiet}
+    #     - {zone: lateral, label: "Side force", value: "0.3 kN", state: quiet}
+    #     - {zone: frame, label: "Permanent offset after unload", value: "0.0 mm", state: quiet}
+    #     - {zone: october, label: "October stopping event", value: "still unexplained by the passing static test", state: alarm}
+    #   choices:
+    #     - {id: weak_left, label: "Weak left support", mechanism: "Would shift load or leave offset."}
+    #     - {id: bent_frame, label: "Bent frame", mechanism: "Would create lateral load or permanent offset."}
+    #     - {id: static_pass, label: "Static load path matches the force model", mechanism: "Both vertical readings match and quiet channels stay quiet."}
+    #     - {id: no_gravity, label: "Weight vanished", mechanism: "Measured upward forces still balance weight."}
+    #   answer: static_pass
+

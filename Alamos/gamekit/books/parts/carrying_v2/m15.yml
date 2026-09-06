@@ -1,0 +1,227 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Conditional Ferry Recommendation"
+  card:
+    header: "VOTE DAY."
+    title: "THE CONDITIONAL FERRY RECOMMENDATION"
+    goNow: "Common Office, Mara Voss at the delivery board."
+    body: "The forecast makes a second ferry possible under today's limits, but drought, heat, sea-level rise, and outages can arrive together. Mitigation reduces future causes; adaptation reduces harm already coming. Stress every condition at the Common, verify water at Waterworks, then write the rule at the Chapel. By the end of the mission, approve, condition, or reject the second ferry."
+    objective: "Deliver and enact the Second-Ferry Plan."
+  objective: "Deliver and enact the Second-Ferry Plan."
+  stake: "The forecast makes a second ferry possible under today's limits, but drought, heat, sea-level rise, and outages can arrive together. Mitigation reduces future causes; adaptation reduces harm already coming. Stress every condition at the Common, verify water at Waterworks, then write the rule at the Chapel. By the end of the mission, approve, condition, or reject the second ferry."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Approve the second ferry only with firm limits. Cut trips when any safety trigger fails. The plan cuts air and water waste. It also plans for drought, heat, and sea rise. The council adopts the plan."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming; preindustrial CO2 about 280 ppm versus about 422 ppm in 2024; warming about 1.1 C and sea level about 21 cm; mitigation and adaptation must work together."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-common-office
+    # On arrival at Common Office | delivery-board | automatic
+    on: { enter: true, at: COMMON }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 15: MATCH CLIMATE MECHANISMS OPEN"
+    bubbles:
+    - who: voss   # the bible's "mission lead", from this mission's own goNow line
+      say: "Start with match climate mechanisms. We need evidence the next decision can use."
+  - id: after-stop-57
+    # After Stop 57 | delivery-board | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    bubbles:
+    - who: voss   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 57 result to settle collapse the final degeneracy."
+  - id: after-stop-58
+    # After Stop 58 | sampler | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    bubbles:
+    - who: voss   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 58 result to settle verify the independent water sample."
+  - id: after-stop-59
+    # After Stop 59 | council-table | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 59 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    bubbles:
+    - who: voss   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 59 result to settle enact the ferry triggers."
+  - id: at-mission-end
+    # At mission end | delivery-board | automatic
+    on: { missionEnd: true }
+    world: "Final outcome begins immediately after Stop 4 with council board changing to."
+    panel: "MISSION 15 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # the bible's "mission lead", from this mission's own goNow line
+      say: "CONDITIONAL APPROVAL."
+
+  stops:
+  # --- Stop 57: Match climate mechanisms
+  #     Concept: global change | climate | D10-D12 | RETRIEVE | L4 | synthesis; Keystone: global change | climate | D10-D12 | RETRIEVE | L4 | synthesis; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: global change | climate | D10-D12 | RETRIEVE | L4 | synthesis.
+  #     placement: CASEBOOK, at delivery-board.
+  - group: CHAPEL
+    at: delivery-board
+    title: "Match climate mechanisms"
+    concept: "global change | climate | D10-D12 | RETRIEVE | L4 | synthesis"
+    reason: "The island cannot commit match climate mechanisms until this evidence is resolved."
+    scene: "The current plan balances all four ledgers, but climate effects alter several at once. Match each observation to mechanism and response before the final stress test, and the team needs this result before it acts."
+    motivation: "Match climate mechanisms connects the measured environmental mechanism to the next island condition."
+    format: CASEBOOK
+    question: "Map warming to enhanced greenhouse effect; sea rise to thermal expansion and ice melt; shell loss to acidification; declining ocean oxygen to warming; ice loss to albedo feedback; and CFC ozone loss to chlorine radicals and Montreal Protocol"
+    # THE BIBLE'S PAYLOAD, converted. Its six keyed pairs become the clue rows,
+    # the mechanisms, and a `mapping` of zero-based indices into `choices`.
+    columns: [Observation, Mechanism]
+    scenarios:
+    - "Warming"
+    - "Sea-level rise"
+    - "Shell loss"
+    - "Low ocean oxygen"
+    - "Ice loss"
+    - "CFC ozone loss"
+    choices:
+    - "Enhanced greenhouse effect"
+    - "Thermal expansion and ice melt"
+    - "Ocean acidification"
+    - "Warming"
+    - "Albedo feedback"
+    - "Chlorine radicals and the Montreal Protocol"
+    mapping: [0, 1, 2, 3, 4, 5]
+    answerText: "The completed check shows all six climate mechanisms and responses are correctly linked."
+    why: "Match climate mechanisms connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   ; and CFC ozone loss to chlorine radicals and Montreal Protocol. Payload: casebook:{mapping:{warming:enhanced_greenhouse,sea_level_rise:thermal_expansion_and_ice_melt,shell_loss:ocean_acidification,low_ocean_oxygen:warming,ice_loss:albedo_feedback,CFC_ozone_loss:chlorine_radicals_and_Montreal_Protocol}}
+    # correct result: All six climate mechanisms and responses are correctly linked
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   casebook:{mapping:{warming:enhanced_greenhouse,sea_level_rise:thermal_expansion_and_ice_melt,shell_loss:ocean_acidification,low_ocean_oxygen:warming,ice_loss:albedo_feedback,CFC_ozone_loss:chlorine_radicals_and_Montreal_Protocol}}
+
+  # --- Stop 58: Collapse the final degeneracy
+  #     Concept: coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis; Keystone: coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis.
+  #     placement: DEGENERACY, at delivery-board.
+  - group: CHAPEL
+    at: delivery-board
+    title: "Collapse the final degeneracy"
+    concept: "coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis"
+    reason: "The island cannot commit collapse the final degeneracy until this evidence is resolved."
+    scene: "Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Apply the dry-year constraint to collapse the pair, and the team needs this result before it acts."
+    motivation: "Collapse the final degeneracy connects the measured environmental mechanism to the next island condition."
+    format: DEGENERACY
+    question: "Use the two controls visitor cap and drought reserve: adjust visitor cap from 0 to 340 visitors/day in steps of 20 and reserve from 0% to 30% in steps of 5%. Submit the numerical pair satisfying annual withdrawal at or below 136,800 m3/year during a 15% drought before plan choices unlock."
+    # THE BIBLE'S PAYLOAD, converted. Its two `controls` keep their min, max and
+    # step; `locus_today` is the family of pairs that all satisfy the constraint
+    # today and `locus_drought` the shorter family the drought year leaves, which
+    # is the second measurement that collapses it. `truth: [200,20]` and
+    # `tolerance: [10,2.5]` become the keyed pair and its band, a to the first
+    # control and b to the second.
+    degeneracy:
+      controls:
+      - { id: visitor_cap, label: Visitor cap, unit: visitors/day, min: 0, max: 340, step: 20 }
+      - { id: drought_reserve, label: Drought reserve, unit: percent, min: 0, max: 30, step: 5 }
+      observable: { label: "Annual withdrawal against the 136,800 m³/year ceiling" }
+      locus:
+      - { a: 120, b: 30 }
+      - { a: 160, b: 25 }
+      - { a: 200, b: 20 }
+      - { a: 240, b: 15 }
+      - { a: 280, b: 10 }
+      - { a: 320, b: 5 }
+      second:
+        label: The same ceiling recomputed for a 15 per cent drought year
+        apply: Apply the drought year
+        locus:
+        - { a: 160, b: 25 }
+        - { a: 200, b: 20 }
+        - { a: 240, b: 15 }
+      truth: { a: 200, b: 20 }
+      tolerance: { a: 10, b: 2.5 }
+      commit: Report the pair
+    answerText: "The completed check shows submit (200 visitors/day, 20% reserve)."
+    why: "Collapse the final degeneracy connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Submit (200 visitors/day, 20% reserve)
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:{controls:[{id:visitor_cap,label:"visitors/day",min:0,max:340,step:20},{id:drought_reserve,label:"reserve percent",min:0,max:30,step:5}],locus_today:[[120,30],[160,25],[200,20],[240,15],[280,10],[320,5]],locus_drought:[[160,25],[200,20],[240,15]],constraint:"annual withdrawal <=136800 m3/year during 15% drought",truth:[200,20],tolerance:[10,2.5],required_submission:"numerical pair before plan unlock"}
+
+  # --- Stop 59: Verify the independent water sample
+  #     Concept: final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification; Keystone: final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification; Area: Waterworks; Learning role: PRACTICE; Difficulty: L3; Story role: final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification.
+  #     placement: VERIFY, at sampler.
+  - group: WATER
+    at: sampler
+    title: "Verify the independent water sample"
+    concept: "final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification"
+    reason: "The island cannot commit verify the independent water sample until this evidence is resolved."
+    scene: "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Verify the independent water sample connects the measured environmental mechanism to the next island condition."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT margin=136800-132000 in m3/year; OPERATE the sampler with pump and time fixed; MEASURE nitrate and chloride; INTERPRET PASS only below 10.0 and 250 mg/L; no restoration"
+    relationship: "margin = ceiling - withdrawal, so 136,800 - 132,000"
+    # THE BIBLE'S PAYLOAD, converted. Its keyed margin of 4,800 m3/year is the
+    # engine's `truth` and its `tolerance: 100` is written as the `passRatio` the
+    # engine grades a prediction on. Its `operate` block is the intervention and
+    # its `measure` block the measurement, whose nitrate and chloride readings sit
+    # in the measurement note against the two limits the bible's `interpret`
+    # names. The dial range is wide enough that not every position passes.
+    verify:
+      prediction:
+        label: Margin under the withdrawal ceiling
+        unit: m³/year
+        min: 0
+        max: 20000
+        step: 100
+      truth: 4800
+      passRatio: [0.979, 1.021]
+      intervention:
+        label: Run the independent sampler
+        note: Pump state and sampling time held fixed.
+        outcome: Sampler run. Nothing on the plant was changed.
+      measurement:
+        label: Margin confirmed against the ceiling
+        note: The sampler also reads nitrate 6.4 mg/L and chloride 118 mg/L, both under the 10.0 and 250 mg/L limits.
+      lock: Lock the prediction
+      commit: Report the verdict
+    answerText: "The completed check shows margin 4800 m3/year, nitrate 6.4 mg/L, chloride 118 mg/L: PASS."
+    why: "Verify the independent water sample connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Margin 4800 m3/year, nitrate 6.4 mg/L, chloride 118 mg/L: PASS
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_commit,operate,measure,interpret],operate_unlocked_when:prediction_committed,prediction:{equation:"margin=ceiling-withdrawal",inputs:{ceiling:136800,withdrawal:132000},unit:"m3/year",truth:4800,tolerance:100},operate:{control:independent_sampler,fixed:[pump_state,sampling_time]},measure:{nitrate:{value:6.4,unit:"mg/L"},chloride:{value:118,unit:"mg/L"}},interpret:{correct:PASS,criteria:["nitrate <10.0 mg/L","chloride <250 mg/L"]},restore:{required:false,reason:"sampling changes no control"}}
+
+  # --- Stop 60: Enact the ferry triggers
+  #     Concept: final policy | policy | all keystones | TRANSFER | L5 | payoff; Keystone: final policy | policy | all keystones | TRANSFER | L5 | payoff; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: final policy | policy | all keystones | TRANSFER | L5 | payoff.
+  #     placement: TRIGGER, at council-table.
+  - group: CHAPEL
+    at: council-table
+    title: "Enact the ferry triggers"
+    concept: "final policy | policy | all keystones | TRANSFER | L5 | payoff"
+    reason: "The island cannot commit enact the ferry triggers until this evidence is resolved."
+    scene: "Independent water evidence passes, so the plan can be written as enforceable conditions rather than promises. Commit every threshold before the vote opens, and the team needs this result before it acts."
+    motivation: "Enact the ferry triggers connects the measured environmental mechanism to the next island condition."
+    format: TRIGGER
+    question: "Submit one conditional approval containing withdrawal <=136800 m3/year, pumping stop at head <=1.0 m, nitrate action at >=10.0 mg/L, chloride <250 mg/L, catch 100 or 70 in low recruitment, reserve >=15 kW, inspection every sailing, and drought visitor cap 200/day"
+    answerText: "The completed check shows conditional approval with all eight enforceable safeguards."
+    why: "Enact the ferry triggers connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Conditional approval with all eight enforceable safeguards
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{conditions:[{withdrawal_max:136800},{head_stop_lte:1.0},{nitrate_action_gte:10.0},{chloride_lt:250},{catch_normal:100},{catch_low_recruit:70},{reserve_gte_kW:15},{inspection:every_sailing},{drought_visitor_cap:200}],decision_rule:"approve only when every condition has owner, monitor, trigger, response",correct:conditional_approve}
+

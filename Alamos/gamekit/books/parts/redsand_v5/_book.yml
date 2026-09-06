@@ -1,0 +1,322 @@
+# redsand.yml. Red Sand: the propellant plant at Arcadia Rise.
+#
+# AP Chemistry, taught through the back half of the course that The Contaminated
+# City leaves alone: kinetics, equilibrium, electrochemistry, entropy and free
+# energy, phase behaviour and intermolecular forces, and the solution chemistry
+# of a brine nobody on Earth has to drink.
+#
+# The place is a propellant plant on Arcadia Planitia making methane and oxygen
+# out of the atmosphere and the ground, against a transfer window that does not
+# move. Format is tools/BOOK_TEMPLATE.md; import with
+#
+#   node tools/import-book.mjs books/redsand.yml redsand --verify
+
+theme:
+  id: redsand
+  title: Red Sand
+  subtitle: Propellant Lead · Arcadia Rise
+
+# ---------------------------------------------------------------- the areas
+# Six areas, chosen as the six units of the course this game exists to teach.
+# The argument the campaign turns on runs between two of them: Catalyst Bay
+# wants rate and Reactor Hall wants yield, and they are both right on a
+# named sol.
+groups:
+- id: KINET
+  code: KINET
+  name: Catalyst Bay
+  color: '#d19a2b'
+  desc: How fast the reaction goes, what the catalyst does, and what stops it working.
+  defaultLeader: sundqvist
+  milestones:
+  - Establish what the bed is doing now
+  - Separate rate from yield
+  - Find what is taking the activity away
+  - Qualify a charge somebody else can trust
+- id: EQUIL
+  code: EQUIL
+  name: Reactor Hall
+  color: '#c05a33'
+  desc: How much methane a pass can give, and what moves that limit.
+  defaultLeader: herrera
+  milestones:
+  - State the balance the loop settles at
+  - Move it on purpose rather than by accident
+  - Close the carbon ledger across the loop
+  - Certify a batch against the flight specification
+- id: PHASE
+  code: PHASE
+  name: Cold End
+  color: '#4a86b8'
+  desc: Where a gas becomes a liquid, what holds it there, and what it costs.
+  defaultLeader: cho
+  milestones:
+  - Establish what condenses where
+  - Keep the water and the carbon dioxide out of the cold line
+  - Account for every kilogram that boils off
+  - Hand a loaded tank to the vehicle
+- id: ELEC
+  code: ELEC
+  name: Electrolysis Hall
+  color: '#3f9e8c'
+  desc: Splitting water and carbon dioxide with electricity, and what the current buys.
+  defaultLeader: achebe
+  milestones:
+  - Name the half-reactions at each electrode
+  - Turn charge into kilograms
+  - Find where the current goes when it makes nothing
+  - Run the stack inside its thermal limit
+- id: GIBBS
+  code: GIBBS
+  name: Plant Control
+  color: '#8d6bb5'
+  desc: Which way a reaction runs on its own, and what has to be paid for.
+  defaultLeader: demir
+  milestones:
+  - Sort the driven steps from the spontaneous ones
+  - Put an energy number on each of them
+  - Close the sol's ledger against the array
+  - Decide what the station stops doing
+- id: SOIL
+  code: SOIL
+  name: Water Plant
+  color: '#9a8352'
+  desc: Getting water out of frozen ground, and the ions that come with it.
+  defaultLeader: abiola
+  milestones:
+  - Get water out of the ground and keep it
+  - Identify what is dissolved in it
+  - Take out what the plant downstream cannot survive
+  - Leave a rule the next crew can follow
+
+# ------------------------------------------------------------------ the cast
+# 13 people, at least 2 per area. Sundqvist and Herrera are the argument;
+# everybody else has a position they will defend and a limit they admit to.
+roster:
+- id: abiola
+  name: "Commander Laila Abiola"
+  role: "mission authority"
+  division: GIBBS
+  bio: |
+    Commander Laila Abiola is mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: sundqvist
+  name: "Ingrid Sundqvist"
+  role: "production and catalyst lead"
+  division: EQUIL
+  bio: |
+    Ingrid Sundqvist is production and catalyst lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: herrera
+  name: "Tomás Herrera"
+  role: "reactor and safety engineer"
+  division: KINET
+  bio: |
+    Tomás Herrera is reactor and safety engineer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: cho
+  name: "Mei-Ling Cho"
+  role: "water and cryogenics engineer"
+  division: PHASE
+  bio: |
+    Mei-Ling Cho is water and cryogenics engineer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: achebe
+  name: "Rosalind Achebe"
+  role: "analytical and electrochemistry lead"
+  division: SOIL
+  bio: |
+    Rosalind Achebe is analytical and electrochemistry lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: demir
+  name: "Yusuf Demir"
+  role: "power and life-support officer"
+  division: ELEC
+  bio: |
+    Yusuf Demir is power and life-support officer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+
+glossary:
+- name: Sabatier reaction
+  aliases: [sabatier, the assembly reaction]
+  def: Carbon dioxide and hydrogen combining over a catalyst to give methane and water. It gives out heat.
+- name: Catalyst
+  aliases: [catalytic, catalyse, catalyses, catalysed]
+  def: A material that speeds a reaction up by offering an easier path, and is not used up doing it.
+- name: Activation energy
+  aliases: [activation barrier, energy barrier]
+  def: The energy hill a reaction has to get over. A catalyst lowers it; heating helps more molecules clear it.
+- name: Rate law
+  aliases: [rate equation, order of reaction, reaction order]
+  def: How the speed of a reaction depends on the amounts present. Found by experiment, not from the equation.
+- name: Rate constant
+  aliases: [rate coefficient]
+  def: The number in a rate law that carries the temperature dependence. It rises steeply as the bed is heated.
+- name: Residence time
+  aliases: [contact time, space velocity]
+  def: How long gas spends inside the catalyst bed. Volume of the bed divided by the flow through it.
+- name: Poisoning
+  aliases: [poisoned, poison, deactivation, deactivating]
+  def: A substance in the feed binding to the catalyst's active sites and stopping them working.
+- name: Feed
+  aliases: [feed stream, reactor feed]
+  def: The gas, liquid, or other material sent into a process.
+- name: Sintering
+  aliases: [sinter, sintered]
+  def: Heat making the small metal particles of a catalyst merge into larger ones, so less surface is left to work on.
+- name: Equilibrium
+  aliases: [at equilibrium, equilibrium position]
+  def: The state a reaction settles at, where the forward and reverse changes proceed at matching rates.
+- name: Equilibrium constant
+  aliases: [equilibrium constant K, the constant K, K]
+  def: The fixed ratio of products to reactants a reaction settles at, at one temperature. Changing the temperature 
+    changes it.
+- name: Reaction quotient
+  aliases: [reaction quotient Q, Q]
+  def: The same ratio worked out from what is in the vessel right now. Comparing it with K says which way the reaction 
+    will run.
+- name: Le Châtelier's principle
+  aliases: [le chatelier, le châtelier]
+  def: Disturb a system at equilibrium and it shifts in the direction that partly undoes the disturbance.
+- name: Partial pressure
+  aliases: [partial pressures]
+  def: The pressure one gas in a mixture would exert alone. The pressures of the parts add up to the total.
+- name: Yield
+  aliases: [conversion, per-pass yield, single-pass conversion]
+  def: How much of what went in came out as the product you wanted, on one pass through the reactor.
+- name: Recycle loop
+  aliases: [recycle, recycled, recycling]
+  def: Sending the unreacted gas back to the reactor inlet, so a poor conversion per pass can still give a good overall 
+    one.
+- name: Enthalpy change
+  aliases: [enthalpy, heat of reaction, ΔH]
+  def: The heat a reaction gives out or takes in at constant pressure. Negative means heat comes out.
+- name: Entropy
+  aliases: [entropy change, ΔS]
+  def: A measure of how spread out the energy and the matter are. Making fewer gas molecules lowers it.
+- name: Gibbs free energy
+  aliases: [free energy, gibbs, ΔG]
+  def: The combination of enthalpy and entropy that decides direction. Negative means the change can run on its own.
+- name: Spontaneous
+  aliases: [spontaneity, runs on its own]
+  def: Able to proceed without being driven from outside. It says nothing about how fast.
+- name: Electrolysis
+  aliases: [electrolyse, electrolyser, electrolytic, electrolysed]
+  def: Using an electric current to drive a reaction that would not run on its own, such as splitting water.
+- name: Half-reaction
+  aliases: [half reaction, half-reactions, half equations]
+  def: One side of an electron transfer written on its own: what is oxidised at one electrode, what is reduced at the 
+    other.
+- name: Oxidation
+  aliases: [oxidised, oxidise]
+  def: Loss of electrons. It happens at the anode.
+- name: Reduction
+  aliases: [reduced, reduce]
+  def: Gain of electrons. It happens at the cathode.
+- name: Faraday's constant
+  aliases: [faraday constant, faraday's law, faraday's laws]
+  def: The charge carried by 1 mole of electrons, about 96,485 coulombs. It converts current and time into moles.
+- name: Overpotential
+  aliases: [overvoltage, excess voltage]
+  def: The extra electrode driving voltage needed above the reversible potential because real reactions and current 
+    paths have kinetic and resistive losses. It contributes to electrical inefficiency and heat; it is not the same 
+    thing as the reaction's reversible free-energy voltage.
+- name: Current efficiency
+  aliases: [faradaic efficiency, coulombic efficiency]
+  def: The fraction of charge passed that makes the intended product. Side reactions or leakage make the collected 
+    amount smaller than Faraday's-law ceiling.
+- name: Vapour pressure
+  aliases: [vapor pressure, saturation pressure]
+  def: The pressure of the gas standing above its own liquid. It rises steeply with temperature.
+- name: Boiling point
+  aliases: [condensation temperature, condenses at]
+  def: "The temperature at which a liquid's vapour pressure matches the surrounding pressure. It is not one universal temperature:
+    change the pressure and the boiling or condensation temperature changes."
+- name: Intermolecular forces
+  aliases: [intermolecular force, dispersion forces, london forces, hydrogen bonding]
+  def: The attractions between whole molecules. Stronger attractions mean a higher boiling point.
+- name: Deposition
+  aliases: [deposit, deposits, freezing out, freeze out]
+  def: A gas turning straight into a solid without passing through a liquid. Carbon dioxide does it readily.
+- name: Triple point
+  aliases: [triple-point]
+  def: The one temperature and pressure at which solid, liquid and gas all sit together.
+- name: Boil-off
+  aliases: [boiloff, boil off]
+  def: Cryogenic liquid lost as vapour when heat reaches the tank. The liquid stays at its boiling point and evaporates 
+    instead of warming.
+- name: Cryogenic
+  aliases: [cryogen, cryogenics]
+  def: Cold enough that ordinary gases are liquids. Methane and oxygen are stored that way.
+- name: Perchlorate
+  aliases: [perchlorates, perchlorate salt]
+  def: An ion made of chlorine and oxygen. Its salts are common on Mars, dissolve easily, and can keep water liquid at
+    much lower temperatures. It is not the same ion as chloride, so the plant tracks it on its own.
+- name: Chloride
+  aliases: [chloride ion, chlorides]
+  def: A chlorine ion found in many salts. It is not perchlorate. The plant watches for it because chlorine-bearing
+    material can reach the reactor and poison nickel.
+- name: Sulphate
+  aliases: [sulfate, sulphate ion]
+  def: A dissolved ion of sulphur and oxygen. It comes out of solution as hard scale on a hot surface.
+- name: Brine
+  aliases: [brines, salt solution]
+  def: Water with a great deal of salt dissolved in it. It stays liquid far below the freezing point of fresh water.
+- name: Freezing point depression
+  aliases: [depression of the freezing point, colligative]
+  def: Dissolved particles lowering the temperature at which a solution freezes. How many particles matters, not which.
+- name: Molality
+  aliases: [molal, moles per kilogram]
+  def: Moles of dissolved substance per kilogram of solvent. Used where temperature changes make volumes unreliable.
+- name: Ion exchange
+  aliases: [ion-exchange, polishing column, polishing bed]
+  def: A packed bed that swaps unwanted ions out of water for harmless ones. It holds a fixed number and no more.
+- name: Breakthrough
+  aliases: [breaks through, broken through]
+  def: The moment a packed bed is full, after which what goes in comes straight out again.
+- name: Optical depth
+  aliases: [opacity, dust opacity, tau]
+  def: How much dust stands between the sun and the ground. Each unit cuts the direct beam by a further factor.
+- name: Sol
+  aliases: [sols]
+  def: 1 Martian day, 24 hours 39 minutes: about 88,800 seconds.
+- name: Mixture ratio
+  aliases: [oxidiser-to-fuel ratio, o/f ratio]
+  def: The mass of oxidiser burned per unit mass of fuel. It decides what fraction of the tank is oxygen.
+- name: Specification
+  aliases: [spec, flight specification]
+  def: The written limits a batch has to meet before it may be loaded into the vehicle.
+- name: Adsorber
+  aliases: [adsorb, adsorbed]
+  def: A trap whose surface catches molecules from a gas or liquid passing through it.
+- name: Stoichiometric ratio
+  aliases: [stoichiometric, stoichiometry]
+  def: The exact amount of each reactant required by a balanced chemical equation.
+
+# ---------------------------------------------------------------- the sols
+# 15 critical working sols across the surface season. Sols 291-300 are the
+# consecutive failure investigation; later checkpoints are sols 340, 420, 421,
+# 445 and 475. The window opens on sol 486 and does not move. Each selected sol
+# visits 3 different areas; the engine adds a callback from sol 3 onward.
+
+beatRooms: [ARRAY, BATT, CUT, HSTORE, INTAKE, TANKS]
+
+missions:
+# <<< MISSIONS >>>
+
+copy:
+  KINET: <p>Catalyst Bay. Nickel on alumina, in a bed the size of a kitchen bin, doing the one job in this plant that 
+    nothing else can do.</p>
+  EQUIL: <p>The reactor hall. Carbon dioxide and hydrogen go in, methane and water come out, and the argument is about 
+    how much.</p>
+  PHASE: <p>The cold end. Where a gas nobody can store becomes a liquid the vehicle can fly, at 112 kelvin.</p>
+  ELEC: <p>The electrolysis hall. Water stacks make hydrogen and oxygen; one hot solid-oxide stack splits carbon dioxide
+    into oxygen and carbon monoxide.</p>
+  GIBBS: <p>Plant control. The energy ledger for everything on this plain, and the desk where the arguments about it 
+    end.</p>
+  SOIL: <p>The water plant. Frozen ground in at one end, and a brine that has to be cleaned before anything downstream 
+    can use it.</p>
+  HAB: <p>The habitat. 6 people, 19 °C, and the only room on the planet with a window somebody chose the view 
+    from.</p>
+  PAD: <p>The pad. The ascent vehicle stands on it, 4.3 tonnes of methane aboard and 6.6 needed.</p>
+  ARRAY: <p>The array shed. 1800 square metres of panel out there, and a sun sensor that says how much of the sun is 
+    reaching it.</p>
+  TANKS: <p>The tank farm. Everything the plant has made so far, held at its own boiling point and losing a little every
+    sol.</p>
+  GARAGE: <p>The garage. Two pressurised rovers, one drill rig, and the dust that comes back in with all of them.</p>
+  INTAKE: <p>The intake. 6 millibars of carbon dioxide compressed to 12 bar, which is most of the plant's power bill 
+    before any chemistry happens.</p>

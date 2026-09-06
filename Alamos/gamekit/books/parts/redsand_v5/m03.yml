@@ -1,0 +1,272 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Pressure Does Not Lie. Or Does It?"
+  card:
+    header: "13 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "PRESSURE DOES NOT TELL THE WHOLE TRUTH"
+    goNow: "Go to the Hydrogen Store and meet Dr. Tomás Herrera, the reactor and safety engineer, beside the storage gauge."
+    body: "Hydrogen is now the leading suspect, but its storage gauge still shows nearly normal pressure. Total pressure can stay high when another gas replaces part of the hydrogen. At the Hydrogen Store, calculate total gas, sample each branch, and test the mixture while warming it. By the end of the mission, decide whether hydrogen leaked away or was replaced before reaching the reactor."
+    objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
+  objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
+  stake: "Hydrogen is now the leading suspect, but its storage gauge still shows nearly normal pressure. Total pressure can stay high when another gas replaces part of the hydrogen. At the Hydrogen Store, calculate total gas, sample each branch, and test the mixture while warming it. By the end of the mission, decide whether hydrogen leaked away or was replaced before reaching the reactor."
+  takeaway: "A model must survive every relevant measurement, not only the one it predicts correctly."
+  segue: "Mission decision: Another gas mixes into the line before the reactor. The plant is not just losing hydrogen. Nitrogen keeps total pressure high as the share from hydrogen falls. The change starts after the regulator. The blue stain near a methane valve is the next clue to test."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A gauge measures total pressure, not chemical identity."
+  - "At fixed volume, warming a sealed gas raises its pressure in proportion to absolute temperature."
+  - "A model must predict a new measurement before the measurement is made."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-hydrogen-store
+    # On arrival at Hydrogen Store | automatic | 
+    on: { enter: true, at: HSTORE }
+    world: "A large gauge holds near its green mark while the reactor-delivery bar flashes LOW."
+    panel: "MISSION 3 - PRESSURE DOES NOT LIE. OR DOES IT?"
+    # unlocks: Stop 9 at the tank calculation rail; Stop 10 unlocks immediately after Stop 9.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "The gauge measures everything pushing on the tank wall. It does not know which gas is doing the pushing. Before anyone clears this system, prove how much of that pressure belongs to hydrogen."
+  - id: after-stops-9-and-10
+    # After Stops 9 and 10 | tank calculation rail | automatic response
+    on: { after: [1, 2] }
+    world: "On the equipment panel, hydrogen particle icons move faster than nitrogen particle icons at equal temperature; the total-mole estimate appears beside the pressure gauge."
+    panel: "NEXT TASK - STOP 11: SAMPLE THE BRANCHES"
+    # unlocks: Stop 11 at the four sampling ports.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "The total amount is plausible. That still does not make it usable hydrogen. Sample the line from the tank to the reactor."
+  - id: after-stop-11
+    # After Stop 11 | four sampling ports | automatic discovery
+    on: { after: [3] }
+    world: "The tank and regulator remain hydrogen-rich, but the reactor branch turns yellow as nitrogen mole fraction rises."
+    panel: "TOTAL PRESSURE: NORMAL / H2 PARTIAL PRESSURE: LOW / N2 DETECTED AFTER PURGE TIE-IN."
+    # unlocks: Stop 12 at the heated test branch.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "There. The gauge did not lie. We asked it the wrong question."
+  - id: after-stop-12
+    # After Stop 12 | heated test branch | automatic contradiction
+    on: { after: [4] }
+    world: "Measured pressure follows the warming prediction, but the composition panel shows new nitrogen that a simple leak cannot create."
+    panel: "MISSION DECISION READY"
+    # unlocks: The Mission 3 outcome beat.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "A leak can remove gas. It cannot add nitrogen to a sealed branch. The simple-leak model fails."
+  - id: at-mission-end
+    # At mission end | Hydrogen Store | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "The purge tie-in is tagged for investigation; Sundqvist sends an image of blue residue beside a methane valve."
+    panel: "NEXT DESTINATION - CATALYST BAY."
+    # unlocks: Mission 4 briefing and the Catalyst Bay waypoint.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "Maintenance found this on the methane side. If the systems crossed, the residue may show where."
+    - who: herrera   # Herrera
+      say: "Only if that substance could travel the path you claim."
+
+  stops:
+  # --- Stop 9: Same temperature, different speed
+  #     Concept: kinetic molecular theory; Keystone: gas behavior and partial pressure; Area: Reactor Hall; Learning role: INTRODUCE; Difficulty: L1; Story role: character.
+  #     placement: CHOICE, asked at Dr. Tomás Herrera beside store-scales.
+  - group: EQUIL
+    at: store-scales
+    title: "Same temperature, different speed"
+    person: herrera
+    concept: "kinetic molecular theory"
+    reason: "A pressure gauge cannot identify which gas is pressing on it."
+    scene: "Before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The distinction keeps a normal needle from clearing the wrong gas."
+    motivation: "The answer explains why light hydrogen can escape or spread differently without having a different average kinetic energy."
+    format: CHOICE
+    question: "Which statement is correct?"
+    choices:
+    - "They have the same average kinetic energy, but H2 has the greater average speed."
+    - "H2 has less kinetic energy and the same average speed as N2."
+    - "H2 has more kinetic energy because it moves faster."
+    - "N2 has more kinetic energy because each molecule is heavier."
+    answer: "They have the same average kinetic energy, but H2 has the greater average speed."
+    answerText: "At one temperature, gases share average kinetic energy, while lighter hydrogen molecules move faster."
+    why: "Average kinetic energy depends only on absolute temperature. Since KE = 1/2 mv^2, a lighter particle must have a greater characteristic speed to share the same average kinetic energy as a heavier one."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) Equal temperature gives the same average kinetic energy, not less kinetic energy for H2; lighter H2 must move faster than N2. (3) Faster motion does not mean greater average kinetic energy when the moving particle has less mass. (4) Greater molecular mass does not give N2 greater average kinetic energy at the same temperature.
+    # correct result: Choice 1.
+    # state/output: Herrera reveals the branch could be contaminated by nitrogen purge gas.
+
+  # --- Stop 10: How many total moles are in the branch?
+  #     Concept: ideal gas law; Keystone: gas behavior and partial pressure; Area: Reactor Hall; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: BALLPARK, at hydrogen-calculation-desk.
+  - group: EQUIL
+    at: hydrogen-calculation-desk
+    title: "How many total moles are in the branch?"
+    concept: "ideal gas law"
+    reason: "The total gas amount must be separated from the usable hydrogen amount."
+    scene: "Now use pressure, volume, and temperature to calculate the total gas amount, knowing that a correct total still cannot prove the gas is hydrogen. This total becomes the baseline for the branch-composition test."
+    motivation: "A normal total mole count cannot prove those moles are usable hydrogen."
+    format: BALLPARK
+    question: "Estimate total gas moles using R = 0.08206 L atm mol^-1 K^-1."
+    # CONVERTED from the bible's `data` line, n = PV/RT = (20.0 atm)(500 L)/[(0.08206)(300 K)],
+    # and its "406 mol total gas; target 406, tolerance ±2%" (2% of 406 = 8.12).
+    estimate:
+      question: "Estimate total gas moles using R = 0.08206 L atm mol^-1 K^-1."
+      relationship: "n = PV ÷ RT"
+      labels:
+      - "20.0 atm"
+      - "500 L"
+      - "0.08206 L atm/mol/K"
+      - "300 K"
+      values: [20.0, 500, 0.08206, 300]
+      slots: 4
+      template: '{0} × {1} ÷ {2} ÷ {3}'
+      formula: a*b/c/d
+      correct: [0, 1, 2, 3]
+      target: 406
+      tolerance: 8.12
+      units: mol
+    answerText: "The branch contains about 406 mol of total gas."
+    why: "The ideal gas law counts total particles through their pressure-volume-temperature behavior. It does not distinguish H2 from N2. The normal-looking value can coexist with the wrong composition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Celsius cannot replace kelvin. Multiplying by R instead of dividing breaks units. A result near 20 or 500 is a copied reading, not a mole calculation.
+    # data: n = PV/RT = (20.0 atm)(500 L)/\[(0.08206)(300 K)\].
+    # correct result: 406 mol total gas; target 406, tolerance ±2%.
+    # state/output: Set evidence_flags.total_moles_normal = true.
+
+  # --- Stop 11: Sample the branches
+  #     Concept: Dalton's law and composition; Keystone: gas behavior and partial pressure; Area: Reactor Hall; Learning role: APPLY; Difficulty: L3; Story role: clue.
+  #     placement: PROBE, operated at gas-sampling-ports.
+  - group: EQUIL
+    at: gas-sampling-ports
+    title: "Sample the branches"
+    concept: "Dalton's law and composition"
+    reason: "Only branch-by-branch samples can locate where hydrogen composition changes."
+    scene: "Because the total gas amount looks normal, sample each point from storage to reactor to find where hydrogen is replaced by another gas. The first abnormal port will identify the section that needs repair."
+    motivation: "Partial pressure, not the gauge alone, determines how much hydrogen the reactor can actually use."
+    format: PROBE
+    question: "Probe all four ports and name where the pattern breaks."
+    # CONVERTED from the payload below — a rename only. The bible's four stations,
+    # readings, `expected` lines and `load` notes are carried across unchanged.
+    probe:
+      chainLabel: "Sampling port"
+      commit: "Name the first abnormal port"
+      minReadings: 4
+      target: reactor_branch
+      stations:
+      - id: tank
+        label: "Tank headspace"
+        reading: "20.0 atm; 96% H2; 3% N2; 1% other"
+        expected: "Hydrogen-rich storage gas near the tank baseline: about 95-96% H2 and no large N2 fraction"
+        load: "Matches the storage baseline"
+      - id: regulator
+        label: "Regulator outlet"
+        reading: "19.7 atm; 95% H2; 4% N2; 1% other"
+        expected: "Composition should remain close to the tank headspace through a healthy regulator"
+        load: "Still within the expected hydrogen-rich pattern"
+      - id: transfer_line
+        label: "Transfer line upstream of purge tie-in"
+        reading: "19.6 atm; 95% H2; 4% N2; 1% other"
+        expected: "Hydrogen composition should still match the regulator before the purge connection"
+        load: "Still normal immediately before the purge tie-in"
+      - id: reactor_branch
+        label: "Reactor branch"
+        reading: "19.5 atm; 68% H2; 31% N2; 1% other; H2 partial pressure 13.3 atm"
+        expected: "Hydrogen should remain near the regulator composition; a simple pressure drop should not create a 31% N2 fraction"
+        load: "First major composition break; nitrogen replaces hydrogen while total pressure stays nearly normal"
+    answerText: "The reactor branch first fails; hydrogen partial pressure there is about 13.3 atm."
+    why: "Total pressure is the sum of component pressures. The branch gauge stays high because nitrogen contributes pressure. The desired H2 partial pressure has fallen even though the needle barely moves. Sampling every station localizes the change between regulator outlet and reactor branch."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Selecting the largest total-pressure drop misses composition. Committing before all four readings should explicitly say one station remains unmeasured.
+    # data: Tank headspace: 20.0 atm, 96% H2. Regulator outlet: 19.7 atm, 95% H2. Transfer line upstream of the purge tie-in: 19.6 atm, 95% H2. Reactor branch: 19.5 atm, 68% H2, 31% N2, 1% other.
+    # correct result: The reactor branch is abnormal; at 19.5 atm its H2 partial pressure is only 0.68 x 19.5 = 13.3 atm.
+    # state/output: Set evidence_flags.branch_mixture_wrong = true; visually highlight purge tie-in between ports 2 and 3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:
+    #     chainLabel: "Sampling port"
+    #     stations:
+    #       - id: tank
+    #         label: "Tank headspace"
+    #         reading: "20.0 atm; 96% H2; 3% N2; 1% other"
+    #         expected: "Hydrogen-rich storage gas near the tank baseline: about 95-96% H2 and no large N2 fraction"
+    #         load: "Matches the storage baseline"
+    #       - id: regulator
+    #         label: "Regulator outlet"
+    #         reading: "19.7 atm; 95% H2; 4% N2; 1% other"
+    #         expected: "Composition should remain close to the tank headspace through a healthy regulator"
+    #         load: "Still within the expected hydrogen-rich pattern"
+    #       - id: transfer_line
+    #         label: "Transfer line upstream of purge tie-in"
+    #         reading: "19.6 atm; 95% H2; 4% N2; 1% other"
+    #         expected: "Hydrogen composition should still match the regulator before the purge connection"
+    #         load: "Still normal immediately before the purge tie-in"
+    #       - id: reactor_branch
+    #         label: "Reactor branch"
+    #         reading: "19.5 atm; 68% H2; 31% N2; 1% other; H2 partial pressure 13.3 atm"
+    #         expected: "Hydrogen should remain near the regulator composition; a simple pressure drop should not create a 31% N2 fraction"
+    #         load: "First major composition break; nitrogen replaces hydrogen while total pressure stays nearly normal"
+    #     target: reactor_branch
+    #     minReadings: 4
+    #     commit: "Name the first abnormal port"
+
+  # --- Stop 12: Test the simple-leak prediction
+  #     Concept: combined gas law/model testing; Keystone: gas behavior and partial pressure; Area: Reactor Hall; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
+  #     placement: VERIFY, operated at jacket-heater-logger.
+  - group: EQUIL
+    at: jacket-heater-logger
+    title: "Test the simple-leak prediction"
+    concept: "combined gas law/model testing"
+    reason: "The leak model must predict a new measurement before the crew acts on it."
+    scene: "Warm the suspect branch and compare prediction with measurement to decide whether a simple leak or a contaminated mixture explains the alarm. Pressure and composition together will decide which explanation survives."
+    motivation: "A model that predicts pressure but cannot explain new nitrogen is not an explanation the crew should act on."
+    format: VERIFY
+    question: "Predict, act, and measure. For a sealed fixed-volume sample starting at 19.5 atm and 300 K, what pressure should a simple no-reaction model give at 330 K?"
+    # MODEL CONVERSION. The bible gives one correct prediction (21.45 atm, tolerance
+    # 0.25) and a measured 21.4; this engine's VERIFY has the player DIAL a
+    # prediction on a range and then compares it with what the measurement finds.
+    #   · `truth` is the bible's measured value, 21.4 atm
+    #   · the range brackets it widely enough that not every dial position passes
+    #   · `passRatio` is the bible's ±0.25 atm on 21.4, said as a ratio
+    # The dial range itself is the implementation's; the bible states a point.
+    verify:
+      prediction:
+        label: "Pressure at 330 K"
+        unit: atm
+        min: 18.0
+        max: 24.0
+        step: 0.05
+      truth: 21.4
+      passRatio: [0.97, 1.03]
+      intervention:
+        label: "Warm sealed branch, 300 K to 330 K"
+        note: "Sealed, fixed volume, no reaction assumed."
+        outcome: "Warmed and held. Logger settled."
+      measurement:
+        label: "Branch pressure and composition after warming"
+    answerText: "Pressure follows the gas-law prediction, but nitrogen in the mixture defeats the simple-leak explanation."
+    why: "Warming a sealed gas tests whether the total particle count behaves normally. It does, so the gauge and volume are credible. Composition is a separate measurement. A leak can lower particle count, but it does not by itself explain nitrogen appearing downstream of a 95% H2 regulator outlet."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Measuring without a prediction should not count. Calling the leak model confirmed from pressure alone ignores the second observable.
+    # data: P2 = P1(T2/T1) = 21.45 atm; acceptable 21.2-21.7 atm.
+    # correct result: The gas-law pressure response is normal, but the simple leak explanation fails on composition; the branch contains a substituted mixture.
+    # state/output: Set evidence_flags.simple_leak_fails = true; Casebook adds NORMAL PRESSURE, WRONG GAS.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:
+    #     prediction:
+    #       prompt: "Predict pressure at 330 K for a sealed fixed-volume sample starting at 19.5 atm and 300 K."
+    #       formula: "P2 = P1(T2/T1)"
+    #       correct: 21.45
+    #       unit: atm
+    #       tolerance: 0.25
+    #     action: {id: warm_branch, label: "Warm sealed branch", from_K: 300, to_K: 330}
+    #     measurement:
+    #       pressure_atm: 21.4
+    #       composition: {h2_percent: 68, n2_percent: 31, other_percent: 1}
+    #     required_sequence: [commit_prediction, warm_branch, measure_pressure, measure_composition]
+    #     truth: "Pressure model passes; pure-hydrogen leak model fails on unchanged nitrogen-rich composition."
+

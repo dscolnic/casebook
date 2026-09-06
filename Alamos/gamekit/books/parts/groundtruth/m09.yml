@@ -1,0 +1,155 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Buried Loop"
+  card:
+    header: "7 DAYS;"
+    title: "The Buried Loop"
+    goNow: "Earthing Compound, Marcus Tate at earth trench."
+    body: "Magnetic field reaches the cable route, but only changing flux can drive the opposite-polarity trailer pulse. Magnetic flux measures field through a loop, and Faraday's law connects its change to induced voltage. You will derive the pulse, use Lenz's law, and test trench geometry at the trailer. By the end of the mission, decide whether the buried loop predicts the failed card."
+    objective: "Predict the induced pulse from measured geometry and current rise."
+  objective: "Predict the induced pulse from measured geometry and current rise."
+  stake: "Magnetic field reaches the cable route, but only changing flux can drive the opposite-polarity trailer pulse. Magnetic flux measures field through a loop, and Faraday's law connects its change to induced voltage. You will derive the pulse, use Lenz's law, and test trench geometry at the trailer. By the end of the mission, decide whether the buried loop predicts the failed card."
+  takeaway: "The buried loop predicts the failed card. ---"
+  segue: "Mission decision: The buried loop predicts the failed card. Its pulse is near -1.10 kV, close to the archived -1.06 kV peak. The trench reveals another bonded lead. The current path is still incomplete."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-earthing-trench
+    # On arrival at Earthing Trench | s33-derive-the-buried-loop-emf | automatic
+    on: { enter: true, at: TODO }   # s33-derive-the-buried-loop-emf
+    world: "accepted EARTH/bubble/trench open/→S1; S2 correct/waypoint/polarity arrow locked/PREDICTION: NEGATIVE DURING CURRENT RISE; TAKE IT TO OUTSTATION.→travel; enter COUPLE/panel/archive locked/Commit magnitude before archive unlock.→S3; S3 correct/panel/archive reveals -1.06 kV/PREDICTED -1.10 kV • MEASURED -1.06 kV→S4; S4 correct/world/second lead appears in trench photo/Model passes; current path remains incomplete.→outcome."
+    panel: "Marcus Tate, mast engineer: \"Draw the loop we built, not the cable we meant to build.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Draw the loop we built, not the cable we meant to build."
+  - id: after-stop-33
+    # After Stop 33 | s34-match-induction-sources | automatic
+    on: { after: [1] }
+    world: "The derive the buried-loop emf result remains visible while the match induction sources fixture lights."
+    panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 33 result to settle match induction sources."
+  - id: after-stop-34
+    # After Stop 34 | s35-calculate-the-archived-emf | automatic
+    on: { after: [2] }
+    world: "The match induction sources result remains visible while the calculate the archived emf fixture lights."
+    panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 34 result to settle calculate the archived emf."
+  - id: after-stop-35
+    # After Stop 35 | s36-verify-the-loop-model | automatic
+    on: { after: [3] }
+    world: "The calculate the archived emf result remains visible while the verify the loop model fixture lights."
+    panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 35 result to settle verify the loop model."
+  - id: at-mission-end
+    # At mission end | s33-derive-the-buried-loop-emf | automatic
+    on: { enter: true, at: TODO }   # s33-derive-the-buried-loop-emf
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 9 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The archived -1.10 kV peak lies inside the predicted uncertainty range, so the loop model is consistent."
+
+  stops:
+  # --- Stop 33: Derive the Buried-Loop EMF
+  #     Concept: Faraday rectangular loop near wire; Keystone: K8,K10; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: DERIVE, at s33-derive-the-buried-loop-emf.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive the Buried-Loop EMF"
+    concept: "Faraday rectangular loop near wire"
+    reason: "the trench path must predict voltage before record is opened."
+    scene: "The buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Derive induced emf from changing mast current before seeing the trailer trace."
+    motivation: "integrating nonuniform B(r) prevents a false uniform-field estimate."
+    format: DERIVE
+    question: "Build the three-line flux and Faraday derivation for the rectangular loop, name Ampere, integration, and Faraday-Lenz rules, and submit the symbolic emf."
+    answerText: "The completed check shows ε=-(μ₀ℓ/2π)ln(b/a)dI/dt. Integrate the 1/r field over loop width."
+    why: "integrating nonuniform B(r) prevents a false uniform-field estimate."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   B is not uniform across a=2 m to b=5 m; integrate dr/r.
+    # correct result: ε=-(μ₀ℓ/2π)ln(b/a)dI/dt. Integrate the 1/r field over loop width.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines B=μ0I/(2πr), Φ=∫a^b Bℓdr=μ0Iℓ/(2π)ln(b/a), ε=-μ0ℓ/(2π)ln(b/a)dI/dt. Prompt derive/rules.
+
+  # --- Stop 34: Match Induction Sources
+  #     Concept: Lenz direction and emf sources; Keystone: K10; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L2.
+  #     placement: PROTOCOL, at s34-match-induction-sources.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Match Induction Sources"
+    concept: "Lenz direction and emf sources"
+    reason: "polarity is the strongest archived clue."
+    scene: "With the symbolic pulse fixed, match rising, steady, and falling mast current to loop polarity. Then match sliding rod, changing field, and rotating coil to their specific Faraday expressions.\", and record the result with its physical justification in the station report."
+    motivation: "Lenz's law fixes direction while flux change can come from field, motion, or rotation."
+    format: PROTOCOL
+    question: "Match rising, steady, and falling current to polarity; match sliding rod, changing uniform field, and rotating loop to BLv, -A dB/dt, and NABωsin(ωt); submit all six matches."
+    answerText: "The completed check shows rising opposes, steady gives zero, falling reverses; BLv, -A dB/dt, and rotating-loop form match."
+    why: "Lenz's law fixes direction while flux change can come from field, motion, or rotation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Lenz opposes the change in flux, not the existing field.
+    # correct result: Rising opposes, steady gives zero, falling reverses; BLv, -A dB/dt, and rotating-loop form match.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios [rising,steady,falling,sliding_rod,changing_uniform_B,rotating_N_loop]; choices include [negative/clockwise,zero,positive/counterclockwise,BLv,-A dB/dt,NABωsinωt]; keyed mapping. Prompt submit all six matches. State waypoint.
+
+  # --- Stop 35: Calculate the Archived EMF
+  #     Concept: numerical induction; Keystone: K10,K8; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: DERIVE, at s35-calculate-the-archived-emf.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Calculate the Archived EMF"
+    concept: "numerical induction"
+    reason: "archived trace can be opened only after prediction is frozen."
+    scene: "Take the derived model to the outstation with loop dimensions ell=20 m, a=2.0 m, b=5.0 m, and current rise dI/dt=3.0×10^8 A/s. Calculate the predicted emf and record its physical justification."
+    motivation: "a precomputed magnitude and sign make the archived waveform a real test."
+    format: DERIVE
+    question: "Using μ₀=4π×10^-7 T·m/A and the displayed ℓ, a, b, and dI/dt, build the substitution and submit predicted emf in kV with sign."
+    answerText: "The completed check shows prediction is -1.10 kV. Visible substitution reproduces it."
+    why: "a precomputed magnitude and sign make the archived waveform a real test."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use ln(5/2), SI units, and the displayed loop orientation for sign.
+    # correct result: Prediction is -1.10 kV. Visible substitution reproduces it.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   substitution in formula with μ0; result magnitude 1099.8 V≈1.10kV, negative during rise. Prompt lines/rules, submit kV/sign; tolerance .03kV. State trace reveals -1.06kV.
+
+  # --- Stop 36: Verify the Loop Model
+  #     Concept: prediction test; Keystone: K10,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5 decision.
+  #     placement: VERIFY, at s36-verify-the-loop-model.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Verify the Loop Model"
+    concept: "prediction test"
+    reason: "prediction must survive measured pulse and geometry uncertainty."
+    scene: "Because the prediction is -1.10 kV, compare it with the archived -1.06 kV peak while varying a by ±0.10 m. Decide whether one loop model explains both.\", and record the result with its physical justification in the station report."
+    motivation: "prediction before reveal protects the test from after-the-fact tuning."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Lock -1.10 kV. OPERATE: Vary only a from 1.90 to 2.10 m while ℓ, b, and dI/dt stay fixed. MEASURE: Record the predicted range and archived peak. INTERPRET: Submit consistent or inconsistent; no restoration is required."
+    answerText: "The completed check shows archived -1.06 kV lies inside the predicted geometry band."
+    why: "prediction before reveal protects the test from after-the-fact tuning."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not retune ℓ, b, or dI/dt after reveal; only the stated a uncertainty moves.
+    # correct result: Archived -1.06 kV lies inside the predicted geometry band.
+    # state/output: report piece9.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{source:"Stop 35 loop model",submit:{quantity:"induced voltage",unit:"kV",truth:-1.10,tolerance:0.03}},equipment_locked_until_prediction_commit:true,operation:{control:"loop dimension a",range:[1.90,2.10],unit:"m",fixed:["ell","b","dI/dt"]},measurements:{predicted_range:[-1.13,-1.07],archived_peak:-1.10,unit:"kV"},restore:{required:false,reason:"uncertainty sweep changes no equipment setting"},correct_conclusion:"consistent",answerText:"The archived -1.10 kV peak lies inside the predicted uncertainty range, so the loop model is consistent."}
+

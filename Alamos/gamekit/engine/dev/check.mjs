@@ -128,6 +128,12 @@ for(const theme of wanted){
                      // word of it — and a compliment on a day where nothing
                      // held is worse than no compliment at all.
                      'dayDebrief.mjs',
+                     // A metrics campaign scores every mission from
+                     // `theme.metrics.missions[n]`, and a mission with no entry
+                     // there ends with nothing scored, no award screen and no
+                     // error — the silent nothing this repo keeps paying for.
+                     // Inert in the sixty campaigns that declare no metrics.
+                     'metricsPlan.mjs',
                      // What the fortnight is FOR. A campaign declares one thing it
                      // builds, a piece of it per day, and the room that keeps them —
                      // and the one part that fails invisibly is naming an area with
@@ -258,6 +264,7 @@ if(!process.argv[2]){
                      // question title passes every content gate because the title
                      // is correct where it was authored.
                      'dayDebrief.mjs --selftest',
+                     'metricsPlan.mjs --selftest',
                      // And delivery's, whose silent inversions are both about
                      // measuring nothing: an opening card that says "the case"
                      // satisfying a name made of generic words, and an area with no
@@ -332,6 +339,34 @@ if(!process.argv[2]){
                      // a four-item list and only the importer's "the answer names a
                      // candidate that is not on the list" ever saw it. Its case is an
                      // equality: wrapped and unwrapped parse the same.
+                     // The mission beat script: fires once, waits for every stop it
+                     // names, hands control back, and puts its panel text on the last
+                     // card rather than the first. All DOM and input, which is what a
+                     // hidden tab can verify none of — see the note in beats.js.
+                     '../core/beats.js --selftest',
+                     // Is the book's player copy still the BIBLE'S? `bookParity`
+                     // above guards book against game; nothing guarded bible
+                     // against book, and that is where the drift is — the
+                     // implementation is not allowed to write player-facing
+                     // prose and the only thing enforcing it was somebody
+                     // reading two documents side by side. Five drifted strings
+                     // in Red Sand's first three missions were found that way,
+                     // and a campaign written by several people at once has no
+                     // such reader.
+                     'bibleParity.mjs --selftest',
+                     'bibleParity.mjs',
+                     // And the bible itself, before any of this exists. The
+                     // linter's own clean-bible case is what stops it becoming
+                     // the wall of false failures its first two versions were.
+                     '../../tools/bible-lint.mjs --selftest',
+                     // And the template a bible is written FROM. Its worked
+                     // mission is the shape everyone copies, so a rule change
+                     // that the template stops meeting has to fail here rather
+                     // than quietly teach the wrong format to the next campaign.
+                     // The child runs with cwd `gamekit`, so the argument is relative to THAT,
+                     // not to this file — `../tools/...` pointed one level above the
+                     // repo and the gate crashed instead of grading the template.
+                     '../../tools/bible-lint.mjs tools/BIBLE_AUTHORING_PROMPT.md',
                      '../../tools/yaml-lite.mjs --selftest']){
     const [file, ...flags] = tool.split(' ');
     const res = spawnSync(process.execPath, [resolve(here, file), ...flags],

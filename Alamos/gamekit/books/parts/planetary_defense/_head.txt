@@ -1,0 +1,297 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Astrometry
+  aliases: [astrometry]   # TODO: the plurals and spellings the prose uses
+  def: "precise measurement of an object's sky position and the time of that measurement."
+# mission 1
+- name: Tracklet
+  aliases: [tracklet]   # TODO: the plurals and spellings the prose uses
+  def: "several detections linked as one moving object during a short observing period."
+# mission 1
+- name: Artifact
+  aliases: [artifact]   # TODO: the plurals and spellings the prose uses
+  def: "a false feature created by the detector, image processing, or another object such as a satellite."
+# mission 2
+- name: Orbit fit
+  aliases: [orbit fit]   # TODO: the plurals and spellings the prose uses
+  def: "a calculation that finds trajectories consistent with measured positions, times, and gravity."
+# mission 2
+- name: Residual
+  aliases: [residual]   # TODO: the plurals and spellings the prose uses
+  def: "observed position minus the position predicted by a model."
+# mission 2
+- name: Covariance
+  aliases: [covariance]   # TODO: the plurals and spellings the prose uses
+  def: "a description of parameter uncertainties and how their errors move together."
+# mission 3
+- name: Impact probability
+  aliases: [impact probability]   # TODO: the plurals and spellings the prose uses
+  def: "the weighted fraction of allowed trajectories that strike Earth under the current model."
+# mission 3
+- name: Torino Scale
+  aliases: [torino scale]   # TODO: the plurals and spellings the prose uses
+  def: "a public 0-to-10 scale combining impact probability and impact energy for events within 100 years."
+# mission 3
+- name: Palermo Scale
+  aliases: [palermo scale]   # TODO: the plurals and spellings the prose uses
+  def: "a technical logarithmic comparison between one impact risk and the background hazard."
+# mission 4
+- name: Solar elongation
+  aliases: [solar elongation]   # TODO: the plurals and spellings the prose uses
+  def: "the angle between an object and the Sun in the sky."
+# mission 4
+- name: Observing arc
+  aliases: [observing arc]   # TODO: the plurals and spellings the prose uses
+  def: "the time span covered by measurements used in an orbit fit."
+# mission 4
+- name: Information gain
+  aliases: [information gain]   # TODO: the plurals and spellings the prose uses
+  def: "the expected reduction in uncertainty that matters to a decision."
+# mission 5
+- name: Completeness
+  aliases: [completeness]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of real objects a survey detects under stated conditions."
+# mission 5
+- name: Limiting magnitude
+  aliases: [limiting magnitude]   # TODO: the plurals and spellings the prose uses
+  def: "the faintest brightness a survey can detect reliably."
+# mission 5
+- name: Injection test
+  aliases: [injection test]   # TODO: the plurals and spellings the prose uses
+  def: "adding known synthetic sources to data and measuring how many the pipeline recovers."
+# mission 6
+- name: Absolute magnitude H
+  aliases: [absolute magnitude h]   # TODO: the plurals and spellings the prose uses
+  def: "a standardized visible brightness used with albedo to estimate asteroid diameter."
+# mission 6
+- name: Albedo
+  aliases: [albedo]   # TODO: the plurals and spellings the prose uses
+  def: "a measure of how strongly a surface reflects visible light."
+# mission 6
+- name: Light curve
+  aliases: [light curve]   # TODO: the plurals and spellings the prose uses
+  def: "brightness measured over time, often used to infer spin and shape."
+# mission 6
+- name: Thermal infrared
+  aliases: [thermal infrared]   # TODO: the plurals and spellings the prose uses
+  def: "heat radiation that can constrain emitting area and temperature."
+# mission 7
+- name: Range
+  aliases: [range]   # TODO: the plurals and spellings the prose uses
+  def: "distance inferred from a radar echo's round-trip travel time."
+# mission 7
+- name: Doppler shift
+  aliases: [doppler shift]   # TODO: the plurals and spellings the prose uses
+  def: "a frequency change caused by motion toward or away from the radar."
+# mission 7
+- name: UTC
+  aliases: [utc]   # TODO: the plurals and spellings the prose uses
+  def: "the shared time standard used to compare observations from different systems."
+# mission 8
+- name: Data fusion
+  aliases: [data fusion]   # TODO: the plurals and spellings the prose uses
+  def: "combining complementary measurements in one model."
+# mission 8
+- name: B-plane
+  aliases: [b-plane]   # TODO: the plurals and spellings the prose uses
+  def: "an imagined target plane used to describe a close planetary encounter."
+# mission 8
+- name: Independent evidence
+  aliases: [independent evidence]   # TODO: the plurals and spellings the prose uses
+  def: "evidence that does not share the same likely source of error."
+# mission 9
+- name: Impact corridor
+  aliases: [impact corridor]   # TODO: the plurals and spellings the prose uses
+  def: "the set of possible surface locations allowed by the current orbit uncertainty."
+# mission 9
+- name: Airburst
+  aliases: [airburst]   # TODO: the plurals and spellings the prose uses
+  def: "atmospheric energy release after an object breaks apart or slows rapidly."
+# mission 9
+- name: Kinetic energy
+  aliases: [kinetic energy]   # TODO: the plurals and spellings the prose uses
+  def: "energy an object has because of its motion."
+# mission 9
+- name: TNT equivalent
+  aliases: [tnt equivalent]   # TODO: the plurals and spellings the prose uses
+  def: "a comparison unit for released energy, not a claim about explosive material."
+# mission 10
+- name: Contact binary
+  aliases: [contact binary]   # TODO: the plurals and spellings the prose uses
+  def: "two lobes touching or nearly touching."
+# mission 10
+- name: Delay-Doppler image
+  aliases: [delay-doppler image]   # TODO: the plurals and spellings the prose uses
+  def: "a radar map organized by range and line-of-sight speed."
+# mission 10
+- name: Model residual
+  aliases: [model residual]   # TODO: the plurals and spellings the prose uses
+  def: "the observed value minus the model prediction."
+# mission 11
+- name: Deflection
+  aliases: [deflection]   # TODO: the plurals and spellings the prose uses
+  def: "changing an object's motion before it reaches Earth."
+# mission 11
+- name: Disruption
+  aliases: [disruption]   # TODO: the plurals and spellings the prose uses
+  def: "breaking an object into pieces rather than moving it intact."
+# mission 11
+- name: Impulse
+  aliases: [impulse]   # TODO: the plurals and spellings the prose uses
+  def: "the change in momentum delivered to an object."
+# mission 11
+- name: Momentum enhancement
+  aliases: [momentum enhancement]   # TODO: the plurals and spellings the prose uses
+  def: "extra impulse from impact ejecta, represented by the factor beta."
+# mission 12
+- name: Threshold
+  aliases: [threshold]   # TODO: the plurals and spellings the prose uses
+  def: "a measurable evidence level that triggers an action."
+# mission 12
+- name: Protective action
+  aliases: [protective action]   # TODO: the plurals and spellings the prose uses
+  def: "a step intended to reduce people's exposure to harm."
+# mission 12
+- name: Staging
+  aliases: [staging]   # TODO: the plurals and spellings the prose uses
+  def: "preparing resources without yet ordering mass movement."
+# mission 12
+- name: Precommitment
+  aliases: [precommitment]   # TODO: the plurals and spellings the prose uses
+  def: "choosing a rule before seeing the result that will test it."
+# mission 13
+- name: Control
+  aliases: [control]   # TODO: the plurals and spellings the prose uses
+  def: "a known reference used to reveal measurement bias."
+# mission 13
+- name: Holdout
+  aliases: [holdout]   # TODO: the plurals and spellings the prose uses
+  def: "data withheld until after a prediction is frozen."
+# mission 13
+- name: Systematic error
+  aliases: [systematic error]   # TODO: the plurals and spellings the prose uses
+  def: "a common shift affecting multiple measurements together."
+# mission 13
+- name: Three-sigma envelope
+  aliases: [three-sigma envelope]   # TODO: the plurals and spellings the prose uses
+  def: "a wide model uncertainty region used here to test land intersection."
+# mission 14
+- name: Fragment
+  aliases: [fragment]   # TODO: the plurals and spellings the prose uses
+  def: "a separated piece moving on its own trajectory."
+# mission 14
+- name: Dual return
+  aliases: [dual return]   # TODO: the plurals and spellings the prose uses
+  def: "two distinguishable radar echoes."
+# mission 14
+- name: Independent channel
+  aliases: [independent channel]   # TODO: the plurals and spellings the prose uses
+  def: "a measurement path without the same likely error source."
+# mission 14
+- name: Ephemeris
+  aliases: [ephemeris]   # TODO: the plurals and spellings the prose uses
+  def: "a prediction of an object's position at specified times."
+# mission 15
+- name: Recovery
+  aliases: [recovery]   # TODO: the plurals and spellings the prose uses
+  def: "finding a previously detected object again to extend its observation arc."
+# mission 15
+- name: Airburst corridor
+  aliases: [airburst corridor]   # TODO: the plurals and spellings the prose uses
+  def: "the possible locations where atmospheric energy release may occur."
+# mission 15
+- name: Action envelope
+  aliases: [action envelope]   # TODO: the plurals and spellings the prose uses
+  def: "the places and people included in a protective response."
+# mission 15
+- name: All-clear
+  aliases: [all-clear]   # TODO: the plurals and spellings the prose uses
+  def: "a stand-down claim tied to one specific hazard track."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "angular rate = change in angle / change in time",
+#     c: "testing whether the point moves smoothly.",
+#     v: [ TODO: split "change in angle is the shift on the sky; change in time is the time between images." ],
+#     s: "a consistent rate helps separate an asteroid from a one-frame defect.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "P²(yr) ≈ a³(AU)",
+#     c: "checking whether a heliocentric orbit's period matches its semimajor axis.",
+#     v: [ TODO: split "P is orbital period in years; a is semimajor axis in astronomical units." ],
+#     s: "impossible period-size pairs must be rejected before impact propagation.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "residual = observed position - calculated position",
+#     c: "testing whether an orbit misses the data in a patterned way.",
+#     v: [ TODO: split "observed is the measured sky coordinate; calculated is the orbit prediction." ],
+#     s: "a low average error is not enough if the errors all bend the same way.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "expected loss ≈ impact probability × consequence",
+#     c: "comparing risks that differ in both likelihood and harm.",
+#     v: [ TODO: split "impact probability is a number from 0 to 1; consequence is the modeled harm." ],
+#     s: "a small chance of a large event can justify observation and planning without justifying panic.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "m₂ - m₁ = -2.5 log₁₀(F₂/F₁)",
+#     c: "connecting a magnitude difference to a flux ratio.",
+#     v: [ TODO: split "m is magnitude; F is measured flux; subscripts label two sources or settings." ],
+#     s: "exposure settings must reach 2026 PDC without saturating the reference stars.",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "D(km) = 1329 × 10^(-H/5) / sqrt(pv)",
+#     c: "estimating diameter from absolute magnitude and assumed visible albedo.",
+#     v: [ TODO: split "D is diameter; H is asteroid absolute magnitude; pv is visible geometric albedo." ],
+#     s: "the response cannot estimate energy until it replaces the assumed albedo with measured constraints.",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "wavelength_peak × T = 2.90 × 10^-3 m K",
+#     c: "estimating surface temperature from the peak thermal wavelength.",
+#     v: [ TODO: split "wavelength_peak is the peak wavelength; T is temperature in kelvin." ],
+#     s: "temperature and thermal flux together constrain the asteroid's emitting area.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "R = cΔt / 2",
+#     c: "converting round-trip echo delay into range",
+#     v: [ TODO: split "R is range; c is light speed; Δt is round-trip delay; the factor two covers outward and return travel" ],
+#     s: "The orbit fit needs a defensible distance measurement.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "m = (4/3)πr³ρ",
+#     c: "estimating asteroid mass",
+#     v: [ TODO: split "m is mass; r is radius; ρ is density" ],
+#     s: "The consequence model needs mass before it can estimate energy.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "KE = ½mv²",
+#     c: "estimating impact kinetic energy",
+#     v: [ TODO: split "KE is kinetic energy; m is mass; v is impact speed" ],
+#     s: "Energy sets the scale that the location-specific model distributes.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "Δx ≈ Δv t",
+#     c: "estimating displacement accumulated after a velocity change",
+#     v: [ TODO: split "Δx is displacement; Δv is velocity change; t is remaining time" ],
+#     s: "The campaign must test whether enough miss distance can grow before encounter.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "J = mΔv; J ≈ βmᵢvᵢ",
+#     c: "comparing required and delivered impulse",
+#     v: [ TODO: split "J is impulse; m is asteroid mass; β is enhancement; mᵢ and vᵢ describe the impactor" ],
+#     s: "The launch decision must compare the same physical quantity on both sides.",
+#     k: [ TODO ] },
+#   // mission 15
+#   { e: "m = (4/3)πr³ρ; KE = ½mv²",
+#     c: "checking the fragment energy range",
+#     v: [ TODO: split "m is mass; r is radius; ρ is density; KE is kinetic energy; v is speed" ],
+#     s: "The response threshold depends on whether the fragment can produce damaging effects.",
+#     k: [ TODO ] },

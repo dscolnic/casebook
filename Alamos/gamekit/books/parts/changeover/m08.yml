@@ -1,0 +1,153 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Rate People Feel"
+  card:
+    header: "8 DAYS"
+    title: "The Rate People Feel"
+    goNow: "Go to BANKS and meet Tomas Arendt at the bond-and-money panel."
+    body: "Deposits are stable, but a proposed nominal rate rise may still tighten borrowing more than intended. The money market sets a nominal rate, while expected inflation separates that quote from the real purchasing-power cost. You will clear money demand, connect bond prices, and apply Fisher's equation. By the end of the mission, decide whether the board should raise rates now."
+    objective: "Distinguish nominal and real rates before tightening."
+  objective: "Distinguish nominal and real rates before tightening."
+  stake: "Deposits are stable, but a proposed nominal rate rise may still tighten borrowing more than intended. The money market sets a nominal rate, while expected inflation separates that quote from the real purchasing-power cost. You will clear money demand, connect bond prices, and apply Fisher's equation. By the end of the mission, decide whether the board should raise rates now."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Do not raise rates now. The real rate is already 1.5%. And a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-banks
+    # On arrival at BANKS | s29-clear-money-surplus | automatic
+    on: { enter: true, at: TODO }   # s29-clear-money-surplus
+    world: "Arrival | BANKS | automatic after accepting the briefing World state and dialogue: The destination fixture displays Distinguish nominal and real rates before tightening. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Distinguish nominal and real rates before tightening."
+    bubbles:
+    - who: tomas-arendt   # Tomas Arendt
+      say: "Start with clear money surplus. We need evidence the next decision can use."
+  - id: after-stop-29
+    # After Stop 29 | s30-real-burden | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Tomas Arendt says, , and Stop 30 unlocks."
+    panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    bubbles:
+    - who: tomas-arendt   # Tomas Arendt
+      say: "A 30-billion surplus clears through bond buying and a rate fall to 4%."
+  - id: after-stop-30
+    # After Stop 30 | s31-tool-transmission | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in BANKS → RATE only if the route requires travel, then."
+    panel: "BANKS → RATE"
+    bubbles:
+    - who: tomas-arendt   # Tomas Arendt
+      say: "The real rate is 1.5%, already 0.5 point tighter."
+  - id: after-stop-31
+    # After Stop 31 | s32-raise-now | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 32 unlocks."
+    panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    bubbles:
+    - who: tomas-arendt   # Tomas Arendt
+      say: "Sell bonds → Ms falls → i rises → I falls → AD shifts left → output and price level fall."
+  - id: at-mission-end
+    # At mission end | s29-clear-money-surplus | automatic
+    on: { enter: true, at: TODO }   # s29-clear-money-surplus
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 8 EVIDENCE: RECORDED"
+    bubbles:
+    - who: tomas-arendt   # Tomas Arendt
+      say: "Do not raise now; the hike tightens real borrowing conditions in every tested case."
+
+  stops:
+  # --- Stop 29: Clear money surplus
+  #     Concept: money market; Keystone: interest markets; Area: Bank Supervision; Learning role: INTRODUCE; Difficulty: L3; Story role: experiment.
+  #     placement: VERIFY, at s29-clear-money-surplus.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Clear money surplus"
+    concept: "money market"
+    reason: "The board needs the direction of adjustment before setting a tool."
+    scene: "Money supplied is 300 billion, but at 5% people demand only 270 billion. Predict the bond trade and rate direction before operating the market panel clearly for the next board decision."
+    motivation: "A money surplus produces bond buying, higher bond prices, and a lower nominal rate."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Subtract money demand of 270 billion from money supply of 300 billion and submit the surplus in billions."
+    answerText: "\"A 30-billion surplus clears through bond buying and a rate fall to 4%.\""
+    why: "A money surplus produces bond buying, higher bond prices, and a lower nominal rate."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
+    # correct result: A 30-billion money surplus causes bond buying, raises bond prices, and lowers the nominal rate from 5% to 4%.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{prediction:{equation:"surplus=money supplied-money demanded",inputs:{Ms:300,Md:270,unit:"billion"},correct:30,tolerance:0.1,submit_unit:"billion"},lock:"bond-market action stays locked until 30 billion is committed",action:"run adjustment at the displayed 5% starting rate",measurements:{bond_price:"rises",nominal_rate:"falls from 5% to 4%"},conclusion:"surplus causes bond buying and a lower rate"}
+
+  # --- Stop 30: Real burden
+  #     Concept: Fisher; Keystone: inflation/rates; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L3; Story role: calculation.
+  #     placement: DERIVE, at s30-real-burden.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Real burden"
+    concept: "Fisher"
+    reason: "A nominal quote alone cannot show purchasing-power cost."
+    scene: "With equilibrium nominal interest at 4.0% and expected inflation at 2.5%, rearrange Fisher's equation and calculate the real rate. Compare it with last month's 1.0% real rate."
+    motivation: "Tightness depends on the real rate, not on whether the nominal number looks high or low."
+    format: DERIVE
+    question: "Submit real rate and change. lines:[r=4.0−2.5=1.5,change=+0.5pp]."
+    answerText: "\"The real rate is 1.5%, already 0.5 point tighter.\""
+    why: "Tightness depends on the real rate, not on whether the nominal number looks high or low."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Tightness depends on the real rate, not on whether the nominal number looks high or low.
+    # correct result: 1.5%, +0.5 pp.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"real rate and monthly change","givens":["nominal rate=4.0%","expected inflation=2.5%","last real rate=1.0%"],"lines":[{"id":"L1","expression":"real rate=nominal rate-expected inflation","license":"state governing relationship"},{"id":"L2","expression":"real rate=4.0%-2.5%=1.5%","license":"substitute displayed values"},{"id":"L3","expression":"change=1.5%-1.0%=+0.5 percentage point","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["6.5%","-1.5%"],"correct_result":"1.5%, up 0.5 percentage point","answerText":"The real rate is 1.5%, which is 0.5 percentage point above last month."}
+
+  # --- Stop 31: Tool transmission
+  #     Concept: monetary chain; Keystone: AD; Area: Bank Supervision; Learning role: INTRODUCE; Difficulty: L3; Story role: travel payoff.
+  #     placement: SEQUENCE, at s31-tool-transmission.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Tool transmission"
+    concept: "monetary chain"
+    reason: "Mara needs the full consequence before changing the rate."
+    scene: "Because the real rate is already tighter, order the causal chain from a bond sale to output and prices. Include the money-market step and the investment response in the Rate Book."
+    motivation: "A tool matters only through the chain it sets off."
+    format: SEQUENCE
+    question: "Place six cards in order and submit."
+    answerText: "\"Sell bonds → Ms falls → i rises → I falls → AD shifts left → output and price level fall.\""
+    why: "A tool matters only through the chain it sets off."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A tool matters only through the chain it sets off.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards:[sell bonds,Ms falls,nominal i rises,I falls,AD left,Y and PL fall]; order:same.
+
+  # --- Stop 32: Raise now
+  #     Concept: monetary choice; Keystone: AD-AS/Fisher; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Tomas Arendt beside s32-raise-now.
+  - group: RATE
+    title: "Raise now"
+    person: TODO   # the roster id of whoever asks it
+    concept: "monetary choice"
+    reason: "The chair needs a reversible choice under uncertain expected inflation."
+    scene: "The recessionary gap remains 34.8 billion while expected inflation could be 2% to 3%. Stress a one-point nominal hike across that range and select the claim that always survives."
+    motivation: "A hike raises the real rate across the range and worsens weak demand."
+    format: STRESS
+    question: "Inspect all settings and submit one policy choice: \"do not raise now.\""
+    answerText: "\"Do not raise now; the hike tightens real borrowing conditions in every tested case.\""
+    why: "A hike raises the real rate across the range and worsens weak demand."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A hike raises the real rate across the range and worsens weak demand.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 8 signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   range:2..3 step.25; candidates:[hike tightens survives all,hike closes gap none,hike shifts SRAS none]; correct:hike tightens.
+

@@ -1,0 +1,162 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Lock the File"
+  card:
+    header: "DAY 11 - BOARD IN 5 DAYS"
+    title: "Lock the File"
+    goNow: "Go to Data Management and meet Mara Voss, trial director, at the extraction console."
+    body: "The adjusted estimate is ready, but three reports point to different final tables. Sampling distributions explain ordinary variation; shared extraction paths explain identical errors. Validate the table at Data Management, trace dependencies in Statistics, then lock the master file upstairs. By the end of the mission, decide which extraction is independent enough to become final."
+    objective: "Validate and lock one analysis file."
+  objective: "Validate and lock one analysis file."
+  stake: "The adjusted estimate is ready, but three reports point to different final tables. Sampling distributions explain ordinary variation; shared extraction paths explain identical errors. Validate the table at Data Management, trace dependencies in Statistics, then lock the master file upstairs. By the end of the mission, decide which extraction is independent enough to become final."
+  takeaway: "Validate on held-out data."
+  segue: "Mission decision: Lock the fresh data run, not the three copied reports. Its tests, holdout, file mark, and access log all pass. Trial data are now secure. The last table holds three different problems."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Statistics vary; parameters are fixed."
+  - "Larger n narrows sampling spread without changing its center."
+  - "Exact agreement can signal a shared dependency rather than confirmation."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-data-management
+    # On arrival at Data Management | s41-predict-sampling-spread | automatic
+    on: { enter: true, at: TODO }   # s41-predict-sampling-spread
+    world: "Arrival: DATA entry; three identical reports visible; Mara says, ; - After S1-S2: holdout hash prints; waypoint CARRY HOLDOUT HASH TO STAT. - STAT arrival/after S3: shared dependency lines appear; waypoint TAKE INDEPENDENT HASH TO TRIAL MASTER FILE. - ARCHIVE final: four attestations pass; archive becomes READ ONLY / LOCKED; binder 11 and outcome unlock."
+    panel: "MISSION 11: PREDICT SAMPLING SPREAD OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Matching is not enough. Show me independence"
+  - id: after-stop-41
+    # After Stop 41 | s42-freeze-before-revealing | automatic
+    on: { after: [1] }
+    world: "The predict sampling spread result remains visible while the freeze before revealing fixture lights."
+    panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Use the Stop 41 result to settle freeze before revealing."
+  - id: after-stop-42
+    # After Stop 42 | s43-trace-the-agreement | automatic
+    on: { after: [2] }
+    world: "The freeze before revealing result remains visible while the trace the agreement fixture lights."
+    panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Use the Stop 42 result to settle trace the agreement."
+  - id: after-stop-43
+    # After Stop 43 | s44-make-the-lock-real | automatic
+    on: { after: [3] }
+    world: "The trace the agreement result remains visible while the make the lock real fixture lights."
+    panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Use the Stop 43 result to settle make the lock real."
+  - id: at-mission-end
+    # At mission end | s41-predict-sampling-spread | automatic
+    on: { enter: true, at: TODO }   # s41-predict-sampling-spread
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 11 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Digit-for-digit agreement among three reports is redundant because all use nightly_v7; the source rerun is independent."
+    - who: text   # Text
+      say: "Verify the four independent lock records and reject copied-report agreement as independent support."
+
+  stops:
+  # --- Stop 41: Predict Sampling Spread
+  #     Concept: CLT/unbiasedness/SE; Keystone: keystone sampling distributions/normal; Area: Endpoint Adjudication; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+  #     placement: DERIVE, at s41-predict-sampling-spread.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Predict Sampling Spread"
+    concept: "CLT/unbiasedness/SE"
+    reason: "Ordinary sample-to-sample change must not be mistaken for a corrupted extraction."
+    scene: "The source population has mean 70, SD 12, and each extraction averages n=36 independent records. Derive the sampling distribution of x-bar and explain what increasing n changes in that distribution."
+    motivation: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."
+    format: DERIVE
+    question: "center=70 [unbiased]; SD=12/sqrt36=2 [sampling SD]; CLT approximate Normal [n>=30]. Submit 70 units,2 units."
+    answerText: "The completed check shows x-bar is approximately Normal with mean 70 and SD 2. Larger n narrows spread, not center. Use SE when sigma is estimated by s."
+    why: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   center/spread pair in units
+    # correct result: x-bar is approximately Normal with mean 70 and SD 2. Larger n narrows spread, not center. Use SE when sigma is estimated by s.
+    # state/output: corridor 70 plus/minus spread; S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"center and spread of xbar","givens":["mu=70","sigma=12","n=36"],"lines":[{"id":"L1","expression":"mean(xbar)=mu=70","license":"state governing relationship"},{"id":"L2","expression":"SD(xbar)=sigma/sqrt(n)=12/6=2","license":"substitute displayed values"},{"id":"L3","expression":"n=36 supports an approximately Normal mean","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["SD=12","mean=72"],"correct_result":"mean 70, SD 2","answerText":"The sampling distribution is centered at 70 with standard deviation 2."}
+
+  # --- Stop 42: Freeze Before Revealing
+  #     Concept: model validation; Keystone: keystone sampling distributions; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: HOLDOUT, at s42-freeze-before-revealing.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Freeze Before Revealing"
+    concept: "model validation"
+    reason: "The chosen extraction rule must face records it did not use to tune itself."
+    scene: "The expected spread is two units, and three candidate cleaning rules fit the development rows. Freeze one rule before the console reveals 20 previously held-out source records and their errors."
+    motivation: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
+    format: HOLDOUT
+    question: "Review training errors for rules A, B, and C, then freeze one documented rule before 20 held-out records unlock. Submit the rule with acceptable unseen error."
+    answerText: "The completed check shows freeze B before reveal; it stays within expected error on unseen records."
+    why: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Tune on holdout; freeze before reveal
+    # correct result: Freeze B before reveal; it stays within expected error on unseen records.
+    # state/output: independent hash created; travel STAT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   training fits A1.2,B1.3,C1.4 error; freeze B due documented rule; heldout A4.8,B1.6,C3.9; correct B; settings and revealed data supplied.
+
+  # --- Stop 43: Trace the Agreement
+  #     Concept: dependence; Keystone: keystone inference integrity; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L4; Story role: twist.
+  #     placement: TRACE, at s43-trace-the-agreement.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Trace the Agreement"
+    concept: "dependence"
+    reason: "Three matching reports may share the same wrong upstream table."
+    scene: "The held-out rule produced an independent hash, while efficacy, safety, and registry reports agree digit for digit. Open all their dependencies and identify which report channels share the same nightly extraction."
+    motivation: "Shared inputs make agreement redundant; only the source rerun can validate the final table."
+    format: TRACE
+    question: "Open all four extraction channels and trace each to its upstream source. Submit the three dependent reports and the genuinely independent rerun."
+    answerText: "The completed check shows the three matching reports are not independent confirmations; use the source rerun and held-out hash."
+    why: "Shared inputs make agreement redundant; only the source rerun can validate the final table."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Exact agreement proves confirmation
+    # correct result: The three matching reports are not independent confirmations; use the source rerun and held-out hash.
+    # state/output: shared lines turn amber with text; travel ARCHIVE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"efficacy",label:"efficacy report",dependency:"nightly_v7 extraction",target_dependent:true},{id:"safety",label:"safety report",dependency:"nightly_v7 extraction",target_dependent:true},{id:"registry",label:"registry report",dependency:"nightly_v7 extraction",target_dependent:true},{id:"source_rerun",label:"independent source rerun",dependency:"raw source tables",independent:true}],shared_upstream:"nightly_v7 extraction",correct_conclusion:"only the source rerun is independent",answerText:"Digit-for-digit agreement among three reports is redundant because all use nightly_v7; the source rerun is independent."}
+
+  # --- Stop 44: Make the Lock Real
+  #     Concept: file integrity; Keystone: keystone study design/reporting; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: ATTEST, asked by Mara Voss beside s44-make-the-lock-real.
+  - group: SAFE
+    title: "Make the Lock Real"
+    person: TODO   # the roster id of whoever asks it
+    concept: "file integrity"
+    reason: "Mara must verify identity, time, and physical condition before sealing the file."
+    scene: "The independent extraction survives its holdout and dependency audit. Verify the source hash, signed timestamp, frozen analysis plan, and read-only archive while rejecting the copied report as genuinely independent support."
+    motivation: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
+    format: ATTEST
+    question: "Select exactly four backed controls: source hash, signed timestamp, frozen plan, and read-only permission. Submit the attestation while rejecting copied-report agreement as independent evidence."
+    answerText: "The completed check shows lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence."
+    why: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Copied reports provide three proofs
+    # correct result: Lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence.
+    # state/output: binder 11; Integrity lock; M12.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:4,claims:[{id:"source_hash",label:"source hash",signed:true,backed:true,critical:true},{id:"timestamp",label:"signed timestamp",signed:true,backed:true,critical:true},{id:"analysis_plan",label:"frozen analysis plan",signed:true,backed:true,critical:true},{id:"readonly",label:"read-only archive permission",signed:true,backed:true,critical:true},{id:"copied_reports",label:"three copied reports are independent",signed:true,backed:false,critical:true}],correct_verified:["source_hash","timestamp","analysis_plan","readonly"],critical_unbacked:"copied_reports",answerText:"Verify the four independent lock records and reject copied-report agreement as independent support."}
+

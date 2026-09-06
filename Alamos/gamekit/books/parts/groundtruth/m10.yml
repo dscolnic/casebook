@@ -1,0 +1,153 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "A Good Bond at the Wrong Speed"
+  card:
+    header: "6 DAYS;"
+    title: "A Good Bond at the Wrong Speed"
+    goNow: "Impulse Hall, Elise Strand at gap row."
+    body: "The loop model matches the trailer pulse, and the trench exposes a bond certified at low frequency. A changing current creates self-induced voltage, so a low-resistance lead can still oppose a fast pulse. You will derive inductance, compare pulse fronts, and carry a prediction to the trench. By the end of the mission, decide whether the bonding lead is safe for lightning timescales."
+    objective: "Predict the bond's transient voltage and judge its certificate."
+  objective: "Predict the bond's transient voltage and judge its certificate."
+  stake: "The loop model matches the trailer pulse, and the trench exposes a bond certified at low frequency. A changing current creates self-induced voltage, so a low-resistance lead can still oppose a fast pulse. You will derive inductance, compare pulse fronts, and carry a prediction to the trench. By the end of the mission, decide whether the bonding lead is safe for lightning timescales."
+  takeaway: "The bonding lead is not certified for lightning timescales. ---"
+  segue: "Mission decision: Do not certify the bond lead for lightning. Its low-rate test is sound. A fast pulse adds voltage from the lead itself. Gap timing changes that voltage. Next, measure every current path."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-impulse-hall
+    # On arrival at Impulse Hall | s37-derive-inductance | automatic
+    on: { enter: true, at: TODO }   # s37-derive-inductance
+    world: "accepted BANK/bubble/stage7 amber text/→S1; S2 correct/waypoint/acceptable delay tag/DELAY ≤ 50 ns; TAKE dI/dt TO TRENCH→EARTH; enter EARTH/panel/certificate visible/APRIL: 0.42 Ω DC→S3; S4 correct/world/certificate relabeled/VALID FOR STEADY CURRENT ONLY→outcome; outcome/radio/conduit bond pulses/A second path must be measured.→M11."
+    panel: "Elise Strand, impulse engineer: \"Same energy, different front. Watch the derivative.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Same energy, different front. Watch the derivative."
+  - id: after-stop-37
+    # After Stop 37 | s38-sweep-stage-7-delay | automatic
+    on: { after: [1] }
+    world: "The derive inductance result remains visible while the sweep stage-7 delay fixture lights."
+    panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 37 result to settle sweep stage-7 delay."
+  - id: after-stop-38
+    # After Stop 38 | s39-derive-bond-voltage | automatic
+    on: { after: [2] }
+    world: "The sweep stage-7 delay result remains visible while the derive bond voltage fixture lights."
+    panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 38 result to settle derive bond voltage."
+  - id: after-stop-39
+    # After Stop 39 | s40-scope-the-april-certificate | automatic
+    on: { after: [3] }
+    world: "The derive bond voltage result remains visible while the scope the april certificate fixture lights."
+    panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 39 result to settle scope the april certificate."
+  - id: at-mission-end
+    # At mission end | s37-derive-inductance | automatic
+    on: { enter: true, at: TODO }   # s37-derive-inductance
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 10 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 37: Derive Inductance
+  #     Concept: solenoid inductance; Keystone: K8,K11; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L3.
+  #     placement: DERIVE, at s37-derive-inductance.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive Inductance"
+    concept: "solenoid inductance"
+    reason: "the lead model needs a defensible inductance relation."
+    scene: "Model a wound calibration coil with N turns, length ℓ, and area A. Derive its inductance from Ampere's field and flux linkage before testing the bond pulse.\", and record the result with its physical justification in the station report."
+    motivation: "the derivation shows how geometry controls opposition to changing current."
+    format: DERIVE
+    question: "Build four lines from Ampere's solenoid field through total flux linkage, name each rule, and submit L=μ₀N²A/ℓ."
+    answerText: "The completed check shows l=μ₀N²A/ℓ. Ampere field plus N flux linkages gives the result."
+    why: "the derivation shows how geometry controls opposition to changing current."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Flux linkage is NΦ; omitting that N loses the square.
+    # correct result: L=μ₀N²A/ℓ. Ampere field plus N flux linkages gives the result.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines B=μ0NI/ℓ(Ampere), Φ=BA(flux), NΦ=LI(definition), L=μ0N²A/ℓ; exact.
+
+  # --- Stop 38: Sweep Stage-7 Delay
+  #     Concept: dI/dt; Keystone: K11,K6; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L3.
+  #     placement: SWEEP, at s38-sweep-stage-7-delay.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Sweep Stage-7 Delay"
+    concept: "dI/dt"
+    reason: "stage 7 lateness changes the derivative that drives bond voltage."
+    scene: "With the inductance relation established, sweep stage-7 delay from 0 to 200 ns while energy stays 1.50 kJ. Record peak dI/dt and pulse ringing.\", and record the result with its physical justification in the station report."
+    motivation: "equal stored energy can create unequal inductive hazard because waveform shape matters."
+    format: SWEEP
+    question: "Sweep only stage-7 delay from 0 to 200 ns while energy remains 1.50 kJ, record dI/dt and ringing at inspected delays, and submit the inclusive acceptable delay bound."
+    answerText: "The completed check shows delay must be ≤50 ns. Greater delay lowers derivative but raises ringing beyond the joint rule."
+    why: "equal stored energy can create unequal inductive hazard because waveform shape matters."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Energy stays fixed; judge both dI/dt and ringing at inspected settings.
+    # correct result: Delay must be ≤50 ns. Greater delay lowers derivative but raises ringing beyond the joint rule.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   delay [0,50,100,150,200]ns, dIdt [3.0,2.8,2.4,2.0,1.7]e8A/s, ringing [5,8,14,22,31]%; correct acceptable delay≤50ns. Prompt inspect/submit bound. State waypoint EARTH.
+
+  # --- Stop 39: Derive Bond Voltage
+  #     Concept: bond voltage; Keystone: K11,K7; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L3.
+  #     placement: DERIVE, at s39-derive-bond-voltage.
+  - group: MAST
+    at: conduit-bond
+    title: "Derive Bond Voltage"
+    concept: "bond voltage"
+    reason: "the certificate's 0.42 Ω must be compared with transient voltage."
+    scene: "At the trench, the bond has L=2.0 microH, R=0.42 ohm, current I=10 kA, and dI/dt=3.0×10^8 A/s. Derive the resistive and inductive voltage terms, then justify their physical meanings."
+    motivation: "the larger term identifies what the slow certificate failed to test."
+    format: DERIVE
+    question: "Using L=2.0 μH, R=0.42 Ω, I=10 kA, and dI/dt=3.0×10^8 A/s, build both voltage calculations and submit V_R and |V_L| in kV."
+    answerText: "The completed check shows vR=4.2 kV; VL=0.600 kV. Resistance and inductance are separate voltage terms."
+    why: "the larger term identifies what the slow certificate failed to test."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Convert μH before multiplying and do not replace dI/dt with I.
+    # correct result: VR=4.2 kV; VL=0.600 kV. Resistance and inductance are separate voltage terms.
+    # state/output: unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines VR=IR=4.2kV; VL=LdI/dt=600V; total magnitude bound 4.8kV with polarity diagram. Prompt submit both/units; tolerances 0.1kV,10V.
+
+  # --- Stop 40: Scope the April Certificate
+  #     Concept: DC vs transient safety; Keystone: K7,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: DIAGNOSIS, at s40-scope-the-april-certificate.
+  - group: COUPLE
+    at: earth-cert
+    title: "Scope the April Certificate"
+    concept: "DC vs transient safety"
+    reason: "decide what the April certificate actually proves."
+    scene: "Now the same lead produces 4.2 kV resistive and 0.60 kV inductive drop during the pulse. Diagnose which statement the 0.42 Ω certificate can honestly support.\", and record the result with its physical justification in the station report."
+    motivation: "a measurement is valid only for the quantity and timescale it tested."
+    format: DIAGNOSIS
+    question: "Read all four certificate zones, select the one scope statement they jointly support, and submit safe at all times, safe for DC only, or inductance only."
+    answerText: "The completed check shows the 0.42 Ω certificate supports steady-current resistance only."
+    why: "a measurement is valid only for the quantity and timescale it tested."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   An intact bond and true DC value do not certify a microsecond waveform.
+    # correct result: The 0.42 Ω certificate supports steady-current resistance only.
+    # state/output: report piece10.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   readings [dc_R normal,pulse_L untested,stage_delay alarm,physical_bond intact]; choices [safe_all_times,safe_dc_only,inductance_only]; answer safe_dc_only.
+

@@ -1,0 +1,225 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Feedstock Problem"
+  card:
+    header: "14 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "THE FEEDSTOCK PROBLEM"
+    goNow: "Go to the Atmosphere Intake and meet Ingrid Sundqvist, the production and catalyst lead, at the compressor log desk."
+    body: "The carbon ledger makes a large leak unlikely, but the plant still cannot make enough methane. The Sabatier reactor combines carbon dioxide from Martian air with hydrogen recovered from water. At the Atmosphere Intake, calculate how much methane each supply can support and identify which one runs out first. By the end of the mission, decide whether to push the intake harder or investigate hydrogen delivery."
+    objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
+  objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
+  stake: "The carbon ledger makes a large leak unlikely, but the plant still cannot make enough methane. The Sabatier reactor combines carbon dioxide from Martian air with hydrogen recovered from water. At the Atmosphere Intake, calculate how much methane each supply can support and identify which one runs out first. By the end of the mission, decide whether to push the intake harder or investigate hydrogen delivery."
+  takeaway: "Scarce diagnostic material creates a real trade-off between learning and output."
+  segue: "Mission decision: Do not push the air intake. Test the hydrogen line instead. The captured carbon dioxide could make 2405 kg of methane, more than this shift needs. Hydrogen runs out first. A test pulse now moves toward the Hydrogen Store."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Balance an equation before using its coefficients."
+  - "Compare every reactant by the amount of the same product it could make; the smaller product amount identifies the limiting reactant."
+  - "A correct calculation may rule out the easiest explanation without revealing the real fault."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-atmosphere-intake
+    # On arrival at Atmosphere Intake | automatic | 
+    on: { enter: true, at: INTAKE }
+    world: "Ice coats the intake housing while the compressor shakes the platform; Sundqvist points to the full-shift capture log."
+    panel: "MISSION 2 - THE FEEDSTOCK PROBLEM"
+    # unlocks: Stop 5 at the compressor log desk.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "This machine pulls carbon dioxide from the Martian air. If it cannot collect enough, the reactor cannot make the methane that takes us home. Before I push it harder, tell me whether the air supply is actually the problem."
+  - id: after-stop-5
+    # After Stop 5 | compressor log desk | automatic transition
+    on: { after: [1] }
+    world: "The conversion cards lock into one unit-cancelling chain."
+    panel: "CO2 MASS -\\> CO2 MOLES -\\> CH4 MOLES -\\> CH4 MASS."
+    # unlocks: Stop 6 at the intake control panel.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "Use the captured amount. Tell me what this intake could make before I touch the compressor."
+  - id: after-stop-6
+    # After Stop 6 | intake control panel | automatic reversal
+    on: { after: [2] }
+    world: "The proposed compressor-overdrive control becomes unavailable."
+    panel: "THEORETICAL CH4: 2405 kg / REQUIRED CH4: 2000 kg / CO2 SUPPLY: SUFFICIENT."
+    # unlocks: Stop 7 at the dual-feed display.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "Then the intake is not starving us. We have enough carbon dioxide to meet the launch target."
+    - who: abiola   # Abiola
+      radio: true
+      say: "That is not good news. If the air is not holding us back, something else is."
+  - id: after-stop-7
+    # After Stop 7 | dual-feed display | automatic
+    on: { after: [3] }
+    world: "A second feed display opens and highlights the hydrogen line."
+    panel: "HYDROGEN IS LIMITING METHANE PRODUCTION."
+    # unlocks: Stop 8 at the hydrogen-allocation manifold.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "The Martian air was never the bottleneck. We are not getting enough hydrogen."
+    - who: abiola   # Abiola
+      say: "You may use one diagnostic pulse, but the reactor must retain enough hydrogen to restart safely. Divide what remains."
+  - id: at-mission-end
+    # At mission end | Atmosphere Intake | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "The player allocation appears as three illuminated pipes: PRODUCTION, DIAGNOSTIC, and RESTART RESERVE; A blue diagnostic pulse leaves the intake display and travels toward the Hydrogen Store."
+    panel: "NEXT DESTINATION - HYDROGEN STORE."
+    # unlocks: Mission 3 briefing and the Hydrogen Store waypoint.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "The intake stays at normal power. Your test gets one pulse. Restart reserve remains protected."
+    - who: abiola   # Abiola
+      say: "Follow that pulse. Find where the hydrogen stops being usable."
+
+  stops:
+  # --- Stop 5: The production workflow
+  #     Concept: stoichiometric workflow; Keystone: balancing and stoichiometry; Area: Reactor Hall; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: SEQUENCE, at intake-calculation-board.
+  - group: EQUIL
+    at: intake-calculation-board
+    title: "The production workflow"
+    concept: "stoichiometric workflow"
+    reason: "The intake claim needs one valid mass-to-methane calculation path."
+    scene: "To test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. This chain will turn the capture log into a testable production claim."
+    motivation: "This tells the crew whether Martian air can supply enough carbon for the ride home."
+    format: SEQUENCE
+    question: "Order the workflow for converting captured CO2 mass into theoretical CH4 mass."
+    # CONVERTED from the bible's `data` line below; `correct result: As listed`.
+    cards:
+    - "Balance the equation"
+    - "Convert CO2 mass to moles"
+    - "Use the CO2:CH4 mole ratio"
+    - "Convert CH4 moles to mass"
+    - "Compare with the production target"
+    order: [0, 1, 2, 3, 4]
+    answerText: "Balance, convert CO2 mass to moles, apply the mole ratio, and convert methane moles to mass."
+    why: "Stoichiometric coefficients connect moles. Molar mass is the bridge between a scale and that ratio. In this reaction the CO2:CH4 mole ratio is 1:1, but their masses are not equal because 44.01 g CO2 and 16.04 g CH4 are one mole each."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If the player applies a coefficient to kilograms, show unit mismatch. If they compare before converting product to mass, point out that the schedule is a mass target.
+    # data: Balance the equation / Convert CO2 mass to moles / Use the CO2:CH4 mole ratio / Convert CH4 moles to mass / Compare with the production target.
+    # correct result: As listed.
+    # state/output: Unlock theoretical-yield panel.
+
+  # --- Stop 6: Could today's air make enough methane?
+  #     Concept: theoretical yield; Keystone: balancing and stoichiometry; Area: Reactor Hall; Learning role: PRACTICE; Difficulty: L2; Story role: reversal.
+  #     placement: BALLPARK, at compressor-log-desk.
+  - group: EQUIL
+    at: compressor-log-desk
+    title: "Could today's air make enough methane?"
+    concept: "theoretical yield"
+    reason: "Compressor power should not increase until its possible methane output is known."
+    scene: "Use that conversion to calculate the most methane the captured carbon dioxide could make before Sundqvist increases compressor power. The answer decides whether extra compressor power could help this shift."
+    motivation: "If the theoretical yield already exceeds the target, pushing the compressors wastes power and risks damage."
+    format: BALLPARK
+    question: "Estimate the theoretical methane from the captured CO2."
+    # CONVERTED from the bible's `data` line below: its four factors become four
+    # tiles, and its own "= 2.405 x 10^6 g" is the target with the stated ±3%.
+    estimate:
+      question: "Estimate the theoretical methane from the captured CO2."
+      relationship: "grams CH4 = grams CO2 ÷ molar mass CO2 × the CO2:CH4 mole ratio × molar mass CH4"
+      labels:
+      - "6.60×10⁶ g CO2"
+      - "44.01 g/mol CO2"
+      - "1 mol CH4 / 1 mol CO2"
+      - "16.04 g/mol CH4"
+      values: [6.60e6, 44.01, 1, 16.04]
+      slots: 4
+      template: '{0} ÷ {1} × {2} × {3}'
+      formula: a/b*c*d
+      correct: [0, 1, 2, 3]
+      target: 2.405e6
+      tolerance: 72150
+      units: "g CH4"
+    answerText: "The captured CO2 could make 2405 kg CH4."
+    why: "(6.60 x 10^6 g / 44.01 g mol^-1)(16.04 g mol^-1) = 2.405 x 10^6 g = 2405 kg CH4. Rounded to three significant figures this is 2.41 x 10^3 kg. CO2 is sufficient for the 2000 kg requirement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   6600 kg treats a 1:1 mole ratio as a 1:1 mass ratio. About 150 is kilomoles, not kilograms of methane.
+    # data: (6.60 x 10^6 g CO2)/(44.01 g/mol) x (1 mol CH4/1 mol CO2) x (16.04 g/mol CH4).
+    # correct result: 2405 kg CH4 (2.41 x 10^3 kg to three significant figures); tolerance +/-3%.
+    # state/output: Set evidence_flags.co2_sufficient = true; Sundqvist turns off the proposed compressor overdrive.
+
+  # --- Stop 7: Which feed runs out first?
+  #     Concept: limiting reactant; Keystone: limiting reactant; Area: Reactor Hall; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: CHOICE, asked at Ingrid Sundqvist beside compressors.
+  - group: EQUIL
+    at: compressors
+    title: "Which feed runs out first?"
+    person: sundqvist
+    concept: "limiting reactant"
+    reason: "The plant must identify the reactant that actually stops production."
+    scene: "Because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first. That comparison will move the search to the supply that fails first."
+    motivation: "The limiting reactant identifies which supply actually caps the methane available for launch."
+    format: CHOICE
+    question: "Which reactant limits methane production, and how much CH4 can it support?"
+    choices:
+    - "H2 limits; 520/4 = 130 kmol CH4."
+    - "CO2 limits; 150 kmol CO2 makes 150 kmol CH4."
+    - "H2 limits; 520 kmol H2 makes 520 kmol CH4."
+    - "Neither limits because both feeds are present."
+    answer: "H2 limits; 520/4 = 130 kmol CH4."
+    answerText: "Hydrogen is limiting and supports 130 kmol CH4."
+    why: "Test each reactant through the balanced equation. CO2 could make 150 kmol CH4. H2 must be divided by four and can make only 130 kmol. The smaller product amount wins, so H2 is limiting and 20 kmol CO2 can remain."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) It ignores the smaller H2-supported yield. (3) It ignores the coefficient four. (4) A reaction can have both feeds present and still be limited by one.
+    # correct result: Choice 1.
+    # state/output: Set evidence_flags.h2_limiting = true; radio Herrera requesting raw H2 delivery data.
+
+  # --- Stop 8: Spend the hydrogen you have
+  #     Concept: limiting reactant under constraints; Keystone: limiting reactant; Area: Reactor Hall; Learning role: COMBINE; Difficulty: L3; Story role: decision.
+  #     placement: ALLOCATE, operated at intake-bypass-manifold.
+  - group: EQUIL
+    at: intake-bypass-manifold
+    title: "Spend the hydrogen you have"
+    concept: "limiting reactant under constraints"
+    reason: "The diagnostic test must preserve enough hydrogen for a safe restart."
+    scene: "Hydrogen runs out first, so divide the limited release among production, diagnosis, and restart reserve before redirecting the investigation. The chosen split must buy useful evidence without disabling the reactor."
+    motivation: "Testing the line costs real fuel, but without the test the crew may spend another shift repairing the wrong system."
+    format: ALLOCATE
+    question: "With hydrogen identified as the limiting reactant, allocate the 80 kmol across methane production, tracer testing, restart reserve, and purge protection while satisfying both required checks."
+    # MODEL CONVERSION. The bible splits a pool continuously; the engine funds a
+    # subset under a budget. Each item's `cost` is the bible's own share for it —
+    # its recommended allocation, or its stated maximum where the recommendation is
+    # zero — and each question becomes an answer the funded plan does or does not
+    # buy. NOT `protected:`: the bible gives the reserve a minimum of 0 and a pass
+    # rule of restart >= 16, so preserving it has to be the player's choice.
+    allocate:
+      pool: { amount: 80, unit: "kmol H2", mode: scalar }
+      items:
+      - { id: production, label: "Interim methane production", cost: 56 }
+      - { id: tracer, label: "Diagnostic tracer pulse", cost: 8 }
+      - { id: restart, label: "Reactor restart reserve", cost: 16 }
+      - { id: purge, label: "Purge-line protection", cost: 8 }
+      answers:
+      - { question: "Where does hydrogen stop being usable?", requires: [tracer], required: true }
+      - { question: "Can the reactor restart safely?", requires: [restart], required: true }
+      - { question: "Can this shift still make some methane?", requires: [production] }
+      - { question: "Can the diagnostic line be purged safely?", requires: [purge] }
+    answerText: "Choose at least 8 kmol for the tracer and 16 kmol for restart; 56/8/16 is the recommended split."
+    why: "No allocation creates hydrogen. The scientific choice is whether a small diagnostic spend is worth the production it displaces. Eight kilomoles gives the meter a resolvable pulse; sixteen preserves a restart. The remaining 56 kmol supports only 14 kmol CH4, a visible cost that makes the evidence meaningful."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Underfunded tracer yields no interpretable test. Underfunded reserve violates the safe-restart constraint. Over-allocation must be blocked with a message naming the missing amount.
+    # data: 80 kmol H2. Production pass: selectable 0-60 kmol. Tracer/line-volume test: minimum 8 kmol. Restart reserve: player-chosen minimum 16 kmol.
+    # correct result: Any allocation with tracer ≥8, reserve ≥16, total ≤80; recommended 56 production / 8 tracer / 16 reserve.
+    # state/output: Set diagnostic_h2_reserved = true; hydrogen_reserve - 8; unlock Hydrogen Store route for Mission 3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:
+    #     pool: {label: "Hydrogen release", value: 80, unit: "kmol H2"}
+    #     items:
+    #       - {id: production, label: "Interim methane production", cost_per_unit: 1, min: 0, max: 56, step: 4, unit: "kmol H2"}
+    #       - {id: tracer, label: "Diagnostic tracer pulse", cost_per_unit: 1, min: 0, max: 16, step: 4, unit: "kmol H2"}
+    #       - {id: restart, label: "Reactor restart reserve", cost_per_unit: 1, min: 0, max: 24, step: 4, unit: "kmol H2"}
+    #       - {id: purge, label: "Purge-line protection", cost_per_unit: 1, min: 0, max: 8, step: 4, unit: "kmol H2"}
+    #     questions:
+    #       - {id: locate_loss, label: "Where does hydrogen stop being usable?", required: true, needs: {tracer: 8}}
+    #       - {id: restart_safe, label: "Can the reactor restart safely?", required: true, needs: {restart: 16}}
+    #       - {id: make_fuel, label: "Can this shift still make some methane?", required: false, needs: {production: 40}}
+    #       - {id: protect_line, label: "Can the diagnostic line be purged safely?", required: false, needs: {purge: 4}}
+    #     correct: {production: 56, tracer: 8, restart: 16, purge: 0}
+    #     pass_rule: "tracer >= 8 and restart >= 16 and total <= 80"
+

@@ -1,0 +1,238 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Loop on Paper"
+  card:
+    header: "6 DAYS UNTIL COUNTY INSPECTION"
+    title: "THE LOOP ON PAPER"
+    goNow: "Go to the Coaster Station and meet Luka Kovač, the mechanical lead, at the 1974 profile drawing."
+    body: "The wheel now has a restricted envelope, while the coaster still relies on one old track profile. A train must retain enough energy and inward force to stay on the rails at the loop crown. Calculate the ideal speed, account for losses, then compare lift power in the Plant Room. By the end of the mission, decide whether the drawing justifies a powered measurement run."
+    objective: "Decide whether existing evidence supports a limited coaster measurement run."
+  objective: "Decide whether existing evidence supports a limited coaster measurement run."
+  stake: "The wheel now has a restricted envelope, while the coaster still relies on one old track profile. A train must retain enough energy and inward force to stay on the rails at the loop crown. Calculate the ideal speed, account for losses, then compare lift power in the Plant Room. By the end of the mission, decide whether the drawing justifies a powered measurement run."
+  takeaway: "Correct mathematics cannot certify an input that has not been physically verified."
+  segue: "Mission decision: One empty coaster run may test the old plan. The axle sensor will replace the portable wheel. The lift just fits the 55 kW plate. Riders are not cleared because the track shape has not been checked."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Use energy between locations and forces at one location."
+  - "At the loop crown, gravity and any normal force point inward."
+  - "A good average residual can hide a patterned failure."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coaster-station
+    # On arrival at Coaster Station | automatic | 
+    on: { enter: true, at: COASTER }
+    world: "Kovač pins the 1974 profile beside the train."
+    panel: "STOP 37-39 READY"
+    # unlocks: Stops 37-39.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "This drawing has been copied more often than the track has been measured."
+  - id: after-stop-39
+    # After Stop 39 | automatic | 
+    on: { after: [3] }
+    world: "Alternating residuals implicate the portable wheel bracket."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "The model gets one run with an independent sensor."
+  - id: on-arrival-at-shared-plant-room
+    # On arrival at Shared Plant Room | automatic | 
+    on: { enter: true, at: PLANT }
+    world: "The door opens and the 55 kW motor plate illuminates."
+    panel: "STOP 40 READY"
+    # unlocks: Stop 40.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-40
+    # After Stop 40 | automatic | 
+    on: { after: [4] }
+    world: "A limited empty-train run is authorized; passenger operation remains locked."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "The Flume header gauge begins diverging from its delivery record."
+    panel: "MISSION 10 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 37: Estimate the ideal crown speed
+  #     Concept: Energy conservation; Keystone: energy; Area: Coaster Station; Learning role: RETRIEVE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALLPARK, asked at profile-drawing.
+  - group: COASTER
+    at: profile-drawing
+    title: "Estimate the ideal crown speed"
+    concept: "Energy conservation"
+    reason: "The detailed loss model needs an ideal upper bound first."
+    scene: "The train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Estimate the no-loss crown speed before adding the measured friction and wheel losses from testing."
+    motivation: "The ideal result is an upper bound; real losses can only reduce it."
+    format: BALLPARK
+    question: "Given g = 9.80 m/s^2 and vertical drop Delta h = 6.0 m, use v = sqrt(2g Delta h). Submit one ideal crown-speed number in m/s."
+    answerText: "The ideal crown speed is about 10.84 m/s."
+    why: "The lost gravitational potential energy becomes kinetic energy when no losses are included."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use the height difference, not either absolute height.
+    # correct result: Submit 10.84 m/s; accept 10.70-10.98 m/s.
+    # state/output: Draw an IDEAL MAXIMUM 10.84 m/s line.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate: {labels: ["2g", "Height drop"], values: [19.6,6.0], slots: [factor,height], template: "v = sqrt({factor} x {height})", formula: "sqrt(19.6*6)", correct: 10.84, target: 10.8, tolerance: 0.05, unit: m/s}
+    # CONVERTED. Slots become a count, the template holes the engine's click
+    # order, and the formula is written with slot names because it is evaluated
+    # as JavaScript. One thing the importer forced: a tile that carries a number
+    # in its own label has to be worth that number, and the bible's "2g" reads as
+    # 2 while the tile is worth 19.6. The tile is therefore labelled with the
+    # value and keeps the bible's name for it in the same breath.
+    estimate:
+      labels: ["19.6  (2g)", "Height drop"]
+      values: [19.6, 6.0]
+      slots: 2
+      template: 'v = sqrt({0} x {1})'
+      formula: Math.sqrt(a*b)
+      correct: [0, 1]
+      target: 10.8
+      tolerance: 0.05
+      units: m/s
+
+  # --- Stop 38: Derive the contact minimum
+  #     Concept: Loop-top dynamics; Keystone: forces, circular motion, energy; Area: Carousel Drive House; Learning role: COMBINE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, asked at station-board.
+  - group: CAROUSEL
+    at: station-board
+    title: "Derive the contact minimum"
+    concept: "Loop-top dynamics"
+    reason: "Ideal speed matters only relative to the speed needed to remain on the track."
+    scene: "At the loop crown, inward points downward and the rail cannot pull the train toward the sky. Derive the limiting speed where the rail's supporting normal force just reaches zero."
+    motivation: "The contact minimum turns energy into a physical safety requirement."
+    format: DERIVE
+    question: "Given drawing radius r = 5.6 m, g = 9.80 m/s^2, and Corbin Park's fictional required margin 1.00 m/s, use mg + N = mv^2/r with N = 0 at minimum contact. Submit an ordered derivation, contact-minimum speed in m/s, and required-with-margin speed in m/s."
+    answerText: "The drawing requires at least 7.41 m/s for contact and 8.41 m/s with Corbin Park's 1.0 m/s margin."
+    why: "At the limit, gravity alone supplies the inward acceleration."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Setting N=mg is not the limiting condition; set N=0.
+    # correct result: Contact minimum 7.41 m/s; campaign-margin setting 8.41 m/s.
+    # state/output: Add drawing-based threshold to profile.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: force, expression: "mg + N = mv^2/r", rule: "net inward force at crown"}
+    #       - {id: limit, expression: "N = 0 at minimum contact", rule: "rail cannot pull"}
+    #       - {id: solve, expression: "mg = mv_min^2/r", rule: "substitute limiting condition"}
+    #       - {id: result, expression: "v_min = sqrt(gr)", rule: "solve and cancel mass"}
+    #     order: [force,limit,solve,result]
+    #     decoys:
+    #       - {expression: "v_min = sqrt(g/r)", rule: "divide by radius and produce the wrong units"}
+    # HELD BACK. The bible writes a derivation as an ordered list of lines plus a
+    # single decoy for the whole thing. The engine grades it line by line: every
+    # step needs at least three candidate lines, a `why` on each wrong one saying
+    # what it costs, and one wrong branch marked `survives` so the step cannot be
+    # passed by spotting the malformed option. Owed by the bible: per-step
+    # candidate sets, a rebuttal on each wrong candidate, and which wrong branch
+    # survives. Also `start` and `goal` — the line it begins from, and the FORM it
+    # is going to, which is not the same as the answer.
+
+  # --- Stop 39: Refuse the lowest average error
+  #     Concept: Residual pattern; Keystone: evidence independence; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L4; Story role: clue.
+  #     placement: RESIDUAL, asked at station-wheel.
+  - group: WORKSHOP
+    at: station-wheel
+    title: "Refuse the lowest average error"
+    concept: "Residual pattern"
+    reason: "The old speed wheel must be rejected or retained from its error pattern, not reputation."
+    scene: "Two calibrations have similar average error, but one alternates high and low with the bracket spring. Compare their complete residual fields and choose the measurement model without that physical pattern."
+    motivation: "Patterned residuals reveal a missed mechanism even when their average is close to zero."
+    format: RESIDUAL
+    question: "Compare the displayed portable-wheel residuals in m/s with the independent axle-encoder residuals in m/s. Submit one calibration selection and one conclusion naming the residual pattern that justifies it."
+    answerText: "Use the independent axle encoder; the portable wheel has an alternating residual pattern."
+    why: "Alternation tied to bracket changes is evidence of a missed systematic effect."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (portable) Alternating positive and negative residuals can average near zero while remaining large and patterned, so the portable wheel is not the independent field to trust.
+    # correct result: Select independent axle encoder; reject portable-wheel mean-only comparison.
+    # state/output: Retire the portable wheel from certificate measurements.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:
+    #     fields:
+    #       - {id: portable, label: "Portable wheel", values: [0.42,-0.39,0.44,-0.41,0.40,-0.43], rms: 0.415, pattern: alternating}
+    #       - {id: independent, label: "Independent axle encoder", values: [0.10,-0.12,0.08,-0.09,0.11,-0.07], rms: 0.096, pattern: none}
+    #     correct: independent
+    #     conclusion: "Use independent axle encoder; portable wheel misses spring-bracket response."
+    # HELD BACK, and this is the one place the two models point opposite ways. The
+    # engine's RESIDUAL exists to teach that the best number is the wrong answer:
+    # the lowest-RMS fit has to be the patterned one, and the fit to accept has to
+    # be a worse number with a clean field. Here the field to accept, the axle
+    # encoder, is also the lowest RMS at 0.096 against the portable wheel's 0.415,
+    # so "take the smallest number" is already correct and there is nothing for
+    # the residual field to add. The residuals are also six bare values with no
+    # position, and the engine plots each one at an x and a y. Owed by the bible:
+    # a position for every residual, and a board on which the best RMS is the trap.
+
+  # --- Stop 40: Can the lift support the run?
+  #     Concept: Mechanical power; Keystone: energy and model limits; Area: Coaster Station; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: DIAGNOSIS, asked at motor-plate.
+  - group: COASTER
+    at: motor-plate
+    title: "Can the lift support the run?"
+    concept: "Mechanical power"
+    reason: "The powered test needs enough lift power without consuming protected plant capacity."
+    scene: "The independent encoder is chosen, but the empty train still must climb 26 m in 70 s. Compare required mechanical power, motor efficiency, and quiet brake readings before authorizing the run."
+    motivation: "A valid measurement run must be physically supportable without creating a new plant failure."
+    format: DIAGNOSIS
+    question: "Given empty-train mass 12,000 kg, rise 26 m, lift time 70 s, g = 9.80 m/s^2, efficiency 0.80, and motor plate 55 kW, use P_mech = mgh/t and P_in = P_mech/eta. Submit mechanical power in kW, input power in kW, and one operating plan."
+    # CONVERTED. The payload's four choice rows, written out as mappings.
+    choices:
+    - { id: full, label: "Run loaded train", mechanism: "Not supported by this empty-train calculation." }
+    - { id: limited, label: "Run one empty train with independent encoder", mechanism: "Required input power is about 54.6 kW, just within plate." }
+    - { id: no_loss, label: "Ignore efficiency", mechanism: "Understates input power." }
+    - { id: certify, label: "Certify from drawing", mechanism: "Geometry remains unmeasured." }
+    # The bible keys `answer: limited`; the engine grades by label.
+    answer: "Run one empty train with independent encoder"
+    answerText: "Authorize one empty-train measurement run with the independent encoder; do not certify passenger operation."
+    why: "P=mgh/t, then divide by 0.80 efficiency. The result fits only narrowly and says nothing about drawing accuracy."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (full) The calculation and power plate support only the empty-train case, not a loaded run. (no_loss) Ignoring 80% efficiency understates required input power. (certify) A copied drawing cannot certify the still-unmeasured physical loop geometry.
+    # correct result: Choice 2 - one limited empty-train encoder run; passenger operation remains locked.
+    # state/output: Set test_authorized.coaster_empty = true; Plant Room opens permanently.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "COASTER MEASUREMENT-RUN READINESS"
+    #   readings:
+    #     - {zone: train, label: "Empty train mass", value: "12,000 kg", state: quiet}
+    #     - {zone: lift, label: "Rise / time", value: "26 m / 70 s", state: quiet}
+    #     - {zone: motor, label: "Efficiency / plate", value: "80% / 55 kW", state: quiet}
+    #     - {zone: brake, label: "Brake self-test", value: "normal", state: quiet}
+    #     - {zone: geometry, label: "Physical loop geometry", value: "not yet measured; drawing only", state: alarm}
+    #   choices:
+    #     - {id: full, label: "Run loaded train", mechanism: "Not supported by this empty-train calculation."}
+    #     - {id: limited, label: "Run one empty train with independent encoder", mechanism: "Required input power is about 54.6 kW, just within plate."}
+    #     - {id: no_loss, label: "Ignore efficiency", mechanism: "Understates input power."}
+    #     - {id: certify, label: "Certify from drawing", mechanism: "Geometry remains unmeasured."}
+    #   answer: limited
+    # CONVERTED. `headline` is a rename; a reading's `state` is the engine's
+    # `status`, where the bible's `quiet` is `normal`.
+    headline: "COASTER MEASUREMENT-RUN READINESS"
+    readings:
+    - { zone: train, label: "Empty train mass", value: "12,000 kg", status: normal }
+    - { zone: lift, label: "Rise / time", value: "26 m / 70 s", status: normal }
+    - { zone: motor, label: "Efficiency / plate", value: "80% / 55 kW", status: normal }
+    - { zone: brake, label: "Brake self-test", value: "normal", status: normal }
+    - { zone: geometry, label: "Physical loop geometry", value: "not yet measured; drawing only", status: alarm }
+

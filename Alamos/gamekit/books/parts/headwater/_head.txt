@@ -1,0 +1,295 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Limit
+  aliases: [limit]   # TODO: the plurals and spellings the prose uses
+  def: "the value a function approaches as its input nears a point."
+# mission 1
+- name: Continuous
+  aliases: [continuous]   # TODO: the plurals and spellings the prose uses
+  def: "having a defined value that equals the common left and right limit."
+# mission 2
+- name: Derivative
+  aliases: [derivative]   # TODO: the plurals and spellings the prose uses
+  def: "instantaneous output change per unit input change."
+# mission 2
+- name: Tangent line
+  aliases: [tangent line]   # TODO: the plurals and spellings the prose uses
+  def: "a line matching a curve's value and slope at one point."
+# mission 3
+- name: Chain rule
+  aliases: [chain rule]   # TODO: the plurals and spellings the prose uses
+  def: "differentiate an outside function, then multiply by the derivative of its inside."
+# mission 3
+- name: Implicit relation
+  aliases: [implicit relation]   # TODO: the plurals and spellings the prose uses
+  def: "an equation connecting variables without isolating one."
+# mission 3
+- name: Inverse function
+  aliases: [inverse function]   # TODO: the plurals and spellings the prose uses
+  def: "a function that reverses another function."
+# mission 4
+- name: Position
+  aliases: [position]   # TODO: the plurals and spellings the prose uses
+  def: "location along a route."
+# mission 4
+- name: Velocity
+  aliases: [velocity]   # TODO: the plurals and spellings the prose uses
+  def: "signed change of position per time."
+# mission 4
+- name: Speed
+  aliases: [speed]   # TODO: the plurals and spellings the prose uses
+  def: "absolute value of velocity."
+# mission 4
+- name: Displacement
+  aliases: [displacement]   # TODO: the plurals and spellings the prose uses
+  def: "final position minus initial position."
+# mission 4
+- name: Total distance
+  aliases: [total distance]   # TODO: the plurals and spellings the prose uses
+  def: "all travel counted positively."
+# mission 5
+- name: Critical point
+  aliases: [critical point]   # TODO: the plurals and spellings the prose uses
+  def: "an interior input where the derivative is zero or undefined."
+# mission 5
+- name: Absolute maximum
+  aliases: [absolute maximum]   # TODO: the plurals and spellings the prose uses
+  def: "greatest value on the full interval."
+# mission 5
+- name: Marginal value
+  aliases: [marginal value]   # TODO: the plurals and spellings the prose uses
+  def: "the derivative of a total with respect to one more unit."
+# mission 6
+- name: Asymptote
+  aliases: [asymptote]   # TODO: the plurals and spellings the prose uses
+  def: "a line a graph approaches."
+# mission 6
+- name: Residual
+  aliases: [residual]   # TODO: the plurals and spellings the prose uses
+  def: "observed value minus model prediction."
+# mission 6
+- name: Holdout data
+  aliases: [holdout data]   # TODO: the plurals and spellings the prose uses
+  def: "observations hidden until a model is frozen."
+# mission 7
+- name: Antiderivative
+  aliases: [antiderivative]   # TODO: the plurals and spellings the prose uses
+  def: "a function whose derivative is the integrand."
+# mission 7
+- name: Riemann sum
+  aliases: [riemann sum]   # TODO: the plurals and spellings the prose uses
+  def: "rectangles approximating accumulated change."
+# mission 7
+- name: Definite integral
+  aliases: [definite integral]   # TODO: the plurals and spellings the prose uses
+  def: "signed accumulation across bounds."
+# mission 8
+- name: Substitution
+  aliases: [substitution]   # TODO: the plurals and spellings the prose uses
+  def: "replacing a repeated inner expression with one variable."
+# mission 8
+- name: Signed accumulation
+  aliases: [signed accumulation]   # TODO: the plurals and spellings the prose uses
+  def: "positive and negative contributions retained by sign."
+# mission 9
+- name: Slope field
+  aliases: [slope field]   # TODO: the plurals and spellings the prose uses
+  def: "short segments showing a differential equation's slope at many points."
+# mission 9
+- name: Equilibrium solution
+  aliases: [equilibrium solution]   # TODO: the plurals and spellings the prose uses
+  def: "a constant solution where slope is zero."
+# mission 9
+- name: Euler's method
+  aliases: [euler's method]   # TODO: the plurals and spellings the prose uses
+  def: "repeated tangent-line steps."
+# mission 10
+- name: Differential equation
+  aliases: [differential equation]   # TODO: the plurals and spellings the prose uses
+  def: "an equation involving a function and its rate."
+# mission 10
+- name: Initial condition
+  aliases: [initial condition]   # TODO: the plurals and spellings the prose uses
+  def: "one known point selecting a particular solution."
+# mission 10
+- name: Carrying capacity
+  aliases: [carrying capacity]   # TODO: the plurals and spellings the prose uses
+  def: "limiting level in a logistic model."
+# mission 11
+- name: Area between curves
+  aliases: [area between curves]   # TODO: the plurals and spellings the prose uses
+  def: "integral of top minus bottom, split at crossings."
+# mission 11
+- name: Average value
+  aliases: [average value]   # TODO: the plurals and spellings the prose uses
+  def: "constant height with the same accumulated area."
+# mission 11
+- name: Washer
+  aliases: [washer]   # TODO: the plurals and spellings the prose uses
+  def: "cross-sectional disk with a hole."
+# mission 12
+- name: Disk
+  aliases: [disk]   # TODO: the plurals and spellings the prose uses
+  def: "circular cross-section with no hole."
+# mission 12
+- name: Shell
+  aliases: [shell]   # TODO: the plurals and spellings the prose uses
+  def: "thin cylindrical layer."
+# mission 12
+- name: Work
+  aliases: [work]   # TODO: the plurals and spellings the prose uses
+  def: "accumulated force through distance."
+# mission 13
+- name: Linearization
+  aliases: [linearization]   # TODO: the plurals and spellings the prose uses
+  def: "tangent-line estimate of a nearby output."
+# mission 13
+- name: Propagated error
+  aliases: [propagated error]   # TODO: the plurals and spellings the prose uses
+  def: "output uncertainty caused by input uncertainty."
+# mission 13
+- name: Degeneracy
+  aliases: [degeneracy]   # TODO: the plurals and spellings the prose uses
+  def: "two parameter choices fitting the same evidence."
+# mission 14
+- name: Constraint
+  aliases: [constraint]   # TODO: the plurals and spellings the prose uses
+  def: "a requirement a solution must satisfy."
+# mission 14
+- name: Objective function
+  aliases: [objective function]   # TODO: the plurals and spellings the prose uses
+  def: "the quantity optimized."
+# mission 14
+- name: Feasible point
+  aliases: [feasible point]   # TODO: the plurals and spellings the prose uses
+  def: "a choice satisfying every constraint."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "lim_(x->a) f(x)",
+#     c: "finding the value approached near a.",
+#     v: [ TODO: split "x is input, a is the approached input, and f(x) is output." ],
+#     s: "a nearby trend can distinguish a bad sample from a real level jump.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "f'(a)=lim_(h->0)[f(a+h)-f(a)]/h",
+#     c: "defining instantaneous rate from nearby changes.",
+#     v: [ TODO: split "f is the function, a the time, and h a shrinking time step." ],
+#     s: "the crew needs a warning based on how fast level rises.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "L(x)=f(a)+f'(a)(x-a)",
+#     c: "estimating a nearby function value.",
+#     v: [ TODO: split "L is the linear estimate, a the base point, and x the new input." ],
+#     s: "a short-term level estimate can trigger action before the next full forecast.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "d[f(g(x))]/dx=f'(g(x))g'(x)",
+#     c: "differentiating nested functions.",
+#     v: [ TODO: split "f is outer, g inner, and primes are derivatives." ],
+#     s: "head changes act through a nonlinear discharge law.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "(f^-1)'(a)=1/f'(f^-1(a))",
+#     c: "finding sensitivity of a reversed calibration.",
+#     v: [ TODO: split "a is output and f^-1(a) its matching input." ],
+#     s: "operators enter desired flow and need the required opening.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "v=dx/dt, a=dv/dt=d^2x/dt^2",
+#     c: "describing motion.",
+#     v: [ TODO: split "x position, t time, v velocity, a acceleration." ],
+#     s: "arrival warnings depend on motion, not distance alone.",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "dV/dt=(dV/dh)(dh/dt)",
+#     c: "connecting changing depth to changing volume.",
+#     v: [ TODO: split "V volume and h depth." ],
+#     s: "downstream rise must be converted into water load.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "P'(q)=R'(q)-C'(q)",
+#     c: "marginal profit/change.",
+#     v: [ TODO: split "P net value, R return, C cost, q flow." ],
+#     s: "power value cannot override safe storage.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "residual=observed-predicted",
+#     c: "exposing patterned model failure.",
+#     v: [ TODO: split "observed is measurement; predicted is fitted value." ],
+#     s: "unseen gauge data decides between forecasts.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "integral_a^b f(x)dx=F(b)-F(a)",
+#     c: "exact accumulation.",
+#     v: [ TODO: split "f rate, F antiderivative, a,b bounds." ],
+#     s: "storm flow must become storm volume.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "lim_(n->infinity) sum f(x_i)Delta x=integral_a^b f(x)dx, Delta x=(b-a)/n",
+#     c: "linking sampled rectangles to exact accumulation.",
+#     v: [ TODO: split "n rectangles and x_i sample points." ],
+#     s: "gauges provide discrete readings.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "u=g(x), du=g'(x)dx",
+#     c: "simplifying a composite integral.",
+#     v: [ TODO: split "u replacement variable and du its differential." ],
+#     s: "gate flow contains a repeated head expression.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "y_(n+1)=y_n+f(x_n,y_n)Delta x",
+#     c: "approximating a differential-equation solution.",
+#     v: [ TODO: split "f slope and Delta x step." ],
+#     s: "missing pressure readings must be estimated between live gauges.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "dy/dt=ky, y=Ae^(kt)",
+#     c: "growth or decay proportional to amount.",
+#     v: [ TODO: split "k rate constant." ],
+#     s: "seepage may decay after a gate change.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "dy/dt=ky(L-y)",
+#     c: "bounded logistic change.",
+#     v: [ TODO: split "L limiting level." ],
+#     s: "soil drainage can approach a stable ceiling.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "Area=integral_a^b |f-g|dx; f_avg=(1/(b-a))integral_a^b f dx",
+#     c: "curve difference and representative mean.",
+#     v: [ TODO: split "a,b bounds." ],
+#     s: "silt loss and average capacity error alter the release target.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "V=pi integral(R^2-r^2)dx; V=2pi integral(radius)(height)dx",
+#     c: "volumes by washers or shells.",
+#     v: [ TODO: split "R,r radii and x slice position." ],
+#     s: "passage volume determines usable water per gate motion.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "W=integral F(x)dx; for a spring F=kx",
+#     c: "energy under changing force.",
+#     v: [ TODO: split "W work, F force, x distance, k stiffness." ],
+#     s: "the hoist must complete the scheduled motion.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "Delta f approximately f'(a)Delta x",
+#     c: "carrying small input error into output.",
+#     v: [ TODO: split "Delta means change and f'(a) local sensitivity." ],
+#     s: "level uncertainty becomes volume uncertainty.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 14
+#   { e: "P'=R'-C'=0 at an interior optimum candidate",
+#     c: "finding a marginal balance.",
+#     v: [ TODO: split "P net objective, R benefit, C cost." ],
+#     s: "repair time and warning coverage compete.## Main story happening - designer summary",
+#     k: [ TODO ] },

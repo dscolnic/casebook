@@ -1,0 +1,159 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Temporary Tradeoff"
+  card:
+    header: "6 DAYS"
+    title: "The Temporary Tradeoff"
+    goNow: "Go to RATE and meet Mara Venn at the Phillips wall."
+    body: "Appreciation is weakening exports while the energy shock keeps the inflation print high. In the short run, lower unemployment can accompany higher inflation, but the long-run curve is vertical at the natural rate. You will connect curve movements, money growth, and output. By the end of the mission, decide whether high current inflation justifies permanent tightening."
+    objective: "Separate a short-run shock from long-run inflation policy."
+  objective: "Separate a short-run shock from long-run inflation policy."
+  stake: "Appreciation is weakening exports while the energy shock keeps the inflation print high. In the short run, lower unemployment can accompany higher inflation, but the long-run curve is vertical at the natural rate. You will connect curve movements, money growth, and output. By the end of the mission, decide whether high current inflation justifies permanent tightening."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Do not tighten policy for a short price shock. New data support the supply-shock model. Slow money growth points to about 2% long-run inflation. Use set rules, not fear. Wage contracts will adjust later."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-rate
+    # On arrival at RATE | s37-move-or-shift | automatic
+    on: { enter: true, at: TODO }   # s37-move-or-shift
+    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate a short-run shock from long-run inflation policy. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Separate a short-run shock from long-run inflation policy."
+    bubbles:
+    - who: mara-venn   # Mara Venn
+      say: "Start with move or shift. We need evidence the next decision can use."
+  - id: after-stop-37
+    # After Stop 37 | s38-quantity-check | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Mara Venn says, , and Stop 38 unlocks."
+    panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    bubbles:
+    - who: mara-venn   # Mara Venn
+      say: "The supply shock shifts SRPC right."
+  - id: after-stop-38
+    # After Stop 38 | s39-test-unseen-prices | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in RATE → PRICES only if the route requires travel, then."
+    panel: "RATE → PRICES"
+    bubbles:
+    - who: mara-venn   # Mara Venn
+      say: "Estimated long-run inflation is 2%, far below the temporary 5.88% basket print."
+  - id: after-stop-39
+    # After Stop 39 | s40-tighten-forever | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the PRICES decision fixture; The character asks for the promised mission decision, and Stop 40 unlocks."
+    panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    bubbles:
+    - who: mara-venn   # Mara Venn
+      say: "The temporary-supply model predicts the holdout; persistent monetary inflation does not."
+  - id: at-mission-end
+    # At mission end | s37-move-or-shift | automatic
+    on: { enter: true, at: TODO }   # s37-move-or-shift
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 10 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mara-venn   # Mara Venn
+      say: "Do not justify permanent tightening from this temporary print; commit a reversible trigger."
+
+  stops:
+  # --- Stop 37: Move or shift
+  #     Concept: Phillips curves; Keystone: long-run consequences; Area: Statistics Floor; Learning role: INTRODUCE; Difficulty: L2; Story role: foundation.
+  #     placement: CHOICE, asked by Mara Venn beside s37-move-or-shift.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Move or shift"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Phillips curves"
+    reason: "The wall must classify the shock."
+    scene: "Unemployment rises while inflation also rises after the oil wire, rather than moving oppositely along one short-run curve. Identify the change that fits this pattern before blaming excess demand today."
+    motivation: "Adverse supply shifts SRPC right; AD changes move along it."
+    format: CHOICE
+    question: "Select exactly one change from the four distinct choices below."
+    choices:
+    - "Move upward along the existing SRPC."
+    - "Move downward along the existing SRPC."
+    - "Shift the SRPC right."
+    - "Shift the LRPC left."
+    answer: "Shift the SRPC right."
+    answerText: "\"The supply shock shifts SRPC right.\""
+    why: "Adverse supply shifts SRPC right; AD changes move along it."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (1)
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   choices:[{id:A,label:"Move upward along the existing SRPC"},{id:B,label:"Move downward along the existing SRPC"},{id:C,label:"Shift the SRPC right"},{id:D,label:"Shift the LRPC left"}]; answer:C; rebuttals:{A:"Movement upward along one SRPC pairs higher inflation with lower unemployment.",B:"Movement downward pairs lower inflation with higher unemployment.",D:"LRPC shifts only if the natural unemployment rate changes; the oil shock shifts the short-run curve."}.
+
+  # --- Stop 38: Quantity check
+  #     Concept: quantity theory; Keystone: neutrality; Area: Rate Room; Learning role: COMBINE; Difficulty: L3; Story role: calculation.
+  #     placement: DERIVE, at s38-quantity-check.
+  - group: RATE
+    at: TODO               # the fixture it is asked at
+    title: "Quantity check"
+    concept: "quantity theory"
+    reason: "Sustained inflation needs a long-run nominal explanation."
+    scene: "Money grows 3%, velocity is constant, and real output grows 1% at full employment. Use the growth-rate form of quantity theory to estimate long-run inflation clearly for the next board decision."
+    motivation: "Money growth above real growth sets long-run inflation when velocity is stable."
+    format: DERIVE
+    question: "derive π≈%ΔM+%ΔV−%ΔY; submit. 3+0−1=2%."
+    answerText: "\"Estimated long-run inflation is 2%, far below the temporary 5.88% basket print.\""
+    why: "Money growth above real growth sets long-run inflation when velocity is stable."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Money growth above real growth sets long-run inflation when velocity is stable.
+    # correct result: The quantity equation gives estimated long-run inflation of 2%.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{candidate_lines:["MV=PY","%ΔM+%ΔV≈π+%ΔY","π≈%ΔM+%ΔV−%ΔY","π≈3%+0%−1%","π≈2%"],licenses:["quantity identity","growth-rate form","solve for inflation","substitute displayed rates","arithmetic"],keyed_order:[1,2,3,4,5],decoys:["π≈3%+1%=4%","π≈%ΔY−%ΔM"],submission:"ordered line-and-rule derivation plus inflation rate in percent"}
+
+  # --- Stop 39: Test unseen prices
+  #     Concept: temporary vs persistent inflation; Keystone: evidence; Area: Statistics Floor; Learning role: RETRIEVE; Difficulty: L4; Story role: evidence.
+  #     placement: HOLDOUT, at s39-test-unseen-prices.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Test unseen prices"
+    concept: "temporary vs persistent inflation"
+    reason: "The model must face data not used to fit it."
+    scene: "Because quantity theory predicts 2% long-run inflation, fit a \"persistent money\" and a \"temporary supply\" model through months one to four. Freeze both before months five and six appear today."
+    motivation: "Unseen normalization can reject a permanent-inflation story."
+    format: HOLDOUT
+    question: "Fit, freeze, reveal both holdout months, and submit the better mechanism."
+    answerText: "\"The temporary-supply model predicts the holdout; persistent monetary inflation does not.\""
+    why: "Unseen normalization can reject a permanent-inflation story."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Unseen normalization can reject a permanent-inflation story.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   train:[2.0,2.1,5.9,5.2]; models:[persistent5.5,temporary_to2]; holdout:[3.2,2.4]; correct:temporary_to2.
+
+  # --- Stop 40: Tighten forever
+  #     Concept: policy horizon; Keystone: Phillips/neutrality; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Mara Venn beside s40-tighten-forever.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Tighten forever"
+    person: TODO   # the roster id of whoever asks it
+    concept: "policy horizon"
+    reason: "The signed stance must separate weeks from years."
+    scene: "The shock model wins on unseen data, but inflation expectations range from 1.8% to 2.4%. Stress permanent tightening across that range and compare it with a conditional trigger."
+    motivation: "Long-run neutrality does not make short-run output losses disappear."
+    format: STRESS
+    question: "Inspect all settings and submit \"conditional stance.\""
+    answerText: "\"Do not justify permanent tightening from this temporary print; commit a reversible trigger.\""
+    why: "Long-run neutrality does not make short-run output losses disappear."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Long-run neutrality does not make short-run output losses disappear.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 10 signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   range:1.8..2.4 step.2; candidates:[permanent tighten,ignore,conditional]; correct:conditional.
+

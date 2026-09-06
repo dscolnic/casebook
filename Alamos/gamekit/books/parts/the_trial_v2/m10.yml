@@ -1,0 +1,158 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Smaller Benefit"
+  card:
+    header: "DAY 10 - BOARD IN 6 DAYS"
+    title: "The Smaller Benefit"
+    goNow: "Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the matched-record table."
+    body: "Blinding stayed credible, but the fast site's missing outcomes still inflate the recovery headline. t procedures estimate means when population spread is unknown. Compare the adjusted mean, matched records, and two independent groups before taking diagnostics to Statistics. By the end of the mission, decide which treatment-effect estimate belongs in the pack."
+    objective: "Produce the bias-adjusted mean estimate."
+  objective: "Produce the bias-adjusted mean estimate."
+  stake: "Blinding stayed credible, but the fast site's missing outcomes still inflate the recovery headline. t procedures estimate means when population spread is unknown. Compare the adjusted mean, matched records, and two independent groups before taking diagnostics to Statistics. By the end of the mission, decide which treatment-effect estimate belongs in the pack."
+  takeaway: "Never pool AP two-sample variances."
+  segue: "Mission decision: Put the adjusted four-unit treatment effect in the pack. It uses the two groups in the right way. The error check also passes. Paired records support a shorter recovery. The one-group test does not settle the claim."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Define the order of subtraction."
+  - "Paired t is one-sample t on differences."
+  - "Never pool variances for the AP two-sample t procedure."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-endpoint-adjudication
+    # On arrival at Endpoint Adjudication | matched-record-table | automatic
+    on: { enter: true, at: ENDP }
+    world: "Arrival: ADJUD entry; matched-record table visible; Amina says, ; - After S1-S2: benchmark dims and paired interval appears; - After S3: adjusted table seals; waypoint TAKE ADJUSTED TABLE TO STAT. - STAT arrival/final: valid residual field remains; old headline dims; binder 10 and outcome unlock."
+    panel: "MISSION 10: TEST THE ADJUSTED MEAN OPEN"
+    bubbles:
+    - who: okafor   # Amina Okafor
+      say: "Keep pairs together and separate arms apart"
+  - id: after-stop-37
+    # After Stop 37 | matched-record-table | automatic
+    on: { after: [1] }
+    world: "The test the adjusted mean result remains visible while the use the pairs fixture lights."
+    panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    bubbles:
+    - who: okafor   # Amina Okafor
+      say: "Use the Stop 37 result to settle use the pairs."
+  - id: after-stop-38
+    # After Stop 38 | table-wall | automatic
+    on: { after: [2] }
+    world: "The use the pairs result remains visible while the keep groups independent fixture lights."
+    panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    bubbles:
+    - who: okafor   # Amina Okafor
+      say: "Use the Stop 38 result to settle keep groups independent."
+  - id: after-stop-39
+    # After Stop 39 | residual-wall | automatic
+    on: { after: [3] }
+    world: "The keep groups independent result remains visible while the stress the adjustment fixture lights."
+    panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    bubbles:
+    - who: okafor   # Amina Okafor
+      say: "Use the Stop 39 result to settle stress the adjustment."
+  - id: at-mission-end
+    # At mission end | matched-record-table | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 10 EVIDENCE: RECORDED"
+    bubbles:
+    - who: okafor   # Amina Okafor
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 37: Test the Adjusted Mean
+  #     Concept: one-sample t/conditions; Keystone: keystone t inference; Area: Randomisation & Blinding; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, at matched-record-table.
+  - group: RAND
+    at: matched-record-table
+    title: "Test the Adjusted Mean"
+    concept: "one-sample t/conditions"
+    reason: "The corrected recovery score must be compared with the registered mean benchmark."
+    scene: "After recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Check independence and shape, then build the one-sample t statistic."
+    motivation: "The heavier-tailed t model reflects that population SD is estimated rather than known."
+    format: DERIVE
+    question: "t=(72-68)/(10/sqrt25)=2.00, df24; two-sided p=.0568 from supplied calculator. Lines include conditions random/10% and no strong skew."
+    answerText: "p=.0568>=.05, so fail to reject H0; evidence is not convincing that the adjusted mean differs from 68."
+    why: "The heavier-tailed t model reflects that population SD is estimated rather than known."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   t, df, p-value, conclusion
+    # correct result: t2.00 tol .01; df24; p.0568 tol .002; fail reject at .05.
+    # state/output: old headline dims; S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"one-sample t test","givens":["n=25","xbar=72","s=10","mu0=68"],"lines":[{"id":"L1","expression":"t=(72-68)/(10/sqrt25)=2.00","license":"state governing relationship"},{"id":"L2","expression":"df=24","license":"substitute displayed values"},{"id":"L3","expression":"two-sided p=0.0568","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["use z with known sigma","df=25"],"correct_result":"t=2.00, df=24, p=0.0568; fail to reject","answerText":"The result does not cross alpha 0.05, so fail to reject the null mean."}
+
+  # --- Stop 38: Use the Pairs
+  #     Concept: paired t and CI; Keystone: keystone t/CI; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L3; Story role: reveal.
+  #     placement: DERIVE, at matched-record-table.
+  - group: SAFE
+    at: matched-record-table
+    title: "Use the Pairs"
+    concept: "paired t and CI"
+    reason: "Patients measured before and after treatment must retain their pairing."
+    scene: "The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Derive the paired significance test and 95% interval."
+    motivation: "Pairing removes between-patient variation and tests the mean change actually experienced."
+    format: DERIVE
+    question: "H0:mud=0; t=-3/(4/sqrt16)=-3, df15, p=.0090; t*=2.131, CI -3 plus/minus2.131=[-5.131,-.869]."
+    answerText: "The interval is -5.13 to -0.87 days; because zero is absent, reject H0 and infer a mean decrease."
+    why: "Pairing removes between-patient variation and tests the mean change actually experienced."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   t and interval endpoints in days
+    # correct result: t-3 tol .01; CI endpoints tol .02.
+    # state/output: paired line retained; S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive: {visible_prompt: "H0:mud=0; t=-3/(4/sqrt16)=-3, df15, p=.0090; t*=2.131, CI -3 plus/minus2.131=[-5.131,-.869].", keyed_result: "t-3 tol .01; CI endpoints tol .02.", feedback: "t and interval endpoints in days", answerText: "Use the keyed result and explanation printed below."}
+
+  # --- Stop 39: Keep Groups Independent
+  #     Concept: two-sample t; Keystone: keystone t inference; Area: Randomisation & Blinding; Learning role: COMBINE; Difficulty: L4; Story role: decision evidence.
+  #     placement: DERIVE, at table-wall.
+  - group: RAND
+    at: table-wall
+    title: "Keep Groups Independent"
+    concept: "two-sample t"
+    reason: "A separate arm comparison cannot reuse the paired formula."
+    scene: "The paired change is clear, while independent groups have n1=30, mean1=72, s1=8 and n2=28, mean2=68, s2=7. Derive the unpooled two-sample t statistic for treatment minus placebo before choosing the headline."
+    motivation: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack."
+    format: DERIVE
+    question: "SE=sqrt(64/30+49/28)=1.971; t=4/1.971=2.03; df supplied Welch 55.6 or conservative min27; two-sided p about .047."
+    answerText: "The estimated mean difference is 4 score units; Welch t=2.03 with p about .047. Define treatment minus placebo before interpreting sign."
+    why: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   t and difference in score units
+    # correct result: t2.03 tol .02; never pool variances.
+    # state/output: travel.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive: {visible_prompt: "SE=sqrt(64/30+49/28)=1.971; t=4/1.971=2.03; df supplied Welch 55.6 or conservative min27; two-sided p about .047.", keyed_result: "t2.03 tol .02; never pool variances.", feedback: "t and difference in score units", answerText: "Use the keyed result and explanation printed below."}
+
+  # --- Stop 40: Stress the Adjustment
+  #     Concept: adjustment diagnostics; Keystone: keystone regression/t inference; Area: Endpoint Adjudication; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: RESIDUAL, at residual-wall.
+  - group: ENDP
+    at: residual-wall
+    title: "Stress the Adjustment"
+    concept: "adjustment diagnostics"
+    reason: "The board needs the estimate that survives both data structure and residual checks."
+    scene: "The three analyses now disagree in strength, so Statistics compares residual fields after distance adjustment. Choose the adjusted model with random scatter, no fan shape, and no single influential site."
+    motivation: "A smaller well-diagnosed effect is more defensible than a larger biased headline."
+    format: RESIDUAL
+    question: "Compare residual fields A, B, and C for curvature, unequal spread, and influence. Submit the adjusted model with random scatter and no controlling site."
+    answerText: "The completed check shows carry the adjusted 4-unit treatment-minus-placebo estimate with its t uncertainty; it is smaller but diagnostically credible."
+    why: "A smaller well-diagnosed effect is more defensible than a larger biased headline."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Largest effect is best model; require valid diagnostics
+    # correct result: Carry the adjusted 4-unit treatment-minus-placebo estimate with its t uncertainty; it is smaller but diagnostically credible.
+    # state/output: binder 10; M11.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   model A benefit7 RMS1.5 curved; B benefit4 RMS1.8 random/equal spread; C benefit6 RMS1.6 fan/influential; answer B.
+

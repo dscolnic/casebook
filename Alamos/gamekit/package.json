@@ -15,6 +15,7 @@
     "cardbook": "node tools/make-cardbook.mjs",
     "dossier": "node tools/make-dossier.mjs",
     "shots": "node engine/dev/shots.mjs",
+    "signs": "node engine/dev/signs.mjs",
     "traps": "node engine/dev/instrumentTraps.mjs",
     "lessons": "node engine/dev/lessonGallery.mjs",
     "drive": "node engine/dev/instrumentDrive.mjs",
@@ -23,7 +24,11 @@
     "check-conversions": "node tools/check-conversions.mjs",
     "apply-conversions": "node tools/apply-conversions.mjs",
     "gallery": "node tools/gallery.mjs",
-    "sync-casebook": "node tools/sync-casebook.mjs"
+    "sync-casebook": "node tools/sync-casebook.mjs",
+    "bible-lint": "node tools/bible-lint.mjs",
+    "bible-extract": "node tools/v10extract.mjs",
+    "concept-prompt": "node tools/concept-prompt.mjs",
+    "payload-prompt": "node tools/payload-prompt.mjs"
   },
   "dependencies": {
     "three": "^0.160.0"

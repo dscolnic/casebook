@@ -1,0 +1,160 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Could Anyone Tell"
+  card:
+    header: "DAY 9 - BOARD IN 7 DAYS"
+    title: "Could Anyone Tell"
+    goNow: "Go to the Kit Warehouse and meet Priya Shah, randomisation and blinding lead, at the blind-check kiosk."
+    body: "Cold-room handling explains failed kits, but it does not show whether staff could identify treatment arms. Blinding reduces behavior and measurement changes caused by knowing assignment. Audit the kit sequence, then compare correct-guess proportions at Statistics. By the end of the mission, decide whether treatment concealment failed differently across arms."
+    objective: "Test the blinding survey by treatment arm."
+  objective: "Test the blinding survey by treatment arm."
+  stake: "Cold-room handling explains failed kits, but it does not show whether staff could identify treatment arms. Blinding reduces behavior and measurement changes caused by knowing assignment. Audit the kit sequence, then compare correct-guess proportions at Statistics. By the end of the mission, decide whether treatment concealment failed differently across arms."
+  takeaway: "Random assignment and sampling control scope."
+  segue: "Mission decision: Report an arm difference in correct guesses. But do not declare that concealment failed. The interval is about 0.8 to 13.2 points. And the pooled test gives p=.028. The independent box audit stayed intact."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Two-proportion intervals use separate sample proportions."
+  - "Two-proportion null tests pool because H0 says proportions are equal."
+  - "A random sample plus random assignment supports cause and generalization."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-the-kit-warehouse
+    # On arrival at the Kit Warehouse | s33-rebuild-the-blind | automatic
+    on: { enter: true, at: TODO }   # s33-rebuild-the-blind
+    world: "Arrival: KIT entry; sealed sequence visible; Priya says, ; - After S1: independent audit path lights; sealed survey appears; waypoint CARRY SEALED SURVEY TO STAT. - STAT arrival/after S2-S3: interval and pooled-test panels appear; nonresponse stress control - Final: claim label changes to UNEQUAL GUESSES, BLIND NOT PROVEN BROKEN; binder 9 and outcome unlock."
+    panel: "MISSION 9: REBUILD THE BLIND OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "A failed refrigerator does not reveal the next box"
+  - id: after-stop-33
+    # After Stop 33 | s34-estimate-the-guessing-difference | automatic
+    on: { after: [1] }
+    world: "The rebuild the blind result remains visible while the estimate the guessing difference fixture lights."
+    panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Use the Stop 33 result to settle estimate the guessing difference."
+  - id: after-stop-34
+    # After Stop 34 | s35-pool-only-for-the-test | automatic
+    on: { after: [2] }
+    world: "The estimate the guessing difference result remains visible while the pool only for the test fixture lights."
+    panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Use the Stop 34 result to settle pool only for the test."
+  - id: after-stop-35
+    # After Stop 35 | s36-say-what-it-means | automatic
+    on: { after: [3] }
+    world: "The pool only for the test result remains visible while the say what it means fixture lights."
+    panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Use the Stop 35 result to settle say what it means."
+  - id: at-mission-end
+    # At mission end | s33-rebuild-the-blind | automatic
+    on: { enter: true, at: TODO }   # s33-rebuild-the-blind
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 9 EVIDENCE: RECORDED"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Three displays share the master file; only the physical sealed-box audit independently tests concealment."
+
+  stops:
+  # --- Stop 33: Rebuild the Blind
+  #     Concept: blinding versus randomisation records; Keystone: keystone design; Area: Monitoring Board Room; Learning role: RETRIEVE; Difficulty: L3; Story role: character.
+  #     placement: TRACE, at s33-rebuild-the-blind.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Rebuild the Blind"
+    concept: "blinding versus randomisation records"
+    reason: "The survey means little unless the physical assignment path is independently checked."
+    scene: "The cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open each channel and identify which displays depend on the master randomisation file and which remain independent."
+    motivation: "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit."
+    format: TRACE
+    question: "Open every dependency, identify channels sharing the master allocation file, and submit the channel that independently verifies the physical blind."
+    answerText: "The completed check shows three displays share the master file; only the sealed-box audit independently confirms concealment."
+    why: "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Matching displays are independent checks
+    # correct result: Three displays share the master file; only the sealed-box audit independently confirms concealment.
+    # state/output: BLIND PATH INTACT; survey travels.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"pack_label",label:"pack label",dependency:"master randomisation file",target_dependent:true},{id:"kiosk",label:"kiosk display",dependency:"master randomisation file",target_dependent:true},{id:"pharmacy",label:"pharmacy receipt",dependency:"master randomisation file",target_dependent:true},{id:"sealed_box",label:"physical sealed-box audit",dependency:"physical custody trail",independent:true}],shared_upstream:"master randomisation file",correct_conclusion:"the physical sealed-box audit is independent",answerText:"Three displays share the master file; only the physical sealed-box audit independently tests concealment."}
+
+  # --- Stop 34: Estimate the Guessing Difference
+  #     Concept: two-proportion CI/conditions; Keystone: keystone CI; Area: Monitoring Board Room; Learning role: INTRODUCE; Difficulty: L3; Story role: reveal.
+  #     placement: DERIVE, at s34-estimate-the-guessing-difference.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Estimate the Guessing Difference"
+    concept: "two-proportion CI/conditions"
+    reason: "The board needs the size and uncertainty of the arm difference."
+    scene: "The audit path is intact; the survey has 30 correct guesses among 200 treatment staff and 16 among 200 placebo staff. Check counts, then derive the 95% interval for treatment minus placebo."
+    motivation: "An interval shows whether the observed seven-point gap could plausibly be near zero."
+    format: DERIVE
+    question: "p1=.15,p2=.08,diff=.07; SE=sqrt(.15(.85)/200+.08(.92)/200)=.03171; ME=1.96SE=.06215; CI [.00785,.13215]. Counts 30/170/16/184."
+    answerText: "We are 95% confident the true difference in correct-guess proportions is about 0.8 to 13.2 percentage points."
+    why: "An interval shows whether the observed seven-point gap could plausibly be near zero."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   endpoint pair in proportions/percentage points
+    # correct result: .008 to .132 tolerance .002.
+    # state/output: interval appears; S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"two-proportion confidence interval","givens":["p1=0.15","p2=0.08","n1=n2=200","z*=1.96"],"lines":[{"id":"L1","expression":"difference=0.15-0.08=0.07","license":"state governing relationship"},{"id":"L2","expression":"SE=sqrt[0.15(0.85)/200+0.08(0.92)/200]=0.03171","license":"substitute displayed values"},{"id":"L3","expression":"ME=1.96(0.03171)=0.06215","license":"simplify with units"},{"id":"L4","expression":"CI=0.07±0.06215=[0.00785,0.13215]","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["pool proportions for a confidence interval","reverse only one endpoint"],"correct_result":"[0.00785,0.13215]","answerText":"The treatment-minus-control interval is about 0.008 to 0.132."}
+
+  # --- Stop 35: Pool Only for the Test
+  #     Concept: two-proportion z test; Keystone: keystone tests; Area: Monitoring Board Room; Learning role: COMBINE; Difficulty: L4; Story role: reversal.
+  #     placement: DERIVE, at s35-pool-only-for-the-test.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Pool Only for the Test"
+    concept: "two-proportion z test"
+    reason: "The registered equality test must use the pooled null standard error."
+    scene: "The confidence interval barely excludes zero, so test H0:p1=p2 against Ha:p1 not equal p2. Pool only for the test, calculate z and p, then state the result at alpha=.05."
+    motivation: "Correct pooling prevents the same data from receiving incompatible standards."
+    format: DERIVE
+    question: "pooled p=46/400=.115; SE=sqrt(.115(.885)(1/200+1/200))=.03190; z=.07/.03190=2.194; p=.0282."
+    answerText: "Since .0282<.05, there is convincing evidence the guessing proportions differ. Pool tests only, never intervals."
+    why: "Correct pooling prevents the same data from receiving incompatible standards."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   pooled p, z, p-value, decision
+    # correct result: z2.19 tol .01, p.028 tol .001, reject.
+    # state/output: survey flag; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"two-proportion z test","givens":["30/200 versus 16/200","H0:p1=p2"],"lines":[{"id":"L1","expression":"pooled p=(30+16)/400=0.115","license":"state governing relationship"},{"id":"L2","expression":"SE=sqrt[0.115(0.885)(1/200+1/200)]=0.03190","license":"substitute displayed values"},{"id":"L3","expression":"z=0.07/0.03190=2.194","license":"simplify with units"},{"id":"L4","expression":"two-sided p=0.0282","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["use unpooled CI standard error","p=0.0564"],"correct_result":"z=2.19, p=0.028, reject at 0.05","answerText":"The pooled test gives z=2.19 and p=0.028, so reject equal proportions at alpha 0.05."}
+
+  # --- Stop 36: Say What It Means
+  #     Concept: practical scope and blinding; Keystone: keystone design/inference; Area: Randomisation & Blinding; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Priya Shah beside s36-say-what-it-means.
+  - group: RAND
+    title: "Say What It Means"
+    person: TODO   # the roster id of whoever asks it
+    concept: "practical scope and blinding"
+    reason: "A statistically different survey does not automatically prove broken treatment concealment."
+    scene: "The arm difference is statistically detectable, but the sealed-box audit remained intact and both correct-guess rates are low. Stress the conclusion across survey nonresponse from zero to five percentage points and choose the supported claim."
+    motivation: "The board must separate evidence of unequal guessing from proof that allocation was exposed."
+    format: STRESS
+    question: "Move nonresponse from 0 to 5 percentage points in 1-point steps while holding the sealed-box audit fixed. Submit the conclusion surviving the full range."
+    answerText: "The completed check shows report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope."
+    why: "The board must separate evidence of unequal guessing from proof that allocation was exposed."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Difference proves broken concealment
+    # correct result: Report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope.
+    # state/output: binder 9; M10.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   assumption range nonresponse shift 0-.05 step .01; candidates concealment failed, guessing differed, randomisation caused guesses, no evidence; correct guessing differed survives, concealment failed darkens above .01.
+

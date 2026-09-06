@@ -1,0 +1,204 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "What Was Promised"
+  card:
+    header: "DAY 1 - BOARD IN 15 DAYS"
+    title: "What Was Promised"
+    goNow: "Go to Regulatory & Registry and meet Lena Wu, regulatory and registry lead, at the commitment terminal."
+    body: "A two-hospital safety alert is flashing, but the board must judge the trial by questions promised before results appeared. A registered plan names each outcome, population, and analysis in advance. At the terminal, classify the data, describe the first distributions, and verify the commitments. By the end of the mission, decide which claims belong in the board pack."
+    objective: "Recover the trial's pre-specified claims."
+  objective: "Recover the trial's pre-specified claims."
+  stake: "A two-hospital safety alert is flashing, but the board must judge the trial by questions promised before results appeared. A registered plan names each outcome, population, and analysis in advance. At the terminal, classify the data, describe the first distributions, and verify the commitments. By the end of the mission, decide which claims belong in the board pack."
+  takeaway: "Median and IQR resist extreme values."
+  segue: "Mission decision: Put the three timed claims in the board pack. Mark the two-site pattern as a clue, not proof. The log shows when each claim was made. Two odd recovery records now need a full check."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Graph choice depends on whether data are categorical or quantitative."
+  - "A sample statistic estimates a population parameter."
+  - "A claim written after seeing results has a different false-alarm risk."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-regulatory-registry
+    # On arrival at Regulatory & Registry | commitment-terminal | automatic
+    on: { enter: true, at: REG }
+    world: "Arrival | REG | nearby bubble: Terminal reads REGISTRATION LOCK: 14 MONTHS BEFORE FIRST PATIENT."
+    panel: "MISSION 1: NAME THE DATA OPEN"
+    bubbles:
+    - who: wu   # Lena Wu
+      say: "The alert matters. First separate what was promised from what was noticed."
+  - id: after-stop-1
+    # After Stop 1 | records-wall | automatic
+    on: { after: [1] }
+    world: "The name the data result remains visible while the describe before judging fixture lights."
+    panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    bubbles:
+    - who: wu   # Lena Wu
+      say: "Use the Stop 1 result to settle describe before judging."
+  - id: after-stop-2
+    # After Stop 2 | evidence-desk | automatic
+    on: { after: [2] }
+    world: "After S1-S2 | REG | panel update."
+    panel: "VARIABLES CLASSIFIED - DISPLAY CHECK PASSED"
+    bubbles:
+    - who: wu   # Lena Wu
+      say: "Now describe what the display actually shows."
+  - id: after-stop-3
+    # After Stop 3 | claim-ledger | automatic
+    on: { after: [3] }
+    world: "After S3 | REG | persistent world change: the primary-outcome tab illuminates with text and document icon."
+    panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    bubbles:
+    - who: wu   # Lena Wu
+      say: "Use the Stop 3 result to settle seal the claims."
+  - id: at-mission-end
+    # At mission end | commitment-terminal | automatic
+    on: { missionEnd: true }
+    world: "Binder slot 1 fills; outcome unlocks."
+    panel: "MISSION 1 EVIDENCE: RECORDED"
+    bubbles:
+    - who: wu   # Lena Wu
+      say: "The safety pattern enters as monitoring evidence, not a pre-specified efficacy claim."
+
+  stops:
+  # --- Stop 1: Name the Data
+  #     Concept: variable type and graph choice; Keystone: keystone distribution description; Area: Endpoint Adjudication; Learning role: INTRODUCE; Difficulty: L1; Story role: clue.
+  #     placement: CHOICE, asked by Lena Wu beside commitment-terminal.
+  - group: ENDP
+    at: commitment-terminal
+    title: "Name the Data"
+    person: wu
+    concept: "variable type and graph choice"
+    reason: "The registry cannot pair each promised outcome with an honest display until its variable type is clear."
+    scene: "The registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. Classifying the primary outcome first determines which display can reveal its pattern without turning category codes into fake measurements."
+    motivation: "Treating category labels as quantities could create a meaningless average and mislead the board."
+    format: CHOICE
+    question: "Primary outcome: improved by day 30, yes or no. Submit one selection: categorical with bar chart; categorical with histogram; quantitative with bar chart; quantitative with boxplot."
+    choices:
+    - "Categorical variable with a bar chart."
+    - "Categorical variable with a histogram."
+    - "Quantitative variable with a bar chart."
+    - "Quantitative variable with a boxplot."
+    answer: "Categorical variable with a bar chart."
+    answerText: "The completed check shows improved/not improved is categorical, so compare counts or proportions with a bar chart."
+    why: "Treating category labels as quantities could create a meaningless average and mislead the board."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: Improved/not improved is categorical, so compare counts or proportions with a bar chart.
+    # state/output: Primary outcome gains a text CATEGORICAL label; unlock S2; sets up M9 and M12.
+
+  # --- Stop 2: Describe Before Judging
+  #     Concept: SOCS and graph uses; Keystone: keystone distribution description; Area: Endpoint Adjudication; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: SEQUENCE, at records-wall.
+  - group: ENDP
+    at: records-wall
+    title: "Describe Before Judging"
+    concept: "SOCS and graph uses"
+    reason: "The board needs a fixed description order before anyone argues that one arm looks better."
+    scene: "With the primary outcome classified, the recovery-days histogram becomes the first quantitative evidence the team can inspect. A fixed description order prevents the most dramatic bar or point from replacing the full distribution."
+    motivation: "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced."
+    format: SEQUENCE
+    question: "The histogram is unimodal and right-skewed with two high values. Order four cards: shape in context; unusual values; center in context; spread in context."
+    # The four cards and their order are the prompt's own list, kept word for word.
+    cards:
+    - "shape in context"
+    - "unusual values"
+    - "center in context"
+    - "spread in context"
+    order: [0, 1, 2, 3]
+    answerText: "The completed check shows describe shape, outliers, center, and spread, using recovery days and treatment arms in every statement."
+    why: "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   List values without comparisons; require SOCS in patient context
+    # correct result: Describe shape, outliers, center, and spread, using recovery days and treatment arms in every statement.
+    # state/output: SOCS CHECK appears; unlock S3; sets up M2.
+
+  # --- Stop 3: Mark the Extreme
+  #     Concept: IQR outlier rule; Keystone: keystone distribution description; Area: Endpoint Adjudication; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: BALLPARK, at evidence-desk.
+  - group: ENDP
+    at: evidence-desk
+    title: "Mark the Extreme"
+    concept: "IQR outlier rule"
+    reason: "Two long recoveries may be real patients, so the registry must flag rather than erase them."
+    scene: "The right-skewed shape makes median and IQR the safer summary, but the two high recovery times still need an objective check. Compute the upper fence before deciding whether 34 days receives an outlier flag."
+    motivation: "An outlier flag triggers source review; it does not grant permission to delete a patient."
+    format: BALLPARK
+    question: "Using Q1=10 days, Q3=18 days, IQR=Q3-Q1, and upper fence=Q3+1.5(IQR), submit the upper fence in days and whether the 34-day record is flagged."
+    # Every tile and the target are the prompt's own numbers: Q1 10, Q3 18, IQR 8,
+    # 1.5 x IQR 12, the 34-day record, and the fence 18 + 12 = 30.
+    estimate:
+      prompt: "Q1 is 10 days and Q3 is 18 days. The upper fence is Q3 + 1.5(IQR)."
+      question: "Build the upper fence in days."
+      relationship: "upper fence = Q3 + 1.5 x IQR, so 18 days + 1.5 x 8 days"
+      labels:
+      - "18 days  (Q3)"
+      - "12 days  (1.5 x IQR)"
+      - "10 days  (Q1)"
+      - "8 days  (IQR)"
+      - "34 days  (the long recovery record)"
+      values: [18, 12, 10, 8, 34]
+      slots: 2
+      template: '{0} + {1}'
+      formula: a+b
+      correct: [0, 1]
+      target: 30
+      tolerance: 0
+      units: days
+      solution: "IQR = 18 - 10 = 8 days, so 1.5(IQR) = 12 days and the upper fence is 18 + 12 = 30 days."
+      explanation: "Since 34 days is above the 30-day fence, the record is flagged and kept pending review."
+    answerText: "The completed check shows iQR = 8 days; upper fence = 18 + 1.5(8) = 30 days. Since 34 > 30, flag it and keep it pending review."
+    why: "An outlier flag triggers source review; it does not grant permission to delete a patient."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   number in days, then flag selection
+    # correct result: IQR = 8 days; upper fence = 18 + 1.5(8) = 30 days. Since 34 > 30, flag it and keep it pending review.
+    # state/output: The 34-day record gains amber REVIEW, DO NOT DELETE; unlock S4; pays off M2/M7.
+
+  # --- Stop 4: Seal the Claims
+  #     Concept: pre-specification and scope; Keystone: keystone study design; Area: Randomisation & Blinding; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: ATTEST, asked by Lena Wu beside claim-ledger.
+  - group: RAND
+    at: claim-ledger
+    title: "Seal the Claims"
+    person: wu
+    concept: "pre-specification and scope"
+    reason: "Lena must know which claims have independent timestamps before she seals the first pack piece."
+    scene: "The variables and summaries are now defined, but only claims fixed before enrollment can keep their planned error rates. Compare each claim with the registry timestamp and identify the critical claim that lacks prior backing."
+    motivation: "A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim."
+    format: ATTEST
+    question: "Verification limit 3. Claims: primary 30-day improvement backed/critical; serious-event rate backed; recovery-time mean backed; two-site treatment interaction unbacked/critical; exploratory lab marker unbacked. Spend three checks; submit three backed claims and label the interaction exploratory."
+    # MODEL CONVERSION. `verification_limit` is the engine's `checks`; the bible's
+    # `backed` and `critical` flags carry over unchanged, and `required_checks`
+    # plus `critical_unbacked` are what the flags already encode.
+    # `evidence` is DERIVED, not the bible's: the engine prints one line per claim
+    # saying what a check turns up, and the bible's own test for this board is the
+    # registry timestamp (the terminal reads REGISTRATION LOCK: 14 MONTHS BEFORE
+    # FIRST PATIENT), so each line reports that claim's timestamp and nothing else.
+    attest:
+      checks: 3
+      claims:
+      - { id: primary_30d, label: "primary 30-day improvement", critical: true, backed: true,
+          signedBy: "Lena Wu", evidence: "Registry timestamp 14 months before the first patient." }
+      - { id: serious_event, label: "serious-event rate", critical: true, backed: true,
+          signedBy: "Lena Wu", evidence: "Registry timestamp 14 months before the first patient." }
+      - { id: recovery_mean, label: "recovery-time mean", backed: true,
+          signedBy: "Lena Wu", evidence: "Registry timestamp 14 months before the first patient." }
+      - { id: site_interaction, label: "two-site treatment interaction", critical: true,
+          signedBy: "Lena Wu", evidence: "No registry timestamp; the claim was written after the two-site pattern appeared." }
+      - { id: lab_marker, label: "exploratory lab marker",
+          signedBy: "Lena Wu", evidence: "No registry timestamp; the marker was added to the pack later." }
+      commit: "Seal the claim list"
+    answerText: "Keep the three timestamped claims as pre-specified and report the two-site pattern transparently as exploratory monitoring evidence."
+    why: "A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Timestamp proves truth; separate timing from condition
+    # correct result: Verify the first three; interaction is critical but unbacked.
+    # state/output: Binder piece 1 appears; next briefing unlocks; sets up M4/M13.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:3,claims:[{id:"primary_30d",label:"primary 30-day improvement",backed:true,critical:true},{id:"serious_event",label:"serious-event rate",backed:true,critical:true},{id:"recovery_mean",label:"recovery-time mean",backed:true,critical:false},{id:"site_interaction",label:"two-site treatment interaction",backed:false,critical:true},{id:"lab_marker",label:"exploratory lab marker",backed:false,critical:false}],required_checks:["primary_30d","serious_event","recovery_mean"],critical_unbacked:"site_interaction",correct_conclusion:"label the interaction exploratory",answerText:"Verify the three backed claims and label the critical, unbacked site interaction exploratory."}
+

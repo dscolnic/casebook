@@ -1,0 +1,197 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Two Accounts"
+  card:
+    header: "7 DAYS"
+    title: "Two Accounts"
+    goNow: "Go to TRADE and meet Nia Corren, open-economy analyst, at the payment wires."
+    body: "Holding the rate avoids extra tightening, but foreign bond orders are strengthening the future RATE. International goods, income, and transfers enter the current account, while asset purchases enter the financial account. You will close both accounts, clear foreign exchange, and test exporter effects. By the end of the mission, decide whether the capital inflow is unqualified good news."
+    objective: "Connect balance of payments, exchange rates, and net exports."
+  objective: "Connect balance of payments, exchange rates, and net exports."
+  stake: "Holding the rate avoids extra tightening, but foreign bond orders are strengthening the future RATE. International goods, income, and transfers enter the current account, while asset purchases enter the financial account. You will close both accounts, clear foreign exchange, and test exporter effects. By the end of the mission, decide whether the capital inflow is unqualified good news."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Do not call the cash inflow pure good news. It pays for the trade gap and lifts RATE. A stronger RATE cuts net exports. Export orders are now down. The output plan must change."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-open-economy-floor
+    # On arrival at Open-Economy Floor | trade-ledger | automatic
+    on: { enter: true, at: OPENEC }
+    world: "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Connect balance of payments, exchange rates, and net exports. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Connect balance of payments, exchange rates, and net exports."
+    bubbles:
+    - who: corren   # Nia Corren
+      say: "Start with close payments. We need evidence the next decision can use."
+  - id: after-stop-33
+    # After Stop 33 | forex-console | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Nia Corren says, , and Stop 34 unlocks."
+    panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    bubbles:
+    - who: corren   # Nia Corren
+      say: "Current account −17 and financial account +17 billion close at zero."
+  - id: after-stop-34
+    # After Stop 34 | forex-console | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate RATE, then."
+    panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    bubbles:
+    - who: corren   # Nia Corren
+      say: "Foreign bond demand → demand for RATE shifts right → RATE appreciates → exports fall and imports rise → net exports fall."
+  - id: after-stop-35
+    # After Stop 35 | shipment-board | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 36 unlocks."
+    panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    bubbles:
+    - who: corren   # Nia Corren
+      say: "At fixed conditions, appreciation lowers exports and raises imports; restoration recovers baseline."
+  - id: at-mission-end
+    # At mission end | trade-ledger | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 9 EVIDENCE: RECORDED"
+    bubbles:
+    - who: corren   # Nia Corren
+      say: "The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand."
+
+  stops:
+  # --- Stop 33: Close payments
+  #     Concept: BOP; Keystone: open economy; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L3; Story role: calculation.
+  #     placement: BALANCE, at trade-ledger.
+  - group: RATE
+    at: trade-ledger
+    title: "Close payments"
+    concept: "BOP"
+    reason: "The inflow must be placed in the correct account."
+    scene: "Halvern has NX −18, net foreign income +2, net transfers −1, and foreign asset purchases +17 billion. Count the proper streams and close the simplified balance of payments for the board."
+    motivation: "A current deficit is financed by a financial surplus, not free money."
+    format: BALANCE
+    question: "Toggle streams; submit CA and FA. CA=−18+2−1=−17; FA=+17; sum0."
+    answerText: "\"Current account −17 and financial account +17 billion close at zero.\""
+    why: "A current deficit is financed by a financial surplus, not free money."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A current deficit is financed by a financial surplus, not free money.
+    # correct result: The current account is -17 billion and the financial account is +17 billion, so the simplified balance closes at zero.
+    # state/output: Record the result and unlock the next named stop.
+    # CONVERTED. The bible's payload was:
+    #   balance:{streams:[{id:"net_exports",value:-18,unit:"billion",count:true},{id:"net_foreign_income",value:2,unit:"billion",count:true},{id:"net_transfers",value:-1,unit:"billion",count:true},{id:"foreign_asset_purchases",value:17,unit:"billion",count:true},{id:"domestic_stock_trade",value:6,unit:"billion",count:false}],equations:["CA=NX+NFI+transfers","CA+FA=0"],correct:{CA:-17,FA:17,total:0},tolerance:0.1,submission:"numeric CA and FA pair in billions"}
+    # `count:false` is `countable: false`; the total is the bible's own `correct.total`
+    # of zero and the tolerance is the bible's 0.1. Every value is the bible's.
+    # One model conversion: `hidden` on the financial account. The engine refuses a
+    # ledger whose visible rows already close, and the +17 is exactly the row this
+    # stop exists to find — the current side alone comes to −17, and the inflow is
+    # what takes it to zero.
+    relationship: "CA = NX + NFI + transfers, and CA + FA = 0"
+    balance:
+      total: { amount: 0, unit: "billion", label: "Simplified balance of payments" }
+      tolerance: 0.1
+      streams:
+      - { id: net_exports, label: "net exports", value: -18 }
+      - { id: net_foreign_income, label: "net foreign income", value: 2 }
+      - { id: net_transfers, label: "net transfers", value: -1 }
+      - { id: foreign_asset_purchases, label: "foreign asset purchases", value: 17, hidden: true }
+      - { id: domestic_stock_trade, label: "domestic stock trade", value: 6, countable: false }
+
+  # --- Stop 34: Clear forex
+  #     Concept: currency demand; Keystone: forex; Area: Open-Economy Floor; Learning role: PRACTICE; Difficulty: L3; Story role: consequence.
+  #     placement: DERIVE, at forex-console.
+  - group: OPENEC
+    at: forex-console
+    title: "Clear forex"
+    concept: "currency demand"
+    reason: "Asset purchases reveal which curve shifts."
+    scene: "With a 17-billion capital inflow, foreigners must acquire RATE to buy Halvern bonds. Build the direction chain from asset demand to the currency's value and net exports in the Rate Book."
+    motivation: "Appreciation makes exports dearer and imports cheaper."
+    format: DERIVE
+    question: "Order/build foreign bond demand→demand for RATE right→RATE appreciates→X falls,M rises→NX falls."
+    answerText: "\"Foreign bond demand → demand for RATE shifts right → RATE appreciates → exports fall and imports rise → net exports fall.\""
+    why: "Appreciation makes exports dearer and imports cheaper."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Appreciation makes exports dearer and imports cheaper.
+    # correct result: Foreign bond demand raises demand for RATE, RATE appreciates, exports fall, imports rise, and net exports fall.
+    # state/output: RATE waypoint.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{candidate_lines:["Foreign investors buy Halvern bonds","Demand for RATE shifts right","RATE appreciates","Halvern exports become dearer abroad","Imports become cheaper in Halvern","Exports fall and imports rise","Net exports fall"],licenses:["asset purchase requires domestic currency","foreign-exchange demand shift","higher equilibrium currency price","relative-price effect","net-exports definition"],keyed_order:[1,2,3,4,5,6,7],decoys:["RATE supply shifts left because Halvern prints fewer notes","Appreciation raises net exports"],submission:"ordered line-and-rule chain"}
+
+  # --- Stop 35: Exporter effect
+  #     Concept: appreciation/NX; Keystone: forex; Area: Open-Economy Floor; Learning role: COMBINE; Difficulty: L4; Story role: test.
+  #     placement: CONTROL, at forex-console.
+  - group: OPENEC
+    at: forex-console
+    title: "Exporter effect"
+    concept: "appreciation/NX"
+    reason: "Soren wants the currency effect isolated from port volume."
+    scene: "Because RATE appreciation should reduce net exports, change only the exchange quote from 1.00 to 1.10 foreign units per RATE. Hold foreign income, domestic income, tariffs, and shipping capacity fixed."
+    motivation: "Reversing the quote tests whether currency value changes the export margin."
+    format: CONTROL
+    question: "Change quote to 1.10, measure X and M; restore 1.00 and measure again; submit conclusion. control:{baseline:1,response:.10,noise:.01,candidates:[quote,tariff,income],fixed:[income,tariffs,capacity],readings:{1.00:{X90,M108},1.10:{X84,M112}},correct:\"appreciation lowers NX\"}."
+    answerText: "\"At fixed conditions, appreciation lowers exports and raises imports; restoration recovers baseline.\""
+    why: "Reversing the quote tests whether currency value changes the export margin."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Reversing the quote tests whether currency value changes the export margin.
+    # correct result: Raising the quote from 1.00 to 1.10 lowers exports from 90 to 84 billion and raises imports from 108 to 112 billion; restoring 1.00 restores the baseline.
+    # state/output: Record the result and unlock the next named stop.
+    # CONVERTED. The bible's payload was:
+    #   control:{candidates:[{id:"exchange_quote",change:"1.00 to 1.10 foreign units per RATE"},{id:"tariff",change:"0% to 5%"},{id:"foreign_income",change:"index 100 to 105"}],selected:"exchange_quote",baseline:{quote:1.00,exports:90,imports:108,unit:"billion"},response:{quote:1.10,exports:84,imports:112},noise_band:0.01,fixed:["domestic income","foreign income","tariffs","shipping capacity"],measure:"exports and imports after the panel settles",restore:{quote:1.00,exports:90,imports:108,remeasure:true},correct:"appreciation lowers net exports",submission:"control choice, readings, and conclusion"}
+    # `candidates` are the engine's `variables`, `selected` its `truth`, `fixed` its
+    # `held` and `noise_band` its `noise`. The reversal the bible's `restore` asks
+    # for is what the engine's CONTROL panel already makes the player do.
+    # ONE MODEL CONVERSION. The engine watches a single reading; the bible reads
+    # exports and imports separately. The reading is their difference, which is the
+    # quantity the bible's own conclusion is about and the quantity its own ledger
+    # two stops earlier calls net exports: 90 − 108 = −18, which is that stop's
+    # `net_exports` stream to the billion. At 1.10 it is 84 − 112 = −28, so the
+    # signed response is −10 billion. No number here is not the bible's.
+    control:
+      observable: { label: "Net exports", unit: "billion" }
+      variables:
+      - { id: exchange_quote, label: "exchange quote, 1.00 to 1.10 foreign units per RATE" }
+      - { id: tariff, label: "tariff, 0% to 5%" }
+      - { id: foreign_income, label: "foreign income, index 100 to 105" }
+      truth: exchange_quote
+      held: ["domestic income", "foreign income", "tariffs", "shipping capacity"]
+      baseline: -18
+      response: -10
+      noise: 0.01
+      moral: "Appreciation lowers net exports."
+
+  # --- Stop 36: Good news
+  #     Concept: capital flows; Keystone: forex/BOP; Area: Open-Economy Floor; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: CHOICE, asked by Nia Corren beside shipment-board.
+  - group: OPENEC
+    at: shipment-board
+    title: "Good news"
+    person: corren
+    concept: "capital flows"
+    reason: "Page 9 must record benefit and cost."
+    scene: "The accounts close, foreign asset demand supports RATE, and the controlled comparison shows net exports falling under appreciation. Choose the statement that preserves all three facts for the next board decision."
+    motivation: "Financial confidence can strengthen the currency while weakening aggregate demand through NX."
+    format: CHOICE
+    question: "Select exactly one statement from the four distinct choices below."
+    choices:
+    - "The inflow is entirely beneficial."
+    - "The inflow is entirely harmful."
+    - "The inflow finances the deficit, but appreciation lowers net exports."
+    - "The two international accounts need not sum to zero."
+    answer: "The inflow finances the deficit, but appreciation lowers net exports."
+    answerText: "\"The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand.\""
+    why: "Financial confidence can strengthen the currency while weakening aggregate demand through NX."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (1)
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 9 signed.
+    # CONVERTED. The bible's payload was:
+    #   choices:[{id:A,label:"The inflow is entirely beneficial"},{id:B,label:"The inflow is entirely harmful"},{id:C,label:"The inflow finances the deficit, but appreciation lowers net exports"},{id:D,label:"The two international accounts need not sum to zero"}]; answer:C; rebuttals:{A:"Appreciation reduces exports and raises imports, so the inflow has a cost.",B:"The financial surplus finances the current-account deficit, so the inflow has a benefit.",D:"In the simplified AP model, current and financial accounts sum to zero."}.
+    # The labels and the key are already in place above; the payload's keyed
+    # rebuttals are what was still owed, verbatim, in the bible's A/B/D order.
+    rebuttals:
+    - "Appreciation reduces exports and raises imports, so the inflow has a cost."
+    - "The financial surplus finances the current-account deficit, so the inflow has a benefit."
+    - "In the simplified AP model, current and financial accounts sum to zero."
+

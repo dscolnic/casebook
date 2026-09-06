@@ -1,0 +1,187 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Growth On Paper"
+  card:
+    header: "14 DAYS TO CHANGEOVER"
+    title: "Growth on Paper"
+    goNow: "Go to PRICES and meet Idris Pell, national accounts chief, at the output ledger."
+    body: "The first page rejected the queue as proof, but the new sales total still claims strong growth. Gross domestic product counts final goods and services made inside Halvern, while price changes can lift money totals without lifting output. You will classify spending and remove the price effect. By the end of the mission, decide which output aggregate the board should publish."
+    objective: "Build GDP correctly and separate nominal growth from real growth."
+  objective: "Build GDP correctly and separate nominal growth from real growth."
+  stake: "The first page rejected the queue as proof, but the new sales total still claims strong growth. Gross domestic product counts final goods and services made inside Halvern, while price changes can lift money totals without lifting output. You will classify spending and remove the price effect. By the end of the mission, decide which output aggregate the board should publish."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Publish real GDP of 685.2 billion base-year crowns with the nominal total shown only as context. Prices caused much of the apparent growth. The board corrects the headline. The next question is whether the street price jump is broad or built into the basket."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-prices
+    # On arrival at PRICES | output-ledger | automatic
+    on: { enter: true, at: PRICES }
+    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Build GDP correctly and separate nominal growth from real growth. Idris Pell points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Build GDP correctly and separate nominal growth from real growth."
+    bubbles:
+    - who: pell   # Idris Pell
+      say: "Start with classify the ledger. We need evidence the next decision can use."
+  - id: after-stop-5
+    # After Stop 5 | calculating-desk | automatic
+    on: { after: [1] }
+    world: "The classify the ledger result remains visible while the close the output identity fixture lights."
+    panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    bubbles:
+    - who: pell   # Idris Pell
+      say: "Only purchases of current final output enter GDP; transfers and asset trades do not."
+  - id: after-stop-6
+    # After Stop 6 | price-history-board | automatic
+    on: { after: [2] }
+    world: "The close the output identity result remains visible while the remove the price effect fixture lights."
+    panel: "PRICES"
+    bubbles:
+    - who: pell   # Idris Pell
+      say: "Nominal GDP is 740 billion crowns."
+  - id: after-stop-7
+    # After Stop 7 | output-ledger | automatic
+    on: { after: [3] }
+    world: "The remove the price effect result remains visible while the publish the output line fixture lights."
+    panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    bubbles:
+    - who: pell   # Idris Pell
+      say: "Real GDP is about 685.2 billion base-year crowns."
+  - id: at-mission-end
+    # At mission end | output-ledger | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 2 signed; Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 2 EVIDENCE: RECORDED"
+    bubbles:
+    - who: pell   # Idris Pell
+      say: "The report was not false. Its growth claim was."
+
+  stops:
+  # --- Stop 5: Classify the ledger
+  #     Concept: GDP components; Keystone: GDP; Area: Statistics Floor; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: PROTOCOL, at output-ledger.
+  - group: STATS
+    at: output-ledger
+    title: "Classify the ledger"
+    concept: "GDP components"
+    reason: "The headline total contains items that may not be production."
+    scene: "Idris's ledger mixes household purchases, factory equipment, public wages, exports, imports, welfare checks, and stock trades. Match every row to C, I, G, NX, or excluded before any sum can enter the book."
+    motivation: "Correct labels prevent transfers and asset trades from masquerading as current production."
+    format: PROTOCOL
+    question: "Draw one line from each transaction to its category and submit the complete mapping. **answerText:** \"Only purchases of current final output enter GDP; transfers and asset trades do not.\""
+    answerText: "The completed check shows the keyed result shown by the completed interaction."
+    why: "Correct labels prevent transfers and asset trades from masquerading as current production."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Correct labels prevent transfers and asset trades from masquerading as current production.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: valid rows unlock S2.
+    # CONVERTED. The bible's payload was:
+    #   scenarios:[groceries,machine,teacher_salary,exports,imports,welfare,stock];choices:[C,I,G,NX_plus,NX_minus,excluded_transfer,excluded_asset];mapping:{groceries:C,machine:I,teacher_salary:G,exports:NX_plus,imports:NX_minus,welfare:excluded_transfer,stock:excluded_asset}
+    # A rename plus an index: PROTOCOL wants `mapping` as row-index → choice-index,
+    # and the bible's mapping is already the identity permutation. Underscores in
+    # the bible's own ids are opened out into spaces; no word is otherwise changed.
+    scenarios:
+    - "groceries"
+    - "machine"
+    - "teacher salary"
+    - "exports"
+    - "imports"
+    - "welfare"
+    - "stock"
+    choices:
+    - "C"
+    - "I"
+    - "G"
+    - "NX plus"
+    - "NX minus"
+    - "excluded transfer"
+    - "excluded asset"
+    mapping: [0, 1, 2, 3, 4, 5, 6]
+
+  # --- Stop 6: Close the output identity
+  #     Concept: expenditure GDP; Keystone: GDP; Area: Statistics Floor; Learning role: PRACTICE; Difficulty: L2; Story role: calculation.
+  #     placement: DERIVE, at calculating-desk.
+  - group: STATS
+    at: calculating-desk
+    title: "Close the output identity"
+    concept: "expenditure GDP"
+    reason: "The board needs one reproducible nominal GDP total."
+    scene: "With excluded rows removed, the ledger shows C = 480, I = 120, G = 160, exports = 90, and imports = 110 billion crowns. Build the identity and close the total in the Rate Book."
+    motivation: "The component labels reveal which spending changed, not merely that \"spending\" changed."
+    format: DERIVE
+    question: "Build and submit nominal GDP in billion crowns using GDP=C+I+G+(X−M)."
+    answerText: "The completed check shows 740 billion crowns, ±0.5. **answerText:** \"Nominal GDP is 740 billion crowns.\"."
+    why: "The component labels reveal which spending changed, not merely that \"spending\" changed."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Imports are subtracted within NX, not from C again.
+    # correct result: 740 billion crowns, ±0.5. **answerText:** "Nominal GDP is 740 billion crowns."
+    # state/output: total posts; S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["NX=90−110=−20","GDP=480+120+160−20","GDP=740 billion crowns"],licenses:["net exports","expenditure identity","arithmetic"],correct_order:[1,2,3]}
+
+  # --- Stop 7: Remove the price effect
+  #     Concept: nominal/real GDP; Keystone: GDP/inflation; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
+  #     placement: DERIVE, at price-history-board.
+  - group: STATS
+    at: price-history-board
+    title: "Remove the price effect"
+    concept: "nominal/real GDP"
+    reason: "The money total cannot tell whether factories made more."
+    scene: "Because nominal GDP is 740 billion crowns, the headline looks strong; the deflator is 108.0. Rearrange the recorded deflator relationship and calculate real GDP before the board calls the rise economic growth."
+    motivation: "Real GDP, not nominal GDP, measures the change in produced output."
+    format: DERIVE
+    question: "Using deflator=nominal/real×100, derive and submit real GDP in billion base-year crowns."
+    answerText: "The completed check shows 685.2, ±0.2. **answerText:** \"Real GDP is about 685.2 billion base-year crowns.\"."
+    why: "Real GDP, not nominal GDP, measures the change in produced output."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Dividing by 108 without multiplying by 100 misreads the index.
+    # correct result: 685.2, ±0.2. **answerText:** "Real GDP is about 685.2 billion base-year crowns."
+    # state/output: GROWTH label changes to PRICE EFFECT; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["108=740/real×100","real=740×100/108","real=685.19"],licenses:["substitution","algebra","evaluation"],correct_order:[1,2,3]}
+
+  # --- Stop 8: Publish the output line
+  #     Concept: GDP scope; Keystone: GDP; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: BALANCE, at output-ledger.
+  - group: STATS
+    at: output-ledger
+    title: "Publish the output line"
+    concept: "GDP scope"
+    reason: "The Rate Book must carry one total and its limits."
+    scene: "Real output is far below the nominal headline, and the component audit excludes two tempting rows. Close the output ledger by counting only valid flows and naming the price adjustment that makes the total comparable."
+    motivation: "A defensible aggregate states both what it counts and how prices were handled."
+    format: BALANCE
+    question: "Toggle counted streams, close nominal GDP at 740, enter deflator 108, and submit \"publish real GDP 685.2 with nominal context.\" **answerText:** \"Publish real GDP of 685.2 billion and retain nominal GDP of 740 billion as context.\""
+    answerText: "The completed check shows the keyed result shown by the completed interaction."
+    why: "A defensible aggregate states both what it counts and how prices were handled."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A defensible aggregate states both what it counts and how prices were handled.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 2 signed.
+    # CONVERTED. The bible's payload was:
+    #   balance:{streams:[{id:C,value:480,count:true},{id:I,value:120,count:true},{id:G,value:160,count:true},{id:X,value:90,count:true},{id:M,value:-110,count:true},{id:transfers,value:35,count:false},{id:stocks,value:22,count:false}],closure:740,adjustment:{deflator:108,real:685.19},correct_conclusion:"publish_real_with_nominal_context"}
+    # `count:false` is the engine's `countable: false`; `closure` is the total.
+    # Every value is the bible's. Two model conversions, and nothing else:
+    #   · `tolerance` — the engine grades the reported total against a band and
+    #     the bible states none. 0.1 on integer streams is grading slack only.
+    #   · `hidden` on M. The engine refuses a ledger whose visible rows already
+    #     close, and imports are the term that subtracts: 480+120+160+90 = 850
+    #     against a total of 740, so the row that has to be found is the −110.
+    balance:
+      total: { amount: 740, unit: "billion RATE", label: "Nominal GDP" }
+      tolerance: 0.1
+      streams:
+      - { id: C, label: "C", value: 480 }
+      - { id: I, label: "I", value: 120 }
+      - { id: G, label: "G", value: 160 }
+      - { id: X, label: "X", value: 90 }
+      - { id: M, label: "M", value: -110, hidden: true }
+      - { id: transfers, label: "transfers", value: 35, countable: false }
+      - { id: stocks, label: "stocks", value: 22, countable: false }
+

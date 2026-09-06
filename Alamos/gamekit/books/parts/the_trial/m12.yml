@@ -1,0 +1,158 @@
+# ============================================================ MISSION 12
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Three Different Tables"
+  card:
+    header: "DAY 12 - BOARD IN 4 DAYS"
+    title: "Three Different Tables"
+    goNow: "Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the categorical-table wall."
+    body: "The file is locked, and it separates the alert into outcome mix, arm association, and site differences. Chi-square procedures compare observed categorical counts with expected counts. Build each expected table at Adjudication, verify design at Site Operations, then brief the board upstairs. By the end of the mission, decide whether the three problems share one explanation."
+    objective: "Separate the categorical findings."
+  objective: "Separate the categorical findings."
+  stake: "The file is locked, and it separates the alert into outcome mix, arm association, and site differences. Chi-square procedures compare observed categorical counts with expected counts. Build each expected table at Adjudication, verify design at Site Operations, then brief the board upstairs. By the end of the mission, decide whether the three problems share one explanation."
+  takeaway: "Test name follows the study design."
+  segue: "Mission decision: Do not force one cause onto all three tables. Event grades match the planned mix. Treatment arm and hospital do not. The study design calls for different tests. New side studies now compete for one error budget."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "All expected counts must be at least 5."
+  - "Chi-square is nonnegative and uses the right tail."
+  - "Independence and homogeneity use the same arithmetic but different designs."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-endpoint-adjudication
+    # On arrival at Endpoint Adjudication | s45-fit-one-distribution | automatic
+    on: { enter: true, at: TODO }   # s45-fit-one-distribution
+    world: "Arrival: ADJUD entry; categorical wall shows grade counts; Amina says, ; - After S1: GOF label locks; waypoint TAKE ARM/EVENT TABLE TO SITE OPERATIONS. - SITE after S2: design label INDEPENDENCE appears; waypoint CARRY VERIFIED TABLES TO BOARD. - BOARD after S3/final: association and site-difference labels appear; binder 12 and outcome unlock."
+    panel: "MISSION 12: FIT ONE DISTRIBUTION OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "First ask what this one distribution should look like"
+  - id: after-stop-45
+    # After Stop 45 | s46-name-the-design | automatic
+    on: { after: [1] }
+    world: "The fit one distribution result remains visible while the name the design fixture lights."
+    panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Use the Stop 45 result to settle name the design."
+  - id: after-stop-46
+    # After Stop 46 | s47-test-arm-by-event | automatic
+    on: { after: [2] }
+    world: "The name the design result remains visible while the test arm by event fixture lights."
+    panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Use the Stop 46 result to settle test arm by event."
+  - id: after-stop-47
+    # After Stop 47 | s48-compare-the-sites | automatic
+    on: { after: [3] }
+    world: "The test arm by event result remains visible while the compare the sites fixture lights."
+    panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Use the Stop 47 result to settle compare the sites."
+  - id: at-mission-end
+    # At mission end | s45-fit-one-distribution | automatic
+    on: { enter: true, at: TODO }   # s45-fit-one-distribution
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 12 EVIDENCE: RECORDED"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 45: Fit One Distribution
+  #     Concept: chi-square GOF; Keystone: keystone categorical inference; Area: Statistics & Analysis; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+  #     placement: DERIVE, at s45-fit-one-distribution.
+  - group: STAT
+    at: TODO               # the fixture it is asked at
+    title: "Fit One Distribution"
+    concept: "chi-square GOF"
+    reason: "Outcome grades must be tested against the registered 40/40/20 split."
+    scene: "The locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Derive the goodness-of-fit statistic and degrees of freedom against the registered expected counts 40,40,20."
+    motivation: "This asks whether one variable follows a claimed distribution, not whether two variables are associated."
+    format: DERIVE
+    question: "contributions 100/40=2.5,100/40=2.5,0; chi2=5; df=3-1=2; p=.0821 supplied."
+    answerText: "The mismatch is not convincing at alpha .05; do not say the registered mix is true."
+    why: "This asks whether one variable follows a claimed distribution, not whether two variables are associated."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   chi-square, df, p-value conclusion
+    # correct result: 5,df2,p.082; fail reject at .05.
+    # state/output: table1 labeled GOF; travel SITE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"chi-square goodness-of-fit test","givens":["observed counts differ by +10,+10,0","expected count=40 in each of three categories"],"lines":[{"id":"L1","expression":"contributions=10^2/40+10^2/40+0=2.5+2.5+0","license":"state governing relationship"},{"id":"L2","expression":"chi-square=5.0","license":"substitute displayed values"},{"id":"L3","expression":"df=3-1=2","license":"simplify with units"},{"id":"L4","expression":"p=0.0821","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["df=3","reject at 0.05"],"correct_result":"chi-square=5, df=2, p=0.082; fail to reject","answerText":"With p=0.082, the observed grades do not significantly differ from the planned distribution at 0.05."}
+
+  # --- Stop 46: Name the Design
+  #     Concept: independence versus homogeneity; Keystone: keystone design/categorical; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+  #     placement: PROTOCOL, at s46-name-the-design.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Name the Design"
+    concept: "independence versus homogeneity"
+    reason: "The next table's test name depends on how its counts were collected."
+    scene: "One randomized trial sample records treatment arm and serious-event status for every patient. Match this design to independence, then distinguish a future comparison drawing separate patient samples from several hospitals."
+    motivation: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."
+    format: PROTOCOL
+    question: "Match each collection design to chi-square goodness-of-fit, independence, or homogeneity. Submit the complete three-item method mapping."
+    answerText: "The completed check shows use independence for arm by event in one sample; homogeneity for comparing response distributions across site samples."
+    why: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Test chosen by table shape alone
+    # correct result: Use independence for arm by event in one sample; homogeneity for comparing response distributions across site samples.
+    # state/output: design verified; travel BOARD.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   one sample/two variables -> independence; multiple site samples/one response -> homogeneity; one variable versus fixed distribution -> GOF.
+
+  # --- Stop 47: Test Arm by Event
+  #     Concept: chi-square independence; Keystone: keystone categorical/tests; Area: Statistics & Analysis; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: DERIVE, at s47-test-arm-by-event.
+  - group: STAT
+    at: TODO               # the fixture it is asked at
+    title: "Test Arm by Event"
+    concept: "chi-square independence"
+    reason: "The board needs to know whether treatment arm and serious-event status are associated."
+    scene: "The table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Compute expected counts from row total times column total over 400, then calculate chi-square."
+    motivation: "Association by arm is a different question from the outcome-grade distribution."
+    format: DERIVE
+    question: "expected per arm event23, none177; chi2=2(49/23)+2(49/177)=4.8146; df1; p=.0282."
+    answerText: "There is convincing evidence of association between arm and event status; randomized assignment supports a causal arm effect if trial conduct is sound."
+    why: "Association by arm is a different question from the outcome-grade distribution."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   expected counts, chi-square, df, conclusion
+    # correct result: 4.815 tol .01; reject independence.
+    # state/output: table2 ASSOCIATION; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"chi-square test of independence","givens":["two arms","event total=46","none total=354","n=400"],"lines":[{"id":"L1","expression":"expected per arm: event=23, none=177","license":"state governing relationship"},{"id":"L2","expression":"chi-square=2(49/23)+2(49/177)=4.8146","license":"substitute displayed values"},{"id":"L3","expression":"df=(2-1)(2-1)=1","license":"simplify with units"},{"id":"L4","expression":"p=0.0282","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["use observed counts as expected","df=2"],"correct_result":"chi-square=4.815, df=1, p=0.0282; reject independence","answerText":"The arm and event variables are associated at alpha 0.05."}
+
+  # --- Stop 48: Compare the Sites
+  #     Concept: chi-square homogeneity and integrated design; Keystone: keystone categorical/design; Area: Statistics & Analysis; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: DIAGNOSIS, at s48-compare-the-sites.
+  - group: STAT
+    at: TODO               # the fixture it is asked at
+    title: "Compare the Sites"
+    concept: "chi-square homogeneity and integrated design"
+    reason: "One repair is unsafe unless the site-distribution problem is kept separate."
+    scene: "Three site samples report events 18/100, 30/100, and 12/100; chi-square is 10.50 with df=2 and p=.0053. Combine all three categorical tests and choose the one explanation fitting their different collection designs."
+    motivation: "Different null questions can yield different decisions even when every display uses counts."
+    format: DIAGNOSIS
+    question: "Compare GOF p=0.082, arm-independence p=0.028, site-homogeneity p=0.0053, and cold exposure. Submit the interpretation keeping the three questions separate."
+    answerText: "The completed check shows keep three findings separate: grade mix is not detectably different, arm and event are associated, and event distribution differs across sites."
+    why: "Different null questions can yield different decisions even when every display uses counts."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   One significant table explains all tables
+    # correct result: Keep three findings separate: grade mix is not detectably different, arm and event are associated, and event distribution differs across sites.
+    # state/output: binder12; M13.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   readings GOF p.082 quiet, arm independence p.028 alarm, site homogeneity p.0053 alarm, cold exposure concentrated alarm. Choices one universal counting error; grade mix consistent but arm/site distributions differ; no issue; GOF proves equal sites. Answer second.
+

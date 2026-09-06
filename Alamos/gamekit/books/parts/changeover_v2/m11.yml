@@ -1,0 +1,173 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Too Late By Itself"
+  card:
+    header: "5 DAYS"
+    title: "Too Late by Itself"
+    goNow: "Go to COUNTER and meet Eli Voss at the wage notices."
+    body: "Temporary inflation does not justify permanent tightening, but waiting for wages to adjust would leave families exposed through launch. In the long run, flexible wages return output to Yf; automatic taxes and transfers can soften a downturn sooner. You will time adjustment, test stabilizers, and protect growth. By the end of the mission, decide whether self-correction alone is fast enough."
+    objective: "Compare market adjustment with a temporary policy bridge."
+  objective: "Compare market adjustment with a temporary policy bridge."
+  stake: "Temporary inflation does not justify permanent tightening, but waiting for wages to adjust would leave families exposed through launch. In the long run, flexible wages return output to Yf; automatic taxes and transfers can soften a downturn sooner. You will time adjustment, test stabilizers, and protect growth. By the end of the mission, decide whether self-correction alone is fast enough."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Self-correction is too slow. Use automatic stabilizers and a short bridge for capital and training. End the plan when its trigger is met. Bank ledgers now show that 4.15 works only when reserves arrive on time."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-exchange-counter
+    # On arrival at Exchange Counter | queue-board | automatic
+    on: { enter: true, at: COUNTER }
+    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Compare market adjustment with a temporary policy bridge. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Compare market adjustment with a temporary policy bridge."
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Start with adjustment order. We need evidence the next decision can use."
+  - id: after-stop-41
+    # After Stop 41 | ad-as-wall | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Eli Voss says, , and Stop 42 unlocks."
+    panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Self-correction returns Y to Yf, but wage adjustment starts after launch."
+  - id: after-stop-42
+    # After Stop 42 | forecast-table | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in COUNTER → PRICES → RATE only if the route requires travel, then."
+    panel: "COUNTER → PRICES → RATE"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Automatic stabilizers shrink the loss from 10 to 7 billion."
+  - id: after-stop-43
+    # After Stop 43 | allocation-slate | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 44 unlocks."
+    panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Fund clearing, training, port repair, and reserve."
+  - id: at-mission-end
+    # At mission end | queue-board | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 11 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Use a temporary bridge with a sunset review; self-correction alone is too slow."
+
+  stops:
+  # --- Stop 41: Adjustment order
+  #     Concept: self-correction; Keystone: AD-AS; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+  #     placement: SEQUENCE, at queue-board.
+  - group: RATE
+    at: queue-board
+    title: "Adjustment order"
+    concept: "self-correction"
+    reason: "The conversion deadline must be compared with wage timing."
+    scene: "Wage contracts reset in six weeks, but conversion begins in five days. Order the recessionary self-correction chain and mark which step misses the deadline clearly in the Rate Book for review."
+    motivation: "A correct long-run mechanism can still be too slow for a short-run emergency."
+    format: SEQUENCE
+    question: "Order and mark."
+    answerText: "\"Self-correction returns Y to Yf, but wage adjustment starts after launch.\""
+    why: "A correct long-run mechanism can still be too slow for a short-run emergency."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A correct long-run mechanism can still be too slow for a short-run emergency.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # CONVERTED. The bible's payload was:
+    #   cards:[unemployment high,wage growth slows,input costs fall,SRAS right,Y returns Yf]; order:same; deadline_step:wage reset.
+    # A rename and an index: "order:same" is the cards as written, which the engine
+    # states as the permutation 0..4. Every card is the bible's own wording.
+    # `deadline_step` has no home in SEQUENCE — the engine orders cards and does not
+    # mark one of them — so the "mark which step misses the deadline" half of this
+    # stop is not carried. Left to the bible rather than invented.
+    cards:
+    - "unemployment high"
+    - "wage growth slows"
+    - "input costs fall"
+    - "SRAS right"
+    - "Y returns Yf"
+    order: [0, 1, 2, 3, 4]
+
+  # --- Stop 42: Stabilizer response
+  #     Concept: automatic stabilizers; Keystone: fiscal/AD; Area: Rate Room; Learning role: RETRIEVE; Difficulty: L3; Story role: calculation.
+  #     placement: DERIVE, at ad-as-wall.
+  - group: RATE
+    at: ad-as-wall
+    title: "Stabilizer response"
+    concept: "automatic stabilizers"
+    reason: "The bridge must distinguish automatic support from new spending."
+    scene: "Because self-correction is late, disposable income falls 10 billion, but taxes fall 2 billion and transfers rise 1 billion automatically. Calculate the net income loss before induced consumption for the board."
+    motivation: "Stabilizers reduce the initial shock without a new vote."
+    format: DERIVE
+    question: "derive −10+2+1=−7 billion."
+    answerText: "\"Automatic stabilizers shrink the loss from 10 to 7 billion.\""
+    why: "Stabilizers reduce the initial shock without a new vote."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Stabilizers reduce the initial shock without a new vote.
+    # correct result: −7b ±0.1.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"net output change from the shock and stabilizers","givens":["initial shock=-10 billion","tax stabilizer=+2 billion","transfer stabilizer=+1 billion"],"lines":[{"id":"L1","expression":"net change=-10+2+1","license":"state governing relationship"},{"id":"L2","expression":"net change=-7 billion","license":"substitute displayed values"}],"keyed_order":["L1","L2"],"decoys":["-13 billion","-10 billion"],"correct_result":"-7 billion","answerText":"Automatic stabilizers reduce the 10-billion decline to a 7-billion decline without a new vote."}
+
+  # --- Stop 43: Protect growth engines
+  #     Concept: growth resources; Keystone: growth; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L5; Story role: decision input.
+  #     placement: ALLOCATE, at forecast-table.
+  - group: STATS
+    at: forecast-table
+    title: "Protect growth engines"
+    concept: "growth resources"
+    reason: "Short-run support must not consume long-run capacity."
+    scene: "The smaller seven-billion shock leaves a limited bridge fund. Allocate 100 points across household clearing, worker retraining, port repair, publicity, and a protected reserve while preserving all required growth investments."
+    motivation: "Human capital, physical capital, and technology shift productive capacity; publicity does not."
+    format: ALLOCATE
+    question: "Allocate all 100 and submit the four funded items."
+    answerText: "\"Fund clearing, training, port repair, and reserve.\""
+    why: "Human capital, physical capital, and technology shift productive capacity; publicity does not."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Human capital, physical capital, and technology shift productive capacity; publicity does not.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:{pool:100,items:[{id:"clearing",label:"payment clearing",cost:30,required:true},{id:"training",label:"worker training",cost:25,required:true},{id:"port",label:"port repair",cost:25,required:true},{id:"reserve",label:"protected contingency reserve",cost:20,required:true,protected:true},{id:"publicity",label:"confidence publicity",cost:20,required:false}],questions:[{id:"payments",text:"Does the plan keep clearing operational?",required:true},{id:"growth",text:"Does it fund training and port capacity?",required:true},{id:"reserve",text:"Does it preserve the restart reserve?",required:true}],correct_allocation:{clearing:30,training:25,port:25,reserve:20},answerText:"Spend all 100 on clearing, training, port repair, and the protected reserve; publicity would crowd out a required growth or safety item."}
+
+  # --- Stop 44: Wait or bridge
+  #     Concept: stabilization timing; Keystone: fiscal/growth; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: VALUE, asked by Eli Voss beside allocation-slate.
+  - group: STATS
+    at: allocation-slate
+    title: "Wait or bridge"
+    person: voss
+    concept: "stabilization timing"
+    reason: "The chair must choose before contracts can adjust."
+    scene: "Wage adjustment begins after launch, automatic stabilizers cover part of the loss, and the protected plan preserves growth capacity. Choose whether to wait, make permanent stimulus, or use a temporary bridge with an end date."
+    motivation: "Temporary support can span a lag without becoming a permanent demand expansion."
+    format: VALUE
+    question: "Spend 80 and submit the plan."
+    answerText: "\"Use a temporary bridge with a sunset review; self-correction alone is too slow.\""
+    why: "Temporary support can span a lag without becoming a permanent demand expansion."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Temporary support can span a lag without becoming a permanent demand expansion.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 11.
+    # CONVERTED. The bible's payload was:
+    #   value:{budget:80,options:[{id:"temporary_bridge",axis:"short-run demand support",cost:50,required:true},{id:"sunset_review",axis:"automatic exit discipline",cost:30,required:true},{id:"permanent_stimulus",axis:"permanent demand expansion",cost:80,required:false},{id:"wait",axis:"no immediate support",cost:0,required:false}],total_available_cost:160,correct_purchase:["temporary_bridge","sunset_review"],answerText:"Buy the temporary bridge and sunset review for 80; permanent stimulus outlasts the gap and waiting leaves the lag unaddressed."}
+    # `budget` becomes `budget.amount`; `correct_purchase` — the same two ids the
+    # bible marks `required` — is the engine's `decisive`. Each option is named only
+    # by its `axis`, so that phrase carries as the label too. 50+30+80+0 = 160, the
+    # bible's own `total_available_cost`, against 80; the two decisive ones cost 80.
+    value:
+      budget: { amount: 80 }
+      options:
+      - { id: temporary_bridge, label: "short-run demand support", axis: "short-run demand support", cost: 50, decisive: true }
+      - { id: sunset_review, label: "automatic exit discipline", axis: "automatic exit discipline", cost: 30, decisive: true }
+      - { id: permanent_stimulus, label: "permanent demand expansion", axis: "permanent demand expansion", cost: 80 }
+      - { id: wait, label: "no immediate support", axis: "no immediate support", cost: 0 }
+

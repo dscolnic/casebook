@@ -1,0 +1,199 @@
+# ============================================================ MISSION 12
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Leak and Turbine Case"
+  card:
+    header: "4 DAYS."
+    title: "THE LEAK AND TURBINE CASE"
+    goNow: "Turbine Yard, Elias Shaw at gearbox-crate."
+    body: "The energy mix works on paper, but the wind gearbox needs eleven weeks and methane is escaping at the tip. Methane can fuel backup power, yet leaks can erase its climate benefit. Verify turbine timing, measure gas at the tip, then protect water operations. By the end of the mission, decide the firm-power bridge for ferry day."
+    objective: "Lock a feasible low-emission power bridge."
+  objective: "Lock a feasible low-emission power bridge."
+  stake: "The energy mix works on paper, but the wind gearbox needs eleven weeks and methane is escaping at the tip. Methane can fuel backup power, yet leaks can erase its climate benefit. Verify turbine timing, measure gas at the tip, then protect water operations. By the end of the mission, decide the firm-power bridge for ferry day."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Use stored gas, fixed pipes, key loads, and cells until the wind gear arrives. The 180-kilowatt plan keeps water, school, homes, and food safe. Backup power is ready."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "CH4 GWP about 28-36 over 100 years and lasts about 12 years; CO2 GWP 1 but lasts centuries to millennia; N2O GWP 265-310 and lasts 121 years."
+  - "Nuclear fission releases heat; U-235 half-life 704 million years, Cs-137 30 years, I-131 8 days."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-chapel-council-room
+    # On arrival at Chapel Council Room | council-table | automatic
+    on: { enter: true, at: CHAPEL }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 12: AUDIT THE GEARBOX SCHEDULE OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Start with audit the gearbox schedule. We need evidence the next decision can use."
+  - id: after-stop-45
+    # After Stop 45 | gas-rack | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Use the Stop 45 result to settle verify methane capture."
+  - id: after-stop-46
+    # After Stop 46 | tip-lab-bench | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Use the Stop 46 result to settle diagnose the engine-room alarm."
+  - id: after-stop-47
+    # After Stop 47 | load-board | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 47 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Use the Stop 47 result to settle allocate firm power."
+  - id: at-mission-end
+    # At mission end | council-table | automatic
+    on: { missionEnd: true }
+    world: "Decision and hook: Stop 48 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 12 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 45: Audit the gearbox schedule
+  #     Concept: feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle; Keystone: feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle.
+  #     placement: ATTEST, asked by Mara Voss beside council-table.
+  - group: CHAPEL
+    at: council-table
+    title: "Audit the gearbox schedule"
+    person: voss
+    concept: "feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle"
+    reason: "The island cannot commit audit the gearbox schedule until this evidence is resolved."
+    scene: "The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power, and the team needs this result before it acts."
+    motivation: "Audit the gearbox schedule connects the measured environmental mechanism to the next island condition."
+    format: ATTEST
+    question: "Verify at most three claims among order date, shipment status, fitting crew, and completion by vote; reject the critical unbacked completion claim"
+    answerText: "The completed check shows wind is not firm power before the vote."
+    why: "Audit the gearbox schedule connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Wind is not firm power before the vote
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{limit:3,claims:[{id:order,backed:true},{id:shipment,backed:true},{id:crew,backed:true},{id:completion_by_vote,backed:false,critical:true}],correct:reject_completion}
+
+  # --- Stop 46: Verify methane capture
+  #     Concept: methane capture | causality | D7 | RETRIEVE | L4 | evidence; Keystone: methane capture | causality | D7 | RETRIEVE | L4 | evidence; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: methane capture | causality | D7 | RETRIEVE | L4 | evidence.
+  #     placement: VERIFY, at gas-rack.
+  - group: TIP
+    at: gas-rack
+    title: "Verify methane capture"
+    concept: "methane capture | causality | D7 | RETRIEVE | L4 | evidence"
+    reason: "The island cannot commit verify methane capture until this evidence is resolved."
+    scene: "Because wind cannot return before the vote, captured landfill gas may bridge the gap. Predict recoverable methane, operate the collector, measure capture and leakage, interpret, and restore, and the team needs this result before it acts."
+    motivation: "Verify methane capture connects the measured environmental mechanism to the next island condition."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT 400 m3/day*0.55*0.80 in m3 CH4/day; OPERATE at 60% vacuum with waste mass, moisture, and time fixed; MEASURE capture and leakage; INTERPRET against limits; restore baseline"
+    relationship: "recoverable methane = gas volume × methane fraction × collection efficiency, so 400 × 0.55 × 0.80"
+    # THE BIBLE'S PAYLOAD, converted. The engine's `truth` is what the
+    # measurement finds, so it is the bible's measured 170 m3/day, and the
+    # bible's own "capture within 10% of 176" acceptance is written as the
+    # `passRatio` the engine grades a prediction on. `operate` becomes the
+    # intervention and `measure` the measurement the player is free to skip. The
+    # dial range is wide enough that not every position on it passes.
+    verify:
+      prediction:
+        label: Recoverable methane a day
+        unit: m³ CH4/day
+        min: 0
+        max: 400
+        step: 5
+      truth: 170
+      passRatio: [0.9, 1.1]
+      intervention:
+        label: Run the collector at 60 per cent vacuum
+        note: Waste mass, moisture and elapsed time held fixed.
+        outcome: Vacuum set. Collector steady.
+      measurement:
+        label: Methane captured a day
+        note: The rack also logs 18 per cent leaked, inside the 20 per cent limit.
+      lock: Lock the prediction
+      commit: Report whether the capture is acceptable
+    answerText: "The completed check shows prediction 176 m3/day; measurements 170 m3/day and 18% leakage pass."
+    why: "Verify methane capture connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Prediction 176 m3/day; measurements 170 m3/day and 18% leakage pass
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_commit,operate,measure,interpret],operate_unlocked_when:prediction_committed,prediction:{equation:"recoverable=gas_volume*methane_fraction*collection_efficiency",inputs:{gas_volume:400,methane_fraction:0.55,collection_efficiency:0.80},unit:"m3 CH4/day",truth:176,tolerance:17.6},operate:{control:collector_vacuum,setting_pct:60,fixed:[waste_mass,moisture,elapsed_time]},measure:{captured_m3_day:170,leaked_pct:18},interpret:{correct:accept,criteria:["capture within 10% of 176","leakage <=20%"]},restore:{required:true,setting:baseline,remeasure:true}}
+
+  # --- Stop 47: Diagnose the engine-room alarm
+  #     Concept: engine-room air | atmosphere | D11 | RETRIEVE | L4 | reveal; Keystone: engine-room air | atmosphere | D11 | RETRIEVE | L4 | reveal; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: engine-room air | atmosphere | D11 | RETRIEVE | L4 | reveal.
+  #     placement: DIAGNOSIS, at tip-lab-bench.
+  - group: CHAPEL
+    at: tip-lab-bench
+    title: "Diagnose the engine-room alarm"
+    concept: "engine-room air | atmosphere | D11 | RETRIEVE | L4 | reveal"
+    reason: "The island cannot commit diagnose the engine-room alarm until this evidence is resolved."
+    scene: "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Diagnose the engine-room alarm connects the measured environmental mechanism to the next island condition."
+    format: DIAGNOSIS
+    question: "Choose among outdoor inversion, carbon monoxide from incomplete combustion, radon, and photochemical ozone using high CO, normal oxygen and NOx, no daylight, and a stuck exhaust damper"
+    # THE BIBLE'S PAYLOAD, converted. Its five keyed `readings` become the panel,
+    # one zone each and carrying the bible's own word for each value; its four
+    # `choices` are the candidates and `answer` the keyed diagnosis.
+    headline: "The engine-room alarm is still sounding"
+    readings:
+    - { zone: CO, label: Carbon monoxide, value: high, status: alarm }
+    - { zone: O2, label: Oxygen, value: normal, status: normal }
+    - { zone: NOx, label: Nitrogen oxides, value: normal, status: normal }
+    - { zone: Daylight, label: Daylight, value: none, status: normal }
+    - { zone: Damper, label: Exhaust damper, value: stuck, status: alarm }
+    choices:
+    - "Outdoor inversion"
+    - "Carbon monoxide from incomplete combustion"
+    - "Radon"
+    - "Photochemical ozone"
+    answer: "Carbon monoxide from incomplete combustion"
+    answerText: "The completed check shows incomplete combustion plus the stuck damper caused the CO alarm."
+    why: "Diagnose the engine-room alarm connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Incomplete combustion plus the stuck damper caused the CO alarm
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   diagnosis:{readings:{CO:high,O2:normal,NOx:normal,daylight:none,exhaust_damper:stuck},choices:[outdoor_inversion,CO_from_incomplete_combustion,radon,photochemical_ozone],answer:CO_from_incomplete_combustion,rebuttals:{outdoor_inversion:"Does not explain the indoor damper timing",radon:"Does not track engine operation",photochemical_ozone:"Requires sunlight and precursor chemistry"}}
+
+  # --- Stop 48: Allocate firm power
+  #     Concept: firm critical loads | energy | 12; Keystone: firm critical loads | energy | 12; Area: Turbine Yard; Learning role: PRACTICE; Difficulty: L3; Story role: firm critical loads | energy | 12.
+  #     placement: ALLOCATE, at load-board.
+  - group: POWER
+    at: load-board
+    title: "Allocate firm power"
+    concept: "firm critical loads | energy | 12"
+    reason: "The island cannot commit allocate firm power until this evidence is resolved."
+    scene: "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Allocate firm power connects the measured environmental mechanism to the next island condition."
+    format: ALLOCATE
+    question: "Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25"
+    answerText: "The completed check shows all five essential/protected loads receive exactly 180 kW."
+    why: "Allocate firm power connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: All five essential/protected loads receive exactly 180 kW
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:{pool:180,items:[{id:"water",cost:55,required:true},{id:"school",cost:20,required:true},{id:"treatment",cost:35,required:true},{id:"ferry_refrigeration",cost:30,required:false},{id:"homes",cost:40,required:true,protected:true},{id:"decorative_berth",cost:25,required:false}],questions:[{id:"protected",text:"Are all protected public services powered?",required:true},{id:"food",text:"Can the remaining pool protect refrigerated ferry food?",required:true},{id:"limit",text:"Does the allocation stay within 180 kW?",required:true}],correct_allocation:{water:55,school:20,treatment:35,ferry_refrigeration:30,homes:40},answerText:"Allocate all 180 kW to water, school, treatment, homes, and ferry refrigeration; decorative berth lighting remains off."}
+

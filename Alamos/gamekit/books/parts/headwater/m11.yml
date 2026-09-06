@@ -1,0 +1,155 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Quiet-Day Check"
+  card:
+    header: "5 SHIFTS UNTIL THE STORM"
+    title: "The Reservoir Is Smaller"
+    goNow: "Go to Storage & Level Board and meet Mara Vale, operations chief, at the resurveyed curve."
+    body: "The wall can carry the planned load, but new transects show less stored volume at each level than the 2003 sheet reports. Area between curves measures lost capacity, while average value and related rates convert the loss into operations. At storage, structure, and gates, quantify the mismatch. By the end of the mission, decide whether to replace the official storage curve."
+    objective: "Certify the old or resurveyed stage-storage curve."
+  objective: "Certify the old or resurveyed stage-storage curve."
+  stake: "The wall can carry the planned load, but new transects show less stored volume at each level than the 2003 sheet reports. Area between curves measures lost capacity, while average value and related rates convert the loss into operations. At storage, structure, and gates, quantify the mismatch. By the end of the mission, decide whether to replace the official storage curve."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Replace the 2003 storage curve. New surveys show 7.5 million cubic metres of lost space. The new rate also matches the level drop. The old plan claimed too much room. Rebuild the release plan."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-storage-level-board
+    # On arrival at Storage & Level Board | s41-integrate-lost-capacity | automatic
+    on: { enter: true, at: TODO }   # s41-integrate-lost-capacity
+    world: "The integrate lost capacity fixture wakes and the mission evidence opens."
+    panel: "MISSION 11: INTEGRATE LOST CAPACITY OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Start with integrate lost capacity. We need evidence the next decision can use."
+  - id: after-stop-41
+    # After Stop 41 | s42-compute-average-loss | automatic
+    on: { after: [1] }
+    world: "After 11.2 Location: STORE."
+    panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Use the Stop 41 result to settle compute average loss."
+  - id: after-stop-42
+    # After Stop 42 | s43-verify-independent-transects | automatic
+    on: { after: [2] }
+    world: "Travel1 Location: STORE->STRUCT."
+    panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Use the Stop 42 result to settle verify independent transects."
+  - id: after-stop-43
+    # After Stop 43 | s44-convert-volume-loss-to-level-rate | automatic
+    on: { after: [3] }
+    world: "Travel2 Location: STRUCT->GATES."
+    panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Use the Stop 43 result to settle convert volume loss to level rate."
+  - id: at-mission-end
+    # At mission end | s41-integrate-lost-capacity | automatic
+    on: { enter: true, at: TODO }   # s41-integrate-lost-capacity
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 11 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Lost capacity is 7.5 million m^3."
+
+  stops:
+  # --- Stop 41: Integrate lost capacity
+  #     Concept: area between curves/crossings; Keystone: Applied integrals; Area: Catchment & Inflow Desk; Learning role: INTRODUCE; Difficulty: L4; Story role: reveal.
+  #     placement: DERIVE, at s41-integrate-lost-capacity.
+  - group: INFLOW
+    at: TODO               # the fixture it is asked at
+    title: "Integrate lost capacity"
+    concept: "area between curves/crossings"
+    reason: "The curve gap must become a volume before the release target can change."
+    scene: "Old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Integrate the positive gap across the operating interval, and the team needs this result before it acts."
+    motivation: "Area between the curves is storage capacity lost to silt."
+    format: DERIVE
+    question: "Derive integral_2^5 (6-h)dh; submit lost volume in million cubic metres."
+    answerText: "Lost capacity is 7.5 million m^3."
+    why: "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Area between curves integrates the gap, not only its endpoint.
+    # correct result: 7.5 million m^3, tolerance .01.
+    # state/output: loss shaded; unlock 11.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"lost volume",givens:["d=6-h","2<=h<=5"],lines:[{expressions:["[6h-h^2/2]_2^5","[6-h^2]_2^5"],correct:"[6h-h^2/2]_2^5",rules:["FTC and power antiderivative","differentiate"],correct_rule:"FTC and power antiderivative"},{expressions:["7.5 million m^3","3 million m^3"],correct:"7.5 million m^3",rules:["evaluate upper minus lower","width only"],correct_rule:"evaluate upper minus lower"}],answerText:"Lost capacity is 7.5 million m^3."}
+
+  # --- Stop 42: Compute average loss
+  #     Concept: average value/splitting; Keystone: Applied integrals; Area: Catchment & Inflow Desk; Learning role: PRACTICE; Difficulty: L3; Story role: consequence.
+  #     placement: BALLPARK, at s42-compute-average-loss.
+  - group: INFLOW
+    at: TODO               # the fixture it is asked at
+    title: "Compute average loss"
+    concept: "average value/splitting"
+    reason: "Operators need one representative error for quick level calls."
+    scene: "With 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Then state why that average cannot replace the full curve near a crossing, and the team needs this result before it acts."
+    motivation: "Average value summarizes total loss but not local sensitivity."
+    format: BALLPARK
+    question: "Use f_avg=(1/(5-2))(7.5 million m^3); submit one number in million m^3/m, then submit summary only or replace full curve."
+    answerText: "average preserves the integral but not pointwise change."
+    why: "average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Divide by interval length b-a.
+    # correct result: 2.5 million m^3/m.
+    # state/output: quick-call note; waypoint STRUCT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{labels:["lost volume","height interval"],values:[[7.5],[3]],slots:2,template:"loss/interval",formula:"7.5/3",correct:[7.5,3],target:2.5,tolerance:.01}
+
+  # --- Stop 43: Verify independent transects
+  #     Concept: evidence independence; Keystone: Approximation; Area: Forecast Archive; Learning role: COMBINE; Difficulty: L5; Story role: verification.
+  #     placement: ATTEST, asked by Mara Vale beside s43-verify-independent-transects.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Verify independent transects"
+    person: TODO   # the roster id of whoever asks it
+    concept: "evidence independence"
+    reason: "The official curve cannot be replaced from an unverified survey alone."
+    scene: "Because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. At least one independent depth record and one calibration record are required."
+    motivation: "Independent physical records decide whether curve disagreement is real or clerical."
+    format: ATTEST
+    question: "Spend the three-record verification limit, select exactly three claim IDs including transects and sonar calibration, and submit survey physically backed or survey not physically backed."
+    answerText: "independent transects and calibration support real silt loss."
+    why: "independent transects and calibration support real silt loss. Independent physical records decide whether curve disagreement is real or clerical."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A repeated export is not independent measurement.
+    # correct result: three backed records.
+    # state/output: resurvey certified; waypoint GATES.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:3,claims:[{id:"transects",label:"11 GPS transects dated this week",backed:true,critical:true},{id:"sonar",label:"depth sonar calibration block",backed:true,critical:true},{id:"oldsheet",label:"2003 sheet copied correctly",backed:true},{id:"operator",label:"operator memory of silt",backed:false},{id:"shared",label:"same software export",backed:false}],critical_unbacked:"operator memory",correct_checks:["transects","sonar","oldsheet"]}
+
+  # --- Stop 44: Convert volume loss to level rate
+  #     Concept: related rates; Keystone: Motion/rates+applied integrals; Area: Powerhouse; Learning role: RETRIEVE; Difficulty: L5; Story role: decision.
+  #     placement: VERIFY, at s44-convert-volume-loss-to-level-rate.
+  - group: POWER
+    at: level-desk
+    title: "Convert volume loss to level rate"
+    concept: "related rates"
+    reason: "Gate operators need the corrected level fall per hour."
+    scene: "The resurvey gives dV/dh=2.0 million m3/m, while net outflow is 0.50 million m3/h. Predict the falling level rate, then verify it against the float gauge."
+    motivation: "The new derivative converts the same release into a faster level change than the old curve predicted."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Use $dh/dt=(dV/dt)/(dV/dh)$ with $dV/dt=-0.50$ million m^3/h and $dV/dh=2.0$ million m^3/m; submit $dh/dt$ in m/h before simulation unlocks."
+    answerText: "-.50/2=-.25; measurement agrees."
+    why: "-.50/2=-.25; measurement agrees. The new derivative converts the same release into a faster level change than the old curve predicted."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep the negative sign for falling level.
+    # correct result: -.25 m/h; replace.
+    # state/output: old sheet removed, resurvey pinned.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{prediction:{target:-.25,unit:"m/h",tolerance:.005},equipment_locked_until_prediction_commit:true,operation:"one-hour simulation",fixed:["inflow","gate"],measurements:["-0.248 m","-0.50 million m^3"],restore:false,correct_conclusion:"replace old curve"}
+

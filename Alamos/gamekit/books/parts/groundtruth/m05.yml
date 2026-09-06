@@ -1,0 +1,157 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Sky as a Capacitor"
+  card:
+    header: "11 DAYS TO FINAL STORM WINDOW;"
+    title: "The Sky as a Capacitor"
+    goNow: "Field Station, Ravi Sen at mill array."
+    body: "Tip enhancement starts the strike, but remote damage needs energy and a path. Two separated conductors can store opposite charge; their geometry and insulating material set capacitance. You will derive the cloud-ground model, test dielectric assumptions, and carry its charge prediction to the impulse bank. By the end of the mission, decide which bank setting can represent the storm without overstating it."
+    objective: "Build a bounded cloud-ground capacitance and charge model."
+  objective: "Build a bounded cloud-ground capacitance and charge model."
+  stake: "Tip enhancement starts the strike, but remote damage needs energy and a path. Two separated conductors can store opposite charge; their geometry and insulating material set capacitance. You will derive the cloud-ground model, test dielectric assumptions, and carry its charge prediction to the impulse bank. By the end of the mission, decide which bank setting can represent the storm without overstating it."
+  takeaway: "Use the twelve-stage Marx bank only as an electrical analog, matched in voltage, charge,. ---"
+  segue: "Mission decision: Use the twelve-stage Marx bank only as an electrical model. Match voltage, charge, and timing. The storm capacitance is about 44.3 nF. The bank does not copy cloud shape. Next, calculate staged energy."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-field-station
+    # On arrival at Field Station | s17-derive-cloud-ground-capacitance | automatic
+    on: { enter: true, at: TODO }   # s17-derive-cloud-ground-capacitance
+    world: "| trigger | location | presentation | world_state | exact copy | unlocks | |---|---|---|---|---|---| | accepted | FIELD/mill-array | nearby_character_bubble | cloud footprint overlay visible | | S1 | | S2 correct | FIELD/mill-array | waypoint_notification | truth pair pinned | Take A = 2.0×10^8 m² and κ = 1.00 to Impulse Hall. | BANK travel/S3 | | enter BANK | BANK/hall-board | nearby_character_bubble | earthing stick on | | S3 | | S4 correct | BANK/bank-stages | equipment_panel_update | selected evidence labels appear | MATCH: VOLTAGE • CHARGE • TIMING; GEOMETRY NOT MATCHED | outcome | | outcome closes | BANK/hall-board | system_banner | report piece 5 appears | CLOUD MODEL BOUNDED | metric/M6 |."
+    panel: "Ravi Sen, field scientist: \"Use geometry first. Voltage comes only after we know what can store charge.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use geometry first. Voltage comes only after we know what can store charge."
+  - id: after-stop-17
+    # After Stop 17 | s18-break-the-area-dielectric-degenerac | automatic
+    on: { after: [1] }
+    world: "The derive cloud-ground capacitance result remains visible while the break the area-dielectric degeneracy fixture lights."
+    panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 17 result to settle break the area-dielectric degeneracy."
+  - id: after-stop-18
+    # After Stop 18 | s19-derive-marx-topology | automatic
+    on: { after: [2] }
+    world: "The break the area-dielectric degeneracy result remains visible while the derive marx topology fixture lights."
+    panel: "STOP 18 RECORDED - STOP 19 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 18 result to settle derive marx topology."
+  - id: after-stop-19
+    # After Stop 19 | s20-buy-model-evidence | automatic
+    on: { after: [3] }
+    world: "The derive marx topology result remains visible while the buy model evidence fixture lights."
+    panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 19 result to settle buy model evidence."
+  - id: at-mission-end
+    # At mission end | s17-derive-cloud-ground-capacitance | automatic
+    on: { enter: true, at: TODO }   # s17-derive-cloud-ground-capacitance
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 5 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Radar fixes area near 2.0×10^8 m^2, so capacitance fixes kappa near 1.0."
+    - who: text   # Text
+      say: "Buy voltage, capacitance, and timing evidence for five credits; temperature and paint cannot validate the electrical analog."
+
+  stops:
+  # --- Stop 17: Derive Cloud-Ground Capacitance
+  #     Concept: parallel-plate capacitance; Keystone: K2,K3,K5; Area: Impulse Hall; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L3.
+  #     placement: DERIVE, at s17-derive-cloud-ground-capacitance.
+  - group: BANK
+    at: TODO               # the fixture it is asked at
+    title: "Derive Cloud-Ground Capacitance"
+    concept: "parallel-plate capacitance"
+    reason: "bank settings need a geometry-based C."
+    scene: "The layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Derive cloud-ground capacitance before using any voltage.\", and record the result with its physical justification in the station report."
+    motivation: "Gauss gives field, and the field-potential relation turns it into capacitance."
+    format: DERIVE
+    question: "Using ε₀=8.854×10^-12 F/m, build every line from Gauss's law through C=Q/V, name each rule, and submit capacitance in nF to the displayed tolerance."
+    answerText: "The completed check shows c=ε₀A/d=44.3 nF. Gauss plus V=Ed cancels Q."
+    why: "Gauss gives field, and the field-potential relation turns it into capacitance."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Convert height to metres and keep area in square metres; C is not QV.
+    # correct result: C=ε₀A/d=44.3 nF. Gauss plus V=Ed cancels Q.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines E=σ/ε0(Gauss boundary), V=Ed=Qd/(ε0A)(σ=Q/A), C=Q/V=ε0A/d(definition), substitution→4.427×10^-8 F=44.3 nF. Prompt includes ε0; submit nF. Tolerance .2 nF. Worked answer.
+
+  # --- Stop 18: Break the Area-Dielectric Degeneracy
+  #     Concept: κ-area degeneracy; Keystone: K5,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L4.
+  #     placement: DEGENERACY, at s18-break-the-area-dielectric-degenerac.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Break the Area-Dielectric Degeneracy"
+    concept: "κ-area degeneracy"
+    reason: "the same capacitance can come from several footprint/material pairs."
+    scene: "Because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Adjust both controls, then use radar area to collapse the matching curve.\", and record the result with its physical justification in the station report."
+    motivation: "a second physical constraint prevents a convenient but false parameter choice."
+    format: DEGENERACY
+    question: "Use the two controls cloud area A and dielectric factor kappa. Adjust A from 1.0×10^8 to 3.0×10^8 m2 in 0.1×10^8 m2 steps and kappa from 1.0 to 2.0 in 0.1 steps; apply both loci, then submit the numerical pair (A,kappa) before selecting the radar-constrained plan."
+    answerText: "Radar selects (2.0×10^8 m²,1.00). A second constraint breaks the product degeneracy."
+    why: "a second physical constraint prevents a convenient but false parameter choice."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Submit both numerical controls before the plan; capacitance alone leaves a locus.
+    # correct result: truth. State waypoint BANK.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:{controls:[{id:"A",label:"cloud area",min:1.0e8,max:3.0e8,step:0.1e8,unit:"m^2"},{id:"kappa",label:"dielectric factor",min:1.0,max:2.0,step:0.1,unit:"unitless"}],tolerance:{capacitance:1,unit:"nF"},first_locus:[[1.0e8,2.0],[1.2e8,1.67],[1.4e8,1.43],[1.6e8,1.25],[1.8e8,1.11],[2.0e8,1.0]],second_locus:[[1.9e8,1.05],[2.0e8,1.0],[2.1e8,0.95]],physical_constraint:"radar area A=(2.0±0.1)×10^8 m^2",truth_pair:[2.0e8,1.0],required_submission:"numeric (A,kappa) pair before plan choice",correct_plan:"radar-constrained plan",answerText:"Radar fixes area near 2.0×10^8 m^2, so capacitance fixes kappa near 1.0."}
+
+  # --- Stop 19: Derive Marx Topology
+  #     Concept: series/parallel capacitors; Keystone: K5; Area: Impulse Hall; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L3.
+  #     placement: DERIVE, at s19-derive-marx-topology.
+  - group: BANK
+    at: TODO               # the fixture it is asked at
+    title: "Derive Marx Topology"
+    concept: "series/parallel capacitors"
+    reason: "Strand must convert one storm capacitance into twelve physical stages."
+    scene: "At Impulse Hall, Elise Strand, impulse engineer, shows twelve 100 nF stage capacitors. Derive the equivalent capacitance when they charge in parallel and discharge in series.\", and record the result with its physical justification in the station report."
+    motivation: "Marx topology stores charge at low stage voltage and delivers summed voltage."
+    format: DERIVE
+    question: "Build and license the parallel-charge and series-discharge derivations, then submit both equivalent capacitances in μF and nF."
+    answerText: "Charge: 1.20 μF; discharge: 8.33 nF. Parallel adds C; series adds reciprocals."
+    why: "Marx topology stores charge at low stage voltage and delivers summed voltage."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Identify same two nodes versus in-line stages before selecting a topology rule.
+    # correct result: tolerances.
+    # state/output: unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines Ccharge=ΣC_i=12C=1.20µF(parallel), 1/Cdis=Σ1/C=12/C(series), Cdis=C/12=8.33nF(algebra).
+
+  # --- Stop 20: Buy Model Evidence
+  #     Concept: bank representation; Keystone: K5,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5 decision.
+  #     placement: VALUE, asked by Dr. Lena Ortiz beside s20-buy-model-evidence.
+  - group: COUPLE
+    title: "Buy Model Evidence"
+    person: TODO   # the roster id of whoever asks it
+    concept: "bank representation"
+    reason: "limited test budget must buy the setting that constrains the storm model."
+    scene: "With storm capacitance bounded and bank topology known, four possible measurements compete for six setup-hours. Buy the evidence that determines voltage, charge, and timing without pretending the bank matches cloud geometry."
+    motivation: "a model is useful when its matched variables and limitations are explicit."
+    format: VALUE
+    question: "Spend no more than six setup-hours on the listed measurements and submit the evidence set that fixes represented voltage, charge, and timing without claiming matched geometry."
+    answerText: "match V,Q,timing."
+    why: "a model is useful when its matched variables and limitations are explicit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A convenient measurement is not valuable unless it can change the representation decision.
+    # correct result: Buy stage V, stage C, and gap timing. They constrain represented quantities within budget.
+    # state/output: report piece5.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:{budget:6,options:[{id:"stage_voltage",axis:"voltage scale",cost:2,required:true},{id:"stage_capacitance",axis:"stored charge and energy",cost:1,required:true},{id:"gap_timing",axis:"pulse timing",cost:2,required:true},{id:"hall_temperature",axis:"ambient condition",cost:2,required:false},{id:"paint_color",axis:"cosmetic condition",cost:1,required:false}],total_available_cost:8,correct_purchase:["stage_voltage","stage_capacitance","gap_timing"],reserve:1,answerText:"Buy voltage, capacitance, and timing evidence for five credits; temperature and paint cannot validate the electrical analog."}
+

@@ -1,0 +1,425 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Position
+  aliases: [position]   # TODO: the plurals and spellings the prose uses
+  def: "Position is an object's location relative to a chosen zero point and positive direction."
+# mission 1
+- name: Velocity
+  aliases: [velocity]   # TODO: the plurals and spellings the prose uses
+  def: "Velocity is how quickly position changes, including direction; its sign follows the chosen axis."
+# mission 1
+- name: Acceleration
+  aliases: [acceleration]   # TODO: the plurals and spellings the prose uses
+  def: "Acceleration is how quickly velocity changes; slowing down does not always mean negative acceleration."
+# mission 1
+- name: Slope
+  aliases: [slope]   # TODO: the plurals and spellings the prose uses
+  def: "Slope is rise divided by run on a graph; position-time slope is velocity and velocity-time slope is acceleration."
+# mission 1
+- name: Independent evidence
+  aliases: [independent evidence]   # TODO: the plurals and spellings the prose uses
+  def: "Independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement."
+# mission 2
+- name: System
+  aliases: [system]   # TODO: the plurals and spellings the prose uses
+  def: "System is the object or group chosen for analysis; interactions crossing its boundary are external forces."
+# mission 2
+- name: Free-body diagram
+  aliases: [free-body diagram]   # TODO: the plurals and spellings the prose uses
+  def: "Free-body diagram is a drawing of one chosen system with every external force acting on it."
+# mission 2
+- name: Weight
+  aliases: [weight]   # TODO: the plurals and spellings the prose uses
+  def: "Weight is earth's gravitational force on an object, directed downward and equal to mg near the surface."
+# mission 2
+- name: Normal force
+  aliases: [normal force]   # TODO: the plurals and spellings the prose uses
+  def: "Normal force is a contact force perpendicular to a surface."
+# mission 2
+- name: Tension
+  aliases: [tension]   # TODO: the plurals and spellings the prose uses
+  def: "Tension is a pulling force carried along a rope, chain, or support member."
+# mission 2
+- name: Equilibrium
+  aliases: [equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "Equilibrium is a state with zero net force and therefore no acceleration."
+# mission 3
+- name: Uniform circular motion
+  aliases: [uniform circular motion]   # TODO: the plurals and spellings the prose uses
+  def: "Uniform circular motion is motion around a circle at constant speed while velocity changes direction."
+# mission 3
+- name: Centripetal acceleration
+  aliases: [centripetal acceleration]   # TODO: the plurals and spellings the prose uses
+  def: "Centripetal acceleration is acceleration directed toward the center of a circular path."
+# mission 3
+- name: Radial direction
+  aliases: [radial direction]   # TODO: the plurals and spellings the prose uses
+  def: "Radial direction is the inward or outward direction along a circle's radius."
+# mission 3
+- name: Tangential direction
+  aliases: [tangential direction]   # TODO: the plurals and spellings the prose uses
+  def: "Tangential direction is the direction touching a circular path at one point; instantaneous velocity points this way."
+# mission 3
+- name: Operating threshold
+  aliases: [operating threshold]   # TODO: the plurals and spellings the prose uses
+  def: "Operating threshold is a precommitted value that triggers an action when reached or crossed."
+# mission 4
+- name: Work
+  aliases: [work]   # TODO: the plurals and spellings the prose uses
+  def: "Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes."
+# mission 4
+- name: Kinetic energy
+  aliases: [kinetic energy]   # TODO: the plurals and spellings the prose uses
+  def: "Kinetic energy is energy of motion, equal to one-half mass times speed squared."
+# mission 4
+- name: Power
+  aliases: [power]   # TODO: the plurals and spellings the prose uses
+  def: "Power is the rate at which energy is transferred or work is done."
+# mission 4
+- name: Nonconservative force
+  aliases: [nonconservative force]   # TODO: the plurals and spellings the prose uses
+  def: "Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path."
+# mission 5
+- name: Free fall
+  aliases: [free fall]   # TODO: the plurals and spellings the prose uses
+  def: "Free fall is motion under gravity alone after release."
+# mission 5
+- name: Apparent weight
+  aliases: [apparent weight]   # TODO: the plurals and spellings the prose uses
+  def: "Apparent weight is the support force a rider feels; it can differ from gravitational weight during acceleration."
+# mission 5
+- name: Stopping acceleration
+  aliases: [stopping acceleration]   # TODO: the plurals and spellings the prose uses
+  def: "Stopping acceleration is the change in velocity per time while the brake brings the car to rest."
+# mission 5
+- name: Attestation
+  aliases: [attestation]   # TODO: the plurals and spellings the prose uses
+  def: "Attestation is checking that a claim is backed by the correct record, identity, time, and physical condition."
+# mission 6
+- name: Calibration
+  aliases: [calibration]   # TODO: the plurals and spellings the prose uses
+  def: "Calibration is comparison that connects an instrument reading to a known physical value."
+# mission 6
+- name: Upstream dependency
+  aliases: [upstream dependency]   # TODO: the plurals and spellings the prose uses
+  def: "Upstream dependency is a shared earlier source that several later readings rely on."
+# mission 6
+- name: Causal test
+  aliases: [causal test]   # TODO: the plurals and spellings the prose uses
+  def: "Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows."
+# mission 6
+- name: Quiet reading
+  aliases: [quiet reading]   # TODO: the plurals and spellings the prose uses
+  def: "Quiet reading is a normal measurement that can rule out explanations predicting an alarm there."
+# mission 6
+- name: Spring constant
+  aliases: [spring constant]   # TODO: the plurals and spellings the prose uses
+  def: "Spring constant is a measure of spring stiffness; a larger value means more force is required for the same stretch or compression."
+# mission 7
+- name: Momentum
+  aliases: [momentum]   # TODO: the plurals and spellings the prose uses
+  def: "Momentum is mass times velocity; it is a vector and carries the velocity's direction."
+# mission 7
+- name: Impulse
+  aliases: [impulse]   # TODO: the plurals and spellings the prose uses
+  def: "Impulse is force applied over time; it equals the change in momentum."
+# mission 7
+- name: Isolated system
+  aliases: [isolated system]   # TODO: the plurals and spellings the prose uses
+  def: "Isolated system is a chosen system with negligible net external impulse during the interval studied."
+# mission 7
+- name: Inelastic collision
+  aliases: [inelastic collision]   # TODO: the plurals and spellings the prose uses
+  def: "Inelastic collision is a collision that conserves system momentum but not kinetic energy."
+# mission 7
+- name: Center of mass
+  aliases: [center of mass]   # TODO: the plurals and spellings the prose uses
+  def: "Center of mass is the mass-weighted average position or velocity of a system."
+# mission 8
+- name: Oscillation
+  aliases: [oscillation]   # TODO: the plurals and spellings the prose uses
+  def: "Oscillation is repeated motion around an equilibrium position."
+# mission 8
+- name: Restoring force
+  aliases: [restoring force]   # TODO: the plurals and spellings the prose uses
+  def: "Restoring force is a force directed back toward equilibrium."
+# mission 8
+- name: Period
+  aliases: [period]   # TODO: the plurals and spellings the prose uses
+  def: "Period is time for one complete cycle."
+# mission 8
+- name: Natural period
+  aliases: [natural period]   # TODO: the plurals and spellings the prose uses
+  def: "Natural period is the period a system follows when displaced and released without repeated driving."
+# mission 8
+- name: Resonance
+  aliases: [resonance]   # TODO: the plurals and spellings the prose uses
+  def: "Resonance is large response produced when repeated driving occurs near a system's natural frequency."
+# mission 8
+- name: Damping
+  aliases: [damping]   # TODO: the plurals and spellings the prose uses
+  def: "Damping is transfer of oscillation energy that reduces amplitude over time."
+# mission 9
+- name: Torque
+  aliases: [torque]   # TODO: the plurals and spellings the prose uses
+  def: "Torque is the turning effect of a force about a pivot or axis."
+# mission 9
+- name: Lever arm
+  aliases: [lever arm]   # TODO: the plurals and spellings the prose uses
+  def: "Lever arm is perpendicular distance from the axis to the force's line of action."
+# mission 9
+- name: Rotational equilibrium
+  aliases: [rotational equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "Rotational equilibrium is zero net torque and no angular acceleration."
+# mission 9
+- name: Rotational inertia
+  aliases: [rotational inertia]   # TODO: the plurals and spellings the prose uses
+  def: "Rotational inertia is resistance to angular acceleration determined by mass and its distance from the axis."
+# mission 9
+- name: Operating envelope
+  aliases: [operating envelope]   # TODO: the plurals and spellings the prose uses
+  def: "Operating envelope is the set of loads and conditions inside which operation is permitted."
+# mission 10
+- name: Gravitational potential energy
+  aliases: [gravitational potential energy]   # TODO: the plurals and spellings the prose uses
+  def: "Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero."
+# mission 10
+- name: Mechanical energy
+  aliases: [mechanical energy]   # TODO: the plurals and spellings the prose uses
+  def: "Mechanical energy is the sum of kinetic and potential energies tracked for a system."
+# mission 10
+- name: Loop contact condition
+  aliases: [loop contact condition]   # TODO: the plurals and spellings the prose uses
+  def: "Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown."
+# mission 10
+- name: Residual
+  aliases: [residual]   # TODO: the plurals and spellings the prose uses
+  def: "Residual is observed value minus model prediction; its pattern can reveal model failure."
+# mission 11
+- name: Pressure
+  aliases: [pressure]   # TODO: the plurals and spellings the prose uses
+  def: "Pressure is force per area; fluid pressure acts in all directions at a point."
+# mission 11
+- name: Gauge pressure
+  aliases: [gauge pressure]   # TODO: the plurals and spellings the prose uses
+  def: "Gauge pressure is pressure above atmospheric pressure."
+# mission 11
+- name: Buoyant force
+  aliases: [buoyant force]   # TODO: the plurals and spellings the prose uses
+  def: "Buoyant force is upward force equal to the weight of displaced fluid."
+# mission 11
+- name: Flow rate
+  aliases: [flow rate]   # TODO: the plurals and spellings the prose uses
+  def: "Flow rate is volume passing a location per time."
+# mission 11
+- name: Continuity
+  aliases: [continuity]   # TODO: the plurals and spellings the prose uses
+  def: "Continuity is conservation of volume flow for steady incompressible fluid."
+# mission 12
+- name: Peak force
+  aliases: [peak force]   # TODO: the plurals and spellings the prose uses
+  def: "Peak force is largest force reached during an interval; it may exceed the average force."
+# mission 12
+- name: Load factor
+  aliases: [load factor]   # TODO: the plurals and spellings the prose uses
+  def: "Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight."
+# mission 12
+- name: Configuration
+  aliases: [configuration]   # TODO: the plurals and spellings the prose uses
+  def: "Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies."
+# mission 13
+- name: Angular momentum
+  aliases: [angular momentum]   # TODO: the plurals and spellings the prose uses
+  def: "Angular momentum is rotational quantity equal to rotational inertia times angular velocity for a rigid body about a fixed axis."
+# mission 13
+- name: Rotational kinetic energy
+  aliases: [rotational kinetic energy]   # TODO: the plurals and spellings the prose uses
+  def: "Rotational kinetic energy is energy of rotation, equal to one-half rotational inertia times angular speed squared."
+# mission 13
+- name: Degeneracy
+  aliases: [degeneracy]   # TODO: the plurals and spellings the prose uses
+  def: "Degeneracy is a situation where more than one setting fits limited evidence until another physical constraint is applied."
+# mission 13
+- name: Protected reserve
+  aliases: [protected reserve]   # TODO: the plurals and spellings the prose uses
+  def: "Protected reserve is capacity kept available for shutdown or recovery rather than ordinary operation."
+# mission 14
+- name: Holdout data
+  aliases: [holdout data]   # TODO: the plurals and spellings the prose uses
+  def: "Holdout data are measurements hidden until a model and prediction are fixed."
+# mission 14
+- name: Model input
+  aliases: [model input]   # TODO: the plurals and spellings the prose uses
+  def: "Model input is a measured or assumed quantity used to produce a prediction."
+# mission 14
+- name: Safety margin
+  aliases: [safety margin]   # TODO: the plurals and spellings the prose uses
+  def: "Safety margin is amount by which a measured result exceeds a required boundary."
+# mission 14
+- name: Falsification
+  aliases: [falsification]   # TODO: the plurals and spellings the prose uses
+  def: "Falsification is evidence showing that a model or assumption fails a stated test."
+# mission 15
+- name: Binding condition
+  aliases: [binding condition]   # TODO: the plurals and spellings the prose uses
+  def: "Binding condition is a requirement that must pass for a decision to remain valid."
+# mission 15
+- name: Robust decision
+  aliases: [robust decision]   # TODO: the plurals and spellings the prose uses
+  def: "Robust decision is a decision that stays the same across the supported uncertainty range."
+# mission 15
+- name: Conditional approval
+  aliases: [conditional approval]   # TODO: the plurals and spellings the prose uses
+  def: "Conditional approval is permission to operate only while named limits and checks remain satisfied."
+# mission 15
+- name: Closure
+  aliases: [closure]   # TODO: the plurals and spellings the prose uses
+  def: "Closure is a defensible safety decision when a binding condition fails or remains unverified."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "average velocity = change in position / change in time",
+#     c: "finding average motion between two recorded points",
+#     v: [ TODO: split "position is measured in metres; time is measured in seconds; velocity is measured in metres per second." ],
+#     s: "The park must turn written stop positions into motion before deciding whether the brake record is abnormal.",
+#     k: [ TODO ] },
+#   // mission 1
+#   { e: "v = v0 + at",
+#     c: "predicting velocity under constant acceleration",
+#     v: [ TODO: split "v is final velocity, v0 is initial velocity, a is acceleration, and t is elapsed time." ],
+#     s: "The Ferris Wheel brake prediction must be rebuilt before its recorded stopping mark can be judged.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "ΣF = ma",
+#     c: "connecting the net external force to acceleration",
+#     v: [ TODO: split "ΣF is the vector sum of external forces, m is mass, and a is acceleration." ],
+#     s: "The support load must be calculated from all carried mass before the ship is allowed to swing.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "weight = mg",
+#     c: "finding Earth's downward pull near the ground",
+#     v: [ TODO: split "m is mass and g = 9.80 m/s² is the local gravitational-field magnitude used by the campaign." ],
+#     s: "The ship structure carries both the empty vehicle and its riders.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "ac = v²/r",
+#     c: "finding the inward acceleration of circular motion",
+#     v: [ TODO: split "ac is centripetal acceleration, v is tangential speed, and r is path radius." ],
+#     s: "The chair angle and chain force depend on how sharply the ride turns at its operating speed.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "ΣFin = mv²/r",
+#     c: "connecting real inward forces to circular motion",
+#     v: [ TODO: split "ΣFin is net inward force and m, v, and r are mass, speed, and radius." ],
+#     s: "The park must set a speed whose required inward force can be supplied by the chair chains.",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "K = 1/2 mv²",
+#     c: "calculating energy of motion",
+#     v: [ TODO: split "K is kinetic energy, m is mass, and v is speed." ],
+#     s: "The floor must remove the car's kinetic energy before it crosses the marked stopping line.",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "W = Fd cosθ and Wnet = ΔK",
+#     c: "connecting force through distance to a change in kinetic energy",
+#     v: [ TODO: split "F is force, d is displacement, θ is the force-to-motion angle, and ΔK is final minus initial kinetic energy." ],
+#     s: "Friction does negative work while the car stops.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "v² = v0² + 2aΔx",
+#     c: "connecting speed, acceleration, and distance without needing time",
+#     v: [ TODO: split "v and v0 are final and initial velocity, a is acceleration, and Δx is displacement." ],
+#     s: "The tower's drop height predicts entry speed, and the brake distance predicts stopping acceleration.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "N - mg = ma",
+#     c: "finding the support force felt during upward stopping acceleration",
+#     v: [ TODO: split "N is the upward seat force, m is mass, g is gravity, and a is upward acceleration." ],
+#     s: "Corbin Park limits the peak support force on the instrumented test mass.",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "Fs = -kx",
+#     c: "connecting spring displacement to restoring force",
+#     v: [ TODO: split "Fs is spring force, k is spring constant, and x is displacement from equilibrium; the minus sign shows the force points back toward equilibrium." ],
+#     s: "The portable speed wheel converts spring deflection into a speed estimate, so using the wrong stiffness biases every report that depends on it.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "p = mv and Σpbefore = Σpafter",
+#     c: "tracking motion through an isolated collision",
+#     v: [ TODO: split "p is momentum, m is mass, and v is signed velocity." ],
+#     s: "The cars' post-impact motion must be predicted without the disputed speed wheel.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "J = FavgΔt = Δp",
+#     c: "connecting a momentum change to average force and collision time",
+#     v: [ TODO: split "J is impulse, Favg is average force, Δt is contact time, and Δp is momentum change." ],
+#     s: "The dummy's neck load depends on how quickly the car and rider stop.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "T = 2π√(L/g)",
+#     c: "predicting the period of a small-angle pendulum",
+#     v: [ TODO: split "T is period, L is effective pendulum length, and g is gravitational-field magnitude." ],
+#     s: "The measured free period must be compared with the programmed drive interval.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "g = GME/RE²",
+#     c: "predicting Earth's surface gravitational field",
+#     v: [ TODO: split "G is the gravitational constant, ME is Earth's mass, and RE is Earth's radius." ],
+#     s: "A gravity value predicted independently can check whether the timing model uses a plausible local g.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "τ = rF sinθ and Στ = Iα",
+#     c: "finding turning effect and angular response",
+#     v: [ TODO: split "τ is torque, r is distance from axis, F is force, θ is the angle between them, I is rotational inertia, and α is angular acceleration." ],
+#     s: "Rider loading, braking, and wind all create moments about the wheel axle.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "I = Σmr²",
+#     c: "estimating rotational inertia from distributed masses",
+#     v: [ TODO: split "each m is a component mass and r is its distance from the axis." ],
+#     s: "The emergency-stop response changes with how gondola mass is distributed.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "Ki + Ugi + Wext = Kf + Ugf",
+#     c: "accounting for mechanical energy between two positions",
+#     v: [ TODO: split "K is kinetic energy, Ug=mgh, and Wext is external work added or removed." ],
+#     s: "The lift height and losses determine the train's speed at the loop crown.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "vmin = √(gr)",
+#     c: "finding the minimum crown speed when gravity alone supplies the inward force",
+#     v: [ TODO: split "g is gravitational-field magnitude and r is loop radius." ],
+#     s: "The train needs a fictional 1.0 m/s margin above this contact minimum.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "P = ρgh and Fb = ρfluid Vdisplaced g",
+#     c: "calculating fluid pressure and buoyant force",
+#     v: [ TODO: split "ρ is density, g is gravity, h is depth, and Vdisplaced is displaced volume." ],
+#     s: "The header gauge and loaded log must both match the water they physically contact.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "F1/A1 = F2/A2",
+#     c: "relating forces produced by the same pressure in connected hydraulic fluid",
+#     v: [ TODO: split "F1 and F2 are forces on pistons with areas A1 and A2." ],
+#     s: "The small gate-control ram must create the force required at the larger gate piston.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "Q = Av and Ppump = ρgQH/η",
+#     c: "connecting area, speed, flow, head, and pump power",
+#     v: [ TODO: split "Q is volume flow, A is cross-sectional area, v is speed, H is pump head, and η is efficiency." ],
+#     s: "The flume flow must fit both the channel and the 55 kW shared motor limit.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "L = Iω and Krot = 1/2 Iω²",
+#     c: "tracking angular momentum and rotational energy",
+#     v: [ TODO: split "L is angular momentum, I is rotational inertia, ω is angular speed, and Krot is rotational kinetic energy." ],
+#     s: "Emergency stopping and restart loads depend on both ride speed and mass distribution.",
+#     k: [ TODO ] },

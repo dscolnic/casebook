@@ -1,0 +1,268 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Echo Clock"
+  card:
+    header: "IMPACT WINDOW: 8 DAYS"
+    title: "THE ECHO CLOCK"
+    goNow: "Go to the Coordination Office and meet Mira Chen at the scopeboard before traveling to the Bistatic Radar Range."
+    body: "Radar can measure an asteroid's distance and line-of-sight speed far more precisely than optical angles alone. Tonight's echo is faint, and a shared timing error could manufacture confidence. Trace the clocks, correct the delay, and decide what the returning shape permits you to claim. By the end of the mission, you will deliver one radar constraint the orbit team can safely use."
+    objective: "Deliver one independently timed radar constraint the orbit team can safely use."
+  objective: "Deliver one independently timed radar constraint the orbit team can safely use."
+  stake: "Radar can measure an asteroid's distance and line-of-sight speed far more precisely than optical angles alone. Tonight's echo is faint, and a shared timing error could manufacture confidence. Trace the clocks, correct the delay, and decide what the returning shape permits you to claim. By the end of the mission, you will deliver one radar constraint the orbit team can safely use."
+  takeaway: "Correct the clock, freeze the prediction, and keep unexplained structure alive. ---"
+  segue: "Mission decision: Accept the fixed main radar echo as a new range and speed check. Keep the weak shoulder marked as unknown. The orbit can now shrink without hiding that clue."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Radar delay measures distance while Doppler measures line-of-sight motion."
+  - "A shared clock error shifts many measurements together and cannot be averaged away."
+  - "A weak unexplained feature should be preserved without being named prematurely."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coordination-office
+    # On arrival at Coordination Office | automatic | 
+    on: { enter: true, at: OPS }
+    world: "At OPS, Mira refuses to transmit an untraced timestamp."
+    panel: "THE ECHO CLOCK / MISSION ACTIVE"
+    # unlocks: Stop 25.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-25
+    # After Stop 25 | automatic | 
+    on: { after: [1] }
+    world: "The aircraft carries the player to RADAR while Tomás explains the narrow observing window."
+    panel: "THE ECHO CLOCK / FIRST RESULT LOGGED"
+    # unlocks: The Bistatic Radar Range waypoint and Stop 26.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-26
+    # After Stop 26 | automatic | 
+    on: { after: [2] }
+    world: "A corrected echo lands exactly where one surviving orbit family predicts."
+    panel: "THE ECHO CLOCK / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 27.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-27
+    # After Stop 27 | automatic | 
+    on: { after: [3] }
+    world: "A weaker shoulder appears beside the main return; Tomás preserves it without naming it."
+    panel: "THE ECHO CLOCK / DECISION EVIDENCE READY"
+    # unlocks: Stop 28.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THE ECHO CLOCK / MISSION DECISION LOGGED"
+    # unlocks: Mission 7 outcome, metric screen, concept review, and Mission 8 briefing.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 25: Trace the time chain
+  #     Concept: radar timing; Keystone: systems/verification; Area: Bistatic Radar Range; Learning role: REINFORCE; Difficulty: L4; Story role: evidence.
+  #     placement: TRACE, at scopeboard.
+  - group: RADAR
+    at: scopeboard
+    title: "Trace the time chain"
+    concept: "radar timing"
+    reason: "A radar range is only as defensible as the clocks behind its delay."
+    scene: "The radar packet passed through four clocks, but only three were synchronized to the range standard before transmission. Trace the timestamp from observatory receipt backward and flag the device that can shift every derived range together."
+    motivation: "A shared clock error creates a systematic offset, not four independent noisy measurements."
+    format: TRACE
+    question: "Submit one completed timing chain, identify the common failure point, and give the signed correction in seconds."
+    # Converted from the payload's `trace`. Its `shared_resources` are the
+    # engine's `resources`, `depends_on` is `depends`, and the payload's
+    # `truth.independent_channels` is the board's `independent` list — which is
+    # where the engine reads it from, never a flag on the channel itself.
+    trace:
+      resources:
+      - { id: archive_server, label: Archive server clock }
+      - { id: utc_receiver, label: Independent UTC receiver }
+      target: archive_server
+      channels:
+      - { id: main_delay, label: Archived main-echo delay, reading: shifted +0.7 s, depends: [archive_server] }
+      - { id: shoulder_delay, label: Archived shoulder delay, reading: shifted +0.7 s, depends: [archive_server] }
+      - { id: doppler_time, label: Archive Doppler timestamp, reading: shifted +0.7 s, depends: [archive_server] }
+      - { id: receiver_monitor, label: Independent receiver-clock monitor, reading: 0.0 s offset, depends: [utc_receiver] }
+      independent: [receiver_monitor]
+      commit: Name the common failure point
+    answerText: "The archive clock is common to every stored echo, so its offset shifts the whole set."
+    why: "TRACE follows provenance until one upstream cause explains correlated downstream error."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not average away an offset shared by every archived return.
+    # correct result: Flag the archive server and subtract 0.7 s from archived receipt times.
+    # state/output: CORRECTED TIME CHAIN prints; RADAR travel unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:
+    #     shared_resources:
+    #       - {id: archive_server, label: Archive server clock, reading_offset_s: 0.7, expected_offset_s: 0.0}
+    #       - {id: utc_receiver, label: Independent UTC receiver, reading_offset_s: 0.0, expected_offset_s: 0.0}
+    #     target: archive_server
+    #     channels:
+    #       - {id: main_delay, label: Archived main-echo delay, reading: shifted +0.7 s, expected: zero archive offset, depends_on: [archive_server]}
+    #       - {id: shoulder_delay, label: Archived shoulder delay, reading: shifted +0.7 s, expected: zero archive offset, depends_on: [archive_server]}
+    #       - {id: doppler_time, label: Archive Doppler timestamp, reading: shifted +0.7 s, expected: zero archive offset, depends_on: [archive_server]}
+    #       - {id: receiver_monitor, label: Independent receiver-clock monitor, reading: 0.0 s offset, expected: 0.0 s offset, depends_on: [utc_receiver]}
+    #     truth: {dependent_channels: [main_delay, shoulder_delay, doppler_time], independent_channels: [receiver_monitor]}
+    #     correct: Archive server is the shared failure; apply −0.7 s to its stored receipt times.
+
+  # --- Stop 26: Protect the observing protocol
+  #     Concept: radar acquisition; Keystone: procedure/control; Area: Bistatic Radar Range; Learning role: INTRODUCE; Difficulty: L4; Story role: method.
+  #     placement: PROTOCOL, at tracking-clock.
+  - group: RADAR
+    at: tracking-clock
+    title: "Protect the observing protocol"
+    concept: "radar acquisition"
+    reason: "The team needs a sequence that prevents the correction from contaminating raw evidence."
+    scene: "Tomás can repair the archive, but overwriting the raw packet would destroy the audit trail. Put the correction, calibration pulse, target integration, and independent clock comparison into a defensible operational order."
+    motivation: "Reproducible science preserves raw data and records every transformation."
+    format: PROTOCOL
+    question: "Arrange the radar protocol from first action to released product."
+    # Converted from the payload's `scenarios` / `choices` / `mapping`. The engine
+    # reads `mapping` as one response per situation, in situation order, so the
+    # payload's keyed map becomes the same six responses in that order.
+    scenarios:
+    - "Raw packet arrives"
+    - "Clock difference is found"
+    - "Correction is approved"
+    - "Calibration pulse is available"
+    - "Target echo is integrated"
+    - "Product is ready for release"
+    mapping:
+    - "Preserve the raw packet"
+    - "Compare clocks and record the correction"
+    - "Apply the recorded correction to a working copy"
+    - "Process the calibration pulse"
+    - "Integrate the target return"
+    - "Release the corrected echo with provenance"
+    choices:
+    - "Preserve the raw packet"
+    - "Compare clocks and record the correction"
+    - "Apply the recorded correction to a working copy"
+    - "Process the calibration pulse"
+    - "Integrate the target return"
+    - "Release the corrected echo with provenance"
+    answerText: "Calibration and correction remain reversible because the untouched packet survives."
+    why: "A protocol orders controls before interpretation and preserves provenance."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Applying a silent correction first makes later verification impossible.
+    # correct result: Preserve -> compare -> record -> calibrate -> integrate -> release.
+    # state/output: Audit-safe radar run begins; Stop 27 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios:
+    #     - Raw packet arrives
+    #     - Clock difference is found
+    #     - Correction is approved
+    #     - Calibration pulse is available
+    #     - Target echo is integrated
+    #     - Product is ready for release
+    #   choices:
+    #     - Preserve the raw packet
+    #     - Compare clocks and record the correction
+    #     - Apply the recorded correction to a working copy
+    #     - Process the calibration pulse
+    #     - Integrate the target return
+    #     - Release the corrected echo with provenance
+    #   mapping:
+    #     raw_arrival: Preserve the raw packet
+    #     clock_difference: Compare clocks and record the correction
+    #     correction_approved: Apply the recorded correction to a working copy
+    #     calibration_available: Process the calibration pulse
+    #     target_integrated: Integrate the target return
+    #     ready_for_release: Release the corrected echo with provenance
+
+  # --- Stop 27: Read delay and Doppler
+  #     Concept: range and radial speed; Keystone: equations/interpretation; Area: Bistatic Radar Range; Learning role: INTRODUCE; Difficulty: L4; Story role: calculation.
+  #     placement: PROBE, at radar-console.
+  - group: RADAR
+    at: radar-console
+    title: "Read delay and Doppler"
+    concept: "range and radial speed"
+    reason: "The echo must become two physical measurements without confusing their jobs."
+    scene: "The corrected return arrives 0.080 seconds after transmission and shifts toward the transmitter. Probe the clock, delay, Doppler, and background stations; calculate range and classify radial motion without inferring sideways speed."
+    motivation: "Delay and Doppler constrain different components of the orbit."
+    format: PROBE
+    question: "Calculate and commit range in kilometers; then probe all four stations, measure each reading, and submit the range plus APPROACHING or RECEDING."
+    answerText: "Delay gives distance, while the frequency shift gives only radial-motion direction."
+    why: "Round-trip light time is halved; Doppler does not reveal transverse velocity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A one-way calculation doubles range, and Doppler alone cannot supply the full velocity vector.
+    # correct result: 12,000 km range; object is approaching along the line of sight.
+    # state/output: RANGE 12,000 KM and APPROACHING enter the orbit packet.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:
+    #     prediction_commit_required: true
+    #     equipment_unlocks_after_commit: true
+    #     points:
+    #       - id: corrected_clock
+    #         load: "Corrected timing reference; verify zero residual clock offset before using the echo."
+    #         reading: {clock_offset_s: 0.000}
+    #         expected: {clock_offset_s: 0.000}
+    #         comparison: "The observed offset equals the station-specific zero-offset expectation."
+    #       - id: delay_channel
+    #         load: "Round-trip echo timing; calculate R = cΔt/2 using c = 3.00 × 10^8 m/s and Δt = 0.080 s."
+    #         reading: {round_trip_delay_s: 0.080}
+    #         expected: {one_way_range_km: 12000}
+    #         comparison: "The calculated 12,000 km range is the station-specific expected result."
+    #       - id: doppler_channel
+    #         load: "Frequency-shift direction relative to the transmitter; do not infer transverse speed."
+    #         reading: {shift_direction: toward_transmitter}
+    #         expected: {radial_motion: approaching}
+    #         comparison: "A shift toward the transmitter specifically means APPROACHING radial motion."
+    #       - id: background_channel
+    #         load: "Off-target background gate; check that noise cannot imitate the timed return."
+    #         reading: {signal_to_noise: 1.1}
+    #         expected: {maximum_signal_to_noise: 1.5}
+    #         comparison: "The background stays below its station-specific 1.5 limit."
+    #     correct_submission: {range_km: 12000, radial_motion: approaching}
+    #     required_samples: [corrected_clock, delay_channel, doppler_channel, background_channel]
+    #     truth: {range_km: 12000, radial_motion: approaching}
+    #     commit_gate: All four stations sampled after the range prediction is committed.
+
+  # --- Stop 28: Freeze the claim before the image
+  #     Concept: echo interpretation; Keystone: bias/verification; Area: Bistatic Radar Range; Learning role: INTRODUCE; Difficulty: L5; Story role: judgment.
+  #     placement: HOLDOUT, at echo-archive.
+  - group: RADAR
+    at: echo-archive
+    title: "Freeze the claim before the image"
+    concept: "echo interpretation"
+    reason: "The team must state its prediction before viewing the integrated echo."
+    scene: "Malik's surviving orbit predicts the main echo window, but the integrated image remains hidden. Freeze the expected delay band and rejection condition before revealing a strong return plus a weak adjacent shoulder."
+    motivation: "A holdout test separates prediction from explanation after the fact."
+    format: HOLDOUT
+    question: "Commit the ±0.004 s window and rejection rule first; after reveal, submit the main-return offset in seconds, shoulder status, and ACCEPT or REJECT."
+    answerText: "The main return passes the frozen test, while the shoulder becomes a clue rather than a conclusion."
+    why: "Pre-registration limits hindsight bias and protects anomalies for later testing."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Neither deleting the shoulder nor naming it a fragment is justified yet.
+    # correct result: Accept the main constraint; label the shoulder unresolved.
+    # state/output: RADAR CONSTRAINT VALID; SECOND SHOULDER UNRESOLVED.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout:
+    #     commit_required: true
+    #     fit: {main_echo_window_s: [-0.004, 0.004], reject_outside_window: true}
+    #     reveal_after_commit: {main_echo_offset_s: 0.001, weak_adjacent_shoulder: present}
+    #     score:
+    #       main_range_constraint: accept
+    #       shoulder_status: unexplained
+    #     correct_conclusion: accept_main_range_and_preserve_unexplained_shoulder
+

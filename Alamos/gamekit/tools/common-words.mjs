@@ -115,6 +115,8 @@ imbalance instant instruction interruption invitation line maintenance mean merc
 observation parent rate relative revolution sequence side simplify someone spine stencil struggle
 surprise themselves underneath understood unattended ventilate ventilation visibility vision
 activity certainty constrain handwashing lightheaded meant multiply playground rebuild
+piece break broken breaking greatest join joined lowest highest strike striking spread
+fuel
 accelerate acceleration alternative archive authority autonomous calibrate calibration catalogue
 challenge characterise coastline commission composition consequence consistent continent contribution
 decelerate deceleration decisive defence defense demonstration density dependent dimension discover

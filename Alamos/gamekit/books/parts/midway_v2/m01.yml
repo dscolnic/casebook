@@ -1,0 +1,252 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Three Clocks"
+  card:
+    header: "15 DAYS UNTIL COUNTY INSPECTION"
+    title: "THREE CLOCKS"
+    goNow: "Go to the Ferris Wheel machine room and meet Maya Hart, the park operations lead, at the hub schedule."
+    body: "Three ride records say their cars passed the expected stopping marks during October's test. Matching errors could mean one shared failure, but agreement alone does not prove a cause. At the Ferris Wheel, read the motion record, rebuild its prediction, and test its brake. By the end of the mission, decide whether the three records prove one park-wide brake failure."
+    objective: "Decide whether matching stop records prove one common brake failure."
+  objective: "Decide whether matching stop records prove one common brake failure."
+  stake: "Three ride records say their cars passed the expected stopping marks during October's test. Matching errors could mean one shared failure, but agreement alone does not prove a cause. At the Ferris Wheel, read the motion record, rebuild its prediction, and test its brake. By the end of the mission, decide whether the three records prove one park-wide brake failure."
+  takeaway: "Matching records are not independent evidence until their measurement paths are known."
+  segue: "Mission decision: The three records do not prove one brake fault. The Ferris Wheel stops at the predicted mark. Its brake still needs load and wind checks. The team must trace the shared test gear."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Choose a positive direction before interpreting signs."
+  - "Graph slope describes how one measured quantity changes with another."
+  - "Matching results are strongest when they come from independent measurements."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-ferris-wheel-machine-room
+    # On arrival at Ferris Wheel machine room | automatic | 
+    on: { enter: true, at: WHEEL }
+    world: "Hart removes the arming key."
+    panel: "STOP 1 READY"
+    # unlocks: Stop 1.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "No repeat run until the old record can make a prediction."
+  - id: after-stop-1
+    # After Stop 1 | automatic | 
+    on: { after: [1] }
+    world: "The selected graph points illuminate."
+    panel: "STOP 2 READY"
+    # unlocks: Stop 2.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "The record gives motion, not a cause. Turn it into a number we can test."
+  - id: after-stops-2-and-3
+    # After Stops 2 and 3 | automatic | 
+    on: { after: [2, 3] }
+    world: "A predicted stop trace appears beside the historical trace."
+    panel: "PREDICTED STOP: 2.25 m"
+    # unlocks: Stop 4.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "Now the brake gets one low-speed test."
+  - id: after-stop-4
+    # After Stop 4 | automatic | 
+    on: { after: [4] }
+    world: "The live test ends at 2.26 m."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "One brake matched. We still do not know whether those three records are three witnesses or one."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "The shared speed-wheel bracket receives a yellow evidence tag."
+    panel: "NEXT: LOAD PATH AT THE PIRATE SHIP"
+    # unlocks: Mission 2.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 1: Read the stopping trace
+  #     Concept: graph interpretation; Keystone: motion representations; Area: Drop Tower Control; Prerequisites: units and signed position; Learning role: INTRODUCE; Difficulty: L1; Story role: clue.
+  #     placement: SWEEP, asked at hub-schedule.
+  - group: TOWER
+    at: hub-schedule
+    title: "Read the stopping trace"
+    concept: "graph interpretation"
+    reason: "The first test cannot begin until the old trace is translated into motion."
+    scene: "The hub schedule records position but never labels velocity or acceleration. Sweep through its time points to determine when the gondola slows and whether its direction ever reverses during the recorded stop."
+    motivation: "The trace establishes what the wheel did before anyone claims why it happened."
+    format: SWEEP
+    question: "OPERATE: Sweep time from 0.0 s to 4.0 s and inspect position in metres. INTERPRET: Submit one interval in seconds and one conclusion stating whether velocity reaches zero or reverses."
+    answerText: "The gondola keeps moving forward while its velocity falls to zero; it does not reverse."
+    why: "The position keeps increasing, so velocity remains positive. The slope becomes smaller at a steady rate, which indicates negative acceleration under the chosen positive direction."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A flattening position graph means velocity approaches zero. It does not mean position becomes zero or the gondola moves backward.
+    # correct result: Interval 0.0-3.0 s; a ≈ -0.50 m/s²; no reversal.
+    # state/output: Set evidence_flags.wheel_trace_read = true; illuminate the 0-3 s interval.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {id: time, label: "Time", min: 0, max: 4, step: 0.5, unit: s}
+    #     response: {label: "Position past brake start", unit: m}
+    #     points: [[0,0.00],[0.5,0.69],[1.0,1.25],[1.5,1.69],[2.0,2.00],[2.5,2.19],[3.0,2.25],[3.5,2.25],[4.0,2.25]]
+    #     correct_region: {min: 0, max: 3.0}
+    #     conclusion: "The slope falls smoothly to zero; motion never reverses."
+    # CONVERTED. `control` is the engine's `axis`, `response` its `readout`, and
+    # `points` its `response` list of {at, value}. The engine grades one handle
+    # position rather than a region, so the feature is the right-hand edge of the
+    # bible's own correct_region — 3.0 s, where the trace stops changing — and the
+    # slack is the control's own step, which is the finest the handle moves.
+    sweep:
+      axis: { label: "Time", unit: s, min: 0, max: 4, step: 0.5 }
+      readout: { label: "Position past brake start", unit: m }
+      response:
+      - { at: 0,   value: 0.00 }
+      - { at: 0.5, value: 0.69 }
+      - { at: 1.0, value: 1.25 }
+      - { at: 1.5, value: 1.69 }
+      - { at: 2.0, value: 2.00 }
+      - { at: 2.5, value: 2.19 }
+      - { at: 3.0, value: 2.25 }
+      - { at: 3.5, value: 2.25 }
+      - { at: 4.0, value: 2.25 }
+      target: 3.0
+      tolerance: 0.5
+
+  # --- Stop 2: Put a speed on the trace
+  #     Concept: average velocity and scale; Keystone: motion representations; Area: Drop Tower Control; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALLPARK, asked at machine-room-board.
+  - group: TOWER
+    at: machine-room-board
+    title: "Put a speed on the trace"
+    concept: "average velocity and scale"
+    reason: "The brake prediction needs a starting speed, not only a graph shape."
+    scene: "With the direction established, estimate the gondola's speed at the start of the marked braking interval. That speed is the input needed to predict where constant braking should stop it."
+    motivation: "A stopping distance cannot be predicted until the initial motion is known."
+    format: BALLPARK
+    question: "Given Delta x = 0.69 m and Delta t = 0.50 s, use v_avg = Delta x / Delta t. Submit one starting-speed number in m/s."
+    answerText: "The first interval gives an average starting speed of about 1.38 m/s."
+    why: "Velocity is position change divided by time. The first interval is short enough to estimate the starting value used by the constant-acceleration model."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Dividing time by distance gives seconds per metre, not speed. Follow the units.
+    # correct result: Submit 1.38 m/s; accept 1.29-1.49 m/s.
+    # state/output: Write v0 = 1.50 m/s model value; first-bin estimate = 1.38 m/s on the board and unlock the derivation.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:
+    #     labels: ["Position change", "Elapsed time"]
+    #     values: [0.69, 0.50]
+    #     slots: [numerator, denominator]
+    #     template: "speed = {numerator} m / {denominator} s"
+    #     formula: "0.69 / 0.50"
+    #     correct: 1.38
+    #     target: 1.4
+    #     tolerance: 0.08
+    #     unit: "m/s"
+    # CONVERTED. The bible's `slots` names its own template holes; the engine
+    # counts them, fills them in the order the player clicks, and names them
+    # a, b, c… — so `template` and `formula` are rewritten to those names and
+    # nothing else. `correct` in the bible is the value the arithmetic reaches;
+    # in the engine it is which tiles belong in the slots. `unit` is `units`.
+    estimate:
+      labels: ["Position change", "Elapsed time"]
+      values: [0.69, 0.50]
+      slots: 2
+      template: 'speed = {0} m / {1} s'
+      formula: a/b
+      correct: [0, 1]
+      target: 1.4
+      tolerance: 0.08
+      units: m/s
+
+  # --- Stop 3: Rebuild the brake prediction
+  #     Concept: constant-acceleration motion; Keystone: motion representations; Area: Drop Tower Control; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, asked at hub-board.
+  - group: TOWER
+    at: hub-board
+    title: "Rebuild the brake prediction"
+    concept: "constant-acceleration motion"
+    reason: "The park needs a defendable prediction before consuming a test cycle."
+    scene: "Use the model starting speed and measured acceleration to derive the stopping time and distance. The result becomes the value the live brake test must meet without adjusting the target afterward."
+    motivation: "A prediction written before the test prevents the observed result from defining its own success."
+    format: DERIVE
+    question: "Given v0 = 1.50 m/s, a = -0.50 m/s^2, and v = 0 m/s, use v = v0 + at and Delta x = v0t + 0.5at^2. Submit an ordered derivation plus stopping time in s and stopping distance in m."
+    answerText: "Constant acceleration predicts that the gondola stops after 3.00 s and 2.25 m."
+    why: "Setting final velocity to zero gives the stop time. Substitution into the displacement equation gives the precommitted mark."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep the braking acceleration negative under the chosen forward-positive axis. A positive sign predicts speeding up.
+    # correct result: Order velocity → stop time → displacement → comparison; t=3.00 s, Δx=2.25 m.
+    # state/output: Paint a temporary 2.25 m PREDICTION line beside the brake drum.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: velocity, expression: "v = v0 + at", rule: "constant-acceleration definition"}
+    #       - {id: stop_time, expression: "0 = 1.50 - 0.50t, so t = 3.00 s", rule: "set final velocity to zero"}
+    #       - {id: displacement, expression: "dx = v0 t + 0.5at^2", rule: "constant-acceleration displacement"}
+    #       - {id: result, expression: "dx = 1.50(3.00) + 0.5(-0.50)(3.00)^2 = 2.25 m", rule: "substitute with signs and units"}
+    #     order: [velocity, stop_time, displacement, result]
+    #     decoys:
+    #       - {expression: "dx = 1.50/3.00", rule: "divide distance by time"}
+    # HELD BACK. The bible writes a derivation as an ordered list of lines plus a
+    # single decoy for the whole thing. The engine grades it line by line: every
+    # step needs at least three candidate lines, a `why` on each wrong one saying
+    # what it costs, and one wrong branch marked `survives` so the step cannot be
+    # passed by spotting the malformed option. Owed by the bible: per-step
+    # candidate sets, a rebuttal on each wrong candidate, and which wrong branch
+    # survives. Also `start` and `goal` — the line it begins from, and the FORM it
+    # is going to, which is not the same as the answer.
+
+  # --- Stop 4: Test one brake, not a theory
+  #     Concept: prediction-measurement comparison; Keystone: model limits and evidence independence; Area: Brennan's workshop; Learning role: PRACTICE; Difficulty: L3; Story role: decision.
+  #     placement: VERIFY, asked at brake-drum.
+  - group: WORKSHOP
+    at: brake-drum
+    title: "Test one brake, not a theory"
+    concept: "prediction-measurement comparison"
+    reason: "One direct test can judge this brake without pretending to judge every ride."
+    scene: "The prediction is fixed at 2.25 m before the brake turns. Run the low-speed test, record the stop, and decide what this single result can honestly support about this wheel."
+    motivation: "Agreement validates this wheel configuration but cannot establish a cause shared by other rides."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Given v0 = 1.50 m/s, a = -0.50 m/s^2, and v = 0 m/s, use v^2 = v0^2 + 2a Delta x and submit a stopping-distance prediction in m; the brake controls stay locked until you commit. OPERATE: Arm and run one low-speed brake cycle. MEASURE: Record the stopping distance in m. INTERPRET: Submit one conclusion comparing prediction and measurement using the 0.08 m tolerance and limiting the claim to this wheel configuration."
+    answerText: "The Ferris Wheel brake passes this low-speed model test, but the result does not prove why other rides overshot."
+    why: "A direct test supports the configuration tested. Generalizing it to other rides would require independent evidence connecting their mechanisms."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   "This brake passed" and "all brakes passed" are different claims. Match the conclusion to the system tested.
+    # correct result: Prediction 2.25 m; measured 2.26 m; difference 0.01 m ≤ 0.08 m; local pass.
+    # state/output: Set ride_status.wheel = amber, evidence_flags.wheel_brake_verified = true; tag the speed-wheel bracket.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:
+    #     prediction: {label: "Stopping distance", value: 2.25, unit: m, tolerance: 0.08}
+    #     commit_required_before_unlock: true
+    #     phase_order: [calculate_and_commit, operate, measure, interpret]
+    #     action: "Arm and run one low-speed brake cycle"
+    #     measurement: {value: 2.26, unit: m}
+    #     failure_if_unmeasured: true
+    #     correct_conclusion: "Ferris brake matches its model; park-wide cause remains unproven."
+    # CONVERTED — a model conversion. The bible states one predicted value; this
+    # engine has the player DIAL a prediction and then compares it against what
+    # the measurement finds, so:
+    #   · `truth` is the bible's measured 2.26 m
+    #   · `passRatio` is the bible's own 0.08 m tolerance said as a ratio of it
+    #     (0.08 / 2.26 = 0.0354)
+    #   · the dial's bounds are the one thing the bible does not supply. They run
+    #     from a stop at the brake to twice the predicted mark, so that dialling
+    #     to either end fails and the prediction is actually tested.
+    verify:
+      prediction: { label: Stopping distance, unit: m, min: 0, max: 4.50, step: 0.01 }
+      truth: 2.26
+      passRatio: [0.9646, 1.0354]
+      intervention:
+        label: Arm and run one low-speed brake cycle
+      measurement:
+        label: Stopping distance
+

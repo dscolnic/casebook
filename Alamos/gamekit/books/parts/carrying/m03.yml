@@ -1,0 +1,160 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Ecological Limits"
+  card:
+    header: "13 DAYS TO THE FERRY VOTE"
+    title: "What Keeps Growing"
+    goNow: "Go to the Common Office and meet Iona Vale, common agronomy lead, at the common map."
+    body: "The recharge ceiling looks workable, but water alone does not define island capacity. Food webs depend on limited energy, cycling nutrients, habitat, and recovery after disturbance. At the Common Office, map those limits from soil to grazing land. By the end of the mission, decide which ecological limits must constrain ferry growth."
+    objective: "Add ecological limits to the ferry plan."
+  objective: "Add ecological limits to the ferry plan."
+  stake: "The recharge ceiling looks workable, but water alone does not define island capacity. Food webs depend on limited energy, cycling nutrients, habitat, and recovery after disturbance. At the Common Office, map those limits from soil to grazing land. By the end of the mission, decide which ecological limits must constrain ferry growth."
+  takeaway: "Soil makes secondary succession faster than primary succession. ---"
+  segue: "Mission decision: Limit ferry growth to what farms and wild systems can support. Food loss, slow growth, and habitat all set the limit. More fertilizer will not remove those limits. Salt in the well is still rising."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Only about 10% of energy becomes biomass at the next trophic level."
+  - "Primary succession begins without soil; secondary succession begins with soil."
+  - "Larger, nearer islands usually support more species."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-common-office
+    # On arrival at Common Office | s09-count-usable-plant-energy | automatic
+    on: { enter: true, at: TODO }   # s09-count-usable-plant-energy
+    world: "Iona is defending fertilizer imports while bare patches spread near sheds."
+    panel: "MISSION 3: COUNT USABLE PLANT ENERGY OPEN"
+    bubbles:
+    - who: iona-vale   # Iona Vale
+      say: "Start with count usable plant energy. We need evidence the next decision can use."
+  - id: after-stop-9
+    # After Stop 9 | s10-read-recovery-and-habitat | automatic
+    on: { after: [1] }
+    world: "After Stop 1: Keep the new evidence visible and."
+    panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    bubbles:
+    - who: iona-vale   # Iona Vale
+      say: "Use the Stop 9 result to settle read recovery and habitat."
+  - id: after-stop-10
+    # After Stop 10 | s11-classify-vulnerability | automatic
+    on: { after: [2] }
+    world: "After Stop 2: Update the persistent panel and or the evidence-led waypoint."
+    panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    bubbles:
+    - who: iona-vale   # Iona Vale
+      say: "Use the Stop 10 result to settle classify vulnerability."
+  - id: after-stop-11
+    # After Stop 11 | s12-test-the-fertilizer-claim | automatic
+    on: { after: [3] }
+    world: "After Stop 3: Show the combined result and unlock the decision stop."
+    panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    bubbles:
+    - who: iona-vale   # Iona Vale
+      say: "Use the Stop 11 result to settle test the fertilizer claim."
+  - id: at-mission-end
+    # At mission end | s09-count-usable-plant-energy | automatic
+    on: { enter: true, at: TODO }   # s09-count-usable-plant-energy
+    world: "Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue."
+    panel: "MISSION 3 EVIDENCE: RECORDED"
+    bubbles:
+    - who: iona-vale   # Iona Vale
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Changing only nitrogen raises yield slightly but increases runoff nitrate far beyond noise; restoration returns the baseline."
+
+  stops:
+  # --- Stop 9: Count usable plant energy
+  #     Concept: GPP/NPP and 10% law; Keystone: energy flow; Area: Turbine Yard; Learning role: INTRODUCE; Difficulty: L2; Story role: foundation.
+  #     placement: BALLPARK, at s09-count-usable-plant-energy.
+  - group: POWER
+    at: TODO               # the fixture it is asked at
+    title: "Count usable plant energy"
+    concept: "GPP/NPP and 10% law"
+    reason: "Grazing capacity must use energy left after plant respiration."
+    scene: "The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals, and the team needs this result before it acts."
+    motivation: "Energy limits food production even when nutrient atoms keep cycling."
+    format: BALLPARK
+    question: "First calculate NPP from GPP 18,000 kJ/m²/yr and plant respiration 8,000 kJ/m²/yr. Then apply 10% transfer and submit herbivore production in kJ/m²/yr."
+    answerText: "The completed check shows nPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr."
+    why: "Plants use part of GPP, and most remaining energy is lost as heat between levels."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Using GPP directly skips plant respiration, while applying 10% before finding NPP transfers energy the plants already used; both overstate herbivore production.
+    # correct result: NPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr.
+    # state/output: Grazing energy cap appears; unlocks Stop 3.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate.values=[18000,-8000,0.10]; formula="(GPP-R)*0.10"; correct=1000; target=1000; tolerance=0.01.
+
+  # --- Stop 10: Read recovery and habitat
+  #     Concept: succession, biomes, aquatic zones; Keystone: biodiversity/resilience; Area: Reef Station; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: SEQUENCE, at s10-read-recovery-and-habitat.
+  - group: REEF
+    at: TODO               # the fixture it is asked at
+    title: "Read recovery and habitat"
+    concept: "succession, biomes, aquatic zones"
+    reason: "Bare patches cannot be assigned the same recovery time without checking whether soil remains."
+    scene: "With grazing energy capped, Iona points to two damaged plots: exposed rock and a burned field with soil. Order each recovery path and identify which can recover within decades, and the team needs this result before it acts."
+    motivation: "Secondary succession is faster because soil, microbes, and seeds remain."
+    format: SEQUENCE
+    question: "Order bare rock -> pioneer species -> soil forms -> later community and disturbance -> grasses -> shrubs -> later community; submit secondary succession as the faster path."
+    answerText: "The completed check shows the burned soil follows secondary succession and can recover in roughly 10-50 years; bare rock primary succession often takes 100+ years."
+    why: "Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Calling bare-rock recovery secondary ignores the lack of soil; calling the burned-soil path primary ignores the surviving soil and therefore exaggerates recovery time.
+    # correct result: The burned soil follows secondary succession and can recover in roughly 10-50 years; bare rock primary succession often takes 100+ years.
+    # state/output: Recovery zones labeled; aquatic inset labels photic, aphotic, littoral, pelagic, benthic; unlocks Stop 3.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards=[bare_rock,pioneers,soil,later,disturbance,grasses,shrubs]; order_primary=[bare_rock,pioneers,soil,later]; order_secondary=[disturbance,grasses,shrubs,later]; axis=ecological_recovery; answer=secondary.
+
+  # --- Stop 11: Classify vulnerability
+  #     Concept: generalist/specialist, island biogeography, life history preview; Keystone: biodiversity/resilience; Area: Reef Station; Learning role: COMBINE; Difficulty: L3; Story role: clue.
+  #     placement: TRIAGE, asked by Iona Vale beside s11-classify-vulnerability.
+  - group: REEF
+    title: "Classify vulnerability"
+    person: TODO   # the roster id of whoever asks it
+    concept: "generalist/specialist, island biogeography, life history preview"
+    reason: "Habitat protection must begin with species least able to replace losses."
+    scene: "Because damaged soils recover at different rates, species using them also face different risk. Sort a broad-diet generalist and a narrow-habitat specialist for monitoring, protection, or routine watch, and the team needs this result before it acts."
+    motivation: "Small remote islands support fewer replacements, so specialists need earlier protection."
+    format: TRIAGE
+    question: "Assign island rat, cliff-nesting petrel, fast-growing grass, and slow-breeding seal to routine, monitor, or protect first; submit one complete triage."
+    answerText: "The completed check shows protect the petrel first; monitor the seal; routine watch for the generalists."
+    why: "Narrow niches and isolation limit recolonization; feedback contrasts niche breadth."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Protecting the rat or grass first favors fast-growing generalists; treating the slow-breeding seal as routine ignores its low replacement rate, while the cliff petrel has the narrowest habitat.
+    # correct result: Protect the petrel first; monitor the seal; routine watch for the generalists.
+    # state/output: Petrel habitat hatched with text label; unlocks Stop 3.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   choices={rat:routine,grass:routine,petrel:protect_first,seal:monitor}; answer=petrel; why="specialist on small remote island"; rebuttals={rat:"generalist",grass:"rapid recovery",seal:"K-selected but broader marine range"}.
+
+  # --- Stop 12: Test the fertilizer claim
+  #     Concept: limiting nutrients and controlled experiment; Keystone: experimental causality; Area: Chapel Council Room; Learning role: TRANSFER; Difficulty: L4; Story role: reveal.
+  #     placement: CONTROL, at s12-test-the-fertilizer-claim.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Test the fertilizer claim"
+    concept: "limiting nutrients and controlled experiment"
+    reason: "Yield claims cannot justify more fertilizer until runoff is measured under a fair comparison."
+    scene: "The energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Test equal plots to see whether added nitrogen raises crop yield without creating a larger nitrate loss."
+    motivation: "A yield gain is not sustainable if the nutrient surplus leaves the field and damages another system."
+    format: CONTROL
+    question: "Change only nitrogen from 0 to 50 kg/ha; keep crop, soil, plot area, water 20 mm, and seven-day timing fixed. Measure yield and runoff nitrate, restore nitrogen to 0, repeat the measurement, then submit one conclusion."
+    answerText: "The completed check shows nitrogen raises yield 0.6 t/ha but raises runoff nitrate 7.0 mg/L; the ferry plan must cap nutrient surplus."
+    why: "Holding other variables fixed and reversing nitrogen isolates its effect; retry identifies any changed control."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Changing water or crop with nitrogen prevents a causal comparison; judging yield alone ignores the 7.0 mg/L nitrate increase that makes the fertilizer claim unsafe.
+    # correct result: Nitrogen raises yield 0.6 t/ha but raises runoff nitrate 7.0 mg/L; the ferry plan must cap nutrient surplus.
+    # state/output: Surplus nitrogen arrow points toward aquifer and bay; D8/D10 clue; delivery piece 3 posts.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"nitrogen",label:"nitrogen application"},{id:"water",label:"irrigation"},{id:"crop",label:"crop type"}],correct_control:"nitrogen",baseline:{N:0,yield:4.0,nitrate:1.0},response:{N:50,yield:4.6,nitrate:8.0},units:{N:"kg/ha",yield:"t/ha",nitrate:"mg/L"},noise_band:{yield:0.1,nitrate:0.3},fixed:["crop","soil","plot area","water 20 mm","seven-day timing"],measure_when:"after seven days",restore:{required:true,N:0,remeasure:true},correct_conclusion:"small yield gain with large nitrate loss",answerText:"Changing only nitrogen raises yield slightly but increases runoff nitrate far beyond noise; restoration returns the baseline."}
+

@@ -1,0 +1,202 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "One Object, Two Motions"
+  card:
+    header: "IMPACT WINDOW: 5 DAYS"
+    title: "ONE OBJECT, TWO MOTIONS"
+    goNow: "Go to the Spectroscopy Dome and meet Sanaa Vale at the photometry bench, then compare her result with radar."
+    body: "The single-body model predicts the overall light curve and main radar echo, yet structured residuals remain in both. A repeated mismatch across independent instruments usually points to missing physics. Compare competing shapes, test the radar frames, and diagnose only what both datasets require. By the end of the mission, you will decide whether the asteroid is one compact body or a weak two-lobed system."
+    objective: "Decide whether the asteroid is one compact body or a weak two-lobed system."
+  objective: "Decide whether the asteroid is one compact body or a weak two-lobed system."
+  stake: "The single-body model predicts the overall light curve and main radar echo, yet structured residuals remain in both. A repeated mismatch across independent instruments usually points to missing physics. Compare competing shapes, test the radar frames, and diagnose only what both datasets require. By the end of the mission, you will decide whether the asteroid is one compact body or a weak two-lobed system."
+  takeaway: "When independent residuals agree, revise the model—and no further. ---"
+  segue: "Mission decision: Treat 2026 PDC as a weak two-lobed body. Add checks for loose parts. Do not claim that a part has split off yet."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Residuals repeating at the same rotational phase suggest missing structure."
+  - "Different shapes and surface patterns can produce similar light curves."
+  - "Agreement between optical and radar patterns can break that degeneracy."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-spectroscopy-dome
+    # On arrival at Spectroscopy Dome | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Sanaa overlays the unequal brightness peaks from Mission 6."
+    panel: "ONE OBJECT, TWO MOTIONS / MISSION ACTIVE"
+    # unlocks: Stop 37.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-37
+    # After Stop 37 | automatic | 
+    on: { after: [1] }
+    world: "A single ellipsoid fits the period but leaves alternating residuals."
+    panel: "ONE OBJECT, TWO MOTIONS / FIRST RESULT LOGGED"
+    # unlocks: Stop 38.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-38
+    # After Stop 38 | automatic | 
+    on: { after: [2] }
+    world: "Radar frames show two delay concentrations moving together."
+    panel: "ONE OBJECT, TWO MOTIONS / EVIDENCE HANDOFF READY"
+    # unlocks: The Bistatic Radar Range waypoint and Stop 39.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-39
+    # After Stop 39 | automatic | 
+    on: { after: [3] }
+    world: "The team names the minimum shared explanation: a weak contact binary."
+    panel: "ONE OBJECT, TWO MOTIONS / DECISION EVIDENCE READY"
+    # unlocks: Stop 40.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "ONE OBJECT, TWO MOTIONS / MISSION DECISION LOGGED"
+    # unlocks: Mission 10 outcome, metric screen, concept review, and Mission 11 briefing.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 37: See the alternating residual
+  #     Concept: light-curve model; Keystone: evidence/model failure; Area: Spectroscopy Dome; Learning role: REINFORCE; Difficulty: L5; Story role: diagnosis.
+  #     placement: RESIDUAL, at photometry-bench.
+  - group: CHAR
+    at: photometry-bench
+    title: "See the alternating residual"
+    concept: "light-curve model"
+    reason: "The team must decide whether the unequal peaks are noise or missing structure."
+    scene: "A single rotating ellipsoid matches the period, but its residuals alternate positive and negative at the same phases for four cycles. Identify the pattern that random measurement noise is least likely to produce."
+    motivation: "Phase-locked residuals reveal systematic model inadequacy."
+    format: RESIDUAL
+    question: "Classify the residual pattern and state what it demands."
+    answerText: "Repetition at the same rotational phases points to missing structure."
+    why: "RESIDUAL compares leftover patterns to the noise behavior assumed by the model."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Random errors should not reproduce the same sign sequence every rotation.
+    # correct result: Reject pure random noise; test a more complex body model.
+    # state/output: SINGLE ELLIPSOID INADEQUATE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:
+    #     fields:
+    #       - {cycle: 1, phase_signs: [positive, negative, positive, negative]}
+    #       - {cycle: 2, phase_signs: [positive, negative, positive, negative]}
+    #       - {cycle: 3, phase_signs: [positive, negative, positive, negative]}
+    #       - {cycle: 4, phase_signs: [positive, negative, positive, negative]}
+    #     expected_noise_pattern: uncorrelated_signs
+    #     correct_classification: systematic_phase_locked_residual
+    #     required_model_action: test_more_complex_shape_or_reflectance
+
+  # --- Stop 38: Separate shape from surface
+  #     Concept: inverse problems; Keystone: uncertainty/model selection; Area: Spectroscopy Dome; Learning role: REINFORCE; Difficulty: L5; Story role: model.
+  #     placement: DEGENERACY, at sizing-board.
+  - group: CHAR
+    at: sizing-board
+    title: "Separate shape from surface"
+    concept: "inverse problems"
+    reason: "Photometry alone permits more than one explanation for unequal peaks."
+    scene: "Unequal peaks can arise from a two-lobed shape, patchy albedo, or a changed viewing geometry. Match each explanation to the additional observation that would most cleanly separate it from the others."
+    motivation: "A degeneracy exists when distinct physical causes produce similar observations."
+    format: DEGENERACY
+    question: "Submit the numerical pair (q, A) that satisfies both named controls, then select SHAPE-DOMINATED or ALBEDO-DOMINATED."
+    answerText: "The light curve motivates hypotheses but cannot uniquely choose among them."
+    why: "DEGENERACY pairs look-alike models with observations where their predictions diverge."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A better photometric fit is not unique physical identification.
+    # correct result: q = 1.65 and A = 1.00; SHAPE-DOMINATED.
+    # state/output: RADAR DISCRIMINATOR selected; travel unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:
+    #     controls:
+    #       - {id: shape_ratio_q, label: "Long-to-short shape ratio", min: 1.00, max: 2.00, step: 0.05}
+    #       - {id: albedo_ratio_A, label: "Bright-to-dark albedo ratio", min: 0.70, max: 1.40, step: 0.05}
+    #     held_fixed: [rotation period, viewing geometry, mean brightness, filter]
+    #     constraint_1: {source: radar, q: 1.65, tolerance: 0.10}
+    #     constraint_2: {source: color modulation, A: 1.00, tolerance: 0.05}
+    #     truth_pair: [1.65, 1.00]
+    #     interpretation: shape_dominated
+
+  # --- Stop 39: Sweep the radar frames
+  #     Concept: delay-Doppler structure; Keystone: observation/controls; Area: Bistatic Radar Range; Learning role: REINFORCE; Difficulty: L5; Story role: analysis.
+  #     placement: SWEEP, at radar-console.
+  - group: RADAR
+    at: radar-console
+    title: "Sweep the radar frames"
+    concept: "delay-Doppler structure"
+    reason: "A real second lobe should move coherently with the main body across frames."
+    scene: "Sweep eight calibrated radar frames and compare the main echo, adjacent shoulder, and background artifacts across the complete observation series. Mark features that persist at connected delay-Doppler positions as the body rotates."
+    motivation: "Coherent motion across independent frames distinguishes physical structure from isolated interference."
+    format: SWEEP
+    question: "Sweep the frames and classify the shoulder."
+    answerText: "Its persistence and coherent motion make ordinary interference unlikely."
+    why: "SWEEP searches a controlled series for persistence and coordinated change."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   One bright frame is weak evidence; seven coherently moving frames are not.
+    # correct result: Classify the shoulder as physical secondary structure associated with the target.
+    # state/output: TWO-LOBE MODEL favored.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {label: calibrated radar frame, values: [1, 2, 3, 4, 5, 6, 7, 8]}
+    #     readings:
+    #       shoulder_present: [true, true, true, false, true, true, true, true]
+    #       coherent_with_primary_rotation: [true, true, true, null, true, true, true, true]
+    #       stationary_calibration_artifact: [false, false, false, false, false, false, false, false]
+    #     goal: persistent motion connected to the primary in at least 6 of 8 frames
+    #     correct_setting: all_eight_frames
+    #     correct_interpretation: physical_secondary_structure
+
+  # --- Stop 40: Diagnose the minimum model
+  #     Concept: contact binary; Keystone: synthesis/modeling; Area: Bistatic Radar Range; Learning role: REINFORCE; Difficulty: L5; Story role: decision.
+  #     placement: DIAGNOSIS, at echo-archive.
+  - group: RADAR
+    at: TODO               # the fixture it is asked at
+    title: "Diagnose the minimum model"
+    concept: "contact binary"
+    reason: "The claim must explain both instruments without inventing unsupported detail."
+    scene: "The two-lobe model explains alternating optical residuals and coherent radar structure, while a surface patch explains only photometry. Diagnose the minimum shared model and state the new operational concern it raises."
+    motivation: "Converging independent evidence supports structure while leaving material strength uncertain."
+    format: DIAGNOSIS
+    question: "Select the diagnosis and its justified operational implication."
+    choices:
+    - "{id: noise, label: Random noise, mechanism: cannot repeat at fixed optical phase and move coherently in radar}"
+    - "{id: surface_patch, label: One surface patch, mechanism: can affect photometry but cannot create a radar lobe}"
+    - "{id: contact_binary, label: Weak contact binary, mechanism: explains two-lobed optical and radar structure while leaving strength uncertain}"
+    - "{id: known_fragment, label: Confirmed fragment on a known path, mechanism: exceeds the evidence because no separate trajectory exists}"
+    answerText: "Two connected lobes explain both datasets, but the binding strength remains unknown."
+    why: "DIAGNOSIS selects the least complicated model that explains all reliable findings."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Structural weakness raises a testable risk; it does not prove breakup has occurred.
+    # correct result: Diagnose a contact binary and monitor for separation; do not claim an existing fragment orbit.
+    # state/output: CONTACT BINARY advisory issued.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: Which minimum model fits the optical and radar evidence?
+    #   readings:
+    #     - {zone: optical, label: phase-locked alternating residual, value: present, status: alarm}
+    #     - {zone: radar, label: coherent secondary shoulder, value: present in 7 of 8 frames, status: alarm}
+    #     - {zone: orbit, label: separate fragment trajectory, value: not yet measured, status: quiet}
+    #   choices:
+    #     - {id: noise, label: Random noise, mechanism: cannot repeat at fixed optical phase and move coherently in radar}
+    #     - {id: surface_patch, label: One surface patch, mechanism: can affect photometry but cannot create a radar lobe}
+    #     - {id: contact_binary, label: Weak contact binary, mechanism: explains two-lobed optical and radar structure while leaving strength uncertain}
+    #     - {id: known_fragment, label: Confirmed fragment on a known path, mechanism: exceeds the evidence because no separate trajectory exists}
+    #   answer: contact_binary
+

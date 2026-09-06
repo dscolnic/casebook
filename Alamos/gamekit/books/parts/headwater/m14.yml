@@ -1,0 +1,153 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Lead-Time Rule"
+  card:
+    header: "2 SHIFTS UNTIL THE STORM"
+    title: "Four Dark Sirens"
+    goNow: "Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the siren repeater panel."
+    body: "The corrected release rules are signed, and the model meets storage, wall, and machine limits. A final warning test leaves four settlement circuits dark, so apparent readiness is not public safety. At warnings, inflow, and gates, optimize repair order and forecast the delay. By the end of the mission, decide whether every downstream reach is ready for release."
+    objective: "Repair and certify the warning chain."
+  objective: "Repair and certify the warning chain."
+  stake: "The corrected release rules are signed, and the model meets storage, wall, and machine limits. A final warning test leaves four settlement circuits dark, so apparent readiness is not public safety. At warnings, inflow, and gates, optimize repair order and forecast the delay. By the end of the mission, decide whether every downstream reach is ready for release."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Every reach below the dam is ready. The repair order restores all four lines. It leaves 15 minutes before the warning deadline. The final release must still save enough power for the last gate move."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-downstream-warning-desk
+    # On arrival at Downstream Warning Desk | s53-find-the-repair-optimum | automatic
+    on: { enter: true, at: TODO }   # s53-find-the-repair-optimum
+    world: "The find the repair optimum fixture wakes and the mission evidence opens."
+    panel: "MISSION 14: FIND THE REPAIR OPTIMUM OPEN"
+    bubbles:
+    - who: elise-baptiste   # Elise Baptiste
+      say: "Start with find the repair optimum. We need evidence the next decision can use."
+  - id: after-stop-53
+    # After Stop 53 | s54-order-settlements-by-consequence | automatic
+    on: { after: [1] }
+    world: "After 14.2 Location: SAFE."
+    panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    bubbles:
+    - who: elise-baptiste   # Elise Baptiste
+      say: "Use the Stop 53 result to settle order settlements by consequence."
+  - id: after-stop-54
+    # After Stop 54 | s55-update-the-delayed-forecast | automatic
+    on: { after: [2] }
+    world: "Travel1 Location: SAFE->INFLOW."
+    panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    bubbles:
+    - who: elise-baptiste   # Elise Baptiste
+      say: "Use the Stop 54 result to settle update the delayed forecast."
+  - id: after-stop-55
+    # After Stop 55 | s56-commit-repaired-warning-trigger | automatic
+    on: { after: [3] }
+    world: "Travel2 Location: INFLOW->GATES."
+    panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    bubbles:
+    - who: elise-baptiste   # Elise Baptiste
+      say: "Use the Stop 55 result to settle commit repaired warning trigger."
+  - id: at-mission-end
+    # At mission end | s53-find-the-repair-optimum | automatic
+    on: { enter: true, at: TODO }   # s53-find-the-repair-optimum
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 14 EVIDENCE: RECORDED"
+    bubbles:
+    - who: elise-baptiste   # Elise Baptiste
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 53: Find the repair optimum
+  #     Concept: optimization/marginal value; Keystone: Extrema; Area: Powerhouse; Learning role: RETRIEVE; Difficulty: L4; Story role: foundation.
+  #     placement: BALLPARK, at s53-find-the-repair-optimum.
+  - group: POWER
+    at: TODO               # the fixture it is asked at
+    title: "Find the repair optimum"
+    concept: "optimization/marginal value"
+    reason: "Four circuits must be repaired before the shrinking release window closes."
+    scene: "Repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Find the integer crew count maximizing P=R-C, and the team needs this result before it acts."
+    motivation: "The optimum sets the fastest useful repair without wasting scarce operators."
+    format: BALLPARK
+    question: "Using P(x)=(18x-x^2)-(2x+8) for integer 0<=x<=6, calculate P'(x), check feasible critical points and endpoints, then submit one integer crew count."
+    answerText: "unconstrained critical point 8 lies outside [0,6], so endpoints control."
+    why: "unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A critical point outside the domain is not feasible.
+    # correct result: x=6 at endpoint; P(6)=52, versus P(0)=-8.
+    # state/output: six crews assigned; unlock 14.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{labels:["solve P'=16-2x=0","check endpoints/integers"],values:[[8],[0,6]],slots:2,template:"feasible candidate",formula:"x=8 clipped then compare 0,6",correct:[8,6],target:6,tolerance:0}
+
+  # --- Stop 54: Order settlements by consequence
+  #     Concept: constrained decision/extrema; Keystone: Extrema; Area: Forecast Archive; Learning role: COMBINE; Difficulty: L5; Story role: consequence.
+  #     placement: TRIAGE, asked by Elise Baptiste beside s54-order-settlements-by-consequence.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Order settlements by consequence"
+    person: baptiste
+    concept: "constrained decision/extrema"
+    reason: "Crew order must protect the earliest closure, not the loudest complaint."
+    scene: "With six crews fixed, sort four dark circuits by arrival and closure: Road 280 min, School 310, Caravan 350, Village 410. Repairs take 35,25,20,30 min, with two simultaneous teams, and the team needs this result before it acts."
+    motivation: "Earliest binding deadlines determine a safe schedule."
+    format: TRIAGE
+    question: "Select exactly one of four first-team pairs and submit its label."
+    answerText: "The completed check shows road and School."
+    why: "Road and School. Earliest binding deadlines determine a safe schedule."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Any pair omitting Road or School delays one of the two earliest binding deadlines; the option-specific payload rebuttals identify the missed deadline.
+    # correct result: Road and School.
+    # state/output: repair route; waypoint INFLOW.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   question:"Which two circuits receive the first teams?"; choices:["Road and School","Caravan and Village","Road and Village","School and Caravan"]; answer:"Road and School"; why:"Road and School have the two earliest binding deadlines."; rebuttals:{"Caravan and Village":"This leaves both earliest deadlines, 280 and 310 minutes, without first teams.","Road and Village":"The School deadline at 310 minutes binds before the Village deadline at 410 minutes.","School and Caravan":"The Road deadline at 280 minutes is the earliest and cannot wait."}
+
+  # --- Stop 55: Update the delayed forecast
+  #     Concept: Euler/logistic delay; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: RETRIEVE; Difficulty: L4; Story role: setback.
+  #     placement: CONTROL, at s55-update-the-delayed-forecast.
+  - group: STRUCT
+    at: TODO               # the fixture it is asked at
+    title: "Update the delayed forecast"
+    concept: "Euler/logistic delay"
+    reason: "The repair delay changes starting level before release begins."
+    scene: "Repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Compare Euler steps of 1.0 and 0.5 h, restoring the first setting before the safe decision."
+    motivation: "The delayed start must use a numerical forecast consistent with the same differential model."
+    format: CONTROL
+    question: "Choose Euler step size from candidate controls step size, initial level, and rate constant. Measure the delayed forecast with 1.0 h steps, change only the step to 0.5 h while $H(0)=4.20$ m and $dH/dt=0.20(5-H)$ remain fixed, remeasure at the same final time, restore 1.0 h and measure again, then submit the conservative level in metres and conclusion."
+    answerText: "The completed check shows 4.36 m."
+    why: "4.36 m. The delayed start must use a numerical forecast consistent with the same differential model."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Update slope after the first half-step.
+    # correct result: 4.36 m.
+    # state/output: revised gate start; waypoint GATES.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"step"},{id:"initial"},{id:"k"}],correct_control:"step",baseline:1,response:.5,noise_band:.005,measurements:[4.36,4.352,4.36],restore:true,correct_conclusion:"use conservative 4.36 m"}
+
+  # --- Stop 56: Commit repaired warning trigger
+  #     Concept: optimization/threshold synthesis; Keystone: all; Area: Powerhouse; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at s56-commit-repaired-warning-trigger.
+  - group: POWER
+    at: warning-list
+    title: "Commit repaired warning trigger"
+    concept: "optimization/threshold synthesis"
+    reason: "The gate needs a release threshold written before the repaired circuits report."
+    scene: "Repairs finish in 65 min, the minimum warning lead is 280 min, and release begins no sooner than 360 min from now. Commit the inclusive readiness slack before circuit results appear, and the team needs this result before it acts."
+    motivation: "Positive precommitted slack proves warnings finish before the last safe release time."
+    format: TRIGGER
+    question: "Calculate and submit slack 360-280-65 in minutes; commit READY if slack >=0 and all four circuits pass, then reveal circuit results."
+    answerText: "360-280-65=15>=0, and every circuit passes."
+    why: "360-280-65=15>=0, and every circuit passes. Positive precommitted slack proves warnings finish before the last safe release time."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A negative slack or any dark circuit fails the committed rule; do not move the threshold after the four circuit results appear.
+    # correct result: 15 min; READY.
+    # state/output: siren text 4/4 READY; Downstream locks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{decision_rule:"READY iff slack>=0 and 4/4 circuits pass",scale:{min:-30,max:60,step:5,unit:"min"},anchors:[0,15,45],objective:"complete warning before required lead",direction:"at or above zero",consequence_limit:"no release with any dark circuit"}; reveal 4/4 pass.
+

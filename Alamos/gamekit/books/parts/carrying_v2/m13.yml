@@ -1,0 +1,190 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Biosecurity Rule"
+  card:
+    header: "3 DAYS."
+    title: "THE BIOSECURITY RULE"
+    goNow: "Ferry Berth, Tomas Reed at berth-standpipe."
+    body: "Firm power is secured, but every new sailing enters through a berth with no inspection. Remote islands have fewer replacement species, and generalist invaders can spread through disturbed habitat. Inspect arrivals, map vulnerable land at the Common, then test reef exposure. By the end of the mission, choose a biosecurity rule for every ferry."
+    objective: "Prevent imported species from outrunning island defenses."
+  objective: "Prevent imported species from outrunning island defenses."
+  stake: "Firm power is secured, but every new sailing enters through a berth with no inspection. Remote islands have fewer replacement species, and generalist invaders can spread through disturbed habitat. Inspect arrivals, map vulnerable land at the Common, then test reef exposure. By the end of the mission, choose a biosecurity rule for every ferry."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Check each ferry before it sails. Treat soil, drain water, and hold risky plants. Check wood and wildlife papers too. A seed test missed too many threats. The last demand plan must count every visitor."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "species richness rises with island size and falls with distance; generalists often invade readily; disturbance opens habitat; prevention is cheaper than eradication."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-ferry-berth
+    # On arrival at Ferry Berth | quarantine-rack | automatic
+    on: { enter: true, at: BERTH }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 13: SCREEN THE ARRIVING CARGO OPEN"
+    bubbles:
+    - who: reed   # the bible's "mission lead", from this mission's own goNow line
+      say: "Start with screen the arriving cargo. We need evidence the next decision can use."
+  - id: after-stop-49
+    # After Stop 49 | common-map | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    bubbles:
+    - who: reed   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 49 result to settle test survey recovery."
+  - id: after-stop-50
+    # After Stop 50 | flow-tank | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    bubbles:
+    - who: reed   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 50 result to settle control the rinse treatment."
+  - id: after-stop-51
+    # After Stop 51 | water-rack | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 51 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    bubbles:
+    - who: reed   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 51 result to settle write the biosecurity protocol."
+  - id: at-mission-end
+    # At mission end | quarantine-rack | automatic
+    on: { missionEnd: true }
+    world: "Decision and hook: Stop 52 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 13 EVIDENCE: RECORDED"
+    bubbles:
+    - who: reed   # the bible's "mission lead", from this mission's own goNow line
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 49: Screen the arriving cargo
+  #     Concept: arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue; Keystone: arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue.
+  #     placement: BELT, at quarantine-rack.
+  - group: REEF
+    at: quarantine-rack
+    title: "Screen the arriving cargo"
+    concept: "arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue"
+    reason: "The island cannot commit screen the arriving cargo until this evidence is resolved."
+    scene: "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Screen the arriving cargo connects the measured environmental mechanism to the next island condition."
+    format: BELT
+    question: "Sort soil, standing water, untreated wood, plants, and animals as inspection-required; sort sealed clean metal as low risk"
+    answerText: "The completed check shows five biological pathways enter quarantine; sealed clean metal may proceed."
+    why: "Screen the arriving cargo connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Five biological pathways enter quarantine; sealed clean metal may proceed
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   belt:{categories:[inspection_required,low_risk],items:{soil:inspection_required,standing_water:inspection_required,untreated_wood:inspection_required,plants:inspection_required,animals:inspection_required,sealed_clean_metal:low_risk}}
+
+  # --- Stop 50: Test survey recovery
+  #     Concept: invasion detection | uncertainty | 13; Keystone: invasion detection | uncertainty | 13; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: invasion detection | uncertainty | 13.
+  #     placement: INJECT, at common-map.
+  - group: CHAPEL
+    at: common-map
+    title: "Test survey recovery"
+    concept: "invasion detection | uncertainty | 13"
+    reason: "The island cannot commit test survey recovery until this evidence is resolved."
+    scene: "Inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Inject a known marked population through the pipeline, and the team needs this result before it acts."
+    motivation: "Test survey recovery connects the measured environmental mechanism to the next island condition."
+    format: INJECT
+    question: "Inject 100 seeds; add 45 road, 20 common, and 2 cliff recoveries; apply recovery percent=recovered/injected*100 and submit percent plus pass/fail against 90%"
+    answerText: "The completed check shows recovery is 67%; the survey fails."
+    why: "Test survey recovery connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Recovery is 67%; the survey fails
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   inject:{population:100,recovered:{road:45,common:20,cliff:2},equation:"recovery=recovered/injected*100",truth:67,unit:percent,tolerance:1,required:90,conclusion:fail}
+
+  # --- Stop 51: Control the rinse treatment
+  #     Concept: ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence; Keystone: ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence.
+  #     placement: CONTROL, at flow-tank.
+  - group: CHAPEL
+    at: flow-tank
+    title: "Control the rinse treatment"
+    concept: "ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence"
+    reason: "The island cannot commit control the rinse treatment until this evidence is resolved."
+    scene: "Because land surveys miss remote escapees, prevention must work before release. Change rinse treatment alone, measure survivors, restore baseline, and remeasure, and the team needs this result before it acts."
+    motivation: "Control the rinse treatment connects the measured environmental mechanism to the next island condition."
+    format: CONTROL
+    question: "At rinse OFF measure after 30 minutes; change only rinse ON with water 100 L, salinity 35 ppt, temperature 24 C, starting load 100, and time fixed; restore OFF and remeasure; submit causation"
+    # THE BIBLE'S PAYLOAD, converted. Its three candidates and `correct_control:
+    # rinse` transfer directly, `fixed` becomes `held`, and the survivor count is
+    # the one observable: 100 at the baseline, 2 with the rinse on, which the
+    # engine carries as a signed response of -98 against the bible's noise of 3.
+    control:
+      observable: { label: Surviving organisms in the hull sample, unit: count }
+      variables:
+      - { id: rinse, label: Rinse treatment }
+      - { id: salinity, label: Salinity }
+      - { id: temperature, label: Temperature }
+      truth: rinse
+      baseline: 100
+      response: -98
+      noise: 3
+      held: [water 100 L, salinity 35 ppt, temperature 24 C, starting load 100, 30-minute timing]
+      changeVerb: Turn the rinse on
+      run: Measure after 30 minutes
+      commit: Name the variable that caused it
+    answerText: "The completed check shows survivors fall from 100 to 2 only when rinse is on; rinsing caused the reduction."
+    why: "Control the rinse treatment connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Survivors fall from 100 to 2 only when rinse is on; rinsing caused the reduction
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"rinse",label:"rinse treatment"},{id:"salinity",label:"salinity"},{id:"temperature",label:"temperature"}],correct_control:"rinse",baseline:{setting:"OFF",survivors:100},response:{setting:"ON",survivors:2},noise_band:{survivors:3},fixed:["water 100 L","salinity 35 ppt","temperature 24 C","starting load 100","30-minute timing"],measure_when:"after 30 minutes",restore:{required:true,setting:"OFF",survivors:100,remeasure:true},correct_conclusion:"rinsing caused the reduction",answerText:"Turning on only the rinse reduces survivors from 100 to 2, far beyond noise, and restoration returns the baseline."}
+
+  # --- Stop 52: Write the biosecurity protocol
+  #     Concept: cargo rule | policy | 13; Keystone: cargo rule | policy | 13; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: cargo rule | policy | 13.
+  #     placement: PROTOCOL, at water-rack.
+  - group: CHAPEL
+    at: water-rack
+    title: "Write the biosecurity protocol"
+    concept: "cargo rule | policy | 13"
+    reason: "The island cannot commit write the biosecurity protocol until this evidence is resolved."
+    scene: "The injection test exposes weak detection, while the rinse test shows prevention works. Match every cargo pathway to an action before unloading, and the team needs this result before it acts."
+    motivation: "Write the biosecurity protocol connects the measured environmental mechanism to the next island condition."
+    format: PROTOCOL
+    question: "Map soil to reject or heat-treat, plants to quarantine, standing water to drain and disinfect, wood to inspect and treat, and animals to permit plus CITES check"
+    # THE BIBLE'S PAYLOAD, converted. Its five keyed pairs become `scenarios`,
+    # `choices` and a `mapping` of zero-based indices into `choices`.
+    columns: [What arrives, Response]
+    scenarios:
+    - "Soil"
+    - "Plants"
+    - "Standing water"
+    - "Untreated wood"
+    - "Animals"
+    choices:
+    - "Reject or heat-treat"
+    - "Quarantine"
+    - "Drain and disinfect"
+    - "Inspect and treat"
+    - "Permit and CITES check"
+    mapping: [0, 1, 2, 3, 4]
+    answerText: "The completed check shows every biological pathway receives a preventive action."
+    why: "Write the biosecurity protocol connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Every biological pathway receives a preventive action
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   protocol:{mapping:{soil:reject_or_heat_treat,plants:quarantine,standing_water:drain_and_disinfect,untreated_wood:inspect_and_treat,animals:permit_and_CITES_check}}
+

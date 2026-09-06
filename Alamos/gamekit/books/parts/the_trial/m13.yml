@@ -1,0 +1,162 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Too Many Wins"
+  card:
+    header: "DAY 13 - BOARD IN 3 DAYS"
+    title: "Too Many Wins"
+    goNow: "Go to Statistics and meet Tomas Reed, trial statistician, at the residual wall."
+    body: "The locked tables separate three problems, but ten secondary analyses now contain several small p-values. Slope inference tests a population linear trend, and multiplicity counts the opportunities for false wins. Check model conditions in Statistics, verify commitments in Regulatory, then carry corrected claims upstairs. By the end of the mission, decide which benefits remain evidence."
+    objective: "Correct the secondary claims and lock Evidence Strength."
+  objective: "Correct the secondary claims and lock Evidence Strength."
+  stake: "The locked tables separate three problems, but ten secondary analyses now contain several small p-values. Slope inference tests a population linear trend, and multiplicity counts the opportunities for false wins. Check model conditions in Statistics, verify commitments in Regulatory, then carry corrected claims upstairs. By the end of the mission, decide which benefits remain evidence."
+  takeaway: "Count every planned test, not only wins."
+  segue: "Mission decision: Keep only the two planned results with p at or below .005. The dose slope still has support. The marker result is now only a clue. Evidence strength is locked. A late harm range still crosses the stop line."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Regression output usually reports a two-sided p-value."
+  - "For a one-sided alternative matching the slope sign, halve that p-value."
+  - "A correction changes the claim threshold, not the observed effect."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-statistics-analysis
+    # On arrival at Statistics & Analysis | s49-pass-line | automatic
+    on: { enter: true, at: TODO }   # s49-pass-line
+    world: "Arrival: STAT entry; residual wall visible; Tomas says, ; - After S1-S2: slope report seals; waypoint TAKE SLOPE REPORT TO REGISTRY. - REG after S3: ten-test family prints; waypoint CARRY REGISTERED FAMILY TO BOARD. - BOARD final: threshold commits before p-values reveal; two survivors remain; binder 13 and outcome unlock."
+    panel: "MISSION 13: PASS LINE OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "A small p-value waits until LINE passes"
+  - id: after-stop-49
+    # After Stop 49 | s50-infer-the-slope | automatic
+    on: { after: [1] }
+    world: "The pass line result remains visible while the infer the slope fixture lights."
+    panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "Use the Stop 49 result to settle infer the slope."
+  - id: after-stop-50
+    # After Stop 50 | s51-count-the-claims | automatic
+    on: { after: [2] }
+    world: "The infer the slope result remains visible while the count the claims fixture lights."
+    panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "Use the Stop 50 result to settle count the claims."
+  - id: after-stop-51
+    # After Stop 51 | s52-correct-before-seeing | automatic
+    on: { after: [3] }
+    world: "The count the claims result remains visible while the correct before seeing fixture lights."
+    panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "Use the Stop 51 result to settle correct before seeing."
+  - id: at-mission-end
+    # At mission end | s49-pass-line | automatic
+    on: { enter: true, at: TODO }   # s49-pass-line
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 13 EVIDENCE: RECORDED"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Count and verify all ten preregistered secondary claims; exclude the biomarker added after results appeared."
+    - who: text   # Text
+      say: "Ten uncorrected tests have 40.13% family risk; the Bonferroni line is 0.005, so only the first two p-values survive."
+
+  stops:
+  # --- Stop 49: Pass LINE
+  #     Concept: LINE; Keystone: keystone regression/conditions; Area: Endpoint Adjudication; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
+  #     placement: RESIDUAL, at s49-pass-line.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Pass LINE"
+    concept: "LINE"
+    reason: "Slope inference is invalid if its residual pattern fails the model."
+    scene: "The dose-response scatterplot looks linear, but inference needs more than the fitted line. Select the residual field with random scatter, near-Normal shape, independent patients, and equal spread across fitted values."
+    motivation: "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field."
+    format: RESIDUAL
+    question: "Inspect residual fields A, B, and C for LINE: linearity, independence, Normal residuals, and equal variance. Submit the only field passing all four conditions."
+    answerText: "The completed check shows a passes LINE: linear residual pattern, independent observations, Normal residuals, and equal variance."
+    why: "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Small p repairs a bad model
+    # correct result: A passes LINE: linear residual pattern, independent observations, Normal residuals, and equal variance.
+    # state/output: slope output unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   fields A random/equal/normal, B curve, C fan; correct A; independence supplied by random patient units.
+
+  # --- Stop 50: Infer the Slope
+  #     Concept: slope test/CI and one-tail trap; Keystone: keystone regression/CI/tests; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: DERIVE, at s50-infer-the-slope.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Infer the Slope"
+    concept: "slope test/CI and one-tail trap"
+    reason: "The board needs the size and uncertainty of the dose-response trend."
+    scene: "The model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Derive t, df, the 95% interval, and the correct one-sided p-value from the reported two-sided p=.0034."
+    motivation: "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant."
+    format: DERIVE
+    question: "t=-.8/.25=-3.2; df28; t*=2.048; CI -.8 plus/minus .512=[-1.312,-.288]; one-sided p=.0017 for beta<0."
+    answerText: "Each dose unit predicts .80 fewer recovery day; the 95% population-slope interval is -1.312 to -.288."
+    why: "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   t, df, slope-CI endpoint pair in day/dose, one-tail p
+    # correct result: values above, tolerances .01/.005.
+    # state/output: travel REG.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"test and interval for regression slope","givens":["b=-0.8 day/dose","SEb=0.25","df=28","t*=2.048"],"lines":[{"id":"L1","expression":"t=-0.8/0.25=-3.2","license":"state governing relationship"},{"id":"L2","expression":"CI=-0.8±2.048(0.25)=[-1.312,-0.288]","license":"substitute displayed values"},{"id":"L3","expression":"one-sided p=0.0017 for beta<0","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["t=-0.3125","CI centered at zero"],"correct_result":"t=-3.2; CI [-1.312,-0.288]; p=0.0017","answerText":"The negative slope is statistically supported, and its 95% interval excludes zero."}
+
+  # --- Stop 51: Count the Claims
+  #     Concept: registered tests; Keystone: keystone multiplicity/reporting; Area: Monitoring Board Room; Learning role: RETRIEVE; Difficulty: L4; Story role: clue.
+  #     placement: ATTEST, asked by Tomas Reed beside s51-count-the-claims.
+  - group: SAFE
+    title: "Count the Claims"
+    person: TODO   # the roster id of whoever asks it
+    concept: "registered tests"
+    reason: "Correction requires the true number of opportunities to claim a win."
+    scene: "The slope survives its own test, but the registry lists ten secondary analyses sharing one family. Verify all ten timestamps and reject an eleventh biomarker analysis added after results appeared."
+    motivation: "Counting only significant results would hide the number of chances that produced them."
+    format: ATTEST
+    question: "Verify the ten preregistered secondary-test timestamps and reject the post-result biomarker claim. Submit the ten-test correction family."
+    answerText: "The completed check shows the correction family contains ten pre-specified tests; the added biomarker is exploratory."
+    why: "Counting only significant results would hide the number of chances that produced them."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Count only significant tests
+    # correct result: The correction family contains ten pre-specified tests; the added biomarker is exploratory.
+    # state/output: travel BOARD.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:10,claims:[{id:"secondary_1",signed:true,backed:true,critical:true},{id:"secondary_2",signed:true,backed:true,critical:true},{id:"secondary_3",signed:true,backed:true,critical:true},{id:"secondary_4",signed:true,backed:true,critical:true},{id:"secondary_5",signed:true,backed:true,critical:true},{id:"secondary_6",signed:true,backed:true,critical:true},{id:"secondary_7",signed:true,backed:true,critical:true},{id:"secondary_8",signed:true,backed:true,critical:true},{id:"secondary_9",signed:true,backed:true,critical:true},{id:"secondary_10",signed:true,backed:true,critical:true},{id:"late_biomarker",signed:true,backed:false,critical:true}],correct_verified:["secondary_1","secondary_2","secondary_3","secondary_4","secondary_5","secondary_6","secondary_7","secondary_8","secondary_9","secondary_10"],critical_unbacked:"late_biomarker",answerText:"Count and verify all ten preregistered secondary claims; exclude the biomarker added after results appeared."}
+
+  # --- Stop 52: Correct Before Seeing
+  #     Concept: familywise error/complement/power; Keystone: keystone probability/errors; Area: Statistics & Analysis; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at s52-correct-before-seeing.
+  - group: STAT
+    at: TODO               # the fixture it is asked at
+    title: "Correct Before Seeing"
+    concept: "familywise error/complement/power"
+    reason: "The board must set a family threshold before sorting the ten p-values."
+    scene: "Ten independent null tests at alpha=.05 create about a 40% chance of at least one false positive. Commit the Bonferroni threshold, then reveal the secondary p-values and select survivors."
+    motivation: "Correction protects the family claim while preserving the observed effect sizes for transparent reporting."
+    format: TRIGGER
+    question: "calculate/commit 1-.95^10=.4013 and .05/10=.005; threshold scale 0-.05, anchors .001,.005,.01,.05; reveal p-values [.0017,.004,.007,.012,.02,.03,.08,.11,.24,.61]; survivors first two."
+    answerText: "Use alpha=.005 per test. The slope and one other claim survive; the biomarker does not enter the family."
+    why: "Correction protects the family claim while preserving the observed effect sizes for transparent reporting."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   family-risk percent, threshold, survivor selection
+    # correct result: 40.13%, .005 inclusive; first two survive.
+    # state/output: binder13; Evidence locks; M14.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{prediction:{equation:"family risk=1-(1-alpha)^m",inputs:{alpha:0.05,m:10},truth:0.4013,tolerance:0.002},decision_rule:"retain only p≤0.005",scale:{min:0,max:0.05,anchors:[0.001,0.005,0.01,0.05]},updates:[0.0017,0.004,0.007,0.012,0.02,0.03,0.08,0.11,0.24,0.61],correct_survivors:[0.0017,0.004],answerText:"Ten uncorrected tests have 40.13% family risk; the Bonferroni line is 0.005, so only the first two p-values survive."}
+

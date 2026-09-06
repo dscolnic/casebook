@@ -1,0 +1,208 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Six Seconds"
+  card:
+    header: "8 DAYS UNTIL COUNTY INSPECTION"
+    title: "SIX SECONDS"
+    goNow: "Go to the Pirate Ship console and meet Tunde Idowu, the controls engineer, at the timing trace."
+    body: "Hart interrupted the October sequence, but the bumper-car test shows no harmful impulse from that action. The pirate ship swings with a natural rhythm that can grow when the drive pushes at nearly the same rhythm. Measure its free period, test the drive interval, and compare the response with Hart's card. By the end of the mission, decide whether her override caused the danger or prevented it."
+    objective: "Determine the physical effect of Hart's pirate-ship override."
+  objective: "Determine the physical effect of Hart's pirate-ship override."
+  stake: "Hart interrupted the October sequence, but the bumper-car test shows no harmful impulse from that action. The pirate ship swings with a natural rhythm that can grow when the drive pushes at nearly the same rhythm. Measure its free period, test the drive interval, and compare the response with Hart's card. By the end of the mission, decide whether her override caused the danger or prevented it."
+  takeaway: "A disruptive action can be protective when it interrupts a growing physical instability."
+  segue: "Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to its free period, so each swing grew. The Bumper Car force stayed below its limit. The card now shows a safety act, not harm."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Rider mass does not set the simple-pendulum period."
+  - "Driving near the natural rhythm can add energy cycle after cycle."
+  - "A brake problem and a resonance problem predict different timing patterns."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-pirate-ship-console
+    # On arrival at Pirate Ship console | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The 6.15 s and 5.85 s traces appear together."
+    panel: "STOP 29-31 READY"
+    # unlocks: Stops 29-31.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "Close is not always harmless."
+  - id: after-stop-31
+    # After Stop 31 | automatic | 
+    on: { after: [3] }
+    world: "Low-power amplitude rises near the programmed interval."
+    panel: "STOP 32 READY"
+    # unlocks: Stop 32.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-32
+    # After Stop 32 | automatic | 
+    on: { after: [4] }
+    world: "Hart's card moves from POSSIBLE CAUSE to PROTECTIVE OVERRIDE."
+    panel: "POSSIBLE CAUSE"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: maya-hart   # Maya Hart
+      say: "I stopped it because each push was making the next swing larger."
+  - id: after-stop-32
+    # After Stop 32 | automatic | 
+    on: { after: [4] }
+    world: "Pirate Ship lights turn on; its control panel remains locked pending a new forbidden timing band."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Arm-nine file appears at the Ferris Wheel."
+    panel: "MISSION 8 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 29: Measure the free rhythm
+  #     Concept: Period and amplitude; Keystone: oscillation; Area: Pirate Ship console; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: SWEEP, asked at timing-trace.
+  - group: SHIP
+    at: timing-trace
+    title: "Measure the free rhythm"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Period and amplitude"
+    reason: "The drive interval has meaning only when compared with the ship's free period."
+    scene: "With the drive disconnected, sweep the displacement trace and mark successive peaks. Their spacing gives the ship's natural period without relying on the October control program or its disputed clock."
+    motivation: "Free motion provides the independent rhythm needed to judge the drive."
+    format: SWEEP
+    question: "OPERATE: Sweep the angular-displacement trace from 0.00 s to 24.60 s. MEASURE: Record two successive peak times in s and use T = t_next - t_previous. INTERPRET: Submit one numerical peak-to-peak period in s."
+    answerText: "The natural period is 6.15 s."
+    why: "Period is the time between equivalent points such as adjacent positive peaks."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Peak-to-trough time is half a period.
+    # correct result: Submit 6.15 s; accept 6.10-6.20 s.
+    # state/output: Write FREE PERIOD 6.15 s beside DRIVE INTERVAL 5.85 s.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {id: time, label: "Time", min: 0, max: 24.6, step: 0.15, unit: s}
+    #     response: {label: "Angular displacement", unit: deg}
+    #     model: "theta = 4.0 exp(-0.015t) cos(2pi t/6.15)"
+    #     peaks: [0,6.15,12.30,18.45,24.60]
+    #     correct_region: {min: 6.10, max: 6.20}
+    #     conclusion: "Successive positive peaks are separated by 6.15 s."
+
+  # --- Stop 30: Derive what controls the period
+  #     Concept: Pendulum period; Keystone: oscillation and gravitation; Area: Pirate Ship console; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, asked at ship-console-board.
+  - group: SHIP
+    at: floor-console
+    title: "Derive what controls the period"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Pendulum period"
+    reason: "The crew must know whether loading riders changes the dangerous timing."
+    scene: "The free period is known, but Hart needs to know whether sixty riders shift it away from the drive interval. Derive the small-angle relationship and identify which quantities cancel from the prediction."
+    motivation: "If mass cancels, adding riders cannot be trusted to remove the resonance risk."
+    format: DERIVE
+    question: "Given G = 6.67 x 10^-11 N m^2/kg^2, M_E = 5.97 x 10^24 kg, R_E = 6.37 x 10^6 m, and measured T = 6.15 s, use g = GM_E/R_E^2 and the small-angle torque model. Submit an ordered symbolic derivation of T = 2pi sqrt(L/g), one effective-length number in m, and a conclusion about mass dependence."
+    answerText: "Universal gravitation predicts g≈9.80 m/s²; the small-angle period then depends on effective length and gravity, not rider mass."
+    why: "Both inertia and gravitational restoring torque scale with mass, so the mass cancels."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   More mass increases both resistance to angular acceleration and gravitational torque by the same factor.
+    # correct result: Order model → substitute → solve → interpret; L≈9.38 m; mass cancels.
+    # state/output: Add LOAD DOES NOT REMOVE TIMING RISK to the panel.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: gravity, expression: "g = G M_E/R_E^2 = 9.80 m/s^2", rule: "universal gravitation at Earth's surface"}
+    #       - {id: torque, expression: "mL^2 theta_ddot = -mgL sin(theta)", rule: "rotational dynamics about pivot"}
+    #       - {id: small, expression: "theta_ddot = -(g/L)theta", rule: "small-angle sin(theta) approximately theta; cancel m"}
+    #       - {id: omega, expression: "omega^2 = g/L", rule: "SHM form"}
+    #       - {id: period, expression: "T = 2pi sqrt(L/g)", rule: "T = 2pi/omega"}
+    #     order: [gravity,torque,small,omega,period]
+    #     decoys:
+    #       - {expression: "T = 2pi sqrt(mL/g)", rule: "retain mass after it cancels from the equation of motion"}
+
+  # --- Stop 31: Establish resonance by reversal
+  #     Concept: Driven oscillation; Keystone: resonance; Area: Brennan's workshop; Learning role: PRACTICE; Difficulty: L3; Story role: reveal.
+  #     placement: CONTROL, asked at drive-console.
+  - group: SHIP
+    at: drive-console
+    title: "Establish resonance by reversal"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Driven oscillation"
+    reason: "Similar periods suggest resonance, but a causal test must change and restore the drive interval."
+    scene: "Run low-power drives at separated intervals, then return to 5.85 s. If amplitude grows only near the free period and returns on reversal, drive timing is the physical cause here."
+    motivation: "Reversible amplitude growth near one interval establishes a driven response rather than random brake variation."
+    format: CONTROL
+    question: "BASELINE: At low fixed drive power and interval 5.85 s, measure amplitude growth in degrees after five cycles. CHANGE ONE CONTROL: Set only the drive interval to 4.50 s, keeping drive power, test mass, starting amplitude, and damping fixed. MEASURE: Record growth after five cycles at 4.50 s. RESTORE: Return the interval to 5.85 s and measure five more cycles; restoration is required. INTERPRET: Submit one conclusion stating whether near-resonant timing causes the growth."
+    answerText: "Moving the drive away removes growth, and restoring 5.85 s restores it; near-resonant timing is causal."
+    why: "The response follows one changed variable beyond noise and reverses when that variable returns."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (riders) Added mass does not shift the small-angle pendulum period and changes more than the drive timing. (paint) Removing a decorative panel does not change the programmed drive interval or test resonance.
+    # correct result: Choice 1 - change drive interval only, measure amplitude, restore and remeasure.
+    # state/output: Set evidence_flags.resonance_verified = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:
+    #     baseline: {label: "Amplitude growth per 5 cycles at 5.85 s", value: 2.8, unit: deg}
+    #     noise_band: 0.2
+    #     changed_variable: "Drive interval from 5.85 s to 4.50 s and back"
+    #     fixed_conditions: ["Low drive power", "Test mass", "Starting amplitude", "Damping"]
+    #     measurement_timing: ["after five baseline cycles", "after five changed-interval cycles", "after five restored cycles"]
+    #     state_measurements: {baseline_growth_deg: 2.8, changed_growth_deg: 0.1, restored_growth_deg: 2.7}
+    #     candidates:
+    #       - {id: timing, label: "Move drive to 4.50 s, then restore 5.85 s", response: -2.7, correct: true}
+    #       - {id: riders, label: "Add test mass", response: 0.1, correct: false}
+    #       - {id: paint, label: "Remove decorative panel", response: 0.0, correct: false}
+    #     reversal_required: true
+
+  # --- Stop 32: Reinterpret the interruption
+  #     Concept: Whole-event diagnosis; Keystone: oscillation, impulse, evidence; Area: Pirate Ship console; Learning role: COMBINE; Difficulty: L4; Story role: twist.
+  #     placement: DIAGNOSIS, asked at collision-evidence-panel.
+  - group: SHIP
+    title: "Reinterpret the interruption"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Whole-event diagnosis"
+    reason: "Hart's action must fit both the pirate response and the quiet bumper-force test."
+    scene: "Near-resonant driving grows the ship's swing, while the independently measured bumper stop remains below its force limit. Diagnose the full effect of Hart's interruption across both tested ride systems today."
+    motivation: "The correct explanation must account for a disrupted sequence and the larger danger it prevented."
+    format: DIAGNOSIS
+    question: "Submit one causal conclusion that explains the free period 6.15 s, drive interval 5.85 s, rising pre-stop amplitude, dummy force 291 N < 350 N, and manual stop at 14:03 together."
+    choices:
+    - "{id: caused, label: \"Override created the resonance\", mechanism: \"Growth began before stop.\"}"
+    - "{id: prevented, label: \"Override interrupted near-resonant driving\", mechanism: \"Fits timing, growth, and quiet collision force.\"}"
+    - "{id: mass, label: \"Too many riders changed the period\", mechanism: \"Mass cancels.\"}"
+    - "{id: brake, label: \"One brake fault explains both\", mechanism: \"Timing dependence and quiet force contradict it.\"}"
+    answerText: "Hart's override interrupted near-resonant driving and prevented further amplitude growth."
+    why: "The ship was already gaining amplitude, moving the drive interval removes growth, and the bumper interruption did not exceed its force limit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (caused) Amplitude growth begins before Hart's stop, so the override cannot have created it. (mass) Rider mass cancels from the small-angle period model. (brake) A shared brake fault does not explain the drive-interval dependence or the quiet collision-force evidence.
+    # correct result: Choice 2 - near-resonant timing; Hart's override was protective.
+    # state/output: Set hart_vindicated = true; unlock forbidden drive-band design.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "EFFECT OF THE 14:03 MANUAL INTERRUPTION"
+    #   readings:
+    #     - {zone: ship, label: "Free period / drive interval", value: "6.15 s / 5.85 s", state: alarm}
+    #     - {zone: ship, label: "Amplitude trend before stop", value: "rising", state: alarm}
+    #     - {zone: bumper, label: "Dummy average force", value: "291 N < 350 N", state: quiet}
+    #     - {zone: control, label: "Manual stop", value: "14:03", state: quiet}
+    #   choices:
+    #     - {id: caused, label: "Override created the resonance", mechanism: "Growth began before stop."}
+    #     - {id: prevented, label: "Override interrupted near-resonant driving", mechanism: "Fits timing, growth, and quiet collision force."}
+    #     - {id: mass, label: "Too many riders changed the period", mechanism: "Mass cancels."}
+    #     - {id: brake, label: "One brake fault explains both", mechanism: "Timing dependence and quiet force contradict it."}
+    #   answer: prevented
+

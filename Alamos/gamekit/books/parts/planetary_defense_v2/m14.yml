@@ -1,0 +1,274 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Second Echo"
+  card:
+    header: "IMPACT WINDOW: 1 DAY"
+    title: "THE SECOND ECHO"
+    goNow: "Go to Coordination for the anomaly review, inspect the second return at Radar, and open any new orbit track at Orbit Determination."
+    body: "The main body is headed for deep ocean, but the weak radar shoulder has separated from its predicted echo. One instrument anomaly could be harmless; agreement with a fresh optical point would make it a new object. Verify the primary, probe the return, trace independence, and diagnose the minimum claim. By the end of the mission, you will decide whether the apparent all-clear hides a separate damaging fragment."
+    objective: "Decide whether the apparent all-clear hides a separate damaging fragment."
+  objective: "Decide whether the apparent all-clear hides a separate damaging fragment."
+  stake: "The main body is headed for deep ocean, but the weak radar shoulder has separated from its predicted echo. One instrument anomaly could be harmless; agreement with a fresh optical point would make it a new object. Verify the primary, probe the return, trace independence, and diagnose the minimum claim. By the end of the mission, you will decide whether the apparent all-clear hides a separate damaging fragment."
+  takeaway: "Preserve the anomaly long enough for it to become evidence. ---"
+  segue: "Mission decision: Keep the main-body land stand-down. Open a new track for the separate 32 m piece. Start urgent search work and staged plans for it."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A new object can exist without invalidating the verified primary orbit."
+  - "Independent relative motion distinguishes separation from a connected rotating lobe."
+  - "Object existence and impact location are separate claims requiring different evidence."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coordination-office
+    # On arrival at Coordination Office | automatic | 
+    on: { enter: true, at: OPS }
+    world: "Mira orders one final anomaly review before demobilization."
+    panel: "THE SECOND ECHO / MISSION ACTIVE"
+    # unlocks: Stop 53.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-53
+    # After Stop 53 | automatic | 
+    on: { after: [1] }
+    world: "Tomás verifies the main echo and measures a separating secondary."
+    panel: "THE SECOND ECHO / FIRST RESULT LOGGED"
+    # unlocks: The Bistatic Radar Range waypoint and Stop 54.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-54
+    # After Stop 54 | automatic | 
+    on: { after: [2] }
+    world: "Lena reports an uncataloged optical point at the secondary ephemeris."
+    panel: "THE SECOND ECHO / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 55.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-55
+    # After Stop 55 | automatic | 
+    on: { after: [3] }
+    world: "Malik opens a distinct fragment track: approximately 32 meters."
+    panel: "THE SECOND ECHO / DECISION EVIDENCE READY"
+    # unlocks: The Orbit Determination Center waypoint and Stop 56.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THE SECOND ECHO / MISSION DECISION LOGGED"
+    # unlocks: Mission 14 outcome, metric screen, concept review, and Mission 15 briefing.
+    bubbles:
+    - who: ibarra   # Tomás Ibarra
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 53: Verify the primary track
+  #     Concept: primary solution; Keystone: evidence/verification; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: evidence.
+  #     placement: VERIFY, at scopeboard.
+  - group: ORBIT
+    at: scopeboard
+    title: "Verify the primary track"
+    concept: "primary solution"
+    reason: "The review must not casually reopen a solution that passed independent tests."
+    scene: "Compare the released primary ephemeris with the corrected optical fit, independent radar holdout, and the complete archived provenance record. Verify whether any new evidence actually contradicts the main ocean-impact track."
+    motivation: "Revision changes the claims touched by new evidence, not every result."
+    format: VERIFY
+    question: "Commit the numerical prediction set (0.00 arcsec, 18,420 km, and 0 missing links) and both acceptance tolerances before the panels unlock; then operate each panel, measure all three results, and submit three PASS/FAIL checks plus KEEP PRIMARY TRACK or REOPEN PRIMARY TRACK."
+    answerText: "A second signal may add an object without making the first solution wrong."
+    why: "VERIFY applies explicit acceptance criteria."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A new anomaly does not discard unrelated verified evidence.
+    # correct result: Keep the primary ocean solution.
+    # state/output: PRIMARY TRACK LOCKED.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:
+    #     prediction_commit_required: true
+    #     prediction:
+    #       prompt: Commit the optical residual, independent radar range, and missing-link predictions before opening the evidence panels.
+    #       formula: "optical pass if |mean| <= 0.10 arcsec; radar pass if |measured - 18420 km| <= 12 km; provenance pass if missing links = 0"
+    #       correct: {corrected_optical_mean_arcsec: 0.00, independent_radar_range_km: 18420, missing_provenance_links: 0}
+    #       unit: mixed_as_labeled
+    #       tolerance: {optical_abs_mean_arcsec: 0.10, radar_abs_difference_km: 12, missing_links: 0}
+    #     evidence_unlocks_after_commit: true
+    #     action: {id: inspect_panels, label: Inspect corrected optical, independent radar, and provenance panels}
+    #     measurement:
+    #       corrected_optical_mean_arcsec: 0.01
+    #       independent_radar_range_km: 18426
+    #       missing_provenance_links: 0
+    #     checks: {corrected_optical_fit: pass, independent_radar_holdout: pass, provenance: pass}
+    #     required_sequence: [commit_prediction, inspect_panels, measure_all_three_results, interpret]
+    #     truth: All three numerical checks pass, so the primary ocean track remains verified.
+    #     correct_conclusion: keep_primary_track
+
+  # --- Stop 54: Probe the separated return
+  #     Concept: secondary echo; Keystone: observation/analysis; Area: Bistatic Radar Range; Learning role: REINFORCE; Difficulty: L5; Story role: analysis.
+  #     placement: PROBE, at radar-console.
+  - group: RADAR
+    at: radar-console
+    title: "Probe the separated return"
+    concept: "secondary echo"
+    reason: "A detached return develops a path distinct from rotating lobes."
+    scene: "Probe the latest radar frames and compare the weak return with predictions for a connected lobe, stationary interference, and a freely separating body. Track whether its delay changes independently over time."
+    motivation: "Independent relative motion distinguishes a separate object from structure or artifact."
+    format: PROBE
+    question: "Submit all six measured secondary-minus-primary delays in milliseconds and one classification: CONNECTED LOBE, STATIONARY INTERFERENCE, or SEPARATING-BODY CANDIDATE."
+    answerText: "Its delay changes independently from the primary."
+    why: "PROBE tests competing time-series predictions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Radar supports candidacy, not yet a public declaration.
+    # correct result: Candidate separated body, pending independent evidence.
+    # state/output: SECONDARY TRACK CANDIDATE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:
+    #     points:
+    #       - id: frame_1
+    #         load: "Calibrated frame 1; measure secondary delay relative to the primary."
+    #         reading: {secondary_minus_primary_delay_ms: 0.20}
+    #         expected: {separating_body_delay_ms: 0.20}
+    #         comparison: "Matches the separating-body prediction; connected-lobe and interference baselines begin at 0.20 ms."
+    #       - id: frame_2
+    #         load: "Calibrated frame 2; compare with all three motion models."
+    #         reading: {secondary_minus_primary_delay_ms: 0.34}
+    #         expected: {separating_body_delay_ms: 0.35}
+    #         comparison: "Increases as predicted; stationary interference would remain near 0.20 ms."
+    #       - id: frame_3
+    #         load: "Calibrated frame 3; test for periodic merging or monotonic separation."
+    #         reading: {secondary_minus_primary_delay_ms: 0.51}
+    #         expected: {separating_body_delay_ms: 0.50}
+    #         comparison: "Matches monotonic separation; a connected lobe would begin returning toward the primary."
+    #       - id: frame_4
+    #         load: "Calibrated frame 4; continue the independent-delay track."
+    #         reading: {secondary_minus_primary_delay_ms: 0.66}
+    #         expected: {separating_body_delay_ms: 0.65}
+    #         comparison: "Continues outward instead of periodically merging."
+    #       - id: frame_5
+    #         load: "Calibrated frame 5; compare the measured offset with the free-separation prediction."
+    #         reading: {secondary_minus_primary_delay_ms: 0.79}
+    #         expected: {separating_body_delay_ms: 0.80}
+    #         comparison: "Within 0.01 ms of the station-specific free-separation expectation."
+    #       - id: frame_6
+    #         load: "Calibrated frame 6; perform the final model comparison."
+    #         reading: {secondary_minus_primary_delay_ms: 0.96}
+    #         expected: {separating_body_delay_ms: 0.95}
+    #         comparison: "The full series is monotonic; interference would be stationary and a lobe would merge periodically."
+    #     model_expectations:
+    #       connected_lobe: periodic_merge
+    #       stationary_interference: constant_delay
+    #       separating_body: monotonic_delay_increase
+    #     correct_classification: separating_body_candidate
+    #     required_samples: [frame_1, frame_2, frame_3, frame_4, frame_5, frame_6]
+    #     truth: {motion_pattern: monotonic_delay_increase, classification: separating_body_candidate}
+    #     commit_gate: All six calibrated frames sampled.
+
+  # --- Stop 55: Trace independent confirmation
+  #     Concept: confirmation; Keystone: provenance/independence; Area: Bistatic Radar Range; Learning role: REINFORCE; Difficulty: L5; Story role: evidence.
+  #     placement: TRACE, at echo-archive.
+  - group: RADAR
+    at: echo-archive
+    title: "Trace independent confirmation"
+    concept: "confirmation"
+    reason: "A second instrument must not secretly reuse the radar signal."
+    scene: "Lena reports a faint optical point near the predicted secondary ephemeris after the radar shift begins. Trace its image, timestamp, reduction pipeline, and blind-search log to decide whether it independently confirms the radar candidate."
+    motivation: "Independent detection lowers the chance that one instrument's artifact created the object."
+    format: TRACE
+    question: "Submit the completed optical dependency chain and one conclusion: INDEPENDENT or NOT INDEPENDENT."
+    # Converted from the payload's `trace`. Its `shared_resources` are the
+    # engine's `resources`, `depends_on` is `depends`, and the payload's
+    # `truth.independent_channels` is the board's `independent` list — which is
+    # where the engine reads it from, never a flag on the channel itself.
+    trace:
+      resources:
+      - { id: disc_optical, label: DISC optical packet and reduction }
+      - { id: radar_path, label: "RADAR hardware, clock, and processing" }
+      target: disc_optical
+      channels:
+      - { id: optical_position, label: Optical sky position, reading: candidate present, depends: [disc_optical] }
+      - { id: optical_timestamp, label: Optical UTC timestamp, reading: timestamp valid, depends: [disc_optical] }
+      - { id: blind_search, label: Blind-search log, reading: search completed before coordinate share, depends: [disc_optical] }
+      - { id: radar_delay, label: Radar secondary delay, reading: monotonic separation, depends: [radar_path] }
+      independent: [radar_delay]
+      commit: Report the dependency chain
+    answerText: "Separate hardware, timing, processing, and blind search break the error chain."
+    why: "TRACE establishes evidence origin and dependencies."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Agreement is strongest when channels could fail differently.
+    # correct result: Accept independent confirmation.
+    # state/output: SECONDARY DETECTION transferred to ORBIT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:
+    #     shared_resources:
+    #       - {id: disc_optical, label: DISC optical packet and reduction}
+    #       - {id: radar_path, label: RADAR hardware, clock, and processing}
+    #     target: disc_optical
+    #     channels:
+    #       - {id: optical_position, label: Optical sky position, reading: candidate present, expected: point near secondary ephemeris, depends_on: [disc_optical]}
+    #       - {id: optical_timestamp, label: Optical UTC timestamp, reading: valid, expected: separate clock pass, depends_on: [disc_optical]}
+    #       - {id: blind_search, label: Blind-search log, reading: search completed before coordinate share, expected: no radar coordinates used, depends_on: [disc_optical]}
+    #       - {id: radar_delay, label: Radar secondary delay, reading: monotonic separation, expected: separating-body track, depends_on: [radar_path]}
+    #     truth: {dependent_channels: [optical_position, optical_timestamp, blind_search], independent_channels: [radar_delay]}
+    #     correct: Optical and radar detections are independent evidence paths.
+
+  # --- Stop 56: Diagnose the fragment
+  #     Concept: fragment identification; Keystone: synthesis/decision; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: diagnosis.
+  #     placement: DIAGNOSIS, at fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Diagnose the fragment"
+    concept: "fragment identification"
+    reason: "Open a new hazard track without overstating a one-night orbit."
+    scene: "Radar separation, independent optical detection, and brightness consistent with roughly 32 meters now require one shared explanation. Diagnose the minimum claim, preserve broad trajectory uncertainty, and reopen the response protocol."
+    motivation: "A smaller object can carry lower energy yet greater land exposure."
+    format: DIAGNOSIS
+    question: "Diagnose the evidence and state the immediate action."
+    # Converted from the payload's `headline` / `readings` / `choices` / `answer`.
+    # The choices arrived as quoted strings of the payload's own flow maps; they
+    # are the same four candidates written as mappings so the panel can read
+    # them, and `answer` is the label of the candidate the payload keys by id.
+    headline: "Which claim fits all fragment evidence without exceeding it?"
+    readings:
+    - { zone: radar, label: independent delay change, value: monotonic across six frames, status: alarm }
+    - { zone: optical, label: independent point, value: recovered near predicted secondary ephemeris, status: alarm }
+    - { zone: brightness, label: conditional diameter, value: about 32 m, status: alarm }
+    - { zone: orbit, label: corridor, value: broad one-night solution, status: quiet }
+    choices:
+    - { id: artifact, label: Radar artifact only, mechanism: contradicted by independent optical recovery }
+    - { id: attached_lobe, label: Attached rotating lobe, mechanism: contradicted by monotonic independent delay }
+    - { id: fragment, label: Separated fragment with broad corridor, mechanism: "fits radar, optical, and brightness evidence" }
+    - { id: known_city, label: Confirmed city impact, mechanism: exceeds the one-night orbit evidence }
+    answer: "Separated fragment with broad corridor"
+    answerText: "Real enough to pursue; uncertain enough to forbid a bullseye."
+    why: "DIAGNOSIS synthesizes findings while retaining uncertainty."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Existence and location are different claims.
+    # correct result: Open a verified fragment track and urgent recovery, not a city order.
+    # state/output: 32 M FRAGMENT TRACK opens.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: Which claim fits all fragment evidence without exceeding it?
+    #   readings:
+    #     - {zone: radar, label: independent delay change, value: monotonic across six frames, status: alarm}
+    #     - {zone: optical, label: independent point, value: recovered near predicted secondary ephemeris, status: alarm}
+    #     - {zone: brightness, label: conditional diameter, value: about 32 m, status: alarm}
+    #     - {zone: orbit, label: corridor, value: broad one-night solution, status: quiet}
+    #   choices:
+    #     - {id: artifact, label: Radar artifact only, mechanism: contradicted by independent optical recovery}
+    #     - {id: attached_lobe, label: Attached rotating lobe, mechanism: contradicted by monotonic independent delay}
+    #     - {id: fragment, label: Separated fragment with broad corridor, mechanism: fits radar, optical, and brightness evidence}
+    #     - {id: known_city, label: Confirmed city impact, mechanism: exceeds the one-night orbit evidence}
+    #   answer: fragment
+    #   required_action: urgent_recovery_plus_reversible_staging
+

@@ -1,0 +1,155 @@
+# ============================================================ MISSION 12
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Predict, Then Fire"
+  card:
+    header: "4 DAYS;"
+    title: "Predict, Then Fire"
+    goNow: "Impulse Hall, Elise Strand at bank stages."
+    body: "The conduit carried one third of the strike, and a temporary reroute is ready. A repair earns trust only if it predicts fields and induced voltage before a new pulse. You will calculate the reduced shot, commit the prediction, measure current at the mast, and compare trench voltage. By the end of the mission, decide whether the reroute is safe for a full shot."
+    objective: "Verify the reroute with a committed quantitative prediction."
+  objective: "Verify the reroute with a committed quantitative prediction."
+  stake: "The conduit carried one third of the strike, and a temporary reroute is ready. A repair earns trust only if it predicts fields and induced voltage before a new pulse. You will calculate the reduced shot, commit the prediction, measure current at the mast, and compare trench voltage. By the end of the mission, decide whether the reroute is safe for a full shot."
+  takeaway: "The reroute is safe for a full shot under the stated tolerance. ---"
+  segue: "Mission decision: The reroute is safe for a full shot under the stated tolerance. The reduced test measured 92 V against a 90 V prediction. And the worst allowed full-shot case is 224 V, below 250 V. The remaining question is whether the recorders can see the fastest pulse. Metric target 25:00."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-impulse-hall
+    # On arrival at Impulse Hall | s45-calculate-reduced-energy | automatic
+    on: { enter: true, at: TODO }   # s45-calculate-reduced-energy
+    world: "accepted BANK/bubble/charge controls locked/→S1; S2 correct/panel/prediction seal 90 V/PREDICTION LOCKED→MAST; enter MAST/fixture/shot control enabled/25.0 kV STAGES • 8 mm GAP • REROUTE FIXED→S3; S3 complete/waypoint/measurements logged/Take 92 V to the trench tolerance board.→EARTH/S4; S4 correct/world/reroute tag green+PASS text/WORST CASE 224 V < 250 V→outcome."
+    panel: "Elise Strand, impulse engineer: \"Calculate first. The charger stays locked until the number is committed.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Calculate first. The charger stays locked until the number is committed."
+  - id: after-stop-45
+    # After Stop 45 | s46-predict-reroute-voltage | automatic
+    on: { after: [1] }
+    world: "The calculate reduced energy result remains visible while the predict reroute voltage fixture lights."
+    panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 45 result to settle predict reroute voltage."
+  - id: after-stop-46
+    # After Stop 46 | s47-fire-the-reduced-test | automatic
+    on: { after: [2] }
+    world: "The predict reroute voltage result remains visible while the fire the reduced test fixture lights."
+    panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 46 result to settle fire the reduced test."
+  - id: after-stop-47
+    # After Stop 47 | s48-stress-worst-case-coupling | automatic
+    on: { after: [3] }
+    world: "The fire the reduced test result remains visible while the stress worst-case coupling fixture lights."
+    panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 47 result to settle stress worst-case coupling."
+  - id: at-mission-end
+    # At mission end | s45-calculate-reduced-energy | automatic
+    on: { enter: true, at: TODO }   # s45-calculate-reduced-energy
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 12 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The measured 92 V lies inside the 80-100 V window; earth the bank and record PASS."
+
+  stops:
+  # --- Stop 45: Calculate Reduced Energy
+  #     Concept: reduced energy; Keystone: K5,K6; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L3.
+  #     placement: BALLPARK, at s45-calculate-reduced-energy.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Calculate Reduced Energy"
+    concept: "reduced energy"
+    reason: "reduced shot must meet energy cap."
+    scene: "The test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Estimate total stored energy using U_total=12(½CV²) before the charging control unlocks.\", and record the result with its physical justification in the station report."
+    motivation: "halving voltage quarters capacitor energy."
+    format: BALLPARK
+    question: "Using twelve 100 nF stages at 25.0 kV, assemble U_total=12(½CV²) and submit total energy in joules before the charger unlocks."
+    answerText: "The completed check shows reduced bank energy is 375 J. Halving V quarters U."
+    why: "halving voltage quarters capacitor energy."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The bank still has twelve stages; change only stage voltage.
+    # correct result: Reduced bank energy is 375 J. Halving V quarters U.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   target 375J, tolerance 5%, visible constants. Prompt assemble/submit J.
+
+  # --- Stop 46: Predict Reroute Voltage
+  #     Concept: mutual emf; Keystone: K10,K11; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: DERIVE, at s46-predict-reroute-voltage.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Predict Reroute Voltage"
+    concept: "mutual emf"
+    reason: "reroute must make a numerical promise."
+    scene: "The old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. The reroute lowers mutual inductance to 0.60 microH; derive its pulse prediction and justify the change."
+    motivation: "mutual inductance links the geometry repair directly to measurable voltage."
+    format: DERIVE
+    question: "Build the mutual-emf calculation for M_new=0.60 μH, first at 3.0×10^8 A/s and then at half that rise rate; submit both voltages in volts and commit the reduced prediction."
+    answerText: "The completed check shows 180 V at full derivative; 90 V at reduced derivative."
+    why: "mutual inductance links the geometry repair directly to measurable voltage."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Apply both changes in order: new M, then half dI/dt.
+    # correct result: 180 V at full derivative; 90 V at reduced derivative.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines |ε|=M|dI/dt|; substitution .60e-6×3e8; 180V; for half rise rate reduced shot 90V. Prompt build lines/rules, submit 90V, tolerance 5V. State commit locked→S3.
+
+  # --- Stop 47: Fire the Reduced Test
+  #     Concept: staged verification; Keystone: K7,K10,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: VERIFY, at s47-fire-the-reduced-test.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Fire the Reduced Test"
+    concept: "staged verification"
+    reason: "prediction must be frozen before the bank fires."
+    scene: "The committed reduced-shot prediction is 90 V. Fire only the 25.0 kV stage setting, keep gap spacing 8 mm and reroute geometry fixed, then collect peak current and rise time, and the team needs this result before it acts."
+    motivation: "operation cannot tune the prediction after the measurement."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Lock 90 V. OPERATE: Fire only 25.0 kV stages with 8 mm gap and reroute fixed. MEASURE: Record current, rise rate, and trailer peak. INTERPRET: Earth the bank and submit PASS or FAIL against 80–100 V."
+    answerText: "The completed check shows measured 92 V passes the committed 80–100 V band."
+    why: "operation cannot tune the prediction after the measurement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Commit before firing, keep named controls fixed, collect every reading, and earth the bank.
+    # correct result: Measured 92 V passes the committed 80–100 V band.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{submit:{quantity:"trailer peak",unit:"V",truth:90,tolerance:10}},equipment_locked_until_prediction_commit:true,operation:{action:"fire reduced test",settings:{stage_voltage:25.0,unit:"kV",gap:8,unit_gap:"mm"},fixed:["reroute"]},measurements:{current:15,unit_current:"kA",rise_rate:1.5e8,unit_rise:"A/s",trailer_peak:92,unit_peak:"V"},restore:{required:true,action:"earth the bank",remeasure:false},acceptance:[80,100],correct_conclusion:"PASS",answerText:"The measured 92 V lies inside the 80-100 V window; earth the bank and record PASS."}
+
+  # --- Stop 48: Stress Worst-Case Coupling
+  #     Concept: uncertainty; Keystone: K12,K11; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L5 decision.
+  #     placement: STRESS, asked by Dr. Lena Ortiz beside s48-stress-worst-case-coupling.
+  - group: COUPLE
+    title: "Stress Worst-Case Coupling"
+    person: TODO   # the roster id of whoever asks it
+    concept: "uncertainty"
+    reason: "full-shot safety needs extrapolation across component tolerance."
+    scene: "The reduced shot measured 92 V, but the full shot has uncertain coupling and rise rate. Vary mutual inductance from 0.50 to 0.70 microH and dI/dt from 2.8 to 3.2×10^8 A/s, then test the 250 V limit."
+    motivation: "the repair passes only if every allowed pair stays below the campaign limit."
+    format: STRESS
+    question: "Adjust M and dI/dt through both displayed ranges, submit the numerical worst-case pair and voltage in volts, then select safe or unsafe against the inclusive 250 V limit."
+    answerText: "The completed check shows worst pair gives 224 V, below 250 V."
+    why: "the repair passes only if every allowed pair stays below the campaign limit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Submit the numerical pair and worst voltage before selecting the safe plan.
+    # correct result: Worst pair gives 224 V, below 250 V.
+    # state/output: report piece12.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   ranges; maximum 224V; correct pass. Prompt move assumptions, submit worst voltage/conclusion.
+

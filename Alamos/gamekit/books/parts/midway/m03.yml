@@ -1,0 +1,202 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Turning Inward"
+  card:
+    header: "13 DAYS UNTIL COUNTY INSPECTION"
+    title: "TURNING INWARD"
+    goNow: "Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, at the hanging-chair rig."
+    body: "The pirate ship carries its static load, so the unexplained event happened during motion. A rider moving in a circle must keep accelerating inward even when speed stays constant. At the Carousel, connect speed, radius, force, and hanging angle, then write a shutdown rule before testing. By the end of the mission, decide whether the recorded carousel setting is physically safe."
+    objective: "Set and test a safe carousel speed from the required inward force."
+  objective: "Set and test a safe carousel speed from the required inward force."
+  stake: "The pirate ship carries its static load, so the unexplained event happened during motion. A rider moving in a circle must keep accelerating inward even when speed stays constant. At the Carousel, connect speed, radius, force, and hanging angle, then write a shutdown rule before testing. By the end of the mission, decide whether the recorded carousel setting is physically safe."
+  takeaway: "A safety model becomes useful when it produces a threshold written before the test."
+  segue: "Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 20 degrees. The platform is now level, and the stop rule is 4.20 m/s. The replacement controller has no signed install record."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Constant speed does not mean zero acceleration when direction changes."
+  - "\"Centripetal force\" is the name for the net inward force, not an additional force."
+  - "Commit a safety threshold before seeing the test result."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-carousel-drive-house
+    # On arrival at Carousel Drive House | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Idowu keeps the replacement-controller crate closed."
+    panel: "STOP 9 READY"
+    # unlocks: Stop 9.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "We do not replace a cause we have not tested."
+  - id: after-stop-9
+    # After Stop 9 | automatic | 
+    on: { after: [1] }
+    world: "Inward arrows appear around the carousel."
+    panel: "STOP 10 READY"
+    # unlocks: Stop 10.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stops-10-and-11
+    # After Stops 10 and 11 | automatic | 
+    on: { after: [2, 3] }
+    world: "The leveled platform removes the asymmetric chair angles."
+    panel: "STOP 12 READY"
+    # unlocks: Stop 12.
+    bubbles:
+    - who: luka-kova   # Luka Kovač
+      say: "The tilt was real. It was not the speed command."
+  - id: after-stop-12
+    # After Stop 12 | automatic | 
+    on: { after: [4] }
+    world: "The 4.20 m/s shutdown rule prints before the live value of 4.00 m/s appears."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The controller replacement line on the service sheet flashes NO INSTALLATION SIGN-OFF."
+    panel: "NO INSTALLATION SIGN-OFF"
+    # unlocks: Mission 4.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 9: Derive the inward acceleration
+  #     Concept: circular acceleration; Keystone: circular motion; Area: Carousel Drive House; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, asked at chain-rig.
+  - group: CAROUSEL
+    at: chain-rig
+    title: "Derive the inward acceleration"
+    person: TODO   # the roster id of whoever asks it
+    concept: "circular acceleration"
+    reason: "The chair limit needs a relationship between speed, radius, and inward acceleration."
+    scene: "The chair travels at steady speed, but its velocity arrow turns continuously around the platform. Build the relation that converts that direction change into the inward acceleration used by the force model."
+    motivation: "The chain must provide the acceleration required by the curved path."
+    format: DERIVE
+    question: "Starting from Delta v / v = Delta s / r and Delta s = v Delta t, submit one ordered symbolic derivation ending with the magnitude and direction of centripetal acceleration."
+    answerText: "Uniform circular motion has inward acceleration v²/r even when speed is constant."
+    why: "Direction changes by the same small angle as the position around the circle. Dividing the velocity change by time produces v²/r."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Constant speed fixes the velocity magnitude, not its direction.
+    # correct result: Order: radial acceleration → force balance → tangent relation; ac=v²/r inward.
+    # state/output: Illuminate inward arrows on the carousel model.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: similar, expression: "dv/v = ds/r", rule: "similar triangles for velocity and position"}
+    #       - {id: arc, expression: "ds = v dt", rule: "distance traveled at speed v"}
+    #       - {id: divide, expression: "dv/dt = v(v/r)", rule: "substitute and divide by dt"}
+    #       - {id: result, expression: "ac = v^2/r toward the center", rule: "acceleration is velocity change per time"}
+    #     order: [similar, arc, divide, result]
+    #     decoys:
+    #       - {expression: "ac = v/r", rule: "divide speed by radius once"}
+
+  # --- Stop 10: Hold the chair inside its limit
+  #     Concept: speed, radius, and chair angle; Keystone: circular motion; Area: Carousel Drive House; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: HOLD, asked at drive-panel.
+  - group: CAROUSEL
+    at: drive-panel
+    title: "Hold the chair inside its limit"
+    person: TODO   # the roster id of whoever asks it
+    concept: "speed, radius, and chair angle"
+    reason: "The operator needs a speed band that keeps the chair below the fictional angle limit."
+    scene: "Use the five-metre chair radius to hold the ride below its twenty-degree campaign limit while simulated loads push its speed. The live angle shows whether the force balance remains acceptable."
+    motivation: "Greater speed requires more inward force and makes the chair hang farther from vertical."
+    format: HOLD
+    question: "Given r = 5.0 m, g = 9.80 m/s^2, theta_max = 20.0 degrees, and tan theta = v^2/(rg), operate the chair-speed control for 12 s and submit one maximum safe speed setting in m/s."
+    answerText: "A 4.20 m/s threshold keeps the five-metre-radius chair within the 20.0-degree campaign limit."
+    why: "tan θ = v²/(rg). Speed enters squared, so a modest increase can use the remaining angle margin quickly."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not compare speed directly with degrees; use the force balance that connects them.
+    # correct result: Maximum 4.22 m/s; submit operator setting 4.20 m/s.
+    # state/output: Store carousel_speed_candidate = 4.20.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   hold:
+    #     control: {id: speed, label: "Chair speed", min: 2.5, max: 5.0, step: 0.05, unit: m/s}
+    #     response: {label: "Chair angle", formula: "atan(v^2/(r*g))", unit: deg}
+    #     fixed: {r: 5.0, g: 9.80}
+    #     band: {min: 0, max: 20.0, inclusive: true}
+    #     duration: 12
+    #     correct_setting: {max: 4.20, unit: m/s, tolerance: 0.05}
+    #     conclusion: "A 4.20 m/s maximum setting keeps the chair within the 20.0-degree limit."
+
+  # --- Stop 11: Separate tilt from speed
+  #     Concept: controlled reversal; Keystone: model limits and evidence independence; Area: Brennan's workshop; Learning role: APPLY; Difficulty: L3; Story role: clue.
+  #     placement: CONTROL, asked at platform-jacks.
+  - group: CAROUSEL
+    at: platform-jacks
+    title: "Separate tilt from speed"
+    person: TODO   # the roster id of whoever asks it
+    concept: "controlled reversal"
+    reason: "Unequal chair angles could come from speed or a tilted platform."
+    scene: "Left-side chairs hang farther out than right-side chairs at the same drive command. Change one platform condition, reverse it, and determine whether leveling removes the asymmetry without changing the commanded speed."
+    motivation: "Reversal can establish whether platform tilt causes the left-right difference."
+    format: CONTROL
+    question: "BASELINE: At commanded speed 4.00 m/s, measure the left-right chair-angle difference in degrees. CHANGE ONE CONTROL: Remove the platform shims to level the platform while keeping speed 4.00 m/s, rider mass, chair radius, and drive program fixed. MEASURE: Record the angle difference after leveling. RESTORE: Reinstall the shims and remeasure; restoration is required. INTERPRET: Submit one conclusion naming whether platform tilt causes the asymmetry."
+    answerText: "Platform tilt causes the left-right angle difference; the drive speed affects both sides together."
+    why: "The chosen intervention changes only level and reverses the response beyond the noise band."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (speed) Lowering all-chair speed changes both sides together, so it cannot isolate the left-right platform tilt. (load) Removing one rider changes the load asymmetrically and confounds the tilt test.
+    # correct result: Select level/unlevel control; response changes 2.4° → 0.1° → 2.4°.
+    # state/output: Level the platform permanently; set evidence_flags.carousel_tilt_fixed = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:
+    #     baseline: {label: "Left-right angle difference", value: 2.4, unit: deg}
+    #     noise_band: 0.2
+    #     changed_variable: "Platform level via removal and restoration of shims"
+    #     fixed_conditions: ["Commanded speed 4.00 m/s", "Rider mass", "Chair radius", "Drive program"]
+    #     measurement_timing: [baseline, after_leveling, after_shim_restoration]
+    #     state_measurements: {baseline_deg: 2.4, leveled_deg: 0.1, restored_deg: 2.4}
+    #     candidates:
+    #       - {id: level, label: "Level the platform, then restore the shims", response: -2.3, correct: true}
+    #       - {id: speed, label: "Lower all-chair speed", response: -0.1, correct: false}
+    #       - {id: load, label: "Remove one rider", response: 0.1, correct: false}
+    #     reversal_required: true
+
+  # --- Stop 12: Write the rule before the run
+  #     Concept: precommitted threshold; Keystone: circular motion and model limits; Area: Carousel Drive House; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: TRIGGER, asked at drive-panel.
+  - group: CAROUSEL
+    at: drive-panel
+    title: "Write the rule before the run"
+    person: TODO   # the roster id of whoever asks it
+    concept: "precommitted threshold"
+    reason: "The live test must not be allowed to define its own passing limit."
+    scene: "With tilt removed and the speed-angle relation established, commit the stop rule before Idowu reveals the controller value. The rule must keep every chair at or below the stated limit."
+    motivation: "A prewritten threshold converts the model into an action the operator can follow."
+    format: TRIGGER
+    question: "Given r = 5.0 m, g = 9.80 m/s^2, theta_max = 20.0 degrees, and tan theta = v^2/(rg), submit one inclusive shutdown-threshold setting in m/s before the live speed unlocks; operation stops when measured speed is at or above that setting."
+    answerText: "Use an inclusive 4.20 m/s shutdown threshold; the 4.00 m/s test value passes."
+    why: "The exact model boundary is about 4.22 m/s. The authored threshold stays just below it and clearly states what happens at equality."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A threshold above the model boundary does not protect the angle limit.
+    # correct result: Submit shutdown setting 4.20 m/s, comparator at_or_above; 4.00 m/s passes.
+    # state/output: Set ride_status.carousel = conditional_pass; print the threshold card.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     decision_rule: "Stop the ride when measured speed reaches or exceeds the threshold."
+    #     scale: {min: 3.5, max: 4.6, step: 0.05, unit: m/s}
+    #     anchors: [{value: 4.00, label: "planned operation"},{value: 4.22, label: "20-degree model boundary"}]
+    #     objective: "Protect the 20.0-degree chair-angle limit with a practical margin."
+    #     direction: "at_or_above"
+    #     consequence_limit: {value: 20.0, unit: deg, inclusive: true}
+    #     correct: 4.20
+    #     tolerance: 0.05
+    #     conclusion: "Stop the Carousel when measured speed reaches or exceeds 4.20 m/s."
+

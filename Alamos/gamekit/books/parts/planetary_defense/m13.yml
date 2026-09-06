@@ -1,0 +1,210 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Through the Keyhole"
+  card:
+    header: "IMPACT WINDOW: 2 DAYS"
+    title: "THROUGH THE KEYHOLE"
+    goNow: "Go to Orbit Determination, verify the final primary-body prediction at Radar, and deliver the result to Coordination."
+    body: "The final optical arc and an independent radar pass can test whether the main body crosses the populated corridor. A hidden timing offset could still move every apparent solution together. Check the control, refit the residuals, read the new cloud, and reveal the holdout. By the end of the mission, you will either escalate the primary-body response or stand down the threatened land corridor."
+    objective: "Escalate the primary-body response or defensibly stand down the populated land corridor."
+  objective: "Escalate the primary-body response or defensibly stand down the populated land corridor."
+  stake: "The final optical arc and an independent radar pass can test whether the main body crosses the populated corridor. A hidden timing offset could still move every apparent solution together. Check the control, refit the residuals, read the new cloud, and reveal the holdout. By the end of the mission, you will either escalate the primary-body response or stand down the threatened land corridor."
+  takeaway: "A defensible stand-down is a planetary-defense success. ---"
+  segue: "Mission decision: End the land alert for the main body. Fixed sky data and a separate radar test put its full path over deep ocean. Keep a fair watch on the coast."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A reference star can reveal a shift caused by the optical pipeline."
+  - "A justified correction removes structure but leaves realistic scatter."
+  - "Independent radar can verify a corrected optical prediction without inheriting its error."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-orbit-determination-center
+    # On arrival at Orbit Determination Center | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "A reference-star control identifies a common offset in the last optical batch."
+    panel: "THROUGH THE KEYHOLE / MISSION ACTIVE"
+    # unlocks: Stop 49.
+    bubbles:
+    - who: malik-rowan   # Malik Rowan
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-49
+    # After Stop 49 | automatic | 
+    on: { after: [1] }
+    world: "Corrected residuals center near zero without becoming unrealistically perfect."
+    panel: "THROUGH THE KEYHOLE / FIRST RESULT LOGGED"
+    # unlocks: Stop 50.
+    bubbles:
+    - who: malik-rowan   # Malik Rowan
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-50
+    # After Stop 50 | automatic | 
+    on: { after: [2] }
+    world: "A separately clocked radar holdout lands inside the ocean solution."
+    panel: "THROUGH THE KEYHOLE / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 51.
+    bubbles:
+    - who: malik-rowan   # Malik Rowan
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-51
+    # After Stop 51 | automatic | 
+    on: { after: [3] }
+    world: "Jordan stands down the nine-million-person land corridor under the published rule."
+    panel: "THROUGH THE KEYHOLE / DECISION EVIDENCE READY"
+    # unlocks: The Bistatic Radar Range waypoint and Stop 52.
+    bubbles:
+    - who: malik-rowan   # Malik Rowan
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THROUGH THE KEYHOLE / MISSION DECISION LOGGED"
+    # unlocks: Mission 13 outcome, metric screen, concept review, and Mission 14 briefing.
+    bubbles:
+    - who: malik-rowan   # Malik Rowan
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 49: Test the common offset
+  #     Concept: astrometric control; Keystone: bias/verification; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: evidence.
+  #     placement: CONTROL, at tracking-rack.
+  - group: ORBIT
+    at: tracking-rack
+    title: "Test the common offset"
+    concept: "astrometric control"
+    reason: "A shared optical offset could falsely move the whole corridor offshore."
+    scene: "The newest positions all shift east by nearly the same amount, including measurements of a cataloged reference star. Use the reference as a control and determine whether the shift belongs to the asteroid or instrument."
+    motivation: "A known-position control distinguishes instrumental bias from target motion."
+    format: CONTROL
+    question: "Submit the correction setting in arcseconds, both corrected residuals in arcseconds, the restoration check, and one conclusion: TARGET MOTION or SHARED BIAS."
+    answerText: "The known star should not move, so its matching offset identifies the system."
+    why: "CONTROL holds expected reality fixed while testing measurement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Target acceleration cannot move the reference star.
+    # correct result: Apply −0.36 arcsec; corrected reference residual = 0.00 arcsec and asteroid residual = +0.02 arcsec; restore raw view; conclude SHARED BIAS.
+    # state/output: CONTROL CORRECTION logged.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:
+    #     changed: {batch_correction_arcsec: [0.00, -0.36]}
+    #     held_fixed: [raw images, catalog positions, star selection, fit model]
+    #     measurement_timing: [before correction, after correction, after raw-view restoration]
+    #     variables:
+    #       - {id: batch_correction_arcsec, label: East-west batch correction, baseline: 0.00, test: -0.36, unit: arcsec}
+    #       - {id: raw_images, label: Raw images, baseline: fixed, test: fixed}
+    #       - {id: catalog_positions, label: Catalog positions, baseline: fixed, test: fixed}
+    #       - {id: star_selection, label: Star selection, baseline: fixed, test: fixed}
+    #       - {id: fit_model, label: Fit model, baseline: fixed, test: fixed}
+    #     candidates:
+    #       - {id: batch_correction, label: Apply −0.36 arcsec to the full batch, reference_response_arcsec: -0.36, asteroid_response_arcsec: -0.36}
+    #       - {id: target_only, label: Shift only the asteroid positions, reference_response_arcsec: 0.00, asteroid_response_arcsec: -0.36}
+    #       - {id: fit_weighting, label: Change fit weights, reference_response_arcsec: -0.04, asteroid_response_arcsec: -0.08}
+    #     measurements:
+    #       before: {reference_mean_arcsec: 0.36, asteroid_mean_arcsec: 0.38}
+    #       after: {reference_mean_arcsec: 0.00, asteroid_mean_arcsec: 0.02}
+    #     restoration: {required: true, raw_view_reference_mean_arcsec: 0.36}
+    #     response:
+    #       label: reference-star and asteroid mean residuals
+    #       before_arcsec: {reference: 0.36, asteroid: 0.38}
+    #       after_change_arcsec: {reference: 0.00, asteroid: 0.02}
+    #       after_restore_arcsec: {reference: 0.36}
+    #       noise_band_arcsec: 0.10
+    #     required_sequence: [measure_baseline, change_batch_correction_only, measure_both_residuals, restore_raw_view, measure_again]
+    #     correct: batch_correction_arcsec
+    #     correct_conclusion: shared_bias
+
+  # --- Stop 50: Refit the corrected residuals
+  #     Concept: orbit correction; Keystone: modeling/residuals; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: analysis.
+  #     placement: RESIDUAL, at fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Refit the corrected residuals"
+    concept: "orbit correction"
+    reason: "The correction must improve the model without hiding disagreement."
+    scene: "Refit the complete optical batch with the documented correction and compare residuals before and after. The common eastward pattern disappears, while the remaining scatter stays centered near zero and within stated uncertainty."
+    motivation: "A justified correction removes predicted structure while preserving plausible random variation."
+    format: RESIDUAL
+    question: "Submit the corrected mean and scatter in arcseconds and one conclusion: PASS or FAIL."
+    answerText: "Centered, expected scatter supports correction rather than overfitting."
+    why: "RESIDUAL tests the pattern left by a repair."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Perfect zeros would be suspicious; consistent scatter is the goal.
+    # correct result: Accept the fit and preserve correction provenance.
+    # state/output: PRIMARY CORRIDOR refit.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:
+    #     fields:
+    #       - {id: before, mean_east_arcsec: 0.37, scatter_arcsec: 0.10}
+    #       - {id: after, mean_east_arcsec: 0.01, scatter_arcsec: 0.09}
+    #     expected: {mean_east_arcsec: 0.00, one_sigma_scatter_arcsec: 0.10}
+    #     acceptance: {absolute_mean_max_arcsec: 0.10, scatter_max_arcsec: 0.10}
+    #     correct_classification: pass
+
+  # --- Stop 51: Read the separated cloud
+  #     Concept: primary corridor; Keystone: probability/response; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: interpretation.
+  #     placement: CLOUD, at astro-bench.
+  - group: ORBIT
+    at: astro-bench
+    title: "Read the separated cloud"
+    concept: "primary corridor"
+    reason: "The cloud now separates populated land from deep ocean."
+    scene: "Nearly all justified primary-body orbit trials intersect the ocean, and the complete three-sigma envelope no longer touches any populated land. Read the cloud against the precommitted stand-down and continued-monitoring thresholds."
+    motivation: "Location refinement can change exposure even when impact remains likely."
+    format: CLOUD
+    question: "Submit the 96% impact value, the land-intersection result, and one response conclusion: LAND STAND-DOWN or LAND EVACUATION."
+    answerText: "The hazard remains, but exposure changed."
+    why: "CLOUD maps the ensemble to an action threshold."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Ocean impact is neither total all-clear nor land-evacuation trigger.
+    # correct result: Stand down land evacuation and retain ocean/coastal monitoring.
+    # state/output: LAND CORRIDOR EXCLUDED pending holdout.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:
+    #     primary_impact_probability_percent: 96
+    #     confidence_envelope_sigma: 3
+    #     populated_land_intersection: false
+    #     points:
+    #       - {id: impact_weight, setting: full weighted cloud, reading: 96 percent intersects Earth}
+    #       - {id: land_test, setting: complete three-sigma envelope, reading: no populated-land intersection}
+    #       - {id: ocean_test, setting: primary impact region, reading: deep-ocean corridor}
+    #     published_rule: verified_land_exclusion_allows_land_stand_down
+    #     correct_conclusion: land_stand_down
+    #     continuing_actions: [ocean_monitoring, coastal_monitoring, independent_verification]
+
+  # --- Stop 52: Reveal the independent holdout
+  #     Concept: independent verification; Keystone: prediction/verification; Area: Orbit Determination Center; Learning role: REINFORCE; Difficulty: L5; Story role: decision.
+  #     placement: HOLDOUT, at radar-console.
+  - group: ORBIT
+    at: radar-console
+    title: "Reveal the independent holdout"
+    concept: "independent verification"
+    reason: "A disruptive stand-down deserves confirmation outside the corrected optical pipeline."
+    scene: "Freeze the ocean-range prediction before opening Tomás's separately clocked radar pass. Reveal its measured range, test the acceptance window, and carry the independent result to OPS under the published protocol."
+    motivation: "Independent data can confirm a conclusion without inheriting its correction."
+    format: HOLDOUT
+    question: "Commit the 18,420 ± 12 km prediction first; after reveal, submit the measured range in kilometers and the resulting stand-down conclusion."
+    answerText: "Independent radar supports the corrected optical solution."
+    why: "HOLDOUT tests a frozen prediction outside the fitted data."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not move the window after seeing the result.
+    # correct result: Holdout passes; execute the land stand-down.
+    # state/output: PRIMARY SOLUTION VERIFIED; OPS issues stand-down.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout:
+    #     commit_required: true
+    #     fit: {predicted_range_km: 18420, acceptance_half_width_km: 12}
+    #     reveal_after_commit: {measured_range_km: 18426}
+    #     score: {absolute_difference_km: 6, result: pass, response_conclusion: land_stand_down}
+    #     correct_conclusion: pass_holdout_and_stand_down_land_corridor
+

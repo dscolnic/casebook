@@ -1,0 +1,251 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Last Dark Window"
+  card:
+    header: "IMPACT WINDOW: 10 DAYS"
+    title: "THE LAST DARK WINDOW"
+    goNow: "Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the fit-board."
+    body: "The warning is out, but 180 orbit solutions still place the object on both impact and miss paths. The object soon enters the Sun's glare, so tonight's time must buy information rather than more of the same. At Orbit Determination, compare observing schedules and propagate their expected gains. By the end of the mission, choose which optical, radar, and thermal observations receive the range's last dark window."
+    objective: "Fund the observing plan most likely to change the impact decision."
+  objective: "Fund the observing plan most likely to change the impact decision."
+  stake: "The warning is out, but 180 orbit solutions still place the object on both impact and miss paths. The object soon enters the Sun's glare, so tonight's time must buy information rather than more of the same. At Orbit Determination, compare observing schedules and propagate their expected gains. By the end of the mission, choose which optical, radar, and thermal observations receive the range's last dark window."
+  takeaway: "Spend scarce observing time on complementary evidence, not repeated volume. ---"
+  segue: "Mission decision: Use the last dark window for dawn images, radar, and heat data. These tests may cut the path width to about 4,600 km. The range will guard the handoff. The summit system must pass its checks first."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A longer time baseline often adds more orbital leverage than many same-night points."
+  - "Radar can add range and radial velocity; thermal infrared can constrain size."
+  - "The best observation is the one that can change an action, not the one with the most data points."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-orbit-determination-center
+    # On arrival at Orbit Determination Center | automatic | 
+    on: { enter: true, at: ORBIT }
+    world: "Malik Rowan, orbit-determination lead, points to a daylight gap on the fit-board: \"More points tonight or one point later—those are not the same.\""
+    panel: "THE LAST DARK WINDOW / MISSION ACTIVE"
+    # unlocks: Stop 13.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-13
+    # After Stop 13 | automatic | 
+    on: { after: [1] }
+    world: "Low-value repeated exposures dim; later-baseline optical, radar, and thermal options remain bright."
+    panel: "THE LAST DARK WINDOW / FIRST RESULT LOGGED"
+    # unlocks: Stop 14.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-14
+    # After Stop 14 | automatic | 
+    on: { after: [2] }
+    world: "The chosen schedule appears on the scopeboard with protected handoff blocks."
+    panel: "THE LAST DARK WINDOW / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 15.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-15
+    # After Stop 15 | automatic | 
+    on: { after: [3] }
+    world: "The error budget predicts orbit-width reduction from 17,000 km to 4,600 km."
+    panel: "THE LAST DARK WINDOW / DECISION EVIDENCE READY"
+    # unlocks: Stop 16.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "Mira authorizes the plan; the aircraft changes from HELD to SIGNED OUT FOR PHASE 5."
+    panel: "THE LAST DARK WINDOW / MISSION DECISION LOGGED"
+    # unlocks: Mission 4 outcome, metric screen, concept review, and Mission 5 briefing.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 13: Buy evidence, not volume
+  #     Concept: information gain; Keystone: telescope limits; Area: Orbit Determination Center; Learning role: RETRIEVE; Difficulty: L4; Story role: obstacle.
+  #     placement: VALUE, asked by Malik Rowan beside fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Buy evidence, not volume"
+    person: rowan
+    concept: "information gain"
+    reason: "Only 100 observing credits remain before the object enters daylight."
+    scene: "The current orbit cloud is limited mainly by range, time baseline, and one possible timestamp bias, not by raw image count. Spend the fixed budget on measurements that can change the warning decision."
+    motivation: "The selected evidence determines whether tonight narrows the real uncertainty or merely repeats it."
+    format: VALUE
+    question: "Submit one observing plan costing at most 100 credits, its total cost, and the remaining reserve."
+    # Converted from the payload's `value`. `budget: 100` becomes the engine's
+    # budget object; each option keeps its own id, label, cost and axis. The
+    # payload's `recommended` set — its keyed 90-credit plan — is what the engine
+    # calls `decisive`: the options without which the decision does not change.
+    value:
+      budget: { amount: 100, unit: observing credits }
+      options:
+      - { id: dense_optical, label: 60 same-night optical frames, cost: 45, axis: precision }
+      - { id: late_optical, label: 12-frame recovery near dawn, cost: 30, axis: time_baseline, decisive: true }
+      - { id: radar, label: Range-Doppler block, cost: 35, axis: geometry, decisive: true }
+      - { id: thermal, label: Thermal infrared block, cost: 25, axis: size, decisive: true }
+      - { id: publicity, label: Live public telescope feed, cost: 20, axis: communication }
+    answerText: "The mixed plan attacks time baseline, range, and size while preserving a small reserve."
+    why: "Independent measurement axes reduce different uncertainties; repeated same-night frames mostly refine an already precise direction."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Ask which current uncertainty each option reduces and whether another option measures the same thing.
+    # correct result: Late optical + radar + thermal = 90 credits.
+    # state/output: Selected blocks move onto the schedule rail; Stop 14 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:
+    #     budget: 100
+    #     options:
+    #       - {id: dense_optical, label: 60 same-night optical frames, cost: 45, axis: precision}
+    #       - {id: late_optical, label: 12-frame recovery near dawn, cost: 30, axis: time_baseline, required: true}
+    #       - {id: radar, label: Range-Doppler block, cost: 35, axis: geometry, required: true}
+    #       - {id: thermal, label: Thermal infrared block, cost: 25, axis: size}
+    #       - {id: publicity, label: Live public telescope feed, cost: 20, axis: communication}
+    #     recommended: [late_optical, radar, thermal]
+    #     total_recommended_cost: 90
+    #     answerText: Fund the later optical recovery, radar geometry, and thermal size measurement; preserve 10 credits.
+
+  # --- Stop 14: Build the night
+  #     Concept: cadence; Keystone: telescope limits; Area: Orbit Determination Center; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+  #     placement: SEQUENCE, at scope-schedule.
+  - group: ORBIT
+    at: scope-schedule
+    title: "Build the night"
+    concept: "cadence"
+    reason: "The funded observations fail if the object sets before the handoffs occur."
+    scene: "With the three evidence blocks funded, their order must respect sky visibility, radar geometry, aircraft travel, and instrument handoff. Build a schedule that preserves the late optical baseline and transfers each result before the next fit."
+    motivation: "Correct cadence turns three instruments into one growing evidence chain."
+    format: SEQUENCE
+    question: "Order the funded work so visibility and evidence handoffs are physically possible."
+    # Converted from the payload's `cards` / `order`; the engine's `order` is a
+    # list of card indices and the payload's order is the cards as written.
+    cards:
+    - "Fly to Cerro Alto and validate the optical pipeline"
+    - "Obtain early optical tracklet"
+    - "Acquire radar range-Doppler block"
+    - "Obtain thermal infrared block"
+    - "Recover final optical tracklet near dawn"
+    - "Refit orbit and consequences"
+    order: [0, 1, 2, 3, 4, 5]
+    answerText: "The plan protects the long time baseline and delivers each measurement before the final fit."
+    why: "Observing cadence is constrained by sky position, geometry, travel, and processing time."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep the dawn recovery last among observations; it supplies the longest baseline.
+    # correct result: Validate/early optical → radar → thermal → dawn optical → refit.
+    # state/output: Schedule rail locks; Stop 15 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards:
+    #     - Fly to Cerro Alto and validate the optical pipeline
+    #     - Obtain early optical tracklet
+    #     - Acquire radar range-Doppler block
+    #     - Obtain thermal infrared block
+    #     - Recover final optical tracklet near dawn
+    #     - Refit orbit and consequences
+    #   order:
+    #     - Fly to Cerro Alto and validate the optical pipeline
+    #     - Obtain early optical tracklet
+    #     - Acquire radar range-Doppler block
+    #     - Obtain thermal infrared block
+    #     - Recover final optical tracklet near dawn
+    #     - Refit orbit and consequences
+
+  # --- Stop 15: Propagate the error budget
+  #     Concept: error budget; Keystone: uncertainty/covariance; Area: Orbit Determination Center; Learning role: COMBINE; Difficulty: L4; Story role: obstacle.
+  #     placement: PROPAGATE, at fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Propagate the error budget"
+    concept: "error budget"
+    reason: "The director needs a forecast of what the chosen schedule can actually improve."
+    scene: "Because the observing order is fixed, the orbit team can forecast how each block changes the encounter uncertainty. Buy the measurement update that most reduces the b-plane width while preserving size information."
+    motivation: "The predicted reduction sets the success test for the real observations in later missions."
+    format: PROPAGATE
+    question: "Submit one observing-update plan costing no more than 65 credits and its resulting b-plane width in kilometers."
+    answerText: "Geometry and time baseline together outperform more same-night precision."
+    why: "Correlated range and along-track uncertainty require complementary measurements."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A single smaller component does not guarantee the smallest propagated encounter width.
+    # correct result: Radar plus dawn; 4,600 km forecast width.
+    # state/output: A 4,600 km success band appears on the board; Stop 16 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   propagate:
+    #     current_error_budget:
+    #       angular_arc_km: 6200
+    #       range_km: 13800
+    #       timing_km: 4100
+    #       model_km: 2900
+    #     candidate_updates:
+    #       - {id: more_same_night, cost: 20, new_total_width_km: 13200}
+    #       - {id: radar_range, cost: 35, new_total_width_km: 7600}
+    #       - {id: dawn_arc, cost: 30, new_total_width_km: 8900}
+    #       - {id: radar_plus_dawn, cost: 65, new_total_width_km: 4600}
+    #     budget: 65
+    #     correct_update: radar_plus_dawn
+    #     answerText: Radar plus the dawn recovery reduces the forecast encounter width to 4,600 km.
+
+  # --- Stop 16: Commit the shared plan
+  #     Concept: observing allocation; Keystone: thresholds/verification; Area: Coordination Office; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: SCIENCETANK, asked by Mira Chen beside orbit-delivery-desk.
+  - group: OPS
+    at: delivery-desk
+    title: "Commit the shared plan"
+    person: chen
+    concept: "observing allocation"
+    reason: "Four teams want the same staff, aircraft, and data link during one night."
+    scene: "With the expected error reduction known, allocate 100 coordination points across the proposals that make the mixed plan executable. Fund the chain, not the loudest department, and keep the final fit from losing its inputs."
+    motivation: "The allocation converts an optimal observing idea into a plan the range can actually complete."
+    format: SCIENCETANK
+    question: "Submit one five-category allocation totaling exactly 100 points."
+    # Converted from the payload's `proposals` / `recommended`. The engine keys
+    # `recommended` by the proposal's LABEL rather than its id, so the payload's
+    # id-keyed map becomes the same five numbers against the same five labels.
+    proposals:
+    - { id: aircraft, label: Aircraft and summit pipeline crew, evidence: Enables both optical tracklets, max: 30 }
+    - { id: radar_staff, label: Radar pointing and reduction team, evidence: Supplies range-Doppler geometry, max: 30 }
+    - { id: thermal_link, label: East-dome thermal link, evidence: Supplies diameter constraint, max: 20 }
+    - { id: orbit_handoff, label: Final orbit and covariance handoff, evidence: Combines all blocks, max: 25 }
+    - { id: media_feed, label: Public live feed, evidence: Does not reduce scientific uncertainty tonight, max: 20 }
+    recommended:
+      Aircraft and summit pipeline crew: 25
+      Radar pointing and reduction team: 25
+      East-dome thermal link: 20
+      Final orbit and covariance handoff: 30
+      Public live feed: 0
+    answerText: "The range funds optical, radar, thermal, and the final integration that gives those measurements meaning."
+    why: "Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A funded instrument without its handoff produces data that cannot change tonight's orbit decision.
+    # correct result: 25 / 25 / 20 / 30 / 0.
+    # state/output: Aircraft and three remote destinations unlock for later missions.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   proposals:
+    #     - {id: aircraft, label: Aircraft and summit pipeline crew, evidence: Enables both optical tracklets, max: 30}
+    #     - {id: radar_staff, label: Radar pointing and reduction team, evidence: Supplies range-Doppler geometry, max: 30}
+    #     - {id: thermal_link, label: East-dome thermal link, evidence: Supplies diameter constraint, max: 20}
+    #     - {id: orbit_handoff, label: Final orbit and covariance handoff, evidence: Combines all blocks, max: 25}
+    #     - {id: media_feed, label: Public live feed, evidence: Does not reduce scientific uncertainty tonight, max: 20}
+    #   recommended:
+    #     aircraft: 25
+    #     radar_staff: 25
+    #     thermal_link: 20
+    #     orbit_handoff: 30
+    #     media_feed: 0
+    #   constraints: total exactly 100; every funded evidence block needs its handoff
+    #   answerText: Fund all four scientific links and the final handoff; do not spend the night on a media feed.
+

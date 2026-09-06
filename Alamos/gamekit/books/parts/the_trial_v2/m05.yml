@@ -1,0 +1,224 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Fast Site"
+  card:
+    header: "DAY 5 - BOARD IN 11 DAYS"
+    title: "The Fast Site"
+    goNow: "Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the enrollment wall."
+    body: "The early look used data dominated by the fastest hospital, so speed may have shaped the result. A sampling method controls who can enter the evidence and whom it can represent. Inspect the frame, reproduce selections, and trace missing groups before carrying records upstairs. By the end of the mission, decide whether the fast site's estimate can generalize."
+    objective: "Audit the fast site's patient sample."
+  objective: "Audit the fast site's patient sample."
+  stake: "The early look used data dominated by the fastest hospital, so speed may have shaped the result. A sampling method controls who can enter the evidence and whom it can represent. Inspect the frame, reproduce selections, and trace missing groups before carrying records upstairs. By the end of the mission, decide whether the fast site's estimate can generalize."
+  takeaway: "Random assignment and random sampling justify different claims."
+  segue: "Mission decision: Do not apply the fast site result to all patients. Random assignment still supports cause within the trial. Rural patients were missed before sampling. Fixing that gap will take more people and more time."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Convenience and voluntary-response samples are biased."
+  - "Random sampling supports generalization."
+  - "Random assignment supports causal conclusions."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-the-monitors-room
+    # On arrival at the Monitors' Room | monitor-desk | automatic
+    on: { enter: true, at: SITE }
+    world: "Arrival: SITE entry; nearby bubble; fast enrollment dashboard visible; Eli says, ; - After S1-S2: sample and stratification committed; roster prints; waypoint TAKE THE AUDIT ROSTER TO DATA MANAGEMENT; unlock travel. - DATA arrival/after S3: probe reveals FRAME GAP; panel text and icon persist; - Final: scope decision; dashboard changes to NARROW SAMPLE; Eli concedes; binder 5 and outcome unlock."
+    panel: "MISSION 5: DRAW AN SRS OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "This site clears every deadline"
+  - id: after-stop-17
+    # After Stop 17 | enrollment-wall | automatic
+    on: { after: [1] }
+    world: "The draw an srs result remains visible while the preserve every region fixture lights."
+    panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "Use the Stop 17 result to settle preserve every region."
+  - id: after-stop-18
+    # After Stop 18 | roster-wall | automatic
+    on: { after: [2] }
+    world: "The preserve every region result remains visible while the find who never entered fixture lights."
+    panel: "STOP 18 RECORDED - STOP 19 OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "Use the Stop 18 result to settle find who never entered."
+  - id: after-stop-19
+    # After Stop 19 | extraction-console | automatic
+    on: { after: [3] }
+    world: "The find who never entered result remains visible while the set the scope fixture lights."
+    panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "Use the Stop 19 result to settle set the scope."
+  - id: at-mission-end
+    # At mission end | monitor-desk | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 5 EVIDENCE: RECORDED"
+    bubbles:
+    - who: navarro   # Eli Navarro
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 17: Draw an SRS
+  #     Concept: SRS/RNG; Keystone: keystone sampling; Area: Monitoring Board Room; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: PROTOCOL, at monitor-desk.
+  - group: SAFE
+    at: monitor-desk
+    title: "Draw an SRS"
+    concept: "SRS/RNG"
+    reason: "The audit must reproduce a chance sample of source charts."
+    scene: "The site has charts numbered 001 through 240, and the audit needs 12 without replacement. Build a fully reproducible random-number procedure that another monitor can repeat from the saved seed."
+    motivation: "A chance mechanism prevents staff from selecting only easy or complete charts."
+    format: PROTOCOL
+    question: "Map scenarios: label 001-240 -> assign unique labels; generate 001-240 -> RNG; repeated number -> ignore repeat; number 241-999 -> ignore outside range; stop -> 12 unique valid labels. Choices are those actions; exact permutation mapping."
+    # THE BIBLE'S PAYLOAD, converted. Its five `scenarios` and five `choices` keep
+    # their own text, and its `mapping` — label:assign, draw:rng,
+    # repeat:ignore_repeat, outside:ignore_outside, stop:finish — becomes the same
+    # five pairs as zero-based indices into `choices`. The two "ignore and draw
+    # again" responses read alike because the bible wrote them alike.
+    columns: [Situation, Response]
+    scenarios:
+    - "label 240 charts"
+    - "generate a three-digit number"
+    - "number repeats"
+    - "number is 241-999"
+    - "12 unique valid labels recorded"
+    choices:
+    - "assign unique labels 001-240"
+    - "use the recorded RNG seed"
+    - "ignore and draw again"
+    - "ignore and draw again"
+    - "stop sampling"
+    mapping: [0, 1, 2, 3, 4]
+    answerText: "The completed check shows record the seed, generate three-digit numbers, ignore repeats and 241-999, and stop after 12 unique charts."
+    why: "A chance mechanism prevents staff from selecting only easy or complete charts."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Random means arbitrary; require seed/range/repeats
+    # correct result: Record the seed, generate three-digit numbers, ignore repeats and 241-999, and stop after 12 unique charts.
+    # state/output: The reproducible audit list prints and unlocks Stop 18.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   protocol:{scenarios:[{id:"label",text:"label 240 charts"},{id:"draw",text:"generate a three-digit number"},{id:"repeat",text:"number repeats"},{id:"outside",text:"number is 241-999"},{id:"stop",text:"12 unique valid labels recorded"}],choices:[{id:"assign",text:"assign unique labels 001-240"},{id:"rng",text:"use the recorded RNG seed"},{id:"ignore_repeat",text:"ignore and draw again"},{id:"ignore_outside",text:"ignore and draw again"},{id:"finish",text:"stop sampling"}],mapping:{label:"assign",draw:"rng",repeat:"ignore_repeat",outside:"ignore_outside",stop:"finish"},answerText:"Record the seed, use labels 001-240, ignore repeats and out-of-range numbers, and stop at 12 unique charts."}
+
+  # --- Stop 18: Preserve Every Region
+  #     Concept: stratified/cluster/systematic; Keystone: keystone sampling; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: CHOICE, asked by Eli Navarro beside enrollment-wall.
+  - group: SAFE
+    at: enrollment-wall
+    title: "Preserve Every Region"
+    person: navarro
+    concept: "stratified/cluster/systematic"
+    reason: "Rural patients are few, so the design must guarantee their presence."
+    scene: "The chance audit works, but a plain SRS could include too few rural patients to check travel barriers. Choose a design that splits urban and rural patients first, then samples randomly within each group."
+    motivation: "Stratification protects comparison across important groups while keeping selection random."
+    format: CHOICE
+    question: "Submit one selection from the four distinct choice items below."
+    choices:
+    - "Stratify by residence, then take an SRS within each residence stratum."
+    - "Select a few residence regions as clusters and include everyone in them."
+    - "Use the easiest patients to contact in each region."
+    - "Take one overall SRS and ignore residence during selection."
+    answer: "Stratify by residence, then take an SRS within each residence stratum."
+    answerText: "The completed check shows stratify by residence, then take an SRS within each stratum."
+    why: "Stratification protects comparison across important groups while keeping selection random."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: Stratify by residence, then take an SRS within each stratum.
+    # state/output: rural roster opens; travel to DATA.
+
+  # --- Stop 19: Find Who Never Entered
+  #     Concept: undercoverage/nonresponse/response bias; Keystone: keystone sampling; Area: Randomisation & Blinding; Learning role: COMBINE; Difficulty: L3; Story role: reveal.
+  #     placement: PROBE, at roster-wall.
+  - group: RAND
+    at: roster-wall
+    title: "Find Who Never Entered"
+    concept: "undercoverage/nonresponse/response bias"
+    reason: "The roster must separate people absent from the frame from people who were sampled but did not answer."
+    scene: "The stratified roster exposes a sharp drop before enrollment, not only after questionnaires were sent. Probe eligibility, contact, response, and enrollment stations to locate exactly where rural patients disappear today."
+    motivation: "Different bias mechanisms require different repairs and support different claims."
+    format: PROBE
+    question: "Probe the four stations in order—eligible list, sampling frame, contacted sample, and completed response. At each station compare the observed count with its stated expected count, then submit the first break and classify the bias."
+    # THE BIBLE'S PAYLOAD, converted. Its four stations keep their ids, labels,
+    # readings and expected counts; `first_break` is the engine's `target`, and
+    # `load` becomes the chain's own load line. The bible writes reading and
+    # expected as bare numbers with a separate `unit: patients`, so each is
+    # written here as the quantity it is — the engine prints these strings.
+    probe:
+      chainLabel: "Roster station"
+      commit: "Name the station where the count first breaks"
+      minReadings: 4
+      target: frame
+      stations:
+      - { id: eligible, label: "Eligible list", reading: "120 patients",
+          expected: "120 patients on the eligibility audit",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+      - { id: frame, label: "Sampling frame", reading: "92 patients",
+          expected: "120 patients on the eligibility audit",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+      - { id: contacted, label: "Contacted sample", reading: "80 patients",
+          expected: "92 patients in the sampling frame",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+      - { id: response, label: "Completed response", reading: "74 patients",
+          expected: "80 patients contacted",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+    answerText: "The completed check shows twenty-eight eligible rural patients never entered the frame, so this is undercoverage; later losses include nonresponse. Leading questions would instead create response bias."
+    why: "Different bias mechanisms require different repairs and support different claims."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   All absence is nonresponse; locate pre-frame loss
+    # correct result: Twenty-eight eligible rural patients never entered the frame, so this is undercoverage; later losses include nonresponse. Leading questions would instead create response bias.
+    # state/output: pipeline marks FRAME GAP; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:{load:"Rural-patient roster, expected flow from the eligibility audit",stations:[{id:"eligible",label:"Eligible list",reading:120,expected:120,comparison:"matches",unit:"patients"},{id:"frame",label:"Sampling frame",reading:92,expected:120,comparison:"28 missing before sampling",unit:"patients"},{id:"contacted",label:"Contacted sample",reading:80,expected:92,comparison:"12 sampled patients not reached",unit:"patients"},{id:"response",label:"Completed response",reading:74,expected:80,comparison:"6 contacted patients did not answer",unit:"patients"}],ordered:true,first_break:"frame",correct_conclusion:"28-person undercoverage before sampling; later losses are nonresponse",submission:"station, numerical gap, and bias classification"}
+
+  # --- Stop 20: Set the Scope
+  #     Concept: observational/experiment and inference scope; Keystone: keystone design/sampling; Area: Randomisation & Blinding; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: DIAGNOSIS, at extraction-console.
+  - group: RAND
+    at: extraction-console
+    title: "Set the Scope"
+    concept: "observational/experiment and inference scope"
+    reason: "The board needs one honest statement about cause and generalization."
+    scene: "Random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Select the conclusion that respects causal design while limiting population generalization."
+    motivation: "A randomized experiment can support causation for studied participants without representing everyone the treatment may reach."
+    format: DIAGNOSIS
+    question: "Use the random-assignment, sampling-frame, undercoverage, and concealment readings. Submit the strongest causal conclusion and honest population-generalization limit."
+    headline: "SCOPE OF INFERENCE"
+    # The four readings and their statuses are the bible's: random assignment
+    # passes, the missing population random sample is a warning, rural
+    # undercoverage is an alarm, treatment concealment is quiet. `low` is the
+    # engine's amber status, which is what the bible's "warning" is.
+    # DERIVED: `zone`, the display each reading comes off — each is the bible's
+    # own name for that reading.
+    readings:
+    - { zone: "Random assignment", label: "Inside the trial", value: "pass", status: normal }
+    - { zone: "Population random sample", label: "Selection from the population", value: "none", status: low }
+    - { zone: "Rural undercoverage", label: "Eligible patients never in the frame", value: "28 patients", status: alarm }
+    - { zone: "Treatment concealment", label: "Assignment path", value: "intact", status: normal }
+    # The four candidates are the bible's own choice list, in its order and its
+    # words: "cause+all patients; association only; cause for trial-like patients
+    # with limited generalization; generalize no cause", answer the third.
+    choices:
+    - "Cause, and for all patients"
+    - "Association only"
+    - "Cause for trial-like patients, with limited generalization"
+    - "Generalize to the population, but no cause"
+    answer: "Cause for trial-like patients, with limited generalization"
+    answerText: "The completed check shows random assignment supports a causal treatment comparison, but biased enrollment limits generalization beyond patients like those enrolled."
+    why: "A randomized experiment can support causation for studied participants without representing everyone the treatment may reach."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Randomized trial automatically generalizes
+    # correct result: Random assignment supports a causal treatment comparison, but biased enrollment limits generalization beyond patients like those enrolled.
+    # state/output: FAST becomes NARROW SAMPLE; binder 5; M6.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   readings random assignment alarm-pass, no population random sample warning, rural undercoverage alarm, treatment concealment quiet. Choices: cause+all patients; association only; cause for trial-like patients with limited generalization; generalize no cause. Answer third.
+

@@ -1,0 +1,166 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Opened Envelope"
+  card:
+    header: "DAY 4 - BOARD IN 12 DAYS"
+    title: "The Opened Envelope"
+    goNow: "Go to Statistics & Analysis and meet Tomas Reed, trial statistician, at the interim-analysis board."
+    body: "The targeted pause is justified, but an analysis folder was opened before the registered review. Repeated early looks increase the chance of acting on random noise. At the analysis board, model event counts, combine uncertainty, and set error rules. By the end of the mission, decide how the unplanned look must change later inference."
+    objective: "Account for the unplanned interim analysis."
+  objective: "Account for the unplanned interim analysis."
+  stake: "The targeted pause is justified, but an analysis folder was opened before the registered review. Repeated early looks increase the chance of acting on random noise. At the analysis board, model event counts, combine uncertainty, and set error rules. By the end of the mission, decide how the unplanned look must change later inference."
+  takeaway: "At least one equals one minus none."
+  segue: "Mission decision: Count the unplanned look. And use the stricter prewritten threshold for later tests. The opened analysis changed the false-alarm risk. Its p-value does not cross the new line. The analyst who opened it worked with data from the fastest hospital."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Means of sums or differences add or subtract."
+  - "Variances add for independent random variables, even for a difference."
+  - "More unplanned tests create more chances for a false positive."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-statistics-analysis
+    # On arrival at Statistics & Analysis | s13-expected-reports | automatic
+    on: { enter: true, at: TODO }   # s13-expected-reports
+    world: "Arrival: trigger STAT entry; nearby bubble; folder timestamp visible; Tomas says, ; - After S1-S2: correct commits; equipment update; workload reads 0.35 and total SD 5; player control restored; - After S3: simulation complete; persistent counter shows 55.8% AT LEAST ONE; - Final: threshold committed; report stamped DISCLOSED; binder 4 fills; outcome and screen unlock."
+    panel: "MISSION 4: EXPECTED REPORTS OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "An urgent look still counts as a look"
+  - id: after-stop-13
+    # After Stop 13 | s14-combine-two-streams | automatic
+    on: { after: [1] }
+    world: "The expected reports result remains visible while the combine two streams fixture lights."
+    panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "Use the Stop 13 result to settle combine two streams."
+  - id: after-stop-14
+    # After Stop 14 | s15-at-least-one-event | automatic
+    on: { after: [2] }
+    world: "The combine two streams result remains visible while the at least one event fixture lights."
+    panel: "STOP 14 RECORDED - STOP 15 OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "Use the Stop 14 result to settle at least one event."
+  - id: after-stop-15
+    # After Stop 15 | s16-price-the-errors | automatic
+    on: { after: [3] }
+    world: "The at least one event result remains visible while the price the errors fixture lights."
+    panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "Use the Stop 15 result to settle price the errors."
+  - id: at-mission-end
+    # At mission end | s13-expected-reports | automatic
+    on: { enter: true, at: TODO }   # s13-expected-reports
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 4 EVIDENCE: RECORDED"
+    bubbles:
+    - who: tomas-reed   # Tomas Reed
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Use the keyed result and explanation printed below."
+    - who: text   # Text
+      say: "The complement gives 1-0.96^20=0.558, so a simulation near 55.8% is plausible."
+    - who: ii   # II
+      say: "continue a harmful trial"
+    - who: text   # Text
+      say: "The inclusive threshold is 0.025; because 0.031 is larger, fail to reject H0."
+
+  stops:
+  # --- Stop 13: Expected Reports
+  #     Concept: expected value; Keystone: keystone random variables; Area: Endpoint Adjudication; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: DERIVE, at s13-expected-reports.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Expected Reports"
+    concept: "expected value"
+    reason: "Staffing cannot be set until the team knows the expected number of reports per site-day."
+    scene: "A site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Build the expected-value sum before assigning the limited overnight clinical patient-safety review shift."
+    motivation: "Expected workload controls whether delayed review could create a safety blind spot."
+    format: DERIVE
+    question: "Order licensed lines E(X)=sum xP(x); =0(.70)+1(.25)+2(.05); =0.35 reports/site-day. Decoys average 0,1,2 equally or omit weights. Submit reports/site-day."
+    answerText: "The expected workload is 0.35 report per site-day; this is a long-run average, not a possible count for one site-day."
+    why: "Expected workload controls whether delayed review could create a safety blind spot."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   reports per site-day
+    # correct result: 0.35 reports per site-day, tolerance 0.001.
+    # state/output: The workload gauge displays 0.35 reports per site-day and unlocks Stop 14.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"expected reports per site-day","givens":["P(0)=0.70","P(1)=0.25","P(2)=0.05"],"lines":[{"id":"L1","expression":"E(X)=sum xP(x)","license":"state governing relationship"},{"id":"L2","expression":"=0(0.70)+1(0.25)+2(0.05)","license":"substitute displayed values"},{"id":"L3","expression":"=0.35 reports/site-day","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["1.00","0.30"],"correct_result":"0.35 reports/site-day","answerText":"The long-run mean is 0.35 reports per site-day after weighting each count by its probability."}
+
+  # --- Stop 14: Combine Two Streams
+  #     Concept: independent sums of RVs and linear transforms; Keystone: keystone random variables; Area: Endpoint Adjudication; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, at s14-combine-two-streams.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Combine Two Streams"
+    concept: "independent sums of RVs and linear transforms"
+    reason: "Two independent regions share one queue, so their total mean and SD must be forecast correctly."
+    scene: "Region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Combine their independent streams to size the queue without incorrectly adding standard deviations."
+    motivation: "Understating spread could leave serious reports waiting beyond the review limit."
+    format: DERIVE
+    question: "Build E(A+B)=10+8=18 [linearity]; Var=3^2+4^2=25 [independent variances add]; SD=sqrt25=5 [convert]. Include decoy SD=7. Submit pair 18 reports, 5 reports."
+    answerText: "The combined stream has mean 18 reports and SD 5 reports. For aX+b, expectation is aμ+b and SD is |a|σ."
+    why: "Understating spread could leave serious reports waiting beyond the review limit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   pair: total mean and SD in reports
+    # correct result: Mean 18 reports and standard deviation 5 reports.
+    # state/output: The combined-stream gauge displays mean 18 and SD 5 and unlocks Stop 15.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive: {visible_prompt: "Build E(A+B)=10+8=18 [linearity]; Var=3^2+4^2=25 [independent variances add]; SD=sqrt25=5 [convert]. Include decoy SD=7. Submit pair 18 reports, 5 reports.", keyed_result: "Mean 18 reports and standard deviation 5 reports.", feedback: "pair: total mean and SD in reports", answerText: "Use the keyed result and explanation printed below."}
+
+  # --- Stop 15: At Least One Event
+  #     Concept: binomial complement; Keystone: keystone probability/random variables; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
+  #     placement: TALLY, at s15-at-least-one-event.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "At Least One Event"
+    concept: "binomial complement"
+    reason: "The pause length depends on the chance of seeing at least one event in 20 similar patients."
+    scene: "With queue uncertainty sized, the board asks whether another event during review would be surprising. Use independent patient probability 0.04 and 20 fixed trials to predict at least one event."
+    motivation: "The result prevents one event from being treated as impossible while the audit is open."
+    format: TALLY
+    question: "**CALCULATE AND COMMIT:** Use $P(X\\ge1)=1-(1-p)^n$ with $p=0.04$ per patient and $n=20$ independent patients; submit the probability or percent before simulation unlocks."
+    answerText: "1-.96^20=0.558; simulation should be near 56%. This is binomial: fixed n, independent trials, constant p, two outcomes."
+    why: "The result prevents one event from being treated as impossible while the audit is open."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   predicted percent and plausibility conclusion
+    # correct result: Prediction 0.558 or 55.8%, tolerance 1 percentage point; simulation conclusion plausible when the run lies within its displayed simulation band.
+    # state/output: The chance counter displays 55.8% and unlocks Stop 16.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   tally:{prediction:{equation:"P(X≥1)=1-(1-p)^n",inputs:{p:0.04,n:20},submit:{unit:"probability or percent",truth:0.558,tolerance:0.01}},equipment_locked_until_prediction_commit:true,bins:[{id:"zero",label:"zero events"},{id:"one_plus",label:"at least one event"}],trials_per_run:20,success_probability:0.04,measure:"proportion of runs in one_plus",expected_reading:0.558,correct_conclusion:"plausible",answerText:"The complement gives 1-0.96^20=0.558, so a simulation near 55.8% is plausible."}
+
+  # --- Stop 16: Price the Errors
+  #     Concept: Type I/II, alpha, power; Keystone: keystone decision thresholds; Area: Monitoring Board Room; Learning role: INTRODUCE; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at s16-price-the-errors.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Price the Errors"
+    concept: "Type I/II, alpha, power"
+    reason: "Later analyses need thresholds written before new results arrive."
+    scene: "The unplanned look spent one chance to make a false claim, while a delayed true warning could also harm patients. Commit error definitions and a stricter future threshold before the hidden update appears."
+    motivation: "A transparent rule keeps urgency from moving the decision line after results are known."
+    format: TRIGGER
+    question: "Rule: reject H0 only if adjusted p<=.025; scale 0-.10; anchors .01,.025,.05,.10; objective limit false-positive risk after extra look; direction lower p stronger; consequence limit no more than 2.5%. Submit threshold and map: Type I=stop effective trial, Type II=continue harmful trial, power=1-beta. Then reveal update p=.031 and select fail to reject."
+    answerText: "Because 0.031 is above the precommitted 0.025 threshold, fail to reject the null. Never say the null was accepted or proved. Power rises with sample size, alpha, effect size, and lower variability."
+    why: "A transparent rule keeps urgency from moving the decision line after results are known."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   threshold number, error mapping, decision
+    # correct result: Threshold 0.025 inclusive; update p=0.031 produces fail to reject.
+    # state/output: The analysis receives a DISCLOSED stamp, binder piece 4 fills, and Mission 5 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{decision_rule:"reject H0 only when adjusted p ≤ 0.025",scale:{min:0,max:0.10,anchors:[0.01,0.025,0.05,0.10]},objective:"limit false-positive risk after the extra look",direction:"smaller p is stronger evidence",consequence_limit:{value:0.025,label:"family false-positive risk"},mapping:{type_I:"stop an effective trial",type_II:"continue a harmful trial",power:"1-beta"},update:{p:0.031,decision:"fail to reject"},answerText:"The inclusive threshold is 0.025; because 0.031 is larger, fail to reject H0."}
+

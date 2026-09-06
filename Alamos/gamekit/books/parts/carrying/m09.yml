@@ -1,0 +1,160 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Waste and Land-Use Controls"
+  card:
+    header: "7 DAYS."
+    title: "WASTE AND LAND-USE CONTROLS"
+    goNow: "Tip, Mei at weighbridge."
+    body: "The school spike came from a local nutrient pulse, not added visitors. Waste and farming can release the same pollutants through different routes, so controls must begin at each source. Classify the tip loads, then revise practices at the Common. By the end of the mission, choose waste and land-use controls that protect water without ending food production."
+    objective: "Cut pollution at source."
+  objective: "Cut pollution at source."
+  stake: "The school spike came from a local nutrient pulse, not added visitors. Waste and farming can release the same pollutants through different routes, so controls must begin at each source. Classify the tip loads, then revise practices at the Common. By the end of the mission, choose waste and land-use controls that protect water without ending food production."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Line the waste cell and cut sewage nutrients. Use drip lines, IPM, and rain gardens. These steps stop waste near its source. The reef still loses oxygen in warm, nitrate-rich weeks."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "heavy metals damage nerves/kidneys; endocrine disruptors impair development; microplastic effects remain uncertain; mining can cause acid drainage; clearcutting increases erosion."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-tip-and-sorting-yard
+    # On arrival at Tip and Sorting Yard | s33-sort-the-mixed-waste | automatic
+    on: { enter: true, at: TODO }   # s33-sort-the-mixed-waste
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 9: SORT THE MIXED WASTE OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Start with sort the mixed waste. We need evidence the next decision can use."
+  - id: after-stop-33
+    # After Stop 33 | s34-map-source-and-fate | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 33 result to settle map source and fate."
+  - id: after-stop-34
+    # After Stop 34 | s35-control-the-compost-process | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 34 result to settle control the compost process."
+  - id: after-stop-35
+    # After Stop 35 | s36-fund-source-controls | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 35 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 35 result to settle fund source controls."
+  - id: at-mission-end
+    # At mission end | s33-sort-the-mixed-waste | automatic
+    on: { enter: true, at: TODO }   # s33-sort-the-mixed-waste
+    world: "Decision and hook: Stop 36 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 9 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Higher aeration raises compost temperature and lowers odor beyond noise; restoration confirms aeration caused the response."
+    - who: text   # Text
+      say: "Spend all 100 points on the five source controls; the two optional subsidies do not address the confirmed pathways."
+
+  stops:
+  # --- Stop 33: Sort the mixed waste
+  #     Concept: pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence; Keystone: pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence.
+  #     placement: BELT, at s33-sort-the-mixed-waste.
+  - group: TIP
+    at: TODO               # the fixture it is asked at
+    title: "Sort the mixed waste"
+    concept: "pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence"
+    reason: "The island cannot commit sort the mixed waste until this evidence is resolved."
+    scene: "The school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort each arrival by its pollutant class before treatment begins, and the team needs this result before it acts."
+    motivation: "Sort the mixed waste connects the measured environmental mechanism to the next island condition."
+    format: BELT
+    question: "Classify fertilizer, a lead battery, a PCB transformer, hormone medicines, and plastic fragments"
+    answerText: "The completed check shows all five loads are separated by persistence and biological effect."
+    why: "Sort the mixed waste connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: All five loads are separated by persistence and biological effect
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   belt:{categories:[nutrient,heavy_metal,persistent_organic_pollutant,endocrine_active_drug,microplastic],items:{fertilizer:nutrient,lead_battery:heavy_metal,PCB_transformer:persistent_organic_pollutant,hormones:endocrine_active_drug,plastic_fragments:microplastic},misses_allowed:2}
+
+  # --- Stop 34: Map source and fate
+  #     Concept: point and nonpoint fate | pollution | 9; Keystone: point and nonpoint fate | pollution | 9; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: point and nonpoint fate | pollution | 9.
+  #     placement: CASEBOOK, at s34-map-source-and-fate.
+  - group: TIP
+    at: common-map
+    title: "Map source and fate"
+    concept: "point and nonpoint fate | pollution | 9"
+    reason: "The island cannot commit map source and fate until this evidence is resolved."
+    scene: "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Map source and fate connects the measured environmental mechanism to the next island condition."
+    format: CASEBOOK
+    question: "Map pipe discharge, field runoff, landfill leachate, and fish mercury to point source, nonpoint source, groundwater pathway, and biomagnification"
+    answerText: "The completed check shows all four pollutants are linked to the pathway their control must intercept."
+    why: "Map source and fate connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: All four pollutants are linked to the pathway their control must intercept
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   casebook:{mapping:{pipe_discharge:point_source,field_runoff:nonpoint_source,landfill_leachate:groundwater_pathway,fish_mercury:biomagnification}}
+
+  # --- Stop 35: Control the compost process
+  #     Concept: compost process | causality | D3 | RETRIEVE | L3 | evidence; Keystone: compost process | causality | D3 | RETRIEVE | L3 | evidence; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: compost process | causality | D3 | RETRIEVE | L3 | evidence.
+  #     placement: CONTROL, at s35-control-the-compost-process.
+  - group: TIP
+    at: TODO               # the fixture it is asked at
+    title: "Control the compost process"
+    concept: "compost process | causality | D3 | RETRIEVE | L3 | evidence"
+    reason: "The island cannot commit control the compost process until this evidence is resolved."
+    scene: "The pathway map favors prevention, and compost could replace imported fertilizer if its process is stable. Change aeration alone, measure, restore baseline, and repeat, and the team needs this result before it acts."
+    motivation: "Control the compost process connects the measured environmental mechanism to the next island condition."
+    format: CONTROL
+    question: "Measure at 1 exchange/hour after 24 hours; change only aeration to 3 exchanges/hour with moisture 55%, feed mix 1:1, mass 500 kg, and time fixed; restore 1 and remeasure; submit the causal conclusion"
+    answerText: "The completed check shows greater aeration raises temperature from 38 C to 58 C and lowers odor from 8 to 2, supporting aerobic decomposition."
+    why: "Control the compost process connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Greater aeration raises temperature from 38 C to 58 C and lowers odor from 8 to 2, supporting aerobic decomposition
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"aeration",label:"aeration rate"},{id:"moisture",label:"moisture"},{id:"feed_mix",label:"feed mix"}],correct_control:"aeration",baseline:{aeration:1,temperature_C:38,odor_index:8},response:{aeration:3,temperature_C:58,odor_index:2},noise_band:{temperature_C:1,odor_index:0.5},fixed:["moisture 55%","feed mix 1:1","mass 500 kg","24 h timing"],measure_when:"after 24 hours",restore:{required:true,aeration:1,remeasure_after_hours:24},correct_conclusion:"aeration improves aerobic decomposition",answerText:"Higher aeration raises compost temperature and lowers odor beyond noise; restoration confirms aeration caused the response."}
+
+  # --- Stop 36: Fund source controls
+  #     Concept: integrated controls | policy | 9; Keystone: integrated controls | policy | 9; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: integrated controls | policy | 9.
+  #     placement: ALLOCATE, at s36-fund-source-controls.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Fund source controls"
+    concept: "integrated controls | policy | 9"
+    reason: "The island cannot commit fund source controls until this evidence is resolved."
+    scene: "The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources, and the team needs this result before it acts."
+    motivation: "Fund source controls connects the measured environmental mechanism to the next island condition."
+    format: ALLOCATE
+    question: "Fund liner and cap 25, tertiary nutrient removal 25, IPM 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20"
+    answerText: "The completed check shows the five source controls use all 100 points."
+    why: "Fund source controls connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The five source controls use all 100 points
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:{pool:100,items:[{id:"liner_cap",cost:25,required:true},{id:"tertiary",cost:25,required:true},{id:"IPM",cost:20,required:true},{id:"drip",cost:15,required:true},{id:"rain_garden",cost:15,required:true},{id:"clearcut_subsidy",cost:25,required:false},{id:"blanket_pesticide",cost:20,required:false}],questions:[{id:"waste",text:"Does the plan block landfill and sewage sources?",required:true},{id:"farm",text:"Does it reduce fertilizer and pesticide transport?",required:true},{id:"runoff",text:"Does it intercept stormwater before the reef?",required:true}],correct_allocation:{liner_cap:25,tertiary:25,IPM:20,drip:15,rain_garden:15},answerText:"Spend all 100 points on the five source controls; the two optional subsidies do not address the confirmed pathways."}
+

@@ -1,0 +1,164 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Rate-Limit Rule"
+  card:
+    header: "15 SHIFTS UNTIL THE STORM"
+    title: "The Broken Trace"
+    goNow: "Go to Storage & Level Board and meet Mara Vale, operations chief, at the level desk."
+    body: "Yesterday's level trace bends away from the release plan, but one recorded point jumps far above its neighbors. A limit asks what values approach near a time, while continuity checks whether the recorded value belongs on that approach. At the level desk, test the suspicious point and the forecast around it. By the end of the mission, decide whether the local forecast can be used."
+    objective: "Certify or reject the local level forecast."
+  objective: "Certify or reject the local level forecast."
+  stake: "Yesterday's level trace bends away from the release plan, but one recorded point jumps far above its neighbors. A limit asks what values approach near a time, while continuity checks whether the recorded value belongs on that approach. At the level desk, test the suspicious point and the forecast around it. By the end of the mission, decide whether the local forecast can be used."
+  takeaway: "Use L'Hopital only for 0/0 or infinity/infinity. ---"
+  segue: "Mission decision: Use the repaired local forecast. Both sides approach 4.20 m, so the lone high point is a fixable hole. The crew restores that point. And keeps the surrounding rise. The rise is smooth,."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Substitute first; if 0/0 appears, simplify before evaluating."
+  - "Left and right limits must agree."
+  - "A hole can be repaired only when the surrounding limit exists."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-storage-level-board
+    # On arrival at Storage & Level Board | s01-cancel-the-false-zero | automatic
+    on: { enter: true, at: TODO }   # s01-cancel-the-false-zero
+    world: "The cancel the false zero fixture wakes and the mission evidence opens."
+    panel: "MISSION 1: CANCEL THE FALSE ZERO OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Start with cancel the false zero. We need evidence the next decision can use."
+  - id: after-stop-1
+    # After Stop 1 | s02-rationalize-the-float-transform | automatic
+    on: { after: [1] }
+    world: "After 1.2 Location: STORE."
+    panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Use the Stop 1 result to settle rationalize the float transform."
+  - id: after-stop-2
+    # After Stop 2 | s03-check-the-indeterminate-rate | automatic
+    on: { after: [2] }
+    world: "After 1.3 Location: STORE."
+    panel: "STOP 2 RECORDED - STOP 3 OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Use the Stop 2 result to settle check the indeterminate rate."
+  - id: after-stop-3
+    # After Stop 3 | s04-certify-continuity | automatic
+    on: { after: [3] }
+    world: "The check the indeterminate rate result remains visible while the certify continuity fixture lights."
+    panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "Use the Stop 3 result to settle certify continuity."
+  - id: at-mission-end
+    # At mission end | s01-cancel-the-false-zero | automatic
+    on: { enter: true, at: TODO }   # s01-cancel-the-false-zero
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 1 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mara-vale   # Mara Vale
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The nearby model approaches 12 cm."
+    - who: text   # Text
+      say: "The local gain is 1/8."
+    - who: text   # Text
+      say: "The limit is 0.020 m/min because the differentiated ratio is 0.02e^(0.02t)/1."
+
+  stops:
+  # --- Stop 1: Cancel the false zero
+  #     Concept: rational limit; Keystone: Limits; Area: Storage & Level Board; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: DERIVE, at s01-cancel-the-false-zero.
+  - group: STORE
+    at: TODO               # the fixture it is asked at
+    title: "Cancel the false zero"
+    concept: "rational limit"
+    reason: "The crew needs the trend at minute 6 before judging the jump."
+    scene: "The logger's local model is (t^2-36)/(t-6) centimetres above datum, but it is undefined at minute 6. Simplify the nearby behavior so the crew can compare the model with the recorded spike."
+    motivation: "A finite limit would show what the trace should approach even though its stored point is missing."
+    format: DERIVE
+    question: "Build and license each line to find lim_(t->6) (t^2-36)/(t-6) in centimetres; submit one number in centimetres."
+    answerText: "The nearby model approaches 12 cm."
+    why: "factor, cancel for t != 6, then substitute."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   0/0 is a signal to simplify, not an answer.
+    # correct result: 12 cm, exact.
+    # state/output: expected-trend tag 12 cm; unlock 1.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive: {goal:"limit in cm", givens:["(t^2-36)/(t-6)","t->6"], lines:[{expressions:["((t-6)(t+6))/(t-6)","(t-6)^2/(t-6)"],correct:"((t-6)(t+6))/(t-6)",rules:["factor difference of squares","differentiate numerator"],correct_rule:"factor difference of squares"},{expressions:["t+6 for t!=6","t-6"],correct:"t+6 for t!=6",rules:["cancel common nonzero factor","cancel the limit"],correct_rule:"cancel common nonzero factor"},{expressions:["12 cm","0 cm"],correct:"12 cm",rules:["direct substitution after simplification","use stored point"],correct_rule:"direct substitution after simplification"}], answerText:"The nearby model approaches 12 cm."}
+
+  # --- Stop 2: Rationalize the float transform
+  #     Concept: radical limit; Keystone: Limits; Area: Storage & Level Board; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, at s02-rationalize-the-float-transform.
+  - group: STORE
+    at: TODO               # the fixture it is asked at
+    title: "Rationalize the float transform"
+    concept: "radical limit"
+    reason: "The float's square-root calibration needs its own limit check."
+    scene: "With the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. Rationalize its square-root expression to find the gain that should turn a tiny float motion into level change."
+    motivation: "The correct local gain tells whether the spike could come from the conversion formula."
+    format: DERIVE
+    question: "Build the derivation for lim_(h->0) [sqrt(16+h)-4]/h; submit the gain as a unitless number."
+    answerText: "The local gain is 1/8."
+    why: "conjugate converts numerator product to h."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Substitution is valid only after the zero factor is removed.
+    # correct result: 0.125, tolerance 0.0005.
+    # state/output: calibration gain displayed; unlock 1.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive: {goal:"local gain",givens:["[sqrt(16+h)-4]/h","h->0"],lines:[{expressions:["multiply by [sqrt(16+h)+4]/[sqrt(16+h)+4]","multiply by h/h"],correct:"multiply by [sqrt(16+h)+4]/[sqrt(16+h)+4]",rules:["conjugate","power rule"],correct_rule:"conjugate"},{expressions:["1/[sqrt(16+h)+4]","h/[sqrt(16+h)+4]"],correct:"1/[sqrt(16+h)+4]",rules:["difference of squares and cancel h","direct substitution before simplifying"],correct_rule:"difference of squares and cancel h"},{expressions:["1/8","1/4"],correct:"1/8",rules:["substitute h=0","average endpoints"],correct_rule:"substitute h=0"}],answerText:"The local gain is 1/8."}
+
+  # --- Stop 3: Check the indeterminate rate
+  #     Concept: L'Hopital; Keystone: Limits; Area: Storage & Level Board; Learning role: INTRODUCE; Difficulty: L2; Story role: evidence.
+  #     placement: BALLPARK, at s03-check-the-indeterminate-rate.
+  - group: STORE
+    at: TODO               # the fixture it is asked at
+    title: "Check the indeterminate rate"
+    concept: "L'Hopital"
+    reason: "A second model must agree before anyone edits the official trace."
+    scene: "Because both algebraic checks give finite behavior, the archive model now provides (e^(0.02t)-1)/t metres per minute near t=0. Evaluate its 0/0 limit to confirm the same smooth start, and the team needs this result before it acts."
+    motivation: "Agreement from a separate formula supports a data error rather than sudden reservoir motion."
+    format: BALLPARK
+    question: "Using L'Hopital's rule, differentiate numerator and denominator separately, then submit lim_(t->0)(e^(0.02t)-1)/t in metres per minute."
+    answerText: "The limit is 0.020 m/min because the differentiated ratio is 0.02e^(0.02t)/1."
+    why: "0/0 licenses L'Hopital; new ratio tends to 0.02."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not apply L'Hopital unless the original form is indeterminate.
+    # correct result: 0.020 m/min.
+    # state/output: independent smooth-start check; unlock 1.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{labels:["numerator derivative at 0","denominator derivative"],values:[[0.02,1],[1,0]],slots:2,template:"numerator derivative / denominator derivative",formula:"0.02/1",correct:[0.02,1],target:0.02,tolerance:0.0001}; answerText:"The limit is 0.020 m/min because the differentiated ratio is 0.02e^(0.02t)/1."
+
+  # --- Stop 4: Certify continuity
+  #     Concept: piecewise continuity/IVT/discontinuities; Keystone: Limits; Area: Storage & Level Board; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: DIAGNOSIS, at s04-certify-continuity.
+  - group: STORE
+    at: TODO               # the fixture it is asked at
+    title: "Certify continuity"
+    concept: "piecewise continuity/IVT/discontinuities"
+    reason: "Mara needs a formal reason to repair the point without discarding the curve."
+    scene: "The left and right traces now both approach 4.20 m, while the logger stores 4.68 m at 09:06. Diagnose the discontinuity and decide whether redefining that single value makes the local forecast continuous."
+    motivation: "Only a removable discontinuity can be repaired without changing nearby behavior."
+    format: DIAGNOSIS
+    question: "Select the one diagnosis that fits every reading and submit a conclusion: use or reject the repaired local forecast."
+    answerText: "Left limit = right limit = 4.20 m; after redefining the point, all three continuity conditions hold."
+    why: "matching side limits establish existence; IVT may then support intermediate values locally."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A defined point alone does not make a function continuous.
+    # correct result: repair and use locally.
+    # state/output: repaired trace persists; unlock outcome.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   diagnosis:{headline:"09:06 continuity test",readings:[{zone:"left",value:"4.20 m"},{zone:"right",value:"4.20 m"},{zone:"stored value",value:"4.68 m"},{zone:"nearby sensor",value:"smooth"}],choices:[{label:"removable hole; redefine f(09:06)=4.20 m",mechanism:"common limit exists but stored value differs"},{label:"jump",mechanism:"would require unequal side limits"},{label:"infinite break",mechanism:"would require unbounded values"},{label:"continuous as stored",mechanism:"fails limit=value"}],answer:"removable hole; redefine f(09:06)=4.20 m"}
+

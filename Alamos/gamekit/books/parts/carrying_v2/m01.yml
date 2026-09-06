@@ -1,0 +1,180 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "What the Island Depends On"
+  card:
+    header: "15 DAYS TO THE FERRY VOTE"
+    title: "Nothing Leaves the Ledger"
+    goNow: "Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book."
+    body: "The school-tap warning arrived as the ferry debate began. An island depends on linked stores because water, nutrients, energy, goods, and waste move but do not vanish. At the Harbour Office, trace what enters, cycles, and leaves Vellan. By the end of the mission, decide which island dependencies the ferry study must count."
+    objective: "Build the dependency ledger that defines the investigation."
+  objective: "Build the dependency ledger that defines the investigation."
+  stake: "The school-tap warning arrived as the ferry debate began. An island depends on linked stores because water, nutrients, energy, goods, and waste move but do not vanish. At the Harbour Office, trace what enters, cycles, and leaves Vellan. By the end of the mission, decide which island dependencies the ferry study must count."
+  takeaway: "Independent evidence must not share the same hidden source. ---"
+  segue: "Mission decision: Count water, food, energy, materials, waste, people. And habitat in one linked island system. Matching records do not count twice when they share a source. The council opens the full resource review. Tomorrow, the first closed budget is freshwater."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Matter cycles through stores; energy flows and is mostly lost as heat."
+  - "A boundary decides which inputs and outputs belong in a budget."
+  - "Agreement among records is weak evidence if they share one missing source."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-harbour-office
+    # On arrival at Harbour Office | landings-book | automatic
+    on: { enter: true, at: HARB }
+    world: "The draw the boundary fixture wakes and the mission evidence opens."
+    panel: "MISSION 1: DRAW THE BOUNDARY OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "The screen totals what was sold; the book also records what came back over the rail."
+  - id: after-stop-1
+    # After Stop 1 | landings-book | automatic
+    on: { after: [1] }
+    world: "After Stop 1: Keep the new evidence visible and."
+    panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 1 result to settle match the cycles."
+  - id: after-stop-2
+    # After Stop 2 | fee-desk | automatic
+    on: { after: [2] }
+    world: "After Stop 2: a five-ledger wall diagram lights."
+    panel: "STOP 2 RECORDED - STOP 3 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 2 result to settle separate matter from energy."
+  - id: after-stop-3
+    # After Stop 3 | landings-book | automatic
+    on: { after: [3] }
+    world: "The separate matter from energy result remains visible while the find the shared omission fixture lights."
+    panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "REJECTED CATCH"
+  - id: at-mission-end
+    # At mission end | landings-book | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 1 EVIDENCE: RECORDED"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Now we know what every later number must connect to."
+
+  stops:
+  # --- Stop 1: Draw the boundary
+  #     Concept: system boundary; Keystone: closed budgets; Area: Chapel Council Room; Learning role: INTRODUCE; Difficulty: L1; Story role: obstacle.
+  #     placement: CHOICE, asked by Tomas Reed beside landings-book.
+  - group: CHAPEL
+    at: landings-book
+    title: "Draw the boundary"
+    person: reed
+    concept: "system boundary"
+    reason: "The ferry study needs one boundary before anyone can count an input twice."
+    scene: "The electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. Choose the boundary that captures every resource the second sailing can change, and the team needs this result before it acts."
+    motivation: "A defensible boundary keeps imported goods from hiding local depletion."
+    format: CHOICE
+    question: "Select the one boundary that captures every resource and receiving system the second ferry can change. Submit one selection."
+    choices:
+    - "Ferry accounts only."
+    - "Council spending only."
+    - "Whole island, aquifer, coast, reef, and atmosphere exchanges."
+    - "Resident households only."
+    answer: "Whole island, aquifer, coast, reef, and atmosphere exchanges."
+    answerText: "The completed check shows c. Count the whole island, aquifer, coast, reef, atmosphere exchanges, imports, and exports."
+    why: "System boundaries must include every materially affected store; retry after the omitted-store labels flash."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (1)
+    # correct result: C. Count the whole island, aquifer, coast, reef, atmosphere exchanges, imports, and exports.
+    # state/output: Island boundary illuminates; unlocks Stop 1.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   choice:{choices:[{id:ferry_accounts,label:"Ferry accounts only"},{id:council_spending,label:"Council spending only"},{id:whole_system,label:"Whole island, aquifer, coast, reef, and atmosphere exchanges"},{id:households,label:"Resident households only"}],answer:whole_system,rebuttals:{ferry_accounts:"Tickets and cargo omit local water, habitat, energy, and waste stores.",council_spending:"Money can move without showing whether matter or energy is depleted.",households:"This excludes visitors, businesses, the fishery, receiving waters, and the reef."}}.
+
+  # --- Stop 2: Match the cycles
+  #     Concept: carbon/nitrogen/phosphorus/water cycles; Keystone: closed budgets; Area: Waterworks; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: PROTOCOL, at landings-book.
+  - group: WATER
+    at: landings-book
+    title: "Match the cycles"
+    concept: "carbon/nitrogen/phosphorus/water cycles"
+    reason: "Each ledger needs the process that moves its material."
+    scene: "With the boundary fixed, four unlabeled flow cards remain in the paper book. Match each pathway to the cycle it represents so later investigators follow matter rather than labels, and the team needs this result before it acts."
+    motivation: "The limiting or transforming step tells the team where a ferry-driven increase can accumulate."
+    format: PROTOCOL
+    question: "Draw one line from each pathway to its cycle, then submit the complete mapping."
+    # THE BIBLE'S PAYLOAD, converted. `scenarios` are the bible's four pathways,
+    # `choices` its four cycles, and `mapping` its 1:carbon 2:nitrogen
+    # 3:phosphorus 4:water as zero-based indices into `choices`.
+    columns: [Pathway, Cycle]
+    scenarios:
+    - "Photosynthesis, respiration, combustion"
+    - "Nitrogen fixation, nitrification, denitrification"
+    - "Rock weathering, biota, sediment"
+    - "Evaporation, precipitation, runoff"
+    choices:
+    - "Carbon"
+    - "Nitrogen"
+    - "Phosphorus"
+    - "Water"
+    mapping: [0, 1, 2, 3]
+    answerText: "The completed check shows carbon, nitrogen, phosphorus, water in that order; nitrogen fixation and phosphorus weathering are important limiting steps."
+    why: "Matter changes form but remains in its cycle; feedback identifies the first mismatched process."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A carbon match that omits combustion, a nitrogen match that omits denitrification, or a phosphorus match that adds an atmospheric gas phase assigns a pathway to the wrong cycle.
+    # correct result: Carbon, nitrogen, phosphorus, water in that order; nitrogen fixation and phosphorus weathering are important limiting steps.
+    # state/output: Four cycle routes light; unlocks Stop 1.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios={photosynthesis-respiration-combustion; N2-fixation-nitrification-denitrification; rock-weathering-biota-sediment; evaporation-precipitation-runoff}; choices={carbon,nitrogen,phosphorus,water}; mapping={1:carbon,2:nitrogen,3:phosphorus,4:water}.
+
+  # --- Stop 3: Separate matter from energy
+  #     Concept: energy flow versus matter cycling; Keystone: energy flow; Area: Turbine Yard; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: BELT, at fee-desk.
+  - group: POWER
+    at: fee-desk
+    title: "Separate matter from energy"
+    concept: "energy flow versus matter cycling"
+    reason: "The plan must not promise to recycle energy as if it were nitrogen."
+    scene: "Because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort each item as matter that cycles or energy that flows and disperses as heat."
+    motivation: "Food and fuel require continual energy input even when their atoms remain on the island."
+    format: BELT
+    question: "Sort sunlight, heat, carbon dioxide, nitrate, phosphate, and water. Submit the binary classification before the belt reaches the end."
+    answerText: "The completed check shows sunlight and heat flow; carbon dioxide, nitrate, phosphate, and water cycle."
+    why: "Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Placing sunlight or heat in cycles ignores energy degradation; placing carbon dioxide, nitrate, phosphate, or water in flows ignores conservation of matter.
+    # correct result: Sunlight and heat flow; carbon dioxide, nitrate, phosphate, and water cycle.
+    # state/output: Energy arrow exits map; matter loops persist; rejected-catch column unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   belt.categories={cycles,flows}; items={sunlight:flows,heat:flows,CO2:cycles,nitrate:cycles,phosphate:cycles,water:cycles}; speed=moderate; misses_allowed=2.
+
+  # --- Stop 4: Find the shared omission
+  #     Concept: dependent evidence; Keystone: uncertainty/evidence; Area: Chapel Council Room; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: TRACE, at landings-book.
+  - group: CHAPEL
+    at: landings-book
+    title: "Find the shared omission"
+    concept: "dependent evidence"
+    reason: "Two matching totals cannot certify the ferry plan until their sources are independent."
+    scene: "The cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Trace their upstream records and test whether agreement proves that all catch was counted."
+    motivation: "Shared dependence can make two records repeat the same omission."
+    format: TRACE
+    question: "Open all four channels, identify the shared upstream record, and submit one conclusion about independence."
+    answerText: "The completed check shows sales and tax share the electronic sale record; only the paper book preserves rejected catch."
+    why: "Repeated outputs from one source are one line of evidence, not two; retry traces dependencies."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Treating sales and tax totals as independent double-counts their shared electronic-sale source; ignoring either paper channel discards the independent evidence.
+    # correct result: Sales and tax share the electronic sale record; only the paper book preserves rejected catch.
+    # state/output: "Rejected catch missing" tag persists; Day 5 payoff; delivery piece 1 posts.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"sales_screen",label:"sales screen",dependency:"electronic sale ledger",target_dependent:true},{id:"tax_total",label:"tax total",dependency:"electronic sale ledger",target_dependent:true},{id:"paper_landed",label:"paper landing book",dependency:"paper book",independent:true},{id:"returned_catch",label:"returned-catch record",dependency:"paper book",independent:true}],shared_upstream:"electronic sale ledger",correct_conclusion:"sales and tax agree but are not independent",answerText:"Sales and tax totals share one source; the two paper channels expose catch the shared electronic ledger omitted."}
+

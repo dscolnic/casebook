@@ -1,0 +1,155 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Count the Bank's Energy"
+  card:
+    header: "10 DAYS;"
+    title: "Count the Bank's Energy"
+    goNow: "Impulse Hall, Elise Strand at bank stages."
+    body: "The bank can match storm voltage, charge, and timing, but a wrong topology could hide a dangerous energy difference. Stored electric energy depends on capacitance and voltage, and the Marx bank changes connection between charge and discharge. You will derive both energy forms and inspect stage timing. By the end of the mission, decide whether a reduced-energy firing is safe enough to authorize."
+    objective: "Bound bank energy and authorize or reject the test."
+  objective: "Bound bank energy and authorize or reject the test."
+  stake: "The bank can match storm voltage, charge, and timing, but a wrong topology could hide a dangerous energy difference. Stored electric energy depends on capacitance and voltage, and the Marx bank changes connection between charge and discharge. You will derive both energy forms and inspect stage timing. By the end of the mission, decide whether a reduced-energy firing is safe enough to authorize."
+  takeaway: "Authorize one reduced-energy firing at the 8 mm first-gap setting. ---"
+  segue: "Mission decision: Authorize one reduced-energy firing at the 8 mm first-gap setting. The bank stores 1.50 kJ. And the selected front protects the test sensors. The timing log shows stage 7 fires late, so the pulse may not be as uniform as the total energy suggests. Metric target 22:00."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-impulse-hall
+    # On arrival at Impulse Hall | s21-derive-stored-bank-energy | automatic
+    on: { enter: true, at: TODO }   # s21-derive-stored-bank-energy
+    world: "accepted BANK/bubble/earthing stick on/→S1; S2 correct/panel/gap 8 tagged/8 mm: rise 115 ns; breakdown 56 kV.→S3; S3 correct/panel/shield zone text/39.8 J/m³ AT FICTIONAL WET-AIR LIMIT→S4; S4 correct/nearby bubble/earth stick remains until authorization/→SHOT waypoint; enter SHOT/record update/piece6/STAGE 7: LATE FIRING FLAG→outcome."
+    panel: "Elise Strand, impulse engineer: \"Count energy before this stick moves.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Count energy before this stick moves."
+  - id: after-stop-21
+    # After Stop 21 | s22-sweep-gap-timing | automatic
+    on: { after: [1] }
+    world: "The derive stored bank energy result remains visible while the sweep gap timing fixture lights."
+    panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 21 result to settle sweep gap timing."
+  - id: after-stop-22
+    # After Stop 22 | s23-derive-electric-energy-density | automatic
+    on: { after: [2] }
+    world: "The sweep gap timing result remains visible while the derive electric energy density fixture lights."
+    panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 22 result to settle derive electric energy density."
+  - id: after-stop-23
+    # After Stop 23 | s24-authorize-the-reduced-shot | automatic
+    on: { after: [3] }
+    world: "The derive electric energy density result remains visible while the authorize the reduced shot fixture lights."
+    panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 23 result to settle authorize the reduced shot."
+  - id: at-mission-end
+    # At mission end | s21-derive-stored-bank-energy | automatic
+    on: { enter: true, at: TODO }   # s21-derive-stored-bank-energy
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 6 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Use all three checks on the unbacked door, weather, and stage-serial claims before authorizing the reduced shot."
+
+  stops:
+  # --- Stop 21: Derive Stored Bank Energy
+  #     Concept: capacitor energy; Keystone: K5,K6; Area: Impulse Hall; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L3.
+  #     placement: DERIVE, at s21-derive-stored-bank-energy.
+  - group: BANK
+    at: bank-stages
+    title: "Derive Stored Bank Energy"
+    concept: "capacitor energy"
+    reason: "authorization needs energy from first principles."
+    scene: "Each of twelve stages has C=100 nF and charges to V=50.0 kV. Derive the bank's total stored energy before anyone removes the earthing stick.\", and record the result with its physical justification in the station report."
+    motivation: "summing stage energy avoids misusing the discharge-equivalent capacitance."
+    format: DERIVE
+    question: "Build the four-line energy derivation beginning with dU=Vdq, name each rule, and submit total twelve-stage stored energy in joules."
+    answerText: "The completed check shows twelve stages store 1.50 kJ. Integrating V dq gives ½CV² per stage."
+    why: "summing stage energy avoids misusing the discharge-equivalent capacitance."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use charging topology and multiply per-stage energy by twelve; do not use discharge C.
+    # correct result: Twelve stages store 1.50 kJ. Integrating V dq gives ½CV² per stage.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines dU=Vdq(work), q=CV(capacitor), U=∫0^Q(q/C)dq=Q²/2C=½CV²(integrate), Utot=12×½(100e-9)(50e3)²=1500J. Prompt derive and submit J, tolerance 5. Answer 1.50 kJ.
+
+  # --- Stop 22: Sweep Gap Timing
+  #     Concept: breakdown/timing; Keystone: K4,K6,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L3.
+  #     placement: SWEEP, at s22-sweep-gap-timing.
+  - group: COUPLE
+    at: gap-row
+    title: "Sweep Gap Timing"
+    concept: "breakdown/timing"
+    reason: "energy is safe only if the front is slow enough for protected sensors."
+    scene: "With total energy fixed at 1.50 kJ, sweep the first-gap spacing from 4 to 10 mm. Record breakdown voltage and rise time only at settings you inspect.\", and record the result with its physical justification in the station report."
+    motivation: "gap geometry changes the pulse front even when stored energy stays fixed."
+    format: SWEEP
+    question: "Sweep only first-gap spacing from 4 through 10 mm while total energy remains 1.50 kJ, measure voltage and rise time at inspected points, and submit one inspected setting meeting both goals."
+    answerText: "The completed check shows choose 8 mm. It is the inspected setting meeting rise-time and breakdown bounds."
+    why: "gap geometry changes the pulse front even when stored energy stays fixed."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Submit a measured setting satisfying both conditions, not an interpolated uninspected point.
+    # correct result: Choose 8 mm. It is the inspected setting meeting rise-time and breakdown bounds.
+    # state/output: unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   points spacing [4,5,6,7,8,9,10], rise_ns [40,55,70,90,115,145,180], breakdown_kV [30,36,42,49,56,63,70]; goal rise≥100ns and V≤60kV; correct 8mm. Prompt sweep and submit setting.
+
+  # --- Stop 23: Derive Electric Energy Density
+  #     Concept: energy density/field; Keystone: K6,K4; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L3.
+  #     placement: DERIVE, at s23-derive-electric-energy-density.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive Electric Energy Density"
+    concept: "energy density/field"
+    reason: "a safe total can still concentrate dangerous energy at a gap."
+    scene: "Because the 8 mm setting controls rise time, compute the local electric energy density at the fictional wet-air limit E=3.0 MV/m. Derive the result for the hall shield review.\", and record the result with its physical justification in the station report."
+    motivation: "field squared makes local hotspots matter strongly."
+    format: DERIVE
+    question: "Build the electric-energy-density calculation using ε₀=8.854×10^-12 F/m and E=3.0×10^6 N/C, name each rule, and submit u_E in J/m³."
+    answerText: "The completed check shows u_E=39.84 J/m³. Energy density scales with field squared."
+    why: "field squared makes local hotspots matter strongly."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Square 3.0×10^6 N/C before multiplying by ε₀/2.
+    # correct result: u_E=39.84 J/m³. Energy density scales with field squared.
+    # state/output: unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines uE=½ε0E²; substitution ½(8.854e-12)(3.0e6)²; result 39.84 J/m³. Prompt submit J/m³ tolerance .2.
+
+  # --- Stop 24: Authorize the Reduced Shot
+  #     Concept: authorization records; Keystone: K6,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: ATTEST, asked by Dr. Lena Ortiz beside s24-authorize-the-reduced-shot.
+  - group: COUPLE
+    title: "Authorize the Reduced Shot"
+    person: TODO   # the roster id of whoever asks it
+    concept: "authorization records"
+    reason: "Ortiz needs physical condition and records before removing earth."
+    scene: "Now energy and gap settings pass, but a calculation alone cannot prove the hall is ready. Verify the critical claims within three checks before signing the reduced-energy shot.\", and record the result with its physical justification in the station report."
+    motivation: "identity, timing, and physical condition require independent backing."
+    format: ATTEST
+    question: "Use at most three checks to verify the unbacked critical hall claims, then submit AUTHORIZE or HOLD for the reduced-energy shot."
+    answerText: "The completed check shows authorize the reduced shot after three critical checks. Records plus physical inspection establish readiness."
+    why: "identity, timing, and physical condition require independent backing."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A backed calculation cannot substitute for the unverified door or weather condition.
+    # correct result: Authorize the reduced shot after three critical checks. Records plus physical inspection establish readiness.
+    # state/output: report piece6.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:3,claims:[{id:"earth_stick",label:"earth stick present",signed:true,backed:true,critical:true},{id:"discharged",label:"capacitors discharged",signed:true,backed:true,critical:true},{id:"gap",label:"gap set to 8 mm",signed:true,backed:true,critical:true},{id:"door_clear",label:"test door clear",signed:true,backed:false,critical:true},{id:"weather",label:"weather window safe",signed:true,backed:false,critical:true},{id:"stage_serial",label:"stage serial matches plan",signed:true,backed:false,critical:true}],correct_verified:["door_clear","weather","stage_serial"],critical_unbacked:["door_clear","weather","stage_serial"],answerText:"Use all three checks on the unbacked door, weather, and stage-serial claims before authorizing the reduced shot."}
+

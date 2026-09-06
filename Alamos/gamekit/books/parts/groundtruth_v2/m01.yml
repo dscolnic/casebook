@@ -1,0 +1,228 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Write the Stop Rule"
+  card:
+    header: "15 DAYS TO FINAL STORM WINDOW"
+    title: "Write the Stop Rule"
+    goNow: "Go to Launch Control and meet Dr. Lena Ortiz, station director, at the launch board."
+    body: "The outstation failed on a shot that the crew-clear lights had approved, so today's launch is paused. A field mill reports the electric field above its sensor, including direction. You will reconcile the mill signs, combine fields, and set a launch rule before new data arrive. By the end of the mission, decide the crew-clear criterion for every later shot."
+    objective: "Commit a numerical field threshold and a disagreement rule before launch data appear."
+  objective: "Commit a numerical field threshold and a disagreement rule before launch data appear."
+  stake: "The outstation failed on a shot that the crew-clear lights had approved, so today's launch is paused. A field mill reports the electric field above its sensor, including direction. You will reconcile the mill signs, combine fields, and set a launch rule before new data arrive. By the end of the mission, decide the crew-clear criterion for every later shot."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Use both limits for every shot. Launch only when the field is at or below 5.0 kV/m in size. And the channel spread is at or below 0.50 kV/m. The present cell passes. The close agreement still needs an independence check."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Field arrows point away from positive charge and toward negative charge."
+  - "Add components with signs; do not add vector magnitudes blindly."
+  - "A safety rule must be written before the reading it judges."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-launch-control
+    # On arrival at Launch Control | radar-desk | automatic
+    on: { enter: true, at: SHOT }
+    world: "The fix the signs fixture wakes and the mission evidence opens."
+    panel: "MISSION 1: FIX THE SIGNS OPEN"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "The green lights disagree about what upward means. Write one rule before the cell reaches us."
+  - id: after-stop-1
+    # After Stop 1 | launch-board | automatic
+    on: { after: [1] }
+    world: "The fix the signs result remains visible while the derive the net field fixture lights."
+    panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Use the Stop 1 result to settle derive the net field."
+  - id: after-stop-2
+    # After Stop 2 | launch-board | automatic
+    on: { after: [2] }
+    world: "(2) S2 complete, board update: SIGNED FIELD = VECTOR SUM."
+    panel: "SIGNED FIELD = VECTOR SUM"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Use the Stop 2 result to settle bound the disagreement."
+  - id: after-stop-3
+    # After Stop 3 | launch-board | automatic
+    on: { after: [3] }
+    world: "The bound the disagreement result remains visible while the commit the criterion fixture lights."
+    panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    bubbles:
+    - who: noor   # Noor Haddad
+      say: "Agreement helps only if the channels are independent."
+  - id: at-mission-end
+    # At mission end | radar-desk | automatic
+    on: { missionEnd: true }
+    world: "(4) S4 complete, launch cover remains closed and criterion appears on board; Outcome walk: player places report piece 1 in SHOT; metric screen unlocks."
+    panel: "MISSION 1 EVIDENCE: RECORDED"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 1: Fix the signs
+  #     Concept: field direction/sign; Keystone: K1,K12; Area: Remote Outstation; Learning role: INTRODUCE; Difficulty: L1; Story role: obstacle.
+  #     placement: PROTOCOL, at radar-desk.
+  - group: COUPLE
+    at: radar-desk
+    title: "Fix the signs"
+    concept: "field direction/sign"
+    reason: "The board cannot compare mills until every arrow uses the same sign."
+    scene: "Two field mills label upward as positive, while two old channels label downward as positive. Convert all four readings to the station rule so the launch board compares physical directions rather than printed signs."
+    motivation: "A sign convention changes labels, not the actual direction of the field."
+    format: PROTOCOL
+    question: "Match each printed reading to its signed value under the displayed rule \"upward is positive\"; submit four matches in kV/m."
+    answerText: "Reverse the sign only for old downward-positive channels; the physical arrows do not change."
+    why: "A sign convention changes labels, not the actual direction of the field."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   You changed a magnitude or reversed a new channel; use the convention label once per channel.
+    # correct result: Mapping above, exact labels.
+    # state/output: Normalized values enter the board; unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios=[A:+4.2 old_down_positive,B:-4.1 old_down_positive,C:-4.3 new_up_positive,D:-4.2 new_up_positive]; choices=[-4.2,-4.1,-4.3,-4.2 kV/m upward-positive]; mapping=[A→-4.2,B→+4.1,C→-4.3,D→-4.2].
+    #
+    # CONVERTED. `scenarios` are the four printed readings with the convention
+    # each channel is printed under; `choices` are the four signed values the
+    # bible's own `mapping` names, and `mapping` is that mapping as indices.
+    #
+    # ONE BIBLE CONFLICT, resolved in favour of the keyed mapping: the choice
+    # list writes -4.1 where the mapping writes B→+4.1. B prints -4.1 on an old
+    # downward-positive channel, so the station-rule value is +4.1; the mapping
+    # and the answer text ("reverse the sign only for old downward-positive
+    # channels") agree with each other and the choice list is the odd one out.
+    columns:
+    - "The printed reading"
+    - "Its value under the station rule"
+    scenarios:
+    - "Channel A prints +4.2, on an old downward-positive channel."
+    - "Channel B prints -4.1, on an old downward-positive channel."
+    - "Channel C prints -4.3, on a new upward-positive channel."
+    - "Channel D prints -4.2, on a new upward-positive channel."
+    choices:
+    - "-4.2 kV/m, upward-positive"
+    - "+4.1 kV/m, upward-positive"
+    - "-4.3 kV/m, upward-positive"
+    - "-4.2 kV/m, upward-positive"
+    mapping: [0, 1, 2, 3]
+
+  # --- Stop 2: Derive the net field
+  #     Concept: vector superposition; Keystone: K1; Area: Field Station; Learning role: INTRODUCE; Difficulty: L2; Story role: foundation.
+  #     placement: DERIVE, at launch-board.
+  - group: FIELD
+    at: launch-board
+    title: "Derive the net field"
+    concept: "vector superposition"
+    reason: "Ortiz needs the field from two charged layers, not either layer alone."
+    scene: "The normalized channels establish that downward is negative, but the model contains an upper positive layer and a lower negative layer. Derive their combined vertical field before the criterion can use a prediction."
+    motivation: "Vector addition determines whether layer fields reinforce or cancel at crew height."
+    format: DERIVE
+    question: "Build the three-line derivation; for each line choose the expression and the rule that licenses it, then submit the final signed field in kV/m."
+    answerText: "Both contributions point downward, so their signed components add to -4.5 kV/m; magnitudes alone would hide direction."
+    why: "Vector addition determines whether layer fields reinforce or cancel at crew height."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Superposition adds vectors component by component; keep each sign through substitution.
+    # correct result: -4.5 kV/m, exact line/rule pairs.
+    # state/output: MODEL FIELD -4.5 kV/m appears; unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines=[{expression:E_y=E_1y+E_2y,rule:superposition,decoys:[E_y=|E_1|+|E_2|,E_y=E_1yE_2y]},{expression:E_y=(-3.0)+(-1.5) kV/m,rule:substitute_signed_components,decoys:[3.0-1.5,3.0+1.5]},{expression:E_y=-4.5 kV/m,rule:arithmetic_and_direction,decoys:[+4.5,-1.5]}].
+    #
+    # CONVERTED. One `steps` entry per bible line; the bible's `expression` is
+    # the keyed candidate and its two `decoys` are the other two, written out as
+    # whole lines so the panel can print them beside the key (the bible's `3.0-1.5`
+    # is the same arithmetic said in shorthand). The bible's per-line `rule` is
+    # carried on the keyed candidate but `askRule` is OFF: the bible names a rule
+    # only for the correct line, so there is nothing for a decoy to claim and a
+    # rule list of three would answer the second half of every step by elimination.
+    # The bible writes one wrong-path line for the whole stop, so that line is the
+    # `why` on each decoy.
+    derive:
+      start: "E_1y = -3.0 kV/m and E_2y = -1.5 kV/m, the two layer contributions at crew height"
+      goal: "the net vertical field at crew height, signed, in kV/m"
+      steps:
+      - ask: "Combine the two layer contributions."
+        answer: 0
+        candidates:
+        - text: "E_y=E_1y+E_2y"
+          rule: superposition
+        - text: "E_y=|E_1|+|E_2|"
+          survives: true
+          why: "Superposition adds vectors component by component; keep each sign through substitution."
+        - text: "E_y=E_1yE_2y"
+          why: "Superposition adds vectors component by component; keep each sign through substitution."
+      - ask: "Substitute the signed components."
+        answer: 0
+        candidates:
+        - text: "E_y=(-3.0)+(-1.5) kV/m"
+          rule: substitute_signed_components
+        - text: "E_y=3.0-1.5 kV/m"
+          survives: true
+          why: "Superposition adds vectors component by component; keep each sign through substitution."
+        - text: "E_y=3.0+1.5 kV/m"
+          why: "Superposition adds vectors component by component; keep each sign through substitution."
+      - ask: "Do the arithmetic and state the direction."
+        answer: 0
+        candidates:
+        - text: "E_y=-4.5 kV/m"
+          rule: arithmetic_and_direction
+        - text: "E_y=+4.5 kV/m"
+          survives: true
+          why: "Superposition adds vectors component by component; keep each sign through substitution."
+        - text: "E_y=-1.5 kV/m"
+          why: "Superposition adds vectors component by component; keep each sign through substitution."
+      commit: "Commit the derivation"
+
+  # --- Stop 3: Bound the disagreement
+  #     Concept: uncertainty/range; Keystone: K12,K1; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+  #     placement: STRESS, asked by Dr. Lena Ortiz beside launch-board.
+  - group: COUPLE
+    at: launch-board
+    title: "Bound the disagreement"
+    person: ortiz
+    concept: "uncertainty/range"
+    reason: "A mean can look safe while one channel has already crossed the limit."
+    scene: "With the predicted field fixed at -4.5 kV/m, four channels read -4.1, -4.2, -4.2, and -4.3 kV/m. Test whether calibration uncertainty can hide an unsafe disagreement, and record the result with its physical justification in the station report."
+    motivation: "A safe average does not prove that every sensor is consistent with the same field."
+    format: STRESS
+    question: "Move the allowed calibration offset from -0.20 to +0.20 kV/m, inspect both explanations, and submit the conclusion that survives the full range."
+    answerText: "All four readings remain mutually consistent within the campaign's calibration bound, though this does not prove independence."
+    why: "A safe average does not prove that every sensor is consistent with the same field."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Compare the largest and smallest channels; do not compare only each reading with the mean.
+    # correct result: Single-field model survives; observed pair spread 0.20 kV/m ≤ 0.50 kV/m.
+    # state/output: Agreement clue logged; unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress={assumption:per_channel_calibration_offset_kVpm,min:-0.20,max:0.20,step:0.05,candidates:[single_field,one_failed_channel],criterion:max_pair_spread<=0.50,correct:single_field_survives}.
+
+  # --- Stop 4: Commit the criterion
+  #     Concept: precommitted threshold; Keystone: K12,K1; Area: Remote Outstation; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at launch-board.
+  - group: COUPLE
+    at: launch-board
+    title: "Commit the criterion"
+    concept: "precommitted threshold"
+    reason: "The next cell must be judged by a rule it cannot influence."
+    scene: "Because the current channels agree within the calibration band, the station can write one reusable stop rule. Commit both limits now, before the next field update appears on the board."
+    motivation: "Precommitment prevents a desired launch from moving the safety threshold after evidence arrives."
+    format: TRIGGER
+    question: "Enter 5.0 kV/m as the inclusive magnitude limit and 0.50 kV/m as the inclusive channel-spread limit; submit the two-part GO rule, then reveal the new readings."
+    answerText: "The rule protects both physical field magnitude and sensor consistency and was frozen before the outcome."
+    why: "Precommitment prevents a desired launch from moving the safety threshold after evidence arrives."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A one-number rule misses either field danger or channel disagreement.
+    # correct result: Dual limit exactly; revealed -4.6,-4.7,-4.6,-4.8 kV/m gives GO.
+    # state/output: Report piece 1 filled; M2 activates.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger={decision_rule:"GO only if |E_vertical|≤5.0 kV/m AND max pair spread≤0.50 kV/m",scale:{min:0,max:8,unit:kV/m},anchors:[4.0,5.0,5.5],objective:crew_clear,direction:lower_is_safer,consequence_limit:5.0,secondary_limit:0.50,correct_rule_id:dual_limit}.
+

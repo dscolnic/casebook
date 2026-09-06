@@ -1,0 +1,167 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Variable
+  aliases: [variable]   # TODO: the plurals and spellings the prose uses
+  def: "a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+# mission 2
+- name: Resistant statistic
+  aliases: [resistant statistic]   # TODO: the plurals and spellings the prose uses
+  def: "a summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation."
+# mission 3
+- name: Union
+  aliases: [union]   # TODO: the plurals and spellings the prose uses
+  def: "the event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together."
+# mission 4
+- name: Random variable
+  aliases: [random variable]   # TODO: the plurals and spellings the prose uses
+  def: "a numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis."
+# mission 5
+- name: Sampling frame
+  aliases: [sampling frame]   # TODO: the plurals and spellings the prose uses
+  def: "the list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame."
+# mission 6
+- name: Control
+  aliases: [control]   # TODO: the plurals and spellings the prose uses
+  def: "keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples."
+# mission 7
+- name: Scatterplot
+  aliases: [scatterplot]   # TODO: the plurals and spellings the prose uses
+  def: "a graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line."
+# mission 8
+- name: Confidence interval
+  aliases: [confidence interval]   # TODO: the plurals and spellings the prose uses
+  def: "a range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed."
+# mission 9
+- name: Single blind
+  aliases: [single blind]   # TODO: the plurals and spellings the prose uses
+  def: "either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments."
+# mission 10
+- name: t distribution
+  aliases: [t distribution]   # TODO: the plurals and spellings the prose uses
+  def: "a bell-shaped distribution with heavier tails used when population SD is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups."
+# mission 11
+- name: Central Limit Theorem
+  aliases: [central limit theorem]   # TODO: the plurals and spellings the prose uses
+  def: "for large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter."
+# mission 12
+- name: Goodness-of-fit test
+  aliases: [goodness-of-fit test]   # TODO: the plurals and spellings the prose uses
+  def: "compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model."
+# mission 13
+- name: Population slope
+  aliases: [population slope]   # TODO: the plurals and spellings the prose uses
+  def: "the true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims."
+# mission 14
+- name: Practical significance
+  aliases: [practical significance]   # TODO: the plurals and spellings the prose uses
+  def: "whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive."
+# mission 15
+- name: State-Plan-Do-Conclude
+  aliases: [state-plan-do-conclude]   # TODO: the plurals and spellings the prose uses
+  def: "the four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "IQR = Q3 - Q1",
+#     c: "Measuring the middle half of a quantitative distribution.",
+#     v: [ TODO: split "Q1 is the first quartile; Q3 is the third quartile; IQR is interquartile range." ],
+#     s: "The board must flag extreme patient values without letting them redefine the promised outcome.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "z = (x - mean) / SD",
+#     c: "Finding how many standard deviations a value lies from its mean.",
+#     v: [ TODO: split "x is the observed value; mean is the distribution mean; SD is its standard deviation; z is the standardized score." ],
+#     s: "The audit must compare unusually long recoveries across hospitals with different baselines.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "P(A union B)=P(A)+P(B)-P(A and B)",
+#     c: "Avoiding double-counting cases in both events.",
+#     v: [ TODO: split "A and B are events; P gives probability." ],
+#     s: "Some reports belong to both a site cluster and a lab flag.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "P(A given B)=P(A and B)/P(B)",
+#     c: "Finding a rate within a selected group.",
+#     v: [ TODO: split "A given B means A among B cases." ],
+#     s: "The board needs the event rate among flagged shipments.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "E(X)=sum[xP(x)]",
+#     c: "Finding a random variable's long-run mean.",
+#     v: [ TODO: split "x is a possible value; P(x) is its probability." ],
+#     s: "The board must forecast event workload.",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "Var(X plus or minus Y)=Var(X)+Var(Y), for independent X and Y",
+#     c: "Combining independent uncertainty.",
+#     v: [ TODO: split "Var is variance; X and Y are random variables." ],
+#     s: "Two site streams feed one safety total.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "SD(p-hat)=sqrt[p(1-p)/n] and SD(x-bar)=sigma/sqrt(n)",
+#     c: "Describing sampling-distribution spread.",
+#     v: [ TODO: split "p is population proportion; n sample size; sigma population SD." ],
+#     s: "The amendment must recover precision lost by fixing representation.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "b=r(sy/sx); a=y-bar-bx-bar; y-hat=a+bx",
+#     c: "Building the least-squares line from summary statistics.",
+#     v: [ TODO: split "b slope; a intercept; r correlation; sx,sy SDs; x-bar,y-bar means." ],
+#     s: "The query team must predict follow-up delay from travel distance.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "residual=y-y-hat",
+#     c: "Showing how far each observed outcome lies above or below prediction.",
+#     v: [ TODO: split "y observed; y-hat predicted." ],
+#     s: "A patterned miss can expose a biased complete-case set.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "p-hat plus or minus z-star sqrt[p-hat(1-p-hat)/n]",
+#     c: "A confidence interval for one population proportion.",
+#     v: [ TODO: split "p-hat sample proportion; n sample size; z-star confidence critical value." ],
+#     s: "The board needs a plausible range for the exposed-kit failure rate.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "z=(p-hat-p0)/sqrt[p0(1-p0)/n]",
+#     c: "Testing a proportion against a benchmark.",
+#     v: [ TODO: split "p0 null rate; other symbols as above." ],
+#     s: "Quarantine depends on whether failures exceed the 10% campaign safety benchmark.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "(p1-hat-p2-hat) plus or minus z-star sqrt[p1-hat q1-hat/n1 + p2-hat q2-hat/n2]",
+#     c: "Estimating a difference in proportions.",
+#     v: [ TODO: split "q-hat=1-p-hat; subscripts mark arms." ],
+#     s: "The survey must estimate the treatment-minus-placebo guessing difference.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "t=(x-bar-mu0)/(s/sqrt n), df=n-1",
+#     c: "Testing one population mean.",
+#     v: [ TODO: split "x-bar sample mean; mu0 null mean; s sample SD; n sample size." ],
+#     s: "The adjusted mean must be compared with the registered benchmark.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "mean(x-bar)=mu; SD(x-bar)=sigma/sqrt(n)",
+#     c: "Describing sample-mean behavior.",
+#     v: [ TODO: split "mu and sigma are population mean and SD; n is sample size." ],
+#     s: "The lock check must separate expected sampling variation from copied extraction errors.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "chi-square=sum[(O-E)^2/E]",
+#     c: "Measuring total categorical mismatch.",
+#     v: [ TODO: split "O observed count; E expected count." ],
+#     s: "The board must quantify three different table discrepancies.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "t=b/SE(b), df=n-2; slope CI=b plus or minus t-star SE(b)",
+#     c: "Testing and estimating a population slope.",
+#     v: [ TODO: split "b sample slope; SE(b) its standard error; n sample size." ],
+#     s: "The board must assess a dose-response trend.",
+#     k: [ TODO ] },

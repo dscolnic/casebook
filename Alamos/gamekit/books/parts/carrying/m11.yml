@@ -1,0 +1,159 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Energy and Emissions Ledger"
+  card:
+    header: "5 DAYS."
+    title: "ENERGY AND EMISSIONS LEDGER"
+    goNow: "Turbine Yard, Elias Shaw at meter-board."
+    body: "Reef conditions now include climate and warm-water pressure, so ferry power cannot be judged by supply alone. Nameplate output differs from annual output, and each fuel releases different pollution. Meter demand, trace emissions through the tip, then cost controls at the Common. By the end of the mission, choose the energy mix the plan can honestly support."
+    objective: "Close the useful-energy and pollution ledger."
+  objective: "Close the useful-energy and pollution ledger."
+  stake: "Reef conditions now include climate and warm-water pressure, so ferry power cannot be judged by supply alone. Nameplate output differs from annual output, and each fuel releases different pollution. Meter demand, trace emissions through the tip, then cost controls at the Common. By the end of the mission, choose the energy mix the plan can honestly support."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Use repaired wind, storage, and less power. Keep a clean backup for short gaps. This mix saves the 15-kilowatt reserve. A methane leak now puts that reserve at risk."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is low-carbon with costly long-lived waste; renewables are low-carbon but need land, storage, or backup."
+  - "Weather is short-term; climate is a 30+ year average."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-turbine-yard
+    # On arrival at Turbine Yard | s41-close-the-peak-power-ledger | automatic
+    on: { enter: true, at: TODO }   # s41-close-the-peak-power-ledger
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 11: CLOSE THE PEAK-POWER LEDGER OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Start with close the peak-power ledger. We need evidence the next decision can use."
+  - id: after-stop-41
+    # After Stop 41 | s42-calculate-capacity-factor | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 41 result to settle calculate capacity factor."
+  - id: after-stop-42
+    # After Stop 42 | s43-match-pollutants-and-controls | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 42 result to settle match pollutants and controls."
+  - id: after-stop-43
+    # After Stop 43 | s44-fund-the-energy-portfolio | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 43 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 43 result to settle fund the energy portfolio."
+  - id: at-mission-end
+    # At mission end | s41-close-the-peak-power-ledger | automatic
+    on: { enter: true, at: TODO }   # s41-close-the-peak-power-ledger
+    world: "Decision and hook: Stop 44 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 11 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The active-load reserve is 15 kW; unavailable nameplate capacity does not count."
+
+  stops:
+  # --- Stop 41: Close the peak-power ledger
+  #     Concept: demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation; Keystone: demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation; Area: Turbine Yard; Learning role: PRACTICE; Difficulty: L3; Story role: demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation.
+  #     placement: BALANCE, at s41-close-the-peak-power-ledger.
+  - group: POWER
+    at: fuel-bench
+    title: "Close the peak-power ledger"
+    concept: "demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation"
+    reason: "The island cannot commit close the peak-power ledger until this evidence is resolved."
+    scene: "The reef conditions add new electric loads, while essential evening demand must remain firm. Close the peak ledger before selecting any generator or storage plan, and the team needs this result before it acts."
+    motivation: "Close the peak-power ledger connects the measured environmental mechanism to the next island condition."
+    format: BALANCE
+    question: "Using 310 kW supply and simultaneous loads of 160, 55, 20, 15, and 45 kW, apply reserve=supply-loads and submit one reserve in kW"
+    answerText: "The completed check shows the reserve is 15 kW."
+    why: "Close the peak-power ledger connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The reserve is 15 kW
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"available_supply",direction:"in",value:310,unit:"kW",counts:true},{id:"homes",direction:"out",value:160,unit:"kW",counts:true},{id:"water",direction:"out",value:55,unit:"kW",counts:true},{id:"school",direction:"out",value:20,unit:"kW",counts:true},{id:"tip",direction:"out",value:15,unit:"kW",counts:true},{id:"ferry",direction:"out",value:45,unit:"kW",counts:true},{id:"nameplate_capacity",direction:"none",value:400,unit:"kW",counts:false,reason:"not available supply during the outage"}],equation:"reserve=available supply-sum active loads",correct:15,tolerance:1,answerText:"The active-load reserve is 15 kW; unavailable nameplate capacity does not count."}
+
+  # --- Stop 42: Calculate capacity factor
+  #     Concept: capacity factor | energy | 11; Keystone: capacity factor | energy | 11; Area: Turbine Yard; Learning role: PRACTICE; Difficulty: L3; Story role: capacity factor | energy | 11.
+  #     placement: BALLPARK, at s42-calculate-capacity-factor.
+  - group: POWER
+    at: TODO               # the fixture it is asked at
+    title: "Calculate capacity factor"
+    concept: "capacity factor | energy | 11"
+    reason: "The island cannot commit calculate capacity factor until this evidence is resolved."
+    scene: "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Calculate capacity factor connects the measured environmental mechanism to the next island condition."
+    format: BALLPARK
+    question: "Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent"
+    answerText: "The completed check shows capacity factor is 31.1%."
+    why: "Calculate capacity factor connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Capacity factor is 31.1%
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{equation:"680000/(250*8760)*100",inputs:{actual_kWh:680000,rated_kW:250,hours:8760},truth:31.1,unit:percent,tolerance:0.2}
+
+  # --- Stop 43: Match pollutants and controls
+  #     Concept: air pollution | atmosphere and climate | 11; Keystone: air pollution | atmosphere and climate | 11; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: air pollution | atmosphere and climate | 11.
+  #     placement: CASEBOOK, at s43-match-pollutants-and-controls.
+  - group: TIP
+    at: TODO               # the fixture it is asked at
+    title: "Match pollutants and controls"
+    concept: "air pollution | atmosphere and climate | 11"
+    reason: "The island cannot commit match pollutants and controls until this evidence is resolved."
+    scene: "Because nameplate power overstates wind supply, backup fuels remain in the plan. Match each pollutant to its source, effect, and control, and the team needs this result before it acts."
+    motivation: "Match pollutants and controls connects the measured environmental mechanism to the next island condition."
+    format: CASEBOOK
+    question: "Match CO, SO2, NOx, PM, and ground-level ozone to their printed mechanisms and controls"
+    answerText: "The completed check shows all five pollutant chains are matched."
+    why: "Match pollutants and controls connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: All five pollutant chains are matched
+    # state/output: s wind supply, backup fuels remain in the plan. Match each pollutant to its source, effect, and control." Prompt: Match CO, SO2, NOx, PM, and ground-level ozone to their printed mechanisms and controls. Payload: casebook:{mapping:{CO:[incomplete_combustion,reduced_blood_oxygen,catalytic_converter],SO2:[coal,acid_rain,scrubber],NOx:[combustion,photochemical_smog,catalyst],PM:[dust_and_combustion,cardiorespiratory_harm,electrostatic_precipitator],ground_ozone:[photochemistry,respiratory_harm,precursor_control]}}
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   casebook:{mapping:{CO:[incomplete_combustion,reduced_blood_oxygen,catalytic_converter],SO2:[coal,acid_rain,scrubber],NOx:[combustion,photochemical_smog,catalyst],PM:[dust_and_combustion,cardiorespiratory_harm,electrostatic_precipitator],ground_ozone:[photochemistry,respiratory_harm,precursor_control]}}
+
+  # --- Stop 44: Fund the energy portfolio
+  #     Concept: energy portfolio | energy and policy | 11; Keystone: energy portfolio | energy and policy | 11; Area: Turbine Yard; Learning role: PRACTICE; Difficulty: L3; Story role: energy portfolio | energy and policy | 11.
+  #     placement: SCIENCETANK, asked by Mara Voss beside s44-fund-the-energy-portfolio.
+  - group: POWER
+    title: "Fund the energy portfolio"
+    person: TODO   # the roster id of whoever asks it
+    concept: "energy portfolio | energy and policy | 11"
+    reason: "The island cannot commit fund the energy portfolio until this evidence is resolved."
+    scene: "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Fund the energy portfolio connects the measured environmental mechanism to the next island condition."
+    format: SCIENCETANK
+    question: "Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35"
+    answerText: "The completed check shows the five-part portfolio totals 100 and preserves firm reserve."
+    why: "Fund the energy portfolio connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The five-part portfolio totals 100 and preserves firm reserve
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sciencetank:{pool:100,proposals:[insulation20,LED10,battery25,wind_repair25,pollution_controls20,diesel_expansion40,unfirmed_solar35],recommended:[insulation20,LED10,battery25,wind_repair25,pollution_controls20]}
+

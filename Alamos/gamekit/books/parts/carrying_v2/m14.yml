@@ -1,0 +1,194 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Population Outlook"
+  card:
+    header: "2 DAYS."
+    title: "THE POPULATION OUTLOOK"
+    goNow: "Island School, Lena Costa at register-desk."
+    body: "Biosecurity now protects each arrival, but the ferry load still depends on who lives here and who visits. Age structure, fertility, mortality, migration, and population momentum shape resident demand differently from visitor-days. Build the forecast at school, test arrivals at the harbour, then map footprint at the Common. By the end of the mission, decide the population load the plan must serve."
+    objective: "Lock the human-demand forecast."
+  objective: "Lock the human-demand forecast."
+  stake: "Biosecurity now protects each arrival, but the ferry load still depends on who lives here and who visits. Age structure, fertility, mortality, migration, and population momentum shape resident demand differently from visitor-days. Build the forecast at school, test arrivals at the harbour, then map footprint at the Common. By the end of the mission, decide the population load the plan must serve."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Use a lower visitor cap and a drought reserve. Count crew only once. The plan stays within the water limit. The last vote now needs an independent sample."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "age pyramids show growth, stability, or decline; Malthus contrasted geometric population with arithmetic food growth; developed populations often age with low TFR."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-island-school
+    # On arrival at Island School | register-desk | automatic
+    on: { enter: true, at: SCHOOL }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 14: READ THE AGE STRUCTURE OPEN"
+    bubbles:
+    - who: costa   # the bible's "mission lead", from this mission's own goNow line
+      say: "Start with read the age structure. We need evidence the next decision can use."
+  - id: after-stop-53
+    # After Stop 53 | register-desk | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    bubbles:
+    - who: costa   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 53 result to settle calculate population growth."
+  - id: after-stop-54
+    # After Stop 54 | council-table | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    bubbles:
+    - who: costa   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 54 result to settle close the person-day balance."
+  - id: after-stop-55
+    # After Stop 55 | common-map | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 55 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    bubbles:
+    - who: costa   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 55 result to settle stress the human-demand forecast."
+  - id: at-mission-end
+    # At mission end | register-desk | automatic
+    on: { missionEnd: true }
+    world: "Decision and hook: Stop 56 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 14 EVIDENCE: RECORDED"
+    bubbles:
+    - who: costa   # the bible's "mission lead", from this mission's own goNow line
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 53: Read the age structure
+  #     Concept: age structure | populations | D8 dose | RETRIEVE | L3 | evidence; Keystone: age structure | populations | D8 dose | RETRIEVE | L3 | evidence; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: age structure | populations | D8 dose | RETRIEVE | L3 | evidence.
+  #     placement: CLOUD, at register-desk.
+  - group: REEF
+    at: register-desk
+    title: "Read the age structure"
+    concept: "age structure | populations | D8 dose | RETRIEVE | L3 | evidence"
+    reason: "The island cannot commit read the age structure until this evidence is resolved."
+    scene: "The biosecurity rule counts arrivals, but permanent demand begins with residents already here. Shape the island age distribution before adding visitors, and the team needs this result before it acts."
+    motivation: "Read the age structure connects the measured environmental mechanism to the next island condition."
+    format: CLOUD
+    question: "Plot age bins 0-14=28, 15-44=62, 45-64=91, and 65+=74 people; submit growing, stable, or declining"
+    answerText: "The completed check shows the resident population is top-heavy and declining."
+    why: "Read the age structure connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The resident population is top-heavy and declining
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:{bins:[{age:"0-14",count:28},{age:"15-44",count:62},{age:"45-64",count:91},{age:"65+",count:74}],correct:declining,shape:top_heavy}
+
+  # --- Stop 54: Calculate population growth
+  #     Concept: population growth | populations | 14; Keystone: population growth | populations | 14; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: population growth | populations | 14.
+  #     placement: BALLPARK, at register-desk.
+  - group: REEF
+    at: register-desk
+    title: "Calculate population growth"
+    concept: "population growth | populations | 14"
+    reason: "The island cannot commit calculate population growth until this evidence is resolved."
+    scene: "The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70, and the team needs this result before it acts."
+    motivation: "Calculate population growth connects the measured environmental mechanism to the next island condition."
+    format: BALLPARK
+    question: "Apply PGR=(births-deaths)/population*100 using 3 births, 6 deaths, and 255 people; submit percent/year and whether doubling time is meaningful"
+    # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
+    # and its `equation` the template; `truth: -1.18` is the target and its
+    # `tolerance: 0.02` is already an absolute band on a percentage.
+    estimate:
+      prompt: The register holds one year of births and deaths against the resident count.
+      question: Estimate the island's population growth rate as a percentage a year.
+      relationship: population growth rate = (births - deaths) ÷ population × 100
+      labels:
+      - 3  (births last year)
+      - 6  (deaths last year)
+      - 255  (island residents)
+      values: [3, 6, 255]
+      slots: 3
+      template: '({0} - {1}) ÷ {2} × 100'
+      formula: (a-b)/c*100
+      correct: [0, 1, 2]
+      target: -1.18
+      tolerance: 0.02
+      units: percent/year
+      solution: (3 - 6) ÷ 255 × 100 = -1.18 per cent a year.
+      explanation: More deaths than births makes the rate negative, and a negative rate has no doubling time — the island is halving, slowly.
+    answerText: "The completed check shows growth is -1.18%/year; a doubling time is not meaningful."
+    why: "Calculate population growth connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Growth is -1.18%/year; a doubling time is not meaningful
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{equation:"(3-6)/255*100",inputs:{births:3,deaths:6,population:255},truth:-1.18,unit:"percent/year",tolerance:0.02,interpretation:"halving, not doubling"}
+
+  # --- Stop 55: Close the person-day balance
+  #     Concept: person-days | closed budgets | 14; Keystone: person-days | closed budgets | 14; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: person-days | closed budgets | 14.
+  #     placement: BALANCE, at council-table.
+  - group: CHAPEL
+    at: council-table
+    title: "Close the person-day balance"
+    concept: "person-days | closed budgets | 14"
+    reason: "The island cannot commit close the person-day balance until this evidence is resolved."
+    scene: "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Close the person-day balance connects the measured environmental mechanism to the next island condition."
+    format: BALANCE
+    question: "Apply person-days=people*days using 255 residents*31 days, 340 visitors/day*8 current sailing days, and another 2720 visitor-days for the second ferry; submit total"
+    relationship: "demand = resident person-days + current-ferry visitor person-days + second-ferry visitor person-days"
+    # THE BIBLE'S PAYLOAD, converted. Its `correct: 13345` is the ledger's total
+    # and each stream keeps the bible's value; the ferry crew keeps `counts:
+    # false` as `countable: false` with its `reason` in `unitNote`. `hidden` marks
+    # the second sailing's visitor-days, the term this whole stop exists to add:
+    # without it the rows already on the board total 10,625 person-days.
+    balance:
+      total: { amount: 13345, unit: person-days, label: August demand on island services }
+      tolerance: 1
+      streams:
+      - { id: residents, label: Residents, value: 7905, unit: person-days }
+      - { id: current_ferry_visitors, label: Current-ferry visitors, value: 2720, unit: person-days }
+      - { id: second_ferry_visitors, label: Second-ferry visitors, value: 2720, unit: person-days, hidden: true }
+      - { id: crew_already_in_resident_count, label: Ferry crew, value: 248, unit: person-days, countable: false,
+          unitNote: "The crew live on the island and are already inside the resident count." }
+      commit: Report the demand
+    answerText: "The completed check shows the second-ferry July case is 13,345 person-days."
+    why: "Close the person-day balance connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The second-ferry July case is 13,345 person-days
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"residents",value:7905,unit:"person-days",counts:true},{id:"current_ferry_visitors",value:2720,unit:"person-days",counts:true},{id:"second_ferry_visitors",value:2720,unit:"person-days",counts:true},{id:"crew_already_in_resident_count",value:248,unit:"person-days",counts:false,reason:"duplicate population"}],equation:"255×31+340×8+2720",correct:13345,tolerance:1,answerText:"Demand is 13,345 person-days; ferry crew already counted as residents must not be added again."}
+
+  # --- Stop 56: Stress the human-demand forecast
+  #     Concept: footprint and demand | population and policy | 14; Keystone: footprint and demand | population and policy | 14; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: footprint and demand | population and policy | 14.
+  #     placement: STRESS, asked by Mara Voss beside common-map.
+  - group: REEF
+    at: common-map
+    title: "Stress the human-demand forecast"
+    person: voss
+    concept: "footprint and demand | population and policy | 14"
+    reason: "The island cannot commit stress the human-demand forecast until this evidence is resolved."
+    scene: "The common ledger now includes 13,345 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition, and the team needs this result before it acts."
+    motivation: "Stress the human-demand forecast connects the measured environmental mechanism to the next island condition."
+    format: STRESS
+    question: "Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers"
+    answerText: "The completed check shows plan for 13,345 July person-days and condition the cap on water and waste."
+    why: "Stress the human-demand forecast connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Plan for 13,345 July person-days and condition the cap on water and waste
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:{assumption:footprint_ha_person,range:[1.8,5.0],seasonal_unit:person_days,long_term_unit:age_structure,correct_plan:conditional_visitor_cap}
+

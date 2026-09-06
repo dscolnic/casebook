@@ -1,0 +1,162 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Point on the Skyline"
+  card:
+    header: "12 DAYS TO FINAL STORM WINDOW"
+    title: "The Point on the Skyline"
+    goNow: "Go to Mast Base and meet Marcus Tate, mast engineer, at the mast desk."
+    body: "The voltage interval is large enough to drive a discharge, yet the outstation shows no direct arc mark. A conductor moves free charge until its interior field is zero, and sharp surfaces can crowd charge outside. You will model the mast tip and inspect the trailer record. By the end of the mission, decide whether tip enhancement alone caused the outstation loss."
+    objective: "Separate local mast-tip breakdown from the remote failure."
+  objective: "Separate local mast-tip breakdown from the remote failure."
+  stake: "The voltage interval is large enough to drive a discharge, yet the outstation shows no direct arc mark. A conductor moves free charge until its interior field is zero, and sharp surfaces can crowd charge outside. You will model the mast tip and inspect the trailer record. By the end of the mission, decide whether tip enhancement alone caused the outstation loss."
+  takeaway: "Tip enhancement did not by itself cause the outstation loss. ---"
+  segue: "Mission decision: Tip enhancement did not by itself cause the outstation loss. It explains why the mast launches a discharge. But the trailer evidence requires a conducted or induced path. The search now moves from voltage to stored charge. **Metric:** target 18:00."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-mast-base
+    # On arrival at Mast Base | s13-conductor-boundary | automatic
+    on: { enter: true, at: TODO }   # s13-conductor-boundary
+    world: "| trigger | location | presentation | world_state | exact dialogue/panel copy | unlocks | |---|---|---|---|---|---| | briefing accepted | MAST/mast-desk | nearby_character_bubble | corona icon pulses at tip; cabinet normal | | M4S1 | | S2 correct | MAST/mast-desk | equipment_panel_update | tip label 50× BODY FIELD | The enhancement is local to the sharp tip. | M4S3 | | S3 correct | MAST/cabinet | persistent_world_change | closed cabinet reads 0.00 kV/m — SHIELDED | A closed conductor cancels the static interior field. | M4S4 | | S4 correct | MAST/cabinet | nearby_character_bubble | trailer photo gains | outcome | | outcome closes | MAST/mast-desk | system_banner | report piece 4 fixed in SHOT board remotely | TIP EFFECT LOCAL — SEARCH FOR A PATH | metric screen, M5 |."
+    panel: "Marcus Tate, mast engineer: \"The tip is meant to start a strike. Show me whether that can reach the trailer.\""
+    bubbles:
+    - who: marcus-tate   # Marcus Tate
+      say: "The tip is meant to start a strike. Show me whether that can reach the trailer."
+  - id: after-stop-13
+    # After Stop 13 | s14-derive-tip-enhancement | automatic
+    on: { after: [1] }
+    world: "The conductor boundary result remains visible while the derive tip enhancement fixture lights."
+    panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    bubbles:
+    - who: marcus-tate   # Marcus Tate
+      say: "Use the Stop 13 result to settle derive tip enhancement."
+  - id: after-stop-14
+    # After Stop 14 | s15-verify-static-shielding | automatic
+    on: { after: [2] }
+    world: "The derive tip enhancement result remains visible while the verify static shielding fixture lights."
+    panel: "STOP 14 RECORDED - STOP 15 OPEN"
+    bubbles:
+    - who: marcus-tate   # Marcus Tate
+      say: "Use the Stop 14 result to settle verify static shielding."
+  - id: after-stop-15
+    # After Stop 15 | s16-diagnose-the-remote-path | automatic
+    on: { after: [3] }
+    world: "The verify static shielding result remains visible while the diagnose the remote path fixture lights."
+    panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    bubbles:
+    - who: marcus-tate   # Marcus Tate
+      say: "Use the Stop 15 result to settle diagnose the remote path."
+  - id: at-mission-end
+    # At mission end | s13-conductor-boundary | automatic
+    on: { enter: true, at: TODO }   # s13-conductor-boundary
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 4 EVIDENCE: RECORDED"
+    bubbles:
+    - who: marcus-tate   # Marcus Tate
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The closed cabinet reads 0.00 kV/m within tolerance, while opening admits field; closing restores shielding."
+
+  stops:
+  # --- Stop 13: Conductor Boundary
+  #     Concept: conductor equilibrium; Keystone: K4; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L1 clue.
+  #     placement: CHOICE, asked by Marcus Tate beside s13-conductor-boundary.
+  - group: MAST
+    at: mast-desk
+    title: "Conductor Boundary"
+    person: tate
+    concept: "conductor equilibrium"
+    reason: "the mast model must obey conductor boundaries."
+    scene: "The mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. Select the only sketch consistent with electrostatic equilibrium before Tate estimates the tip field."
+    motivation: "zero interior field and perpendicular exterior field rule out three pictures."
+    format: CHOICE
+    question: "Select the one conductor sketch that shows zero field inside, one surface potential, and an exterior field perpendicular to the surface; submit one letter."
+    choices:
+    - "Zero field inside, one surface potential, and an exterior field perpendicular to the surface."
+    - "A nonzero uniform field remains inside the conductor."
+    - "The exterior field is tangent to the conductor surface."
+    - "Potential varies from point to point along the conductor surface."
+    answer: "Zero field inside, one surface potential, and an exterior field perpendicular to the surface."
+    answerText: "The completed check shows a conductor at equilibrium has E=0 inside; outside E is normal. Mobile charge moves until tangential/interior fields vanish."
+    why: "zero interior field and perpendicular exterior field rule out three pictures."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: A conductor at equilibrium has E=0 inside; outside E is normal. Mobile charge moves until tangential/interior fields vanish.
+    # state/output: boundary overlay→S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   choices=[{id:A,text:"Zero interior field; one surface potential; exterior field perpendicular"},{id:B,text:"Nonzero uniform interior field; exterior field perpendicular"},{id:C,text:"Zero interior field; exterior field tangent to the surface"},{id:D,text:"Zero interior field; different potentials at the tip and body"}]; answer=A; rebuttals={B:"A nonzero interior field would keep moving free charge, so equilibrium has not been reached.",C:"A tangent surface field would move charge along the conductor; the equilibrium field must be perpendicular.",D:"A connected conductor in electrostatic equilibrium is one equipotential, including tip and body."}.
+
+  # --- Stop 14: Derive Tip Enhancement
+  #     Concept: spherical-curvature proxy; Keystone: K2,K4; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L3 reveal.
+  #     placement: DERIVE, at s14-derive-tip-enhancement.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive Tip Enhancement"
+    concept: "spherical-curvature proxy"
+    reason: "the launch team needs a numerical enhancement, not \"sharp is stronger.\""
+    scene: "With conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Derive their surface-field ratio.\", and record the result with its physical justification in the station report."
+    motivation: "equal potential makes E=V/R, so smaller curvature radius means larger field."
+    format: DERIVE
+    question: "Build four lines from V=kQ/R and E=kQ/R², choose the rule that licenses each line, and submit the numerical ratio E_tip/E_body."
+    answerText: "E_tip/E_body=R_body/R_tip=50. Equal V with E=V/R crowds field at small radius."
+    why: "equal potential makes E=V/R, so smaller curvature radius means larger field."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   equal voltage does not mean equal surface charge.
+    # correct result: 50 exact.
+    # state/output: unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines: V=kQ/R(sphere potential), E=kQ/R²(Gauss/Coulomb), E=V/R(eliminate Q), E_tip/E_body=R_body/R_tip=50(ratio).
+
+  # --- Stop 15: Verify Static Shielding
+  #     Concept: shielding/conductor; Keystone: K4,K12; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L3 test.
+  #     placement: VERIFY, at s15-verify-static-shielding.
+  - group: MAST
+    at: TODO               # the fixture it is asked at
+    title: "Verify Static Shielding"
+    concept: "shielding/conductor"
+    reason: "a real enclosure must verify the zero-interior-field claim."
+    scene: "Because the tip model is local, test whether a closed conducting cabinet blocks a static external field. Predict its interior reading before the door control unlocks, then compare open and closed states."
+    motivation: "induced surface charge cancels static field inside a closed conductor."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Enter 0.00 kV/m for the closed cabinet. OPERATE: Open, then close, the door while external field and sensor position stay fixed. MEASURE: Record both interior fields. INTERPRET: Restore the door closed and submit one shielding conclusion."
+    answerText: "The completed check shows closed reading 0.00 kV/m confirms static shielding. Surface charge cancels interior E."
+    why: "induced surface charge cancels static field inside a closed conductor."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Commit the closed-state prediction before touching the door, and restore the door closed.
+    # correct result: Closed reading 0.00 kV/m confirms static shielding. Surface charge cancels interior E.
+    # state/output: unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{submit:{quantity:"closed-cabinet interior field",unit:"kV/m",truth:0.00,tolerance:0.02}},equipment_locked_until_prediction_commit:true,operation:{control:"cabinet door",settings:["open","closed"],fixed:["external field 4.0 kV/m","sensor position"]},measurements:{open:1.20,closed:0.00,unit:"kV/m"},restore:{required:true,setting:"closed",remeasure:true},correct_conclusion:"static shielding confirmed",answerText:"The closed cabinet reads 0.00 kV/m within tolerance, while opening admits field; closing restores shielding."}
+
+  # --- Stop 16: Diagnose the Remote Path
+  #     Concept: local versus remote cause; Keystone: K4,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4 decision.
+  #     placement: DIAGNOSIS, at s16-diagnose-the-remote-path.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Diagnose the Remote Path"
+    concept: "local versus remote cause"
+    reason: "the same conductor physics must fit both mast and trailer evidence."
+    scene: "Now the mast tip can exceed breakdown while a closed conductor remains field-free. Diagnose which explanation fits tip corona, no trailer arc mark, and damage only on a cable card."
+    motivation: "a local strong field explains corona but cannot cross two hundred metres without a coupling path."
+    format: DIAGNOSIS
+    question: "Read every alarming and quiet zone, select one diagnosis that fits them all, and submit either tip field alone, site-wide field, or conducted/induced path."
+    answerText: "The completed check shows a conducted or induced path fits all readings. Tip-only and uniform-field models fail quiet evidence."
+    why: "a local strong field explains corona but cannot cross two hundred metres without a coupling path."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use the absent shell arc and quiet cabinet, not only the alarming card.
+    # correct result: A conducted or induced path fits all readings. Tip-only and uniform-field models fail quiet evidence.
+    # state/output: report piece 4→M5.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline WHAT FAILED?; readings zones [tip_corona:alarm,trailer_shell_arc:none,card_damage:alarm,cabinet_inside:quiet]; choices [tip_field_alone,conducted_or_induced_path,sitewide_uniform_field]; answer conducted_or_induced_path.
+

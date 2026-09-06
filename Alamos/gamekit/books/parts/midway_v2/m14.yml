@@ -1,0 +1,235 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Wrong Radius"
+  card:
+    header: "2 DAYS UNTIL COUNTY INSPECTION"
+    title: "THE WRONG RADIUS"
+    goNow: "Go to the Coaster Station and meet Linh Chen, the instrumentation and test lead, at the profile drawing."
+    body: "Six ride decisions now have defensible limits, and the coaster model predicts enough speed at the loop crown. A model can pass familiar records and still fail when it faces a measurement hidden during fitting. Freeze the drawing-based prediction, reveal the crown tape, then compare independent systems. By the end of the mission, decide whether the coaster still has the required loop margin."
+    objective: "Test the coaster model against the physically measured loop radius."
+  objective: "Test the coaster model against the physically measured loop radius."
+  stake: "Six ride decisions now have defensible limits, and the coaster model predicts enough speed at the loop crown. A model can pass familiar records and still fail when it faces a measurement hidden during fitting. Freeze the drawing-based prediction, reveal the crown tape, then compare independent systems. By the end of the mission, decide whether the coaster still has the required loop margin."
+  takeaway: "Correct equations cannot rescue incorrect measured or assumed inputs."
+  segue: "Mission decision: The coaster does not have enough loop margin. Its measured speed is 9.40 m/s, but the real loop needs 9.52 m/s. The math was right for the old plan. The plan used the wrong track shape, so the coaster stays shut."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Freeze predictions before revealing holdout measurements."
+  - "Recalculate from the physical machine when geometry disagrees with a drawing."
+  - "A correct derivation can produce a wrong decision when its input is wrong."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coaster-station
+    # On arrival at Coaster Station | automatic | 
+    on: { enter: true, at: COASTER }
+    world: "Chen covers the crown tape."
+    panel: "STOP 53 READY"
+    # unlocks: Stop 53.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "Write the prediction before you see the geometry we held back."
+  - id: after-stop-53
+    # After Stop 53 | automatic | 
+    on: { after: [1] }
+    world: "The 8.41 m/s requirement freezes."
+    panel: "7.4 m"
+    # unlocks: Stop 54.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "The next check is ready; keep the current evidence visible."
+  - id: on-arrival-at-drop-tower-control
+    # On arrival at Drop Tower Control | automatic | 
+    on: { enter: true, at: TOWER }
+    world: "Its direct geometry residuals remain unpatterned, establishing a comparison."
+    panel: "STOP 55 READY"
+    # unlocks: Stop 55.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "The next check is ready; keep the current evidence visible."
+  - id: on-arrival-at-flume-pumphouse
+    # On arrival at Flume Pumphouse | automatic | 
+    on: { enter: true, at: FLUME }
+    world: "Direct depth and flow measurements also hold."
+    panel: "STOP 56 READY"
+    # unlocks: Stop 56.
+    bubbles:
+    - who: chen   # Linh Chen
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-56
+    # After Stop 56 | automatic | 
+    on: { after: [4] }
+    world: "Coaster certificate light turns red while the other six remain lit."
+    panel: "MISSION 14 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: kova   # Luka Kovač
+      say: "The equations did not fail. We measured the wrong ride on paper."
+
+  stops:
+  # --- Stop 53: Freeze the old prediction
+  #     Concept: Model validation; Keystone: evidence and models; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L4; Story role: clue.
+  #     placement: HOLDOUT, asked at profile-drawing.
+  - group: WORKSHOP
+    at: profile-drawing
+    title: "Freeze the old prediction"
+    concept: "Model validation"
+    reason: "The old model must be frozen before the hidden physical radius is revealed."
+    scene: "Fit the drawing-based model to the visible lift height, crown height, losses, and 5.6 m radius. Freeze its required speed and provisional verdict before Chen uncovers the hidden holdout measurement."
+    motivation: "A frozen prediction makes the new geometry a real test rather than another tuning input."
+    format: HOLDOUT
+    question: "CALCULATE AND COMMIT: Given lift height 26 m, crown height 20 m, drawing radius 5.6 m, measured crown speed 9.40 m/s, g = 9.80 m/s^2, and required margin 1.00 m/s, use v_min = sqrt(gr) and submit contact minimum, required speed, and provisional pass/fail conclusion in m/s; the physical-radius measurement stays locked until you commit. REVEAL: Unlock and record the physical crown radius in m. INTERPRET: Submit one conclusion stating whether the frozen drawing-based verdict must be retested."
+    answerText: "Freeze a drawing-based requirement of 8.41 m/s and a provisional pass before revealing the physical radius."
+    why: "The model uses √(gr)+1.0 m/s; its result is conditional on r=5.6 m."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not view or tune to the holdout before committing the model.
+    # correct result: Commit requirement 8.41 m/s and provisional pass before radius unlock; reveal 7.4 m.
+    # state/output: Reveal crown-tape: 7.4 m.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout:
+    #     training:
+    #       inputs: {lift_height_m: 26, crown_height_m: 20, drawing_radius_m: 5.6, measured_crown_speed_mps: 9.40}
+    #       required_margin_mps: 1.0
+    #     frozen_prediction: {contact_min_mps: 7.41, required_with_margin_mps: 8.41, verdict: pass}
+    #     holdout: {label: "Physical crown radius", hidden_until_freeze: true, value: 7.4, unit: m}
+    #     correct_conclusion: "Drawing-based verdict must be retested with physical radius."
+    # HELD BACK, and this is a different instrument rather than a short one. The
+    # bible's board is freeze-then-reveal: commit a verdict, unlock the measured
+    # radius, say whether the verdict has to be retested. The engine's HOLDOUT is
+    # two scored curves over one threshold axis — a calibration set with a
+    # tempting spike and a held-out set that punishes it — with at least five
+    # authored points on each and a held-out score that counts as a pass. None of
+    # that is in the payload. Owed by the bible: the axis, the two curves, and the
+    # passing held-out score.
+
+  # --- Stop 54: Recompute for the real loop
+  #     Concept: Circular dynamics plus margin; Keystone: force, energy, models; Area: Carousel Drive House; Learning role: RETRIEVE; Difficulty: L4; Story role: reveal.
+  #     placement: DERIVE, asked at crown-tape.
+  - group: CAROUSEL
+    at: crown-tape
+    title: "Recompute for the real loop"
+    concept: "Circular dynamics plus margin"
+    reason: "The certificate must use the present loop rather than the archived drawing."
+    scene: "The physical crown radius is 7.4 m, not 5.6 m. Rebuild the contact minimum and add Corbin Park's fictional 1.0 m/s safety margin before comparing the new independent measured speed."
+    motivation: "Larger radius raises the speed needed for the same inward acceleration at the crown."
+    format: DERIVE
+    question: "Given physical radius r = 7.4 m, g = 9.80 m/s^2, required margin 1.00 m/s, and measured crown speed 9.40 m/s, use v_min = sqrt(gr) and v_required = v_min + margin. Submit an ordered derivation, both required speeds in m/s, a pass/fail conclusion, and the signed margin difference in m/s."
+    answerText: "The real loop requires 9.52 m/s with margin; the 9.40 m/s measurement fails by 0.12 m/s."
+    why: "The train may retain contact above 8.52 m/s but does not meet the separate required margin."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not confuse minimum contact with the campaign's additional margin.
+    # correct result: Real contact minimum 8.52 m/s; margin requirement 9.52 m/s; measured 9.40 m/s; fail by 0.12 m/s.
+    # state/output: Set coaster_margin = fail.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: contact, expression: "v_min = sqrt(gr)", rule: "loop contact limit"}
+    #       - {id: number, expression: "v_min = sqrt(9.80*7.4) = 8.52 m/s", rule: "use physical radius"}
+    #       - {id: margin, expression: "v_required = 8.52 + 1.00 = 9.52 m/s", rule: "Corbin Park fictional margin"}
+    #       - {id: verdict, expression: "9.40 < 9.52, so margin fails by 0.12 m/s", rule: "compare independent speed"}
+    #     order: [contact,number,margin,verdict]
+    #     decoys:
+    #       - {expression: "v_min = sqrt(9.80*5.6) = 7.41 m/s", rule: "reuse the drawing radius after the physical radius is revealed"}
+    # HELD BACK. The bible writes a derivation as an ordered list of lines plus a
+    # single decoy for the whole thing. The engine grades it line by line: every
+    # step needs at least three candidate lines, a `why` on each wrong one saying
+    # what it costs, and one wrong branch marked `survives` so the step cannot be
+    # passed by spotting the malformed option. Owed by the bible: per-step
+    # candidate sets, a rebuttal on each wrong candidate, and which wrong branch
+    # survives. Also `start` and `goal` — the line it begins from, and the FORM it
+    # is going to, which is not the same as the answer.
+
+  # --- Stop 55: Compare residual fields
+  #     Concept: Model-input diagnosis; Keystone: evidence; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L4; Story role: clue.
+  #     placement: RESIDUAL, asked at witness-sheet.
+  - group: WORKSHOP
+    at: witness-sheet
+    title: "Compare residual fields"
+    concept: "Model-input diagnosis"
+    reason: "The team must know whether copied geometry is a park-wide model failure or a coaster-specific input problem."
+    scene: "Compare residuals for the coaster's copied radius, the tower's measured release height, and the flume's measured depth. Identify which complete residual field shows a systematic geometry mismatch rather than random noise."
+    motivation: "Independent systems reveal whether one model input or the underlying physics has failed."
+    format: RESIDUAL
+    question: "Compare the displayed coaster residuals in m, tower residuals in m, and flume residuals in m. Submit one field selection and one conclusion naming the constant-bias pattern and the assumption it invalidates."
+    answerText: "The coaster alone shows a constant 1.8 m geometry bias."
+    why: "Tower and flume measurements agree with their physical geometry, so gravity and the shared equations are not the failing element."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (tower) Tower residuals alternate only at small, unpatterned measurement-noise scale. (flume) Flume residuals also remain small and unpatterned; neither comparison shows the Coaster's constant 1.8 m bias.
+    # correct result: Select Coaster: constant geometry residual +1.8 m; Tower and Flume unpatterned.
+    # state/output: Set failure_scope = coaster_geometry.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:
+    #     fields:
+    #       - {id: coaster, label: "Coaster drawing minus tape", values: [-1.8,-1.8,-1.8,-1.8], rms: 1.8, pattern: constant_bias}
+    #       - {id: tower, label: "Tower mark minus laser", values: [0.02,-0.01,0.01,-0.02], rms: 0.016, pattern: none}
+    #       - {id: flume, label: "Header depth minus staff gauge", values: [0.01,0.00,-0.02,0.01], rms: 0.012, pattern: none}
+    #     correct: coaster
+    #     conclusion: "The coaster field alone shows a constant 1.8 m geometry bias, invalidating the copied drawing radius."
+    # HELD BACK. The engine's RESIDUAL plots each residual at a position, needs at
+    # least five per field, and turns on the lowest-RMS field being the patterned
+    # one — the best number has to be the wrong answer, or nobody has to look at
+    # the field. Here the patterned field, the coaster, has the worst RMS by a
+    # long way, so the trap runs backwards, and each field carries four bare
+    # values with no position. Owed by the bible: a position for every residual, a
+    # fifth value in each field, and the pattern on the fit with the best number.
+
+  # --- Stop 56: Diagnose the failed certificate
+  #     Concept: Whole-case diagnosis; Keystone: models; Area: Brennan's workshop; Learning role: DECIDE; Difficulty: L5; Story role: twist.
+  #     placement: DIAGNOSIS, asked at flume-case-stand.
+  - group: WORKSHOP
+    at: flume-case-stand
+    title: "Diagnose the failed certificate"
+    concept: "Whole-case diagnosis"
+    reason: "The final certificate needs the one cause that fits the new radius and quiet independent systems."
+    scene: "The coaster misses its required margin with the physical radius, while lift power, brakes, tower geometry, and flume geometry remain consistent. Name the single failure that fits every displayed reading."
+    motivation: "The correct diagnosis preserves valid physics while rejecting the wrong model input."
+    format: DIAGNOSIS
+    question: "Submit one causal conclusion that explains drawing radius 5.6 m, physical radius 7.4 m, measured speed 9.40 m/s, required speed 9.52 m/s, quiet lift power, and quiet brake self-test together."
+    # CONVERTED. The payload's four choice rows, written out as mappings.
+    choices:
+    - { id: gravity, label: "Gravity equation failed", mechanism: "Other systems contradict it." }
+    - { id: brake, label: "Brake failure", mechanism: "Does not explain radius mismatch." }
+    - { id: geometry, label: "Copied loop geometry invalidated the margin", mechanism: "Fits every reading." }
+    - { id: power, label: "Lift motor underpowered", mechanism: "Empty run fits plate and does not create tape mismatch." }
+    # The bible keys `answer: geometry`; the engine grades by label.
+    answer: "Copied loop geometry invalidated the margin"
+    answerText: "Copied loop geometry invalidated the drawing-based margin; the coaster remains closed."
+    why: "The equations correctly respond to the real radius. The old certificate modeled a different geometry."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (gravity) Independently verified Tower and Flume geometry contradict a gravity-model failure. (brake) A brake fault cannot create the measured 1.8 m radius mismatch. (power) The empty run fits the motor plate, and lift power cannot explain the tape-versus-drawing discrepancy.
+    # correct result: Choice 3 - copied loop geometry; Coaster remains closed.
+    # state/output: Set ride_status.coaster = closed_geometry; trigger Twist 3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "COASTER CROWN MARGIN FAILURE"
+    #   readings:
+    #     - {zone: geometry, label: "Drawing / physical radius", value: "5.6 m / 7.4 m", state: alarm}
+    #     - {zone: speed, label: "Measured / required with margin", value: "9.40 / 9.52 m/s", state: alarm}
+    #     - {zone: lift, label: "Empty-run lift power", value: "within plate", state: quiet}
+    #     - {zone: brakes, label: "Brake self-test", value: "normal", state: quiet}
+    #     - {zone: comparisons, label: "Tower and flume geometry", value: "independently verified", state: quiet}
+    #   choices:
+    #     - {id: gravity, label: "Gravity equation failed", mechanism: "Other systems contradict it."}
+    #     - {id: brake, label: "Brake failure", mechanism: "Does not explain radius mismatch."}
+    #     - {id: geometry, label: "Copied loop geometry invalidated the margin", mechanism: "Fits every reading."}
+    #     - {id: power, label: "Lift motor underpowered", mechanism: "Empty run fits plate and does not create tape mismatch."}
+    #   answer: geometry
+    # CONVERTED. `headline` is a rename; a reading's `state` is the engine's
+    # `status`, where the bible's `quiet` is `normal`.
+    headline: "COASTER CROWN MARGIN FAILURE"
+    readings:
+    - { zone: geometry, label: "Drawing / physical radius", value: "5.6 m / 7.4 m", status: alarm }
+    - { zone: speed, label: "Measured / required with margin", value: "9.40 / 9.52 m/s", status: alarm }
+    - { zone: lift, label: "Empty-run lift power", value: "within plate", status: normal }
+    - { zone: brakes, label: "Brake self-test", value: "normal", status: normal }
+    - { zone: comparisons, label: "Tower and flume geometry", value: "independently verified", status: normal }
+

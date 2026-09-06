@@ -1,0 +1,161 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Last-Half-Metre Relation"
+  card:
+    header: "11 SHIFTS UNTIL THE STORM"
+    title: "The Peak Between Readings"
+    goNow: "Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board."
+    body: "The warning clock is sound, but the two-day plan was approved from endpoint and average values. A continuous function can hide absolute extrema and changing marginal value between sampled times. At the machine board, locate critical points, test endpoints, and compare power with storage. By the end of the mission, decide whether the old two-day plan remains safe."
+    objective: "Accept or reject the average-based release plan."
+  objective: "Accept or reject the average-based release plan."
+  stake: "The warning clock is sound, but the two-day plan was approved from endpoint and average values. A continuous function can hide absolute extrema and changing marginal value between sampled times. At the machine board, locate critical points, test endpoints, and compare power with storage. By the end of the mission, decide whether the old two-day plan remains safe."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Use the safer release setting. The level must cross 4.6 metres. The theorem proves a crossing, not its exact time. Next, total the storm inflow."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-powerhouse
+    # On arrival at Powerhouse | s17-find-critical-turbine-demand | automatic
+    on: { enter: true, at: TODO }   # s17-find-critical-turbine-demand
+    world: "The find critical turbine demand fixture wakes and the mission evidence opens."
+    panel: "MISSION 5: FIND CRITICAL TURBINE DEMAND OPEN"
+    bubbles:
+    - who: nia-chen   # Nia Chen
+      say: "Start with find critical turbine demand. We need evidence the next decision can use."
+  - id: after-stop-17
+    # After Stop 17 | s18-test-the-absolute-peak | automatic
+    on: { after: [1] }
+    world: "After 5.2 Location: POWER."
+    panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    bubbles:
+    - who: nia-chen   # Nia Chen
+      say: "Use the Stop 17 result to settle test the absolute peak."
+  - id: after-stop-18
+    # After Stop 18 | s19-optimize-storage-against-value | automatic
+    on: { after: [2] }
+    world: "Travel Location: POWER->STORE."
+    panel: "STOP 18 RECORDED - STOP 19 OPEN"
+    bubbles:
+    - who: nia-chen   # Nia Chen
+      say: "Use the Stop 18 result to settle optimize storage against value."
+  - id: after-stop-19
+    # After Stop 19 | s20-prove-an-intermediate-crossing | automatic
+    on: { after: [3] }
+    world: "The optimize storage against value result remains visible while the prove an intermediate crossing fixture lights."
+    panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    bubbles:
+    - who: nia-chen   # Nia Chen
+      say: "Use the Stop 19 result to settle prove an intermediate crossing."
+  - id: at-mission-end
+    # At mission end | s17-find-critical-turbine-demand | automatic
+    on: { enter: true, at: TODO }   # s17-find-critical-turbine-demand
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 5 EVIDENCE: RECORDED"
+    bubbles:
+    - who: nia-chen   # Nia Chen
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Critical times are 1 h and 3 h."
+
+  stops:
+  # --- Stop 17: Find critical turbine demand
+  #     Concept: critical points; Keystone: Extrema; Area: Powerhouse; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+  #     placement: DERIVE, at s17-find-critical-turbine-demand.
+  - group: POWER
+    at: TODO               # the fixture it is asked at
+    title: "Find critical turbine demand"
+    concept: "critical points"
+    reason: "The plan's hidden peak must be found before turbines are scheduled."
+    scene: "Turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Differentiate and solve for interior critical times before comparing the plan's endpoints and average, and the team needs this result before it acts."
+    motivation: "A zero derivative can reveal a peak that sparse readings miss."
+    format: DERIVE
+    question: "Derive D'(t), factor it, and submit all critical times in hours."
+    answerText: "Critical times are 1 h and 3 h."
+    why: "Critical times are 1 h and 3 h. A zero derivative can reveal a peak that sparse readings miss."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Endpoints are extrema candidates but not critical interior points.
+    # correct result: 1,3 h.
+    # state/output: candidates lit; unlock 5.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"critical times",givens:["D=t^3-6t^2+9t+20","0<=t<=5"],lines:[{expressions:["D'=3t^2-12t+9","D'=t^2-6t+9"],correct:"D'=3t^2-12t+9",rules:["power and sum rules","divide derivative by degree"],correct_rule:"power and sum rules"},{expressions:["3(t-1)(t-3)=0","3(t-2)^2=0"],correct:"3(t-1)(t-3)=0",rules:["factor quadratic","complete wrong square"],correct_rule:"factor quadratic"},{expressions:["t=1,3 h","t=0,5 h"],correct:"t=1,3 h",rules:["zero-product property","endpoint theorem"],correct_rule:"zero-product property"}],answerText:"Critical times are 1 h and 3 h."}
+
+  # --- Stop 18: Test the absolute peak
+  #     Concept: EVT/first-second derivative tests; Keystone: Extrema; Area: Gate House; Learning role: PRACTICE; Difficulty: L4; Story role: reversal.
+  #     placement: BALLPARK, at s18-test-the-absolute-peak.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Test the absolute peak"
+    concept: "EVT/first-second derivative tests"
+    reason: "The highest candidate, not the average, sets turbine capacity."
+    scene: "With critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. The machine limit is 24 MW, inclusive, and the team needs this result before it acts."
+    motivation: "A correct maximum decides whether the two-day plan overloads the available unit."
+    format: BALLPARK
+    question: "Using D(t)=t^3-6t^2+9t+20 MW, evaluate t=0,1,3,5 h; submit the absolute maximum in megawatts, its time in hours, and safe/unsafe against the inclusive 24 MW limit."
+    answerText: "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity."
+    why: "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity. A correct maximum decides whether the two-day plan overloads the available unit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A local maximum need not be the absolute maximum.
+    # correct result: 40 MW at 5 h, unsafe; local max at 1 h is 24 MW.
+    # state/output: overload tag; waypoint to STORE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{labels:["D(0)","D(1)","D(3)","D(5)"],values:[[20],[24],[20],[40]],slots:4,template:"largest candidate",formula:"max(20,24,20,40)",correct:[20,24,20,40],target:40,tolerance:0}
+
+  # --- Stop 19: Optimize storage against value
+  #     Concept: optimization/marginal value; Keystone: Extrema; Area: Powerhouse; Learning role: COMBINE; Difficulty: L5; Story role: character.
+  #     placement: CONTROL, at s19-optimize-storage-against-value.
+  - group: POWER
+    at: storage-board
+    title: "Optimize storage against value"
+    concept: "optimization/marginal value"
+    reason: "Storage must show whether a lower-power schedule can still create room."
+    scene: "Because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Measure projected storage margin, restore q=180, and compare marginal benefit, and the team needs this result before it acts."
+    motivation: "A controlled reversal separates the release setting's effect from a changing forecast."
+    format: CONTROL
+    question: "Choose release from the three candidate controls release, inflow forecast, and starting level. Measure projected storage margin at 180 m^3/s, change only release to 200 m^3/s while the forecast and starting level remain fixed, measure after the projection settles, restore 180 m^3/s and measure again, then submit the marginal gain in million m^3 per (m^3/s) and one causal conclusion."
+    answerText: "The completed check shows causal; marginal gain .08/20=.004 million m^3 per (m^3/s)."
+    why: "causal; marginal gain .08/20=.004 million m^3 per (m^3/s). A controlled reversal separates the release setting's effect from a changing forecast."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A one-way change without restoration cannot rule out drift.
+    # correct result: causal; marginal gain .08/20=.004 million m^3 per (m^3/s).
+    # state/output: feasible lower-power candidate; unlock 5.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"release",label:"release q"},{id:"forecast",label:"inflow forecast"},{id:"start",label:"starting level"}],correct_control:"release",baseline:180,response:200,noise_band:0.01,measurements:[0.42,0.50,0.42],restore:true,correct_conclusion:"Increasing q by 20 adds 0.08 million m^3 margin; 0.004 million m^3 per (m^3/s)."}
+
+  # --- Stop 20: Prove an intermediate crossing
+  #     Concept: IVT/MVT/differentiability; Keystone: Limits and extrema; Area: Storage & Level Board; Learning role: RETRIEVE; Difficulty: L4; Story role: decision.
+  #     placement: CHOICE, asked by Nia Chen beside s20-prove-an-intermediate-crossing.
+  - group: STORE
+    title: "Prove an intermediate crossing"
+    person: TODO   # the roster id of whoever asks it
+    concept: "IVT/MVT/differentiability"
+    reason: "The final plan must prove, not assume, that a warning level is crossed."
+    scene: "The continuous level model gives H(2)=4.3 m and H(4)=4.9 m, while warning level is 4.6 m. Choose the theorem guaranteeing a crossing, then distinguish it from the Mean Value Theorem."
+    motivation: "The theorem's hypotheses determine what the crew may guarantee between readings."
+    format: CHOICE
+    question: "Select exactly one of four theorem conclusions and submit its label."
+    choices:
+    - "Intermediate Value Theorem: some time has the intermediate level because the level function is continuous and the endpoints bracket it."
+    - "Mean Value Theorem: some time has the intermediate level because the average rate is 0.3 m/h."
+    - "Extreme Value Theorem: the desired level must be a maximum or minimum."
+    - "No theorem applies unless the exact crossing time can first be solved."
+    answer: "Intermediate Value Theorem: some time has the intermediate level because the level function is continuous and the endpoints bracket it."
+    answerText: "The completed check shows iVT. MVT would instead guarantee some derivative equal (4.9-4.3)/2=0.3 m/h if differentiable."
+    why: "IVT. MVT would instead guarantee some derivative equal (4.9-4.3)/2=0.3 m/h if differentiable. The theorem's hypotheses determine what the crew may guarantee between readings."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: IVT. MVT would instead guarantee some derivative equal (4.9-4.3)/2=0.3 m/h if differentiable.
+    # state/output: old plan rejected.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   question:"Which claim is justified?"; choices:["IVT guarantees some c in (2,4) with H(c)=4.6 m","MVT guarantees H(c)=4.6 m","EVT guarantees H(c)=4.6 m","No theorem applies"]; answer:"IVT guarantees some c in (2,4) with H(c)=4.6 m"; why:"Continuity and the endpoint values satisfy IVT."; rebuttals:{"MVT guarantees H(c)=4.6 m":"MVT guarantees a derivative equal to the secant slope, not an intermediate function value.","EVT guarantees H(c)=4.6 m":"EVT guarantees absolute extrema, not every value between endpoint outputs.","No theorem applies":"Continuity and 4.6 lying between the endpoint values satisfy IVT."}
+

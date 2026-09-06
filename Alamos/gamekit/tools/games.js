@@ -50,6 +50,11 @@ export const GAMES = [
     editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Matter and change · physical science' }] },
 
+  { id: 'redsand_oneshot', title: 'Red Sand: Full Tank',
+    course: 'AP Chemistry · the whole course, one campaign', field: 'Chemistry', accent: '#b8543a',
+    place: 'The same propellant plant on Mars, a fortnight before the ascent window, with three reversals in it.',
+    hero: 'array-along-the-rows.png' },
+
   { id: 'yellowbay', title: 'Yellow Bay',
     course: 'AP Chemistry · the structure half', field: 'Chemistry', accent: '#c9a227',
     place: 'A wafer fab mid yield crash: two gowned wings joined by a glass crossing over the subfab, and the litho end lit amber.',

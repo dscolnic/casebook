@@ -1,0 +1,191 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Heat"
+  card:
+    header: "9 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "HEAT"
+    goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the coolant panel."
+    body: "The leak search is over: too little usable hydrogen reached the reactor, so much of the missing methane was never made. A signed temperature change occurred just before production fell, but restoring the old setting could overheat the plant. At the Reactor and Cold End, calculate heat flow and rebuild the event order. By the end of the mission, decide whether cooling failed before or after the temperature change."
+    objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
+  objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
+  stake: "The leak search is over: too little usable hydrogen reached the reactor, so much of the missing methane was never made. A signed temperature change occurred just before production fell, but restoring the old setting could overheat the plant. At the Reactor and Cold End, calculate heat flow and rebuild the event order. By the end of the mission, decide whether cooling failed before or after the temperature change."
+  takeaway: "Timing matters: radiator loss before the override changes the story of motive."
+  segue: "Mission decision: The cooling system grew weak before the reactor setting fell. The heat count leaves 2.7 MJ in the plant. That heat can form a hot spot. The lower setting then cut heat and fuel output. The next test asks if that change caused the fast drop in production."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "The sign of reaction enthalpy tells whether higher production adds to or reduces the cooling burden."
+  - "A delayed temperature signal can result from melting or another phase change, not from a delayed event."
+  - "Event order should follow physical energy flows rather than the order in which gauges respond."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-reactor-hall
+    # On arrival at Reactor Hall | automatic | 
+    on: { enter: true, at: EQUIL }
+    world: "The reactor rate is low, the old temperature setting is marked RESTORE, and the cooling-demand trace rises with methane output."
+    panel: "MISSION 7 - HEAT"
+    # unlocks: Stop 25 at the reactor coolant panel; Stop 26 unlocks immediately after Stop 25.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "The old setting might recover fuel quickly. If it also recreates a dangerous condition, it could destroy our only reactor. Establish where the heat goes before anyone restores it."
+  - id: after-stops-25-and-26
+    # After Stops 25 and 26 | reactor coolant panel | automatic response
+    on: { after: [1, 2] }
+    world: "The reaction receives an EXOTHERMIC label and the calculated coolant load appears beneath it."
+    panel: "RESULT RECORDED"
+    # unlocks: The radiator-side travel beat.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "More methane means more heat to remove. The question is whether the cooling system still had that capacity."
+  - id: after-stop-26
+    # After Stop 26 | reactor coolant panel | automatic travel authorization
+    on: { after: [2] }
+    world: "A process diagram highlights warming, melting, and further-warming stages in sequence, then posts the delayed temperature-pulse arrival; Its predicted arrival does not match the radiator log."
+    panel: "MOVE TO COLD END."
+    # unlocks: The Cold End waypoint and Stop 27; Stop 28 unlocks immediately after Stop 27.
+    bubbles:
+    - who: cho   # Cho
+      say: "The phase change delays the signal. To learn what failed first, we need the radiator-side ledger."
+  - id: after-stops-27-and-28
+    # After Stops 27 and 28 | Cold End | automatic discovery
+    on: { after: [3, 4] }
+    world: "Dust-obstructed radiator panels appear beside a positive UNREMOVED HEAT term; The timeline places cooling loss before the manual override."
+    panel: "RADIATOR PERFORMANCE FELL FIRST / REACTOR SET POINT FELL SECOND."
+    # unlocks: The Mission 7 outcome beat.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "I lowered the temperature after heat rejection weakened."
+  - id: at-mission-end
+    # At mission end | Cold End | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "Sundqvist places CAUSED PRODUCTION LOSS beneath the override while Herrera places PREVENTED HIGHER TEMPERATURE beside it."
+    panel: "NEXT DESTINATION - PLANT CONTROL RATE BOARD."
+    # unlocks: Mission 8 briefing and the Plant Control waypoint.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "A cautious change can still be the reason we missed production."
+    - who: herrera   # Herrera
+      say: "Then test both claims."
+    - who: abiola   # Abiola
+      say: "We will. Controlled data, not timing alone."
+
+  stops:
+  # --- Stop 25: Which way does the heat flow?
+  #     Concept: exothermic/endothermic; Keystone: energy and calorimetry; Area: Reactor Hall; Learning role: INTRODUCE; Difficulty: L1; Story role: character.
+  #     placement: CHOICE, asked at Ingrid Sundqvist beside skid.
+  - group: EQUIL
+    at: skid
+    title: "Which way does the heat flow?"
+    person: sundqvist
+    concept: "exothermic/endothermic"
+    reason: "Restoring the old setting is unsafe until the reaction's heat direction is clear."
+    scene: "To decide whether lowering the temperature was reckless or protective, first establish whether the Sabatier reaction releases heat as methane production rises. That sign determines whether more production adds or removes reactor heat."
+    motivation: "The crew must know whether more production adds heat before anyone restores the old setting."
+    format: CHOICE
+    question: "What does the negative enthalpy mean?"
+    choices:
+    - "The reaction is exothermic; 165 kJ must leave per mole CH4 formed"
+    - "It is endothermic and needs 165 kJ added."
+    - "The catalyst consumes 165 kJ."
+    - "The sign describes reaction speed."
+    answer: "The reaction is exothermic; 165 kJ must leave per mole CH4 formed"
+    answerText: "The negative enthalpy means the Sabatier reaction is exothermic and releases heat."
+    why: "Negative Delta H means products have lower enthalpy than reactants and the difference appears as heat released. A catalyst changes activation energy, not Delta H. Enthalpy says nothing directly about speed."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) Negative ΔH means heat is released, not absorbed; the surroundings must remove that heat. (3) A catalyst changes activation energy and reaction speed but is not an energy sink and does not consume the reaction enthalpy. (4) The sign of ΔH describes energy change, not reaction rate; kinetics is a separate question.
+    # correct result: First choice.
+    # state/output: Enable coolant-load calculation.
+
+  # --- Stop 26: Size the coolant load
+  #     Concept: calorimetry; Keystone: energy and calorimetry; Area: Reactor Hall; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALLPARK, at reactor-calculation-bench.
+  - group: EQUIL
+    at: reactor-calculation-bench
+    title: "Size the coolant load"
+    concept: "calorimetry"
+    reason: "The coolant's measured heat removal sets the scale of the missing load."
+    scene: "Calculate how much heat the coolant removed and compare it with the load the reactor produced before the override. The result supplies the known removal term for the full energy ledger."
+    motivation: "This number determines whether the cooling loop could carry away the reactor's released energy."
+    format: BALLPARK
+    question: "How much heat did the coolant remove during this interval?"
+    answerText: "The coolant removed 11.4 MJ of heat."
+    why: "Multiply mass, energy per kilogram per kelvin, and temperature change. The positive number describes heat gained by coolant; the reactor system loses approximately that heat. Always name the system when assigning signs."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Using final temperature instead of temperature change overstates the load. A value of 11,400 J misses the kJ unit.
+    # correct result: 11,400 kJ or 11.4 MJ; tolerance ±2%.
+    # state/output: Add coolant_removed = 11.4 MJ to the ledger.
+
+  # --- Stop 27: Follow energy through temperature and phase
+  #     Concept: heating curves; Keystone: energy and calorimetry; Area: Reactor Hall; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: SEQUENCE, at heat-model-board.
+  - group: EQUIL
+    at: heat-model-board
+    title: "Follow energy through temperature and phase"
+    concept: "heating curves"
+    reason: "Phase changes delay signals and can reverse the apparent event order."
+    scene: "Account for the delay caused by warming and melting so the thermal timeline does not mistake a late signal for the first failure. The corrected delay will show which change actually happened first."
+    motivation: "Phase-change energy delays the thermal signal and helps establish which event occurred first."
+    format: SEQUENCE
+    question: "Order the energy steps."
+    # CONVERTED from the bible's `data` line below; `correct result: As listed`.
+    cards:
+    - "Warm solid ice to its melting point"
+    - "Melt ice at constant temperature using q = n Delta Hfus"
+    - "Warm liquid water to final temperature"
+    order: [0, 1, 2]
+    answerText: "Warm solid, melt at constant temperature, then warm liquid before comparing the delayed signal."
+    why: "Temperature rises within one phase, but during melting the added energy breaks intermolecular organization while temperature stays constant. Treating the plateau as mc Delta T invents a temperature change that does not occur."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If melting is placed before the solid reaches its melting point, the phase-change step starts too early. If the melting plateau is treated as another temperature rise, the sequence ignores energy absorbed at constant temperature.
+    # data: Warm solid ice to its melting point / Melt ice at constant temperature using q = n Delta Hfus / Warm liquid water to final temperature.
+    # correct result: As listed.
+    # state/output: Model predicts a delayed warm return pulse reaching Cold End.
+
+  # --- Stop 28: Close the reactor-radiator energy ledger
+  #     Concept: energy conservation; Keystone: energy and calorimetry; Area: Reactor Hall; Learning role: COMBINE; Difficulty: L3; Story role: reveal.
+  #     placement: BALANCE, at phase-radiator.
+  - group: EQUIL
+    at: phase-radiator
+    title: "Close the reactor-radiator energy ledger"
+    concept: "energy conservation"
+    reason: "The energy balance decides whether cooling loss came before the override."
+    scene: "Use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change. Any leftover energy must appear as storage, transfer, or dangerous heating."
+    motivation: "Unremoved heat can form the inlet hot spot that made Herrera lower the set point."
+    format: BALANCE
+    question: "Find the unremoved energy and identify the operational consequence."
+    # CONVERTED from the payload below. `target` -> `total`; `count:` ->
+    # `countable:`; `closure.tolerance` -> `tolerance`; and `closure.residual`
+    # becomes the hidden stream, named from the bible's own correct action —
+    # "Assign 2.7 MJ to accumulated hot-spot/structure load".
+    balance:
+      total: { amount: 16.5, unit: MJ, label: "Heat released by reactor" }
+      tolerance: 0.05
+      streams:
+      - { id: coolant, label: "Removed by coolant", value: 11.4, unit: MJ }
+      - { id: bed_storage, label: "Stored in metal bed", value: 1.6, unit: MJ }
+      - { id: product_gas, label: "Carried by product gas", value: 0.8, unit: MJ }
+      - { id: dashboard_power, label: "Electrical drive power", value: 0.9, unit: MJ, countable: false }
+      - { id: hot_spot, label: "Accumulated hot-spot / structure load", value: 2.7, unit: MJ, hidden: true }
+      commit: "Report the unremoved energy"
+    answerText: "The ledger leaves 2.7 MJ accumulating as a hot-spot or structure load."
+    why: "Energy generated must be removed, carried away, stored, or accumulated elsewhere. 16.5 - 11.4 - 1.6 - 0.8 = 2.7 MJ. The radiator degradation appears before Herrera's override; lowering the set point reduced heat generation after removal capacity fell."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not count released heat and coolant gain on the same side; do not interpret missing energy as destroyed.
+    # correct result: 2.7 MJ remains unaccounted in the simplified removal paths and accumulates as a hot-spot/structure load.
+    # state/output: Set evidence_flags.radiator_first = true and evidence_flags.setpoint_changed = true; display Herrera's signed override timestamp.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: "Heat released by reactor", value: 16.5, unit: MJ}
+    #     streams:
+    #       - {id: coolant, label: "Removed by coolant", value: 11.4, unit: MJ, count: true}
+    #       - {id: bed_storage, label: "Stored in metal bed", value: 1.6, unit: MJ, count: true}
+    #       - {id: product_gas, label: "Carried by product gas", value: 0.8, unit: MJ, count: true}
+    #       - {id: dashboard_power, label: "Electrical drive power", value: 0.9, unit: MJ, count: false}
+    #     closure: {accounted: 13.8, residual: 2.7, unit: MJ, tolerance: 0.05}
+    #     correct_action: "Assign 2.7 MJ to accumulated hot-spot/structure load."
+

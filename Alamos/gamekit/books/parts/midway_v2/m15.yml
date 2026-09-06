@@ -1,0 +1,258 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Name on the Certificate"
+  card:
+    header: "COUNTY INSPECTION TOMORROW"
+    title: "THE NAME ON THE CERTIFICATE"
+    goNow: "Go to the Reopening Board and meet Maya Hart, the park operations lead, beside the seven blank ride decisions."
+    body: "The coaster fails its required margin, while six other ride decisions depend on limits, inspections, and exact tested configurations. The final certificate must separate verified conditions from old records and unresolved claims. Reconcile the Casebook, stress every boundary, fund the last useful work, and attest each decision. By the end of the mission, sign which rides reopen, reopen with limits, or remain closed."
+    objective: "Sign seven defensible ride decisions and the shared operating plan."
+  objective: "Sign seven defensible ride decisions and the shared operating plan."
+  stake: "The coaster fails its required margin, while six other ride decisions depend on limits, inspections, and exact tested configurations. The final certificate must separate verified conditions from old records and unresolved claims. Reconcile the Casebook, stress every boundary, fund the last useful work, and attest each decision. By the end of the mission, sign which rides reopen, reopen with limits, or remain closed."
+  takeaway: "Good physics supports both approval and refusal by stating exactly what the evidence proves."
+  segue: "Mission decision: Open the Carousel, Bumper Cars, and Drop Tower. Open the Pirate Ship, Ferris Wheel, and Log Flume only with their written limits. Keep the coaster shut because its real loop fails the margin test. The park has seven sound choices. Hart signs the safety form."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "No new major physics is introduced."
+  - "Retrieve the correct model for each system and apply every binding condition."
+  - "A justified closure completes a certificate rather than representing failure."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-reopening-board
+    # On arrival at Reopening Board | automatic | 
+    on: { enter: true, at: REOPENIN }
+    world: "Seven blank rows and the full Casebook appear."
+    panel: "STOP 57 READY"
+    # unlocks: Stop 57.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "A red decision can be right. An unsupported green one cannot."
+  - id: after-stop-57
+    # After Stop 57 | automatic | 
+    on: { after: [1] }
+    world: "Every clue receives one evidence label."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "This evidence changes what we test next, not more than that."
+  - id: on-arrival-at-brennan-s-workshop
+    # On arrival at Brennan's Workshop | automatic | 
+    on: { enter: true, at: WORKSHOP }
+    world: "The seven proposed decisions survive or fail their uncertainty ranges."
+    panel: "STOP 59 READY"
+    # unlocks: Stop 59.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "Spend the last work only where it can change or secure a decision."
+  - id: after-stop-59
+    # After Stop 59 | automatic | 
+    on: { after: [3] }
+    world: "The funded inspection confirms arm nine within the fictional acceptance condition; no work is wasted on the failed coaster geometry."
+    panel: "STOP 60 READY"
+    # unlocks: Stop 60.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-60
+    # After Stop 60 | automatic | 
+    on: { after: [4] }
+    world: "The player attests seven decisions."
+    panel: "SIGN CERTIFICATE"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "Hart signs beside the player."
+    panel: "CAMPAIGN COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: hart   # Maya Hart
+      say: "We did not prove the park was safe. We proved exactly what can run."
+
+  stops:
+  # --- Stop 57: Rebuild the whole case
+  #     Concept: Evidence reconciliation; Keystone: whole-campaign evidence; Area: Brennan's workshop; Learning role: RETRIEVE; Difficulty: L4; Story role: obstacle.
+  #     placement: CASEBOOK, asked at Maya Hart beside reopening-board.
+  - group: WORKSHOP
+    at: reopening-board
+    title: "Rebuild the whole case"
+    person: hart
+    concept: "Evidence reconciliation"
+    reason: "Every major clue must be separated from the interpretation first attached to it."
+    scene: "The Casebook still contains true observations beside rejected explanations. Match each major clue to what it now establishes so no early accusation or copied assumption enters the final signed certificate."
+    motivation: "Final decisions must use objective observations after their meanings have been corrected by later physics."
+    format: CASEBOOK
+    question: "Submit one six-pair casebook mapping from the displayed speed reports, controller, operator card, timing comparison, arm indication, and crown tape to the single final meaning each clue supports."
+    answerText: "The final case preserves every observation while replacing unsupported interpretations."
+    why: "Fair twists change what evidence supports, not what physically happened."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Ask what the clue directly proves after all later measurements are included.
+    # correct result: Submit one evidence label for every clue; preserve observations and replace unsupported interpretations.
+    # state/output: Set all clue ledger items to final status.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios: ["Three agreeing speed reports", "Sealed controller", "Hart's 14:03 card", "6.15 s versus 5.85 s", "41 mm arm indication", "7.4 m crown tape"]
+    #   choices: ["Shared measurement chain", "Could not cause October event", "Interruption occurred", "Near-resonant drive", "Requires independent condition check", "Old coaster geometry invalid"]
+    #   mapping: ["Shared measurement chain", "Could not cause October event", "Interruption occurred", "Near-resonant drive", "Requires independent condition check", "Old coaster geometry invalid"]
+    # CONVERTED. `scenarios` and `choices` are renames; the bible's `mapping`
+    # names the meaning each clue supports and the engine indexes into
+    # `choices`, so those six meanings become their positions.
+    scenarios:
+    - "Three agreeing speed reports"
+    - "Sealed controller"
+    - "Hart's 14:03 card"
+    - "6.15 s versus 5.85 s"
+    - "41 mm arm indication"
+    - "7.4 m crown tape"
+    choices:
+    - "Shared measurement chain"
+    - "Could not cause October event"
+    - "Interruption occurred"
+    - "Near-resonant drive"
+    - "Requires independent condition check"
+    - "Old coaster geometry invalid"
+    mapping: [0, 1, 2, 3, 4, 5]
+
+  # --- Stop 58: Stress all seven decisions
+  #     Concept: Robustness; Keystone: whole-campaign models; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L5; Story role: obstacle.
+  #     placement: STRESS, asked at Linh Chen beside uncertainty-board.
+  - group: WORKSHOP
+    at: uncertainty-board
+    title: "Stress all seven decisions"
+    person: chen
+    concept: "Robustness"
+    reason: "A final decision must survive every supported measurement range and stated boundary."
+    scene: "Move speed, time, wind, radius, force, flow, and power through their supported uncertainties. Keep only complete ride decisions that remain valid without dropping a required condition or inventing extra margin."
+    motivation: "Robustness tests whether the decision, not merely one central value, survives uncertainty."
+    format: STRESS
+    question: "Stress the seven decisions across Carousel speed 3.95-4.05 m/s, Pirate period 6.10-6.20 s, Wheel wind 0-8.0 m/s, coaster radius 7.35-7.45 m, tower load 5.19-5.56 x weight, and flume power 43.5-44.8 kW. Submit one complete-set conclusion."
+    answerText: "Three open, three conditional, and the coaster closed remains valid across supported uncertainty."
+    why: "The coaster margin remains negative, while the other decisions retain their named limits."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (all_open) Opening all seven ignores the Coaster's failed physical-radius margin. (all_closed) Closing all seven discards six decisions that remain supported across their uncertainty ranges.
+    # correct result: Choice 2 - three open, three conditional, Coaster closed across uncertainty.
+    # state/output: Freeze final candidate decision set.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     assumptions:
+    #       - {id: carousel_speed, min: 3.95, max: 4.05, unit: m/s}
+    #       - {id: pirate_period, min: 6.10, max: 6.20, unit: s}
+    #       - {id: wheel_wind, min: 0, max: 8.0, unit: m/s}
+    #       - {id: coaster_radius, min: 7.35, max: 7.45, unit: m}
+    #       - {id: tower_load, min: 5.19, max: 5.56, unit: "x weight"}
+    #       - {id: flume_power, min: 43.5, max: 44.8, unit: kW}
+    #     candidates:
+    #       - {id: all_open, label: "Open all seven", survives: false}
+    #       - {id: final_set, label: "Three open, three conditional, coaster closed", survives: true}
+    #       - {id: all_closed, label: "Close all seven", survives: false}
+    #     correct: final_set
+    #     conclusion: "Three open, three conditional, and the coaster closed survives every supported uncertainty range."
+    # HELD BACK, for the same reason as mission 9 stop 3 and mission 12 stop 3.
+    # The engine's STRESS moves one assumption and scores candidates on named
+    # criteria; this payload moves six ranges at once and scores nothing. Owed by
+    # the bible: the criteria, a score per candidate per criterion, how far each
+    # candidate survives, `optimiseOn`, and a nominal on one slider.
+
+  # --- Stop 59: Spend the last 100 work points
+  #     Concept: Value and resource strategy; Keystone: evidence and systems; Area: Brennan's workshop; Learning role: DECIDE; Difficulty: L5; Story role: decision.
+  #     placement: SCIENCETANK, asked at Maya Hart beside work-allocation-board.
+  - group: WORKSHOP
+    at: work-allocation-board
+    title: "Spend the last 100 work points"
+    person: hart
+    concept: "Value and resource strategy"
+    reason: "Final work must secure binding conditions rather than improve numbers that cannot change decisions."
+    scene: "Spend the last work block on inspection, independent verification, operator cards, and protected reserve. Do not fund cosmetic work or another repeated coaster calculation that cannot correct its measured physical geometry."
+    motivation: "The best allocation funds every causal link required to execute and defend the surviving decisions."
+    format: SCIENCETANK
+    question: "Submit one numerical allocation totaling exactly 100 points among arm-nine inspection, independent verification, operating cards, protected reserve, repeated coaster math, and paint. Meet minima 25, 20, 15, and 20 points for the first four respectively, and allocate 0 to the last two."
+    answerText: "Use 30 points for arm inspection, 25 for independent verification, 20 for operating cards, and 25 for protected reserve."
+    why: "Each funded item changes or secures a binding decision. Repeating correct coaster arithmetic cannot repair its geometry."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Spend on evidence or action that can change the certificate.
+    # correct result: Submit allocation {arm inspection:30, independent verification:25, operating cards:20, protected reserve:25, other:0}.
+    # state/output: Arm-nine inspection returns PASS WITH OPERATING ENVELOPE; final cards install.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   proposals:
+    #     - {id: arm, label: "Independent arm-nine inspection", min: 25, evidence: "Binding condition for wheel."}
+    #     - {id: verify, label: "Final independent sensor verification", min: 20, evidence: "Secures proof chain."}
+    #     - {id: cards, label: "Print and install operating-limit cards", min: 15, evidence: "Turns models into action."}
+    #     - {id: reserve, label: "Protected test and shutdown reserve", min: 20, evidence: "Keeps execution recoverable."}
+    #     - {id: coaster_math, label: "Repeat coaster calculation with same radius", min: 0, evidence: "Cannot change measured geometry."}
+    #     - {id: paint, label: "Repaint closed coaster gate", min: 0, evidence: "Cosmetic only."}
+    #   recommended: {arm: 30, verify: 25, cards: 20, reserve: 25, coaster_math: 0, paint: 0}
+    #   evidence: {required_total: 100, pass_rules: ["arm >= 25","verify >= 20","cards >= 15","reserve >= 20","coaster_math = 0","paint = 0","total = 100"]}
+    # CONVERTED. `proposals` is a rename and each proposal keeps the bible's own
+    # `min` and `evidence`. `recommended` is keyed by id in the bible and by
+    # label in the engine — the importer refuses a key that is not a proposal on
+    # the board — so the six ids become the six labels, with the bible's own
+    # point figures unchanged. The `pass_rules` list has no field here; the
+    # minima it restates are already on the proposals.
+    proposals:
+    - { id: arm, label: "Independent arm-nine inspection", min: 25, evidence: "Binding condition for wheel." }
+    - { id: verify, label: "Final independent sensor verification", min: 20, evidence: "Secures proof chain." }
+    - { id: cards, label: "Print and install operating-limit cards", min: 15, evidence: "Turns models into action." }
+    - { id: reserve, label: "Protected test and shutdown reserve", min: 20, evidence: "Keeps execution recoverable." }
+    - { id: coaster_math, label: "Repeat coaster calculation with same radius", min: 0, evidence: "Cannot change measured geometry." }
+    - { id: paint, label: "Repaint closed coaster gate", min: 0, evidence: "Cosmetic only." }
+    recommended:
+      "Independent arm-nine inspection": 30
+      "Final independent sensor verification": 25
+      "Print and install operating-limit cards": 20
+      "Protected test and shutdown reserve": 25
+      "Repeat coaster calculation with same radius": 0
+      "Repaint closed coaster gate": 0
+
+  # --- Stop 60: Attest the certificate
+  #     Concept: Whole-campaign synthesis; Keystone: whole-campaign transfer; Area: Brennan's workshop; Learning role: DECIDE; Difficulty: L5; Story role: final commitment.
+  #     placement: ATTEST, asked at Maya Hart beside certificate-table.
+  - group: WORKSHOP
+    at: certificate-table
+    title: "Attest the certificate"
+    person: hart
+    concept: "Whole-campaign synthesis"
+    reason: "Seven decisions may be signed only when their binding claims have independent support."
+    scene: "Read every final ride condition, inspection, threshold, and closure reason. Attest the seven decisions only if each claim matches the tested physical system and no failed safety margin is hidden."
+    motivation: "The final act converts AP Physics 1 reasoning into an accountable operating decision."
+    format: ATTEST
+    question: "Submit one seven-claim certificate attestation: select exactly one supported final decision for each named ride, including every numerical operating limit, and exclude the unsupported all-open claim."
+    answerText: "Sign three reopenings, three conditional reopenings, and one evidence-based coaster closure."
+    why: "Every approved ride has a verified configuration and operating rule. The coaster's physical measurement fails its required margin."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (all_open) The all-open claim contradicts the measured Coaster radius and failed 0.12 m/s operating margin; certificate completion requires a supported closure for that row.
+    # correct result: Submit ordered decisions [Carousel open, Bumper open, Tower open, Pirate conditional, Wheel conditional, Flume conditional, Coaster closed].
+    # state/output: Set all seven final decisions; stop timer; open final metric screen.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 7
+    #     claims:
+    #       - {id: carousel, label: "Carousel reopen below 4.20 m/s", backed: true, critical: true}
+    #       - {id: bumper, label: "Bumper Cars reopen in verified padded configuration", backed: true, critical: true}
+    #       - {id: tower, label: "Drop Tower reopen in verified tested configuration", backed: true, critical: true}
+    #       - {id: ship, label: "Pirate Ship conditional; avoid 5.70-6.30 s", backed: true, critical: true}
+    #       - {id: wheel, label: "Ferris Wheel conditional; inspection, balance, wind below 8.0 m/s", backed: true, critical: true}
+    #       - {id: flume, label: "Flume conditional; 0.45 m3/s and non-overlap power schedule", backed: true, critical: true}
+    #       - {id: coaster, label: "Coaster closed; measured margin fails", backed: true, critical: true}
+    #       - {id: all_open, label: "All seven reopen because calculations are complete", backed: false, critical: true}
+    #     correct: [carousel,bumper,tower,ship,wheel,flume,coaster]
+    # HELD BACK, for the same reason as the other three ATTEST boards: the engine
+    # refuses a claim with no `evidence` — what a verification of that claim
+    # would turn up — and the bible gives a label and a backed flag only. This is
+    # the one of the four whose `verification_limit` already fits: 7 against
+    # eight claims. Only the eight evidence lines are missing.
+

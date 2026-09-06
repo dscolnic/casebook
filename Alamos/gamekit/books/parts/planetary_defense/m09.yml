@@ -1,0 +1,227 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Where It Lands"
+  card:
+    header: "IMPACT WINDOW: 6 DAYS"
+    title: "WHERE IT LANDS"
+    goNow: "Go to Orbit Determination and meet Malik Rowan at the astro-bench, then carry the corridor to the Entry and Consequences Lab."
+    body: "The orbit team can now map a long impact corridor, but the same asteroid produces different effects over ocean, desert, or city. Energy sets the scale; entry angle and location shape the outcome. Estimate the energy, model the consequence envelope, and identify the next measurement that changes action. By the end of the mission, you will define where protective planning is justified and where it is premature."
+    objective: "Define where protective planning is justified without drawing a false impact bullseye."
+  objective: "Define where protective planning is justified without drawing a false impact bullseye."
+  stake: "The orbit team can now map a long impact corridor, but the same asteroid produces different effects over ocean, desert, or city. Energy sets the scale; entry angle and location shape the outcome. Estimate the energy, model the consequence envelope, and identify the next measurement that changes action. By the end of the mission, you will define where protective planning is justified and where it is premature."
+  takeaway: "Estimate the scale, preserve the corridor, and buy the observation that changes action. ---"
+  segue: "Mission decision: Start plans for the full path band. Do not order local action yet. New timing data must first split the ocean, desert, and coast cases."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Diameter, density, and speed set the approximate energy scale."
+  - "The same energy produces different consequences over ocean, desert, and a populated coast."
+  - "Hazard describes physical effects; risk also includes exposure and vulnerability."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-orbit-determination-center
+    # On arrival at Orbit Determination Center | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Malik transfers a corridor, not a point."
+    panel: "WHERE IT LANDS / MISSION ACTIVE"
+    # unlocks: Stop 33.
+    bubbles:
+    - who: evelyn-park   # Evelyn Park
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-33
+    # After Stop 33 | automatic | 
+    on: { after: [1] }
+    world: "Evelyn forces a rough energy calculation before simulation."
+    panel: "WHERE IT LANDS / FIRST RESULT LOGGED"
+    # unlocks: The Entry & Consequences Lab waypoint and Stop 34.
+    bubbles:
+    - who: evelyn-park   # Evelyn Park
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-34
+    # After Stop 34 | automatic | 
+    on: { after: [2] }
+    world: "Outcome maps diverge over ocean and land."
+    panel: "WHERE IT LANDS / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 35.
+    bubbles:
+    - who: evelyn-park   # Evelyn Park
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-35
+    # After Stop 35 | automatic | 
+    on: { after: [3] }
+    world: "Jordan asks what observation can shrink the population under warning."
+    panel: "WHERE IT LANDS / DECISION EVIDENCE READY"
+    # unlocks: Stop 36.
+    bubbles:
+    - who: evelyn-park   # Evelyn Park
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "WHERE IT LANDS / MISSION DECISION LOGGED"
+    # unlocks: Mission 9 outcome, metric screen, concept review, and Mission 10 briefing.
+    bubbles:
+    - who: evelyn-park   # Evelyn Park
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 33: Estimate the energy scale
+  #     Concept: kinetic energy; Keystone: mechanics/estimation; Area: Entry & Consequences Lab; Learning role: REINFORCE; Difficulty: L4; Story role: calculation.
+  #     placement: BALLPARK, at astro-bench.
+  - group: IMPACT
+    at: astro-bench
+    title: "Estimate the energy scale"
+    concept: "kinetic energy"
+    reason: "The consequence model needs an order-of-magnitude check before detailed simulation."
+    scene: "Use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Estimate mass, kinetic energy, and TNT equivalent closely enough to catch a thousandfold unit mistake."
+    motivation: "Because energy scales with diameter cubed and speed squared, modest input errors can strongly change consequences."
+    format: BALLPARK
+    question: "Submit three numerical results with units: mass in kilograms, kinetic energy in joules, and TNT equivalent in megatons."
+    answerText: "This is a regional-to-continental catastrophe scale, not a planet-destroying event."
+    why: "BALLPARK checks powers of ten before model detail."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Convert 19 km/s to 19,000 m/s before squaring.
+    # correct result: About (1.66\times10^{10}) kg, (3.0\times10^{18}) J, or 715 megatons TNT.
+    # state/output: ENERGY SCALE VERIFIED; IMPACT travel unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:
+    #     labels: [volume and mass, kinetic energy, TNT conversion]
+    #     values:
+    #       - ["D = 260 m", "ρ = 1800 kg/m³", "m = (4/3)π(D/2)³ρ"]
+    #       - ["v = 19000 m/s", "KE = 1/2 mv²"]
+    #       - ["1 Mt TNT = 4.184 × 10^15 J"]
+    #     slots: [mass_kg, kinetic_energy_J, tnt_megatons]
+    #     template: "m = (4/3)π(D/2)³ρ; KE = 1/2 mv²; Mt = KE/(4.184 × 10^15 J)"
+    #     formula: spherical-body energy scale
+    #     correct: ["1.66 × 10^10 kg", "3.00 × 10^18 J", "717 Mt"]
+    #     target: 3.00e18
+    #     tolerance: 15 percent
+
+  # --- Stop 34: Order the entry chain
+  #     Concept: atmospheric entry; Keystone: causal systems; Area: Entry & Consequences Lab; Learning role: INTRODUCE; Difficulty: L4; Story role: mechanism.
+  #     placement: SEQUENCE, at energy-bench.
+  - group: IMPACT
+    at: energy-bench
+    title: "Order the entry chain"
+    concept: "atmospheric entry"
+    reason: "Consequence outputs must follow physical causes rather than a generic damage label."
+    scene: "Evelyn separates the simulation into approach, atmospheric loading, fragmentation or survival, energy deposition, and surface effects. Place the stages in causal order, then identify which uncertain property most directly controls breakup altitude."
+    motivation: "Material strength and structure mediate how kinetic energy becomes blast, heat, waves, or crater excavation."
+    format: SEQUENCE
+    question: "Order the entry stages and select the breakup-sensitive property."
+    answerText: "Energy is conserved, but where and how it is deposited determines the hazard pattern."
+    why: "SEQUENCE maps upstream physical conditions to downstream consequences."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Population changes exposure, not the asteroid's atmospheric breakup altitude.
+    # correct result: Correct causal order; material strength or internal structure controls breakup behavior.
+    # state/output: ENTRY CHAIN configured; Stop 35 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards:
+    #     - Approach
+    #     - Atmospheric loading
+    #     - Breakup or survival
+    #     - Energy deposition
+    #     - Surface and atmospheric effects
+    #   order:
+    #     - Approach
+    #     - Atmospheric loading
+    #     - Breakup or survival
+    #     - Energy deposition
+    #     - Surface and atmospheric effects
+    #   followup:
+    #     breakup_sensitive_property: material strength and structure
+
+  # --- Stop 35: Compare corridor consequences
+  #     Concept: consequence mapping; Keystone: systems/interpretation; Area: Entry & Consequences Lab; Learning role: INTRODUCE; Difficulty: L5; Story role: analysis.
+  #     placement: PROBE, at risk-display.
+  - group: IMPACT
+    at: risk-display
+    title: "Compare corridor consequences"
+    concept: "consequence mapping"
+    reason: "The corridor crosses environments that convert the same energy into different response problems."
+    scene: "Probe four corridor stations: deep ocean, continental shelf, remote desert, and a dense coast. Compare blast, heat, waves, and evacuation exposure without assigning one casualty count to the full corridor."
+    motivation: "Hazard is physical intensity; risk also depends on exposure and vulnerability."
+    format: PROBE
+    question: "Submit one mapping from each of the four corridor stations to its dominant planning concern; do not submit one corridor-wide casualty number."
+    answerText: "The asteroid's energy is common, but the risk distribution is geographically conditional."
+    why: "PROBE examines model response across controlled location changes."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A corridor-wide average hides the places where action costs and benefits differ most.
+    # correct result: Distinguish physical effects and exposed populations by segment.
+    # state/output: CONDITIONAL CONSEQUENCE MAP appears.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:
+    #     held_fixed: [diameter, density, speed, entry angle]
+    #     points:
+    #       - id: deep_ocean
+    #         load: "Same impactor over deep ocean; compare water-wave generation with direct blast and population exposure."
+    #         reading: {blast: moderate, thermal: low_on_land, wave: regional, exposed_population: low_local}
+    #         expected: {dominant_planning_concern: coastal_wave_uncertainty}
+    #         comparison: "The regional wave reading exceeds the direct local-exposure concern at this station."
+    #       - id: continental_shelf
+    #         load: "Same impactor above the continental shelf; compare stronger coastal coupling with offshore exposure."
+    #         reading: {blast: moderate, thermal: low_on_land, wave: high_coastal, exposed_population: moderate}
+    #         expected: {dominant_planning_concern: coastal_wave_warning}
+    #         comparison: "The shallow-water wave reading raises coastal warning needs above the deep-ocean station."
+    #       - id: remote_desert
+    #         load: "Same impactor over remote desert; keep the physical energy fixed while exposure changes."
+    #         reading: {blast: high_local, thermal: high_local, wave: none, exposed_population: low}
+    #         expected: {dominant_planning_concern: blast_and_thermal_with_low_exposure}
+    #         comparison: "Physical intensity is high, but low exposed population limits immediate evacuation demand."
+    #       - id: dense_coast
+    #         load: "Same impactor over a dense coastal region; compare physical effects with evacuation exposure."
+    #         reading: {blast: high, thermal: high, wave: possible, exposed_population: high}
+    #         expected: {dominant_planning_concern: combined_effects_and_evacuation_exposure}
+    #         comparison: "High exposure makes evacuation capacity part of the dominant planning concern."
+    #     correct_submission:
+    #       deep_ocean: coastal_wave_uncertainty
+    #       continental_shelf: coastal_wave_warning
+    #       remote_desert: blast_and_thermal_with_low_exposure
+    #       dense_coast: combined_effects_and_evacuation_exposure
+    #     required_samples: [deep_ocean, continental_shelf, remote_desert, dense_coast]
+    #     truth: {breaks_one_corridor_wide_risk_model: true}
+    #     commit_gate: All four corridor stations sampled.
+
+  # --- Stop 36: Buy the decision-changing measurement
+  #     Concept: value of information; Keystone: decisions/resources; Area: Entry & Consequences Lab; Learning role: REINFORCE; Difficulty: L5; Story role: decision.
+  #     placement: VALUE, asked by Evelyn Park beside deflection-desk.
+  - group: IMPACT
+    at: deflection-desk
+    title: "Buy the decision-changing measurement"
+    person: TODO   # the roster id of whoever asks it
+    concept: "value of information"
+    reason: "Limited observing time should target uncertainty that changes who must act."
+    scene: "The team can improve diameter by ten percent, composition classification, or corridor timing enough to separate ocean from populated land. Choose the measurement with the largest expected change to tomorrow's protective decision."
+    motivation: "Value of information depends on its effect on action, not only on scientific interest."
+    format: VALUE
+    question: "Spend at most 10 observing hours and select the option with the greatest immediate decision value."
+    answerText: "All four improve knowledge, but only timing can remove millions of people from the current action envelope tomorrow."
+    why: "VALUE ranks observations by expected decision improvement under scarcity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Precision is useful only when it can alter the choice facing the team.
+    # correct result: Prioritize corridor timing.
+    # state/output: NEXT WINDOW assigned to corridor timing.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:
+    #     budget: {value: 10, unit: observing_hours}
+    #     options:
+    #       - {id: diameter, label: Improve diameter by 10 percent, cost: 4, axis: size, decision_change: small}
+    #       - {id: composition, label: Refine composition class, cost: 4, axis: material, decision_change: moderate}
+    #       - {id: corridor, label: Separate ocean from populated-land timing, cost: 10, axis: exposure, decision_change: large}
+    #       - {id: brightness, label: Repeat the brightness curve, cost: 3, axis: reflected_light, decision_change: small}
+    #     total_option_cost: 21
+    #     correct: [corridor]
+    #     decision_changed: Determines whether populated land remains inside tomorrow's action envelope.
+

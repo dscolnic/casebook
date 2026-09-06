@@ -1,0 +1,159 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "From Field to Voltage"
+  card:
+    header: "13 DAYS TO FINAL STORM WINDOW"
+    title: "From Field to Voltage"
+    goNow: "Go to the Field Station and meet Ravi Sen, field scientist, at the mill array."
+    body: "The layer model explains the field, but a field value alone does not give the energy available across the full height. Voltage is energy per charge and changes with position according to the electric field. You will integrate the measured profile and test its sign. By the end of the mission, decide the cloud-ground potential difference used in the failure model."
+    objective: "Derive and validate the cloud-ground voltage."
+  objective: "Derive and validate the cloud-ground voltage."
+  stake: "The layer model explains the field, but a field value alone does not give the energy available across the full height. Voltage is energy per charge and changes with position according to the electric field. You will integrate the measured profile and test its sign. By the end of the mission, decide the cloud-ground potential difference used in the failure model."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Use 250–378 MV for the cloud-ground potential. Field direction makes the cloud positive relative to ground in this model. The voltage is large enough to matter. But it still does not explain why damage appeared only at the trailer."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-field-station
+    # On arrival at Field Station | s09-derive-voltage-from-uniform-field | automatic
+    on: { enter: true, at: FIELD }
+    world: "Arrival at FIELD unlocks the voltage board."
+    panel: "MISSION 3: DERIVE VOLTAGE FROM UNIFORM FIELD OPEN"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Start with derive voltage from uniform field. We need evidence the next decision can use."
+  - id: after-stop-9
+    # After Stop 9 | s10-read-the-equipotentials | automatic
+    on: { after: [1] }
+    world: "The derive voltage from uniform field result remains visible while the read the equipotentials fixture lights."
+    panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Use the Stop 9 result to settle read the equipotentials."
+  - id: after-stop-10
+    # After Stop 10 | s11-derive-a-sampled-profile-estimate | automatic
+    on: { after: [2] }
+    world: "Stop 2 overlays equipotential contours,."
+    panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Use the Stop 10 result to settle derive a sampled-profile estimate."
+  - id: after-stop-11
+    # After Stop 11 | s12-choose-the-report-value | automatic
+    on: { after: [3] }
+    world: "Stop 3 animates the balloon-profile strips and records the independent 250 MV estimate, and."
+    panel: "250 MV"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Use the Stop 11 result to settle choose the report value."
+  - id: at-mission-end
+    # At mission end | s09-derive-voltage-from-uniform-field | automatic
+    on: { enter: true, at: FIELD }
+    world: "Stop 4 writes the bounded 250–378 MV interval onto report piece 3."
+    panel: "250–378 MV"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 9: Derive voltage from uniform field
+  #     Concept: field-potential integral; Keystone: K3,K1; Area: Mast Base; Learning role: INTRODUCE; Difficulty: L3; Story role: foundation.
+  #     placement: DERIVE, at s09-derive-voltage-from-uniform-field.
+  - group: MAST
+    at: TODO               # the fixture it is asked at
+    title: "Derive voltage from uniform field"
+    concept: "field-potential integral"
+    reason: "The report needs a signed voltage, not the size of the field alone."
+    scene: "The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact, and record the result with its physical justification in the station report."
+    motivation: "The minus sign makes potential rise when the path runs opposite the field."
+    format: DERIVE
+    question: "Build four lines and name each rule; use 1 km=1000 m, then submit ΔV in volts and megavolts."
+    answerText: "worked arithmetic above."
+    why: "The minus sign makes potential rise when the path runs opposite the field."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Convert kilometres and preserve the leading negative integral sign.
+    # correct result: +3.60×10^8 V=+360 MV, tolerance ±2 MV.
+    # state/output: voltage model; S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines ΔV=-∫0^h E_y dy(definition), =-E_yh(constant integral), =-(-9.0e3)(4.0e4)(SI substitution), =+3.60e8 V(arithmetic).
+
+  # --- Stop 10: Read the equipotentials
+  #     Concept: equipotential geometry; Keystone: K3; Area: Mast Base; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: CHOICE, asked by Ravi Sen beside s10-read-the-equipotentials.
+  - group: MAST
+    title: "Read the equipotentials"
+    person: TODO   # the roster id of whoever asks it
+    concept: "equipotential geometry"
+    reason: "A contour map can expose a voltage sign error before it enters the report."
+    scene: "With cloud potential established as higher than ground, the display shows four candidate contour maps. Select the one whose electric-field arrows cross equipotentials at right angles and point toward lower potential."
+    motivation: "E=-∇V fixes both direction and where a strong field needs close contour spacing."
+    format: CHOICE
+    question: "Select one map and submit the letter."
+    choices:
+    - "Field arrows cross contours at right angles from high to low potential, with closer contours near the mast tip."
+    - "Field arrows run along the equipotential contours."
+    - "Field arrows cross contours from low toward high potential."
+    - "Contours are equally spaced everywhere, so the field is uniform."
+    answer: "Field arrows cross contours at right angles from high to low potential, with closer contours near the mast tip."
+    answerText: "Perpendicular, downhill arrows with closer spacing near the mast tip."
+    why: "E=-∇V fixes both direction and where a strong field needs close contour spacing."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: A.
+    # state/output: correct overlay; S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   choices=[{id:A,text:"Field arrows perpendicular and downward; contours closer near the tip"},{id:B,text:"Field arrows parallel to equipotentials; contours closer near the tip"},{id:C,text:"Field arrows perpendicular and upward; contours closer near the tip"},{id:D,text:"Field arrows perpendicular and downward; contours equally spaced everywhere"}]; answer=A; rebuttals={B:"Electric field must cross an equipotential at right angles, not run along it.",C:"The field points from higher cloud potential toward lower ground potential, so these arrows are reversed.",D:"Equal spacing claims equal field strength and misses the measured sharp-tip enhancement."}.
+
+  # --- Stop 11: Derive a sampled-profile estimate
+  #     Concept: numerical line integral/trapezoid; Keystone: K3,K12; Area: Remote Outstation; Learning role: COMBINE; Difficulty: L4; Story role: verification.
+  #     placement: DERIVE, at s11-derive-a-sampled-profile-estimate.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive a sampled-profile estimate"
+    concept: "numerical line integral/trapezoid"
+    reason: "Noor needs the uniform-field result checked against independent height samples."
+    scene: "Because the contour test confirms the sign, integrate an independent balloon profile with fields -6,-8,-10,-8 kV/m across three 10 km layers. Compare the sampled voltage with the uniform model, and record the result with its physical justification in the station report."
+    motivation: "Agreement between different measurements is stronger when their sensors and assumptions differ."
+    format: DERIVE
+    question: "Build the three-line trapezoid derivation; use 1 (kV/m)(km)=1 MV, submit voltage in MV and percent difference from 360 MV."
+    answerText: "-[-25×10]=+250 MV; difference 110/360=30.6%."
+    why: "Agreement between different measurements is stronger when their sensors and assumptions differ."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Average adjacent endpoints before multiplying by each layer thickness.
+    # correct result: +250 MV, 30.6% lower, tolerances ±2 MV, ±0.5%.
+    # state/output: uncertainty band 250–360 MV; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines ΔV≈-Σ[(E_i+E_{i+1})/2]Δy(trapezoid), =-[(-7)+(-9)+(-9)]kV/m(10km)(averages), =+250 MV(units); comparison 30.6% below 360 MV.
+
+  # --- Stop 12: Choose the report value
+  #     Concept: model range; Keystone: K3,K12; Area: Remote Outstation; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Ravi Sen beside s12-choose-the-report-value.
+  - group: COUPLE
+    title: "Choose the report value"
+    person: TODO   # the roster id of whoever asks it
+    concept: "model range"
+    reason: "The next energy model needs a bounded voltage rather than false precision."
+    scene: "Now two valid profiles give 250 MV and 360 MV, while balloon altitude may shift by ±2 km. Stress both estimates across that range and choose the conservative report interval, and the team needs this result before it acts."
+    motivation: "A bounded interval preserves disagreement instead of hiding it in one unjustified number."
+    format: STRESS
+    question: "Move cloud height from 38 to 42 km, then submit one interval in MV that contains both measurement methods throughout the range."
+    answerText: "Sampled minimum remains 250; uniform maximum scales 360×42/40=378 MV."
+    why: "A bounded interval preserves disagreement instead of hiding it in one unjustified number."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not average away method spread; bound it.
+    # correct result: 250–378 MV, inclusive.
+    # state/output: report piece 3; M4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress={assumption:cloud_height_km,min:38,max:42,step:1,candidates:[250_to_360_MV,300_MV_exact,sign_negative],correct:250_to_378_MV}.
+

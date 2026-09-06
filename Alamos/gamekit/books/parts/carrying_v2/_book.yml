@@ -1,0 +1,609 @@
+theme:
+  id: carrying
+  title: Carrying Capacity
+  subtitle: Island Resources Officer · Vellan Island, fifteen days to the ferry vote
+groups:
+- id: CHAPEL
+  code: CHAPEL
+  name: Chapel Council Room
+  color: '#6b7f8a'
+  desc: "Where the campaign's chapel council room work is done."
+  milestones: [Open the room, Read what it holds, Settle the question, Hand it on]
+- id: HARB
+  code: HARB
+  name: Harbour Office
+  color: '#2f7fa8'
+  desc: Landings, the quota, the ferry and who is on the island.
+  defaultLeader: calloway
+  milestones:
+  - Read the landings
+  - Work the stock
+  - Set the rule
+  - Ready for the council
+- id: WATER
+  code: WATER
+  name: Waterworks
+  color: '#2e9b8f'
+  desc: Rain in, borehole out, and the salt behind both.
+  defaultLeader: sorley
+  milestones:
+  - Measure the recharge
+  - Balance the store
+  - Find the salt
+  - Ready for the council
+- id: COMMON
+  code: COMMON
+  name: Common Office
+  color: '#8a9a3c'
+  desc: Grazing, gardens, soil and what is sprayed on them.
+  defaultLeader: pike
+  milestones:
+  - Walk the common
+  - Read the soil
+  - Weigh the inputs
+  - Ready for the council
+- id: TIP
+  code: TIP
+  name: Tip and Sorting Yard
+  color: '#a06a3c'
+  desc: Everything that stays, and what leaks out of it.
+  defaultLeader: okafor
+  milestones:
+  - Weigh the arrivals
+  - Trace the leachate
+  - Count the gas
+  - Ready for the council
+- id: POWER
+  code: POWER
+  name: Turbine Yard
+  color: '#c0803a'
+  desc: Diesel, the hill, and what a kilowatt-hour costs here.
+  defaultLeader: ferris
+  milestones:
+  - Meter the demand
+  - Rate the machines
+  - Cost the change
+  - Ready for the council
+- id: REEF
+  code: REEF
+  name: Reef Station
+  color: '#3f8fa0'
+  desc: The species the island keeps, and the water they live in.
+  defaultLeader: berhane
+  milestones:
+  - Count the transect
+  - Read the tolerance
+  - Test the claim
+  - Ready for the council
+roster:
+- id: voss
+  name: "Mara Voss"
+  role: "Island Resources Officer; mission authority"
+  division: CHAPEL
+  bio: |
+    Mara Voss is Island Resources Officer; mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: reed
+  name: "Tomas Reed"
+  role: "Harbour and fishery lead"
+  division: CHAPEL
+  bio: |
+    Tomas Reed is Harbour and fishery lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: okafor
+  name: "Nkemdi Okafor"
+  role: "Waterworks technician"
+  division: CHAPEL
+  bio: |
+    Nkemdi Okafor is Waterworks technician. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: vale
+  name: "Iona Vale"
+  role: "Common agronomy lead"
+  division: REEF
+  bio: |
+    Iona Vale is Common agronomy lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: shaw
+  name: "Elias Shaw"
+  role: "Turbine and diesel mechanic"
+  division: HARB
+  bio: |
+    Elias Shaw is Turbine and diesel mechanic. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: chen
+  name: "Mei Chen"
+  role: "Tip and environmental-health lead"
+  division: HARB
+  bio: |
+    Mei Chen is Tip and environmental-health lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: noor
+  name: "Rafi Noor"
+  role: "Reef ecologist"
+  division: HARB
+  bio: |
+    Rafi Noor is Reef ecologist. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: costa
+  name: "Lena Costa"
+  role: "School nurse and population recorder"
+  division: HARB
+  bio: |
+    Lena Costa is School nurse and population recorder. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: pell
+  name: "Ada Pell"
+  role: "Council chair"
+  division: HARB
+  bio: |
+    Ada Pell is Council chair. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+
+glossary:
+# mission 1
+- name: System
+  aliases: [system]   # TODO: the plurals and spellings the prose uses
+  def: "a set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body."
+# mission 2
+- name: Infiltration
+  aliases: [infiltration]   # TODO: the plurals and spellings the prose uses
+  def: "water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie."
+# mission 3
+- name: NPP
+  aliases: [npp]   # TODO: the plurals and spellings the prose uses
+  def: "plant energy stored after plants use some energy for respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses."
+# mission 4
+- name: Porosity
+  aliases: [porosity]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change."
+# mission 5
+- name: Generalist
+  aliases: [generalist]   # TODO: the plurals and spellings the prose uses
+  def: "species with a broad niche."
+# mission 5
+- name: Specialist
+  aliases: [specialist]   # TODO: the plurals and spellings the prose uses
+  def: "species with a narrow niche. r-selected: many young, short lives, high early mortality."
+# mission 5
+- name: K-selected
+  aliases: [k-selected]   # TODO: the plurals and spellings the prose uses
+  def: "few young, long lives, stable populations."
+# mission 5
+- name: Carrying capacity
+  aliases: [carrying capacity]   # TODO: the plurals and spellings the prose uses
+  def: "largest population an environment can sustain."
+# mission 6
+- name: Tragedy of the commons
+  aliases: [tragedy of the commons]   # TODO: the plurals and spellings the prose uses
+  def: "overuse of a shared resource."
+# mission 6
+- name: Sustainable yield
+  aliases: [sustainable yield]   # TODO: the plurals and spellings the prose uses
+  def: "harvest that does not reduce future supply."
+# mission 6
+- name: Ecological footprint
+  aliases: [ecological footprint]   # TODO: the plurals and spellings the prose uses
+  def: "productive land and water needed to support consumption and waste."
+# mission 6
+- name: IPM
+  aliases: [ipm]   # TODO: the plurals and spellings the prose uses
+  def: "pest control combining monitoring, prevention, and limited targeted treatment."
+# mission 7
+- name: Leachate
+  aliases: [leachate]   # TODO: the plurals and spellings the prose uses
+  def: "polluted liquid draining through waste."
+# mission 7
+- name: Anaerobic
+  aliases: [anaerobic]   # TODO: the plurals and spellings the prose uses
+  def: "without oxygen."
+# mission 7
+- name: Point source
+  aliases: [point source]   # TODO: the plurals and spellings the prose uses
+  def: "one identifiable outlet."
+# mission 7
+- name: Nonpoint source
+  aliases: [nonpoint source]   # TODO: the plurals and spellings the prose uses
+  def: "diffuse runoff."
+# mission 7
+- name: Sewage treatment
+  aliases: [sewage treatment]   # TODO: the plurals and spellings the prose uses
+  def: "primary settling, secondary bacterial breakdown, tertiary nutrient removal."
+# mission 8
+- name: Dose
+  aliases: [dose]   # TODO: the plurals and spellings the prose uses
+  def: "amount of a substance received per body mass."
+# mission 8
+- name: Threshold response
+  aliases: [threshold response]   # TODO: the plurals and spellings the prose uses
+  def: "effect begins above a dose."
+# mission 8
+- name: Bioavailability
+  aliases: [bioavailability]   # TODO: the plurals and spellings the prose uses
+  def: "fraction absorbed. LD50: dose lethal to half a test population; lower means more toxic."
+# mission 9
+- name: Bioaccumulation
+  aliases: [bioaccumulation]   # TODO: the plurals and spellings the prose uses
+  def: "pollutant buildup within one organism."
+# mission 9
+- name: Biomagnification
+  aliases: [biomagnification]   # TODO: the plurals and spellings the prose uses
+  def: "rising concentration at higher trophic levels."
+# mission 9
+- name: Persistent organic pollutant
+  aliases: [persistent organic pollutant]   # TODO: the plurals and spellings the prose uses
+  def: "long-lived carbon chemical such as DDT or PCB."
+# mission 9
+- name: Eutrophication
+  aliases: [eutrophication]   # TODO: the plurals and spellings the prose uses
+  def: "nutrient enrichment leading to algae and oxygen loss."
+# mission 10
+- name: Dissolved oxygen
+  aliases: [dissolved oxygen]   # TODO: the plurals and spellings the prose uses
+  def: "oxygen gas available in water."
+# mission 10
+- name: Thermal pollution
+  aliases: [thermal pollution]   # TODO: the plurals and spellings the prose uses
+  def: "warming that lowers oxygen solubility."
+# mission 10
+- name: Ocean acidification
+  aliases: [ocean acidification]   # TODO: the plurals and spellings the prose uses
+  def: "falling seawater pH as carbon dioxide enters water."
+# mission 10
+- name: Dead zone
+  aliases: [dead zone]   # TODO: the plurals and spellings the prose uses
+  def: "water with too little oxygen for most animals."
+# mission 11
+- name: Capacity factor
+  aliases: [capacity factor]   # TODO: the plurals and spellings the prose uses
+  def: "actual energy divided by maximum possible energy."
+# mission 11
+- name: EROI
+  aliases: [eroi]   # TODO: the plurals and spellings the prose uses
+  def: "energy returned divided by energy invested."
+# mission 11
+- name: Primary pollutant
+  aliases: [primary pollutant]   # TODO: the plurals and spellings the prose uses
+  def: "emitted directly."
+# mission 11
+- name: Secondary pollutant
+  aliases: [secondary pollutant]   # TODO: the plurals and spellings the prose uses
+  def: "formed in air."
+# mission 11
+- name: Thermal inversion
+  aliases: [thermal inversion]   # TODO: the plurals and spellings the prose uses
+  def: "warm air trapping cooler polluted air below."
+# mission 12
+- name: Greenhouse gas
+  aliases: [greenhouse gas]   # TODO: the plurals and spellings the prose uses
+  def: "gas that absorbs outgoing heat."
+# mission 12
+- name: Global warming potential
+  aliases: [global warming potential]   # TODO: the plurals and spellings the prose uses
+  def: "heat trapped relative to carbon dioxide."
+# mission 12
+- name: Half-life
+  aliases: [half-life]   # TODO: the plurals and spellings the prose uses
+  def: "time for half a radioactive sample to decay."
+# mission 12
+- name: Base load
+  aliases: [base load]   # TODO: the plurals and spellings the prose uses
+  def: "power available steadily."
+# mission 13
+- name: Invasive species
+  aliases: [invasive species]   # TODO: the plurals and spellings the prose uses
+  def: "introduced organism that spreads and causes harm."
+# mission 13
+- name: Endemic
+  aliases: [endemic]   # TODO: the plurals and spellings the prose uses
+  def: "native to one limited place."
+# mission 13
+- name: CITES
+  aliases: [cites]   # TODO: the plurals and spellings the prose uses
+  def: "treaty controlling trade in threatened species."
+# mission 13
+- name: Endangered Species Act
+  aliases: [endangered species act]   # TODO: the plurals and spellings the prose uses
+  def: "United States law protecting listed species and habitat."
+# mission 14
+- name: Total fertility rate
+  aliases: [total fertility rate]   # TODO: the plurals and spellings the prose uses
+  def: "average births per woman; about 2.1 replaces a population without migration."
+# mission 14
+- name: Population momentum
+  aliases: [population momentum]   # TODO: the plurals and spellings the prose uses
+  def: "continued growth from a large reproductive-age group."
+# mission 14
+- name: Demographic transition
+  aliases: [demographic transition]   # TODO: the plurals and spellings the prose uses
+  def: "shift from high birth/death rates toward low rates."
+# mission 14
+- name: Overshoot
+  aliases: [overshoot]   # TODO: the plurals and spellings the prose uses
+  def: "demand beyond available biological capacity."
+# mission 15
+- name: Radiative forcing
+  aliases: [radiative forcing]   # TODO: the plurals and spellings the prose uses
+  def: "change in Earth's energy balance in W/m²."
+# mission 15
+- name: Mitigation
+  aliases: [mitigation]   # TODO: the plurals and spellings the prose uses
+  def: "reducing causes of environmental change."
+# mission 15
+- name: Adaptation
+  aliases: [adaptation]   # TODO: the plurals and spellings the prose uses
+  def: "reducing harm from impacts."
+# mission 15
+- name: Tipping point
+  aliases: [tipping point]   # TODO: the plurals and spellings the prose uses
+  def: "threshold beyond which feedback drives further change."
+
+warmups:
+  greet:
+    title: Ninety-one people, and you will need most of them by Friday
+    why: Every number in the council pack comes out of somebody's book, and on Vellan those books are in people's
+      heads and kitchens. Calloway, the harbourmaster, wants you known to as many of them as you can get round before
+      the ferry argument starts, because a figure you asked for is worth three you found in a file.
+  trial-near:
+    title: Walk the harbour end before you sign anything
+    why: The office, the waterworks and the common all stand inside four hundred metres of the berth, so walk that
+      end once and see which is which.
+  trial-far:
+    title: The far end opens today, and the truck with it
+    why: The tip, the hill and the reef station are three hundred metres and more up the island road and nothing
+      up there has been called on this week. From today they are on the list and the truck is signed out for it.
+      Drive the road once so you know which spur is which before Blessing Okafor, who runs the tip, asks you to
+      look at a cell.
+  follow:
+    title: Follow Pike round the stocking count
+    why: 'Dan Pike, the common grazing officer, counts stock on the common twice a year and he does not stop walking
+      to explain it. Stay with him: the count is the only evidence behind the stocking limit, and the argument at
+      the spring meeting is always about how it was taken rather than what it said.'
+  hunt:
+    title: Six standpipes, and one of them is the leak
+    item:
+      name: standpipe
+      plural: standpipes
+    why: The distribution main is losing about a fifth of what the borehole lifts, and Mairead Sorley, the water
+      engineer, has narrowed it to the six standpipes along the island road. Find all six and read them. A fifth
+      of the island's water is a bigger number than anything the ferry argument is about.
+  canvass:
+    title: Ask the nine graziers one question each
+    why: The council paper needs to say whether the graziers would accept an inspected limit, and Dan Pike, who
+      administers the grazing rights, will not put words in their mouths. Nine people, one question, and the answer
+      only counts if enough of them give it — which is the whole difficulty with asking anybody anything on an island.
+  evade:
+    title: Stay off the mainland surveyor until the pack is filed
+    why: 'The ferry operator''s surveyor came over on the Tuesday boat and wants the abstraction figures before
+      Dunmore, the council clerk, has checked them. Keep your distance until the pack is in: a number quoted from
+      a corridor conversation arrives at the vote with nobody''s name on it.'
+  tag:
+    title: Catch Rask before the Friday boat
+    why: Petra Rask, the fisheries observer, leaves on the Friday sailing and the stock assessment needs one figure
+      that is only in her head — which of the four over-landing boats she saw twice. She walks fast and she is already
+      late for the berth.
+
+beatRooms: [BERTH, SCHOOL]
+
+missions:
+# <<< MISSIONS >>>
+
+copy:
+  HARB: <p>The harbour office. Nineteen years of landings in a hand-ruled book, and the only door every catch on
+    this island passes through.</p>
+  WATER: <p>The waterworks. One borehole, two tanks and a rain gauge that is read by hand because the automatic
+    one under-reads in wind.</p>
+  COMMON: <p>The common office. Forty-one shares over sixty-two hectares, and a stocking limit that has been argued
+    about every spring since it was written.</p>
+  TIP: <p>The tip and sorting yard. Everything the island has finished with, weighed on arrival, in a hole with
+    eleven years left in it.</p>
+  POWER: <p>The turbine yard. Three diesel sets, a sea cable that failed twice in March, and a machine on the hill
+    waiting for a gearbox.</p>
+  REEF: <p>The reef station. Eleven springs of transect counts, which is the longest continuous record of anything
+    on Vellan.</p>
+  BERTH: <p>The ferry berth. Tuesdays and Fridays, and the only way anything arrives or leaves.</p>
+  SCHOOL: <p>The island school. Nineteen on the register, five to eleven, one room. It closes at twelve.</p>
+  CHAPEL: <p>The chapel and hall. The council meets here, and the vote is at seven.</p>
+  LIGHT: <p>The old light, unlit since 1974. The lens went to the mainland museum and the tower is a landmark and
+    a bird roost.</p>
+lessons:
+- group: HARB
+  title: Down from what, over how long — Review
+  task: Match each of Rask's figures to what it is a measure of.
+  place: Harbour Office
+  concept: 'An ecosystem as a budget: what comes in, what leaves, what stays'
+  scene: 'Petra Rask, the fisheries observer, has four figures pencilled on the back of her sheet and no headings
+    on any of them. Calloway wants all four in the council pack and will not send them up unlabelled.
+
+    '
+  guide: Four figures and four descriptions of what a figure can be. Ask of each what kind of quantity it is. An
+    amount standing there at one moment. An amount crossing the ground's edge over a stretch of time. Or the gap
+    between two readings of the same amount. The first kind takes a date. The second kind takes a period. The third
+    is not a rate until somebody says how long it took.
+  background:
+  - Why the label decides the argument. The same figure supports opposite claims depending on what it is a measure
+    of. Three hundred tonnes standing on the ground is a fishery in trouble; three hundred tonnes arriving each
+    year is a fishery that can be worked. Nothing in the number itself separates those two readings, and the council
+    pack has to.
+  - Why a difference is the awkward one. A stock and a flow each carry their own unit and their own time word, so
+    a reader who wants to check them can. A bare difference carries neither. It is tonnes, like the stock. It happened
+    over a stretch, like the flow. It is the figure most often quoted with the wrong period attached.
+  assumes:
+  - the observer's sheet records the west ground alone rather than all island landings
+  takeaway: A figure is a stock, a flow or a difference, and which of the three it is decides what it can be compared
+    with.
+  format: PROTOCOL
+  columns:
+  - What Rask has written down
+  - What kind of figure it is
+  scenarios:
+  - Nineteen hundred tonnes of mature fish estimated on the west ground this spring
+  - About three hundred tonnes of young fish reaching working size each year
+  - One hundred and sixty-eight tonnes taken off the ground last season
+  - Forty-six tonnes fewer than the season five years before it
+  choices:
+  - A stock, standing there at one moment, and it needs a date rather than a period.
+  - An inflow, gained by the ground over a stretch of time, and useless without the stretch.
+  - An outflow, taken out over a stretch of time, and the only one of the four the harbour weighs directly.
+  - A difference between two readings of the same stock, which is not a rate until a period is put on it.
+  mapping:
+  - 0
+  - 1
+  - 2
+  - 3
+  rebuttals:
+  - Nineteen hundred tonnes is what is standing there now; it belongs to a date, not to a season.
+  - Three hundred tonnes a year is what the ground gains, and the year is part of the figure.
+  - The landed tonnage is what left the ground, and it is the one quantity the harbour weighs itself.
+  - Forty-six tonnes is a gap between two readings, and it says nothing until the gap between the readings is stated.
+  answerText: The nineteen hundred is a stock, the three hundred an inflow, the hundred and sixty-eight an outflow,
+    and the forty-six a difference between two readings of the stock.
+  why: 'A budget has three kinds of entry and they are not interchangeable. A stock is an amount present at an instant,
+    so it is quoted with a date. A flow crosses the boundary over a stretch, so it is quoted with a period, and
+    inflow and outflow are the two directions of it. A difference between two readings of a stock is neither. It
+    has the stock''s unit and the flow''s need for a period. It becomes a rate only when the years between the readings
+    are stated. Mislabel one and every comparison drawn from it is against something of a different kind.
+
+    '
+- group: REEF
+  title: The wall nobody built — Review
+  task: Name the service the dredging quote quietly spends
+  place: Reef Station
+  concept: Ecosystem services, and the ones nobody is billed for
+  scene: 'Berhane has a second chart out: four hectares of seagrass inside the bay, between the pier and the burn
+    mouth. A quote has come across from the mainland for dredging a deeper channel straight through it.
+
+    '
+  guide: Ask what the island would have to start doing for itself if the bed were gone. Three of the four candidates
+    describe work that something else on the island already does, or that no marine plant does at this scale. One
+    of them is work the harbour currently gets for nothing and would have to buy every year. The quote prices the
+    dredging and not that.
+  background:
+  - Why a one-off quote hides an annual cost. Cutting the channel is a single payment and the service it removes
+    was a payment avoided every year. A cost that recurs is worth far more than a cost that happens once. The paper
+    in front of the council shows only the second of them. Only the second has an invoice attached.
+  - How to tell a service from a fact about the place. The test is substitution. If the thing stopped, would somebody
+    have to build or buy a replacement? A reef breaking a swell substitutes for a breakwater. A view from the pier
+    substitutes for nothing, and is not counted here whatever else it is worth.
+  assumes:
+  - the berth is dredged only when it has silted enough to shoal
+  takeaway: 'The test of a service is substitution: what the island would have to build or buy if the thing stopped.'
+  format: CHOICE
+  question: Which service would the island have to start paying for if the channel is cut through the bed?
+  choices:
+  - Holding the bay's sediment in place against the tide.
+  - Supplying the market garden with seaweed for building soil, as the strandline has done for two centuries.
+  - Cleaning the smoke that the diesel house puts into the air above the bay.
+  - Providing the freshwater that seeps out along the shore at every low tide.
+  answer: Holding the bay's sediment in place against the tide.
+  why: 'Seagrass roots bind the soft sediment of an inner bay, and the leaves slow the water over it. So the fines
+    settle in the bed instead of travelling on. The deepest hole in the bay is the berth. Cut the channel and that
+    stops, and the island buys a dredger visit on a cycle for as long as the harbour is used. That is the substitution
+    test passing. The other three fail it. The garden''s seaweed comes off the strandline. No marine plant cleans
+    a diesel plume. And the shoreline seepage is the island''s own lens coming out through the rock.
+
+    '
+  rebuttals:
+  - The wrack the garden uses is thrown up on the strandline; the seagrass bed is subtidal and is not cut for it.
+  - A diesel plume is carried off by the air above the island, and no bed of marine plants works at that scale.
+  - The seepage at low water is the freshwater lens leaving the rock, and the bed sits on top of it rather than
+    supplying it.
+- group: WATER
+  title: What the rain leaves behind — Review
+  task: Order the four stages by when they happen to one year's rain, earliest first.
+  place: Waterworks
+  concept: 'The water cycle over a small island: rain in, runoff and abstraction out'
+  scene: 'Sorley has drawn the island''s rainfall year on the back of a licence form as four boxes with nothing
+    written on them. Grace Nkemdi, the island nurse, wants it as a poster for the school, and the boxes are in no
+    order.
+
+    '
+  guide: Four stages, and the rail runs in time. Ask of each what has to have happened already for it to be possible
+    at all. Then ask where in the path the island loses the greater part of what fell. One of the four is the only
+    stage anybody on Vellan meters, and it is not the first.
+  background:
+  - Why the losses come before the store rather than after it. Evaporation, transpiration and runoff all act on
+    water that is still at or near the surface. Once it is past the root zone it is out of reach of the turf and
+    the burns. That is why the fraction reaching the aquifer is settled within days of the rain falling.
+  - What the order buys you on a licence form. Each stage is what is left of the stage before it. So an abstraction
+    limit written against rainfall is written against the largest number in the chain, not the smallest. The licence
+    has to be set at the last stage that is still a natural quantity, and that is the store, not the sky.
+  assumes:
+  - the burns on Vellan run to the sea rather than into the aquifer
+  takeaway: Each stage of an island water cycle is what is left of the one before it. A limit is only honest at
+    the stage it is written against.
+  format: SEQUENCE
+  cards:
+  - Rain lands on the catchment and wets the turf and the thin soil over the rock.
+  - Most of it leaves again — up through the turf and off the rock down the burns to the sea.
+  - What is left passes the root zone and joins the aquifer, mixing with the years already there.
+  - The pump at the borehole draws on the store, and the two tanks above the village fill.
+  order:
+  - 0
+  - 1
+  - 2
+  - 3
+  axis: Order the four stages by when they happen to one year's rain, earliest first. Each stage acts on what the
+    stage before it left behind, so the volumes fall as you go down the rail.
+  ends:
+  - First thing that happens to the rain
+  - Last thing that happens to it
+  why: 'The chain runs in one direction and each link is smaller than the one above it. Rain arrives on the whole
+    catchment. The turf, the wind and the burns take the greater part of it back before it is anywhere useful. Only
+    what gets past the root zone reaches the store, and only what the pump draws reaches a tap. Putting abstraction
+    before recharge is the common error, and it is the one that matters. It is the shape of a licence written against
+    rainfall instead of against the store the pump actually empties.
+
+    '
+- group: COMMON
+  title: Nine inches over rock — Review
+  task: Match each thing the garden pit shows to what it decides about growing there.
+  place: Common Office
+  concept: 'Soil: horizons, texture and what a thin soil cannot do'
+  scene: 'Ewan Hollis has opened a pit in his own two acres of market garden: two feet of dark, heavy, worked soil
+    over the same rock as the common. Pike wants it read against the pit at the top of the common before either
+    acre is promised to the ferry.
+
+    '
+  guide: The same four questions as the common pit, on ground that answers them differently. How deep is the material
+    a root can work in? What is the texture doing to the water? Where did the organic matter come from? And what
+    is at the bottom. Three of the four are better here than on the common. The fourth is the same on both, and
+    it is the one that sets the ceiling.
+  background:
+  - What forty years of importing does to a profile. Seaweed and sorted compost worked in every autumn raises the
+    organic matter, darkens the surface and deepens the worked layer until it meets rock. It builds depth downwards
+    from the top, because there is nowhere else for it to come from on an island. It stops the moment it reaches
+    the rock face.
+  - Why the drainage reverses the usual advantage. On the common a sandy texture over rock drains in twenty minutes
+    and a dry August bites within a fortnight. A heavier, better worked soil holds that water, which carries a crop
+    through the month. The same property leaves it wet in a late spring. That is the reason Hollis plants a fortnight
+    after the mainland does.
+  assumes:
+  - the two acres of garden are the only deep soil on Vellan
+  takeaway: Depth in an island soil is imported rather than found, and the rock underneath sets a ceiling no amount
+    of importing lifts.
+  format: PROTOCOL
+  columns:
+  - What Hollis's pit shows
+  - What it decides
+  scenarios:
+  - Two feet of dark worked soil where the common has nine inches
+  - Water still standing in the bottom of the pit an hour after digging
+  - Seaweed and sorted compost turned in every autumn for forty years
+  - The same unbroken rock at the base, two feet down instead of eleven inches
+  choices:
+  - Roughly three times the common's rooting depth, so a crop has a reserve under it.
+  - A heavier texture holding its water, so a dry August bites weeks later than on the common.
+  - The organic matter was carried here and made here, so the depth is a built thing rather than a found one.
+  - A hard floor with no store below it, so the profile can only ever be deepened from above.
+  mapping:
+  - 0
+  - 1
+  - 2
+  - 3
+  rebuttals:
+  - Two feet against nine inches is rooting depth, and rooting depth is the reserve a crop draws on in a dry month.
+  - Water standing an hour after digging is a heavy texture holding on to it, which is what delays a drought here.
+  - Four decades of seaweed and compost is where the organic matter came from; none of it was in the ground to start
+    with.
+  - The rock is unchanged from the common pit, and nothing worked in at the surface moves it.
+  answerText: The depth is rooting depth, the standing water is a heavy texture, the seaweed and compost are where
+    the profile came from, and the rock is the ceiling both pits share.
+  why: 'A profile is read as a set of limits, and on this island three of the four can be bought and one cannot.
+    Depth, organic matter and texture are all products of forty years of importing seaweed and compost. They are
+    why two acres carry vegetables while sixty-two hectares carry sheep. The rock at the base is the term that does
+    not move. It caps the profile. It caps the water held under it. It is why the garden was built upwards instead
+    of dug deeper. Any plan for another acre is a plan to make soil, not to find it.
+
+    '

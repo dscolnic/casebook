@@ -1,0 +1,176 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Hidden Losses"
+  card:
+    header: "9 DAYS."
+    title: "THE HIDDEN LOSSES"
+    goNow: "Tip and Sorting Yard, Mei Chen at leachate-bench."
+    body: "Enforcement can control visible use, but the island still loses resources through unseen leaks. Landfills make leachate and methane, while broken pipes waste treated water before a tap. Trace the tip pathway, then test the Waterworks balance. By the end of the mission, decide which hidden loss must be stopped first."
+    objective: "Find and rank hidden water and waste losses."
+  objective: "Find and rank hidden water and waste losses."
+  stake: "Enforcement can control visible use, but the island still loses resources through unseen leaks. Landfills make leachate and methane, while broken pipes waste treated water before a tap. Trace the tip pathway, then test the Waterworks balance. By the end of the mission, decide which hidden loss must be stopped first."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Repair the liner and treatment chain. Count the 50 cubic metres lost each day. The leak is real. Next, trace where school nitrate enters the system."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "landfills generate methane and carbon dioxide; leachate can reach groundwater; prevention often costs less than treating exposure."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-tip-and-sorting-yard
+    # On arrival at Tip and Sorting Yard | leachate-bench | automatic
+    on: { enter: true, at: TIP }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 7: TRACE THE HIDDEN EXPORTS OPEN"
+    bubbles:
+    - who: chen   # the bible's "mission lead", from this mission's own goNow line
+      say: "Start with trace the hidden exports. We need evidence the next decision can use."
+  - id: after-stop-25
+    # After Stop 25 | leachate-bench | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    bubbles:
+    - who: chen   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 25 result to settle build the treatment chain."
+  - id: after-stop-26
+    # After Stop 26 | pipe-balance | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    bubbles:
+    - who: chen   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 26 result to settle close the water balance."
+  - id: after-stop-27
+    # After Stop 27 | council-table | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 27 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    bubbles:
+    - who: chen   # the bible's "mission lead", from this mission's own goNow line
+      say: "Use the Stop 27 result to settle choose the repair priority."
+  - id: at-mission-end
+    # At mission end | leachate-bench | automatic
+    on: { missionEnd: true }
+    world: "Decision and hook: Stop 28 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 7 EVIDENCE: RECORDED"
+    bubbles:
+    - who: chen   # the bible's "mission lead", from this mission's own goNow line
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 25: Trace the hidden exports
+  #     Concept: landfill pathways | pollution | D1 | RETRIEVE | L3 | clue; Keystone: landfill pathways | pollution | D1 | RETRIEVE | L3 | clue; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: landfill pathways | pollution | D1 | RETRIEVE | L3 | clue.
+  #     placement: TRACE, at leachate-bench.
+  - group: TIP
+    at: leachate-bench
+    title: "Trace the hidden exports"
+    concept: "landfill pathways | pollution | D1 | RETRIEVE | L3 | clue"
+    reason: "The island cannot commit trace the hidden exports until this evidence is resolved."
+    scene: "The enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Trace rain, leachate, methane, carbon dioxide, and collected solids to their shared and independent pathways"
+    motivation: "Trace the hidden exports connects the measured environmental mechanism to the next island condition."
+    format: TRACE
+    question: "Open five channels; identify the waste cell as the shared source and rain as independent; submit the groundwater-dependent leachate pathway"
+    answerText: "The completed check shows the uncapped cell affects both air and water."
+    why: "Trace the hidden exports connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The uncapped cell affects both air and water
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"rain",label:"rain entering the cell",dependency:"weather gauge",independent:true},{id:"leachate",label:"leachate outflow",dependency:"waste cell",target_dependent:true},{id:"methane",label:"methane outflow",dependency:"waste cell",target_dependent:true},{id:"carbon_dioxide",label:"carbon-dioxide outflow",dependency:"waste cell",target_dependent:true},{id:"collected_solids",label:"collected solids",dependency:"waste cell",target_dependent:true}],shared_upstream:"waste cell",correct_conclusion:"leachate is the groundwater path; rain is the independent input",answerText:"Four export channels share the waste cell, while rain is independent; leachate is the path carrying dissolved load toward groundwater."}
+
+  # --- Stop 26: Build the treatment chain
+  #     Concept: sewage treatment | pollution | 7; Keystone: sewage treatment | pollution | 7; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: sewage treatment | pollution | 7.
+  #     placement: CHAIN, at leachate-bench.
+  - group: TIP
+    at: leachate-bench
+    title: "Build the treatment chain"
+    concept: "sewage treatment | pollution | 7"
+    reason: "The island cannot commit build the treatment chain until this evidence is resolved."
+    scene: "Because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the wastewater path from solids removal through nutrient polishing before discharge, and the team needs this result before it acts."
+    motivation: "Build the treatment chain connects the measured environmental mechanism to the next island condition."
+    format: CHAIN
+    question: "Order intake, primary settle and skim, secondary bacterial treatment, tertiary nitrogen and phosphorus removal, and disinfection; leave dilution out as the decoy"
+    answerText: "The completed check shows the five treatment stages are placed in causal order and dilution is rejected."
+    why: "Build the treatment chain connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The five treatment stages are placed in causal order and dilution is rejected
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   chain:{transfers:[{id:"intake",label:"collect raw wastewater",quantity:"wastewater flow and suspended solids"},{id:"primary",label:"settle and skim",quantity:"settleable solids and floating material"},{id:"secondary",label:"biological treatment",quantity:"dissolved organic load"},{id:"tertiary",label:"nutrient removal",quantity:"nitrogen and phosphorus load"},{id:"disinfection",label:"disinfect before discharge",quantity:"viable pathogen load"},{id:"dilution_decoy",label:"dilute untreated water",quantity:"water volume only",decoy:true}],keyed_order:["intake","primary","secondary","tertiary","disinfection"],decoys:["dilution_decoy"],governing_relationship:"contaminant load=flow×concentration",answerText:"Remove solids, organics, nutrients, and pathogens in order; dilution alone does not remove contaminant load."}
+
+  # --- Stop 27: Close the water balance
+  #     Concept: pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal; Keystone: pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal.
+  #     placement: BALANCE, at pipe-balance.
+  - group: CHAPEL
+    at: pipe-balance
+    title: "Close the water balance"
+    concept: "pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal"
+    reason: "The island cannot commit close the water balance until this evidence is resolved."
+    scene: "The tip pathway is real, but Waterworks reports a larger daily loss. Close the distribution ledger to calculate water that never reaches a billed tap, and the team needs this result before it acts."
+    motivation: "Close the water balance connects the measured environmental mechanism to the next island condition."
+    format: BALANCE
+    question: "Use unmetered loss=plant output-households-businesses-ferry-tank increase with 410, 285, 55, 12, and 8 m3/day; submit one loss in m3/day"
+    relationship: "unmetered loss = plant output - households - businesses - ferry - tank increase"
+    # THE BIBLE'S PAYLOAD, converted. `direction: in|out|storage` becomes the sign
+    # on `value` and the bible's `correct: 50` is the ledger's `total`. The
+    # duplicate billing display carries `counts: false` into `countable: false`,
+    # with its `reason` in `unitNote` so it is only read once the row is opened.
+    # `hidden` marks the tank increase, the storage term nothing on the board
+    # announces: without it the obvious rows total 58, outside the 1 m3/day band.
+    balance:
+      total: { amount: 50, unit: m3/day, label: Water that never reaches a billed tap }
+      tolerance: 1
+      streams:
+      - { id: plant_output, label: Plant output, value: 410, unit: m3/day }
+      - { id: households, label: Household metered use, value: -285, unit: m3/day }
+      - { id: businesses, label: Business metered use, value: -55, unit: m3/day }
+      - { id: ferry, label: Ferry berth draw, value: -12, unit: m3/day }
+      - { id: tank_increase, label: Storage tank increase, value: -8, unit: m3/day, hidden: true }
+      - { id: duplicate_billing_display, label: Billing display total, value: 55, unit: m3/day, countable: false,
+          unitNote: "A duplicate of the business meter rather than a second physical stream." }
+      commit: Report the unmetered loss
+    answerText: "The completed check shows the unmetered loss is 50 m3/day."
+    why: "Close the water balance connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The unmetered loss is 50 m3/day
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"plant_output",direction:"in",value:410,unit:"m3/day",counts:true},{id:"households",direction:"out",value:285,unit:"m3/day",counts:true},{id:"businesses",direction:"out",value:55,unit:"m3/day",counts:true},{id:"ferry",direction:"out",value:12,unit:"m3/day",counts:true},{id:"tank_increase",direction:"storage",value:8,unit:"m3/day",counts:true},{id:"duplicate_billing_display",direction:"none",value:55,unit:"m3/day",counts:false,reason:"duplicate of the business meter"}],equation:"loss=plant-households-businesses-ferry-tank increase",correct:50,tolerance:1,answerText:"Unbilled loss is 50 m3/day; the duplicate billing display is not a second physical stream."}
+
+  # --- Stop 28: Choose the repair priority
+  #     Concept: repair priority | policy | 7; Keystone: repair priority | policy | 7; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: repair priority | policy | 7.
+  #     placement: VALUE, asked by Mara Voss beside council-table.
+  - group: CHAPEL
+    at: council-table
+    title: "Choose the repair priority"
+    person: voss
+    concept: "repair priority | policy | 7"
+    reason: "The island cannot commit choose the repair priority until this evidence is resolved."
+    scene: "The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control, and the team needs this result before it acts."
+    motivation: "Choose the repair priority connects the measured environmental mechanism to the next island condition."
+    format: VALUE
+    question: "From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits"
+    answerText: "The completed check shows locate and repair the main and test the leachate liner for exactly 60 credits."
+    why: "Choose the repair priority connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Locate and repair the main and test the leachate liner for exactly 60 credits
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:{budget:60,options:[{id:acoustic_location,cost:15,required:true},{id:main_repair,cost:30,required:true},{id:liner_test,cost:15,required:true},{id:cosmetic_fence,cost:12},{id:gas_flare_study,cost:10}],correct:[acoustic_location,main_repair,liner_test],total:60}
+

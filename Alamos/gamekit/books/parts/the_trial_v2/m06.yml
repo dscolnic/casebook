@@ -1,0 +1,187 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Amendment Price"
+  card:
+    header: "DAY 6 - BOARD IN 10 DAYS"
+    title: "The Amendment Price"
+    goNow: "Go to Randomisation & Blinding and meet Priya Shah, randomisation and blinding lead, at the allocation reader."
+    body: "The fast site's estimate cannot represent rural patients, so the amendment must repair enrollment without weakening causal comparison. Control, random assignment, replication, and blocking make treatment groups comparable. Rebuild the design, calculate sampling spread, then price the added sample at Statistics. By the end of the mission, decide which amendment preserves validity and power."
+    objective: "Approve the corrected enrollment and assignment design."
+  objective: "Approve the corrected enrollment and assignment design."
+  stake: "The fast site's estimate cannot represent rural patients, so the amendment must repair enrollment without weakening causal comparison. Control, random assignment, replication, and blocking make treatment groups comparable. Rebuild the design, calculate sampling spread, then price the added sample at Statistics. By the end of the mission, decide which amendment preserves validity and power."
+  takeaway: "Use binomial for successes in fixed n and geometric for trials to first success."
+  segue: "Mission decision: Group patients by site and travel distance. Then randomize within each group. This keeps the cause test fair. At 400 patients, the sampling spread is 0.025. Each rural enrollment needs about five screens."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Larger samples reduce sampling spread without moving its center."
+  - "Matched pairs use paired units or give both treatments to one unit."
+  - "Standard error estimates sampling spread from sample data."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-randomisation-blinding
+    # On arrival at Randomisation & Blinding | allocation-reader | automatic
+    on: { enter: true, at: RAND }
+    world: "Arrival: RAND entry; nearby bubble; sealed kits visible; Priya says, ; - After S1-S2: amendment rail locks; waypoint TAKE THE AMENDMENT COUNTS TO STATISTICS; player control restored. - STAT arrival/after S3: precision gauge shows center .50, SD .025; - Final: wait estimate accepted; staffing board adds five screens per success; binder 6 fills; outcome unlocks."
+    panel: "MISSION 6: BUILD THE EXPERIMENT OPEN"
+    bubbles:
+    - who: shah   # Priya Shah
+      say: "A repaired frame still needs clean assignment"
+  - id: after-stop-21
+    # After Stop 21 | allocation-reader | automatic
+    on: { after: [1] }
+    world: "The build the experiment result remains visible while the choose matched or blocked fixture lights."
+    panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    bubbles:
+    - who: shah   # Priya Shah
+      say: "Use the Stop 21 result to settle choose matched or blocked."
+  - id: after-stop-22
+    # After Stop 22 | randomisation-board | automatic
+    on: { after: [2] }
+    world: "The choose matched or blocked result remains visible while the price the precision fixture lights."
+    panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    bubbles:
+    - who: shah   # Priya Shah
+      say: "Use the Stop 22 result to settle price the precision."
+  - id: after-stop-23
+    # After Stop 23 | randomisation-board | automatic
+    on: { after: [3] }
+    world: "The price the precision result remains visible while the how long until the first fixture lights."
+    panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    bubbles:
+    - who: shah   # Priya Shah
+      say: "Use the Stop 23 result to settle how long until the first."
+  - id: at-mission-end
+    # At mission end | allocation-reader | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 6 EVIDENCE: RECORDED"
+    bubbles:
+    - who: shah   # Priya Shah
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 21: Build the Experiment
+  #     Concept: experiment principles; Keystone: keystone study design; Area: Randomisation & Blinding; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: SEQUENCE, at allocation-reader.
+  - group: RAND
+    at: allocation-reader
+    title: "Build the Experiment"
+    concept: "experiment principles"
+    reason: "Priya must preserve causal validity while the enrollment frame changes."
+    scene: "The new frame includes rural patients, but assignment must still separate treatment effects from site differences. Order the design steps so blocking happens before random assignment and outcomes are measured the same way."
+    motivation: "Correct order prevents site mix from becoming a confounder."
+    format: SEQUENCE
+    question: "Order the six design cards from enrollment through common measurement, placing blocking before random assignment. Submit one complete sequence."
+    # THE BIBLE'S PAYLOAD, converted. The six cards are its own list and the order
+    # is the one it keys: "exact order as listed".
+    cards:
+    - "enroll eligible"
+    - "block by site/remoteness"
+    - "randomly assign within block"
+    - "conceal kits"
+    - "apply common endpoint"
+    - "replicate across patients"
+    order: [0, 1, 2, 3, 4, 5]
+    answerText: "The completed check shows block similar patients first, randomize within blocks, conceal treatment, and use the same measurement."
+    why: "Correct order prevents site mix from becoming a confounder."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Randomize before blocking; order similar groups first
+    # correct result: Block similar patients first, randomize within blocks, conceal treatment, and use the same measurement.
+    # state/output: design rail lights; S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards enroll eligible, block by site/remoteness, randomly assign within block, conceal kits, apply common endpoint, replicate across patients; exact order as listed.
+
+  # --- Stop 22: Choose Matched or Blocked
+  #     Concept: matched pairs/blinding; Keystone: keystone design; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L3; Story role: character.
+  #     placement: CHOICE, asked by Priya Shah beside allocation-reader.
+  - group: SAFE
+    at: allocation-reader
+    title: "Choose Matched or Blocked"
+    person: shah
+    concept: "matched pairs/blinding"
+    reason: "A matched-pairs proposal could halve enrollment, but only if pairing matches the scientific unit."
+    scene: "With the design order fixed, one proposal pairs unrelated patients from different sites solely because their ages match. Decide whether this is a valid matched-pairs study or a blocked randomized design."
+    motivation: "Calling loose similarity a pair could understate variability and overstate precision."
+    format: CHOICE
+    question: "Submit one selection from the four distinct choice items below."
+    choices:
+    - "Block by important traits and randomize treatments within each block."
+    - "Call similar patients matched pairs even though each receives only one treatment."
+    - "Assign treatments without blocks because randomization removes all chance imbalance."
+    - "Compare patients who chose their own treatment."
+    answer: "Block by important traits and randomize treatments within each block."
+    answerText: "The completed check shows block by important traits and randomize within blocks; paired inference needs genuine paired observations or both treatments on one unit. Double blinding hides assignment from subjects and researchers."
+    why: "Calling loose similarity a pair could understate variability and overstate precision."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2)
+    # correct result: Block by important traits and randomize within blocks; paired inference needs genuine paired observations or both treatments on one unit. Double blinding hides assignment from subjects and researchers.
+    # state/output: amendment design approved; travel to STAT.
+
+  # --- Stop 23: Price the Precision
+  #     Concept: sampling distribution/CLT/10% idea; Keystone: keystone sampling distributions; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L3; Story role: reveal.
+  #     placement: DERIVE, at randomisation-board.
+  - group: ENDP
+    at: randomisation-board
+    title: "Price the Precision"
+    concept: "sampling distribution/CLT/10% idea"
+    reason: "The amendment needs a reproducible estimate of sampling spread before more sites are opened."
+    scene: "The corrected design expects improvement probability p=0.50 and needs n=400 independent patients from more than 4,000 eligible people. Derive the center and SD of the sampling distribution of p-hat."
+    motivation: "Precision, not the observed sample center, determines whether the board can separate benefit from noise."
+    format: DERIVE
+    question: "lines mean(p-hat)=p=.50 [unbiased]; SD=sqrt(.5(.5)/400) [formula, independence/10%]; =.025 [simplify]. Decoy SD=.25/400. Submit pair .50,.025."
+    answerText: "The completed check shows the distribution is centered at .50 with SD .025. Larger n narrows spread but does not change the center; large counts are 200 and 200."
+    why: "Precision, not the observed sample center, determines whether the board can separate benefit from noise."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   pair of unitless proportions
+    # correct result: The distribution is centered at .50 with SD .025. Larger n narrows spread but does not change the center; large counts are 200 and 200.
+    # state/output: precision gauge; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"center and SD of p-hat","givens":["p=0.50","n=400","population>4000"],"lines":[{"id":"L1","expression":"mean(p-hat)=p=0.50","license":"state governing relationship"},{"id":"L2","expression":"SD=sqrt[p(1-p)/n]","license":"substitute displayed values"},{"id":"L3","expression":"SD=sqrt[0.5(0.5)/400]=0.025","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["SD=0.25/400","mean=0.025"],"correct_result":"(0.50,0.025)","answerText":"The sampling distribution is centered at 0.50 with standard deviation 0.025."}
+
+  # --- Stop 24: How Long Until the First
+  #     Concept: geometric versus binomial; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: RETRIEVE; Difficulty: L3; Story role: decision.
+  #     placement: BALLPARK, at randomisation-board.
+  - group: STAT
+    at: randomisation-board
+    title: "How Long Until the First"
+    concept: "geometric versus binomial"
+    reason: "The amendment cannot proceed unless the expected wait for the first rural enrollment is acceptable."
+    scene: "Precision requires the repaired frame, but each screened rural candidate has success probability p=0.20. Calculate the expected number screened until the first enrollment and distinguish this geometric question from a fixed-trial binomial count."
+    motivation: "The waiting-time estimate turns a statistical repair into a calendar cost."
+    format: BALLPARK
+    question: "formula geometric mean=1/p; p=.20; target 5 candidates, tolerance .01; then select geometric. Include binomial mean np reminder."
+    # The formula, p = 0.20, the target of 5 candidates and the 0.01 tolerance are
+    # the prompt's own. The bible's "binomial mean np reminder" has no n on this
+    # board, so it is carried in the explanation line rather than as a tile.
+    estimate:
+      prompt: "Each screened rural candidate enrolls with probability p = 0.20."
+      question: "Build the expected number screened until the first enrollment."
+      relationship: "geometric mean = 1 / p, so 1 / 0.20"
+      labels:
+      - "1  (the first enrollment being waited for)"
+      - "0.20  (p, success per screened candidate)"
+      values: [1, 0.20]
+      slots: 2
+      template: '{0} / {1}'
+      formula: a/b
+      correct: [0, 1]
+      target: 5
+      tolerance: 0.01
+      units: candidates
+      solution: "1 / 0.20 = 5 candidates screened, on average, before the first enrollment."
+      explanation: "The number of trials is not fixed, so this is geometric; a binomial would fix the number of trials first and its mean would be np."
+    answerText: "The completed check shows expected trials to first success=1/.20=5. The number of trials is not fixed, so the model is geometric."
+    why: "The waiting-time estimate turns a statistical repair into a calendar cost."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   candidates screened
+    # correct result: Expected trials to first success=1/.20=5. The number of trials is not fixed, so the model is geometric.
+    # state/output: five-candidate staffing added; binder 6; M7.
+

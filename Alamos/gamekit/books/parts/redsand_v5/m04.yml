@@ -1,0 +1,203 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "What Can Travel Where?"
+  card:
+    header: "12 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "WHAT CAN TRAVEL WHERE?"
+    goNow: "Go to Catalyst Bay and meet Mei-Ling Cho, the water and cryogenics engineer, beside the covered blue stain."
+    body: "A blue stain near a methane valve looks like proof of a leak, but nobody has tested whether that fluid could travel through the gas line. At Catalyst Bay, use molecular shape, polarity, and attractions between molecules to predict how each substance moves. Then operate the separation cartridge across its temperature range. By the end of the mission, decide whether the stain identifies the missing methane's path."
+    objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
+  objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
+  stake: "A blue stain near a methane valve looks like proof of a leak, but nobody has tested whether that fluid could travel through the gas line. At Catalyst Bay, use molecular shape, polarity, and attractions between molecules to predict how each substance moves. Then operate the separation cartridge across its temperature range. By the end of the mission, decide whether the stain identifies the missing methane's path."
+  takeaway: "A substance's physical properties can rule out a proposed evidence path."
+  segue: "Mission decision: The blue stain did not move through the dry methane line. Water and glycol would stay or turn to liquid far upstream. Methane would pass. The stain came from local repair work, not a leak. A new water alarm now needs a test."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Use this chain: Lewis structure -> geometry -> bond effects -> molecular polarity -> intermolecular behavior."
+  - "Similar colors do not prove two residues are the same substance."
+  - "A proposed travel path must agree with the substance's phase and attractions at every temperature along the path."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-catalyst-bay
+    # On arrival at Catalyst Bay | automatic | 
+    on: { enter: true, at: KINET }
+    world: "The player approaches a blue stain sealed beneath a clear cover beside a dry-gas valve; Cho places a residue vial next to four molecular models."
+    panel: "MISSION 4 - WHAT CAN TRAVEL WHERE?"
+    # unlocks: Stop 13 at the molecular-model bench; Stop 14 unlocks immediately after Stop 13.
+    bubbles:
+    - who: cho   # Cho
+      say: "A stain is evidence that a substance reached this spot. It is not proof of how it arrived. We test the path before we name a leak."
+  - id: after-stops-13-and-14
+    # After Stops 13 and 14 | molecular-model bench | automatic transition
+    on: { after: [1, 2] }
+    world: "The valid methane structure rotates into a tetrahedron, and the bond-dipole arrows cancel."
+    panel: "STRUCTURE -\\> GEOMETRY -\\> BOND DIPOLES -\\> MOLECULAR POLARITY."
+    # unlocks: Stop 15 at the property-card rack.
+    bubbles:
+    - who: cho   # Cho
+      say: "Now compare methane with the residue. Shape and polarity decide whether they travel together."
+  - id: after-stop-15
+    # After Stop 15 | property-card rack | automatic response
+    on: { after: [3] }
+    world: "Methane enters the NONPOLAR / WEAK DISPERSION lane; water and glycol enter the POLAR / STRONG ATTRACTION lane."
+    panel: "NEXT TASK - STOP 16: CAN THE BLUE RESIDUE RIDE THE GAS STREAM?"
+    # unlocks: Stop 16 at the separation cartridge.
+    bubbles:
+    - who: cho   # Cho
+      say: "The proposed path asks polar liquid to behave like dry methane gas. Run the cartridge and make it prove that claim."
+  - id: after-stop-16
+    # After Stop 16 | separation cartridge | automatic reversal
+    on: { after: [4] }
+    world: "Methane passes through while water and glycol remain or condense far upstream; The path diagram stamps IMPOSSIBLE UNDER RECORDED CONDITIONS."
+    panel: "MISSION DECISION READY"
+    # unlocks: The Mission 4 outcome beat.
+    bubbles:
+    - who: cho   # Cho
+      say: "The blue fluid is real. The methane-leak story attached to it is not."
+  - id: at-mission-end
+    # At mission end | Catalyst Bay | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "Cho seals the vial as MAINTENANCE FLUID - UNRELATED PATH; Abiola calls as a water-balance alarm opens on the wall."
+    panel: "LOCAL INVESTIGATION COMPLETE / NEXT DESTINATION - WATER PLANT."
+    # unlocks: Mission 5 briefing and the Water Plant waypoint.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "Carbon is accounted for. The residue cannot follow the proposed route. Now the water numbers are failing too. We widen the investigation."
+
+  stops:
+  # --- Stop 13: Choose the methane structure
+  #     Concept: Lewis structures; Keystone: structure, polarity, and intermolecular forces; Area: Cold End; Learning role: INTRODUCE; Difficulty: L1; Story role: obstacle.
+  #     placement: CHOICE, asked at Mei-Ling Cho beside charge-bench.
+  - group: PHASE
+    at: charge-bench
+    title: "Choose the methane structure"
+    person: cho
+    concept: "Lewis structures"
+    reason: "The stain's proposed route depends first on methane's actual structure."
+    scene: "To test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The correct model supplies the geometry used in the travel test."
+    motivation: "The correct electron structure is the first step toward predicting whether methane and the residue can behave alike."
+    format: CHOICE
+    question: "Which Lewis structure for CH4 is valid?"
+    choices:
+    - "Central C with four C-H single bonds and no lone pairs on C"
+    - "Central C with three C-H bonds and one lone pair."
+    - "H=C(H)-H with a double bond to hydrogen."
+    - "C4- surrounded by four H+ ions."
+    answer: "Central C with four C-H single bonds and no lone pairs on C"
+    answerText: "Valid methane has four C-H single bonds, no carbon lone pairs, and a tetrahedral shape."
+    why: "Carbon supplies four valence electrons and reaches an octet through four shared pairs. Hydrogen forms one bond and never a double bond. Formal charges are zero in the standard structure."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (2) Three C-H bonds plus a lone pair gives the wrong neutral electron arrangement for methane. (3) Hydrogen cannot form a double bond because it can hold only two electrons. (4) Methane is a neutral covalent molecule, not C4- surrounded by four H+ ions.
+    # correct result: Four single bonds, no carbon lone pairs.
+    # state/output: Add the correct 3D methane model to the rail.
+
+  # --- Stop 14: From electrons to polarity
+  #     Concept: structure-property chain; Keystone: structure, polarity, and intermolecular forces; Area: Cold End; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: SEQUENCE, at molecular-model-rail.
+  - group: PHASE
+    at: molecular-model-rail
+    title: "From electrons to polarity"
+    concept: "structure-property chain"
+    reason: "The crew needs the full structure-to-polarity chain before comparing substances."
+    scene: "Use electron arrangement to connect Lewis structure, molecular shape, and polarity so the proposed leak path can be judged. This ordered chain prevents one polar bond from deciding the whole molecule."
+    motivation: "Geometry determines whether bond dipoles cancel, so it can rule out a story based only on chemical labels."
+    format: SEQUENCE
+    question: "Order the reasoning chain used to predict molecular polarity."
+    # CONVERTED from the bible's `data` line below; `correct result: As listed`.
+    cards:
+    - "Draw a valid Lewis structure"
+    - "Count electron domains and predict geometry"
+    - "Identify bond dipoles from electronegativity"
+    - "Test whether dipoles cancel in 3D"
+    - "Classify the molecule as polar or nonpolar"
+    order: [0, 1, 2, 3, 4]
+    answerText: "Lewis structure leads to geometry, bond dipoles, molecular polarity, and then intermolecular behavior."
+    why: "A polar bond does not guarantee a polar molecule. Geometry determines whether individual dipoles reinforce or cancel. Methane's tetrahedral C-H bond arrangement is symmetric enough that the small bond dipoles cancel."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If polarity comes before geometry, show two molecules with similar bonds but different shapes. If the player begins with IMF, explain that IMF classification depends on the molecular polarity already established.
+    # data: Draw a valid Lewis structure / Count electron domains and predict geometry / Identify bond dipoles from electronegativity / Test whether dipoles cancel in 3D / Classify the molecule as polar or nonpolar.
+    # correct result: As listed.
+    # state/output: Unlock molecule matching.
+
+  # --- Stop 15: Match shape, polarity, and dominant force
+  #     Concept: VSEPR and IMF; Keystone: structure, polarity, and intermolecular forces; Area: Cold End; Learning role: COMBINE; Difficulty: L2; Story role: clue.
+  #     placement: PROTOCOL, at model-rail-desk.
+  - group: PHASE
+    at: model-rail-desk
+    title: "Match shape, polarity, and dominant force"
+    concept: "VSEPR and IMF"
+    reason: "Each candidate substance must be matched to behavior the separator can test."
+    scene: "Apply that chain to methane, carbon dioxide, water, and ammonia to identify which substances behave alike and could travel together. The mapping turns invisible molecular attractions into usable separator predictions."
+    motivation: "These properties predict which substances travel with methane and which stick or condense upstream."
+    format: PROTOCOL
+    question: "Match each molecule to its shape/polarity/dominant intermolecular force."
+    # CONVERTED from the payload below. The engine's PROTOCOL board is two
+    # columns matched by position: the bible's `scenarios` become the situations,
+    # its `choices` the responses, and its keyed `mapping` the permutation.
+    scenarios:
+    - "CH4"
+    - "CO2"
+    - "H2O"
+    - "NH3"
+    choices:
+    - "tetrahedral / nonpolar / London dispersion"
+    - "linear / nonpolar overall / London dispersion"
+    - "bent / polar / hydrogen bonding"
+    - "trigonal pyramidal / polar / hydrogen bonding"
+    mapping: [0, 1, 2, 3]
+    answerText: "Match CH4 and CO2 to nonpolar/London behavior, and H2O and NH3 to polar/hydrogen-bonding behavior."
+    why: "Symmetric CH4 and CO2 cancel bond dipoles and rely on London dispersion between molecules. Bent water and pyramidal ammonia remain polar, and their H-O or H-N bonds allow hydrogen bonding. London forces still exist in all substances; \"dominant\" names the most consequential one present."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   CO2 has polar bonds but a nonpolar linear molecule. Water is not linear because two lone-pair domains bend its O-H bonds.
+    # correct result: Mapping as listed.
+    # state/output: Create reference curves for the sweep.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios:
+    #     - {id: ch4, label: "CH4"}
+    #     - {id: co2, label: "CO2"}
+    #     - {id: h2o, label: "H2O"}
+    #     - {id: nh3, label: "NH3"}
+    #   choices:
+    #     - {id: tetra_nonpolar_ldf, label: "tetrahedral / nonpolar / London dispersion"}
+    #     - {id: linear_nonpolar_ldf, label: "linear / nonpolar overall / London dispersion"}
+    #     - {id: bent_polar_hbond, label: "bent / polar / hydrogen bonding"}
+    #     - {id: pyramid_polar_hbond, label: "trigonal pyramidal / polar / hydrogen bonding"}
+    #   mapping: {ch4: tetra_nonpolar_ldf, co2: linear_nonpolar_ldf, h2o: bent_polar_hbond, nh3: pyramid_polar_hbond}
+
+  # --- Stop 16: Can the blue residue ride the gas stream?
+  #     Concept: IMF/property behavior; Keystone: structure, polarity, and intermolecular forces; Area: Cold End; Learning role: APPLY; Difficulty: L3; Story role: reversal.
+  #     placement: SWEEP, operated at separation-cartridge.
+  - group: PHASE
+    at: separation-cartridge
+    title: "Can the blue residue ride the gas stream?"
+    concept: "IMF/property behavior"
+    reason: "The leak clue survives only if the real cartridge permits that travel path."
+    scene: "Run the separation cartridge to determine whether the blue residue could have traveled through the dry methane line. The measured curve will either preserve or destroy the stain's entire story."
+    motivation: "If the blue fluid cannot survive the recorded path, it cannot identify the methane leak everyone is chasing."
+    format: SWEEP
+    question: "Sweep the temperature, mark where each substance leaves or sticks, and decide whether the residue could follow the proposed path."
+    answerText: "The glycol-water residue would remain or condense upstream, so it could not follow methane to that valve."
+    why: "Strong polarity and hydrogen bonding make the service fluid behave very differently from nonpolar methane. Under the recorded cool, dry line conditions it would be retained or condensed upstream. The residue is consistent with local maintenance fluid, not a transported methane-leak marker."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Choosing the closest curve by color is not evidence. Committing before sampling low, middle, and high temperatures should say the separation behavior is under-observed.
+    # correct result: The glycol-water residue cannot plausibly travel with the methane stream and deposit only at the suspect valve.
+    # state/output: Set evidence_flags.residue_local = true; technician admits service spill; Casebook adds RESIDUE DID NOT TRAVEL.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {id: temperature, label: "Cartridge temperature", min: 180, max: 330, step: 25, unit: K}
+    #     series:
+    #       - {id: methane, label: "Methane", readings: [[180,0.92],[205,0.95],[230,0.97],[255,0.98],[280,0.99],[305,0.99],[330,0.99]]}
+    #       - {id: water, label: "Water", readings: [[180,0.02],[205,0.03],[230,0.05],[255,0.08],[280,0.20],[305,0.64],[330,0.86]]}
+    #       - {id: glycol, label: "Blue glycol tracer", readings: [[180,0.00],[205,0.00],[230,0.00],[255,0.01],[280,0.01],[305,0.02],[330,0.04]]}
+    #     response_label: "fraction leaving cartridge"
+    #     required_regions: [low, middle, high]
+    #     correct: "Residue cannot follow methane; water and glycol are retained or condensed upstream."
+

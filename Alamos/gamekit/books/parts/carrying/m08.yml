@@ -1,0 +1,156 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The School-Water Finding"
+  card:
+    header: "8 DAYS."
+    title: "THE SCHOOL-WATER FINDING"
+    goNow: "Waterworks, Nkemdi at store-gauges."
+    body: "The main repair restored water quantity, yet the school tap still carries more nitrate than the distribution main. Dose depends on concentration, intake, and body size, so children face the largest burden. Compare network samples, then verify the school tap. By the end of the mission, decide the nitrate source and immediate protection."
+    objective: "Identify the school exposure pathway."
+  objective: "Identify the school exposure pathway."
+  stake: "The main repair restored water quantity, yet the school tap still carries more nitrate than the distribution main. Dose depends on concentration, intake, and body size, so children face the largest burden. Compare network samples, then verify the school tap. By the end of the mission, decide the nitrate source and immediate protection."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: The garden caused the school nitrate spike. Use safe water when nitrate reaches 10.0 mg/L. Isolation lowers the tap to 6.2 mg/L. New farm and waste rules must stop another pulse."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "dose-response often forms an S-curve; children can receive larger mass-normalized dose; source location follows spatial patterns."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-waterworks
+    # On arrival at Waterworks | s29-probe-the-nitrate-network | automatic
+    on: { enter: true, at: TODO }   # s29-probe-the-nitrate-network
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 8: PROBE THE NITRATE NETWORK OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Start with probe the nitrate network. We need evidence the next decision can use."
+  - id: after-stop-29
+    # After Stop 29 | s30-compare-child-and-adult-dose | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 29 result to settle compare child and adult dose."
+  - id: after-stop-30
+    # After Stop 30 | s31-verify-the-garden-source | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 30 result to settle verify the garden source."
+  - id: after-stop-31
+    # After Stop 31 | s32-set-the-school-action-level | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 31 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 31 result to settle set the school action level."
+  - id: at-mission-end
+    # At mission end | s29-probe-the-nitrate-network | automatic
+    on: { enter: true, at: TODO }   # s29-probe-the-nitrate-network
+    world: "Decision and hook: Stop 32 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 8 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 29: Probe the nitrate network
+  #     Concept: nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence; Keystone: nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence; Area: Waterworks; Learning role: PRACTICE; Difficulty: L3; Story role: nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence.
+  #     placement: PROBE, at s29-probe-the-nitrate-network.
+  - group: WATER
+    at: TODO               # the fixture it is asked at
+    title: "Probe the nitrate network"
+    concept: "nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence"
+    reason: "The island cannot commit probe the nitrate network until this evidence is resolved."
+    scene: "The repaired main removes quantity loss but not the nitrate gradient. Probe the source, junction, school branch, harbour branch, and school tap to locate the first increase, and the team needs this result before it acts."
+    motivation: "Probe the nitrate network connects the measured environmental mechanism to the next island condition."
+    format: PROBE
+    question: "Probe all five stations, compare each station reading with its own expected 6.0-6.5 mg/L range and displayed load at 2.0 L/min, and submit the first break plus source conclusion"
+    answerText: "The completed check shows the first break is the school branch; the source is local."
+    why: "Probe the nitrate network connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The first break is the school branch; the source is local
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:{stations:[{id:source,reading:6.1,expected:[6.0,6.5],flow:2.0,load:12.2},{id:junction,reading:6.2,expected:[6.0,6.5],flow:2.0,load:12.4},{id:school_branch,reading:8.4,expected:[6.0,6.5],flow:2.0,load:16.8},{id:harbour_branch,reading:6.3,expected:[6.0,6.5],flow:2.0,load:12.6},{id:school_tap,reading:11.2,expected:[6.0,6.5],flow:2.0,load:22.4}],units:{reading:"mg/L",flow:"L/min",load:"mg/min"},correct_station:school_branch,correct_conclusion:local_school_branch_source}
+
+  # --- Stop 30: Compare child and adult dose
+  #     Concept: dose | pollution | 8; Keystone: dose | pollution | 8; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: dose | pollution | 8.
+  #     placement: BALLPARK, at s30-compare-child-and-adult-dose.
+  - group: TIP
+    at: TODO               # the fixture it is asked at
+    title: "Compare child and adult dose"
+    concept: "dose | pollution | 8"
+    reason: "The island cannot commit compare child and adult dose until this evidence is resolved."
+    scene: "Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult, and the team needs this result before it acts."
+    motivation: "Compare child and adult dose connects the measured environmental mechanism to the next island condition."
+    format: BALLPARK
+    question: "Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day"
+    answerText: "The completed check shows child dose is 0.56 and adult dose 0.32 mg/kg/day; the child dose is 75% higher."
+    why: "Compare child and adult dose connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Child dose is 0.56 and adult dose 0.32 mg/kg/day; the child dose is 75% higher
+    # state/output: s who is at risk. Calculate daily nitrate dose for a child and an adult." Prompt: Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day. Payload: estimate:{equation:"dose=C*intake/mass",cases:{child:{C:11.2,intake:1.0,mass:20},adult:{C:11.2,intake:2.0,mass:70}},unit:"mg/kg/day",truth:[0.56,0.32],tolerance:0.01}
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:{equation:"dose=C*intake/mass",cases:{child:{C:11.2,intake:1.0,mass:20},adult:{C:11.2,intake:2.0,mass:70}},unit:"mg/kg/day",truth:[0.56,0.32],tolerance:0.01}
+
+  # --- Stop 31: Verify the garden source
+  #     Concept: source timing | causality | D3 | RETRIEVE | L4 | twist; Keystone: source timing | causality | D3 | RETRIEVE | L4 | twist; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: source timing | causality | D3 | RETRIEVE | L4 | twist.
+  #     placement: VERIFY, at s31-verify-the-garden-source.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Verify the garden source"
+    concept: "source timing | causality | D3 | RETRIEVE | L4 | twist"
+    reason: "The island cannot commit verify the garden source until this evidence is resolved."
+    scene: "The dose comparison makes the school tap urgent, while the branch location narrows the source. Predict dilution, isolate the garden connection, measure, interpret, and restore normal flow, and the team needs this result before it acts."
+    motivation: ", measure, interpret, and restore normal flow"
+    format: VERIFY
+    question: "CALCULATE AND COMMIT the equal-volume mix of 11.2 and 6.0 mg/L; OPERATE by closing only the garden valve; MEASURE nitrate; INTERPRET the source; restore the valve and remeasure baseline"
+    answerText: "The completed check shows prediction is 8.6 mg/L; isolation measures 6.2 mg/L and identifies the local garden input."
+    why: ", measure, interpret, and restore normal flow"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Prediction is 8.6 mg/L; isolation measures 6.2 mg/L and identifies the local garden input
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_commit,operate,measure,interpret],operate_unlocked_when:prediction_committed,prediction:{equation:"Cmix=(C1V1+C2V2)/(V1+V2)",inputs:{C1:11.2,C2:6.0,V1:1.0,V2:1.0},units:{C:"mg/L",V:L},truth:8.6,tolerance:0.1},operate:{changed:garden_valve,setting:closed,fixed:[pump_state,sampling_time,tap_flow]},measure:{nitrate:{value:6.2,unit:"mg/L"}},interpret:{correct:local_garden_input},restore:{required:true,setting:open,remeasured_baseline:{value:11.2,unit:"mg/L"}}}
+
+  # --- Stop 32: Set the school action level
+  #     Concept: public-health action | policy | 8; Keystone: public-health action | policy | 8; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: public-health action | policy | 8.
+  #     placement: TRIGGER, at s32-set-the-school-action-level.
+  - group: TODO            # the curriculum area this teaches for
+    at: school-tap
+    title: "Set the school action level"
+    concept: "public-health action | policy | 8"
+    reason: "The island cannot commit set the school action level until this evidence is resolved."
+    scene: "The controlled isolation identifies the garden connection, but children need a rule before repairs finish. Commit an inclusive action level before new samples appear, and the team needs this result before it acts."
+    motivation: ", but children need a rule before repairs finish. Commit an inclusive action level before new samples appear"
+    format: TRIGGER
+    question: "Set replacement water when nitrate is greater than or equal to 10.0 mg/L; apply it to 11.2, 9.8, and 10.0 mg/L"
+    answerText: "The completed check shows act at 11.2 and 10.0 mg/L; do not act at 9.8 mg/L."
+    why: ", but children need a rule before repairs finish. Commit an inclusive action level before new samples appear"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Act at 11.2 and 10.0 mg/L; do not act at 9.8 mg/L
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{rule:"replacement water when nitrate>=threshold",threshold:10.0,unit:"mg/L",scale:[0,15],anchors:[6,8,10,12],updates:[11.2,9.8,10.0],correct_actions:[act,no_act,act]}
+

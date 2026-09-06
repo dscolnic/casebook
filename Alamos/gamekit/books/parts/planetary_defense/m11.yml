@@ -1,0 +1,210 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "One Push"
+  card:
+    header: "IMPACT WINDOW: 4 DAYS"
+    title: "ONE PUSH"
+    goNow: "Go to the Spectroscopy Dome for the mass estimate, continue to the Consequences Lab, and deliver the feasibility result to Mira Chen at Coordination."
+    body: "A small early velocity change can become a large later miss, but only when time remains for that separation to grow. With eleven days at discovery and fewer now, slogans about deflection may outrun physics. Estimate the needed impulse, compare a credible kinetic impactor, and stress the assumptions. By the end of the mission, you will decide whether to attempt space deflection or shift fully to consequence reduction."
+    objective: "Decide whether space deflection is physically credible with the remaining warning time."
+  objective: "Decide whether space deflection is physically credible with the remaining warning time."
+  stake: "A small early velocity change can become a large later miss, but only when time remains for that separation to grow. With eleven days at discovery and fewer now, slogans about deflection may outrun physics. Estimate the needed impulse, compare a credible kinetic impactor, and stress the assumptions. By the end of the mission, you will decide whether to attempt space deflection or shift fully to consequence reduction."
+  takeaway: "The scientifically brave answer can be no. ---"
+  segue: "Mission decision: Do not try to push the body now. The best ready craft falls short by more than 3,300 times. Move all spare work to path checks and harm reduction."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A small velocity change becomes useful only if time remains for separation to grow."
+  - "Short warning time greatly increases the velocity change required."
+  - "An intervention fails when optimistic capacity remains orders of magnitude below a conservative requirement."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-spectroscopy-dome
+    # On arrival at Spectroscopy Dome | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Sanaa supplies the dark-body mass range."
+    panel: "THE ONE PUSH / MISSION ACTIVE"
+    # unlocks: Stop 41.
+    bubbles:
+    - who: arjun-sen   # Arjun Sen
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-41
+    # After Stop 41 | automatic | 
+    on: { after: [1] }
+    world: "Evelyn defines a generous required displacement and remaining time."
+    panel: "THE ONE PUSH / FIRST RESULT LOGGED"
+    # unlocks: The Entry & Consequences Lab waypoint and Stop 42.
+    bubbles:
+    - who: arjun-sen   # Arjun Sen
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-42
+    # After Stop 42 | automatic | 
+    on: { after: [2] }
+    world: "Arjun offers the strongest launch-ready impactor in the fiction."
+    panel: "THE ONE PUSH / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 43.
+    bubbles:
+    - who: arjun-sen   # Arjun Sen
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-43
+    # After Stop 43 | automatic | 
+    on: { after: [3] }
+    world: "Mira asks for a go/no-go based on orders of magnitude."
+    panel: "THE ONE PUSH / DECISION EVIDENCE READY"
+    # unlocks: The Coordination Office waypoint and Stop 44.
+    bubbles:
+    - who: arjun-sen   # Arjun Sen
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THE ONE PUSH / MISSION DECISION LOGGED"
+    # unlocks: Mission 11 outcome, metric screen, concept review, and Mission 12 briefing.
+    bubbles:
+    - who: arjun-sen   # Arjun Sen
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 41: Carry the mass honestly
+  #     Concept: mass range; Keystone: estimation/uncertainty; Area: Spectroscopy Dome; Learning role: REINFORCE; Difficulty: L4; Story role: calculation.
+  #     placement: BALLPARK, at sizing-board.
+  - group: CHAR
+    at: sizing-board
+    title: "Carry the mass honestly"
+    concept: "mass range"
+    reason: "Deflection feasibility depends on mass, not diameter alone."
+    scene: "Use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Estimate a mass range and preserve it through the intervention calculation."
+    motivation: "A darker, denser, or larger body requires more momentum change for the same velocity change."
+    format: BALLPARK
+    question: "Submit the lower and upper asteroid mass bounds in kilograms."
+    answerText: "The intervention test must succeed across this range, not only at the lightest convenient value."
+    why: "BALLPARK carries parameter uncertainty into feasibility bounds."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Density multiplies volume; it cannot be omitted from momentum demand.
+    # correct result: Roughly (1.1\times10^{10}) to (2.2\times10^{10}) kg.
+    # state/output: MASS ENVELOPE transferred to IMPACT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:
+    #     labels: [radius, low-density mass, high-density mass]
+    #     values:
+    #       - ["D = 260 m", "r = D/2"]
+    #       - ["ρlow = 1200 kg/m³", "m = (4/3)πr³ρ"]
+    #       - ["ρhigh = 2400 kg/m³", "m = (4/3)πr³ρ"]
+    #     slots: [radius_m, low_mass_kg, high_mass_kg]
+    #     template: "m = (4/3)π(D/2)³ρ"
+    #     formula: spherical mass range
+    #     correct: ["130 m", "1.10 × 10^10 kg", "2.21 × 10^10 kg"]
+    #     target: 1.66e10
+    #     tolerance: 8 percent
+
+  # --- Stop 42: Derive the required impulse
+  #     Concept: impulse requirement; Keystone: mechanics/derivation; Area: Entry & Consequences Lab; Learning role: INTRODUCE; Difficulty: L5; Story role: calculation.
+  #     placement: DERIVE, at deflection-desk.
+  - group: IMPACT
+    at: deflection-desk
+    title: "Derive the required impulse"
+    concept: "impulse requirement"
+    reason: "The team needs a transparent lower-bound demand before evaluating any mission concept."
+    scene: "Grant the defender eight days of useful lead time and require 6,400 kilometers of accumulated displacement. Derive the velocity change and nominal impulse, treating the straight-line estimate as deliberately optimistic."
+    motivation: "Short warning time forces a much larger velocity change than early interception."
+    format: DERIVE
+    question: "Submit two numerical results with units: minimum Δv in meters per second and nominal impulse J in newton-seconds."
+    answerText: "Even the simplified lower bound is enormous for a launch-ready response."
+    why: "DERIVE builds the requirement from displacement, time, and momentum definitions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Eight days is seconds, and 6,400 kilometers is meters before division.
+    # correct result: About 9.3 m/s and (1.5\times10^{11}) N·s.
+    # state/output: REQUIRED IMPULSE posted.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     givens:
+    #       miss_distance_m: 6.4e6
+    #       warning_time_s: 691200
+    #       asteroid_mass_kg: 1.66e10
+    #     candidate_lines:
+    #       - {id: line_1, expression: "Δv = Δx/t", license: constant transverse velocity change over the stated interval}
+    #       - {id: line_2, expression: "Δv = (6.4 × 10^6 m)/(691200 s) = 9.26 m/s", license: substitute displayed values with SI units}
+    #       - {id: line_3, expression: "J = mΔv", license: impulse equals change in momentum}
+    #       - {id: line_4, expression: "J = (1.66 × 10^10 kg)(9.26 m/s) = 1.54 × 10^11 N·s", license: substitute the adopted mass}
+    #     keyed_order: [line_1, line_2, line_3, line_4]
+    #     decoys:
+    #       - {id: decoy_multiply_time, expression: "Δv = Δx t", fails_because: displacement from a fixed velocity change is proportional to time, so solving for velocity requires division}
+    #       - {id: decoy_divide_mass, expression: "J = Δv/m", fails_because: impulse equals mass times velocity change}
+    #     correct: {delta_v_m_per_s: 9.26, impulse_Ns: 1.54e11}
+    #     requested_units: [m/s, N·s]
+
+  # --- Stop 43: Stress the kinetic impactor
+  #     Concept: kinetic impactor; Keystone: feasibility/assumptions; Area: Entry & Consequences Lab; Learning role: INTRODUCE; Difficulty: L5; Story role: analysis.
+  #     placement: STRESS, asked by Arjun Sen beside deflection-desk.
+  - group: IMPACT
+    at: deflection-desk
+    title: "Stress the kinetic impactor"
+    person: TODO   # the roster id of whoever asks it
+    concept: "kinetic impactor"
+    reason: "The best-case mission must be compared with the lower-bound requirement."
+    scene: "Arjun offers a 1,000-kilogram impactor at 10 kilometers per second and grants an optimistic momentum enhancement of three. Compare delivered impulse with demand across the asteroid mass range and weaker enhancement."
+    motivation: "Feasibility fails when an optimistic supply remains orders of magnitude below an optimistic demand."
+    format: STRESS
+    question: "Submit delivered impulse in newton-seconds, the minimum shortfall factor, and one conclusion: FEASIBLE or INFEASIBLE."
+    answerText: "The proposed impactor supplies at most about one five-thousandth of nominal demand."
+    why: "STRESS compares best-case capacity with worst-relevant requirements."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A successful earlier kinetic-impact demonstration does not erase this object's mass and deadline.
+    # correct result: Infeasible by more than three orders of magnitude, even before navigation and launch delays.
+    # state/output: KINETIC DEFLECTION NO-GO.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     equation: Jdeliver = β mi vi
+    #     inputs: {impactor_mass_kg: 1000, impact_speed_m_per_s: 10000, beta: 3}
+    #     settings:
+    #       - {beta: 1, delivered_impulse_Ns: 1.0e7, minimum_shortfall_factor: 10000}
+    #       - {beta: 2, delivered_impulse_Ns: 2.0e7, minimum_shortfall_factor: 5000}
+    #       - {beta: 3, delivered_impulse_Ns: 3.0e7, minimum_shortfall_factor: 3333}
+    #     delivered_impulse_Ns: 3.0e7
+    #     required_impulse_Ns: [1.0e11, 2.0e11]
+    #     minimum_shortfall_factor: 3333
+    #     correct_conclusion: infeasible
+
+  # --- Stop 44: Choose the useful action
+  #     Concept: response portfolio; Keystone: decisions/value; Area: Emergency Management Office; Learning role: REINFORCE; Difficulty: L5; Story role: decision.
+  #     placement: VALUE, asked by Arjun Sen beside scopeboard.
+  - group: OPS
+    at: scopeboard
+    title: "Choose the useful action"
+    person: TODO   # the roster id of whoever asks it
+    concept: "response portfolio"
+    reason: "Resources spent on an infeasible launch would reduce observations and civil preparation."
+    scene: "The last budget can fund a symbolic impactor, corridor observations, civil-defense preparation, or a public demonstration. Rank all four by expected harm reduction under the verified warning time and intervention gap."
+    motivation: "Planetary defense includes both prevention and consequence management; the feasible branch depends on lead time."
+    format: VALUE
+    question: "Spend at most 100 credits and choose the action portfolio with the greatest expected value."
+    answerText: "Refusing an impossible intervention protects the actions that can still reduce harm."
+    why: "VALUE compares expected decision benefit and opportunity cost."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Hope is not added momentum, and a launch can consume the warning time it cannot overcome.
+    # correct result: Fund corridor observations and civil-defense preparation; do not launch.
+    # state/output: DEFLECTION BRANCH CLOSED; RESPONSE BRANCH EXPANDED.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:
+    #     budget: {value: 100, unit: response_credits}
+    #     options:
+    #       - {id: symbolic_impactor, label: Launch symbolic impactor, cost: 80, axis: prevention, decision_value: negligible}
+    #       - {id: corridor_observations, label: Fund corridor-refining observations, cost: 45, axis: location, decision_value: high}
+    #       - {id: civil_defense, label: Begin reversible civil-defense preparation, cost: 55, axis: exposure, decision_value: high}
+    #       - {id: public_demo, label: Fund a public technology demonstration, cost: 25, axis: communication, decision_value: low}
+    #     total_option_cost: 205
+    #     correct: [corridor_observations, civil_defense]
+    #     decision_changed: Refines who is at risk while funding actions that can still reduce harm.
+

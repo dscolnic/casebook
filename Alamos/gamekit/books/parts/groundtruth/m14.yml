@@ -1,0 +1,155 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Shot That Almost Closed the Case"
+  card:
+    header: "2 DAYS;"
+    title: "The Shot That Almost Closed the Case"
+    goNow: "Launch Control, Dr. Lena Ortiz at launch board."
+    body: "The reroute and fast recorders are ready, and every derived limit can now be tested together. The shot is safe only if field, current, induced voltage, and record independence all pass their prewritten rules. You will commit thresholds, fire once, inspect the mast, and compare the trailer trace. By the end of the mission, decide whether the station has reproduced and removed the failure."
+    objective: "Run the integrated full-shot coupling test."
+  objective: "Run the integrated full-shot coupling test."
+  stake: "The reroute and fast recorders are ready, and every derived limit can now be tested together. The shot is safe only if field, current, induced voltage, and record independence all pass their prewritten rules. You will commit thresholds, fire once, inspect the mast, and compare the trailer trace. By the end of the mission, decide whether the station has reproduced and removed the failure."
+  takeaway: "The station reproduced. ---"
+  segue: "Mission decision: The station reproduced. And removed the main cable failure, but it has not removed every hazard. The reroute holds the main probe to 188 V, while card E reaches 310 V because its rack wiring forms a smaller hidden loop. One repair remains before the report can be signed. Metric target 27:00."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-launch-control
+    # On arrival at Launch Control | s53-freeze-final-thresholds | automatic
+    on: { enter: true, at: TODO }   # s53-freeze-final-thresholds
+    world: "accepted SHOT/bubble/blank rule fields/→S1; S2 correct/panel/Poynting arrow up/ENERGY FLOW: 1.59×10^7 W/m² UP→S3; S3 pass/waypoint/main probe PASS/Main reroute passes; Inspect every rack position.→COUPLE/S4; S4 correct/world/card E red+text/CARD E 310 V — LIMIT 250 V→outcome; outcome/radio/local loop highlighted/Main path repaired; local loop remains.→metric."
+    panel: "Dr. Lena Ortiz, station director: \"Write every stop condition before the cell arrives.\""
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "Write every stop condition before the cell arrives."
+  - id: after-stop-53
+    # After Stop 53 | s54-derive-energy-flow | automatic
+    on: { after: [1] }
+    world: "The freeze final thresholds result remains visible while the derive energy flow fixture lights."
+    panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 53 result to settle derive energy flow."
+  - id: after-stop-54
+    # After Stop 54 | s55-fire-the-full-shot | automatic
+    on: { after: [2] }
+    world: "The derive energy flow result remains visible while the fire the full shot fixture lights."
+    panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 54 result to settle fire the full shot."
+  - id: after-stop-55
+    # After Stop 55 | s56-probe-the-rack | automatic
+    on: { after: [3] }
+    world: "The fire the full shot result remains visible while the probe the rack fixture lights."
+    panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 55 result to settle probe the rack."
+  - id: at-mission-end
+    # At mission end | s53-freeze-final-thresholds | automatic
+    on: { enter: true, at: TODO }   # s53-freeze-final-thresholds
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 14 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "All full-shot readings meet their written limits; earth the bank and record PASS."
+
+  stops:
+  # --- Stop 53: Freeze Final Thresholds
+  #     Concept: integrated rules; Keystone: all K; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L5.
+  #     placement: TRIGGER, at s53-freeze-final-thresholds.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Freeze Final Thresholds"
+    concept: "integrated rules"
+    reason: "all limits must be frozen before final test data."
+    scene: "The board is blank and the storm cell is approaching. Enter the inclusive limits for field 5.0 kV/m, conduit current 1.0 kA, trailer voltage 250 V, and channel spread 0.50 kV/m, and the team needs this result before it acts."
+    motivation: "one precommitted rule protects against choosing whichever successful measure looks best."
+    format: TRIGGER
+    question: "Before any update appears, enter the inclusive field, conduit-current, trailer-voltage, and channel-spread limits with units; submit the complete GO rule."
+    answerText: "The completed check shows all four inclusive thresholds are frozen before data."
+    why: "one precommitted rule protects against choosing whichever successful measure looks best."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A partial rule lets one passing measure hide another failure; enter every limit.
+    # correct result: All four inclusive thresholds are frozen before data.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   four anchors/rules and consequence; exact. Prompt enter four numeric thresholds/units and submit GO rule before updates.
+
+  # --- Stop 54: Derive Energy Flow
+  #     Concept: Poynting; Keystone: K1,K6,K8; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: DERIVE, at s54-derive-energy-flow.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive Energy Flow"
+    concept: "Poynting"
+    reason: "the report needs direction of electromagnetic energy flow."
+    scene: "At one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Derive the Poynting-vector magnitude and direction before the shot trace appears.\", and record the result with its physical justification in the station report."
+    motivation: "E×B shows energy moving upward rather than along either field alone."
+    format: DERIVE
+    question: "Build three Poynting-vector lines using E=2.0×10^4 N/C, B=1.0×10^-3 T, and μ₀=4π×10^-7 T·m/A; submit W/m² and direction."
+    answerText: "The completed check shows s=1.59×10^7 W/m² upward. East×north is up."
+    why: "E×B shows energy moving upward rather than along either field alone."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   E×B is 20 before division by μ₀; do not multiply by μ₀.
+    # correct result: S=1.59×10^7 W/m² upward. East×north is up.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines S=E×B/μ0; magnitude EB/μ0; substitution (20)/(4π×10^-7)=1.59×10^7 W/m²; east×north=up. Prompt rules/value/direction; tolerance 2%. State fire unlocked.
+
+  # --- Stop 55: Fire the Full Shot
+  #     Concept: full test; Keystone: K7,K10,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: VERIFY, at s55-fire-the-full-shot.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Fire the Full Shot"
+    concept: "full test"
+    reason: "operate only after thresholds and energy-flow prediction are committed."
+    scene: "The GO board passes the incoming field. Fire one full shot, keep 8 mm gap and reroute fixed, measure current, rise time, conduit current, and independent trailer voltage, then earth the bank."
+    motivation: "one controlled shot tests the full causal chain."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Lock 180 V. OPERATE: Fire one full shot with 8 mm gap and reroute fixed. MEASURE: Record field, current, rise time, conduit current, and trailer voltage. INTERPRET: Earth the bank and submit the all-threshold verdict."
+    answerText: "The completed check shows main reroute passes: 188 V, 0.40 kA conduit, thresholds met."
+    why: "one controlled shot tests the full causal chain."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Follow all four phases and earth the bank before submitting the conclusion.
+    # correct result: Main reroute passes: 188 V, 0.40 kA conduit, thresholds met.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{submit:{quantity:"trailer voltage",unit:"V",truth:180,tolerance:10}},equipment_locked_until_prediction_commit:true,operation:{action:"fire one full shot",settings:{gap:8,unit:"mm"},fixed:["reroute"]},measurements:{current:30,unit_current:"kA",rise_time:100,unit_rise:"ns",conduit_current:0.4,unit_conduit:"kA",trailer_voltage:188,unit_voltage:"V"},restore:{required:true,action:"earth the bank",remeasure:false},correct_conclusion:"all thresholds pass",answerText:"All full-shot readings meet their written limits; earth the bank and record PASS."}
+
+  # --- Stop 56: Probe the Rack
+  #     Concept: spatial coupling; Keystone: K10,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: PROBE, at s56-probe-the-rack.
+  - group: COUPLE
+    at: shunt-rack
+    title: "Probe the Rack"
+    concept: "spatial coupling"
+    reason: "a passing peak at one probe cannot clear the whole rack."
+    scene: "Because the main trailer probe reads 188 V, sample all six card positions before declaring victory. Identify where the spatial pattern breaks the 250 V limit and submit the failed location, and the team needs this result before it acts."
+    motivation: "local loop area can preserve a hazard after the main cable reroute succeeds."
+    format: PROBE
+    question: "Probe all six card positions, record each peak in volts, identify the location exceeding the inclusive 250 V limit, and submit location, value, and mechanism."
+    answerText: "The completed check shows card E fails at 310 V; local loop remains."
+    why: "local loop area can preserve a hazard after the main cable reroute succeeds."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Probe every station; the main probe cannot certify an unsampled rack.
+    # correct result: Card E fails at 310 V; local loop remains.
+    # state/output: report piece14 then visible card E red text/icon.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe={comparison:"observed peak must be within station-specific expected interval and at or below the inclusive 250 V load limit",stations:[{id:A,reading:188,expected:190,tolerance:15,load:250,comparison:"within expected; load passes"},{id:B,reading:190,expected:188,tolerance:15,load:250,comparison:"within expected; load passes"},{id:C,reading:185,expected:187,tolerance:15,load:250,comparison:"within expected; load passes"},{id:D,reading:192,expected:191,tolerance:15,load:250,comparison:"within expected; load passes"},{id:E,reading:310,expected:189,tolerance:15,load:250,comparison:"121 V above expected and 60 V above load; fails"},{id:F,reading:187,expected:190,tolerance:15,load:250,comparison:"within expected; load passes"}],correct_station:E,correct_conclusion:"rack-local loop"}.
+

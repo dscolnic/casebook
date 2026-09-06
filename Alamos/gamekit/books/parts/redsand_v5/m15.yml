@@ -1,0 +1,319 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "GO / NO-GO"
+  card:
+    header: "1 SHIFT UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "GO / NO-GO"
+    goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the final recovery board."
+    body: "Batch C is quarantined, and one shift remains before the ascent window closes. The crew must recover certified methane without sacrificing power, thermal safety, oxygen, or independent proof. At Plant Control, the Tank Farm, and the Pad Office, buy one decisive measurement, eliminate unsafe plans, and fund the recovery chain. By the end of the mission, give the final GO or NO-GO recommendation that determines whether the crew leaves Mars."
+    objective: "Authorize launch only if all four campaign metrics and every chemistry threshold pass."
+  objective: "Authorize launch only if all four campaign metrics and every chemistry threshold pass."
+  stake: "Batch C is quarantined, and one shift remains before the ascent window closes. The crew must recover certified methane without sacrificing power, thermal safety, oxygen, or independent proof. At Plant Control, the Tank Farm, and the Pad Office, buy one decisive measurement, eliminate unsafe plans, and fund the recovery chain. By the end of the mission, give the final GO or NO-GO recommendation that determines whether the crew leaves Mars."
+  takeaway: "GO means every precommitted requirement passes—not that one reassuring gauge is green."
+  segue: "Mission decision: GO after Batch C is cleaned and the power cell makes up the lost hydrogen. Keep the reactor at the safe point. Launch only after two separate tests pass. All four bars and every set limit now pass. The crew leaves Mars, and no new quiz begins."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Buy the measurement that can change the launch decision, not the one that is easiest to repeat."
+  - "Count certified methane rather than gross tank mass when comparing recovery plans."
+  - "Fund reprocessing, replacement production, validated reactor operation, safety, and independent verification as one connected chain."
+  - "The final recommendation introduces no new chemistry; it must satisfy every earlier amount, composition, thermal, power, and evidence constraint."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-plant-control
+    # On arrival at Plant Control | automatic | 
+    on: { enter: true, at: GIBBS }
+    world: "The final board shows one shift remaining and four recovery plans; Each plan has time, power, thermal, amount, and composition consequences."
+    panel: "MISSION 15 - GO / NO-GO"
+    # unlocks: Stop 57 at the final decision board.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "This is not a race to make one number green. Choose the evidence and the recovery chain that can put this crew on a safe ascent before the window closes."
+  - id: after-stop-57
+    # After Stop 57 | decision board to Tank Farm | automatic evidence choice
+    on: { after: [1] }
+    world: "The selected independent contaminant measurement receives the final sampling slot; duplicate mass and pressure readings gray out."
+    panel: "FINAL SAMPLE AUTHORIZED - BATCH C INDEPENDENT ASSAY."
+    # unlocks: The Tank Farm waypoint and Stop 58.
+    bubbles:
+    - who: achebe   # Achebe
+      say: "Pressure and mass already pass. Composition is the uncertainty that can still change GO or NO-GO."
+  - id: after-stop-58
+    # After Stop 58 | Tank Farm | automatic plan elimination
+    on: { after: [2] }
+    world: "Certified methane, not total tank mass, is applied to both surviving plans; The non-reprocessing plan falls below the usable-fuel requirement."
+    panel: "ONLY REPROCESS-BATCH-C PLAN SATISFIES AMOUNT + COMPOSITION + HARDWARE LIMITS."
+    # unlocks: Stop 59 at the integrated control board.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "The faster plan fills the gauge. It does not fill the specification."
+  - id: after-stop-59
+    # After Stop 59 | integrated control board | automatic resource commitment
+    on: { after: [3] }
+    world: "One hundred decision points lock across reprocessing, electrolysis, reactor production, independent verification, and safety margin; Every required causal link turns green."
+    panel: "NEXT TASK - STOP 60: COMMANDER'S RECOMMENDATION"
+    # unlocks: The Ascent Pad waypoint and Stop 60.
+    bubbles:
+    - who: demir   # Demir
+      say: "Habitat, cooling, and reserve remain protected."
+    - who: cho   # Cho
+      say: "Reprocessing and water return are powered."
+    - who: herrera   # Herrera
+      say: "The reactor stays inside the validated envelope."
+  - id: after-stop-60
+    # After Stop 60 | Pad Office | automatic final result
+    on: { after: [4] }
+    world: "The final panel shows independent composition, amount, pressure, reactor thermal margin, habitat reserve, and oxygen all passing; after the accepted recommendation the timer stops and the Mission 15 metric screen opens, and AUTHORIZE LAUNCH appears only when all four bars reach 100%."
+    panel: "FINAL GO / NO-GO - ALL BINDING CONDITIONS PASS"
+    # unlocks: The epilogue beat; all graded interaction is complete.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "Commander needs your recommendation. What do we do?"
+    - who: abiola   # Abiola
+      say: "All four systems are ready. Authorize launch."
+  - id: at-mission-end
+    # At mission end | Ascent Pad | automatic epilogue
+    on: { missionEnd: true }
+    world: "The display reads READY - AMOUNT VERIFIED - COMPOSITION VERIFIED - SAFETY MARGIN VERIFIED while each specialist remains beside the relevant instrument and the existing ascent-vehicle object, pad lights, engine sound, and red-dust effects deliver the launch without changing the player's viewpoint."
+    panel: "CAMPAIGN COMPLETE."
+    # unlocks: Campaign complete and free movement at the Ascent Pad.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "You did not fill a tank. You taught this station what full means."
+
+  stops:
+  # --- Stop 57: Buy one measurement that could change the decision
+  #     Concept: value of information; Keystone: evidence must be independent; Area: Plant Control; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: VALUE, asked at Commander Laila Abiola beside final-recovery-board.
+  - group: GIBBS
+    at: final-recovery-board
+    title: "Buy one measurement that could change the decision"
+    person: abiola
+    concept: "value of information"
+    reason: "Only one remaining measurement can still change GO or NO-GO."
+    scene: "With Batch C quarantined and one shift left, spend the final test on the measurement that could actually change GO or NO-GO. Repeated pressure or mass cannot settle the disputed composition."
+    motivation: "Repeating a precise but nonbinding pressure or mass reading cannot resolve disputed composition."
+    format: VALUE
+    # CONVERTED from the payload below. `budget.value` -> `budget.amount`; each
+    # option's `cost` and `axis` unchanged; the bible's one `required` option —
+    # its `correct` — is the engine's `decisive`, the buy that can change the
+    # decision, and its `decision_changed` line is what that buy reveals.
+    value:
+      budget: { amount: 10, unit: test_points }
+      options:
+      - { id: pressure, label: "Repeat total-pressure reading", cost: 6, axis: amount }
+      - { id: mass, label: "Duplicate tank mass", cost: 7, axis: amount }
+      - { id: assay, label: "Independent Batch C contaminant assay", cost: 10, axis: composition,
+          decisive: true, reveals: "Confirms whether quarantine and reprocessing remain required." }
+      - { id: catalyst_temp, label: "Repeat average catalyst temperature", cost: 5, axis: thermal }
+      - { id: valve, label: "Visual valve inspection", cost: 4, axis: hardware }
+      commit: "Commit the decision"
+    question: "Which measurement has the greatest chance to change the launch decision?"
+    answerText: "Buy the independent Batch C contaminant assay."
+    why: "Pressure and mass are already precise and are not the disputed claim. Average temperature cannot certify tank contents. A second independent assay determines whether quarantine/reprocessing remains necessary and directly controls GO/NO-GO."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   More precision on a nonbinding quantity has low decision value. Evidence is valuable for the action it can change.
+    # correct result: Independent Batch C contaminant assay.
+    # state/output: Dispatch sealed sample to Tank Farm portable analyzer; diagnostic_budget = 0.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:
+    #     budget: {value: 10, unit: test_points}
+    #     options:
+    #       - {id: pressure, label: "Repeat total-pressure reading", cost: 6, axis: amount, required: false}
+    #       - {id: mass, label: "Duplicate tank mass", cost: 7, axis: amount, required: false}
+    #       - {id: assay, label: "Independent Batch C contaminant assay", cost: 10, axis: composition, required: true}
+    #       - {id: catalyst_temp, label: "Repeat average catalyst temperature", cost: 5, axis: thermal, required: false}
+    #       - {id: valve, label: "Visual valve inspection", cost: 4, axis: hardware, required: false}
+    #     total_option_cost: 32
+    #     correct: [assay]
+    #     decision_changed: "Confirms whether quarantine and reprocessing remain required."
+
+  # --- Stop 58: Collapse the last degeneracy
+  #     Concept: integrated constraints; Keystone: stoichiometry, electrochemistry, gases, and equilibrium; Area: Plant Control; Learning role: RETRIEVE; Difficulty: L5; Story role: obstacle.
+  #     placement: DEGENERACY, at tank-calculation-station.
+  - group: GIBBS
+    at: tank-calculation-station
+    title: "Collapse the last degeneracy"
+    concept: "integrated constraints"
+    reason: "The last two plans differ only after certified methane and electrolysis limits count."
+    scene: "Use the independent assay and hardware limits to eliminate the plan that reaches gross mass but not certified methane. The surviving pair must include enough powered electrolysis to replace processing losses."
+    motivation: "Counting only certified methane reveals whether a plan truly supplies usable fuel rather than reassuring mass."
+    format: DEGENERACY
+    # CONVERTED from the payload below: `first_locus` -> `locus` and its label ->
+    # the observable the plans match on, `second_locus` -> `second` with the
+    # bible's `physics` line as the hint, `truth_pair` -> `truth`, and its single
+    # `tolerance: 1.0` carried on both controls.
+    #
+    # BIBLE GAP, and the one refusal left on this stop: the two loci have to cross
+    # at the truth pair, and the bible's do not. Its truth is 6 h with 120 kWh,
+    # which is on the second locus; the first runs 0/160, 2/120, 4/80, 6/40, 8/0
+    # and passes nowhere near it. Written as the bible has it rather than moving
+    # one of its points.
+    degeneracy:
+      controls:
+      - { id: reprocessing_hours, label: "Batch C reprocessing time", min: 0, max: 8, step: 2, unit: h }
+      - { id: electrolysis_kWh, label: "Energy sent to electrolysis", min: 0, max: 160, step: 40, unit: kWh }
+      observable: { label: "Projected gross tank mass at deadline" }
+      locus:
+      - { a: 0, b: 160 }
+      - { a: 2, b: 120 }
+      - { a: 4, b: 80 }
+      - { a: 6, b: 40 }
+      - { a: 8, b: 0 }
+      second:
+        label: "Certified methane plus replaced processing hydrogen"
+        apply: "Apply the second measurement"
+        locus:
+        - { a: 4, b: 160 }
+        - { a: 6, b: 120 }
+        - { a: 8, b: 80 }
+      truth: { a: 6, b: 120 }
+      tolerance: { a: 1.0, b: 1.0 }
+      hint: "Independent composition assay, stoichiometric usable-methane accounting, and Faraday-limited H2 replacement"
+      commit: "Report the surviving plan"
+    question: "Apply composition and hardware constraints. Which plan survives?"
+    answerText: "Plan D survives because it reprocesses Batch C and powers enough electrolysis to replace the hydrogen lost during processing."
+    why: "Two plans looked equal only because the objective counted all mass as fuel. Changing to the scientifically correct objective—certified methane—collapses the match."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Choosing Plan B counts contaminated Batch C mass as certified methane and therefore solves the wrong objective. A surviving Plan D setting must also provide enough electrolysis to replace processing hydrogen without breaking the pressure or thermal limits.
+    # correct result: D. Plan B meets gross mass but not usable certified methane; it cannot erase contaminants. Plan D reprocesses Batch C while validated production replaces small losses.
+    # state/output: Remove A/B/C as standalone plans; unlock strategic allocation.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:
+    #     controls:
+    #       - {id: reprocessing_hours, label: "Batch C reprocessing time", min: 0, max: 8, step: 2}
+    #       - {id: electrolysis_kWh, label: "Energy sent to electrolysis", min: 0, max: 160, step: 40}
+    #     tolerance: 1.0
+    #     first_locus:
+    #       label: "Projected gross tank mass at deadline"
+    #       points: [[0,160],[2,120],[4,80],[6,40],[8,0]]
+    #     second_locus:
+    #       label: "Certified methane plus replaced processing hydrogen"
+    #       physics: "Independent composition assay, stoichiometric usable-methane accounting, and Faraday-limited H2 replacement"
+    #       points: [[4,160],[6,120],[8,80]]
+    #     truth_pair: {reprocessing_hours: 6, electrolysis_kWh: 120}
+    #     hardware_limits: {pressure_max_bar: 12, inlet_peak_max_K: 600}
+    #     correct: "Plan D: reprocess Batch C and power enough electrolysis to replace processing losses."
+
+  # --- Stop 59: Spend 100 decision points
+  #     Concept: resource strategy; Keystone: kinetics, catalysts, acid-base treatment, energy, electrochemistry, and evidence; Area: Plant Control; Learning role: RETRIEVE; Difficulty: L5; Story role: decision.
+  #     placement: SCIENCETANK, asked at Commander Laila Abiola beside recovery-allocation-board.
+  - group: GIBBS
+    at: recovery-allocation-board
+    title: "Spend 100 decision points"
+    person: abiola
+    concept: "resource strategy"
+    reason: "The recovery plan must fund every link that changes or proves readiness."
+    scene: "Fund reprocessing, electrolysis, validated reactor operation, verification, and safety so the surviving recovery plan can be executed. A winning allocation must cover production, cleanup, reactor safety, and truly independent proof."
+    motivation: "The winning allocation must fund every link needed to create, clean, preserve, and prove flight-ready propellant."
+    format: SCIENCETANK
+    # CONVERTED from the payload below. The engine's science tank takes proposals
+    # with a label and the case for them, and a `recommended` split keyed by
+    # label; the bible's `evidence` line on each proposal is that case, and its
+    # own `recommended` map supplies the split. Its per-proposal `min` and its
+    # `pass_rules` have no field on this board — the recommended split is what the
+    # engine grades against.
+    proposals:
+    - { label: "Batch C reprocessing", text: "Only action that lowers measured contaminants." }
+    - { label: "Timed electrolysis", text: "Faraday-limited run replaces hydrogen lost during processing." }
+    - { label: "Validated 550 K / 12 bar operation", text: "Meets rate, equilibrium-yield, and thermal limits." }
+    - { label: "Independent final verification", text: "Directly controls launch authorization." }
+    - { label: "Habitat and safety margin", text: "Protects the non-negotiable reserve." }
+    - { label: "Production above validated point", text: "Adds thermal risk and is not required." }
+    - { label: "Cosmetic dashboard recalibration", text: "Changes display, not composition or readiness." }
+    recommended:
+      "Batch C reprocessing": 35
+      "Timed electrolysis": 15
+      "Validated 550 K / 12 bar operation": 10
+      "Independent final verification": 25
+      "Habitat and safety margin": 15
+      "Production above validated point": 0
+      "Cosmetic dashboard recalibration": 0
+    question: "Spend 100 points on the proposals that execute and verify the surviving plan."
+    answerText: "Use 35 points for reprocessing, 25 for independent verification, 15 for electrolysis, 10 for validated reactor operation, and 15 for safety; fund no cosmetic recalibration."
+    why: "The grade rewards investments that can alter the decision or protect a binding constraint. Spending everything on production solves the old problem and recreates the new one."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Overfunding raw production while underfunding reprocessing or final assay cannot make off-spec methane flight-ready. Spending points on cosmetic recalibration changes a display rather than the batch, and cutting safety or electrolysis breaks a binding link in the recovery chain.
+    # correct result: 35 reprocessing, 25 independent verification, 15 electrolysis, 10 validated reactor, and 15 safety/habitat; total 100. Accept variants with at least 60 points across reprocessing + verification and no points to cosmetic recalibration, provided safety gets at least 10.
+    # state/output: Execute the plan through persistent equipment and world-state updates; Batch C returns to Tank Farm.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   proposals:
+    #     - {id: reprocess, label: "Batch C reprocessing", min: 25, evidence: "Only action that lowers measured contaminants."}
+    #     - {id: electrolysis, label: "Timed electrolysis", min: 15, evidence: "Faraday-limited run replaces hydrogen lost during processing."}
+    #     - {id: validated_reactor, label: "Validated 550 K / 12 bar operation", min: 10, evidence: "Meets rate, equilibrium-yield, and thermal limits."}
+    #     - {id: independent_assay, label: "Independent final verification", min: 15, evidence: "Directly controls launch authorization."}
+    #     - {id: safety, label: "Habitat and safety margin", min: 10, evidence: "Protects the non-negotiable reserve."}
+    #     - {id: extra_heat, label: "Production above validated point", min: 0, evidence: "Adds thermal risk and is not required."}
+    #     - {id: cosmetic, label: "Cosmetic dashboard recalibration", min: 0, evidence: "Changes display, not composition or readiness."}
+    #   recommended: {reprocess: 35, electrolysis: 15, validated_reactor: 10, independent_assay: 25, safety: 15, extra_heat: 0, cosmetic: 0}
+    #   evidence:
+    #     required_total: 100
+    #     pass_rules: ["reprocess + independent_assay >= 60", "electrolysis >= 15", "validated_reactor >= 10", "safety >= 10", "cosmetic = 0", "total = 100"]
+
+  # --- Stop 60: Commander's recommendation
+  #     Concept: whole-campaign synthesis; Keystone: whole-campaign transfer; Area: Plant Control; Learning role: TRANSFER; Difficulty: L5; Story role: final commitment.
+  #     placement: DIAGNOSIS, at certification-console.
+  - group: GIBBS
+    at: certification-console
+    title: "Commander's recommendation"
+    concept: "whole-campaign synthesis"
+    reason: "The final decision must satisfy all four bars and every scientific limit."
+    scene: "Read the final independent results and all four metrics, then give Abiola GO only if every promised chemistry and safety limit passes. A GO is valid only if no earlier lesson or constraint is ignored."
+    motivation: "This is the final scientific decision: authorize launch only if the chemistry proves the crew can leave Mars safely."
+    format: DIAGNOSIS
+    question: "\"Commander needs your recommendation. What do we do?\""
+    # CONVERTED from the payload below. `state: quiet` is the engine's
+    # `status: normal`, and the keyed `answer` becomes the candidate's label.
+    headline: "FINAL GO / NO-GO - EVERY BINDING CONDITION"
+    readings:
+    - {zone: composition, label: "Independent methane / CO2 / H2O", value: "98.1% / 1.8% / 0.08%", status: normal}
+    - {zone: tank, label: "Pressure", value: "19.0 bar", status: normal}
+    - {zone: reactor, label: "Operating point / inlet peak", value: "550 K, 12 bar / 584 K", status: normal}
+    - {zone: hydrogen, label: "Restart reserve", value: "16 kmol H2", status: normal}
+    - {zone: oxygen, label: "Ascent oxygen", value: "100% / VERIFIED", status: normal}
+    - {zone: power, label: "Habitat reserve", value: "protected", status: normal}
+    - {zone: evidence, label: "Independent assay agreement", value: "within 0.2%", status: normal}
+    - {zone: prior_batch, label: "Unprocessed Batch C", value: "91.8% CH4 / failed composition", status: alarm}
+    - {zone: prior_reactor, label: "Old 575 K operating point", value: "allowed sensor error crosses thermal limit", status: alarm}
+    choices:
+    - {id: ignore_assay, label: "Launch and ignore assay because mass is full", mechanism: "Repeats the false-ready error."}
+    - {id: restore_hot, label: "Return to 575 K for more production", mechanism: "Reopens the thermal and equilibrium failure."}
+    - {id: perfect_purity, label: "Reprocess until contaminants are zero", mechanism: "Unneeded perfection misses the window."}
+    - {id: complete_plan, label: "Accept the passing batch, hold the validated point, protect power, and authorize launch", mechanism: "All amount, composition, pressure, thermal, power, and independence limits pass."}
+    answer: "Accept the passing batch, hold the validated point, protect power, and authorize launch"
+    answerText: "Choose the complete recovery plan and authorize GO only because every precommitted amount, composition, pressure, thermal, power, and verification limit passes."
+    why: "D meets amount, composition, pressure, thermal, hydrogen, oxygen, and habitat constraints with independent verification. Zero contamination is not required; the specification defines acceptable limits."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A repeats Twist 3; B repeats Twist 2; C confuses perfect purity with specified safe purity and misses the window.
+    # correct result: Choose the complete plan: accept the independently passing batch, hold 550 K and 12 bar, protect power and reserve, and authorize GO.
+    # state/output: Set final_recommendation_correct = true; stop the Mission 15 timer and open the final metric screen. Set launch_authorized = true only after all four bars read 100%.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "FINAL GO / NO-GO - EVERY BINDING CONDITION"
+    #   readings:
+    #     - {zone: composition, label: "Independent methane / CO2 / H2O", value: "98.1% / 1.8% / 0.08%", state: quiet}
+    #     - {zone: tank, label: "Pressure", value: "19.0 bar", state: quiet}
+    #     - {zone: reactor, label: "Operating point / inlet peak", value: "550 K, 12 bar / 584 K", state: quiet}
+    #     - {zone: hydrogen, label: "Restart reserve", value: "16 kmol H2", state: quiet}
+    #     - {zone: oxygen, label: "Ascent oxygen", value: "100% / VERIFIED", state: quiet}
+    #     - {zone: power, label: "Habitat reserve", value: "protected", state: quiet}
+    #     - {zone: evidence, label: "Independent assay agreement", value: "within 0.2%", state: quiet}
+    #     - {zone: prior_batch, label: "Unprocessed Batch C", value: "91.8% CH4 / failed composition", state: alarm}
+    #     - {zone: prior_reactor, label: "Old 575 K operating point", value: "allowed sensor error crosses thermal limit", state: alarm}
+    #   choices:
+    #     - {id: ignore_assay, label: "Launch and ignore assay because mass is full", mechanism: "Repeats the false-ready error."}
+    #     - {id: restore_hot, label: "Return to 575 K for more production", mechanism: "Reopens the thermal and equilibrium failure."}
+    #     - {id: perfect_purity, label: "Reprocess until contaminants are zero", mechanism: "Unneeded perfection misses the window."}
+    #     - {id: complete_plan, label: "Accept the passing batch, hold the validated point, protect power, and authorize launch", mechanism: "All amount, composition, pressure, thermal, power, and independence limits pass."}
+    #   answer: complete_plan
+

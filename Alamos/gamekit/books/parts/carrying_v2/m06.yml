@@ -1,0 +1,203 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Enforcement Plan"
+  card:
+    header: "10 DAYS."
+    title: "THE ENFORCEMENT PLAN"
+    goNow: "Harbour Office, Tomas Reed at fee-desk."
+    body: "The fish ceiling works only if every landing is counted. Regulation, property rights, and fees can protect a shared resource, but each shifts costs differently. Test compliance at the harbour, then take the workable rule to the Common Office. By the end of the mission, choose an enforceable land-and-water commons policy."
+    objective: "Turn ecological ceilings into fair rules."
+  objective: "Turn ecological ceilings into fair rules."
+  stake: "The fish ceiling works only if every landing is counted. Regulation, property rights, and fees can protect a shared resource, but each shifts costs differently. Test compliance at the harbour, then take the workable rule to the Common Office. By the end of the mission, choose an enforceable land-and-water commons policy."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Use measured caps, random checks, restoration, and targeted fees. Payment alone does not prove compliance. The rule can be enforced. But water and methane still leave by unpriced paths."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "regulation and property rights can limit access; developed lifestyles often use 4-5 ha/person versus about 1.8 available globally; practices need mechanism-based justification."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-chapel-council-room
+    # On arrival at Chapel Council Room | council-table | automatic
+    on: { enter: true, at: CHAPEL }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 6: AUDIT THE LANDING CLAIM OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Start with audit the landing claim. We need evidence the next decision can use."
+  - id: after-stop-21
+    # After Stop 21 | council-table | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Use the Stop 21 result to settle buy compliance evidence."
+  - id: after-stop-22
+    # After Stop 22 | common-map | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Use the Stop 22 result to settle match land-use practices."
+  - id: after-stop-23
+    # After Stop 23 | common-map | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 23 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "Use the Stop 23 result to settle fund the commons package."
+  - id: at-mission-end
+    # At mission end | council-table | automatic
+    on: { missionEnd: true }
+    world: "Decision and hook: Stop 24 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 6 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # Mara Voss
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 21: Audit the landing claim
+  #     Concept: compliance records | evidence | D5 | PRACTICE | L3 | obstacle; Keystone: compliance records | evidence | D5 | PRACTICE | L3 | obstacle; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: compliance records | evidence | D5 | PRACTICE | L3 | obstacle.
+  #     placement: ATTEST, asked by Mara Voss beside council-table.
+  - group: CHAPEL
+    at: council-table
+    title: "Audit the landing claim"
+    person: voss
+    concept: "compliance records | evidence | D5 | PRACTICE | L3 | obstacle"
+    reason: "verify claims before fees authorize access"
+    scene: "The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag, and the team needs this result before it acts."
+    motivation: "a receipt proves payment, not ecological compliance"
+    format: ATTEST
+    question: "verify at most 3 of 5 claims and reject any critical unbacked claim"
+    answerText: "The completed check shows nursery-zone origin is unbacked; hold catch."
+    why: "a receipt proves payment, not ecological compliance"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: nursery-zone origin is unbacked; hold catch
+    # state/output: inspection station enabled
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:3,claims:[{id:"license",label:"fishing license",signed:true,backed:true,critical:true},{id:"time",label:"landing time",signed:true,backed:true,critical:false},{id:"mass",label:"landed mass",signed:true,backed:true,critical:true},{id:"zone",label:"nursery-zone origin",signed:true,backed:false,critical:true},{id:"fee",label:"landing fee receipt",signed:true,backed:true,critical:false}],correct_verified:["license","mass","zone"],critical_unbacked:"zone",answerText:"Use the three checks on license, mass, and the unbacked nursery-zone claim; reject the landing if zone origin cannot be verified."}
+
+  # --- Stop 22: Buy compliance evidence
+  #     Concept: monitoring design | policy | 6.1 | COMBINE | L5 | decision; Keystone: monitoring design | policy | 6.1 | COMBINE | L5 | decision; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: monitoring design | policy | 6.1 | COMBINE | L5 | decision.
+  #     placement: VALUE, asked by Mara Voss beside council-table.
+  - group: CHAPEL
+    at: council-table
+    title: "Buy compliance evidence"
+    person: voss
+    concept: "monitoring design | policy | 6"
+    reason: "buy evidence that changes whether the ceiling is real"
+    scene: "Because the catch cannot prove where it was taken, the council has forty monitoring credits. Buy records that can reveal both total extraction and nursery violations, and the team needs this result before it acts."
+    motivation: "evidence has value only if it can change enforcement"
+    format: VALUE
+    question: "choose within 40: electronic tags 20 required, random dock checks 15 required, poster 8, fisher survey 12, larger sign 10"
+    # THE BIBLE'S PAYLOAD, converted. Its `budget`, its five options with their
+    # `axis` and `cost`, and its `correct_purchase` transfer directly; the
+    # bible's `required: true` is the engine's `decisive`, which is what marks an
+    # option as one that could change the decision. Costs and names are the
+    # payload's, which is where this stop's board is specified.
+    value:
+      budget: { amount: 40, unit: monitoring credits }
+      decision: Which records can prove both how much is taken and where it was taken from?
+      options:
+      - { id: landing_tags, label: Electronic landing tags, cost: 20, axis: total extraction, decisive: true }
+      - { id: dock_checks, label: Random dock checks, cost: 15, axis: identity and mass verification, decisive: true }
+      - { id: nursery_camera, label: Nursery-zone camera, cost: 20, axis: nursery-zone location }
+      - { id: public_ad, label: Public advertisement, cost: 10, axis: awareness }
+      - { id: seller_survey, label: Seller survey, cost: 15, axis: self-reported behavior }
+      commit: Buy the records
+    answerText: "The completed check shows tags+checks=35."
+    why: "evidence has value only if it can change enforcement"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: tags+checks=35
+    # state/output: waypoint Common
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:{budget:40,options:[{id:"landing_tags",axis:"total extraction",cost:20,required:true},{id:"dock_checks",axis:"identity and mass verification",cost:15,required:true},{id:"nursery_camera",axis:"nursery-zone location",cost:20,required:false},{id:"public_ad",axis:"awareness",cost:10,required:false},{id:"seller_survey",axis:"self-reported behavior",cost:15,required:false}],total_available_cost:80,correct_purchase:["landing_tags","dock_checks"],answerText:"Buy tags and dock checks for 35 credits; they can change enforcement by testing total catch and compliance."}
+
+  # --- Stop 23: Match land-use practices
+  #     Concept: land-use practices | soil/land use | D3 | RETRIEVE | L3 | evidence; Keystone: land-use practices | soil/land use | D3 | RETRIEVE | L3 | evidence; Area: Waterworks; Learning role: PRACTICE; Difficulty: L3; Story role: land-use practices | soil/land use | D3 | RETRIEVE | L3 | evidence.
+  #     placement: PROTOCOL, at common-map.
+  - group: WATER
+    at: common-map
+    title: "Match land-use practices"
+    concept: "land-use practices | soil/land use | D3 | RETRIEVE | L3 | evidence"
+    reason: "the same commons rule must work on soil and water"
+    scene: "The harbour plan now measures use and checks violations. At the common, match each land problem to a practice that reduces its mechanism rather than moving it elsewhere, and the team needs this result before it acts."
+    motivation: "Named practices earn trust only when their mechanisms address the measured problem instead of moving the harm elsewhere."
+    format: PROTOCOL
+    question: "Submit the complete mapping: erosion, runoff, irrigation loss, pests, and a forestry claim must each receive one practice."
+    # THE BIBLE'S PAYLOAD, converted. Its five `scenarios`, five `choices` and
+    # keyed `mapping` become the match board, the mapping as zero-based indices.
+    columns: [Land problem, Practice]
+    scenarios:
+    - "Erosion"
+    - "Runoff"
+    - "Irrigation loss"
+    - "Pests"
+    - "Forestry claim"
+    choices:
+    - "Selective harvest and reforestation"
+    - "Permeable pavement and a rain garden"
+    - "Drip irrigation"
+    - "Integrated pest management"
+    - "FSC certification"
+    mapping: [0, 1, 2, 3, 4]
+    answerText: "Match each problem to the practice that interrupts its physical or ecological mechanism."
+    why: "Roots and selective cover limit erosion, infiltration features reduce runoff, drip delivery limits evaporation, IPM targets pests while limiting resistance, and FSC provides a forestry standard."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: Erosion maps to selective harvest and reforestation; runoff to permeable pavement and rain gardens; irrigation loss to drip irrigation; pests to IPM; and the forestry claim to FSC certification.
+    # state/output: five rule cards
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   protocol:{scenarios:[erosion,runoff,irrigation_loss,pests,forestry_claim],choices:[selective_harvest_and_reforest,permeable_pavement_and_rain_garden,drip_irrigation,IPM,FSC_certification],mapping:{erosion:selective_harvest_and_reforest,runoff:permeable_pavement_and_rain_garden,irrigation_loss:drip_irrigation,pests:IPM,forestry_claim:FSC_certification}}
+
+  # --- Stop 24: Fund the commons package
+  #     Concept: agriculture trade-offs | policy | 6.3 | TRANSFER | L5 | decision; Keystone: agriculture trade-offs | policy | 6.3 | TRANSFER | L5 | decision; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: agriculture trade-offs | policy | 6.3 | TRANSFER | L5 | decision.
+  #     placement: SCIENCETANK, asked by Mara Voss beside common-map.
+  - group: CHAPEL
+    at: common-map
+    title: "Fund the commons package"
+    person: voss
+    concept: "agriculture trade-offs | policy | 6"
+    reason: "fund a workable package, not one fashionable label"
+    scene: "With practices matched to mechanisms, the common needs a 100-point package. Balance crop yield, soil health, runoff, and enforcement while rejecting a single-method cure, and the team needs this result before it acts."
+    motivation: "Green Revolution tools raise yield but can increase pollution, resistance, and monoculture"
+    format: SCIENCETANK
+    question: "Allocate exactly 100 points among soil testing 20, drip irrigation 25, IPM 25, buffer strips 20, blanket pesticide 30, and GMO monitoring 10. Submit one allocation that funds soil testing, drip irrigation, IPM, buffer strips, and GMO monitoring."
+    # THE BIBLE'S PAYLOAD, converted. Its six proposals and their costs become the
+    # tank's proposals, and its `recommended` map — the five that total its
+    # `truth_total` of 100 — the graded distribution, keyed by label. Its
+    # `evidence` list is the four axes the spend is judged on.
+    proposals:
+    - { label: Soil testing, text: "Costs 20 points." }
+    - { label: Drip irrigation, text: "Costs 25 points." }
+    - { label: IPM, text: "Costs 25 points." }
+    - { label: Buffer strips, text: "Costs 20 points." }
+    - { label: Blanket pesticide, text: "Costs 30 points." }
+    - { label: GMO monitoring, text: "Costs 10 points." }
+    recommended: { Soil testing: 20, Drip irrigation: 25, IPM: 25, Buffer strips: 20, GMO monitoring: 10 }
+    evidence: "The council already holds four lines of evidence on the common: crop yield, soil health, nitrate runoff, and pesticide resistance."
+    answerText: "The integrated five-part package protects yield, soil, water, and resistance monitoring without funding blanket pesticide use."
+    why: "Green Revolution tools raise yield but can increase pollution, resistance, and monoculture"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: Fund soil testing 20, drip irrigation 25, IPM 25, buffer strips 20, and GMO monitoring 10, totaling 100 points.
+    # state/output: Post delivery piece 6 and the enforceable land-practice package; unlock the mission outcome.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sciencetank:{pool:100,proposals:[{id:soil_testing,cost:20},{id:drip_irrigation,cost:25},{id:IPM,cost:25},{id:buffer_strips,cost:20},{id:blanket_pesticide,cost:30},{id:GMO_monitoring,cost:10}],recommended:{soil_testing:20,drip_irrigation:25,IPM:25,buffer_strips:20,GMO_monitoring:10},evidence:[crop_yield,soil_health,nitrate_runoff,pesticide_resistance],truth_total:100}
+

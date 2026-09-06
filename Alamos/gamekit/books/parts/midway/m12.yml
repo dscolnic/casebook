@@ -1,0 +1,193 @@
+# ============================================================ MISSION 12
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Force a Rider Feels"
+  card:
+    header: "4 DAYS UNTIL COUNTY INSPECTION"
+    title: "THE FORCE A RIDER FEELS"
+    goNow: "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig."
+    body: "The flume now has a verified flow and power schedule, while rider-load decisions remain incomplete. Distance alone does not determine injury risk; momentum change, stopping time, acceleration, and support force must agree. Begin with the bumper dummy, carry the force chain to the drop tower, and attest the procedure in the Workshop. By the end of the mission, decide whether both tested configurations meet their rider-force limits."
+    objective: "Verify the bumper-car and drop-tower rider-force limits."
+  objective: "Verify the bumper-car and drop-tower rider-force limits."
+  stake: "The flume now has a verified flow and power schedule, while rider-load decisions remain incomplete. Distance alone does not determine injury risk; momentum change, stopping time, acceleration, and support force must agree. Begin with the bumper dummy, carry the force chain to the drop tower, and attest the procedure in the Workshop. By the end of the mission, decide whether both tested configurations meet their rider-force limits."
+  takeaway: "Certify the tested configuration, not a broader category suggested by an old record."
+  segue: "Mission decision: Both tested ride setups meet the game force limits. The padded Bumper Car passes. The Drop Tower stays below 6.0 times weight across its test range. Only the tested loads, parts, sensors, and steps are cleared."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Momentum determines impulse; time shapes average force."
+  - "Acceleration and apparent weight must use consistent directions."
+  - "Certify only the configuration actually tested."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-bumper-car-pavilion
+    # On arrival at Bumper Car Pavilion | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Chen displays both average and peak force."
+    panel: "STOP 45 READY"
+    # unlocks: Stop 45.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "One number describes the whole stop. The other catches the hardest instant."
+  - id: after-stop-45
+    # After Stop 45 | automatic | 
+    on: { after: [1] }
+    world: "The momentum result is sent to Drop Tower Control."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: after-stop-47
+    # After Stop 47 | automatic | 
+    on: { after: [3] }
+    world: "The 5.4 load-factor result survives uncertainty below 6.0."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: after-stop-48
+    # After Stop 48 | automatic | 
+    on: { after: [4] }
+    world: "Both configurations receive green test tags; restrictions remain printed beside them."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The three rotating rides request a shared opening schedule."
+    panel: "MISSION 12 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 45: Retrieve the collision result
+  #     Concept: Collision energy and momentum; Keystone: momentum; Area: Bumper Car Pavilion; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
+  #     placement: BALLPARK, asked at dummy-rig.
+  - group: BUMPER
+    at: dummy-rig
+    title: "Retrieve the collision result"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Collision energy and momentum"
+    reason: "The force chain must begin with independently measured motion."
+    scene: "The joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Estimate the dummy's momentum change before using the separately measured force-time trace."
+    motivation: "The momentum change fixes the impulse that every acceptable force-time history must supply."
+    format: BALLPARK
+    question: "Given dummy mass m = 70 kg and speed-change magnitude Delta v = 0.88 m/s, use |Delta p| = m|Delta v|. Submit one momentum-change number in kg m/s."
+    answerText: "The dummy's momentum changes by 61.6 kg m/s."
+    why: "It moves from 0.88 m/s to rest."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Momentum uses velocity change, not stopping distance.
+    # correct result: Submit 61.6 kg·m/s; accept 60.4-62.8 kg·m/s.
+    # state/output: Send Δp=61.6 kg m/s to force-chain board.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate: {labels: ["Dummy mass", "Speed change"], values: [70,0.88], slots: [mass,dv], template: "delta p = {mass} x {dv}", formula: "70*0.88", correct: 61.6, target: 62, tolerance: 0.05, unit: "kg m/s"}
+
+  # --- Stop 46: Build the load chain
+  #     Concept: Causal transfer; Keystone: momentum, impulse, force; Area: Bumper Car Pavilion; Learning role: COMBINE; Difficulty: L4; Story role: obstacle.
+  #     placement: CHAIN, asked at brake-desk.
+  - group: BUMPER
+    at: brake-desk
+    title: "Build the load chain"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Causal transfer"
+    reason: "The certificate must show how measured motion becomes rider force."
+    scene: "Use the bumper momentum and tower entry speed to build each path from motion through stopping time or distance to rider load. Name the governing physics relationship at every required transfer."
+    motivation: "A complete chain exposes skipped assumptions between a speed reading and a force claim."
+    format: CHAIN
+    question: "Submit one ordered five-step plan from measured initial velocity through momentum change, impulse/average force, stopping-distance acceleration, and final support force; use p = mv, J = Delta p = F_avg Delta t, v_f^2 = v_i^2 + 2a Delta x, and N - mg = ma."
+    answerText: "Begin with measured motion, then use momentum or kinematics, and finish with the force the restraint or seat supplies."
+    why: "Force is not read directly from distance; the intermediate time or acceleration relation matters."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Identify what physical quantity each step passes to the next.
+    # correct result: Order motion evidence → momentum/kinematics → restraint force.
+    # state/output: Illuminate both rider-load paths.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   chain:
+    #     transfers:
+    #       - {id: motion, label: "Measure initial motion", carried_quantity: velocity}
+    #       - {id: momentum, label: "Calculate momentum change", carried_quantity: momentum}
+    #       - {id: impulse, label: "Use stopping time for average force", carried_quantity: impulse}
+    #       - {id: acceleration, label: "Use stopping distance for acceleration", carried_quantity: acceleration}
+    #       - {id: support, label: "Add weight to obtain support force", carried_quantity: force}
+    #     order: [motion,momentum,impulse,acceleration,support]
+    #     governing_relationship: "p=mv; J=delta p; v^2 relation; N-mg=ma"
+
+  # --- Stop 47: Stress the tower result
+  #     Concept: Uncertainty and threshold; Keystone: forces and model limits; Area: Pirate Ship console; Learning role: TRANSFER; Difficulty: L4; Story role: clue.
+  #     placement: STRESS, asked at Linh Chen beside witness-sheet.
+  - group: SHIP
+    at: witness-sheet
+    title: "Stress the tower result"
+    person: chen
+    concept: "Uncertainty and threshold"
+    reason: "A 5.4 load factor passes only if measurement uncertainty cannot push it above 6.0."
+    scene: "The witnessed drop reports a peak support force of 5.4 times ordinary weight. Move timing and distance through their measured ranges and test whether the result remains below the inclusive 6.0 limit."
+    motivation: "A passing central value is insufficient when reasonable uncertainty crosses the action threshold."
+    format: STRESS
+    question: "Given entry speed 26.3-26.8 m/s, effective stop time 0.60-0.64 s, g = 9.80 m/s^2, and campaign limit 6.0 x weight, use N/(mg) = 1 + v/(g Delta t). Submit the numerical load-factor range in x weight and one survival conclusion limited to the tested configuration."
+    answerText: "The tested configuration remains below 6.0 across the stated uncertainty range."
+    why: "The worst supported case is 5.56 times weight. That does not certify untested masses or settings."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (all_loads) The uncertainty test covers only the named configuration, not every passenger load. (no_peak) Average force cannot rule out a short peak, so the peak channel remains necessary.
+    # correct result: Choice 1 - exact tested configuration remains below 6.0 over uncertainty.
+    # state/output: Mark witness sheet ROBUST PASS: TEST CONFIGURATION.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     assumptions:
+    #       - {id: stop_time, label: "Effective stop time", min: 0.60, max: 0.64, step: 0.01, unit: s}
+    #       - {id: entry_speed, label: "Entry speed", min: 26.3, max: 26.8, step: 0.1, unit: m/s}
+    #     candidates:
+    #       - {id: pass, label: "Tested configuration remains below 6.0", survives: true}
+    #       - {id: all_loads, label: "All passenger loads are certified", survives: false}
+    #       - {id: no_peak, label: "Average force makes peak irrelevant", survives: false}
+    #     output_range: {min: 5.19, max: 5.56, unit: "x weight"}
+    #     correct: pass
+    #     conclusion: "The tested Drop Tower configuration remains below 6.0 times weight across the stated uncertainty range."
+
+  # --- Stop 48: Attest both configurations
+  #     Concept: Configuration-limited certification; Keystone: evidence; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: ATTEST, asked at Maya Hart beside configuration-desk.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Attest both configurations"
+    person: hart
+    concept: "Configuration-limited certification"
+    reason: "Passing values must be tied to the exact equipment and procedures that produced them."
+    scene: "Both force results pass, but old records mix masses, restraints, and sensors. Verify the claims that connect today's numbers to today's exact operating configurations before either final certificate section closes."
+    motivation: "A numerical pass applies only where identity, condition, and procedure match."
+    format: ATTEST
+    question: "Submit one selected-claims attestation containing only the displayed, currently verified bumper-car and tower configuration facts; exclude the historical all-load claim."
+    answerText: "Certify only the verified bumper and tower configurations; reject the old all-load claim."
+    why: "Changing mass, restraint, height, sensor, or brake state changes the modeled or measured result."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (old_allloads) The old signature cannot extend today's verified bumper and tower configurations to every passenger load.
+    # correct result: Submit verified set [bumper mass, bumper pad, tower height, tower sensor, tower brake].
+    # state/output: Set ride_status.bumper=pass, ride_status.tower=pass.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 6
+    #     claims:
+    #       - {id: bumper_mass, label: "Bumper car mass 240 kg", backed: true, critical: true}
+    #       - {id: bumper_pad, label: "0.22 s padded stop installed", backed: true, critical: true}
+    #       - {id: tower_height, label: "36.0 m release mark", backed: true, critical: true}
+    #       - {id: tower_sensor, label: "Sensor C-17 used", backed: true, critical: true}
+    #       - {id: tower_brake, label: "Current brake stack matches test", backed: true, critical: true}
+    #       - {id: old_allloads, label: "Old signature certifies every load", backed: false, critical: true}
+    #     correct: [bumper_mass,bumper_pad,tower_height,tower_sensor,tower_brake]
+

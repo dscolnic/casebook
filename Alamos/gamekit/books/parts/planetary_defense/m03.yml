@@ -1,0 +1,211 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Probability Goes Up"
+  card:
+    header: "IMPACT WINDOW: 10 DAYS, 12 HOURS"
+    title: "THE PROBABILITY GOES UP"
+    goNow: "Go to the Coordination Office and meet Mira Chen, International NEO Response Director, at the delivery desk."
+    body: "Orbit monitoring found a 3.2% impact chance, and new positions have narrowed the cloud toward Earth instead of away. Better measurements can raise probability when Earth occupies more of the remaining possibilities. At the Coordination Office, test the update, its assumptions, and the warning rule. By the end of the mission, decide whether to issue a conditional international impact notice now."
+    objective: "Decide whether the current evidence crosses the notification threshold."
+  objective: "Decide whether the current evidence crosses the notification threshold."
+  stake: "Orbit monitoring found a 3.2% impact chance, and new positions have narrowed the cloud toward Earth instead of away. Better measurements can raise probability when Earth occupies more of the remaining possibilities. At the Coordination Office, test the update, its assumptions, and the warning rule. By the end of the mission, decide whether to issue a conditional international impact notice now."
+  takeaway: "Notify when the evidence crosses the rule, and communicate the condition as carefully as the number. ---"
+  segue: "Mission decision: Send a warning now, but state its limits. The 8.0% result stays above the 1% line in each test. The notice gives the date, size range, and doubt. The next update must earn trust with better data."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Shrinking uncertainty can concentrate probability onto Earth before later data remove it."
+  - "A notification threshold starts coordination; it does not declare that impact is likely."
+  - "Probability, consequence, warning time, and uncertainty must be communicated together."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coordination-office
+    # On arrival at Coordination Office | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Mira Chen, International NEO Response Director, has two drafts open: WAIT FOR CERTAINTY and CONDITIONAL NOTICE. \"We will not hide behind either.\""
+    panel: "THE PROBABILITY GOES UP / MISSION ACTIVE"
+    # unlocks: Stop 9.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-9
+    # After Stop 9 | automatic | 
+    on: { after: [1] }
+    world: "The public and technical scales separate on the scopeboard."
+    panel: "THE PROBABILITY GOES UP / FIRST RESULT LOGGED"
+    # unlocks: Stop 10.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-10
+    # After Stop 10 | automatic | 
+    on: { after: [2] }
+    world: "The cloud contracts; IMPACT PROBABILITY changes from 3.2% to 8.0% with the label CURRENT MODEL."
+    panel: "THE PROBABILITY GOES UP / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 11.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-11
+    # After Stop 11 | automatic | 
+    on: { after: [3] }
+    world: "The 8.0% value survives reasonable reweighting between 6.7% and 9.4%."
+    panel: "THE PROBABILITY GOES UP / DECISION EVIDENCE READY"
+    # unlocks: Stop 12.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The warning network receives the prewritten notice; outside news alerts appear on the wall display without the qualifying sentence."
+    panel: "THE PROBABILITY GOES UP / MISSION DECISION LOGGED"
+    # unlocks: Mission 3 outcome, metric screen, concept review, and Mission 4 briefing.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 9: Name the number honestly
+  #     Concept: risk language; Keystone: thresholds/verification; Area: Orbit Determination Center; Learning role: RETRIEVE; Difficulty: L2; Story role: character.
+  #     placement: CHOICE, asked by Mira Chen beside delivery-desk.
+  - group: ORBIT
+    at: desk
+    title: "Name the number honestly"
+    person: TODO   # the roster id of whoever asks it
+    concept: "risk language"
+    reason: "The warning draft cannot proceed until probability, certainty, and hazard scales are separated."
+    scene: "The monitoring board shows a current impact probability, a Torino value, and a Palermo value for the same event. Choose the statement that reports what the 8.0% number means without adding certainty."
+    motivation: "Honest language determines whether the next calculation informs coordination or becomes a false declaration of impact."
+    format: CHOICE
+    question: "Select the sentence that can appear unchanged in the official notice."
+    choices:
+    - "The asteroid has an 8.0% model-based chance of impact under the current orbit distribution."
+    - "The asteroid will miss because the probability is below 50%."
+    - "The asteroid will hit because the probability rose."
+    - "Torino 2 means the impact probability is 2%."
+    answer: "The asteroid has an 8.0% model-based chance of impact under the current orbit distribution."
+    answerText: "Report the probability, model dependence, and current status without predicting the outcome."
+    why: "Probability quantifies uncertainty; it does not become a yes/no fact until the trajectory is sufficiently constrained."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   in the interaction block, keyed per option
+    # correct result: The model-based 8.0% statement.
+    # state/output: Notice language field unlocks; Stop 10 activates.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   question: Which statement accurately reports an 8.0% impact probability?
+    #   choices:
+    #     - The asteroid has an 8.0% model-based chance of impact under the current orbit distribution.
+    #     - The asteroid will miss because the probability is below 50%.
+    #     - The asteroid will hit because the probability rose.
+    #     - Torino 2 means the impact probability is 2%.
+    #   answer: The asteroid has an 8.0% model-based chance of impact under the current orbit distribution.
+    #   why: Impact probability is the modeled fraction of justified orbit solutions that intersect Earth, not a certainty claim or hazard-scale reading.
+    #   rebuttals:
+    #     "The asteroid will miss because the probability is below 50%.": A probability below 50% still includes impact solutions and cannot justify a definite miss.
+    #     "The asteroid will hit because the probability rose.": An increase changes the weight of impact solutions but does not make impact certain.
+    #     "Torino 2 means the impact probability is 2%.": Torino combines probability and consequence in a communication scale; its category number is not a percentage.
+
+  # --- Stop 10: Why better data made the number worse
+  #     Concept: probability evolution; Keystone: uncertainty/covariance; Area: Orbit Determination Center; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
+  #     placement: CLOUD, at scopeboard.
+  - group: ORBIT
+    at: scopeboard
+    title: "Why better data made the number worse"
+    concept: "probability evolution"
+    reason: "The director needs to show why a higher probability does not mean the previous calculation was dishonest."
+    scene: "With the language fixed, overlay the old and new orbit clouds on Earth's effective cross section. The new cloud is smaller, but Earth occupies more of it, so measure the resulting probability change."
+    motivation: "The overlay lets the notice explain that improved precision changed the fraction, not the rules."
+    format: CLOUD
+    question: "Submit the old and new impact probabilities in percent and one conclusion explaining why the value changed."
+    answerText: "Better data narrowed the allowed region toward Earth, so the current impact probability increased."
+    why: "Probability is the normalized weight inside Earth's impact cross section, not the absolute width of the cloud."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Compare the fraction of each cloud on Earth, not which cloud looks larger on the screen.
+    # correct result: 3.2% old; 8.0% new.
+    # state/output: Explanation sentence enters the notice; Stop 11 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:
+    #     old: {weighted_solutions: 240, impact_fraction: 0.032, width_km: 48000}
+    #     new: {weighted_solutions: 180, impact_fraction: 0.080, width_km: 17000}
+    #     points:
+    #       - {id: old_cloud, setting: normalize old cloud, reading: 3.2 percent impact at 48000 km width}
+    #       - {id: new_cloud, setting: normalize new cloud, reading: 8.0 percent impact at 17000 km width}
+    #     earth_effective_radius_km: 7240
+    #     operations: [overlay, normalize_weights, measure_intersection]
+    #     correct_conclusion: probability_rises_as_cloud_concentrates
+    #     answerText: The smaller cloud places 8.0% of its weight on Earth, up from 3.2%.
+
+  # --- Stop 11: Stress the warning
+  #     Concept: robustness; Keystone: uncertainty/probability; Area: Orbit Determination Center; Learning role: COMBINE; Difficulty: L4; Story role: obstacle.
+  #     placement: STRESS, asked by Malik Rowan beside delivery-desk.
+  - group: ORBIT
+    at: desk
+    title: "Stress the warning"
+    person: TODO   # the roster id of whoever asks it
+    concept: "robustness"
+    reason: "Malik will not support notification if one reasonable weighting choice can drive the result below the threshold."
+    scene: "Because the normalized cloud gives 8.0%, vary the astrometric weights, focusing radius, and one-frame timing uncertainty across justified ranges. Determine whether every reasonable case remains above the 1% notification line."
+    motivation: "A robust threshold crossing supports action even while the exact percentage continues to change."
+    format: STRESS
+    question: "Submit the minimum probability in percent and one conclusion: ROBUSTLY ABOVE THRESHOLD or NOT ROBUST."
+    answerText: "The exact probability varies, but the decision to notify is robust."
+    why: "Decision robustness depends on whether reasonable assumptions cross the action boundary, not whether they change the reported number."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Separate uncertainty in the exact percentage from uncertainty about which side of 1% it occupies.
+    # correct result: Yes; minimum 6.7% remains above 1%.
+    # state/output: Malik adds ROBUST THRESHOLD CROSSING; Stop 12 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     assumptions:
+    #       - {id: optical_weight, min: 0.7, max: 1.3, baseline: 1.0}
+    #       - {id: focusing_radius_km, min: 6800, max: 7600, baseline: 7240}
+    #       - {id: frame_time_sigma_s, min: 0.2, max: 1.0, baseline: 0.7}
+    #     outcomes_percent: {minimum: 6.7, baseline: 8.0, maximum: 9.4}
+    #     threshold_percent: 1.0
+    #     correct_conclusion: robustly_above_notification
+    #     answerText: Every justified case remains above 1%, so notification does not depend on one tuning choice.
+
+  # --- Stop 12: Write the line before the update
+  #     Concept: notification threshold; Keystone: thresholds/verification; Area: Coordination Office; Learning role: INTRODUCE; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at scopeboard.
+  - group: OPS
+    at: scopeboard
+    title: "Write the line before the update"
+    concept: "notification threshold"
+    reason: "The range must commit its notification rule before the next emotionally charged update arrives."
+    scene: "Because the impact probability remains above 1% under every justified test, write the action threshold before revealing the final update. Pair the threshold with consequence and uncertainty language that prevents it from sounding like certainty."
+    motivation: "A precommitted rule turns the next number into a consistent action instead of a political improvisation."
+    format: TRIGGER
+    question: "Commit the numerical trigger first; after the 8.0% update appears, submit one action: CONDITIONAL NOTICE or NO NOTICE."
+    answerText: "The threshold starts international coordination; it does not announce a certain impact."
+    why: "Precommitted thresholds make action reproducible and reduce motivated changes after alarming evidence appears."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Waiting for certainty wastes warning time; declaring impact ignores the 92% of current probability that misses.
+    # correct result: Issue conditional notice with date, size range, probability, and uncertainty.
+    # state/output: Notice transmits; public news wall activates; Mission 4 observing review unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     decision_rule: Issue a conditional international notice when impact probability is greater than 1% and estimated diameter is greater than 10 m.
+    #     scale: {min: 0, max: 100, unit: percent}
+    #     anchors:
+    #       - {value: 1, action: conditional_notice}
+    #       - {value: 10, action: intensified_planning}
+    #       - {value: 50, action: impact_as_leading_case}
+    #     objective: begin coordination without claiming certainty
+    #     direction: escalate_above
+    #     consequence_limit: notice must include date, size range, and model uncertainty
+    #     revealed_update_percent: 8.0
+    #     correct_action: conditional_notice
+    #     answerText: Issue the conditional notice because the robust probability exceeds 1% for an object well above 10 m.
+

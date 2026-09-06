@@ -336,16 +336,55 @@ function authoredConcept(value, at){
 
 const asList = (v) => (Array.isArray(v) ? v : [v]).map(x => String(x ?? '').trim()).filter(Boolean);
 
+/**
+ * Rooms a beat may fire in that are NOT curriculum areas.
+ *
+ * `beats.fire({kind:'enter', at: id})` runs from `onEnter` for every interior
+ * the player can walk into, minor rooms included — and a campaign whose missions
+ * happen at the Atmosphere Intake, the Hydrogen Store and the Ice Cut has most
+ * of its arrival beats in rooms that are not areas. Those rooms are hand-authored
+ * theme data (`minors.js`) which this importer cannot see, so the book names them
+ * and a typo still fails rather than producing a beat that never fires.
+ */
+const beatRooms = new Set(asList(book.beatRooms ?? []));
+
 function addLesson(s, at){
   refuseAuthorNotes(s, at);
   if(!groupIds.has(s.group)) fail(`${at}: unknown group "${s.group}"`);
   const lessons = CURRICULUM[s.group] ?? [];
   const day = lessons.length + 1;
-  const game = gameFor(s, at, s.group, day);
+  // ONE BAD BOARD MUST NOT HIDE FIFTY-NINE GOOD ONES.
+  //
+  // `fail` collects rather than throws, so every check that dereferences what
+  // the check above it just validated will crash on exactly the value it was
+  // reporting. A fifteen-mission book with one unconverted SWEEP came back as a
+  // TypeError and a stack trace, saying nothing about the other stops — which
+  // is the least useful possible output for somebody working through a book
+  // stop by stop. A throw in here is that stop's problem, named and recorded,
+  // and the import carries on to find the rest.
+  let game;
+  try{ game = gameFor(s, at, s.group, day); }
+  catch(err){
+    fail(`${at}: the ${String(s.format ?? 'stop').toUpperCase()} board could not be read `
+      + `— ${err.message}. Its payload is probably still in the bible's own field names.`);
+    game = { type: 'CHOICE', question: String(s.question ?? ''), choices: [], answer: '' };
+  }
   const scene = String(s.scene ?? '').trim();
   if(scene.length < 40) fail(`${at}: the scene is missing or too thin to reason from`);
+  // NO STOP-LEVEL `takeaway` OR `guide` ANY MORE, by decision.
+  //
+  // Both were card fields with no counterpart in the campaign bible, so on every
+  // stop they were prose the engine required and the source did not have —
+  // authored to fill a slot rather than because a bible said it. The card face is
+  // the situation, the background door and the question; the teaching arrives in
+  // `why` after the answer, which is where this repo's own rule puts it.
+  //
+  // Neither was ever required by the ENGINE — `askCardHTML` renders a card
+  // without them and `foldsCard` simply shows one door fewer. It was this
+  // importer that insisted, so this is where the insistence is withdrawn. A book
+  // that still writes them keeps working: `validateContent` continues to refuse
+  // a takeaway that repeats the `why`.
   const takeaway = String(s.takeaway ?? '').trim();
-  if(!takeaway) fail(`${at}: no takeaway`);
   if(takeaway && game.why && takeaway === String(game.why).trim()){
     fail(`${at}: the takeaway repeats the "why", so the intro gives the answer away`);
   }
@@ -392,7 +431,11 @@ function addLesson(s, at){
     }
   }
   lessons.push({
-    day, title: s.title ?? s.task ?? `${s.group} ${day}`, scene, takeaway,
+    day, title: s.title ?? s.task ?? `${s.group} ${day}`, scene,
+    // Omitted rather than written empty. A book that still writes a takeaway
+    // keeps it; one that does not gets no key, so the generated content carries
+    // no field standing open with nothing in it.
+    ...(takeaway ? { takeaway } : {}),
     ...(s.concept !== undefined ? { _conceptAuthored: authoredConcept(s.concept, at) } : {}),
     ...(s.takesAsRead !== undefined ? { _takesAsRead: { at, names: asList(s.takesAsRead) } } : {}),
     place: s.place ?? '',
@@ -456,6 +499,230 @@ function addLesson(s, at){
   }
 }
 
+/**
+ * The briefing card a bible wrote by hand.
+ *
+ * Seven optional lines, each printed verbatim. Refused rather than trimmed when
+ * a key is not one of them: a misspelled `goNow` is a sentence the author wrote
+ * for the player that silently never appears, which is the same class of defect
+ * as CHAIN's dropped `reading`.
+ */
+// `failureMeans` and `laterTravel` were here and are gone: the card stopped
+// printing them, and a key the importer carries to a field nothing renders is
+// exactly the dead-copy problem this repo already tracks 8,589 words of.
+const CARD_KEYS = ['header', 'title', 'goNow', 'body', 'objective'];
+function cardFor(card, at){
+  const out = {};
+  for(const [k, v] of Object.entries(card ?? {})){
+    if(!CARD_KEYS.includes(k)){
+      fail(`${at}: the plan card authors \`${k}\`, which nothing renders — the lines are `
+        + CARD_KEYS.join(', '));
+      continue;
+    }
+    const text = String(v ?? '').trim();
+    if(!text){ fail(`${at}: the plan card's \`${k}\` is empty — write it or drop the key`); continue; }
+    out[k] = text;
+  }
+  if(!out.body) fail(`${at}: an authored plan card needs a \`body\` — it is what replaces the stake line`);
+  return out;
+}
+
+/**
+ * The mission's beat script, checked against the mission it belongs to.
+ *
+ * Refusals, and each one is a beat that would otherwise never fire, or would
+ * fire and show nothing:
+ *   · an `on:` that names none of the three triggers
+ *   · an `after:` naming a stop number the mission does not have
+ *   · a bubble whose speaker is not on the roster
+ *   · two beats sharing an id, which is what `beatsPlayed` is keyed on
+ *   · a `world:` line with nothing to show for it — see `stageFor` below, which
+ *     is the ratchet on the defect this whole construct was rebuilt for
+ */
+// `presentation` WAS HERE AND IS GONE. The bible names each beat's delivery —
+// `nearby_character_bubble + equipment_panel_update + persistent_world_change` —
+// and the importer carried that list into the content, where nothing ever read
+// it: five dead arrays a mission, seventy-five by mission 15, and invisible to
+// the gate that asks whether every authored sentence reaches a screen.
+//
+// It is also redundant. Every term in it is already implied by what the beat
+// HAS: `bubbles` is the character bubble, `panel` is the equipment update,
+// `stage` is the persistent world change, `waypoint` is the notification. A book
+// may still write it — it is the bible's own vocabulary and worth keeping in the
+// source — and the importer now drops it instead of shipping it.
+const BEAT_KEYS = ['id', 'on', 'presentation', 'world', 'stage', 'panel', 'panelTone',
+                   'waypoint', 'bubbles'];
+/** Accepted in a book, deliberately not carried into the content. */
+const BEAT_KEYS_UNUSED = new Set(['presentation']);
+/** Which of those this book actually writes, for one line at the end. */
+const unusedSeen = new Set();
+const STAGE_KEYS = ['flash', 'wall'];
+const ROW_KEYS = ['text', 'columns', 'path', 'tone'];
+const TONES = ['alarm', 'warn', 'ok', 'idle'];
+
+/**
+ * What the room actually does. Rows on the control wall — see
+ * `engine/world/stageWall.js`, which paints exactly three row shapes.
+ *
+ * One shape per row, and it is a refusal rather than a precedence rule: a row
+ * carrying both `text` and `columns` has an author who expected both and a
+ * renderer that will silently draw one.
+ */
+function stageFor(stage, where, { panel = '', tone = 'warn' } = {}){
+  // THE PANEL LINE IS A WALL ROW, when the beat does not write its own.
+  //
+  // The bible gives most beats a "Panel/HUD text" line — MASS -> MOLES ->
+  // MOLECULES, CARBON ACCOUNTED FOR: 99.8%, NEXT DESTINATION - ATMOSPHERE
+  // INTAKE — and that string is exactly what belongs on the board. Authoring it
+  // twice, once as `panel` and again as a `stage.wall` row saying the same
+  // words, is five duplicated sets a mission and seventy-five over a campaign.
+  //
+  // So a beat with a `panel` and no `stage` gets a one-row board for free, and
+  // a beat that writes `stage.wall` keeps every row it wrote — the sort and the
+  // lit path have no `panel` equivalent and have to be authored.
+  if(stage == null){
+    const line = String(panel ?? '').trim();
+    if(!line) return null;
+    return { wall: [{ text: line, tone }] };
+  }
+  for(const k of Object.keys(stage)){
+    if(!STAGE_KEYS.includes(k)){
+      fail(`${where}: \`stage.${k}\` is not something the control wall reads — the keys are `
+        + STAGE_KEYS.join(', '));
+    }
+  }
+  // NOT `asList`. That helper is for lists of strings and stringifies what it
+  // is given — a row object came through as "[object Object]", 15 characters
+  // reported one at a time as keys the board does not paint.
+  const rows = Array.isArray(stage.wall) ? stage.wall : stage.wall ? [stage.wall] : [];
+  if(!rows.length) fail(`${where}: a \`stage\` with no \`wall\` rows changes nothing`);
+  // FOUR. `stageWall.js` divides the board's height by the row count and slices
+  // at four; a fifth row is authored, imported, painted nowhere and reported by
+  // nothing — the shape of defect this repo keeps paying for.
+  if(rows.length > 4) fail(`${where}: \`stage.wall\` has ${rows.length} rows and the board shows 4`);
+  const wall = rows.map((r, i) => {
+    const at = `${where}: wall row ${i + 1}`;
+    for(const k of Object.keys(r ?? {})){
+      if(!ROW_KEYS.includes(k)) fail(`${at}: authors \`${k}\`, which the board does not paint`);
+    }
+    const shapes = [
+      String(r?.text ?? '').trim() ? 'text' : null,
+      asList(r?.columns ?? []).length ? 'columns' : null,
+      asList(r?.path ?? []).length ? 'path' : null,
+    ].filter(Boolean);
+    if(shapes.length !== 1){
+      fail(`${at}: a row is exactly one of \`text\`, \`columns\` or \`path\` `
+        + `(this one has ${shapes.length ? shapes.join(' and ') : 'none'})`);
+    }
+    const tone = String(r?.tone ?? 'idle').trim();
+    if(!TONES.includes(tone)){
+      fail(`${at}: tone "${tone}" has no lamp — the tones are ${TONES.join(', ')}`);
+    }
+    return {
+      ...(shapes[0] === 'text' ? { text: String(r.text).trim() } : {}),
+      ...(shapes[0] === 'columns' ? { columns: asList(r.columns).map(String) } : {}),
+      ...(shapes[0] === 'path' ? { path: asList(r.path).map(String) } : {}),
+      tone,
+    };
+  });
+  return { ...(stage.flash === true ? { flash: true } : {}), wall };
+}
+function beatsFor(beats, stopCount, at){
+  const seen = new Set();
+  return beats.map((b, i) => {
+    const where = `${at} beat ${i + 1}${b?.id ? ` ("${b.id}")` : ''}`;
+    for(const k of Object.keys(b ?? {})){
+      if(!BEAT_KEYS.includes(k)) fail(`${where}: authors \`${k}\`, which beats.js does not read`);
+      // SOURCE-ONLY, AND SAID ONCE. A key accepted and then dropped looks exactly
+      // like a key that reached the game, which is how `presentation` sat unread
+      // in the content for as long as it did — so it is reported. Once per key
+      // for the whole import, not once per beat: fifteen missions of five beats
+      // is seventy-five identical lines, and a wall of them is how a report
+      // stops being read.
+      else if(BEAT_KEYS_UNUSED.has(k)) unusedSeen.add(k);
+    }
+    const id = String(b?.id ?? '').trim();
+    if(!id) fail(`${where}: a beat needs an \`id\` — it is what records the beat as played`);
+    if(id && seen.has(id)) fail(`${where}: two beats share the id "${id}", so one of them plays once for both`);
+    seen.add(id);
+    const on = b?.on ?? {};
+    const after = (on.after ?? []).map(Number);
+    const triggers = [on.enter === true, after.length > 0, on.missionEnd === true].filter(Boolean).length;
+    if(triggers !== 1){
+      fail(`${where}: a beat has exactly one trigger — \`enter: true\`, an \`after:\` list of stop `
+        + `numbers, or \`missionEnd: true\` (this one has ${triggers})`);
+    }
+    for(const n of after){
+      if(!Number.isInteger(n) || n < 1 || n > stopCount){
+        fail(`${where}: waits on stop ${n} and the mission has ${stopCount} — \`after:\` counts this `
+          + "mission's own stops from one");
+      }
+    }
+    if(on.enter === true && !String(on.at ?? '').trim()){
+      fail(`${where}: an arrival beat needs \`at:\` — the area whose door fires it`);
+    }
+    // ANY ROOM WITH A DOOR, not only an area.
+    //
+    // `beats.fire({kind:'enter', at: id})` is called from `onEnter` for every
+    // interior the player can walk into, minor rooms included — and a campaign
+    // whose missions happen at the Atmosphere Intake, the Hydrogen Store and the
+    // Ice Cut has most of its arrival beats in rooms that are not curriculum
+    // areas. This refused them, and the engine never would have.
+    if(on.at && !groupIds.has(String(on.at)) && !beatRooms.has(String(on.at))){
+      fail(`${where}: fires on entering "${on.at}", which is neither one of this book's `
+        + 'areas nor listed in `beatRooms:`');
+    }
+    const bubbles = (b?.bubbles ?? []).map((x, j) => {
+      const say = String(x?.say ?? '').trim();
+      if(!say) fail(`${where}: bubble ${j + 1} says nothing`);
+      const who = String(x?.who ?? '').trim();
+      // A radio bubble still names its speaker — that is whose voice it is — but
+      // it is not anchored to anybody in the room, because they are not in it.
+      if(who && !ROSTER.some(p => p.id === who)){
+        fail(`${where}: bubble ${j + 1} is spoken by "${who}", who is not on the roster`);
+      }
+      return { ...(who ? { who } : {}), say, ...(x?.radio === true ? { radio: true } : {}),
+               ...(x?.name ? { name: String(x.name) } : {}) };
+    });
+    if(!bubbles.length && !String(b?.world ?? '').trim()){
+      fail(`${where}: a beat with no bubbles and no \`world\` line has nothing to show`);
+    }
+    // `panel` doubles as the board's one row when the beat writes no `stage`.
+    // `panelTone` lets a book colour that row; `warn` is the default because a
+    // panel line is almost always a reading that has changed.
+    const stage = stageFor(b?.stage ?? null, where,
+      { panel: b?.panel, tone: String(b?.panelTone ?? 'warn').trim() });
+    // ------------------------------------------- A WORLD LINE HAS TO BE SHOWN
+    //
+    // This is the ratchet. `world:` was rendered as a card in the middle of the
+    // screen — "The four sample labels separate into ATOM, MOLECULE and ION
+    // columns" — which is a stage direction read aloud instead of performed, and
+    // was reported in exactly those words. It is a caption now, under the change
+    // it describes, and a caption with no change under it is the old defect back.
+    //
+    // A radio bubble counts: "Sundqvist's static portrait appears in the
+    // radio-bubble HUD" is shown by the bubble itself.
+    if(String(b?.world ?? '').trim() && !stage?.wall?.length
+       && !bubbles.some(x => x.radio)){
+      fail(`${where}: has a \`world\` line and nothing to show for it — give it a \`stage.wall\` `
+        + 'so the room changes, or the sentence is a stage direction read aloud');
+    }
+    return {
+      id, on: {
+        ...(on.enter === true ? { enter: true } : {}),
+        ...(on.at ? { at: String(on.at) } : {}),
+        ...(after.length ? { after } : {}),
+        ...(on.missionEnd === true ? { missionEnd: true } : {}),
+      },
+      ...(String(b.world ?? '').trim() ? { world: String(b.world).trim() } : {}),
+      ...(stage ? { stage } : {}),
+      ...(String(b.panel ?? '').trim() ? { panel: String(b.panel).trim() } : {}),
+      ...(String(b.waypoint ?? '').trim() ? { waypoint: String(b.waypoint).trim() } : {}),
+      ...(bubbles.length ? { bubbles } : {}),
+    };
+  });
+}
+
 missions.forEach((m, mi) => {
   const label = `mission ${mi + 1} ("${m.title ?? '?'}")`;
   const stops = m.stops ?? [];
@@ -479,8 +746,25 @@ missions.forEach((m, mi) => {
     // sentence on every sol the day visits that area — true, and no reason to
     // walk there *today*. A book that writes one gets it printed verbatim; see
     // `reasonFor` in engine/core/app.js and gamekit/BRIEFING_PASS.md.
+    // `person: true` is passed through because BOOK_TEMPLATE.md promises it is
+    // honoured, and it was not: the key was dropped here and `shapeMissions`
+    // then picked the day's person stop by position. That matters for a day
+    // whose calls all stand in one place, where the person stop decides whether
+    // the player walks across the site or not. A silently ignored key is how
+    // CHAIN's `reading` went four books without ever reaching a screen.
     return {
       group: s.group, lesson: day - 1, task: s.call ?? s.task ?? s.title ?? '',
+      ...(s.person === true ? { person: true } : {}),
+      // WHO ASKS IT, when the book says so.
+      //
+      // Without this the engine picks off `PERSONS_BY_DIVISION[group]` and
+      // rotates by the mission number, so a book that names the person in its
+      // own call line — "Talk to Ingrid Sundqvist, on the compressor platform"
+      // — could be answered by whoever the rotation landed on. Red Sand's
+      // mission 2 asked Rei Tanaka a question the bible gives Sundqvist, and
+      // its beat script then had Sundqvist reply to it.
+      ...(typeof s.person === 'string' && s.person.trim()
+        ? { person: true, personId: s.person.trim() } : {}),
       ...(s.motivation ? { why: s.motivation } : {}),
       ...(s.reason ? { reason: s.reason } : {}),
     };
@@ -495,6 +779,20 @@ missions.forEach((m, mi) => {
     // plan card between the calls and the map.
     ...(Array.isArray(m.primer) ? { primer: m.primer } : {}),
     takeaway: m.takeaway ?? '',
+    // ---------------------------------------------- the authored plan card
+    //
+    // A bible that writes the briefing card as exact player copy carries it
+    // here, and `app.js` prints those lines verbatim instead of composing a
+    // stake line. Optional; a book without one renders as it always did.
+    ...(m.card ? { card: cardFor(m.card, `mission ${mi + 1}`) } : {}),
+    // ------------------------------------------------------- the beat script
+    //
+    // What happens when the player walks in, and after each stop closes.
+    // engine/core/beats.js runs it. Validated rather than passed through,
+    // because a beat keyed to a stop the mission does not have is a beat that
+    // never fires and nothing else in the repo would notice.
+    ...(Array.isArray(m.beats) && m.beats.length
+      ? { beats: beatsFor(m.beats, (m.stops ?? []).length, `mission ${mi + 1}`) } : {}),
     // What happened today, and what it forces tomorrow — a But/Therefore beat,
     // never an "and then." Printed on the debrief card before the compliment.
     // See gamekit/STORY_SPEC.md rule 11. Optional: a campaign without one keeps
@@ -888,7 +1186,13 @@ function gameFor(s, at, group, day){
       : [{ label: w.readout?.label ?? '', response: w.response }];
     need(series.every(x => Array.isArray(x.response) && x.response.length >= 4),
       'every sweep series needs at least four authored response points');
-    need(series.every(x => x.response.every(p => Number.isFinite(+p.at) && Number.isFinite(+p.value))),
+    // GUARDED, because `fail` collects rather than throws. The check above has
+    // already reported a series with no response points, and this one then
+    // dereferenced the same undefined and took the whole import down with a
+    // TypeError — so a book with one unconverted SWEEP reported nothing at all
+    // about its other fifty-nine stops.
+    need(series.every(x => Array.isArray(x.response)
+      && x.response.every(p => Number.isFinite(+p.at) && Number.isFinite(+p.value))),
       'every sweep response point needs a numeric `at` and `value`');
     need(!w.mode || ['peak', 'boundary'].includes(w.mode),
       `sweep mode "${w.mode}" is not one of peak, boundary`);
@@ -3346,6 +3650,10 @@ for(const [key, w] of Object.entries(book.warmups ?? {})){
 }
 
 // ----------------------------------------------------------------- report
+// Source-only keys, one line for the whole book. See `BEAT_KEYS_UNUSED`.
+for(const k of unusedSeen){
+  warn(`\`${k}\` is kept in the book for the record and not carried into the game`);
+}
 if(problems.length){
   console.error(`\n${problems.length} problem(s) in ${bookPath}:`);
   problems.forEach(p => console.error('  ✗ ' + p));

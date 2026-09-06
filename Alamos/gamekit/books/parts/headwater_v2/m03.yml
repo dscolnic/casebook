@@ -1,0 +1,153 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Inflow Accumulation"
+  card:
+    header: "13 SHIFTS UNTIL THE STORM"
+    title: "One Motion, Three Changes"
+    goNow: "Go to Gate House and meet Tomas Wilkes, gate mechanic, at the discharge board."
+    body: "The rate alarm is set, but the crew still cannot translate reservoir height into gate discharge safely. Gate flow depends on opening, head, and linked mechanisms that change together. At the discharge board, use chain, implicit, and inverse derivatives to map those sensitivities. By the end of the mission, choose a safe gate-calibration path."
+    objective: "Map and certify the gate's changing response."
+  objective: "Map and certify the gate's changing response."
+  stake: "The rate alarm is set, but the crew still cannot translate reservoir height into gate discharge safely. Gate flow depends on opening, head, and linked mechanisms that change together. At the discharge board, use chain, implicit, and inverse derivatives to map those sensitivities. By the end of the mission, choose a safe gate-calibration path."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Use the staged calibration path. The chain, linkage. And inverse tests agree, and the gate returns to baseline. The crew can predict discharge without forcing the hoist. Now it must learn how that water moves downstream."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-gate-house
+    # On arrival at Gate House | discharge-board | automatic
+    on: { enter: true, at: GATES }
+    world: "The differentiate nested discharge fixture wakes and the mission evidence opens."
+    panel: "MISSION 3: DIFFERENTIATE NESTED DISCHARGE OPEN"
+    bubbles:
+    - who: wilkes   # Tomas Wilkes
+      say: "Start with differentiate nested discharge. We need evidence the next decision can use."
+  - id: after-stop-9
+    # After Stop 9 | discharge-board | automatic
+    on: { after: [1] }
+    world: "After 3.1 Location: GATES."
+    panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    bubbles:
+    - who: wilkes   # Tomas Wilkes
+      say: "Use the Stop 9 result to settle link opening and head."
+  - id: after-stop-10
+    # After Stop 10 | hoist-stand | automatic
+    on: { after: [2] }
+    world: "After 3.3 Location: GATES."
+    panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    bubbles:
+    - who: wilkes   # Tomas Wilkes
+      say: "Use the Stop 10 result to settle find linkage curvature."
+  - id: after-stop-11
+    # After Stop 11 | hoist-stand | automatic
+    on: { after: [3] }
+    world: "The find linkage curvature result remains visible while the reverse the flow calibration fixture lights."
+    panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    bubbles:
+    - who: wilkes   # Tomas Wilkes
+      say: "Use the Stop 11 result to settle reverse the flow calibration."
+  - id: at-mission-end
+    # At mission end | discharge-board | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 3 EVIDENCE: RECORDED"
+    bubbles:
+    - who: wilkes   # Tomas Wilkes
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 9: Differentiate nested discharge
+  #     Concept: chain/exp/log; Keystone: Chain reasoning; Area: Forecast Archive; Learning role: INTRODUCE; Difficulty: L3; Story role: foundation.
+  #     placement: DERIVE, at discharge-board.
+  - group: ARCHIVE
+    at: discharge-board
+    title: "Differentiate nested discharge"
+    concept: "chain/exp/log"
+    reason: "The hoist cannot move until the expected discharge sensitivity is known."
+    scene: "Gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Differentiate the three nested layers so a small head change has a predicted flow response."
+    motivation: "Multiplying every layer's derivative prevents a dangerously small sensitivity estimate."
+    format: DERIVE
+    question: "Derive dQ/dh; submit the expression in (m^3/s)/m."
+    answerText: "dQ/dh=6e^(0.3sqrt h)/sqrt h."
+    why: "dQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Three layers require three derivative factors.
+    # correct result: exact.
+    # state/output: sensitivity curve; unlock 3.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"dQ/dh",givens:["Q=40e^(0.3sqrt h)"],lines:[{expressions:["40e^(0.3sqrt h)*d(0.3sqrt h)/dh","12e^h"],correct:"40e^(0.3sqrt h)*d(0.3sqrt h)/dh",rules:["exponential chain rule","power only"],correct_rule:"exponential chain rule"},{expressions:["6e^(0.3sqrt h)/sqrt h","12sqrt h e^(0.3sqrt h)"],correct:"6e^(0.3sqrt h)/sqrt h",rules:["power rule and multiply layers","quotient rule"],correct_rule:"power rule and multiply layers"}],answerText:"dQ/dh=6e^(0.3sqrt h)/sqrt h."}
+
+  # --- Stop 10: Link opening and head
+  #     Concept: implicit differentiation; Keystone: Chain reasoning; Area: Gate House; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, at discharge-board.
+  - group: GATES
+    at: discharge-board
+    title: "Link opening and head"
+    concept: "implicit differentiation"
+    reason: "The linkage constraint decides how opening changes when head loads the gate."
+    scene: "Linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Differentiate implicitly to find how opening changes with head at o=2 and h=1."
+    motivation: "The linkage slope turns water-level motion into a required hoist correction."
+    format: DERIVE
+    question: "Derive do/dh and submit its value at (h,o)=(1,2) in metres of opening per metre of head."
+    answerText: "do/dh=-2/3."
+    why: "do/dh=-2/3. The linkage slope turns water-level motion into a required hoist correction."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   o varies with h; its derivative cannot be dropped.
+    # correct result: -0.6667, tolerance .001.
+    # state/output: linkage arrow; unlock 3.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"do/dh",givens:["o^2+0.5oh+h^2=9","o=2,h=1"],lines:[{expressions:["2o o'+0.5(o'h+o)+2h=0","2o+0.5h+2h=0"],correct:"2o o'+0.5(o'h+o)+2h=0",rules:["implicit plus product rule","hold o fixed"],correct_rule:"implicit plus product rule"},{expressions:["o'=-(0.5o+2h)/(2o+0.5h)","o'=-(2o+0.5h)/(0.5o+2h)"],correct:"o'=-(0.5o+2h)/(2o+0.5h)",rules:["collect o' terms","invert relation"],correct_rule:"collect o' terms"},{expressions:["-2/3","-3/2"],correct:"-2/3",rules:["substitute o=2,h=1","reciprocal slope"],correct_rule:"substitute o=2,h=1"}],answerText:"do/dh=-2/3."}
+
+  # --- Stop 11: Find linkage curvature
+  #     Concept: second implicit derivative; Keystone: Chain reasoning; Area: Gate House; Learning role: COMBINE; Difficulty: L4; Story role: reversal.
+  #     placement: DERIVE, at hoist-stand.
+  - group: GATES
+    at: hoist-stand
+    title: "Find linkage curvature"
+    concept: "second implicit derivative"
+    reason: "A safe first slope may still bend into an unsafe response."
+    scene: "The linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Differentiate the first derivative relation again and substitute the known do/dh=-2/3."
+    motivation: "Curvature determines whether the safe correction stays safe over a finite movement."
+    format: DERIVE
+    question: "From (2o+0.5h)o'+0.5o+2h=0, derive o''; submit its value at (h,o)=(1,2)."
+    answerText: "o''=-40/81 per metre."
+    why: "o''=-40/81 per metre. Curvature determines whether the safe correction stays safe over a finite movement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Substitute the original first derivative into the second derivative.
+    # correct result: -0.49383, tolerance .001.
+    # state/output: safe corridor narrows; unlock 3.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"o''",givens:["(2o+0.5h)o'+0.5o+2h=0","o'=-2/3"],lines:[{expressions:["(2o'+0.5)o'+(2o+0.5h)o''+0.5o'+2=0","(2o+0.5h)o''+2=0"],correct:"(2o'+0.5)o'+(2o+0.5h)o''+0.5o'+2=0",rules:["product and implicit rules","differentiate constants only"],correct_rule:"product and implicit rules"},{expressions:["o''=-[(2o'+0.5)o'+0.5o'+2]/(2o+0.5h)","o''=-2/(2o+0.5h)"],correct:"o''=-[(2o'+0.5)o'+0.5o'+2]/(2o+0.5h)",rules:["isolate o''","discard slope"],correct_rule:"isolate o''"},{expressions:["-40/81","-4/9"],correct:"-40/81",rules:["substitute all known values","use first derivative only"],correct_rule:"substitute all known values"}],answerText:"o''=-40/81 per metre."}
+
+  # --- Stop 12: Reverse the flow calibration
+  #     Concept: inverse derivative/arctan; Keystone: Chain reasoning; Area: Gate House; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: VERIFY, at hoist-stand.
+  - group: GATES
+    at: hoist-stand
+    title: "Reverse the flow calibration"
+    concept: "inverse derivative/arctan"
+    reason: "The operator enters desired flow, so the reverse calibration must be tested."
+    scene: "Because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Predict the opening sensitivity at o=2, then verify it with one reversible step, and the team needs this result before it acts."
+    motivation: "A measured inverse response certifies the command direction without assuming the chart is correct."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** From $F(o)=100\\arctan(o/2)$, use $F'(o)=50/(1+(o/2)^2)$ at $o=2$ to submit the inverse sensitivity $do/dF$ in m/(m^3/s); the linkage remains locked until commitment."
+    answerText: "predicted 2*.04=.080 m, measured .080 m, and reversal returns to baseline."
+    why: "predicted 2*.04=.080 m, measured .080 m, and reversal returns to baseline. A measured inverse response certifies the command direction without assuming the chart is correct."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The inverse derivative is reciprocal at the matching point, not at the same displayed output by guess.
+    # correct result: dF/do=25, inverse .040; pass.
+    # state/output: safe calibration signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{equation:"F'(o)=50/(1+(o/2)^2); do/dF=1/F'(o)",inputs:{o:2,flow_step:2.0},constants:{coefficient:50},submit:{quantity:"inverse sensitivity",unit:"m/(m^3/s)",truth:0.04,tolerance:0.001}},equipment_locked_until_prediction_commit:true,operation:{command_change:2.0,unit:"m^3/s",fixed:["head 1.0 m","voltage"]},measurements:["opening change 0.080 m","returned residual 0.000 m"],restore:{required:true,setting:"zero command",remeasure:true},correct_conclusion:"PASS",answerText:"The inverse sensitivity is 0.040 m/(m^3/s), so a 2.0 m^3/s step predicts 0.080 m; the measured change and zero residual pass."}
+

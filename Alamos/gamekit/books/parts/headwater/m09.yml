@@ -1,0 +1,159 @@
+# ============================================================ MISSION 9
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Seepage Ledger Rule"
+  card:
+    header: "7 SHIFTS UNTIL THE STORM"
+    title: "The Silent Heads"
+    goNow: "Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the uplift wall."
+    body: "The mixed release clears enough water, but two foundation pressure gauges are silent before the wall takes a changing load. A slope field shows possible pressure paths, and Euler's method advances one path from measured data. At the uplift wall and gate board, reconstruct the missing trend and test the load. By the end of the mission, decide whether controlled release tests may continue."
+    objective: "Reconstruct uplift pressure and authorize or stop testing."
+  objective: "Reconstruct uplift pressure and authorize or stop testing."
+  stake: "The mixed release clears enough water, but two foundation pressure gauges are silent before the wall takes a changing load. A slope field shows possible pressure paths, and Euler's method advances one path from measured data. At the uplift wall and gate board, reconstruct the missing trend and test the load. By the end of the mission, decide whether controlled release tests may continue."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Continue controlled release tests. Euler estimates agree with independent live readings. And the two silent gauges share one failed cable. The crew replaces that cable. And bounds the uplift load."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-seepage-uplift-bay
+    # On arrival at Seepage & Uplift Bay | s33-read-the-pressure-field | automatic
+    on: { enter: true, at: TODO }   # s33-read-the-pressure-field
+    world: "Arrival Location: STRUCT."
+    panel: "STRUCT"
+    bubbles:
+    - who: arun-mehta   # Arun Mehta
+      say: "Start with read the pressure field. We need evidence the next decision can use."
+  - id: after-stop-33
+    # After Stop 33 | s34-step-through-the-gap | automatic
+    on: { after: [1] }
+    world: "After 9.2 Location: STRUCT."
+    panel: "STRUCT"
+    bubbles:
+    - who: arun-mehta   # Arun Mehta
+      say: "Use the Stop 33 result to settle step through the gap."
+  - id: after-stop-34
+    # After Stop 34 | s35-test-step-size-sensitivity | automatic
+    on: { after: [2] }
+    world: "Travel Location: STRUCT->GATES."
+    panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    bubbles:
+    - who: arun-mehta   # Arun Mehta
+      say: "Use the Stop 34 result to settle test step-size sensitivity."
+  - id: after-stop-35
+    # After Stop 35 | s36-diagnose-silence | automatic
+    on: { after: [3] }
+    world: "The test step-size sensitivity result remains visible while the diagnose silence fixture lights."
+    panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    bubbles:
+    - who: arun-mehta   # Arun Mehta
+      say: "Use the Stop 35 result to settle diagnose silence."
+  - id: at-mission-end
+    # At mission end | s33-read-the-pressure-field | automatic
+    on: { enter: true, at: TODO }   # s33-read-the-pressure-field
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 9 EVIDENCE: RECORDED"
+    bubbles:
+    - who: arun-mehta   # Arun Mehta
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "All four readings match dP/dh=0.4(8-P); slopes point toward equilibrium P=8."
+    - who: text   # Text
+      say: "Euler gives P(1.0)=5.44."
+    - who: text   # Text
+      say: "The two blank pressure channels share J4, while independent weir and uplift readings remain live; diagnose a J4 cable failure."
+
+  stops:
+  # --- Stop 33: Read the pressure field
+  #     Concept: slope fields/equilibrium; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: PROBE, at s33-read-the-pressure-field.
+  - group: STRUCT
+    at: TODO               # the fixture it is asked at
+    title: "Read the pressure field"
+    concept: "slope fields/equilibrium"
+    reason: "Live surrounding gauges must show whether pressure trends toward or away from safety."
+    scene: "Uplift obeys dP/dh=0.4(8-P) in scaled units. Probe field points at P=4,8,10 and identify slope direction, equilibrium, and whether pressure is driven toward P=8, and the team needs this result before it acts."
+    motivation: "Field direction can bound the silent readings before exact solving."
+    format: PROBE
+    question: "Probe stations A, B, and C in order. At A compare reading +1.6 pressure/m with expected $0.4(8-4)=+1.6$; at B compare 0 with expected $0.4(8-8)=0$; at C compare -0.8 with expected $0.4(8-10)=-0.8$. Submit whether any station breaks the pattern, the numerical equilibrium pressure, and the direction of change on each side."
+    answerText: "The completed check shows toward 8; equilibrium P=8."
+    why: "toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Horizontal segments mean zero slope, not zero pressure.
+    # correct result: toward 8; equilibrium P=8.
+    # state/output: field lit; unlock 9.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:{load_sequence:["A","B","C","D"],stations:[{id:"A",load:{P:4,unit:"pressure"},reading:{slope:1.6,unit:"pressure/m"},expected:{slope:1.6,unit:"pressure/m"},comparison:"matches positive approach"},{id:"B",load:{P:8,unit:"pressure"},reading:{slope:0,unit:"pressure/m"},expected:{slope:0,unit:"pressure/m"},comparison:"matches equilibrium"},{id:"C",load:{P:10,unit:"pressure"},reading:{slope:-0.8,unit:"pressure/m"},expected:{slope:-0.8,unit:"pressure/m"},comparison:"matches negative return"},{id:"D",load:{P:12,unit:"pressure"},reading:{slope:-1.6,unit:"pressure/m"},expected:{slope:-1.6,unit:"pressure/m"},comparison:"matches stronger return"}],required:["A","B","C","D"],correct_break:"none",equilibrium:8,answerText:"All four readings match dP/dh=0.4(8-P); slopes point toward equilibrium P=8."}
+
+  # --- Stop 34: Step through the gap
+  #     Concept: Euler method; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: PRACTICE; Difficulty: L3; Story role: evidence.
+  #     placement: DERIVE, at s34-step-through-the-gap.
+  - group: STRUCT
+    at: TODO               # the fixture it is asked at
+    title: "Step through the gap"
+    concept: "Euler method"
+    reason: "The two missing readings need reproducible estimates from the last live value."
+    scene: "The last live value is P(0)=4.0, and dP/dh=0.4(8-P). Use Euler steps of 0.5 m twice to estimate P(1.0) before the next safe decision."
+    motivation: "A stepwise prediction can be compared with independent seepage evidence."
+    format: DERIVE
+    question: "Build both Euler updates and submit P(1.0) in scaled pressure units."
+    answerText: "Euler gives P(1.0)=5.44."
+    why: "Euler gives P(1.0)=5.44. A stepwise prediction can be compared with independent seepage evidence."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Recalculate slope after each step.
+    # correct result: 5.44, tolerance .001.
+    # state/output: missing points penciled; waypoint GATES.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"P(1.0)",givens:["P0=4","f=0.4(8-P)","Delta h=.5"],lines:[{expressions:["P1=4+0.4(8-4)(0.5)=4.8","P1=5.6"],correct:"P1=4+0.4(8-4)(0.5)=4.8",rules:["Euler update","full derivative step"],correct_rule:"Euler update"},{expressions:["P2=4.8+0.4(8-4.8)(0.5)=5.44","P2=5.6"],correct:"P2=4.8+0.4(8-4.8)(0.5)=5.44",rules:["update slope at new point","reuse old slope"],correct_rule:"update slope at new point"}],answerText:"Euler gives P(1.0)=5.44."}
+
+  # --- Stop 35: Test step-size sensitivity
+  #     Concept: Euler error/control; Keystone: Approximation; Area: Seepage & Uplift Bay; Learning role: COMBINE; Difficulty: L4; Story role: obstacle.
+  #     placement: CONTROL, at s35-test-step-size-sensitivity.
+  - group: STRUCT
+    at: TODO               # the fixture it is asked at
+    title: "Test step-size sensitivity"
+    concept: "Euler error/control"
+    reason: "The estimate must survive a smaller numerical step before loading the gate."
+    scene: "Because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Compare the estimate, restore 0.50, and state the step-size effect, and the team needs this result before it acts."
+    motivation: "Changing only step size tests numerical approximation rather than wall behavior."
+    format: CONTROL
+    question: "Choose step size from candidate controls step size, initial value, and equation. Measure the Euler estimate at 0.50 m, change only step size to 0.25 m while the equation and initial value stay fixed, measure after the same interval, restore 0.50 m and remeasure, then submit the numerical change and conclusion."
+    answerText: "The completed check shows as stated."
+    why: "as stated. Changing only step size tests numerical approximation rather than wall behavior."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A valid control changes one input and reverses it.
+    # correct result: as stated.
+    # state/output: uncertainty band; unlock 9.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"step"},{id:"initial"},{id:"equation"}],correct_control:"step",baseline:.5,response:.25,noise_band:.005,measurements:[5.44,5.3756,5.44],restore:true,correct_conclusion:"smaller step lowers estimate by .0644; result remains near 5.4"}
+
+  # --- Stop 36: Diagnose silence
+  #     Concept: dependency/independent evidence; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRACE, at s36-diagnose-silence.
+  - group: STRUCT
+    at: trace-bench
+    title: "Diagnose silence"
+    concept: "dependency/independent evidence"
+    reason: "The crew must distinguish wall danger from a shared instrument failure."
+    scene: "Euler predictions agree with live weirs, while two piezometers remain blank. Open each channel's dependencies and decide whether agreement is independent or whether a shared cable explains the silence, and the team needs this result before it acts."
+    motivation: "Quiet independent evidence can rule out wall failure even when two displays agree by failing together."
+    format: TRACE
+    question: "Open the dependency record for all four channels, then submit the shared upstream cause and the conclusion continue controlled tests or stop controlled tests."
+    answerText: "The completed check shows shared cable J4."
+    why: "shared cable J4. Quiet independent evidence can rule out wall failure even when two displays agree by failing together."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A wall-failure claim conflicts with the two independent live readings; the two blanks share J4 and therefore are not independent evidence.
+    # correct result: shared cable J4.
+    # state/output: crate replaced by live heads on Day 9.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"pressure_1",label:"pressure channel 1",reading:"blank",dependency:"junction cable J4",target_dependent:true},{id:"pressure_2",label:"pressure channel 2",reading:"blank",dependency:"junction cable J4",target_dependent:true},{id:"weir",label:"manual weir scale",reading:5.39,dependency:"manual scale",independent:true},{id:"uplift_3",label:"uplift channel 3",reading:5.42,dependency:"junction cable J7",independent:true}],shared_upstream:"junction cable J4",correct_conclusion:"J4 cable failure; controlled tests may continue",answerText:"The two blank pressure channels share J4, while independent weir and uplift readings remain live; diagnose a J4 cable failure."}
+

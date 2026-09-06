@@ -1,0 +1,631 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Particle
+  aliases: [particle]   # TODO: the plurals and spellings the prose uses
+  def: "one counted piece of matter. In this mission, a particle may be an atom, a molecule, or an ion."
+# mission 1
+- name: Electric charge
+  aliases: [electric charge]   # TODO: the plurals and spellings the prose uses
+  def: "a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral."
+# mission 1
+- name: Electron
+  aliases: [electron]   # TODO: the plurals and spellings the prose uses
+  def: "a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge."
+# mission 1
+- name: Chemical bond
+  aliases: [chemical bond]   # TODO: the plurals and spellings the prose uses
+  def: "a strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms."
+# mission 1
+- name: Chemical reaction
+  aliases: [chemical reaction]   # TODO: the plurals and spellings the prose uses
+  def: "rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change."
+# mission 1
+- name: Atom
+  aliases: [atom]   # TODO: the plurals and spellings the prose uses
+  def: "the smallest ordinary piece of one kind of matter that keeps that identity. Counting atoms lets the plant check whether matter has disappeared."
+# mission 1
+- name: Molecule
+  aliases: [molecule]   # TODO: the plurals and spellings the prose uses
+  def: "two or more atoms joined by chemical bonds. Methane and carbon dioxide are molecules, so one molecule contains several atoms."
+# mission 1
+- name: Ion
+  aliases: [ion]   # TODO: the plurals and spellings the prose uses
+  def: "an atom or group of atoms with an electrical charge. It is not the same thing as a neutral atom or molecule."
+# mission 1
+- name: Mole
+  aliases: [mole]   # TODO: the plurals and spellings the prose uses
+  def: "a fixed count of particles, the same count for every substance. One mole contains 6.022 x 10^23 particles; one kilomole contains one thousand moles."
+# mission 1
+- name: Molar mass
+  aliases: [molar mass]   # TODO: the plurals and spellings the prose uses
+  def: "the mass of one mole of a substance. It connects a mass on a scale to the number of particles in the plant."
+# mission 2
+- name: Sabatier reaction
+  aliases: [sabatier reaction]   # TODO: the plurals and spellings the prose uses
+  def: "combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel."
+# mission 2
+- name: Reactant
+  aliases: [reactant]   # TODO: the plurals and spellings the prose uses
+  def: "a starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor."
+# mission 2
+- name: Product
+  aliases: [product]   # TODO: the plurals and spellings the prose uses
+  def: "a substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction."
+# mission 2
+- name: Coefficient
+  aliases: [coefficient]   # TODO: the plurals and spellings the prose uses
+  def: "the number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses."
+# mission 2
+- name: Limiting reactant
+  aliases: [limiting reactant]   # TODO: the plurals and spellings the prose uses
+  def: "the starting substance that runs out first. It sets the greatest amount of product the reactor can make."
+# mission 2
+- name: Excess reactant
+  aliases: [excess reactant]   # TODO: the plurals and spellings the prose uses
+  def: "a starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue."
+# mission 2
+- name: Theoretical yield
+  aliases: [theoretical yield]   # TODO: the plurals and spellings the prose uses
+  def: "the greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it."
+# mission 3
+- name: Pressure
+  aliases: [pressure]   # TODO: the plurals and spellings the prose uses
+  def: "force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside."
+# mission 3
+- name: Volume
+  aliases: [volume]   # TODO: the plurals and spellings the prose uses
+  def: "the amount of space occupied by the gas. A sealed tank gives the gas a fixed space unless the hardware changes."
+# mission 3
+- name: Absolute temperature
+  aliases: [absolute temperature]   # TODO: the plurals and spellings the prose uses
+  def: "measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius."
+# mission 3
+- name: Kinetic energy
+  aliases: [kinetic energy]   # TODO: the plurals and spellings the prose uses
+  def: "energy an object has because it moves. At the same temperature, different gases have the same average kinetic energy even though lighter particles move faster."
+# mission 3
+- name: Mixture
+  aliases: [mixture]   # TODO: the plurals and spellings the prose uses
+  def: "contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure."
+# mission 3
+- name: Composition
+  aliases: [composition]   # TODO: the plurals and spellings the prose uses
+  def: "states which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same."
+# mission 3
+- name: Partial pressure
+  aliases: [partial pressure]   # TODO: the plurals and spellings the prose uses
+  def: "one gas's share of the total pressure. It measures how much that gas contributes even when the gauge shows only the total."
+# mission 3
+- name: Mole fraction
+  aliases: [mole fraction]   # TODO: the plurals and spellings the prose uses
+  def: "the part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas."
+# mission 4
+- name: Valence electron
+  aliases: [valence electron]   # TODO: the plurals and spellings the prose uses
+  def: "an electron in an atom's outer occupied region. These electrons are the ones most directly involved in chemical bonds."
+# mission 4
+- name: Lewis structure
+  aliases: [lewis structure]   # TODO: the plurals and spellings the prose uses
+  def: "a drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape."
+# mission 4
+- name: Lone pair
+  aliases: [lone pair]   # TODO: the plurals and spellings the prose uses
+  def: "a pair of valence electrons not shared in a bond. Lone pairs still repel other electron groups and can change molecular shape."
+# mission 4
+- name: Molecular geometry
+  aliases: [molecular geometry]   # TODO: the plurals and spellings the prose uses
+  def: "the three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel."
+# mission 4
+- name: VSEPR model
+  aliases: [vsepr model]   # TODO: the plurals and spellings the prose uses
+  def: "predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups."
+# mission 4
+- name: Polarity
+  aliases: [polarity]   # TODO: the plurals and spellings the prose uses
+  def: "an uneven distribution of electrical charge. A molecule is polar when its bond effects do not cancel across its shape."
+# mission 4
+- name: Intermolecular force
+  aliases: [intermolecular force]   # TODO: the plurals and spellings the prose uses
+  def: "an attraction between separate particles. Stronger attractions usually make a substance harder to separate into a gas."
+# mission 4
+- name: London dispersion force
+  aliases: [london dispersion force]   # TODO: the plurals and spellings the prose uses
+  def: "an attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one."
+# mission 4
+- name: Hydrogen bonding
+  aliases: [hydrogen bonding]   # TODO: the plurals and spellings the prose uses
+  def: "a strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule."
+# mission 4
+- name: Boiling
+  aliases: [boiling]   # TODO: the plurals and spellings the prose uses
+  def: "a change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure."
+# mission 4
+- name: Boiling point
+  aliases: [boiling point]   # TODO: the plurals and spellings the prose uses
+  def: "the temperature at which bubbles of vapor can form throughout a liquid. Stronger attractions between particles usually raise it."
+# mission 4
+- name: Condensation
+  aliases: [condensation]   # TODO: the plurals and spellings the prose uses
+  def: "the change from gas to liquid. A substance that condenses upstream cannot travel through the line as a gas."
+# mission 5
+- name: Solution
+  aliases: [solution]   # TODO: the plurals and spellings the prose uses
+  def: "a uniform mixture in which one or more substances are spread through another. A small sample can be concentrated without containing a large total amount."
+# mission 5
+- name: Solute
+  aliases: [solute]   # TODO: the plurals and spellings the prose uses
+  def: "the substance dissolved in a solution. Its total amount depends on both concentration and solution volume."
+# mission 5
+- name: Concentration
+  aliases: [concentration]   # TODO: the plurals and spellings the prose uses
+  def: "the amount of solute in a chosen volume of solution. It does not by itself state the total amount in the container."
+# mission 5
+- name: Molarity
+  aliases: [molarity]   # TODO: the plurals and spellings the prose uses
+  def: "the number of moles of solute in one liter of solution. It lets the plant compare samples of different sizes on the same scale."
+# mission 5
+- name: Absorbance
+  aliases: [absorbance]   # TODO: the plurals and spellings the prose uses
+  def: "measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument."
+# mission 5
+- name: Beer-Lambert relationship
+  aliases: [beer-lambert relationship]   # TODO: the plurals and spellings the prose uses
+  def: "says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting."
+# mission 5
+- name: Wavelength
+  aliases: [wavelength]   # TODO: the plurals and spellings the prose uses
+  def: "the distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light."
+# mission 5
+- name: Calibration standard
+  aliases: [calibration standard]   # TODO: the plurals and spellings the prose uses
+  def: "a sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence."
+# mission 5
+- name: Error
+  aliases: [error]   # TODO: the plurals and spellings the prose uses
+  def: "the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake."
+# mission 5
+- name: Instrument saturation
+  aliases: [instrument saturation]   # TODO: the plurals and spellings the prose uses
+  def: "occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading."
+# mission 5
+- name: Independent evidence
+  aliases: [independent evidence]   # TODO: the plurals and spellings the prose uses
+  def: "reaches a conclusion without relying on the same upstream measurement or standard. Two displays are not independent if one is calculated from the other."
+# mission 6
+- name: Diagnosis
+  aliases: [diagnosis]   # TODO: the plurals and spellings the prose uses
+  def: "the proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms."
+# mission 6
+- name: Uncertainty
+  aliases: [uncertainty]   # TODO: the plurals and spellings the prose uses
+  def: "the range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range."
+# mission 6
+- name: Sensitivity test
+  aliases: [sensitivity test]   # TODO: the plurals and spellings the prose uses
+  def: "changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number."
+# mission 6
+- name: Atom balance
+  aliases: [atom balance]   # TODO: the plurals and spellings the prose uses
+  def: "counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made."
+# mission 6
+- name: Corroboration
+  aliases: [corroboration]   # TODO: the plurals and spellings the prose uses
+  def: "support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration."
+# mission 7
+- name: Heat
+  aliases: [heat]   # TODO: the plurals and spellings the prose uses
+  def: "energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one."
+# mission 7
+- name: Exothermic
+  aliases: [exothermic]   # TODO: the plurals and spellings the prose uses
+  def: "process releases heat to its surroundings. Increasing an exothermic reaction's production also increases the heat the plant must remove."
+# mission 7
+- name: Endothermic
+  aliases: [endothermic]   # TODO: the plurals and spellings the prose uses
+  def: "process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process."
+# mission 7
+- name: Enthalpy change
+  aliases: [enthalpy change]   # TODO: the plurals and spellings the prose uses
+  def: "records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat."
+# mission 7
+- name: Specific heat capacity
+  aliases: [specific heat capacity]   # TODO: the plurals and spellings the prose uses
+  def: "the heat needed to raise one unit of mass by one degree. It connects a measured temperature change to an amount of heat."
+# mission 7
+- name: Phase change
+  aliases: [phase change]   # TODO: the plurals and spellings the prose uses
+  def: "moves matter between solid, liquid, and gas without changing its chemical identity. During the change, energy can move while temperature stays constant."
+# mission 7
+- name: Energy ledger
+  aliases: [energy ledger]   # TODO: the plurals and spellings the prose uses
+  def: "counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot."
+# mission 8
+- name: Reaction rate
+  aliases: [reaction rate]   # TODO: the plurals and spellings the prose uses
+  def: "measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much."
+# mission 8
+- name: Rate law
+  aliases: [rate law]   # TODO: the plurals and spellings the prose uses
+  def: "describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation."
+# mission 8
+- name: Reaction order
+  aliases: [reaction order]   # TODO: the plurals and spellings the prose uses
+  def: "the exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four."
+# mission 8
+- name: Rate constant
+  aliases: [rate constant]   # TODO: the plurals and spellings the prose uses
+  def: "the proportional number in a rate law at a particular temperature. Its units depend on the total reaction order."
+# mission 8
+- name: Controlled experiment
+  aliases: [controlled experiment]   # TODO: the plurals and spellings the prose uses
+  def: "changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift."
+# mission 8
+- name: Noise band
+  aliases: [noise band]   # TODO: the plurals and spellings the prose uses
+  def: "the small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause."
+# mission 9
+- name: Catalyst
+  aliases: [catalyst]   # TODO: the plurals and spellings the prose uses
+  def: "speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition."
+# mission 9
+- name: Equilibrium
+  aliases: [equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "the steady state reached when forward and reverse chemical changes occur at equal rates. A catalyst reaches that state faster but does not change the final mixture at a fixed temperature."
+# mission 9
+- name: Activation energy
+  aliases: [activation energy]   # TODO: the plurals and spellings the prose uses
+  def: "the minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction."
+# mission 9
+- name: Reaction mechanism
+  aliases: [reaction mechanism]   # TODO: the plurals and spellings the prose uses
+  def: "a sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step."
+# mission 9
+- name: Intermediate
+  aliases: [intermediate]   # TODO: the plurals and spellings the prose uses
+  def: "made in one mechanism step and consumed in a later step. It does not appear in the final balanced equation."
+# mission 9
+- name: Rate-determining step
+  aliases: [rate-determining step]   # TODO: the plurals and spellings the prose uses
+  def: "the slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible."
+# mission 9
+- name: Active site
+  aliases: [active site]   # TODO: the plurals and spellings the prose uses
+  def: "a location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains."
+# mission 9
+- name: Catalyst poisoning
+  aliases: [catalyst poisoning]   # TODO: the plurals and spellings the prose uses
+  def: "occurs when another substance blocks or changes active sites. A poison entering at one end can create a spatial failure rather than a uniform loss."
+# mission 9
+- name: Spatial profile
+  aliases: [spatial profile]   # TODO: the plurals and spellings the prose uses
+  def: "shows how a reading changes from one location to another. It can reveal a local hot spot or inlet-first failure hidden by an average."
+# mission 10
+- name: Model
+  aliases: [model]   # TODO: the plurals and spellings the prose uses
+  def: "a simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting."
+# mission 10
+- name: Holdout data
+  aliases: [holdout data]   # TODO: the plurals and spellings the prose uses
+  def: "measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations."
+# mission 10
+- name: Residual
+  aliases: [residual]   # TODO: the plurals and spellings the prose uses
+  def: "the measured value minus the model's predicted value. A repeated pattern in residuals can reveal a missing cause even when average error is small."
+# mission 10
+- name: Systematic pattern
+  aliases: [systematic pattern]   # TODO: the plurals and spellings the prose uses
+  def: "an error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit."
+# mission 10
+- name: Sensor bias
+  aliases: [sensor bias]   # TODO: the plurals and spellings the prose uses
+  def: "a measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust."
+# mission 10
+- name: Safety margin
+  aliases: [safety margin]   # TODO: the plurals and spellings the prose uses
+  def: "the distance between the operating condition and a dangerous boundary. A plan fails if allowed uncertainty can erase that distance."
+# mission 10
+- name: Causal order
+  aliases: [causal order]   # TODO: the plurals and spellings the prose uses
+  def: "states which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect."
+# mission 11
+- name: Dynamic equilibrium
+  aliases: [dynamic equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "a state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react."
+# mission 11
+- name: Equilibrium constant
+  aliases: [equilibrium constant]   # TODO: the plurals and spellings the prose uses
+  def: "compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes."
+# mission 11
+- name: Reaction quotient
+  aliases: [reaction quotient]   # TODO: the plurals and spellings the prose uses
+  def: "uses the same concentration form as the equilibrium constant but can be calculated before equilibrium. Comparing Q with K predicts the direction of net change."
+# mission 11
+- name: ICE table
+  aliases: [ice table]   # TODO: the plurals and spellings the prose uses
+  def: "organizes initial concentrations, their linked changes, and equilibrium concentrations. One reaction extent controls every change through the balanced coefficients."
+# mission 11
+- name: Le Chatelier's principle
+  aliases: [le chatelier's principle]   # TODO: the plurals and spellings the prose uses
+  def: "predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value."
+# mission 11
+- name: Equilibrium yield
+  aliases: [equilibrium yield]   # TODO: the plurals and spellings the prose uses
+  def: "the product amount or fraction present after forward and reverse rates become equal. It is different from how quickly that state is reached."
+# mission 11
+- name: Degeneracy
+  aliases: [degeneracy]   # TODO: the plurals and spellings the prose uses
+  def: "occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them."
+# mission 12
+- name: Coupled system
+  aliases: [coupled system]   # TODO: the plurals and spellings the prose uses
+  def: "contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed."
+# mission 12
+- name: Recycle loop
+  aliases: [recycle loop]   # TODO: the plurals and spellings the prose uses
+  def: "returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen."
+# mission 12
+- name: Electrolysis
+  aliases: [electrolysis]   # TODO: the plurals and spellings the prose uses
+  def: "uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen."
+# mission 12
+- name: Acid
+  aliases: [acid]   # TODO: the plurals and spellings the prose uses
+  def: "increases hydrogen-ion concentration when placed in water. Excess acid must be measured and neutralized before water enters the electrolyzer."
+# mission 12
+- name: Base
+  aliases: [base]   # TODO: the plurals and spellings the prose uses
+  def: "accepts hydrogen ions or increases hydroxide-ion concentration in water. The treatment system uses a measured base amount to neutralize excess acid."
+# mission 12
+- name: Neutralization
+  aliases: [neutralization]   # TODO: the plurals and spellings the prose uses
+  def: "the reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity."
+# mission 12
+- name: pH
+  aliases: [ph]   # TODO: the plurals and spellings the prose uses
+  def: "a logarithmic measure related to hydrogen-ion concentration. A smaller pH means a larger hydrogen-ion concentration."
+# mission 12
+- name: Logarithm
+  aliases: [logarithm]   # TODO: the plurals and spellings the prose uses
+  def: "reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration."
+# mission 12
+- name: Inventory
+  aliases: [inventory]   # TODO: the plurals and spellings the prose uses
+  def: "the amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks."
+# mission 13
+- name: Electrode
+  aliases: [electrode]   # TODO: the plurals and spellings the prose uses
+  def: "a solid part where electrons enter or leave a chemical system. The water cell has a cathode and an anode."
+# mission 13
+- name: Electrical circuit
+  aliases: [electrical circuit]   # TODO: the plurals and spellings the prose uses
+  def: "a connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions."
+# mission 13
+- name: Oxidation
+  aliases: [oxidation]   # TODO: the plurals and spellings the prose uses
+  def: "the loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas."
+# mission 13
+- name: Reduction
+  aliases: [reduction]   # TODO: the plurals and spellings the prose uses
+  def: "the gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas."
+# mission 13
+- name: Cathode
+  aliases: [cathode]   # TODO: the plurals and spellings the prose uses
+  def: "the electrode where reduction occurs. The powered cell sends electrons to this electrode."
+# mission 13
+- name: Anode
+  aliases: [anode]   # TODO: the plurals and spellings the prose uses
+  def: "the electrode where oxidation occurs. Electrons leave this electrode through the outside circuit."
+# mission 13
+- name: Electric current
+  aliases: [electric current]   # TODO: the plurals and spellings the prose uses
+  def: "the rate at which electric charge moves. One ampere is one coulomb of charge per second."
+# mission 13
+- name: Coulomb
+  aliases: [coulomb]   # TODO: the plurals and spellings the prose uses
+  def: "a unit used to count electric charge. Current multiplied by time in seconds gives charge in coulombs."
+# mission 13
+- name: Faraday constant
+  aliases: [faraday constant]   # TODO: the plurals and spellings the prose uses
+  def: "the charge carried by one mole of electrons, about 96,485 coulombs per mole. It converts electrical charge into a chemical amount."
+# mission 13
+- name: Current efficiency
+  aliases: [current efficiency]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of electrical charge that makes the intended product. A value below 100 percent means some charge follows unwanted processes."
+# mission 13
+- name: Protected load
+  aliases: [protected load]   # TODO: the plurals and spellings the prose uses
+  def: "an electrical use that must remain powered for safety or mission function. Funding it reduces the energy available for optional work."
+# mission 14
+- name: Specification
+  aliases: [specification]   # TODO: the plurals and spellings the prose uses
+  def: "a measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit."
+# mission 14
+- name: Purity
+  aliases: [purity]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of a sample made of the desired substance. High total mass does not guarantee high purity."
+# mission 14
+- name: Contaminant
+  aliases: [contaminant]   # TODO: the plurals and spellings the prose uses
+  def: "an unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits."
+# mission 14
+- name: Certification
+  aliases: [certification]   # TODO: the plurals and spellings the prose uses
+  def: "a documented decision that measured material meets every required specification. It must rely on evidence capable of testing the claimed property."
+# mission 14
+- name: Dependency
+  aliases: [dependency]   # TODO: the plurals and spellings the prose uses
+  def: "an earlier measurement, standard, or calculation another reading relies on. Two green displays sharing one dependency do not give two independent confirmations."
+# mission 14
+- name: Threshold
+  aliases: [threshold]   # TODO: the plurals and spellings the prose uses
+  def: "a value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed."
+# mission 14
+- name: Trigger rule
+  aliases: [trigger rule]   # TODO: the plurals and spellings the prose uses
+  def: "states the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample."
+# mission 14
+- name: False-ready state
+  aliases: [false-ready state]   # TODO: the plurals and spellings the prose uses
+  def: "occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition."
+# mission 15
+- name: Value of information
+  aliases: [value of information]   # TODO: the plurals and spellings the prose uses
+  def: "the usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action."
+# mission 15
+- name: Binding constraint
+  aliases: [binding constraint]   # TODO: the plurals and spellings the prose uses
+  def: "a requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe."
+# mission 15
+- name: Tradeoff
+  aliases: [tradeoff]   # TODO: the plurals and spellings the prose uses
+  def: "occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs."
+# mission 15
+- name: Certified methane
+  aliases: [certified methane]   # TODO: the plurals and spellings the prose uses
+  def: "methane whose amount and composition have passed the fixed flight rules through independent testing. Gross tank mass does not count as certified methane by itself."
+# mission 15
+- name: Verification
+  aliases: [verification]   # TODO: the plurals and spellings the prose uses
+  def: "checks whether a prediction or claim matches a measurement obtained through a suitable evidence path. It is different from repeating the same derived display."
+# mission 15
+- name: Assay
+  aliases: [assay]   # TODO: the plurals and spellings the prose uses
+  def: "a measured test that determines what substances a sample contains and how much of each is present. An independent assay can certify composition when dashboard estimates cannot."
+# mission 15
+- name: GO / NO-GO
+  aliases: [go / no-go]   # TODO: the plurals and spellings the prose uses
+  def: "gO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence."
+# mission 15
+- name: Recovery chain
+  aliases: [recovery chain]   # TODO: the plurals and spellings the prose uses
+  def: "the full sequence of actions needed to change the failed condition and prove the change worked. Funding only one link cannot complete recovery."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "moles = grams / molar mass; particles = moles x 6.022 x 10^23",
+#     c: "turning a mass on a scale into a count of particles",
+#     v: [ TODO: split "grams is the measured mass; molar mass is the grams in one mole; 6.022 x 10^23 is Avogadro's number, the particles in one mole." ],
+#     s: "The tank scale reports mass, but the reactor and atom ledger must count particles before the crew can decide whether fuel is missing.",
+#     k: [ TODO ] },
+#   // mission 1
+#   { e: "unaccounted amount = amount entering - amount accounted for",
+#     c: "closing a material ledger",
+#     v: [ TODO: split "amount entering is the measured input; amount accounted for is the total in products, recycle, samples, and measured losses." ],
+#     s: "The crew should hunt a leak only if the carbon entering the plant cannot be found in known streams.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "CO2 + 4 H2 -> CH4 + 2 H2O",
+#     c: "relating the plant's carbon dioxide and hydrogen feeds to methane and water production",
+#     v: [ TODO: split "CO2 is carbon dioxide; H2 is hydrogen; CH4 is methane; H2O is water; the numbers are mole ratios." ],
+#     s: "The crew must learn whether Martian carbon dioxide or recycled hydrogen sets the amount of methane available for the flight home.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "product moles = known moles x (product coefficient / known coefficient)",
+#     c: "calculating how much product one reactant can support",
+#     v: [ TODO: split "known moles is the measured reactant amount; each coefficient comes from the balanced equation." ],
+#     s: "Converting both feeds into possible methane reveals which supply truly stops production first.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "PV = nRT",
+#     c: "finding the total amount of gas from pressure, volume, and temperature",
+#     v: [ TODO: split "P is pressure; V is volume; n is moles of gas; R is the gas constant; T is absolute temperature in kelvin." ],
+#     s: "The storage gauge can reveal the total gas amount but cannot prove how much of that gas is usable hydrogen.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "component pressure = mole fraction x total pressure",
+#     c: "finding one gas's pressure inside a mixture",
+#     v: [ TODO: split "component pressure is the partial pressure; mole fraction is that gas's share; total pressure is the gauge reading." ],
+#     s: "Hydrogen can fall below the reactor's need while nitrogen keeps the total-pressure gauge looking normal.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "P2 = P1 x (T2 / T1), for fixed gas amount and volume",
+#     c: "predicting how a sealed gas responds to warming",
+#     v: [ TODO: split "P1 and P2 are the starting and final pressures; T1 and T2 are the starting and final temperatures in kelvin." ],
+#     s: "A committed warming prediction tests the pressure model while the composition reading tests the simple-leak story.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "M = moles of solute / liters of solution",
+#     c: "comparing dissolved amounts in samples of different volume",
+#     v: [ TODO: split "M is molarity in moles per liter; moles of solute is the dissolved amount; liters is the total solution volume." ],
+#     s: "The water plant must distinguish a small concentrated sample from a large container holding more total contamination.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "q = mcΔT",
+#     c: "calculating heat from a measured temperature change",
+#     v: [ TODO: split "q is heat; m is mass; c is specific heat capacity; ΔT is final temperature minus initial temperature." ],
+#     s: "The coolant temperature rise reveals how much reactor heat was actually removed before the temperature override.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "stored energy = energy generated - energy removed - energy carried away",
+#     c: "closing a thermal ledger",
+#     v: [ TODO: split "generated energy comes from reaction; removed energy leaves through cooling; carried energy leaves with matter; stored energy remains in equipment or gas." ],
+#     s: "A positive remainder can create an inlet hot spot even when the average reactor temperature looks safe.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "rate = k[CO2]^m[H2]^n",
+#     c: "predicting how carbon-dioxide and hydrogen concentrations change methane-production speed",
+#     v: [ TODO: split "rate is methane formation per time; k is the rate constant; brackets mean concentration; m and n are experimentally measured reaction orders." ],
+#     s: "The crew must quantify how hydrogen dilution and the temperature setting changed production before judging the override.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "k = rate / ([CO2]^m[H2]^n)",
+#     c: "finding the rate constant from one measured trial",
+#     v: [ TODO: split "every symbol has the same meaning as in the rate law and must use consistent concentration and time units." ],
+#     s: "A correct baseline lets the controlled temperature reversal be compared to the response predicted at the starting condition.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "Kc = [CH4][H2O]^2 / ([CO2][H2]^4)",
+#     c: "comparing equilibrium products with reactants for the Sabatier reaction",
+#     v: [ TODO: split "brackets are equilibrium molar concentrations; each exponent is the coefficient from the balanced equation." ],
+#     s: "The safer reactor setting must still reach enough final methane, not merely produce methane quickly at the start.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "concentration at equilibrium = initial concentration + coefficient-linked change",
+#     c: "completing an ICE table with one reaction extent",
+#     v: [ TODO: split "initial concentration is the starting value; change is negative for consumed reactants and positive for formed products; coefficients set relative sizes." ],
+#     s: "The plant needs a numerical methane ceiling at the safe temperature before committing pressure and water-removal power.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "moles of dissolved substance = molarity x volume in liters",
+#     c: "turning a solution concentration and volume into a reacting amount",
+#     v: [ TODO: split "molarity is moles per liter; volume is the solution volume in liters." ],
+#     s: "The treatment controller must add enough base to remove the measured acid without wasting purification capacity.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "pH = -log10[H+]",
+#     c: "predicting acidity after neutralization",
+#     v: [ TODO: split "[H+] is the hydrogen-ion concentration in moles per liter; log10 is the base-ten logarithm." ],
+#     s: "The predicted pH gives the electrolyzer a testable acceptance value before treated water is released.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "ending inventory = starting inventory + amount made + amount returned - amount used - amount sent away",
+#     c: "closing a whole-plant material balance",
+#     v: [ TODO: split "every amount uses the same substance and units over the same time interval." ],
+#     s: "Missing return water becomes a calculable next-shift hydrogen deficit only when the entire plant is counted together.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "Q = It",
+#     c: "finding the total electric charge delivered during a timed run",
+#     v: [ TODO: split "Q is charge in coulombs; I is current in amperes; t is time in seconds." ],
+#     s: "The dust-limited array gives the crew current and time, but the recovery plan needs a predicted amount of hydrogen and oxygen.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "moles of electrons = Q / F",
+#     c: "converting electric charge into chemical amount",
+#     v: [ TODO: split "Q is charge in coulombs; F is 96,485 coulombs per mole of electrons." ],
+#     s: "Electron amount is the bridge between the power board and the number of gas molecules the plant can make.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "actual product = theoretical product x current efficiency",
+#     c: "correcting ideal gas production for practical electrical losses",
+#     v: [ TODO: split "actual product is the usable amount made; theoretical product follows electron stoichiometry; current efficiency is written as a decimal fraction." ],
+#     s: "The launch plan must budget for the cell the crew actually has rather than a perfect 100-percent cell.",
+#     k: [ TODO ] },

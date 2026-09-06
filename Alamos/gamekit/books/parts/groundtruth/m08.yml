@@ -1,0 +1,153 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "A Field Without Contact"
+  card:
+    header: "8 DAYS;"
+    title: "A Field Without Contact"
+    goNow: "Mast Base, Marcus Tate at shunt rack."
+    body: "The mill jump came through a wire, so the trailer failure may also have followed a path no strike touched. Current creates magnetic field, and magnetic field pushes moving charge without doing work on it. You will derive the mast field, test force directions, and inspect the trailer loop. By the end of the mission, decide whether no-contact coupling is physically plausible."
+    objective: "Determine whether strike current can influence the trailer cable without direct contact."
+  objective: "Determine whether strike current can influence the trailer cable without direct contact."
+  stake: "The mill jump came through a wire, so the trailer failure may also have followed a path no strike touched. Current creates magnetic field, and magnetic field pushes moving charge without doing work on it. You will derive the mast field, test force directions, and inspect the trailer loop. By the end of the mission, decide whether no-contact coupling is physically plausible."
+  takeaway: "No-contact coupling is physically plausible. ---"
+  segue: "Mission decision: No-contact coupling is physically plausible. A 30 kA mast current makes about 3.0 mT at the nearby route. And the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign. And size."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-mast-base
+    # On arrival at Mast Base | s29-match-magnetic-rules | automatic
+    on: { enter: true, at: TODO }   # s29-match-magnetic-rules
+    world: "accepted MAST/bubble/shunts pulse/→S1; S2 correct/waypoint/field rings extend/Predicted B at 2.0 m: 3.00 mT; Inspect the outstation route.→COUPLE; enter COUPLE/panel/no arc tag/SHELL QUIET • CARD DAMAGED→S3; S3 correct/panel/helix displayed/MAGNETIC FORCE CHANGES DIRECTION, NOT SPEED→S4; S4 correct/radio/loop highlighted/No contact required; changing flux remains.→outcome."
+    panel: "Marcus Tate, mast engineer: \"If a field reached the route, its direction must match the wiring.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "If a field reached the route, its direction must match the wiring."
+  - id: after-stop-29
+    # After Stop 29 | s30-derive-the-down-conductor-field | automatic
+    on: { after: [1] }
+    world: "The match magnetic rules result remains visible while the derive the down-conductor field fixture lights."
+    panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 29 result to settle derive the down-conductor field."
+  - id: after-stop-30
+    # After Stop 30 | s31-track-a-charged-particle | automatic
+    on: { after: [2] }
+    world: "The derive the down-conductor field result remains visible while the track a charged particle fixture lights."
+    panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 30 result to settle track a charged particle."
+  - id: after-stop-31
+    # After Stop 31 | s32-diagnose-noncontact-damage | automatic
+    on: { after: [3] }
+    world: "The track a charged particle result remains visible while the diagnose noncontact damage fixture lights."
+    panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 31 result to settle diagnose noncontact damage."
+  - id: at-mission-end
+    # At mission end | s29-match-magnetic-rules | automatic
+    on: { enter: true, at: TODO }   # s29-match-magnetic-rules
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 8 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 29: Match Magnetic Rules
+  #     Concept: right-hand rule/force and source patterns; Keystone: K8,K9; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L2.
+  #     placement: PROTOCOL, at s29-match-magnetic-rules.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Match Magnetic Rules"
+    concept: "right-hand rule/force and source patterns"
+    reason: "cable orientation determines which conductors are pushed."
+    scene: "The down-conductor current points downward, and nearby wire segments run north, east, and vertical. Match force directions, then match straight wire, loop, solenoid, and toroid to their field patterns.\", and record the result with its physical justification in the station report."
+    motivation: "right-hand rules connect current geometry to both magnetic field and mechanical stress."
+    format: PROTOCOL
+    question: "Match all three wire orientations to force direction or zero, then match straight wire, loop, solenoid, and toroid to their field formula and direction; submit all seven mappings."
+    answerText: "The completed check shows right-hand mappings and four source formulas are complete. Geometry fixes directions."
+    why: "right-hand rules connect current geometry to both magnetic field and mechanical stress."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use current direction in IL×B and curl fingers around the source; do not swap force and field.
+    # correct result: Right-hand mappings and four source formulas are complete. Geometry fixes directions.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios include three force rows plus [straight,loop_center,solenoid,toroid]; choices include direction/zero and formulas [μ0I/(2πr),μ0I/(2R),μ0nI,μ0NI/(2πr)]; keyed mapping, vertical-parallel force zero. Prompt submit all seven matches.
+
+  # --- Stop 30: Derive the Down-Conductor Field
+  #     Concept: Ampere long wire; Keystone: K8,K2; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L3.
+  #     placement: DERIVE, at s30-derive-the-down-conductor-field.
+  - group: MAST
+    at: TODO               # the fixture it is asked at
+    title: "Derive the Down-Conductor Field"
+    concept: "Ampere long wire"
+    reason: "the trailer hypothesis needs field versus distance."
+    scene: "Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m.\", and record the result with its physical justification in the station report."
+    motivation: "Ampere's law converts current symmetry into the field that can thread a nearby loop."
+    format: DERIVE
+    question: "Build four Ampere-law lines for a 30 kA long wire, name each symmetry and algebra step, and submit B at 2.0 m in mT."
+    answerText: "The completed check shows b=μ₀I/(2πr)=3.00 mT. Circular symmetry makes B constant on the path."
+    why: "Ampere's law converts current symmetry into the field that can thread a nearby loop."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The path length is 2πr, not r, and 30 kA is 3.0×10^4 A.
+    # correct result: B=μ₀I/(2πr)=3.00 mT. Circular symmetry makes B constant on the path.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines ∮Bdl=μ0I, B(2πr)=μ0I, B=μ0I/(2πr), substitution→3.0mT. Tolerance .05 mT. State waypoint COUPLE.
+
+  # --- Stop 31: Track a Charged Particle
+  #     Concept: particle motion/mass spectrometer; Keystone: K9,K8; Area: Screened Room; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L3.
+  #     placement: BALLPARK, at s31-track-a-charged-particle.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Track a Charged Particle"
+    concept: "particle motion/mass spectrometer"
+    reason: "separate magnetic deflection from energy deposition."
+    scene: "At the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Estimate its helical radius, period, and pitch, then record the physical justification."
+    motivation: "a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged."
+    format: BALLPARK
+    question: "Using the displayed electron constants, assemble r=mv⊥/(|q|B), T=2πm/(|q|B), and pitch=v∥T; submit mm, ns, mm, and whether kinetic energy changes."
+    answerText: "The completed check shows r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged."
+    why: "a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use v⊥ for radius, v∥ for pitch, and remember magnetic force does no work.
+    # correct result: r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.
+    # state/output: unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   labels [m=9.11e-31kg,vperp=2e6,vparallel=1e6,q=1.602e-19C,B=.003T], formulas [r=mvperp/(qB),T=2πm/(qB),pitch=vparallel*T], targets [.00379m,1.191e-8s,.01191m], tolerance 10%. Prompt submit radius in mm, period in ns, pitch in mm, and select "kinetic energy unchanged." Answer 3.79 mm,11.9 ns,11.9 mm; ω=qB/m.
+
+  # --- Stop 32: Diagnose Noncontact Damage
+  #     Concept: field/loop hazard; Keystone: K8,K9,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4 decision.
+  #     placement: DIAGNOSIS, at s32-diagnose-noncontact-damage.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Diagnose Noncontact Damage"
+    concept: "field/loop hazard"
+    reason: "evidence must distinguish force, induction, and direct arc."
+    scene: "The field is strong enough to reach the trailer route, but magnetic force alone does no work. Diagnose the mechanism consistent with no shell arc, cable-card damage, and opposite-polarity voltage."
+    motivation: "the pattern points toward changing magnetic flux and induced electric field, not static magnetic work."
+    format: DIAGNOSIS
+    question: "Read tip, shell, card, and cabinet zones, select the one mechanism that fits all four, and submit one diagnosis."
+    answerText: "The completed check shows changing-flux induction fits all four zones."
+    why: "the pattern points toward changing magnetic flux and induced electric field, not static magnetic work."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Static B can deflect charge but cannot supply the card's electrical energy.
+    # correct result: Changing-flux induction fits all four zones.
+    # state/output: report piece8.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   readings ≥3 plus quiet shell; choices [direct_arc,static_B_work,changing_flux_induction]; answer induction.
+

@@ -1,0 +1,259 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "FULL"
+  card:
+    header: "2 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "FULL"
+    goNow: "Go to the Tank Farm and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the newest sample vial."
+    body: "The methane and oxygen displays read full, so launch control starts the countdown. An independent sample may show that one full tank contains the wrong mixture. At the Tank Farm, Assay Lab, and Pad Office, trace each green signal, test the vial, diagnose the mixture, and set the acceptance rule. By the end of the mission, decide whether the propellant is ready to fly or must be quarantined."
+    objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
+  objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
+  stake: "The methane and oxygen displays read full, so launch control starts the countdown. An independent sample may show that one full tank contains the wrong mixture. At the Tank Farm, Assay Lab, and Pad Office, trace each green signal, test the vial, diagnose the mixture, and set the acceptance rule. By the end of the mission, decide whether the propellant is ready to fly or must be quarantined."
+  takeaway: "\"Enough\" and \"safe to use\" are separate scientific claims."
+  segue: "Mission decision: Stop the launch clock and hold Batch C. Its mass and pressure pass, but the new test finds too little methane and too much carbon dioxide and water. The batch fails the rule set before the test. One shift remains to make clean fuel without bringing back the heat risk."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Amount, pressure, and composition are different claims and require evidence that can measure each one."
+  - "Certification should use a frozen model and a new independent sample."
+  - "Set the methane-purity trigger before the blind sample; keep carbon-dioxide, water, and pressure limits fixed as companion specifications."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-tank-farm
+    # On arrival at Tank Farm | automatic | 
+    on: { enter: true, at: TANKS }
+    world: "Giant METHANE FULL and OXYGEN FULL indicators dominate the tank wall while Batch C is outlined in amber."
+    panel: "MISSION 14 - FULL"
+    # unlocks: Stop 53 at the Tank Farm dependency view.
+    bubbles:
+    - who: achebe   # Achebe
+      say: "Mass and pressure say the tank is full. My independent vial says part of that mass is carbon dioxide and water. A full tank can still be the wrong propellant."
+  - id: after-stop-53
+    # After Stop 53 | Tank Farm dependency view | automatic discovery
+    on: { after: [1] }
+    world: "Estimated mass, online composition, control-room quality, and READY trace back to shared Standard C; the independent vial remains separate; The READY light changes from green to amber."
+    panel: "RESULT RECORDED"
+    # unlocks: The Assay Lab waypoint and Stops 54-55.
+    bubbles:
+    - who: achebe   # Achebe
+      say: "Four displays do not make four measurements when three inherit the same calibration."
+  - id: after-stops-54-and-55
+    # After Stops 54 and 55 | Assay Lab | automatic Twist 3
+    on: { after: [2, 3] }
+    world: "The frozen certification model fails on unseen Batch C; Composition appears as 91.6% methane, 8.0% carbon dioxide, and 0.40% water."
+    panel: "AMOUNT AT TARGET / COMPOSITION OUT OF SPECIFICATION."
+    # unlocks: The Ascent Pad office waypoint and Stop 56.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "We made enough material. We did not make enough flight-ready methane."
+  - id: after-stop-56
+    # After Stop 56 | Pad Office | automatic crisis result
+    on: { after: [4] }
+    world: "The player commits methane, carbon-dioxide, water, pressure, and abort limits before two blind resamples are revealed; Both confirm Batch C fails composition."
+    panel: "MISSION DECISION READY"
+    # unlocks: The Mission 14 outcome beat.
+    bubbles:
+    - who: achebe   # Achebe
+      say: "The deadline did not move the line. Batch C fails the rule we wrote before seeing it."
+    - who: abiola   # Abiola
+      say: "Countdown remains stopped."
+  - id: at-mission-end
+    # At mission end | Pad Office | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "Abiola deletes FULL from the readiness display and replaces it with AMOUNT and SPECIFICATION; AMOUNT turns green; SPECIFICATION stays red; Four recovery plans appear with one shift remaining."
+    panel: "FINAL MISSION - GO / NO-GO."
+    # unlocks: Mission 15 briefing and the Plant Control waypoint.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "One shift. Enough total propellant. Not enough certified methane. Bring me the plan that gets us home without asking the rocket to trust a lie."
+
+  stops:
+  # --- Stop 53: Trace every green light
+  #     Concept: evidence independence; Keystone: gas pressure and evidence independence; Area: Plant Control; Learning role: RETRIEVE; Difficulty: L4; Story role: clue.
+  #     placement: TRACE, operated at farm-gauges.
+  - group: GIBBS
+    at: farm-gauges
+    title: "Trace every green light"
+    concept: "evidence independence"
+    reason: "A green dashboard is not proof when its channels share dependencies."
+    scene: "The tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Opening every dependency will reveal whether readiness has independent support."
+    motivation: "A tank can look ready when several green numbers inherit the same wrong calibration."
+    format: TRACE
+    # CONVERTED from the payload below. `shared_resources` -> `resources`,
+    # `depends_on` -> `depends`, `truth.independent_channels` -> `independent`.
+    # The engine's `depends` names resources, so the three upstreams the bible's
+    # channels name — the pressure transducer, the molar-mass model and the
+    # cold-end analyzer — are declared as resources beside the two standards, and
+    # a channel the bible routes through another channel is declared against the
+    # resources that channel inherits.
+    trace:
+      resources:
+      - { id: standard_c, label: "Cold-end Standard C" }
+      - { id: standard_a, label: "Assay Lab Standard A" }
+      - { id: pressure_transducer, label: "Pressure transducer" }
+      - { id: molar_mass_model, label: "Molar-mass model" }
+      - { id: cold_end_analyzer, label: "Cold-end analyzer" }
+      target: standard_c
+      channels:
+      - { id: pressure, label: "Tank pressure", reading: "19.1 bar / PASS", depends: [pressure_transducer] }
+      - { id: mass, label: "Estimated methane mass", reading: "FULL", depends: [pressure_transducer, molar_mass_model] }
+      - { id: online_quality, label: "Online composition", reading: "97.4% CH4 / PASS", depends: [cold_end_analyzer, standard_c] }
+      - { id: control_quality, label: "Control-room quality", reading: "PASS", depends: [cold_end_analyzer, standard_c] }
+      - { id: ready_light, label: "LOAD READY", reading: "GREEN", depends: [pressure_transducer, molar_mass_model, cold_end_analyzer, standard_c] }
+      - { id: vial, label: "Independent Batch C vial", reading: "pending", depends: [standard_a] }
+      independent: [pressure, vial]
+      commit: "Name the shared source"
+    question: "Open dependencies and identify which readiness claims are independently supported."
+    answerText: "Pressure is independent, but mass and quality are derived; the vial is the only independent composition check."
+    why: "A full gauge can be true while methane purity is false. Derived numbers are useful, not independent."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Treating online quality, control-room quality, and the READY light as independent confirmations counts the same Standard C dependency more than once. Estimated methane mass is also derived from pressure and a model rather than a separate composition measurement.
+    # correct result: Pressure is independently real, but mass and quality are partly model-derived; two green quality channels share Standard C. The vial is the only independent composition check.
+    # state/output: Turn load-ready light amber; set evidence_flags.quality_not_independent = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:
+    #     shared_resources:
+    #       - {id: standard_c, label: "Cold-end Standard C"}
+    #       - {id: standard_a, label: "Assay Lab Standard A"}
+    #     target: standard_c
+    #     channels:
+    #       - {id: pressure, label: "Tank pressure", reading: "19.1 bar / PASS", depends_on: [pressure_transducer]}
+    #       - {id: mass, label: "Estimated methane mass", reading: "FULL", depends_on: [pressure, molar_mass_model]}
+    #       - {id: online_quality, label: "Online composition", reading: "97.4% CH4 / PASS", depends_on: [cold_end_analyzer, standard_c]}
+    #       - {id: control_quality, label: "Control-room quality", reading: "PASS", depends_on: [online_quality, standard_c]}
+    #       - {id: ready_light, label: "LOAD READY", reading: "GREEN", depends_on: [mass, control_quality]}
+    #       - {id: vial, label: "Independent Batch C vial", reading: "pending", depends_on: [standard_a]}
+    #     truth: {dependent_channels: [online_quality, control_quality, ready_light], independent_channels: [pressure, vial]}
+    #     correct: "Pressure is independently real; mass and quality are derived; the vial is the independent composition check."
+
+  # --- Stop 54: Test certification on the newest sample
+  #     Concept: model generalization; Keystone: evidence must be independent; Area: Plant Control; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: HOLDOUT, operated at spec-bench.
+  - group: GIBBS
+    at: spec-bench
+    title: "Test certification on the newest sample"
+    concept: "model generalization"
+    reason: "The certification model must pass the newest independent sample unchanged."
+    scene: "Because several green signals share one standard, freeze the historical calibration and test it on the unseen Batch C vial. The frozen model must predict Batch C without moving the standard afterward."
+    motivation: "The newest independent sample is the claim the certification model must get right before ascent."
+    format: HOLDOUT
+    question: "Freeze the historical certification model and score the unseen Batch C vial."
+    answerText: "The frozen model fails Batch C, so quarantine the batch."
+    why: "Passing historical clean samples does not validate extrapolation into a contaminated regime. The newest independent sample is exactly what certification must predict."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Refitting the calibration to make Batch C pass destroys the independence of the test.
+    # correct result: Model fails; quarantine Batch C.
+    # state/output: batch_c_quality = off_spec; launch countdown pauses.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout:
+    #     fit_set:
+    #       label: "Six historical clean standards"
+    #       methane_percent_range: [97,100]
+    #       maximum_residual_percent: 0.3
+    #       model_prediction_for_batch_c_percent: 97.4
+    #     freeze_required: true
+    #     holdout_set:
+    #       - {id: batch_c, measured_ch4_percent: 91.6, measured_co2_percent: 8.0, measured_h2o_percent: 0.40}
+    #     pass_limits: {ch4_min_percent: 97.0, co2_max_percent: 2.0, h2o_max_percent: 0.10}
+    #     correct: "Model fails the unseen contaminated sample; quarantine Batch C."
+    #     anti_cheat: "Calibration cannot be refit after Batch C is revealed."
+
+  # --- Stop 55: What is actually wrong?
+  #     Concept: integrated composition diagnosis; Keystone: structure, solutions, separation, gases, and equilibrium; Area: Cold End; Learning role: RETRIEVE; Difficulty: L5; Story role: twist.
+  #     placement: DIAGNOSIS, at assay-review-board.
+  - group: PHASE
+    at: assay-review-board
+    title: "What is actually wrong?"
+    concept: "integrated composition diagnosis"
+    reason: "Launch control needs one cause that explains both passing and failing readings."
+    scene: "Combine the failed vial with the other readings to decide whether the problem is amount, contamination, or a broken sensor. The full panel will distinguish enough material from material safe to fly."
+    motivation: "The crew must decide whether the problem is too little propellant or the wrong propellant."
+    format: DIAGNOSIS
+    question: "Which explanation fits the amount, pressure, composition, dryer, and calibration readings?"
+    # CONVERTED from the payload below. `state: quiet` is the engine's
+    # `status: normal`, and the keyed `answer` becomes the candidate's label.
+    headline: "FULL BY MASS IS NOT FLIGHT-READY BY COMPOSITION"
+    readings:
+    - {zone: tank, label: "Pressure", value: "19.1 bar", status: normal}
+    - {zone: tank, label: "Total loaded mass", value: "target reached", status: normal}
+    - {zone: assay, label: "Methane", value: "91.6%", status: alarm}
+    - {zone: assay, label: "Carbon dioxide", value: "8.0%", status: alarm}
+    - {zone: assay, label: "Water", value: "0.40%", status: alarm}
+    - {zone: cold_end, label: "Drier differential pressure", value: "high", status: alarm}
+    choices:
+    - {id: low_amount, label: "Insufficient total propellant", mechanism: "Contradicted by loaded mass and pressure."}
+    - {id: leak, label: "Tank leak", mechanism: "Contradicted by stable mass and pressure."}
+    - {id: breakthrough, label: "Purification breakthrough hidden by shared calibration", mechanism: "Explains high CO2/H2O, drier load, and false quality pass."}
+    - {id: slow_rate, label: "Reactor rate still too low", mechanism: "Cannot create contaminants after collection."}
+    answer: "Purification breakthrough hidden by shared calibration"
+    answerText: "Batch C is off specification because purification broke through and Standard C hid the contamination."
+    why: "Contaminants add mass and pressure, so quantity signals pass. Drier/purification breakthrough sends CO2/water into product; biased Standard C hides it."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Insufficient total propellant is ruled out by target mass and normal pressure. A tank leak is ruled out by stable mass and pressure. A slow reactor rate cannot create the measured CO2 and water contamination after collection.
+    # correct result: Purification breakthrough hidden by shared Standard C bias is the only diagnosis that fits the full panel.
+    # state/output: twist_3_complete = true; quarantine line appears around one tank.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "FULL BY MASS IS NOT FLIGHT-READY BY COMPOSITION"
+    #   readings:
+    #     - {zone: tank, label: "Pressure", value: "19.1 bar", state: quiet}
+    #     - {zone: tank, label: "Total loaded mass", value: "target reached", state: quiet}
+    #     - {zone: assay, label: "Methane", value: "91.6%", state: alarm}
+    #     - {zone: assay, label: "Carbon dioxide", value: "8.0%", state: alarm}
+    #     - {zone: assay, label: "Water", value: "0.40%", state: alarm}
+    #     - {zone: cold_end, label: "Drier differential pressure", value: "high", state: alarm}
+    #   choices:
+    #     - {id: low_amount, label: "Insufficient total propellant", mechanism: "Contradicted by loaded mass and pressure."}
+    #     - {id: leak, label: "Tank leak", mechanism: "Contradicted by stable mass and pressure."}
+    #     - {id: breakthrough, label: "Purification breakthrough hidden by shared calibration", mechanism: "Explains high CO2/H2O, drier load, and false quality pass."}
+    #     - {id: slow_rate, label: "Reactor rate still too low", mechanism: "Cannot create contaminants after collection."}
+    #   answer: breakthrough
+
+  # --- Stop 56: Write the rule before the final samples
+  #     Concept: precommitted thresholds; Keystone: evidence must be independent; Area: Plant Control; Learning role: APPLY; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, operated at certification-console.
+  - group: GIBBS
+    at: certification-console
+    title: "Write the rule before the final samples"
+    concept: "precommitted thresholds"
+    reason: "The acceptance line must be fixed before the blind result creates pressure."
+    scene: "Commit the acceptance and abort limits before the blind samples appear so the decision cannot move after the result is known. The blind sample will then be judged by the same rule either way."
+    motivation: "Precommitted thresholds stop the launch deadline from changing what the crew is willing to call safe."
+    format: TRIGGER
+    question: "Commit the independent methane-purity trigger before two blind samples appear; use the fixed carbon-dioxide, water, and pressure limits as companion rules."
+    answerText: "Set methane acceptance at 97.0% before the blind samples; any independent failure triggers quarantine under the fixed companion limits."
+    why: "Thresholds express consequences before results create pressure to excuse them. Averaging an independent failing sample with a biased online channel has no scientific basis."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A trigger must name the action and allow enough lead time; pressure alone cannot certify composition.
+    # correct result: Commit CH4 at least 97.0% before reveal; CO2 at most 2.0%; H2O at most 0.10%; pressure 18.0-20.0 bar at stated T; any independent failure -\> quarantine/reprocess, not average with passing online value.
+    # state/output: launch_status = NO_GO_PENDING_RECOVERY; unlock final plan board.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     rule:
+    #       id: methane_acceptance
+    #       label: "Independent methane purity needed for acceptance"
+    #       scale: {min: 90.0, max: 100.0, unit: percent_CH4}
+    #       anchors:
+    #         - {value: 90.0, label: "QUARANTINE"}
+    #         - {value: 95.0, label: "HOLD"}
+    #         - {value: 97.0, label: "ACCEPT MINIMUM"}
+    #         - {value: 100.0, label: "PURE END"}
+    #       objective: "Accept a batch only when an independent sample meets methane purity and all fixed companion specifications."
+    #       direction: higher_is_safer
+    #       consequence_limit: 97.0
+    #     fixed_companion_limits: {co2_max_percent: 2.0, h2o_max_percent: 0.10, pressure_bar: [18.0,20.0]}
+    #     blind_updates:
+    #       - {id: tank_a, ch4: 98.4, co2: 1.5, h2o: 0.06, pressure_bar: 19.0, result: pass}
+    #       - {id: batch_c, ch4: 91.8, co2: 7.8, h2o: 0.38, pressure_bar: 19.2, result: quarantine}
+    #     correct: "Commit 97.0% before reveal; any independent failure triggers quarantine rather than averaging."
+

@@ -1,0 +1,159 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Two-Day Cost Note"
+  card:
+    header: "12 SHIFTS UNTIL THE STORM"
+    title: "Water in Motion"
+    goNow: "Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the arrival map."
+    body: "The gate response is predictable, but a safe release also depends on when and how high water reaches each settlement. Position, velocity, acceleration, and related rates turn the moving flood front into warning times. At the arrival map, calculate motion, distance, and changing depth. By the end of the mission, choose the minimum warning lead time."
+    objective: "Set a warning time that covers the first dangerous arrival."
+  objective: "Set a warning time that covers the first dangerous arrival."
+  stake: "The gate response is predictable, but a safe release also depends on when and how high water reaches each settlement. Position, velocity, acceleration, and related rates turn the moving flood front into warning times. At the arrival map, calculate motion, distance, and changing depth. By the end of the mission, choose the minimum warning lead time."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Use a minimum warning lead of 280 minutes. It includes travel to the village. And the road's rise time. The warning rule is now tied to motion, not an average. The two-day release plan still needs a true peak test."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-downstream-warning-desk
+    # On arrival at Downstream Warning Desk | arrival-map | automatic
+    on: { enter: true, at: SAFE }
+    world: "The differentiate the flood front fixture wakes and the mission evidence opens."
+    panel: "MISSION 4: DIFFERENTIATE THE FLOOD FRONT OPEN"
+    bubbles:
+    - who: baptiste   # Elise Baptiste
+      say: "Start with differentiate the flood front. We need evidence the next decision can use."
+  - id: after-stop-13
+    # After Stop 13 | arrival-map | automatic
+    on: { after: [1] }
+    world: "After 4.2 Location: SAFE."
+    panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    bubbles:
+    - who: baptiste   # Elise Baptiste
+      say: "Use the Stop 13 result to settle distance is not displacement."
+  - id: after-stop-14
+    # After Stop 14 | arrival-map | automatic
+    on: { after: [2] }
+    world: "After 4.3 Location: SAFE."
+    panel: "STOP 14 RECORDED - STOP 15 OPEN"
+    bubbles:
+    - who: baptiste   # Elise Baptiste
+      say: "Use the Stop 14 result to settle relate depth and reach volume."
+  - id: after-stop-15
+    # After Stop 15 | radio-desk | automatic
+    on: { after: [3] }
+    world: "The relate depth and reach volume result remains visible while the commit the warning fixture lights."
+    panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    bubbles:
+    - who: baptiste   # Elise Baptiste
+      say: "Use the Stop 15 result to settle commit the warning."
+  - id: at-mission-end
+    # At mission end | arrival-map | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 4 EVIDENCE: RECORDED"
+    bubbles:
+    - who: baptiste   # Elise Baptiste
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 13: Differentiate the flood front
+  #     Concept: motion derivatives; Keystone: Motion/rates; Area: Gate House; Learning role: INTRODUCE; Difficulty: L3; Story role: foundation.
+  #     placement: DERIVE, at arrival-map.
+  - group: GATES
+    at: arrival-map
+    title: "Differentiate the flood front"
+    concept: "motion derivatives"
+    reason: "The first settlement needs the flood front's current speed and acceleration."
+    scene: "The front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Differentiate twice and classify its motion at t=2 h before using the map's average time, and the team needs this result before it acts."
+    motivation: "Velocity and acceleration signs show both direction and whether the front is speeding up."
+    format: DERIVE
+    question: "Derive v(t) and a(t); submit (v(2),a(2)) with units and the motion classification."
+    answerText: "At 2 h the front momentarily stops; acceleration is +6 km/h^2."
+    why: "At 2 h the front momentarily stops; acceleration is +6 km/h^2. Velocity and acceleration signs show both direction and whether the front is speeding up."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Speed is |v|; at v=0 sign comparison needs nearby times.
+    # correct result: exact.
+    # state/output: stop marker; unlock 4.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"v,a and classification",givens:["x=2t^3-9t^2+12t"],lines:[{expressions:["v=6t^2-18t+12","v=6t-18"],correct:"v=6t^2-18t+12",rules:["power and sum rules","second derivative"],correct_rule:"power and sum rules"},{expressions:["a=12t-18","a=12t+12"],correct:"a=12t-18",rules:["differentiate velocity","absolute value"],correct_rule:"differentiate velocity"},{expressions:["v(2)=0 km/h,a(2)=6 km/h^2; momentary stop","v=6,a=0"],correct:"v(2)=0 km/h,a(2)=6 km/h^2; momentary stop",rules:["substitute and interpret","same sign test"],correct_rule:"substitute and interpret"}],answerText:"At 2 h the front momentarily stops; acceleration is +6 km/h^2."}
+
+  # --- Stop 14: Distance is not displacement
+  #     Concept: total distance; Keystone: Motion/rates; Area: Powerhouse; Learning role: PRACTICE; Difficulty: L3; Story role: evidence.
+  #     placement: SEQUENCE, at arrival-map.
+  - group: POWER
+    at: arrival-map
+    title: "Distance is not displacement"
+    concept: "total distance"
+    reason: "A temporary reversal changes travelled distance and warning coverage."
+    scene: "With a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Split the interval and compute every positive position change from t=0 through t=3."
+    motivation: "Total travel follows each segment; displacement records only the endpoints."
+    format: SEQUENCE
+    question: "Order the steps, then submit total distance and displacement in kilometres."
+    answerText: "split wherever v=0, then sum absolute changes."
+    why: "split wherever v=0, then sum absolute changes. Total travel follows each segment; displacement records only the endpoints."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Absolute endpoint displacement misses reversals.
+    # correct result: distance 11 km, displacement 9 km.
+    # state/output: route segments; unlock 4.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cards:["solve v=0: t=1,2","evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9","sum |5-0|+|4-5|+|9-4|","compute x(3)-x(0)"],order:["solve v=0: t=1,2","evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9","sum |5-0|+|4-5|+|9-4|","compute x(3)-x(0)"]
+    cards:
+    - "solve v=0: t=1,2"
+    - "evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9"
+    - "sum |5-0|+|4-5|+|9-4|"
+    - "compute x(3)-x(0)"
+    order: [0, 1, 2, 3]
+
+  # --- Stop 15: Relate depth and reach volume
+  #     Concept: related rates; Keystone: Motion/rates; Area: Powerhouse; Learning role: INTRODUCE; Difficulty: L4; Story role: obstacle.
+  #     placement: DERIVE, at arrival-map.
+  - group: POWER
+    at: arrival-map
+    title: "Relate depth and reach volume"
+    concept: "related rates"
+    reason: "Warning level depends on how fast depth rises in a widening reach."
+    scene: "Because route distance alone misses water height, model the first reach as V(h)=12000h^2 cubic metres. At h=1.5 m, inflow is 900 m^3/min; differentiate the constraint to find dh/dt, and the team needs this result before it acts."
+    motivation: "The depth rate tells how quickly a safe bank becomes a flooded road."
+    format: DERIVE
+    question: "Derive and submit dh/dt in metres per minute, showing units."
+    answerText: "Depth rises at 0.025 m/min."
+    why: "Depth rises at 0.025 m/min. The depth rate tells how quickly a safe bank becomes a flooded road."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Differentiate first, then insert the instantaneous depth.
+    # correct result: .025 m/min, tolerance .0001.
+    # state/output: road clock; unlock 4.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"dh/dt",givens:["V=12000h^2 m^3","h=1.5 m","dV/dt=900 m^3/min"],lines:[{expressions:["dV/dt=24000h dh/dt","dV/dt=24000h"],correct:"dV/dt=24000h dh/dt",rules:["implicit chain rule in time","power only"],correct_rule:"implicit chain rule in time"},{expressions:["dh/dt=900/(24000*1.5)=0.025 m/min","0.0375 m/min"],correct:"dh/dt=900/(24000*1.5)=0.025 m/min",rules:["substitute then solve","divide before inserting h"],correct_rule:"substitute then solve"}],answerText:"Depth rises at 0.025 m/min."}
+
+  # --- Stop 16: Commit the warning
+  #     Concept: motion/threshold; Keystone: Motion/rates; Area: Powerhouse; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at radio-desk.
+  - group: POWER
+    at: radio-desk
+    title: "Commit the warning"
+    concept: "motion/threshold"
+    reason: "Baptiste must send warnings before release settings arrive."
+    scene: "The first village is 4.0 h away, and the road closes 40 min after the rise begins there. Combine travel and closure times, then commit the latest inclusive warning deadline before dispatch updates."
+    motivation: "A rule written before the update protects people from optimistic rescheduling."
+    format: TRIGGER
+    question: "Submit the minimum lead time in minutes before road closure and commit WARN if planned release begins within that lead time; use 60 min/h."
+    answerText: "warning must precede closure by at least 280 minutes."
+    why: "warning must precede closure by at least 280 minutes. A rule written before the update protects people from optimistic rescheduling."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Include downstream rise time after arrival.
+    # correct result: 4*60+40=280 min, exact; commit 280.
+    # state/output: four-hour-forty rule pinned.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{decision_rule:"WARN if release begins within committed lead time",scale:{min:200,max:300,step:5,unit:"min"},anchors:[240,280],objective:"warning before first road closure",direction:"at least",consequence_limit:"road must remain open for evacuation"}
+

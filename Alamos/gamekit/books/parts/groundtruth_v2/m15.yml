@@ -1,0 +1,231 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Sign the Ground Truth"
+  card:
+    header: "FINAL STORM WINDOW TODAY;"
+    title: "Sign the Ground Truth"
+    goNow: "Launch Control, Dr. Lena Ortiz at record desk."
+    body: "The main reroute works, but card E's local loop still exceeds the limit. The final report must join electrostatics, energy, circuits, magnetism, induction, bandwidth, and independent evidence into one action. You will approve a repair, run a dry check, witness the final shot, and close the record. By the end of the mission, decide whether Station 12 is safe to certify."
+    objective: "Repair the local loop, execute the final rule, and sign or reject certification."
+  objective: "Repair the local loop, execute the final rule, and sign or reject certification."
+  stake: "The main reroute works, but card E's local loop still exceeds the limit. The final report must join electrostatics, energy, circuits, magnetism, induction, bandwidth, and independent evidence into one action. You will approve a repair, run a dry check, witness the final shot, and close the record. By the end of the mission, decide whether Station 12 is safe to certify."
+  takeaway: "Certify Station 12. ---"
+  segue: "Mission decision: Certify Station 12. The loop repair keeps card E below 250 volts. Every rule set before the shot now passes. Separate records confirm the result. The report names the bad path and the fix."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-remote-outstation
+    # On arrival at Remote Outstation | repair-board | automatic
+    on: { enter: true, at: COUPLE }
+    world: "accepted SHOT/bubble/100-point board/→S1; S1 correct/waypoint/plan pinned/TWIST PAIR • ISOLATE RECORD • VERIFY TIMING • PROTECT INSPECTION→BANK/S2; S2 correct/waypoint/dry checks PASS/Dry source and law map pass; Repair card E.→COUPLE/S3; S3 correct/world/pair permanently twisted/TEMP 72 V • RESTORE 305 V • REPAIR 74 V→S4; S4 correct/nearby bubbles then banner/report signed/ALL LIMITS PASS • INDEPENDENT RECORDS COMPLETE→outcome/victory."
+    panel: "Dr. Lena Ortiz, station director: \"Fund the cause, the witness, and the recovery.\""
+    bubbles:
+    - who: ortiz   # Lena Ortiz
+      say: "Fund the cause, the witness, and the recovery."
+  - id: after-stop-57
+    # After Stop 57 | bank-stages | automatic
+    on: { after: [1] }
+    world: "The fund the final repair result remains visible while the map the final laws fixture lights."
+    panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Use the Stop 57 result to settle map the final laws."
+  - id: after-stop-58
+    # After Stop 58 | cable-bay | automatic
+    on: { after: [2] }
+    world: "The map the final laws result remains visible while the reverse the loop geometry fixture lights."
+    panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Use the Stop 58 result to settle reverse the loop geometry."
+  - id: after-stop-59
+    # After Stop 59 | repair-board | automatic
+    on: { after: [3] }
+    world: "The reverse the loop geometry result remains visible while the certify station 12 fixture lights."
+    panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Use the Stop 59 result to settle certify station 12."
+  - id: at-mission-end
+    # At mission end | repair-board | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 15 EVIDENCE: RECORDED"
+    bubbles:
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 57: Fund the Final Repair
+  #     Concept: causal repair portfolio; Keystone: all K; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L5.
+  #     placement: SCIENCETANK, asked by Dr. Lena Ortiz beside repair-board.
+  - group: COUPLE
+    at: repair-board
+    title: "Fund the Final Repair"
+    person: ortiz
+    concept: "causal repair portfolio"
+    reason: "limited final window must fund causes, not cosmetic work."
+    scene: "Ortiz has 100 effort points and four hours. Fund a plan that reduces card-E loop area, preserves isolated recording, verifies bank timing, and keeps a protected inspection reserve.\", and record the result with its physical justification in the station report."
+    motivation: "the final plan must cover source, path, measurement, and recovery."
+    format: SCIENCETANK
+    question: "Allocate the 100 effort points across the five proposals, preserve the protected inspection reserve, and submit answers to all three causal-plan checks."
+    answerText: "The completed check shows fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points."
+    why: "the final plan must cover source, path, measurement, and recovery."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not spend protected inspection capacity on cosmetic work.
+    # correct result: Fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   proposals [twist_pair 35 required,isolated_channel20 required,gap_timing15 required,inspection20 protected,repaint10]; recommended first four=90; evidence constraints. Prompt allocate 100 and answer three decision checks. State waypoint BANK.
+    #
+    # CONVERTED. The bible's five proposals with their point costs; the
+    # `recommended` allocation is its own "first four = 90". What each proposal
+    # buys is the bible's own scene clause for it — "reduces card-E loop area,
+    # preserves isolated recording, verifies bank timing, and keeps a protected
+    # inspection reserve" — and the fifth is the cosmetic work its wrong-path
+    # line names.
+    proposals:
+    - label: "Twist pair"
+      text: "Twist the card-E pair, which reduces card-E loop area. 35 effort points."
+    - label: "Isolated channel"
+      text: "Keep the isolated recording channel, which preserves isolated recording. 20 effort points."
+    - label: "Gap timing"
+      text: "Re-check gap timing, which verifies bank timing. 15 effort points."
+    - label: "Inspection"
+      text: "Hold the protected inspection reserve. 20 effort points."
+    - label: "Repaint"
+      text: "Cosmetic work. 10 effort points."
+    recommended:
+      Twist pair: 35
+      Isolated channel: 20
+      Gap timing: 15
+      Inspection: 20
+
+  # --- Stop 58: Map the Final Laws
+  #     Concept: full-course tool selection; Keystone: all K; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: PROTOCOL, at bank-stages.
+  - group: COUPLE
+    at: bank-stages
+    title: "Map the Final Laws"
+    concept: "full-course tool selection"
+    reason: "the dry check must use the right relation for each observed quantity."
+    scene: "The funded plan is locked. Match each final observation to the equation family that can actually determine it, including static, circuit, magnetic, induction, transient, and energy-flow cases.\", and record the result with its physical justification in the station report."
+    motivation: "selecting the governing law prevents one successful equation from being used outside its domain."
+    format: PROTOCOL
+    question: "Match all twelve final observations to the governing equation family, then submit the complete mapping; every row is required."
+    answerText: "The completed check shows all twelve law mappings are correct. Each equation has a defined physical job."
+    why: "selecting the governing law prevents one successful equation from being used outside its domain."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Match by source and requested quantity, not by whichever formula contains a familiar symbol.
+    # correct result: All twelve law mappings are correct. Each equation has a defined physical job.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios=[off_axis_point_charge_field,point_charge_energy,uniform_sphere_inside_outside,surface_field,series_capacitors,temperature_changed_resistor,multiloop_currents,loop_center_field,toroid_field,rotating_loop_emf,changing_capacitor_gap_field,energy_flow_direction]; choices=[Coulomb_vector_sum_and_dq_integral,V_scalar_sum_and_Uq,Gauss_concentric,Eout_sigma_over_epsilon0,reciprocal_C_series,R=R0(1+alphaDeltaT),Kirchhoff_simultaneous,BiotSavart_loop_or_Ampere,Ampere_toroid,epsilon=NABomegaSinOmegaT,AmpereMaxwell_displacement_current,Poynting_ExB]; one-to-one keyed mapping in listed order.
+    #
+    # CONVERTED. Twelve observations, twelve equation families, and the bible's
+    # own "one-to-one keyed mapping in listed order" written as indices. Both
+    # lists are its tokens spelled out; nothing is added or reordered.
+    columns:
+    - "The observation"
+    - "The law that can determine it"
+    scenarios:
+    - "The field at a point off the axis of a charge distribution."
+    - "The energy of a point charge in a potential."
+    - "The field inside and outside a uniformly charged sphere."
+    - "The field just outside a charged conducting surface."
+    - "Capacitors in series."
+    - "A resistor whose temperature has changed."
+    - "The currents in a multi-loop circuit."
+    - "The field at the centre of a current loop."
+    - "The field inside a toroid."
+    - "The emf of a rotating N-turn loop."
+    - "The changing field in a capacitor gap."
+    - "The direction of energy flow."
+    choices:
+    - "Coulomb vector sum, with a dq integral"
+    - "Scalar sum for V, and U = qV"
+    - "Gauss's law on a concentric surface"
+    - "E_out = σ/ε₀"
+    - "Reciprocal sum for capacitors in series"
+    - "R = R₀(1 + αΔT)"
+    - "Kirchhoff's rules, solved simultaneously"
+    - "Biot-Savart for a loop, or Ampere's law"
+    - "Ampere's law for a toroid"
+    - "ε = NABω sin(ωt)"
+    - "Ampere-Maxwell, with displacement current"
+    - "The Poynting vector, E×B"
+    mapping: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+  # --- Stop 59: Reverse the Loop Geometry
+  #     Concept: loop-area causality; Keystone: K10,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: CONTROL, at cable-bay.
+  - group: COUPLE
+    at: cable-bay
+    title: "Reverse the Loop Geometry"
+    concept: "loop-area causality"
+    reason: "repair must show reversible causal effect before permanent fastening."
+    scene: "Temporarily twist card E's outgoing and return wires together, keep pulse source, gain, resistance, and sampling fixed, then untwist once. Measure induced peak in all three states before permanent fastening."
+    motivation: "reduced loop area should lower flux and voltage, with reversal restoring the old peak."
+    format: CONTROL
+    question: "Change only pair twisting while source, gain, resistance, and sampling stay fixed; measure original, twisted, and restored peaks; restore once, fasten permanently, remeasure, and submit the causal conclusion."
+    answerText: "The completed check shows twisting causes 310→72 V; reversal gives 305 V; final repair gives 74 V."
+    why: "reduced loop area should lower flux and voltage, with reversal restoring the old peak."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A low value without reversal is correlation; untwist once before permanent fastening.
+    # correct result: Twisting causes 310→72 V; reversal gives 305 V; final repair gives 74 V.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"twist_pair",label:"twist the signal pair"},{id:"lower_gain",label:"lower receiver gain"},{id:"add_resistor",label:"add series resistance"}],correct_control:"twist_pair",baseline:{peak:310,unit:"V"},response:{peak:72,unit:"V"},noise_band:{value:8,unit:"V"},fixed:["source","gain","resistance","sampling"],restore:{required:true,peak:305,unit:"V",remeasure:true},final_setting:{twist_pair:"fastened",peak:74,unit:"V"},correct_conclusion:"loop area caused the pickup",answerText:"Twisting the pair collapses the induced peak, restoration brings it back, and refastening makes the repair permanent."}
+    #
+    # CONVERTED as at mission 7 stop 3 and mission 11 stop 3. The engine's
+    # `response` is the signed change, so the bible's 310 V baseline and 72 V
+    # twisted peak give -238. The bible's restored 305 V and refastened 74 V are
+    # its answer text's business, not a second board.
+    control:
+      observable: { label: "Card-E induced peak", unit: "V" }
+      variables:
+      - { id: twist_pair, label: "twist the signal pair" }
+      - { id: lower_gain, label: "lower receiver gain" }
+      - { id: add_resistor, label: "add series resistance" }
+      held: ["source", "gain", "resistance", "sampling"]
+      truth: twist_pair
+      baseline: 310
+      response: -238
+      noise: 8
+      changeVerb: "Apply"
+      run: "Measure the induced peak"
+      commit: "Name the cause"
+
+  # --- Stop 60: Certify Station 12
+  #     Concept: final certification; Keystone: all K; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5 payoff.
+  #     placement: ATTEST, asked by Dr. Lena Ortiz beside repair-board.
+  - group: COUPLE
+    at: repair-board
+    title: "Certify Station 12"
+    person: ortiz
+    concept: "final certification"
+    reason: "certification requires independent proof of thresholds, identity, timing, and physical repair."
+    scene: "The repaired card measures 74 V on the final shot. Verify crew-clear field, conduit current, all trailer peaks, channel independence, bank timing, and post-shot inspection, then submit one certification verdict, and the team needs this result before it acts."
+    motivation: "the signed report is warranted only if every physical limit and evidence condition passes."
+    format: ATTEST
+    question: "Use at most six checks to verify every critical threshold, identity, timing, independence, and inspection claim; submit CERTIFY or REJECT as one final verdict."
+    answerText: "The completed check shows cERTIFY. Every threshold, identity, timing, independence, and inspection claim is backed."
+    why: "the signed report is warranted only if every physical limit and evidence condition passes."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   One missing critical record blocks certification even if every visible number is green.
+    # correct result: CERTIFY. Every threshold, identity, timing, independence, and inspection claim is backed.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:6,claims:[{id:"field",label:"crew-clear field 4.7 kV/m",signed:true,backed:true,critical:true},{id:"conduit",label:"conduit current 0.3 kA",signed:true,backed:true,critical:true},{id:"trailers",label:"maximum trailer peak 190 V",signed:true,backed:true,critical:true},{id:"independence",label:"channel spread 0.2",signed:true,backed:true,critical:true},{id:"timing",label:"bank timing 100 ns",signed:true,backed:true,critical:true},{id:"inspection",label:"post-shot inspection passed",signed:true,backed:true,critical:true},{id:"draft_note",label:"unsigned draft summary",signed:false,backed:false,critical:false}],correct_verified:["field","conduit","trailers","independence","timing","inspection"],answerText:"All six critical signed records pass, so certify Station 12; the unsigned draft is not evidence."}
+

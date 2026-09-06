@@ -1,0 +1,160 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Wall's Carrying Limit"
+  card:
+    header: "9 SHIFTS UNTIL THE STORM"
+    title: "Count Every Cubic Metre"
+    goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall."
+    body: "Forecast B predicts a larger crest, but peak flow alone does not tell how much water the reservoir must hold. A definite integral accumulates a rate, and numerical sums estimate it from readings. At the gauges and storage board, total incoming water and verify the accumulation rule. By the end of the mission, set the required drawdown volume."
+    objective: "Calculate storm inflow and required empty storage."
+  objective: "Calculate storm inflow and required empty storage."
+  stake: "Forecast B predicts a larger crest, but peak flow alone does not tell how much water the reservoir must hold. A definite integral accumulates a rate, and numerical sums estimate it from readings. At the gauges and storage board, total incoming water and verify the accumulation rule. By the end of the mission, set the required drawdown volume."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Draw down 5.28 million m^3 before the storm. The integral gives 17.28 million m^3 of inflow. And the plan also keeps 2.00 million m^3 of campaign safety room. The next task is finding a release mix that clears this volume without flooding the valley."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-catchment-inflow-desk
+    # On arrival at Catchment & Inflow Desk | gauge-wall | automatic
+    on: { enter: true, at: INFLOW }
+    world: "Arrival Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Start with estimate sampled inflow. We need evidence the next decision can use."
+  - id: after-stop-25
+    # After Stop 25 | trace-bench | automatic
+    on: { after: [1] }
+    world: "After 7.2 Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 25 result to settle build exact accumulation."
+  - id: after-stop-26
+    # After Stop 26 | trace-bench | automatic
+    on: { after: [2] }
+    world: "Travel Location: INFLOW->STORE."
+    panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 26 result to settle verify ftc part 2."
+  - id: after-stop-27
+    # After Stop 27 | water-ledger | automatic
+    on: { after: [3] }
+    world: "The verify ftc part 2 result remains visible while the separate signed change from physical volume fixture lights."
+    panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 27 result to settle separate signed change from physical volume."
+  - id: at-mission-end
+    # At mission end | gauge-wall | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 7 EVIDENCE: RECORDED"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 25: Estimate sampled inflow
+  #     Concept: L/R/trapezoid sums; Keystone: Accumulation; Area: Catchment & Inflow Desk; Learning role: INTRODUCE; Difficulty: L3; Story role: foundation.
+  #     placement: BALANCE, at gauge-wall.
+  - group: INFLOW
+    at: gauge-wall
+    title: "Estimate sampled inflow"
+    concept: "L/R/trapezoid sums"
+    reason: "The crew needs a first volume estimate from six-hour gauge readings."
+    scene: "Forecast flows at hours 0,6,12,18,24 are 120,172.5,210,232.5,240 m3/s. Compute left, right, and trapezoidal sums using 6 h=21,600 s, then compare their likely bias from the rise."
+    motivation: "Numerical accumulation brackets urgency before an exact model is integrated."
+    format: BALANCE
+    question: "Load the five flows in m^3/s, use Delta t=6 h=21600 s, and submit the left, right, and trapezoidal totals in cubic metres plus an over/under conclusion."
+    answerText: "for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints."
+    why: "for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Convert hours to seconds.
+    # correct result: L=15.876, R=18.468, T=17.172 million m^3.
+    # state/output: estimated band; unlock 7.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"left_sum",label:"left-endpoint estimate",values:[120,172.5,210,232.5],weight:21600,unit:"m3",counts:true},{id:"right_sum",label:"right-endpoint estimate",values:[172.5,210,232.5,240],weight:21600,unit:"m3",counts:true},{id:"trapezoid",label:"trapezoidal estimate",values:[146.25,191.25,221.25,236.25],weight:21600,unit:"m3",counts:true},{id:"midpoint_guess",label:"unsupported midpoint guess",value:18000000,unit:"m3",counts:false,reason:"no midpoint readings were observed"}],correct:{left_sum:15876000,right_sum:18468000,trapezoid:17172000},answerText:"Left and right sums bracket the rising flow; the trapezoidal estimate is 17,172,000 m3, and the unsupported midpoint guess does not count."}
+
+  # --- Stop 26: Build exact accumulation
+  #     Concept: antiderivatives/linearity/FTC/Riemann limit; Keystone: FTC; Area: Storage & Level Board; Learning role: INTRODUCE; Difficulty: L3; Story role: evidence.
+  #     placement: DERIVE, at trace-bench.
+  - group: STORE
+    at: trace-bench
+    title: "Build exact accumulation"
+    concept: "antiderivatives/linearity/FTC/Riemann limit"
+    reason: "The release goal needs an exact model total, not only rectangles."
+    scene: "Use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Build its antiderivative and evaluate the definite integral, converting hours to seconds, to check the sampled estimate near 17 million m3."
+    motivation: "FTC converts the continuous forecast rate into total incoming volume."
+    format: DERIVE
+    question: "Derive integral_0^24 I(t)dt, multiply by 3600 s/h, and submit cubic metres."
+    answerText: "The modeled storm adds 17,280,000 m^3."
+    why: "The modeled storm adds 17,280,000 m^3. FTC converts the continuous forecast rate into total incoming volume."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The antiderivative constant cancels in a definite integral, but belongs in the indefinite family.
+    # correct result: 17,280,000 m^3, tolerance 1000.
+    # state/output: exact total; waypoint STORE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"storm volume",givens:["I=120+10t-(5/24)t^2","0<=t<=24 h","3600 s/h"],lines:[{expressions:["F=120t+5t^2-(5/72)t^3+C","F=120+10t^2-(5/12)t^3"],correct:"F=120t+5t^2-(5/72)t^3+C",rules:["linearity and power antiderivative","differentiate"],correct_rule:"linearity and power antiderivative"},{expressions:["[F(24)-F(0)]*3600","F(24)*24"],correct:"[F(24)-F(0)]*3600",rules:["FTC Part 1 and unit conversion","mean value"],correct_rule:"FTC Part 1 and unit conversion"},{expressions:["17,280,000 m^3","4,800 m^3"],correct:"17,280,000 m^3",rules:["evaluate bounds","omit seconds"],correct_rule:"evaluate bounds"}],answerText:"The modeled storm adds 17,280,000 m^3."}
+
+  # --- Stop 27: Verify FTC Part 2
+  #     Concept: accumulation derivative; Keystone: FTC; Area: Gate House; Learning role: PRACTICE; Difficulty: L4; Story role: verification.
+  #     placement: VERIFY, at trace-bench.
+  - group: GATES
+    at: trace-bench
+    title: "Verify FTC Part 2"
+    concept: "accumulation derivative"
+    reason: "The board must show that its running total changes at the measured inflow rate."
+    scene: "Because exact total matches the numerical scale, test the live accumulator A(x)=integral_0^x I(t)dt. Predict A'(12), advance the clock around hour 12, and compare the measured accumulation slope with inflow, and the team needs this result before it acts."
+    motivation: "FTC Part 2 certifies that the totalizer and rate gauge describe the same water."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** For $A(x)=\\int_0^x I(t)dt$ and $I(t)=120+10t-(5/24)t^2$ m^3/s, submit $A'(12)$ in m^3/s; the clock remains locked until commitment."
+    answerText: "120+10(12)-(5/24)(12^2)=210; both readings agree within 1 m^3/s."
+    why: "120+10(12)-(5/24)(12^2)=210; both readings agree within 1 m^3/s. FTC Part 2 certifies that the totalizer and rate gauge describe the same water."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The derivative of an accumulation with upper bound x is the integrand at x.
+    # correct result: 210; pass.
+    # state/output: totalizer certified; unlock 7.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{prediction:{target:210,unit:"m^3/s",tolerance:1},equipment_locked_until_prediction_commit:true,operation:"advance 11.9 to 12.1 h",fixed:["forecast B","release 0"],measurements:["accumulator slope 209.9 m^3/s","gauge 210.0 m^3/s"],restore:false,correct_conclusion:"passes"}
+
+  # --- Stop 28: Separate signed change from physical volume
+  #     Concept: signed integral/area/sum bias; Keystone: Accumulation; Area: Catchment & Inflow Desk; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: CHOICE, asked by Imani Okoro beside water-ledger.
+  - group: INFLOW
+    at: water-ledger
+    title: "Separate signed change from physical volume"
+    person: okoro
+    concept: "signed integral/area/sum bias"
+    reason: "The drawdown target must count incoming water and a fixed safety margin."
+    scene: "The current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. Choose the additional pre-storm drawdown required, and the team needs this result before it acts."
+    motivation: "A volume ledger, not peak flow, determines whether the reservoir can hold the storm."
+    format: CHOICE
+    question: "Use drawdown = storm inflow + safety margin - current empty storage; select exactly one of four values and submit its label in million cubic metres."
+    choices:
+    - "1.28 million m^3."
+    - "5.28 million m^3."
+    - "15.28 million m^3."
+    - "33.28 million m^3."
+    answer: "5.28 million m^3."
+    answerText: "The completed check shows 17.28+2.00-14.00=5.28 million m^3."
+    why: "17.28+2.00-14.00=5.28 million m^3. A volume ledger, not peak flow, determines whether the reservoir can hold the storm."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (1) **1.28 million m^3:** This subtracts the safety margin instead of reserving it. (3) **15.28 million m^3:** This omits the 14.00 million m^3 of storage already empty. (4) **33.28 million m^3:** This adds current empty storage when it must reduce required drawdown.
+    # correct result: 17.28+2.00-14.00=5.28 million m^3.
+    # state/output: drawdown target painted on board.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   question:"What additional drawdown is required?"; choices:["5.28 million m^3","3.28 million m^3","19.28 million m^3","1.28 million m^3"]; answer:"5.28 million m^3"; why:"17.28+2.00-14.00=5.28 million m^3."; rebuttals:{"3.28 million m^3":"This omits the required 2.00 million m^3 safety margin.","19.28 million m^3":"This fails to subtract the 14.00 million m^3 already empty.","1.28 million m^3":"This subtracts the safety margin instead of reserving it."}
+

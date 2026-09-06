@@ -1,0 +1,158 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Rising-Fast Rule"
+  card:
+    header: "14 SHIFTS UNTIL THE STORM"
+    title: "Faster Than the Gauge"
+    goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the trace bench."
+    body: "The repaired trace is smooth, but its slope is growing while the level remains below the old alarm. A derivative measures instantaneous change and can warn before a height limit is crossed. At the hydrograph bench, derive the rise rate, differentiate the forecast, and build a local tangent estimate. By the end of the mission, choose the new rate alarm."
+    objective: "Set a defensible reservoir-rise alarm."
+  objective: "Set a defensible reservoir-rise alarm."
+  stake: "The repaired trace is smooth, but its slope is growing while the level remains below the old alarm. A derivative measures instantaneous change and can warn before a height limit is crossed. At the hydrograph bench, derive the rise rate, differentiate the forecast, and build a local tangent estimate. By the end of the mission, choose the new rate alarm."
+  takeaway: "Linear approximation uses a value and local slope. ---"
+  segue: "Mission decision: Set the new rate alarm at the tangent prediction. The next reading is above 4.230 m, so the reservoir is rising faster than the current local trend. The crew starts an early watch. A gate chart must now turn level change into release change."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "The derivative is a limit of average rates."
+  - "Positive slope means increasing; negative slope means decreasing."
+  - "A tangent line gives a nearby linear estimate."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-catchment-inflow-desk
+    # On arrival at Catchment & Inflow Desk | trace-bench | automatic
+    on: { enter: true, at: INFLOW }
+    world: "Arrival Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Start with build the instantaneous rise. We need evidence the next decision can use."
+  - id: after-stop-5
+    # After Stop 5 | gauge-wall | automatic
+    on: { after: [1] }
+    world: "After 2.1 Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 5 result to settle differentiate the forecast signal."
+  - id: after-stop-6
+    # After Stop 6 | trace-bench | automatic
+    on: { after: [2] }
+    world: "After 2.2 Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 6 result to settle protect the net-rise calculation."
+  - id: after-stop-7
+    # After Stop 7 | gauge-wall | automatic
+    on: { after: [3] }
+    world: "The protect the net-rise calculation result remains visible while the set the tangent alarm fixture lights."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 7 result to settle set the tangent alarm."
+  - id: at-mission-end
+    # At mission end | trace-bench | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 5: Build the instantaneous rise
+  #     Concept: derivative definition; Keystone: Derivative as rate; Area: Gate House; Learning role: INTRODUCE; Difficulty: L3; Story role: foundation.
+  #     placement: DERIVE, at trace-bench.
+  - group: GATES
+    at: trace-bench
+    title: "Build the instantaneous rise"
+    concept: "derivative definition"
+    reason: "The alarm needs an instantaneous rate rather than a fifteen-minute average."
+    scene: "The level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Build the difference quotient at t=2 to expose how fast the level is changing now."
+    motivation: "A rate alarm responds to the curve's local motion before the height reaches danger."
+    format: DERIVE
+    question: "Derive H'(2) from the limit definition and submit a rate in metres per hour."
+    answerText: "At hour 2 the level rises at 0.12 m/h."
+    why: "limit of secant slopes."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Average height is not instantaneous change.
+    # correct result: 0.12 m/h, tolerance 0.001.
+    # state/output: live rate field; unlock 2.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"H'(2)",givens:["H(t)=0.03t^2+4.00 m","t=2 h"],lines:[{expressions:["lim h->0 [H(2+h)-H(2)]/h","H(2)/2"],correct:"lim h->0 [H(2+h)-H(2)]/h",rules:["derivative definition","average height"],correct_rule:"derivative definition"},{expressions:["lim h->0 [0.12h+0.03h^2]/h","lim h->0 0.03h^2"],correct:"lim h->0 [0.12h+0.03h^2]/h",rules:["expand and subtract","power rule"],correct_rule:"expand and subtract"},{expressions:["lim h->0 (0.12+0.03h)","0.03h"],correct:"lim h->0 (0.12+0.03h)",rules:["cancel h for h!=0","set h=0 too early"],correct_rule:"cancel h for h!=0"},{expressions:["0.12 m/h","0.06 m/h"],correct:"0.12 m/h",rules:["evaluate limit","divide height by time"],correct_rule:"evaluate limit"}],answerText:"At hour 2 the level rises at 0.12 m/h."}
+
+  # --- Stop 6: Differentiate the forecast signal
+  #     Concept: power/trig/exp/chain; Keystone: Differentiation rules; Area: Gate House; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+  #     placement: DERIVE, at gauge-wall.
+  - group: GATES
+    at: gauge-wall
+    title: "Differentiate the forecast signal"
+    concept: "power/trig/exp/chain"
+    reason: "The rate display needs the derivative of the full forecast signal."
+    scene: "The forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Differentiate every term so the panel can show whether inflow itself is rising at hour 2."
+    motivation: "The derivative of inflow reveals acceleration in the reservoir's incoming load."
+    format: DERIVE
+    question: "Build I'(t), naming the rule for each term, then evaluate at t=2 h; angles are radians. Submit cubic metres per second per hour."
+    answerText: "I'(2)=89.509 (m^3/s)/h, so inflow is rising quickly."
+    why: "96+20cos2+1.5e^.2=89.509."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   d(e^(0.1t))/dt includes 0.1.
+    # correct result: 89.509 (m^3/s)/h, tolerance 0.01.
+    # state/output: rate lamp amber; unlock 2.3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"I'(2)",givens:["I(t)=120+8t^3+20sin t+15e^(0.1t)"],lines:[{expressions:["24t^2+20cos t+1.5e^(0.1t)","8t^2-20sin t+15e^(0.1t)"],correct:"24t^2+20cos t+1.5e^(0.1t)",rules:["sum, power, trig, exponential chain rules","product rule only"],correct_rule:"sum, power, trig, exponential chain rules"},{expressions:["89.509","96.000"],correct:"89.509",rules:["substitute t=2 radians","drop non-polynomial terms"],correct_rule:"substitute t=2 radians"}],answerText:"I'(2)=89.509 (m^3/s)/h, so inflow is rising quickly."}
+
+  # --- Stop 7: Protect the net-rise calculation
+  #     Concept: product/quotient rules; Keystone: Differentiation rules; Area: Gate House; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, at trace-bench.
+  - group: GATES
+    at: trace-bench
+    title: "Protect the net-rise calculation"
+    concept: "product/quotient rules"
+    reason: "Rain correction and gate efficiency both change with time, so simple subtraction is unsafe."
+    scene: "Because inflow is accelerating, the corrected signal multiplies raw inflow by calibration c(t), while turbine flow divides demand P(t) by head H(t). Derive both rates before combining them into net storage change."
+    motivation: "Missing either product term or the quotient denominator would shift the alarm threshold."
+    format: DERIVE
+    question: "For J=cI and Q=P/H, derive J' and Q'; submit the ordered expression pair."
+    answerText: "J'=c'I+cI' and Q'=(P'H-PH')/H^2."
+    why: "both changing factors contribute."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A product's derivative is not the product of derivatives.
+    # correct result: exact pair.
+    # state/output: net-rate formula saved; unlock 2.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"(J',Q')",givens:["J=cI","Q=P/H"],lines:[{expressions:["c'I+cI'","c'I'"],correct:"c'I+cI'",rules:["product rule","chain rule"],correct_rule:"product rule"},{expressions:["(P'H-PH')/H^2","P'/H'"],correct:"(P'H-PH')/H^2",rules:["quotient rule","ratio of derivatives"],correct_rule:"quotient rule"}],answerText:"J'=c'I+cI' and Q'=(P'H-PH')/H^2."}
+
+  # --- Stop 8: Set the tangent alarm
+  #     Concept: tangent line/linear approximation; Keystone: Derivative as rate; Area: Gate House; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at gauge-wall.
+  - group: GATES
+    at: gauge-wall
+    title: "Set the tangent alarm"
+    concept: "tangent line/linear approximation"
+    reason: "Imani needs an alarm rule before the next fifteen-minute reading arrives."
+    scene: "The verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Use the tangent line to predict 10:15, then commit an inclusive alarm threshold before the update appears."
+    motivation: "A precommitted threshold prevents the crew from moving the rule after seeing the data."
+    format: TRIGGER
+    question: "Calculate L(0.25)=4.20+(0.12)(0.25) and submit the predicted level in metres; then commit RISING FAST if measured level is at least that value."
+    answerText: "4.20+0.12(0.25)=4.230 m; 4.235 >= 4.230, so the rising-fast condition is met."
+    why: "4.20+0.12(0.25)=4.230 m; 4.235 >= 4.230, so the rising-fast condition is met. A precommitted threshold prevents the crew from moving the rule after seeing the data."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Multiply the hourly rate by 0.25 h, not 15.
+    # correct result: prediction 4.230 m, tolerance 0.001; trigger fires.
+    # state/output: rate alarm set; delivery piece 2 pinned.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:{decision_rule:"RISING FAST if measured 10:15 level >= committed tangent prediction",scale:{min:4.18,max:4.28,step:0.001,unit:"m"},anchors:[4.20,4.23,4.26],objective:"detect a rise at least as fast as current derivative",direction:"at or above",consequence_limit:"do not change release until warning review"}; update reveals 4.235 m.
+

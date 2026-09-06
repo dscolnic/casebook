@@ -1,0 +1,156 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Board Pack"
+  card:
+    header: "DAY 15 - BOARD TODAY"
+    title: "The Board Pack"
+    goNow: "Go to Regulatory & Registry and meet Mara Voss, trial director, at the delivery board."
+    body: "The follow-up is complete, and every earlier result now feeds one board decision. The final claim must match the design, conditions, uncertainty, error rules, and patient stakes. Audit the pack in Regulatory, verify the source at Adjudication, then execute the rule upstairs. By the end of the mission, decide whether CLARION-3 stops, changes, or continues under safeguards."
+    objective: "Sign and deliver the Monitoring Board Pack."
+  objective: "Sign and deliver the Monitoring Board Pack."
+  stake: "The follow-up is complete, and every earlier result now feeds one board decision. The final claim must match the design, conditions, uncertainty, error rules, and patient stakes. Audit the pack in Regulatory, verify the source at Adjudication, then execute the rule upstairs. By the end of the mission, decide whether CLARION-3 stops, changes, or continues under safeguards."
+  takeaway: "Use State-Plan-Do-Conclude for every inference argument. ---"
+  segue: "Mission decision: Continue with safeguards. The harm bound is below the written line. The benefit range stays above zero. The board signs the full statistical case."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Do not introduce new analyses in the finale."
+  - "Carry earlier results forward even after an arithmetic error; the reasoning can still be assessed."
+  - "Say fail to reject, never accept or prove the null."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-regulatory-registry
+    # On arrival at Regulatory & Registry | s57-reconstruct-the-evidence-chain | automatic
+    on: { enter: true, at: TODO }   # s57-reconstruct-the-evidence-chain
+    world: "Arrival: REG entry; 14 binder slots lit; Mara says, ; - After S1: method links illuminate; waypoint TAKE SOURCE CLAIMS TO ADJUDICATION. - ADJUD after S2: source/scope stamp appears; waypoint CARRY COMPLETE PACK TO MONITORING BOARD. - BOARD after S3: locked rule displays CONTINUE WITH SAFEGUARDS; - Final/outcome: signatures appear, binder slot15 fills, doors open, BOARD PACK ACCEPTED; timer remains paused; metric victory screen unlocks."
+    panel: "MISSION 15: RECONSTRUCT THE EVIDENCE CHAIN OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Rebuild the chain before anyone signs"
+  - id: after-stop-57
+    # After Stop 57 | s58-state-the-reach | automatic
+    on: { after: [1] }
+    world: "The reconstruct the evidence chain result remains visible while the state the reach fixture lights."
+    panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Use the Stop 57 result to settle state the reach."
+  - id: after-stop-58
+    # After Stop 58 | s59-apply-the-trigger | automatic
+    on: { after: [2] }
+    world: "The state the reach result remains visible while the apply the trigger fixture lights."
+    panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Use the Stop 58 result to settle apply the trigger."
+  - id: after-stop-59
+    # After Stop 59 | s60-sign-the-statistical-argument | automatic
+    on: { after: [3] }
+    world: "The apply the trigger result remains visible while the sign the statistical argument fixture lights."
+    panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "Use the Stop 59 result to settle sign the statistical argument."
+  - id: at-mission-end
+    # At mission end | s57-reconstruct-the-evidence-chain | automatic
+    on: { enter: true, at: TODO }   # s57-reconstruct-the-evidence-chain
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 15 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mara-voss   # Mara Voss
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The upper harm bound is 1.80 per 1,000, below 2.0, while benefit excludes zero; continue under safeguards."
+
+  stops:
+  # --- Stop 57: Reconstruct the Evidence Chain
+  #     Concept: cumulative matching; Keystone: all keystones; Area: Monitoring Board Room; Learning role: RETRIEVE; Difficulty: L4; Story role: payoff.
+  #     placement: CASEBOOK, at s57-reconstruct-the-evidence-chain.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Reconstruct the Evidence Chain"
+    concept: "cumulative matching"
+    reason: "A pack piece is useless if its result is attached to the wrong claim or design."
+    scene: "Fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match each conclusion to its study design, conditions, and correct statistical procedure before signing."
+    motivation: "The board can act only when every conclusion remains traceable to the data-generating process."
+    format: CASEBOOK
+    question: "Match each of four conclusions to its study design, required conditions, and correct procedure. Submit the complete evidence-chain mapping."
+    answerText: "The completed check shows match procedure to variable type and design; formulas do not determine scope by themselves."
+    why: "The board can act only when every conclusion remains traceable to the data-generating process."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Formula alone chooses test
+    # correct result: Match procedure to variable type and design; formulas do not determine scope by themselves.
+    # state/output: pack chain lights; travel ADJUD.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios primary binary arm effect, paired recovery, site event distributions, dose-response quantitative trend; choices two-prop z, paired t, chi-square homogeneity, slope t; exact mapping.
+
+  # --- Stop 58: State the Reach
+  #     Concept: causation/generalization/measurement; Keystone: design and scope; Area: Randomisation & Blinding; Learning role: TRANSFER; Difficulty: L5; Story role: payoff.
+  #     placement: DIAGNOSIS, at s58-state-the-reach.
+  - group: RAND
+    at: TODO               # the fixture it is asked at
+    title: "State the Reach"
+    concept: "causation/generalization/measurement"
+    reason: "The final claim must not reach beyond the patients or measurements the trial can support."
+    scene: "The reconstructed chain shows random assignment, repaired but not population-random enrollment, verified endpoints, and bounded missingness. Choose the strongest treatment conclusion that every one of those design facts permits the board to state."
+    motivation: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated."
+    format: DIAGNOSIS
+    question: "Use random assignment, nonrandom enrollment, partial rural repair, and verified endpoints. Submit one causal conclusion and one generalization limit."
+    answerText: "The completed check shows infer a causal treatment effect for patients like those enrolled, while limiting generalization to broader populations."
+    why: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Random assignment implies universal generalization
+    # correct result: Infer a causal treatment effect for patients like those enrolled, while limiting generalization to broader populations.
+    # state/output: source VERIFIED; travel BOARD.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   readings random assignment pass, random population sample absent, rural repair partial, endpoint audit pass. Choices causation for trial-like patients with limited generalization; association only; universal causation; population generalization no cause. Answer first.
+
+  # --- Stop 59: Apply the Trigger
+  #     Concept: integrated interval/trigger; Keystone: keystone CI/errors; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L5; Story role: climax.
+  #     placement: VERIFY, at s59-apply-the-trigger.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Apply the Trigger"
+    concept: "integrated interval/trigger"
+    reason: "The written safety rule, not preference, must control the board action."
+    scene: "The final source calls yield an excess-harm 95% upper bound of 1.8 per 1,000, below the prewritten continuation line of 2.0. Verify the displayed calculation and apply the locked rule."
+    motivation: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Use upper bound = estimate + 1.96(SE) with estimate 0.60 events/1,000 and SE 0.612 events/1,000; submit the upper bound in events/1,000 before the rule panel unlocks."
+    answerText: "0.6+1.96(.612)=1.80 per 1,000, below 2.0; benefit interval excludes zero, so continue under safeguards."
+    why: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   predicted upper bound in events/1000, measured values, action conclusion
+    # correct result: Predicted and measured upper bound 1.80 events per 1,000 patients, tolerance 0.01 event per 1,000; conclusion continue under safeguards.
+    # state/output: rule displays CONTINUE WITH SAFEGUARDS; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{equation:"upper bound=estimate+1.96(SE)",inputs:{estimate:0.60,SE:0.612,critical_value:1.96},submit:{quantity:"upper harm bound",unit:"events per 1,000 patients",truth:1.80,tolerance:0.01}},equipment_locked_until_prediction_commit:true,operation:{action:"apply locked safety rule",fixed:["continue below 2.0","modify from 2.0 to below 4.0","stop at or above 4.0"]},measurements:{upper_bound:1.80,unit:"events per 1,000 patients",benefit_interval:"excludes zero"},restore:{required:false,reason:"rule application changes no equipment setting"},correct_conclusion:"continue under safeguards",answerText:"The upper harm bound is 1.80 per 1,000, below 2.0, while benefit excludes zero; continue under safeguards."}
+
+  # --- Stop 60: Sign the Statistical Argument
+  #     Concept: FRQ State-Plan-Do-Conclude; Keystone: all keystones; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L5; Story role: final decision.
+  #     placement: SEQUENCE, at s60-sign-the-statistical-argument.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Sign the Statistical Argument"
+    concept: "FRQ State-Plan-Do-Conclude"
+    reason: "The board needs one complete argument whose words, symbols, conditions, work, and conclusion agree."
+    scene: "The trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Order State, Plan, Do, and Conclude, preserving population names, units, conditions, calculations, and cautious language."
+    motivation: "A reproducible argument lets future monitors challenge any step without rewriting the result."
+    format: SEQUENCE
+    question: "cards: State parameters/hypotheses in words/symbols; Plan procedure/check conditions; Do formula/statistic/p-value or interval; Conclude compare p to alpha and interpret in context. Exact order. A prior guessed value may carry forward without double penalty."
+    answerText: "The completed check shows state, Plan, Do, Conclude. Use patient variables and units; never say accept H0, prove H0, or omit context."
+    why: "A reproducible argument lets future monitors challenge any step without rewriting the result."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Conclusion can omit context or say accept H0
+    # correct result: State, Plan, Do, Conclude. Use patient variables and units; never say accept H0, prove H0, or omit context.
+    # state/output: signature applied; piece15; final payoff.
+

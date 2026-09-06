@@ -1,0 +1,215 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Darker Answer"
+  card:
+    header: "IMPACT WINDOW: 9 DAYS, 10 HOURS"
+    title: "THE DARKER ANSWER"
+    goNow: "Go to the Survey Telescope and meet Sanaa Vale, physical-characterization lead, by radio at the dome-console."
+    body: "The summit positions passed their controls, but visible brightness alone allows a small bright body or a much larger dark one. Thermal infrared measures the heat leaving the surface and helps separate size from reflectivity. Begin at the Survey Telescope, then carry the light curve to the Spectroscopy Dome. By the end of the mission, decide which diameter and consequence range the response must use."
+    objective: "Break the brightness-size degeneracy and adopt a defensible diameter range."
+  objective: "Break the brightness-size degeneracy and adopt a defensible diameter range."
+  stake: "The summit positions passed their controls, but visible brightness alone allows a small bright body or a much larger dark one. Thermal infrared measures the heat leaving the surface and helps separate size from reflectivity. Begin at the Survey Telescope, then carry the light curve to the Spectroscopy Dome. By the end of the mission, decide which diameter and consequence range the response must use."
+  takeaway: "Break a degeneracy with evidence that depends on the unknowns in a different way. ---"
+  segue: "Mission decision: Plan for a dark body that is 230–290 m wide. Its heat shows that it is larger than first thought. Its light may point to two lobes. Radar must test its shape and path."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "The same visible brightness can come from a small bright surface or a large dark surface."
+  - "Thermal emission depends strongly on size and temperature."
+  - "Unequal light-curve maxima can indicate an irregular or two-lobed shape."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-survey-telescope
+    # On arrival at Survey Telescope | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Sanaa Vale, physical-characterization lead, appears by radio: \"The brightness is measured. The diameter is still an assumption.\""
+    panel: "THE DARKER ANSWER / MISSION ACTIVE"
+    # unlocks: Stop 21.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-21
+    # After Stop 21 | automatic | 
+    on: { after: [1] }
+    world: "The 106 m estimate receives ASSUMES pv = 0.25. Waypoint: FLY TO EAST SUMMIT — MEASURE HEAT, NOT JUST REFLECTION."
+    panel: "THE DARKER ANSWER / FIRST RESULT LOGGED"
+    # unlocks: The Spectroscopy Dome waypoint and Stop 22.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-22
+    # After Stop 22 | automatic | 
+    on: { after: [2] }
+    world: "The sizing-board shows reflected-light and thermal curves crossing at one region."
+    panel: "THE DARKER ANSWER / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 23.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-23
+    # After Stop 23 | automatic | 
+    on: { after: [3] }
+    world: "Diameter range locks at 230-290 m; the albedo marker falls to 0.041."
+    panel: "THE DARKER ANSWER / DECISION EVIDENCE READY"
+    # unlocks: Stop 24.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Consequence class changes from LOCAL to REGIONAL; the unequal light-curve peaks remain tagged STRUCTURE UNRESOLVED."
+    panel: "THE DARKER ANSWER / MISSION DECISION LOGGED"
+    # unlocks: Mission 6 outcome, metric screen, concept review, and Mission 7 briefing.
+    bubbles:
+    - who: sanaa-vale   # Sanaa Vale
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 21: Reproduce the assumption
+  #     Concept: H-to-diameter estimate; Keystone: albedo-size degeneracy; Area: Spectroscopy Dome; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: BALLPARK, at dome-console.
+  - group: DISC
+    at: dome-console
+    title: "Reproduce the assumption"
+    concept: "H-to-diameter estimate"
+    reason: "The team must expose the assumption behind the public 100 m estimate before replacing it."
+    scene: "The certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Estimate the diameter produced by that assumption and label the preliminary result as explicitly conditional."
+    motivation: "Reproducing the old estimate shows that the arithmetic was sound even though the physical assumption may be wrong."
+    format: BALLPARK
+    question: "Using every displayed input, submit one conditional diameter in meters."
+    answerText: "The early estimate is about 106 m only if the surface reflects 25% under the adopted geometric model."
+    why: "Lower albedo requires a larger area to produce the same reflected brightness."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep the square root of albedo in the denominator and convert kilometers to meters at the end.
+    # correct result: 0.106 km = 106 m; accept 98-114 m.
+    # state/output: The old estimate gains an ASSUMED ALBEDO label; CHAR waypoint unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:
+    #     labels: [constant, magnitude factor, albedo factor]
+    #     values: [[1329 km], [10^(-22/5)], [1/sqrt(0.25)]]
+    #     slots: [constant, magnitude, albedo]
+    #     template: 1329 × 10^(-H/5) / sqrt(pv)
+    #     formula: asteroid diameter from H and albedo
+    #     target: 0.106
+    #     correct: 0.106 km or 106 m
+    #     tolerance: 8 percent
+
+  # --- Stop 22: Break the reflected-light locus
+  #     Concept: diameter-albedo degeneracy; Keystone: albedo-size; Area: Spectroscopy Dome; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: DEGENERACY, at sizing-board.
+  - group: CHAR
+    at: sizing-board
+    title: "Break the reflected-light locus"
+    concept: "diameter-albedo degeneracy"
+    reason: "Reflected light alone leaves many diameter and albedo pairs that fit H = 22.0."
+    scene: "With the conditional 106 m result visible, slide diameter and albedo along every pair that matches the reflected brightness. Then add the thermal-area constraint and locate the smaller region that satisfies both."
+    motivation: "The intersection, not either measurement alone, sets the diameter used for impact energy."
+    format: DEGENERACY
+    question: "Submit the numerical pair (D in meters, pv dimensionless) that satisfies both the reflected-light and thermal controls."
+    answerText: "The asteroid is large and dark, not small and bright."
+    why: "Two measurements with different parameter dependence break a degeneracy."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A point on only one curve is still ambiguous; find where both physical constraints overlap.
+    # correct result: D = 260 m, pv = 0.041; diameter range 230-290 m.
+    # state/output: Sizing board locks 230-290 m; Stop 23 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:
+    #     controls:
+    #       - {id: diameter_m, label: Diameter, min: 80, max: 320, step: 20}
+    #       - {id: albedo, label: Visible albedo, min: 0.02, max: 0.30, step: 0.01}
+    #     tolerance: 0.08
+    #     first_locus:
+    #       - [100, 0.28]
+    #       - [120, 0.19]
+    #       - [160, 0.11]
+    #       - [200, 0.070]
+    #       - [240, 0.049]
+    #       - [260, 0.041]
+    #       - [300, 0.031]
+    #     second_locus:
+    #       label: Thermal emitting-area constraint
+    #       points:
+    #         - [230, 0.050]
+    #         - [260, 0.041]
+    #         - [290, 0.034]
+    #     physical_constraint: thermal flux at 10.2 micrometers
+    #     truth_pair: [260, 0.041]
+    #     answerText: Reflected and thermal measurements intersect near 260 m and pv = 0.041.
+
+  # --- Stop 23: Check the thermal temperature
+  #     Concept: Wien relation; Keystone: light/thermal characterization; Area: Spectroscopy Dome; Learning role: PRACTICE; Difficulty: L3; Story role: verification.
+  #     placement: SWEEP, at spectrograph.
+  - group: CHAR
+    at: spectrograph
+    title: "Check the thermal temperature"
+    concept: "Wien relation"
+    reason: "The emitting-area result depends on a defensible surface temperature."
+    scene: "Because the thermal locus selects a large dark body, sweep model temperature and compare the predicted spectral peak with the observed 10.2-micrometer maximum. Choose the temperature that aligns the shape before accepting the area."
+    motivation: "A correct temperature prevents a hot small body from imitating a cooler large one."
+    format: SWEEP
+    question: "Calculate and commit the predicted temperature in kelvin before the temperature control unlocks; then operate the sweep, measure the model peak in micrometers, and submit the setting plus PASS or FAIL."
+    answerText: "The thermal color temperature is about 285 K, supporting the large emitting area."
+    why: "Wien's law links a thermal spectrum's peak wavelength inversely to temperature."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Match the spectral peak, not the highest temperature or largest total flux.
+    # correct result: 285 K.
+    # state/output: Thermal constraint changes from PROVISIONAL to VERIFIED; Stop 24 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {label: temperature, unit: K, values: [220, 250, 270, 285, 300, 330]}
+    #     predicted_peak_micrometers: [13.2, 11.6, 10.7, 10.2, 9.7, 8.8]
+    #     observed_peak_micrometers: 10.2
+    #     goal: absolute peak mismatch no more than 0.3 micrometers
+    #     correct_setting: 285
+    #     answerText: A temperature near 285 K reproduces the observed thermal peak.
+
+  # --- Stop 24: Adopt the consequence body
+  #     Concept: physical characterization; Keystone: size/structure; Area: Spectroscopy Dome; Learning role: TRANSFER; Difficulty: L4; Story role: decision/Twist 1.
+  #     placement: DIAGNOSIS, at sizing-board.
+  - group: CHAR
+    at: sizing-board
+    title: "Adopt the consequence body"
+    concept: "physical characterization"
+    reason: "Evelyn cannot update consequences until one physical explanation fits brightness, heat, and the light curve."
+    scene: "With diameter and temperature constrained, compare explanations against H = 22.0, pv = 0.041, the 230-290 m thermal size, and unequal light-curve maxima. Name the physical model that fits every independent reading."
+    motivation: "The diagnosis sets both the energy range and the unresolved structure risk carried into radar."
+    format: DIAGNOSIS
+    question: "Diagnose the one model that fits every reading, including the quiet lack of visible activity."
+    choices:
+    - "{id: small_bright, label: 106 m bright sphere, mechanism: contradicts thermal area and low albedo}"
+    - "{id: large_dark_round, label: 260 m dark sphere, mechanism: fits size but not unequal double maxima}"
+    - "{id: large_dark_irregular, label: 260 m dark irregular or two-lobed body, mechanism: fits all readings}"
+    - "{id: comet_coma, label: Small active comet with bright coma, mechanism: would raise visible area and show activity}"
+    answerText: "Consequence planning must use a roughly 260 m dark body while radar tests its structure."
+    why: "Thermal area breaks the size-albedo degeneracy; the light curve adds shape information without proving a binary."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A model that fits diameter but ignores the unequal rotation signature is incomplete.
+    # correct result: Large, dark, irregular or two-lobed body.
+    # state/output: Consequence class changes to REGIONAL; radar structure request unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: Which physical model fits all current characterization data?
+    #   readings:
+    #     - {zone: visible, label: Absolute magnitude H, value: 22.0, status: quiet}
+    #     - {zone: thermal, label: Diameter, value: 230-290 m, status: alarm}
+    #     - {zone: surface, label: Albedo, value: 0.041, status: low}
+    #     - {zone: rotation, label: Light curve, value: unequal double maxima, status: high}
+    #   choices:
+    #     - {id: small_bright, label: 106 m bright sphere, mechanism: contradicts thermal area and low albedo}
+    #     - {id: large_dark_round, label: 260 m dark sphere, mechanism: fits size but not unequal double maxima}
+    #     - {id: large_dark_irregular, label: 260 m dark irregular or two-lobed body, mechanism: fits all readings}
+    #     - {id: comet_coma, label: Small active comet with bright coma, mechanism: would raise visible area and show activity}
+    #   answer: large_dark_irregular
+    #   answerText: Use a 230-290 m dark irregular-body model and keep internal structure unresolved.
+

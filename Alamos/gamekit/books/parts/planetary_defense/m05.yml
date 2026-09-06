@@ -1,0 +1,223 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Summit Test"
+  card:
+    header: "IMPACT WINDOW: 9 DAYS, 18 HOURS"
+    title: "THE SUMMIT TEST"
+    goNow: "Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the pipeline-bench link."
+    body: "The last mission funded a summit recovery, but the discovery frames include a satellite trail and a small completeness gap. A pipeline test inserts known false stars to measure what the camera and software recover. Begin at the Coordination Office, then fly to the Survey Telescope and operate the real system. By the end of the mission, decide whether its new astrometry is safe to enter into the impact solution."
+    objective: "Validate the survey pipeline and certify the new optical positions."
+  objective: "Validate the survey pipeline and certify the new optical positions."
+  stake: "The last mission funded a summit recovery, but the discovery frames include a satellite trail and a small completeness gap. A pipeline test inserts known false stars to measure what the camera and software recover. Begin at the Coordination Office, then fly to the Survey Telescope and operate the real system. By the end of the mission, decide whether its new astrometry is safe to enter into the impact solution."
+  takeaway: "Validate both the pipeline and the position before adding precision to an impact orbit. ---"
+  segue: "Mission decision: Add the new sky points to the impact model. Keep the local error term. Three tests support the result. The same frames show odd light, so the dome must test the body's size."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A pipeline can miss faint objects without inventing false motion."
+  - "Controls should change one variable and then reverse it."
+  - "Optical astrometry must be validated where the instrument actually operates."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-coordination-office
+    # On arrival at Coordination Office | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Lena Ortiz, survey and discovery lead, loads a synthetic-source set: \"If we know what went in, we can count what came back.\""
+    panel: "THE SUMMIT TEST / MISSION ACTIVE"
+    # unlocks: Stop 17.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-17
+    # After Stop 17 | automatic | 
+    on: { after: [1] }
+    world: "The recovery map shows one localized gap. Waypoint: FLY TO CERRO ALTO — TEST THE CAMERA WHERE THE GAP OCCURS."
+    panel: "THE SUMMIT TEST / FIRST RESULT LOGGED"
+    # unlocks: The Survey Telescope waypoint and Stop 18.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-18
+    # After Stop 18 | automatic | 
+    on: { after: [2] }
+    world: "Dome shutter opens; the pipeline-bench displays the same image region."
+    panel: "THE SUMMIT TEST / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 19.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-19
+    # After Stop 19 | automatic | 
+    on: { after: [3] }
+    world: "Exposure setting locks; the bad-column mask shifts off and back on without moving the candidate."
+    panel: "THE SUMMIT TEST / DECISION EVIDENCE READY"
+    # unlocks: Stop 20.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "A new point appears 0.31 arcsec from the independent prediction; the astrometry packet receives CERTIFIED WITH LOCAL SYSTEMATIC."
+    panel: "THE SUMMIT TEST / MISSION DECISION LOGGED"
+    # unlocks: Mission 5 outcome, metric screen, concept review, and Mission 6 briefing.
+    bubbles:
+    - who: lena-ortiz   # Lena Ortiz
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 17: Put known objects through the pipeline
+  #     Concept: completeness; Keystone: telescope limits; Area: Survey Telescope; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+  #     placement: INJECT, at pipeline-link.
+  - group: OPS
+    at: pipeline-bench
+    title: "Put known objects through the pipeline"
+    concept: "completeness"
+    reason: "The summit data cannot enter the orbit fit until the range knows what the pipeline misses."
+    scene: "The funded recovery depends on a pipeline that lost sources near one bright satellite trail in the discovery night. Inject known moving points across magnitude and detector position, then count where the system fails."
+    motivation: "The recovery map tells the summit team which detector condition requires a live control."
+    format: INJECT
+    question: "Calculate and commit the 40-of-50 minimum plus the four-bin injection plan before the pipeline unlocks; then operate it, measure all four recovery fractions in percent, and submit the localized failure-bin conclusion."
+    answerText: "The pipeline does not invent the candidate, but it under-recovers faint sources near the trail."
+    why: "Known inputs reveal selection effects that cannot be measured from detected sources alone."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Compare recovered with injected in each bin; raw detection counts do not give completeness.
+    # correct result: Trail/faint bin: 27/50 = 54%; localized loss.
+    # state/output: Detector-region map highlights the gap; DISC waypoint unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   inject:
+    #     prediction_commit_required: true
+    #     equipment_unlocks_after_commit: true
+    #     prediction: {minimum_acceptable_recovery_percent: 80, minimum_recovered_per_50_source_bin: 40}
+    #     population:
+    #       count: 200
+    #       magnitude_range: [20.0, 23.5]
+    #       motion_range_arcsec_per_hour: [60, 130]
+    #     bins:
+    #       clean_bright: {injected: 50, recovered: 49}
+    #       clean_faint: {injected: 50, recovered: 43}
+    #       trail_bright: {injected: 50, recovered: 45}
+    #       trail_faint: {injected: 50, recovered: 27}
+    #     correct_conclusion: localized_completeness_loss_near_trail
+    #     answerText: Recovery falls to 54% for faint moving sources near the trail but remains high elsewhere.
+
+  # --- Stop 18: Find the usable exposure
+  #     Concept: exposure and magnitude; Keystone: light/telescopes; Area: Survey Telescope; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: SWEEP, at dome-console.
+  - group: OPS
+    at: dome-console
+    title: "Find the usable exposure"
+    concept: "exposure and magnitude"
+    reason: "The live camera must detect the asteroid while keeping enough reference stars unsaturated."
+    scene: "With the weak detector region located, sweep exposure time from 10 to 90 seconds and watch asteroid signal and star saturation together. Choose the shortest setting that reaches the signal goal without crossing the saturation limit."
+    motivation: "The chosen exposure determines whether the position can be measured against trustworthy reference stars."
+    format: SWEEP
+    question: "Operate the sweep, then submit one exposure setting in seconds: the shortest value with asteroid S/N ≥ 5 and no more than one saturated reference star."
+    answerText: "A 45-second exposure gives usable asteroid signal without destroying the reference grid."
+    why: "Longer exposure improves signal but eventually saturates bright stars needed for astrometry."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The highest signal is not automatically best; read both the minimum signal and maximum saturation goals.
+    # correct result: 45 s.
+    # state/output: Exposure control locks at 45 s; Stop 19 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {label: exposure time, unit: s, values: [10, 20, 30, 45, 60, 90]}
+    #     readings:
+    #       signal_to_noise: [2.1, 3.4, 4.7, 6.1, 7.0, 8.1]
+    #       saturated_reference_stars: [0, 0, 0, 1, 5, 14]
+    #     goal: signal_to_noise at least 5 and saturated_reference_stars no more than 1
+    #     correct_setting: 45
+    #     answerText: Use 45 s; it reaches S/N 6.1 with only one saturated reference star.
+
+  # --- Stop 19: Move the mask, not the object
+  #     Concept: causal artifact test; Keystone: measurement/inference; Area: Survey Telescope; Learning role: COMBINE; Difficulty: L3; Story role: obstacle.
+  #     placement: CONTROL, at pipeline-bench.
+  - group: OPS
+    at: pipeline-bench
+    title: "Move the mask, not the object"
+    concept: "causal artifact test"
+    reason: "A detector mask must be ruled out as the cause of the candidate's measured shift."
+    scene: "Because 45 seconds gives a usable image, test whether the local bad-column mask moves the candidate centroid. Change only the mask, reverse it, and compare the position with the expected noise band."
+    motivation: "A reversible nonresponse shows that the candidate motion is on the sky rather than tied to the mask."
+    format: CONTROL
+    question: "Submit the mask-shift setting (+3 px), the changed and restored centroid measurements in pixels, and one conclusion about whether the centroid follows the mask."
+    answerText: "The candidate position does not follow the detector mask."
+    why: "Causation requires changing the proposed cause while holding other factors fixed, then confirming by reversal."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Changing alignment directly moves every sky coordinate and cannot isolate the mask.
+    # correct result: Mask shift; response 0.03 px, below noise; returns to 2048.61 px.
+    # state/output: MASK ARTIFACT rejected; Stop 20 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:
+    #     changed: {bad_column_mask_shift_px: [0, 3]}
+    #     held_fixed: [raw 45 s image, star catalog, world-coordinate solution, centroid algorithm]
+    #     measurement_timing: [before change, after +3 px change, after restoration]
+    #     variables:
+    #       - {id: mask_shift_px, label: Bad-column mask shift, baseline: 0, test: 3, unit: px}
+    #       - {id: raw_image, label: Raw image, baseline: 45, test: 45, unit: s exposure}
+    #       - {id: star_catalog, label: Star catalog, baseline: fixed, test: fixed}
+    #       - {id: coordinate_solution, label: World-coordinate solution, baseline: fixed, test: fixed}
+    #       - {id: centroid_algorithm, label: Centroid algorithm, baseline: fixed, test: fixed}
+    #     baseline: {centroid_x_px: 2048.62, noise_band_px: 0.08}
+    #     candidates:
+    #       - {id: mask, label: Shift bad-column mask by 3 px, response_px: 0.03}
+    #       - {id: alignment, label: Shift world-coordinate solution, response_px: 0.41}
+    #       - {id: exposure, label: Double exposure time, response_px: 0.12}
+    #     reversal:
+    #       required: true
+    #       control_id: mask
+    #       return_centroid_x_px: 2048.61
+    #     response: {label: centroid x, baseline_px: 2048.62, after_change_px: 2048.65, after_restore_px: 2048.61, noise_band_px: 0.08}
+    #     required_sequence: [measure_baseline, change_mask_only, measure, restore_mask, measure_again]
+    #     correct_control: mask
+    #     correct: mask_shift_px
+    #     answerText: Moving and restoring the mask changes the centroid by less than the 0.08 px noise band.
+
+  # --- Stop 20: Predict, observe, verify
+  #     Concept: independent prediction; Keystone: astrometry/verification; Area: Survey Telescope; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: VERIFY, at dome-console.
+  - group: OPS
+    at: dome-console
+    title: "Predict, observe, verify"
+    concept: "independent prediction"
+    reason: "The new astrometry is certifiable only if it lands near a prediction frozen before the exposure."
+    scene: "With exposure and mask effects controlled, freeze Malik's independent predicted position before opening the latest frame. Measure the new centroid and decide whether its separation falls inside the 0.50-arcsecond acceptance radius."
+    motivation: "Agreement with a blinded prediction verifies the optical packet without letting the fit chase the new point."
+    format: VERIFY
+    question: "First commit the predicted RA and Dec offsets and 0.50-arcsec acceptance rule; this unlocks the frame. Then operate Reveal, measure the centroid, calculate separation in arcseconds, and submit VERIFIED or REJECTED."
+    answerText: "The new optical position passes the independent prediction test."
+    why: "A held prediction prevents post-measurement tuning from masquerading as verification."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Compare the two-dimensional separation with the printed goal, not either coordinate alone.
+    # correct result: Verified; separation 0.31 arcsec.
+    # state/output: Astrometry packet transfers to ORBIT with a local systematic term; CHAR destination unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:
+    #     prediction_commit_required: true
+    #     prediction:
+    #       prompt: Commit the predicted RA and Dec offsets before revealing the latest frame.
+    #       formula: "separation = sqrt[(measured_RA - predicted_RA)^2 + (measured_Dec - predicted_Dec)^2]"
+    #       correct: {ra_offset_arcsec: 124.20, dec_offset_arcsec: -38.70}
+    #       unit: arcsec
+    #       tolerance: {maximum_separation_arcsec: 0.50}
+    #     acceptance_radius_arcsec: 0.50
+    #     equipment_unlocks_after_commit: true
+    #     action: {id: reveal_latest_frame, label: Reveal latest calibrated frame}
+    #     measurement: {ra_offset_arcsec: 124.43, dec_offset_arcsec: -38.91}
+    #     separation_arcsec: 0.31
+    #     required_sequence: [commit_prediction, reveal_latest_frame, measure_ra_and_dec, calculate_separation, interpret]
+    #     truth: The measured point is 0.31 arcsec from the frozen prediction and passes the 0.50 arcsec limit.
+    #     correct_conclusion: verified
+    #     answerText: The measured point is 0.31 arcsec from the frozen prediction, inside the 0.50 arcsec goal.
+

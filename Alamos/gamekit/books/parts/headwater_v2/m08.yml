@@ -1,0 +1,153 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Just-Clears Release"
+  card:
+    header: "8 SHIFTS UNTIL THE STORM"
+    title: "Make Room Without Making a Flood"
+    goNow: "Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board."
+    body: "The reservoir needs 5.28 million m^3 of added room, but every cubic metre released travels downstream. Substitution and signed accumulation can compare changing turbine and gate flows with the safety corridor. At the machines and warning desk, integrate candidate schedules and total their downstream effect. By the end of the mission, choose a release mix that just clears the target."
+    objective: "Select a release schedule meeting storage and downstream limits."
+  objective: "Select a release schedule meeting storage and downstream limits."
+  stake: "The reservoir needs 5.28 million m^3 of added room, but every cubic metre released travels downstream. Substitution and signed accumulation can compare changing turbine and gate flows with the safety corridor. At the machines and warning desk, integrate candidate schedules and total their downstream effect. By the end of the mission, choose a release mix that just clears the target."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Use the mixed turbine-and-gate plan. Turbines clear 3.60 million m^3. And the gate clears the remaining 1.68 million m^3 with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-powerhouse
+    # On arrival at Powerhouse | machine-board | automatic
+    on: { enter: true, at: POWER }
+    world: "The substitute the head term fixture wakes and the mission evidence opens."
+    panel: "MISSION 8: SUBSTITUTE THE HEAD TERM OPEN"
+    bubbles:
+    - who: chen   # Nia Chen
+      say: "Start with substitute the head term. We need evidence the next decision can use."
+  - id: after-stop-29
+    # After Stop 29 | machine-board | automatic
+    on: { after: [1] }
+    world: "After 8.2 Location: POWER."
+    panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    bubbles:
+    - who: chen   # Nia Chen
+      say: "Use the Stop 29 result to settle verify turbine volume."
+  - id: after-stop-30
+    # After Stop 30 | machine-board | automatic
+    on: { after: [2] }
+    world: "Travel Location: POWER->SAFE."
+    panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    bubbles:
+    - who: chen   # Nia Chen
+      say: "Use the Stop 30 result to settle total the signed surge."
+  - id: after-stop-31
+    # After Stop 31 | dispatch-console | automatic
+    on: { after: [3] }
+    world: "The total the signed surge result remains visible while the allocate the just-clears plan fixture lights."
+    panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    bubbles:
+    - who: chen   # Nia Chen
+      say: "Use the Stop 31 result to settle allocate the just-clears plan."
+  - id: at-mission-end
+    # At mission end | machine-board | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 8 EVIDENCE: RECORDED"
+    bubbles:
+    - who: chen   # Nia Chen
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 29: Substitute the head term
+  #     Concept: u-substitution; Keystone: FTC; Area: Forecast Archive; Learning role: PRACTICE; Difficulty: L3; Story role: foundation.
+  #     placement: DERIVE, at machine-board.
+  - group: ARCHIVE
+    at: machine-board
+    title: "Substitute the head term"
+    concept: "u-substitution"
+    reason: "The changing-head turbine flow must be integrated before a gate deficit is known."
+    scene: "Turbine flow is Q(t)=200t(1+t^2)^2 m3/s for 0<=t<=2 h in a scaled test. Substitute u=1+t^2 and derive the exact accumulated value before unit conversion."
+    motivation: "Substitution turns linked head response into a usable released volume."
+    format: DERIVE
+    question: "Derive integral_0^2 200t(1+t^2)^2dt; submit the scaled integral value and name u,du."
+    answerText: "The scaled accumulation is 12400/3."
+    why: "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Change the bounds when changing variables.
+    # correct result: 4133.333, tolerance .01.
+    # state/output: integral method certified; unlock 8.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"integral",givens:["u=1+t^2","du=2t dt"],lines:[{expressions:["100 integral_1^5 u^2 du","200 integral_0^2 u^2 dt"],correct:"100 integral_1^5 u^2 du",rules:["u-substitution and changed bounds","power rule"],correct_rule:"u-substitution and changed bounds"},{expressions:["(100/3)[u^3]_1^5","100[u^2]_1^5"],correct:"(100/3)[u^3]_1^5",rules:["power antiderivative","differentiate"],correct_rule:"power antiderivative"},{expressions:["12400/3","400"],correct:"12400/3",rules:["evaluate bounds","subtract inputs"],correct_rule:"evaluate bounds"}],answerText:"The scaled accumulation is 12400/3."}
+
+  # --- Stop 30: Verify turbine volume
+  #     Concept: definite integral/unit conversion; Keystone: FTC; Area: Catchment & Inflow Desk; Learning role: COMBINE; Difficulty: L4; Story role: evidence.
+  #     placement: VERIFY, at machine-board.
+  - group: INFLOW
+    at: machine-board
+    title: "Verify turbine volume"
+    concept: "definite integral/unit conversion"
+    reason: "The actual schedule must be checked against the integrated prediction."
+    scene: "The operational schedule predicts a constant-equivalent turbine release of 125 m^3/s for 8.0 h. Calculate its volume, commit it, then run the dispatch simulation and measure total discharge, and the team needs this result before it acts."
+    motivation: "Measured turbine volume determines the gate volume still needed."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Use $V=Qt$ with $Q=125$ m^3/s, $t=8.0$ h, and 3,600 s/h; submit volume in m^3 before dispatch unlocks."
+    answerText: "125*8*3600=3,600,000."
+    why: "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Hours must convert to seconds.
+    # correct result: 3.600 million m^3; pass.
+    # state/output: deficit 1.68 million; waypoint SAFE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{prediction:{target:3600000,unit:"m^3",tolerance:1000},equipment_locked_until_prediction_commit:true,operation:"run 8.0 h schedule",fixed:["Forecast B","gate flow 0"],measurements:["3.598 million m^3","124.9 m^3/s end"],restore:false,correct_conclusion:"passes"}
+
+  # --- Stop 31: Total the signed surge
+  #     Concept: velocity integral/total area; Keystone: Motion+FTC; Area: Powerhouse; Learning role: RETRIEVE; Difficulty: L4; Story role: obstacle.
+  #     placement: DERIVE, at machine-board.
+  - group: POWER
+    at: machine-board
+    title: "Total the signed surge"
+    concept: "velocity integral/total area"
+    reason: "The gate addition must not push the downstream surge beyond its corridor."
+    scene: "With a 1.68 million m^3 deficit, downstream excess flow is E(t)=30t-10t^2 m^3/s for 0<=t<=4 h. Find its zero, then separate signed net change from total water movement, and the team needs this result before it acts."
+    motivation: "Flood exposure counts positive excess, while net signed change can hide a later reversal."
+    format: DERIVE
+    question: "Derive the zero and evaluate integral_0^4 E(t)dt and integral_0^4 |E(t)|dt; submit both scaled values in (m^3/s)*h."
+    answerText: "Net=80/3; total=190/3 in scaled units."
+    why: "Net=80/3; total=190/3 in scaled units. Flood exposure counts positive excess, while net signed change can hide a later reversal."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Total physical amount splits where the rate changes sign.
+    # correct result: 26.667,63.333, tolerance .01.
+    # state/output: downstream exposure limit; unlock 8.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"signed and total",givens:["E=10t(3-t)"],lines:[{expressions:["zeros t=0,3","zeros t=0,4"],correct:"zeros t=0,3",rules:["factor and zero product","endpoint only"],correct_rule:"factor and zero product"},{expressions:["[15t^2-(10/3)t^3]_0^4=80/3","40/3"],correct:"[15t^2-(10/3)t^3]_0^4=80/3",rules:["FTC signed integral","absolute endpoints"],correct_rule:"FTC signed integral"},{expressions:["integral_0^3 E - integral_3^4 E=190/3","80/3"],correct:"integral_0^3 E - integral_3^4 E=190/3",rules:["split and reverse negative area","keep signed"],correct_rule:"split and reverse negative area"}],answerText:"Net=80/3; total=190/3 in scaled units."}
+
+  # --- Stop 32: Allocate the just-clears plan
+  #     Concept: constrained accumulation; Keystone: Applied integrals; Area: Catchment & Inflow Desk; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: ALLOCATE, at dispatch-console.
+  - group: INFLOW
+    at: dispatch-console
+    title: "Allocate the just-clears plan"
+    concept: "constrained accumulation"
+    reason: "The remaining volume must be assigned without losing warning or reserve capacity."
+    scene: "Turbines clear 3.60 of the required 5.28 million m^3, leaving 1.68. Allocate the remaining release, warning staff, gate test, and protected reserve so every required condition is funded, and the team needs this result before it acts."
+    motivation: "A mathematically sufficient release is unusable without warning and restart capacity."
+    format: ALLOCATE
+    question: "Allocate all 100 points among the four named items and submit one allocation plan; gate release, warning, test, and protected reserve must all be funded."
+    answerText: "The completed check shows all four funded exactly."
+    why: "all four funded exactly. A mathematically sufficient release is unusable without warning and restart capacity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Storage volume alone is not the whole release constraint.
+    # correct result: all four funded exactly.
+    # state/output: mixed plan authorized.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:{pool:100,items:[{id:"gate",label:"1.68 million m3 gate release",cost:40,required:true},{id:"warning",label:"downstream warning shift",cost:25,required:true},{id:"test",label:"reversal gate test",cost:15,required:true},{id:"reserve",label:"restart reserve",cost:20,required:true,protected:true},{id:"cosmetic",label:"control-room repainting",cost:15,required:false}],questions:[{id:"release",text:"Does total release reach 5.28 million m3?",required:true},{id:"warning",text:"Are downstream warnings staffed?",required:true},{id:"reserve",text:"Is the restart reserve protected?",required:true}],correct_allocation:{gate:40,warning:25,test:15,reserve:20},answerText:"Fund the gate, warning, reversal test, and protected reserve; repainting would exceed the pool without improving clearance."}
+

@@ -1,0 +1,203 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Scarcity
+  aliases: [scarcity]   # TODO: the plurals and spellings the prose uses
+  def: "limited resources cannot satisfy every want, so every choice gives up an alternative."
+# mission 1
+- name: Opportunity cost
+  aliases: [opportunity cost]   # TODO: the plurals and spellings the prose uses
+  def: "the value of the best alternative given up."
+# mission 1
+- name: Equilibrium
+  aliases: [equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "the price and quantity where planned buying equals planned selling."
+# mission 2
+- name: GDP
+  aliases: [gdp]   # TODO: the plurals and spellings the prose uses
+  def: "the market value of final goods and services produced inside a country during a stated period."
+# mission 2
+- name: Consumption
+  aliases: [consumption]   # TODO: the plurals and spellings the prose uses
+  def: "household spending on goods and services."
+# mission 2
+- name: Investment
+  aliases: [investment]   # TODO: the plurals and spellings the prose uses
+  def: "business capital, inventory change, and new housing, not stock purchases."
+# mission 2
+- name: Net exports
+  aliases: [net exports]   # TODO: the plurals and spellings the prose uses
+  def: "exports minus imports."
+# mission 3
+- name: CPI
+  aliases: [cpi]   # TODO: the plurals and spellings the prose uses
+  def: "the current cost of a fixed consumer basket relative to its base-year cost, times 100."
+# mission 3
+- name: Inflation rate
+  aliases: [inflation rate]   # TODO: the plurals and spellings the prose uses
+  def: "the percent change in a price index."
+# mission 3
+- name: Substitution bias
+  aliases: [substitution bias]   # TODO: the plurals and spellings the prose uses
+  def: "CPI overstatement when consumers switch away from goods whose prices rise."
+# mission 4
+- name: Labor force
+  aliases: [labor force]   # TODO: the plurals and spellings the prose uses
+  def: "employed people plus unemployed people actively seeking work."
+# mission 4
+- name: Discouraged worker
+  aliases: [discouraged worker]   # TODO: the plurals and spellings the prose uses
+  def: "a person who wants work but stopped searching and is outside the labor force."
+# mission 4
+- name: Natural unemployment
+  aliases: [natural unemployment]   # TODO: the plurals and spellings the prose uses
+  def: "frictional plus structural unemployment."
+# mission 4
+- name: Recessionary gap
+  aliases: [recessionary gap]   # TODO: the plurals and spellings the prose uses
+  def: "real output below full-employment output."
+# mission 5
+- name: MPC
+  aliases: [mpc]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of an extra dollar of income consumed."
+# mission 5
+- name: MPS
+  aliases: [mps]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction saved; MPC plus MPS equals one."
+# mission 5
+- name: Multiplier
+  aliases: [multiplier]   # TODO: the plurals and spellings the prose uses
+  def: "total demand change divided by the initial policy change."
+# mission 6
+- name: AD
+  aliases: [ad]   # TODO: the plurals and spellings the prose uses
+  def: "C+I+G+NX at each price level."
+# mission 6
+- name: SRAS
+  aliases: [sras]   # TODO: the plurals and spellings the prose uses
+  def: "short-run production supplied at each price level."
+# mission 6
+- name: LRAS
+  aliases: [lras]   # TODO: the plurals and spellings the prose uses
+  def: "full-employment output, vertical at Yf."
+# mission 6
+- name: Stagflation
+  aliases: [stagflation]   # TODO: the plurals and spellings the prose uses
+  def: "higher prices with lower output."
+# mission 7
+- name: M1
+  aliases: [m1]   # TODO: the plurals and spellings the prose uses
+  def: "cash plus checking deposits. M2: M1 plus savings and money-market funds."
+# mission 7
+- name: Required reserves
+  aliases: [required reserves]   # TODO: the plurals and spellings the prose uses
+  def: "deposits times reserve ratio."
+# mission 7
+- name: Excess reserves
+  aliases: [excess reserves]   # TODO: the plurals and spellings the prose uses
+  def: "total minus required reserves."
+# mission 8
+- name: Money demand
+  aliases: [money demand]   # TODO: the plurals and spellings the prose uses
+  def: "desired liquid balances, lower at higher nominal interest."
+# mission 8
+- name: Money supply
+  aliases: [money supply]   # TODO: the plurals and spellings the prose uses
+  def: "central-bank-set quantity, vertical in the model."
+# mission 8
+- name: Real interest
+  aliases: [real interest]   # TODO: the plurals and spellings the prose uses
+  def: "nominal interest minus expected inflation."
+# mission 9
+- name: Appreciation
+  aliases: [appreciation]   # TODO: the plurals and spellings the prose uses
+  def: "a currency buys more foreign currency."
+# mission 9
+- name: Current account
+  aliases: [current account]   # TODO: the plurals and spellings the prose uses
+  def: "NX plus net income and net transfers."
+# mission 9
+- name: Financial account
+  aliases: [financial account]   # TODO: the plurals and spellings the prose uses
+  def: "cross-border asset purchases and sales."
+# mission 10
+- name: SRPC
+  aliases: [srpc]   # TODO: the plurals and spellings the prose uses
+  def: "short-run inverse inflation-unemployment relation."
+# mission 10
+- name: LRPC
+  aliases: [lrpc]   # TODO: the plurals and spellings the prose uses
+  def: "vertical curve at the natural rate."
+# mission 10
+- name: Money neutrality
+  aliases: [money neutrality]   # TODO: the plurals and spellings the prose uses
+  def: "long-run money changes alter prices, not real output."
+# mission 11
+- name: Self-correction
+  aliases: [self-correction]   # TODO: the plurals and spellings the prose uses
+  def: "wage and input-cost adjustment that shifts SRAS toward long-run equilibrium."
+# mission 11
+- name: Automatic stabilizer
+  aliases: [automatic stabilizer]   # TODO: the plurals and spellings the prose uses
+  def: "taxes or transfers that change without a new law."
+# mission 11
+- name: Economic growth
+  aliases: [economic growth]   # TODO: the plurals and spellings the prose uses
+  def: "rising real GDP per person."
+# mission 12
+- name: Conversion ratio
+  aliases: [conversion ratio]   # TODO: the plurals and spellings the prose uses
+  def: "old currency units exchanged for one new unit."
+# mission 12
+- name: Reserve clock
+  aliases: [reserve clock]   # TODO: the plurals and spellings the prose uses
+  def: "timed schedule that keeps required reserves available."
+# mission 13
+- name: Budget deficit
+  aliases: [budget deficit]   # TODO: the plurals and spellings the prose uses
+  def: "government spending above tax revenue."
+# mission 13
+- name: Crowding out
+  aliases: [crowding out]   # TODO: the plurals and spellings the prose uses
+  def: "government borrowing raises real interest and reduces private investment."
+# mission 14
+- name: Policy lag
+  aliases: [policy lag]   # TODO: the plurals and spellings the prose uses
+  def: "delay between action and full economic effect."
+# mission 14
+- name: Trigger
+  aliases: [trigger]   # TODO: the plurals and spellings the prose uses
+  def: "a precommitted threshold that activates action."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 2
+#   { e: "GDP = C + I + G + NX",
+#     c: "Add final spending.",
+#     v: [ TODO: split "C consumption; I investment; G government purchases; NX exports minus imports." ],
+#     s: "The board must identify which reported transactions are domestic final output.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "GDP deflator = nominal GDP / real GDP × 100",
+#     c: "Separate prices from production.",
+#     v: [ TODO: split "nominal GDP current-price output; real GDP base-price output." ],
+#     s: "A conversion can raise listed money values without creating goods.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "CPI = current basket cost / base basket cost × 100",
+#     c: "Measure a fixed basket's price level.",
+#     v: [ TODO: split "current and base costs use the same quantities." ],
+#     s: "The team needs the result to make today's mission decision.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "inflation = (CPI_new−CPI_old)/CPI_old ×100%",
+#     c: "Find the index growth rate.",
+#     v: [ TODO: split "CPI_new and CPI_old are consecutive indexes." ],
+#     s: "The team needs the result to make today's mission decision.## Main story happening - designer summary",
+#     k: [ TODO ] },

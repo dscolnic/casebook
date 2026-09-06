@@ -1,0 +1,158 @@
+# ============================================================ MISSION 8
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Cold-Room Rate"
+  card:
+    header: "DAY 8 - BOARD IN 8 DAYS"
+    title: "The Cold-Room Rate"
+    goNow: "Go to the Kit Warehouse & Cold Room and meet Priya Shah, randomisation and blinding lead, at the exposure logger."
+    body: "The missing-data rule is repaired, but failed kits now cluster after one cold-room exposure. A one-proportion interval estimates a population rate, while a test compares it with a safety benchmark. Inspect conditions in the warehouse, then calculate and test the failure rate in Statistics. By the end of the mission, decide whether the exposed cohort needs quarantine."
+    objective: "Estimate and test the exposed-kit failure rate."
+  objective: "Estimate and test the exposed-kit failure rate."
+  stake: "The missing-data rule is repaired, but failed kits now cluster after one cold-room exposure. A one-proportion interval estimates a population rate, while a test compares it with a safety benchmark. Inspect conditions in the warehouse, then calculate and test the failure rate in Statistics. By the end of the mission, decide whether the exposed cohort needs quarantine."
+  takeaway: "Interpret intervals and tests in context."
+  segue: "Mission decision: Quarantine the exposed cohort. And require a 1,068-kit release audit. The estimated failure rate is 10.05% to 19.95%. And the one-sided test exceeds the safety benchmark. The pattern points to handling."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Check random/independent selection, 10% condition, and large counts."
+  - "Use p-hat in interval SE but p0 in test SE."
+  - "Reject when p<alpha; otherwise fail to reject."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-the-kit-warehouse-cold-room
+    # On arrival at the Kit Warehouse & Cold Room | s29-check-before-calculating | automatic
+    on: { enter: true, at: TODO }   # s29-check-before-calculating
+    world: "Arrival: KIT entry; exposure logger flashes COLD EXCURSION with text/icon; Priya says, ; - After S1: conditions pass; sealed sample transfer appears; waypoint CARRY EXPOSURE SAMPLE TO STAT. - STAT arrival/after S2-S3: interval and p-value display; QUARANTINE READY control - Final: sample-size commit; exposed shelves gain QUARANTINED labels; binder 8 fills; outcome unlocks."
+    panel: "MISSION 8: CHECK BEFORE CALCULATING OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Check the sample before the rate"
+  - id: after-stop-29
+    # After Stop 29 | s30-build-the-interval | automatic
+    on: { after: [1] }
+    world: "The check before calculating result remains visible while the build the interval fixture lights."
+    panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Use the Stop 29 result to settle build the interval."
+  - id: after-stop-30
+    # After Stop 30 | s31-test-the-benchmark | automatic
+    on: { after: [2] }
+    world: "The build the interval result remains visible while the test the benchmark fixture lights."
+    panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Use the Stop 30 result to settle test the benchmark."
+  - id: after-stop-31
+    # After Stop 31 | s32-size-the-confirmation | automatic
+    on: { after: [3] }
+    world: "The test the benchmark result remains visible while the size the confirmation fixture lights."
+    panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "Use the Stop 31 result to settle size the confirmation."
+  - id: at-mission-end
+    # At mission end | s29-check-before-calculating | automatic
+    on: { enter: true, at: TODO }   # s29-check-before-calculating
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 8 EVIDENCE: RECORDED"
+    bubbles:
+    - who: priya-shah   # Priya Shah
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The logger supports randomness, the population size supports 10%, and 30/170 supports large counts."
+    - who: text   # Text
+      say: "Use the keyed result and explanation printed below."
+
+  stops:
+  # --- Stop 29: Check Before Calculating
+  #     Concept: one-proportion conditions; Keystone: keystone inference conditions; Area: Monitoring Board Room; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: PROTOCOL, at s29-check-before-calculating.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Check Before Calculating"
+    concept: "one-proportion conditions"
+    reason: "An interval is invalid unless the audited kits meet its conditions."
+    scene: "The warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Match each condition with its evidence before the sample crosses the firewall to Statistics."
+    motivation: "Conditions connect the formula to a sampling process the board can trust."
+    format: PROTOCOL
+    question: "Match the displayed evidence to the randomization, independence/10%, and large-count conditions. Submit one decision for each condition."
+    answerText: "The completed check shows all three conditions pass; use 30 and 170 for interval large counts."
+    why: "Conditions connect the formula to a sampling process the board can trust."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Formula works without conditions; match evidence
+    # correct result: All three conditions pass; use 30 and 170 for interval large counts.
+    # state/output: sample transfer; waypoint STAT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   protocol:{scenarios:[{id:"random",text:"random-selection condition"},{id:"ten_percent",text:"10% independence condition"},{id:"large_counts",text:"large-count condition"}],choices:[{id:"logger",text:"warehouse logger randomly selected 200 kits"},{id:"population",text:"200 is no more than 10% of over 2,000 kits"},{id:"counts",text:"30 failures and 170 nonfailures are both at least 10"}],mapping:{random:"logger",ten_percent:"population",large_counts:"counts"},answerText:"The logger supports randomness, the population size supports 10%, and 30/170 supports large counts."}
+
+  # --- Stop 30: Build the Interval
+  #     Concept: one-proportion CI; Keystone: keystone CI/conditions; Area: Monitoring Board Room; Learning role: INTRODUCE; Difficulty: L3; Story role: reveal.
+  #     placement: DERIVE, at s30-build-the-interval.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Build the Interval"
+    concept: "one-proportion CI"
+    reason: "Quarantine needs a plausible range, not only the observed 15% rate."
+    scene: "The random, 10%, and large-count conditions all pass, and p-hat=30/200=0.15. Build the 95% confidence interval using z-star=1.960 and the sample proportion in the standard error, then submit both endpoints."
+    motivation: "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage."
+    format: DERIVE
+    question: "SE=sqrt(.15(.85)/200)=.02525; ME=1.96(.02525)=.0495; interval .15 plus/minus .0495=[.1005,.1995]. Licensed lines; decoy uses .10 in CI SE."
+    answerText: "We are 95% confident the true exposed-kit failure proportion is between 10.05% and 19.95%."
+    why: "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   endpoint pair in proportions or percent
+    # correct result: endpoints 10.05%,19.95%, tolerance .1 percentage point.
+    # state/output: interval band; S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"95% confidence interval for a proportion","givens":["phat=30/200=0.15","n=200","z*=1.960"],"lines":[{"id":"L1","expression":"SE=sqrt[0.15(0.85)/200]=0.02525","license":"state governing relationship"},{"id":"L2","expression":"ME=1.960(0.02525)=0.0495","license":"substitute displayed values"},{"id":"L3","expression":"CI=0.15±0.0495=[0.1005,0.1995]","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["use 0.10 in the CI standard error","divide the margin by n again"],"correct_result":"[0.1005,0.1995]","answerText":"The 95% interval is 10.05% to 19.95% using the sample proportion in the standard error."}
+
+  # --- Stop 31: Test the Benchmark
+  #     Concept: one-proportion z test/conclusion; Keystone: keystone tests; Area: Monitoring Board Room; Learning role: COMBINE; Difficulty: L3; Story role: decision evidence.
+  #     placement: DERIVE, at s31-test-the-benchmark.
+  - group: SAFE
+    at: TODO               # the fixture it is asked at
+    title: "Test the Benchmark"
+    concept: "one-proportion z test/conclusion"
+    reason: "The campaign rule requires a formal one-sided comparison with p0=.10."
+    scene: "The interval barely clears the benchmark, so the registered test now asks whether the true failure rate exceeds 10%. State hypotheses, calculate z, and give a contextual decision at alpha=.05."
+    motivation: "The test decides whether the excess warrants quarantine under the prewritten safety rule."
+    format: DERIVE
+    question: "H0:p=.10, Ha:p>.10; z=(.15-.10)/sqrt(.10(.90)/200)=2.357; p=.0092. Ordered State/Plan/Do/Conclude lines; p calculator supplied."
+    answerText: "Since .0092<.05, reject H0; there is convincing evidence the exposed-kit failure proportion exceeds 10%. Do not say H0 is proven false."
+    why: "The test decides whether the excess warrants quarantine under the prewritten safety rule."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   z, p-value, reject/fail conclusion
+    # correct result: z 2.36 tolerance .01; p .0092 tolerance .001; reject.
+    # state/output: quarantine warning; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive: {visible_prompt: "H0:p=.10, Ha:p>.10; z=(.15-.10)/sqrt(.10(.90)/200)=2.357; p=.0092. Ordered State/Plan/Do/Conclude lines; p calculator supplied.", keyed_result: "z 2.36 tolerance .01; p .0092 tolerance .001; reject.", feedback: "z, p-value, reject/fail conclusion", answerText: "Use the keyed result and explanation printed below."}
+
+  # --- Stop 32: Size the Confirmation
+  #     Concept: margin of error/sample size; Keystone: keystone CI/power; Area: Randomisation & Blinding; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: BALLPARK, at s32-size-the-confirmation.
+  - group: RAND
+    at: TODO               # the fixture it is asked at
+    title: "Size the Confirmation"
+    concept: "margin of error/sample size"
+    reason: "A new shipment cannot release until its failure-rate estimate has margin of error at most 3%."
+    scene: "The exposed cohort exceeds the benchmark, and the replacement audit must be precise before release. Calculate the conservative minimum sample for 95% confidence and margin of error 0.03 using p-star=0.50."
+    motivation: "Rounding down would promise precision the audit cannot deliver."
+    format: BALLPARK
+    question: "n=(1.96^2(.5)(.5))/.03^2=1067.11; submit whole kits; correct 1068, tolerance 0. Formula/slots displayed."
+    answerText: "The completed check shows round up to 1,068 kits. Lower confidence or larger n changes margin of error; using .50 is conservative when p is unknown."
+    why: "Rounding down would promise precision the audit cannot deliver."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   minimum whole kits
+    # correct result: Round up to 1,068 kits. Lower confidence or larger n changes margin of error; using .50 is conservative when p is unknown.
+    # state/output: cohort quarantined; binder 8; M9.
+

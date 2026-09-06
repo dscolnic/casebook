@@ -1,0 +1,259 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Saboteur"
+  card:
+    header: "6 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    title: "THE SABOTEUR"
+    goNow: "Go to the Sabatier Reactor and meet Commander Laila Abiola, the mission commander, at the sealed model display."
+    body: "The inlet catalyst is poisoned, and the old operating point still looks like the fastest way to recover production. One unseen thermal run may show why that apparent solution is unsafe. At Reactor Hall, freeze the accusation model, test it on hidden data, inspect residuals, and stress the temperature error. By the end of the mission, decide whether the override created the danger or interrupted it."
+    objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
+  objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
+  stake: "The inlet catalyst is poisoned, and the old operating point still looks like the fastest way to recover production. One unseen thermal run may show why that apparent solution is unsafe. At Reactor Hall, freeze the accusation model, test it on hidden data, inspect residuals, and stress the temperature error. By the end of the mission, decide whether the override created the danger or interrupted it."
+  takeaway: "A fair character reversal keeps the action true and changes its scientifically supported meaning."
+  segue: "Mission decision: The override stopped a heat runaway. The hidden run breaks the blame model. Its errors miss the same danger each time, and sensor error can push the old point past the limit. The old setting will not return. The plant needs a slower, safer way to make fuel."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Freeze a model before revealing holdout data."
+  - "Inspect where residuals occur, not only their overall size."
+  - "A suspicious action can cause production loss and still prevent a larger danger."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-reactor-hall
+    # On arrival at Reactor Hall | automatic | 
+    on: { enter: true, at: EQUIL }
+    world: "A case board reads HERRERA OVERRIDE -\\> PRODUCTION COLLAPSE; One dataset remains sealed beneath NOT USED IN FIT."
+    panel: "MISSION 10 - THE SABOTEUR"
+    # unlocks: Stop 37 at the holdout-model display; Stop 38 unlocks immediately after Stop 37.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "The accusation fits the records everyone saw. It must also predict the record nobody used to build it."
+  - id: after-stops-37-and-38
+    # After Stops 37 and 38 | model display | automatic reversal
+    on: { after: [1, 2] }
+    world: "The accusation model fails on the hidden run, with residual arrows pointing the same direction during the hottest inlet periods."
+    panel: "MODEL MISSES DANGER AT THE SAFETY BOUNDARY."
+    # unlocks: Stop 39 at the uncertainty panel.
+    bubbles:
+    - who: achebe   # Achebe
+      say: "Its average error looked small because safe runs outnumbered dangerous ones. The failure is patterned exactly where it matters."
+  - id: after-stop-39
+    # After Stop 39 | uncertainty control | automatic safety decision
+    on: { after: [3] }
+    world: "A +/-5% sensor-bias slider pushes the old operating point across the red heat limit while the lower-temperature point retains margin."
+    panel: "NEXT TASK - STOP 40: WHAT DID HERRERA KNOW, AND WHEN?"
+    # unlocks: The Plant Control waypoint and Stop 40.
+    bubbles:
+    - who: abiola   # Abiola
+      say: "The old point is not safe across the sensor's allowed error. It will not be restored."
+  - id: after-stop-40
+    # After Stop 40 | Plant Control chronology wall | automatic Twist 2
+    on: { after: [4] }
+    world: "The player locks the order RADIATOR LOSS -\\> INLET HOT SPOT -\\> OVERRIDE -\\> PURGE -\\> PRODUCTION FALL."
+    panel: "OVERRIDE WAS A SAFETY RESPONSE."
+    # unlocks: The Mission 10 outcome beat.
+    bubbles:
+    - who: herrera   # Herrera
+      say: "I cut production because the inlet was running away."
+    - who: abiola   # Abiola
+      say: "You prevented a reactor failure. You also withheld an incomplete warning. Both facts stand."
+  - id: at-mission-end
+    # At mission end | Plant Control | automatic outcome and hook
+    on: { missionEnd: true }
+    world: "SABOTAGE is removed from Herrera's profile; SAFETY INTERVENTION and FAILED COMMUNICATION replace it; The production clock continues counting down."
+    panel: "NEXT ROUTE - REACTOR -\\> COLD END -\\> PLANT CONTROL."
+    # unlocks: Mission 11 briefing and the Sabatier Reactor waypoint.
+    bubbles:
+    - who: sundqvist   # Sundqvist
+      say: "The safe setting will not make methane fast enough."
+
+  stops:
+  # --- Stop 37: Freeze the accusation and reveal the holdout
+  #     Concept: model validation; Keystone: evidence must be independent; Area: Plant Control; Learning role: RETRIEVE; Difficulty: L4; Story role: reversal.
+  #     placement: HOLDOUT, operated at analyser.
+  - group: GIBBS
+    at: analyser
+    title: "Freeze the accusation and reveal the holdout"
+    concept: "model validation"
+    reason: "The accusation must predict data that were not used to build it."
+    scene: "Freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. The hidden interval contains the cooling failure that the visible runs omitted."
+    motivation: "If the accusation cannot predict unseen danger, it cannot justify restarting the reactor."
+    format: HOLDOUT
+    question: "Freeze the fit, reveal the holdout intervals, and choose the model that predicts them."
+    answerText: "Model B survives the frozen holdout; Model A misses the unseen hot-spot intervention."
+    why: "A beautiful fit to visible data is not enough. The withheld interval contains the regime that matters: degraded cooling and a spatial gradient. Herrera's override is predicted by the safety model."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Refitting after seeing the holdout must be blocked; the point is honest prediction.
+    # correct result: Freeze and choose model B after holdout; model A fails unseen safety behavior.
+    # state/output: Set evidence_flags.accusation_model_failed = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout:
+    #     fit_set:
+    #       label: "Eight visible normal intervals"
+    #       models:
+    #         - {id: model_a, label: "Set-point-only accusation model", fit_error: 2.1}
+    #         - {id: model_b, label: "Cooling-loss plus inlet-hot-spot model", fit_error: 2.8}
+    #     freeze_required: true
+    #     holdout_set:
+    #       - {id: h1, radiator_capacity_percent: 100, outlet_K: 566, inlet_K: 584, purge_open: false}
+    #       - {id: h2, radiator_capacity_percent: 72, outlet_K: 569, inlet_K: 618, purge_open: true}
+    #       - {id: h3, radiator_capacity_percent: 70, outlet_K: 568, inlet_K: 621, purge_open: true}
+    #     predictions: {model_a: "safe/high output for h2-h3", model_b: "hot-spot intervention for h2-h3"}
+    #     correct: model_b
+    #     anti_cheat: "Refitting after reveal is disabled."
+
+  # --- Stop 38: Refuse the lowest average error
+  #     Concept: residual structure; Keystone: evidence must be independent; Area: Plant Control; Learning role: PRACTICE; Difficulty: L4; Story role: clue.
+  #     placement: RESIDUAL, at residual-field.
+  - group: GIBBS
+    at: residual-field
+    title: "Refuse the lowest average error"
+    concept: "residual structure"
+    reason: "Average error can hide a dangerous, repeated miss near the safety limit."
+    scene: "Inspect where each model misses because errors nearest the heat limit matter more than good average agreement. The full error pattern, not just the RMS, decides which model is safe."
+    motivation: "A small average error is unsafe if the model always misses in the same dangerous direction."
+    format: RESIDUAL
+    # MODEL CONVERSION. The bible gives each model an RMS and two lists of
+    # residuals — normal intervals, and the low-radiator consequence region. The
+    # engine plots a residual FIELD, so every value below is the bible's and only
+    # its position is the implementation's: x is the interval's place in its own
+    # list, and y is which region it belongs to (0 normal, 1 low radiator). The
+    # trap is the bible's own: model_a has the lower RMS and the structured
+    # underprediction, and model_b is the one to accept.
+    residual:
+      fits:
+      - id: model_a
+        label: "Set-point-only"
+        rms: 2.1
+        structured: true
+        residuals:
+        - { x: 1, y: 0, value: -2 }
+        - { x: 2, y: 0, value: 1 }
+        - { x: 3, y: 0, value: 0 }
+        - { x: 4, y: 0, value: 2 }
+        - { x: 5, y: 0, value: -1 }
+        - { x: 1, y: 1, value: 12 }
+        - { x: 2, y: 1, value: 15 }
+        - { x: 3, y: 1, value: 14 }
+      - id: model_b
+        label: "Cooling plus spatial hot spot"
+        rms: 2.8
+        residuals:
+        - { x: 1, y: 0, value: -4 }
+        - { x: 2, y: 0, value: 2 }
+        - { x: 3, y: 0, value: -1 }
+        - { x: 4, y: 0, value: 3 }
+        - { x: 5, y: 0, value: 0 }
+        - { x: 1, y: 1, value: 3 }
+        - { x: 2, y: 1, value: -2 }
+        - { x: 3, y: 1, value: 4 }
+      accept: model_b
+      commit: "Accept this fit"
+    question: "Choose the model whose residual field is defensible for safety."
+    answerText: "Choose Model B because its residuals are unpatterned near the safety boundary."
+    why: "Model A's lower overall RMS is purchased by systematic underprediction exactly where a safety limit matters. Residual structure means missing physics, not random noise. Model B is slightly less precise overall and far more valid in the dangerous regime."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Choosing Model A only because its global RMS is smaller ignores its repeated 12-15 K miss during low-radiator intervals. A safety model fails when its errors are structured in the consequence region.
+    # correct result: Model B.
+    # state/output: Highlight spatial heat-removal term missing from model A.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:
+    #     models:
+    #       - {id: model_a, label: "Set-point-only", rms_K: 2.1, residuals_normal_K: [-2,1,0,2,-1], residuals_low_radiator_K: [12,15,14]}
+    #       - {id: model_b, label: "Cooling plus spatial hot spot", rms_K: 2.8, residuals_normal_K: [-4,2,-1,3,0], residuals_low_radiator_K: [3,-2,4]}
+    #     consequence_region: {label: "Low radiator capacity", safety_limit_K: 620}
+    #     correct: model_b
+    #     rule: "Reject structured underprediction in the consequence region even when global RMS is smaller."
+
+  # --- Stop 39: Stress the hidden temperature error
+  #     Concept: uncertainty and safety margin; Keystone: energy and uncertainty; Area: Reactor Hall; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: STRESS, asked at Ingrid Sundqvist beside reactor-console.
+  - group: EQUIL
+    at: reactor-console
+    title: "Stress the hidden temperature error"
+    person: sundqvist
+    concept: "uncertainty and safety margin"
+    reason: "The old operating point must remain safe across allowed sensor error."
+    scene: "Move the sensor bias across its allowed range to decide whether the old setting remains safe when the temperature reading is slightly wrong. Crossing the limit anywhere in the range defeats the restoration plan."
+    motivation: "The old setting is defensible only if it stays safe across the sensor's allowed error."
+    format: STRESS
+    question: "Does the decision to restore the old point survive allowed sensor error?"
+    answerText: "Do not restore the old point; allowed negative sensor bias pushes the true peak over the limit."
+    why: "A setting is not safe because its central estimate lies eight kelvin below a limit. The uncertainty range crosses the consequence boundary. Robust operation needs margin."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keeping the old point because 612 K is below 620 K uses only the central reading. The allowed negative sensor bias pushes the true temperature above the limit, so the plan fails the full uncertainty range.
+    # correct result: No. If the sensor reads 2% low, actual peak is about 624 K, already above limit; at -5% actual is about 644 K. The lower point remains below limit across the range.
+    # state/output: Sundqvist withdraws restoration request; reactor_safety_margin + 20 for lower point.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:
+    #     assumption: {id: thermocouple_bias, label: "Inlet thermocouple bias", min: -5, max: 5, step: 1, unit: percent}
+    #     candidates:
+    #       - {id: old_point, label: "Restore old point", observed_peak_K: 612, actual_at_minus2_K: 624, actual_at_minus5_K: 644}
+    #       - {id: lower_point, label: "Keep lower point", observed_peak_K: 575, actual_at_minus5_K: 605}
+    #     consequence_limit: {label: "Maximum inlet temperature", value: 620, unit: K}
+    #     correct: lower_point
+    #     boundary_logic: "A candidate fails if any allowed bias places actual peak above 620 K."
+
+  # --- Stop 40: What did Herrera know, and when?
+  #     Concept: evidence synthesis; Keystone: energy and causal evidence; Area: Plant Control; Learning role: TRANSFER; Difficulty: L4; Story role: payoff.
+  #     placement: CASEBOOK, asked at Commander Laila Abiola beside chronology-wall.
+  - group: GIBBS
+    at: chronology-wall
+    title: "What did Herrera know, and when?"
+    person: abiola
+    concept: "evidence synthesis"
+    reason: "The mission needs the causal order that separates sabotage from protection."
+    scene: "Reconstruct the chain from radiator loss through override and production fall to determine whether Herrera created or interrupted the danger. The completed timeline will show whether the override caused or interrupted danger."
+    motivation: "The same action looks like sabotage or protection depending on the scientifically established causal order."
+    format: CASEBOOK
+    question: "Match each event to its causal role, then decide what the override actually did."
+    # CONVERTED from the payload below: the bible's clues on the left, its causal
+    # roles on the right, its keyed `mapping` as the permutation. The clues carry
+    # their labels only — the bible's `reading` on each one ("first change",
+    # "later cost") names the role it maps to, and printing it beside the clue
+    # would answer the board.
+    scenarios:
+    - "Radiator capacity fell"
+    - "Inlet rose while outlet average stayed normal"
+    - "Set point lowered"
+    - "Purge interlock opened"
+    - "Methane production fell"
+    choices:
+    - "Shrinking heat removal"
+    - "Evidence of the hidden hot spot"
+    - "Deliberate safety intervention"
+    - "Protective consequence"
+    - "Cost of the intervention"
+    mapping: [0, 1, 2, 3, 4]
+    answerText: "Cooling weakened first, a hidden inlet hot spot formed, and the override interrupted the danger at the cost of production."
+    why: "Herrera did the suspicious action. The evidence changes its meaning: the override followed a degrading safety condition and prevented the predicted consequence. Production collapse is real and is evidence that the response worked."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   If the override is treated as the first cause, the timeline contradicts the radiator-loss and inlet-rise records. If production loss is treated as the danger itself, it reverses cause and cost: production fell after the protective intervention.
+    # correct result: Full mapping.
+    # state/output: twist_2_complete = true; restore Herrera's access; herrera_trust + 3, crew_trust + 1.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios:
+    #     - {id: radiator_loss, label: "Radiator capacity fell", reading: "first change"}
+    #     - {id: inlet_rise, label: "Inlet rose while outlet average stayed normal", reading: "hidden spatial warning"}
+    #     - {id: override, label: "Set point lowered", reading: "signed action"}
+    #     - {id: purge, label: "Purge interlock opened", reading: "protective system response"}
+    #     - {id: production, label: "Methane production fell", reading: "later cost"}
+    #   choices:
+    #     - {id: cause, label: "Shrinking heat removal"}
+    #     - {id: hidden_hotspot, label: "Evidence of the hidden hot spot"}
+    #     - {id: intervention, label: "Deliberate safety intervention"}
+    #     - {id: protection, label: "Protective consequence"}
+    #     - {id: cost, label: "Cost of the intervention"}
+    #   mapping: {radiator_loss: cause, inlet_rise: hidden_hotspot, override: intervention, purge: protection, production: cost}
+

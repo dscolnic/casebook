@@ -1,0 +1,227 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Six Points Are Not an Orbit"
+  card:
+    header: "IMPACT WINDOW: 10 DAYS, 18 HOURS"
+    title: "SIX POINTS ARE NOT AN ORBIT"
+    goNow: "Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the astro-bench."
+    body: "The last mission proved that the point is real, but six directions on the sky do not reveal one unique path. An orbit fit finds the trajectories that gravity can carry through every timed position. At Orbit Determination, estimate the motion, combine geometric constraints, and inspect the residual pattern. By the end of the mission, decide whether 2026 PDC belongs on continuous Earth-impact monitoring."
+    objective: "Determine whether the allowed orbit family includes a credible Earth encounter."
+  objective: "Determine whether the allowed orbit family includes a credible Earth encounter."
+  stake: "The last mission proved that the point is real, but six directions on the sky do not reveal one unique path. An orbit fit finds the trajectories that gravity can carry through every timed position. At Orbit Determination, estimate the motion, combine geometric constraints, and inspect the residual pattern. By the end of the mission, decide whether 2026 PDC belongs on continuous Earth-impact monitoring."
+  takeaway: "A nominal miss is not zero risk when uncertainty still reaches Earth. ---"
+  segue: "Mission decision: Keep 2026 PDC on the Earth watch list. The best path misses Earth. Yet 3.2% of the allowed paths hit it. The team needs more data before it can act."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A sky direction does not directly give distance."
+  - "A short observing arc can fit many different three-dimensional orbits."
+  - "Random residuals can be acceptable; a pattern can expose a wrong model."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-orbit-determination-center
+    # On arrival at Orbit Determination Center | automatic | 
+    on: { enter: true, at: ORBIT }
+    world: "Malik Rowan, orbit-determination lead, draws six dots and a fan of curves through them: \"Every line fits the picture. Gravity decides which lines survive.\""
+    panel: "SIX POINTS ARE NOT AN ORBIT / MISSION ACTIVE"
+    # unlocks: Stop 5.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-5
+    # After Stop 5 | automatic | 
+    on: { after: [1] }
+    world: "The fit-board displays ANGULAR RATE 92 ± 5 ARCSEC/HOUR."
+    panel: "SIX POINTS ARE NOT AN ORBIT / FIRST RESULT LOGGED"
+    # unlocks: Stop 6.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-6
+    # After Stop 6 | automatic | 
+    on: { after: [2] }
+    world: "The orbit fan contracts from 1,800 admissible paths to 240."
+    panel: "SIX POINTS ARE NOT AN ORBIT / EVIDENCE HANDOFF READY"
+    # unlocks: Stop 7.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-7
+    # After Stop 7 | automatic | 
+    on: { after: [3] }
+    world: "The lowest-RMS solution turns red for PATTERNED RESIDUALS; the random-residual solution stays."
+    panel: "SIX POINTS ARE NOT AN ORBIT / DECISION EVIDENCE READY"
+    # unlocks: Stop 8.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { missionEnd: true }
+    world: "Earth appears on the propagated encounter plane; the board reads CURRENT IMPACT PROBABILITY 3.2% — MODEL DEPENDENT."
+    panel: "SIX POINTS ARE NOT AN ORBIT / MISSION DECISION LOGGED"
+    # unlocks: Mission 2 outcome, metric screen, concept review, and Mission 3 briefing.
+    bubbles:
+    - who: rowan   # Malik Rowan
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 5: Measure the sky rate
+  #     Concept: angular rate; Keystone: angles/time; Area: Orbit Determination Center; Learning role: PRACTICE; Difficulty: L2; Story role: foundation.
+  #     placement: BALLPARK, at astro-bench.
+  - group: ORBIT
+    at: astro-bench
+    title: "Measure the sky rate"
+    concept: "angular rate"
+    reason: "The orbit solver needs a checked angular rate before it searches three-dimensional paths."
+    scene: "The verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Estimate its hourly angular rate so the orbit search begins in the correct region."
+    motivation: "A wrong rate would make the solver explore paths that never match the measured sky motion."
+    format: BALLPARK
+    question: "Using the displayed values, submit one angular rate ω in arcseconds per hour."
+    # Converted from the payload's `estimate`. Each tile carries the payload's own
+    # value beside the payload's own label, so the tile says what it is worth;
+    # `slots` is the count of tiles the panel takes, `correct` their indices, and
+    # `formula` the same arithmetic as the payload's template, in slot order.
+    # `tolerance` is the payload's "10 percent" of 92.5 = 9.25, which is the
+    # 83-102 arcsec/hour band the stop's own correct-result line states.
+    estimate:
+      prompt: "The verified point moves 37 arcseconds during a 24-minute clean interval."
+      question: "Using the displayed values, submit one angular rate ω in arcseconds per hour."
+      relationship: "rate = angular shift / time"
+      labels:
+      - "37 arcsec  (angular shift)"
+      - "24 min  (elapsed time)"
+      - "60 min/hour  (minutes per hour)"
+      values: [37, 24, 60]
+      slots: 3
+      correct: [0, 1, 2]
+      template: "{0} / {1} × {2}"
+      formula: "a/b*c"
+      target: 92.5
+      tolerance: 9.25
+      units: "arcsec/hour"
+    answerText: "The object moves about 93 arcseconds per hour."
+    why: "Rate is angular displacement divided by elapsed time, then scaled to one hour."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Keep arcseconds in the numerator and convert 24 minutes to a fraction of an hour.
+    # correct result: 92.5 arcsec/hour; accept 83-102 arcsec/hour.
+    # state/output: Rate enters the orbit solver; Stop 6 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate:
+    #     labels: [angular shift, elapsed time, minutes per hour]
+    #     values: [[37 arcsec], [24 min], [60 min/hour]]
+    #     slots: [numerator, denominator, scale]
+    #     template: 37 arcsec / 24 min × 60 min/hour
+    #     formula: rate = angular shift / time
+    #     target: 92.5
+    #     correct: 93 arcsec/hour
+    #     tolerance: 10 percent
+
+  # --- Stop 6: Add geometric leverage
+  #     Concept: distance constraint; Keystone: orbit geometry; Area: Orbit Determination Center; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+  #     placement: TRIANGULATE, at astro-bench.
+  - group: ORBIT
+    at: astro-bench
+    title: "Add geometric leverage"
+    concept: "distance constraint"
+    reason: "Angular rate alone leaves nearby slow and distant fast trajectories mixed together."
+    scene: "With the sky rate established, the solver still permits trajectories at very different distances and speeds. Switch in the separated-station observation and the exact observer locations to isolate the region where both sight lines cross."
+    motivation: "The intersection adds distance information that one telescope direction cannot supply."
+    format: TRIANGULATE
+    question: "Activate the constraints and correction that provide a physical distance estimate."
+    answerText: "Parallax places the object near 0.08 AU while preserving a family of velocities."
+    why: "Separated observing sites view a nearby object from measurably different directions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Brightness mixes distance, size, phase, and albedo; it is not a direct geometric range.
+    # correct result: Use both sight lines, surveyed baseline, and station-position correction; range 0.071-0.089 AU.
+    # state/output: Orbit family contracts to 240 solutions; Stop 7 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   triangulate:
+    #     constraints:
+    #       - {id: alto, label: Cerro Alto line of sight, bearing_arcsec: 0.0, sigma_arcsec: 0.20}
+    #       - {id: east, label: East station line of sight, bearing_arcsec: 1.7, sigma_arcsec: 0.25}
+    #       - {id: baseline, label: Station separation, value_km: 1.31, systematic: 0.05}
+    #     corrections:
+    #       - {id: station_position, label: Apply surveyed station coordinates, correct: true}
+    #       - {id: brightness, label: Use apparent brightness as direct range, correct: false}
+    #     truth_region: 0.071 to 0.089 AU
+    #     answerText: The two sight lines constrain the object to roughly 0.08 AU; brightness alone cannot.
+
+  # --- Stop 7: Refuse the prettiest fit
+  #     Concept: model adequacy; Keystone: astrometry/residuals; Area: Orbit Determination Center; Learning role: COMBINE; Difficulty: L4; Story role: reversal.
+  #     placement: RESIDUAL, at fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Refuse the prettiest fit"
+    concept: "model adequacy"
+    reason: "Two orbit families survive, and the smallest RMS belongs to the one with a visible error pattern."
+    scene: "Because distance has narrowed, only two candidate orbit families remain, with nearly identical average residuals. Compare their residual fields and reject the fit that hides a systematic curve behind a slightly smaller RMS."
+    motivation: "The accepted residual pattern controls which future encounter family is propagated toward Earth."
+    format: RESIDUAL
+    question: "Choose the orbit family that is scientifically safer to propagate."
+    answerText: "Keep Model B; Model A's residuals sweep from negative to positive and reveal missing curvature."
+    why: "Random scatter can reflect measurement noise, while ordered residuals indicate model misspecification."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not rank only by RMS; inspect whether the sign and size change systematically with time.
+    # correct result: Model B.
+    # state/output: Model A is tagged REJECTED: PATTERNED; Stop 8 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:
+    #     models:
+    #       - id: A
+    #         rms_arcsec: 0.18
+    #         residuals_arcsec: [-0.24, -0.16, -0.05, 0.07, 0.15, 0.25]
+    #       - id: B
+    #         rms_arcsec: 0.21
+    #         residuals_arcsec: [0.18, -0.22, 0.09, -0.19, 0.24, -0.11]
+    #     correct_model: B
+    #     correct_conclusion: keep_model_B_and_reject_patterned_model_A
+    #     pattern_to_reject: monotonic curvature
+    #     answerText: Model B has slightly larger RMS but random residuals; Model A is systematically wrong.
+
+  # --- Stop 8: Propagate the allowed cloud
+  #     Concept: impact probability; Keystone: uncertainty/covariance; Area: Orbit Determination Center; Learning role: INTRODUCE; Difficulty: L4; Story role: decision.
+  #     placement: CLOUD, at fit-board.
+  - group: ORBIT
+    at: fit-board
+    title: "Propagate the allowed cloud"
+    concept: "impact probability"
+    reason: "Continuous monitoring is justified only if a meaningful part of the allowed orbit cloud reaches Earth."
+    scene: "With the biased fit removed, 240 weighted orbit solutions remain and the nominal path still misses Earth. Propagate the full cloud to the encounter date and measure how much probability intersects Earth's effective cross section."
+    motivation: "The cloud, not the best-fit line, determines whether the object enters impact monitoring."
+    format: CLOUD
+    question: "Submit the weighted impact probability in percent and one conclusion: CONTINUOUS MONITORING or RELEASE FROM MONITORING."
+    answerText: "The best-fit line misses, but 3.2% of the allowed probability reaches Earth."
+    why: "Impact probability integrates the uncertainty distribution over Earth's effective collision region."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A nominal miss does not remove risk when the surrounding orbit cloud still crosses Earth.
+    # correct result: Include all weighted solutions and focusing; 3.2%; continuous monitoring.
+    # state/output: Sentry-style monitoring flag activates; OPS warning review unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:
+    #     initial_solutions: 240
+    #     points:
+    #       - {id: propagate_all, setting: all weighted solutions, reading: 240 propagated paths}
+    #       - {id: include_focusing, setting: gravitational focusing on, reading: 7240 km effective Earth radius}
+    #       - {id: measure_intersection, setting: weighted Earth intersection, reading: 3.2 percent impact fraction}
+    #       - {id: nominal_only, setting: nominal solution only, reading: nominal path misses Earth, trap: true}
+    #     controls:
+    #       - {id: propagate, label: Propagate all weighted solutions to encounter}
+    #       - {id: focus, label: Include gravitational focusing}
+    #       - {id: nominal_only, label: Use nominal solution only, trap: true}
+    #     earth_effective_radius_km: 7240
+    #     weighted_impact_fraction: 0.032
+    #     correct_conclusion: continuous_monitoring
+    #     answerText: 3.2% of the weighted allowed cloud impacts Earth, so continuous monitoring is warranted.
+

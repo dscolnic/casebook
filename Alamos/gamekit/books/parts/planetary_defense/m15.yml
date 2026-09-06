@@ -1,0 +1,210 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/ELEVEN_DAYS_Planetary_Defense_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Honest Warning"
+  card:
+    header: "IMPACT WINDOW: LESS THAN 12 HOURS"
+    title: "THE HONEST WARNING"
+    goNow: "Go to the Survey Telescope for the final recovery, carry the positions to Orbit Determination, and execute the response from the Town Emergency Office."
+    body: "The fragment is far smaller than the primary, yet its possible land corridor and short warning time make it urgent. One final recovery can extend its arc enough to test the response thresholds already published. Verify the detection, combine track and consequence, then act without inflating or minimizing the hazard. By the end of the mission, you will issue the final warning and execute the proportionate protective response."
+    objective: "Issue the final warning and execute a proportionate protective response."
+  objective: "Issue the final warning and execute a proportionate protective response."
+  stake: "The fragment is far smaller than the primary, yet its possible land corridor and short warning time make it urgent. One final recovery can extend its arc enough to test the response thresholds already published. Verify the detection, combine track and consequence, then act without inflating or minimizing the hazard. By the end of the mission, you will issue the final warning and execute the proportionate protective response."
+  takeaway: "Planetary defense is a chain of evidence, decisions, and proportionate action—not a single heroic technology. ---"
+  segue: "Mission decision: Send and carry out the narrow safety order for 180,000 people. Keep the main-body land stand-down. Watch both objects until each outcome is known."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A 32-meter object can be locally devastating without being globally catastrophic."
+  - "Risk decisions combine probability, consequence, warning time, and exposure."
+  - "The final order should cover the verified corridor and preserve monitoring of the primary."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-survey-telescope
+    # On arrival at Survey Telescope | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Lena recovers the fragment in the last dark window."
+    panel: "THE HONEST WARNING / MISSION ACTIVE"
+    # unlocks: Stop 57.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The mission is live. Start with the first evidence, and do not add a claim the board has not earned."
+  - id: after-stop-57
+    # After Stop 57 | automatic | 
+    on: { after: [1] }
+    world: "Malik builds a narrow populated land corridor."
+    panel: "THE HONEST WARNING / FIRST RESULT LOGGED"
+    # unlocks: The Orbit Determination Center waypoint and Stop 58.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "That result is now part of the record. Use it in the next test."
+  - id: after-stop-58
+    # After Stop 58 | automatic | 
+    on: { after: [2] }
+    world: "Evelyn bounds the event near 0.7–2 megatons TNT."
+    panel: "THE HONEST WARNING / EVIDENCE HANDOFF READY"
+    # unlocks: The Emergency Management Office waypoint and Stop 59.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The handoff is ready. Follow the newly unlocked evidence."
+  - id: after-stop-59
+    # After Stop 59 | automatic | 
+    on: { after: [3] }
+    world: "Jordan applies the published threshold to protect 180,000 people."
+    panel: "THE HONEST WARNING / DECISION EVIDENCE READY"
+    # unlocks: Stop 60.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    panel: "THE HONEST WARNING / MISSION DECISION LOGGED"
+    # unlocks: Mission 15 outcome, final metric screen, concept review, and campaign epilogue.
+    bubbles:
+    - who: mira-chen   # Mira Chen
+      say: "The decision is logged. Carry this result into the next shift."
+
+  stops:
+  # --- Stop 57: Attest the recovery
+  #     Concept: fragment recovery; Keystone: evidence/verification; Area: Survey Telescope; Learning role: REINFORCE; Difficulty: L5; Story role: evidence.
+  #     placement: ATTEST, asked by Lena Ortiz beside pipeline-bench.
+  - group: OPS
+    at: pipeline-bench
+    title: "Attest the recovery"
+    person: TODO   # the roster id of whoever asks it
+    concept: "fragment recovery"
+    reason: "The final orbit needs another defensible optical position."
+    scene: "A faint point appears inside the fragment search box and moves consistently over three exposures. Attest its identity only after checking timestamps, star-field solution, motion, brightness, and the static-source archive."
+    motivation: "Recovery extends the arc only when the point is genuinely the same object."
+    format: ATTEST
+    question: "Sign the five backed recovery checks and reject the unsupported city-impact claim."
+    answerText: "Every identity check agrees, so the positions extend the fragment arc."
+    why: "ATTEST owns a claim against named criteria."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Search-box proximity alone is not identity.
+    # correct result: Sign the verified recovery.
+    # state/output: FRAGMENT RECOVERED.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 6
+    #     claims:
+    #       - {id: timestamps, text: Timestamps match the independent standard., backed: true, critical: true}
+    #       - {id: astrometry, text: The star-field solution passes., backed: true, critical: true}
+    #       - {id: motion, text: Motion is consistent across three exposures., backed: true, critical: true}
+    #       - {id: magnitude, text: Brightness is consistent with the fragment model., backed: true, critical: false}
+    #       - {id: static_source, text: No static source exists at the measured position., backed: true, critical: true}
+    #       - {id: city_impact, text: The recovered point proves impact on a named city., backed: false, critical: true}
+    #     correct_signed: [timestamps, astrometry, motion, magnitude, static_source]
+
+  # --- Stop 58: Balance orbit and consequence
+  #     Concept: fragment risk; Keystone: uncertainty/consequences; Area: Entry & Consequences Lab; Learning role: REINFORCE; Difficulty: L5; Story role: analysis.
+  #     placement: BALANCE, at astro-bench.
+  - group: IMPACT
+    at: astro-bench
+    title: "Balance orbit and consequence"
+    concept: "fragment risk"
+    reason: "The recommendation must combine likelihood, scale, and exposure."
+    scene: "The recovered orbit gives a narrow damaging-airburst corridor over 180,000 people, while size and density ranges imply roughly 0.7 to 2 megatons TNT. Balance probability, consequence, timing, and reversibility against the published rule."
+    motivation: "Risk decisions combine likelihood and consequence rather than ranking either alone."
+    format: BALANCE
+    question: "Submit one threshold conclusion—TARGETED ORDER or CONTINUE STAGING—and identify the numerical evidence that controls it."
+    answerText: "High likelihood, damaging scale, narrow exposure, verification, and short time require action."
+    why: "BALANCE integrates unlike evidence at a decision boundary."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Smaller than the primary is not harmless.
+    # correct result: Every targeted-order criterion is crossed.
+    # state/output: TARGETED ORDER AUTHORIZED.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     streams:
+    #       - {id: likelihood, label: Impact probability, value: 91, unit: percent, count: true}
+    #       - {id: diameter, label: Diameter range, value: [28, 36], unit: m, count: true}
+    #       - {id: energy, label: Energy range, value: [0.7, 2.0], unit: Mt TNT, count: true}
+    #       - {id: exposure, label: Exposed population, value: 180000, unit: people, count: true}
+    #       - {id: warning, label: Warning time, value: less_than_2, unit: days, count: true}
+    #       - {id: verification, label: Independent verification, value: independent, unit: status, count: true}
+    #       - {id: torino_summary, label: Torino summary, value: derived, unit: category, count: false}
+    #     published_threshold: high_probability_narrow_damaging_verified_time_critical
+    #     correct_conclusion: targeted_order
+
+  # --- Stop 59: Trigger the promised action
+  #     Concept: protective order; Keystone: thresholds/response; Area: Emergency Management Office; Learning role: MASTER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at threshold-board.
+  - group: TODO            # the curriculum area this teaches for
+    at: threshold-board
+    title: "Trigger the promised action"
+    concept: "protective order"
+    reason: "The response must follow the public rule without exceeding the evidence."
+    scene: "Apply the published, precommitted response ladder to the newly verified 180,000-person fragment corridor. Choose geographic scope, protective action, accessibility measures, and reassessment time while preserving the primary-body stand-down elsewhere."
+    motivation: "A narrow order reduces exposure without transferring unnecessary risk to millions."
+    format: TRIGGER
+    question: "Submit the triggered plan for 180,000 people, naming the protective action, accessibility measures, reassessment timing, and preserved primary-body stand-down."
+    answerText: "The order is urgent, geographically limited, and revisable."
+    why: "TRIGGER converts verified conditions into promised action."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Nationwide evacuation and total all-clear both exceed evidence.
+    # correct result: Issue the targeted, accessible, updateable order.
+    # state/output: PROTECTIVE ORDER transmitted.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger:
+    #     committed_rule: high_probability_narrow_damaging_verified_time_critical
+    #     observed_state:
+    #       impact_probability_percent: 91
+    #       exposed_population: 180000
+    #       independently_verified: true
+    #       warning_time_days: less_than_2
+    #     triggered_action:
+    #       scope_people: 180000
+    #       action: shelter_or_move_outside_modeled_airburst_zone
+    #       accessibility: [multilingual_alerts, mobility_support]
+    #       reassessment: every_orbit_update
+    #       preserve_primary_land_stand_down: true
+    #     correct_conclusion: issue_targeted_accessible_updateable_order
+
+  # --- Stop 60: Allocate the final response
+  #     Concept: execution; Keystone: resources/equity; Area: Emergency Management Office; Learning role: MASTER; Difficulty: L5; Story role: application.
+  #     placement: ALLOCATE, at evac-desk.
+  - group: OPS
+    at: desk
+    title: "Allocate the final response"
+    concept: "execution"
+    reason: "The order only works if resources reach the right people in time."
+    scene: "Allocate previously staged resources to mobility-limited residents, shelters, hospital continuity, multilingual alerts, and a protected reserve for corridor updates. Complete deployment without stripping ongoing coastal monitoring for the primary ocean event."
+    motivation: "Success means reduced exposure and resilient execution, not merely a correct orbit."
+    format: ALLOCATE
+    question: "Submit one five-category allocation totaling 100 points and a conclusion confirming whether every constraint and both hazard tracks remain satisfied."
+    answerText: "The fragment corridor receives protection while the primary remains monitored."
+    why: "ALLOCATE converts decision into constrained, equitable execution."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Spending the reserve makes the system brittle.
+    # correct result: Meet all minimums, retain reserve, preserve coastal monitoring.
+    # state/output: All campaign bars reach 100%; closing sequence begins.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:
+    #     pool: {label: Final response capacity, value: 100, unit: points}
+    #     items:
+    #       - {id: transport, label: Mobility transport, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: shelters, label: Shelters, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: hospitals, label: Hospitals, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: communications, label: Communications, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #       - {id: reserve, label: Protected reserve, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
+    #     questions:
+    #       - {id: clear_zone, label: "Can mobility-limited residents clear the fragment zone?", required: true, needs: {transport: 25}}
+    #       - {id: protect_care, label: "Can shelters and hospitals serve the corridor?", required: true, needs: {shelters: 25, hospitals: 20}}
+    #       - {id: reach_public, label: "Can multilingual alerts reach the corridor?", required: true, needs: {communications: 15}}
+    #       - {id: expand_elsewhere, label: "Can services expand outside both hazard zones now?", required: false, needs: {reserve: 30}}
+    #     correct: {transport: 25, shelters: 25, hospitals: 20, communications: 15, reserve: 15}
+    #     pass_rule: total = 100; every item >= 10; reserve >= 10; coastal monitoring retained
+

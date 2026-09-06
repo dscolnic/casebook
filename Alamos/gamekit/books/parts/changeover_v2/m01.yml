@@ -1,0 +1,189 @@
+# ============================================================ MISSION 1
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "What Counts"
+  card:
+    header: "15 DAYS TO CHANGEOVER"
+    title: "What Counts"
+    goNow: "Go to COUNTER and meet Eli Voss, counter operations lead, at the queue board."
+    body: "The plaza queue is growing, but a long line does not prove that Halvern lacks money. Scarcity means limited resources force choices, while a market price balances buyers and sellers. You will sort evidence, map tradeoffs, and test the queue's cause. By the end of the mission, decide which statistics belong in the first Rate Book page."
+    objective: "Separate useful economic measures from alarming but incomplete signals."
+  objective: "Separate useful economic measures from alarming but incomplete signals."
+  stake: "The plaza queue is growing, but a long line does not prove that Halvern lacks money. Scarcity means limited resources force choices, while a market price balances buyers and sellers. You will sort evidence, map tradeoffs, and test the queue's cause. By the end of the mission, decide which statistics belong in the first Rate Book page."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Use the national count, not the loudest queue. Real output is 700 billion RATE. Prices rose 2.5%. The board now needs the production gap."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "A bowed PPC shows rising opportunity cost; a straight PPC shows constant cost."
+  - "A point inside a PPC means resources are underused; better resources, technology, or productivity shift it outward."
+  - "Price changes move along supply or demand; other causes shift a curve."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-exchange-counter
+    # On arrival at Exchange Counter | queue-board | automatic
+    on: { enter: true, at: COUNTER }
+    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate useful economic measures from alarming but incomplete signals. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Separate useful economic measures from alarming but incomplete signals."
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Start with signal or statistic. We need evidence the next decision can use."
+  - id: after-stop-1
+    # After Stop 1 | allocation-slate | automatic
+    on: { after: [1] }
+    world: "The signal or statistic result remains visible while the counter tradeoff fixture lights."
+    panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Count the nationwide transactions, date them, and state coverage."
+  - id: after-stop-2
+    # After Stop 2 | queue-board | automatic
+    on: { after: [2] }
+    world: "The counter tradeoff result remains visible while the why did the street price rise? fixture lights."
+    panel: "COUNTER"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Forty extra exchanges cost forty bank calls: one call per exchange."
+  - id: after-stop-3
+    # After Stop 3 | wage-notice-rail | automatic
+    on: { after: [3] }
+    world: "The why did the street price rise? result remains visible while the page one standard fixture lights."
+    panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Use the Stop 3 result to settle page one standard."
+  - id: at-mission-end
+    # At mission end | queue-board | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | COUNTER | automatic World state and dialogue: Feedback: A conclusion is not backed because it sounds urgent; State: Page 1 signed; Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 1 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "We can shorten the line, but I will stop calling it a national shortage."
+    - who: voss   # Eli
+      say: "I can open exchange windows or answer bank calls, not both. Tell me what this line proves."
+    - who: voss   # the bible's "final bubble", from this mission's own goNow line
+      say: "The line is real. Its cause is not settled."
+
+  stops:
+  # --- Stop 1: Signal or statistic
+  #     Concept: evidence quality; Keystone: Evidence/index integrity; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L1; Story role: clue.
+  #     placement: CHOICE, asked by Eli Voss beside queue-board.
+  - group: RATE
+    at: queue-board
+    title: "Signal or statistic"
+    person: voss
+    concept: "evidence quality"
+    reason: "Eli needs one defensible measure before moving staff."
+    scene: "The queue has doubled since dawn, yet completed exchanges per cashier are unchanged. Choose the observation that can support a national claim before the board treats one crowded plaza as the whole economy."
+    motivation: "A visible crowd is a sample, while a dated nationwide count can support a policy decision."
+    format: CHOICE
+    question: "Select one submitted conclusion from the four distinct choices below."
+    choices:
+    - "Queue length."
+    - "Loudest complaint."
+    - "Nationwide transaction count with date and coverage."
+    - "One vendor's price."
+    answer: "Nationwide transaction count with date and coverage."
+    answerText: "The completed check shows c. \"Count the nationwide transactions, date them, and state coverage.\"."
+    why: "Aggregates require defined populations and timing."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (1)
+    # correct result: C. "Count the nationwide transactions, date them, and state coverage."
+    # state/output: Page 1 gains "dated coverage"; unlock S2.
+    # CONVERTED. The bible's payload was:
+    #   choices:[{id:A,label:"Queue length"},{id:B,label:"Loudest complaint"},{id:C,label:"Nationwide transaction count with date and coverage"},{id:D,label:"One vendor's price"}]; answer:C; rebuttals:{A:"A line can reflect staffing rather than national scarcity.",B:"Complaint volume does not measure national prevalence.",D:"One vendor price is not a national price index."}
+    # The four labels and the key were already in place above; what the payload
+    # still owed the stop is its keyed rebuttals, one per wrong option, verbatim
+    # and in the bible's own A/B/D order.
+    rebuttals:
+    - "A line can reflect staffing rather than national scarcity."
+    - "Complaint volume does not measure national prevalence."
+    - "One vendor price is not a national price index."
+
+  # --- Stop 2: Counter tradeoff
+  #     Concept: PPC/opportunity cost; Keystone: scarcity; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, at allocation-slate.
+  - group: RATE
+    at: allocation-slate
+    title: "Counter tradeoff"
+    concept: "PPC/opportunity cost"
+    reason: "The staff move must reveal what the counter gives up."
+    scene: "With the evidence standard set, Eli can move four clerks from bank calls to exchange windows. Build the opportunity-cost statement before changing the roster, so the board records both added service and the lost alternative."
+    motivation: "A staffing choice is not free merely because no money changes hands."
+    format: DERIVE
+    question: "Baseline output is 120 exchanges and 80 bank calls per hour; after transfer it is 160 and 40. Build the derivation and submit the opportunity cost of 40 extra exchanges."
+    answerText: "The completed check shows 40 calls total, or 1 call per extra exchange. tolerance:0. **answerText:** \"Forty extra exchanges cost forty bank calls: one call per exchange.\"."
+    why: "A staffing choice is not free merely because no money changes hands."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Staff time, not cash, is scarce.
+    # correct result: 40 calls total, or 1 call per extra exchange. tolerance:0. **answerText:** "Forty extra exchanges cost forty bank calls: one call per exchange."
+    # state/output: roster plan posted; unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["Δexchanges=160−120=40","Δcalls=40−80=−40","OC=40 bank calls/40 exchanges=1 call per exchange"],licenses:["difference","foregone alternative","unit rate"],correct_order:[1,2,3]}
+
+  # --- Stop 3: Why did the street price rise?
+  #     Concept: supply-demand shifts; Keystone: equilibrium; Area: Rate Room; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+  #     placement: DIAGNOSIS, at queue-board.
+  - group: RATE
+    at: queue-board
+    title: "Why did the street price rise?"
+    concept: "supply-demand shifts"
+    reason: "The price stickers may identify what is driving the crowd."
+    scene: "Because extra windows cost bank support, the board must know whether the line comes from buying pressure or reduced supply. Read the street panel and select the one shift that fits every active and quiet reading."
+    motivation: "The cause of a higher equilibrium price determines whether more demand or less supply should be investigated."
+    format: DIAGNOSIS
+    question: "Select one diagnosis."
+    answerText: "The completed check shows supply shifted left."
+    why: "The cause of a higher equilibrium price determines whether more demand or less supply should be investigated."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A demand increase cannot explain falling quantity.
+    # correct result: Supply shifted left.
+    # state/output: port delivery clue logged; unlock S4.
+    # CONVERTED. The bible's payload was:
+    #   diagnosis:{headline:"Price up, quantity down",readings:[{zone:"price",value:"+6%"},{zone:"quantity",value:"−9%"},{zone:"income",value:"unchanged"},{zone:"delivery",value:"late"}],choices:[{id:"D_right",mechanism:"demand rises: P↑ Q↑"},{id:"S_left",mechanism:"supply falls: P↑ Q↓"},{id:"D_left",mechanism:"demand falls: P↓ Q↓"},{id:"ceiling",mechanism:"binding ceiling lowers legal P"}],answer:"S_left"}
+    # A rename throughout. `readings` already carry zone and value; the engine
+    # grades a diagnosis by label, so each candidate's `mechanism` is its label
+    # and `answer` is the keyed one written out. No reading carries a `status`,
+    # which is what leaves income and delivery quiet.
+    headline: "Price up, quantity down"
+    readings:
+    - { zone: "price", value: "+6%" }
+    - { zone: "quantity", value: "−9%" }
+    - { zone: "income", value: "unchanged" }
+    - { zone: "delivery", value: "late" }
+    choices:
+    - "demand rises: P↑ Q↑"
+    - "supply falls: P↑ Q↓"
+    - "demand falls: P↓ Q↓"
+    - "binding ceiling lowers legal P"
+    answer: "supply falls: P↑ Q↓"
+
+  # --- Stop 4: Page one standard
+  #     Concept: measurement/claims; Keystone: Evidence integrity; Area: Rate Room; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: ATTEST, asked by Eli Voss beside wage-notice-rail.
+  - group: RATE
+    at: wage-notice-rail
+    title: "Page one standard"
+    person: voss
+    concept: "measurement/claims"
+    reason: "Only backed claims may enter the Rate Book."
+    scene: "The supply diagnosis explains today's street pattern but still does not justify a national shortage claim. Verify the records that identify dated quantities, coverage, and tradeoffs, then reject any claim resting only on the plaza crowd."
+    motivation: "The first page must preserve what is known without turning an incomplete clue into policy."
+    format: ATTEST
+    question: "Spend three verification marks; submit the three backed claims and reject the unbacked conclusion. **answerText:** \"Record dated national transactions, the staffing cost, and the price-quantity pattern; do not claim a cash shortage.\""
+    answerText: "The completed check shows the keyed result shown by the completed interaction."
+    why: "The first page must preserve what is known without turning an incomplete clue into policy."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A conclusion is not backed because it sounds urgent.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 1 signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{limit:3,claims:[{id:"national_tx",backed:true,critical:true},{id:"staff_tradeoff",backed:true},{id:"price_quantity",backed:true},{id:"cash_shortage",backed:false,critical:true}],correct_verified:["national_tx","staff_tradeoff","price_quantity"],reject:["cash_shortage"]}
+

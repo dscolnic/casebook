@@ -1,0 +1,321 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: System
+  aliases: [system]   # TODO: the plurals and spellings the prose uses
+  def: "a set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body."
+# mission 2
+- name: Infiltration
+  aliases: [infiltration]   # TODO: the plurals and spellings the prose uses
+  def: "water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie."
+# mission 3
+- name: NPP
+  aliases: [npp]   # TODO: the plurals and spellings the prose uses
+  def: "plant energy stored after plants use some energy for respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses."
+# mission 4
+- name: Porosity
+  aliases: [porosity]   # TODO: the plurals and spellings the prose uses
+  def: "the fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change."
+# mission 5
+- name: Generalist
+  aliases: [generalist]   # TODO: the plurals and spellings the prose uses
+  def: "species with a broad niche."
+# mission 5
+- name: Specialist
+  aliases: [specialist]   # TODO: the plurals and spellings the prose uses
+  def: "species with a narrow niche. r-selected: many young, short lives, high early mortality."
+# mission 5
+- name: K-selected
+  aliases: [k-selected]   # TODO: the plurals and spellings the prose uses
+  def: "few young, long lives, stable populations."
+# mission 5
+- name: Carrying capacity
+  aliases: [carrying capacity]   # TODO: the plurals and spellings the prose uses
+  def: "largest population an environment can sustain."
+# mission 6
+- name: Tragedy of the commons
+  aliases: [tragedy of the commons]   # TODO: the plurals and spellings the prose uses
+  def: "overuse of a shared resource."
+# mission 6
+- name: Sustainable yield
+  aliases: [sustainable yield]   # TODO: the plurals and spellings the prose uses
+  def: "harvest that does not reduce future supply."
+# mission 6
+- name: Ecological footprint
+  aliases: [ecological footprint]   # TODO: the plurals and spellings the prose uses
+  def: "productive land and water needed to support consumption and waste."
+# mission 6
+- name: IPM
+  aliases: [ipm]   # TODO: the plurals and spellings the prose uses
+  def: "pest control combining monitoring, prevention, and limited targeted treatment."
+# mission 7
+- name: Leachate
+  aliases: [leachate]   # TODO: the plurals and spellings the prose uses
+  def: "polluted liquid draining through waste."
+# mission 7
+- name: Anaerobic
+  aliases: [anaerobic]   # TODO: the plurals and spellings the prose uses
+  def: "without oxygen."
+# mission 7
+- name: Point source
+  aliases: [point source]   # TODO: the plurals and spellings the prose uses
+  def: "one identifiable outlet."
+# mission 7
+- name: Nonpoint source
+  aliases: [nonpoint source]   # TODO: the plurals and spellings the prose uses
+  def: "diffuse runoff."
+# mission 7
+- name: Sewage treatment
+  aliases: [sewage treatment]   # TODO: the plurals and spellings the prose uses
+  def: "primary settling, secondary bacterial breakdown, tertiary nutrient removal."
+# mission 8
+- name: Dose
+  aliases: [dose]   # TODO: the plurals and spellings the prose uses
+  def: "amount of a substance received per body mass."
+# mission 8
+- name: Threshold response
+  aliases: [threshold response]   # TODO: the plurals and spellings the prose uses
+  def: "effect begins above a dose."
+# mission 8
+- name: Bioavailability
+  aliases: [bioavailability]   # TODO: the plurals and spellings the prose uses
+  def: "fraction absorbed. LD50: dose lethal to half a test population; lower means more toxic."
+# mission 9
+- name: Bioaccumulation
+  aliases: [bioaccumulation]   # TODO: the plurals and spellings the prose uses
+  def: "pollutant buildup within one organism."
+# mission 9
+- name: Biomagnification
+  aliases: [biomagnification]   # TODO: the plurals and spellings the prose uses
+  def: "rising concentration at higher trophic levels."
+# mission 9
+- name: Persistent organic pollutant
+  aliases: [persistent organic pollutant]   # TODO: the plurals and spellings the prose uses
+  def: "long-lived carbon chemical such as DDT or PCB."
+# mission 9
+- name: Eutrophication
+  aliases: [eutrophication]   # TODO: the plurals and spellings the prose uses
+  def: "nutrient enrichment leading to algae and oxygen loss."
+# mission 10
+- name: Dissolved oxygen
+  aliases: [dissolved oxygen]   # TODO: the plurals and spellings the prose uses
+  def: "oxygen gas available in water."
+# mission 10
+- name: Thermal pollution
+  aliases: [thermal pollution]   # TODO: the plurals and spellings the prose uses
+  def: "warming that lowers oxygen solubility."
+# mission 10
+- name: Ocean acidification
+  aliases: [ocean acidification]   # TODO: the plurals and spellings the prose uses
+  def: "falling seawater pH as carbon dioxide enters water."
+# mission 10
+- name: Dead zone
+  aliases: [dead zone]   # TODO: the plurals and spellings the prose uses
+  def: "water with too little oxygen for most animals."
+# mission 11
+- name: Capacity factor
+  aliases: [capacity factor]   # TODO: the plurals and spellings the prose uses
+  def: "actual energy divided by maximum possible energy."
+# mission 11
+- name: EROI
+  aliases: [eroi]   # TODO: the plurals and spellings the prose uses
+  def: "energy returned divided by energy invested."
+# mission 11
+- name: Primary pollutant
+  aliases: [primary pollutant]   # TODO: the plurals and spellings the prose uses
+  def: "emitted directly."
+# mission 11
+- name: Secondary pollutant
+  aliases: [secondary pollutant]   # TODO: the plurals and spellings the prose uses
+  def: "formed in air."
+# mission 11
+- name: Thermal inversion
+  aliases: [thermal inversion]   # TODO: the plurals and spellings the prose uses
+  def: "warm air trapping cooler polluted air below."
+# mission 12
+- name: Greenhouse gas
+  aliases: [greenhouse gas]   # TODO: the plurals and spellings the prose uses
+  def: "gas that absorbs outgoing heat."
+# mission 12
+- name: Global warming potential
+  aliases: [global warming potential]   # TODO: the plurals and spellings the prose uses
+  def: "heat trapped relative to carbon dioxide."
+# mission 12
+- name: Half-life
+  aliases: [half-life]   # TODO: the plurals and spellings the prose uses
+  def: "time for half a radioactive sample to decay."
+# mission 12
+- name: Base load
+  aliases: [base load]   # TODO: the plurals and spellings the prose uses
+  def: "power available steadily."
+# mission 13
+- name: Invasive species
+  aliases: [invasive species]   # TODO: the plurals and spellings the prose uses
+  def: "introduced organism that spreads and causes harm."
+# mission 13
+- name: Endemic
+  aliases: [endemic]   # TODO: the plurals and spellings the prose uses
+  def: "native to one limited place."
+# mission 13
+- name: CITES
+  aliases: [cites]   # TODO: the plurals and spellings the prose uses
+  def: "treaty controlling trade in threatened species."
+# mission 13
+- name: Endangered Species Act
+  aliases: [endangered species act]   # TODO: the plurals and spellings the prose uses
+  def: "United States law protecting listed species and habitat."
+# mission 14
+- name: Total fertility rate
+  aliases: [total fertility rate]   # TODO: the plurals and spellings the prose uses
+  def: "average births per woman; about 2.1 replaces a population without migration."
+# mission 14
+- name: Population momentum
+  aliases: [population momentum]   # TODO: the plurals and spellings the prose uses
+  def: "continued growth from a large reproductive-age group."
+# mission 14
+- name: Demographic transition
+  aliases: [demographic transition]   # TODO: the plurals and spellings the prose uses
+  def: "shift from high birth/death rates toward low rates."
+# mission 14
+- name: Overshoot
+  aliases: [overshoot]   # TODO: the plurals and spellings the prose uses
+  def: "demand beyond available biological capacity."
+# mission 15
+- name: Radiative forcing
+  aliases: [radiative forcing]   # TODO: the plurals and spellings the prose uses
+  def: "change in Earth's energy balance in W/m²."
+# mission 15
+- name: Mitigation
+  aliases: [mitigation]   # TODO: the plurals and spellings the prose uses
+  def: "reducing causes of environmental change."
+# mission 15
+- name: Adaptation
+  aliases: [adaptation]   # TODO: the plurals and spellings the prose uses
+  def: "reducing harm from impacts."
+# mission 15
+- name: Tipping point
+  aliases: [tipping point]   # TODO: the plurals and spellings the prose uses
+  def: "threshold beyond which feedback drives further change."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "Change in storage = inputs - outputs",
+#     c: "Closing any island resource ledger.",
+#     v: [ TODO: split "inputs and outputs are quantities measured over the same period." ],
+#     s: "The ferry can pass only if each essential store remains stable.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "Recharge volume = precipitation depth x recharge area x infiltration fraction",
+#     c: "Estimating annual water returned to the aquifer.",
+#     v: [ TODO: split "depth in metres, area in square metres, fraction as a decimal, volume in cubic metres." ],
+#     s: "Withdrawals for residents and ferries cannot exceed replenishment.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "NPP = GPP - respiration",
+#     c: "Finding plant energy available for growth and consumers.",
+#     v: [ TODO: split "NPP and GPP are energy per area per time; respiration is plant energy use." ],
+#     s: "Grazing and food plans cannot claim energy plants already used.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "N_t=N_0λ^t, for unrestricted discrete growth; N is population, λ multiplier, t time; needed to expose impossible constant-growth claims.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "N_t, N_0, λ, t, for, unrestricted, discrete, growth, N, is, population, multiplier, time, needed, to, expose, impossible, constant, claims are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "N_t=K/(1+e^-rt), for logistic growth; K is capacity and r growth rate; needed to set the stock ceiling.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "N_t, K, e, rt, for, logistic, growth, is, capacity, and, r, rate, needed, to, set, the, stock, ceiling are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "t_d≈0.69/r, for doubling time; r is decimal rate; needed to compare recovery speeds.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "t_d, r, for, doubling, time, is, decimal, rate, needed, to, compare, recovery, speeds are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "footprint demand=people×ha/person; used to show overshoot.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "footprint, demand, people, ha, person, used, to, show, overshoot are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "loss=input-metered output; used to find missing water.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "loss, input, metered, output, used, to, find, missing, water are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "dose=concentration×intake/body mass; used for child/adult comparison.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "dose, concentration, intake, body, mass, used, for, child, adult, comparison are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "no new equation; retrieve load=flow×concentration and nutrient balance.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "no, new, equation, retrieve, load, flow, concentration, and, nutrient, balance are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "no new equation; retrieve logistic limits, 10% energy flow, and controlled comparison.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "no, new, equation, retrieve, logistic, limits, energy, flow, and, controlled, comparison are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "capacity factor=actual kWh/(rated kW×8760 h);",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "capacity, factor, actual, kWh, rated, kW, h are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "efficiency=useful output/input;",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "efficiency, useful, output, input are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "EROI=energy returned/energy invested.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "EROI, energy, returned, invested are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "emissions=activity×emission factor; needed to compare bridge plans.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "emissions, activity, emission, factor, needed, to, compare, bridge, plans are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "no new equation; retrieve population growth and island-biogeography relationships.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "no, new, equation, retrieve, population, growth, and, island, biogeography, relationships are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 14
+#   { e: "PGR=(births-deaths)/population×100%;",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "PGR, births, deaths, population are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.",
+#     k: [ TODO ] },
+#   // mission 14
+#   { e: "doubling time=70/growth rate %.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "doubling, time, growth, rate are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },
+#   // mission 15
+#   { e: "no new equations; retrieve water, population, energy, pollution, and threshold relationships.",
+#     c: "Apply this relationship to the mission decision.",
+#     v: [ TODO: split "no, new, equations, retrieve, water, population, energy, pollution, and, threshold, relationships are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "It converts the island evidence into a defensible operating limit.## Main story happening - designer summary",
+#     k: [ TODO ] },

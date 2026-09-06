@@ -1,0 +1,644 @@
+# Headwater — Ashfell Dam, and nine days of rain forecast in the catchment.
+#
+# Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/headwater/plan.js
+# — four levels inside the wall — and the arc is in ../GAME_IDEAS.md under
+# "Headwater".
+#
+# **The subject is calculus. The dam is where it is being done.** Every stop
+# names the move it teaches — a limit, a rule, an antiderivative, a solved
+# equation — and the reservoir supplies the quantities, the units and the reason
+# anybody wants the number. The syllabus is AP Calculus AB, mapped day by day in
+# tools/syllabus.js under `headwater`, and a stop that teaches no move on that
+# list does not go in however good the hydrology is.
+#
+# The earlier rule here was "no question whose answer is a symbolic expression
+# with nothing at stake", and it was obeyed by dropping the symbols: 26 of 45
+# stops became prose judgement about a dam and the course disappeared. The rule
+# it is replaced by is adaptable in the way the first one was not, because it
+# admits more than one way of paying for a symbol:
+#
+#   A stop earns its place if it teaches a named calculus move AND the move is
+#   consequential in at least one of these senses —
+#     · **numerical** — the working ends in a number somebody acts on;
+#     · **directional** — getting it wrong changes a sign, a units factor or an
+#       order of magnitude, and the verdict says which;
+#     · **structural** — the move decides what kind of answer exists at all
+#       (no rate here, a family rather than a value, an endpoint rather than a
+#       critical point);
+#     · **procedural** — the move is a discipline that survives the setting
+#       (holding out data, converting limits with the variable, measuring what
+#       you predicted).
+#   A symbolic answer is welcome. A symbolic answer with none of the four is not.
+#
+# Every wrong branch names the mistake a student actually makes, and DERIVE's
+# `survives` flag is where that is enforced: at least one wrong line per step
+# stays algebraically valid, because a derivation whose errors die at once is
+# passable without differentiating.
+#
+# The argument: Halloran holds that water released in March cannot be recovered
+# and a dry summer is a real harm with a real cost. Berg holds that headroom is
+# only cheap before it rains. Berg is right on day 4. Halloran is right on day 12.
+#
+# ## The arc, one line a day (STORY_SPEC rule 9), each a But or a Therefore
+#
+# Written down before the closing cards were, because a reversal planted on day
+# 10 has to be a visible thread on day 1 and that cannot be seen from inside one
+# card.
+#
+#   1  Ashfell is nearly full with nine days of rain coming, and every number on
+#      the dam is a reading rather than a rate.
+#   2  THEREFORE the three relations the place is run from have to be read as
+#      rates, and the rain starts while they are being differentiated.
+#   3  BUT what the front leaves overnight is a column of numbers and no formula,
+#      so the total has to be built by hand and every way of building it leans.
+#   4  THEREFORE the release Berg asked for on Monday becomes a much larger
+#      four-hour ramp, into a river with people on it. Berg is right.
+#   5  BUT the head has climbed past where the rating curve was tested, and the
+#      curve tying level to volume cannot be rearranged at all.
+#   6  THEREFORE the only honest news left is in the second derivative — the
+#      steps up have stopped growing — and the two peaks are not the same hour.
+#   7  BUT three people want a largest value and the three answers do not live in
+#      the same kind of place.
+#   8  THEREFORE the week is reduced to one equivalent steady rate, so the
+#      early-release argument can finally be compared with what actually arrived.
+#   9  BUT the outlet is draining the head that drives it, and one six-hour-old
+#      reading is being asked to name the constant.
+#   10 THEREFORE when the survey boat comes in, the shape under all of it is
+#      wrong: the 2003 curve overstates the area at every level. THE REVERSAL,
+#      and it is a measurement rather than an event.
+#   11 BUT nothing has to be decided before lunch, which is the only condition
+#      under which a prediction can be checked against a measurement.
+#   12 THEREFORE with the front gone north the reservoir is short going into
+#      summer, and what is left to fit is the recession. Halloran is right.
+#   13 BUT three jobs close before the nine o'clock call, and the region the
+#      committee wants to read as a total is a difference with a sign in it.
+#   14 THEREFORE the last orders that can be unmade are tested against rate of rise
+#      and the lead time downstream people actually need.
+#   15 THEREFORE what survives is not the water but what can be defended in
+#      writing.
+#
+# The recurring human thread, deliberately OFF the roster so nothing collides
+# with checkNames: Ada Trenholme at Nethercote Ford, the lowest house on
+# Baptiste's list and four hours down the river, and her grandson Kit Trenholme,
+# who moves her ewes off the low meadow every time a warning goes out. She is
+# rung on day 1, cleared on day 4 (Berg right), and cleared a second time for
+# water that never arrives (Halloran right); the note of what those two warnings
+# cost is what Prowse carries into the committee on day 15. The 1983 flood is
+# hers, which is why Prowse's committee is a list of the people who stayed.
+
+theme:
+  id: headwater
+  title: Headwater
+  subtitle: Duty Engineer · Ashfell Dam
+
+groups:
+- id: ARCHIVE
+  code: ARCHIVE
+  name: Forecast Archive
+  color: '#6b7f8a'
+  desc: "Where the campaign's forecast archive work is done."
+  milestones: [Open the room, Read what it holds, Settle the question, Hand it on]
+- id: INFLOW
+  code: INFLOW
+  name: Catchment & Inflow
+  color: '#2f7fa8'
+  desc: What the river is bringing, how fast it is changing, and how long ago it rained.
+  defaultLeader: ekundayo
+  milestones: [Read the gauges, Fit the rise, Forecast the peak, Ready to hand over]
+- id: STORE
+  code: STORE
+  name: Storage & Level
+  color: '#1f7a6b'
+  desc: What the reservoir holds, and why the level is not the same question as the volume.
+  defaultLeader: ferrand
+  milestones: [Read the level, Convert to volume, Account for the change, Ready to hand over]
+- id: GATES
+  code: GATES
+  name: Spillway & Gates
+  color: '#b0762a'
+  desc: How much can be let out, how fast, and what the last half metre of head does.
+  defaultLeader: wilkes
+  milestones: [Set the opening, Predict the discharge, Watch the head, Ready to hand over]
+- id: STRUCT
+  code: STRUCT
+  name: Structure & Seepage
+  color: '#7a4fa3'
+  desc: What the wall does under load, and what it says about itself in the gallery.
+  defaultLeader: zawadzka
+  milestones: [Read the weirs, Plot the uplift, Compare with the rise, Ready to hand over]
+- id: POWER
+  code: POWER
+  name: Power & Demand
+  color: '#b3462f'
+  desc: Water through the turbines is water released, and it is worth money on the way past.
+  defaultLeader: anand
+  milestones: [Read the load, Convert flow to power, Weigh it against storage, Ready to hand over]
+- id: SAFE
+  code: SAFE
+  name: Downstream & Public Safety
+  color: '#5b6a72'
+  desc: How long a release takes to arrive, how high it gets, and who has to be told.
+  defaultLeader: baptiste
+  milestones: [Route the release, Time the arrival, Warn the reach, Ready to hand over]
+
+roster:
+- id: vale
+  name: "Mara Vale"
+  role: "operations chief; she/her"
+  division: ARCHIVE
+  bio: |
+    Mara Vale is operations chief; she/her. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: okoro
+  name: "Imani Okoro"
+  role: "catchment hydrologist; she/her"
+  division: INFLOW
+  bio: |
+    Imani Okoro is catchment hydrologist; she/her. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: wilkes
+  name: "Tomas Wilkes"
+  role: "gate mechanic; he/him"
+  division: INFLOW
+  bio: |
+    Tomas Wilkes is gate mechanic; he/him. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: baptiste
+  name: "Elise Baptiste"
+  role: "downstream safety lead; she/her"
+  division: ARCHIVE
+  bio: |
+    Elise Baptiste is downstream safety lead; she/her. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: mehta
+  name: "Arun Mehta"
+  role: "structural engineer; he/him"
+  division: STRUCT
+  bio: |
+    Arun Mehta is structural engineer; he/him. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: chen
+  name: "Nia Chen"
+  role: "power dispatcher; she/her"
+  division: INFLOW
+  bio: |
+    Nia Chen is power dispatcher; she/her. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+
+glossary:
+- name: Calibration
+  aliases: [calibration, calibrate, calibrated, calibrating]
+  def: Checking an instrument against something already known, so its readings can be trusted.
+- name: Reservoir
+  aliases: [reservoirs]
+  def: The body of water held behind the dam, whose level rises when more arrives than leaves.
+- name: Inflow
+  aliases: [inflows]
+  def: The water arriving at the reservoir from the catchment, second by second.
+- name: Flow rate
+  aliases: [flow, flows]
+  def: How much water passes a point each second, measured in cubic metres a second.
+- name: Outflow
+  aliases: [outflows, release]
+  def: The water leaving — through the turbines, over the spillway, or both. It is the only part anybody 
+    controls.
+- name: Catchment
+  aliases: [catchments]
+  def: The ground whose rain ends up here. Anything that falls on it eventually arrives at the reservoir.
+- name: Curve
+  aliases: [curves]
+  def: A plotted relation between two measured quantities, read off rather than calculated.
+- name: Flood
+  aliases: [floods]
+  def: A flow large enough to reach what is beside the river. It is the event this dam is run against.
+- name: Peak
+  aliases: [peaks]
+  def: The most water passing in one event, and the moment it stops climbing.
+- name: Hydrograph
+  aliases: [hydrographs]
+  def: A plot of flow against time. Its climb, its peak and its fall are the shape of one flood.
+- name: Rate of change
+  aliases: [rate of rise, derivative]
+  def: How fast a quantity is moving, at an instant — the slope of its graph rather than its value.
+- name: Accumulation
+  aliases: [accumulate, accumulated, integral]
+  def: What builds up over time from a rate — for a reservoir, the volume the difference between two rates has
+    added.
+- name: Stage
+  aliases: [level, water level]
+  def: The height of the water surface, measured against a fixed datum. It is what a gauge reads.
+- name: Stage-storage curve
+  aliases: [stage–storage, storage curve, rating curve]
+  def: The surveyed relation between level and volume. Every volume the control room reports comes through it.
+- name: Surface area
+  aliases: [plan area]
+  def: How much of the reservoir the water covers at a given level. It grows as the reservoir fills.
+- name: Head
+  aliases: []
+  def: The height of water above a sill or a turbine, which is what drives water through it.
+- name: Spillway
+  aliases: [spill, spilling]
+  def: The controlled overflow a dam is built with, for water that must leave faster than the machines can 
+    pass it.
+- name: Discharge
+  aliases: [discharges]
+  def: A flow rate through a particular opening, in cubic metres a second.
+- name: Chain rule
+  aliases: []
+  def: When a quantity changes because another one does, its rate carries the inner quantity's rate as a 
+    factor.
+- name: Related rates
+  aliases: [related rate]
+  def: Two quantities tied by a relation, so that knowing how fast one moves fixes how fast the other does.
+- name: Fundamental theorem
+  aliases: [fundamental theorem of calculus]
+  def: The area under a rate, between two times, is the total change over that interval.
+- name: Average value
+  aliases: [mean rate]
+  def: The steady rate that would produce the same accumulation over the same interval.
+- name: Linear approximation
+  aliases: [linearisation, rule of thumb]
+  def: Predicting nearby values from the rate at one point. It is good close by and worse further off.
+- name: Second derivative
+  aliases: [curvature, rate of the rate]
+  def: How fast a rate is itself changing — what says whether a climb is getting quicker or slacker.
+- name: Inflection
+  aliases: [inflection point]
+  def: Where a climb stops getting quicker and starts slackening.
+- name: Trapezoid rule
+  aliases: [trapezoidal, numerical integration]
+  def: Adding up the area under readings by treating each pair as a trapezium. What you use when there is no 
+    formula.
+- name: Optimisation
+  aliases: [optimise, optimum]
+  def: Working out where a quantity is largest or smallest — at a turning point, or at the end of the range.
+- name: Limit
+  aliases: [limits, one-sided limit]
+  def: The value a quantity closes on as its input closes on a number, whether or not it ever arrives there.
+- name: Difference quotient
+  aliases: [average rate of change, secant slope]
+  def: The change in a quantity divided by the change in time. Its limit, as that interval shrinks, is the 
+    derivative.
+- name: Continuous
+  aliases: [continuity, continuously]
+  def: Having no jumps — every value in between is reached. A derivative needs it, and a trace that steps does
+    not have it.
+- name: Critical point
+  aliases: [critical points, turning point]
+  def: Where a derivative is zero or does not exist. A largest value sits at one of these or at a boundary of 
+    the range.
+- name: Concave
+  aliases: [concavity, concave down, concave up]
+  def: Which way a curve is bending. The sign of the second derivative reports it, everywhere at once.
+- name: Antiderivative
+  aliases: [antidifferentiate, antidifferentiating, indefinite integral]
+  def: A quantity whose derivative is the one you started from. Every rate has a family of them, differing by 
+    a constant.
+- name: Constant of integration
+  aliases: [the constant C]
+  def: What is left undetermined when a rate is turned back into a total. Only a measurement pins it down, 
+    which is why one reading is not always enough.
+- name: Definite integral
+  aliases: [definite integrals]
+  def: A total gathered across a stated interval, worked out by subtracting the value at one limit from the 
+    value at the other.
+- name: Riemann sum
+  aliases: [left sum, right sum, endpoint sum]
+  def: A sum of rectangles standing under a curve, used to approximate the area beneath it. On a rising rate 
+    the left one is short and the right one too big.
+- name: Substitution
+  aliases: [substitute, substituting]
+  def: Rewriting an awkward expression in a new variable, so that what is left can be handled by an ordinary 
+    rule.
+- name: Separable
+  aliases: [separate the variables, separating]
+  def: An equation whose two quantities can be moved onto opposite sides, so that each side can be worked on 
+    its own.
+- name: Exponential decay
+  aliases: [decay, recession constant]
+  def: What a rate proportional to the quantity itself produces. It drops by the same fraction in every equal 
+    interval.
+- name: Implicit differentiation
+  aliases: [implicitly]
+  def: Differentiating a relation as it stands, without solving it first. Every quantity in it carries its own
+    rate.
+- name: Product rule
+  aliases: []
+  def: The rate of a product of two changing quantities is a sum of two terms, each holding one of them still.
+- name: Power rule
+  aliases: []
+  def: The derivative of a power brings its own exponent down as a factor and reduces it by one.
+- name: Indeterminate form
+  aliases: [zero over zero]
+  def: A quotient that comes out as nothing over nothing. It still has a value, and reaching it takes work.
+- name: Differential
+  aliases: [differentials]
+  def: A rate multiplied by a small step, used to work out the change that rate produces nearby.
+- name: Accumulation function
+  aliases: [running total, accumulation curve]
+  def: A running total from a start that stays put to a moment that moves. Its rate of change is whatever was 
+    arriving at that moment.
+- name: Held-out data
+  aliases: [holdout, held back]
+  def: Readings kept back while a rule is chosen, so the rule can be scored on something it has never seen.
+- name: Freeboard
+  aliases: []
+  def: The height left between the water surface and the top of the dam. It is the margin everything else is 
+    spent on.
+- name: Uplift
+  aliases: []
+  def: Water pressure under the base of a dam, pushing up. It grows with the reservoir and is measured in the 
+    gallery.
+- name: Seepage
+  aliases: [seep, seeps]
+  def: Water that gets through or under the wall, collected in drains and measured at weirs.
+- name: Travel time
+  aliases: [arrival time]
+  def: How long a release takes to reach a place downstream. It is what turns a decision into a warning.
+- name: Attenuation
+  aliases: [attenuate, attenuates]
+  def: The flattening of a peak as it moves downstream, because the channel takes some in and returns it 
+    later.
+- name: Routing
+  aliases: [route, routed]
+  def: Working out hour by hour what a reservoir or a channel does to a wave that moves through it.
+- name: Sediment
+  aliases: [silt, siltation]
+  def: What the rivers bring in and leave behind. It takes up volume that used to be water.
+
+missions:
+# <<< MISSIONS >>>
+
+copy:
+  INFLOW: <p>The inflow desk. 11 rain gauges, 4 river gauges, and the standing question of how much of what 
+    fell has arrived yet.</p>
+  STORE: <p>The storage board. Level on one wall, volume on the other, and the curve that turns one into the 
+    other pinned between them.</p>
+  GATES: <p>The gate chamber, over the spillway. 2 hoists, a winch log going back to 1974, and a great deal of
+    noise when the gate is running.</p>
+  STRUCT: <p>The seepage and uplift bay, cut into the rock at the foundation. 9 weirs, 12 uplift gauges, and 
+    40 years of plots.</p>
+  POWER: <p>The powerhouse at the toe. Two machines, and a chief who knows to the cubic metre what each of 
+    them is passing.</p>
+  SAFE: <p>The downstream warning desk. A map of the reach with arrival times on it, and a list of people who 
+    answer the phone.</p>
+  TAILRACE: <p>The tailrace deck. Everything the machines have finished with comes out here, and the noise is 
+    why nobody lingers.</p>
+  SWITCH: <p>The switch room. What the machines make leaves the site through this wall.</p>
+  GAUGE: <p>The river gauge hut. The only measurement on site of what actually reached the river.</p>
+  PLANT: <p>The workshop. Spares for two machines, five gates and a hoist that predates everybody here.</p>
+  SUMP: <p>The drainage sump. Everything that seeps through the wall arrives here and is measured on the 
+    way.</p>
+  CORE: <p>The core store. Rock taken out of the foundation when the dam was built, on shelves, labelled by 
+    depth.</p>
+  INSTR: <p>The instrument room. Where a gauge that disagrees with its neighbours gets taken apart.</p>
+  GROUT: <p>The grout curtain access. A row of holes into rock nobody has seen, and the record of what was 
+    pumped into them.</p>
+  REST: <p>The crew room. A kettle, a rota and the only chairs in the gallery.</p>
+  CONTROL: <p>The control room. Level, inflow, gate positions and machine output on one wall, and the log 
+    everything ends up in.</p>
+  ARCHIVE: <p>Records and rating curves. Every survey the dam has ever been given, with the year it was 
+    made.</p>
+  BRIEF: <p>The briefing room. Where the morning call happens and where the liaison committee sits.</p>
+  MET: <p>The met office link. A forecast arrives here as rainfall over a region and leaves as inflow over a 
+    catchment.</p>
+  HOIST: <p>The hoist deck. Motors, brakes and a hand-winding handle nobody has needed since 1998.</p>
+  CREST: <p>The crest walk. Reservoir on 1 side, 100 metres of air on the other, and a handrail between 
+    them.</p>
+  INTAKE: <p>The intake tower head. Where water leaves the reservoir for the machines, drawn from whichever 
+    depth is cleanest.</p>
+  SPILL: <p>The spillway deck. When the gates are running this is the loudest place on the dam by a long 
+    way.</p>
+  LOOKOUT: <p>The reservoir lookout. The whole pool from one window, which is the only place the level is a 
+    thing you can see.</p>
+
+# ---------------------------------------------------------------------------
+# Review variants. No mission stop points at these: from the third day on the
+# engine hands out a callback, and it only has one to hand out where the oldest
+# taught lesson carries a "— Review" of its own title. Each of these is the
+# same named move on a different case — a falling gauge, a tape with holes in
+# it, four shifts instead of one, a corner instead of a jump — so what is being
+# retrieved is the rule rather than the paragraph it was first read in.
+lessons:
+- group: INFLOW
+  task: Get a signed rate out of two falling readings
+  title: The slope between two readings — Review
+  at: gauge-wall
+  concept: Limits, one-sided limits, and where a limit fails to exist
+  place: Catchment & Inflow Desk
+  scene: >
+    June Sato, the forecast liaison, has the Braith tributary gauge beside the Ashfell one —
+    62 cubic metres a second at noon, 47 at 3. She is drafting the recession note and wants
+    the rate of fall stated, not the two readings quoted.
+  guide: >-
+    Five tiles and only three of them are ends of an interval. The order the 2
+    readings are subtracted in decides the sign, and the sign is most of what
+    this number reports. A sum of the readings has thrown the difference away,
+    and the clock hour is a label rather than a length. Subtract the wrong way
+    round and the note tells a committee the river is climbing.
+  background:
+  - >-
+    Where the direction lives. The magnitude of a slope survives being subtracted backwards; the sign
+    does not. Later minus earlier, over later minus earlier, is the only arrangement that puts the
+    river's direction into the answer. It is the arrangement worth doing by habit rather than by
+    thought.
+  - >-
+    What a falling limb does to a straight-line carry. A recession bends: the fall is quickest just
+    after the crest and slackens for days afterwards. An average slope taken across the steep part and
+    projected forward therefore empties the reservoir faster on paper than the river will empty it. That
+    is the opposite of the error the rising limb produces.
+  assumes:
+  - an average rate of change is the change in a quantity divided by the change in time
+  - subtracting the earlier reading from the later one is what makes a rate signed
+  takeaway: A slope carries a direction, and the order the two readings are subtracted in is the only place 
+    that direction lives.
+  format: BALLPARK
+  question: Estimate the average rate of change of the Braith gauge across those 3 hours.
+  why: >
+    The slope of the line through 2 points does not care which way the river is going. Taking the later
+    reading first puts the direction into the sign. A negative average rate is a fall of about 5 cubic
+    metres a second every hour. Reverse the subtraction and the arithmetic still works and the units
+    still read correctly, so nothing on the sheet objects. A recession also bends, so the fall slackens
+    and this slope carried forward overstates how quickly the tributary empties.
+  estimate:
+    prompt: >
+      The Braith gauge read 62 cubic metres a second at 12:00 and 47 at 15:00. An average rate
+      of change is the change in the quantity divided by the change in the time.
+    question: Choose the later reading, the earlier reading and the length of the interval.
+    labels:
+    - 47  (the reading at 3, cubic metres a second)
+    - 62  (the reading at noon, cubic metres a second)
+    - 3  (hours between the two readings)
+    - 109  (the two readings added together)
+    - 15  (the hour the later reading was taken)
+    values: [47, 62, 3, 109, 15]
+    slots: 3
+    template: '({0} − {1}) ÷ {2}'
+    formula: (a-b)/c
+    correct: [0, 1, 2]
+    target: -5
+    tolerance: 0.6
+    units: cubic metres a second per hour
+    solution: (47 − 62) ÷ 3 = −5 cubic metres a second per hour.
+    explanation: >
+      About 5 cubic metres a second an hour, downward. Carried forward 6 hours that is another
+      30 off the gauge, which no recession has ever managed — the fall slackens as the
+      tributary drains, and the straight-line carry is the pessimistic end of it.
+    givens:
+    - 62 m³/s at 12:00, 47 m³/s at 15:00
+    - Three hours between the readings
+    relationship: >
+      Average rate of change = (Q(t₂) − Q(t₁)) ÷ (t₂ − t₁), which is the slope of the line
+      through the two points on the hydrograph, sign included.
+  answerText: About 5 cubic metres a second per hour downward, so a rate of −5 across the three hours.
+
+- group: INFLOW
+  task: Say what an uneven tape costs the trapezoid rule
+  title: Adding up a curve nobody wrote down — Review
+  concept: Riemann sums, left and right endpoints, and the trapezoid rule
+  place: Catchment & Inflow Desk
+  scene: >
+    Ayo Ekundayo, the catchment hydrologist, has 5 readings off the overnight tape, and the
+    recorder skipped twice. Two of the gaps are 90 minutes and 2 are half an hour. Sato has
+    already totalled the column with the half-ends rule.
+  guide: >-
+    The 4 answers disagree about what the half-ends form actually is. Is it a weighting of readings? Or
+    a shortcut that quietly assumed something about the clock? Ask what a single trapezium is made of
+    before arguing about weights. Getting this wrong does not shift the total slightly. It multiplies
+    most of the night by a width the tape never had.
+  background:
+  - >-
+    What the half-ends form is a shortcut for. Add the 4 trapezia of a 5-reading tape and collect the
+    terms. Every interior reading turns up in two of them and every end reading in one. That is where the
+    halves come from. That collection is only legal when the widths are equal, because it is the common
+    width that was factored out.
+  - >-
+    Why the fix is cheap. Nothing about a trapezium needs its neighbours to match it.
+    Average the pair, multiply by the gap that separates that pair, and add the 4
+    results. It is more arithmetic than the shortcut and exactly as exact, which is
+    why an uneven tape is an inconvenience rather than a lost measurement.
+  assumes:
+  - the area under a flow-against-time curve is a volume
+  - a trapezium's area is the average of its 2 parallel sides times its width
+  takeaway: The half-ends form is an arithmetic shortcut that assumed equal spacing, and the trapezia are what
+    survive when the spacing goes.
+  format: CHOICE
+  question: What is wrong with Sato's total, and what does it take to put right?
+  choices:
+  - Each pair has to be averaged and multiplied by its own gap, not by one common width
+  - Nothing is wrong, because averaging each adjacent pair already accounts for the gap between them
+  - No area can be recovered from these readings until the tape is re-read at a fixed interval
+  - The half-ends weighting is the fault, so every reading on the tape should count at full weight
+  answer: Each pair has to be averaged and multiplied by its own gap, not by one common width
+  why: >
+    The trapezoid rule is a sum of trapezia, and the half-ends form is what that sum collapses to
+    when every width is the same. Take the widths apart and the shortcut is gone. Each adjacent
+    pair is averaged and multiplied by the gap that separates it, and 5 readings give 4 areas to
+    add. The uneven tape costs the arithmetic and nothing else. A 90-minute gap totalled as if it
+    were half an hour reports a third of the water that arrived across it.
+  rebuttals:
+  - Averaging a pair says nothing about how far apart the pair was taken, and that gap is the width of the 
+    trapezium.
+  - Unequal spacing costs the shortcut and not the measurement; 4 trapezia of 4 different widths still add up.
+  - The half weight on each end is right in both forms, because an end reading borders 1 interval and an 
+    interior reading borders 2.
+
+- group: STRUCT
+  task: Say what each shift does to the two totals
+  title: Which end of the interval you believed — Review
+  at: weir-bench
+  concept: Riemann sums, left and right endpoints, and the trapezoid rule
+  place: Seepage & Uplift Bay
+  scene: >
+    Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board.
+    The same 2 totals stand against each: one built on opening readings, one on closing. No shift
+    behaved like the one before it.
+  guide: >-
+    Four shifts and 4 verdicts, one each. What settles every pairing is the
+    direction the seepage moved rather than how large the readings were. Take the 2
+    shifts that only go one way first, and the pair left over separates on whether
+    the record turns. A total nobody can rank is worth less than 2 that bracket the
+    answer between them.
+  background:
+  - >-
+    Why the direction is the whole of it. A rectangle one hour wide and as tall as the
+    opening reading sits under the curve on a rising hour and over it on a falling
+    one. The closing-reading rectangle does the reverse. Nothing else about the
+    readings enters, which is why a shift can be ranked before its numbers are read.
+  - >-
+    What a bracket is worth. Two totals that are known to sit either side of the truth are a statement
+    with a width. The width is a measurement of how coarse the hourly tape is. One total that is nearly
+    right and cannot be placed is not, which is the argument for keeping both rather than picking the
+    better-looking one.
+  assumes:
+  - a rate multiplied by an interval accumulates exactly only where the rate holds still
+  - a sum of rectangles approximates the area under a curve
+  takeaway: For monotone data, endpoint sums give known upper and lower bounds; once the record turns, neither
+    endpoint sum is guaranteed to be a bound.
+  format: PROTOCOL
+  question: Match each shift's record to what the two totals do.
+  columns: [What the shift did, What the totals do]
+  scenarios:
+  - Seepage climbed from the first hour of the shift to the last.
+  - Seepage fell all shift as the gallery drained.
+  - Seepage rose to a peak at 4 o'clock and then fell.
+  - Seepage held at the same reading every hour.
+  choices:
+  - The opening total is short and the closing total long, so the truth lies between them.
+  - The opening total is long and the closing total short, and the truth is still between them.
+  - Neither endpoint total is guaranteed to bound the truth once the record changes direction.
+  - The 2 totals come out equal, and each of them is the accumulation exactly.
+  mapping: [0, 1, 2, 3]
+  why: >-
+    On a rising interval, a left-endpoint rectangle lies below the curve and a right-endpoint one above; on a falling
+    interval the ordering reverses. That guarantees a bracket only while the function stays monotone across the
+    whole interval. If the record rises and then falls, errors from different subintervals can cancel or reinforce,
+    so neither total is guaranteed to sit on a particular side of the true integral without more information. A
+    flat shift remains exact.
+
+- group: SAFE
+  task: Say whether a corner in the trace has a rate
+  title: The instant the gate moved — Review
+  concept: Continuity, and what a jump costs you
+  place: Downstream Warning Desk
+  scene: >
+    Nadine Baptiste, the downstream warning officer, has Thursday's tailrace trace. Gate 2 was
+    wound open across 4 minutes and then stopped dead. The discharge climbs the whole way and
+    holds after. She wants the instant the winding stopped read off it.
+  guide: >-
+    The 4 answers mix 2 separate questions together: whether the trace breaks, and
+    whether it has a slope. Settle the break first, from the readings either side of
+    that instant. Then ask the slope question again from the left and from the right,
+    as a second question with its own answer. Calling a corner a break sends a fault
+    report about a gauge that is working.
+  background:
+  - >-
+    Two limits, not one. The limit of the discharge across an instant asks what value
+    the trace approaches; the limit of the difference quotient asks what slope it
+    approaches. They are separately capable of existing, and a corner is exactly the
+    case where the first one does and the second one does not.
+  - >-
+    Why a corner is physically plausible. A gate can finish moving over a finite interval and then hold position,
+    so the discharge trace can remain continuous while its slope changes abruptly in an idealized model. A truly
+    instantaneous jump in measured discharge would instead make you question telemetry or the plotting model before
+    claiming the water itself jumped.
+  takesAsRead:
+  - Limits, one-sided limits, and where a limit fails to exist
+  assumes:
+  - a limit describes what a quantity approaches from one side
+  - a derivative is a limit of the difference quotient taken across the instant
+  takeaway: Continuity is a promise about the value and never about the slope, and a corner is where the 
+    difference between the two shows.
+  format: CHOICE
+  question: What is true of the discharge at the instant the winding stopped?
+  choices:
+  - The trace is continuous there, and still has no rate of change at that instant
+  - The trace has a rate of change there, and it is the average of the two slopes
+  - The trace is discontinuous there, since the slope changes without warning
+  - The trace has a rate of change there, because the discharge itself never jumps
+  answer: The trace is continuous there, and still has no rate of change at that instant
+  why: >
+    Nothing jumps here. Both one-sided limits of the discharge are the same number. So the trace is
+    continuous at that instant, and a value can be read straight off it. The derivative is a different
+    limit, of the difference quotient, taken across the instant. It has 2 answers. One is a steep climb
+    approaching from the left. The other is a flat line approaching from the right. Two one-sided slopes
+    that disagree leave the 2-sided one undefined. Continuity buys the value and it never buys the rate.
+  rebuttals:
+  - Two one-sided slopes do not average into a derivative. A limit either exists or it does not.
+  - A corner is not a break. The discharge has 1 value there and the trace runs unbroken through it.
+  - Continuity guarantees the value and says nothing about the slope, which is a second limit and a harder 
+    one.

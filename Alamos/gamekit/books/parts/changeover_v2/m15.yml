@@ -1,0 +1,153 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Sign With Conditions"
+  card:
+    header: "CHANGEOVER TOMORROW"
+    title: "Sign with Conditions"
+    goNow: "Go to COUNTER and meet Eli Voss at the live queue board."
+    body: "First-week cover protects the sound conversion, and every major clue now has an economic cause. The final rate must balance real borrowing costs, the output gap, bank reserves, price limits, and foreign effects. You will carry one live case through all four floors and apply the precommitted rule. By the end of the mission, choose and sign Halvern's policy rate and conditions."
+    objective: "Make the final integrated, reversible macroeconomic decision."
+  objective: "Make the final integrated, reversible macroeconomic decision."
+  stake: "First-week cover protects the sound conversion, and every major clue now has an economic cause. The final rate must balance real borrowing costs, the output gap, bank reserves, price limits, and foreign effects. You will carry one live case through all four floors and apply the precommitted rule. By the end of the mission, choose and sign Halvern's policy rate and conditions."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Sign a 3.25% policy rate. And the 4.15 conversion with the posted conditions. The real rate is 1.00%, reserves stay positive. And neither emergency trigger has fired. Shops replace the last shortcut labels."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-exchange-counter
+    # On arrival at Exchange Counter | live-economy-panel | automatic
+    on: { enter: true, at: COUNTER }
+    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Make the final integrated, reversible macroeconomic decision. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Make the final integrated, reversible macroeconomic decision."
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "Start with live economy panel. We need evidence the next decision can use."
+  - id: after-stop-57
+    # After Stop 57 | reserve-clock | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Mara Venn says, , and Stop 58 unlocks."
+    panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "The gap is −38 billion; payment failures 0.5% do not meet the 2% trigger."
+  - id: after-stop-58
+    # After Stop 58 | threshold-rail | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in RATE → BANKS → COUNTER only if the route requires travel, then."
+    panel: "RATE → BANKS → COUNTER"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "At 3.25%, the real rate is 1.00% and banks retain 2 billion excess reserves."
+  - id: after-stop-59
+    # After Stop 59 | conversion-desk | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the COUNTER decision fixture; The character asks for the promised mission decision, and Stop 60 unlocks."
+    panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "The real rate links investment, AD, capital flows, currency, NX, and growth; CPI and payment limits independently govern reversal."
+  - id: at-mission-end
+    # At mission end | live-economy-panel | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | COUNTER | automatic Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 15 EVIDENCE: RECORDED"
+    bubbles:
+    - who: voss   # Eli Voss
+      say: "The rate is not a promise that nothing will change. It is a promise that we know when we will."
+
+  stops:
+  # --- Stop 57: Live economy panel
+  #     Concept: national snapshot; Keystone: GDP/inflation/labor; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L5; Story role: L5.
+  #     placement: BALANCE, at live-economy-panel.
+  - group: STATS
+    at: live-economy-panel
+    title: "Live economy panel"
+    concept: "national snapshot"
+    reason: "The final policy must begin from one internally consistent snapshot."
+    scene: "Launch data show real GDP 682 billion, Yf 720, unemployment 8.2%, companion inflation 3.0%, payment failures 0.5%, and fuel costs easing. Count the readings relevant to the signed stance."
+    motivation: "Output is weak, but the payment trigger has not fired and inflation is below its stop limit."
+    format: BALANCE
+    question: "Select all six readings, calculate gap 682−720, and submit conclusion."
+    answerText: "\"The gap is −38 billion; payment failures 0.5% do not meet the 2% trigger.\""
+    why: "Output is weak, but the payment trigger has not fired and inflation is below its stop limit."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
+    # correct result: −38b; no trigger.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"actual_output",value:682,unit:"billion RATE",counts:true},{id:"full_employment_output",value:720,unit:"billion RATE",counts:true},{id:"unemployment",value:8.2,unit:"percent",counts:true},{id:"CPI_inflation",value:3.0,unit:"percent",counts:true},{id:"payment_failures",value:0.5,unit:"percent",counts:true},{id:"fuel_easing",value:1,unit:"status flag",counts:false,reason:"context, not an output-gap stream"}],correct:{gap:-38,trigger:"no joint inflation-payment trigger"},answerText:"The economy has a 38-billion recessionary gap, but the joint trigger is not met; fuel easing is context rather than a counted ledger stream."}
+
+  # --- Stop 58: Rate pair
+  #     Concept: Fisher and reserves; Keystone: rates/money; Area: Bank Supervision; Learning role: RETRIEVE; Difficulty: L4; Story role: L4.
+  #     placement: DERIVE, at reserve-clock.
+  - group: BANKS
+    at: reserve-clock
+    title: "Rate pair"
+    concept: "Fisher and reserves"
+    reason: "The nominal rate must deliver a tolerable real rate while banks clear."
+    scene: "Expected inflation is 2.25%, the proposed nominal rate is 3.25%, deposits are 120 billion, reserves are 14 billion, and rr is 10%. Derive real rate and excess reserves."
+    motivation: "A workable stance needs both borrowing conditions and bank capacity."
+    format: DERIVE
+    question: "Submit (real rate %, excess reserves billion). r=3.25−2.25=1.00%; required=12; excess=2."
+    answerText: "\"At 3.25%, the real rate is 1.00% and banks retain 2 billion excess reserves.\""
+    why: "A workable stance needs both borrowing conditions and bank capacity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A workable stance needs both borrowing conditions and bank capacity.
+    # correct result: (1.00%,2b).
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"real rate and excess reserves","givens":["nominal rate=3.25%","expected inflation=2.25%","deposits=120 billion","reserve ratio=10%","actual reserves=14 billion"],"lines":[{"id":"L1","expression":"real rate=3.25%-2.25%=1.00%","license":"state governing relationship"},{"id":"L2","expression":"required reserves=120×0.10=12 billion","license":"substitute displayed values"},{"id":"L3","expression":"excess reserves=14-12=2 billion","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["real rate=5.50%","excess reserves=12 billion"],"correct_result":"(1.00%,2 billion)","answerText":"The real rate is 1.00% and banks hold 2 billion in excess reserves."}
+
+  # --- Stop 59: Consequence audit
+  #     Concept: linked policy consequences; Keystone: AD/forex/growth; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L5; Story role: L5.
+  #     placement: TRACE, at threshold-rail.
+  - group: STATS
+    at: threshold-rail
+    title: "Consequence audit"
+    concept: "linked policy consequences"
+    reason: "Every final claim must expose its dependencies."
+    scene: "Because 3.25% yields a 1.00% real rate with positive reserves, trace its effects through investment, AD, capital flows, exchange value, NX, and growth. Separate independent price and payment safeguards."
+    motivation: "The final rate is credible only if domestic and foreign consequences remain visible."
+    format: TRACE
+    question: "Open every dependency and submit the complete consequence map."
+    answerText: "\"The real rate links investment, AD, capital flows, currency, NX, and growth; CPI and payment limits independently govern reversal.\""
+    why: "The final rate is credible only if domestic and foreign consequences remain visible."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. The final rate is credible only if domestic and foreign consequences remain visible.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"investment",label:"private investment",dependency:"real interest rate",target_dependent:true},{id:"aggregate_demand",label:"aggregate demand",dependency:"real interest rate",target_dependent:true},{id:"capital",label:"capital formation",dependency:"real interest rate",target_dependent:true},{id:"forex",label:"capital inflow and RATE demand",dependency:"real interest rate",target_dependent:true},{id:"net_exports",label:"net exports",dependency:"exchange-rate branch",target_dependent:true},{id:"growth",label:"long-run growth",dependency:"capital branch",target_dependent:true},{id:"CPI",label:"CPI check",dependency:"price survey",independent:true},{id:"payments",label:"payment failures",dependency:"payment network",independent:true}],shared_upstream:"real interest rate",correct_conclusion:"moderate stance with independent CPI and payment safeguards",answerText:"Six policy channels share the real-rate source; independent CPI and payment channels keep the final stance conditional."}
+
+  # --- Stop 60: Sign
+  #     Concept: final policy; Keystone: all keystones; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: payoff.
+  #     placement: TRIGGER, at conversion-desk.
+  - group: RATE
+    at: conversion-desk
+    title: "Sign"
+    concept: "final policy"
+    reason: "Mara needs one numeric rate, conversion, and reversible rule."
+    scene: "The live gap argues against tightening, reserves remain positive, conversion passes, and neither joint action trigger nor inflation stop has fired. Enter the final numbers and sign only if every bar is complete."
+    motivation: "Conditions turn one rate choice into a testable policy rather than a guess."
+    format: TRIGGER
+    question: "Submit number pair (4.15 crowns/RATE, 3.25%), then the three numeric conditions, then select SIGN; the panel blocks SIGN unless all four bars equal 100."
+    answerText: "\"Signed: 4.15 conversion, 3.25% policy rate, with joint output/payment action trigger and CPI stop.\""
+    why: "Conditions turn one rate choice into a testable policy rather than a guess."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Conditions turn one rate choice into a testable policy rather than a guess.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 15; all locks; no more quizzes.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   rule:"conversion 4.15; policy rate 3.25%; buy bonds if Y≤680 AND failures≥2%; stop if companion CPI≥6.5%"; anchors:[4.15,3.25,680,2,6.5]; objective:"stable conversion with full employment and price guard"; direction:"conditional expansion"; consequence_limit:"CPI".
+

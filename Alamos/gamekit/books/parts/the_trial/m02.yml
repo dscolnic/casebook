@@ -1,0 +1,156 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "What Was Measured"
+  card:
+    header: "DAY 2 - BOARD IN 14 DAYS"
+    title: "What Was Measured"
+    goNow: "Go to the Adjudication Room and meet Amina Okafor, endpoint adjudication lead, at the outcome viewer."
+    body: "The registered claims are secure, but two extreme recovery records could distort the treatment summary. A distribution shows how patient values vary, while standardization shows how unusual one value is. At the outcome viewer, compare summaries, standardize records, and test the normal model. By the end of the mission, decide how recovery time should be measured and summarized."
+    objective: "Approve a defensible recovery-time procedure."
+  objective: "Approve a defensible recovery-time procedure."
+  stake: "The registered claims are secure, but two extreme recovery records could distort the treatment summary. A distribution shows how patient values vary, while standardization shows how unusual one value is. At the outcome viewer, compare summaries, standardize records, and test the normal model. By the end of the mission, decide how recovery time should be measured and summarized."
+  takeaway: "Check a Normal model before using its tail areas."
+  segue: "Mission decision: Use the median and IQR for the uneven recovery times. Check flagged records instead of deleting them. The Normal model misses the long tail. The method now fits most patients. Two hospitals still have safety alerts."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Right skew usually pulls the mean above the median."
+  - "Mean and SD suit symmetric data; median and IQR suit skewed data."
+  - "Standardizing places different measurements on a common scale."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-the-adjudication-room
+    # On arrival at the Adjudication Room | s05-which-center-survives | automatic
+    on: { enter: true, at: TODO }   # s05-which-center-survives
+    world: "Arrival: trigger room entry; location ADJUD; nearby bubble; outcome viewer shows two flagged scans; dialogue shown above; - After S1: trigger correct commit; equipment update; player control restored; panel shows MEAN 8 / MEDIAN 5; - After S2-S3: trigger measurement; persistent state; z tags and LIMITED FIT text appear; - Final/outcome: trigger S4; character bubble then placard change; binder slot 2 fills; unlock metric screen."
+    panel: "MISSION 2: WHICH CENTER SURVIVES OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Start with which center survives. We need evidence the next decision can use."
+  - id: after-stop-5
+    # After Stop 5 | s06-put-hospitals-on-one-scale | automatic
+    on: { after: [1] }
+    world: "The which center survives result remains visible while the put hospitals on one scale fixture lights."
+    panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Use the Stop 5 result to settle put hospitals on one scale."
+  - id: after-stop-6
+    # After Stop 6 | s07-test-the-bell | automatic
+    on: { after: [2] }
+    world: "The put hospitals on one scale result remains visible while the test the bell fixture lights."
+    panel: "STOP 6 RECORDED - STOP 7 OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Use the Stop 6 result to settle test the bell."
+  - id: after-stop-7
+    # After Stop 7 | s08-approve-the-procedure | automatic
+    on: { after: [3] }
+    world: "The test the bell result remains visible while the approve the procedure fixture lights."
+    panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "Use the Stop 7 result to settle approve the procedure."
+  - id: at-mission-end
+    # At mission end | s05-which-center-survives | automatic
+    on: { enter: true, at: TODO }   # s05-which-center-survives
+    world: "One location, ADJUD, because only its source images can distinguish rare verified outcomes from entry errors."
+    panel: "MISSION 2 EVIDENCE: RECORDED"
+    bubbles:
+    - who: amina-okafor   # Amina Okafor
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "The model predicts 95%, but observed coverage is 88%, so the Normal tail model is inadequate."
+
+  stops:
+  # --- Stop 5: Which Center Survives
+  #     Concept: mean, median, skew; Keystone: keystone distributions; Area: Endpoint Adjudication; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+  #     placement: BALLPARK, at s05-which-center-survives.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Which Center Survives"
+    concept: "mean, median, skew"
+    reason: "Amina needs to know whether one long recovery is driving the reported average benefit."
+    scene: "The verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Compare the mean and median to learn which summary stays closer to the experience of most patients."
+    motivation: "A treatment claim built on a pulled mean may exaggerate what a typical patient gains."
+    format: BALLPARK
+    question: "Submit mean and median in days from values 4,5,5,6,20; formula mean=sum/5. BALLPARK slots sum,mean,median; targets 40,8,5; tolerances 0,0.01,0.01."
+    answerText: "The completed check shows mean = 40/5 = 8 days; median = 5 days. The high value pulls the mean above the median, matching right skew."
+    why: "A treatment claim built on a pulled mean may exaggerate what a typical patient gains."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   pair: mean days, median days
+    # correct result: Mean = 40/5 = 8 days; median = 5 days. The high value pulls the mean above the median, matching right skew.
+    # state/output: Viewer displays MEAN 8, MEDIAN 5; unlock S2.
+
+  # --- Stop 6: Put Hospitals on One Scale
+  #     Concept: z-score and percentile meaning; Keystone: keystone normal model; Area: Statistics & Analysis; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, at s06-put-hospitals-on-one-scale.
+  - group: STAT
+    at: TODO               # the fixture it is asked at
+    title: "Put Hospitals on One Scale"
+    concept: "z-score and percentile meaning"
+    reason: "Raw days cannot show whether 84 hours is equally unusual at hospitals with different baselines."
+    scene: "With the resistant center chosen, one hospital's delay must still be compared with its own baseline. Build the standardization from an observed 84 hours, mean 70 hours, and standard deviation 7 hours."
+    motivation: "A common z-scale identifies which record deserves the first source check."
+    format: DERIVE
+    question: "Build three licensed lines and submit z with no unit: deviation 84-70=14 hours [subtract mean]; z=14/7 [divide by SD]; z=2 [simplify]. Decoys include 84/70 and 14/49."
+    answerText: "z = (84-70)/7 = 2, so the delay is two standard deviations above that hospital's mean and near the 97.5th percentile under a Normal model."
+    why: "A common z-scale identifies which record deserves the first source check."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   unitless z number
+    # correct result: z=2 exactly, tolerance 0.01.
+    # state/output: Record gains z=+2 and HIGH TAIL text; unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"z-score for 84 hours","givens":["x=84 h","mean=70 h","SD=7 h"],"lines":[{"id":"L1","expression":"deviation=84-70=14 h","license":"state governing relationship"},{"id":"L2","expression":"z=14/7=2","license":"substitute displayed values"}],"keyed_order":["L1","L2"],"decoys":["84/70","14/49"],"correct_result":"z=2","answerText":"The delay is two standard deviations above its hospital mean; z is unitless."}
+
+  # --- Stop 7: Test the Bell
+  #     Concept: 68-95-99.7 rule; Keystone: keystone normal model; Area: Statistics & Analysis; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
+  #     placement: VERIFY, at s07-test-the-bell.
+  - group: STAT
+    at: TODO               # the fixture it is asked at
+    title: "Test the Bell"
+    concept: "68-95-99"
+    reason: "The team must verify whether a bell-shaped benchmark can summarize ordinary recovery times."
+    scene: "The standardized record lies two deviations high, so the viewer can test the model against the full verified sample. Predict the percent expected between 56 and 84 hours when mean is 70 and SD is 7."
+    motivation: "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** Use the 68-95-99.7 rule with mean 70 h, SD 7 h, and interval 56-84 h; submit the predicted percent before the viewer unlocks."
+    answerText: "The model predicts about 95% within two SD, but only 88% are inside. The heavy right tail makes the Normal model inadequate for tail decisions."
+    why: "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   predicted percent, then fit conclusion
+    # correct result: Prediction 95%; observed coverage 88%; conclusion inadequate Normal fit; prediction tolerance 1 percentage point.
+    # state/output: NORMAL MODEL: LIMITED FIT appears in words and icon; unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{equation:"68-95-99.7 rule for mean ±2 SD",inputs:{mean:70,sd:7,lower:56,upper:84},units:"hours",submit:{quantity:"predicted coverage",unit:"percent",truth:95,tolerance:1}},equipment_locked_until_prediction_commit:true,operation:{action:"reveal verified-sample coverage",fixed:["56-84 h interval","verified sample"]},measurements:{observed_coverage:88,unit:"percent"},restore:{required:false,reason:"reveal changes no setting"},correct_conclusion:"inadequate Normal fit",answerText:"The model predicts 95%, but observed coverage is 88%, so the Normal tail model is inadequate."}
+
+  # --- Stop 8: Approve the Procedure
+  #     Concept: graph choice, resistance, outlier treatment; Keystone: keystone distributions; Area: Endpoint Adjudication; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: DIAGNOSIS, at s08-approve-the-procedure.
+  - group: ENDP
+    at: TODO               # the fixture it is asked at
+    title: "Approve the Procedure"
+    concept: "graph choice, resistance, outlier treatment"
+    reason: "Amina must lock one procedure before the next data export."
+    scene: "The mean is pulled upward, the median remains stable, and observed tail coverage fails the Normal benchmark. Choose the one procedure that fits all readings while preserving extreme records for source review."
+    motivation: "The measurement rule determines whether later treatment comparisons answer the registered patient question."
+    format: DIAGNOSIS
+    question: "Compare the displayed shape, center, spread, Normal-fit, and source-status readings. Submit the endpoint procedure that preserves extremes while using resistant summaries."
+    answerText: "The completed check shows report median and IQR, compare arms with boxplots, and retain flagged records until source review resolves them."
+    why: "The measurement rule determines whether later treatment comparisons answer the registered patient question."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Delete extremes or force Normality; retain sources
+    # correct result: Report median and IQR, compare arms with boxplots, and retain flagged records until source review resolves them.
+    # state/output: Measurement procedure locks; binder piece 2 fills; M3 unlocks.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline RECOVERY SUMMARY; readings: histogram right-skew alarm, mean 8 quiet, median 5 quiet, IQR fence flags 20 alarm, normal coverage 88% alarm. Choices with mechanisms: mean/SD delete extremes; median/IQR retain-and-review; range only; category average. Answer median/IQR retain-and-review.
+

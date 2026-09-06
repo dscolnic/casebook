@@ -1,0 +1,155 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The First Round"
+  card:
+    header: "11 DAYS TO CHANGEOVER"
+    title: "The First Round"
+    goNow: "Go to PRICES and meet Rhea Dane, finance minister, at the spending board."
+    body: "The labor audit found a 34.8-billion recessionary gap, and the finance ministry offers a smaller spending package. Each new dollar becomes income, then further consumption or saving, so the total demand change can exceed the first round. You will derive the multipliers and test the package. By the end of the mission, decide which fiscal change can close the gap."
+    objective: "Calculate the spending and tax changes that target the measured gap."
+  objective: "Calculate the spending and tax changes that target the measured gap."
+  stake: "The labor audit found a 34.8-billion recessionary gap, and the finance ministry offers a smaller spending package. Each new dollar becomes income, then further consumption or saving, so the total demand change can exceed the first round. You will derive the multipliers and test the package. By the end of the mission, decide which fiscal change can close the gap."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Prepare an 8.7-billion purchase increase. And keep the supply-shock review. With a multiplier of 4, that package closes the 34.8-billion demand gap. It does not by itself fix rising input costs. The board must now place both forces on one model."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-prices
+    # On arrival at PRICES | s17-split-the-next-crown | automatic
+    on: { enter: true, at: TODO }   # s17-split-the-next-crown
+    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Calculate the spending and tax changes that target the measured gap. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Calculate the spending and tax changes that target the measured gap."
+    bubbles:
+    - who: rhea-dane   # Rhea Dane
+      say: "Start with split the next crown. We need evidence the next decision can use."
+  - id: after-stop-17
+    # After Stop 17 | s18-build-both-multipliers | automatic
+    on: { after: [1] }
+    world: "The split the next crown result remains visible while the build both multipliers fixture lights."
+    panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    bubbles:
+    - who: rhea-dane   # Rhea Dane
+      say: "MPS is 0.25, so one quarter leaks from each round."
+  - id: after-stop-18
+    # After Stop 18 | s19-size-the-alternatives | automatic
+    on: { after: [2] }
+    world: "The build both multipliers result remains visible while the size the alternatives fixture lights."
+    panel: "PRICES → RATE"
+    bubbles:
+    - who: rhea-dane   # Rhea Dane
+      say: "The spending multiplier is 4; the tax multiplier is −3."
+  - id: after-stop-19
+    # After Stop 19 | s20-choose-the-first-round-plan | automatic
+    on: { after: [3] }
+    world: "The size the alternatives result remains visible while the choose the first-round plan fixture lights."
+    panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    bubbles:
+    - who: rhea-dane   # Rhea Dane
+      say: "Close the gap with 8.7 billion in purchases or an 11.6-billion tax cut."
+  - id: at-mission-end
+    # At mission end | s17-split-the-next-crown | automatic
+    on: { enter: true, at: TODO }   # s17-split-the-next-crown
+    world: "Mission outcome and hook | RATE | automatic World state and dialogue: State: Page 5 signed; Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 5 EVIDENCE: RECORDED"
+    bubbles:
+    - who: rhea-dane   # Rhea Dane
+      say: "You gave me a larger number and a slower announcement. Now prove the second test matters."
+    - who: waypoint   # Waypoint
+      say: "Take the 8.7-billion target to the Rate Room for authorization."
+
+  stops:
+  # --- Stop 17: Split the next crown
+  #     Concept: MPC/MPS; Keystone: AD/multipliers; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L2; Story role: foundation.
+  #     placement: DERIVE, at s17-split-the-next-crown.
+  - group: RATE
+    at: TODO               # the fixture it is asked at
+    title: "Split the next crown"
+    concept: "MPC/MPS"
+    reason: "No package can be sized until the spending leak is known."
+    scene: "Households spend 0.75 crown from each additional crown of disposable income and save the rest. Build the identity that fixes MPS, then show why each later spending round is three quarters of the prior round."
+    motivation: "Saving is the leakage that limits the total demand response."
+    format: DERIVE
+    question: "From MPC 0.75, derive and submit MPS."
+    answerText: "The completed check shows 0.25. **answerText:** \"MPS is 0.25, so one quarter leaks from each round.\"."
+    why: "Saving is the leakage that limits the total demand response."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Saving is the leakage that limits the total demand response.
+    # correct result: 0.25. **answerText:** "MPS is 0.25, so one quarter leaks from each round."
+    # state/output: rounds animate; S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["MPC+MPS=1","MPS=1−0.75","MPS=0.25"],licenses:["income split","algebra","evaluation"],correct_order:[1,2,3]}
+
+  # --- Stop 18: Build both multipliers
+  #     Concept: spending/tax multipliers; Keystone: AD; Area: Rate Room; Learning role: PRACTICE; Difficulty: L3; Story role: calculation.
+  #     placement: DERIVE, at s18-build-both-multipliers.
+  - group: RATE
+    at: TODO               # the fixture it is asked at
+    title: "Build both multipliers"
+    concept: "spending/tax multipliers"
+    reason: "Spending and tax plans must not share the wrong multiplier."
+    scene: "With MPS fixed at 0.25 and MPC at 0.75, derive the spending and tax multipliers side by side. The signs must show why higher taxes contract demand while purchases add directly."
+    motivation: "Choosing the wrong multiplier would miss the output target before conversion day."
+    format: DERIVE
+    question: "Build both formulas and submit the ordered pair (spending multiplier, tax multiplier)."
+    answerText: "The completed check shows (4,−3). **answerText:** \"The spending multiplier is 4; the tax multiplier is −3.\"."
+    why: "Choosing the wrong multiplier would miss the output target before conversion day."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Choosing the wrong multiplier would miss the output target before conversion day.
+    # correct result: (4,−3). **answerText:** "The spending multiplier is 4; the tax multiplier is −3."
+    # state/output: S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["kG=1/0.25=4","kT=−0.75/0.25=−3","pair=(4,−3)"],licenses:["spending formula","tax formula","ordered pair"],correct_order:[1,2,3]}
+
+  # --- Stop 19: Size the alternatives
+  #     Concept: gap closing; Keystone: AD/fiscal; Area: Rate Room; Learning role: COMBINE; Difficulty: L3; Story role: consequence.
+  #     placement: DERIVE, at s19-size-the-alternatives.
+  - group: RATE
+    at: TODO               # the fixture it is asked at
+    title: "Size the alternatives"
+    concept: "gap closing"
+    reason: "Rhea's 6-billion proposal must be compared with the measured gap."
+    scene: "Because the recessionary gap is 34.8 billion and the spending multiplier is 4, calculate the government-purchase increase that closes it. Also calculate the tax cut using multiplier −3, reporting a positive cut size."
+    motivation: "The gap determines the package; the package should not determine the claimed gap."
+    format: DERIVE
+    question: "Submit (ΔG increase, tax-cut size) in billion crowns."
+    answerText: "The completed check shows (8.7,11.6) billion, ±0.1. **answerText:** \"Close the gap with 8.7 billion in purchases or an 11.6-billion tax cut.\"."
+    why: "The gap determines the package; the package should not determine the claimed gap."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. The gap determines the package; the package should not determine the claimed gap.
+    # correct result: (8.7,11.6) billion, ±0.1. **answerText:** "Close the gap with 8.7 billion in purchases or an 11.6-billion tax cut."
+    # state/output: 6b plan shows −10.8 residual gap; S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{lines:["ΔG=34.8/4=8.7","ΔT=(+34.8)/(−3)=−11.6","tax cut size=11.6"],licenses:["gap equation","tax sign","magnitude"],correct_order:[1,2,3]}
+
+  # --- Stop 20: Choose the first-round plan
+  #     Concept: fiscal choice; Keystone: AD/multipliers; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: VALUE, asked by Rhea Dane beside s20-choose-the-first-round-plan.
+  - group: RATE
+    title: "Choose the first-round plan"
+    person: TODO   # the roster id of whoever asks it
+    concept: "fiscal choice"
+    reason: "The ministry can prepare only one defensible package today."
+    scene: "The 6-billion announcement would add only 24 billion to demand and leave a 10.8-billion gap. Fund the option that reaches the measured target and preserves an independent supply-shock review before launch."
+    motivation: "Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation."
+    format: VALUE
+    question: "Spend exactly 100 plan points and submit the funded pair. **answerText:** \"Prepare 8.7 billion in purchases and preserve the supply-shock review.\""
+    answerText: "The completed check shows the keyed result shown by the completed interaction."
+    why: "Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 5 signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:{budget:100,options:[{id:"G8_7",cost:65,required:true,axis:"targeted purchases"},{id:"supply_review",cost:35,required:true,axis:"independent shock test"},{id:"G6",cost:45,axis:"fast announcement"},{id:"tax11_6",cost:80,axis:"tax alternative"},{id:"publicity",cost:25,axis:"message"}],correct:["G8_7","supply_review"]}
+

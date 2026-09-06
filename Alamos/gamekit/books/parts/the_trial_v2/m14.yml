@@ -1,0 +1,178 @@
+# ============================================================ MISSION 14
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Stop or Continue"
+  card:
+    header: "DAY 14 - BOARD TOMORROW"
+    title: "Stop or Continue"
+    goNow: "Go to Statistics and meet Tomas Reed, trial statistician, at the uncertainty console."
+    body: "The primary benefit survives correction, but the late-harm interval still overlaps the stopping boundary. A decision must weigh Type I and Type II errors, power, effect size, and patient cost. Stress the estimates in Statistics, price evidence in Regulatory, then precommit the safety rule upstairs. By the end of the mission, decide whether one final follow-up wave is justified."
+    objective: "Choose between stopping now and one bounded follow-up."
+  objective: "Choose between stopping now and one bounded follow-up."
+  stake: "The primary benefit survives correction, but the late-harm interval still overlaps the stopping boundary. A decision must weigh Type I and Type II errors, power, effect size, and patient cost. Stress the estimates in Statistics, price evidence in Regulatory, then precommit the safety rule upstairs. By the end of the mission, decide whether one final follow-up wave is justified."
+  takeaway: "Buy evidence that can change the decision."
+  segue: "Mission decision: Allow one small follow-up group under the safety rule. The benefit data support more study. The harm range blocks a full restart. Only source calls and a separate kit check can change that choice."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Confidence level up means margin of error up, holding n fixed."
+  - "Power increases with n, alpha, effect size, and lower variability."
+  - "Failure to reject is not evidence that the null is true."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-statistics
+    # On arrival at Statistics | uncertainty-console | automatic
+    on: { enter: true, at: STAT }
+    world: "Arrival: STAT entry; harm interval crosses the line; Tomas says, ; - After S1: unconditional continuation darkens; waypoint TAKE LIVE UNCERTAINTY TO REGISTRY. - REG after S2: source calls and kit audit funded; waypoint CARRY EVIDENCE ORDER TO BOARD. - BOARD after S3/final: cloud narrows; trigger and 120-patient cap lock; binder 14 and outcome unlock."
+    panel: "MISSION 14: STRESS THE BOUNDARY OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "The center is not the whole interval"
+  - id: after-stop-53
+    # After Stop 53 | evidence-budget-desk | automatic
+    on: { after: [1] }
+    world: "The stress the boundary result remains visible while the buy decision-changing evidence fixture lights."
+    panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 53 result to settle buy decision-changing evidence."
+  - id: after-stop-54
+    # After Stop 54 | board-simulator | automatic
+    on: { after: [2] }
+    world: "The buy decision-changing evidence result remains visible while the predict power direction fixture lights."
+    panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 54 result to settle predict power direction."
+  - id: after-stop-55
+    # After Stop 55 | trigger-rail | automatic
+    on: { after: [3] }
+    world: "The predict power direction result remains visible while the write the rule fixture lights."
+    panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 55 result to settle write the rule."
+  - id: at-mission-end
+    # At mission end | uncertainty-console | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 14 EVIDENCE: RECORDED"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 53: Stress the Boundary
+  #     Concept: interval sensitivity/practical significance; Keystone: keystone CI; Area: Statistics & Analysis; Learning role: RETRIEVE; Difficulty: L4; Story role: obstacle.
+  #     placement: STRESS, asked by Tomas Reed beside uncertainty-console.
+  - group: STAT
+    at: uncertainty-console
+    title: "Stress the Boundary"
+    person: reed
+    concept: "interval sensitivity/practical significance"
+    reason: "The late-harm conclusion must survive reasonable missing-outcome assumptions."
+    scene: "The primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Move the missing-outcome assumption through its registered range and watch which actions remain defensible."
+    motivation: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation."
+    format: STRESS
+    question: "Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout."
+    answerText: "The completed check shows the data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty."
+    why: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Point estimate alone controls action
+    # correct result: The data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty.
+    # state/output: travel REG.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   assumption -2 to +2 events/1000 step1; candidates stop now, continue unconditionally, bounded follow-up with trigger; only bounded follow-up remains across full range.
+
+  # --- Stop 54: Buy Decision-Changing Evidence
+  #     Concept: value of information; Keystone: keystone decision/inference; Area: Monitoring Board Room; Learning role: COMBINE; Difficulty: L5; Story role: character.
+  #     placement: VALUE, asked by Tomas Reed beside evidence-budget-desk.
+  - group: SAFE
+    at: evidence-budget-desk
+    title: "Buy Decision-Changing Evidence"
+    person: reed
+    concept: "value of information"
+    reason: "Only one day of staff time remains, so evidence must be chosen by whether it could change action."
+    scene: "The stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Spend a 60-hour budget on evidence that can narrow harm uncertainty without reopening settled analyses."
+    motivation: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
+    format: VALUE
+    question: "Allocate at most 60 staff-hours among the five evidence options. Submit the combination that narrows harm uncertainty without reopening locked analyses."
+    # MODEL CONVERSION. The payload marks the two options it wants bought
+    # `required: true`; the engine's word for "this one would change the decision"
+    # is `decisive`, and the pair it names is the payload's own `correct_purchase`.
+    # Budget 60, the five costs and the five axes are the payload's, and its
+    # `total_available_cost: 115` is what those five costs already add to.
+    # The payload gives ids and no labels, so each `label` is that id made readable
+    # in the words its own answerText uses ("source calls", "the independent kit
+    # audit"). That is a rename, not new copy. The payload supplies no `reveals`
+    # line for any option, so none is written; the importer warns and imports.
+    value:
+      budget: { amount: 60, unit: "staff-hours" }
+      options:
+      - { id: source_calls, label: "Source calls", axis: "late-event outcome verification", cost: 30, decisive: true }
+      - { id: kit_audit, label: "Independent kit audit", axis: "independent exposure verification", cost: 20, decisive: true }
+      - { id: efficacy_rerun, label: "Efficacy rerun", axis: "settled efficacy estimate", cost: 25 }
+      - { id: staff_survey, label: "Staff survey", axis: "workflow opinion", cost: 15 }
+      - { id: biomarker, label: "Biomarker", axis: "new exploratory mechanism", cost: 25 }
+      commit: "Order the evidence"
+    answerText: "The completed check shows fund source calls and the independent kit audit; they address the live harm boundary."
+    why: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Any new data are valuable
+    # correct result: Fund source calls and the independent kit audit; they address the live harm boundary.
+    # state/output: evidence orders; travel BOARD.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:{budget:60,options:[{id:"source_calls",axis:"late-event outcome verification",cost:30,required:true},{id:"kit_audit",axis:"independent exposure verification",cost:20,required:true},{id:"efficacy_rerun",axis:"settled efficacy estimate",cost:25,required:false},{id:"staff_survey",axis:"workflow opinion",cost:15,required:false},{id:"biomarker",axis:"new exploratory mechanism",cost:25,required:false}],total_available_cost:115,correct_purchase:["source_calls","kit_audit"],reserve:10,answerText:"Buy source calls and the independent kit audit for 50 hours; only they can narrow the unresolved harm boundary."}
+
+  # --- Stop 55: Predict Power Direction
+  #     Concept: power/sample size/effect/alpha/sigma; Keystone: keystone errors/power; Area: Randomisation & Blinding; Learning role: RETRIEVE; Difficulty: L3; Story role: decision evidence.
+  #     placement: CLOUD, at board-simulator.
+  - group: RAND
+    at: board-simulator
+    title: "Predict Power Direction"
+    concept: "power/sample size/effect/alpha/sigma"
+    reason: "The board must know whether one follow-up wave can materially narrow uncertainty."
+    scene: "The funded calls add observations and reduce missingness without changing alpha or the target effect. Narrow the sampling cloud by increasing n from 200 to 320 while holding effect and variability assumptions fixed."
+    motivation: "A narrower sampling distribution increases power and makes the final trigger informative."
+    format: CLOUD
+    question: "control n 200-320; fixed alpha=.025,effect=4/1000,sigma assumption; target corridor harm boundary; correct conclusion spread decreases, power increases, center unchanged."
+    answerText: "The completed check shows increasing n narrows standard error and increases power; it does not move the expected center."
+    why: "A narrower sampling distribution increases power and makes the final trigger informative."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   n setting and direction-of-change conclusion
+    # correct result: Increasing n narrows standard error and increases power; it does not move the expected center.
+    # state/output: S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:{settings:[{id:"n200",n:200,center:0.004,spread:0.0031,power:0.52},{id:"n240",n:240,center:0.004,spread:0.0028,power:0.60},{id:"n280",n:280,center:0.004,spread:0.0026,power:0.67},{id:"n320",n:320,center:0.004,spread:0.0024,power:0.73}],fixed:{alpha:0.025,effect:0.004,variance_assumption:"unchanged"},corridor:"harm boundary",correct_conclusion:"larger n narrows spread and raises power without moving center",answerText:"Increasing n from 200 to 320 narrows the sampling cloud and raises power; its expected center stays fixed."}
+
+  # --- Stop 56: Write the Rule
+  #     Concept: integrated decision threshold; Keystone: keystone tests/errors; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at trigger-rail.
+  - group: SAFE
+    at: trigger-rail
+    title: "Write the Rule"
+    concept: "integrated decision threshold"
+    reason: "The last follow-up cannot begin until its stop rule is fixed."
+    scene: "The chosen evidence can improve power, but waiting exposes more patients. Commit the harm threshold and maximum enrollment before the new calls arrive, then map each possible result to stop, modify, or continue."
+    motivation: "Precommitment prevents a favored outcome from moving the safety boundary tomorrow."
+    format: TRIGGER
+    question: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000."
+    answerText: "The completed check shows authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4."
+    why: "Precommitment prevents a favored outcome from moving the safety boundary tomorrow."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   numeric threshold pair, enrollment cap, action mapping
+    # correct result: Authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.
+    # state/output: binder14; M15.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger: {visible_prompt: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000.", keyed_result: "Authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.", feedback: "numeric threshold pair, enrollment cap, action mapping", answerText: "Use the keyed result and explanation printed below."}
+

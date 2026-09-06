@@ -1,0 +1,184 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Crowded Out Twice"
+  card:
+    header: "3 DAYS"
+    title: "Crowded Out Twice"
+    goNow: "Go to RATE and meet Rhea Dane at the loanable-funds board."
+    body: "The conversion rehearsal passed, but the temporary bridge is being financed through new government borrowing. In loanable funds, national saving supplies funds and borrowers demand them at a real interest rate. You will trace borrowing through investment, capital flows, and net exports. By the end of the mission, decide whether to keep the full bridge plan."
+    objective: "Measure domestic and foreign crowding out."
+  objective: "Measure domestic and foreign crowding out."
+  stake: "The conversion rehearsal passed, but the temporary bridge is being financed through new government borrowing. In loanable funds, national saving supplies funds and borrowers demand them at a real interest rate. You will trace borrowing through investment, capital flows, and net exports. By the end of the mission, decide whether to keep the full bridge plan."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Replace the full bridge with a smaller short-term plan. The full deficit raises real rates. It cuts private investment and net exports. The new plan protects both people and future growth."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-rate-room
+    # On arrival at Rate Room | policy-wall | automatic
+    on: { enter: true, at: RATE }
+    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Measure domestic and foreign crowding out. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Measure domestic and foreign crowding out."
+    bubbles:
+    - who: dane   # Rhea Dane
+      say: "Start with real-rate market. We need evidence the next decision can use."
+  - id: after-stop-49
+    # After Stop 49 | money-market-console | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Rhea Dane says, , and Stop 50 unlocks."
+    panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    bubbles:
+    - who: dane   # Rhea Dane
+      say: "Borrowing raises real i 0.6 point and reduces I 6 billion."
+  - id: after-stop-50
+    # After Stop 50 | payment-wires | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate TRADE, then."
+    panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    bubbles:
+    - who: dane   # Rhea Dane
+      say: "Deficit → loanable-funds demand right → real interest rises → private investment falls → capital accumulation slows → long-run growth slows."
+  - id: after-stop-51
+    # After Stop 51 | signing-desk | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 52 unlocks."
+    panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    bubbles:
+    - who: dane   # Rhea Dane
+      say: "Fiscal expansion → real interest rises → capital inflow → demand for RATE right → appreciation → net exports fall → aggregate-demand offset."
+  - id: at-mission-end
+    # At mission end | policy-wall | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 13 EVIDENCE: RECORDED"
+    bubbles:
+    - who: dane   # Rhea Dane
+      say: "Keep the narrower bridge with training and port repair; reject the full debt plan."
+
+  stops:
+  # --- Stop 49: Real-rate market
+  #     Concept: loanable funds; Keystone: interest markets; Area: Bank Supervision; Learning role: INTRODUCE; Difficulty: L4; Story role: L4.
+  #     placement: CONTROL, at policy-wall.
+  - group: BANKS
+    at: policy-wall
+    title: "Real-rate market"
+    concept: "loanable funds"
+    reason: "Isolate government borrowing from money supply."
+    scene: "Hold national saving and central-bank money fixed, then add 8.7 billion of government borrowing to loan demand. Measure the real rate and private investment, then restore baseline for the board."
+    motivation: "A rightward loan-demand shift raises real interest and crowds out private investment."
+    format: CONTROL
+    question: "Change borrowing 0→8.7b; keep saving and Ms fixed; measure real i 1.5→2.1% and I 120→114b; restore and remeasure; submit conclusion. noise:.05,response:.6,candidates:[borrowing,saving,Ms]."
+    answerText: "\"Borrowing raises real i 0.6 point and reduces I 6 billion.\""
+    why: "A rightward loan-demand shift raises real interest and crowds out private investment."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A rightward loan-demand shift raises real interest and crowds out private investment.
+    # correct result: Adding 8.7 billion of borrowing raises the real rate by 0.6 percentage point and cuts private investment by 6 billion; restoration recovers the baseline.
+    # state/output: Record the result and unlock the next named stop.
+    # CONVERTED. The bible's payload was:
+    #   control:{candidates:[{id:"government_borrowing",change:"0 to 8.7 billion"},{id:"national_saving",change:"hold or reduce"},{id:"money_supply",change:"hold or increase"}],selected:"government_borrowing",baseline:{borrowing:0,real_rate:1.5,private_investment:120},response:{borrowing:8.7,real_rate:2.1,private_investment:114},units:{borrowing:"billion",real_rate:"percent",private_investment:"billion"},noise_band:{real_rate:0.05},fixed:["national saving","central-bank money supply"],measure:"after the loanable-funds panel settles",restore:{borrowing:0,real_rate:1.5,private_investment:120,remeasure:true},correct:"government borrowing raises the real rate and crowds out investment"}
+    # `candidates` are the engine's `variables`, `selected` its `truth`, `fixed` its
+    # `held`. The reversal the bible's `restore` asks for is what the engine's panel
+    # already makes the player do.
+    # ONE MODEL CONVERSION. The engine watches a single reading and the bible reads
+    # two. The reading is the real rate, which is the one the bible's own noise band
+    # is quoted on: 1.5% at baseline, 2.1% after, so the signed response is +0.6
+    # percentage point, which is also the number this stop's own prompt states.
+    # The private-investment half of the bible's reading, 120 → 114 billion, has no
+    # second slot on this panel and is not carried.
+    control:
+      observable: { label: "Real interest rate", unit: "percent" }
+      variables:
+      - { id: government_borrowing, label: "government borrowing, 0 to 8.7 billion" }
+      - { id: national_saving, label: "national saving, hold or reduce" }
+      - { id: money_supply, label: "money supply, hold or increase" }
+      truth: government_borrowing
+      held: ["national saving", "central-bank money supply"]
+      baseline: 1.5
+      response: 0.6
+      noise: 0.05
+      moral: "Government borrowing raises the real rate and crowds out investment."
+
+  # --- Stop 50: Domestic chain
+  #     Concept: crowding out; Keystone: fiscal/growth; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L4; Story role: L4.
+  #     placement: DERIVE, at money-market-console.
+  - group: STATS
+    at: money-market-console
+    title: "Domestic chain"
+    concept: "crowding out"
+    reason: "The investment loss must enter the growth warning."
+    scene: "With private investment down 6 billion, build the domestic crowding-out chain from deficit to slower capital accumulation. Do not substitute nominal money-market rates for the measured real rate for the board."
+    motivation: "Less investment today slows the growth of productive capacity."
+    format: DERIVE
+    question: "Build chain deficit→LF demand right→real i↑→private I↓→capital growth↓→LR growth↓."
+    answerText: "\"Deficit → loanable-funds demand right → real interest rises → private investment falls → capital accumulation slows → long-run growth slows.\""
+    why: "Less investment today slows the growth of productive capacity."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Less investment today slows the growth of productive capacity.
+    # correct result: A deficit raises loan demand and the real rate, crowds out private investment, slows capital growth, and reduces long-run growth.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{candidate_lines:["Government deficit raises public borrowing","Loanable-funds demand shifts right","The real interest rate rises","Private investment falls","Capital accumulation slows","Long-run output growth slows"],licenses:["government budget identity","loanable-funds model","market equilibrium","interest-sensitive investment","capital formation","production capacity"],keyed_order:[1,2,3,4,5,6],decoys:["Money supply must fall","Higher real rates raise private investment"],submission:"ordered line-and-rule chain"}
+
+  # --- Stop 51: Foreign chain
+  #     Concept: fiscal/forex; Keystone: open economy; Area: Open-Economy Floor; Learning role: COMBINE; Difficulty: L4; Story role: L4.
+  #     placement: DERIVE, at payment-wires.
+  - group: OPENEC
+    at: payment-wires
+    title: "Foreign chain"
+    concept: "fiscal/forex"
+    reason: "Export losses may be a second offset."
+    scene: "Because Halvern's real rate rises, foreign capital enters, demand for RATE rises, and the currency appreciates. Complete the chain through net exports and AD clearly in the Rate Book for review."
+    motivation: "Fiscal expansion crowds out NX as well as private investment."
+    format: DERIVE
+    question: "Build fiscal expansion→real i↑→capital inflow→RATE demand right→appreciation→NX↓→AD offset."
+    answerText: "\"Fiscal expansion → real interest rises → capital inflow → demand for RATE right → appreciation → net exports fall → aggregate-demand offset.\""
+    why: "Fiscal expansion crowds out NX as well as private investment."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Fiscal expansion crowds out NX as well as private investment.
+    # correct result: Fiscal expansion raises real rates, draws in capital, appreciates RATE, lowers net exports, and offsets part of the aggregate-demand gain.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{candidate_lines:["Fiscal expansion raises domestic demand","Government borrowing raises the real interest rate","Foreign capital flows into Halvern","Demand for RATE shifts right","RATE appreciates","Net exports fall","The fall in net exports offsets part of the rise in aggregate demand"],licenses:["fiscal transmission","loanable-funds model","international return comparison","foreign-exchange demand","currency equilibrium","net-exports response","AD components"],keyed_order:[1,2,3,4,5,6,7],decoys:["Capital leaves Halvern","Appreciation raises net exports"],submission:"ordered line-and-rule chain"}
+
+  # --- Stop 52: Keep full bridge
+  #     Concept: fiscal redesign; Keystone: fiscal/forex/growth; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L5; Story role: L5.
+  #     placement: VALUE, asked by Rhea Dane beside signing-desk.
+  - group: STATS
+    at: signing-desk
+    title: "Keep full bridge"
+    person: dane
+    concept: "fiscal redesign"
+    reason: "The bridge must protect households without funding low-value borrowing."
+    scene: "Domestic investment and exports both fall under the full debt plan, while automatic stabilizers already absorb three billion of the shock. Fund a narrower bridge, training, and port repair within 100 points."
+    motivation: "Targeted temporary support reduces crowding out while preserving long-run growth."
+    format: VALUE
+    question: "Spend exactly 100 and submit."
+    answerText: "\"Keep the narrower bridge with training and port repair; reject the full debt plan.\""
+    why: "Targeted temporary support reduces crowding out while preserving long-run growth."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Targeted temporary support reduces crowding out while preserving long-run growth.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 13.
+    # CONVERTED. The bible's payload was:
+    #   value:{budget:100,options:[{id:"narrow_bridge",axis:"temporary demand support",cost:45,required:true},{id:"training",axis:"worker matching",cost:25,required:true},{id:"port",axis:"supply capacity",cost:30,required:true},{id:"full_bridge",axis:"large fiscal expansion",cost:80,required:false},{id:"publicity",axis:"communications",cost:20,required:false}],total_available_cost:200,correct_purchase:["narrow_bridge","training","port"],answerText:"Spend all 100 on the narrow bridge, training, and port capacity; they address demand, structural mismatch, and supply without the crowding out caused by the full bridge."}
+    # `budget` becomes `budget.amount`; `correct_purchase` — the same three ids the
+    # bible marks `required` — is the engine's `decisive`. Each option is named only
+    # by its `axis`, so that phrase carries as the label too. 45+25+30+80+20 = 200,
+    # the bible's own `total_available_cost`, against 100; the three decisive ones
+    # cost exactly 100.
+    value:
+      budget: { amount: 100 }
+      options:
+      - { id: narrow_bridge, label: "temporary demand support", axis: "temporary demand support", cost: 45, decisive: true }
+      - { id: training, label: "worker matching", axis: "worker matching", cost: 25, decisive: true }
+      - { id: port, label: "supply capacity", axis: "supply capacity", cost: 30, decisive: true }
+      - { id: full_bridge, label: "large fiscal expansion", axis: "large fiscal expansion", cost: 80 }
+      - { id: publicity, label: "communications", axis: "communications", cost: 20 }
+

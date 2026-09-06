@@ -1,0 +1,207 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Fishery Ceiling"
+  card:
+    header: "11 DAYS TO THE VOTE."
+    title: "THE FISHERY CEILING"
+    goNow: "Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book."
+    body: "The aquifer warning proved that steady service can hide a shrinking reserve. Fish landings may do the same when crews work longer for each tonne. At the harbour, calculate stock trends, then verify habitat evidence at Reef Station. By the end of the mission, decide the catch ceiling and rule needed to prevent collapse."
+    objective: "Set a sustainable and enforceable fishery ceiling."
+  objective: "Set a sustainable and enforceable fishery ceiling."
+  stake: "The aquifer warning proved that steady service can hide a shrinking reserve. Fish landings may do the same when crews work longer for each tonne. At the harbour, calculate stock trends, then verify habitat evidence at Reef Station. By the end of the mission, decide the catch ceiling and rule needed to prevent collapse."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Cap the catch below measured growth. Fund tags, patrols, and a new stock check. The rule protects the nursery. Now the waste ledger shows leaks into water and air."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Exponential growth assumes no limit; logistic growth slows near K."
+  - "Type I survivorship has low early death, Type II constant death, Type III high early death."
+  - "Density-dependent limits include disease and competition; weather and disasters are density-independent."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-harbour-office
+    # On arrival at Harbour Office | landings-book | automatic
+    on: { enter: true, at: HARB }
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 5: MEASURE CATCH PER UNIT EFFORT OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Start with measure catch per unit effort. We need evidence the next decision can use."
+  - id: after-stop-17
+    # After Stop 17 | transect-bench | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 17 result to settle read the survivorship curves."
+  - id: after-stop-18
+    # After Stop 18 | flow-tank | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 18 RECORDED - STOP 19 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 18 result to settle verify logistic recovery."
+  - id: after-stop-19
+    # After Stop 19 | transect-bench | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 19 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "Use the Stop 19 result to settle fund an enforceable ceiling."
+  - id: at-mission-end
+    # At mission end | landings-book | automatic
+    on: { missionEnd: true }
+    world: "Decision and hook: Stop 20 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 5 EVIDENCE: RECORDED"
+    bubbles:
+    - who: reed   # Tomas Reed
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 17: Measure catch per unit effort
+  #     Concept: catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue; Keystone: catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue.
+  #     placement: BALLPARK, at landings-book.
+  - group: REEF
+    at: landings-book
+    title: "Measure catch per unit effort"
+    concept: "catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue"
+    reason: "\"The steady landing total must be divided by the effort used to obtain it.\""
+    scene: "The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock."
+    motivation: "Falling catch per effort signals depletion hidden by added work"
+    format: BALLPARK
+    question: "\"Using 960 t/4,800 boat-h in Year 1 and 960 t/8,000 boat-h in Year 5, submit both rates in kg/boat-h and the percent decline.\""
+    # THE BIBLE'S PAYLOAD, converted. Its `formula=1000*tonnes/hours` is the
+    # panel's formula and its first truth, 200 kg/boat-h, the target; its
+    # `tolerance=1%` becomes the engine's absolute 2 kg/boat-h. The engine grades
+    # ONE number, so the Year 5 rate is the board's distractor tile and the 120
+    # kg/boat-h and 40% decline the bible also keys stay in the answer text.
+    estimate:
+      prompt: The paper column recovered on Day 1 carries the boat-hours the sales record left out.
+      question: Estimate the Year 1 catch per unit effort in kilograms a boat-hour.
+      relationship: catch per unit effort = landings ÷ effort
+      labels:
+      - 960 t  (Year 1 landings)
+      - 1000 kg/t  (tonnes to kilograms)
+      - 4800 boat-h  (Year 1 effort)
+      - 8000 boat-h  (Year 5 effort)
+      values: [960, 1000, 4800, 8000]
+      slots: 3
+      template: '{0} × {1} ÷ {2}'
+      formula: a*b/c
+      correct: [0, 1, 2]
+      target: 200
+      tolerance: 2
+      units: kg/boat-h
+      solution: 960 t × 1,000 kg/t ÷ 4,800 boat-h = 200 kg/boat-h.
+      explanation: A landing total on its own says nothing about the stock until it is divided by the work it took to land it.
+    answerText: "The completed check shows 200 and 120 kg/boat-h; decline=(200-120)/200=40%."
+    why: "Falling catch per effort signals depletion hidden by added work"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   dividing tonnes alone misses effort
+    # correct result: 200 and 120 kg/boat-h; decline=(200-120)/200=40%
+    # state/output: unlock travel, waypoint "Take the effort decline to Reef Station."
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   formula=1000*tonnes/hours; truth=[200,120,40%]; tolerance=1%
+
+  # --- Stop 18: Read the survivorship curves
+  #     Concept: survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence; Keystone: survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence.
+  #     placement: CLOUD, at transect-bench.
+  - group: REEF
+    at: transect-bench
+    title: "Read the survivorship curves"
+    concept: "survivorship/life history | population limits | 5"
+    reason: "\"Nursery survival determines how quickly the stock can replace catch.\""
+    scene: "Because catch efficiency fell 40%, landings no longer measure stock health. Plot juvenile survival for a Type III fish and compare it with a slow-breeding seal before assigning recovery expectations."
+    motivation: "High early mortality makes nursery habitat decisive even when adults remain visible"
+    format: CLOUD
+    question: "\"Place the fish survival cloud through [1000,180,90,55,40] survivors by age and the seal through [100,96,90,70,0]; submit Type III for fish and Type I for seal.\""
+    answerText: "The completed check shows fish Type III, seal Type I. Feedback distinguishes constant Type II."
+    why: "High early mortality makes nursery habitat decisive even when adults remain visible"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: fish Type III, seal Type I. Feedback distinguishes constant Type II
+    # state/output: nursery flag
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   corridors fish=III, seal=I; tolerance=10 survivors
+
+  # --- Stop 19: Verify logistic recovery
+  #     Concept: logistic recovery | experimental causality | 5.2 | COMBINE | L4 | reversal; Keystone: logistic recovery | experimental causality | 5.2 | COMBINE | L4 | reversal; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: logistic recovery | experimental causality | 5.2 | COMBINE | L4 | reversal.
+  #     placement: VERIFY, at flow-tank.
+  - group: CHAPEL
+    at: flow-tank
+    title: "Verify logistic recovery"
+    concept: "logistic recovery | experimental causality | 5"
+    reason: "\"The proposed quota must be tested against recovery near carrying capacity.\""
+    scene: "With nursery mortality identified, a constant exponential forecast is too optimistic near the habitat limit. Predict one-year growth under the displayed logistic rule, then compare it with the tank cohort."
+    motivation: "Growth slows as population approaches K, so catch must leave replacement biomass"
+    format: VERIFY
+    question: "\"CALCULATE AND COMMIT: use ΔN=rN(1-N/K), r=0.50/yr, N=600 fish, K=1,000 fish; submit ΔN in fish/yr. OPERATE: run one year with food and temperature fixed. MEASURE: final N. INTERPRET: submit whether a 150-fish catch is sustainable. No restoration required.\""
+    # THE BIBLE'S PAYLOAD, converted. Its keyed prediction — 120 fish/year, with
+    # a tolerance of 2 — is the engine's `truth`, and that ±2 is written as the
+    # `passRatio` the engine grades on, [0.983, 1.017] of 120. Its `operation`
+    # ("run one year", food and temperature fixed) is the intervention and its
+    # `measurements.final_population` the measurement the player may skip. The
+    # dial range is wide enough that a prediction anywhere on it does not pass.
+    relationship: "ΔN = rN(1 - N/K), so 0.50 × 600 × (1 - 600/1000)"
+    verify:
+      prediction:
+        label: Population change in one year
+        unit: fish/year
+        min: 0
+        max: 300
+        step: 5
+      truth: 120
+      passRatio: [0.983, 1.017]
+      intervention:
+        label: Run one year of the tank cohort
+        note: Food and temperature held fixed.
+        outcome: One year run. Cohort settled.
+      measurement:
+        label: Measured change over the year
+        note: The tank counts 718 fish against the 600 it started with.
+      lock: Lock the prediction
+      commit: Report whether a 150-fish catch is sustainable
+    answerText: "The completed check shows 0.50(600)(0.40)=120 fish/yr; 150 exceeds replacement. Feedback shows missing density term."
+    why: "Growth slows as population approaches K, so catch must leave replacement biomass"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: 0.50(600)(0.40)=120 fish/yr; 150 exceeds replacement. Feedback shows missing density term
+    # state/output: 150 option crossed out
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{equation:"ΔN=rN(1-N/K)",inputs:{r:0.50,N:600,K:1000},units:{r:"per year",N:"fish",K:"fish"},submit:{quantity:"population change",unit:"fish/year",truth:120,tolerance:2}},equipment_locked_until_prediction_commit:true,operation:{action:"run one year",fixed:["food","temperature"]},measurements:{final_population:718,unit:"fish",tolerance:5},restore:{required:false,reason:"the annual simulation changes no physical setting"},correct_conclusion:"a 150-fish catch is not sustainable",answerText:"Logistic growth predicts 120 fish/year, so removing 150 exceeds replacement; the measured final population agrees within tolerance."}
+
+  # --- Stop 20: Fund an enforceable ceiling
+  #     Concept: commons governance | policy instruments | 5.1-5.3 | TRANSFER | L5 | decision; Keystone: commons governance | policy instruments | 5.1-5.3 | TRANSFER | L5 | decision; Area: Common Office; Learning role: PRACTICE; Difficulty: L3; Story role: commons governance | policy instruments | 5.1-5.3 | TRANSFER | L5 | decision.
+  #     placement: ALLOCATE, at transect-bench.
+  - group: COMMON
+    at: transect-bench
+    title: "Fund an enforceable ceiling"
+    concept: "commons governance | policy instruments | 5"
+    reason: "\"A ceiling without monitoring and nursery protection would exist only on paper.\""
+    scene: "The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement."
+    motivation: "Shared resources avoid tragedy only when access and compliance are governed"
+    format: ALLOCATE
+    question: "\"Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.\""
+    answerText: "The completed check shows 90-point four-part plan; catch ceiling 100 fish/year, below 120 replacement."
+    why: "Shared resources avoid tragedy only when access and compliance are governed"
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+    # correct result: 90-point four-part plan; catch ceiling 100 fish/year, below 120 replacement
+    # state/output: pieces 5-6 post
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:{pool:100,items:[{id:"landing_tags",label:"numbered landing tags",cost:30,required:true},{id:"landing_log",label:"time-and-mass landing log",cost:20,required:true},{id:"nursery_patrol",label:"nursery-zone patrol",cost:25,required:true},{id:"independent_survey",label:"independent stock survey",cost:15,required:true},{id:"publicity",label:"voluntary-compliance publicity",cost:20,required:false},{id:"boat_subsidy",label:"larger-boat subsidy",cost:30,required:false}],questions:[{id:"replacement",text:"Does the plan keep permitted catch below measured replacement?",required:true},{id:"compliance",text:"Can it detect untagged or nursery-zone catch?",required:true},{id:"independence",text:"Does it preserve an independent stock check?",required:true}],correct_allocation:{landing_tags:30,landing_log:20,nursery_patrol:25,independent_survey:15},reserve:10,answerText:"Fund tags, the landing log, nursery patrol, and an independent survey; do not spend the enforcement pool on publicity or boat expansion."}
+

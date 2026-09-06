@@ -1,0 +1,216 @@
+# ============================================================ MISSION 3
+# Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Two-Site Alarm"
+  card:
+    header: "DAY 3 - BOARD IN 13 DAYS"
+    title: "The Two-Site Alarm"
+    goNow: "Go to the Monitoring Board Room and meet Jonas Berg, safety monitoring chair, at the event console."
+    body: "The recovery procedure is defensible, but serious events remain concentrated at two hospitals. Probability rules separate coincidence from patterns that need action. At the event console, calculate unions, conditional rates, and the expectation under independence. By the end of the mission, decide whether to pause enrollment at those hospitals."
+    objective: "Determine whether the two-site signal needs immediate action."
+  objective: "Determine whether the two-site signal needs immediate action."
+  stake: "The recovery procedure is defensible, but serious events remain concentrated at two hospitals. Probability rules separate coincidence from patterns that need action. At the event console, calculate unions, conditional rates, and the expectation under independence. By the end of the mission, decide whether to pause enrollment at those hospitals."
+  takeaway: "Independence predicts a product; association does not prove cause."
+  segue: "Mission decision: Pause work at the two flagged hospitals. Check their drug shipments. The shared pattern is far above what chance predicts. It shows a link, not a cause. A hidden early analysis also needs review."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Use a complement to find at least one event."
+  - "Mutually exclusive and independent do not mean the same thing."
+  - "Rates need denominators; counts alone can hide exposure."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-the-monitoring-board-room
+    # On arrival at the Monitoring Board Room | event-console | automatic
+    on: { enter: true, at: SITE }
+    world: "Arrival: BOARD entry; nearby bubble; event map shows two-site cluster; Jonas says, ; - After S1-S2: correct commits; panel update; overlap becomes 11% and shipment subset 40%; player control restored; - After S3: model restore confirmed; persistent signs mark sites 12/19 PAUSED; - Final/outcome: S4 decision; early timestamp appears on console; binder 3 fills; metric screen unlocks."
+    panel: "MISSION 3: COUNT THE OVERLAP ONCE OPEN"
+    bubbles:
+    - who: berg   # Jonas Berg
+      say: "Show me the denominator before I stop everyone"
+  - id: after-stop-9
+    # After Stop 9 | event-console | automatic
+    on: { after: [1] }
+    world: "The count the overlap once result remains visible while the ask among the flagged fixture lights."
+    panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    bubbles:
+    - who: berg   # Jonas Berg
+      say: "Use the Stop 9 result to settle ask among the flagged."
+  - id: after-stop-10
+    # After Stop 10 | event-console | automatic
+    on: { after: [2] }
+    world: "The ask among the flagged result remains visible while the test independence fixture lights."
+    panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    bubbles:
+    - who: berg   # Jonas Berg
+      say: "Use the Stop 10 result to settle test independence."
+  - id: after-stop-11
+    # After Stop 11 | board-console | automatic
+    on: { after: [3] }
+    world: "The test independence result remains visible while the pause the right places fixture lights."
+    panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    bubbles:
+    - who: berg   # Jonas Berg
+      say: "Use the Stop 11 result to settle pause the right places."
+  - id: at-mission-end
+    # At mission end | event-console | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 3 EVIDENCE: RECORDED"
+    bubbles:
+    - who: berg   # Jonas Berg
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 9: Count the Overlap Once
+  #     Concept: addition rule; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: DERIVE, at event-console.
+  - group: STAT
+    at: event-console
+    title: "Count the Overlap Once"
+    concept: "addition rule"
+    reason: "Duplicate reports must be removed before the board sees a combined alarm rate."
+    scene: "Eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Build the union calculation to find the percent with at least one warning."
+    motivation: "Double-counting overlap would exaggerate the apparent size of the safety problem."
+    format: DERIVE
+    question: "Lines: P(A or B)=P(A)+P(B)-P(A and B) [addition rule]; =0.08+0.05-0.02 [substitute]; =0.11 [simplify]. Decoys omit subtraction or subtract twice. Submit probability."
+    answerText: "P(A union B)=0.08+0.05-0.02=0.11, so 11% had at least one warning."
+    why: "Double-counting overlap would exaggerate the apparent size of the safety problem."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   probability or percent
+    # correct result: 0.11 or 11%, tolerance 0.001.
+    # state/output: overlap display changes from duplicated 13% to unique 11%; unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"P(A or B)","givens":["P(A)=0.08","P(B)=0.05","P(A and B)=0.02"],"lines":[{"id":"L1","expression":"P(A or B)=P(A)+P(B)-P(A and B)","license":"state governing relationship"},{"id":"L2","expression":"=0.08+0.05-0.02","license":"substitute displayed values"},{"id":"L3","expression":"=0.11","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["0.13","0.09"],"correct_result":"0.11 or 11%","answerText":"The union probability is 0.11 because the overlap must be subtracted once."}
+
+  # --- Stop 10: Ask Among the Flagged
+  #     Concept: conditional probability; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: PRACTICE; Difficulty: L2; Story role: reveal.
+  #     placement: BALLPARK, at event-console.
+  - group: STAT
+    at: event-console
+    title: "Ask Among the Flagged"
+    concept: "conditional probability"
+    reason: "The board must know how often serious events occurred specifically among flagged shipments."
+    scene: "With duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Use the two-percent overlap and five-percent flag rate to calculate the serious-event probability among flagged shipments."
+    motivation: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm."
+    format: BALLPARK
+    question: "visible P(A and B)=0.02, P(B)=0.05; formula P(A|B)=P(A and B)/P(B); correct 0.40 or 40%; tolerance 0.005."
+    # The formula, the two visible probabilities, the target 0.40 and the 0.005
+    # tolerance are all the prompt's own. The third tile, 0.08, is the marginal
+    # rate this mission's other consoles carry (stop 9's P(A)=0.08 and stop 11's
+    # P(F)=0.08); nothing here is a number mission 3 does not already state.
+    estimate:
+      prompt: "The console shows P(A and B) = 0.02 and P(B) = 0.05."
+      question: "Build the serious-event probability among flagged shipments."
+      relationship: "P(A|B) = P(A and B) / P(B), so 0.02 / 0.05"
+      labels:
+      - "0.02  (overlap, P(A and B))"
+      - "0.05  (shipment-flag rate, P(B))"
+      - "0.08  (the marginal rate on the event console)"
+      values: [0.02, 0.05, 0.08]
+      slots: 2
+      template: '{0} / {1}'
+      formula: a/b
+      correct: [0, 1]
+      target: 0.40
+      tolerance: 0.005
+      units: probability
+      solution: "P(A|B) = 0.02 / 0.05 = 0.40."
+      explanation: "Conditioning divides the overlap by the group being conditioned on, not by the whole cohort."
+    answerText: "The completed check shows p(serious event | shipment flag)=0.02/0.05=0.40, so 40% of flagged shipments coincide with a serious event."
+    why: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   conditional probability or percent
+    # correct result: P(serious event | shipment flag)=0.02/0.05=0.40, so 40% of flagged shipments coincide with a serious event.
+    # state/output: shipment lane gains 40% conditional-rate label; unlock S3.
+
+  # --- Stop 11: Test Independence
+  #     Concept: multiplication rule and independence; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
+  #     placement: CONTROL, at event-console.
+  - group: STAT
+    at: event-console
+    title: "Test Independence"
+    concept: "multiplication rule and independence"
+    reason: "Jonas needs a comparison between the observed overlap and what independence predicts."
+    scene: "The conditional rate is high, but concentration alone does not show whether shipment flags and serious events move independently. Predict the overlap under independence, then compare it with the observed two-percent overlap while holding the cohort fixed."
+    motivation: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
+    format: CONTROL
+    question: "**CALCULATE AND COMMIT:** Use $P(F\\cap E)=P(F)P(E)$ with $P(F)=0.08$ and $P(E)=0.05$; submit the predicted overlap as a percent before the model switch unlocks."
+    # MODEL CONVERSION. The bible's three `candidates` are the engine's
+    # `variables` and `correct_control` is its `truth`; `fixed` is `held`.
+    # The bible states the board as two model readings — observed overlap 2.0%
+    # and independent-model overlap 0.4% — while the engine states it as a
+    # baseline plus the SIGNED change that switching the suspect produces, so
+    # `baseline` is the observed 2.0% and `response` is 0.4 - 2.0 = -1.6
+    # percentage points. `noise` is the bible's noise_band of 0.05 percentage
+    # point, which -1.6 clears many times over.
+    control:
+      observable: { label: "Flag/event overlap", unit: "percent" }
+      variables:
+      - { id: association_model, label: "association model" }
+      - { id: flag_rate, label: "shipment-flag marginal rate" }
+      - { id: event_rate, label: "serious-event marginal rate" }
+      held: ["cohort", "marginal rates", "time window"]
+      truth: association_model
+      baseline: 2.0
+      response: -1.6
+      noise: 0.05
+      changeVerb: "Switch to the independent model"
+      run: "Measure the overlap"
+      commit: "Name the model that moved it"
+    answerText: "Independence predicts 0.08(0.05)=0.004=0.4%, far below the observed 2.0%. The events are associated, but this alone does not prove causation."
+    why: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   predicted percent, readings, conclusion
+    # correct result: Predicted independent overlap 0.4%; independent-model reading 0.4%; restored observed reading 2.0%; conclusion not independent; prediction tolerance 0.05 percentage point.
+    # state/output: NOT INDEPENDENT appears with broken-link icon; unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"association_model",label:"association model"},{id:"flag_rate",label:"shipment-flag marginal rate"},{id:"event_rate",label:"serious-event marginal rate"}],correct_control:"association_model",prediction:{equation:"P(F∩E)=P(F)P(E)",inputs:{P_F:0.08,P_E:0.05},submit:{unit:"percent",truth:0.4,tolerance:0.05}},equipment_locked_until_prediction_commit:true,baseline:{model:"observed",overlap:2.0,unit:"percent"},response:{model:"independent",overlap:0.4,unit:"percent"},noise_band:{value:0.05,unit:"percentage point"},fixed:["cohort","marginal rates","time window"],measure_when:"after each model settles",restore:{required:true,model:"observed",overlap:2.0,remeasure:true},correct_conclusion:"not independent",answerText:"Independence predicts 0.4%, but the restored observed overlap is 2.0%, so the events are associated."}
+
+  # --- Stop 12: Pause the Right Places
+  #     Concept: complement, independence versus exclusivity, exposure denominators; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: DIAGNOSIS, at board-console.
+  - group: STAT
+    at: board-console
+    title: "Pause the Right Places"
+    concept: "complement, independence versus exclusivity, exposure denominators"
+    reason: "Jonas must choose between no pause, a global stop, and a targeted two-site pause."
+    scene: "The unique warning rate is 11%, flagged shipments have a 40% serious-event rate, and observed overlap is five times the independent prediction. Choose the action fitting all evidence without claiming a cause the data cannot establish."
+    motivation: "The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated."
+    format: DIAGNOSIS
+    question: "Compare the 11% warning rate, 40% conditional rate, 2.0% overlap, 0.4% independence expectation, and 29 stable sites. Submit one action and causal-scope conclusion."
+    headline: "TWO-SITE SIGNAL"
+    # The four readings, their numbers and their alarm/quiet statuses are the
+    # bible's. DERIVED: `zone`, which groups a reading with the display it comes
+    # off — each is the bible's own name for that reading.
+    readings:
+    - { zone: "Overall event rate", label: "Across the cohort", value: "8 percent", status: alarm }
+    - { zone: "Overlap", label: "Flagged shipments with a serious event", value: "2 percent", status: alarm }
+    - { zone: "Independence expectation", label: "Benchmark", value: "0.4 percent", status: normal }
+    - { zone: "29 other sites", label: "Enrollment and events", value: "stable", status: normal }
+    # The four candidates are the bible's own choice list, in its order and its
+    # words: "continue all; stop all; pause sites 12/19 and audit handling;
+    # declare drug cause", answer the targeted pause and audit.
+    choices:
+    - "Continue all"
+    - "Stop all"
+    - "Pause sites 12 and 19 and audit handling"
+    - "Declare the drug the cause"
+    answer: "Pause sites 12 and 19 and audit handling"
+    answerText: "The completed check shows pause enrollment at sites 12 and 19, audit flagged shipments, and continue enhanced monitoring elsewhere. Association warrants action but does not establish cause."
+    why: "The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Global stop is safest; compare 29 quiet sites
+    # correct result: Pause enrollment at sites 12 and 19, audit flagged shipments, and continue enhanced monitoring elsewhere. Association warrants action but does not establish cause.
+    # state/output: two site signs change to PAUSED in text; binder piece 3 fills; timestamp clue unlocks M4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline TWO-SITE SIGNAL; readings overall event rate 8 alarm, overlap 2 alarm, independence expectation 0.4 quiet benchmark, 29 other sites stable quiet. Choices: continue all; stop all; pause sites 12/19 and audit handling; declare drug cause. Answer targeted pause/audit.
+

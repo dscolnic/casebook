@@ -1,0 +1,189 @@
+# ============================================================ MISSION 5
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Missing Procedure"
+  card:
+    header: "11 DAYS UNTIL COUNTY INSPECTION"
+    title: "THE MISSING PROCEDURE"
+    goNow: "Go to the Workshop and meet Ruth Brennan, the former chief engineer, at the eleven notebooks."
+    body: "The bumper-car stop follows its energy model, but no complete procedure exists for testing the drop tower. A safe test must specify the order, predicted speed, sensor identity, and abort conditions before release. Begin in the Workshop, then carry the written procedure to Drop Tower Control. By the end of the mission, decide whether one limited tower test may run."
+    objective: "Reconstruct and attest a safe limited drop-tower test."
+  objective: "Reconstruct and attest a safe limited drop-tower test."
+  stake: "The bumper-car stop follows its energy model, but no complete procedure exists for testing the drop tower. A safe test must specify the order, predicted speed, sensor identity, and abort conditions before release. Begin in the Workshop, then carry the written procedure to Drop Tower Control. By the end of the mission, decide whether one limited tower test may run."
+  takeaway: "A calculation authorizes only the configuration and procedure actually verified."
+  segue: "Mission decision: One tower test may run with no riders. The speed mark, sensor, brake sweep, and clear zone all pass. Riders are not yet allowed. The team will now check the controller record and shared test tools."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Predict the car's speed before the braking zone."
+  - "Write abort conditions before releasing the test mass."
+  - "A signed old record cannot replace verification of today's sensor and brake state."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-brennan-s-workshop
+    # On arrival at Brennan's Workshop | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Brennan orders eleven notebooks by date."
+    panel: "STOP 17 READY"
+    # unlocks: Stop 17.
+    bubbles:
+    - who: rosa-brennan   # Rosa Brennan
+      say: "The settings are here. The order of the test is not."
+  - id: after-stop-17
+    # After Stop 17 | automatic | 
+    on: { after: [1] }
+    world: "The signed procedure prints."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: maya-hart   # Maya Hart
+      say: "Take the prediction to the tower."
+  - id: on-arrival-at-drop-tower-control
+    # On arrival at Drop Tower Control | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Chen connects the named sensor and shows the 36 m release mark."
+    panel: "STOP 18-19 READY"
+    # unlocks: Stops 18-19.
+    bubbles:
+    - who: rosa-brennan   # Rosa Brennan
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-19
+    # After Stop 19 | automatic | 
+    on: { after: [3] }
+    world: "The low-energy brake sweep remains inside its response band."
+    panel: "STOP 20 READY"
+    # unlocks: Stop 20.
+    bubbles:
+    - who: rosa-brennan   # Rosa Brennan
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-20
+    # After Stop 20 | automatic | 
+    on: { after: [4] }
+    world: "The arming key turns to LIMITED UNMANNED TEST."
+    panel: "LIMITED UNMANNED TEST"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: rosa-brennan   # Rosa Brennan
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 17: Put the test in a safe order
+  #     Concept: Experimental procedure; Keystone: model limits; Area: Brennan's workshop; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: PROTOCOL, asked at bench-notebooks.
+  - group: TODO            # the curriculum area this teaches for
+    at: bench-notebooks
+    title: "Put the test in a safe order"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Experimental procedure"
+    reason: "The tower cannot be armed until the missing test order and abort rules are explicit."
+    scene: "The notebooks list every task but never state a complete order. Match each test stage to its required response so an unsafe condition stops the sequence before the test mass is released."
+    motivation: "Procedure turns physical predictions into actions before pressure or surprise can change the rules."
+    format: PROTOCOL
+    question: "Submit one four-step response plan by matching each displayed test stage to Abort before arming, Abort before release, Authorize unmanned release, or Disarm and inspect."
+    answerText: "Verify identity, test the brake, post the prediction, release only when clear, then disarm and inspect."
+    why: "Each abort occurs before the hazardous step it protects."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Put verification before energizing and the brake check before release.
+    # correct result: Order: identity → brake check → posted prediction → clear-zone release → disarm/inspect.
+    # state/output: Print DROP TEST PROCEDURE V1 and unlock travel.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios: ["Sensor identity not verified", "Brake current outside low-power band", "Release area clear and prediction posted", "Car returns and locks"]
+    #   choices: ["Abort before arming", "Abort before release", "Authorize unmanned release", "Disarm and inspect"]
+    #   mapping: ["Abort before arming", "Abort before release", "Authorize unmanned release", "Disarm and inspect"]
+
+  # --- Stop 18: Predict the brake-entry speed
+  #     Concept: Free-fall kinematics; Keystone: motion; Area: Drop Tower Control; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, asked at drop-log.
+  - group: TOWER
+    at: drop-log
+    title: "Predict the brake-entry speed"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Free-fall kinematics"
+    reason: "The brake must be judged against a speed predicted before release."
+    scene: "The test mass falls 36.0 m from rest before entering the brake stack. Derive its entry speed so Chen can set the sensor range and the abort threshold before release."
+    motivation: "A precomputed entry speed makes the brake test quantitative rather than theatrical."
+    format: DERIVE
+    question: "Given v0 = 0 m/s, downward acceleration a = 9.80 m/s^2, and downward displacement Delta x = 36.0 m, use v^2 = v0^2 + 2a Delta x. Submit an ordered derivation and one entry-speed number in m/s."
+    answerText: "The predicted brake-entry speed is 26.6 m/s."
+    why: "Gravity increases downward speed over the 36.0 m free-fall distance."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use the 36.0 m free-fall section, not the full 45 m tower height.
+    # correct result: Submit 26.6 m/s; accept 26.3-26.9 m/s.
+    # state/output: Set the brake-desk range to 0-30 m/s.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: relation, expression: "v^2 = v0^2 + 2a dx", rule: "constant-acceleration relation without time"}
+    #       - {id: substitute, expression: "v^2 = 0 + 2(9.80)(36.0)", rule: "released from rest; downward positive"}
+    #       - {id: result, expression: "v = 26.6 m/s", rule: "take the physical positive speed"}
+    #     order: [relation, substitute, result]
+    #     decoys:
+    #       - {expression: "v = a dx = 352.8 m/s", rule: "multiply acceleration by distance without the squared-speed relation"}
+
+  # --- Stop 19: Sweep the brake response
+  #     Concept: Acceleration trace; Keystone: motion and model limits; Area: Brennan's workshop; Learning role: APPLY; Difficulty: L3; Story role: clue.
+  #     placement: SWEEP, asked at brake-desk.
+  - group: TOWER
+    at: brake-desk
+    title: "Sweep the brake response"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Acceleration trace"
+    reason: "Low-energy response must remain stable before a full unmanned drop."
+    scene: "The procedure now has a predicted entry speed, but the brake has not carried a full drop since October. Sweep its low-power current and confirm that stopping response changes smoothly without a dead region."
+    motivation: "A smooth low-power response supports controlled testing; a dead region would cancel release."
+    format: SWEEP
+    question: "OPERATE: Sweep brake current from 0% to 100% in 10% steps while all other test conditions remain fixed. MEASURE: Record equivalent upward acceleration in m/s^2 at each step. INTERPRET: Submit one conclusion stating whether the response is monotonic and whether a dead band appears."
+    answerText: "Brake response rises smoothly through the tested range, so the limited unmanned test may proceed to attestation."
+    why: "Every current increase produces a response change larger than measurement noise."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Judge the pattern across all points, not one small rounding difference.
+    # correct result: Select monotonic response with no dead band; limited unmanned test may proceed.
+    # state/output: Set evidence_flags.tower_brake_sweep_pass = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:
+    #     control: {id: current, label: "Brake test current", min: 0, max: 100, step: 10, unit: "%"}
+    #     response: {label: "Equivalent upward acceleration", unit: "m/s^2"}
+    #     points: [[0,0],[10,4.0],[20,8.1],[30,12.2],[40,16.4],[50,20.5],[60,24.7],[70,28.7],[80,32.8],[90,36.9],[100,43.1]]
+    #     correct_region: {min: 0, max: 100}
+    #     conclusion: "Response rises smoothly; no dead band appears."
+
+  # --- Stop 20: Attest today's configuration
+  #     Concept: Test authorization; Keystone: evidence independence; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: ATTEST, asked at Maya Hart beside tower-release-desk.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Attest today's configuration"
+    person: hart
+    concept: "Test authorization"
+    reason: "A safe calculation does not authorize a test with the wrong sensor or brake state."
+    scene: "The prediction and low-power sweep pass, but Hart will authorize only the exact present configuration. Verify the sensor identity, release height, clear zone, brake state, and procedure within the inspection limit."
+    motivation: "Attestation connects a correct model to the physical system that will actually be tested."
+    format: ATTEST
+    question: "Submit one selected-claims attestation containing every presently verified requirement for limited unmanned release and excluding any historical claim that does not establish today's condition."
+    answerText: "Authorize only after today's sensor, height, brake response, and clear zone are verified; the old signature is not present condition."
+    why: "Records support history. Physical identity and condition support today's test."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (old_signature) A 1996 signature records a past decision; it cannot establish today's sensor, release mark, brake response, or clear zone.
+    # correct result: Submit checks [sensor, height, brake response, clear zone]; reject old signature.
+    # state/output: Turn the arming key; set test_authorized.tower_unmanned = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 5
+    #     claims:
+    #       - {id: sensor, label: "Independent accelerometer ID C-17 installed", backed: true, critical: true}
+    #       - {id: height, label: "Release mark is 36.0 m above brake entry", backed: true, critical: true}
+    #       - {id: sweep, label: "Brake sweep passed today", backed: true, critical: true}
+    #       - {id: clear, label: "Drop zone physically clear", backed: true, critical: true}
+    #       - {id: old_signature, label: "1996 signature proves today's condition", backed: false, critical: true}
+    #     critical_unbacked: [old_signature]
+    #     correct: [sensor,height,sweep,clear]
+

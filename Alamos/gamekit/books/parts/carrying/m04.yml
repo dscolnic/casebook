@@ -1,0 +1,168 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Aquifer Warning"
+  card:
+    header: "12 DAYS TO THE FERRY VOTE"
+    title: "Salt Before Summer"
+    goNow: "Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the store gauges."
+    body: "Ecological limits now join the water ceiling, but chloride rose before visitor demand peaked. Soil and rock control how quickly rain reaches groundwater and how pumping moves seawater. At Waterworks, compare cores, well levels, and chloride timing. By the end of the mission, decide whether visitors or aquifer drawdown caused the salt warning."
+    objective: "Diagnose the salt pathway and set an aquifer warning."
+  objective: "Diagnose the salt pathway and set an aquifer warning."
+  stake: "Ecological limits now join the water ceiling, but chloride rose before visitor demand peaked. Soil and rock control how quickly rain reaches groundwater and how pumping moves seawater. At Waterworks, compare cores, well levels, and chloride timing. By the end of the mission, decide whether visitors or aquifer drawdown caused the salt warning."
+  takeaway: "Thresholds should be committed before new evidence arrives. ---"
+  segue: "Mission decision: The well is salty because pumping lowered fresh water pressure. Seawater then moved into the aquifer. Stop pumping at 1.0 metre or less. Next, test if steady fish catch hides loss."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Sand drains rapidly; clay drains slowly and often holds nutrients."
+  - "Physical weathering changes size; chemical weathering changes composition."
+  - "O-A-E-B-C-R runs from surface organic matter to bedrock; E is leached and B accumulates material."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-waterworks
+    # On arrival at Waterworks | s13-read-the-ground | automatic
+    on: { enter: true, at: TODO }   # s13-read-the-ground
+    world: "Arrival: Nkemdi sets the aquifer core beside the synchronized well log; Continue."
+    panel: "MISSION 4: READ THE GROUND OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Start with read the ground. We need evidence the next decision can use."
+  - id: after-stop-13
+    # After Stop 13 | s14-probe-the-salt-front | automatic
+    on: { after: [1] }
+    world: "After Stop 13: The O-A-E-B-C-R core labels remain visible and the well probe unlocks."
+    panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Use the Stop 13 result to settle probe the salt front."
+  - id: after-stop-14
+    # After Stop 14 | s15-diagnose-the-early-warning | automatic
+    on: { after: [2] }
+    world: "After Stop 14: W3-W5 receive persistent SALT FRONT tags and the combined diagnostic panel unlocks."
+    panel: "SALT FRONT"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Use the Stop 14 result to settle diagnose the early warning."
+  - id: after-stop-15
+    # After Stop 15 | s16-write-the-aquifer-trigger | automatic
+    on: { after: [3] }
+    world: "After Stop 15: The pump control flashes beside the falling-head record and unlocks the trigger."
+    panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "Use the Stop 15 result to settle write the aquifer trigger."
+  - id: at-mission-end
+    # At mission end | s13-read-the-ground | automatic
+    on: { enter: true, at: TODO }   # s13-read-the-ground
+    world: "Outcome and hook: The pump stops on the third update, the 1.0 m plaque remains, and the landings record becomes the next waypoint; Required bubbles pause until Continue."
+    panel: "MISSION 4 EVIDENCE: RECORDED"
+    bubbles:
+    - who: nkemdi-okafor   # Nkemdi Okafor
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 13: Read the ground
+  #     Concept: soil horizons/weathering/texture; Keystone: soil-land use; Area: Waterworks; Learning role: INTRODUCE; Difficulty: L2; Story role: evidence.
+  #     placement: PROTOCOL, at s13-read-the-ground.
+  - group: WATER
+    at: TODO               # the fixture it is asked at
+    title: "Read the ground"
+    concept: "soil horizons/weathering/texture"
+    reason: "The recharge model needs the material through which water actually moves."
+    scene: "The nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Match each core feature to the soil process or texture that controls infiltration and storage, and the team needs this result before it acts."
+    motivation: "Porosity stores water, while connected pores determine permeability and salt movement."
+    format: PROTOCOL
+    question: "Match frost-split rock, rusted mineral, coarse sand, dense clay, pale E horizon, and enriched B horizon to physical weathering, chemical weathering, fast drainage, slow drainage, leaching, and accumulation."
+    answerText: "The completed check shows the six mappings establish a sandy, permeable coastal path above a clay-rich storage layer."
+    why: "Weathering creates particles; texture and horizons govern water movement."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Coarse sand cannot be the slow-drainage layer, clay cannot be the fast path, and swapping E with B reverses leaching and accumulation in the soil profile.
+    # correct result: The six mappings establish a sandy, permeable coastal path above a clay-rich storage layer.
+    # state/output: Core layers label O-A-E-B-C-R; unlocks probe.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   mapping={frost_split:physical,rust:chemical,sand:fast,clay:slow,E:leaching,B:accumulation}.
+
+  # --- Stop 14: Probe the salt front
+  #     Concept: aquifer profile; Keystone: water quantity; Area: Waterworks; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+  #     placement: PROBE, at s14-probe-the-salt-front.
+  - group: WATER
+    at: TODO               # the fixture it is asked at
+    title: "Probe the salt front"
+    concept: "aquifer profile"
+    reason: "One surface sample cannot show whether salt is entering from the coast or fertilizer from above."
+    scene: "With the permeable coastal layer identified, take depth readings from inland to shore. Locate where chloride rises while nitrate remains quiet, then name the broken groundwater pattern, and the team needs this result before it acts."
+    motivation: "A shoreward chloride gradient with stable nitrate identifies seawater, not farm runoff."
+    format: PROBE
+    question: "Probe W1-W5 in order. At every station compare observed chloride with that station's expected 40-55 mg/L freshwater range, compare observed nitrate with that station's expected 3.5-4.5 mg/L background range, and read freshwater head; submit the first chloride break and either seawater intrusion or farm runoff."
+    answerText: "The completed check shows the break begins at W3; chloride rises toward shore while nitrate stays near 4 mg/L and freshwater head falls."
+    why: "Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Calling the break farm runoff conflicts with nitrate staying near its expected value; choosing W4 or W5 misses W3, the first station where chloride departs from expectation.
+    # correct result: The break begins at W3; chloride rises toward shore while nitrate stays near 4 mg/L and freshwater head falls.
+    # state/output: W3-W5 tagged "salt front"; unlocks diagnosis.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:
+    #     stations:
+    #       - {id: W1, reading: {chloride: 42, nitrate: 4.0, head: 3.2}, expected: {chloride: [40,55], nitrate: [3.5,4.5], head: "freshwater head declines gradually"}, load: "inland freshwater baseline"}
+    #       - {id: W2, reading: {chloride: 48, nitrate: 4.2, head: 2.7}, expected: {chloride: [40,55], nitrate: [3.5,4.5], head: "below W1 but positive"}, load: "background tracer comparison"}
+    #       - {id: W3, reading: {chloride: 96, nitrate: 4.1, head: 1.8}, expected: {chloride: [40,55], nitrate: [3.5,4.5], head: "above the 1.0 m pump trigger"}, load: "first chloride departure while nitrate remains background"}
+    #       - {id: W4, reading: {chloride: 210, nitrate: 4.0, head: 0.9}, expected: {chloride: [40,55], nitrate: [3.5,4.5], head: ">1.0 m safe operating head"}, load: "chloride rises as head crosses the trigger"}
+    #       - {id: W5, reading: {chloride: 390, nitrate: 4.2, head: 0.2}, expected: {chloride: [40,55], nitrate: [3.5,4.5], head: ">1.0 m safe operating head"}, load: "shoreward endpoint"}
+    #     units: {chloride: "mg/L", nitrate: "mg/L", head: "m"}
+    #     comparison: "first chloride departure while nitrate remains within expected background"
+    #     correct_station: W3
+    #     correct_conclusion: seawater_intrusion
+
+  # --- Stop 15: Diagnose the early warning
+  #     Concept: coupled groundwater evidence; Keystone: water quantity; Area: Waterworks; Learning role: COMBINE; Difficulty: L4; Story role: reversal.
+  #     placement: DIAGNOSIS, at s15-diagnose-the-early-warning.
+  - group: WATER
+    at: TODO               # the fixture it is asked at
+    title: "Diagnose the early warning"
+    concept: "coupled groundwater evidence"
+    reason: "The council needs the one cause that fits salt timing, well levels, and quiet nitrate."
+    scene: "The probe found a coastal salt front before the tourist peak. Combine that pattern with pumping, rainfall, and nitrate records to reject explanations that fit only one alarm, and the team needs this result before it acts."
+    motivation: "A diagnosis must explain both abnormal and quiet readings."
+    format: DIAGNOSIS
+    question: "Select the single cause that fits every panel zone."
+    answerText: "The completed check shows continuous pumping under low recharge lowered freshwater head and pulled seawater inland."
+    why: "Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Drought alone does not explain the shoreward chloride gradient, and fertilizer does not fit quiet nitrate; only pumping plus low recharge fits every panel zone.
+    # correct result: Continuous pumping under low recharge lowered freshwater head and pulled seawater inland.
+    # state/output: Pump warning flashes with text; unlocks trigger.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline="Chloride before summer"; readings={chloride:"42 to 390 mg/L shoreward",head:"3.2 to 0.2 m",nitrate:"stable 4.0-4.2 mg/L",rain:"below planning year",visitors:"not yet peaked",pumping:"continuous high"}; choices={visitor_sewage,road_salt,fertilizer,pumping_intrusion}; answer=pumping_intrusion; mechanisms supplied per choice.
+
+  # --- Stop 16: Write the aquifer trigger
+  #     Concept: environmental thresholds; Keystone: policy instruments; Area: Chapel Council Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: TRIGGER, at s16-write-the-aquifer-trigger.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Write the aquifer trigger"
+    concept: "environmental thresholds"
+    reason: "Pumping needs an automatic rule before the next dry spell advances the front."
+    scene: "Because drawdown explains the salt front, the warning must act before drinking water fails. Write the threshold now, then test it against new well updates without moving the line, and the team needs this result before it acts."
+    motivation: "A precommitted trigger prevents political pressure from redefining danger after readings arrive."
+    format: TRIGGER
+    question: "Set an inclusive stop-pumping rule on freshwater head from 0.0 to 3.0 m; objective is prevent chloride above 250 mg/L, and campaign evidence shows risk begins at head <=1.0 m. Commit 1.0 m, reveal updates, then submit STOP when the threshold is met."
+    answerText: "The completed check shows stop at head <=1.0 m; the third update triggers action."
+    why: "Freshwater pressure holds seawater back; waiting below 1.0 m advances the front."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A threshold below 1.0 m acts after the documented risk begins, while a higher threshold stops safe pumping; using a strict < rule misses the inclusive 1.0 m boundary.
+    # correct result: Stop at head <=1.0 m; the third update triggers action.
+    # state/output: Pump gains threshold plaque; delivery piece 4 posts.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trigger.rule="stop pumping when head <= threshold"; scale=[0,3]; anchors=[0.5,1.0,1.5,2.0]; objective="chloride <=250 mg/L"; direction=lower_is_worse; consequence_limit=250; correct_threshold=1.0; updates=[1.4,1.1,1.0,0.8].
+

@@ -1,0 +1,153 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Missing Microsecond"
+  card:
+    header: "3 DAYS;"
+    title: "The Missing Microsecond"
+    goNow: "Screened Room, Noor Haddad at record budget board."
+    body: "The reroute passes its voltage test, but the fastest pulse may fall between recorded samples. Capacitors and inductors set circuit response times, so a quiet recorder can be too slow rather than truly quiet. You will derive RC and RL responses, test bandwidth, and compare the April certificate. By the end of the mission, decide which channels can certify the final shot."
+    objective: "Choose recorders fast enough for the relevant transient."
+  objective: "Choose recorders fast enough for the relevant transient."
+  stake: "The reroute passes its voltage test, but the fastest pulse may fall between recorded samples. Capacitors and inductors set circuit response times, so a quiet recorder can be too slow rather than truly quiet. You will derive RC and RL responses, test bandwidth, and compare the April certificate. By the end of the mission, decide which channels can certify the final shot."
+  takeaway: "Only the fast isolated channels can certify the final shot. ---"
+  segue: "Mission decision: Use only the fast, separate channels for the final shot. A slow channel misses much of the peak. The old test still works for steady current. It does not prove safety during lightning."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-screened-room
+    # On arrival at Screened Room | s49-find-the-fast-recorder | automatic
+    on: { enter: true, at: TODO }   # s49-find-the-fast-recorder
+    world: "accepted SCREEN/bubble/three traces/→S1; S2 correct/panel/63.2% label/ONE τ CAPTURES ONLY 63.2%→S3; S3 correct/waypoint/channel slot moves/FAST ISOLATED CHANNEL FUNDED; VERIFY RECORD AT SHOT.→SHOT; record checked/waypoint/ringing trace/Compare this transient with April's DC certificate.→EARTH/S4; S4 correct/world/certificate relabeled/DC ONLY • TRANSIENT NOT CERTIFIED→outcome."
+    panel: "Noor Haddad, data and safety analyst: \"A smooth line can be a slow instrument.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "A smooth line can be a slow instrument."
+  - id: after-stop-49
+    # After Stop 49 | s50-derive-rc-response | automatic
+    on: { after: [1] }
+    world: "The find the fast recorder result remains visible while the derive rc response fixture lights."
+    panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 49 result to settle derive rc response."
+  - id: after-stop-50
+    # After Stop 50 | s51-buy-the-recorder-upgrade | automatic
+    on: { after: [2] }
+    world: "The derive rc response result remains visible while the buy the recorder upgrade fixture lights."
+    panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 50 result to settle buy the recorder upgrade."
+  - id: after-stop-51
+    # After Stop 51 | s52-diagnose-frequency-response | automatic
+    on: { after: [3] }
+    world: "The buy the recorder upgrade result remains visible while the diagnose frequency response fixture lights."
+    panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 51 result to settle diagnose frequency response."
+  - id: at-mission-end
+    # At mission end | s49-find-the-fast-recorder | automatic
+    on: { enter: true, at: TODO }   # s49-find-the-fast-recorder
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 13 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 49: Find the Fast Recorder
+  #     Concept: bandwidth residual; Keystone: K7,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L4.
+  #     placement: RESIDUAL, at s49-find-the-fast-recorder.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Find the Fast Recorder"
+    concept: "bandwidth residual"
+    reason: "lowest RMS may hide missed pulse shape."
+    scene: "Three channels fit the long baseline equally well, but only one records a 100 ns spike without patterned residuals. Compare residual fields and reject the smooth channel that erases the peak."
+    motivation: "a good average fit cannot certify a fast event it systematically misses."
+    format: RESIDUAL
+    question: "Compare every residual field, select the recorder with no patterned failure at the 100 ns peak, and submit its channel ID."
+    answerText: "The completed check shows the fast isolated channel alone has structureless pulse residuals."
+    why: "a good average fit cannot certify a fast event it systematically misses."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not select lowest baseline RMS when its residual erases the peak.
+    # correct result: The fast isolated channel alone has structureless pulse residuals.
+    # state/output: unlock S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   traces fast/mid/slow with residual arrays; correct fast, not lowest overall slow RMS.
+
+  # --- Stop 50: Derive RC Response
+  #     Concept: RC/RL exponentials; Keystone: K7,K11; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: DERIVE, at s50-derive-rc-response.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Derive RC Response"
+    concept: "RC/RL exponentials"
+    reason: "sampling choice needs a derived response fraction."
+    scene: "Channel A has R=1.0 kilohm, C=100 pF, and time constant RC=100 ns. Derive its charging fraction after 100 ns and after five time constants, then justify both results."
+    motivation: "response fraction quantifies why one sample per time constant underreports the peak."
+    format: DERIVE
+    question: "Build the charging-response lines for t=τ and t=5τ, name exponential substitution and evaluation, and submit both response percentages."
+    answerText: "The completed check shows 63.2% at τ; 99.33% at 5τ. Exponential response quantifies under-read."
+    why: "response fraction quantifies why one sample per time constant underreports the peak."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use 1-e^-t/τ for charging, not e^-t/τ.
+    # correct result: 63.2% at τ; 99.33% at 5τ. Exponential response quantifies under-read.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines Vc/V∞=1-e^-t/τ; at τ 1-e^-1=.632; at5τ .9933; result. Prompt rules/fractions/%; tolerances .2%. State waypoint SHOT.
+
+  # --- Stop 51: Buy the Recorder Upgrade
+  #     Concept: error budget; Keystone: K12,K7; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
+  #     placement: PROPAGATE, at s51-buy-the-recorder-upgrade.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Buy the Recorder Upgrade"
+    concept: "error budget"
+    reason: "one extra channel slot must buy the uncertainty that changes certification."
+    scene: "With RC loss identified, the one-microsecond record can add only one upgrade. Compare costs and propagated uncertainty from faster sampling, another slow sensor, better paint calibration, or a longer cable survey."
+    motivation: "spend the channel on bandwidth because it dominates peak-voltage uncertainty."
+    format: PROPAGATE
+    question: "Read the live error budget, spend the one available record slot, and submit the upgrade that most reduces the uncertainty controlling certification."
+    answerText: "The completed check shows buy faster sampling; dominant uncertainty falls 18% to 4%."
+    why: "spend the channel on bandwidth because it dominates peak-voltage uncertainty."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Spend the one slot on the error term that changes certification.
+    # correct result: Buy faster sampling; dominant uncertainty falls 18% to 4%.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   live error contributions [bandwidth:18%,gain:3%,timing:4%,geometry:6%]; options/cost one slot; correct faster sampling reduces to4%. State waypoint EARTH.
+
+  # --- Stop 52: Diagnose Frequency Response
+  #     Concept: certification timescale, LC/RL/transformer; Keystone: K7,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L5.
+  #     placement: DIAGNOSIS, at s52-diagnose-frequency-response.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Diagnose Frequency Response"
+    concept: "certification timescale, LC/RL/transformer"
+    reason: "the April certificate must be labeled with what it measured."
+    scene: "The upgraded channel captures damped ringing near 1/√(LC), while the April test used steady current. Diagnose why its 0.42 Ω result and the fast waveform can both be correct.\", and record the result with its physical justification in the station report."
+    motivation: "DC resistance, RL growth, RLC loss, and transformer scaling answer different parts of a transient."
+    format: DIAGNOSIS
+    question: "Read DC, RL, RLC, transformer, and physical-condition zones, select the one explanation fitting all of them, and submit one certificate scope."
+    answerText: "The completed check shows frequency-dependent response reconciles DC and transient records."
+    why: "DC resistance, RL growth, RLC loss, and transformer scaling answer different parts of a transient."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Fraud and charge loss do not predict RL rise, damped LC ringing, and correct transformer ratio together.
+    # correct result: Frequency-dependent response reconciles DC and transient records.
+    # state/output: report piece13.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   readings [DC stable,RL_current_rises_with_tau_LoverR,ringing_at_1overSqrtLC_decays_through_R,probe_ratio_V2overV1_equals_N2overN1,physical_bond_intact]; choices [fraud,frequency_dependent_response,charge_nonconservation]; answer frequency response; mechanism explicitly checks L dI/dt+IR=ε, ω0=1/√LC, resistance damps RLC energy, and ideal V2/V1=N2/N1.
+

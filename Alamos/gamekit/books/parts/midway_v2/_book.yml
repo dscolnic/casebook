@@ -1,0 +1,581 @@
+theme:
+  id: midway
+  title: Safety Factor
+  subtitle: Ride Engineer · Corbin Park
+groups:
+- id: WORKSHOP
+  code: WORKSHOP
+  name: Brennan's workshop
+  color: '#6b7f8a'
+  desc: "Where the campaign's brennan's workshop work is done."
+  milestones: [Open the room, Read what it holds, Settle the question, Hand it on]
+- id: TOWER
+  code: TOWER
+  name: The Drop Tower
+  color: '#c0392b'
+  desc: Free fall down 42 metres, and a brake that has to take it back in 9.
+  defaultLeader: vey
+  milestones:
+  - Time the drop and get an acceleration out of it
+  - Derive the speed at the bottom two ways
+  - Put a number on what the brake does to a body
+  - Certify the tower or say why not
+- id: COASTER
+  code: COASTER
+  name: The Coaster
+  color: '#2f7fa8'
+  desc: 1 lift hill, 1 drop, 1 loop, and whatever friction has taken since 1974.
+  defaultLeader: marsh
+  milestones:
+  - Close the energy books on one circuit
+  - Find where the losses actually are
+  - Derive the speed the loop demands
+  - Recompute the margin the drawing promised
+- id: CAROUSEL
+  code: CAROUSEL
+  name: The Carousel and Swings
+  color: '#c99a2e'
+  desc: Everything here goes in a circle, which means everything here is accelerating.
+  defaultLeader: brennan
+  milestones:
+  - Separate speed from acceleration
+  - Derive the angle the swings hang at
+  - Check the setting against the mechanic's number
+  - Sign the speed limit for both rides
+- id: WHEEL
+  code: WHEEL
+  name: The Ferris Wheel
+  color: '#7a4fa3'
+  desc: 28 metres of steel that has to balance before it turns.
+  defaultLeader: raman
+  milestones:
+  - Balance the wheel on paper
+  - Find the load the arm actually sees
+  - Turn a moment into a stress
+  - Set a wind limit somebody can operate to
+- id: BUMPER
+  code: BUMPER
+  name: The Bumper Cars
+  color: '#3f9e6b'
+  desc: 100 collisions an hour, and every one of them is the same equation.
+  defaultLeader: chen
+  milestones:
+  - Count the momentum before and after
+  - Find the energy the collision does not return
+  - Turn a collision into a force on a neck
+  - Set the floor speed and the car mass
+- id: SHIP
+  code: SHIP
+  name: The Pirate Ship
+  color: '#4a6d8c'
+  desc: A pendulum with 60 people on it, and a period that does not care how many.
+  defaultLeader: idowu
+  milestones:
+  - Measure the period and get g out of it
+  - Derive why the period ignores the load
+  - Find the drive frequency the ride must avoid
+  - Certify the swing angle
+- id: FLUME
+  code: FLUME
+  name: The Log Flume
+  color: '#2e8b8b'
+  desc: Water doing the work, and a pump that has to lift it back up again.
+  defaultLeader: abara
+  milestones:
+  - Get a pressure out of a depth
+  - Float a loaded boat on paper
+  - Derive the outlet speed
+  - Match the pump to the channel
+roster:
+- id: hart
+  name: "Maya Hart"
+  role: "park operations lead and mission authority"
+  division: WORKSHOP
+  bio: |
+    Maya Hart is park operations lead and mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: chen
+  name: "Linh Chen"
+  role: "instrumentation and test lead"
+  division: WORKSHOP
+  bio: |
+    Linh Chen is instrumentation and test lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: kova
+  name: "Luka Kovač"
+  role: "mechanical lead"
+  division: SHIP
+  bio: |
+    Luka Kovač is mechanical lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: idowu
+  name: "Tunde Idowu"
+  role: "controls engineer"
+  division: WORKSHOP
+  bio: |
+    Tunde Idowu is controls engineer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: brennan
+  name: "Ruth Brennan"
+  role: "former chief engineer and keeper of the notebooks"
+  division: TOWER
+  bio: |
+    Ruth Brennan is former chief engineer and keeper of the notebooks. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+
+glossary:
+- name: Calibration
+  aliases: [calibration, calibrate, calibrated, calibrating]
+  def: Checking an instrument against something already known, so its readings can be trusted.
+- name: Acceleration
+  aliases:
+  - accelerating
+  - accelerates
+  - decelerate
+  - deceleration
+  def: How fast a velocity is changing, in metres per second every second. Speeding up, slowing down and turning are all acceleration.
+- name: Free fall
+  aliases:
+  - falls freely
+  - in free fall
+  def: Motion with gravity as the only force acting. Everything in free fall gains speed at the same rate, whatever it weighs.
+- name: g
+  aliases:
+  - gravitational field strength
+  - acceleration due to gravity
+  def: The acceleration of anything in free fall near the ground, about 9.8 metres per second every second.
+- name: Net force
+  aliases:
+  - resultant force
+  - unbalanced force
+  - sum of the forces
+  def: What is left when every force on a body is added together with its direction. It is what the mass responds to.
+- name: Free-body diagram
+  aliases:
+  - free body diagram
+  def: A sketch of one object with every force acting on it drawn as an arrow, and nothing else on the page.
+- name: Normal force
+  aliases:
+  - normal
+  - support force
+  - seat force
+  def: The push a surface gives an object at right angles to itself. It is what a rider actually feels.
+- name: Apparent weight
+  aliases:
+  - felt weight
+  - g-force
+  def: The support force a rider feels, divided by their ordinary weight. In free fall it is zero, and nothing about their
+    mass has changed.
+- name: Friction
+  aliases:
+  - frictional
+  - kinetic friction
+  - static friction
+  def: The force a surface makes along itself, opposing sliding. Static friction holds until it is exceeded; kinetic friction
+    acts while sliding.
+- name: Coefficient of friction
+  aliases:
+  - coefficient
+  - mu
+  def: The ratio of the friction available to the normal force pressing the surfaces together.
+- name: Centripetal acceleration
+  aliases:
+  - centripetal
+  - towards the centre
+  def: The acceleration of anything moving in a circle, directed at the centre, equal to the speed squared over the radius.
+- name: Centripetal force
+  aliases:
+  - the force towards the centre
+  def: The net force that produces circular motion. It is not a new force; it is whatever is doing the job — a rail, a chain,
+    a seat.
+- name: Conical pendulum
+  aliases:
+  - swing chair
+  - hanging chain
+  def: A mass on a chain swung in a horizontal circle, so the chain traces a cone. Its angle depends on speed and radius,
+    not on mass.
+- name: Work
+  aliases:
+  - work done
+  def: Force times the distance moved along the force. It is the way energy gets from one place to another.
+- name: Kinetic energy
+  aliases:
+  - kinetic
+  def: The energy a moving body has, one half its mass times its speed squared. It goes up with the square, so twice the speed
+    is four times the energy.
+- name: Potential energy
+  aliases:
+  - gravitational potential energy
+  - stored energy
+  - height energy
+  def: The energy stored by lifting something, its weight times the height it was lifted.
+- name: Mechanical energy
+  aliases:
+  - total energy
+  - energy of the train
+  def: Kinetic and potential added together. Without friction it stays the same all the way round.
+- name: Work–energy theorem
+  aliases:
+  - work energy theorem
+  - net work
+  def: A force acting along the distance a body moves changes its kinetic energy by exactly that amount. It is how a push
+    becomes a speed.
+- name: Power
+  aliases:
+  - rate of working
+  def: How quickly work is done, in joules a second. A pump's rating is a power, not an energy.
+- name: Momentum
+  aliases:
+  - momenta
+  def: Mass times velocity. In a collision the total, counted with direction, is the same before and after.
+- name: Impulse
+  aliases:
+  - impulse–momentum
+  - change in momentum
+  def: Force times the time it acts for. It equals the change in momentum, which is why a slower stop is a gentler one.
+- name: Elastic collision
+  aliases:
+  - elastic
+  def: A collision that gives back all its kinetic energy. Bumper cars do not.
+- name: Inelastic collision
+  aliases:
+  - inelastic
+  - perfectly inelastic
+  def: A collision that keeps some of the kinetic energy as deformation, sound and heat. Momentum is still conserved.
+- name: Centre of mass
+  aliases:
+  - center of mass
+  - balance point
+  def: The point a body's weight can be treated as acting through.
+- name: Torque
+  aliases:
+  - moment
+  - turning effect
+  def: 'The turning effect of a force about a point: the force times the perpendicular distance to the line it acts along.'
+- name: Moment arm
+  aliases:
+  - lever arm
+  - perpendicular distance
+  def: The distance from the pivot to the line of the force, measured at right angles to that line.
+- name: Static equilibrium
+  aliases:
+  - balanced
+  - in equilibrium
+  def: Forces adding to zero and torques adding to zero, so nothing moves and nothing turns.
+- name: Rotational inertia
+  aliases:
+  - moment of inertia
+  - inertia of a wheel
+  def: How hard it is to change something's spin. It depends on where the mass is, not only how much there is.
+- name: Angular velocity
+  aliases:
+  - angular speed
+  - revolutions a minute
+  - rpm
+  def: How fast something turns, in radians a second. Multiply by the radius and you have the speed of a point on it.
+- name: Angular momentum
+  aliases:
+  - spin momentum
+  def: Rotational inertia times angular velocity. With no outside torque it stays the same.
+- name: Simple harmonic motion
+  aliases:
+  - harmonic
+  - oscillation
+  - oscillates
+  - oscillating
+  def: Motion where the restoring force is proportional to the displacement. It gives a period that does not depend on the
+    size of the swing.
+- name: Restoring force
+  aliases:
+  - restoring
+  def: The force that pulls an oscillator back toward the middle, and grows as it gets further away.
+- name: Period
+  aliases:
+  - time for one swing
+  - cycle time
+  def: The time for one complete oscillation. For a pendulum it depends on the length and on g, and not on the mass.
+- name: Frequency
+  aliases:
+  - frequencies
+  - cycles a second
+  def: How many oscillations happen each second. It is one divided by the period.
+- name: Resonance
+  aliases:
+  - resonant
+  - in step with
+  def: Driving an oscillator at its own frequency, so every push arrives in step and the swing keeps growing.
+- name: Damping
+  aliases:
+  - damped
+  - damper
+  def: Taking energy out of an oscillation, so the swing dies away instead of building.
+- name: Amplitude
+  aliases:
+  - swing angle
+  - size of the swing
+  def: How far an oscillator goes from the middle at the extreme of its motion.
+- name: Pressure
+  aliases:
+  - pressures
+  def: Force spread over an area, in pascals. In a liquid it grows with depth and acts in every direction.
+- name: Density
+  aliases:
+  - densities
+  def: Mass in each cubic metre. Water is about 1000 kilograms in every cubic metre.
+- name: Buoyancy
+  aliases:
+  - buoyant force
+  - upthrust
+  - floats
+  - floating
+  def: The upward force on anything in a fluid, equal to the weight of the fluid it pushes out of the way.
+- name: Pascal's principle
+  aliases:
+  - pascals principle
+  - hydraulic
+  def: Pressure applied to an enclosed fluid is passed on undiminished, so a small force on a small piston becomes a large
+    force on a large one.
+- name: Continuity
+  aliases:
+  - continuity equation
+  - flow rate
+  def: What goes in has to come out, so a channel that narrows makes the water in it move faster.
+- name: Safety factor
+  aliases:
+  - factor of safety
+  def: A structural factor of safety compares an allowable or failure capacity with the working demand. It should not be confused
+    with every dimensionless operating ratio; the coaster's crown-speed ratio is labeled separately.
+
+beatRooms: [ARCADE, PLANT, REOPENIN]
+
+missions:
+# <<< MISSIONS >>>
+
+copy:
+  TOWER: <p>The drop tower. 42 metres of free fall, and a row of copper fins that has to take it all back in nine.</p>
+  COASTER: <p>The coaster, built in 1974. One chain, one hill, one loop, and every number in its file computed from a drawing.</p>
+  CAROUSEL: <p>The carousel and the swing chairs. Both of them turn, which means both of them are accelerating everything
+    on board.</p>
+  WHEEL: <p>The Ferris wheel, 81 years old and the tallest thing on the lake. 24 gondolas, and a moment that changes as it
+    loads.</p>
+  BUMPER: <p>The bumper floor. 12 cars, a steel ceiling, and about 100 collisions an hour when it is busy.</p>
+  SHIP: <p>The pirate ship. 60 seats on an arm 8.6 metres long, driven by a wheel that pushes once each swing.</p>
+  FLUME: <p>The log flume. A pump, a header tank, 400 metres of channel and 1 drop at the end that everybody queues for.</p>
+  GATE: <p>The front gate and the ticket booths. Closed since October, and the reopening is on the board behind the glass.</p>
+  WORKSHOP: <p>Brennan's workshop. 11 notebooks, a bench, and 41 years of settings in 1 hand.</p>
+  ARCADE: <p>The arcade and the boarded stalls along the midway. Nothing in here needs certifying, which makes it the quietest
+    building on site.</p>
+  PLANT: <p>The plant room. Compressors, the water treatment set, and the switchboard everything on the midway runs off.</p>
+lessons:
+- group: TOWER
+  title: What a mass being stopped pushes back with — Review
+  at: fin-stack
+  task: Get the force the arrestor has to make on the test sled
+  concept: Newton's second law as the definition of a net force
+  place: The Drop Tower
+  scene: Rafael Santos, who maintains the tower brakes, has rigged the emergency arrestor for its annual proof test. It catches
+    a 980 kilogram test sled rather than the passenger carriage, and Vey wants the force on the arrestor before he will watch
+    it.
+  guide: Five numbers, and three of them describe how the sled arrived rather than what the arrestor has to make. Those three
+    are the entry speed, the length of the catch, and gravity. Ask of each whether a force on a body depends on it. What survives
+    that question is the mass and the rate the motion is being changed at.
+  background:
+  - Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here
+    has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second
+    half is whether the size of the answer looks right once they are in place.
+  - Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label
+    catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem.
+    That is the habit this format exists to build.
+  assumes:
+  - a net force on a body is that body's mass times its acceleration
+  - slowing down is an acceleration with the sign reversed
+  takeaway: Change the mass or the deceleration and the force changes with them. The rule that turns one pair into the other
+    is the same on every ride in the park.
+  format: BALLPARK
+  question: Estimate the force the arrestor has to make on the test sled.
+  answerText: About 61 kilonewtons — 980 kilograms slowed at 62.6 metres per second squared.
+  why: A net force is a mass times an acceleration, and the statement does not care what is being stopped or what does the
+    stopping. The mass is the 980 kilograms of sled and the acceleration is the 62.6 metres per second squared the arrestor
+    makes, so the force is about 61 kilonewtons. That is roughly twice what the copper fins hold on a routine drop, on a sled
+    that is heavier and caught in less room. The entry speed and the length of the catch are how that acceleration was arrived
+    at, and gravity belongs to the fall above.
+  estimate:
+    relationship: A net force is a mass times its acceleration, ΣF = ma.
+    prompt: The arrestor catches a 980 kg sled entering at 29.6 m/s and holds it over 7.0 m, a deceleration of about 62.6
+      m/s².
+    question: Estimate the force the arrestor has to make on the test sled.
+    labels:
+    - 980 kg  (mass of the test sled)
+    - 62.6 m/s²  (deceleration in the arrestor)
+    - 7.0 m  (the length of the catch)
+    - 29.6 m/s  (speed entering the arrestor)
+    - 9.8 m/s²  (g)
+    values:
+    - 980
+    - 62.6
+    - 7.0
+    - 29.6
+    - 9.8
+    slots: 2
+    template: '{0} × {1}'
+    formula: a*b
+    correct:
+    - 0
+    - 1
+    target: 61348
+    tolerance: 4000
+    units: N (about 61 kN)
+    solution: 980 × 62.6 ≈ 61,300 N, or about 61 kilonewtons.
+    explanation: Mass times acceleration, and nothing else. The entry speed and the length of the catch are what produced
+      that acceleration, and gravity belongs to the fall above.
+- group: COASTER
+  title: Reading a circuit as energy — Review
+  at: profile-drawing
+  task: Match each place on the far half of the circuit to what is true of the train's energy there.
+  concept: Conservation of mechanical energy, and dividing the mass out of it
+  place: The Coaster
+  scene: 'Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning. On
+    it: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.'
+  guide: Four places and four statements, all of them past the first drop. Pair them by asking the same two questions of each.
+    Where is the energy sitting, in height or in motion? And is any being added or taken out here? Nothing beyond the lift
+    hill adds any, so every join is about where it sits and what is being removed.
+  background:
+  - Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible
+    for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place
+    all of them forces the comparison — not "is this reasonable here", but "is it more right here than there".
+  - How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every
+    join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination.
+    Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is
+    testing.
+  - Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only
+    one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced.
+    The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
+  assumes:
+  - energy stored in height can be turned back into motion
+  - friction turns mechanical energy into heat and does not return it
+  takeaway: Past the lift hill every height the train reaches again is bought out of its speed, less whatever friction has
+    already taken.
+  format: PROTOCOL
+  scenarios:
+  - The train is at the crown of the loop, upside down and still travelling fast.
+  - The train is passing through the trim brakes half way round the circuit.
+  - The train is at the top of the second hill.
+  - The train is standing in the station with the block brakes set.
+  choices:
+  - Both stores are large at once, with the height near a maximum and the speed still high enough to hold the train against
+    the rail.
+  - A measured amount is being taken out as heat on purpose, so that the speed into what follows is a setting and not an accident.
+  - Most of what is left is back in the height, and it is less than the first hill because losses have been taken all the
+    way round.
+  - Everything the lift put in has gone, some to friction and the rest to the brakes, and the books close on the circuit here.
+  mapping:
+  - 0
+  - 1
+  - 2
+  - 3
+  why: The energy books close over the whole circuit rather than point by point. At the crown the train holds a large share
+    in height. It still holds enough in motion to stay on the rail, which is why a loop is placed early. The trim brakes take
+    a measured amount out as heat deliberately, so the speed into the second half is a setting. The second hill is lower because
+    friction has been taking a cut since the lift, and the station brakes remove what is left.
+- group: SHIP
+  title: 60 people and the same 5 seconds — Review
+  task: Say why the amplitude drops out of the period at small angles
+  concept: 'Simple harmonic motion: a restoring force proportional to displacement'
+  place: The Pirate Ship
+  scene: Sam Idowu, the senior ride operator, has been timing maintenance swings on an empty boat. Pushed out two degrees
+    it takes 5.9 seconds, and pushed out four degrees it still takes 5.9. He wants that written down properly.
+  guide: 'All four options explain a timing that does not move when the push gets bigger. Ask of each whether it names a cancellation
+    or an excuse. A wider swing is a longer journey, so for the time to hold, the boat has to make it faster. Look for the
+    option that says why the extra speed arrives, and note the limit: this holds at small angles and the ride swings 48 degrees.'
+  background:
+  - Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading
+    — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each
+    belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.
+  - Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across
+    a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes,
+    before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal
+    taken out of them deliberately.
+  - What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option
+    fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made
+    for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is
+    being tested.
+  assumes:
+  - the boat is pulled back toward its lowest point whenever it is displaced
+  - a longer path covered in the same time means a higher average speed
+  takeaway: Amplitude drops out of a harmonic period. That is what makes an oscillator usable as a clock, and useless as a
+    record of how hard it was set going.
+  format: CHOICE
+  question: At small angles, why does pushing the empty boat out further not lengthen the swing?
+  answerText: The restoring pull grows in proportion to the displacement, so the wider swing is also the faster one.
+  choices:
+  - The pull back grows in step with the displacement, so a wider swing is also a faster one.
+  - The drive motor lengthens its push as the angle grows, which holds every cycle to the same interval whatever the operator
+    sets.
+  - The difference is real, but far too small for a stopwatch to separate at the angles used on a maintenance swing.
+  - Air resistance grows with the swing and takes back exactly the extra distance the boat has to travel.
+  answer: The pull back grows in step with the displacement, so a wider swing is also a faster one.
+  rebuttals:
+  - The drive gives one push at the end of each swing, and it does not set the rate the boat returns at.
+  - Doubling the angle doubles the distance, which a stopwatch at this length would show if the speed did not double with
+    it.
+  - Damping does take energy out, and what it shrinks is the size of the swing rather than the time one takes.
+  why: 'At small angles the pull back toward the bottom grows very nearly in proportion to how far the boat has been displaced.
+    Push it twice as far and it is pulled twice as hard. So it covers twice the distance at twice the average speed, and arrives
+    in the same time. That proportionality is what harmonic motion means, and a period that ignores amplitude is its signature.
+    It stops holding as the angle opens: at the ride''s 48 degrees the swing runs slightly slow, which is why the maintenance
+    timings are taken small.'
+- group: CAROUSEL
+  title: Going round at a steady speed — Review
+  at: chain-rig
+  task: Get the acceleration on the inner ring of horses
+  takesAsRead:
+  - 'Velocity against speed: direction is part of the quantity'
+  concept: 'Centripetal acceleration: v² over r, pointing at the centre'
+  place: The Carousel and Swings
+  scene: Bisi Adeyemi, the ride electrician, has the new controller in and wants the inner ring on paper as well. Those horses
+    sit 3.1 metres from the axis and go round on the same shaft at the same eight revolutions a minute.
+  guide: 'Five numbers, and two of them belong to the outer ring rather than this one. Ask of each which circle it describes.
+    The turns a minute are shared by both rings, so the speed on each has already been worked out for you. And note where
+    the square sits: it is on the speed and not on the radius.'
+  background:
+  - Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here
+    has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second
+    half is whether the size of the answer looks right once they are in place.
+  - Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label
+    catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem.
+    That is the habit this format exists to build.
+  assumes:
+  - a body going round a circle accelerates toward the centre of it
+  - the size of that acceleration is the speed squared over the radius
+  takeaway: One shaft turns every radius at the same rate, so both the speed and the acceleration of a seat are set by how
+    far out it is.
+  format: BALLPARK
+  question: Estimate the acceleration of a horse on the inner ring.
+  answerText: About 2.2 metres per second squared, pointing at the axle.
+  why: Every point on the platform turns at the same rate, so a horse half as far out moves half as fast. Both terms of the
+    ratio change together, and the square sits on only one of them. That is what makes the acceleration fall in proportion
+    to the radius rather than with its square. Here 2.6 metres a second on a 3.1 metre radius gives about 2.2 metres per second
+    squared, still pointing at the axle. That is why a speed limit for this ride is written for the outer horses.
+  estimate:
+    relationship: Centripetal acceleration is the speed squared over the radius, a_c = v²/r.
+    prompt: The inner ring sits 3.1 m from the axis and moves at 2.6 m/s while the carousel turns at 8 revolutions a minute.
+    question: Estimate the acceleration of a horse on the inner ring.
+    labels:
+    - 2.6 m/s  (speed on the inner ring)
+    - 3.1 m  (radius of the inner ring)
+    - 5.2 m/s  (speed on the outer ring)
+    - 6.2 m  (radius of the outer ring)
+    - 8  (turns a minute)
+    values:
+    - 2.6
+    - 3.1
+    - 5.2
+    - 6.2
+    - 8
+    slots: 2
+    template: '{0} × {0} ÷ {1}'
+    formula: a*a/b
+    correct:
+    - 0
+    - 1
+    target: 2.18
+    tolerance: 0.25
+    units: m/s² toward the centre
+    solution: 2.6 × 2.6 ÷ 3.1 ≈ 2.2 m/s², pointing at the axle.
+    explanation: The outer ring's speed and radius describe a different circle on the same shaft, and the turns a minute are
+      the rate both of them share.

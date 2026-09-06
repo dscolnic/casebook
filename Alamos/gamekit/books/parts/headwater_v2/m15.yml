@@ -1,0 +1,166 @@
+# ============================================================ MISSION 15
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Corrected Release Rules, Signed"
+  card:
+    header: "FINAL SHIFT - STORM EDGE ON THE RIDGE"
+    title: "Open, Hold, Verify"
+    goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall."
+    body: "Storage, warning, reserve, and wall checks all pass, but the last half-metre makes gate discharge sharply sensitive to head. The final action must combine limits, rates, accumulation, motion, differential models, and physical work without adding a new rule. Across inflow, storage, and gates, rebuild and execute the release. By the end of the mission, decide and carry out the final staged plan."
+    objective: "Commit, execute, and verify the safe release."
+  objective: "Commit, execute, and verify the safe release."
+  stake: "Storage, warning, reserve, and wall checks all pass, but the last half-metre makes gate discharge sharply sensitive to head. The final action must combine limits, rates, accumulation, motion, differential models, and physical work without adding a new rule. Across inflow, storage, and gates, rebuild and execute the release. By the end of the mission, decide and carry out the final staged plan."
+  takeaway: "Differential equations predict changing systems from rules and initial data. ---"
+  segue: "Mission decision: Complete the staged release. The forecast, water ledger, gate response, wall readings, machine work. And warning times all pass their signed limits. The reservoir reaches storm room before the crest. Ashfell holds the rain without sending an unsafe surge downstream."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-catchment-inflow-desk
+    # On arrival at Catchment & Inflow Desk | gauge-wall | automatic
+    on: { enter: true, at: INFLOW }
+    world: "Arrival Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Start with rebuild the release bound. We need evidence the next decision can use."
+  - id: after-stop-57
+    # After Stop 57 | water-ledger | automatic
+    on: { after: [1] }
+    world: "Travel1 Location: INFLOW->STORE."
+    panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 57 result to settle close the final water ledger."
+  - id: after-stop-58
+    # After Stop 58 | staging-console | automatic
+    on: { after: [2] }
+    world: "Travel2 Location: STORE->GATES."
+    panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 58 result to settle predict and operate the staged release."
+  - id: after-stop-59
+    # After Stop 59 | staging-console | automatic
+    on: { after: [3] }
+    world: "After 15.3 Location: GATES."
+    panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "Use the Stop 59 result to settle diagnose the final run."
+  - id: at-mission-end
+    # At mission end | gauge-wall | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 15 EVIDENCE: RECORDED"
+    bubbles:
+    - who: okoro   # Imani Okoro
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 57: Rebuild the release bound
+  #     Concept: limits/MVT/derivative synthesis; Keystone: Limits+rates+extrema; Area: Storage & Level Board; Learning role: TRANSFER; Difficulty: L5; Story role: foundation.
+  #     placement: DERIVE, at gauge-wall.
+  - group: STORE
+    at: gauge-wall
+    title: "Rebuild the release bound"
+    concept: "limits/MVT/derivative synthesis"
+    reason: "The final release needs a proved rate bound before any gate unlocks."
+    scene: "Forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. Derive the average slope and test whether 0.15<=H'(t)<=0.21 m/h is consistent with MVT."
+    motivation: "Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible."
+    format: DERIVE
+    question: "Build the secant slope, state the MVT conclusion, and submit whether the forecast passes."
+    answerText: "The forecast passes MVT consistency."
+    why: "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   MVT matches a derivative to the average rate; IVT matches a function value.
+    # correct result: .18 m/h, passes.
+    # state/output: forecast lock; waypoint STORE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"MVT consistency",givens:["H continuous [0,2]","differentiable (0,2)","H0=4.36,H2=4.72",".15<=H'<=.21"],lines:[{expressions:["(4.72-4.36)/(2-0)=.18 m/h",".36 m/h"],correct:"(4.72-4.36)/(2-0)=.18 m/h",rules:["secant slope","endpoint difference only"],correct_rule:"secant slope"},{expressions:["exists c with H'(c)=.18","exists c with H(c)=.18"],correct:"exists c with H'(c)=.18",rules:["Mean Value Theorem","Intermediate Value Theorem"],correct_rule:"Mean Value Theorem"},{expressions:["passes because .18 lies in [.15,.21]","fails"],correct:"passes because .18 lies in [.15,.21]",rules:["compare bound","assume endpoint"],correct_rule:"compare bound"}],answerText:"The forecast passes MVT consistency."}
+
+  # --- Stop 58: Close the final water ledger
+  #     Concept: accumulated change/area/average; Keystone: FTC+motion; Area: Powerhouse; Learning role: TRANSFER; Difficulty: L5; Story role: synthesis.
+  #     placement: BALANCE, at water-ledger.
+  - group: POWER
+    at: water-ledger
+    title: "Close the final water ledger"
+    concept: "accumulated change/area/average"
+    reason: "The rate-bound forecast must now satisfy the corrected storage total."
+    scene: "With the forecast certified, count 14.00 million m^3 starting room, 17.28 storm inflow, 2.00 safety reserve, 3.60 turbine release, and 1.68 gate release. Close the signed ledger, and the team needs this result before it acts."
+    motivation: "The final volume balance decides whether the staged gate plan is sufficient before motion begins."
+    format: BALANCE
+    question: "Select which displayed entries are physical water streams, assign each its shown sign, and submit one signed ledger total in million m^3; exclude power price."
+    answerText: "the plan just clears required storage; power price is not water."
+    why: "the plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Count physical streams once and keep their signs.
+    # correct result: 14+3.6+1.68-17.28-2=0; exact.
+    # state/output: gate authorization token; waypoint GATES.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"room",value:14,sign:1,count:true},{id:"turbine",value:3.6,sign:1,count:true},{id:"gate",value:1.68,sign:1,count:true},{id:"storm",value:17.28,sign:-1,count:true},{id:"reserve",value:2,sign:-1,count:true},{id:"power_price",value:.4,sign:1,count:false}],required_total:0,unit:"million m^3"}
+
+  # --- Stop 59: Predict and operate the staged release
+  #     Concept: chain/related rates/Euler/work integration; Keystone: all quantitative keystones; Area: Powerhouse; Learning role: TRANSFER; Difficulty: L5; Story role: payoff.
+  #     placement: VERIFY, at staging-console.
+  - group: POWER
+    at: staging-console
+    title: "Predict and operate the staged release"
+    concept: "chain/related rates/Euler/work integration"
+    reason: "The gate remains locked until the final head-sensitive prediction is committed."
+    scene: "The ledger closes, so the gate must follow the staged rule without overshoot. At h=4.0 m, use Q=40e^(0.3sqrt h) and its derivative to predict the response to a 0.10 m head change."
+    motivation: "A committed local prediction tests the steep final segment while warning and wall limits remain protected."
+    format: VERIFY
+    question: "**CALCULATE AND COMMIT:** With $h=4.0$ m and $Q=40e^{0.3\\sqrt h}$, submit $Q$ in m^3/s and the predicted $\\Delta Q$ for $\\Delta h=0.10$ m in m^3/s; controls remain locked until the numerical pair is committed."
+    answerText: "The completed check shows q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue."
+    why: "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Local change uses derivative times Delta h, not a second full function value unless asked.
+    # correct result: Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue.
+    # state/output: gates open in two stages; unlock 15.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify:{prediction:{targets:[72.885,0.547],units:["m^3/s","m^3/s"],tolerances:[.02,.02]},equipment_locked_until_prediction_commit:true,operation:"Stage1-hold20-Stage2",fixed:["warning ready","turbine schedule","sensor calibration"],measurements:["Q=72.90 then 73.43 m^3/s","work=724 J","arrival=294 min","uplift=5.7"],restore:"only on failure",limits:["W<=750 J","arrival>=280 min","uplift<=8 pressure units"],correct_conclusion:"continue"}
+
+  # --- Stop 60: Diagnose the final run
+  #     Concept: whole-course model selection; Keystone: all keystones; Area: Forecast Archive; Learning role: TRANSFER; Difficulty: L5; Story role: final decision.
+  #     placement: DIAGNOSIS, at staging-console.
+  - group: ARCHIVE
+    at: staging-console
+    title: "Diagnose the final run"
+    concept: "whole-course model selection"
+    reason: "The release may finish only if every quiet and active reading fits one explanation."
+    scene: "Stage 2 matches predicted discharge; storage falls on the resurvey curve, uplift remains below 8, and all warnings arrive early. Choose the one diagnosis supported by every independent reading, and the team needs this result before it acts."
+    motivation: "The final verdict belongs to the complete evidence chain, not one successful gauge."
+    format: DIAGNOSIS
+    question: "Compare all five displayed readings with their inclusive limits, then submit exactly one final diagnosis label."
+    answerText: "each active limit and quiet control passes; do not broaden opening beyond the tested plan."
+    why: "each active limit and quiet control passes; do not broaden opening beyond the tested plan. The final verdict belongs to the complete evidence chain, not one successful gauge."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Wall danger conflicts with uplift, the old curve conflicts with resurvey, and full opening exceeds what work and arrival tests actually verified.
+    # correct result: complete staged release.
+    # state/output: release completes; spillway visible through glass; no more graded questions.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   diagnosis:{headline:"final release",readings:[{zone:"discharge",value:"prediction +0.02"},{zone:"storage",value:"resurvey residual +0.01"},{zone:"uplift",value:"5.7 < 8"},{zone:"warning",value:"294 >= 280 min"},{zone:"work",value:"724 <= 750 J"}],choices:[{label:"complete staged release",mechanism:"all independent limits pass"},{label:"abort for wall danger",mechanism:"contradicted by uplift"},{label:"return to old curve",mechanism:"contradicted by resurvey"},{label:"open fully",mechanism:"unverified work and arrival"}],answer:"complete staged release"}
+    headline: "final release"
+    readings:
+    - {zone: "discharge", value: "prediction +0.02"}
+    - {zone: "storage", value: "resurvey residual +0.01"}
+    - {zone: "uplift", value: "5.7 < 8"}
+    - {zone: "warning", value: "294 >= 280 min"}
+    - {zone: "work", value: "724 <= 750 J"}
+    choices:
+    - {label: "complete staged release", mechanism: "all independent limits pass"}
+    - {label: "abort for wall danger", mechanism: "contradicted by uplift"}
+    - {label: "return to old curve", mechanism: "contradicted by resurvey"}
+    - {label: "open fully", mechanism: "unverified work and arrival"}
+    answer: "complete staged release"
+

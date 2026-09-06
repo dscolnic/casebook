@@ -3043,6 +3043,253 @@ export const SYLLABUS = {
          + 'report says which of the two it has done.' },
     ],
   },
+  redsand_oneshot: {
+    course: 'AP Chemistry, the whole course, taught inside one propellant plant against a launch window',
+    concepts: [
+      { c: 'Atoms, molecules and ions, and the mole as a way of counting them',
+        k: ['atom', 'molecule', 'ion', 'mole', 'molar mass', 'avogadro', 'particle'],
+        t: 'An atom is one neutral element unit, a molecule is bonded atoms with no net charge, and an ion '
+         + 'carries one. A mole is a fixed count of any of them, so a mass on a scale becomes a number of '
+         + 'particles the reactor can be asked about.' },
+      { c: 'Balanced equations and stoichiometry as an atom ledger',
+        needs: ['Atoms, molecules and ions, and the mole as a way of counting them'],
+        k: ['balanced equation', 'mole ratio', 'coefficient', 'atom ledger', 'carbon in', 'conserved'],
+        t: 'Coefficients compare moles, never masses, and atoms are neither made nor destroyed. So a process '
+         + 'ledger that adds carbon as carbon has to close, and a hole in it is a real loss rather than an '
+         + 'accounting habit.' },
+      { c: 'Limiting reactant, theoretical yield and percent yield',
+        needs: ['Balanced equations and stoichiometry as an atom ledger'],
+        k: ['limiting reactant', 'theoretical yield', 'percent yield', 'excess reactant', 'runs out first'],
+        t: 'Test every feed through the balanced equation and the one predicting less product is the limit. '
+         + 'The other feed is left over, which is why a reaction can stop with both materials still present.' },
+      { c: 'Gas behaviour: kinetic theory, the ideal gas law and partial pressure',
+        k: ['kinetic', 'ideal gas', 'partial pressure', 'mole fraction', 'dalton', 'pv = nrt', 'total pressure'],
+        t: 'Pressure, volume and temperature together count how many gas particles are present and say nothing '
+         + 'about what they are. A tank can hold a normal pressure with too little of the gas you wanted, '
+         + 'because another gas is holding the needle up.' },
+      { c: 'Structure and forces: Lewis structures, shape, polarity and intermolecular attraction',
+        k: ['lewis', 'vsepr', 'electron domain', 'polarity', 'dipole', 'intermolecular', 'hydrogen bonding',
+            'london dispersion', 'geometry'],
+        t: 'Electrons decide bonds, bonds decide shape, and shape decides whether the bond dipoles cancel. '
+         + 'What is left over is the attraction between whole molecules, which is what sets boiling, '
+         + 'dissolving and where a substance sticks in a cold line.' },
+      { c: 'Solutions: concentration, molarity and absorbance',
+        k: ['concentration', 'molarity', 'moles per litre', 'beer-lambert', 'absorbance', 'wavelength',
+            'dissolved'],
+        t: 'Concentration is amount per volume, so a strong solution can hold less material than a weak '
+         + 'but larger one. Absorbance rises with concentration at a chosen wavelength, which turns a '
+         + 'colour into a number as long as the instrument is standing beside a standard.' },
+      { c: 'Evidence independence: agreement is not confirmation',
+        k: ['independent', 'calibration', 'shared standard', 'dependency', 'corroborat', 'traceable',
+            'agree'],
+        t: 'Several displays are one piece of evidence when they inherit the same reference. Agreement only '
+         + 'means something when the channels could have failed separately, which is why a fresh sample read '
+         + 'against a sealed standard is worth more than three panels nodding together.' },
+      { c: 'Energy: enthalpy, calorimetry and phase change',
+        k: ['exothermic', 'endothermic', 'enthalpy', 'specific heat', 'calorimet', 'phase change',
+            'heating curve', 'heat removed'],
+        t: 'A negative enthalpy change means heat leaves the reaction and something has to carry it away. '
+         + 'Within one phase heat changes temperature; during a change of phase it goes into pulling '
+         + 'molecules apart and the temperature stands still.' },
+      { c: 'Kinetics: rate laws and the rate constant',
+        k: ['rate law', 'rate constant', 'reaction order', 'initial rate', 'doubling', 'how fast'],
+        t: 'Orders come from experiments where one concentration moves and the rest are held, never from the '
+         + 'balanced equation. The constant collects everything else, and it is the part temperature moves.' },
+      { c: 'Catalysts, mechanisms and the rate-determining step',
+        needs: ['Kinetics: rate laws and the rate constant'],
+        k: ['catalyst', 'activation energy', 'mechanism', 'elementary step', 'intermediate',
+            'rate-determining', 'active site', 'poison'],
+        t: 'A catalyst offers a lower-energy path and speeds both directions, so it changes how fast '
+         + 'equilibrium arrives and not where it sits. A mechanism is the sequence of real steps, and the '
+         + 'slow one sets the pace everybody measures.' },
+      { c: 'Testing a model: held-out data, residual structure and stress',
+        needs: ['Evidence independence: agreement is not confirmation'],
+        k: ['holdout', 'held-out', 'residual', 'overfit', 'stress', 'uncertainty', 'robust',
+            'unseen', 'margin'],
+        t: 'A model that fits what built it has proved nothing; the test is data it has never seen. '
+         + 'Structure left over in the errors means missing physics, and a decision is only safe if it '
+         + 'survives the whole range the inputs could really take.' },
+      { c: 'Equilibrium: Q against K, ICE reasoning and Le Chatelier',
+        needs: ['Balanced equations and stoichiometry as an atom ledger'],
+        k: ['equilibrium', 'equilibrium constant', 'ice table', 'reaction quotient', 'le chatelier',
+            'shifts', 'settles at', 'yield at balance'],
+        t: 'At a fixed temperature the mixture settles where one ratio of amounts is reached, and comparing '
+         + 'that ratio with the amounts present now says which way it will move. Pressure, temperature and '
+         + 'taking a product away each move it for different reasons.' },
+      { c: 'Acids, bases and treating a solution on purpose',
+        needs: ['Solutions: concentration, molarity and absorbance'],
+        k: ['acid', 'base', 'ph', 'neutralis', 'neutraliz', 'hydroxide', 'strong acid', 'ion exchange',
+            'filter'],
+        t: 'Neutralisation is a subtraction of moles, done before any concentration or logarithm. Treatment '
+         + 'is chosen for what the next machine cannot survive, which is why a filter and an ion exchanger '
+         + 'are not interchangeable.' },
+      { c: 'Redox and electrolysis: charge turned into product',
+        needs: ['Balanced equations and stoichiometry as an atom ledger'],
+        k: ['oxidation', 'reduction', 'cathode', 'anode', 'electrolysis', 'faraday', 'electron',
+            'current efficiency', 'coulomb'],
+        t: 'Reduction gains electrons at the cathode and oxidation loses them at the anode, and electricity '
+         + 'is what forces a reaction that would not run alone. Charge is a countable amount, so amps and '
+         + 'seconds convert straight into kilograms of gas.' },
+      { c: 'Specification: deciding the limit before the result arrives',
+        needs: ['Evidence independence: agreement is not confirmation',
+                'Gas behaviour: kinetic theory, the ideal gas law and partial pressure'],
+        k: ['specification', 'threshold', 'limit', 'quarantine', 'certif', 'go / no-go', 'precommit',
+            'off-spec', 'full is not ready'],
+        t: 'A specification is a set of limits written down before the numbers come back, each one tied to a '
+         + 'consequence. Enough and safe to use are two separate claims, and mass and pressure can satisfy '
+         + 'the first while composition fails the second.' },
+    ],
+  },
+  // ---- redsand_v5: the v5 build of the same campaign, one mission at a time.
+  //
+  // Deliberately NOT an alias of redsand_oneshot's fifteen-mission syllabus. A
+  // course is a claim about what the campaign teaches, and `curriculumDelivery`
+  // holds it to that: aliasing ten equations onto a book that computes one would
+  // report nine untaught bases and be right. This list grows with the missions.
+  redsand_v5: {
+    course: 'AP Chemistry, the whole course, taught inside one propellant plant against a launch window',
+    concepts: [
+      { c: 'Atoms, molecules and ions, and the mole as a way of counting them',
+        k: ['atom', 'molecule', 'ion', 'mole', 'molar mass', 'avogadro', 'particle'],
+        t: 'An atom is one neutral element unit, a molecule is bonded atoms with no net charge, and an ion '
+         + 'carries one. A mole is a fixed count of any of them, so a mass on a scale becomes a number of '
+         + 'particles the reactor can be asked about.' },
+      { c: 'Balanced equations and stoichiometry as an atom ledger',
+        needs: ['Atoms, molecules and ions, and the mole as a way of counting them'],
+        k: ['balanced equation', 'mole ratio', 'coefficient', 'atom ledger', 'carbon in', 'conserved'],
+        t: 'Coefficients compare moles, never masses, and atoms are neither made nor destroyed. So a process '
+         + 'ledger that adds carbon as carbon has to close, and a hole in it is a real loss rather than an '
+         + 'accounting habit.' },
+      // Mission 2. `t` is the bible's own "Key concepts, explained here" block for
+      // that mission, which is where this campaign's course text comes from.
+      { c: 'The limiting reactant, theoretical yield and what is left over',
+        needs: ['Balanced equations and stoichiometry as an atom ledger'],
+        k: ['limiting reactant', 'theoretical yield', 'percent yield', 'excess', 'runs out first',
+            'sabatier'],
+        t: 'A limiting reactant is the feed that can make the smaller amount of product; excess reactant '
+         + 'remains. Theoretical yield comes from the limiting reactant, while percent yield compares '
+         + 'actual product with that theoretical maximum.' },
+      // Mission 3. v10's own key-concepts block for that mission, which is where
+      // this campaign's course text comes from.
+      { c: 'Gas behaviour and partial pressure',
+        needs: ['Atoms, molecules and ions, and the mole as a way of counting them'],
+        k: ['ideal gas law', 'partial pressure', 'dalton', 'mole fraction', 'kinetic energy',
+            'pressure', 'total gas'],
+        t: 'At the same absolute temperature different gases share an average kinetic energy, and the '
+         + 'lighter ones move faster. PV = nRT counts total particles and cannot say which gas they '
+         + 'are, and a total pressure is the sum of each gas\'s own share — so a branch can read full '
+         + 'while too little of it is the gas you wanted.' },
+      // Missions 4-14. One entry per mission, and the `t` is that mission's own
+      // "Key concepts, explained here" block from the bible — which is where this
+      // campaign's course text comes from, and why there are fifteen of these
+      // rather than the parent game's thirty-three. Mission 15 adds no entry: the
+      // bible says in as many words that it teaches no new concept, so its four
+      // stops name concepts taught earlier.
+      { c: 'Lewis structures, VSEPR, and what shape does to a molecule\'s behaviour',
+        needs: ['Atoms, molecules and ions, and the mole as a way of counting them'],
+        k: ['lewis structure', 'vsepr', 'valence', 'electron domain', 'polarity', 'dipole',
+            'intermolecular', 'like dissolves like', 'boiling point', 'shape'],
+        t: 'A Lewis structure accounts for valence electrons and bonding, and VSEPR uses electron '
+         + 'domains to predict three-dimensional shape. Bond polarity comes from unequal electron '
+         + 'sharing, and molecular polarity also depends on whether the bond dipoles cancel. '
+         + 'Intermolecular forces connect that structure to boiling point, solubility and '
+         + 'separation — so "like dissolves like" is useful only after the polarity is settled.' },
+      { c: 'Concentration, molarity and Beer-Lambert, and evidence that only looks independent',
+        needs: ['Atoms, molecules and ions, and the mole as a way of counting them'],
+        k: ['concentration', 'molarity', 'mol/l', 'beer-lambert', 'absorbance', 'wavelength',
+            'path length', 'independent', 'same standard', 'sensor', 'calibration'],
+        t: 'Concentration is amount per volume, not total amount: molarity is moles per litre. '
+         + 'Beer-Lambert, A = epsilon b c, makes absorbance proportional to concentration at a '
+         + 'chosen wavelength and path length, and the peak wavelength gives the most sensitivity. '
+         + 'Two readouts are not independent evidence when they inherit the same standard or the '
+         + 'same sensor.' },
+      { c: 'Diagnosis from one mechanism, and whether measurement error could change it',
+        needs: ['Balanced equations and stoichiometry as an atom ledger'],
+        k: ['diagnosis', 'one mechanism', 'contradicted', 'uncertainty', 'measurement error',
+            'atom ledger', 'recycle', 'inventory', 'evidence synthesis', 'not a vote'],
+        t: 'A strong diagnosis explains every observation with one mechanism and is contradicted by '
+         + 'none. Uncertainty analysis asks whether reasonable measurement error could change the '
+         + 'conclusion. An atom ledger has to count C, H and O across every input, product, recycle '
+         + 'and inventory stream — and evidence synthesis is not a vote among alarms.' },
+      { c: 'Heat, q = mcΔT, heating curves and an energy ledger',
+        needs: ['Atoms, molecules and ions, and the mole as a way of counting them'],
+        k: ['exothermic', 'endothermic', 'calorimetry', 'specific heat', 'heating curve',
+            'phase change', 'energy ledger', 'heat', 'temperature change', 'coolant'],
+        t: 'An exothermic process releases heat to its surroundings and an endothermic one absorbs '
+         + 'it. q = mcΔT connects mass, specific heat and temperature change. On a heating curve '
+         + 'the sloped segments change temperature and the flat ones spend energy on a phase change. '
+         + 'An energy ledger counts heat generated, removed, stored and unaccounted for.' },
+      { c: 'Rate laws from experiment, the rate constant, and the controlled experiment',
+        needs: ['Concentration, molarity and Beer-Lambert, and evidence that only looks independent'],
+        k: ['rate law', 'reaction order', 'rate constant', 'trials', 'held constant', 'controlled',
+            'reverses the change', 'drift', 'causation', 'chain of custody', 'temperature and rate'],
+        t: 'A rate law is determined from experiments, rate = k[A]^m[B]^n, and the coefficients of the '
+         + 'balanced equation do not generally supply the orders. Compare trials where one '
+         + 'concentration changes and the others are held fixed. k depends on temperature. A '
+         + 'controlled experiment changes one factor, holds the rest, and reverses the change to '
+         + 'separate causation from drift — and a record proves an action only when identity and '
+         + 'timing are verified independently.' },
+      { c: 'Catalysis, mechanisms, the rate-determining step and poisoning',
+        needs: ['Rate laws from experiment, the rate constant, and the controlled experiment'],
+        k: ['catalyst', 'activation energy', 'mechanism', 'elementary step', 'intermediate',
+            'regenerated', 'slow step', 'rate-determining', 'poisoning', 'active site',
+            'spatial pattern'],
+        t: 'A catalyst supplies a lower-activation-energy pathway and speeds the reaction in both '
+         + 'directions; it does not change the enthalpy, the equilibrium constant or the equilibrium '
+         + 'composition. A mechanism is a sequence of elementary steps: an intermediate is made then '
+         + 'consumed, a catalyst is consumed then regenerated, and the slow step usually controls the '
+         + 'observed rate. Poisoning blocks active sites, and where the contaminant arrives first is a '
+         + 'pattern in space.' },
+      { c: 'Overfitting, the holdout test, residual structure and stress testing',
+        needs: ['Diagnosis from one mechanism, and whether measurement error could change it'],
+        k: ['overfit', 'holdout', 'unseen', 'residual', 'observed minus predicted', 'patterned',
+            'stress test', 'assumption', 'survives', 'model validation', 'model generalization'],
+        t: 'A model can fit the observations it was built from and predict nothing. A holdout tests it '
+         + 'on evidence it has never seen. Residuals are observed minus predicted, and a small average '
+         + 'error can hide a dangerous patterned miss. Stress testing moves assumptions through their '
+         + 'reasonable ranges to see whether the decision survives.' },
+      { c: 'Equilibrium: Kc, the ICE table, Q against K, and Le Châtelier',
+        needs: ['Catalysis, mechanisms, the rate-determining step and poisoning',
+          'The limiting reactant, theoretical yield and what is left over'],
+        k: ['equilibrium', 'kc', 'ice table', 'reaction quotient', 'q<k', 'le chatelier',
+            'shifts', 'fewer gas moles', 'removing product', 'yield', 'exothermic'],
+        t: 'Kc is written from the balanced equation, with pure solids and liquids left out. An ICE '
+         + 'table tracks initial amounts, the stoichiometric change and the equilibrium amounts. Q has '
+         + 'K\'s form at current conditions: below K the reaction runs forward, above it runs back. '
+         + 'Pressure favours the side with fewer gas moles, removing product pulls forward, and for an '
+         + 'exothermic reaction a higher temperature raises the rate while lowering the yield.' },
+      { c: 'Coupled reactions, acid-base stoichiometry, and a whole-system balance',
+        needs: ['Equilibrium: Kc, the ICE table, Q against K, and Le Châtelier',
+          'Concentration, molarity and Beer-Lambert, and evidence that only looks independent'],
+        k: ['coupled', 'shared intermediate', 'adding equations', 'cancels', 'brine', 'solubility',
+            'strong acid', 'dissociate', 'ph', 'neutralization', 'whole-system', 'recycle',
+            'stored inventory'],
+        t: 'Coupled reactions can share intermediates, and adding the equations cancels whatever is '
+         + 'produced then consumed. Brine carries ions whose behaviour depends on solubility and on '
+         + 'acid-base chemistry; a strong acid dissociates essentially completely, pH = -log[H+], and '
+         + 'neutralisation consumes H+ and OH- in ratio. A whole-system material balance includes the '
+         + 'stored inventory and the recycle streams, not only fresh feed and final product.' },
+      { c: 'Redox and electrolysis: half-reactions, Q = It and Faraday\'s law',
+        needs: ['Balanced equations and stoichiometry as an atom ledger'],
+        k: ['oxidation', 'reduction', 'electron', 'half-reaction', 'cathode', 'anode',
+            'electrolysis', 'faraday', 'charge', 'current efficiency', 'coulomb'],
+        t: 'Oxidation loses electrons and reduction gains them. In water electrolysis the cathode '
+         + 'reduces to hydrogen and the anode oxidises to oxygen. Charge is Q = It, moles of electrons '
+         + 'are It/F with F = 96485 C per mole, and two electrons make one H2. Electrical energy is '
+         + 'finite and a real cell is under 100% efficient, so the current is a budget.' },
+      { c: 'Composition against a specification, and thresholds chosen before the result',
+        needs: ['Gas behaviour and partial pressure',
+          'Overfitting, the holdout test, residual structure and stress testing'],
+        k: ['composition', 'total pressure', 'total mass', 'specification', 'threshold',
+            'multi-variable', 'chosen before', 'goalposts', 'recent sample', 'certification',
+            'cold line', 'combustion feed'],
+        t: 'A total pressure and a total mass do not establish composition. Carbon dioxide and water '
+         + 'behave differently from methane in a cold line and in a combustion feed, so what the tank '
+         + 'contains matters and not only how much. A calibration has to be tested on independent '
+         + 'recent samples, and a specification is a set of thresholds chosen before the results — '
+         + 'otherwise the goalposts move once the data is inconvenient.' },
+    ],
+  },
   redsand_ms: {
     course: 'Matter and change, taught inside a plant that has to make its own fuel out of an atmosphere',
     concepts: [
@@ -5453,6 +5700,27 @@ export const SYLLABUS = {
   },
 };
 
+// ---------------------------------------------------------------- the v2 editions
+//
+// A parallel edition is the SAME COURSE in the same place — a re-authored campaign
+// at the same grade, not a new syllabus. So it inherits the spine, entry for entry,
+// rather than getting a second description of AP Calculus AB that drifts from the
+// first the moment either is corrected. `concept:` in an edition's book therefore
+// names a number or an exact title from the parent's list, and `conceptOrder` and
+// `equationOrder` grade it against the same ordering the parent is graded against.
+for(const [edition, parent] of [
+  ['headwater_v2', 'headwater'],
+  ['carrying_v2', 'carrying'],
+  ['planetary_defense_v2', 'planetary_defense'],
+  ['groundtruth_v2', 'groundtruth'],
+  ['midway_v2', 'midway'],
+  ['the_trial_v2', 'the_trial'],
+  ['changeover_v2', 'changeover'],
+]){
+  SYLLABUS[edition] = SYLLABUS[parent];
+}
+
+
 // --------------------------------------------------------------- equations
 //
 // The equations a course cannot be said to have taught without. Same idea as the
@@ -6750,6 +7018,137 @@ export const EQUATIONS = {
       v: [['lamp brightness', 'how strong the lamp is, in candela'], ['distance', 'how far the spot is from the lamp, in metres']],
       s: 'Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.',
       k: ['light', 'lamp', 'lux', 'candela', 'brightness', 'twice as far', 'doorway'] },
+  ],
+  redsand_oneshot: [
+    { e: 'moles = grams ÷ molar mass,  particles = moles × 6.022 × 10²³',
+      c: 'turning a weight on a scale into a count of molecules',
+      v: [['grams', 'the measured mass of the substance'], ['molar mass', 'the grams in one mole of it'],
+          ['6.022 × 10²³', "Avogadro's number, the particles in one mole"]],
+      s: 'A scale weighs grams and a reactor model counts molecules, so every production figure in this plant is one of these two steps or both of them in a row.',
+      k: ['molar mass', 'avogadro', 'grams to moles', 'moles = grams'] },
+    { e: 'CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole of CH₄',
+      c: 'the Sabatier reaction, which is the whole reason the plant exists',
+      v: [['CO₂', 'carbon dioxide, taken from the atmosphere at six millibars'],
+          ['H₂', 'hydrogen, made by splitting water'], ['CH₄', 'methane, the fuel'],
+          ['ΔH', 'the heat given out per mole of methane made']],
+      s: 'Five molecules of gas go in and three come out with a great deal of heat, which is why pressure helps this reaction, heat hinders it, and one mole of carbon dioxide can only ever give one mole of methane.',
+      k: ['sabatier', 'mole ratio', 'co₂:ch₄'] },
+    { e: 'PV = nRT',
+      c: 'counting the gas in a vessel from its pressure, volume and temperature',
+      v: [['P', 'the pressure, in atmospheres'], ['V', 'the volume, in litres'],
+          ['n', 'the amount of gas, in moles'], ['R', '0.08206 L atm per mol per K'],
+          ['T', 'the absolute temperature, in kelvin']],
+      s: 'This counts particles and cannot name them, so a normal-looking reading proves the vessel is full of something and never says of what.',
+      k: ['ideal gas law', 'pv = nrt'] },
+    { e: 'Pᵢ = Xᵢ × P_total',
+      c: 'how much of a mixture pressure belongs to the gas you actually wanted',
+      v: [['Pᵢ', "one component's partial pressure"],
+          ['Xᵢ', 'its mole fraction, the share of all the molecules that are it'],
+          ['P_total', 'the pressure the gauge reads']],
+      s: 'Total pressure is the sum of the parts, so another gas can hold the needle up while the pressure of the gas the reactor needs quietly falls.',
+      k: ['partial pressure', 'mole fraction'] },
+    { e: 'M = moles ÷ litres',
+      c: 'concentration, which is an amount only once a volume is named',
+      v: [['M', 'molarity, in moles per litre'], ['moles', 'the amount of dissolved substance'],
+          ['litres', 'the volume of the whole solution']],
+      s: 'Strength and amount are different claims: five litres of a weak solution can hold more material than half a litre of a strong one.',
+      k: ['molarity', 'moles per litre'] },
+    { e: 'q = mcΔT',
+      c: 'how much heat a moving fluid carried away',
+      v: [['q', 'the heat, in kilojoules'], ['m', 'the mass that was warmed, in kilograms'],
+          ['c', 'its specific heat, in kJ per kg per K'], ['ΔT', 'the temperature rise, in kelvin']],
+      s: 'Heat removal is a mass, a material property and a temperature change multiplied together, and using the final temperature instead of the change is how a cooling load gets overstated by a factor of fifty.',
+      k: ['q = mc', 'specific heat'] },
+    { e: 'rate = k[A]^m[B]^n',
+      c: 'the rate law, whose powers come from experiment and not from the equation',
+      v: [['rate', 'how fast the reaction runs, in mol per litre per second'],
+          ['k', 'the rate constant, which temperature moves'],
+          ['m and n', 'the orders, found by changing one concentration at a time']],
+      s: 'Double one concentration with the others held and watch what the rate does: twice as fast is first order, four times is second, and the balanced equation is not consulted.',
+      k: ['rate law', 'rate constant'] },
+    { e: 'Kc = [CH₄][H₂O]² ÷ ([CO₂][H₂]⁴)',
+      c: 'the number the Sabatier mixture settles at, at one temperature',
+      v: [['Kc', 'the equilibrium constant for this reaction'],
+          ['[  ]', 'the concentration of each gas once the amounts stop changing']],
+      s: 'Products over reactants with the coefficients as powers, which is why hydrogen appears to the fourth and water squared, and why the same expression worked out from the amounts present now tells you which way the mixture is about to move.',
+      k: ['equilibrium constant', 'ice table'] },
+    { e: 'pH = −log[H⁺]',
+      c: 'how acidic a treated stream is, after the moles have been subtracted',
+      v: [['[H⁺]', 'the concentration of hydrogen ion left, in moles per litre'],
+          ['pH', 'the log scale it is reported on']],
+      s: 'Neutralisation is subtraction first and a logarithm second, so equal concentrations of acid and base do not cancel unless their volumes match, and two pH readings can never be averaged.',
+      k: ['ph = −log', 'excess h⁺'] },
+    { e: 'moles of electrons = I × t ÷ F',
+      c: "Faraday's law, which turns amps and hours into kilograms of gas",
+      v: [['I', 'the current, in amps'], ['t', 'the time, in seconds'],
+          ['F', "the Faraday constant, 96485 coulombs per mole of electrons"]],
+      s: 'An amp is a coulomb every second, so time has to be in seconds, and two electrons are needed for every hydrogen molecule before any efficiency is applied.',
+      k: ['faraday', 'moles of electrons'] },
+  ],
+  // ---- redsand_v5: the campaign's own "Equations first needed today".
+  //
+  // NOT WRITTEN HERE. Every one of the seven below is lifted from a mission
+  // card's `Worth knowing first` block in
+  // Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.2_Compact_Glossary.md,
+  // and the mapping onto this file's schema is one-for-one:
+  //
+  //   `e` ← Equation      `c` ← What it is for
+  //   `v` ← Symbols       `s` ← Why this campaign needs it
+  //
+  // `k` and `needs` are the only fields with no counterpart in the bible: `k`
+  // is what attaches an equation to the stops that use it, and `needs` is the
+  // order the bible itself introduces them in. Missions 1-3 only; this list
+  // grows with the missions, and the revision that adds mission 4 takes its
+  // equations off mission 4's card the same way.
+  redsand_v5: [
+    // Mission 1.
+    { e: 'moles = grams ÷ molar mass,  particles = moles × 6.022 × 10²³',
+      c: 'turning a mass on a scale into a count of particles',
+      v: [['grams', 'the measured mass'], ['molar mass', 'the grams in one mole'],
+          ['6.022 × 10²³', "Avogadro's number, the particles in one mole"]],
+      s: 'The tank scale reports mass, but the reactor and atom ledger must count particles before the crew can decide whether fuel is missing.',
+      k: ['molar mass', 'avogadro', 'grams to moles', 'moles = grams'] },
+    { e: 'unaccounted amount = amount entering − amount accounted for',
+      c: 'closing a material ledger',
+      v: [['amount entering', 'the measured input'],
+          ['amount accounted for', 'the total in products, recycle, samples, and measured losses']],
+      s: 'The crew should hunt a leak only if the carbon entering the plant cannot be found in known streams.',
+      k: ['accounted for', 'carbon ledger', 'close the ledger', 'unassigned'] },
+    // Mission 2.
+    { e: 'CO₂ + 4 H₂ → CH₄ + 2 H₂O',
+      c: "relating the plant's carbon dioxide and hydrogen feeds to methane and water production",
+      v: [['CO₂', 'carbon dioxide'], ['H₂', 'hydrogen'], ['CH₄', 'methane'], ['H₂O', 'water'],
+          ['the numbers', 'mole ratios']],
+      s: 'The crew must learn whether Martian carbon dioxide or recycled hydrogen sets the amount of methane available for the flight home.',
+      k: ['sabatier', 'co₂ + 4', 'mole ratio', 'co2:ch4'] },
+    { e: 'product moles = known moles × (product coefficient ÷ known coefficient)',
+      c: 'calculating how much product one reactant can support',
+      needs: ['CO₂ + 4 H₂ → CH₄ + 2 H₂O'],
+      v: [['known moles', 'the measured reactant amount'],
+          ['each coefficient', 'the number in front of that formula in the balanced equation']],
+      s: 'Converting both feeds into possible methane reveals which supply truly stops production first.',
+      k: ['theoretical yield', 'limiting reactant', 'could make', 'divided by four'] },
+    // Mission 3.
+    { e: 'PV = nRT',
+      c: 'finding the total amount of gas from pressure, volume, and temperature',
+      v: [['P', 'pressure'], ['V', 'volume'], ['n', 'moles of gas'], ['R', 'the gas constant'],
+          ['T', 'absolute temperature in kelvin']],
+      s: 'The storage gauge can reveal the total gas amount but cannot prove how much of that gas is usable hydrogen.',
+      k: ['pv = nrt', 'ideal gas', 'gas constant', 'total gas moles'] },
+    { e: 'component pressure = mole fraction × total pressure',
+      c: "finding one gas's pressure inside a mixture",
+      needs: ['PV = nRT'],
+      v: [['component pressure', 'the partial pressure'], ['mole fraction', "that gas's share"],
+          ['total pressure', 'the gauge reading']],
+      s: "Hydrogen can fall below the reactor's need while nitrogen keeps the total-pressure gauge looking normal.",
+      k: ['partial pressure', 'mole fraction', 'dalton'] },
+    { e: 'P₂ = P₁ × (T₂ ÷ T₁), for fixed gas amount and volume',
+      c: 'predicting how a sealed gas responds to warming',
+      needs: ['PV = nRT'],
+      v: [['P₁ and P₂', 'the starting and final pressures'],
+          ['T₁ and T₂', 'the starting and final temperatures in kelvin']],
+      s: 'A committed warming prediction tests the pressure model while the composition reading tests the simple-leak story.',
+      k: ['p₂ = p₁', 'fixed-volume', 'fixed volume', 'warming'] },
   ],
   redsand_ms: [
     { e: 'amount = rate × time', c: 'a daily figure turned into a total',

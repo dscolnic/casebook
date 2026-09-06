@@ -1,0 +1,209 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "One Source, Three Readings"
+  card:
+    header: "10 DAYS UNTIL COUNTY INSPECTION"
+    title: "ONE SOURCE, THREE READINGS"
+    goNow: "Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, beside the replacement-controller crate."
+    body: "The tower test is ready, while three historical ride records still point toward one shared failure. Different displays can agree because they depend on the same clock, tool, or copied value. Inspect the unopened controller, then trace every October speed report back through the Workshop. By the end of the mission, decide whether a common controller failure survives the evidence."
+    objective: "Trace the agreeing records and test the common-controller explanation."
+  objective: "Trace the agreeing records and test the common-controller explanation."
+  stake: "The tower test is ready, while three historical ride records still point toward one shared failure. Different displays can agree because they depend on the same clock, tool, or copied value. Inspect the unopened controller, then trace every October speed report back through the Workshop. By the end of the mission, decide whether a common controller failure survives the evidence."
+  takeaway: "Agreement is not independent confirmation when every value comes from one measuring chain."
+  segue: "Mission decision: The new controller did not cause the October event. It came later and is still sealed. The three speed reports all used one test kit. Each ride now needs a test that does not use that kit."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Separate displays are not independent if they share one upstream measurement."
+  - "A cause must exist and change before it can produce an effect."
+  - "A diagnosis must fit both abnormal and quiet readings."
+  - "A spring-based measuring tool is trustworthy only if its actual stiffness matches the value used in calibration."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-carousel-drive-house
+    # On arrival at Carousel Drive House | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Idowu shows the intact crate seal."
+    panel: "STOP 21-22 READY"
+    # unlocks: Stops 21-22.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "If this caused October, physics has learned to travel backward in time."
+  - id: after-stop-22
+    # After Stop 22 | automatic | 
+    on: { after: [2] }
+    world: "The replacement controller is tagged NOT INSTALLED."
+    panel: "NOT INSTALLED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: rosa-brennan   # Rosa Brennan
+      say: "The three reports may still share the portable kit."
+  - id: on-arrival-at-brennan-s-workshop
+    # On arrival at Brennan's Workshop | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The speed wheel, three springs, bracket, and master clock appear on the bench."
+    panel: "STOP 23 READY"
+    # unlocks: Stop 23.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-23
+    # After Stop 23 | automatic | 
+    on: { after: [3] }
+    world: "Three display lines merge into one upstream node; the independent accelerometer stays separate."
+    panel: "STOP 24 READY"
+    # unlocks: Stop 24.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-24
+    # After Stop 24 | automatic | 
+    on: { after: [4] }
+    world: "The common-controller card moves to REJECTED; the shared-calibration card moves to SUPPORTED."
+    panel: "REJECTED"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 21: Could the controller have acted?
+  #     Concept: Causal intervention; Keystone: model limits; Area: Brennan's workshop; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+  #     placement: CONTROL, asked at controller-crate.
+  - group: CAROUSEL
+    at: controller-crate
+    title: "Could the controller have acted?"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Causal intervention"
+    reason: "The leading theory depends on hardware that may never have entered the system."
+    scene: "The service list names a replacement controller, but the crate still carries its factory seal. Check power, command path, and reversal behavior to test whether it could have changed October's ride motion."
+    motivation: "A disconnected device cannot exert force or send a command into the ride."
+    format: CONTROL
+    question: "BASELINE: With the ride unpowered and the replacement crate isolated, measure ride-command response in percent. CHANGE ONE CONTROL: Connect only the sealed controller to the isolated command simulator while keeping the installed ride controller, mechanical brake preload, load, and ride power state fixed. MEASURE: Record simulator output and ride-command response before connection, during the isolated check, and after restoration. RESTORE: Disconnect the simulator and restore crate isolation; restoration is required. INTERPRET: Submit one conclusion stating whether the sealed controller had a live command path in October."
+    answerText: "The sealed replacement controller has no command path and could not have caused October's motion."
+    why: "It is unpowered, disconnected, and still sealed. A proposed cause must be connected before the event."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (live) Changing the installed controller tests a different device and disturbs the live ride. (brake) Changing brake preload tests the mechanical stop path, not whether the sealed replacement crate has a command path.
+    # correct result: Choice 1 - command the sealed crate; observed ride response 0.
+    # state/output: Set evidence_flags.new_controller_excluded = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:
+    #     baseline: {label: "Ride command response", value: 0, unit: "%"}
+    #     noise_band: 0.1
+    #     changed_variable: "Sealed-controller connection to isolated command simulator"
+    #     fixed_conditions: ["Installed ride controller", "Mechanical brake preload", "Load", "Ride remains unpowered"]
+    #     measurement_timing: [before_connection, during_isolated_check, after_isolation_restored]
+    #     state_measurements: {baseline_ride_response_percent: 0, isolated_simulator_output_percent: 100, isolated_ride_response_percent: 0, restored_ride_response_percent: 0}
+    #     candidates:
+    #       - {id: crate, label: "Test sealed controller output, then restore isolation", response: 100, ride_response: 0, correct: true}
+    #       - {id: live, label: "Change installed controller setting", response: 12, correct: false}
+    #       - {id: brake, label: "Change mechanical brake preload", response: -8, correct: false}
+    #     reversal_required: true
+
+  # --- Stop 22: Verify the installation claim
+  #     Concept: Timing and identity; Keystone: evidence independence; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L3; Story role: clue.
+  #     placement: ATTEST, asked at Tunde Idowu beside controller-record.
+  - group: CAROUSEL
+    at: controller-crate
+    title: "Verify the installation claim"
+    person: idowu
+    concept: "Timing and identity"
+    reason: "A parts-list entry must not be mistaken for an installed physical device."
+    scene: "The response test is zero, but the certificate needs records as well as an intact seal. Verify serial number, delivery time, power history, and installation sign-off before closing this causal branch."
+    motivation: "Identity and timing determine whether the listed object could belong to the event."
+    format: ATTEST
+    question: "Submit one selected-claims attestation about the replacement controller's serial, delivery date, power history, and installation sign-off; select only claims backed by the displayed records."
+    answerText: "The replacement arrived after the event, was never powered, and has no installation sign-off."
+    why: "All three facts exclude it from the October causal chain."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (signoff) No installation sign-off exists; the order and serial records prove possession of the crate, not installation in the ride.
+    # correct result: Submit evidence set [serial, delivered-after-event, never-powered].
+    # state/output: Add REPLACEMENT CONTROLLER EXCLUDED to Casebook.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:
+    #     verification_limit: 4
+    #     claims:
+    #       - {id: serial, label: "Crate serial matches replacement order", backed: true, critical: true}
+    #       - {id: delivered, label: "Delivered after October test", backed: true, critical: true}
+    #       - {id: power, label: "No power history", backed: true, critical: true}
+    #       - {id: signoff, label: "Installation sign-off exists", backed: false, critical: true}
+    #     correct: [serial,delivered,power]
+
+  # --- Stop 23: Trace the agreement
+  #     Concept: Shared calibration; Keystone: evidence independence; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
+  #     placement: TRACE, asked at bench-notebooks.
+  - group: TODO            # the curriculum area this teaches for
+    at: bench-notebooks
+    title: "Trace the agreement"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Shared calibration"
+    reason: "The three matching speed reports must be traced to their physical sources."
+    scene: "The replacement controller is excluded, yet the three October speeds still agree too closely. Open every report's dependencies and identify whether separate displays share the portable wheel, spring bracket, or clock."
+    motivation: "Shared upstream equipment turns three agreeing outputs into one repeated measurement chain."
+    format: TRACE
+    question: "Submit one trace conclusion naming the shared upstream measurement chain for all three historical speed reports and naming the one independent channel; use the displayed spring label 180 N/m, measured spring constant 165 N/m, and F_s = -kx as evidence."
+    answerText: "The three historical reports share the portable speed kit; Chen's accelerometer is independent."
+    why: "Different display labels do not erase a common source. Agreement among dependent channels is not corroboration."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Follow each value backward until the physical measurement differs.
+    # correct result: Shared dependency portable_speed_kit; independent channel seat_floor_accelerometers.
+    # state/output: Merge the three dependency lines visually.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:
+    #     shared_upstream: "Portable speed wheel + bracket spring B + master clock K-4"
+    #     calibration: {spring_label: "180 N/m", measured_spring_constant: "165 N/m", governing_relation: "Fs = -kx"}
+    #     channels:
+    #       - {id: wheel_report, label: "Ferris speed report", reading: "1.50 m/s", depends_on: [portable_kit], target_dependent: true}
+    #       - {id: bumper_report, label: "Bumper speed report", reading: "4.00 m/s", depends_on: [portable_kit], target_dependent: true}
+    #       - {id: coaster_report, label: "Coaster speed report", reading: "9.40 m/s", depends_on: [portable_kit], target_dependent: true}
+    #       - {id: accel, label: "Chen independent accelerometer", reading: "3.72 m/s equivalent", depends_on: [sensor_C17], independent: true}
+    #     correct: portable_kit
+
+  # --- Stop 24: Name the cause that fits
+  #     Concept: Model comparison; Keystone: evidence independence; Area: Brennan's workshop; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: DIAGNOSIS, asked at workshop-diagnosis-board.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Name the cause that fits"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Model comparison"
+    reason: "The campaign needs one explanation that fits the sealed controller, shared records, and independent sensor."
+    scene: "The replacement controller is excluded, and the three matching speeds collapse to one shared kit. Compare the independent reading and quiet brake channels before deciding which explanation survives the complete evidence panel."
+    motivation: "The surviving diagnosis must explain both false agreement and normally responding brakes."
+    format: DIAGNOSIS
+    question: "Submit one causal conclusion that explains the sealed later-delivered controller, three reports from one portable kit, the independent estimate 7% lower, and the two quiet local brake tests together."
+    choices:
+    - "{id: controller, label: \"Common replacement-controller failure\", mechanism: \"Device was absent.\"}"
+    - "{id: all_brakes, label: \"Three identical brake failures\", mechanism: \"Quiet local tests contradict it.\"}"
+    - "{id: shared_cal, label: \"Shared speed-kit calibration error\", mechanism: \"Explains agreement and independent disagreement.\"}"
+    - "{id: gravity, label: \"Gravity changed during October\", mechanism: \"Would affect independent tests too.\"}"
+    answerText: "A shared speed-kit calibration error best fits all readings."
+    why: "It creates matching historical values while allowing independent measurements and local brakes to behave normally."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (controller) The replacement controller arrived after the event and was never installed. (all_brakes) Independent local brake tests are quiet, so three identical brake failures do not fit. (gravity) A gravity change would also shift independent acceleration and period evidence, which it does not.
+    # correct result: Choice 3 - shared speed-kit calibration error.
+    # state/output: Reject common-controller theory; unlock independent retesting plan.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   headline: "WHY DID THREE OCTOBER REPORTS AGREE?"
+    #   readings:
+    #     - {zone: controller, label: "Replacement controller", value: "sealed; delivered later", state: quiet}
+    #     - {zone: records, label: "Three speed reports", value: "one portable kit", state: alarm}
+    #     - {zone: independent, label: "Independent acceleration estimate", value: "7% lower", state: alarm}
+    #     - {zone: brakes, label: "Ferris and bumper local tests", value: "match local models", state: quiet}
+    #   choices:
+    #     - {id: controller, label: "Common replacement-controller failure", mechanism: "Device was absent."}
+    #     - {id: all_brakes, label: "Three identical brake failures", mechanism: "Quiet local tests contradict it."}
+    #     - {id: shared_cal, label: "Shared speed-kit calibration error", mechanism: "Explains agreement and independent disagreement."}
+    #     - {id: gravity, label: "Gravity changed during October", mechanism: "Would affect independent tests too."}
+    #   answer: shared_cal
+

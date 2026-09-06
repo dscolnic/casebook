@@ -1,0 +1,159 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Missing Third"
+  card:
+    header: "5 DAYS;"
+    title: "The Missing Third"
+    goNow: "Mast Base, Marcus Tate at shunt rack."
+    body: "The bond certificate cannot clear a fast strike, and the mast clamp records more current than three down-conductor shunts. Current must be conserved, even when drawings omit a branch. You will close the current ledger, derive nearby magnetic fields, inspect the trench bond, and audit the launch record. By the end of the mission, decide where the missing strike current flowed."
+    objective: "Identify and quantify every current path."
+  objective: "Identify and quantify every current path."
+  stake: "The bond certificate cannot clear a fast strike, and the mast clamp records more current than three down-conductor shunts. Current must be conserved, even when drawings omit a branch. You will close the current ledger, derive nearby magnetic fields, inspect the trench bond, and audit the launch record. By the end of the mission, decide where the missing strike current flowed."
+  takeaway: "About one third of the week-five strike current flowed through the bonded instrument conduit. ---"
+  segue: "Mission decision: About one third of the strike used the bonded conduit. Current totals, field tests, and timing all agree. Mark the conduit unsafe for now. Test a new route before the next shot."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-mast-base
+    # On arrival at Mast Base | s41-close-the-strike-current-ledger | automatic
+    on: { enter: true, at: TODO }   # s41-close-the-strike-current-ledger
+    world: "accepted MAST/bubble/clamp and shunts side-by-side/→S1; S2 correct/waypoint/conduit label 10 kA PREDICTED/Inspect its earth bond.→EARTH; S3 correct/waypoint/test link restored/ISOLATION REMOVES MISSING CURRENT; TAKE RESULT TO RECORDS.→SHOT; S4 correct/panel/week-five records aligned/ONE THIRD VIA CONDUIT→outcome; outcome/world/conduit locked/tagged/UNSAFE PATH ISOLATED→metric."
+    panel: "Marcus Tate, mast engineer: \"Thirty entered. Twenty is named. Find the path.\""
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Thirty entered. Twenty is named. Find the path."
+  - id: after-stop-41
+    # After Stop 41 | s42-derive-field-and-wire-force | automatic
+    on: { after: [1] }
+    world: "The close the strike-current ledger result remains visible while the derive field and wire force fixture lights."
+    panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 41 result to settle derive field and wire force."
+  - id: after-stop-42
+    # After Stop 42 | s43-isolate-conduit-current | automatic
+    on: { after: [2] }
+    world: "The derive field and wire force result remains visible while the isolate conduit current fixture lights."
+    panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 42 result to settle isolate conduit current."
+  - id: after-stop-43
+    # After Stop 43 | s44-verify-the-historical-path | automatic
+    on: { after: [3] }
+    world: "The isolate conduit current result remains visible while the verify the historical path fixture lights."
+    panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 43 result to settle verify the historical path."
+  - id: at-mission-end
+    # At mission end | s41-close-the-strike-current-ledger | automatic
+    on: { enter: true, at: TODO }   # s41-close-the-strike-current-ledger
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 11 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Ten kiloamperes require an unmeasured path; the duplicate clamp display is not another current stream."
+    - who: text   # Text
+      say: "Opening only the conduit link removes the clamp-minus-shunt current beyond noise; restoration brings it back."
+    - who: text   # Text
+      say: "Verify the four historical records, including the unbacked conduit work order, before applying the current causal result to week five."
+
+  stops:
+  # --- Stop 41: Close the Strike-Current Ledger
+  #     Concept: current ledger; Keystone: K7; Area: Screened Room; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L4.
+  #     placement: BALANCE, at s41-close-the-strike-current-ledger.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Close the Strike-Current Ledger"
+    concept: "current ledger"
+    reason: "clamp total must equal named branches."
+    scene: "The base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Decide which readings count, close the ledger, and compute the missing current.\", and record the result with its physical justification in the station report."
+    motivation: "charge conservation makes an unmeasured branch a physical requirement, not optional speculation."
+    format: BALANCE
+    question: "Choose which identified streams count once, close the 30 kA current ledger, and submit the missing branch current in kA."
+    answerText: "The completed check shows the unlisted branch carries 10 kA. A closed ledger enforces current conservation."
+    why: "charge conservation makes an unmeasured branch a physical requirement, not optional speculation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not count the duplicate display as a second physical stream.
+    # correct result: The unlisted branch carries 10 kA. A closed ledger enforces current conservation.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:{streams:[{id:"clamp_total",direction:"in",value:30,unit:"kA",counts:true},{id:"shunt_1",direction:"out",value:8,unit:"kA",counts:true},{id:"shunt_2",direction:"out",value:7,unit:"kA",counts:true},{id:"shunt_3",direction:"out",value:5,unit:"kA",counts:true},{id:"duplicate_display",direction:"none",value:30,unit:"kA",counts:false,reason:"duplicate display of the clamp"}],equation:"missing=clamp-sum(shunts)",correct:10,tolerance:0.5,answerText:"Ten kiloamperes require an unmeasured path; the duplicate clamp display is not another current stream."}
+
+  # --- Stop 42: Derive Field and Wire Force
+  #     Concept: coax/toroid Ampere field and force; Keystone: K8,K9,K7; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
+  #     placement: DERIVE, at s42-derive-field-and-wire-force.
+  - group: MAST
+    at: TODO               # the fixture it is asked at
+    title: "Derive Field and Wire Force"
+    concept: "coax/toroid Ampere field and force"
+    reason: "the 10 kA branch must predict a measurable field."
+    scene: "Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away, and the team needs this result before it acts."
+    motivation: "field and force provide independent evidence for the hidden path."
+    format: DERIVE
+    question: "Build the long-wire field and parallel-wire-force derivations, name each rule, and submit B in mT, F/L in N/m, and attract or repel."
+    answerText: "The completed check shows b=1.00 mT; F/L=50 N/m; same-direction currents attract."
+    why: "field and force provide independent evidence for the hidden path."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Use 2.0 m for cabinet B and 0.20 m for wire-force separation.
+    # correct result: B=1.00 mT; F/L=50 N/m; same-direction currents attract.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines B=μ0I/2πr=1.0mT; F/L=I2B1=μ0I1I2/(2πd)=50N/m; same currents attract. Tolerances. State waypoint EARTH.
+
+  # --- Stop 43: Isolate Conduit Current
+  #     Concept: bond causality; Keystone: K7,K8,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4.
+  #     placement: CONTROL, at s43-isolate-conduit-current.
+  - group: COUPLE
+    at: conduit-bond
+    title: "Isolate Conduit Current"
+    concept: "bond causality"
+    reason: "drawings show a bond, but only isolation proves current uses it."
+    scene: "Because the field predicts 10 kA, open only the approved test link, keep bank pulse, shunts, and geometry fixed, then restore the link. Measure clamp-minus-shunt current each time.\", and record the result with its physical justification in the station report."
+    motivation: "loss and return of the missing current ties it to the conduit branch."
+    format: CONTROL
+    question: "Change only the approved conduit link from closed to open while pulse, shunts, and geometry stay fixed. Measure clamp-minus-shunt current after the link settles, restore closed and remeasure, then submit the numerical comparison and causal conclusion."
+    answerText: "The completed check shows open removes the 10 kA difference; restore returns it."
+    why: "loss and return of the missing current ties it to the conduit branch."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Operate only the approved link and complete the restoration measurement before concluding.
+    # correct result: Open removes the 10 kA difference; restore returns it.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"test_link",label:"approved conduit link"},{id:"stage_voltage",label:"stage voltage"},{id:"shunt_gain",label:"shunt gain"}],correct_control:"test_link",baseline:{state:"closed",difference_current:10,unit:"kA"},response:{state:"open",difference_current:0.3,unit:"kA"},noise_band:{value:0.5,unit:"kA"},fixed:["pulse","shunts","geometry"],measure_when:"after each link state settles",restore:{required:true,state:"closed",remeasure:true},correct_conclusion:"the conduit carried the missing current",answerText:"Opening only the conduit link removes the clamp-minus-shunt current beyond noise; restoration brings it back."}
+
+  # --- Stop 44: Verify the Historical Path
+  #     Concept: timestamps/current identity; Keystone: K12,K7; Area: Screened Room; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L5 decision.
+  #     placement: ATTEST, asked by Dr. Lena Ortiz beside s44-verify-the-historical-path.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Verify the Historical Path"
+    person: TODO   # the roster id of whoever asks it
+    concept: "timestamps/current identity"
+    reason: "Ortiz needs proof the branch existed on week five, not only today."
+    scene: "The controlled link proves today's path; now verify week-five shunt identity, clock alignment, conduit bond record, and clamp calibration within four checks. Decide whether the historical current split is defensible."
+    motivation: "matched identity and timing transfer the causal result to the failed shot."
+    format: ATTEST
+    question: "Use no more than four checks to verify week-five identity, timing, bond, and calibration records, then submit the historical current fraction and path."
+    answerText: "The completed check shows week-five records support one-third via conduit. Identity and timing transfer the test."
+    why: "matched identity and timing transfer the causal result to the failed shot."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Today's result alone cannot establish the historical shot; verify all four critical records.
+    # correct result: Week-five records support one-third via conduit. Identity and timing transfer the test.
+    # state/output: report piece11.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   attest:{verification_limit:4,claims:[{id:"shunt_identity",label:"week-five shunt identity",signed:true,backed:true,critical:true},{id:"clock_alignment",label:"week-five clock alignment",signed:true,backed:true,critical:true},{id:"conduit_work_order",label:"conduit bond work order",signed:true,backed:false,critical:true},{id:"clamp_calibration",label:"clamp calibration",signed:true,backed:true,critical:true},{id:"today_link",label:"today controlled-link result",signed:true,backed:true,critical:false}],correct_verified:["shunt_identity","clock_alignment","conduit_work_order","clamp_calibration"],critical_unbacked:"conduit_work_order",answerText:"Verify the four historical records, including the unbacked conduit work order, before applying the current causal result to week five."}
+

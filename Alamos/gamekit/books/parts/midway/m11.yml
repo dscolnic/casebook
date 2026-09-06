@@ -1,0 +1,199 @@
+# ============================================================ MISSION 11
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Water Has a Budget"
+  card:
+    header: "5 DAYS UNTIL COUNTY INSPECTION"
+    title: "WATER HAS A BUDGET"
+    goNow: "Go to the Flume Pumphouse and meet Linh Chen, the instrumentation and test lead, at the header gauge."
+    body: "The coaster may receive one measurement run, but the flume now delivers less water than its gauge predicts. Fluid pressure depends on depth, and flow must conserve volume through changing channels. Probe the header, calculate the pump duty, then use the Arcade cannon as an independent speed check. By the end of the mission, decide what flow and plant-power schedule the flume can support."
+    objective: "Set a verified flume flow and power schedule."
+  objective: "Set a verified flume flow and power schedule."
+  stake: "The coaster may receive one measurement run, but the flume now delivers less water than its gauge predicts. Fluid pressure depends on depth, and flow must conserve volume through changing channels. Probe the header, calculate the pump duty, then use the Arcade cannon as an independent speed check. By the end of the mission, decide what flow and plant-power schedule the flume can support."
+  takeaway: "A subsystem can meet its own requirement and still need a shared-resource schedule."
+  segue: "Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate is clear. It cannot share power with the coaster lift test. Stop power must stay safe. The water arc backs the flow result."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Pressure depends on depth, not container width."
+  - "A floating object's buoyant force equals its weight."
+  - "A narrower channel carries the same steady volume flow at greater speed."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-flume-pumphouse
+    # On arrival at Flume Pumphouse | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Header and delivery indicators disagree."
+    panel: "STOP 41-42 READY"
+    # unlocks: Stops 41-42.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "One gauge says water is here. The channel says it is not."
+  - id: after-stop-42
+    # After Stop 42 | automatic | 
+    on: { after: [2] }
+    world: "The required duty point posts."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: tunde-idowu   # Tunde Idowu
+      say: "The pump does not own the motor feeding it."
+  - id: after-stop-43
+    # After Stop 43 | automatic | 
+    on: { after: [3] }
+    world: "A schedule reserves 44.1 kW and forbids overlap with the coaster lift."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: on-arrival-at-arcade-test-stall
+    # On arrival at Arcade Test Stall | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The door opens; the stall cannon becomes an independent speed check."
+    panel: "STOP 44 READY"
+    # unlocks: Stop 44.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "The next check is ready; keep the current evidence visible."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Flume water begins circulating at restricted test flow; pump curve becomes visible."
+    panel: "MISSION 11 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 41: Probe the header
+  #     Concept: Hydrostatic pressure; Keystone: fluids and evidence; Area: Flume Pumphouse; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: PROBE, asked at header-gauge.
+  - group: FLUME
+    at: header-gauge
+    title: "Probe the header"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Hydrostatic pressure"
+    reason: "The pump model cannot be trusted until the location of pressure divergence is known."
+    scene: "Take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Use pressure, hydraulic force, and buoyancy to identify the first station whose measurement stops matching its physical prediction."
+    motivation: "The first broken pattern locates the restriction without blaming the whole pump."
+    format: PROBE
+    question: "OPERATE: Probe the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet in that order. MEASURE: At every station, compare its displayed expected value with its observed reading and load text in kPa, or in kN for the hull. INTERPRET: Submit one location conclusion naming the first station where prediction and measurement break apart."
+    answerText: "The pattern first breaks downstream of the gate valve."
+    why: "Intake and header agree with ρgh, the ram carries equal pressure, and the floating log's 5.39 kN buoyant force matches its weight. The sudden pressure loss begins after the valve and persists downstream."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (lake) The 0.1 kPa lake difference is within tolerance. (header) The 0.2 kPa header difference continues the expected pattern. (ram) The 0.2 kPa ram difference shows pressure transfer still holds. (hull) The 0.01 kN hull difference passes the buoyancy check. (channel) The channel is already downstream of the earlier valve break, so it is a consequence rather than the first divergence.
+    # correct result: Select first divergence station downstream_of_gate_valve.
+    # state/output: Highlight the gate valve and unlock flow derivation.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   probe:
+    #     target: {id: first_break, label: "First station where observation departs from prediction"}
+    #     minimum_readings: 6
+    #     commit: {requires_all_station_readings: true, disabled_message: "Probe all six stations before submitting the first-break conclusion."}
+    #     stations:
+    #       - {id: lake, label: "Lake intake", load: "2.0 m water depth", reading: 19.5, expected: 19.6, unit: kPa, comparison: "0.1 kPa below expected; within the established instrument tolerance"}
+    #       - {id: header, label: "Header", load: "4.0 m water column", reading: 39.0, expected: 39.2, unit: kPa, comparison: "0.2 kPa below expected; pattern still holds"}
+    #       - {id: ram, label: "Gate ram", load: "2 cm input piston and 9 cm output piston", reading: 38.8, expected: 39.0, unit: kPa, comparison: "0.2 kPa below expected; hydraulic transfer remains consistent"}
+    #       - {id: hull, label: "Log hull", load: "550 kg log displacing 0.550 m3", reading: 5.38, expected: 5.39, unit: kN, comparison: "0.01 kN below expected; buoyancy check passes"}
+    #       - {id: valve, label: "Downstream of gate valve", load: "Valve commanded to the verified test opening", reading: 29.1, expected: 37.8, unit: kPa, comparison: "8.7 kPa below expected; first clear break"}
+    #       - {id: channel, label: "Channel inlet", load: "Same verified valve command and pump condition", reading: 26.4, expected: 35.0, unit: kPa, comparison: "8.6 kPa below expected; downstream consequence of the valve break"}
+    #     correct_break: valve
+    #     conclusion: "The first physical prediction failure occurs downstream of the gate valve."
+
+  # --- Stop 42: Build the flow and power result
+  #     Concept: Continuity and pump power; Keystone: fluids and energy; Area: Flume Pumphouse; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+  #     placement: DERIVE, asked at pumphouse-board.
+  - group: FLUME
+    title: "Build the flow and power result"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Continuity and pump power"
+    reason: "The power schedule needs a duty point derived from the required channel flow."
+    scene: "The cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Derive the volume-flow relationship and electrical input power required by that full planned operating duty."
+    motivation: "The calculated duty determines whether the shared 55 kW plant can operate the flume."
+    format: DERIVE
+    question: "Given flow Q = 0.45 m^3/s, head H = 7.0 m, water density rho = 1000 kg/m^3, g = 9.80 m/s^2, and efficiency eta = 0.70, use P_useful = rho gQH and P_input = P_useful/eta. Submit an ordered derivation and one pump-input-power number in kW."
+    answerText: "The required pump input power is 44.1 kW."
+    why: "The pump raises flowing water against gravity; only 70% of input reaches the water."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Divide by efficiency; multiplying would make input smaller than useful output.
+    # correct result: Submit 44.1 kW; accept 43.5-44.7 kW.
+    # state/output: Mark duty point on pump-curve and send 44.1 kW request to Plant Room.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: flow, expression: "Q = Av", rule: "steady incompressible continuity"}
+    #       - {id: useful, expression: "P_useful = rho g Q H", rule: "gravitational energy added per time"}
+    #       - {id: input, expression: "P_input = rho g Q H / eta", rule: "efficiency = useful/input"}
+    #       - {id: result, expression: "P_input = 1000(9.80)(0.45)(7.0)/0.70 = 44.1 kW", rule: "substitute SI values"}
+    #     order: [flow,useful,input,result]
+    #     decoys:
+    #       - {expression: "P_input = eta rho g Q H", rule: "multiply by efficiency instead of dividing by it"}
+
+  # --- Stop 43: Allocate shared plant power
+  #     Concept: Finite power; Keystone: energy and coupled systems; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: ALLOCATE, asked at motor-plate.
+  - group: TODO            # the curriculum area this teaches for
+    at: motor-plate
+    title: "Allocate shared plant power"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Finite power"
+    reason: "The 55 kW source cannot run the flume duty and coaster lift together."
+    scene: "The flume needs 44.1 kW, while the coaster measurement run needs 54.6 kW and shutdown controls need protected reserve. Allocate one complete test block without exceeding the shared plant limit."
+    motivation: "Scheduling is part of the physics when simultaneous power demand exceeds supply."
+    format: ALLOCATE
+    question: "From a 55 kW pool, submit one numerical allocation in kW among flume 44.1, protected shutdown controls 5.0, independent logging 3.0, and coaster lift 54.6; name what runs now, what waits, and whether shutdown remains protected."
+    answerText: "Run flume, shutdown controls, and logging now; schedule the coaster separately."
+    why: "The safe allocation totals 52.1 kW. Adding the coaster is impossible."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Protected shutdown is a required load, not spare capacity.
+    # correct result: Allocation {flume:44.1 kW, shutdown:5.0 kW, logging:3.0 kW, coaster:0 kW}.
+    # state/output: Print non-overlap schedule.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   allocate:
+    #     pool: 55
+    #     items:
+    #       - {id: flume, label: "Flume verified duty", cost: 44.1, required: true}
+    #       - {id: shutdown, label: "Protected shutdown controls", cost: 5.0, protected: true, required: true}
+    #       - {id: logging, label: "Independent logging", cost: 3.0, required: true}
+    #       - {id: coaster, label: "Coaster lift", cost: 54.6, required: false}
+    #     questions: ["Which loads fit now?", "Which load must be scheduled later?", "Is protected shutdown preserved?"]
+    #     correct_allocation: {flume: 44.1, shutdown: 5.0, logging: 3.0, coaster: 0}
+
+  # --- Stop 44: Use the water arc as a speed check
+  #     Concept: Projectile motion transfer; Keystone: motion and fluids; Area: Drop Tower Control; Learning role: TRANSFER; Difficulty: L3; Story role: payoff.
+  #     placement: LOB, asked at stall-cannon.
+  - group: TOWER
+    at: stall-cannon
+    title: "Use the water arc as a speed check"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Projectile motion transfer"
+    reason: "An independent water arc can test the nozzle speed without the header gauge."
+    scene: "The stall cannon uses the same cleaned water line and launches from ground level toward a mark 3.60 m away. Set the angle and pressure charge that reproduce the predicted 5.94 m/s exit speed."
+    motivation: "Projectile range provides an independent check of the fluid-speed prediction."
+    format: LOB
+    question: "Given target range R = 3.60 m +/- 0.12 m, g = 9.80 m/s^2, launch and landing at equal height, angle control 20-70 degrees, and charge-speed control 3.0-7.0 m/s, use R = v^2 sin(2theta)/g. Submit one numerical pair: launch angle in degrees and charge-speed setting in m/s."
+    answerText: "At 45 degrees, a 5.94 m/s launch reaches about 3.60 m on level ground."
+    why: "R=v² sin(2θ)/g; range is greatest at 45 degrees for equal launch and landing height."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Split launch velocity into horizontal and vertical components.
+    # correct result: Submit pair (45°, 5.94 m/s); accept speed 5.85-6.03 m/s.
+    # state/output: Set evidence_flags.flume_speed_independent = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lob:
+    #     angle: {min: 20, max: 70, step: 1, unit: deg}
+    #     charge: {min: 3.0, max: 7.0, step: 0.1, maps_to_speed: true, unit: "m/s"}
+    #     target: {range: 3.60, tolerance: 0.12, unit: m}
+    #     hidden_launch_speed: true
+    #     correct: {angle: 45, charge: 5.94}
+

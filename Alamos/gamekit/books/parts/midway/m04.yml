@@ -1,0 +1,178 @@
+# ============================================================ MISSION 4
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Where the Energy Went"
+  card:
+    header: "12 DAYS UNTIL COUNTY INSPECTION"
+    title: "WHERE THE ENERGY WENT"
+    goNow: "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the car on stands."
+    body: "The carousel passes at its measured speed, but the October bumper car crossed its normal stopping line. Motion energy grows rapidly with speed and must go somewhere during a stop. At the pavilion, calculate the car's energy, close the loss account, and run one instrumented brake test. By the end of the mission, decide whether floor friction explains the overrun."
+    objective: "Determine whether the bumper-car overrun came from inadequate floor friction."
+  objective: "Determine whether the bumper-car overrun came from inadequate floor friction."
+  stake: "The carousel passes at its measured speed, but the October bumper car crossed its normal stopping line. Motion energy grows rapidly with speed and must go somewhere during a stop. At the pavilion, calculate the car's energy, close the loss account, and run one instrumented brake test. By the end of the mission, decide whether floor friction explains the overrun."
+  takeaway: "A model can explain one event without explaining a shared pattern."
+  segue: "Mission decision: Dry-floor friction explains the Bumper Car stop. It does not explain the other ride records. New sensors will replace another shared speed-wheel test. The Workshop opens next so the team can rebuild the Drop Tower test."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Speed enters kinetic energy as v², so doubling speed quadruples energy."
+  - "Friction can remove mechanical energy without removing total energy from the larger system."
+  - "Compare initial and final states when the path details are unnecessary."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-bumper-car-pavilion
+    # On arrival at Bumper Car Pavilion | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Chen points to the two accelerometers."
+    panel: "STOP 13 READY"
+    # unlocks: Stop 13.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "The floor and seat get separate witnesses this time."
+  - id: after-stops-13-and-14
+    # After Stops 13 and 14 | automatic | 
+    on: { after: [1, 2] }
+    world: "The energy ledger closes at 1.92 kJ."
+    panel: "STOP 15 READY"
+    # unlocks: Stop 15.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-15
+    # After Stop 15 | automatic | 
+    on: { after: [3] }
+    world: "The car stops at 2.39 m."
+    panel: "STOP 16 READY"
+    # unlocks: Stop 16.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "The next check is ready; keep the current evidence visible."
+  - id: after-stop-16
+    # After Stop 16 | automatic | 
+    on: { after: [4] }
+    world: "Independent accelerometers are booked; duplicate speed-wheel time is canceled."
+    panel: "CASEBOOK UPDATED"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "The Workshop door receives an OPENS TOMORROW marker."
+    panel: "OPENS TOMORROW"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 13: Speed squared
+  #     Concept: Kinetic-energy scaling; Keystone: energy; Area: Coaster Station; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: BALLPARK, asked at car-on-stands.
+  - group: COASTER
+    at: car-on-stands
+    title: "Speed squared"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Kinetic-energy scaling"
+    reason: "The team must know how much more energy the faster October car carried."
+    scene: "A normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Estimate the energy ratio before deciding whether the much longer October stopping distance is physically surprising."
+    motivation: "Speed squared, not speed alone, sets the kinetic-energy increase."
+    format: BALLPARK
+    question: "Given the same mass at v1 = 2.0 m/s and v2 = 4.0 m/s, use K = 0.5mv^2 and K2/K1 = (v2/v1)^2. Submit one dimensionless numerical energy ratio."
+    answerText: "Doubling speed quadruples kinetic energy."
+    why: "Mass is unchanged and K is proportional to v²."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A factor of two treats kinetic energy as linear in speed; square the speed ratio.
+    # correct result: Submit 4 as the energy multiplier.
+    # state/output: Mark the October car as 4x NORMAL ENERGY.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate: {labels: ["Speed ratio", "Exponent"], values: [2,2], slots: [base,exponent], template: "ratio = {base}^{exponent}", formula: "2^2", correct: 4, target: 4, tolerance: 0.05}
+
+  # --- Stop 14: Close the stopping ledger
+  #     Concept: Work-energy; Keystone: energy; Area: Coaster Station; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALANCE, asked at pavilion-board.
+  - group: COASTER
+    title: "Close the stopping ledger"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Work-energy"
+    reason: "The dry-floor prediction must account for all initial motion energy."
+    scene: "With the fourfold increase established, close the car's energy ledger from 4.0 m/s to rest. Use friction as the measured transfer and exclude forces that do no work along the floor."
+    motivation: "The stopping distance follows from the energy friction must transfer."
+    format: BALANCE
+    question: "Given m = 240 kg, v0 = 4.0 m/s, vf = 0 m/s, mu_k = 0.35, and g = 9.80 m/s^2, use K = 0.5mv0^2, f_k = mu_k mg, and f_k d = K. Submit the included energy streams, initial energy in J, friction force in N, and stopping-distance number in m."
+    answerText: "The dry floor should stop the car in about 2.33 m."
+    why: "μmgd = 1/2 mv²; mass cancels. The normal force does no work because it is perpendicular to motion."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not add normal-force work to horizontal motion.
+    # correct result: K=1920 J; fk=823.2 N; d=2.33 m.
+    # state/output: Draw the 2.33 m prediction line.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   balance:
+    #     target: {label: "Initial kinetic energy", value: 1920, unit: J}
+    #     streams:
+    #       - {id: friction, label: "Energy transferred by friction", value: 1920, unit: J, count: true}
+    #       - {id: finalK, label: "Final kinetic energy", value: 0, unit: J, count: true}
+    #       - {id: normal, label: "Work by normal force", value: 0, unit: J, count: false}
+    #     correct_action: "Use kinetic friction over distance; normal force is perpendicular to motion."
+
+  # --- Stop 15: Predict, brake, measure
+  #     Concept: Friction test; Keystone: energy and model limits; Area: Brennan's workshop; Learning role: APPLY; Difficulty: L3; Story role: decision.
+  #     placement: VERIFY, asked at floor-console.
+  - group: BUMPER
+    at: floor-console
+    title: "Predict, brake, measure"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Friction test"
+    reason: "The floor theory must predict the live stop before it can guide repairs."
+    scene: "The energy ledger predicts a 2.33 m dry-floor stop at 4.0 m/s. Run the instrumented car once and measure whether the result falls inside the prewritten eight-centimetre acceptance tolerance today."
+    motivation: "Agreement would support floor friction as this car's stopping mechanism."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Given m = 240 kg, v0 = 4.0 m/s, vf = 0 m/s, mu_k = 0.35, and g = 9.80 m/s^2, use d = v0^2/(2mu_k g) and submit a stopping-distance prediction in m; the car controls stay locked until you commit. OPERATE: Run one 4.0 m/s dry-floor stop. MEASURE: Record the stopping distance in m. INTERPRET: Submit one conclusion comparing prediction and measurement using the 0.08 m tolerance and limiting the claim to this car and floor."
+    answerText: "The 2.39 m stop agrees with the 2.33 m prediction within tolerance."
+    why: "The difference is 0.06 m. This supports the local friction model, not a park-wide explanation."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Compare the absolute difference with the stated tolerance and keep the conclusion local.
+    # correct result: Commit 2.33 m; measure 2.39 m; difference 0.06 m ≤ 0.08 m; local pass.
+    # state/output: Set evidence_flags.bumper_energy_pass = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify: {prediction: {value: 2.33, unit: m, tolerance: 0.08}, commit_required_before_unlock: true, phase_order: [calculate_and_commit, operate, measure, interpret], action: "Run one 4.0 m/s stop", measurement: {value: 2.39, unit: m}, failure_if_unmeasured: true, correct_conclusion: "Dry-floor friction model passes."}
+
+  # --- Stop 16: Buy a different witness
+  #     Concept: Value of information; Keystone: evidence independence; Area: Brennan's workshop; Learning role: APPLY; Difficulty: L4; Story role: decision.
+  #     placement: VALUE, asked at Linh Chen beside sensor-booking-board.
+  - group: TODO            # the curriculum area this teaches for
+    title: "Buy a different witness"
+    person: chen
+    concept: "Value of information"
+    reason: "Only one additional measurement can be booked before the Workshop opens."
+    scene: "The dry-floor model passes, but the old speed record shares equipment with other rides. Spend the remaining test slot on evidence that can distinguish real car motion from a repeated calibration error."
+    motivation: "A new measurement axis is worth more than another precise copy of the disputed value."
+    format: VALUE
+    question: "With 10 test_points, submit one test-slot allocation naming the funded test and its cost; the allocation must distinguish true car motion from a repeated shared-calibration error."
+    answerText: "Fund the independent seat and floor accelerometers."
+    why: "They measure a different quantity through a different chain and can test the disputed speed-derived stop."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   (wheel) Repeating the portable wheel preserves the shared calibration dependency. (paint) Paint thickness is cosmetic and cannot test the motion record. (mass) Reweighing the same car does not independently verify speed or acceleration.
+    # correct result: Choice 1 - independent seat and floor accelerometers; cost 10.
+    # state/output: Set test_plan.independent_accelerometers = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   value:
+    #     budget: {value: 10, unit: test_points}
+    #     options:
+    #       - {id: accel, label: "Independent seat and floor accelerometers", cost: 10, axis: acceleration, required: true}
+    #       - {id: wheel, label: "Repeat portable speed-wheel reading", cost: 6, axis: shared_speed, required: false}
+    #       - {id: paint, label: "Measure paint thickness", cost: 4, axis: cosmetic, required: false}
+    #       - {id: mass, label: "Reweigh same car", cost: 7, axis: mass, required: false}
+    #     correct: [accel]
+

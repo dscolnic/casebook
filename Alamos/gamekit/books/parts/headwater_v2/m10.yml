@@ -1,0 +1,176 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Error Carried Into Volume"
+  card:
+    header: "6 SHIFTS UNTIL THE STORM"
+    title: "Settle or Grow"
+    goNow: "Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the weir bench."
+    body: "The silent gauges were a cable fault, but the wall still needs a model for seepage under sustained head. Separable differential equations distinguish bounded decay, exponential growth, and approach to equilibrium. At the weirs and storage board, solve candidate models and compare their predictions. By the end of the mission, decide whether the wall's carrying limit can be approved."
+    objective: "Select the seepage model and approve or reject the load limit."
+  objective: "Select the seepage model and approve or reject the load limit."
+  stake: "The silent gauges were a cable fault, but the wall still needs a model for seepage under sustained head. Separable differential equations distinguish bounded decay, exponential growth, and approach to equilibrium. At the weirs and storage board, solve candidate models and compare their predictions. By the end of the mission, decide whether the wall's carrying limit can be approved."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Approve the wall seepage limit. The extra flow falls with time. It stays below 5.0 litres per minute in every sound case. The wall check passes. A new lake survey now tests the storage chart."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-seepage-uplift-bay
+    # On arrival at Seepage & Uplift Bay | weir-bench | automatic
+    on: { enter: true, at: STRUCT }
+    world: "Arrival Location: STRUCT."
+    panel: "STRUCT"
+    bubbles:
+    - who: mehta   # Arun Mehta
+      say: "Start with separate the seepage equation. We need evidence the next decision can use."
+  - id: after-stop-37
+    # After Stop 37 | weir-bench | automatic
+    on: { after: [1] }
+    world: "After 10.2 Location: STRUCT."
+    panel: "STRUCT"
+    bubbles:
+    - who: mehta   # Arun Mehta
+      say: "Use the Stop 37 result to settle select the model."
+  - id: after-stop-38
+    # After Stop 38 | drain-console | automatic
+    on: { after: [2] }
+    world: "Travel Location: STRUCT->STORE."
+    panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    bubbles:
+    - who: mehta   # Arun Mehta
+      say: "Use the Stop 38 result to settle transfer to cooling."
+  - id: after-stop-39
+    # After Stop 39 | uplift-wall | automatic
+    on: { after: [3] }
+    world: "The transfer to cooling result remains visible while the approve the carrying limit fixture lights."
+    panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    bubbles:
+    - who: mehta   # Arun Mehta
+      say: "Use the Stop 39 result to settle approve the carrying limit."
+  - id: at-mission-end
+    # At mission end | weir-bench | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "MISSION 10 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mehta   # Arun Mehta
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 37: Separate the seepage equation
+  #     Concept: separation/initial condition; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: INTRODUCE; Difficulty: L4; Story role: foundation.
+  #     placement: DERIVE, at weir-bench.
+  - group: STRUCT
+    at: weir-bench
+    title: "Separate the seepage equation"
+    concept: "separation/initial condition"
+    reason: "The crew needs an explicit seepage curve before holding the test load."
+    scene: "Excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Separate variables, integrate, and use the initial condition to predict the excess after 4 h, and the team needs this result before it acts."
+    motivation: "A negative constant should produce measured decay rather than hidden growth."
+    format: DERIVE
+    question: "Build the general and particular solutions; submit S(4) in litres per minute."
+    answerText: "S(4)=12e^-1.2=3.614 L/min."
+    why: "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Proportional decay is exponential, not linear.
+    # correct result: 3.614, tolerance .005.
+    # state/output: decay curve; unlock 10.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"S(4)",givens:["S'=-.30S","S(0)=12"],lines:[{expressions:["dS/S=-.30dt","S dS=-.30dt"],correct:"dS/S=-.30dt",rules:["separate variables","multiply same side"],correct_rule:"separate variables"},{expressions:["ln|S|=-.30t+C","S^2/2=-.30t"],correct:"ln|S|=-.30t+C",rules:["integral of 1/S","power rule with n=1"],correct_rule:"integral of 1/S"},{expressions:["S=12e^(-.30t)","S=e^(-.30t)+12"],correct:"S=12e^(-.30t)",rules:["use initial condition","add initial value"],correct_rule:"use initial condition"},{expressions:["3.614 L/min","8.4 L/min"],correct:"3.614 L/min",rules:["evaluate t=4","linear decay"],correct_rule:"evaluate t=4"}],answerText:"S(4)=12e^-1.2=3.614 L/min."}
+
+  # --- Stop 38: Select the model
+  #     Concept: exponential/logistic/Newton models; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: PRACTICE; Difficulty: L4; Story role: evidence.
+  #     placement: DIAGNOSIS, at weir-bench.
+  - group: STRUCT
+    at: weir-bench
+    title: "Select the model"
+    concept: "exponential/logistic/Newton models"
+    reason: "Quiet values must distinguish decay from bounded growth and cooling."
+    scene: "The measured excess is 12.0, 8.9, 6.6, 4.9, 3.6 L/min at hours 0-4. Compare candidate mechanisms, including their equilibrium behavior, and choose the one fitting every reading, and the team needs this result before it acts."
+    motivation: "The correct mechanism determines whether continued head makes the wall safer or worse."
+    format: DIAGNOSIS
+    question: "Compare all four candidate differential equations with every displayed reading in L/min, then submit exactly one model label."
+    answerText: "ratios are near e^-0.3; values approach zero."
+    why: "ratios are near e^-0.3; values approach zero. The correct mechanism determines whether continued head makes the wall safer or worse."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Model choice uses direction and equilibrium, not one point.
+    # correct result: decay.
+    # state/output: travel STORE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   diagnosis:{headline:"seepage model",readings:[{zone:"t0",value:12},{zone:"t1",value:8.9},{zone:"t2",value:6.6},{zone:"t4",value:3.6}],choices:[{label:"S'= -0.30S",mechanism:"exponential decay to 0"},{label:"S'=0.30S",mechanism:"unbounded growth"},{label:"S'=0.03S(20-S)",mechanism:"logistic toward 20"},{label:"S'=-.3(S-5)",mechanism:"Newton-type approach to 5"}],answer:"S'= -0.30S"}
+    headline: "seepage model"
+    readings:
+    - {zone: "t0", value: 12}
+    - {zone: "t1", value: 8.9}
+    - {zone: "t2", value: 6.6}
+    - {zone: "t4", value: 3.6}
+    choices:
+    - {label: "S'= -0.30S", mechanism: "exponential decay to 0"}
+    - {label: "S'=0.30S", mechanism: "unbounded growth"}
+    - {label: "S'=0.03S(20-S)", mechanism: "logistic toward 20"}
+    - {label: "S'=-.3(S-5)", mechanism: "Newton-type approach to 5"}
+    answer: "S'= -0.30S"
+
+  # --- Stop 39: Transfer to cooling
+  #     Concept: Newton cooling; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: TRANSFER; Difficulty: L4; Story role: check.
+  #     placement: CONTROL, at drain-console.
+  - group: STRUCT
+    at: drain-console
+    title: "Transfer to cooling"
+    concept: "Newton cooling"
+    reason: "A second system tests whether the crew can recognize approach to a nonzero environment."
+    scene: "Because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Change only room temperature to 25 C, hold the cooling constant fixed, then restore and compare limits."
+    motivation: "A nonzero equilibrium separates Newton cooling from simple decay."
+    format: CONTROL
+    question: "Choose ambient temperature from candidate controls ambient temperature, cooling constant, and initial temperature. Measure the limiting temperature at 20 C, change only ambient temperature to 25 C while the cooling constant and initial temperature remain fixed, measure the new limit, restore 20 C and remeasure, then submit the causal conclusion."
+    answerText: "The completed check shows ambient sets limit."
+    why: "ambient sets limit. A nonzero equilibrium separates Newton cooling from simple decay."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Newton's law uses temperature difference T-Ta.
+    # correct result: ambient sets limit.
+    # state/output: model legend; unlock 10.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"ambient"},{id:"k"},{id:"initial"}],correct_control:"ambient",baseline:20,response:25,noise_band:.2,measurements:[20,25,20],restore:true,correct_conclusion:"ambient sets equilibrium"}
+    control:
+      variables:
+      - {id: ambient, label: "ambient"}
+      - {id: k, label: "k"}
+      - {id: initial, label: "initial"}
+      truth: ambient
+      baseline: 20
+      response: 5
+      noise: 0.2
+      moral: "ambient sets equilibrium"
+
+  # --- Stop 40: Approve the carrying limit
+  #     Concept: logistic stability/parameter uncertainty; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+  #     placement: STRESS, asked by Arun Mehta beside uplift-wall.
+  - group: STRUCT
+    at: uplift-wall
+    title: "Approve the carrying limit"
+    person: mehta
+    concept: "logistic stability/parameter uncertainty"
+    reason: "The wall limit must survive reasonable uncertainty in the decay constant."
+    scene: "The observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Stress the full interval before approving the load, and the team needs this result before it acts."
+    motivation: "A safety conclusion should survive the least favorable supported parameter."
+    format: STRESS
+    question: "Sweep k from -0.35 through -0.25 h^-1 in 0.01 h^-1 steps using S(4)=12e^(4k); submit the worst-case value in L/min and approve/reject."
+    answerText: "even slowest supported decay stays below 5."
+    why: "even slowest supported decay stays below 5. A safety conclusion should survive the least favorable supported parameter."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Test the least negative k, which decays slowest.
+    # correct result: approve; worst 12e^-1=4.415.
+    # state/output: carrying limit signed.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:{assumption:{label:"k",min:-.35,max:-.25,step:.01},candidates:[{id:"approve",condition:"12e^(4k)<=5"},{id:"reject",condition:"otherwise"}],correct:"approve",worst_case:{k:-.25,value:4.415}}
+

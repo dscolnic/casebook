@@ -1,0 +1,155 @@
+# ============================================================ MISSION 6
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Peak Test"
+  card:
+    header: "10 SHIFTS UNTIL THE STORM"
+    title: "Beyond the Old Horizon"
+    goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the high-ground gauge."
+    body: "The average-based release plan is unsafe, and a newly installed high-ground gauge now sees rain hidden from radar. Asymptotes and derivative sign charts reveal long-run behavior and peaks without trusting a pretty fit. At the gauge and archive, compare rival hydrographs and their residuals. By the end of the mission, decide which inflow forecast controls the drawdown."
+    objective: "Select the forecast that survives unseen data."
+  objective: "Select the forecast that survives unseen data."
+  stake: "The average-based release plan is unsafe, and a newly installed high-ground gauge now sees rain hidden from radar. Asymptotes and derivative sign charts reveal long-run behavior and peaks without trusting a pretty fit. At the gauge and archive, compare rival hydrographs and their residuals. By the end of the mission, decide which inflow forecast controls the drawdown."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Use Forecast B. It stays finite, predicts a later crest. And survives unseen high-ground data. The old model missed the peak rather than suffering a constant bias. More water is coming, so the crew must total the full storm volume."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-catchment-inflow-desk
+    # On arrival at Catchment & Inflow Desk | s21-classify-forecast-breaks | automatic
+    on: { enter: true, at: TODO }   # s21-classify-forecast-breaks
+    world: "Arrival Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: imani-okoro   # Imani Okoro
+      say: "Start with classify forecast breaks. We need evidence the next decision can use."
+  - id: after-stop-21
+    # After Stop 21 | s22-read-inverse-shaped-saturation | automatic
+    on: { after: [1] }
+    world: "After 6.2 Location: INFLOW."
+    panel: "INFLOW"
+    bubbles:
+    - who: imani-okoro   # Imani Okoro
+      say: "Use the Stop 21 result to settle read inverse-shaped saturation."
+  - id: after-stop-22
+    # After Stop 22 | s23-freeze-before-revealing-the-crest | automatic
+    on: { after: [2] }
+    world: "Travel Location: INFLOW->ARCHIVE."
+    panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    bubbles:
+    - who: imani-okoro   # Imani Okoro
+      say: "Use the Stop 22 result to settle freeze before revealing the crest."
+  - id: after-stop-23
+    # After Stop 23 | s24-diagnose-the-full-curve | automatic
+    on: { after: [3] }
+    world: "The freeze before revealing the crest result remains visible while the diagnose the full curve fixture lights."
+    panel: "ARCHIVE"
+    bubbles:
+    - who: imani-okoro   # Imani Okoro
+      say: "Use the Stop 23 result to settle diagnose the full curve."
+  - id: at-mission-end
+    # At mission end | s21-classify-forecast-breaks | automatic
+    on: { enter: true, at: TODO }   # s21-classify-forecast-breaks
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "ARCHIVE"
+    bubbles:
+    - who: imani-okoro   # Imani Okoro
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Vertical asymptotes t=+-2; horizontal asymptote R=3."
+
+  stops:
+  # --- Stop 21: Classify forecast breaks
+  #     Concept: asymptotes/L'Hopital; Keystone: Limits; Area: Storage & Level Board; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+  #     placement: DERIVE, at s21-classify-forecast-breaks.
+  - group: STORE
+    at: TODO               # the fixture it is asked at
+    title: "Classify forecast breaks"
+    concept: "asymptotes/L'Hopital"
+    reason: "A forecast with an artificial blow-up cannot control the release."
+    scene: "The first rival model is R(t)=(3t^2+1)/(t^2-4) millimetres per hour. Find vertical and horizontal asymptotes, then use the limits to state where its graph cannot represent a physical rain rate, and the team needs this result before it acts."
+    motivation: "Physical rainfall cannot become infinite at an ordinary forecast hour."
+    format: DERIVE
+    question: "Derive the denominator zeros and lim_(t->infinity)R(t); submit all asymptotes."
+    answerText: "Vertical asymptotes t=+-2; horizontal asymptote R=3."
+    why: "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Equal polynomial degrees approach the ratio of leading coefficients; an oblique asymptote would require numerator degree one greater and long division.
+    # correct result: exact.
+    # state/output: first model rejected; unlock 6.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{goal:"asymptotes",givens:["R=(3t^2+1)/(t^2-4)"],lines:[{expressions:["t=+-2","t=4"],correct:"t=+-2",rules:["denominator zero with nonzero numerator","numerator zero"],correct_rule:"denominator zero with nonzero numerator"},{expressions:["lim=3","lim=0"],correct:"lim=3",rules:["divide by t^2 / compare degrees","use denominator roots"],correct_rule:"divide by t^2 / compare degrees"}],answerText:"Vertical asymptotes t=+-2; horizontal asymptote R=3."}
+
+  # --- Stop 22: Read inverse-shaped saturation
+  #     Concept: arctan derivative/asymptote; Keystone: Chain/inverse; Area: Storage & Level Board; Learning role: RETRIEVE; Difficulty: L3; Story role: evidence.
+  #     placement: SWEEP, at s22-read-inverse-shaped-saturation.
+  - group: STORE
+    at: TODO               # the fixture it is asked at
+    title: "Read inverse-shaped saturation"
+    concept: "arctan derivative/asymptote"
+    reason: "The second forecast must show a finite, physically plausible long-run rain rate."
+    scene: "Because the rational forecast blows up, sweep S(t)=18+12 arctan(t-4) from t=0 to 10 h. Record where its slope is largest and the horizontal value it approaches as time grows, and the team needs this result before it acts."
+    motivation: "A smooth saturating curve can represent a storm band without an artificial infinite spike."
+    format: SWEEP
+    question: "Sweep t from 0 through 10 h in 0.5 h steps, collect readings at 0,4,8,10 h, and submit the maximum-slope time in hours plus the upper asymptote in mm/h."
+    answerText: "S'=12/[1+(t-4)^2], largest at 4; arctan -> pi/2."
+    why: "S'=12/[1+(t-4)^2], largest at 4; arctan -> pi/2. A smooth saturating curve can represent a storm band without an artificial infinite spike."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The function's maximum slope and maximum value are different.
+    # correct result: t=4, 36.850 mm/h, tolerance .01.
+    # state/output: travel to ARCHIVE.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   sweep:{control:"t",min:0,max:10,step:0.5,unit:"h",response:"S(t) mm/h",required_points:[0,4,8,10],correct_conclusion:"maximum slope at t=4; upper asymptote 18+6pi=36.850 mm/h"}.
+
+  # --- Stop 23: Freeze before revealing the crest
+  #     Concept: curve shape/model validation; Keystone: Extrema/concavity; Area: Forecast Archive; Learning role: RETRIEVE; Difficulty: L4; Story role: reveal.
+  #     placement: HOLDOUT, at s23-freeze-before-revealing-the-crest.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Freeze before revealing the crest"
+    concept: "curve shape/model validation"
+    reason: "Each forecast must be fixed before the unseen high-ground readings appear."
+    scene: "With the plausible model identified, fit old radar hours 0-5 using Forecast A or B and freeze every parameter. The archive then reveals high-ground readings at hours 6-9 to test extrapolation."
+    motivation: "A model that fits training data but misses a patterned holdout crest cannot guide release."
+    format: HOLDOUT
+    question: "Fit and freeze exactly one named model using hours 0-5, reveal hours 6-9, and submit the model label A or B that passes the holdout."
+    answerText: "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest."
+    why: "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest. A model that fits training data but misses a patterned holdout crest cannot guide release."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Training fit does not validate extrapolation.
+    # correct result: B.
+    # state/output: late crest on wall; unlock 6.4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   holdout:{training:[{t:0,y:19},{t:2,y:21},{t:4,y:29},{t:5,y:33}],models:[{id:"A",pred_holdout:[31,27,22,19]},{id:"B",pred_holdout:[35,37,34,28]}],freeze_required:true,holdout:[{t:6,y:35},{t:7,y:38},{t:8,y:34},{t:9,y:29}],answer:"B"}
+
+  # --- Stop 24: Diagnose the full curve
+  #     Concept: curve sketching/signs; Keystone: Extrema/limits; Area: Storage & Level Board; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+  #     placement: RESIDUAL, at s24-diagnose-the-full-curve.
+  - group: STORE
+    at: store-resurvey
+    title: "Diagnose the full curve"
+    concept: "curve sketching/signs"
+    reason: "The replacement forecast must fit values and the direction of change."
+    scene: "Forecast B matches the holdout values, so inspect its residual field, derivative signs, and concavity around the crest. Decide whether a bias, timing shift, or missing peak best explains Forecast A's failure."
+    motivation: "Pattern, not merely low average error, identifies the failed mechanism."
+    format: RESIDUAL
+    question: "Compare all three labeled residual fields and submit exactly one conclusion: bias, timing, or missing_peak."
+    answerText: "systematic positive residuals at the crest show the old forecast underestimates a later, larger storm."
+    why: "systematic positive residuals at the crest show the old forecast underestimates a later, larger storm. Pattern, not merely low average error, identifies the failed mechanism."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Lowest RMS alone is not the question when residual shape diagnoses mechanism.
+    # correct result: missing peak.
+    # state/output: Forecast B controls.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:{fields:[{id:"bias",residuals:[6,6,6,6],rms:6},{id:"timing",residuals:[-3,0,3,0],rms:2.12},{id:"missing_peak",residuals:[4,11,12,10],rms:9.72}],features:["A residuals positive through crest","B derivative + then -","B concavity changes before crest"],correct:"missing_peak"}
+

@@ -1,0 +1,158 @@
+# ============================================================ MISSION 2
+# Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Bound the Layer Charge"
+  card:
+    header: "14 DAYS TO FINAL STORM WINDOW"
+    title: "Bound the Layer Charge"
+    goNow: "Go to the Field Station and meet Ravi Sen, field scientist, at the mill bench."
+    body: "The crew-clear rule works, but it does not explain the charge above the flat. Electric flux counts field passing through a surface, and symmetry can turn that count into enclosed charge. You will choose a Gaussian surface, derive the layer field, and infer charge density. By the end of the mission, decide whether the storm layer can account for the measured field."
+    objective: "Infer the effective layer charge from the mill array."
+  objective: "Infer the effective layer charge from the mill array."
+  stake: "The crew-clear rule works, but it does not explain the charge above the flat. Electric flux counts field passing through a surface, and symmetry can turn that count into enclosed charge. You will choose a Gaussian surface, derive the layer field, and infer charge density. By the end of the mission, decide whether the storm layer can account for the measured field."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Use the field map to mark the mast tip. The strongest field is near the close contours. The cabinet blocks the static field. Next, test the storm model."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Only charge enclosed by a closed surface contributes to net flux."
+  - "Parallel field contributes zero through a surface; perpendicular field contributes most."
+  - "Station model: the charged cloud base is a wide sheet above conducting ground."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-field-station
+    # On arrival at Field Station | s05-derive-the-sheet-field | automatic
+    on: { enter: true, at: FIELD }
+    world: "The derive the sheet field fixture wakes and the mission evidence opens."
+    panel: "MISSION 2: DERIVE THE SHEET FIELD OPEN"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "The mill tells us field; Gauss lets us ask what charge could make it."
+  - id: after-stop-5
+    # After Stop 5 | s06-sort-the-flux-faces | automatic
+    on: { after: [1] }
+    world: "The derive the sheet field result remains visible while the sort the flux faces fixture lights."
+    panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Use the Stop 5 result to settle sort the flux faces."
+  - id: after-stop-6
+    # After Stop 6 | s07-derive-the-effective-charge-density | automatic
+    on: { after: [2] }
+    world: "Stop 2 lights the contributing pillbox faces,."
+    panel: "STOP 6 RECORDED - STOP 7 OPEN"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Use the Stop 6 result to settle derive the effective charge density."
+  - id: after-stop-7
+    # After Stop 7 | s08-test-spatial-consistency | automatic
+    on: { after: [3] }
+    world: "Stop 3 posts σ=-7.97×10^-8 C/m², and."
+    panel: "σ=-7.97×10^-8 C/m²"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "Use the Stop 7 result to settle test spatial consistency."
+  - id: at-mission-end
+    # At mission end | s05-derive-the-sheet-field | automatic
+    on: { enter: true, at: FIELD }
+    world: "Stop 4 overlays all four mills and activates report piece 2."
+    panel: "MISSION 2 EVIDENCE: RECORDED"
+    bubbles:
+    - who: ravi-sen   # Ravi Sen
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 5: Derive the sheet field
+  #     Concept: Gauss infinite sheet; Keystone: K2; Area: Field Station; Learning role: INTRODUCE; Difficulty: L3; Story role: foundation.
+  #     placement: DERIVE, at s05-derive-the-sheet-field.
+  - group: FIELD
+    at: sheet-cage
+    title: "Derive the sheet field"
+    concept: "Gauss infinite sheet"
+    reason: "The field-to-charge conversion must be derived before the array can use it."
+    scene: "The storm base is much wider than the station, so its field is nearly perpendicular to a small pillbox. Derive the field on either side from Gauss's law before inserting measurements."
+    motivation: "Symmetry makes the two pillbox faces equal and the curved side contribute zero flux."
+    format: DERIVE
+    question: "Build the two-line symbolic derivation and name Gauss's law with planar symmetry, then submit E=σ/(2ε₀)."
+    answerText: "Two equal faces carry flux; area cancels."
+    why: "Symmetry makes the two pillbox faces equal and the curved side contribute zero flux."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The pillbox encloses σA, not σ, and has two active faces.
+    # correct result: exact symbolic result.
+    # state/output: model unlocks S2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines=[{2EA=σA/ε0,gauss_plus_two_faces,[EA=σA/ε0,4EA=σA/ε0]},{E=σ/(2ε0),cancel_A,[E=σ/ε0,E=2σε0]}].
+
+  # --- Stop 6: Sort the flux faces
+  #     Concept: flux angle; Keystone: K2; Area: Field Station; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
+  #     placement: PROTOCOL, at s06-sort-the-flux-faces.
+  - group: FIELD
+    at: TODO               # the fixture it is asked at
+    title: "Sort the flux faces"
+    concept: "flux angle"
+    reason: "Ravi needs to know which surfaces belong in the integral."
+    scene: "With the sheet result available, Ravi rotates a virtual pillbox around the layer. Match each face orientation to positive, negative, or zero flux so the instrument integrates the correct surfaces."
+    motivation: "The dot product, not area alone, decides each surface's signed contribution."
+    format: PROTOCOL
+    question: "Match all three faces to signed flux and submit the mapping."
+    answerText: "cos0=1, cos180=-1, cos90=0."
+    why: "The dot product, not area alone, decides each surface's signed contribution."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Compare field with the outward normal, not with the surface itself.
+    # correct result: as mapped.
+    # state/output: faces animate with arrows/text; unlock S3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios=[top_normal_with_E,bottom_normal_against_E,side_normal_perpendicular]; choices=[+EA,-EA,0]; mapping=[top→+EA,bottom→-EA,side→0].
+
+  # --- Stop 7: Derive the effective charge density
+  #     Concept: sheet plus image/conducting ground; Keystone: K2,K4; Area: Mast Base; Learning role: COMBINE; Difficulty: L3; Story role: clue.
+  #     placement: DERIVE, at s07-derive-the-effective-charge-density.
+  - group: MAST
+    at: TODO               # the fixture it is asked at
+    title: "Derive the effective charge density"
+    concept: "sheet plus image/conducting ground"
+    reason: "The measured field must become a charge density with units and sign."
+    scene: "Because the conducting ground mirrors the layer field, the station model uses E_ground=σ/ε₀, not the isolated-sheet value. Use the measured E=-9.0 kV/m to derive the effective density, and record the result with its physical justification in the station report."
+    motivation: "The conductor boundary doubles the isolated-sheet field between cloud and ground."
+    format: DERIVE
+    question: "Build four lines, name the rule at each step, and submit σ in C/m²; use ε₀=8.854×10^-12 C²/(N·m²) and E=-9.0×10³ N/C."
+    answerText: "σ=ε₀E=(8.854×10^-12)(-9.0×10³)=-7.97×10^-8 C/m²."
+    why: "The conductor boundary doubles the isolated-sheet field between cloud and ground."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Convert kV/m to V/m and keep the field sign.
+    # correct result: -7.97×10^-8 C/m², tolerance ±0.04×10^-8.
+    # state/output: density posted; unlock S4.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   lines=[{E=σ/ε0,conductor_boundary,[E=σ/(2ε0),E=2σ/ε0]},{σ=ε0E,algebra,[σ=E/ε0,σ=ε0/E]},{σ=(8.854e-12)(-9.0e3),substitution,[... ]},{σ=-7.97e-8 C/m2,arithmetic,[+7.97e-8,-7.97e8]}].
+
+  # --- Stop 8: Test spatial consistency
+  #     Concept: model residuals; Keystone: K2,K12; Area: Remote Outstation; Learning role: TRANSFER; Difficulty: L4; Story role: clue.
+  #     placement: RESIDUAL, at s08-test-spatial-consistency.
+  - group: COUPLE
+    at: TODO               # the fixture it is asked at
+    title: "Test spatial consistency"
+    concept: "model residuals"
+    reason: "One local match cannot justify a layer model across the flat."
+    scene: "Now that σ predicts -9.0 kV/m, compare residual maps from a uniform layer and a compact charged pocket. Choose the model whose residuals are structureless, not merely smallest on average, and the team needs this result before it acts."
+    motivation: "A spatial pattern means the model is missing physics even when its mean error is small."
+    format: RESIDUAL
+    question: "Inspect both four-station residual fields and submit the model with no directional pattern."
+    answerText: "Its small residuals alternate without a gradient; the pocket leaves a west-east trend."
+    why: "A spatial pattern means the model is missing physics even when its mean error is small."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Lowest RMS helps, but the decisive test is unmodeled spatial structure.
+    # correct result: uniform layer.
+    # state/output: report piece 2; M3.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual={fields:[{id:uniform,residuals:[-.1,.1,0,.0],rms:.071,pattern:none,model:"Gauss planar"},{id:pocket,residuals:[-.3,-.1,.1,.3],rms:.224,pattern:gradient,model:"E=∫k dq r_hat/r² with off-axis r found by Pythagoras"}],correct:uniform,criterion:no_spatial_pattern}.
+

@@ -1,0 +1,164 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "Money That Moved"
+  card:
+    header: "9 DAYS"
+    title: "Money That Moved"
+    goNow: "Go to NOTES and meet Tomas Arendt, bank supervision lead, at the note scale."
+    body: "The price surge is not broad profiteering, but heavy note returns still look like disappearing money. Money serves exchange, accounting, and saving, while bank deposits can replace cash and support new loans. You will count M1 and M2, rebuild a bank balance sheet, and derive its lending limit. By the end of the mission, decide whether the returns signal contraction or migration."
+    objective: "Trace old cash into deposits and lending capacity."
+  objective: "Trace old cash into deposits and lending capacity."
+  stake: "The price surge is not broad profiteering, but heavy note returns still look like disappearing money. Money serves exchange, accounting, and saving, while bank deposits can replace cash and support new loans. You will count M1 and M2, rebuild a bank balance sheet, and derive its lending limit. By the end of the mission, decide whether the returns signal contraction or migration."
+  takeaway: "Evidence must match the mechanism, units, and stated limits."
+  segue: "Mission decision: Returned notes moved into bank deposits. They did not vanish from the money supply. Banks still have spare reserves. Payments remain sound. The board must now set the real cost of loans."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-note-hall
+    # On arrival at Note Hall | note-scale | automatic
+    on: { enter: true, at: NOTES }
+    world: "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Trace old cash into deposits and lending capacity. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result."
+    panel: "Trace old cash into deposits and lending capacity."
+    bubbles:
+    - who: arendt   # Tomas Arendt
+      say: "Start with count m1 and m2. We need evidence the next decision can use."
+  - id: after-stop-25
+    # After Stop 25 | custody-desk | automatic
+    on: { after: [1] }
+    world: "Keep this labeled result visible; Tomas Arendt says, , and Stop 26 unlocks."
+    panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    bubbles:
+    - who: arendt   # Tomas Arendt
+      say: "M1 is 300 and M2 is 500 billion crowns."
+  - id: after-stop-26
+    # After Stop 26 | balance-sheet-desk | automatic
+    on: { after: [2] }
+    world: "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS only if the route requires travel, then."
+    panel: "NOTES → BANKS"
+    bubbles:
+    - who: arendt   # Tomas Arendt
+      say: "Most returned cash migrated into deposits; payment failures did not rise."
+  - id: after-stop-27
+    # After Stop 27 | money-market-console | automatic
+    on: { after: [3] }
+    world: "Preserve this result on the BANKS decision fixture; The character asks for the promised mission decision, and Stop 28 unlocks."
+    panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    bubbles:
+    - who: arendt   # Tomas Arendt
+      say: "Required reserves are 10, excess 8, multiplier 10, and maximum new money 80 billion."
+  - id: at-mission-end
+    # At mission end | note-scale | automatic
+    on: { missionEnd: true }
+    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    panel: "MISSION 7 EVIDENCE: RECORDED"
+    bubbles:
+    - who: arendt   # Tomas Arendt
+      say: "The returns show migration from cash into deposits, not a money-stock contraction."
+
+  stops:
+  # --- Stop 25: Count M1 and M2
+  #     Concept: aggregates; Keystone: money; Area: Rate Room; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+  #     placement: DERIVE, at note-scale.
+  - group: RATE
+    at: note-scale
+    title: "Count M1 and M2"
+    concept: "aggregates"
+    reason: "The note scale measures cash, not the whole money stock."
+    scene: "Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding."
+    motivation: "Cash can fall while deposits keep broader money available."
+    format: DERIVE
+    question: "Submit (M1,M2) in billions. lines:[M1=80+220=300,M2=300+140+60=500]."
+    answerText: "\"M1 is 300 and M2 is 500 billion crowns.\""
+    why: "Cash can fall while deposits keep broader money available."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Cash can fall while deposits keep broader money available.
+    # correct result: (300,500), ±0.1.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"M1 and M2 in billions","givens":["currency=80","checking deposits=220","savings=140","small time deposits=60"],"lines":[{"id":"L1","expression":"M1=80+220=300 billion","license":"state governing relationship"},{"id":"L2","expression":"M2=M1+140+60=500 billion","license":"substitute displayed values"}],"keyed_order":["L1","L2"],"decoys":["M1=80 billion","M2=420 billion"],"correct_result":"(300,500) billion","answerText":"M1 is 300 billion and M2 is 500 billion; savings and small time deposits enter M2, not M1."}
+
+  # --- Stop 26: Follow the sacks
+  #     Concept: money functions; Keystone: money; Area: Bank Supervision; Learning role: COMBINE; Difficulty: L4; Story role: reversal.
+  #     placement: TRACE, at custody-desk.
+  - group: BANKS
+    at: custody-desk
+    title: "Follow the sacks"
+    concept: "money functions"
+    reason: "Shared processing may make several alarms look independent."
+    scene: "With M1 and M2 counted, trace the note-weight alarm, checking rise, savings rise, and payment failures to their upstream records. Decide whether returned notes vanished or entered bank liabilities today."
+    motivation: "Agreement among cash-return channels is not independent proof of contraction."
+    format: TRACE
+    question: "Open all dependencies and submit the conclusion."
+    answerText: "\"Most returned cash migrated into deposits; payment failures did not rise.\""
+    why: "Agreement among cash-return channels is not independent proof of contraction."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. Agreement among cash-return channels is not independent proof of contraction.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: BANKS waypoint.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   trace:{channels:[{id:"note_weight",label:"returned-note weight",dependency:"conversion intake ledger",target_dependent:true},{id:"checking",label:"checking-deposit rise",dependency:"conversion intake ledger",target_dependent:true},{id:"savings",label:"savings-deposit rise",dependency:"bank account ledger",independent:true},{id:"payment_failures",label:"payment-failure count",dependency:"payment network",independent:true}],shared_upstream:"conversion intake ledger",correct_conclusion:"cash migrated to deposits while payment failures stayed flat",answerText:"The note and checking channels share the intake ledger; independent savings and payment data show money moved into deposits rather than vanishing."}
+
+  # --- Stop 27: Bank ceiling
+  #     Concept: reserves/multiplier; Keystone: money creation; Area: Rate Room; Learning role: PRACTICE; Difficulty: L3; Story role: calculation.
+  #     placement: DERIVE, at balance-sheet-desk.
+  - group: RATE
+    at: balance-sheet-desk
+    title: "Bank ceiling"
+    concept: "reserves/multiplier"
+    reason: "Deposit migration matters only if banks can meet reserves."
+    scene: "Because 100 billion in deposits reached the banks, total reserves are 18 billion and the required reserve ratio is 10%. Derive required reserves, excess reserves, multiplier, and maximum system creation."
+    motivation: "The maximum is a capacity ceiling, not a promise that borrowers will demand every loan."
+    format: DERIVE
+    question: "Submit (required,excess,multiplier,max new money). lines:[10,8,10,80]."
+    answerText: "\"Required reserves are 10, excess 8, multiplier 10, and maximum new money 80 billion.\""
+    why: "The maximum is a capacity ceiling, not a promise that borrowers will demand every loan."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. The maximum is a capacity ceiling, not a promise that borrowers will demand every loan.
+    # correct result: (10b,8b,10,80b), ±0.1.
+    # state/output: Record the result and unlock the next named stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:{"goal":"required reserves, excess reserves, multiplier, and maximum new money","givens":["deposits=100 billion","actual reserves=18 billion","reserve ratio=0.10"],"lines":[{"id":"L1","expression":"required reserves=100×0.10=10 billion","license":"state governing relationship"},{"id":"L2","expression":"excess reserves=18-10=8 billion","license":"substitute displayed values"},{"id":"L3","expression":"simple multiplier=1/0.10=10","license":"simplify with units"},{"id":"L4","expression":"maximum new money=8×10=80 billion","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["maximum new money=8 billion","multiplier=0.10"],"correct_result":"(10 billion,8 billion,10,80 billion)","answerText":"Required reserves are 10 billion, excess reserves 8 billion, the multiplier 10, and the theoretical maximum new money 80 billion."}
+
+  # --- Stop 28: Migration or contraction
+  #     Concept: money-stock diagnosis; Keystone: money/GDP; Area: Statistics Floor; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
+  #     placement: DIAGNOSIS, at money-market-console.
+  - group: STATS
+    at: money-market-console
+    title: "Migration or contraction"
+    concept: "money-stock diagnosis"
+    reason: "Page 7 must decide whether emergency contraction is real."
+    scene: "Deposit growth now matches returned cash, M1 remains stable, M2 rises, excess reserves are positive, and payment failures stay flat. Select the diagnosis that fits every reading in the Rate Book."
+    motivation: "A visible fall in currency can be portfolio migration rather than a fall in spendable money."
+    format: DIAGNOSIS
+    question: "Select one diagnosis—cash-to-deposit migration, money-stock contraction, bank run, or hyperinflation—and submit the conclusion."
+    answerText: "\"The returns show migration from cash into deposits, not a money-stock contraction.\""
+    why: "A visible fall in currency can be portfolio migration rather than a fall in spendable money."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A different response does not fit the displayed evidence. A visible fall in currency can be portfolio migration rather than a fall in spendable money.
+    # correct result: The keyed result shown by the completed interaction.
+    # state/output: Page 7 signed.
+    # CONVERTED, as far as the payload goes. The bible's payload was:
+    #   answer:migration; alternatives:[contraction,run,hyperinflation].
+    # The four candidates are bare ids there and are spelled out on this stop's own
+    # prompt — "cash-to-deposit migration, money-stock contraction, bank run, or
+    # hyperinflation" — in the payload's own order, so those are the labels.
+    # STILL OWED BY THE BIBLE: the diagnosis panel. The payload carries no readings
+    # and names no figure, so the stop imports as the CHOICE it plays as. The scene
+    # describes five readings in prose but the bible keys none of them to a zone or
+    # a value, and inventing that panel is not a conversion.
+    choices:
+    - "cash-to-deposit migration"
+    - "money-stock contraction"
+    - "bank run"
+    - "hyperinflation"
+    answer: "cash-to-deposit migration"
+

@@ -1,0 +1,214 @@
+# The Trial — CLARION-3, and the 3 weeks before the second interim.
+#
+# Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/the_trial/plan.js;
+# the arc it follows is in ../GAME_IDEAS.md under "The Trial".
+#
+# The argument: Balogun holds that delay has a human cost if one arm is truly worse.
+# Feldman holds that the boundary exists so the room cannot mistake a promising
+# fluctuation for knowledge. The game lets each position become the right caution
+# on a different day, based only on what could actually be known at that point.
+
+theme:
+  id: the_trial
+  title: The Trial
+  subtitle: Methodology & Operations Lead · CLARION-3
+
+groups:
+  - id: RAND
+    code: RAND
+    name: Randomisation & Blinding
+    color: '#3f6f8f'
+    desc: How an arm is assigned, and what has to be true for nobody to know which.
+    defaultLeader: diouf
+    milestones: [Read the allocation, Hold the blind, Account for the kit, Ready to hand over]
+  - id: ENDP
+    code: ENDP
+    name: Endpoints & Measurement
+    color: '#7a4fa3'
+    desc: What is being counted, who counts it, and how the counting can go wrong.
+    defaultLeader: ansah
+    milestones: [Define the event, Adjudicate the file, Check the measurement, Ready to hand over]
+  - id: SAFE
+    code: SAFE
+    name: Safety Monitoring
+    color: '#b3462f'
+    desc: What harm looks like early, and who is allowed to see it.
+    defaultLeader: vogt
+    milestones: [Read the report, Rate the event, Brief the board, Ready to hand over]
+  - id: STAT
+    code: STAT
+    name: Statistical Analysis
+    color: '#1f7a6b'
+    desc: Power, boundaries, intervals, and what a number is entitled to claim.
+    defaultLeader: feldman
+    milestones: [State the question, Fix the rule, Estimate the effect, Ready to hand over]
+  - id: SITE
+    code: SITE
+    name: Site Operations
+    color: '#b0762a'
+    desc: 31 hospitals, and the distance between a chart and a database.
+    defaultLeader: marchetti
+    milestones: [Visit the site, Verify the source, Close the query, Ready to hand over]
+  - id: REG
+    code: REG
+    name: Regulatory & Reporting
+    color: '#5b6a72'
+    desc: What was promised in advance, and what has to be said out loud afterwards.
+    defaultLeader: umeh
+    milestones: [Find the commitment, Record the change, State the result, Ready to hand over]
+
+roster:
+- id: voss
+  name: "Mara Voss"
+  role: "Trial director and mission authority"
+  division: SAFE
+  bio: |
+    Mara Voss is Trial director and mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: navarro
+  name: "Eli Navarro"
+  role: "Site operations lead"
+  division: SAFE
+  bio: |
+    Eli Navarro is Site operations lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: shah
+  name: "Priya Shah"
+  role: "Randomisation and blinding lead"
+  division: SAFE
+  bio: |
+    Priya Shah is Randomisation and blinding lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: reed
+  name: "Tomas Reed"
+  role: "Trial statistician"
+  division: SAFE
+  bio: |
+    Tomas Reed is Trial statistician. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: okafor
+  name: "Amina Okafor"
+  role: "Endpoint adjudication lead"
+  division: RAND
+  bio: |
+    Amina Okafor is Endpoint adjudication lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: wu
+  name: "Lena Wu"
+  role: "Regulatory and registry lead"
+  division: ENDP
+  bio: |
+    Lena Wu is Regulatory and registry lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: berg
+  name: "Jonas Berg"
+  role: "Safety monitoring chair"
+  division: RAND
+  bio: |
+    Jonas Berg is Safety monitoring chair. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+- id: manifest
+  name: "Numerical visibility manifest"
+  role: "mandatory player-visible shipping data"
+  division: RAND
+  bio: |
+    Numerical visibility manifest is mandatory player-visible shipping data. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+
+glossary:
+  - name: Randomisation
+    aliases: [randomise, randomised, randomly assigned]
+    def: Assigning each participant to an arm by chance, so the groups differ only by luck and by what is being tested.
+  - name: Allocation concealment
+    aliases: [concealment, concealed allocation]
+    def: Keeping the next assignment unknowable until the participant is entered, so nobody can time an entry to get an arm.
+  - name: Blinding
+    aliases: [blind, blinded, unblinded, masking]
+    def: Keeping who is on which arm hidden after assignment — from participants, from staff, or from whoever measures the outcome.
+  - name: Arm
+    aliases: [arms, treatment arm, control arm]
+    def: "One of the groups a trial compares. CLARION-3 has two: the drug and standard care."
+  - name: Primary endpoint
+    aliases: [endpoint, endpoints, primary outcome]
+    def: The one outcome the trial was designed to answer, named before it began. Everything else is secondary.
+  - name: Adjudication
+    aliases: [adjudicate, adjudicated, adjudication committee]
+    def: An independent panel deciding whether what happened to a participant meets the trial's definition of an event.
+  - name: Interim analysis
+    aliases: [interim, interim look]
+    def: A scheduled look at the accumulating data before the trial finishes, done by the board rather than the trial team.
+  - name: Stopping boundary
+    aliases: [boundary, boundaries, stopping rule]
+    def: The result a trial has to beat at an interim look before stopping counts as evidence rather than as luck.
+  - name: Alpha
+    aliases: [significance level, type I error]
+    def: The chance the trial accepts of calling a difference real when there is none. Every extra look spends some of it.
+  - name: Power
+    aliases: [powered, underpowered]
+    def: The chance a trial finds a difference of a stated size if that difference is really there.
+  - name: Intention to treat
+    aliases: [intention-to-treat, ITT]
+    def: Keeping participants in the group they were randomised to for the primary treatment-strategy analysis. What happens after randomisation still has to be handled explicitly; assignment alone does not make missing outcomes disappear.
+  - name: Per protocol
+    aliases: [per-protocol]
+    def: Analysing a subset defined by adherence to the protocol. It answers a different question and can lose the baseline comparability randomisation created because adherence is determined after assignment.
+  - name: Absolute risk reduction
+    aliases: [absolute risk, ARR, risk difference]
+    def: How much less often the outcome happens on the treatment, stated as a difference in percentage points.
+  - name: Relative risk
+    aliases: [relative, risk ratio, relative reduction]
+    def: How much less often the outcome happens on the treatment, stated as a proportion of the control rate.
+  - name: Number needed to treat
+    aliases: [NNT, number needed]
+    def: How many people have to be treated for one of them to avoid the outcome. One divided by the absolute risk reduction.
+  - name: Confidence interval
+    aliases: [interval, intervals, CI]
+    def: A range produced by a repeated-sampling procedure that, under its model, would cover the true effect at the stated rate. In this game it is used as a compatibility range, not as a probability that the true effect lies inside this one interval.
+  - name: Information fraction
+    aliases: [information, events accrued]
+    def: How far through an event-driven analysis it is. In this simplified trial it is approximated by adjudicated events collected divided by events planned; exact information can depend on the analysis and event timing.
+  - name: Multiplicity
+    aliases: [multiple comparisons, multiple testing]
+    def: The way testing many questions makes at least one look impressive by chance alone.
+  - name: Subgroup
+    aliases: [subgroups, subgroup analysis]
+    def: A slice of the participants — by age, by site, by severity — analysed on its own.
+  - name: Blinding index
+    aliases: [guessing survey]
+    def: A check that asks staff or participants to guess the arm, and compares how often they are right against chance.
+  - name: Source data
+    aliases: [source document, source documents, source data verification]
+    def: The hospital's own notes, made when the care happened. The trial's forms are copies of it.
+  - name: Protocol deviation
+    aliases: [deviation, deviations]
+    def: Something done differently from what the protocol says, recorded whether or not it changed anything.
+  - name: Serious adverse event
+    aliases: [adverse event, adverse events, SAE]
+    def: Harm during a trial that puts someone in hospital, disables them or worse — reported whether or not the drug caused it.
+  - name: Equipoise
+    aliases: []
+    def: Honest uncertainty about which arm is better. It is what makes randomising someone defensible, and it ends when the evidence arrives.
+  - name: Database lock
+    aliases: [locked, data cut]
+    def: Freezing the data at a stated moment so an analysis is of something fixed rather than of a moving target.
+  - name: Conditional power
+    aliases: []
+    def: The chance the trial would end up positive if it carried on to the end, given what it has collected so far.
+  - name: Fragility
+    aliases: [fragility index]
+    def: "A descriptive sensitivity measure: how many binary outcomes would have to change for a nominal significance result to cross its threshold. It is not a substitute for an effect estimate, interval, or prespecified sensitivity analysis."
+  - name: Regression to the mean
+    aliases: [regression toward the mean]
+    def: The tendency of an extreme measurement to be less extreme when it is taken again, whatever was done in between.
+
+beatRooms: [DATA]
+
+missions:
+# <<< MISSIONS >>>
+
+copy:
+  RAND: <p>The kit warehouse and the cold room. 4000 boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>
+  ENDP: <p>The adjudication room. Two reading screens back to back, files with the arm and the site stripped out, and a definition on the wall that has not changed in four years.</p>
+  SAFE: <p>The monitoring board room. A table for 9, a closed-session sign, and the only meeting in this building that sees CLARION-3 by arm.</p>
+  STAT: <p>The statistics room. The analysis plan, the boundary for each look, and every version of both with the date it took effect.</p>
+  SITE: <p>The monitors&rsquo; room. Banker&rsquo;s boxes of couriered source documents, a verification table, and a queue of queries waiting on 31 hospitals.</p>
+  REG: <p>Regulatory and registry. What the trial promised, when it promised it, and what it still owes the people it reports to.</p>
+  SCREEN: <p>Screening and consent. Two chairs, a table and an eligibility checklist &mdash; where somebody becomes a participant, or does not.</p>
+  INFUSE: <p>The infusion bay. Six chairs, drip stands, a wall clock, and bags nobody in the room can tell apart.</p>
+  LAB: <p>The central lab and sample store. A &minus;80 freezer, racks of aliquots and a chain-of-custody sheet on a clipboard.</p>
+  DATA: "<p>The data management floor. Desks, the query board, and the enrolment wall: one card per site, filling as the trial recruits.</p>"
+  UNBLIND: <p>Unblinded statistics. One desk, one locked screen, printouts face down. The smallest room on the floor.</p>
+  RANDOM: <p>The randomisation office. The allocation server, its monitors facing the wall, and a cabinet of code-break envelopes with two entries in the log.</p>
+  ARCHIVE: <p>The trial master file. Every version of the protocol, every approval, and the dates that make the rest of it mean anything.</p>

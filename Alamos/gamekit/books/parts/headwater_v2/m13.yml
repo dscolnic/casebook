@@ -1,0 +1,186 @@
+# ============================================================ MISSION 13
+# Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Three-Before-Nine Order"
+  card:
+    header: "3 SHIFTS UNTIL THE STORM"
+    title: "Carry the Error Honestly"
+    goNow: "Go to Storage & Level Board and meet Mara Vale, operations chief, at the level desk."
+    body: "The staged schedule works in the corrected model, but level, storage, and flow measurements each carry uncertainty. Linear approximation and residual analysis reveal which error matters and whether several channels share one cause. At storage, structure, and inflow, propagate errors and test competing corrections. By the end of the mission, decide whether the corrected release rules are safe enough to sign."
+    objective: "Certify the model across supported measurement error."
+  objective: "Certify the model across supported measurement error."
+  stake: "The staged schedule works in the corrected model, but level, storage, and flow measurements each carry uncertainty. Linear approximation and residual analysis reveal which error matters and whether several channels share one cause. At storage, structure, and inflow, propagate errors and test competing corrections. By the end of the mission, decide whether the corrected release rules are safe enough to sign."
+  takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
+  segue: "Mission decision: Sign the new release rules. Volume error stays below the safety margin. Model errors show no pattern. A separate survey breaks the last tie. Now test each valley warning line."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-storage-level-board
+    # On arrival at Storage & Level Board | level-desk | automatic
+    on: { enter: true, at: STORE }
+    world: "The linearize level error fixture wakes and the mission evidence opens."
+    panel: "MISSION 13: LINEARIZE LEVEL ERROR OPEN"
+    bubbles:
+    - who: vale   # Mara Vale
+      say: "Start with linearize level error. We need evidence the next decision can use."
+  - id: after-stop-49
+    # After Stop 49 | storage-board | automatic
+    on: { after: [1] }
+    world: "After 13.2 Location: STORE."
+    panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    bubbles:
+    - who: vale   # Mara Vale
+      say: "Use the Stop 49 result to settle refuse the lowest rms."
+  - id: after-stop-50
+    # After Stop 50 | control-bench | automatic
+    on: { after: [2] }
+    world: "Travel1 Location: STORE->STRUCT."
+    panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    bubbles:
+    - who: vale   # Mara Vale
+      say: "Use the Stop 50 result to settle break the two-control degeneracy."
+  - id: after-stop-51
+    # After Stop 51 | storage-board | automatic
+    on: { after: [3] }
+    world: "Travel2 Location: STRUCT->INFLOW."
+    panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    bubbles:
+    - who: vale   # Mara Vale
+      say: "Use the Stop 51 result to settle diagnose the signed rules."
+  - id: at-mission-end
+    # At mission end | level-desk | automatic
+    on: { missionEnd: true }
+    world: "The completed decision changes the mission world and locks into the campaign record."
+    panel: "INFLOW"
+    bubbles:
+    - who: vale   # Mara Vale
+      say: "The mission decision is recorded. Carry it into the next briefing."
+
+  stops:
+  # --- Stop 49: Linearize level error
+  #     Concept: linear approximation/error budget; Keystone: Approximation; Area: Forecast Archive; Learning role: RETRIEVE; Difficulty: L4; Story role: foundation.
+  #     placement: PROPAGATE, at level-desk.
+  - group: ARCHIVE
+    at: level-desk
+    title: "Linearize level error"
+    concept: "linear approximation/error budget"
+    reason: "The release margin must be compared with the largest carried measurement error."
+    scene: "The corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Propagate that error, then compare it with the 0.10 million m3 release margin."
+    motivation: "Only an error large enough to consume the margin can reverse authorization."
+    format: PROPAGATE
+    question: "Calculate |Delta V| approximately |dV/dh||Delta h| using 2.0 million m^3/m and 0.015 m; submit uncertainty in million m^3, compare it with the inclusive 0.10 million m^3 margin, then select one purchase ID."
+    answerText: "2.0*.015=.030<.10; improve level."
+    why: "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Sensitivity carries units.
+    # correct result: +-0.030 million m^3; margin survives.
+    # state/output: error bar; unlock 13.2.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   propagate:{budget:1,error_terms:[{id:"level",sigma:.015,sensitivity:2.0,output:.030},{id:"flow",sigma:.002,sensitivity:5,output:.010},{id:"clock",sigma:.001,sensitivity:4,output:.004}],purchase_options:[{id:"level",cost:1,reduction:.015},{id:"flow",cost:1,reduction:.003},{id:"clock",cost:1,reduction:.001}],correct_purchase:"level",threshold:.10}
+
+  # --- Stop 50: Refuse the lowest RMS
+  #     Concept: approximation error/sum accuracy; Keystone: Approximation; Area: Forecast Archive; Learning role: COMBINE; Difficulty: L4; Story role: clue payoff.
+  #     placement: RESIDUAL, at storage-board.
+  - group: ARCHIVE
+    at: storage-board
+    title: "Refuse the lowest RMS"
+    concept: "approximation error/sum accuracy"
+    reason: "The chosen numerical method must not hide a directional storage bias."
+    scene: "Because level error is tolerable, compare residuals from left, right, and trapezoidal accumulation against independent totals. Choose the method whose errors are small and unpatterned rather than blindly taking the lowest training RMS."
+    motivation: "A repeated sign would push every release decision in the same unsafe direction."
+    format: RESIDUAL
+    question: "Compare the three four-value residual arrays and their holdout residuals; submit one method ID and one conclusion about directional bias."
+    answerText: "small alternating residuals survive holdout; left/right directional errors track changing curve."
+    why: "small alternating residuals survive holdout; left/right directional errors track changing curve. A repeated sign would push every release decision in the same unsafe direction."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Method accuracy depends on increase and concavity, not label.
+    # correct result: trapezoid.
+    # state/output: trapezoid default; waypoint STRUCT.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:{fields:[{id:"left",residuals:[-.12,-.10,-.11,-.09],rms:.106},{id:"right",residuals:[.13,.09,.12,.10],rms:.111},{id:"trap",residuals:[.01,-.02,.00,.01],rms:.012}],holdout:{left:-.14,right:.15,trap:.01},correct:"trap"}
+
+  # --- Stop 51: Break the two-control degeneracy
+  #     Concept: sensitivity/systematics; Keystone: Approximation; Area: Forecast Archive; Learning role: TRANSFER; Difficulty: L5; Story role: reveal.
+  #     placement: DEGENERACY, at control-bench.
+  - group: ARCHIVE
+    at: control-bench
+    title: "Break the two-control degeneracy"
+    concept: "sensitivity/systematics"
+    reason: "Level offset and storage scale still mimic the same total-volume correction."
+    scene: "Trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Adjust both, then add independent uplift geometry to isolate the physical pair."
+    motivation: "A second physical constraint prevents two adjustable errors from sharing one apparent fix."
+    format: DEGENERACY
+    question: "Use the two controls level offset b in metres and unitless storage scale s. Adjust b from -0.05 to 0.05 in 0.01 steps and s from 0.90 to 1.10 in 0.01 steps; apply both loci, then submit the numeric pair (b,s) before choosing a correction plan."
+    answerText: "volume alone is degenerate; uplift fixes offset."
+    why: "volume alone is degenerate; uplift fixes offset. A second physical constraint prevents two adjustable errors from sharing one apparent fix."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   A good fit along one locus does not identify both controls.
+    # correct result: (-.01 m,1.02).
+    # state/output: Integrity lock eligible; waypoint INFLOW.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   degeneracy:{controls:[{id:"b",label:"level offset",min:-.05,max:.05,step:.01},{id:"s",label:"storage scale",min:.90,max:1.10,step:.01}],tolerance:.011,first_locus:[[-.05,1.10],[-.03,1.06],[-.01,1.02],[.01,.98],[.03,.94],[.05,.90]],second_locus:[[-.02,.98],[-.01,1.00],[0,1.02],[.01,1.04]],physical_constraint:"independent uplift geometry requires b=-.01 m",truth_pair:[-.01,1.02],correct_plan:"use resurvey correction"}
+    degeneracy:
+      controls:
+      - {id: b, label: "level offset", min: -0.05, max: 0.05, step: 0.01}
+      - {id: s, label: "storage scale", min: 0.90, max: 1.10, step: 0.01}
+      locus:
+      - {a: -0.05, b: 1.10}
+      - {a: -0.03, b: 1.06}
+      - {a: -0.01, b: 1.02}
+      - {a: 0.01, b: 0.98}
+      - {a: 0.03, b: 0.94}
+      - {a: 0.05, b: 0.90}
+      second:
+        label: "independent uplift geometry requires b=-.01 m"
+        locus:
+        - {a: -0.02, b: 0.98}
+        - {a: -0.01, b: 1.00}
+        - {a: 0.00, b: 1.02}
+        - {a: 0.01, b: 1.04}
+      truth: {a: -0.01, b: 1.02}
+      tolerance: {a: 0.011, b: 0.011}
+
+  # --- Stop 52: Diagnose the signed rules
+  #     Concept: cumulative calculus validity; Keystone: all keystones; Area: Forecast Archive; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+  #     placement: DIAGNOSIS, at storage-board.
+  - group: ARCHIVE
+    at: storage-board
+    title: "Diagnose the signed rules"
+    concept: "cumulative calculus validity"
+    reason: "Every correction must fit quiet as well as alarming evidence before signature."
+    scene: "With offset and scale separated, review continuity, holdout crest, storage residuals, seepage decay, and gate reversal. Select the one release-rule set that fits every reading and preserves the downstream threshold."
+    motivation: "The signed rules must be one coherent model, not a collection of individually convenient results."
+    format: DIAGNOSIS
+    question: "Compare every candidate rule set with all five displayed readings, then submit exactly one rule-set label."
+    answerText: "all independent constraints align."
+    why: "all independent constraints align. The signed rules must be one coherent model, not a collection of individually convenient results."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The alternatives each conflict with at least one independent record: the holdout crest, resurveyed capacity, or verified work-and-warning limits.
+    # correct result: first.
+    # state/output: corrected rules signed; Integrity locks at 100.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   diagnosis:{headline:"corrected release rules",readings:[{zone:"level",value:"continuous after one removable repair"},{zone:"inflow",value:"Forecast B passes holdout"},{zone:"storage",value:"resurvey pair (-.01,1.02)"},{zone:"wall",value:"decay below limit"},{zone:"gate",value:"reversal pass"}],choices:[{label:"B forecast + resurvey + staged gate",mechanism:"fits all"},{label:"A forecast + old sheet",mechanism:"misses crest and silt"},{label:"B + old sheet",mechanism:"wrong capacity"},{label:"B + resurvey + full gate",mechanism:"breaks warning/work limits"}],answer:"B forecast + resurvey + staged gate"}
+    headline: "corrected release rules"
+    readings:
+    - {zone: "level", value: "continuous after one removable repair"}
+    - {zone: "inflow", value: "Forecast B passes holdout"}
+    - {zone: "storage", value: "resurvey pair (-.01,1.02)"}
+    - {zone: "wall", value: "decay below limit"}
+    - {zone: "gate", value: "reversal pass"}
+    choices:
+    - {label: "B forecast + resurvey + staged gate", mechanism: "fits all"}
+    - {label: "A forecast + old sheet", mechanism: "misses crest and silt"}
+    - {label: "B + old sheet", mechanism: "wrong capacity"}
+    - {label: "B + resurvey + full gate", mechanism: "breaks warning/work limits"}
+    answer: "B forecast + resurvey + staged gate"
+

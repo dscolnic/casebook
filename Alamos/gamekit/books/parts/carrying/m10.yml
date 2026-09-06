@@ -1,0 +1,158 @@
+# ============================================================ MISSION 10
+# Lifted from ../fpl_gpt/CARRYING_CAPACITY_APES_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Reef Evidence"
+  card:
+    header: "6 DAYS."
+    title: "THE REEF EVIDENCE"
+    goNow: "Reef Station, Rafi Noor at water-rack."
+    body: "Source controls are ready, but the reef record shows low oxygen during warm, nutrient-rich weeks. Warm water holds less oxygen, while excess nitrogen and phosphorus feed algae whose decay consumes more. Compare the bay record, then test both drivers at the harbour review. By the end of the mission, decide which reef pressures the ferry conditions must reduce."
+    objective: "Separate and combine reef stressors."
+  objective: "Separate and combine reef stressors."
+  stake: "Source controls are ready, but the reef record shows low oxygen during warm, nutrient-rich weeks. Warm water holds less oxygen, while excess nitrogen and phosphorus feed algae whose decay consumes more. Compare the bay record, then test both drivers at the harbour review. By the end of the mission, decide which reef pressures the ferry conditions must reduce."
+  takeaway: "Record the enforceable environmental condition in the mission log."
+  segue: "Mission decision: Cut runoff, warm water, air waste, and fishing at the same time. Cap catch at 70 fish in poor years. Heat alone did not harm the reef. The plan must protect the full habitat."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "photic shallow water supports algae; eutrophication proceeds nutrients->bloom->decay->anoxia; acidification harms calcium-carbonate shells."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-waterworks
+    # On arrival at Waterworks | s37-read-the-patterned-residuals | automatic
+    on: { enter: true, at: TODO }   # s37-read-the-patterned-residuals
+    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    panel: "MISSION 10: READ THE PATTERNED RESIDUALS OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Start with read the patterned residuals. We need evidence the next decision can use."
+  - id: after-stop-37
+    # After Stop 37 | s38-control-heat-and-nutrients | automatic
+    on: { after: [1] }
+    world: "First result: The result remains on its equipment panel and."
+    panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 37 result to settle control heat and nutrients."
+  - id: after-stop-38
+    # After Stop 38 | s39-map-acidification-damage | automatic
+    on: { after: [2] }
+    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 38 result to settle map acidification damage."
+  - id: after-stop-39
+    # After Stop 39 | s40-stress-the-catch-ceiling | automatic
+    on: { after: [3] }
+    world: "Synthesis: Stop 39 changes the persistent board and unlocks the decision stop."
+    panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "Use the Stop 39 result to settle stress the catch ceiling."
+  - id: at-mission-end
+    # At mission end | s37-read-the-patterned-residuals | automatic
+    on: { enter: true, at: TODO }   # s37-read-the-patterned-residuals
+    world: "Decision and hook: Stop 40 applies the world change, triggers the outcome, and names the next mission problem."
+    panel: "MISSION 10 EVIDENCE: RECORDED"
+    bubbles:
+    - who: mission-lead   # Mission lead
+      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: text   # Text
+      say: "Heat and nitrate together depress oxygen and coral cover more than either treatment alone, and restoration returns the baseline."
+
+  stops:
+  # --- Stop 37: Read the patterned residuals
+  #     Concept: temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue; Keystone: temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue.
+  #     placement: RESIDUAL, at s37-read-the-patterned-residuals.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Read the patterned residuals"
+    concept: "temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue"
+    reason: "The island cannot commit read the patterned residuals until this evidence is resolved."
+    scene: "The new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Compare residual patterns to test whether its errors grow after nitrate pulses, and the team needs this result before it acts."
+    motivation: "Read the patterned residuals connects the measured environmental mechanism to the next island condition."
+    format: RESIDUAL
+    question: "Compare heat-only residuals [0,0,-2,-2] with heat-plus-nitrate residuals [0.2,-0.1,0.1,-0.2] and submit the model without a patterned error"
+    answerText: "The completed check shows heat plus nitrate survives; the heat-only errors track nitrate pulses."
+    why: "Read the patterned residuals connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Heat plus nitrate survives; the heat-only errors track nitrate pulses
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   residual:{models:{heat_only:{residuals:[0,0,-2,-2]},heat_plus_nitrate:{residuals:[0.2,-0.1,0.1,-0.2]}},correct:heat_plus_nitrate}
+
+  # --- Stop 38: Control heat and nutrients
+  #     Concept: factorial stressors | causality | D9 | COMBINE | L4 | reveal; Keystone: factorial stressors | causality | D9 | COMBINE | L4 | reveal; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: factorial stressors | causality | D9 | COMBINE | L4 | reveal.
+  #     placement: CONTROL, at s38-control-heat-and-nutrients.
+  - group: TODO            # the curriculum area this teaches for
+    at: TODO               # the fixture it is asked at
+    title: "Control heat and nutrients"
+    concept: "factorial stressors | causality | D9 | COMBINE | L4 | reveal"
+    reason: "The island cannot commit control heat and nutrients until this evidence is resolved."
+    scene: "Because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Keep all other tank conditions fixed and restore the baseline after every treatment, and the team needs this result before it acts."
+    motivation: "Control heat and nutrients connects the measured environmental mechanism to the next island condition."
+    format: CONTROL
+    question: "Measure the baseline at 24 C and 1 mg/L nitrate. Change temperature only to 28 C, change nitrate only to 8 mg/L, then change both while light, flow, fragment size, salinity 35 ppt, and six-week timing remain fixed; measure oxygen and coral cover after each run, restore baseline and remeasure, then submit the interaction conclusion."
+    answerText: "The completed check shows the combined treatment yields 3.1 mg/L oxygen and 30% cover, showing heat and nutrients interact."
+    why: "Control heat and nutrients connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: The combined treatment yields 3.1 mg/L oxygen and 30% cover, showing heat and nutrients interact
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   control:{candidates:[{id:"temperature",label:"temperature"},{id:"nitrate",label:"nitrate concentration"},{id:"salinity",label:"salinity"}],selected_controls:["temperature","nitrate"],baseline:{temperature_C:24,nitrate_mgL:1,DO_mgL:7.5,cover_pct:80},responses:[{temperature_C:28,nitrate_mgL:1,DO_mgL:6.3,cover_pct:70},{temperature_C:24,nitrate_mgL:8,DO_mgL:5.8,cover_pct:62},{temperature_C:28,nitrate_mgL:8,DO_mgL:3.1,cover_pct:30}],noise_band:{DO_mgL:0.2,cover_pct:2},fixed:["light","flow","fragment size","salinity 35 ppt","six-week timing"],measure_when:"after six weeks",restore:{required:true,temperature_C:24,nitrate_mgL:1,DO_mgL:7.5,cover_pct:80,remeasure:true},correct_conclusion:"heat and nutrients interact",answerText:"Heat and nitrate together depress oxygen and coral cover more than either treatment alone, and restoration returns the baseline."}
+
+  # --- Stop 39: Map acidification damage
+  #     Concept: aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence; Keystone: aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence.
+  #     placement: CLOUD, at s39-map-acidification-damage.
+  - group: REEF
+    at: common-map
+    title: "Map acidification damage"
+    concept: "aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence"
+    reason: "The island cannot commit map acidification damage until this evidence is resolved."
+    scene: "The tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. Place pH and calcifier-cover distributions across the reef zones, and the team needs this result before it acts."
+    motivation: "Map acidification damage connects the measured environmental mechanism to the next island condition."
+    format: CLOUD
+    question: "Fit pH [8.15,8.05,7.95] and cover [70,55,35] across littoral, pelagic, and benthic observations; submit acidification as the mechanism"
+    answerText: "The completed check shows falling pH accompanies falling calcifier cover; acidification explains the shell loss."
+    why: "Map acidification damage connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Falling pH accompanies falling calcifier cover; acidification explains the shell loss
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   cloud:{zones:[littoral,pelagic,benthic],pH:[8.15,8.05,7.95],calcifier_cover_pct:[70,55,35],tolerance_pH:0.03,correct:ocean_acidification}
+
+  # --- Stop 40: Stress the catch ceiling
+  #     Concept: sustainable plan | population limits | D5 | TRANSFER | L5 | decision; Keystone: sustainable plan | population limits | D5 | TRANSFER | L5 | decision; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: sustainable plan | population limits | D5 | TRANSFER | L5 | decision.
+  #     placement: STRESS, asked by Mara Voss beside s40-stress-the-catch-ceiling.
+  - group: REEF
+    title: "Stress the catch ceiling"
+    person: TODO   # the roster id of whoever asks it
+    concept: "sustainable plan | population limits | D5 | TRANSFER | L5 | decision"
+    reason: "The island cannot commit stress the catch ceiling until this evidence is resolved."
+    scene: "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment, and the team needs this result before it acts, and this result will guide the next safe decision."
+    motivation: "Stress the catch ceiling connects the measured environmental mechanism to the next island condition."
+    format: STRESS
+    question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"
+    answerText: "The completed check shows use 70 fish in low-recruitment years."
+    why: "Stress the catch ceiling connects the measured environmental mechanism to the next island condition."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+    # correct result: Use 70 fish in low-recruitment years
+    # state/output: Keep the result visible, record it in the mission log, and unlock the next authored stop.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   stress:{assumption:nursery_recruits,range:[80,130],candidates:[{id:fixed_100,value:100},{id:precautionary_70,value:70},{id:catch_130,value:130},{id:no_cap,value:null}],correct:precautionary_70}
+

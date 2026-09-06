@@ -1,0 +1,205 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Electric charge
+  aliases: [electric charge]   # TODO: the plurals and spellings the prose uses
+  def: "a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."
+# mission 2
+- name: Electric flux
+  aliases: [electric flux]   # TODO: the plurals and spellings the prose uses
+  def: "the signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m²."
+# mission 3
+- name: Electric potential
+  aliases: [electric potential]   # TODO: the plurals and spellings the prose uses
+  def: "electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path."
+# mission 4
+- name: Conductor
+  aliases: [conductor]   # TODO: the plurals and spellings the prose uses
+  def: "material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts."
+# mission 5
+- name: Capacitance
+  aliases: [capacitance]   # TODO: the plurals and spellings the prose uses
+  def: "stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter."
+# mission 6
+- name: Marx bank
+  aliases: [marx bank]   # TODO: the plurals and spellings the prose uses
+  def: "capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown."
+# mission 7
+- name: Current
+  aliases: [current]   # TODO: the plurals and spellings the prose uses
+  def: "rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured."
+# mission 8
+- name: Magnetic field
+  aliases: [magnetic field]   # TODO: the plurals and spellings the prose uses
+  def: "field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion."
+# mission 9
+- name: Magnetic flux
+  aliases: [magnetic flux]   # TODO: the plurals and spellings the prose uses
+  def: "magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change."
+# mission 10
+- name: Inductance
+  aliases: [inductance]   # TODO: the plurals and spellings the prose uses
+  def: "flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time."
+# mission 11
+- name: Current density
+  aliases: [current density]   # TODO: the plurals and spellings the prose uses
+  def: "current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law."
+# mission 12
+- name: Mutual inductance
+  aliases: [mutual inductance]   # TODO: the plurals and spellings the prose uses
+  def: "flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency."
+# mission 13
+- name: Bandwidth
+  aliases: [bandwidth]   # TODO: the plurals and spellings the prose uses
+  def: "range of signal frequencies a channel can follow. RC circuit: resistor-capacitor circuit with τ=RC. RL circuit: resistor-inductor circuit with τ=L/R."
+# mission 14
+- name: Poynting vector
+  aliases: [poynting vector]   # TODO: the plurals and spellings the prose uses
+  def: "electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "E = F/q and E_net = ΣE_i",
+#     c: "Define field and combine several source fields.",
+#     v: [ TODO: split "E electric field (N/C), F electric force (N), q test charge (C), E_i each source field." ],
+#     s: "The four warning channels must be reduced to one signed, reviewable crew-clear decision.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "∮E·dA = q_enc/ε₀;",
+#     c: "Relate closed-surface flux to enclosed charge.",
+#     v: [ TODO: split "E field, dA outward area element, q_enc enclosed charge, ε₀=8.854×10^-12 C²/(N·m²)." ],
+#     s: "It converts ground field into a storm-layer charge estimate.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "Φ_E=EA cosθ;",
+#     c: "Evaluate uniform flux through one face.",
+#     v: [ TODO: split "Φ_E flux, A area, θ angle between field and outward normal." ],
+#     s: "The pillbox faces separate contributing and quiet surfaces.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "ΔV=-∫_a^b E·dl;",
+#     c: "Find voltage change from a field profile.",
+#     v: [ TODO: split "ΔV=V_b-V_a, E field, dl path element." ],
+#     s: "The team needs the result to make today's mission decision.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "V=kq/r, U=qV;",
+#     c: "Find point-charge potential and energy.",
+#     v: [ TODO: split "k=8.988×10^9 N·m²/C², q charge, r distance, U energy." ],
+#     s: "The team needs the result to make today's mission decision.## Main story happening - designer summary Ravi derives ΔV=+360 MV from ground to cloud for E_y=-9.0 kV/m over 40 km, checks it against sampled profile integration, and rejects a sign-flipped record.",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "E_out=σ/ε₀",
+#     c: "connect surface charge to field just outside",
+#     v: [ TODO: split "σ C/m², ε₀ constant" ],
+#     s: "compare tip field with Station 12's fictional 3.0 MV/m wet-air threshold.## Main story happening - designer summary At MAST, Tate proves the tip can trigger a rocket but cannot create the trailer's no-contact damage. Arrival bubble→S1; S2 posts tip ratio; S3 cage interior reads zero; S4 logs missing arc mark and fills report piece 4. One location. The tension is useful launch enhancement versus unsafe remote inference.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "C=Q/V, C=κε₀A/d",
+#     c: "connect geometry, material, charge, voltage",
+#     v: [ TODO: split "κ dielectric constant, A area, d separation" ],
+#     s: "translate storm geometry into a safe bank target.## Main story happening - designer summary FIELD S1-S2 bounds geometry; evidence sends player to BANK because only bank hardware can reproduce charge; S3 derives combination; S4 selects setting. Two locations, causal waypoint Take the bounded C and V to Impulse Hall.",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "U=½CV²=Q²/(2C)=½QV",
+#     c: "stored energy",
+#     v: [ TODO: split "standard" ],
+#     s: "bound test.",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "u_E=½ε₀E²",
+#     c: "energy density",
+#     v: [ TODO: split "u_E, ε, E are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "compare local field hazard.## Main story happening - designer summary BANK derives energy and gap timing, then SHOT records authorization. Beats include earthing stick visibly on until S4. Two locations due authority record unavailable in hall.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "I=dQ/dt, V=IR, R=ρL/A",
+#     c: "current/resistance",
+#     v: [ TODO: split "include ρ" ],
+#     s: "trace return path.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "ΣI_in=ΣI_out, Σε-ΣIR=0",
+#     c: "Kirchhoff node/loop rules",
+#     v: [ TODO: split "ΣI_in, ΣI_out, Σ, ε, ΣIR are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "expose impossible shared-current readings.## Main story happening - designer summary FIELD circuit work sends player to SHOT raw reference panel. Twist 1 decertifies earlier agreement, causing named metric loss. Two locations.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "F=qv×B, F=IL×B",
+#     c: "force",
+#     v: [ TODO: split "F, qv, B, IL are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "assess cable.",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "∮B·dl=μ₀I",
+#     c: "symmetric fields",
+#     v: [ TODO: split "B, dl, μ, I are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "mast current.## Main story happening - designer summary MAST field result predicts a measurable loop effect, causing travel to COUPLE. S4 finds no arc but opposite-polarity upset.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "Φ_B=∫B·dA, ε=-dΦ_B/dt",
+#     c: "induction",
+#     v: [ TODO: split "Φ_B, B, dA, ε, d, dt are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "trailer.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "ε=BLv",
+#     c: "motional emf",
+#     v: [ TODO: split "ε, BLv are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "distinguish moving-wire tests.## Main story happening - designer summary EARTH geometry yields predicted pulse and polarity; waypoint to COUPLE because damaged card carries stored waveform. S4 confirms magnitude within uncertainty but causes trench exposure cost.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "ε_L=-L dI/dt, U_B=½LI²",
+#     c: "self-induced voltage/energy",
+#     v: [ TODO: split "L H" ],
+#     s: "bond.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "B=μ₀nI, L=μ₀N²A/ℓ",
+#     c: "solenoid field/inductance",
+#     v: [ TODO: split "B, μ, nI, L, N, A are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "derive path model.## Main story happening - designer summary BANK S1-S2 establishes pulse; travel EARTH because only trench has lead length/loop; S3-S4 reject certificate for fast use. Two locations.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "J=I/A",
+#     c: "heating/current concentration",
+#     v: [ TODO: split "J, I, A are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "conduit.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "∮B·dl=μ₀(I+ε₀dΦ_E/dt)",
+#     c: "Ampere-Maxwell",
+#     v: [ TODO: split "B, dl, μ, I, ε, d, Φ_E, dt are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "distinguish conduction from changing-field contribution.## Main story happening - designer summary MAST ledger points to conduit; EARTH inspection confirms both-end bond; SHOT timestamp audit rejects calibration error. Three locations causally linked.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "ε₂=-M dI₁/dt",
+#     c: "mutual induction",
+#     v: [ TODO: split "M H" ],
+#     s: "reroute.## Main story happening - designer summary BANK calculate/commit→MAST operate/measure→EARTH interpret. Three locations mirror physical causal chain.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "charging/discharging Q=Q∞(1-e^-t/RC), Q=Q0e^-t/RC; RL I=(ε/R)(1-e^-tR/L)",
+#     c: "transient response",
+#     v: [ TODO: split "charging, discharging, Q, Q∞, e, t, RC, Q0e, RL, I, ε, R, tR, L are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "qualify channels.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "ω₀=1/√(LC) and transformer V₂/V₁=N₂/N₁",
+#     c: "LC oscillation/ideal transformation",
+#     v: [ TODO: split "ω, LC, and, transformer, V, N are the named quantities and constants shown in the equation; their units are stated with the mission data." ],
+#     s: "recognize ringing and probe scaling.## Main story happening - designer summary SCREEN analysis→SHOT raw sample audit→EARTH certificate reinterpretation. Three locations.",
+#     k: [ TODO ] },
+#   // mission 14
+#   { e: "S=(1/μ₀)E×B, u=u_E+u_B",
+#     c: "energy flow/density",
+#     v: [ TODO: split "standard" ],
+#     s: "track where shot energy travels.## Main story happening - designer summary SHOT precommit/fire→MAST inspect paths→COUPLE compare. Apparent pass followed by rack-loop residual—Twist 3.",
+#     k: [ TODO ] },

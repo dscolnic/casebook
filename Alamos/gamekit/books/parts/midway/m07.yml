@@ -1,0 +1,174 @@
+# ============================================================ MISSION 7
+# Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
+# the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
+- title: "The Card in Hart's Hand"
+  card:
+    header: "9 DAYS UNTIL COUNTY INSPECTION"
+    title: "THE CARD IN HART'S HAND"
+    goNow: "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig."
+    body: "The shared speed kit invalidates the old overrun values, so the bumper cars need an independent collision test. Momentum tracks motion through a short impact, while impulse connects stopping time to rider force. Test the car and then compare the result with Hart's missing operator card in the Workshop. By the end of the mission, decide whether Hart's interruption increased the collision danger."
+    objective: "Use independent collision data to judge the effect of Hart's interruption."
+  objective: "Use independent collision data to judge the effect of Hart's interruption."
+  stake: "The shared speed kit invalidates the old overrun values, so the bumper cars need an independent collision test. Momentum tracks motion through a short impact, while impulse connects stopping time to rider force. Test the car and then compare the result with Hart's missing operator card in the Workshop. By the end of the mission, decide whether Hart's interruption increased the collision danger."
+  takeaway: "Evidence that proves an action does not automatically prove its effect or motive."
+  segue: "Mission decision: Hart did not raise the crash risk in the Bumper Car test. The long padded stop kept the mean force below the game limit. Her stop is real, but the card gives no reason. The Pirate Ship timing trace may show what she stopped."
+  # The mission card's own "Primer concepts", printed on the plan card.
+  primer:
+  - "Assign signs before adding momentum."
+  - "Momentum can be conserved through a collision even when kinetic energy is not."
+  - "A longer stopping time produces a smaller average force for the same momentum change."
+
+  # The bible's beat script. `world` is its World state line, `panel` its
+  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
+  # the implementation's: which trigger, and which board the change lands on.
+  beats:
+  - id: on-arrival-at-bumper-car-pavilion
+    # On arrival at Bumper Car Pavilion | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Chen taps the seat and floor sensors."
+    panel: "STOP 25-27 READY"
+    # unlocks: Stops 25-27.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This collision gets its own clock."
+  - id: after-stop-27
+    # After Stop 27 | automatic | 
+    on: { after: [3] }
+    world: "The independent force trace posts BELOW TEST LIMIT."
+    panel: "BELOW TEST LIMIT"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: on-arrival-at-brennan-s-workshop
+    # On arrival at Brennan's Workshop | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Hart places the card on the bench."
+    panel: "STOP 28 READY"
+    # unlocks: Stop 28.
+    bubbles:
+    - who: maya-hart   # Maya Hart
+      say: "I interrupted the sequence. The card says what I did, not whether it was right."
+  - id: after-stop-28
+    # After Stop 28 | automatic | 
+    on: { after: [4] }
+    world: "The interruption card is filed under ACTION VERIFIED / EFFECT NOT HARMFUL HERE."
+    panel: "ACTION VERIFIED / EFFECT NOT HARMFUL HERE"
+    # unlocks: No new stop; preserve the current mission state.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "This evidence changes what we test next, not more than that."
+  - id: at-mission-end
+    # At mission end | automatic | 
+    on: { enter: true, at: TODO }   # automatic
+    world: "Pirate Ship timing trace unlocks for Mission 8."
+    panel: "MISSION 7 COMPLETE"
+    # unlocks: Close the mission and preserve its Casebook evidence.
+    bubbles:
+    - who: linh-chen   # Linh Chen
+      say: "Record exactly what this mission proved before we move on."
+
+  stops:
+  # --- Stop 25: Put directions into momentum
+  #     Concept: Signed momentum; Keystone: momentum; Area: Bumper Car Pavilion; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: BALLPARK, asked at car-on-stands.
+  - group: BUMPER
+    at: car-on-stands
+    title: "Put directions into momentum"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Signed momentum"
+    reason: "The collision prediction fails if opposite directions are added as positive speeds."
+    scene: "A 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Estimate their signed total momentum before the instrumented test impact begins."
+    motivation: "Direction determines the momentum available to carry the joined cars after collision."
+    format: BALLPARK
+    question: "Given rightward momentum +960 kg m/s and leftward momentum -520 kg m/s, use p_total = p1 + p2. Submit one signed numerical total in kg m/s and state its direction."
+    answerText: "Total momentum before impact is 440 kg m/s to the right."
+    why: "Opposite directions receive opposite signs."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Adding magnitudes predicts 1480 kg m/s and erases direction.
+    # correct result: Submit +440 kg·m/s (right).
+    # state/output: Display the rightward total-momentum arrow.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   estimate: {labels: ["Rightward momentum", "Leftward momentum"], values: [960,-520], slots: [p1,p2], template: "ptotal = {p1} + {p2}", formula: "960-520", correct: 440, target: 440, tolerance: 0.03, unit: "kg m/s"}
+
+  # --- Stop 26: Derive the joined speed
+  #     Concept: Perfectly inelastic collision; Keystone: momentum; Area: Bumper Car Pavilion; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+  #     placement: DERIVE, asked at pavilion-board.
+  - group: BUMPER
+    title: "Derive the joined speed"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Perfectly inelastic collision"
+    reason: "The dummy test needs a predicted post-impact speed."
+    scene: "The test coupler makes the cars move together after impact, so kinetic energy is not conserved through the hit. Use signed momentum to derive their shared velocity immediately after collision."
+    motivation: "Momentum predicts the immediate joined motion even when deformation removes kinetic energy."
+    format: DERIVE
+    question: "Given m1 = 240 kg, v1 = +4.0 m/s, m2 = 260 kg, and v2 = -2.0 m/s, use m1v1 + m2v2 = (m1 + m2)vf. Submit an ordered derivation and one signed common-velocity number in m/s with direction."
+    answerText: "The coupled cars move right at 0.88 m/s immediately after impact."
+    why: "The 440 kg m/s net momentum is shared by 500 kg."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Kinetic energy is not conserved in a collision where the cars couple.
+    # correct result: Submit +0.88 m/s (right).
+    # state/output: Set test prediction to 0.88 m/s.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   derive:
+    #     lines:
+    #       - {id: conserve, expression: "m1v1 + m2v2 = (m1+m2)vf", rule: "momentum conservation"}
+    #       - {id: substitute, expression: "240(4.0)+260(-2.0)=500vf", rule: "use signed velocities"}
+    #       - {id: result, expression: "vf = 0.88 m/s right", rule: "solve with direction"}
+    #     order: [conserve,substitute,result]
+    #     decoys:
+    #       - {expression: "240(4.0)+260(2.0)=500vf", rule: "add speed magnitudes and ignore direction"}
+
+  # --- Stop 27: Verify the rider impulse
+  #     Concept: Impulse and force; Keystone: impulse; Area: Bumper Car Pavilion; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+  #     placement: VERIFY, asked at dummy-rig.
+  - group: BUMPER
+    at: dummy-rig
+    title: "Verify the rider impulse"
+    person: TODO   # the roster id of whoever asks it
+    concept: "Impulse and force"
+    reason: "Hart's interruption can be judged only through its measured effect on stopping time and force."
+    scene: "The independent sensors measure a 0.88 m/s joined speed and a 0.22 s padded stop for the 70 kg dummy. Predict average force, then compare it with the separate neck-rig reading."
+    motivation: "Extending the same momentum change over time lowers the force carried by the dummy."
+    format: VERIFY
+    question: "CALCULATE AND COMMIT: Given dummy mass m = 70 kg, speed change magnitude Delta v = 0.88 m/s, stop time Delta t = 0.22 s, and campaign limit 350 N, use F_avg = m Delta v / Delta t and submit a force prediction in N; the rig stays locked until you commit. OPERATE: Run the padded coupled-car stop. MEASURE: Record average stopping force in N. INTERPRET: Submit one conclusion comparing prediction and measurement with the 25 N tolerance and the 350 N limit."
+    answerText: "The padded stop agrees with a 280 N prediction and remains below the 350 N campaign limit."
+    why: "The impulse is fixed by the velocity change; the 0.22 s duration spreads it out."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Dividing by a shorter time must increase, not decrease, average force.
+    # correct result: Commit 280 N; measure 291 N; both support a value below 350 N.
+    # state/output: Mark the dummy test as passing.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   verify: {prediction: {value: 280, unit: N, tolerance: 25}, commit_required_before_unlock: true, phase_order: [calculate_and_commit, operate, measure, interpret], action: "Run padded coupled-car stop", measurement: {value: 291, unit: N}, failure_if_unmeasured: true, correct_conclusion: "Force agrees and remains below the fictional 350 N test limit."}
+
+  # --- Stop 28: What does the card prove?
+  #     Concept: Evidence interpretation; Keystone: model limits; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+  #     placement: CASEBOOK, asked at Maya Hart beside casebook-table.
+  - group: TODO            # the curriculum area this teaches for
+    title: "What does the card prove?"
+    person: hart
+    concept: "Evidence interpretation"
+    reason: "The operator card proves an action, but the campaign must not invent its effect or motive."
+    scene: "The independent collision test stays below its force limit, while Hart's card records a manual interruption at 14:03. Match each clue to the claim it can actually support about that event."
+    motivation: "A timestamp establishes sequence; physics establishes consequence."
+    format: CASEBOOK
+    question: "Submit one four-pair casebook mapping from timestamp, manual-stop log, measured dummy force, and blank reason field to the single interpretation each clue supports."
+    answerText: "Hart interrupted the sequence; the card does not show harmful force or motive."
+    why: "Documentary evidence and physical evidence answer different questions."
+    # wrong-path feedback, one rebuttal per wrong option:
+    #   Do not let an action record supply a motive it does not contain.
+    # correct result: Map action to interruption verified; effect to not harmful here; motive not established.
+    # state/output: Set evidence_flags.hart_action_verified = true, hart_motive_open = true.
+    # THE BIBLE'S PAYLOAD. Convert to the canonical schema in
+    # tools/import-book.mjs — some of these are a rename and some are a
+    # model conversion. Do not paste it in as it stands.
+    #   scenarios: ["Card timestamp 14:03", "Manual-stop switch logged", "Dummy force 291 N", "Reason field blank"]
+    #   choices: ["Hart acted during the test", "The sequence was interrupted", "The tested stop remained below limit", "Motive is not recorded"]
+    #   mapping: ["Hart acted during the test", "The sequence was interrupted", "The tested stop remained below limit", "Motive is not recorded"]
+
