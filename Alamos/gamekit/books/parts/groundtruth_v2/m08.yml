@@ -6,10 +6,10 @@
     header: "8 DAYS;"
     title: "A Field Without Contact"
     goNow: "Mast Base, Marcus Tate at shunt rack."
-    body: "The mill jump came through a wire, so the trailer failure may also have followed a path no strike touched. Current creates magnetic field, and magnetic field pushes moving charge without doing work on it. You will derive the mast field, test force directions, and inspect the trailer loop. By the end of the mission, decide whether no-contact coupling is physically plausible."
+    body: "A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible."
     objective: "Determine whether strike current can influence the trailer cable without direct contact."
   objective: "Determine whether strike current can influence the trailer cable without direct contact."
-  stake: "The mill jump came through a wire, so the trailer failure may also have followed a path no strike touched. Current creates magnetic field, and magnetic field pushes moving charge without doing work on it. You will derive the mast field, test force directions, and inspect the trailer loop. By the end of the mission, decide whether no-contact coupling is physically plausible."
+  stake: "A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible."
   takeaway: "No-contact coupling is physically plausible. ---"
   segue: "Mission decision: No-contact coupling is physically plausible. A 30 kA mast current makes about 3.0 mT at the nearby route. And the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign. And size."
 
@@ -23,7 +23,7 @@
     world: "accepted MAST/bubble/shunts pulse/→S1; S2 correct/waypoint/field rings extend/Predicted B at 2.0 m: 3.00 mT; Inspect the outstation route.→COUPLE; enter COUPLE/panel/no arc tag/SHELL QUIET • CARD DAMAGED→S3; S3 correct/panel/helix displayed/MAGNETIC FORCE CHANGES DIRECTION, NOT SPEED→S4; S4 correct/radio/loop highlighted/No contact required; changing flux remains.→outcome."
     panel: "Marcus Tate, mast engineer: \"If a field reached the route, its direction must match the wiring.\""
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "If a field reached the route, its direction must match the wiring."
   - id: after-stop-29
     # After Stop 29 | mast-desk | automatic
@@ -31,32 +31,107 @@
     world: "The match magnetic rules result remains visible while the derive the down-conductor field fixture lights."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 29 result to settle derive the down-conductor field."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 29 result to settle derive the down-conductor field."
   - id: after-stop-30
     # After Stop 30 | cable-bay | automatic
     on: { after: [2] }
     world: "The derive the down-conductor field result remains visible while the track a charged particle fixture lights."
     panel: "STOP 30 RECORDED - STOP 31 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 30 result to settle track a charged particle."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 30 result to settle track a charged particle."
   - id: after-stop-31
     # After Stop 31 | trailer-cards | automatic
     on: { after: [3] }
     world: "The track a charged particle result remains visible while the diagnose noncontact damage fixture lights."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 31 result to settle diagnose noncontact damage."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 31 result to settle diagnose noncontact damage."
   - id: at-mission-end
     # At mission end | shunt-rack | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 8 EVIDENCE: RECORDED"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Magnetic field", def: "field that deflects moving charge and currents."}
+  - {name: "Right-hand rule", def: "hand convention for cross-product direction."}
+  - {name: "Helical motion", def: "circular perpendicular motion plus unchanged parallel motion."}
+  - {name: "Ampere's law", def: "the closed-loop magnetic-field integral equals μ₀ times the enclosed current."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed A Field Without Contact. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to A Field Without Contact, the field is strong enough to reach the trailer route, but magnetic force alone does no work. Which prediction or calculation correctly applies Magnetic field to this case?"
+      hint: "Use the stated evidence and the conditions for Magnetic field; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Right-hand rules connect current geometry to both magnetic field and mechanical stress.", why: "This describes right-hand rule/force and source patterns, not Magnetic field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.", why: "Correct. field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion."}
+      - {key: "C", text: "Ampere's law converts current symmetry into the field that can thread a nearby loop.", why: "This describes Ampere long wire, not Magnetic field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.", why: "This describes particle motion/mass spectrometer, not Magnetic field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to A Field Without Contact: the down-conductor current points downward, and nearby wire segments run north, east, and vertical. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies right-hand rule/force and source patterns to this case?"
+      hint: "Use the stated evidence and the conditions for right-hand rule/force and source patterns; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.", why: "This describes Magnetic field, not right-hand rule/force and source patterns. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Ampere's law converts current symmetry into the field that can thread a nearby loop.", why: "This describes Ampere long wire, not right-hand rule/force and source patterns. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Right-hand rules connect current geometry to both magnetic field and mechanical stress.", why: "Correct. right-hand rules connect current geometry to both magnetic field and mechanical stress."}
+      - {key: "D", text: "A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.", why: "This describes particle motion/mass spectrometer, not right-hand rule/force and source patterns. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks A Field Without Contact using new evidence: treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Which prediction or calculation correctly applies Ampere long wire to this case?"
+      hint: "Use the stated evidence and the conditions for Ampere long wire; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.", why: "This describes Magnetic field, not Ampere long wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Right-hand rules connect current geometry to both magnetic field and mechanical stress.", why: "This describes right-hand rule/force and source patterns, not Ampere long wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.", why: "This describes particle motion/mass spectrometer, not Ampere long wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Ampere's law converts current symmetry into the field that can thread a nearby loop.", why: "Correct. ampere's law converts current symmetry into the field that can thread a nearby loop."}
+    - prompt: "An unseen case extends A Field Without Contact: at the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Which prediction or calculation correctly applies particle motion/mass spectrometer to this case?"
+      hint: "Use the stated evidence and the conditions for particle motion/mass spectrometer; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.", why: "Correct. a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged."}
+      - {key: "B", text: "Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.", why: "This describes Magnetic field, not particle motion/mass spectrometer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Right-hand rules connect current geometry to both magnetic field and mechanical stress.", why: "This describes right-hand rule/force and source patterns, not particle motion/mass spectrometer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Ampere's law converts current symmetry into the field that can thread a nearby loop.", why: "This describes Ampere long wire, not particle motion/mass spectrometer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Field Without Contact decision, the team knows this: the field is strong enough to reach the trailer route, but magnetic force alone does no work. Which prediction or calculation correctly applies field/loop hazard to this case?"
+      hint: "Use the stated evidence and the conditions for field/loop hazard; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.", why: "This describes Magnetic field, not field/loop hazard. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "The pattern points toward changing magnetic flux and induced electric field, not static magnetic work.", why: "Correct. the pattern points toward changing magnetic flux and induced electric field, not static magnetic work."}
+      - {key: "C", text: "Right-hand rules connect current geometry to both magnetic field and mechanical stress.", why: "This describes right-hand rule/force and source patterns, not field/loop hazard. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Ampere's law converts current symmetry into the field that can thread a nearby loop.", why: "This describes Ampere long wire, not field/loop hazard. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from A Field Without Contact to this follow-up: at the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.", why: "This describes Magnetic field, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Right-hand rules connect current geometry to both magnetic field and mechanical stress.", why: "This describes right-hand rule/force and source patterns, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Ampere's law converts current symmetry into the field that can thread a nearby loop.", why: "This describes Ampere long wire, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"F=qv×B, F=I L×B","c":"force","v":[["F","force"],["q","charge"],["v","velocity"],["B","magnetic field"],["I","current"],["L","the wire-length vector"]],"s":"assess cable."}
+  - {"e":"Ampere's law, ∮B·dl=μ₀I","c":"symmetric fields","v":[["B","magnetic field in teslas"],["dl","directed path element in metres"],["μ₀","vacuum permeability"],["I","enclosed current in amperes"]],"s":"mast current."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 8: worked examples"
+    examples:
+    - {"title":"Field around a straight wire","problem":"A long straight wire carries 10 A. Find field 0.1 m away, using μ0/(2π)=2×10^-7 T m/A.","rule":"B=μ0 I/(2πr).","steps":["Set up the relationship: B=μ0 I/(2πr).","B=(2×10^-7)(10)/0.1=2×10^-5 T=20 μT."],"answer":"The field magnitude is 20 μT; its direction circles the wire by the right-hand rule.","mistake":"The straight-wire field falls as 1/r, not 1/r²."}
+    - {"title":"Force on a moving charge","problem":"A 2 C positive charge moves perpendicular to a 3 T magnetic field at 4 m/s. Find force magnitude.","rule":"F=|q|vB sin θ.","steps":["Set up the relationship: F=|q|vB sin θ.","θ=90°, so F=2(4)(3)=24 N."],"answer":"Magnetic-force magnitude is 24 N; direction is perpendicular to both velocity and field.","mistake":"A charge moving parallel to the field would feel zero magnetic force."}
+    - {"title":"Force on a wire segment","problem":"A straight 0.5 m wire carries 2 A perpendicular to a 4 T field. Find magnetic-force magnitude.","rule":"F=ILB sin θ.","steps":["Set up the relationship: F=ILB sin θ.","F=2(0.5)(4)=4 N."],"answer":"Force magnitude is 4 N.","mistake":"Only the component perpendicular to the field contributes."}
+    - {"title":"Magnetic force and speed","problem":"A charged particle moves in a magnetic field with no electric field. Explain why magnetic force alone does not change kinetic energy.","rule":"Magnetic force q v×B is perpendicular to velocity.","steps":["Instantaneous power P=F·v=0 because the vectors are perpendicular.","No work is done by that force, though the direction of motion can change."],"answer":"Magnetic force alone changes direction, not kinetic energy.","mistake":"A curved path does not necessarily mean changing speed."}
+    - {"title":"Force on negative charge","problem":"A charge q=-2 μC is in a field E=3000 N/C rightward. Find its force, right positive.","rule":"F=qE.","steps":["Set up the relationship: F=qE.","F=(-2×10^-6)(3000)=-0.006 N=-6 mN."],"answer":"The force is 6 mN to the left.","mistake":"A negative charge feels force opposite the electric field."}
 
   stops:
   # --- Stop 29: Match Magnetic Rules
@@ -65,10 +140,10 @@
   - group: COUPLE
     at: shunt-rack
     title: "Match Magnetic Rules"
-    concept: "right-hand rule/force and source patterns"
-    reason: "cable orientation determines which conductors are pushed."
-    scene: "The down-conductor current points downward, and nearby wire segments run north, east, and vertical. Match force directions, then match straight wire, loop, solenoid, and toroid to their field patterns.\", and record the result with its physical justification in the station report."
-    motivation: "right-hand rules connect current geometry to both magnetic field and mechanical stress."
+    concept: 22   # right-hand rule/force and source patterns
+    reason: "The return-path investigation now reaches wires whose orientation determines their magnetic effects."
+    scene: "The down-conductor current points downward, and nearby wire segments run north, east, and vertical. Match force directions, then match straight wire, loop, solenoid, and toroid to their field patterns."
+    motivation: "The force-direction and source-field mappings establish which magnetic relationships apply around the mast conductors."
     format: PROTOCOL
     question: "Match all three wire orientations to force direction or zero, then match straight wire, loop, solenoid, and toroid to their field formula and direction; submit all seven mappings."
     answerText: "The completed check shows right-hand mappings and four source formulas are complete. Geometry fixes directions."
@@ -81,6 +156,37 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   scenarios include three force rows plus [straight,loop_center,solenoid,toroid]; choices include direction/zero and formulas [μ0I/(2πr),μ0I/(2R),μ0nI,μ0NI/(2πr)]; keyed mapping, vertical-parallel force zero. Prompt submit all seven matches.
+    protocol_patch:
+      question: Match all three wire orientations to force direction or zero, then match straight wire, loop, solenoid, and toroid to their field formula and direction; submit all seven mappings.
+      authoredPayload: scenarios include three force rows plus `[straight,loop_center,solenoid,toroid]`; choices include direction/zero and formulas `[μ0I/(2πr),μ0I/(2R),μ0nI,μ0NI/(2πr)]`; keyed mapping, vertical-parallel force zero. Prompt submit all seven matches.
+      correctResult: "`Right-hand mappings and four source formulas are complete.` Geometry fixes directions."
+      wrongButPlausible: A plausible shortcut that ignores one condition or treats dependent evidence as independent.
+      decisionCanFail: true
+      questionAndUnits: Match all three wire orientations to force direction or zero, then match straight wire, loop, solenoid, and toroid to their field formula and direction; submit all seven mappings.
+    scenarios:
+      - North-running wire in the displayed field
+      - East-running wire in the displayed field
+      - Vertical wire parallel to the field
+      - Long straight source wire
+      - Center of a circular loop
+      - Inside a long solenoid
+      - Inside a toroid
+    choices:
+      - Use I L × B for the north-running wire
+      - Use I L × B for the east-running wire
+      - Force is zero for parallel current and field
+      - B = μ0 I/(2πr)
+      - B = μ0 I/(2R)
+      - B = μ0 n I
+      - B = μ0 N I/(2πr)
+    mapping:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
 
   # --- Stop 30: Derive the Down-Conductor Field
   #     Concept: Ampere long wire; Keystone: K8,K2; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L3.
@@ -88,12 +194,12 @@
   - group: MAST
     at: mast-desk
     title: "Derive the Down-Conductor Field"
-    concept: "Ampere long wire"
-    reason: "the trailer hypothesis needs field versus distance."
-    scene: "Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m.\", and record the result with its physical justification in the station report."
-    motivation: "Ampere's law converts current symmetry into the field that can thread a nearby loop."
+    concept: 20   # Ampere long wire
+    reason: "The mast-current model needs a field prediction at the nearby equipment before damage mechanisms are compared."
+    scene: "Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m."
+    motivation: "The down-conductor field at the cabinet distance supplies the magnetic exposure for the following particle and induction checks."
     format: DERIVE
-    question: "Build four Ampere-law lines for a 30 kA long wire, name each symmetry and algebra step, and submit B at 2.0 m in mT."
+    question: "Submit B at 2.0 m in mT."
     answerText: "The completed check shows b=μ₀I/(2πr)=3.00 mT. Circular symmetry makes B constant on the path."
     why: "Ampere's law converts current symmetry into the field that can thread a nearby loop."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -104,6 +210,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines ∮Bdl=μ0I, B(2πr)=μ0I, B=μ0I/(2πr), substitution→3.0mT. Tolerance .05 mT. State waypoint COUPLE.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive the Down-Conductor Field in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: ∮Bdl=μ0I
+            - text: ∮Bdl=I/μ0
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: B(2πr)=μ0I
+            - text: B(r)=μ0I
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: B=μ0I/(2πr)
+            - text: B=μ0I/(2r)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: B=(4πe-7)(30000)/(2π×2.0) T=3.0 mT
+            - text: B=(4πe-7)(30000)/(2π×2.0^2) T=1.5 mT
+              why: The field of a long straight wire decreases as 1/r, not 1/r squared.
+              survives: true
 
   # --- Stop 31: Track a Charged Particle
   #     Concept: particle motion/mass spectrometer; Keystone: K9,K8; Area: Screened Room; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L3.
@@ -111,12 +249,12 @@
   - group: SCREEN
     at: cable-bay
     title: "Track a Charged Particle"
-    concept: "particle motion/mass spectrometer"
-    reason: "separate magnetic deflection from energy deposition."
-    scene: "At the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Estimate its helical radius, period, and pitch, then record the physical justification."
-    motivation: "a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged."
+    concept: 22   # particle motion/mass spectrometer
+    reason: "The predicted magnetic field must be translated into particle motion before it is blamed for equipment damage."
+    scene: "At the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Estimate its helical radius, then use the result card to inspect period, pitch, and the physical justification."
+    motivation: "The electron's radius and helical motion characterize magnetic deflection without treating the field as a source of kinetic energy."
     format: BALLPARK
-    question: "Using the displayed electron constants, assemble r=mv⊥/(|q|B), T=2πm/(|q|B), and pitch=v∥T; submit mm, ns, mm, and whether kinetic energy changes."
+    question: "Using the displayed electron constants, assemble r=mv⊥/(|q|B), convert the result to millimetres, and submit the radius. Then state whether the magnetic field changes the electron's kinetic energy."
     answerText: "The completed check shows r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged."
     why: "a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -127,6 +265,29 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   labels [m=9.11e-31kg,vperp=2e6,vparallel=1e6,q=1.602e-19C,B=.003T], formulas [r=mvperp/(qB),T=2πm/(qB),pitch=vparallel*T], targets [.00379m,1.191e-8s,.01191m], tolerance 10%. Prompt submit radius in mm, period in ns, pitch in mm, and select "kinetic energy unchanged." Answer 3.79 mm,11.9 ns,11.9 mm; ω=qB/m.
+    estimate:
+      prompt: multiply mass by perpendicular speed, divide by charge magnitude times magnetic field, then convert metres to millimetres
+      question: electron helical radius
+      labels:
+        - 9.11e-31 kg  (Electron mass)
+        - 2000000 m/s  (Perpendicular speed)
+        - 1.602e-19 C  (Electron charge magnitude)
+        - 0.003 T  (Magnetic field)
+        - 1000000 m/s  (Parallel speed)
+      values:
+        - 9.11e-31
+        - 2000000
+        - 1.602e-19
+        - 0.003
+        - 1000000
+      slots: 1
+      template: r_mm=1000(9.11e-31)(2.0e6)/[(1.602e-19)({0})]
+      formula: r_mm=1000(9.11e-31)(2.0e6)/[(1.602e-19)(0.003)]
+      correct:
+        - 3
+      target: 3.79
+      tolerance: 0.19
+      units: mm
 
   # --- Stop 32: Diagnose Noncontact Damage
   #     Concept: field/loop hazard; Keystone: K8,K9,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4 decision.
@@ -134,10 +295,10 @@
   - group: COUPLE
     at: trailer-cards
     title: "Diagnose Noncontact Damage"
-    concept: "field/loop hazard"
-    reason: "evidence must distinguish force, induction, and direct arc."
-    scene: "The field is strong enough to reach the trailer route, but magnetic force alone does no work. Diagnose the mechanism consistent with no shell arc, cable-card damage, and opposite-polarity voltage."
-    motivation: "the pattern points toward changing magnetic flux and induced electric field, not static magnetic work."
+    concept: 24   # field/loop hazard
+    reason: "The particle check leaves the cable-card damage and reversed voltage needing a common explanation."
+    scene: "Diagnose the mechanism consistent with no shell arc, cable-card damage, and opposite-polarity voltage."
+    motivation: "The diagnosis determines whether changing magnetic flux can explain damage without a direct arc through the cabinet shell."
     format: DIAGNOSIS
     question: "Read tip, shell, card, and cabinet zones, select the one mechanism that fits all four, and submit one diagnosis."
     answerText: "The completed check shows changing-flux induction fits all four zones."
@@ -150,4 +311,28 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   readings ≥3 plus quiet shell; choices [direct_arc,static_B_work,changing_flux_induction]; answer induction.
+    readings:
+      - zone: alarm_source
+        label: alarming source zone
+        value: alarm present
+      - zone: transfer_path
+        label: possible transfer path
+        value: evidence present
+      - zone: quiet_control
+        label: quiet comparison zone
+        value: no alarm
+      - zone: protected_interior
+        label: protected interior
+        value: quiet
+    choices:
+      - Changing-flux induction
+      - Direct arc to the card
+      - Static magnetic field doing work
+      - Local power-supply surge
+    headline: Read tip, shell, card, and cabinet zones, select the one mechanism that fits all four, and submit one diagnosis.
+    answer: Changing-flux induction
+    rebuttals:
+      - The shell is quiet, so no direct arc reached the card.
+      - A static magnetic field does no work on stationary charge.
+      - The isolated supply remained quiet while the loop-linked card failed.
 

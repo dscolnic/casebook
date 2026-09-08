@@ -1,0 +1,86 @@
+STROOP EFFECT (theme: qd_stroop) — PLACES AND LOCATIONS
+Research Assistant · Reaction-Time Laboratory
+Course: Cognitive psychology — the Stroop effect, 1935. Grade 9, nine stops,
+three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_stroop npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the reaction-time laboratory, as data.
+
+One corridor, four working rooms off it, and the rooms nobody works in that
+make it a building rather than a diagram. The place has a shape the campaign
+uses: the booth and the tabulation room are down one side, the chronoscope
+bench and the distribution wall down the other, so a time measured in one room
+crosses the corridor twice before it becomes a difference anybody argues about.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The distribution wall is the deepest room on the plan. Eight hundred times
+plotted as a distribution needs wall, and a histogram in a room the size of an
+office is a graph rather than a wall of data — which is the difference the
+third level is about.
+
+`ceiling: false`. A 1935 university building has a plastered ceiling with
+pendant fittings under it and no tile grid, and the grid is the loudest
+anachronism available in a room like this.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+BOOTH — Testing Booth
+  Testing Booth   [BOOTH]  side w, z 4 … 15
+  A three-sided cubicle, a card stand, a daylight lamp, and somebody being
+  timed on the other side of it.
+  Calls: Seat the participant · Run the baselines · Run the mixed blocks ·
+  Ready to hand over
+
+TAB — Tabulation Room
+  Tabulation Room   [TAB]  side w, z 25 … 37
+  Sheets, a middle value rather than an average, and an error column nobody is
+  allowed to leave blank.
+  Calls: Check the sheets · Take the medians · Enter both columns · Ready to
+  hand over
+
+CHRON — Chronoscope Bench
+  Chronoscope Bench   [CHRON]  side e, z 5 … 17
+  An instrument that starts on a card and stops on a voice, with a delay at
+  both ends of it.
+  Calls: Calibrate · Time the block · Take the difference · Ready to hand over
+
+WALL — Distribution Wall
+  Distribution Wall   [WALL]  side e, z 19 … 33
+  Eight hundred times pinned up as two piles, and four accounts of the effect
+  that all fit them.
+  Calls: Pin the times · Read the shape · Say what it does not show · Ready to
+  hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Entrance Desk   [PORCH]  side w, z -4 … 2, OPEN
+Common Room   [TEA]  side w, z 17 … 23, OPEN
+Card Store   [RACK]  side w, z 37 … 43
+Dark Adaptation Room   [DARK]  side e, z -4 … 3
+Reading Room   [LIB]  side e, z 35 … 43
+
+Metrics   corridorHalfWidth 1.85, roomDepth 8, ceilingH 3.7
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_stroop/ — site/plan, fixtures, minors, groups, theme.

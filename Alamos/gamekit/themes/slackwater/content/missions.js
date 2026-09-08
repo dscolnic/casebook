@@ -27,6 +27,7 @@ export const MISSIONS = [
         "group": "TRACK",
         "lesson": 0,
         "task": "Separate what float 7 records from what must be calculated",
+        "person": true,
         "reason": "The station keeps talking about the float's speed, but the instrument itself never measures speed"
       }
     ]
@@ -55,6 +56,7 @@ export const MISSIONS = [
         "group": "PRED",
         "lesson": 1,
         "task": "Match each way of stopping a sum to what it leaves you holding.",
+        "person": true,
         "reason": "Only eight of thirty-seven fitted tidal waves go into the daily forecast, so the omitted part has to be named before it can be bounded"
       }
     ]
@@ -83,6 +85,7 @@ export const MISSIONS = [
         "group": "SLUICE",
         "lesson": 1,
         "task": "Identify what a half-hour instruction assumes about a changing flow",
+        "person": true,
         "reason": "A gate instruction based on the flow at 14:00 may already be wrong before the next row is used"
       }
     ]
@@ -111,6 +114,7 @@ export const MISSIONS = [
         "group": "ROSE",
         "lesson": 1,
         "task": "Find out how the current meter compresses many samples into one report",
+        "person": true,
         "reason": "A number written every ten minutes is not automatically an instantaneous measurement"
       }
     ]
@@ -139,6 +143,7 @@ export const MISSIONS = [
         "group": "WALL",
         "lesson": 0,
         "task": "Explain the twenty-minute delay at the wall head",
+        "person": true,
         "reason": "A delayed peak at the far wall means local water motion is doing something the simple tide-at-the-gates picture does not capture"
       }
     ]
@@ -167,6 +172,7 @@ export const MISSIONS = [
         "group": "TRACK",
         "lesson": 3,
         "task": "State exactly what one drifting-float track is evidence for",
+        "person": true,
         "reason": "A single clean measurement can still become a bad model if it is generalized beyond the tide and place it sampled"
       }
     ]
@@ -195,6 +201,7 @@ export const MISSIONS = [
         "group": "FLATS",
         "lesson": 2,
         "task": "Match each observation to the explanation that accounts for it.",
+        "person": true,
         "reason": "Removing the same fraction each tide is exponential decay, not subtracting the same amount three times"
       }
     ]
@@ -223,6 +230,7 @@ export const MISSIONS = [
         "group": "WALL",
         "lesson": 2,
         "task": "Use an integral bound on the armour units that were not surveyed",
+        "person": true,
         "reason": "The storm arrives before every block can be inspected, so the remaining contribution needs a defensible worst-case ceiling"
       }
     ]
@@ -251,6 +259,7 @@ export const MISSIONS = [
         "group": "SLUICE",
         "lesson": 4,
         "task": "Order the four steps by what each one commits you to.",
+        "person": true,
         "reason": "Once a flood warning reaches farmers and gate crews, the decision cannot simply be taken back like a calculation on a board"
       }
     ]
@@ -279,6 +288,7 @@ export const MISSIONS = [
         "group": "ROSE",
         "lesson": 4,
         "task": "Turn the derivative of the velocity vector into acceleration",
+        "person": true,
         "reason": "The gate and mooring loads depend on turning and speeding up, not only on the water's instantaneous speed"
       }
     ]
@@ -307,6 +317,7 @@ export const MISSIONS = [
         "group": "PRED",
         "lesson": 8,
         "task": "Use the alternating-series error to bound the unfinished refinement",
+        "person": true,
         "reason": "The final forecast cannot be delayed forever for corrections that are already smaller than the operational decision can use"
       }
     ]
@@ -334,6 +345,7 @@ export const MISSIONS = [
         "group": "SLUICE",
         "lesson": 7,
         "task": "Which operational gate order should you sign?",
+        "person": true,
         "reason": "The mathematics is finished only when the gate crew knows what to do with it at the storm tide"
       }
     ]

@@ -1,0 +1,153 @@
+AFTERSHOCK (theme: aftershock) — PLACES AND LOCATIONS
+Building Safety Coordinator · Kestrel Bay
+Course: Seismology and structural engineering
+Grade 12. One mission is called a Day.
+Delivery: The Placard Register — the board is in SAFE. 15 pieces, one a day.
+
+Run it:  cd gamekit && THEME=aftershock npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Kestrel Bay, three days after, as data.
+
+`engine/world/outdoorTown.js` builds everything below; nothing here is
+geometry. What makes this place unlike the other eight is that it is *two*
+places, and the earthquake treated them differently:
+
+  Upper Town stands on a granite bench at the foot of the range. Short, hard
+  shaking. Masonry parapets in the street, chimneys down, timber houses shoved
+  off their foundations — and almost everything still standing.
+
+  The Flats are hydraulic fill over delta mud, dredged and pumped in eighty
+  years ago to make a port. Long, slow shaking that the soft ground amplified,
+  and then the ground itself liquefied. Sand fans in the streets, a wharf that
+  walked seaward, a six-storey block sitting over at eight degrees on a raft
+  that is perfectly intact.
+
+Between them runs the Kestrel Fault, and it broke the surface. The scarp
+crosses the map on a diagonal, and the player walks it: a 1.8 m step in the
+ground with a road, a kerb line and a fence offset across it.
+
+That geography is the course. Same magnitude, same distance from the source,
+two different disasters — which is site effect, and it is the single idea a
+student takes out of this subject. The map argues it before any card does.
+
+Looking down, -Z is north, up toward the range and the fault:
+
+       ▲▲▲  the range front, and the fault at its foot     z = -230
+       [ Seismic Network — the vault on rock ]             z = -150
+  ╲ ╲ ╲  the surface rupture, crossing on a diagonal  ╲ ╲ ╲
+       [ Structural Assessment ]  [ Geotechnical ]         z =  -70
+                UPPER TOWN, on the bench                   z =  -40
+  ═══════════════ the scarp, and the step down ═══════════════  z = -20
+                THE FLATS, on fill                         z =   30
+       [ Incident Base — the hub ]                         z =  30
+                    ¤ spawn ¤                              z =  56
+       [ Materials & Testing ]  [ Hazard & Forecasting ]   z =  90
+       [ Public Safety ]        the port, the wharf        z = 150
+
+Load-bearing rather than decorative:
+
+  · The spawn at (0, 56) is in the middle of the base-camp car park with ten
+    clear metres round it. A prop over the spawn welds the player in place.
+  · Every `group` is a group id in content/groups.js. A group with no building
+    is a call nobody can reach and only `worldParity` notices.
+  · The scarp is a *terrain* feature, not a prop, so `groundHeight` knows about
+    it — one source of truth for the ground, which this repo has shipped broken
+    twice. It comes from the `range` profile: high to the north, low to the
+    south, with the break between them.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+HAZ — Hazard & Forecasting
+  Incident Base  ·  Where the day is argued
+  (-40, 34)   46 m from spawn   32 x 17 x 7.8
+  What might still happen, expressed as a number somebody can act on.
+  Calls: Read the sequence · Fit the rate · State the uncertainty · Ready to
+  hand over
+
+SAFE — Public Safety
+  Public Safety  ·  Cordons, and who is told what
+  (46, 92)   58 m from spawn   22 x 14 x 6.4
+  DELIVERY ROOM — the board for The Placard Register is here.
+  Cordons, notices and the cost of keeping people out of their own houses.
+  Calls: Set the cordon · Tell people why · Weigh the cost · Ready to hand
+  over
+
+MAT — Materials & Testing
+  Materials & Testing  ·  Cores, coupons and the press
+  (-50, 90)   60 m from spawn   24 x 15 x 6.8
+  What the concrete, the brick and the steel can still carry.
+  Calls: Take the sample · Test it · Compare with design · Ready to hand over
+
+GEO — Geotechnical
+  Geotechnical  ·  What the ground did
+  (44, -70)   133 m from spawn   22 x 14 x 6.6
+  The ground under the town, and why it behaved in two different ways.
+  Calls: Log the ground · Test the fill · Bound the movement · Ready to hand
+  over
+
+STRUCT — Structural Assessment
+  Structural Assessment  ·  Placards and the queue for them
+  (-52, -70)   136 m from spawn   26 x 15 x 7.4
+  Whether a building is safe to enter, and what that placard is worth.
+  Calls: Walk the building · Find the load path · Rate the damage · Ready to
+  hand over
+
+SEIS — Seismic Network
+  Seismic Network  ·  The vault, on bedrock
+  (-26, -150)   208 m from spawn   18 x 13 x 5.4
+  What the ground actually did, and which instrument is entitled to say so.
+  Calls: Read the records · Locate the source · Check the instruments · Ready
+  to hand over
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Kestrel Bay Hospital  ·  "Yellow placard, and 90 beds inside"
+  (-6, -18)   74 m   40 x 20 x 13.5
+Bay Road School  ·  "Green placard, and nobody has looked at the gym"
+  (74, 34)   77 m   26 x 14 x 6.2
+Post Office Clock  ·  "The top third is in the yard, and the clock stopped at 04:12"
+  (-30, -104)   163 m   12 x 12 x 15
+Parade Buildings  ·  "Unreinforced masonry, parapets in the street"
+  (-74, -34)   117 m   30 x 12 x 8.4
+Port Gate  ·  "The wharf moved two metres seaward"
+  (8, 160)   104 m   18 x 12 x 5.8
+Placard Board
+  (-22, 46)
+Spawn
+  (0, 56)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 800, playerLimit 108, profile 'range'
+Water     centre (0, 300), 900 x 200, level -2.4
+
+==============================================================================
+THE DELIVERY — The Placard Register
+==============================================================================
+   1. The two-town shaking comparison
+   2. The revised magnitude note
+   3. The placard's own wording
+   4. The Marina Court ground diagnosis
+   5. The overlooked school entry
+   6. The hospital decision
+   7. The aftershock forecast range
+   8. The tested material strength
+   9. The cordon review
+  10. The resident's photograph, filed
+  11. The parapet load-path finding
+  12. The corrected reference finding
+  13. The ranked response order
+  14. The rebuilding ground clause
+  15. The signed Placard Register
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/aftershock/ — site/plan, fixtures, minors, groups, theme.

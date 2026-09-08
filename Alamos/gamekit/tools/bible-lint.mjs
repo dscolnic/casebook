@@ -154,6 +154,21 @@ const warn = (where, what) => findings.push({ level: 'warn', where, what });
 const sentences = (s) => clean(s).split(/(?<=[.!?])\s+(?=[A-Z"“(])/).filter(x => x.trim());
 
 const bible = readBible(file);
+
+/**
+ * Every story-science connection in the campaign, by text.
+ *
+ * Built once and up front, because the rule is about the CAMPAIGN — one sentence
+ * on forty stops — and a per-stop check cannot see that.
+ */
+const CONNECTIONS = new Map();
+for(const m of bible.missions){
+  for(const s of m.stops ?? []){
+    if(!s.connect) continue;
+    const k = clean(s.connect);
+    CONNECTIONS.set(k, [...(CONNECTIONS.get(k) ?? []), `${m.n}.${s.n}`]);
+  }
+}
 const missions = only ? bible.missions.filter(m => m.n === only) : bible.missions;
 
 // ------------------------------------------------------------------ opening
@@ -245,9 +260,21 @@ for(const m of missions){
   if(!m.equations.length && m.n === 1) warn(M, 'no equations first needed today');
   for(const e of m.equations){
     for(const [k, label] of [['e', 'its equation'], ['c', 'its What-it-is-for line'],
-      ['v', 'its Symbols line, which has to name every letter'],
       ['s', 'its Why-this-campaign-needs-it line']])
       if(!e[k]) fail(`${M} equation ${(e.e ?? '?').slice(0, 40)}`, `the equation block is missing ${label}`);
+    // TWO DEFECTS, NOT ONE. A block with no Symbols line at all cannot name its
+    // letters; a block whose Symbols line is prose — "standard", or a sentence
+    // about what the energy does — has one and still names none. The first is a
+    // hole in the bible and the second is a line to rewrite, and reporting both
+    // as "missing its Symbols line" said the wrong thing about sixty equations
+    // that had written one.
+    const where = `${M} equation ${(e.e ?? '?').slice(0, 40)}`;
+    if(!e.vSaid && !e.v?.length){
+      fail(where, 'the equation block is missing its Symbols line, which has to name every letter');
+    } else if(!e.v?.length){
+      fail(where, `its Symbols line names no symbol — "${String(e.vSaid).slice(0, 60)}". `
+        + 'The shapes that read are `x` position, `t` time / x is the position / depth in metres');
+    }
   }
   for(const g of m.glossary){
     if(!/[.!?]$/.test(g.def)) warn(`${M} glossary "${g.term}"`, 'the definition is not a full sentence');
@@ -351,6 +378,29 @@ for(const m of missions){
       fail(S, 'Why and Wrong-path feedback are the same text — the rebuttals have to name what each wrong option got wrong');
     if(same(s.answerText, s.result))
       warn(S, 'Answer text repeats Correct result — the grading truth is a value, the answer text is the sentence the verdict card prints');
+
+    /**
+     * THE FOUR LINES HAVE FOUR JOBS — see BIBLE_AUTHORING_PROMPT.md.
+     *
+     * Warnings rather than refusals, because both fire on nearly every stop in
+     * every bible today and a wall of red is a gate nobody reads. They are here so
+     * the number can be watched down.
+     *
+     *   · the reason repeating the setup's own first sentence: 314 of 480
+     *   · the connection written once per FORMAT and pasted onto every stop of
+     *     that format: 470 of 480, 27 sentences doing the whole set's work
+     */
+    const first = (t) => sentences(t)[0] ?? '';
+    if(s.reason && s.setup && same(first(s.reason), first(s.setup))){
+      warn(S, 'the stop reason opens with the setup\'s own first sentence — the reason is'
+        + ' why this task NOW, and the setup is the situation; the card prints them together'
+        + ' and drops the repeat');
+    }
+    if(s.connect && CONNECTIONS.get(clean(s.connect))?.length > 1){
+      const n = CONNECTIONS.get(clean(s.connect)).length;
+      warn(S, `the story-science connection is on ${n} stops of this campaign — it says what`
+        + ' this FORMAT does, not what THIS answer settles');
+    }
 
     if(s.format === 'CHOICE'){
       const c = s.choices ?? [];

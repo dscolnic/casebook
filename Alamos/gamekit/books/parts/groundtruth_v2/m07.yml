@@ -6,10 +6,10 @@
     header: "9 DAYS;"
     title: "Four Screens, One Wire"
     goNow: "Field Station, Noor Haddad at mill array."
-    body: "The reduced shot stayed within the energy limit, yet all four field mills jumped by the same amount at the same microsecond. Agreement can be false when channels share a return path. You will derive circuit constraints, trace dependencies, and compare an independent sensor. By the end of the mission, decide whether the mill agreement can remain evidence in the report."
+    body: "All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust."
     objective: "Test whether the four mill channels are independent."
   objective: "Test whether the four mill channels are independent."
-  stake: "The reduced shot stayed within the energy limit, yet all four field mills jumped by the same amount at the same microsecond. Agreement can be false when channels share a return path. You will derive circuit constraints, trace dependencies, and compare an independent sensor. By the end of the mission, decide whether the mill agreement can remain evidence in the report."
+  stake: "All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust."
   takeaway: "Remove the four-mill agreement as independent evidence. ---"
   segue: "Mission decision: The mills share one ground reference. The battery logger is separate. Isolating channel C removes the jump. The archive now points to the buried loop."
 
@@ -20,10 +20,10 @@
   - id: on-arrival-at-field-station
     # On arrival at Field Station | mill-array | automatic
     on: { enter: true, at: FIELD }
-    world: "accepted FIELD/bubble/four traces aligned/→S1; S1 correct/waypoint/trace dependency lights to SHOT/ALL FOUR MILLS → SHOT GROUND REFERENCE→travel; enter SHOT/bubble/hidden branch icon/The trunk is short by 3.0 mA.→S2; S3 correct/panel/jump disappears then returns/ISOLATE: 0.03; RESTORE: 0.80 kV/m→S4; S4 correct/world/report pieces 1-3 marked SHARED REFERENCE—NOT INDEPENDENT/Evidence removed; layer model retained.→outcome."
+    world: "accepted FIELD/bubble/four traces aligned/→S1; S1 correct/waypoint/trace dependency lights to SHOT/ALL FOUR MILLS → SHOT GROUND REFERENCE→travel; enter SHOT/bubble/hidden branch icon/The trunk is short by 3.0 mA.→S2; S3 correct/panel/jump disappears then returns/ISOLATE: 0.03; RESTORE: 0.80 kV/m→S4; S4 correct/world/report pieces 1-3 marked SHARED REFERENCE - NOT INDEPENDENT/Evidence removed; layer model retained.→outcome."
     panel: "Noor Haddad, data and safety analyst: \"Independent of what?\""
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "Independent of what?"
   - id: after-stop-25
     # After Stop 25 | radar-desk | automatic
@@ -31,32 +31,108 @@
     world: "The trace the shared reference result remains visible while the derive the missing branch current fixture lights."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 25 result to settle derive the missing branch current."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 25 result to settle derive the missing branch current."
   - id: after-stop-26
     # After Stop 26 | radar-desk | automatic
     on: { after: [2] }
     world: "The derive the missing branch current result remains visible while the isolate reference c fixture lights."
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 26 result to settle isolate reference c."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 26 result to settle isolate reference c."
   - id: after-stop-27
     # After Stop 27 | record-desk | automatic
     on: { after: [3] }
     world: "The isolate reference c result remains visible while the quantify common-mode error fixture lights."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 27 result to settle quantify common-mode error."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 27 result to settle quantify common-mode error."
   - id: at-mission-end
     # At mission end | mill-array | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 7 EVIDENCE: RECORDED"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Current", def: "rate of charge flow."}
+  - {name: "Node", def: "connection shared by circuit branches."}
+  - {name: "Reference", def: "voltage point against which a channel is measured."}
+  - {name: "Ohm's law", def: "the voltage across a resistor equals current times resistance, V=IR."}
+  - {name: "Kirchhoff's rules", def: "current is conserved at a node, and voltage changes sum to zero around a closed loop."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Four Screens, One Wire. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to Four Screens, One Wire, at Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Which prediction or calculation correctly applies Current to this case?"
+      hint: "Use the stated evidence and the conditions for Current; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Common upstream hardware makes correlated readings less independent than their number suggests.", why: "This describes dependencies, not Current. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.", why: "Correct. rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured."}
+      - {key: "C", text: "Kirchhoff's junction rule exposes current on an undocumented path.", why: "This describes junction rule, not Current. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Disappearance and return of the jump establishes that the reference path causes it.", why: "This describes causal reference test, not Current. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to Four Screens, One Wire: the four mills agree to the microsecond, while a battery logger does not jump. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which prediction or calculation correctly applies dependencies to this case?"
+      hint: "Use the stated evidence and the conditions for dependencies; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.", why: "This describes Current, not dependencies. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Kirchhoff's junction rule exposes current on an undocumented path.", why: "This describes junction rule, not dependencies. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Common upstream hardware makes correlated readings less independent than their number suggests.", why: "Correct. common upstream hardware makes correlated readings less independent than their number suggests."}
+      - {key: "D", text: "Disappearance and return of the jump establishes that the reference path causes it.", why: "This describes causal reference test, not dependencies. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks Four Screens, One Wire using new evidence: at Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Which prediction or calculation correctly applies junction rule to this case?"
+      hint: "Use the stated evidence and the conditions for junction rule; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.", why: "This describes Current, not junction rule. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Common upstream hardware makes correlated readings less independent than their number suggests.", why: "This describes dependencies, not junction rule. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Disappearance and return of the jump establishes that the reference path causes it.", why: "This describes causal reference test, not junction rule. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Kirchhoff's junction rule exposes current on an undocumented path.", why: "Correct. kirchhoff's junction rule exposes current on an undocumented path."}
+    - prompt: "An unseen case extends Four Screens, One Wire: because 3.0 mA leaves by an undocumented branch, switch only channel C to an isolated reference, then restore it. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which statistical conclusion or procedure correctly uses causal reference test?"
+      hint: "Use the stated evidence and the conditions for causal reference test; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Disappearance and return of the jump establishes that the reference path causes it.", why: "Correct. disappearance and return of the jump establishes that the reference path causes it."}
+      - {key: "B", text: "Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.", why: "This describes Current, not causal reference test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Common upstream hardware makes correlated readings less independent than their number suggests.", why: "This describes dependencies, not causal reference test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Kirchhoff's junction rule exposes current on an undocumented path.", why: "This describes junction rule, not causal reference test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Four Screens, One Wire decision, the team knows this: the reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Which statistical conclusion or procedure correctly uses Ohm drop and Joule power?"
+      hint: "Use the stated evidence and the conditions for Ohm drop and Joule power; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.", why: "This describes Current, not Ohm drop and Joule power. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "A shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale.", why: "Correct. a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale."}
+      - {key: "C", text: "Common upstream hardware makes correlated readings less independent than their number suggests.", why: "This describes dependencies, not Ohm drop and Joule power. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Kirchhoff's junction rule exposes current on an undocumented path.", why: "This describes junction rule, not Ohm drop and Joule power. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from Four Screens, One Wire to this follow-up: the four mills agree to the microsecond, while a battery logger does not jump. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.", why: "This describes Current, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Common upstream hardware makes correlated readings less independent than their number suggests.", why: "This describes dependencies, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Kirchhoff's junction rule exposes current on an undocumented path.", why: "This describes junction rule, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"I=dQ/dt, Ohm's law V=I R, and R=ρ L/A","c":"current/resistance","v":[["I","current in amperes"],["Q","charge in coulombs"],["t","time in seconds"],["V","potential difference in volts"],["R","resistance in ohms"],["ρ","resistivity in ohm-metres"],["L","conductor length in metres"],["A","cross-sectional area in square metres"]],"s":"trace return path."}
+  - {"e":"Kirchhoff's rules, ΣI_in=ΣI_out and Σε-Σ(I R)=0","c":"Kirchhoff node/loop rules","v":[["I_in","current entering a node"],["I_out","current leaving it"],["Σ","means sum"],["ε","a source voltage"],["I R","a resistor's voltage drop"]],"s":"expose impossible shared-current readings."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 7: worked examples"
+    examples:
+    - {"title":"Ohm's law","problem":"A 6 V supply is across a 3 Ω resistor. Find current.","rule":"For an ohmic resistor, I=V/R.","steps":["Set up the relationship: For an ohmic resistor, I=V/R.","I=6/3=2 A."],"answer":"Current is 2 amperes.","mistake":"Current is not voltage times resistance."}
+    - {"title":"A missing branch current","problem":"A node receives 8 mA and sends 3 mA through one branch. Find the other outgoing current in steady state.","rule":"Charge conservation requires total incoming current equal total outgoing current.","steps":["Set up the relationship: Charge conservation requires total incoming current equal total outgoing current.","8=3+I, so I=5 mA outward."],"answer":"The missing outgoing current is 5 mA.","mistake":"Do not add incoming and outgoing magnitudes as if they point the same way."}
+    - {"title":"Series resistors","problem":"A 10 V source drives series resistors of 2 Ω and 3 Ω. Find current and the drop across 3 Ω.","rule":"Series resistance adds; each series element carries the same current.","steps":["Set up the relationship: Series resistance adds; each series element carries the same current.","R_total=2+3=5 Ω; I=10/5=2 A; V_3Ω=2(3)=6 V."],"answer":"Current is 2 A and the 3 Ω voltage drop is 6 V.","mistake":"The source voltage is shared, not applied in full across each series resistor."}
+    - {"title":"Count independent evidence sources","problem":"Three reports copy one balance reading. A fourth report uses a separately calibrated balance. How many measurement sources are there?","rule":"Reports are not independent measurements when they copy a common source.","steps":["source group 1 = the first balance and its three copies. Count that measurement once.","source group 2 = the second balance. It adds a separate measurement route."],"answer":"There are two measurement sources, not four.","mistake":"Agreement among copies cannot establish independent confirmation."}
+    - {"title":"Correct a known offset","problem":"A balance reads 52 g for a certified 50 g mass and 32 g for a second object. Assume a constant additive offset. Find the corrected second mass.","rule":"Offset = reading - reference; corrected value = reading - offset.","steps":["offset = 52 - 50 = +2 g. The balance reads high.","corrected mass = 32 - 2 = 30 g. Subtract the same offset."],"answer":"The corrected mass is 30 g.","mistake":"An additive offset is not a percentage error."}
 
   stops:
   # --- Stop 25: Trace the Shared Reference
@@ -65,10 +141,10 @@
   - group: COUPLE
     at: mill-array
     title: "Trace the Shared Reference"
-    concept: "dependencies"
-    reason: "identical jumps may share infrastructure."
-    scene: "The four mills agree to the microsecond, while a battery logger does not jump. Open every channel's power, clock, and reference dependencies to find what the agreeing screens share.\", and record the result with its physical justification in the station report."
-    motivation: "common upstream hardware makes correlated readings less independent than their number suggests."
+    concept: 30   # dependencies
+    reason: "The battery logger's quiet trace challenges the apparent agreement among the four field mills."
+    scene: "The four mills agree to the microsecond, while a battery logger does not jump. Open every channel's power, clock, and reference dependencies to find what the agreeing screens share."
+    motivation: "The dependency map reveals whether four matching traces are independent evidence or copies of one disturbed reference."
     format: TRACE
     question: "Open the power, clock, and reference dependencies for all five channels, name the shared upstream resource, and submit whether the four mills are independent."
     answerText: "The completed check shows all four mills share SHOT ground; they are not independent."
@@ -81,6 +157,41 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trace:{channels:[{id:"mill_A",label:"mill A",dependency:"SHOT ground reference",target_dependent:true},{id:"mill_B",label:"mill B",dependency:"SHOT ground reference",target_dependent:true},{id:"mill_C",label:"mill C",dependency:"SHOT ground reference",target_dependent:true},{id:"mill_D",label:"mill D",dependency:"SHOT ground reference",target_dependent:true},{id:"battery",label:"battery logger",dependency:"isolated battery reference",independent:true}],shared_upstream:"SHOT ground reference",correct_conclusion:"the agreeing mills share a reference; the battery logger is independent",answerText:"Four agreeing mill channels are not independent because they share SHOT ground; the isolated battery logger breaks the pattern."}
+    trace:
+      channels:
+        - id: mill_a
+          label: Field mill A
+          reading: +5.0 kV/m
+          depends:
+            - shot_ground
+        - id: mill_b
+          label: Field mill B
+          reading: +5.1 kV/m
+          depends:
+            - shot_ground
+        - id: mill_c
+          label: Field mill C
+          reading: +5.0 kV/m
+          depends:
+            - shot_ground
+        - id: mill_d
+          label: Field mill D
+          reading: +5.1 kV/m
+          depends:
+            - shot_ground
+        - id: battery
+          label: Isolated battery logger
+          reading: +3.2 kV/m
+          depends:
+            - isolated_battery_reference
+      resources:
+        - id: shot_ground
+          label: shot_ground
+        - id: isolated_battery_reference
+          label: isolated_battery_reference
+      independent:
+        - battery
+      target: shot_ground
 
   # --- Stop 26: Derive the Missing Branch Current
   #     Concept: junction rule; Keystone: K7; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: INTRODUCE L3.
@@ -88,12 +199,12 @@
   - group: COUPLE
     at: radar-desk
     title: "Derive the Missing Branch Current"
-    concept: "junction rule"
-    reason: "trace result must be checked against charge conservation."
-    scene: "At Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Derive the missing branch current and its direction.\", and record the result with its physical justification in the station report."
-    motivation: "Kirchhoff's junction rule exposes current on an undocumented path."
+    concept: 17   # junction rule
+    reason: "The shared-reference finding requires the crew to account for current leaving the channel-return node."
+    scene: "At Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Derive the missing branch current and its direction."
+    motivation: "The missing branch current quantifies the undocumented return path that the isolation test must investigate."
     format: DERIVE
-    question: "Build three Kirchhoff-junction lines, name charge conservation and algebra where used, and submit the missing current in mA with its direction."
+    question: "Submit the missing current in mA with its direction."
     answerText: "The completed check shows missing current is 3.0 mA outward. KCL conserves charge."
     why: "Kirchhoff's junction rule exposes current on an undocumented path."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -104,6 +215,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines ΣIin=ΣIout(charge conservation), 8.0=5.0+Ix(substitute), Ix=3.0mA outward(solve). Prompt submit mA/direction.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive the Missing Branch Current in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: ΣIin=ΣIout
+            - text: ΣI_in+ΣI_out=0 using unsigned current magnitudes
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: 8.0=5.0+Ix
+            - text: 8.0+5.0=I_x
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Ix=3.0mA outward
+            - text: I_x=13.0 mA outward
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 27: Isolate Reference C
   #     Concept: causal reference test; Keystone: K7,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4 reversal.
@@ -111,10 +247,10 @@
   - group: COUPLE
     at: radar-desk
     title: "Isolate Reference C"
-    concept: "causal reference test"
-    reason: "shared topology suggests correlation, but controlled reversal must establish cause."
-    scene: "Because 3.0 mA leaves by an undocumented branch, switch only channel C to an isolated reference, then restore it. Keep field source, gain, clock, and sampling fixed.\", and record the result with its physical justification in the station report."
-    motivation: "disappearance and return of the jump establishes that the reference path causes it."
+    concept: 30   # causal reference test
+    reason: "The current balance points to a hidden return path, but its effect on channel C remains untested."
+    scene: "Because 3.0 mA leaves by an undocumented branch, switch only channel C to an isolated reference, then restore it. Keep field source, gain, clock, and sampling fixed."
+    motivation: "A reversible change in channel C's jump tests whether the shared reference causes the apparent field signal."
     format: CONTROL
     question: "Change only channel C's reference, keep field source, gain, clock, and sampling fixed, measure the jump before, during, and after isolation, restore the original reference, and submit one causal conclusion."
     answerText: "The completed check shows isolation removes and restoration returns the jump. That reversal establishes reference causation."
@@ -155,12 +291,12 @@
   - group: COUPLE
     at: record-desk
     title: "Quantify Common-Mode Error"
-    concept: "Ohm drop and Joule power"
-    reason: "the report needs the size and heating cost of reference error."
-    scene: "The reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Estimate the recorded voltage and instantaneous lead power, and the team needs this result before it acts."
-    motivation: "a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale."
+    concept: 16   # Ohm drop and Joule power
+    reason: "The isolation reversal identifies a cause whose size must now be checked against the recorded voltage."
+    scene: "The reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Estimate the recorded voltage and instantaneous lead power."
+    motivation: "The shared-lead voltage drop and power establish whether the return current can account for the observed common-mode error."
     format: BALLPARK
-    question: "Using I=3.0 mA, R=120 Ω, and V_true=-4.2 V, assemble IR, V_true+IR, and I²R; submit voltage drop, recorded voltage, and lead power with units."
+    question: "Using I=3.0 mA, R=120 Ω, and V_true=-4.2 V, assemble V_recorded=V_true+IR and submit the recorded voltage in volts. The result card will also show the voltage drop and lead power from the same values."
     answerText: "Vdrop=(.003)(120)=.360 V; Vrecord=-4.2+.360=-3.840 V; P=(.003)²(120)=1.08 mW."
     why: "a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -171,4 +307,25 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   estimate={labels:[I,R,Vtrue],values:[.003,120,-4.2],slots:[Vdrop,Vrecord,P],template:[IR,Vtrue+IR,I²R],formula:[.360,-3.840,.00108],correct:[.360,-3.840,.00108],target:[V,V,W],tolerance:[.005,.005,.00005]}.
+    estimate:
+      prompt: convert milliamperes to amperes, multiply current by resistance, then add that drop to the true voltage
+      question: recorded sensor voltage after shared-lead drop
+      labels:
+        - 3 mA  (Transient current)
+        - 120 ohm  (Shared-lead resistance)
+        - "-4.2 V  (True sensor voltage)"
+      values:
+        - 3
+        - 120
+        - -4.2
+      slots: 3
+      template: V_recorded={0}+({1}/1000)({2})
+      formula: V_recorded=-4.2+(3.0/1000)(120)
+      correct:
+        - 2
+        - 0
+        - 1
+      target: -3.84
+      tolerance: 0.005
+      units: V
 

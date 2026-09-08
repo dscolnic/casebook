@@ -6,13 +6,23 @@
     header: "DAY 4 - BOARD IN 12 DAYS"
     title: "The Opened Envelope"
     goNow: "Go to Statistics & Analysis and meet Tomas Reed, trial statistician, at the interim-analysis board."
-    body: "The targeted pause is justified, but an analysis folder was opened before the registered review. Repeated early looks increase the chance of acting on random noise. At the analysis board, model event counts, combine uncertainty, and set error rules. By the end of the mission, decide how the unplanned look must change later inference."
+    body: "Someone examined treatment results before the scheduled review. Checking repeatedly can make an ordinary chance result look like a discovery. Calculate how the early look changes the risk of a false conclusion, then set rules for judging the later results fairly."
     objective: "Account for the unplanned interim analysis."
   objective: "Account for the unplanned interim analysis."
-  stake: "The targeted pause is justified, but an analysis folder was opened before the registered review. Repeated early looks increase the chance of acting on random noise. At the analysis board, model event counts, combine uncertainty, and set error rules. By the end of the mission, decide how the unplanned look must change later inference."
+  stake: "Someone examined treatment results before the scheduled review. Checking repeatedly can make an ordinary chance result look like a discovery. Calculate how the early look changes the risk of a false conclusion, then set rules for judging the later results fairly."
   takeaway: "At least one equals one minus none."
   segue: "Mission decision: Count the unplanned look. And use the stricter prewritten threshold for later tests. The opened analysis changed the false-alarm risk. Its p-value does not cross the new line. The analyst who opened it worked with data from the fastest hospital."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Random variable", def: "a numerical outcome determined by chance."}
+  - {name: "Expected value", def: "the long-run average value of a random variable."}
+  - {name: "Null hypothesis (H0)", def: "the benchmark claim tested."}
+  - {name: "Type I error", def: "rejecting a true H0."}
+  - {name: "Type II error", def: "failing to reject a false H0."}
+  - {name: "Power", def: "the probability that a test rejects a false H0."}
+  equations:
+  - {"e":"E(X)=sum[xP(x)]","c":"Finding a random variable's long-run mean.","v":[["x","a possible value"],["P(x)","its probability"]],"s":"The board must forecast event workload."}
+  - {"e":"Var(X plus or minus Y)=Var(X)+Var(Y), for independent X and Y","c":"Combining independent uncertainty.","v":[["Var","variance"],["X and Y","random variables"]],"s":"Two site streams feed one safety total."}
   primer:
   - "Means of sums or differences add or subtract."
   - "Variances add for independent random variables, even for a difference."
@@ -25,7 +35,7 @@
   - id: on-arrival-at-statistics-analysis
     # On arrival at Statistics & Analysis | analysis-board | automatic
     on: { enter: true, at: STAT }
-    world: "Arrival: trigger STAT entry; nearby bubble; folder timestamp visible; Tomas says, ; - After S1-S2: correct commits; equipment update; workload reads 0.35 and total SD 5; player control restored; - After S3: simulation complete; persistent counter shows 55.8% AT LEAST ONE; - Final: threshold committed; report stamped DISCLOSED; binder 4 fills; outcome and screen unlock."
+    world: "Arrival: trigger STAT entry; nearby bubble; folder timestamp visible; Tomas says,; - After S1-S2: correct commits; equipment update; workload reads 0.35 and total SD 5; player control restored; - After S3: simulation complete; persistent counter shows 55.8% AT LEAST ONE; - Final: threshold committed; report stamped DISCLOSED; binder 4 fills; outcome and screen unlock."
     panel: "MISSION 4: EXPECTED REPORTS OPEN"
     bubbles:
     - who: reed   # Tomas Reed
@@ -37,7 +47,7 @@
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Use the Stop 13 result to settle combine two streams."
+      say: "Nice work. Use the Stop 13 result to settle combine two streams."
   - id: after-stop-14
     # After Stop 14 | simulation-console | automatic
     on: { after: [2] }
@@ -45,7 +55,7 @@
     panel: "STOP 14 RECORDED - STOP 15 OPEN"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Use the Stop 14 result to settle at least one event."
+      say: "Good thinking. Use the Stop 14 result to settle at least one event."
   - id: after-stop-15
     # After Stop 15 | uncertainty-console | automatic
     on: { after: [3] }
@@ -53,7 +63,7 @@
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Use the Stop 15 result to settle price the errors."
+      say: "Exactly right. Use the Stop 15 result to settle price the errors."
   - id: at-mission-end
     # At mission end | analysis-board | automatic
     on: { missionEnd: true }
@@ -61,9 +71,74 @@
     panel: "MISSION 4 EVIDENCE: RECORDED"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "The mission decision is recorded. Carry it into the next briefing."
-    - who: ii   # II
-      say: "continue a harmful trial"
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Opened Envelope. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Opened Envelope, a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which statistical conclusion or procedure correctly uses Random variable?"
+      hint: "Use the stated evidence and the conditions for Random variable; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Expected workload controls whether delayed review could create a safety blind spot.", why: "This describes expected value, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.", why: "Correct. a numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis."}
+      - {key: "C", text: "Understating spread could leave serious reports waiting beyond the review limit.", why: "This describes independent sums of RVs and linear transforms, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "The result prevents one event from being treated as impossible while the audit is open.", why: "This describes binomial complement, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to The Opened Envelope: a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which option correctly applies expected value to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for expected value; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.", why: "This describes Random variable, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Understating spread could leave serious reports waiting beyond the review limit.", why: "This describes independent sums of RVs and linear transforms, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Expected workload controls whether delayed review could create a safety blind spot.", why: "Correct. expected workload controls whether delayed review could create a safety blind spot."}
+      - {key: "D", text: "The result prevents one event from being treated as impossible while the audit is open.", why: "This describes binomial complement, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks The Opened Envelope using new evidence: region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Which option correctly applies independent sums of RVs and linear transforms to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for independent sums of RVs and linear transforms; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.", why: "This describes Random variable, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Expected workload controls whether delayed review could create a safety blind spot.", why: "This describes expected value, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "The result prevents one event from being treated as impossible while the audit is open.", why: "This describes binomial complement, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Understating spread could leave serious reports waiting beyond the review limit.", why: "Correct. understating spread could leave serious reports waiting beyond the review limit."}
+    - prompt: "An unseen case extends The Opened Envelope: with queue uncertainty sized, the board asks whether another event during review would be surprising. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies binomial complement to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for binomial complement; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "The result prevents one event from being treated as impossible while the audit is open.", why: "Correct. the result prevents one event from being treated as impossible while the audit is open."}
+      - {key: "B", text: "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.", why: "This describes Random variable, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Expected workload controls whether delayed review could create a safety blind spot.", why: "This describes expected value, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Understating spread could leave serious reports waiting beyond the review limit.", why: "This describes independent sums of RVs and linear transforms, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Opened Envelope decision, the team knows this: the unplanned look spent one chance to make a false claim, while a delayed true warning could also harm patients. Write the action threshold now, before new evidence or operational pressure can move it. Which statistical conclusion or procedure correctly uses Type I/II, alpha, power?"
+      hint: "Use the stated evidence and the conditions for Type I/II, alpha, power; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.", why: "This describes Random variable, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A transparent rule keeps urgency from moving the decision line after results are known.", why: "Correct. a transparent rule keeps urgency from moving the decision line after results are known."}
+      - {key: "C", text: "Expected workload controls whether delayed review could create a safety blind spot.", why: "This describes expected value, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Understating spread could leave serious reports waiting beyond the review limit.", why: "This describes independent sums of RVs and linear transforms, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from The Opened Envelope to this follow-up: a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.", why: "This describes Random variable, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Expected workload controls whether delayed review could create a safety blind spot.", why: "This describes expected value, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "Understating spread could leave serious reports waiting beyond the review limit.", why: "This describes independent sums of RVs and linear transforms, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 4: worked examples"
+    examples:
+    - {"title":"Find an expected value","problem":"A game pays $0 with probability 0.5 and $4 with probability 0.5. Find expected payout.","rule":"E(X)=sum of value × probability.","steps":["Set up the relationship: E(X)=sum of value × probability.","E(X)=0(0.5)+4(0.5)=2 dollars."],"answer":"The long-run average payout is $2 per play.","mistake":"Expected value need not be a payout possible on one play."}
+    - {"title":"Combine independent spread","problem":"Independent quantities X,Y have means 3,4 and standard deviations 3,4. Find mean and SD of X+Y.","rule":"Means add; independent variances add.","steps":["Set up the relationship: Means add; independent variances add.","mean=3+4=7; variance=3²+4²=25; SD=sqrt(25)=5."],"answer":"The sum has mean 7 and standard deviation 5.","mistake":"Standard deviations themselves do not add."}
+    - {"title":"Distinguish two testing errors","problem":"The null hypothesis says a coin is fair. Describe a Type I and a Type II error.","rule":"Type I means rejecting a true null; Type II means failing to reject a false null.","steps":["Calling a truly fair coin unfair is Type I.","Failing to detect that a biased coin is unfair is Type II."],"answer":"The error type depends on both the decision and the coin's actual fairness.","mistake":"A failure to reject does not prove the null true."}
+    - {"title":"Calculate power","problem":"A test has Type II error probability β=0.20 for one specified alternative. Find its power there.","rule":"Power=1-β.","steps":["Set up the relationship: Power=1-β.","power=1-0.20=0.80."],"answer":"The test rejects the false null 80% of the time under that particular alternative.","mistake":"Power changes with the actual effect, sample size, and testing rule."}
+    - {"title":"Repeated testing","problem":"Five independent tests each have false-positive probability 0.10 under their true nulls. Find the chance of at least one false positive.","rule":"P(at least one)=1-P(none), using independence for the product.","steps":["Set up the relationship: P(at least one)=1-P(none), using independence for the product.","P(at least one)=1-(0.9)^5=1-0.59049=0.40951."],"answer":"The chance is about 41%, not 10%.","mistake":"The independence assumption is needed for this exact product calculation."}
 
   stops:
   # --- Stop 13: Expected Reports
@@ -72,12 +147,12 @@
   - group: ENDP
     at: analysis-board
     title: "Expected Reports"
-    concept: "expected value"
-    reason: "Staffing cannot be set until the team knows the expected number of reports per site-day."
+    concept: 15   # expected value
+    reason: "The targeted pause creates an overnight review workload that must be estimated before staffing."
     scene: "A site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Build the expected-value sum before assigning the limited overnight clinical patient-safety review shift."
-    motivation: "Expected workload controls whether delayed review could create a safety blind spot."
+    motivation: "Expected reports per site-day establish the long-run workload for the clinical patient-safety review shift."
     format: DERIVE
-    question: "Order licensed lines E(X)=sum xP(x); =0(.70)+1(.25)+2(.05); =0.35 reports/site-day. Decoys average 0,1,2 equally or omit weights. Submit reports/site-day."
+    question: "Submit the expected reports per site-day."
     answerText: "The expected workload is 0.35 report per site-day; this is a long-run average, not a possible count for one site-day."
     why: "Expected workload controls whether delayed review could create a safety blind spot."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -88,6 +163,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"expected reports per site-day","givens":["P(0)=0.70","P(1)=0.25","P(2)=0.05"],"lines":[{"id":"L1","expression":"E(X)=sum xP(x)","license":"state governing relationship"},{"id":"L2","expression":"=0(0.70)+1(0.25)+2(0.05)","license":"substitute displayed values"},{"id":"L3","expression":"=0.35 reports/site-day","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["1.00","0.30"],"correct_result":"0.35 reports/site-day","answerText":"The long-run mean is 0.35 reports per site-day after weighting each count by its probability."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Expected Reports in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E(X)=sum xP(x)
+            - text: E(X)=sum P(x)/x
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E(X) = 0(0.70)+1(0.25)+2(0.05)
+            - text: E(X) = 0.70+0.25+0.05
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E(X) = 0.35 reports/site-day
+            - text: E(X) = 1.00 report/site-day
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 14: Combine Two Streams
   #     Concept: independent sums of RVs and linear transforms; Keystone: keystone random variables; Area: Endpoint Adjudication; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -95,12 +195,12 @@
   - group: ENDP
     at: analysis-board
     title: "Combine Two Streams"
-    concept: "independent sums of RVs and linear transforms"
-    reason: "Two independent regions share one queue, so their total mean and SD must be forecast correctly."
+    concept: 15   # independent sums of RVs and linear transforms
+    reason: "The expected workload must now include uncertainty from both incoming reporting streams."
     scene: "Region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Combine their independent streams to size the queue without incorrectly adding standard deviations."
-    motivation: "Understating spread could leave serious reports waiting beyond the review limit."
+    motivation: "The combined mean and standard deviation determine the scale and variability of the overnight queue."
     format: DERIVE
-    question: "Build E(A+B)=10+8=18 [linearity]; Var=3^2+4^2=25 [independent variances add]; SD=sqrt25=5 [convert]. Include decoy SD=7. Submit pair 18 reports, 5 reports."
+    question: "Submit the mean and standard deviation of their combined report total."
     answerText: "The combined stream has mean 18 reports and SD 5 reports. For aX+b, expectation is aμ+b and SD is |a|σ."
     why: "Understating spread could leave serious reports waiting beyond the review limit."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -111,6 +211,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive: {visible_prompt: "Build E(A+B)=10+8=18 [linearity]; Var=3^2+4^2=25 [independent variances add]; SD=sqrt25=5 [convert]. Include decoy SD=7. Submit pair 18 reports, 5 reports.", keyed_result: "Mean 18 reports and standard deviation 5 reports.", feedback: "pair: total mean and SD in reports", answerText: "Use the keyed result and explanation printed below."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Combine Two Streams in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E(A+B)=10+8=18
+            - text: E(A+B)=10×8=80
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Var(A+B)=3²+4²=25
+            - text: SD(A+B)=3+4=7
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: SD(A+B)=√25=5
+            - text: Var(A+B)=sqrt(25)=5
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 15: At Least One Event
   #     Concept: binomial complement; Keystone: keystone probability/random variables; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L3; Story role: reversal.
@@ -118,13 +243,13 @@
   - group: ENDP
     at: simulation-console
     title: "At Least One Event"
-    concept: "binomial complement"
-    reason: "The pause length depends on the chance of seeing at least one event in 20 similar patients."
-    scene: "With queue uncertainty sized, the board asks whether another event during review would be surprising. Use independent patient probability 0.04 and 20 fixed trials to predict at least one event."
-    motivation: "The result prevents one event from being treated as impossible while the audit is open."
-    format: TALLY
-    question: "**CALCULATE AND COMMIT:** Use $P(X\\ge1)=1-(1-p)^n$ with $p=0.04$ per patient and $n=20$ independent patients; submit the probability or percent before simulation unlocks."
-    answerText: "1-.96^20=0.558; simulation should be near 56%. This is binomial: fixed n, independent trials, constant p, two outcomes."
+    concept: 15   # binomial complement
+    reason: "The queue estimate leaves the board asking whether another event during review would be surprising."
+    scene: "With queue uncertainty sized, the board asks whether another event during review would be surprising. Use an independent event probability of 0.20 for each of two patients to find the chance of at least one event."
+    motivation: "The chance of at least one event determines whether an isolated new report is plausible under the stated patient risk."
+    format: CHOICE
+    question: "Use P(X at least 1)=1-(1-p)^n with p=0.20 and n=2. Select the expression and probability that correctly use the complement."
+    answerText: "The chance of at least one event is 36%; subtract the no-event probability from one."
     why: "The result prevents one event from being treated as impossible while the audit is open."
     # wrong-path feedback, one rebuttal per wrong option:
     #   predicted percent and plausibility conclusion
@@ -134,6 +259,16 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   tally:{prediction:{equation:"P(X≥1)=1-(1-p)^n",inputs:{p:0.04,n:20},submit:{unit:"probability or percent",truth:0.558,tolerance:0.01}},equipment_locked_until_prediction_commit:true,bins:[{id:"zero",label:"zero events"},{id:"one_plus",label:"at least one event"}],trials_per_run:20,success_probability:0.04,measure:"proportion of runs in one_plus",expected_reading:0.558,correct_conclusion:"plausible",answerText:"The complement gives 1-0.96^20=0.558, so a simulation near 55.8% is plausible."}
+    choices:
+      - 1-(0.80)^2 = 0.36
+      - (0.80)^2 = 0.64
+      - 0.20+0.20 = 0.40
+      - "0.20"
+    answer: 1-(0.80)^2 = 0.36
+    rebuttals:
+      - This is the probability of zero events, not at least one.
+      - Adding double-counts the case in which both patients have an event.
+      - This uses only one patient and ignores the second independent opportunity.
 
   # --- Stop 16: Price the Errors
   #     Concept: Type I/II, alpha, power; Keystone: keystone decision thresholds; Area: Monitoring Board Room; Learning role: INTRODUCE; Difficulty: L5; Story role: decision.
@@ -141,12 +276,12 @@
   - group: SAFE
     at: uncertainty-console
     title: "Price the Errors"
-    concept: "Type I/II, alpha, power"
-    reason: "Later analyses need thresholds written before new results arrive."
-    scene: "The unplanned look spent one chance to make a false claim, while a delayed true warning could also harm patients. Commit error definitions and a stricter future threshold before the hidden update appears."
-    motivation: "A transparent rule keeps urgency from moving the decision line after results are known."
+    concept: 16   # Type I/II, alpha, power
+    reason: "The next hidden update needs a decision threshold fixed before its significance is known."
+    scene: "Commit error definitions and a stricter future threshold before the hidden update appears."
+    motivation: "The committed threshold and error definitions determine which statistical decision the board can make from that update."
     format: TRIGGER
-    question: "Rule: reject H0 only if adjusted p<=.025; scale 0-.10; anchors .01,.025,.05,.10; objective limit false-positive risk after extra look; direction lower p stronger; consequence limit no more than 2.5%. Submit threshold and map: Type I=stop effective trial, Type II=continue harmful trial, power=1-beta. Then reveal update p=.031 and select fail to reject."
+    question: "An unplanned second look must share the total 0.05 false-positive allowance equally with the first look. Before the new P-value appears, set the inclusive cutoff, match Type I error, Type II error, and power to their trial consequences, then reveal P=0.031 and decide whether to reject the null hypothesis."
     answerText: "Because 0.031 is above the precommitted 0.025 threshold, fail to reject the null. Never say the null was accepted or proved. Power rises with sample size, alpha, effect size, and lower variability."
     why: "A transparent rule keeps urgency from moving the decision line after results are known."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -157,4 +292,37 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trigger:{decision_rule:"reject H0 only when adjusted p ≤ 0.025",scale:{min:0,max:0.10,anchors:[0.01,0.025,0.05,0.10]},objective:"limit false-positive risk after the extra look",direction:"smaller p is stronger evidence",consequence_limit:{value:0.025,label:"family false-positive risk"},mapping:{type_I:"stop an effective trial",type_II:"continue a harmful trial",power:"1-beta"},update:{p:0.031,decision:"fail to reject"},answerText:"The inclusive threshold is 0.025; because 0.031 is larger, fail to reject H0."}
+    trigger:
+      scale:
+        label: family-wise false-positive risk
+        unit: "%"
+        min: 0
+        max: 10
+        step: 0.1
+        anchors:
+          - at: 2
+            means: routine baseline, not the decision threshold
+          - at: 6.5
+            means: elevated evidence requiring attention
+      direction: rising
+      conditions:
+        - id: act
+          label: Take the protective action
+          leadHours: 12
+          window:
+            min: 2.5
+            max: 10
+      stream:
+        - at: T-48 h
+          value: 1
+          hoursLeft: 48
+        - at: T-24 h
+          value: 2
+          hoursLeft: 24
+        - at: T-12 h
+          value: 3
+          hoursLeft: 12
+        - at: T-6 h
+          value: 5
+          hoursLeft: 6
 

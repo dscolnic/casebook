@@ -26,6 +26,7 @@
 import { getState, save } from './gameState.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { esc, seeded } from './utils.js';
+import { TIMED } from './constants.js';
 
 // A conversation is now the only way to earn, and a wrong call costs $5. One
 // dollar a person made the earning phase of a day take longer than the day.
@@ -159,6 +160,44 @@ export function passageHTML(person, opts = {}){
   const head =
     '<div class="passageHead"><b>' + esc(person.name) + '</b>' +
     '<span>' + esc(person.role || '') + '</span></div>';
+
+  // NOT WHILE THE ROOM HAS A CALL OPEN.
+  //
+  // `askable: false` means the player is standing in a room the day has called
+  // them to, and the people in it are the ones working it. Their biography is
+  // still theirs to read — walking up to somebody and talking is never taken
+  // away — but the errand for a dollar is not offered on top of the call.
+  // Reported as "I shouldn't be able to ask people the Ready-ask me questions
+  // if they are in a room on a mission."
+  if(opts.askable === false && status !== 'earned'){
+    return (ownBio ? head + '<div class="passageBody">' + (person.bio || '') + '</div>' : '')
+      + '<div class="passageDone">' + esc(opts.askableWhy
+        ?? 'There is a call open in this room. Ask them about themselves once it is closed.')
+      + '</div>';
+  }
+
+  /**
+   * NO ERRAND WHERE THERE IS NO MONEY.
+   *
+   * The passage quiz is a paid errand: read somebody's biography, press "Ready
+   * — ask me", answer from memory, and they sign off three dollars. A timed
+   * campaign has no dollars — it is scored on four bars, a
+   * stopwatch and a count of wrong answers — so the gate offered a reward the
+   * game cannot pay and put a quiz between the player and every character note
+   * in the cast.
+   *
+   * The biography still opens. Walking up to somebody and reading who they are
+   * is never taken away; it is the button and the question that go.
+   */
+  //
+  // AND IT NEVER RETURNS NOTHING. An empty string here is a panel with no body,
+  // which reads as a person who cannot be talked to at all — the branches below
+  // can return one because they always add a line of their own, and this one
+  // has no line to add. Where the campaign holds no biography for somebody, the
+  // header carrying their name and job is still worth opening.
+  if(TIMED){
+    return head + (person.bio ? '<div class="passageBody">' + person.bio + '</div>' : '');
+  }
 
   if(status === 'earned'){
     return (ownBio ? head + '<div class="passageBody">' + (person.bio || '') + '</div>' : '') +

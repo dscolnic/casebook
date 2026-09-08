@@ -6,13 +6,18 @@
     header: "12 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "WHAT CAN TRAVEL WHERE?"
     goNow: "Go to Catalyst Bay and meet Mei-Ling Cho, the water and cryogenics engineer, beside the covered blue stain."
-    body: "A blue stain near a methane valve looks like proof of a leak, but nobody has tested whether that fluid could travel through the gas line. At Catalyst Bay, use molecular shape, polarity, and attractions between molecules to predict how each substance moves. Then operate the separation cartridge across its temperature range. By the end of the mission, decide whether the stain identifies the missing methane's path."
+    body: "A blue stain beside a methane valve looks suspicious, but could that liquid actually have travelled through the gas pipe? Compare the substances' molecular properties and test how they separate at different temperatures. Decide whether the stain identifies a real route for the missing fuel."
     objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
   objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
-  stake: "A blue stain near a methane valve looks like proof of a leak, but nobody has tested whether that fluid could travel through the gas line. At Catalyst Bay, use molecular shape, polarity, and attractions between molecules to predict how each substance moves. Then operate the separation cartridge across its temperature range. By the end of the mission, decide whether the stain identifies the missing methane's path."
+  stake: "A blue stain beside a methane valve looks suspicious, but could that liquid actually have travelled through the gas pipe? Compare the substances' molecular properties and test how they separate at different temperatures. Decide whether the stain identifies a real route for the missing fuel."
   takeaway: "A substance's physical properties can rule out a proposed evidence path."
   segue: "Mission decision: The blue stain did not move through the dry methane line. Water and glycol would stay or turn to liquid far upstream. Methane would pass. The stain came from local repair work, not a leak. A new water alarm now needs a test."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Valence electron", def: "an electron in an atom's outer occupied region. These electrons are the ones most directly involved in chemical bonds."}
+  - {name: "Lone pair", def: "a pair of valence electrons not shared in a bond. Lone pairs still repel other electron groups and can change molecular shape."}
+  - {name: "Polarity", def: "an uneven distribution of electrical charge. A molecule is polar when its bond effects do not cancel across its shape."}
+  - {name: "Intermolecular force", def: "an attraction between separate particles. Stronger attractions usually make a substance harder to separate into a gas."}
   primer:
   - "Use this chain: Lewis structure -> geometry -> bond effects -> molecular polarity -> intermolecular behavior."
   - "Similar colors do not prove two residues are the same substance."
@@ -39,7 +44,7 @@
     # unlocks: Stop 15 at the property-card rack.
     bubbles:
     - who: cho   # Cho
-      say: "Now compare methane with the residue. Shape and polarity decide whether they travel together."
+      say: "Nice work. Now compare methane with the residue. Shape and polarity decide whether they travel together."
   - id: after-stop-15
     # After Stop 15 | property-card rack | automatic response
     on: { after: [3] }
@@ -48,7 +53,7 @@
     # unlocks: Stop 16 at the separation cartridge.
     bubbles:
     - who: cho   # Cho
-      say: "The proposed path asks polar liquid to behave like dry methane gas. Run the cartridge and make it prove that claim."
+      say: "Good thinking. The proposed path asks polar liquid to behave like dry methane gas. Run the cartridge and make it prove that claim."
   - id: after-stop-16
     # After Stop 16 | separation cartridge | automatic reversal
     on: { after: [4] }
@@ -57,7 +62,7 @@
     # unlocks: The Mission 4 outcome beat.
     bubbles:
     - who: cho   # Cho
-      say: "The blue fluid is real. The methane-leak story attached to it is not."
+      say: "Exactly right. The blue fluid is real. The methane-leak story attached to it is not."
   - id: at-mission-end
     # At mission end | Catalyst Bay | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,7 +71,83 @@
     # unlocks: Mission 5 briefing and the Water Plant waypoint.
     bubbles:
     - who: abiola   # Abiola
-      say: "Carbon is accounted for. The residue cannot follow the proposed route. Now the water numbers are failing too. We widen the investigation."
+      say: "Outstanding work. You solved the mission. Carbon is accounted for. The residue cannot follow the proposed route. Now the water numbers are failing too. We widen the investigation."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed What Can Travel Where?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Lewis structure", def: "a drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape."}
+    - {name: "Molecular geometry", def: "the three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel."}
+    - {name: "Valence-shell electron-pair repulsion (VSEPR) model", def: "predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups."}
+    - {name: "London dispersion force", def: "an attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one."}
+    - {name: "Hydrogen bonding", def: "a strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule."}
+    - {name: "Boiling", def: "a change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure."}
+    - {name: "Boiling point", def: "the temperature at which bubbles of vapor can form throughout a liquid. Stronger attractions between particles usually raise it."}
+    - {name: "Condensation", def: "the change from gas to liquid. A substance that condenses upstream cannot travel through the line as a gas."}
+    questions:
+    - prompt: "In a follow-up to What Can Travel Where?, to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Lewis structure?"
+      hint: "Use the stated evidence and the conditions for Lewis structure; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.", why: "This describes Molecular geometry, not Lewis structure. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.", why: "Correct. a drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape."}
+      - {key: "C", text: "Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.", why: "This describes Valence-shell electron-pair repulsion (VSEPR) model, not Lewis structure. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.", why: "This describes London dispersion force, not Lewis structure. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to What Can Travel Where?: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Molecular geometry?"
+      hint: "Use the stated evidence and the conditions for Molecular geometry; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.", why: "This describes Lewis structure, not Molecular geometry. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.", why: "This describes Valence-shell electron-pair repulsion (VSEPR) model, not Molecular geometry. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.", why: "Correct. the three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel."}
+      - {key: "D", text: "An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.", why: "This describes London dispersion force, not Molecular geometry. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks What Can Travel Where? using new evidence: apply that chain to methane, carbon dioxide, water, and ammonia to identify which substances behave alike and could travel together. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly carries out the required Valence-shell electron-pair repulsion (VSEPR) model reasoning?"
+      hint: "Use the stated evidence and the conditions for Valence-shell electron-pair repulsion (VSEPR) model; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.", why: "This describes Lewis structure, not Valence-shell electron-pair repulsion (VSEPR) model. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.", why: "This describes Molecular geometry, not Valence-shell electron-pair repulsion (VSEPR) model. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.", why: "This describes London dispersion force, not Valence-shell electron-pair repulsion (VSEPR) model. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.", why: "Correct. predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups."}
+    - prompt: "An unseen case extends What Can Travel Where?: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies London dispersion force?"
+      hint: "Use the stated evidence and the conditions for London dispersion force; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.", why: "Correct. an attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one."}
+      - {key: "B", text: "A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.", why: "This describes Lewis structure, not London dispersion force. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.", why: "This describes Molecular geometry, not London dispersion force. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.", why: "This describes Valence-shell electron-pair repulsion (VSEPR) model, not London dispersion force. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another What Can Travel Where? decision, the team knows this: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Hydrogen bonding?"
+      hint: "Use the stated evidence and the conditions for Hydrogen bonding; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.", why: "This describes Lewis structure, not Hydrogen bonding. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule.", why: "Correct. a strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule."}
+      - {key: "C", text: "The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.", why: "This describes Molecular geometry, not Hydrogen bonding. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.", why: "This describes Valence-shell electron-pair repulsion (VSEPR) model, not Hydrogen bonding. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from What Can Travel Where? to this follow-up: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Boiling?"
+      hint: "Use the stated evidence and the conditions for Boiling; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.", why: "This describes Lewis structure, not Boiling. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.", why: "This describes Molecular geometry, not Boiling. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure.", why: "Correct. a change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure."}
+      - {key: "D", text: "Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.", why: "This describes Valence-shell electron-pair repulsion (VSEPR) model, not Boiling. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 4: worked examples"
+    examples:
+    - {"title":"Count valence electrons","problem":"How many valence electrons appear in the Lewis structure of NH₃? Nitrogen contributes five and hydrogen one each.","rule":"Total valence electrons are summed over atoms, with charge adjustments if needed.","steps":["electron total=5+3(1)=8.","Three single bonds use six electrons; two remain as one lone pair on nitrogen."],"answer":"NH₃ has three N-H bonds and one nitrogen lone pair.","mistake":"Counting bonds alone misses nonbonding electrons."}
+    - {"title":"Distinguish electron and molecular geometry","problem":"A central atom has three bonding pairs and one lone pair. Determine molecular shape.","rule":"Four electron domains arrange approximately tetrahedrally; molecular shape describes atom positions.","steps":["electron-domain count=3+1=4.","One domain is a lone pair, leaving three bonded atoms in a trigonal-pyramidal arrangement."],"answer":"The molecular shape is trigonal pyramidal.","mistake":"Tetrahedral describes the electron-domain geometry in this case."}
+    - {"title":"Combine bond dipoles","problem":"CO₂ is linear with two identical polar C=O bonds. Is the molecule polar?","rule":"Molecular polarity depends on the vector sum of bond dipoles.","steps":["The equal bond dipoles point in opposite directions.","net dipole=0 because the two contributions cancel."],"answer":"CO₂ is nonpolar despite its polar bonds.","mistake":"Polar bonds do not guarantee a polar molecule."}
+    - {"title":"Identify hydrogen bonding","problem":"Compare pure CH₄ and pure H₂O. Which can form hydrogen bonds between its molecules?","rule":"Hydrogen bonding requires suitable donors, commonly H bonded to N, O or F, and an acceptor lone pair.","steps":["Water supplies O-H donors and oxygen lone-pair acceptors.","Methane has C-H bonds and does not supply the corresponding donor arrangement."],"answer":"Water forms hydrogen bonds; methane primarily has dispersion attractions.","mistake":"Hydrogen in a formula alone does not establish hydrogen bonding."}
+    - {"title":"Distinguish boiling from bond breaking","problem":"When liquid water boils without reacting, which attractions are mainly overcome?","rule":"A phase change rearranges molecules without changing their chemical identities.","steps":["Water molecules separate farther from one another.","Intermolecular attractions are overcome while O-H covalent bonds remain in the molecules."],"answer":"Boiling mainly overcomes intermolecular attractions.","mistake":"Breaking O-H bonds would be a chemical change, not ordinary boiling."}
 
   stops:
   # --- Stop 13: Choose the methane structure
@@ -76,10 +157,10 @@
     at: charge-bench
     title: "Choose the methane structure"
     person: cho
-    concept: "Lewis structures"
-    reason: "The stain's proposed route depends first on methane's actual structure."
-    scene: "To test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The correct model supplies the geometry used in the travel test."
-    motivation: "The correct electron structure is the first step toward predicting whether methane and the residue can behave alike."
+    concept: 5   # Lewis structures
+    reason: "The residue investigation needs a methane structure before comparing molecular behavior."
+    scene: "To test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape."
+    motivation: "The bonding model establishes methane's geometry for judging how it interacts with the suspect residue."
     format: CHOICE
     question: "Which Lewis structure for CH4 is valid?"
     choices:
@@ -101,10 +182,10 @@
   - group: PHASE
     at: molecular-model-rail
     title: "From electrons to polarity"
-    concept: "structure-property chain"
-    reason: "The crew needs the full structure-to-polarity chain before comparing substances."
-    scene: "Use electron arrangement to connect Lewis structure, molecular shape, and polarity so the proposed leak path can be judged. This ordered chain prevents one polar bond from deciding the whole molecule."
-    motivation: "Geometry determines whether bond dipoles cancel, so it can rule out a story based only on chemical labels."
+    concept: 5   # structure-property chain
+    reason: "The methane structure is selected, but bond polarity alone does not determine molecular polarity."
+    scene: "Use electron arrangement to connect Lewis structure, molecular shape, and polarity so the proposed leak path can be judged."
+    motivation: "The geometry-to-polarity chain explains how individual bond effects combine in the complete molecule."
     format: SEQUENCE
     question: "Order the reasoning chain used to predict molecular polarity."
     # CONVERTED from the bible's `data` line below; `correct result: As listed`.
@@ -129,26 +210,30 @@
   - group: PHASE
     at: model-rail-desk
     title: "Match shape, polarity, and dominant force"
-    concept: "VSEPR and IMF"
-    reason: "Each candidate substance must be matched to behavior the separator can test."
-    scene: "Apply that chain to methane, carbon dioxide, water, and ammonia to identify which substances behave alike and could travel together. The mapping turns invisible molecular attractions into usable separator predictions."
-    motivation: "These properties predict which substances travel with methane and which stick or condense upstream."
+    concept: 5   # VSEPR and IMF
+    reason: "The polarity model is ready to be applied to the separator's different substances."
+    scene: "Apply that chain to methane, carbon dioxide, water, and ammonia to identify which substances behave alike and could travel together."
+    motivation: "Matching shapes and attractions predicts which materials the separator should retain or carry with the gas."
     format: PROTOCOL
     question: "Match each molecule to its shape/polarity/dominant intermolecular force."
     # CONVERTED from the payload below. The engine's PROTOCOL board is two
     # columns matched by position: the bible's `scenarios` become the situations,
     # its `choices` the responses, and its keyed `mapping` the permutation.
     scenarios:
-    - "CH4"
-    - "CO2"
-    - "H2O"
-    - "NH3"
+      - CH4
+      - CO2
+      - H2O
+      - NH3
     choices:
-    - "tetrahedral / nonpolar / London dispersion"
-    - "linear / nonpolar overall / London dispersion"
-    - "bent / polar / hydrogen bonding"
-    - "trigonal pyramidal / polar / hydrogen bonding"
-    mapping: [0, 1, 2, 3]
+      - tetrahedral / nonpolar / London dispersion
+      - linear / nonpolar overall / London dispersion
+      - bent / polar / hydrogen bonding
+      - trigonal pyramidal / polar / hydrogen bonding
+    mapping:
+      - 0
+      - 1
+      - 2
+      - 3
     answerText: "Match CH4 and CO2 to nonpolar/London behavior, and H2O and NH3 to polar/hydrogen-bonding behavior."
     why: "Symmetric CH4 and CO2 cancel bond dipoles and rely on London dispersion between molecules. Bent water and pyramidal ammonia remain polar, and their H-O or H-N bonds allow hydrogen bonding. London forces still exist in all substances; \"dominant\" names the most consequential one present."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -176,10 +261,10 @@
   - group: PHASE
     at: separation-cartridge
     title: "Can the blue residue ride the gas stream?"
-    concept: "IMF/property behavior"
-    reason: "The leak clue survives only if the real cartridge permits that travel path."
-    scene: "Run the separation cartridge to determine whether the blue residue could have traveled through the dry methane line. The measured curve will either preserve or destroy the stain's entire story."
-    motivation: "If the blue fluid cannot survive the recorded path, it cannot identify the methane leak everyone is chasing."
+    concept: 5   # IMF/property behavior
+    reason: "The attraction predictions are ready, leaving the blue stain's proposed journey to test."
+    scene: "Run the separation cartridge to determine whether the blue residue could have traveled through the dry methane line."
+    motivation: "The travel curve determines whether this residue could plausibly accompany methane and deposit only at the suspect valve."
     format: SWEEP
     question: "Sweep the temperature, mark where each substance leaves or sticks, and decide whether the residue could follow the proposed path."
     answerText: "The glycol-water residue would remain or condense upstream, so it could not follow methane to that valve."
@@ -200,4 +285,80 @@
     #     response_label: "fraction leaving cartridge"
     #     required_regions: [low, middle, high]
     #     correct: "Residue cannot follow methane; water and glycol are retained or condensed upstream."
+    sweep:
+      axis:
+        label: cartridge temperature
+        min: 180
+        max: 330
+        step: 25
+      response:
+        - at: 180
+          value: 0.92
+        - at: 205
+          value: 0.95
+        - at: 230
+          value: 0.97
+        - at: 255
+          value: 0.98
+        - at: 280
+          value: 0.99
+        - at: 305
+          value: 0.99
+        - at: 330
+          value: 0.99
+      target: 305
+      tolerance: 25
+      start: 180
+      readout:
+        label: fraction leaving cartridge
+        unit: fraction
+      series:
+        - label: methane
+          response:
+            - at: 180
+              value: 0.92
+            - at: 205
+              value: 0.95
+            - at: 230
+              value: 0.97
+            - at: 255
+              value: 0.98
+            - at: 280
+              value: 0.99
+            - at: 305
+              value: 0.99
+            - at: 330
+              value: 0.99
+        - label: water
+          response:
+            - at: 180
+              value: 0.02
+            - at: 205
+              value: 0.03
+            - at: 230
+              value: 0.05
+            - at: 255
+              value: 0.08
+            - at: 280
+              value: 0.2
+            - at: 305
+              value: 0.64
+            - at: 330
+              value: 0.86
+        - label: blueGlycolTracer
+          response:
+            - at: 180
+              value: 0
+            - at: 205
+              value: 0
+            - at: 230
+              value: 0
+            - at: 255
+              value: 0.01
+            - at: 280
+              value: 0.01
+            - at: 305
+              value: 0.02
+            - at: 330
+              value: 0.04
 

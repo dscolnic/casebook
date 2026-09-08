@@ -1,0 +1,78 @@
+THE HIGGS BOSON (theme: qd_higgs) — PLACES AND LOCATIONS
+Physicist · Collider Analysis Group
+Course: Particle physics — the Higgs boson. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_higgs npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the collider analysis floor, as data.
+
+One corridor, four working rooms, and the shape of it is the analysis chain:
+theory at the near end, the event display beside it, the histograms further
+down, and the combination room at the far end where the two channels finally
+meet. Walking the corridor walks one collision from a wall chart to a sentence.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The event display room is deliberately deep and has no window on the plan: an
+event display is read in the dark, and a room with daylight in it is an office
+with a screen in it. The histogram room is the widest, because its long wall is
+the distribution.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+CHART — Theory Wall
+  Theory Wall   [CHART]  side w, z 4 … 16, OPEN to the spine
+  The Standard Model on one wall, and the one slot on it nobody has filled.
+  Calls: Place the particle · Say what the field does · Pick the channel ·
+  Ready to hand over
+
+STATS — Combination Room
+  Combination Room   [STATS]  side w, z 26 … 38
+  Two channels, two experiments, and the difference between a number and a
+  claim.
+  Calls: Combine the channels · Price the significance · Draft the claim ·
+  Ready to hand over
+
+EVENT — Event Display
+  Event Display   [EVENT]  side e, z 6 … 19
+  One collision at a time, drawn layer by layer, with nothing labelled.
+  Calls: Read the layers · Name the object · Combine the pair · Ready to hand
+  over
+
+HIST — Histogram Room
+  Histogram Room   [HIST]  side e, z 21 … 34
+  Every candidate mass in one distribution, and a background nobody is allowed
+  to peek at.
+  Calls: Fill the bins · Fit the sidebands · Freeze it · Ready to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Entrance Desk   [PORCH]  side w, z -4 … 2, OPEN
+Coffee Area   [TEA]  side w, z 18 … 24, OPEN
+Computing Store   [RACK]  side w, z 38 … 45
+Calibration Bay   [DARK]  side e, z -4 … 4
+Reading Room   [LIB]  side e, z 36 … 45
+
+Metrics   corridorHalfWidth 1.9, roomDepth 8.4, ceilingH 3.2
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_higgs/ — site/plan, fixtures, minors, groups, theme.

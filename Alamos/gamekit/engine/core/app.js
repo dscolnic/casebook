@@ -11,8 +11,24 @@
 // works whether the game reaches the world through the engine's module or
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
+// The day's shape, so what is seen through a room's door agrees with the sun.
+import { dayBlendAt } from '../world/outdoorSite.js';
+
+/**
+ * The colours outside a room's door, read off the site. A theme whose site
+ * declares a haze uses that as its sky; otherwise the fog colour; otherwise a
+ * daylight grey. The ground is the terrain's base colour.
+ */
+function outsideOf(theme){
+  const site = theme?.site ?? {};
+  const look = theme?.look ?? {};
+  const sky = site.atmosphere?.haze?.day ?? look.fog?.colour ?? 0xb9c4c8;
+  const ground = site.terrain?.ground?.base ?? [116, 96, 68];
+  return { sky, ground };
+}
 import { addProbeStations } from '../world/interiorStations.js';
 import { addFixture, fixtureFor, sitedAt } from '../world/interiorFixtures.js';
+import { siteForStop } from '../world/siting.js';
 import { probeKey, probeReadsFor, setProbeSited, markProbeRead } from './questionUI.js';
 import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission, save,
          spendReserve } from './gameState.js';
@@ -22,7 +38,9 @@ import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { callLabel } from './place.js';
 import { deliveryPieces, deliveryPlanLine } from './delivery.js';
 import { esc } from './utils.js';
-import { DAY_NOUN, RUN_SKIP_COST } from './constants.js';
+import { DAY_NOUN, RUN_SKIP_COST, STOPS_IN_ORDER, TIMED } from './constants.js';
+// The five worked examples the mission card offers behind a button.
+import { hasWorked, workedLabel, workedHTML, bindWorked } from './worked.js';
 import { readRating, postRating } from './cloudSave.js';
 
 /**
@@ -173,7 +191,11 @@ export function createInteriors({
   calcs,
   colliders, interactables,
   player, townGround, townBounds,
-  onEnter,
+  // Called with the area's id and the built room. `onExit` is the other half of
+  // it, and both exist so that something outside this file can put people in
+  // the room and take them out again — see `stationIndoors` in crowd.js. This
+  // module must not import the crowd: the entry point owns the cast.
+  onEnter, onExit,
 }){
   const rooms = new Map();
   let inside = null;
@@ -233,6 +255,14 @@ export function createInteriors({
       // building on a mesa should not be a Riverton laboratory with different
       // numbers on the screen.
       style: theme.interiorStyle ?? 'lab',
+      // THE ROOM'S AUTHORED FIXTURES, so the fit-out can keep off them. They are
+      // added later by `addFixture` below, from this same file, which is exactly
+      // why the fit-out never knew they were coming.
+      fixtures: theme.fixtures?.[id] ?? [],
+      // What is seen through the door: the site's own sky and ground colours,
+      // so the view out of a Martian module is butterscotch over regolith and
+      // the view out of a salt-flat hut is storm grey over crust.
+      outside: outsideOf(theme),
       ...spec,
       caseName: who.name, caseLine: who.line,
       // The campaign's product, in the one room the manifest names. Every other
@@ -251,6 +281,70 @@ export function createInteriors({
     return room;
   }
 
+  /**
+   * TODAY'S OBJECTS, IN THIS ROOM, AS OF NOW.
+   *
+   * Called on the way in AND on the room's own tick, and the difference is a
+   * defect that was reported: with the calls opening one at a time, closing one
+   * *while standing in the room* opens the next — and this only ever ran on
+   * entry. So the object the player had just finished with kept its marker lit,
+   * and the object the HUD had started naming had not been built at all.
+   *
+   * The rebuild is keyed on the set of open calls, so the ordinary tick costs a
+   * string compare and the room is torn down only when what is open changes.
+   */
+  function syncFixtures(id, room){
+    const wanted = [];
+    {
+      const st = getState();
+      const mission = st ? getCurrentMission(st) : null;
+      for(const i of (st ? openStopIndices(st) : [])){
+        const stop = mission?.stops?.[i];
+        const lesson = stop && theme.content?.CURRICULUM?.[stop.group]?.[stop.lesson];
+        if(!lesson) continue;
+        // A PERSON STOP GETS NO OBJECT. It is answered by finding the person,
+        // and `openVisit` refuses it in a room — with a card headed "no case
+        // open right now", which is worse than useless when somebody IS
+        // waiting. Red Sand's sol 291 and 294 both put their person call in
+        // the same room as the rest of the day, so the room stood an object
+        // there that said nothing is here.
+        if(st && isPersonStopForIdx(st, i)) continue;
+        const sited = siteForStop(theme, stop, lesson);
+        // Sited here from another area, or asked at home in this one.
+        const fx = sited && sited.place === id ? sited.fixture
+          : (!sited && stop.group === id ? fixtureFor(theme, id, lesson) : null);
+        if(fx && !wanted.some(w => w.fixture.id === fx.id))
+          wanted.push({ fixture: fx, caseId: sited ? stop.group : null, stopIndex: i });
+      }
+    }
+    // One key for the set, so the same day's room is not torn down and rebuilt
+    // every entry, and a day that changes which calls are open still is.
+    const wantKey = wanted.map(w => w.fixture.id).join('|') || null;
+    if(room.fixtureKey !== wantKey){
+      for(const old of room.fixtures ?? []){
+        const drop = new Set(old.interactables);
+        for(let i = interactables.length - 1; i >= 0; i--)
+          if(drop.has(interactables[i])) interactables.splice(i, 1);
+        const ci = colliders.indexOf(old.collider);
+        if(ci >= 0) colliders.splice(ci, 1);
+        old.dispose();
+      }
+      room.fixtures = [];
+      for(const w of wanted){
+        const built = addFixture(room, w.fixture, { caseId: w.caseId, stopIndex: w.stopIndex });
+        if(built){
+          built.key = w.fixture.id;
+          room.fixtures.push(built);
+          interactables.push(...built.interactables);
+          colliders.push(built.collider);
+        }
+      }
+      room.fixtureKey = wantKey;
+      // Kept for anything still reading the old singular field.
+      room.fixture = room.fixtures[0] ?? null;
+    }
+  }
+
   return {
     /** True when the player is standing in one. */
     get current(){ return inside; },
@@ -259,7 +353,7 @@ export function createInteriors({
     enter(id){
       const room = roomFor(id);
       if(!room) return false;
-      onEnter?.(id);
+      onEnter?.(id, room);
       inside = { id, room, back: player.getPosition().clone(), yaw: live(camera).rotation.y };
       room.setVisible(true);
       room.setCaseOpen(openCaseGroups().has(id));
@@ -268,6 +362,8 @@ export function createInteriors({
       // from wherever the player was standing and this room may be four
       // kilometres away and not yet built.
       room.delivery?.setPieces(deliveryPieces(theme, getState()));
+      // And the door shows the time of day the town is having.
+      room.setOutsideNight?.(1 - dayBlendAt(getState()?.timeHours ?? 12));
       // The screen on the wall shows the instrument this call is actually about.
       const station = stationForOpenCall(theme, id, calcs);
       if(station) room.screen?.set?.(station);
@@ -295,38 +391,26 @@ export function createInteriors({
       // A MINOR place asks the other question: not "what is open in this area?"
       // — it has no area — but "is any of today's calls sited here?". That is how
       // the tank farm and the array shed carry a stop without being areas.
-      let fx = fixtureFor(theme, id, openLessonFor(theme, id));
-      let fxCaseId = null;
-      if(!fx){
-        const st = getState();
-        const mission = st ? getCurrentMission(st) : null;
-        for(const i of (st ? openStopIndices(st) : [])){
-          const stop = mission?.stops?.[i];
-          const lesson = stop && theme.content?.CURRICULUM?.[stop.group]?.[stop.lesson];
-          const sited = lesson && sitedAt(theme, stop.group, lesson);
-          if(sited && sited.place === id){ fx = sited.fixture; fxCaseId = stop.group; break; }
-        }
-      }
-      if(room.fixture?.key !== (fx?.id ?? null)){
-        if(room.fixture){
-          const drop = new Set(room.fixture.interactables);
-          for(let i = interactables.length - 1; i >= 0; i--)
-            if(drop.has(interactables[i])) interactables.splice(i, 1);
-          const ci = colliders.indexOf(room.fixture.collider);
-          if(ci >= 0) colliders.splice(ci, 1);
-          room.fixture.dispose();
-          room.fixture = null;
-        }
-        if(fx){
-          const built = addFixture(room, fx, { caseId: fxCaseId });
-          if(built){
-            built.key = fx.id;
-            room.fixture = built;
-            interactables.push(...built.interactables);
-            colliders.push(built.collider);
-          }
-        }
-      }
+      // EVERY open call in this room gets its object, not just the first.
+      //
+      // This used to build ONE. The area's own open call won, and any call sited
+      // here was only looked at when the area had none — which is exactly
+      // backwards on the day the feature was built for. Red Sand's sol 291 asks
+      // all three of its questions in the Reactor Hall: the area's own call is a
+      // PERSON stop answered outside with Herrera, so the single slot went to
+      // that call's skid, and the bed and the cold line take-off — the two
+      // questions the player actually walks in to answer — had no object at all.
+      // A room with nothing to grab in it.
+      // ONE PASS OVER TODAY'S OPEN CALLS, and every one that belongs in this room
+      // gets its object — whether it is this area's own call or one sited here.
+      //
+      // This used to ask `openLessonFor` for THE open call of the room's own
+      // area, which returns one lesson. A day with TWO calls in the same area
+      // therefore built one object and left the other with nothing to stand at:
+      // Red Sand's sol 294 has four calls in the Reactor Hall, two of them
+      // EQUIL, and the hall showed three objects. The player walks up to a room
+      // that is missing a call it is supposed to be holding.
+      syncFixtures(id, room);
       // THINGS THAT GET BUILT. A fixture with `from: <day>` is not there before
       // that day and is there afterwards, whatever the open call is — the second
       // polishing column that sol 10 spends the last spare parts on, the
@@ -347,8 +431,19 @@ export function createInteriors({
       // on ground the player already walks every day — which is a far stronger
       // reading of "the world grew" than a building opening 300 m away.
       const week = getState()?.week ?? 1;
+      // A DATED FIXTURE MAY ALSO BE A QUESTION'S OBJECT, and then today's call
+      // already built it: Overwind's March board is `from: 10` and is what
+      // CAGE-9 is asked at, so from sol 10 the room stood two boards in one
+      // place — the call's, and a second scenery copy in the same coordinates
+      // with its own hit box. Whichever the raycast reached first won.
+      // From the room rather than from a local: `syncFixtures` has just built
+      // today's objects and records each one's id as `key`, and it is also
+      // called from the room's tick now — so reaching into its locals is not
+      // available and was the wrong coupling anyway.
+      const alreadyBuilt = new Set((room.fixtures ?? []).map(f => f.key));
       const due = (theme.fixtures?.[id] ?? []).filter(f =>
-        (f.from || f.until) && week >= (f.from ?? 1) && week < (f.until ?? Infinity));
+        (f.from || f.until) && week >= (f.from ?? 1) && week < (f.until ?? Infinity)
+        && !alreadyBuilt.has(f.id));
       const dueKey = due.map(f => f.id).join(',');
       if((room.standing?.key ?? '') !== dueKey){
         for(const built of room.standing?.list ?? []){
@@ -361,8 +456,8 @@ export function createInteriors({
         }
         const list = [];
         for(const f of due){
-          const built = addFixture(room, f,
-            { openPrompt: f.until ? 'Not finished yet' : 'Built this rotation' });
+          const built = addFixture(room, f, { scenery: true,
+            openPrompt: f.until ? 'Not finished yet' : 'Built this rotation' });
           if(built){
             list.push(built);
             interactables.push(...built.interactables);
@@ -395,7 +490,10 @@ export function createInteriors({
     },
     exit(){
       if(!inside) return false;
-      const { room, back, yaw } = inside;
+      const { id, room, back, yaw } = inside;
+      // Before the room goes dark, so whoever was standing in it is put back on
+      // their own doorstep rather than left in an invisible box.
+      onExit?.(id, room);
       room.setVisible(false);
       inside = null;
       player.setGround(townGround);
@@ -407,12 +505,23 @@ export function createInteriors({
     update(delta){
       if(!inside) return;
       inside.room.update(delta, live(camera));
+      // The marker on today's object. Its arrow bobs and turns to face the
+      // player, the same as the case stand's — the room's own `update` drives
+      // that one and knows nothing about the fixtures added after it was built.
+      for(const f of inside.room.fixtures ?? []) f.beacon?.update?.(delta, live(camera));
       // The case can close while the player is standing in the room — they
       // answer it, and the marker has to go out with it.
       sinceCheck += delta;
       if(sinceCheck > 0.4){
         sinceCheck = 0;
         inside.room.setCaseOpen(openCaseGroups().has(inside.id));
+        // AND THE OBJECTS. Same reason as the line above, one level out: a call
+        // can close while the player is standing in the room, and with the
+        // calls opening one at a time that opens the next one. Without this the
+        // finished object kept its marker and the new one was never built —
+        // "I need to go to the technician's spreadsheet, but the conversion
+        // board, which I solved, is still highlighted."
+        syncFixtures(inside.id, inside.room);
       }
     },
   };
@@ -794,7 +903,14 @@ export function createDay({
     const state = getState();
     const m = getCurrentMission(state);
     if(!m) return [];
-    return m.stops.map(s => positionOf?.(s.group) ?? null);
+    // The place the call is actually asked at, not the area it belongs to. A
+    // day whose stops are sited elsewhere had its budget measured to the wrong
+    // buildings — see `siteForStop` and `placeOfStop` in the entry point.
+    return m.stops.map(s => {
+      const lesson = theme.content?.CURRICULUM?.[s.group]?.[s.lesson];
+      const place = siteForStop(theme, s, lesson)?.place ?? s.group;
+      return positionOf?.(place) ?? positionOf?.(s.group) ?? null;
+    });
   };
 
   /**
@@ -849,44 +965,99 @@ export function createDay({
     if(!lines.length) return '';
     // A book may author its own primer, in which case there is no structured term
     // list and every line is prose as far as this knows.
-    const terms = (m.primerTerms ?? []).filter(t => t?.name && t?.def);
-    const rest = lines.slice(terms.length);
+    const allTerms = (m.primerTerms ?? []).filter(t => t?.name && t?.def);
+    const allRest = lines.slice(allTerms.length);
+
+    // SAY IT ONCE. The primer is derived from three sources that do not know
+    // about each other — the glossary, `relationship` on an estimate, and the
+    // syllabus equations — and on sol 293 all three described Q against K. The
+    // card carried the term, a sentence spelling the formula out in words, the
+    // equation's own caption AND its prose line: one idea, four times, before
+    // the player had read a single objective.
+    //
+    // So a bullet that is mostly the equation block's own words is dropped, and
+    // so is a term the equations already name. Conservative on purpose: a short
+    // line is never dropped on a ratio, and a term is dropped only when EVERY
+    // word of its name is in the equations.
+    const CONTENT = (t) => new Set(String(t).toLowerCase().match(/[a-z\u2080-\u2089]{4,}/g) ?? []);
+    const eqWords = CONTENT((m.equations ?? []).filter(x => x?.e && x.card !== false)
+      .map(x => [x.e, x.c, ...(x.v ?? []).flat(), x.s].filter(Boolean).join(' ')).join(' '));
+    const saidByAnEquation = (line) => {
+      const w = [...CONTENT(line)];
+      if(w.length < 5 || !eqWords.size) return false;
+      return w.filter(x => eqWords.has(x)).length / w.length >= 0.7;
+    };
+    // BULLETS ONLY. Dropping a TERM the equations happen to name was tried and
+    // is wrong: an equation MENTIONS a word, a term DEFINES it, and those are
+    // different jobs. Sol 297 lost both "Cryogenic" and "Boil-off" because its
+    // equation's caption reads "heat into a cryogenic tank, paid in kilograms",
+    // which names them and defines neither.
+    const terms = allTerms;
+    const kept = allRest.filter(l => !saidByAnEquation(l));
+    // Assumptions get their own heading. Mixed in above they read as a stray
+    // fact; under a heading that says what they are, they read as the ground the
+    // day's questions stand on — which is what they are.
+    const assumedSet = new Set(m.primerAssumes ?? []);
+    const rest = kept.filter(l => !assumedSet.has(l));
+    const assumed = kept.filter(l => assumedSet.has(l));
     // Vocabulary first, equations last. A formula is the densest thing on the
     // card and the one that assumes the most, so it reads better once the words
     // in it have been defined a few lines above.
-    return `<div class="planPrimer"><h4>Worth knowing first</h4>`
-      + (terms.length ? `<dl>${terms.map(t =>
-          `<dt>${esc(t.name)}</dt><dd>${esc(t.def)}</dd>`).join('')}</dl>` : '')
-      + (rest.length ? `<ul>${rest.map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : '')
-      + equationsHTML(m)
+    /**
+     * ONE BOX, ONE FORMAT.
+     *
+     * These were three different things on the same card: the terms as a
+     * definition list, the primer lines as a bulleted list, and the equations in
+     * a bordered block of their own with its own type. Three treatments for one
+     * idea — here is what you need to know before you start — so the card read as
+     * three cards stacked, and which of them a line landed in was decided by
+     * where it happened to be written in the bible rather than by what it says.
+     *
+     * Every row is now the same shape: an optional label, then the line. A term
+     * labels itself with its name, an equation with the equation, and a primer
+     * sentence has no label because it is already a whole sentence.
+     */
+    const row = (label, text, cls = '') =>
+      `<div class="planRow${cls ? ' ' + cls : ''}">`
+      + (label ? `<b>${label}</b>` : '')
+      + (text ? `<span>${text}</span>` : '') + `</div>`;
+
+    const eqs = (m.equations ?? []).filter(x => x?.e && x.card !== false);
+    /**
+     * THE HEADING AND THE BUTTON SHARE A LINE.
+     *
+     * The button was at the foot of the box, under an equation's symbol list,
+     * where it read as one more row of reference rather than as a way out to a
+     * different panel. On the heading it is where a reader looks first and it
+     * costs the box no height at all.
+     */
+    const head = `<div class="planPrimerHead"><h4>Worth knowing first</h4>`
+      + (hasWorked(m.worked)
+          ? `<button type="button" id="planWorked" class="btn small">`
+            + `${esc(workedLabel(m.worked))}</button>` : '')
+      + `</div>`;
+    return `<div class="planPrimer">${head}`
+      + terms.map(t => row(esc(t.name), esc(t.def))).join('')
+      + rest.map(l => row('', esc(l))).join('')
+      // The equation is the label, its purpose is the line, and the symbols run
+      // underneath in the same box rather than in one of their own. `x.s` is
+      // still not printed here — see the note where `equationsHTML` used to be.
+      + eqs.map(x => row(`<code>${esc(x.e)}</code>`, esc(x.c ?? ''), 'planRowEq')
+          + (Array.isArray(x.v) && x.v.length
+              ? `<div class="planRow planRowVars"><span>${x.v.map(([sym, mean]) =>
+                  `<em><b>${esc(sym)}</b> ${esc(mean)}</em>`).join('')}</span></div>`
+              : '')).join('')
+      + (assumed.length ? `<h4>Taken as given</h4>`
+          + assumed.map(l => row('', esc(l))).join('') : '')
       + `</div>`;
   }
 
-  /**
-   * The course equations this day is the first to need.
-   *
-   * Above the vocabulary, because an equation is the one thing on the card the
-   * player may have to hold in their hand while they work, and `normalize.js`
-   * puts each one on the first day that touches it — so it is on screen before the
-   * question that wants it, rather than assumed by it.
-   */
-  function equationsHTML(m){
-    const eqs = (m.equations ?? []).filter(x => x?.e && x.card !== false);
-    if(!eqs.length) return '';
-    // Every symbol is named with its unit, and one sentence says what the
-    // equation asserts. Printing `df/dt = (P_gen − P_load) / 2H` beside the
-    // phrase "frequency as the running balance of supply and demand" is a label
-    // rather than an explanation: a reader who does not already know what H is
-    // cannot use the line, and a reader who does did not need it.
-    return `<div class="planEqs">${eqs.map(x =>
-      `<div class="planEq"><div class="planEqHead"><code>${esc(x.e)}</code>`
-      + (x.c ? `<span>${esc(x.c)}</span>` : '') + `</div>`
-      + (Array.isArray(x.v) && x.v.length
-          ? `<p class="eqVars">${x.v.map(([sym, mean]) =>
-              `<span><b>${esc(sym)}</b> ${esc(mean)}</span>`).join('')}</p>` : '')
-      + (x.s ? `<p class="eqSays">${esc(x.s)}</p>` : '')
-      + `</div>`).join('')}</div>`;
-  }
+  // `equationsHTML` is gone: the equations are rows in the primer box now, in the
+  // same shape as the terms and the primer lines — see `primerHTML` above. It had
+  // its own block, its own border and its own type, which made one card read as
+  // three. `x.s`, the discursive sentence about an equation, is still not on this
+  // card; `askMoreHTML` prints it behind the question's own fold, which is where
+  // somebody who wants the commentary is standing when they want it.
 
   /**
    * One clause saying why this call is worth making.
@@ -899,10 +1070,10 @@ export function createDay({
    * book's own `desc` on the group says. A book may still override it per stop
    * with `reason:`, and where one does, that wins.
    */
-  /** The minor place a stop is asked at, or null when it is asked at home. */
+  /** Where a stop is asked when that is not its own area: `{place, fixture}`. */
   function siteOf(stop){
     const lesson = theme.content?.CURRICULUM?.[stop?.group]?.[stop?.lesson];
-    return sitedAt(theme, stop?.group, lesson)?.place ?? null;
+    return siteForStop(theme, stop, lesson);
   }
 
   function reasonFor(state, stop, idx, person){
@@ -953,11 +1124,22 @@ export function createDay({
       // Deliberately NOT the day's question, which used to be here and was taken
       // out for being a second briefing. A reason is a clause, and a call with
       // three lines under it is a card nobody reads twice.
-      const why = reasonFor(state, s, i, person);
+      // ONE LINE, AND IT IS THE WORK. The row used to be an instruction —
+      // "Go to Reactor Hall" — with the reason under it, which made the card a
+      // route somebody else had drawn plus a second briefing. Two things went
+      // wrong with that. A day whose calls share one place printed the same
+      // instruction three times, naming nothing that told them apart; and the
+      // reason lines referred to people the card had not introduced ("She wants
+      // the reactor run hotter" under a call that names Herrera).
+      //
+      // So the objective is the stop's own `task`: what the player has to work
+      // out. Where to walk is on the map beside it, in the HUD while walking,
+      // and — when a day is all in one place — in the stake above.
+      const line = String(s.task ?? '').trim()
+        || callLabel(person, s.group, siteOf(s));
       return `<div class="planCall${made ? ' planDone' : ''}">`
         + `<span class="planNum">${made ? '✓' : i + 1}</span>`
-        + `<span class="planCallText"><b>${esc(callLabel(person, s.group, siteOf(s)))}</b>`
-        + (why ? `<span class="planWhy">${esc(why)}</span>` : '')
+        + `<span class="planCallText"><b>${esc(line)}</b>`
         + `${made ? '<span class="planMade">made</span>' : ''}</span></div>`;
     }).join('');
     // Order: what happened, what you are called to, what you need to know, and
@@ -977,19 +1159,90 @@ export function createDay({
     // day, which is where a running total belongs. See gamekit/BRIEFING_PASS.md.
     const deliverLine = theme?.stakeStyle === 'brief'
       ? '' : deliveryPlanLine(theme, state, { dayNoun: DAY_NOUN });
+    // ------------------------------------------------- the authored card
+    //
+    // A campaign bible can write the briefing card as exact player copy — a
+    // header, a card title, a "go now" line, a body and an objective. Where a
+    // book does that, those lines are printed verbatim and the generated stake
+    // line steps aside: the whole point of authoring the card is that the words
+    // are chosen.
+    //
+    // TWO FIELDS THE CARD NO LONGER PRINTS. `failureMeans` and `laterTravel`
+    // were on it and are gone. Both restated something the card already had:
+    // "the crew loses time it may need" is the body's own stake said twice, and
+    // "None. All four stops remain in Plant Control" is a travel note for a
+    // mission with no travel — a line whose whole content is that it does not
+    // apply. The importer no longer carries either, so a book writing them is
+    // not quietly holding dead copy.
+    //
+    // Every field is optional and a book that writes none of them renders
+    // exactly as it always did.
+    /**
+     * THE CARD IS THREE THINGS, NOT FIVE.
+     *
+     * It had a header, a title, a shaded body, a "Go now" row and an "Objective"
+     * row — five treatments, four type sizes and a colour of its own. Two of
+     * those rows are one thing said in two halves: the objective is what the day
+     * is for and `goNow` is where to start on it, and split under separate labels
+     * the player read them as two instructions and had to work out that the
+     * second was the first one's address.
+     *
+     * So: the header and title as they were, then CONTEXT (the body, in the
+     * card's own type rather than a shaded box of its own), then one OBJECTIVE
+     * row — the aim first and the place after it, which is the order they are
+     * acted in.
+     */
+    const card = m.card ?? null;
+    const aim = card
+      ? [card.objective, card.goNow].map(x => String(x ?? '').trim()).filter(Boolean).join(' ')
+      : '';
+    const cardHTML = card ? ''
+      + (card.header ? `<div class="planHeader">${esc(card.header)}</div>` : '')
+      + (card.title ? `<h4 class="planCardTitle">${esc(card.title)}</h4>` : '')
+      + `<div class="planStake"><span>Context</span>`
+      + `${esc(card.body || m.stake || m.objective || '')}</div>`
+      + (aim ? `<div class="planAim"><span>Objective</span>${esc(aim)}</div>` : '')
+      : `<div class="planStake"><span>Context</span>${esc(m.stake || m.objective || '')}</div>`;
     return `<div class="planCard">`
       + continuityHTML(state)
-      + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
+      + cardHTML
       + (deliverLine ? `<div class="planDeliver">${esc(deliverLine)}</div>` : '')
-      + `<div class="planCalls"><h4>Objectives</h4><div class="planCallRow">${rows}</div></div>`
+      // ------------------------------------------------------ the call list
+      //
+      // A list of "go to the conversion board, in Plant Control" ×4 is what the
+      // plan card is FOR in a campaign the player routes themselves: it is the
+      // day's shape, and the map underneath is planned from it.
+      //
+      // It is noise in a sequential one. Only the first is available, the HUD
+      // banner names it, a beacon marks the object and a beat sets it up — so
+      // the card was listing three places the player cannot go yet and one they
+      // are already being told about. Reported as not needed, and it is not.
+      //
+      // AND IT IS NOISE IN A TIMED ONE, for the same reason wearing a different
+      // hat. A campaign scored on four bars and a stopwatch sets each call up in
+      // a beat, names the open one in the HUD banner and puts a beacon on the
+      // object; the card was repeating four stop titles — "Signal or statistic",
+      // "Counter tradeoff", "Page one standard" — above a map that already shows
+      // them. `economy: false` is the timed model's own switch.
+      + (STOPS_IN_ORDER || TIMED ? ''
+        : `<div class="planCalls"><h4>Objectives</h4><div class="planCallRow">${rows}</div></div>`)
       + primerHTML(m)
       + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
       // One line. The rest of what used to be here — how fast the clock runs
       // while you walk, drive or read — is a rule the player learns by playing
       // and read past by everyone else.
-      + `<div class="planNote">${resuming
-          ? `${openStopIndices(state).length} still open. Take them in whatever order.`
-          : 'Take them in whatever order.'}</div>`
+      // What the note says depends on whether the calls are the player's to
+      // order. A sequential campaign must not print "in whatever order" — see
+      // STOPS_IN_ORDER in constants.js.
+      // NO NOTE ON A SEQUENTIAL CAMPAIGN. "One call at a time, in the order they
+      // are listed" describes the rule rather than the day, and the rule is
+      // visible without being stated: one call is open, the map marks it, and
+      // the next appears when it closes. It stays where the player DOES have a
+      // choice, because there the order is a decision and the card should say so.
+      + (STOPS_IN_ORDER ? ''
+        : `<div class="planNote">${resuming
+            ? `${openStopIndices(state).length} still open. Take them in whatever order.`
+            : 'Take them in whatever order.'}</div>`)
       + `</div>`;
   }
 
@@ -1084,11 +1337,30 @@ export function createDay({
         }
       }
       planOpen = true;
-      ui.open(`${DAY_NOUN} ${state.week} — ${m.title}`, planHTML(resuming), [
-        resuming
-          ? { id: 'planStart', label: 'Back to it', primary: true, onClick: () => this.resume() }
-          : { id: 'planStart', label: 'Start the day', primary: true, onClick: () => this.start() },
-      ]);
+      const start = resuming
+        ? { id: 'planStart', label: 'Back to it', primary: true, onClick: () => this.resume() }
+        : { id: 'planStart', label: 'Start the day', primary: true, onClick: () => this.start() };
+      ui.open(`${DAY_NOUN} ${state.week} — ${m.title}`, planHTML(resuming), [start]);
+      /**
+       * THE PANEL, AND THE WAY BACK.
+       *
+       * "Back to mission restores the same mission card and progress" — so the
+       * way back is this same call with the same argument, which re-renders the
+       * card from the same state rather than restarting or resuming the day.
+       * Nothing about the day is touched by opening this: the clock has not
+       * started on an unresumed plan card, and on a resumed one the caller is
+       * already holding it.
+       */
+      const worked = m.worked;
+      document.getElementById('planWorked')?.addEventListener('click', () => {
+        ui.open(String(worked.title ?? 'Worked examples'), workedHTML(worked), [
+          { id: 'workedBack', label: 'Back to mission', primary: true,
+            // `showPlan` takes no argument — it reads `resuming` off the state
+            // itself, so this comes back to exactly the card that was open.
+            onClick: () => this.showPlan() },
+        ]);
+        bindWorked(document.getElementById('modalBody'));
+      });
     },
     /** Close a briefing without touching the clock. */
     resume(){

@@ -6,13 +6,20 @@
     header: "6 DAYS."
     title: "THE REEF EVIDENCE"
     goNow: "Reef Station, Rafi Noor at water-rack."
-    body: "Source controls are ready, but the reef record shows low oxygen during warm, nutrient-rich weeks. Warm water holds less oxygen, while excess nitrogen and phosphorus feed algae whose decay consumes more. Compare the bay record, then test both drivers at the harbour review. By the end of the mission, decide which reef pressures the ferry conditions must reduce."
+    body: "The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce."
     objective: "Separate and combine reef stressors."
   objective: "Separate and combine reef stressors."
-  stake: "Source controls are ready, but the reef record shows low oxygen during warm, nutrient-rich weeks. Warm water holds less oxygen, while excess nitrogen and phosphorus feed algae whose decay consumes more. Compare the bay record, then test both drivers at the harbour review. By the end of the mission, decide which reef pressures the ferry conditions must reduce."
+  stake: "The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Cut runoff, warm water, air waste, and fishing at the same time. Cap catch at 70 fish in poor years. Heat alone did not harm the reef. The plan must protect the full habitat."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Dissolved oxygen", def: "oxygen gas available in water."}
+  - {name: "Thermal pollution", def: "warming that lowers oxygen solubility."}
+  - {name: "Ocean acidification", def: "falling seawater pH as carbon dioxide enters water."}
+  - {name: "Dead zone", def: "water with too little oxygen for most animals."}
+  equations:
+  - {"e":"N_t=K/(1+e^-rt); energy at next trophic level≈0.10×energy at current level","c":"Apply this relationship to the mission decision.","v":[["N_t","population at time"],[";","K"],["carrying capacity;","r"],["intrinsic growth rate;","t"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "photic shallow water supports algae; eutrophication proceeds nutrients->bloom->decay->anoxia; acidification harms calcium-carbonate shells."
 
@@ -26,7 +33,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 10: READ THE PATTERNED RESIDUALS OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
+    - who: voss   # Mara Voss
       say: "Start with read the patterned residuals. We need evidence the next decision can use."
   - id: after-stop-37
     # After Stop 37 | flow-tank | automatic
@@ -34,32 +41,99 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 37 result to settle control heat and nutrients."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 37 result to settle control heat and nutrients."
   - id: after-stop-38
     # After Stop 38 | transect-bench | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 38 result to settle map acidification damage."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 38 result to settle map acidification damage."
   - id: after-stop-39
     # After Stop 39 | council-table | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 39 changes the persistent board and unlocks the decision stop."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 39 result to settle stress the catch ceiling."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 39 result to settle stress the catch ceiling."
   - id: at-mission-end
     # At mission end | sampler | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 40 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 10 EVIDENCE: RECORDED"
     bubbles:
-    - who: noor   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Reef Evidence. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Reef Evidence, the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?"
+      hint: "Use the stated evidence and the conditions for Dissolved oxygen; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Oxygen gas available in water.", why: "Correct. oxygen gas available in water."}
+      - {key: "C", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Water with too little oxygen for most animals.", why: "This describes Dead zone, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to The Reef Evidence: the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?"
+      hint: "Use the stated evidence and the conditions for Thermal pollution; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Oxygen gas available in water.", why: "This describes Dissolved oxygen, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Warming that lowers oxygen solubility.", why: "Correct. warming that lowers oxygen solubility."}
+      - {key: "D", text: "Water with too little oxygen for most animals.", why: "This describes Dead zone, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks The Reef Evidence using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?"
+      hint: "Use the stated evidence and the conditions for Ocean acidification; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Oxygen gas available in water.", why: "This describes Dissolved oxygen, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Water with too little oxygen for most animals.", why: "This describes Dead zone, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Falling seawater pH as carbon dioxide enters water.", why: "Correct. falling seawater pH as carbon dioxide enters water."}
+    - prompt: "An unseen case extends The Reef Evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?"
+      hint: "Use the stated evidence and the conditions for Dead zone; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Water with too little oxygen for most animals.", why: "Correct. water with too little oxygen for most animals."}
+      - {key: "B", text: "Oxygen gas available in water.", why: "This describes Dissolved oxygen, not Dead zone. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not Dead zone. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not Dead zone. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Reef Evidence decision, the team knows this: the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue?"
+      hint: "Use the stated evidence and the conditions for temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Oxygen gas available in water.", why: "This describes Dissolved oxygen, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Read the patterned residuals connects the measured environmental mechanism to the next island condition.", why: "Correct. read the patterned residuals connects the measured environmental mechanism to the next island condition."}
+      - {key: "C", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from The Reef Evidence to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?"
+      hint: "Use the stated evidence and the conditions for factorial stressors | causality | D9 | COMBINE | L4 | reveal; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Oxygen gas available in water.", why: "This describes Dissolved oxygen, not factorial stressors | causality | D9 | COMBINE | L4 | reveal. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not factorial stressors | causality | D9 | COMBINE | L4 | reveal. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Control heat and nutrients connects the measured environmental mechanism to the next island condition.", why: "Correct. control heat and nutrients connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not factorial stressors | causality | D9 | COMBINE | L4 | reveal. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 10: worked examples"
+    examples:
+    - {"title":"Compare oxygen deficits","problem":"A water sample has saturation oxygen 10 mg/L but measured oxygen 6 mg/L. Find the deficit.","rule":"Oxygen deficit=saturation concentration-measured concentration.","steps":["Set up the relationship: Oxygen deficit=saturation concentration-measured concentration.","deficit=10-6=4 mg/L."],"answer":"The sample is 4 mg/L below its stated saturation level.","mistake":"Saturation depends on conditions such as temperature; use the supplied reference."}
+    - {"title":"Warm water and oxygen","problem":"A stream warms while other conditions are comparable. Why can fish face added oxygen stress?","rule":"Warmer water generally holds less dissolved oxygen at saturation.","steps":["The maximum equilibrium oxygen concentration decreases as the water warms.","Organisms may also need more oxygen as metabolism increases, depending on species and conditions."],"answer":"Supply can fall while biological demand rises.","mistake":"Temperature is not the only factor affecting measured oxygen."}
+    - {"title":"Ocean acidification mechanism","problem":"More atmospheric carbon dioxide dissolves in seawater. Explain the pressure on carbonate-building organisms.","rule":"Dissolved carbon dioxide alters acid-base equilibria, raising hydrogen-ion concentration and reducing available carbonate.","steps":["More hydrogen ions react with carbonate to form bicarbonate.","Less carbonate can make shell and skeleton formation harder for some organisms."],"answer":"Acidification means decreasing pH, even if seawater remains above pH 7.","mistake":"The term does not require the ocean to become acidic below pH 7."}
+    - {"title":"Trace oxygen loss","problem":"Fertilizer runoff enters a lake, algae grow rapidly, and later dissolved oxygen falls. Explain the sequence.","rule":"Extra nutrients can stimulate growth; microbial decomposition consumes dissolved oxygen.","steps":["Nutrient enrichment promotes an algal bloom when other conditions permit.","After biomass dies, decomposers use oxygen while breaking it down."],"answer":"The resulting oxygen depletion can harm aquatic animals.","mistake":"Nutrients do not simply remove oxygen by their presence alone."}
+    - {"title":"Use a reversible intervention","problem":"A lamp draws 2 A at setting A, 3 A at setting B, and 2 A after returning to A. Supply voltage and the lamp are unchanged. What does this support?","rule":"Change one proposed cause, hold other relevant factors fixed, then restore the original condition.","steps":["A → B changes the current by 3-2 = 1 A.","B → A restores 2 A. The response reverses with the setting under the stated controls."],"answer":"The result supports a setting effect under these test conditions.","mistake":"One intervention does not prove the effect is identical under every other condition."}
 
   stops:
   # --- Stop 37: Read the patterned residuals
@@ -68,12 +142,12 @@
   - group: CHAPEL
     at: sampler
     title: "Read the patterned residuals"
-    concept: "temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue"
-    reason: "The island cannot commit read the patterned residuals until this evidence is resolved."
-    scene: "The new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Compare residual patterns to test whether its errors grow after nitrate pulses, and the team needs this result before it acts."
-    motivation: "Read the patterned residuals connects the measured environmental mechanism to the next island condition."
+    concept: 34   # temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue
+    reason: "The new nutrient controls challenge Rafi's claim that heat alone explains the reef's oxygen losses."
+    scene: "The new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Compare residual patterns to test whether its errors grow after nitrate pulses."
+    motivation: "Residuals following nitrate pulses determine whether the oxygen forecast needs nutrient loading as well as temperature."
     format: RESIDUAL
-    question: "Compare heat-only residuals [0,0,-2,-2] with heat-plus-nitrate residuals [0.2,-0.1,0.1,-0.2] and submit the model without a patterned error"
+    question: "Compare heat-only residuals [0,0,-2,-2] with heat-plus-nitrate residuals [0.2,-0.1,0.1,-0.2] and submit the model without a patterned error Use ordered observation coordinates 1–5 on the residual axis."
     answerText: "The completed check shows heat plus nitrate survives; the heat-only errors track nitrate pulses."
     why: "Read the patterned residuals connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -84,6 +158,48 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   residual:{models:{heat_only:{residuals:[0,0,-2,-2]},heat_plus_nitrate:{residuals:[0.2,-0.1,0.1,-0.2]}},correct:heat_plus_nitrate}
+    residual:
+      fits:
+        - id: patterned_low_error
+          label: lower average error but patterned residuals
+          rms: 0.18
+          structured: true
+          residuals:
+            - x: 1
+              y: -0.12
+              value: -0.12
+            - x: 2
+              y: -0.06
+              value: -0.06
+            - x: 3
+              y: 0
+              value: 0
+            - x: 4
+              y: 0.06
+              value: 0.06
+            - x: 5
+              y: 0.12
+              value: 0.12
+        - id: unpatterned_generalising
+          label: slightly higher error with no directional pattern
+          rms: 0.21
+          residuals:
+            - x: 1
+              y: 0.05
+              value: 0.05
+            - x: 2
+              y: -0.04
+              value: -0.04
+            - x: 3
+              y: 0.02
+              value: 0.02
+            - x: 4
+              y: -0.03
+              value: -0.03
+            - x: 5
+              y: 0.01
+              value: 0.01
+      accept: unpatterned_generalising
 
   # --- Stop 38: Control heat and nutrients
   #     Concept: factorial stressors | causality | D9 | COMBINE | L4 | reveal; Keystone: factorial stressors | causality | D9 | COMBINE | L4 | reveal; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: factorial stressors | causality | D9 | COMBINE | L4 | reveal.
@@ -91,10 +207,10 @@
   - group: CHAPEL
     at: flow-tank
     title: "Control heat and nutrients"
-    concept: "factorial stressors | causality | D9 | COMBINE | L4 | reveal"
-    reason: "The island cannot commit control heat and nutrients until this evidence is resolved."
-    scene: "Because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Keep all other tank conditions fixed and restore the baseline after every treatment, and the team needs this result before it acts."
-    motivation: "Control heat and nutrients connects the measured environmental mechanism to the next island condition."
+    concept: 8   # factorial stressors | causality | D9 | COMBINE | L4 | reveal
+    reason: "The residual pattern suggests a nutrient effect that must be separated from heat experimentally."
+    scene: "Because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Keep all other tank conditions fixed and restore the baseline after every treatment."
+    motivation: "The treatment comparisons determine whether heat and nitrate jointly worsen oxygen and reef cover beyond either factor alone."
     format: CONTROL
     question: "Measure the baseline at 24 C and 1 mg/L nitrate. Change temperature only to 28 C, change nitrate only to 8 mg/L, then change both while light, flow, fragment size, salinity 35 ppt, and six-week timing remain fixed; measure oxygen and coral cover after each run, restore baseline and remeasure, then submit the interaction conclusion."
     answerText: "The completed check shows the combined treatment yields 3.1 mg/L oxygen and 30% cover, showing heat and nutrients interact."
@@ -107,6 +223,24 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   control:{candidates:[{id:"temperature",label:"temperature"},{id:"nitrate",label:"nitrate concentration"},{id:"salinity",label:"salinity"}],selected_controls:["temperature","nitrate"],baseline:{temperature_C:24,nitrate_mgL:1,DO_mgL:7.5,cover_pct:80},responses:[{temperature_C:28,nitrate_mgL:1,DO_mgL:6.3,cover_pct:70},{temperature_C:24,nitrate_mgL:8,DO_mgL:5.8,cover_pct:62},{temperature_C:28,nitrate_mgL:8,DO_mgL:3.1,cover_pct:30}],noise_band:{DO_mgL:0.2,cover_pct:2},fixed:["light","flow","fragment size","salinity 35 ppt","six-week timing"],measure_when:"after six weeks",restore:{required:true,temperature_C:24,nitrate_mgL:1,DO_mgL:7.5,cover_pct:80,remeasure:true},correct_conclusion:"heat and nutrients interact",answerText:"Heat and nitrate together depress oxygen and coral cover more than either treatment alone, and restoration returns the baseline."}
+    control:
+      variables:
+        - id: temperature
+          label: Temperature
+        - id: nitrate
+          label: Nitrate
+        - id: combined
+          label: Temperature and nitrate together
+      held:
+        - light
+        - flow
+        - fragment size
+        - salinity at 35 ppt
+        - six-week timing
+      truth: combined
+      baseline: 0
+      response: 4.4
+      noise: 0.2
 
   # --- Stop 39: Map acidification damage
   #     Concept: aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence; Keystone: aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence.
@@ -114,11 +248,11 @@
   - group: REEF
     at: transect-bench
     title: "Map acidification damage"
-    concept: "aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence"
-    reason: "The island cannot commit map acidification damage until this evidence is resolved."
-    scene: "The tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. Place pH and calcifier-cover distributions across the reef zones, and the team needs this result before it acts."
-    motivation: "Map acidification damage connects the measured environmental mechanism to the next island condition."
-    format: CLOUD
+    concept: 32   # aquatic zones and acidification | biodiversity | D3 | RETRIEVE | L3 | evidence
+    reason: "The tank results leave shell loss outside the bloom needing an additional explanation."
+    scene: "The tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. Place pH and calcifier-cover distributions across the reef zones."
+    motivation: "The pH and calcifier-cover pattern determines whether acidification must be included in reef protection."
+    format: CHOICE
     question: "Fit pH [8.15,8.05,7.95] and cover [70,55,35] across littoral, pelagic, and benthic observations; submit acidification as the mechanism"
     answerText: "The completed check shows falling pH accompanies falling calcifier cover; acidification explains the shell loss."
     why: "Map acidification damage connects the measured environmental mechanism to the next island condition."
@@ -130,6 +264,16 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   cloud:{zones:[littoral,pelagic,benthic],pH:[8.15,8.05,7.95],calcifier_cover_pct:[70,55,35],tolerance_pH:0.03,correct:ocean_acidification}
+    choices:
+      - Falling pH accompanies falling calcifier cover; acidification explains the shell loss
+      - Treat the settings table as the conclusion without reading the pattern.
+      - Claim a cause or trend stronger than the displayed readings support.
+    answer: Falling pH accompanies falling calcifier cover; acidification explains the shell loss
+    rebuttals:
+      - Settings are inputs; the measured cloud or pattern is the evidence.
+      - The observations support the bounded conclusion, not the stronger claim.
+    cloud:
+      bounds: {}
 
   # --- Stop 40: Stress the catch ceiling
   #     Concept: sustainable plan | population limits | D5 | TRANSFER | L5 | decision; Keystone: sustainable plan | population limits | D5 | TRANSFER | L5 | decision; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: sustainable plan | population limits | D5 | TRANSFER | L5 | decision.
@@ -138,10 +282,10 @@
     at: council-table
     title: "Stress the catch ceiling"
     person: voss
-    concept: "sustainable plan | population limits | D5 | TRANSFER | L5 | decision"
-    reason: "The island cannot commit stress the catch ceiling until this evidence is resolved."
+    concept: 19   # sustainable plan | population limits | D5 | TRANSFER | L5 | decision
+    reason: "The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
     scene: "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Stress the catch ceiling connects the measured environmental mechanism to the next island condition."
+    motivation: "The low-recruitment comparison determines which catch limit remains below replacement in a bad year."
     format: STRESS
     question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"
     answerText: "The completed check shows use 70 fish in low-recruitment years."
@@ -154,4 +298,40 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   stress:{assumption:nursery_recruits,range:[80,130],candidates:[{id:fixed_100,value:100},{id:precautionary_70,value:70},{id:catch_130,value:130},{id:no_cap,value:null}],correct:precautionary_70}
+    stress:
+      candidates:
+        - id: nominal_only
+          label: Use only the nominal reading
+        - id: common_extreme_mistake
+          label: Use the favorable extreme as if it were guaranteed
+        - id: robust_plan
+          label: Use 70 fish in low-recruitment years
+      criteria:
+        - key: evidence_fit
+          label: fit to the stop evidence
+        - key: safety_margin
+          label: margin at the adverse end
+      scores:
+        nominal_only:
+          evidence_fit: 95
+          safety_margin: 20
+        common_extreme_mistake:
+          evidence_fit: 88
+          safety_margin: 5
+        robust_plan:
+          evidence_fit: 82
+          safety_margin: 92
+      feasible:
+        nominal_only: 105
+        common_extreme_mistake: 105
+        robust_plan: 80
+      assumption:
+        label: nursery recruitment
+        unit: fish
+        min: 80
+        max: 130
+        nominal: 105
+        step: 10
+      robust: robust_plan
+      optimiseOn: evidence_fit
 

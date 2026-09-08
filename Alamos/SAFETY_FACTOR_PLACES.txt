@@ -1,0 +1,209 @@
+SAFETY FACTOR (theme: midway) — PLACES AND LOCATIONS
+Corbin Park, a closed lakeside amusement park, three weeks before it tries to
+reopen. AP Physics 1, all eight units, taught through derivations. Grade 11.
+
+Sources: themes/midway/site.js, fixtures.js, minors.js, interiors.js,
+content/groups.js, props.js. Coordinates are (x, z); -Z is away from the player
+at the gate. Distance is measured from the spawn at (0, 58).
+
+Run it:  cd gamekit && THEME=midway npm run dev
+
+THE RULE THAT SHAPES THIS LIST
+  The rides ARE the areas. Every area is a ride, so every group is a station or
+  plant room at the foot of a machine — and the machines, which are the whole
+  silhouette of the place, are props in props.js standing over them. A player
+  navigates by machines, not by buildings.
+
+  This park cannot earn a far tier and never will. tiersFor wants a distance
+  ratio of 2.0 and at least 120 m; the largest gap in the list below is 27 m and
+  the best ratio is 1.32. A midway is walked end to end in ninety seconds. So
+  what grows here is DOORS, not ground — three modelled buildings open on the day
+  the campaign first sends somebody to them. Ground is never fenced; the whole
+  park is walkable from the first morning.
+
+================================================================================
+1. THE SEVEN AREAS — a ride each, one group, one building, one machine
+================================================================================
+Layout, looking down:
+
+                     ~ ~ ~   the lake   ~ ~ ~                    z = -150
+               [ Log Flume ]                                     z = -96
+    [ Coaster ]                         [ Drop Tower ]           z = -44 … -60
+               [ Bumper Cars ]                                   z = -24
+    [ Carousel ]                        [ Pirate Ship ]          z =  -4 … 6
+               [ Ferris Wheel ]                                  z =  22
+    [ Workshop ]      ¤ spawn ¤      [ Arcade ]                  z =  44 … 58
+                      [ Front Gate ]                             z =  70
+
+--------------------------------------------------------------------------------
+WHEEL — The Ferris Wheel                        (-18, 22)   40 m from spawn
+  Building:  Wheel Machine Room, 16 x 11 x 4.6, facing 0
+  Machine:   a 28 m wheel — 24 arms, 24 gondolas hanging level from their pins,
+             two A-frames and the axle they carry. A crane is parked where arm
+             nine comes down.
+  Teaches:   torque and rotation. Balance the wheel on paper; the load the arm
+             actually sees; a moment into a stress; a wind limit somebody can
+             operate to.
+  Fixtures (at: targets):
+    hub-schedule    board, back  — 24 arms, 8 bolts a hub, one drawing from 1945
+    gondola-shell   bench, left  — down for painting; a flat side, wind gets all of it
+    brake-drum      vessel,right — a band on a drum, 81 years of glaze on the lining
+    arm-nine-file   board, back  — from day 8; a 41 mm indication, sized, not judged
+
+--------------------------------------------------------------------------------
+SHIP — The Pirate Ship                          (42, 6)     67 m from spawn
+  Building:  Pirate Ship Console, 14 x 10 x 4.2, facing -PI/2
+  Machine:   the swinging ship on its A-frame.
+  Teaches:   simple harmonic motion. Measure the period and get g out of it;
+             derive why the period ignores the load; the drive frequency the ride
+             must avoid; certify the swing angle.
+  Fixtures:
+    arm-trestles    bench, left  — 8.6 m of swing arm off the ride, pivot to the door
+    drive-console   board, back  — Idowu's console: drive interval, seat count
+    seat-frame      rack,  right — one seat of sixty, at the height it hangs at
+    timing-trace    board, back  — from day 8; 6.15 s of swing vs 5.85 s of drive
+
+--------------------------------------------------------------------------------
+CAROUSEL — The Carousel and Swings               (-44, -4)   76 m from spawn
+  Building:  Carousel Drive House, 14 x 10 x 4.2, facing PI/2
+  Machine:   carousel with cones round it; the chair swings beside it.
+  Teaches:   circular motion. Separate speed from acceleration; derive the angle
+             the swings hang at; check the setting against the mechanic's number;
+             sign the speed limit for both rides.
+  Fixtures:
+    chain-rig          rack,  left  — a swing chair on its chains, off the roof beam
+    pole-jig           bench, back  — an outer horse pole in a jig, "outer, 1991"
+    drive-panel        board, right — current, revolutions, one lamp never seen lit
+    platform-jacks     bench, left  — four jacks, a box of shims, a level
+    controller-crate   rack,  back  — UNTIL day 6; the new controller, still crated
+
+--------------------------------------------------------------------------------
+BUMPER — The Bumper Cars                         (22, -24)   85 m from spawn
+  Building:  Bumper Car Pavilion, 26 x 18 x 5.6, facing PI (the floor itself)
+  Teaches:   momentum and collisions. Count the momentum before and after; the
+             energy the collision does not return; a collision into a force on a
+             neck; set the floor speed and the car mass.
+  Fixtures:
+    car-on-stands   bench, left  — Chen's accelerometers on seat frame and floor pan
+    dummy-rig       rack,  back  — the dummy and its neck rig
+    floor-console   board, right — power, a bell, the switch that stops twelve cars
+    console-card    board, right — from day 7; the operator's card, in Hart's hand
+
+--------------------------------------------------------------------------------
+COASTER — The Coaster                            (-46, -44)  112 m from spawn
+  Building:  Coaster Station, 26 x 12 x 5.0, facing PI/2 (east, onto the midway —
+             facing it north put its door under the track with the standing train
+             across the approach, which only the reachability fill caught)
+  Machine:   the one prop in the repo that could not be built out of the kit — a
+             tube swept along a spline: station, 26 m chain lift, first drop,
+             valley, a vertical loop of radius 7.4 with its crown at 20 m, a long
+             banked turn and the brake run back in. A bent to the ground every
+             six metres. The train stands where it stopped in October.
+  Teaches:   energy. Close the energy books on one circuit; find where the losses
+             actually are; derive the speed the loop demands; recompute the
+             margin the drawing promised.
+  Fixtures:
+    profile-drawing  board, back  — the 1974 track profile, drawn once, never redrawn
+    station-wheel    bench, left  — Kovač's speed wheel, same bracket for 3 springs
+    lift-panel       board, right — chain motor amps, rating plate underneath
+    crown-tape       board, back  — from day 10; 7.4 m pinned beside a drawing saying 5.6
+
+--------------------------------------------------------------------------------
+TOWER — The Drop Tower                           (44, -60)   126 m from spawn
+  Building:  Drop Tower Control, 14 x 10 x 4.4, facing PI/2
+  Machine:   45 m lattice tower; copper fin strip up one face with the magnet
+             stack over the bottom nine metres.
+  Teaches:   kinematics. Time the drop and get an acceleration out of it; derive
+             the speed at the bottom two ways; put a number on what the brake
+             does to a body; certify the tower or say why not.
+  Fixtures:
+    fin-stack       bench, left  — a section of copper fin on trestles
+    drop-log        board, back  — every test drop since 1996, height and nothing else
+    brake-desk      board, right — two lamps, a current trace, the arming key
+    witness-sheet   board, back  — from day 15; 5.4 g against the 6.0 allowed, signed
+
+--------------------------------------------------------------------------------
+FLUME — The Log Flume                            (-26, -96)  156 m from spawn
+  Building:  Flume Pumphouse, 20 x 13 x 5.2, facing 0. Takes its water from the
+             lake along the north edge.
+  Teaches:   fluids. Get a pressure out of a depth; float a loaded boat on paper;
+             derive the outlet speed; match the pump to the channel.
+  Fixtures:
+    header-gauge    board, back  — depth, delivery, and three seasons of divergence
+    gate-ram        vessel,left  — a 2 cm ram driving a 9 cm one, note reading "plenty"
+    hull-scales     bench, right — a moulded hull on scales, waterline in pencil
+    pump-curve      board, back  — from day 11; head against flow, duty point marked
+
+================================================================================
+2. THE THREE ENTERABLE BUILDINGS — doors, not ground
+================================================================================
+Not areas. `enter:` gives each an interiors key without making it a group; each
+holds one sited call, and access.js keeps the door sealed and unnamed until the
+day the campaign sends somebody through it. A stop whose `at:` resolves under one
+of these keys is asked THERE, while the question still belongs to its own area.
+
+WORKSHOP — "Brennan's bench, and eleven notebooks"   (-54, 46)   opens day 5
+  20 x 13 x 5.4, facing PI/2. Sub: the eleven notebooks the whole campaign is
+  about. The drop test is a written procedure before it is a drop, and it is
+  written here because the order it has to run in is the order Brennan never
+  wrote down.
+    bench-notebooks   bench, back — 41 years of settings in one hand, in date
+                                    order for the first time
+
+PLANT ROOM — "Everything on the midway runs off this board"   (-60, -70)  day 10
+  14 x 10 x 4.4, facing PI/2. The pump's duty is a lift and a flow; what says
+  whether the park may ask for it is the motor plate and the breaker feeding it,
+  and both are here rather than in the pumphouse.
+    motor-plate       board, left — 55 kW on the plate
+
+ARCADE AND STALLS — "Boarded, and not on the list"   (40, 44)   opens day 11
+  24 x 12 x 5.0, facing PI. The one thing in the park nobody has to certify,
+  which is why it is the only place the physics can be played with.
+    stall-cannon      bench, back — a nozzle on a pivot, three marks on the back
+                                    wall, a pressure gauge
+
+================================================================================
+3. PLACES THAT CARRY THE PARK, NOT A LESSON
+================================================================================
+FRONT GATE           (0, 74)   24 x 9 x 4.6, "Closed since October". Stays a
+                     facade on purpose — it is shut because the park is shut, and
+                     it opens when the certificates are signed, which is after
+                     the last day the player sees. A room behind it would be a
+                     room whose whole point is that you cannot get in yet.
+REOPENING BOARD      (11, 60)  facing PI. The delivery board: The Corbin Park
+                     Certificate, a piece a day, seven rides waiting on it.
+SPAWN                (0, 58)   yaw 0 — looks up the midway, wheel on the left,
+                     ship on the right, coaster's lift hill behind them. Clear
+                     for twelve metres, and it must stay clear.
+THE MIDWAY           one avenue from the gate to the lake (cx 0, w 14, d 180),
+                     with cross paths at z = 22 and z = -52. Ground furniture is
+                     kept off it (|x| < 8) so nothing narrows the walk.
+SERVICE ROAD         (-62, -20), w 8, d 150 — round the back of the rides.
+TWO CAR PARKS        (-56, 108) and (56, 108), 96 x 64 each, with the approach
+                     apron at (0, 92) and the county route across z = 146. Eight
+                     hundred cars, a hundred and six selling days a year.
+THE LAKE             cx 0, cz -190, 460 x 150, level -1.4. The flume's water.
+                     Open water to the north; wooded hills across the south
+                     behind the car park. That asymmetry is the wayfinding —
+                     trees on the skyline means you are facing away from the lake.
+PLAYER LIMIT         165 m (the car parks reach z = 140).
+
+================================================================================
+4. AUTHORING NOTES
+================================================================================
+· A lesson points at a fixture with `at: <id>` in books/midway.yml. A lesson that
+  points at nothing is answered at the case stand — which is every
+  decision-format call in this book, deliberately: a decision is made with a
+  person, not at a bench.
+· Fixtures are declared by name and wall, never by coordinate; interiorFixtures.js
+  computes position from room.bounds. build: vessel | rack | bench | board.
+  wall: left | right | back. along: -1 … 1, 0 is the middle.
+· `from:` / `until:` gate a fixture by day — the taped crown radius, the witnessed
+  drop test, the operator's card, the arm nine file, the crated controller.
+· Every `group` in site.js must be a group id in content/groups.js, one per ride.
+  A group with no building is a call the player cannot reach; worldParity and
+  reachable are what notice.
+· The lights come back on as the campaign does: a state hook runs the festoon
+  lighting over the midway off the number of rides certified.
+· Never place a prop over the spawn or across the avenue. A prop over the spawn
+  welds the player in place — the scene renders and W does nothing.

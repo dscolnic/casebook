@@ -21,6 +21,7 @@
 // A bible written to a different shape is a different parser, and that is the
 // single most expensive thing a bible can be — see BIBLE_REQUIREMENTS.md.
 import { readFileSync } from 'node:fs';
+import { parseYaml } from './yaml-lite.mjs';
 
 /**
  * A bold-label field, in any of the three house styles these bibles come in.
@@ -36,10 +37,30 @@ import { readFileSync } from 'node:fs';
  * only knew Mars reported sixty stops with no setup, no prompt and no verdict in
  * three of these bibles, which is a bible that does not exist.
  */
+/**
+ * A LABEL MAY CARRY A NOTE, and it is still that label.
+ *
+ * `**Question card story setup — exact player copy (38 words; 2 sentences):**` is
+ * the same field as `**Question card story setup - exact player copy:**`; so is
+ * `**Card body (65 words; 4 sentences):**`. What ends a label is the `:**`, not
+ * the first thing after the words. Matched exactly, a bible that annotates its own
+ * labels reads as a bible with no fields at all.
+ */
+const LABEL_TAIL = '(?:[^*]*?)?';
+
+/**
+ * A DASH IS A DASH. The callers ask for `Question card story setup - exact player
+ * copy`, and Whiteout writes it with an em dash — the same label, typeset. Every
+ * hyphen in a label therefore matches any of the three, which is the same rule
+ * `stopsIn` already applies to its headings.
+ */
+const labelPattern = (label) => String(label).replace(/[-–—]/g, '[-–—]');
+
 function field(label, from){
-  const re = new RegExp(`\\*\\*${label}:?\\*\\*\\s*(.*)$`);
+  const pat = labelPattern(label);
+  const re = new RegExp(`\\*\\*${pat}${LABEL_TAIL}:?\\*\\*\\s*(.*)$`);
   for(let i = 0; i < from.length; i++){
-    if(!new RegExp(`\\*\\*${label}:?\\*\\*`).test(from[i])) continue;
+    if(!new RegExp(`\\*\\*${pat}${LABEL_TAIL}:?\\*\\*`).test(from[i])) continue;
     const m = from[i].match(re);
     if(!m) continue;
     const out = [m[1]];
@@ -212,6 +233,57 @@ function fence(from){
 }
 
 /**
+ * Where a stop's §7 build-completion block starts, or -1.
+ *
+ * THE BIBLES ANSWERED §7 IN PLACE. The addendum asked for the missing board
+ * fields, and all eight wrote them into the stop itself, under a labelled
+ * heading — `**§7 build completion — DERIVE (two-option override):**` — with the
+ * board fenced below it. So a stop can now carry TWO boards: the original
+ * partial one on the payload line, and the completed one under this label.
+ *
+ * AND THERE IS NOW A SECOND HEADING. Asked a second time, the bibles replaced
+ * most of those completed boards — which had been one template per format — with
+ * `**§7 authored-board source — STRESS:**`, a POINTER saying to build the stop
+ * from its own authored interaction block instead. Both headings are read here,
+ * because both mark the same thing: the block this stop's board comes from. What
+ * differs is whether the fenced block IS a board or names where the board is,
+ * and `bible-build.mjs` tells them apart by the `source` field inside it.
+ *
+ * They are not interchangeable and the later one is not simply better: the
+ * original is what the earlier fragments were mapped against, and the §7 block
+ * is what the importer can actually build. Both are read, separately, so the
+ * conversion can prefer the completed board and `bibleParity` can still hold the
+ * prose to the bible it was lifted from.
+ */
+function buildAt(chunk){
+  // IN PRIORITY ORDER, NEWEST FIRST. A stop may now carry three of these, one
+  // per round of handback, and they are not equivalent: the canonical block is
+  // the board written in the IMPORTER's own schema, §7's completion block is the
+  // board in the bible's schema, and the authored-board source is a pointer at
+  // the stop's payload line. Reading whichever appears first in the file would
+  // pick by layout rather than by authority.
+  //
+  // AND THE ROUND NUMBER IS READ, NOT SPELLED. This matched "Handback 3"
+  // literally, so the six blocks the fourth round wrote were invisible: the
+  // reader fell through to §7 and rebuilt a board the bible had already
+  // replaced. There will be a fifth round. The highest round present wins, and
+  // a tie inside one round keeps the first, which is the file's own order.
+  const at = (re) => chunk.findIndex(l => re.test(l));
+  let canonical = -1, round = -1;
+  for(let i = 0; i < chunk.length; i++){
+    const m = /\*\*\s*Handback (\d+) canonical interaction block/.exec(chunk[i] ?? '');
+    if(m && +m[1] > round){ round = +m[1]; canonical = i; }
+  }
+  if(canonical >= 0) return canonical;
+  return at(/\*\*\s*§7 (build completion|authored-board source)/);
+}
+
+/** True when the block found above is already in the importer's own schema. */
+function buildIsCanonical(chunk, at){
+  return at >= 0 && /Handback \d+ canonical interaction block/.test(chunk[at] ?? '');
+}
+
+/**
  * Who says what, out of a beat's prose.
  *
  * The bible writes bubbles inline, after a `Dialogue bubbles -` marker, as
@@ -250,7 +322,20 @@ function bubblesIn(text){
 function beatsIn(body){
   const heads = body.map((l, i) => [l, i]).filter(([l]) => /^\*\*Beat \d+\s*-/.test(l));
   return heads.map(([head, i], k) => {
-    const next = k + 1 < heads.length ? heads[k + 1][1] : body.length;
+    /**
+     * A BEAT ENDS AT THE NEXT BEAT — OR AT THE NEXT HEADING.
+     *
+     * The last beat used to run to the end of the mission, which is everything
+     * after the beat script: the location plan, the characters, and the story
+     * block's own prose `**Beat script:**` summary. That summary quotes lines
+     * too, so `bubblesIn` swept them up and mission 1's final beat came back
+     * with three speeches instead of one — the player answers the last question
+     * and Eli Voss says four things at once, two of them belonging to earlier
+     * moments in the day.
+     */
+    const after = body.slice(i + 1).findIndex(l => /^#{1,4}\s/.test(l));
+    const ends = after < 0 ? body.length : i + 1 + after;
+    const next = Math.min(k + 1 < heads.length ? heads[k + 1][1] : body.length, ends);
     const chunk = body.slice(i, next);
     // The heading itself carries the name, the place and the trigger, pipe-separated.
     const parts = clean(head.replace(/^\*\*/, '').replace(/\*\*$/, '')).split('|').map(s => s.trim());
@@ -271,25 +356,410 @@ function beatsIn(body){
   });
 }
 
+/**
+ * THE OPTIONAL REVIEW, offered when a mission is finished.
+ *
+ * Every bible now writes one per mission under "Optional secondary brief and
+ * six-question review": a card of copy, a handful of ideas deliberately kept
+ * OFF the required day card, and six multiple-choice questions with a hint and
+ * a line of feedback per option. Its own availability note is explicit that it
+ * changes no metric, no Recovery Point and no unlock — so nothing here is
+ * graded and nothing is required.
+ *
+ * Read whole rather than per field: the block is regular, and the parts that
+ * matter to the game are the intro, the concepts and the six questions.
+ */
+/** Figure blocks that would not parse, reported by the tools that print owes. */
+export const FIGURE_OWES = [];
+
+/**
+ * The fenced figure spec under a `**Figure…:**` label, as an object.
+ *
+ * The block is the same shape `figures.js` takes and the contamcity editions
+ * already author — `{ kind: 'line', xLabel, yLabel, series: [...] }` — so a
+ * review question about a bowed curve can print the curve. Anything that does
+ * not parse is reported, never repaired: a half-read chart is a chart that
+ * says something the bible did not.
+ */
+export const figureIn = (lines) => {
+  const i = lines.findIndex(l => /^\*\*\s*Figure[^*]*\*\*/i.test(l));
+  if(i < 0) return null;
+  const open = lines.findIndex((l, j) => j > i && /^```/.test(l));
+  if(open < 0) return null;
+  const shut = lines.findIndex((l, j) => j > open && /^```\s*$/.test(l));
+  if(shut < 0) return null;
+  const text = lines.slice(open + 1, shut).join('\n');
+  try { return JSON.parse(text); }
+  catch(e){ FIGURE_OWES.push(`a **Figure** block is not readable JSON: ${e.message}`); return null; }
+};
+
+
+/**
+ * The mission's worked examples, as the bible's own YAML.
+ *
+ * `### Worked examples - optional mission-card panel` carries one fenced block
+ * holding the button label, the panel title and five examples — problem, rule,
+ * steps, answer, common mistake, and optionally a figure. It is reference the
+ * player opens, never graded, so nothing here needs to reach the question
+ * machinery; it needs to arrive whole and unedited.
+ *
+ * Parsed with the book's own YAML reader rather than field by field: the block is
+ * nested three deep and re-typing its shape here would be a second description of
+ * what the bible already states exactly.
+ */
+/**
+ * The same five examples written as prose rather than as YAML.
+ *
+ * Whiteout numbers them under the heading, one paragraph each, with the subject
+ * in bold at the front:
+ *
+ *   1. **Integer division:** With `int a = 7; int b = 2;`, Java evaluates `a / b`
+ *      as `3`. The `.5` is discarded because both operands are integers.
+ *
+ * That is a whole worked example in one paragraph, and it is NOT split into the
+ * panel's problem / rule / steps / answer / mistake here — deciding which
+ * sentence is the rule and which is the mistake would be writing the example
+ * rather than reading it. The bold lead is the title, the paragraph is the body,
+ * and `engine/core/worked.js` prints a one-part example as itself rather than
+ * under a "Problem" heading it does not have.
+ */
+function workedList(body, at){
+  let end = body.length;
+  for(let i = at + 1; i < body.length; i++){
+    if(/^#{1,4} /.test(body[i])){ end = i; break; }
+  }
+  const examples = [];
+  for(let i = at + 1; i < end; i++){
+    const m = /^\s*(?:\d+[.)]|[-*])\s+(.*)$/.exec(body[i]);
+    if(!m) continue;
+    const out = [m[1]];
+    for(let j = i + 1; j < end; j++){
+      // A blank line, the next item, or a bold field ends this one.
+      if(!body[j].trim() || /^\s*(?:\d+[.)]|[-*])\s+/.test(body[j]) || /^\*\*/.test(body[j])) break;
+      out.push(body[j].trim());
+      i = j;
+    }
+    const said = clean(out.join(' ')).trim();
+    if(!said) continue;
+    const lead = /^\*\*(.+?):?\*\*:?\s*(.*)$/.exec(said);
+    examples.push(lead
+      ? { title: lead[1].trim(), problem: lead[2].trim() || lead[1].trim(),
+          rule: '', steps: [], answer: '', mistake: '' }
+      : { title: '', problem: said, rule: '', steps: [], answer: '', mistake: '' });
+  }
+  if(!examples.length) return null;
+  return { endsAt: end, worked: { label: 'Worked examples', title: 'Worked examples', examples } };
+}
+
+export function workedIn(body){
+  // THE HEADING IS THE SAME SECTION UNDER THREE NAMES. Eight bibles write
+  // `### Worked examples - optional mission-card panel`; Whiteout writes
+  // `### Optional worked examples — exact player copy`, and matched on
+  // "Worked examples" at the front that is seventy-five examples read as none.
+  const at = body.findIndex(l => /^#{2,4}\s*(?:[A-Z]+\d*\.\s*)?(?:Optional\s+)?Worked examples/i
+    .test(l));
+  if(at < 0) return null;
+  const open = body.findIndex((l, i) => i > at && /^```/.test(l));
+  const listed = workedList(body, at);
+  // A fence after the heading but belonging to a later section is not this
+  // block's, so the prose reading wins whenever the numbered list is nearer.
+  if(open < 0 || (listed && (open > (listed.endsAt ?? open)))) return listed?.worked ?? null;
+  const shut = body.findIndex((l, i) => i > open && /^```\s*$/.test(l));
+  if(shut < 0) return listed?.worked ?? null;
+  let doc;
+  try { doc = parseYaml(body.slice(open + 1, shut).join('\n')); }
+  catch(e){ FIGURE_OWES.push(`a worked-examples block is not readable YAML: ${e.message}`); return null; }
+  const w = doc?.worked_examples ?? doc;
+  const list = (w?.examples ?? []).filter(x => x?.problem);
+  if(!list.length) return null;
+  return {
+    label: String(w.button_label ?? 'Worked examples'),
+    title: String(w.panel_title ?? 'Worked examples'),
+    examples: list.map(x => ({
+      title: String(x.title ?? ''), problem: String(x.problem ?? ''),
+      rule: String(x.rule ?? ''),
+      steps: (Array.isArray(x.steps) ? x.steps : [x.steps]).filter(Boolean).map(String),
+      answer: String(x.answer ?? ''),
+      mistake: String(x.common_mistake ?? x.mistake ?? ''),
+      ...(x.figure ? { figure: x.figure } : {}),
+    })),
+  };
+}
+
+function deeperIn(body){
+  const at = body.findIndex(l => /^#{2,4} Optional secondary brief/i.test(l));
+  if(at < 0) return null;
+  let end = body.length;
+  for(let i = at + 1; i < body.length; i++){
+    if(/^#{1,2} /.test(body[i])){ end = i; break; }
+  }
+  const chunk = body.slice(at, end);
+
+  /**
+   * A LABEL WITH A NOTE ON IT IS STILL THAT LABEL. Every line here is headed
+   * `**Prompt - exact player copy:**`, and the shared `field` matches a label
+   * followed immediately by its colon — so it found none of them. This takes
+   * anything up to the closing `**` as the label and compares the front of it.
+   */
+  const say = (label, lines) => {
+    const re = new RegExp(`^\\*\\*\\s*${label}[^*]*\\*\\*\\s*:?\\s*(.*)$`, 'i');
+    for(let i = 0; i < lines.length; i++){
+      const m = re.exec(lines[i]);
+      if(!m) continue;
+      const out = [m[1]];
+      for(let j = i + 1; j < lines.length; j++){
+        const l = lines[j];
+        if(/^\*\*/.test(l) || /^#{1,6} /.test(l) || /^\s*[-*] /.test(l) || !l.trim()) break;
+        out.push(l.trim());
+      }
+      return clean(out.join(' ')).trim();
+    }
+    return '';
+  };
+  /** The bullets under one label, stopping at the next label or heading. */
+  const listUnder = (label, lines) => {
+    const i = lines.findIndex(l => new RegExp(`^\\*\\*\\s*${label}`, 'i').test(l)
+      || new RegExp(`^#{3,4}\\s*${label}`, 'i').test(l));
+    if(i < 0) return [];
+    const out = [];
+    for(let j = i + 1; j < lines.length; j++){
+      const l = lines[j];
+      if(/^\s*[-*] /.test(l)){ out.push(l.replace(/^\s*[-*] /, '').trim()); continue; }
+      if(!l.trim()) continue;
+      if(/^\*\*/.test(l) || /^#{1,6} /.test(l)) break;
+      if(out.length) out[out.length - 1] += ' ' + l.trim();
+    }
+    return out.map(clean).filter(Boolean);
+  };
+
+  const intro = say('Secondary briefing card', chunk);
+
+  // The ideas the day card deliberately does not carry. A bullet may be a term
+  // and its definition — `**Name:** …` — or a plain statement, and both are
+  // wanted: the first is vocabulary, the second is the sentence that uses it.
+  const concepts = listUnder('Additional concepts', chunk).map((line) => {
+    const m = /^\*\*([^*]+?):?\*\*\s*:?\s*([\s\S]+)$/.exec(line);
+    return m ? { name: clean(m[1]).replace(/:$/, ''), def: clean(m[2]) } : { say: clean(line) };
+  }).filter(x => x.name || x.say);
+
+  const heads = chunk.map((l, i) => [l, i]).filter(([l]) => /^#{3,4} Review question \d+/i.test(l));
+  const questions = heads.map(([, i], k) => {
+    const q = chunk.slice(i, k + 1 < heads.length ? heads[k + 1][1] : chunk.length);
+    const opt = (line) => {
+      const m = /^([A-Z])[.):]\s*([\s\S]+)$/.exec(line);
+      return m ? { key: m[1], text: clean(m[2]) } : null;
+    };
+    const options = listUnder('Options', q).map(opt).filter(Boolean);
+    const notes = listUnder('Option feedback', q).map(opt).filter(Boolean);
+    const answer = say('Correct answer', q).replace(/[^A-Za-z]/g, '').charAt(0).toUpperCase();
+    return {
+      prompt: say('Prompt', q),
+      hint: say('Hint', q),
+      answer,
+      // THE CHART, WHERE THE BIBLE DRAWS ONE. `**Figure:**` followed by a fenced
+      // block holding the figure spec engine/core/figures.js already renders for
+      // the campaign's own stops. Read as JSON and passed through untouched — a
+      // figure this could not parse would be a figure nobody authored, so a bad
+      // block is reported rather than guessed at.
+      ...(figureIn(q) ? { figure: figureIn(q) } : {}),
+      options: options.map(o => ({
+        key: o.key, text: o.text,
+        why: notes.find(n => n.key === o.key)?.text ?? '',
+      })),
+    };
+  }).filter(x => x.prompt && x.options.length >= 2 && x.options.some(o => o.key === x.answer));
+
+  return (intro || concepts.length || questions.length)
+    ? { intro, concepts, questions } : null;
+}
+
+/**
+ * `**Symbols:**` as the [symbol, meaning] pairs a plan card prints.
+ *
+ * The bibles write one sentence — `Q1 is the first quartile; Q3 is the third
+ * quartile; IQR is interquartile range.` — and `engine/core/app.js` prints a
+ * bold symbol and its gloss per row. Semicolons first because that is the
+ * separator seven of the eight use; a sentence that uses commas instead is split
+ * on those only when the semicolons found nothing, since a comma inside one gloss
+ * would otherwise cut it in half.
+ *
+ * Nothing is returned unless every part parses. A half-read symbol list would put
+ * one letter on the card and silently drop the rest, and the card is the only
+ * place the letters are ever defined.
+ */
+export function symbolPairs(said, equation = ''){
+  const text = String(said ?? '').replace(/#{1,4}\s[\s\S]*$/, '').trim().replace(/\.$/, '');
+  if(!text) return [];
+
+  /**
+   * THE BACKTICKED FORM FIRST, and it is now the common one:
+   *
+   *   `x` position, `t` time, `v` velocity, `a` acceleration.
+   *   `V` volume and `h` depth.
+   *
+   * The marks say exactly which part is the symbol, so there is nothing to infer
+   * — which is what makes this worth trying before the sentence form below. It
+   * arrived when the bibles tightened their equation blocks, and until this read
+   * it every one of those lines came back unparsed: the symbols were dropped
+   * from the card AND `bible-lint` reported the block as having no Symbols line
+   * at all, on 60-odd equations that each had one.
+   */
+  const ticked = [...text.matchAll(/`([^`]{1,24})`\s*([^`,;]+)/g)]
+    .map(m => [m[1].trim(), m[2].trim().replace(/^(?:is|are)\s+/i, '').replace(/[,;]\s*(?:and\s+)?$/, '').replace(/\s+and$/, '').trim()])
+    .filter(([sym, mean]) => sym && mean);
+  if(ticked.length) return ticked;
+
+  /**
+   * The sentence form, which the other bibles still write:
+   *
+   *   Q1 is the first quartile; Q3 is the third quartile; IQR is interquartile range.
+   *
+   * Semicolons first because that is the separator most of them use; a sentence
+   * using commas instead is split on those only when the semicolons found
+   * nothing, since a comma inside one gloss would otherwise cut it in half.
+   *
+   * Nothing is returned unless every part parses. A half-read symbol list would
+   * put one letter on the card and silently drop the rest, and the card is the
+   * only place the letters are ever defined.
+   */
+  const split = (sep) => text.split(sep).map(x => x.trim().replace(/^and\s+/i, '')).filter(Boolean);
+  const read = (parts) => {
+    const pairs = parts.map((part) => {
+      const m = /^(.{1,24}?)\s+(?:is|are|means|gives)\s+(.+)$/i.exec(part);
+      return m ? [m[1].trim(), m[2].trim()] : null;
+    });
+    return pairs.every(Boolean) && pairs.length ? pairs : null;
+  };
+  // THE MOST PAIRS WINS, rather than the first split that parses at all. A line
+  // separated by commas has ONE semicolon-part, and that part parses — greedily,
+  // as a single symbol whose meaning is the rest of the sentence: `x` glossed as
+  // "the observed value, mean is the distribution mean, and SD is…". Right by the
+  // letter of the rule and useless on the card.
+  /**
+   * A THIRD SHAPE: the quantity and its unit.
+   *
+   *   depth in metres, area in square metres, fraction as a decimal
+   *
+   * No symbol letters at all — the "symbol" is the word and the gloss is what it
+   * is measured in. Carrying Capacity writes all nineteen of its equations this
+   * way, and read by the two rules above they came back with no symbols at all.
+   */
+  const unitRead = (parts) => {
+    const pairs = parts.map((part) => {
+      const m = /^([A-Za-z][A-Za-z0-9_ ()-]{0,22}?)\s+((?:in|as|per)\s+.+)$/i.exec(part);
+      return m ? [m[1].trim(), m[2].trim()] : null;
+    });
+    return pairs.every(Boolean) && pairs.length ? pairs : null;
+  };
+  /**
+   * A FOURTH SHAPE: the symbol and its gloss, side by side with nothing between.
+   *
+   *   b slope; a intercept; r correlation; sx,sy SDs; x-bar,y-bar means.
+   *   E field, dA outward area element, q_enc enclosed charge
+   *
+   * Perfectly clear to a reader and the hardest for a rule, because "generated
+   * energy comes from reaction" has the same grammar and names nothing. So the
+   * first token has to LOOK like a symbol: three characters or fewer, or marked
+   * with a digit, an underscore, a hyphen, a comma or a Greek letter. That
+   * accepts `b`, `dA`, `q_enc`, `x-bar`, `sx,sy`, `mu0`, `ε₀` and refuses
+   * `generated`, `nominal`, `every`. Two parts minimum, so a sentence cannot
+   * qualify by being short.
+   */
+  // Parentheses count as a mark too: `SE(b)` is a symbol and `standard` is not,
+  // and without them one well-formed line in three was refused for its one
+  // bracketed term — "b sample slope; SE(b) its standard error; n sample size".
+  // AND THE EQUATION SETTLES THE REST. A physics bible spells its subscripts
+  // out — `Mtotal`, `Tperiod`, `bmin` — which look exactly like the words this
+  // rule exists to refuse, and one such token refused the whole line: Overwind
+  // wrote six well-formed symbol lines and three of them came back empty, so
+  // the letters were defined nowhere and `bible-lint` reported a Symbols line
+  // that names no symbol about a line that names six. A token standing in the
+  // equation beside it is not a guess about grammar — it is the thing the
+  // equation is made of, which is what a Symbols line is for.
+  const inEquation = new Set(String(equation ?? '').match(/[A-Za-z][A-Za-z0-9_′″]*/g) ?? []);
+  const looksSymbolic = (tok) =>
+    tok.length <= 3 || /[0-9_,\-()]/.test(tok) || /[\u0370-\u03ff\u2080-\u2089]/.test(tok)
+    || inEquation.has(tok);
+  const bareRead = (parts) => {
+    if(parts.length < 2) return null;
+    const pairs = parts.map((part) => {
+      const m = /^(\S{1,12})\s+(.+)$/.exec(part);
+      if(!m || !looksSymbolic(m[1])) return null;
+      return [m[1].trim().replace(/[,;]$/, ''), m[2].trim()];
+    });
+    return pairs.every(Boolean) ? pairs : null;
+  };
+
+  const parts = [split(';'), split(/,(?![^(]*\))/)];
+  const best = [...parts.map(read), ...parts.map(unitRead), ...parts.map(bareRead)]
+    .filter(Boolean).sort((a, b) => b.length - a.length)[0];
+  return best ?? [];
+}
+
 /** The `Worth knowing first` block: glossary, primer, equations. */
 function worthKnowing(body){
-  const glossary = paragraphs(section(body, /^#### Glossary terms/)).map(p => {
+  /**
+   * SEVERAL TERMS MAY SHARE ONE PARAGRAPH, and splitting on the first colon made
+   * that one enormous term. The Trial's day 1 is written as a single line —
+   * `Variable: a characteristic recorded for each patient. Categorical variable:
+   * a variable placing a patient into a group. Quantitative variable: …` — five
+   * entries, of which "Variable" took all five definitions and the other four
+   * never reached the card at all.
+   *
+   * A new entry starts after a full stop, at a short capitalised phrase followed
+   * by a colon. Anything that does not match that stays part of the definition it
+   * is in, so a definition containing a colon of its own is not cut in half.
+   */
+  /**
+   * A GLOSSARY MAY BE A BULLET LIST. Whiteout writes `- **integer division:** the
+   * division between two integers…` where the other eight write the same entry as
+   * a plain `Term: definition` paragraph. Read as paragraphs only, a campaign with
+   * a perfectly good glossary on every mission has none at all — and the plan card
+   * is where those words are defined.
+   */
+  const glossSec = section(body, /^#{3,4} (?:[A-Z]+\d*\.\s*)?Glossary terms/);
+  const glossBullets = bullets(glossSec)
+    .map(l => clean(l).replace(/^\*\*(.+?):?\*\*\s*:?\s*/, (m0, term) => `${term}: `));
+  const glossary = paragraphs(glossBullets.length ? glossBullets : glossSec).flatMap(p =>
+    p.split(/(?<=\.)\s+(?=[A-Z][A-Za-z0-9 ()\/-]{2,40}:\s)/)
+  ).map(p => {
     const at = p.indexOf(': ');
     if(at < 0) return null;
     return { term: p.slice(0, at).trim(), def: p.slice(at + 2).trim() };
   }).filter(Boolean);
-  const primer = bullets(section(body, /^#### Primer concepts/));
+  const primer = bullets(section(body, /^#{3,4} (?:[A-Z]+\d*\.\s*)?Primer concepts/));
   // Equations come as repeated four-field groups, so they are split on the
   // `**Equation:**` label rather than read with `field`, which finds the first.
-  const eqLines = section(body, /^#### Equations first needed today/);
+  const eqLines = section(body, /^#{3,4} (?:[A-Z]+\d*\.\s*)?Equations first needed today/);
   const marks = eqLines.map((l, i) => [l, i]).filter(([l]) => /^\*\*Equation:\*\*/.test(l));
   const equations = marks.map(([, i], k) => {
     const chunk = eqLines.slice(i, k + 1 < marks.length ? marks[k + 1][1] : eqLines.length);
+    // THE LAST FIELD RUNS INTO THE NEXT HEADING. `section` ends at the next `####`
+    // and this block is followed by a `##`, so "Why this campaign needs it" came
+    // back with "## Main story happening - designer summary" welded to the end of
+    // it — a designer note, in the player's card, on eleven of fifteen missions.
+    const cut = (t) => String(t ?? '').split(/#{1,4}\s/)[0].trim();
+    // THE SYMBOLS LINE IS READ RAW, because `clean` strips backticks and the
+    // backticks are the parse. The bibles now write `` `x` position, `t` time ``
+    // — the marks say exactly which part is the symbol — and by the time `field`
+    // has cleaned it that is "x position, t time", which is a guess again.
+    // Cleaned, sixty-odd equations lost their symbols AND `bible-lint` reported
+    // each one as having no Symbols line at all.
+    const rawSymbols = (chunk.find(l => /^\*\*Symbols:?\*\*/.test(l)) ?? '')
+      .replace(/^\*\*Symbols:?\*\*\s*/, '');
+    const said = cut(field('Symbols', chunk));
+    const pairs = symbolPairs(rawSymbols || said, field('Equation', chunk));
     return {
       e: field('Equation', chunk),
-      c: field('What it is for', chunk),
-      v: field('Symbols', chunk),
-      s: field('Why this campaign needs it', chunk),
+      c: cut(field('What it is for', chunk)),
+      // `v` is the parsed pairs; `vSaid` is the line as written. BOTH, because a
+      // block with no Symbols line and a block whose Symbols line this cannot
+      // parse are different defects and the second is not the bible's fault to
+      // the same degree. Reporting them with one message said "missing its
+      // Symbols line" about sixty equations that had one.
+      ...(pairs.length ? { v: pairs } : {}),
+      ...(said ? { vSaid: said } : {}),
+      s: cut(field('Why this campaign needs it', chunk)),
     };
   });
   return { glossary, primer, equations };
@@ -300,11 +770,33 @@ function stopsIn(body){
   // AN EM DASH IS ALSO A DASH. Ground Truth heads every stop `## Stop 1 — Fix
   // the signs`, and a reader that only knew the hyphen found 48 of its 60 stops
   // and reported the campaign as twelve stops short.
-  const HEAD = /^#{2,3} Stop \d+\s*[-–—:]\s*/;
+  // AND A STOP MAY BE NUMBERED TWICE. Whiteout heads its stops `## H1. Stop 1 —
+  // Trace the controller`: a per-mission letter and index in front of the word
+  // the reader is looking for. Skipping that prefix is the difference between
+  // reading sixty stops and reading none.
+  const HEAD = /^#{2,3} (?:[A-Z]+\d*\.\s*)?Stop \d+\s*[-–—:]\s*/;
   const heads = body.map((l, i) => [l, i]).filter(([l]) => HEAD.test(l));
   return heads.map(([head, i], k) => {
-    const next = k + 1 < heads.length ? heads[k + 1][1] : body.length;
+    /**
+     * A BEAT ENDS AT THE NEXT BEAT — OR AT THE NEXT HEADING.
+     *
+     * The last beat used to run to the end of the mission, which is everything
+     * after the beat script: the location plan, the characters, and the story
+     * block's own prose `**Beat script:**` summary. That summary quotes lines
+     * too, so `bubblesIn` swept them up and mission 1's final beat came back
+     * with three speeches instead of one — the player answers the last question
+     * and Eli Voss says four things at once, two of them belonging to earlier
+     * moments in the day.
+     */
+    const after = body.slice(i + 1).findIndex(l => /^#{1,4}\s/.test(l));
+    const ends = after < 0 ? body.length : i + 1 + after;
+    const next = Math.min(k + 1 < heads.length ? heads[k + 1][1] : body.length, ends);
     const chunk = body.slice(i, next);
+    // The stop, split at its §7 block. Everything the bible wrote first is in
+    // `above7`; the completed board is what follows the label.
+    const at7 = buildAt(chunk);
+    const above7 = at7 < 0 ? chunk : chunk.slice(0, at7);
+    const buildFrom = at7 < 0 ? null : chunk.slice(at7 + 1);
     const meta = field('Metadata', chunk) ?? '';
     // METADATA COMES LABELLED OR POSITIONAL. Mars writes `Concept: x; Keystone:
     // y; Learning role: INTRODUCE; …`; Headwater, Ground Truth and Changeover
@@ -327,7 +819,29 @@ function stopsIn(body){
       // line, which is how the bible writes it: "CHOICE, asked at …".
       format: (field('Format/placement', chunk) ?? '').match(/\b([A-Z][A-Z_]{2,})\b/)?.[1] ?? null,
       meta,
-      concept: metaOf('Concept'),
+      // THE CONCEPT ARRIVES NUMBERED NOW. `WHAT_TO_HAND_BACK.md` §3 asked for the
+      // course's own numbered entry beside the bible's words, because the
+      // sequencing gates grade *when* an idea is first taught and can only do
+      // that against one fixed list; all eight came back writing
+      // `Concept: 10 — L'Hopital`. The words stay the concept — every fragment
+      // and every parity comparison is against those — and the number is read
+      // out beside them rather than left inside the string, where it would read
+      // as part of the concept's name.
+      concept: (metaOf('Concept') ?? '').replace(/^\s*\d+\s*[—–-]\s*/, '').trim() || null,
+      // AND THE NUMBER, WHICH IS NOW THE POINT. The words above are kept because
+      // `bibleParity` holds the book's prose to the bible's, but the game grades
+      // sequencing against ONE fixed numbered spine and cannot do it from a
+      // phrase. The third handback put a number on every stop; without reading it
+      // here it stays in the bible and never reaches the book, which is exactly
+      // where 496 of them sat.
+      conceptNumber: (() => {
+        const m = String(metaOf('Concept') ?? '').match(/^\s*(\d+)\s*[—–-]\s*/);
+        return m ? Number(m[1]) : null;
+      })(),
+      conceptN: (() => {
+        const m = (metaOf('Concept') ?? '').match(/^\s*(\d+)\s*[—–-]\s/);
+        return m ? +m[1] : null;
+      })(),
       keystone: metaOf('Keystone'),
       // The area of study that OWNS the lesson, which is not the place it is
       // asked at. See tools/BIBLE_ADDENDUM_PROMPT.md §1 — 24 of Red Sand's 60
@@ -361,8 +875,40 @@ function stopsIn(body){
       why: anyField(['Why', 'Why/mechanism', 'Mechanism', 'Correct mechanism',
         'Answer text and mechanism'], chunk),
       wrong: anyField(['Wrong-path feedback', 'Why alternatives fail', 'Feedback'], chunk)
+        // OR ON THE LINES UNDER THE LABEL. `field` reads what follows a label on
+        // its own line and stops at a blank one, so a stop that writes
+        //
+        //   **Wrong-path feedback:**
+        //
+        //   - **Choice 2:** A detector-fixed feature supplies no repeated sky path.
+        //
+        // came back empty and was reported as having no rebuttals at all — with
+        // one written per wrong option, a few lines below the label.
+        ?? (() => {
+          const at = chunk.findIndex(l => /^\*\*\s*(Wrong-path feedback|Why alternatives fail)/i.test(l));
+          if(at < 0) return null;
+          const said = [];
+          for(const l of chunk.slice(at + 1)){
+            if(/^\*\*[A-Z]/.test(l) || /^#{1,6} /.test(l)) break;
+            if(/^\s*-\s+/.test(l)) said.push(clean(l.replace(/^\s*-\s+/, '')));
+          }
+          return said.length ? said.join(' ') : null;
+        })()
         // Or keyed to each option inside the board, which is the better shape.
-        ?? ((fence(chunk) ?? '').match(/^rebuttals:/m) ? 'in the interaction block, keyed per option' : null),
+        // Read as a document rather than grepped for `rebuttals:` at the start of
+        // a line: Boomtown writes its boards as JSON, so `"rebuttals": {…}` never
+        // matched and fifteen stops carrying one rebuttal per wrong option were
+        // reported as carrying none.
+        ?? (() => {
+          const pay = fence(above7) ?? '';
+          if(!pay) return null;
+          let doc = null;
+          try{ doc = parseYaml(pay); }catch{ /* not a document */ }
+          const r = doc?.rebuttals ?? doc?.rebuttal;
+          const some = Array.isArray(r) ? r.length : (r && typeof r === 'object' ? Object.keys(r).length : 0);
+          if(some) return 'in the interaction block, keyed per option';
+          return /^\s*rebuttals:/m.test(pay) ? 'in the interaction block, keyed per option' : null;
+        })(),
       aliases: [
         ...(!field('Why', chunk) && (field('Mechanism', chunk) || field('Correct mechanism', chunk))
           ? [field('Mechanism', chunk) ? 'Mechanism' : 'Correct mechanism'] : []),
@@ -374,8 +920,30 @@ function stopsIn(body){
       // ```yaml fence; the other seven write them as one backticked blob on the
       // payload line. Both are the bible's own field names either way — see the
       // note at the top of tools/v10extract.mjs about what converting them costs.
-      payload: fence(chunk) ?? backticked(anyField(
-        ['Complete format-specific interaction block', 'Payload'], chunk)),
+      // BEFORE the §7 block, always. Six of the eight bibles write their original
+      // board as a backticked blob and their §7 board as the stop's only fence,
+      // so a plain `fence(chunk)` here silently started returning the completed
+      // board under the old key's name — which is the two-descriptions-of-one-
+      // rule problem, and it would have made every parity comparison compare the
+      // wrong two things. The payload key means what it has always meant.
+      payload: fence(above7) ?? backticked(anyField(
+        ['Complete format-specific interaction block', 'Payload'], above7)),
+      // The completed board, and the format its label names — which is the
+      // stop's own format on all 257 of them, and is read rather than assumed so
+      // a mislabelled block is a difference the converter can see.
+      build: buildFrom ? fence(buildFrom) : null,
+      buildFormat: buildFrom
+        ? (chunk[at7].match(/(?:§7 (?:build completion|authored-board source)|Handback \d+ canonical interaction block)\s*[—–-]\s*([A-Z_]+)/) ?? [])[1] ?? null
+        : null,
+      // THE CHART THIS STOP DRAWS, if the bible authored one. The bibles began
+      // writing `**Figure - exact player copy:**` on stops as well as on Go
+      // deeper questions, and only the review half was being read — so a stop
+      // that says "counts of improved and not-improved patients" had its bar
+      // chart sitting in the bible and nothing on the card.
+      figure: figureIn(chunk),
+      // The board is already the importer's, so it is carried rather than
+      // converted — see `bible-build.mjs`.
+      buildCanonical: buildIsCanonical(chunk, at7),
       choices: (() => {
         // THE BOARD MAY CARRY THEM. Eleven Days writes its CHOICE stops as a
         // payload — question, choices, answer, why, and one rebuttal keyed to
@@ -383,12 +951,110 @@ function stopsIn(body){
         // rebuttals in a separate paragraph. That is the more explicit shape and
         // it is the one that was asked for, so it is read here rather than
         // reported as a stop with no options and no feedback.
-        const pay = fence(chunk) ?? '';
-        const cm = pay.match(/^choices:\s*$([\s\S]*?)^(?=\w|$)/m);
-        if(cm){
-          const items = [...cm[1].matchAll(/^\s*-\s+(.+)$/gm)].map(x => clean(x[1]).replace(/^["']|["']$/g, ''));
-          const key = clean((pay.match(/^answer:\s*(.+)$/m) ?? [])[1] ?? '').replace(/^["']|["']$/g, '');
-          if(items.length) return items.map(t => ({ text: t, correct: !!key && flatEq(t, key) }));
+        // BEFORE the §7 line OR UNDER IT. This bible writes
+        // `**§7 authored-board source - CHOICE:** Build this stop from the
+        // canonical block below`, and the block is below — so `above7`, which is
+        // everything in front of that heading, contains no fence at all and the
+        // options were being looked for in the wrong half of the stop.
+        // UNDER THE §7 LINE FIRST, and never the figure's fence.
+        //
+        // Two things had to be got right here. This bible writes `**§7
+        // authored-board source - CHOICE:** Build this stop from the canonical
+        // block below`, and the block is BELOW — so `above7`, everything in front
+        // of that heading, has no board in it. And a stop that also authors a
+        // chart has a ```json fence above the §7 line, which a plain `fence()`
+        // returns instead: the options were being looked for inside a bar chart.
+        const notFigure = (lines) => {
+          const at = lines.findIndex(l => /^\*\*\s*Figure[^*]*\*\*/i.test(l));
+          return at < 0 ? lines : lines.slice(0, at);
+        };
+        // AND THE `Complete format-specific interaction block` BEFORE EITHER.
+        // Several stops carry two boards: an older `§7 authored-board source -
+        // CLOUD` fence and, below it, the current complete block whose `choices`
+        // are the options. Reading the §7 one first found a cloud and reported
+        // the stop as having no options.
+        // A STOP MAY CARRY SEVERAL BOARDS, and the options are in whichever one
+        // has them. Some of these stops write `Complete format-specific
+        // interaction block` TWICE — a cloud in the first and the four options in
+        // the second — with an older `§7 authored-board source - CLOUD` fence
+        // between them. Taking the first of anything found a cloud. So every
+        // candidate is tried and the first that yields options wins.
+        const cands = [];
+        chunk.forEach((l, i) => {
+          if(/^\*\*\s*Complete format-specific interaction block/i.test(l)) cands.push(chunk.slice(i));
+        });
+        if(buildFrom) cands.push(buildFrom);
+        cands.push(notFigure(above7));
+
+        /**
+         * THE OPTIONS AS AUTHORED OBJECTS, which is the shape the bibles settled
+         * on and the one this could not see:
+         *
+         *   choice:
+         *     choices:
+         *       - {id: corrected_parallax, label: "Use both sight lines…", correct: true}
+         *       - {id: brightness_only, label: "Use apparent brightness…", correct: false}
+         *     answer: corrected_parallax
+         *
+         * Read as a flat list of strings it finds nothing — the key is `label`,
+         * the items are maps, and `choices:` is indented under `choice:` rather
+         * than at column zero. `tools/import-book.mjs` has always understood this
+         * (the stop imports with all four options, its key and its rebuttals);
+         * only the linter did not, and it reported seven perfectly good stops
+         * across two campaigns as "CHOICE has 0 options". A gate that refuses a
+         * stop the importer builds correctly is worse than no gate.
+         */
+        for(const from of cands){
+          const pay = fence(from) ?? '';
+          if(!pay) continue;
+          /**
+           * THE BOARD PARSED, BEFORE THE BOARD PATTERN-MATCHED.
+           *
+           * Every shape below is a regex over the block's text, which works
+           * because the bibles write YAML by hand in a handful of hands. Boomtown
+           * writes JSON:
+           *
+           *   { "question": "…", "choices": ["Record higher demand …", …],
+           *     "answer": "Record higher demand …", "rebuttals": { … } }
+           *
+           * — sixty boards of it, and none of the text shapes match, so fifteen
+           * CHOICE stops were reported as having no options and no key about
+           * stops that list four options and name one. Reading the block as a
+           * document first costs nothing on the bibles that were already read
+           * (their fences parse to the same lists) and needs no new shape the
+           * next time somebody writes a third dialect.
+           */
+          try{
+            const doc = parseYaml(pay);
+            const list = Array.isArray(doc?.choices) ? doc.choices
+              : (Array.isArray(doc?.options) ? doc.options : null);
+            if(list?.length){
+              const key = String(doc.answer ?? doc.correct ?? '');
+              const read = list.map((c) => {
+                const text = clean(typeof c === 'string' ? c : String(c?.label ?? c?.text ?? ''));
+                const marked = typeof c === 'object' && c?.correct === true;
+                return text ? { text, correct: marked || (!!key && flatEq(text, key)) } : null;
+              }).filter(Boolean);
+              if(read.length) return read;
+            }
+          }catch{ /* not a document — read it as text below */ }
+          const labelled = [...pay.matchAll(/^\s*-\s*\{([^}]*)\}\s*$/gm)]
+            .map(m => m[1])
+            .map((inner) => {
+              const lab = /(?:^|,)\s*label\s*:\s*(?:"((?:[^"\\]|\\.)*)"|'([^']*)'|([^,]+))/.exec(inner);
+              if(!lab) return null;
+              return { text: clean(lab[1] ?? lab[2] ?? lab[3] ?? ''),
+                       correct: /(?:^|,)\s*correct\s*:\s*true\b/.test(inner) };
+            })
+            .filter(Boolean);
+          if(labelled.length) return labelled;
+
+          const cm = pay.match(/^choices:\s*$([\s\S]*?)^(?=\w|$)/m);
+          if(cm){
+            const items = [...cm[1].matchAll(/^\s*-\s+(.+)$/gm)].map(x => clean(x[1]).replace(/^["']|["']$/g, ''));
+            const key = clean((pay.match(/^answer:\s*(.+)$/m) ?? [])[1] ?? '').replace(/^["']|["']$/g, '');
+            if(items.length) return items.map(t => ({ text: t, correct: !!key && flatEq(t, key) }));
+          }
         }
         const a = chunk.findIndex(l => /^\*\*Choices/.test(l));
         if(a < 0) return null;
@@ -464,9 +1130,16 @@ export function readBible(file){
       equations: wk.equations,
       crew: field('Crew on this mission - mission log', body),
       beats: beatsIn(body),
+      deeper: deeperIn(body),
+      // The five worked examples, from `### Worked examples - optional
+      // mission-card panel`. The bible fences the whole panel as YAML — button
+      // label, title and five examples with their steps — so it is parsed rather
+      // than read field by field, which is what its own "Exact panel content"
+      // heading asks for.
+      worked: workedIn(body),
       stops: stopsIn(body),
       outcome: (() => {
-        const a = body.findIndex(l => /^#{2,3} Mission outcome/.test(l));
+        const a = body.findIndex(l => /^#{2,3} (?:[A-Z]+\d*\.\s*)?Mission outcome/.test(l));
         if(a < 0) return null;
         const b = body.findIndex((l, i) => i > a && /^#{2,4} /.test(l));
         const chunk = body.slice(a + 1, b < 0 ? a + 12 : b);
@@ -499,7 +1172,7 @@ export function readBible(file){
       // reported "no quick concept review" against a section plainly headed
       // Quick concept review.
       review: (() => {
-        const sec = section(body, /^#{2,3} Quick concept review/, 2);
+        const sec = section(body, /^#{2,3} (?:[A-Z]+\d*\.\s*)?Quick concept review/, 2);
         const b = bullets(sec);
         if(b.length) return b;
         const para = paragraphs(sec);
@@ -533,8 +1206,23 @@ export function readBible(file){
   const fixtures = (() => {
     const out = [];
     let head = null;
+    // THE PLACE MAY BE THE HEADING OVER THE TABLE. Boomtown gives every row an
+    // Area column; Wildtype writes one table per area under `## CLINIC — Field
+    // Clinic`, with no place column at all — so every one of its thirty-six
+    // objects came back with no place and the whole campaign collapsed into a
+    // single room. The last area heading seen is the place for a table that
+    // does not name one.
+    let heading = '';
     for(const raw of lines){
       const l = raw.trim();
+      const sect = /^#{2,3}\s+([A-Z][A-Z0-9_]{1,11})\s+[-–—]\s+(.+)$/.exec(l);
+      if(sect) heading = sect[1];
+      // A BLANK LINE BETWEEN ROWS IS STILL ONE TABLE. Boomtown spaces its
+      // fixture table out for readability — every markdown renderer draws it as
+      // one table — and a reader that forgot its header at the first gap saw
+      // sixty rows with no header and read the campaign as declaring no objects
+      // at all. Only real prose ends a table.
+      if(!l){ continue; }
       if(!l.startsWith('|')){ head = null; continue; }
       const cells = l.split('|').slice(1, -1).map(c => clean(c).toLowerCase());
       if(!head){
@@ -545,18 +1233,44 @@ export function readBible(file){
         // of its rows as a fixture with no kind and no caption, and reported
         // fourteen such "omissions" across four bibles that had declared all of
         // them properly a hundred lines further down.
-        if(cells.some(c => /fixture/.test(c)) && cells.some(c => /kind|build|type/.test(c))) head = cells;
+        // A CAPTION COLUMN DECLARES ONE JUST AS WELL AS A KIND COLUMN DOES.
+        // Boomtown's table is `| Area | Place | Fixture | Caption |` — every
+        // object in the campaign, one sentence each, and no `build` because its
+        // §3.1 says what kind each office gets in prose instead. Required to
+        // carry a kind, that table was not a fixture table at all and the
+        // campaign read as declaring none. The location table this guard was
+        // written against has a place column and a fixture column and no
+        // caption, so it still does not qualify.
+        if(cells.some(c => /fixture/.test(c))
+          && cells.some(c => /kind|build|type/.test(c) || /what it is|caption|description/.test(c))){
+          head = cells;
+        }
         continue;
       }
       if(cells.every(c => /^-+$/.test(c.replace(/[: ]/g, '')))) continue;
       const raws = l.split('|').slice(1, -1).map(c => clean(c));
       const col = (re) => { const i = head.findIndex(h => re.test(h)); return i >= 0 ? raws[i] : null; };
-      const id = col(/fixture/);
-      if(!id || !/^[a-z][a-z0-9-]*$/.test(id.replace(/`/g, ''))) continue;
+      // AN ID COLUMN IS THE ID, and the fixture column is then the NAME. Wildtype
+      // writes `| ID | Fixture | Build | Wall | Exact caption |` — `sample-bench`
+      // beside "Sample Bench" — and reading the fixture column as the id gave
+      // "Sample Bench", which is not an id, so all thirty-six of its declared
+      // objects were skipped and the campaign read as declaring none.
+      const said = col(/^id$/) ?? col(/fixture/);
+      const name = col(/fixture/) ?? '';
+      // Where the bible names its objects only in words — Boomtown's "Budget
+      // Desk" — the id is that name slugged, which is what every stop's
+      // placement line resolves against anyway.
+      const clean1 = String(said ?? '').replace(/`/g, '').trim();
+      const id = /^[a-z][a-z0-9-]*$/.test(clean1)
+        ? clean1
+        : clean1.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      if(!id || !/^[a-z][a-z0-9-]*$/.test(id)) continue;
       out.push({
-        id: id.replace(/`/g, ''),
-        place: col(/place|room|area/) ?? '',
+        id,
+        name: name.replace(/`/g, '').trim(),
+        place: col(/place|room|area/) || heading || '',
         build: (col(/kind|build|type/) ?? '').toLowerCase(),
+        wall: (col(/^wall$/) ?? '').toLowerCase(),
         caption: col(/what it is|caption|description/) ?? '',
       });
     }
@@ -574,7 +1288,7 @@ export function readBible(file){
    */
   const cast = (() => {
     const out = [];
-    const push = (rawName, role) => {
+    const push = (rawName, role, more = {}) => {
       // `Dr. Lena Ortiz (she/her; Ortiz)` — the parenthetical carries pronouns
       // and the name the prose actually uses, and neither belongs in the name.
       // The short name after the semicolon is the better id when it is there,
@@ -588,9 +1302,26 @@ export function readBible(file){
       // metric screen" are sections, and all three were coming back as cast.
       if(words.length < 2 || words.length > 3) return;
       if(/\b(and|the|of|for|first|screen|sequence|intent|summary|plan|beat|review)\b/i.test(name)) return;
+      // NOR IS A SECTION WITH A JOB-SHAPED SUBTITLE. `### Optional worked
+      // examples — exact player copy` reads as a three-word name and a role, and
+      // went onto the roster as a person called "Optional worked examples" whose
+      // job was "exact player copy". A person's role is a job; these words only
+      // ever describe a piece of the document.
+      if(/\b(examples?|copy|panel|card|block|notes?|template|matrix|ledger|spine)\b/i
+         .test(`${name} ${role ?? ''}`)) return;
       const id = (shortName || words[words.length - 1]).toLowerCase().replace(/[^a-z]/g, '');
       if(!id || out.some(p => p.id === id)) return;
-      out.push({ id, name: clean(name).trim(), role: clean(role).replace(/\.$/, '') });
+      // THE REST OF THE ENTRY, because a person is more than a job title. Every
+      // bible writes what each one wants, the blind spot they start with and
+      // the arc off it, a line they keep saying, and — in one of them — the
+      // division outright. All of it was being read and thrown away, and the
+      // roster then shipped a stub whose own last sentence said it was one.
+      const extra = {};
+      for(const [k, v] of Object.entries(more ?? {})){
+        const said = clean(v).trim();
+        if(said) extra[k] = said;
+      }
+      out.push({ id, name: clean(name).trim(), role: clean(role).replace(/\.$/, ''), ...extra });
     };
     // A TABLE OR A RUN OF HEADINGS. Four of the eight write the character bible
     // as `### Name - job`; the other four write it as a table with a Name column
@@ -613,17 +1344,91 @@ export function readBible(file){
       if(cells.every(c => /^-+$/.test(c.replace(/[: ]/g, '')))) continue;
       const at = head.findIndex(h => /^(name|character)$/.test(h));
       const rl = head.findIndex(h => /role|job|entrance/.test(h));
-      if(at >= 0 && cells[at]) push(cells[at], rl >= 0 ? cells[rl] : '');
+      const col = (re) => { const i = head.findIndex(h => re.test(h)); return i >= 0 ? cells[i] : ''; };
+      if(at >= 0 && cells[at]) push(cells[at], rl >= 0 ? cells[rl] : '', {
+        pronouns: col(/pronoun/), wants: col(/^wants/), arc: col(/blind spot|arc/),
+        habit: col(/verbal habit|habit|catchphrase/), division: col(/^division|^area|^group/),
+      });
     }
-    for(const l of lines){
-      const m = l.match(/^###\s+([A-Z][\p{L}'.\- ]{2,40}?)\s+[-–—]\s+(.+)$/u);
+    for(let i = 0; i < lines.length; i++){
+      /**
+       * `### Name — role`, OR `### Name` with the role in its body.
+       *
+       * Eight bibles write the job on the heading; Whiteout writes the heading as
+       * the name alone and then `**Display name:**`, `**Role:**`, `**Area
+       * ownership:**` beneath it — which is the more explicit shape and read
+       * strictly gave a cast of nobody. The heading is a name either way; the
+       * role comes from the dash where there is one and from the field where
+       * there is not.
+       */
+      const m = lines[i].match(/^###\s+([A-Z][\p{L}'.\- ]{2,40}?)(?:\s+[-–—]\s+(.+))?$/u);
       if(!m) continue;
-      push(clean(m[1]), m[2]);
+      // A HEADING WITH NO JOB IS NOT A PERSON. Reading the name-only form let
+      // `### Opening implementation state` onto the roster — three words, no
+      // connective, and a section rather than somebody. An entry has a role,
+      // either on the heading or as a field beneath it.
+      const roleAt = lines.slice(i + 1).findIndex(l => /^#{1,3}\s/.test(l));
+      const entry = lines.slice(i + 1, roleAt < 0 ? lines.length : i + 1 + roleAt).join('\n');
+      if(!m[2] && !/\*\*\s*(?:Role|Job)\s*:\*\*/i.test(entry)) continue;
+      // AND A NAME IS CAPITALISED ALL THE WAY THROUGH. The dash form gets past
+      // the rule above on its own: `### Course supplement — transparent ungraded
+      // reference` is a heading with a job, so Overwind's cast came out seven
+      // people of whom one was a section of the document, with a bio of "Course
+      // supplement" and an area chosen for it because something had to be. A
+      // person's name capitalises every word; a section heading does not. The
+      // particles are the exception a name actually has.
+      const PARTICLE = /^(?:de|del|della|van|von|der|den|di|da|dos|la|le|du|bin|ibn|al|of|the)$/i;
+      const named = clean(m[1]).split(/\s+/).filter(Boolean);
+      if(named.length > 1 && named.slice(1).some(w => /^[a-z]/.test(w) && !PARTICLE.test(w))) continue;
+      // The entry's own body, to the next heading. The fields are written as
+      // `**Wants:** …` and several share a line, so each is taken up to the
+      // next bold label rather than to the end of the line.
+      let body = '';
+      for(let k = i + 1; k < lines.length && !/^#{1,3}\s/.test(lines[k]); k++) body += lines[k] + '\n';
+      const field = (re) => {
+        const f = new RegExp(`\\*\\*\\s*(?:${re})\\s*:\\*\\*\\s*([\\s\\S]*?)(?=\\*\\*[^*]+:\\*\\*|\\n\\s*\\n|$)`, 'i')
+          .exec(body);
+        // THE NEXT BULLET'S DASH IS NOT PART OF THIS FIELD. Whiteout writes each
+        // one as its own list item — `- **Role:** Station director` — so a field
+        // read up to the next bold label ends "…director -", and every role and
+        // division in the roster arrived with a hyphen glued to it.
+        return f ? f[1].replace(/\s+/g, ' ').replace(/\s*[-–—]\s*$/, '').trim() : '';
+      };
+      push(clean(m[1]), m[2] || field('Role|Job'), {
+        pronouns: field('Pronouns'), wants: field('Wants'),
+        arc: [field('Blind spot'), field('Arc')].filter(Boolean).join(' '),
+        habit: field('Verbal habit'),
+        // `Area ownership` is Whiteout's word for the division a person belongs
+        // to, and it is the field the roster is grouped by.
+        division: (field('Division') || field('Area ownership')).replace(/[`.]/g, '').trim(),
+        entrance: field('First entrance'),
+        use: field('Gameplay use') || field('Gameplay necessity'),
+      });
+    }
+    return out;
+  })();
+
+  /**
+   * WHO OWNS EACH GROUP, where the bible says so outright.
+   *
+   * A late section headed "Build reachability corrections" lists
+   * `` `COMMON` roster owner: Mara Voss `` — the author naming the person whose
+   * presence makes that group's person stops reachable. It is authoritative and
+   * it is not a guess out of a job title, so it wins over every reading of a
+   * role. Absent in one bible, present three to six times in the rest.
+   */
+  const owners = (() => {
+    const out = {};
+    for(const l of lines){
+      const m = /^-\s*`([A-Z][A-Z0-9_]*)`\s+roster owner:\s*(.+?)\.?\s*$/.exec(l.trim());
+      if(m) out[m[1]] = clean(m[2]).trim();
     }
     return out;
   })();
 
   // The campaign opener, which is its own five sentences and not a mission's.
-  const opener = paragraphs(section(lines, /^### Opening sequence/, 3))[0] ?? null;
-  return { file, lines, opener, fixtures, cast, missions };
+  // `### Opening sequence` in eight bibles, `## Opening card — exact player copy`
+  // in the ninth. Same section, and it is the first thing a player reads.
+  const opener = paragraphs(section(lines, /^#{2,3} Opening (?:sequence|card)/, 3))[0] ?? null;
+  return { file, lines, opener, fixtures, cast, owners, missions };
 }

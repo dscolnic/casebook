@@ -142,11 +142,12 @@ const INSTRUMENT_GRADEABLE = (kind, ch) => {
     // three here failed every derivation that had legitimately chosen none, which
     // is all ten of Midway's: the game imported clean, played fine, and the smoke
     // test called it ungradeable.
+    // Two candidates a step now, and no rules list at all — naming the licensing
+    // rule is gone from the format, because a two-candidate step cannot offer a
+    // rule list without the list naming the answer.
     case 'DERIVE':      return (b.steps ?? []).length >= 2
-                                && ((b.rules ?? []).length === 0 || (b.rules ?? []).length >= 3)
-                                && (b.steps ?? []).every(st => (st.candidates ?? []).length >= 3
-                                     && Number.isInteger(+st.answer)
-                                     && +st.answer < (st.candidates ?? []).length);
+                                && (b.steps ?? []).every(st => (st.candidates ?? []).length === 2
+                                     && (+st.answer === 0 || +st.answer === 1));
     default:            return false;
   }
 };

@@ -1,0 +1,79 @@
+PENICILLIN (theme: qd_penicillin) — PLACES AND LOCATIONS
+Junior Researcher · Inoculation Department
+Course: Microbiology — penicillin, 1928. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_penicillin npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Inoculation Department, as data.
+
+One corridor, four working rooms off it, and the rooms nobody works in that
+make it a hospital department rather than a diagram. The place has a shape the
+campaign uses: the plates and the broth are down one side, the assay and the
+trial room down the other, so every result crosses the corridor at least once
+before anybody is allowed to believe it.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The assay room is the deepest room on the plan. A rack of dilutions read
+against one standard lawn needs bench run, and an assay squeezed into an
+office reads as an office with a rack in it.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+CULT — Culture Room
+  Culture Room   [CULT]  side w, z 5 … 15
+  Plates, an incubator, and the one contaminated plate nobody threw away.
+  Calls: Read the plate · Measure the ring · Say what it forbids · Ready to
+  hand over
+
+BROTH — Broth Room
+  Broth Room   [BROTH]  side w, z 25 … 37
+  Flasks of mould broth, a filter candle, and the bench where the liquid is
+  separated from the thing that made it.
+  Calls: Grow the broth · Filter it · Test one change · Ready to hand over
+
+ASSAY — Assay Room
+  Assay Room   [ASSAY]  side e, z -4 … 12
+  A rack of dilutions, a standard lawn, and the only place in the building
+  that can say how much of anything there is.
+  Calls: Set the dilutions · Read the lawns · Report the strength · Ready to
+  hand over
+
+TRIAL — Trial Room
+  Trial Room   [TRIAL]  side e, z 20 … 32
+  Cage cards, the treatment record, and the wall where every claim about the
+  preparation is pinned beside its evidence.
+  Calls: Pin the claim · Name what backs it · Cross off an overclaim · Ready
+  to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Desk   [PORCH]  side w, z -4 … 3, OPEN
+Tea Room   [TEA]  side w, z 17 … 23, OPEN
+Media Store   [RACK]  side w, z 37 … 43
+Sterilising Room   [STER]  side e, z 12 … 18
+Reading Room   [LIB]  side e, z 34 … 43
+
+Metrics   corridorHalfWidth 1.75, roomDepth 7.4, ceilingH 3.3
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_penicillin/ — site/plan, fixtures, minors, groups, theme.

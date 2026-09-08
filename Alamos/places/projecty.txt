@@ -1,0 +1,340 @@
+PROJECT Y (theme: projecty) — PLACES AND LOCATIONS
+Los Alamos · 1943–45 · five divisions
+Course: not a syllabus — the wartime laboratory's own subjects, split five ways:
+neutron physics and uncertainty, counting statistics and diagnostics, isotopes
+and materials handling, interfaces and qualification testing, and the systems
+integration that has to survive all four being put together.
+Grade 12. One mission is called a Stage. Fifteen of them are programme stages
+rather than days.
+Delivery: The Evidence Chain — the board is in T. 15 pieces, one a stage.
+
+Run it:  cd gamekit && THEME=projecty npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Los Alamos, as data.
+
+`engine/world/outdoorTown.js` builds the mesa, the roads, the pond, the
+nineteen buildings and the sky from what is in site.js. Everything that is
+*this place* rather than the shape of the ground — the Tech Area wire and its
+guard towers, the water tank, the catenary power lines, coal bins, laundry
+lines, duckboard walks, jeeps, bicycles, the Ponderosa forest, the road
+lighting — is code in props.js beside it. **This site is the one that is not
+fully declarative**: the forest, the ground scatter and the lamp positions are
+JavaScript, not site data.
+
+Positions and dimensions were read out of the running game before the flip —
+`buildingMeshes` for position and angle, `BUILDING_DATA` for size and colour —
+so this reproduces the town rather than reinterpreting it. The engine's `mesa`
+profile was checked against the heightfield `env.js` computed by hand over 841
+points first: mean difference 0.06 m, worst case 0.5 m, and the only half-metre
+cases were building pads where the old surface noise dipped a bench that should
+read level.
+
+**The geography is the secrecy.** Three of the five divisions — T, CM and E —
+stand inside one wired band across the north of town, entered through a badge
+gate on the road. P and X sat in their own smaller wired compounds east and
+west, as several outlying sites did. Everything between them is the town the
+Army had to build to keep its staff on the mesa: dorms, hutments, trailers, a
+chapel, an infirmary, a theatre, a post exchange. Walking from a division to a
+division is walking through the housing of the people who worked in it.
+
+Looking down, -Z is away from the player at spawn — the pond and Fuller Lodge
+are ahead, the Tech Area is behind:
+
+     ‖ water tank ‖                                          z = -46
+                    [ Big House ]                            z = -38
+                  [ Fuller Lodge ]                           z = -30
+  [ Sundt 4-Plex ]              [ Sundt 4-Plex ]             z = -26
+  [ P — Experimental Physics ]   [ X — Implosion ]            z = -10   compounds
+                   ~ Ashley Pond ~                           z =  -8
+  [ dorms ]                       [ Theater No. 2 ]          z =  -6
+  ============ Trinity Drive ==============================  z =  10
+                     ¤ spawn ¤                               z =  14
+                   [ Status board ]                          z =  22
+  [ Sundt Duplexes ]              [ Post Exchange ]          z =  24
+  [ WAC Barracks ]                [ McKee Hutments ]         z =  26
+  - - - - - - - - Tech Area wire, badge gate at x = 16 - - -  z =  32
+  [ Army Chapel ]                                            z =  34
+                                  [ Infirmary ]              z =  38
+  [ CM — Chemistry & Metallurgy ] [ E — Ordnance & Eng. ]     z =  42
+  ‖ boiler house ‖                                           z =  52
+            [ T — Theory & Calculations ]                    z =  58   DELIVERY
+  - - - - - - - - Tech Area wire, south line - - - - - - - -  z =  72
+                  [ Main Gate House ]                        z =  88
+                        ↓ East Gate, Santa Fe 35 miles
+  Morganville trailers, west, x = -98 … -81                  z =   8 … 15
+  Canyon edge and guard rail, east and south-east rim, r = 96 m
+
+Load-bearing rather than decorative:
+
+  · The spawn at (0, 14) is on Trinity Drive with the road running through it.
+    The bicycle rack outside Fuller Lodge is placed through `clearSpot` with an
+    explicit 12 m avoid circle on the spawn for this reason. A prop over the
+    spawn welds the player in place: the scene renders perfectly and W does
+    nothing.
+  · Every `group` below is a group id in content/groups.js. All five have a
+    building, which is what makes every call reachable; a group with no
+    building is a call the player cannot reach, and `worldParity` is the only
+    check that notices.
+  · **`ROADS`, `onRoad` and `MESA_PLAYER_LIMIT` in props.js look dead from
+    outside and are not.** `plantTrees` reads all three to decide where a tree
+    may stand, which is why the roads are declared twice — once as
+    `site.paths` for the engine to grade, once there as the rectangles the
+    forest keeps out of.
+  · The horizon is two ranges and they are nothing alike: the Jemez rise
+    immediately west, close and dark, and the Sangre de Cristo stand forty
+    miles east across the Rio Grande valley, high and blued out. The skyline is
+    the whole of wayfinding on a flat mesa.
+  · `look.far` is 2600. This site scales its sky dome to 850, so at an
+    interior's 160 — or even at 900 — the dome is clipped and the sky renders
+    **black in broad daylight**, with no error anywhere.
+
+==============================================================================
+1. THE AREAS — 5 of them, one group each
+==============================================================================
+
+T — Theory & Calculations
+  Theory & Calculations
+  (0, 58)   44 m from spawn   20 x 11 x 5.4   13 stops
+  DELIVERY ROOM — the board for The Evidence Chain is here.
+  Inside the Tech Area wire.
+  Neutron physics, decay, reaction rates, and carrying uncertainty through a
+  calculation.
+  Calls: Build the chain-reaction notebook · Bound the multiplication and
+  timing estimates · Carry uncertainty through the theory stack · Issue final
+  predictive tables to the laboratory
+  Fixtures (at: targets): none — every question here is asked at the case
+  stand.
+
+CM — Chemistry & Metallurgy
+  Chemistry & Metallurgy
+  (-30, 42)   41 m from spawn   16 x 14 x 6.6   8 stops
+  Inside the Tech Area wire.
+  Isotopes, materials properties, contamination control, and repeatable
+  handling.
+  Calls: Characterize the incoming material stream · Stabilize fabrication and
+  handling procedures · Verify properties across multiple batches · Release
+  certified components to integration
+  Fixtures (at: targets): none.
+
+E — Ordnance & Engineering
+  Ordnance & Engineering
+  (32, 42)   43 m from spawn   20 x 10 x 5.2   8 stops
+  Inside the Tech Area wire.
+  Interfaces, timing logic, qualification tests, and instrumented engineering
+  trials.
+  Calls: Freeze the system interfaces · Prototype the non-nuclear hardware ·
+  Run an instrumented engineering trial · Qualify assembly and delivery
+  operations
+  Fixtures (at: targets): none.
+
+P — Experimental Physics & Diagnostics
+  Experimental Physics
+  (-48, -10)   54 m from spawn   15 x 13 x 6.2   12 stops
+  Its own wired compound, west (-57, -19) to (-39, -1), gate on the east side.
+  Counting statistics, detector behavior, timing, and diagnostic reliability.
+  Calls: Calibrate counters and timing channels · Resolve time-dependent
+  signals · Cross-check independent diagnostic lines · Qualify the field
+  instrumentation package
+  Fixtures (at: targets): none.
+
+X — Implosion & Systems Integration
+  Implosion & Integration
+  (48, -10)   54 m from spawn   18 x 12 x 5.8   11 stops
+  Its own wired compound, east (37, -19) to (59, -1), gate on the west side.
+  Integrate theory, diagnostics, materials, and engineering into one evidence
+  chain.
+  Calls: Reconcile subsystem requirements · Choose the decisive integration
+  tests · Run the full instrumented non-nuclear trial · Hold the final
+  readiness review
+  Fixtures (at: targets): none.
+
+The site has 5 areas where the other campaigns have 6, 52 stops across them,
+and 0 fixtured rooms.
+The five division buildings are the whole of the sited content: there is no
+`fixtures.js` and no `minors.js` in this theme, so **every question in the
+campaign is answered at its room's case stand**, and there is nothing else to
+walk into.
+
+==============================================================================
+2. WHAT EACH ROOM SAYS AT ITS STAND   (interiors.js)
+==============================================================================
+Printed here because this theme has no fixtures and no enterable non-areas —
+these five stands are the only per-room detail the place has. Every other
+campaign's file carries this material under its minors instead.
+
+T — Computing room
+  "A number without its uncertainty is an opinion with a decimal point."
+  Stand line: "Two computing groups have returned estimates that disagree by
+  more than either one's stated error. One of the two error bars is wrong."
+    Group A estimate: 1.00 × (normal)
+    Group B estimate: 1.31 × (high)
+    Stated spread: ± 4 % (alarm)
+    Method: hand computation, checked twice (normal)
+
+P — Counting bench   (vitals, animated, ecg)
+  "Counting is a random process. A single run is a sample, not a result."
+  Stand line: "The counter is running against a background that has not been
+  measured today. Everything downstream depends on that subtraction."
+    Counts: 412 per minute (normal)
+    Background: not run today (alarm)
+    Dead time: 3.1 % of window (high)
+
+CM — Metallurgy bay
+  "A material is what the analysis says it is, not what the label says."
+  Stand line: "Purity is inside tolerance and the swipe survey outside the
+  glovebox is not. Both belong to the same batch."
+    Purity, assayed: 99.4 % (normal)
+    Swipe, bench edge: above limit (alarm)
+    Glovebox pressure: -12 Pa (normal)
+    Batch traceability: complete (normal)
+
+E — Timing rig   (vitals, animated, sine)
+  "An interface is where two groups each assumed the other had it."
+  Stand line: "Channel timing across the firing set is inside specification on
+  average and outside it on two channels. Averages do not fire anything."
+    Spread, all channels: 0.9 µs (normal)
+    Worst channel: 4.2 µs (alarm)
+    Qualification shots: 6 of 20 (low)
+
+X — Integration board
+  "Integration is where four groups' evidence has to survive being put
+  together."
+  Stand line: "Every group reports success against its own criterion. The
+  question on this bench is whether the four criteria are the same one."
+    Theory: estimate delivered (normal)
+    Diagnostics: background pending (high)
+    Materials: batch cleared (normal)
+    Engineering: two channels out (alarm)
+    Agreed criterion: none written (alarm)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Fourteen of them are buildings declared in site.js with no `group`, which is
+how the engine is told a building is scenery:
+
+Fuller Lodge                    (0, -30)     44 m   22 x 12 x 8    log, deep plinth
+Big House                       (10, -38)    53 m   16 x 10 x 7.5  log, deep plinth
+Sundt 4-Plex Row                (-48, -26)   62 m   18 x 9 x 7
+Sundt 4-Plex Row                (44, -26)    59 m   18 x 9 x 7
+Sundt Duplexes                  (-28, 24)    30 m   14 x 8 x 5.5
+McKee Hutments                  (30, 26)     32 m   16 x 8 x 4.5   shallow plinth
+Women's Dorm T-178              (-66, -6)    69 m   14 x 10 x 6
+Men's Dorm                      (-80, -6)    82 m   14 x 10 x 6
+WAC Barracks                    (-76, 26)    77 m   16 x 9 x 5
+Theater No. 2                   (68, -6)     71 m   16 x 12 x 8
+Post Exchange                   (58, 24)     59 m   11 x 10 x 6
+Army Chapel                     (-48, 34)    52 m   10 x 12 x 7    stucco
+Infirmary                       (58, 38)     63 m   12 x 10 x 6.5  stucco
+Main Gate House                 (27, 88)     79 m   6 x 6 x 4      shallow plinth
+
+The rest are props.js, and are code rather than site data:
+
+Tech Area wire                  (-42, 32) to (46, 72), badge gate at x = 16
+  Two guard towers, at (-40, 34) and (44, 70).
+P compound wire                 (-57, -19) to (-39, -1), gate east
+X compound wire                 (37, -19) to (59, -1), gate west
+Water tank                      (-78, -46)   on a 9.5 m timber frame, the
+                                             site's tallest object
+Boiler house                    (-60, 52)    12 x 4.4 x 8, a 16 m stack and
+                                             the site's one plume of smoke
+The icehouse                    (-18, -20)   the Ranch School's stone
+                                             icehouse, the only stone
+                                             building on the mesa and the
+                                             reason the pond was dammed
+Morganville trailers            (-98 … -81, 8 … 15)   six, with one shared
+                                             standpipe at (-90, 18)
+Mail drop, "SUBJECT TO CENSORSHIP", and the commissary queue   by the PX, (50, 18)
+Canyon edge                     rim radius 96 m, east and south-east: posts,
+                                cable and a "CANYON EDGE · No vehicles past
+                                the rail" board at about (89, 18)
+East Gate road                  from (16, 96) north past the player bound at
+                                105, bending away down the mesa. "EAST GATE ·
+                                Santa Fe 35 miles · badge required"
+Power lines                     Trinity Drive, poles every 26 m at z = 19.5;
+                                the gate road, poles every 24 m at x = 25.5
+Road lighting                   six poles: (-24, 19.2) (4, 19.2) (26, 19.2)
+                                (17.6, 50) (17.6, 80) (-48, -20). Emissive
+                                bulbs registered as light panels, not real
+                                lights — the contract ceiling is six and the
+                                scene already used two.
+Duckboard walks                 (-6, 21.2) (52, 24) (-22, 8.5) (61, -6)
+Coal bins and ash               behind all seven housing blocks
+Ponderosa forest                thinned in town, dense to the rim; planted
+                                last so it sees every collider
+Ground scatter                  90 stones and cut stumps, r = 24 … 120 m
+
+Vehicles — two kinds, which is the rule for an outdoor site:
+  Jeeps, driveable         (-12, 17.4) (26, 17.2) (6, 3.4) (-37, 6)
+  Jeep, parked             (17, 44)   so the motor pool still reads as one
+  Stake trucks             (-30, 16.5) (42, 33)
+  Bicycles, driveable      the rack outside Fuller Lodge, placed by `clearSpot`
+                           near (-6, -22) — the faster of the two on most
+                           mornings, because the jeeps are at the north end
+  Bicycles, leaning        eight, where people left them; scenery
+
+Project Y — Status   the board on Trinity Drive
+  (0, 22)   facing 0
+Ashley Pond
+  centre (0, -8)   14 x 14, level -0.35, bed 0.8, shore 4. The shore feather
+  is set small on purpose: the engine's 14 m default on a 14 m pond digs a soft
+  two-metre crater across the middle of town, eight metres from the spawn.
+Spawn
+  (0, 14)   yaw 0, looking down Trinity Drive at the pond. Keep it clear — a
+  prop over the spawn welds the player in place.
+Terrain   size 760, playerLimit 105, profile 'mesa', relief 1.0
+Paths     Trinity Drive (0, 10) 240 x 16, worn 10
+          north to the canyon bridge (16, 54) 11 x 104, worn 6.5
+          the lab access spur (-8, 19) 11 x 22, worn 6
+
+==============================================================================
+THE DELIVERY — The Evidence Chain
+==============================================================================
+What the laboratory has to be able to show at the end: every claim from a
+counted signal to a frozen design, and how well each one of them is known.
+One link a stage, in the order the work happened to establish them — each
+piece carries how well it is known rather than what it concluded.
+
+   1. The counting notebook
+   2. The mass defect calculation
+   3. The decay curve sheet
+   4. The cross-section measurement
+   5. The neutron transport figures
+   6. The design pivot memorandum
+   7. The compression study
+   8. The symmetry metric
+   9. The mockup results
+  10. The timing survey
+  11. The uncertainty budget
+  12. The integrated trial plan
+  13. The Trinity prediction sheet
+  14. The design freeze record
+  15. The responsibility statement
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. This theme has no
+  fixtures.js, so no lesson can point at one and all 52 stops are answered
+  at their room's case stand. Adding fixtures here is a `fixtures.js` plus
+  `at:` on the lessons; `placement.mjs` is the gate.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice. All five do.
+· Never place a prop over the spawn or across the main walking line. Trinity
+  Drive runs through the spawn, so anything placed near (0, 14) has to go
+  through `clearSpot` with the spawn in its `avoid` list, as the bicycle rack
+  does.
+· `kit.js` placers take `(x, z, y)` — ground last.
+· Anything added to the sky here must be unlit. A lit object under this site's
+  bright dome renders black with a highlight on it.
+· The roster is real historical people — 26 bios, every one of them carrying a
+  `quiz`, plus 5 leaders. Nothing may be put in one of their mouths that the
+  record does not support. Note that this theme sets no `theme.history` and no
+  `real: true` on the roster, which the discovery games do; the rule holds
+  anyway, and nothing enforces it here.
+
+Generated from themes/projecty/ — site.js, props.js (and legacy/props.js),
+interiors.js, content/groups.js, theme.js.

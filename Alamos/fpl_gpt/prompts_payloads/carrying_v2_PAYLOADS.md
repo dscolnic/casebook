@@ -1,6 +1,6 @@
 # carrying_v2: the stops that cannot be built yet
 
-**27 of the campaign's stops are held back.** Every one names a
+**0 of the campaign's stops are held back.** Every one names a
 format the game has, and the science in each is right — what is missing is a
 number or a line the board is physically made of. Below is each stop and what
 the build refused it with, grouped by format so one decision fixes many.
@@ -10,311 +10,154 @@ uses. Where a board genuinely cannot carry what is asked — three quantities th
 all have to be predicted, an order that really does branch — **split it into two
 stops** and say so, rather than thinning the science to fit.
 
-## BELT — 3 stops
-
-**M1 S3 — Separate matter from energy** *(What the Island Depends On)*
-
-- a BELT needs a `belt` block — without it the panel renders empty
-- a belt needs `left` and `right`, each with a `name` — they are the two bins, and an unnamed bin is a bin nobody can aim at
-- both belt bins are called the same thing
-- a belt needs at least 24 items and this one has 0 — the bank is shuffled and only part of it is played, so a short bank means every run is the same run
-- the belt has 0 on one side and 0 on the other — each bin needs at least 8
-- NaN% of the belt goes to one bin — a player who always chooses that side passes without reading anything
-- a belt run of 20 items needs a bank at least that big, and at least 8
-
-**M9 S1 — Sort the mixed waste** *(Waste and Land-Use Controls)*
-
-- a BELT needs a `belt` block — without it the panel renders empty
-- a belt needs `left` and `right`, each with a `name` — they are the two bins, and an unnamed bin is a bin nobody can aim at
-- both belt bins are called the same thing
-- a belt needs at least 24 items and this one has 0 — the bank is shuffled and only part of it is played, so a short bank means every run is the same run
-- the belt has 0 on one side and 0 on the other — each bin needs at least 8
-- NaN% of the belt goes to one bin — a player who always chooses that side passes without reading anything
-- a belt run of 20 items needs a bank at least that big, and at least 8
-
-**M13 S1 — Screen the arriving cargo** *(The Biosecurity Rule)*
-
-- a BELT needs a `belt` block — without it the panel renders empty
-- a belt needs `left` and `right`, each with a `name` — they are the two bins, and an unnamed bin is a bin nobody can aim at
-- both belt bins are called the same thing
-- a belt needs at least 24 items and this one has 0 — the bank is shuffled and only part of it is played, so a short bank means every run is the same run
-- the belt has 0 on one side and 0 on the other — each bin needs at least 8
-- NaN% of the belt goes to one bin — a player who always chooses that side passes without reading anything
-- a belt run of 20 items needs a bank at least that big, and at least 8
-
-## STRESS — 3 stops
-
-**M2 S4 — Set the ceiling** *(The Groundwater Recharge Estimate)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-**M10 S4 — Stress the catch ceiling** *(The Reef Evidence)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-**M14 S4 — Stress the human-demand forecast** *(The Population Outlook)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-## TRIGGER — 3 stops
-
-**M4 S4 — Write the aquifer trigger** *(The Aquifer Warning)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-**M8 S4 — Set the school action level** *(The School-Water Finding)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-**M15 S4 — Enact the ferry triggers** *(The Conditional Ferry Recommendation)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-## CLOUD — 3 stops
-
-**M5 S2 — Read the survivorship curves** *(The Fishery Ceiling)*
-
-- a CLOUD needs a `cloud` block — without it the panel renders empty
-- a cloud needs bounds with max above min
-- a cloud needs a numeric centre and a positive spread
-- a cloud `pass` is the fraction that has to finish inside, between 0 and 1
-- a cloud needs at least two actions
-- a cloud with no narrowing action cannot be answered — information is the only thing that reduces a spread
-- re-centring alone reaches NaN% inside, which clears the NaN% needed — the cloud has to come with the dot
-- even with every action applied only NaN% finishes inside — the stop cannot be answered right
-
-**M10 S3 — Map acidification damage** *(The Reef Evidence)*
-
-- a CLOUD needs a `cloud` block — without it the panel renders empty
-- a cloud needs bounds with max above min
-- a cloud needs a numeric centre and a positive spread
-- a cloud `pass` is the fraction that has to finish inside, between 0 and 1
-- a cloud needs at least two actions
-- a cloud with no narrowing action cannot be answered — information is the only thing that reduces a spread
-- re-centring alone reaches NaN% inside, which clears the NaN% needed — the cloud has to come with the dot
-- even with every action applied only NaN% finishes inside — the stop cannot be answered right
-
-**M14 S1 — Read the age structure** *(The Population Outlook)*
-
-- a CLOUD needs a `cloud` block — without it the panel renders empty
-- a cloud needs bounds with max above min
-- a cloud needs a numeric centre and a positive spread
-- a cloud `pass` is the fraction that has to finish inside, between 0 and 1
-- a cloud needs at least two actions
-- a cloud with no narrowing action cannot be answered — information is the only thing that reduces a spread
-- re-centring alone reaches NaN% inside, which clears the NaN% needed — the cloud has to come with the dot
-- even with every action applied only NaN% finishes inside — the stop cannot be answered right
-
-## ALLOCATE — 3 stops
-
-**M5 S4 — Fund an enforceable ceiling** *(The Fishery Ceiling)*
-
-- a ALLOCATE needs a `allocate` block — without it the panel renders empty
-- an allocation needs a positive pool
-- an allocation needs at least four items to choose between
-- every item together costs 0 against a pool of undefined — the whole board is affordable, so nothing is being traded away
-- the protected items alone cost 0, more than the pool
-- an allocation needs at least three questions its plan may answer
-- no allocation answer is `required` — every plan passes
-- the required answers and the protected items cost 0 against a pool of undefined — the stop cannot be answered right
-- every allocation answer is required — there is nothing the plan is allowed to forgo, which is the decision this format exists to make
-
-**M9 S4 — Fund source controls** *(Waste and Land-Use Controls)*
-
-- a ALLOCATE needs a `allocate` block — without it the panel renders empty
-- an allocation needs a positive pool
-- an allocation needs at least four items to choose between
-- every item together costs 0 against a pool of undefined — the whole board is affordable, so nothing is being traded away
-- the protected items alone cost 0, more than the pool
-- an allocation needs at least three questions its plan may answer
-- no allocation answer is `required` — every plan passes
-- the required answers and the protected items cost 0 against a pool of undefined — the stop cannot be answered right
-- every allocation answer is required — there is nothing the plan is allowed to forgo, which is the decision this format exists to make
-
-**M12 S4 — Allocate firm power** *(The Leak and Turbine Case)*
-
-- a ALLOCATE needs a `allocate` block — without it the panel renders empty
-- an allocation needs a positive pool
-- an allocation needs at least four items to choose between
-- every item together costs 0 against a pool of undefined — the whole board is affordable, so nothing is being traded away
-- the protected items alone cost 0, more than the pool
-- an allocation needs at least three questions its plan may answer
-- no allocation answer is `required` — every plan passes
-- the required answers and the protected items cost 0 against a pool of undefined — the stop cannot be answered right
-- every allocation answer is required — there is nothing the plan is allowed to forgo, which is the decision this format exists to make
-
-## TRACE — 2 stops
-
-**M1 S4 — Find the shared omission** *(What the Island Depends On)*
-
-- a TRACE needs a `trace` block — without it the panel renders empty
-- a trace needs at least four channels
-- a trace needs at least one shared resource to name
-- the trace target "undefined" is not one of its resources
-- fewer than two channels depend on the trace target — with only one there is no common mode, and the agreement the stop is about never happens
-- a trace with no independent channel cannot be answered — something has to survive the correction, or the right move is to throw everything away
-
-**M7 S1 — Trace the hidden exports** *(The Hidden Losses)*
-
-- a TRACE needs a `trace` block — without it the panel renders empty
-- a trace needs at least four channels
-- a trace needs at least one shared resource to name
-- the trace target "undefined" is not one of its resources
-- fewer than two channels depend on the trace target — with only one there is no common mode, and the agreement the stop is about never happens
-- a trace with no independent channel cannot be answered — something has to survive the correction, or the right move is to throw everything away
-
-## ATTEST — 2 stops
-
-**M6 S1 — Audit the landing claim** *(The Enforcement Plan)*
-
-- a ATTEST needs a `attest` block — without it the panel renders empty
-- an attest board needs at least four claims
-- an attest board needs a numeric `checks` budget
-- the board allows undefined verifications for 0 claims — with enough for the whole list there is no decision about where to look
-- every critical claim is already backed — there is nothing to hold, so closing the list blind is the right answer
-- 0 critical claims are unbacked and only undefined verifications are allowed — the stop cannot be answered right
-- no critical claim is backed — holding every critical claim passes without reading anything
-
-**M12 S1 — Audit the gearbox schedule** *(The Leak and Turbine Case)*
-
-- a ATTEST needs a `attest` block — without it the panel renders empty
-- an attest board needs at least four claims
-- an attest board needs a numeric `checks` budget
-- the board allows undefined verifications for 0 claims — with enough for the whole list there is no decision about where to look
-- every critical claim is already backed — there is nothing to hold, so closing the list blind is the right answer
-- 0 critical claims are unbacked and only undefined verifications are allowed — the stop cannot be answered right
-- no critical claim is backed — holding every critical claim passes without reading anything
-
-## HOLDOUT — 1 stop
-
-**M2 S3 — Freeze the estimate** *(The Groundwater Recharge Estimate)*
-
-- holdout needs axis.min and axis.max, with max greater than min
-- holdout needs at least five authored points in `fit`
-- the HOLDOUT board could not be read — Cannot read properties of undefined (reading 'every'). Its payload is probably still in the bible's own field names.
-
-## SEQUENCE — 1 stop
-
-**M3 S2 — Read recovery and habitat** *(The Ecological Limits)*
-
-- sequence needs at least three cards
-
-## CHAIN — 1 stop
-
-**M7 S2 — Build the treatment chain** *(The Hidden Losses)*
-
-- a CHAIN needs a `chain` block — without it the panel renders empty
-- a chain needs at least four transfers
-- the chain order must name at least four links, each of them once, all from `links`
-- the chain's governing link "undefined" is not one of its transfers
-- the chain needs a `distractor` — the large obvious member somebody names instead
-- the chain's distractor is its governing link — there is nothing to be wrong about
-- the governing link "undefined" is not in the path
-
-## VALUE — 1 stop
-
-**M7 S4 — Choose the repair priority** *(The Hidden Losses)*
-
-- a VALUE needs a `value` block — without it the panel renders empty
-- a value board needs a positive budget
-- a value board needs at least four options
-- the options cost 0 and the budget is undefined — the whole board is affordable, so nothing is being traded away
-- no value option is marked `decisive` — nothing on the board would change the decision, so every answer is as good as every other
-- the decisive options together cost more than the budget — the stop cannot be answered right
-- every value option asks about the same axis — buying more of the same is the trap, so at least two axes have to be on the board
-
-## VERIFY — 1 stop
-
-**M8 S3 — Verify the garden source** *(The School-Water Finding)*
-
-- a VERIFY needs a `verify` block — without it the panel renders empty
-- a verify needs a prediction range with min, max and step
-- a verify needs a numeric `truth` — what the measurement will find
-- the verify truth is outside the range the player can predict
-- a verify `passRatio` brackets 1 — [0.5, 2] means "within a factor of two either way"
-- every prediction in the range passes — widen the range or tighten the ratio, or the prediction is not being tested
-- a verify needs a `measurement` with a label — it is the thing the player can skip
-
-## RESIDUAL — 1 stop
-
-**M10 S1 — Read the patterned residuals** *(The Reef Evidence)*
-
-- a RESIDUAL needs a `residual` block — without it the panel renders empty
-- a residual needs at least two candidate fits to choose between
-- the residual to accept, "undefined", is not one of the fits
-- the RESIDUAL board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-## CONTROL — 1 stop
-
-**M10 S2 — Control heat and nutrients** *(The Reef Evidence)*
-
-- a CONTROL needs a `control` block — without it the panel renders empty
-- a controlled trial needs at least three candidates
-- the control truth "undefined" is not one of its variables
-- a controlled trial needs a numeric baseline and a non-zero response
-- the response undefined is not clear of the noise ±0 — the trial would be a coin toss, which is the opposite of a controlled experiment
-- changing the suspect takes the reading to NaN, below zero — `response` is the signed change in the reading, so a suspect that is suppressing the signal has a positive response, not a negative one
-
-## INJECT — 1 stop
-
-**M13 S2 — Test survey recovery** *(The Biosecurity Rule)*
-
-- a INJECT needs a `inject` block — without it the panel renders empty
-- an inject needs a population with a numeric `n`
-- an inject needs at least three configurations
-- an inject needs a `metric` with a label — the thing that is not the detection count
-- the inject best configuration "undefined" is not one of them
-- the INJECT board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
 ## Not tied to one stop
 
-- group "WATER" has nobody on the roster — its person stops are unreachable
-- group "COMMON" has nobody on the roster — its person stops are unreachable
-- group "TIP" has nobody on the roster — its person stops are unreachable
-- group "POWER" has nobody on the roster — its person stops are unreachable
-- warmups: the hunt warm-up's title says 6 and the run places 7 — one item per area, so the story names a count the player cannot reach
+- theme "carrying_v2" story: 30 problem(s)
+- Day 1 (What the Island Depends On): never says what the player decides — no "Today you …" clause
+- Day 1 (What the Island Depends On): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 2 (The Groundwater Recharge Estimate): never says what the player decides — no "Today you …" clause
+- Day 3 (The Ecological Limits): never says what the player decides — no "Today you …" clause
+- Day 3 (The Ecological Limits): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 4 (The Aquifer Warning): never says what the player decides — no "Today you …" clause
+- Day 4 (The Aquifer Warning): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 5 (The Fishery Ceiling): never says what the player decides — no "Today you …" clause
+- Day 5 (The Fishery Ceiling): the segue names no number, clock or person — nothing concrete is at risk in it
+- Day 6 (The Enforcement Plan): never says what the player decides — no "Today you …" clause
+- Day 6 (The Enforcement Plan): the segue names no number, clock or person — nothing concrete is at risk in it
+- Day 7 (The Hidden Losses): never says what the player decides — no "Today you …" clause
+- Day 7 (The Hidden Losses): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 8 (The School-Water Finding): never says what the player decides — no "Today you …" clause
+- Day 8 (The School-Water Finding): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 9 (Waste and Land-Use Controls): never says what the player decides — no "Today you …" clause
+- Day 9 (Waste and Land-Use Controls): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 10 (The Reef Evidence): never says what the player decides — no "Today you …" clause
+- Day 10 (The Reef Evidence): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 11 (Energy and Emissions Ledger): never says what the player decides — no "Today you …" clause
+- Day 11 (Energy and Emissions Ledger): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 12 (The Leak and Turbine Case): never says what the player decides — no "Today you …" clause
+- Day 13 (The Biosecurity Rule): never says what the player decides — no "Today you …" clause
+- Day 13 (The Biosecurity Rule): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 14 (The Population Outlook): never says what the player decides — no "Today you …" clause
+- Day 14 (The Population Outlook): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 15 (The Conditional Ferry Recommendation): never says what the player decides — no "Today you …" clause
+- Day 15 (The Conditional Ferry Recommendation): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 15 (The Conditional Ferry Recommendation): a primer line runs to 39 words — it is reference, not prose
+- the opening card runs 9 sentences — 5 is the limit, and a day card is four
+- "Blessing Okafor" is nobody: the roster has Nkemdi Okafor, and this card is in Day 4 warm-up card "trial-far"
+- day  1: primer names 0 of 2 hard word(s), 2 unexplained  ✗ — precipitation, nitrate
+- day  3: primer names 0 of 4 hard word(s), 2 unexplained  ✗ — triage, nitrate
+- day  4: primer names 0 of 4 hard word(s), 3 unexplained  ✗ — nitrate, chloride, mg/l
+- day  6: primer names 0 of 4 hard word(s), 3 unexplained  ✗ — fsc, buffer, gmo
+- day 10: primer names 0 of 4 hard word(s), 2 unexplained  ✗ — mg/l, ppt
+- day 11: primer names 0 of 5 hard word(s), 5 unexplained  ✗ — co, pm, precipitator, catalyst
+- day 13: primer names 0 of 4 hard word(s), 3 unexplained  ✗ — off, on, ppt
+- day 15: primer names 0 of 6 hard word(s), 5 unexplained  ✗ — albedo, cfc, chloride, pass
+- theme "carrying_v2" jargon: 2 problem(s)
+- 21 hard word(s) are used and never introduced — no glossary entry, no primer, no definition in place: precipitation, nitrate, triage, chloride, mg/l, fsc, buffer, gmo, pcb, ppt, co, pm, precipitator, catalyst, scrubber, off, on, pgr, albedo, cfc, pass
+- 8 day(s) leave two or more terms unexplained and the primer names none of them
+- carrying_v2: 3 question(s) in the wrong kind of place
+- placement: 1 theme(s) asking a question in the wrong kind of place.
+- carrying_v2: only 0 of 64 scene(s) name somebody (0%) — the cast is introduced in the stakes and then absent from every question
+- not recorded in scenecast-debt.json
+- sceneCast: 1 theme(s) whose scene-cast rate is unrecorded.
+- theme "carrying_v2": 9 passage(s), 0 authored question(s)
+- 9 bio(s) with no authored question — the engine will lift a sentence instead:
+- stop 2 (day 1) claims "The carbon and nitrogen cycles, and where a farm interrupts them", which is built out of "An ecosystem as a budget: what comes in, what leaves, what stays" — the same day
+- stop 3 (day 1) claims "Energy transfer between levels, and why the top is thin", which is built out of "Food webs and trophic levels: who eats whom, and how much of it" — claimed by no stop
+- stop 4 (day 1) claims "Reading an environmental claim: what a number is about, and over what period", which is built out of "Concentration against load, and why a small pipe can matter" — not until day 8
+- stop 7 (day 2) claims "Reading an environmental claim: what a number is about, and over what period", which is built out of "Concentration against load, and why a small pipe can matter" — not until day 8
+- stop 8 (day 2) claims "Ecological tolerance, and the range a population can actually live in", which is built out of "Species richness, and what an island holds that a mainland does not" — not until day 3
+- stop 9 (day 3) claims "Energy transfer between levels, and why the top is thin", which is built out of "Food webs and trophic levels: who eats whom, and how much of it" — claimed by no stop
+- stop 10 (day 3) claims "Species richness, and what an island holds that a mainland does not", which is built out of "Food webs and trophic levels: who eats whom, and how much of it" — claimed by no stop
+- stop 11 (day 3) claims "Island biogeography: area, isolation and the species a place can keep", which is built out of "Species richness, and what an island holds that a mainland does not" — the same day
+- stop 14 (day 4) claims "An aquifer, and what abstracting faster than recharge does to it", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 15 (day 4) claims "An aquifer, and what abstracting faster than recharge does to it", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 16 (day 4) claims "An aquifer, and what abstracting faster than recharge does to it", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 17 (day 5) claims "Maximum sustainable yield, and why it sits at half the stock", which is built out of "The tragedy of the commons, and the rule that answers it" — the same day
+- stop 18 (day 5) claims "Generalists and specialists, r-selected and K-selected", which is built out of "Carrying capacity, and what happens on the way past it" — the same day
+- stop 19 (day 5) claims "Carrying capacity, and what happens on the way past it", which is built out of "Exponential growth, and reading a doubling time off a rate" — not until day 14
+- stop 20 (day 5) claims "The tragedy of the commons, and the rule that answers it", which is built out of "Carrying capacity, and what happens on the way past it" — the same day
+- stop 21 (day 6) claims "Reading an environmental claim: what a number is about, and over what period", which is built out of "Concentration against load, and why a small pipe can matter" — not until day 8
+- stop 22 (day 6) claims "Reading an environmental claim: what a number is about, and over what period", which is built out of "Concentration against load, and why a small pipe can matter" — not until day 8
+- stop 25 (day 7) claims "Point and non-point sources, and which one a pipe is", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 26 (day 7) claims "Point and non-point sources, and which one a pipe is", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 30 (day 8) claims "Dose makes the poison: exposure, body mass and a dose-response curve", which is built out of "Concentration against load, and why a small pipe can matter" — the same day
+- stop 31 (day 8) claims "Point and non-point sources, and which one a pipe is", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 32 (day 8) claims "Dose makes the poison: exposure, body mass and a dose-response curve", which is built out of "Concentration against load, and why a small pipe can matter" — the same day
+- stop 34 (day 9) claims "Point and non-point sources, and which one a pipe is", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 39 (day 10) claims "A warming, acidifying sea, and what a reef does about it", which is built out of "Greenhouse gases, and comparing them on one scale" — not until day 12
+- stop 41 (day 11) claims "Efficiency, and where the rest of the fuel goes", which is built out of "Energy against power: a kilowatt is not a kilowatt-hour" — claimed by no stop
+- stop 42 (day 11) claims "Capacity factor and intermittency: what a turbine gives on average", which is built out of "Energy against power: a kilowatt is not a kilowatt-hour" — claimed by no stop
+- stop 43 (day 11) claims "Point and non-point sources, and which one a pipe is", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 47 (day 12) claims "Point and non-point sources, and which one a pipe is", which is built out of "A watershed, and what a catchment collects" — claimed by no stop
+- stop 48 (day 12) claims "Capacity factor and intermittency: what a turbine gives on average", which is built out of "Energy against power: a kilowatt is not a kilowatt-hour" — claimed by no stop
+- stop 53 (day 14) claims "Age structure and the demographic transition, on a nineteen-child roll", which is built out of "Exponential growth, and reading a doubling time off a rate" — the same day
+- 30 concept-ordering problem(s).
+- UNNAMED "Draw the boundary" — asks about "An ecosystem as a budget: what comes in, what leaves, what stays" and names it nowhere in the question or the options
+- UNNAMED "Find the shared omission" — asks about "Reading an environmental claim: what a number is about, and over what period" and names it nowhere in the question or the options
+- UNNAMED "Freeze the estimate" — asks about "Reading an environmental claim: what a number is about, and over what period" and names it nowhere in the question or the options
+- UNNAMED "Set the ceiling" — asks about "Ecological tolerance, and the range a population can actually live in" and names it nowhere in the question or the options
+- UNNAMED "Verify logistic recovery" — asks about "Carrying capacity, and what happens on the way past it" and names it nowhere in the question or the options
+- UNNAMED "Buy compliance evidence" — asks about "Reading an environmental claim: what a number is about, and over what period" and names it nowhere in the question or the options
+- UNNAMED "Close the water balance" — asks about "An ecosystem as a budget: what comes in, what leaves, what stays" and names it nowhere in the question or the options
+- UNNAMED "Choose the repair priority" — asks about "Ecosystem services, and the ones nobody is billed for" and names it nowhere in the question or the options
+- UNNAMED "Verify the garden source" — asks about "Point and non-point sources, and which one a pipe is" and names it nowhere in the question or the options
+- UNNAMED "Set the school action level" — asks about "Dose makes the poison: exposure, body mass and a dose-response curve" and names it nowhere in the question or the options
+- UNNAMED "Read the patterned residuals" — asks about "Reading an environmental claim: what a number is about, and over what period" and names it nowhere in the question or the options
+- UNNAMED "Control heat and nutrients" — asks about "Ecological tolerance, and the range a population can actually live in" and names it nowhere in the question or the options
+- UNNAMED "Diagnose the engine-room alarm" — asks about "Point and non-point sources, and which one a pipe is" and names it nowhere in the question or the options
+- UNNAMED "Test survey recovery" — asks about "Invasive species, and the four things that make one" and names it nowhere in the question or the options
+- UNNAMED "Control the rinse treatment" — asks about "Invasive species, and the four things that make one" and names it nowhere in the question or the options
+- UNNAMED "Write the biosecurity protocol" — asks about "Invasive species, and the four things that make one" and names it nowhere in the question or the options
+- UNNAMED "Collapse the final degeneracy" — asks about "Carrying capacity, and what happens on the way past it" and names it nowhere in the question or the options
+- UNNAMED "Enact the ferry triggers" — asks about "The tragedy of the commons, and the rule that answers it" and names it nowhere in the question or the options
+- UNNAMED "Down from what, over how long — Review" — asks about "An ecosystem as a budget: what comes in, what leaves, what stays" and names it nowhere in the question or the options
+- UNNAMED "Read the ground" — asks about "Soil: horizons, texture and what a thin soil cannot do" and names it nowhere in the question or the options
+- UNNAMED "Verify the independent water sample" — asks about "Reading an environmental claim: what a number is about, and over what period" and names it nowhere in the question or the options
+- UNNAMED "What the rain leaves behind — Review" — asks about "The water cycle over a small island: rain in, runoff and abstraction out" and names it nowhere in the question or the options
+- UNNAMED "Fund an enforceable ceiling" — asks about "The tragedy of the commons, and the rule that answers it" and names it nowhere in the question or the options
+- UNNAMED "Trace the hidden exports" — asks about "Point and non-point sources, and which one a pipe is" and names it nowhere in the question or the options
+- UNNAMED "Build the treatment chain" — asks about "Point and non-point sources, and which one a pipe is" and names it nowhere in the question or the options
+- UNNAMED "Sort the mixed waste" — asks about "Dose makes the poison: exposure, body mass and a dose-response curve" and names it nowhere in the question or the options
+- UNNAMED "Control the compost process" — asks about "The carbon and nitrogen cycles, and where a farm interrupts them" and names it nowhere in the question or the options
+- UNNAMED "Match pollutants and controls" — asks about "Point and non-point sources, and which one a pipe is" and names it nowhere in the question or the options
+- UNNAMED "Verify methane capture" — asks about "Greenhouse gases, and comparing them on one scale" and names it nowhere in the question or the options
+- UNNAMED "Close the peak-power ledger" — asks about "Efficiency, and where the rest of the fuel goes" and names it nowhere in the question or the options
+- UNNAMED "Allocate firm power" — asks about "Capacity factor and intermittency: what a turbine gives on average" and names it nowhere in the question or the options
+- UNNAMED "Read recovery and habitat" — asks about "Species richness, and what an island holds that a mainland does not" and names it nowhere in the question or the options
+- UNNAMED "Measure catch per unit effort" — asks about "Maximum sustainable yield, and why it sits at half the stock" and names it nowhere in the question or the options
+- UNNAMED "Read the survivorship curves" — asks about "Generalists and specialists, r-selected and K-selected" and names it nowhere in the question or the options
+- UNNAMED "Stress the catch ceiling" — asks about "Maximum sustainable yield, and why it sits at half the stock" and names it nowhere in the question or the options
+- UNNAMED "Screen the arriving cargo" — asks about "Invasive species, and the four things that make one" and names it nowhere in the question or the options
+- UNNAMED "Read the age structure" — asks about "Age structure and the demographic transition, on a nineteen-child roll" and names it nowhere in the question or the options
+- UNNAMED "The wall nobody built — Review" — asks about "Ecosystem services, and the ones nobody is billed for" and names it nowhere in the question or the options
+- UNREACHED "Food webs and trophic levels: who eats whom, and how much of it" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Generalists and specialists, r-selected and K-selected" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "The tragedy of the commons, and the rule that answers it" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Efficiency, and where the rest of the fuel goes" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Invasive species, and the four things that make one" — no question in the campaign names it, in the ask or in an option
+- carrying_v2            mean 8.6  worst 11.2  15/16 over grade 6.5
+- carrying_v2: the greet warm-up card runs 2 sentences — 1 is the limit on a card read with a run about to start
+- carrying_v2: the trial-far warm-up card runs 3 sentences — 1 is the limit on a card read with a run about to start
+- carrying_v2: the follow warm-up card runs 2 sentences — 1 is the limit on a card read with a run about to start
+- carrying_v2: the hunt warm-up card runs 3 sentences — 1 is the limit on a card read with a run about to start
+- carrying_v2: the canvass warm-up card runs 2 sentences — 1 is the limit on a card read with a run about to start
+- carrying_v2: the evade warm-up card runs 2 sentences — 1 is the limit on a card read with a run about to start
+- carrying_v2: the tag warm-up card runs 2 sentences — 1 is the limit on a card read with a run about to start
+- group "CHAPEL" has no building in site.js — the player cannot reach it
+- CHAPEL lesson 4 ("Set the ceiling"): the robust candidate also wins on evidence_fit at the nominal
+- WATER lesson 3 ("Convert depth to volume"): estimate offers no distractor tiles, so every number given belongs in the answer
+- POWER lesson 2 ("Count usable plant energy"): estimate offers no distractor tiles, so every number given belongs in the answer
+- POWER lesson 4 ("Calculate capacity factor"): estimate offers no distractor tiles, so every number given belongs in the answer
+- REEF lesson 6 ("Stress the catch ceiling"): the robust candidate also wins on evidence_fit at the nominal
+- REEF lesson 9 ("Calculate population growth"): estimate offers no distractor tiles, so every number given belongs in the answer
+- REEF lesson 10 ("Stress the human-demand forecast"): the robust candidate also wins on evidence_fit at the nominal
+- Match land-use practices: verdict reads at grade 20.0, and the theme is written for grade 12
+- Trace the hidden exports: scene reads at grade 14.2, and the theme is written for grade 12
+- theme "carrying_v2" jargon depth: 3 problem(s)
+- "niche" holds up 3 defined term(s) and nothing defines it
+- "polluted" holds up 2 defined term(s) and nothing defines it
+- "heat" holds up 2 defined term(s) and nothing defines it
 
 ## What to hand back
 

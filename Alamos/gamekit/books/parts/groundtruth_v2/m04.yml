@@ -6,10 +6,10 @@
     header: "12 DAYS TO FINAL STORM WINDOW"
     title: "The Point on the Skyline"
     goNow: "Go to Mast Base and meet Marcus Tate, mast engineer, at the mast desk."
-    body: "The voltage interval is large enough to drive a discharge, yet the outstation shows no direct arc mark. A conductor moves free charge until its interior field is zero, and sharp surfaces can crowd charge outside. You will model the mast tip and inspect the trailer record. By the end of the mission, decide whether tip enhancement alone caused the outstation loss."
+    body: "The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong."
     objective: "Separate local mast-tip breakdown from the remote failure."
   objective: "Separate local mast-tip breakdown from the remote failure."
-  stake: "The voltage interval is large enough to drive a discharge, yet the outstation shows no direct arc mark. A conductor moves free charge until its interior field is zero, and sharp surfaces can crowd charge outside. You will model the mast tip and inspect the trailer record. By the end of the mission, decide whether tip enhancement alone caused the outstation loss."
+  stake: "The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong."
   takeaway: "Tip enhancement did not by itself cause the outstation loss. ---"
   segue: "Mission decision: Tip enhancement did not by itself cause the outstation loss. It explains why the mast launches a discharge. But the trailer evidence requires a conducted or induced path. The search now moves from voltage to stored charge. **Metric:** target 18:00."
 
@@ -20,7 +20,7 @@
   - id: on-arrival-at-mast-base
     # On arrival at Mast Base | mast-desk | automatic
     on: { enter: true, at: MAST }
-    world: "| trigger | location | presentation | world_state | exact dialogue/panel copy | unlocks | |---|---|---|---|---|---| | briefing accepted | MAST/mast-desk | nearby_character_bubble | corona icon pulses at tip; cabinet normal | | M4S1 | | S2 correct | MAST/mast-desk | equipment_panel_update | tip label 50× BODY FIELD | The enhancement is local to the sharp tip. | M4S3 | | S3 correct | MAST/cabinet | persistent_world_change | closed cabinet reads 0.00 kV/m — SHIELDED | A closed conductor cancels the static interior field. | M4S4 | | S4 correct | MAST/cabinet | nearby_character_bubble | trailer photo gains | outcome | | outcome closes | MAST/mast-desk | system_banner | report piece 4 fixed in SHOT board remotely | TIP EFFECT LOCAL — SEARCH FOR A PATH | metric screen, M5 |."
+    world: "| trigger | location | presentation | world_state | exact dialogue/panel copy | unlocks | |---|---|---|---|---|---| | briefing accepted | MAST/mast-desk | nearby_character_bubble | corona icon pulses at tip; cabinet normal | | M4S1 | | S2 correct | MAST/mast-desk | equipment_panel_update | tip label 50× BODY FIELD | The enhancement is local to the sharp tip. | M4S3 | | S3 correct | MAST/cabinet | persistent_world_change | closed cabinet reads 0.00 kV/m - SHIELDED | A closed conductor cancels the static interior field. | M4S4 | | S4 correct | MAST/cabinet | nearby_character_bubble | trailer photo gains | outcome | | outcome closes | MAST/mast-desk | system_banner | report piece 4 fixed in SHOT board remotely | TIP EFFECT LOCAL - SEARCH FOR A PATH | metric screen, M5 |."
     panel: "Marcus Tate, mast engineer: \"The tip is meant to start a strike. Show me whether that can reach the trailer.\""
     bubbles:
     - who: tate   # Marcus Tate
@@ -32,7 +32,7 @@
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Use the Stop 13 result to settle derive tip enhancement."
+      say: "Nice work. Use the Stop 13 result to settle derive tip enhancement."
   - id: after-stop-14
     # After Stop 14 | cabinet | automatic
     on: { after: [2] }
@@ -40,7 +40,7 @@
     panel: "STOP 14 RECORDED - STOP 15 OPEN"
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Use the Stop 14 result to settle verify static shielding."
+      say: "Good thinking. Use the Stop 14 result to settle verify static shielding."
   - id: after-stop-15
     # After Stop 15 | cabinet | automatic
     on: { after: [3] }
@@ -48,7 +48,7 @@
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Use the Stop 15 result to settle diagnose the remote path."
+      say: "Exactly right. Use the Stop 15 result to settle diagnose the remote path."
   - id: at-mission-end
     # At mission end | mast-desk | automatic
     on: { missionEnd: true }
@@ -56,7 +56,80 @@
     panel: "MISSION 4 EVIDENCE: RECORDED"
     bubbles:
     - who: tate   # Marcus Tate
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Conductor", def: "material whose mobile charge rearranges easily."}
+  - {name: "Electrostatic equilibrium", def: "settled state with zero field inside a conductor."}
+  - {name: "Breakdown field", def: "field above which the campaign's air model conducts."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Point on the Skyline. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Point on the Skyline, the mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies Conductor to this case?"
+      hint: "Use the stated evidence and the conditions for Conductor; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Zero interior field and perpendicular exterior field rule out three pictures.", why: "This describes conductor equilibrium, not Conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.", why: "Correct. material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts."}
+      - {key: "C", text: "Equal potential makes E=V/R, so smaller curvature radius means larger field.", why: "This describes spherical-curvature proxy, not Conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Induced surface charge cancels static field inside a closed conductor.", why: "This describes shielding/conductor, not Conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to The Point on the Skyline: the mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies conductor equilibrium to this case?"
+      hint: "Use the stated evidence and the conditions for conductor equilibrium; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.", why: "This describes Conductor, not conductor equilibrium. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Equal potential makes E=V/R, so smaller curvature radius means larger field.", why: "This describes spherical-curvature proxy, not conductor equilibrium. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Zero interior field and perpendicular exterior field rule out three pictures.", why: "Correct. zero interior field and perpendicular exterior field rule out three pictures."}
+      - {key: "D", text: "Induced surface charge cancels static field inside a closed conductor.", why: "This describes shielding/conductor, not conductor equilibrium. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks The Point on the Skyline using new evidence: with conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Which prediction or calculation correctly applies spherical-curvature proxy to this case?"
+      hint: "Use the stated evidence and the conditions for spherical-curvature proxy; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.", why: "This describes Conductor, not spherical-curvature proxy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Zero interior field and perpendicular exterior field rule out three pictures.", why: "This describes conductor equilibrium, not spherical-curvature proxy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Induced surface charge cancels static field inside a closed conductor.", why: "This describes shielding/conductor, not spherical-curvature proxy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Equal potential makes E=V/R, so smaller curvature radius means larger field.", why: "Correct. equal potential makes E=V/R, so smaller curvature radius means larger field."}
+    - prompt: "An unseen case extends The Point on the Skyline: because the tip model is local, test whether a closed conducting cabinet blocks a static external field. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies shielding/conductor to this case?"
+      hint: "Use the stated evidence and the conditions for shielding/conductor; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Induced surface charge cancels static field inside a closed conductor.", why: "Correct. induced surface charge cancels static field inside a closed conductor."}
+      - {key: "B", text: "Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.", why: "This describes Conductor, not shielding/conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Zero interior field and perpendicular exterior field rule out three pictures.", why: "This describes conductor equilibrium, not shielding/conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Equal potential makes E=V/R, so smaller curvature radius means larger field.", why: "This describes spherical-curvature proxy, not shielding/conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Point on the Skyline decision, the team knows this: now the mast tip can exceed breakdown while a closed conductor remains field-free. Which prediction or calculation correctly applies local versus remote cause to this case?"
+      hint: "Use the stated evidence and the conditions for local versus remote cause; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.", why: "This describes Conductor, not local versus remote cause. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "A local strong field explains corona but cannot cross two hundred metres without a coupling path.", why: "Correct. a local strong field explains corona but cannot cross two hundred metres without a coupling path."}
+      - {key: "C", text: "Zero interior field and perpendicular exterior field rule out three pictures.", why: "This describes conductor equilibrium, not local versus remote cause. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Equal potential makes E=V/R, so smaller curvature radius means larger field.", why: "This describes spherical-curvature proxy, not local versus remote cause. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from The Point on the Skyline to this follow-up: the mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.", why: "This describes Conductor, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Zero interior field and perpendicular exterior field rule out three pictures.", why: "This describes conductor equilibrium, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Equal potential makes E=V/R, so smaller curvature radius means larger field.", why: "This describes spherical-curvature proxy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"E_out=σ/ε₀","c":"connect surface charge to field just outside","v":[["E_out","electric field just outside the conductor in newtons per coulomb"],["σ","surface charge density in coulombs per square metre"],["ε₀","vacuum permittivity"]],"s":"compare tip field with Station 12's fictional 3.0 megavolts per metre (MV/m) wet-air threshold."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 4: worked examples"
+    examples:
+    - {"title":"Electrostatic conductor","problem":"A metal object has reached electrostatic equilibrium. What are the field and potential inside the conducting material?","rule":"Free charges rearrange until there is no electric field driving further motion in the conductor.","steps":["Inside the conducting material, E=0.","Since ΔV=-integral E·dl, potential does not vary within that connected conductor."],"answer":"The interior field is zero and the conductor is equipotential.","mistake":"This result is for electrostatic equilibrium, not any wire carrying current."}
+    - {"title":"Compare equal-potential spheres","problem":"Two isolated conducting spheres are held at the same potential V and have radii 1 cm and 2 cm. Compare surface fields.","rule":"For a conducting sphere, E=V/R.","steps":["Set up the relationship: For a conducting sphere, E=V/R.","E_small/E_large=R_large/R_small=2/1=2."],"answer":"The smaller sphere has twice the surface field in this spherical model.","mistake":"Equal potential does not imply equal surface field for different radii."}
+    - {"title":"Field just outside a conductor","problem":"A conductor has local surface charge density 9×10^-9 C/m². Use ε0≈9×10^-12 F/m. Find the external normal field.","rule":"At an electrostatic conductor surface in vacuum, E_out=σ/ε0.","steps":["Set up the relationship: At an electrostatic conductor surface in vacuum, E_out=σ/ε0.","E_out=(9×10^-9)/(9×10^-12)=1000 N/C."],"answer":"The field just outside is 1000 N/C outward for positive charge.","mistake":"Do not use the isolated infinite-sheet factor of two here."}
+    - {"title":"Potential of a point charge","problem":"A charge q=2 nC is 3 m from a point. Use k=9×10^9 N m²/C² and zero potential at infinity. Find V.","rule":"V=kq/r.","steps":["Set up the relationship: V=kq/r.","V=(9×10^9)(2×10^-9)/3=6 V."],"answer":"The potential is +6 V.","mistake":"Potential uses 1/r, while point-charge field uses 1/r²."}
+    - {"title":"Force per charge","problem":"A positive test charge q=2 μC experiences force F=6 mN rightward. Find the electric field.","rule":"E=F/q; μC means 10^-6 C and mN means 10^-3 N.","steps":["Set up the relationship: E=F/q; μC means 10^-6 C and mN means 10^-3 N.","E=(6×10^-3)/(2×10^-6)=3000 N/C rightward."],"answer":"The field is 3000 N/C to the right.","mistake":"The field direction is defined by force on a positive test charge."}
 
   stops:
   # --- Stop 13: Conductor Boundary
@@ -66,10 +139,10 @@
     at: mast-desk
     title: "Conductor Boundary"
     person: tate
-    concept: "conductor equilibrium"
-    reason: "the mast model must obey conductor boundaries."
+    concept: 5   # conductor equilibrium
+    reason: "Tate must distinguish settled conductor fields from storm fields before estimating the mast tip hazard."
     scene: "The mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. Select the only sketch consistent with electrostatic equilibrium before Tate estimates the tip field."
-    motivation: "zero interior field and perpendicular exterior field rule out three pictures."
+    motivation: "The interior and surface-field conditions determine which conductor sketch can support the tip-field calculation."
     format: CHOICE
     question: "Select the one conductor sketch that shows zero field inside, one surface potential, and an exterior field perpendicular to the surface; submit one letter."
     choices:
@@ -102,12 +175,12 @@
   - group: COUPLE
     at: mast-desk
     title: "Derive Tip Enhancement"
-    concept: "spherical-curvature proxy"
-    reason: "the launch team needs a numerical enhancement, not \"sharp is stronger.\""
-    scene: "With conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Derive their surface-field ratio.\", and record the result with its physical justification in the station report."
-    motivation: "equal potential makes E=V/R, so smaller curvature radius means larger field."
+    concept: 6   # spherical-curvature proxy
+    reason: "The conductor boundary check leaves the mast's sharp tip as a possible field-concentration site."
+    scene: "With conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Derive their surface-field ratio."
+    motivation: "The surface-field ratio establishes how strongly the tip can amplify the field relative to the broader mast body."
     format: DERIVE
-    question: "Build four lines from V=kQ/R and E=kQ/R², choose the rule that licenses each line, and submit the numerical ratio E_tip/E_body."
+    question: "Submit the numerical ratio E_tip/E_body."
     answerText: "E_tip/E_body=R_body/R_tip=50. Equal V with E=V/R crowds field at small radius."
     why: "equal potential makes E=V/R, so smaller curvature radius means larger field."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -118,6 +191,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines: V=kQ/R(sphere potential), E=kQ/R²(Gauss/Coulomb), E=V/R(eliminate Q), E_tip/E_body=R_body/R_tip=50(ratio).
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Tip Enhancement in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: V = kQ/R
+            - text: V=kQ/R²
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E = kQ/R²
+            - text: E=kQ/R
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E = V/R
+            - text: E=VR
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E_tip/E_body = R_body/R_tip = (0.50 m)/(0.010 m) = 50
+            - text: E_tip/E_body = R_tip/R_body = (0.010 m)/(0.50 m) = 0.020
+              why: At equal potential, field is inversely proportional to radius; the smaller tip radius belongs in the denominator.
+              survives: true
 
   # --- Stop 15: Verify Static Shielding
   #     Concept: shielding/conductor; Keystone: K4,K12; Area: Mast Base; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L3 test.
@@ -125,10 +230,10 @@
   - group: MAST
     at: cabinet
     title: "Verify Static Shielding"
-    concept: "shielding/conductor"
-    reason: "a real enclosure must verify the zero-interior-field claim."
+    concept: 5   # shielding/conductor
+    reason: "Tip enhancement does not establish whether the nearby equipment cabinet shields its interior."
     scene: "Because the tip model is local, test whether a closed conducting cabinet blocks a static external field. Predict its interior reading before the door control unlocks, then compare open and closed states."
-    motivation: "induced surface charge cancels static field inside a closed conductor."
+    motivation: "The open-and-closed interior readings test whether static external fields can explain damage inside the cabinet."
     format: VERIFY
     question: "CALCULATE AND COMMIT: Enter 0.00 kV/m for the closed cabinet. OPERATE: Open, then close, the door while external field and sensor position stay fixed. MEASURE: Record both interior fields. INTERPRET: Restore the door closed and submit one shielding conclusion."
     answerText: "The completed check shows closed reading 0.00 kV/m confirms static shielding. Surface charge cancels interior E."
@@ -141,6 +246,17 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{submit:{quantity:"closed-cabinet interior field",unit:"kV/m",truth:0.00,tolerance:0.02}},equipment_locked_until_prediction_commit:true,operation:{control:"cabinet door",settings:["open","closed"],fixed:["external field 4.0 kV/m","sensor position"]},measurements:{open:1.20,closed:0.00,unit:"kV/m"},restore:{required:true,setting:"closed",remeasure:true},correct_conclusion:"static shielding confirmed",answerText:"The closed cabinet reads 0.00 kV/m within tolerance, while opening admits field; closing restores shielding."}
+    verify:
+      prediction:
+        min: 50
+        max: 150
+        step: 10
+      truth: 100
+      passRatio:
+        - 0.95
+        - 1.05
+      measurement:
+        label: independent measured value
 
   # --- Stop 16: Diagnose the Remote Path
   #     Concept: local versus remote cause; Keystone: K4,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4 decision.
@@ -148,10 +264,10 @@
   - group: COUPLE
     at: cabinet
     title: "Diagnose the Remote Path"
-    concept: "local versus remote cause"
-    reason: "the same conductor physics must fit both mast and trailer evidence."
+    concept: 30   # local versus remote cause
+    reason: "The shielding result makes the damaged cable card harder to explain as direct static-field exposure."
     scene: "Now the mast tip can exceed breakdown while a closed conductor remains field-free. Diagnose which explanation fits tip corona, no trailer arc mark, and damage only on a cable card."
-    motivation: "a local strong field explains corona but cannot cross two hundred metres without a coupling path."
+    motivation: "A mechanism must explain both the tip corona and the quiet cabinet shell before the crew chooses a repair path."
     format: DIAGNOSIS
     question: "Read every alarming and quiet zone, select one diagnosis that fits them all, and submit either tip field alone, site-wide field, or conducted/induced path."
     answerText: "The completed check shows a conducted or induced path fits all readings. Tip-only and uniform-field models fail quiet evidence."
@@ -164,4 +280,28 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   headline WHAT FAILED?; readings zones [tip_corona:alarm,trailer_shell_arc:none,card_damage:alarm,cabinet_inside:quiet]; choices [tip_field_alone,conducted_or_induced_path,sitewide_uniform_field]; answer conducted_or_induced_path.
+    readings:
+      - zone: alarm_source
+        label: alarming source zone
+        value: alarm present
+      - zone: transfer_path
+        label: possible transfer path
+        value: evidence present
+      - zone: quiet_control
+        label: quiet comparison zone
+        value: no alarm
+      - zone: protected_interior
+        label: protected interior
+        value: quiet
+    choices:
+      - Conducted or induced path from the tip
+      - Tip field alone
+      - Site-wide uniform field
+      - Direct arc inside the trailer
+    headline: Read every alarming and quiet zone, select one diagnosis that fits them all, and submit either tip field alone, site-wide field, or conducted/induced path.
+    answer: Conducted or induced path from the tip
+    rebuttals:
+      - Tip-only damage cannot explain the remote card alarm.
+      - A site-wide field contradicts the quiet cabinet interior.
+      - A direct trailer arc contradicts the quiet shell and intact entry path.
 

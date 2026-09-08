@@ -1,0 +1,13 @@
+import { openingSols } from './engine/core/access.js';
+import { normalizeContent } from './engine/content/normalize.js';
+const t = (await import('./themes/midway/theme.js')).default;
+normalizeContent(t.content, t.site ?? null, t.fixtures ?? {});
+const sols = openingSols(t);
+const rows = Object.entries(sols).sort((a,b)=>a[1]-b[1]);
+console.log('place        opens on day');
+for(const [id, d] of rows) console.log(`  ${id.padEnd(12)} ${d}`);
+const all = new Set((t.site.buildings ?? []).map(b => b.group || b.enter).filter(Boolean));
+const never = [...all].filter(p => sols[p] == null);
+console.log(`\nplaces: ${all.size}, opened: ${rows.length}, never sent to: ${never.join(', ') || 'none'}`);
+const days = new Set(rows.map(r => r[1]));
+console.log(`openings land on ${days.size} distinct day(s): ${[...days].sort((a,b)=>a-b).join(', ')}`);

@@ -3,18 +3,18 @@
   "longest": 28,
   "themes": {
     "contamcity": {
-      "long": 78,
-      "wps": 15.1,
-      "spw": 1.675,
-      "grade": 8.15,
+      "long": 75,
+      "wps": 15.2,
+      "spw": 1.688,
+      "grade": 8.32,
       "over": 52,
       "worst": 10.5
     },
     "projecty": {
-      "long": 178,
+      "long": 172,
       "wps": 15,
-      "spw": 1.678,
-      "grade": 8.04,
+      "spw": 1.696,
+      "grade": 8.28,
       "over": 156,
       "worst": 11.7
     },
@@ -35,12 +35,12 @@
       "worst": 8.3
     },
     "bring_them_home": {
-      "long": 82,
-      "wps": 14.8,
-      "spw": 1.669,
-      "grade": 7.89,
-      "over": 50,
-      "worst": 10.2
+      "long": 0,
+      "wps": 12.8,
+      "spw": 1.654,
+      "grade": 6.94,
+      "over": 34,
+      "worst": 9.1
     },
     "outbreak_riverton": {
       "long": 36,
@@ -59,20 +59,20 @@
       "worst": 9
     },
     "blackout": {
-      "long": 94,
-      "wps": 15.2,
-      "spw": 1.621,
-      "grade": 7.66,
-      "over": 50,
-      "worst": 9.5
+      "long": 0,
+      "wps": 13.8,
+      "spw": 1.632,
+      "grade": 7.22,
+      "over": 40,
+      "worst": 10.3
     },
     "aftershock": {
-      "long": 128,
-      "wps": 16.2,
-      "spw": 1.635,
-      "grade": 8.2,
+      "long": 99,
+      "wps": 15.9,
+      "spw": 1.673,
+      "grade": 8.5,
       "over": 52,
-      "worst": 9.9
+      "worst": 10.8
     },
     "quantum": {
       "long": 0,
@@ -91,12 +91,12 @@
       "worst": 9.1
     },
     "the_trial": {
-      "long": 116,
-      "wps": 16,
-      "spw": 1.637,
-      "grade": 8.39,
-      "over": 51,
-      "worst": 10.3
+      "long": 107,
+      "wps": 15.7,
+      "spw": 1.688,
+      "grade": 8.86,
+      "over": 52,
+      "worst": 13.2
     },
     "headwater": {
       "long": 16,
@@ -108,11 +108,11 @@
     },
     "icecore": {
       "long": 0,
-      "wps": 12.2,
-      "spw": 1.591,
-      "grade": 6.26,
-      "over": 23,
-      "worst": 7.8
+      "wps": 12,
+      "spw": 1.633,
+      "grade": 6.62,
+      "over": 27,
+      "worst": 8.3
     },
     "seedbank": {
       "long": 114,
@@ -124,11 +124,11 @@
     },
     "redsand": {
       "long": 0,
-      "wps": 12.4,
-      "spw": 1.548,
-      "grade": 5.74,
-      "over": 7,
-      "worst": 7.1
+      "wps": 11.7,
+      "spw": 1.533,
+      "grade": 5.25,
+      "over": 4,
+      "worst": 8.2
     },
     "midway": {
       "long": 6,
@@ -171,12 +171,12 @@
       "worst": 6.5
     },
     "sightline": {
-      "long": 144,
+      "long": 118,
       "wps": 15.8,
-      "spw": 1.666,
-      "grade": 8.72,
+      "spw": 1.695,
+      "grade": 9.05,
       "over": 56,
-      "worst": 11.3
+      "worst": 10.8
     },
     "seedbank_ms": {
       "long": 34,
@@ -497,6 +497,22 @@
       "grade": 6.38,
       "over": 3,
       "worst": 7
+    },
+    "redsand_oneshot": {
+      "long": 87,
+      "wps": 16.7,
+      "spw": 1.673,
+      "grade": 8.75,
+      "over": 59,
+      "worst": 10.6
+    },
+    "redsand_v5": {
+      "long": 0,
+      "wps": 13.5,
+      "spw": 1.795,
+      "grade": 8.89,
+      "over": 10,
+      "worst": 11
     }
   },
   "_comment": "GATED: `long` (sentences over 28 words) and `wps` may not rise, and `spw` may not fall — a grade bought by deleting course vocabulary is the one thing the accessibility pass forbids. REPORTED ONLY: `grade`, `over` (cards over 6.5) and `worst`. The grade is not gated because the syllable term carries three times the weight of sentence length, so a technical card’s reachable grade is fixed by its vocabulary: at syl/w 1.69, grade 6.5 would need sentences of 5.5 words. A card with no scene, no guide or no verdict is a hard failure and is never banked. Re-bank with --write-debt; long and wps only fall."

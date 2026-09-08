@@ -6,13 +6,18 @@
     header: "10 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE LEAK THAT WAS NOT"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the evidence board."
-    body: "Carbon is accounted for, the intake can meet demand, the hydrogen branch contains nitrogen, and three water alarms share one standard. These clues need one explanation that fits the quiet readings. Review the evidence in Plant Control, test the diagnosis against uncertainty, then verify its atom balance at the Tank Farm. By the end of the mission, decide whether to end the methane-leak search and repair hydrogen delivery."
+    body: "The carbon is accounted for, nitrogen has appeared in the hydrogen pipe, and three water alarms rely on the same calibration sample. Find an explanation that fits all the evidence. Check the material totals and decide whether to end the leak search and repair hydrogen delivery."
     objective: "Choose one cause that fits every clue and prove it with complete atom balances."
   objective: "Choose one cause that fits every clue and prove it with complete atom balances."
-  stake: "Carbon is accounted for, the intake can meet demand, the hydrogen branch contains nitrogen, and three water alarms share one standard. These clues need one explanation that fits the quiet readings. Review the evidence in Plant Control, test the diagnosis against uncertainty, then verify its atom balance at the Tank Farm. By the end of the mission, decide whether to end the methane-leak search and repair hydrogen delivery."
+  stake: "The carbon is accounted for, nitrogen has appeared in the hydrogen pipe, and three water alarms rely on the same calibration sample. Find an explanation that fits all the evidence. Check the material totals and decide whether to end the leak search and repair hydrogen delivery."
   takeaway: "A scientific twist is fair when old clues remain true but acquire a better meaning."
   segue: "Mission decision: End the methane-leak search. Repair the hydrogen line. One fault explains the carbon count, added nitrogen, low water, normal pressure, and false stain clue. Most of the missing fuel was never made. A signed heat-setting change now raises a new question."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Diagnosis", def: "the proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms."}
+  - {name: "Uncertainty", def: "the range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range."}
+  - {name: "Error", def: "the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake."}
+  - {name: "Atom balance", def: "counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made."}
   primer:
   - "Use the fewest causes that explain all observations without contradicting any quiet reading."
   - "Test the decision against allowed measurement error before committing repair time."
@@ -39,7 +44,7 @@
     # unlocks: The prediction-lock travel beat.
     bubbles:
     - who: abiola   # Abiola
-      say: "The conclusion survives the allowed measurement error. Now make it predict what an independent tank sample should show."
+      say: "Nice work. The conclusion survives the allowed measurement error. Now make it predict what an independent tank sample should show."
   - id: after-stop-22
     # After Stop 22 | evidence board | automatic travel authorization
     on: { after: [2] }
@@ -48,7 +53,7 @@
     # unlocks: The Tank Farm waypoint and Stop 23; Stop 24 unlocks immediately after Stop 23.
     bubbles:
     - who: herrera   # Herrera
-      say: "If that prediction is right, the fuel was mostly never made. We should find carbon in recycle, not outside the plant."
+      say: "Good thinking. If that prediction is right, the fuel was mostly never made. We should find carbon in recycle, not outside the plant."
   - id: after-stops-23-and-24
     # After Stops 23 and 24 | Tank Farm | automatic Twist 1
     on: { after: [3, 4] }
@@ -57,7 +62,7 @@
     # unlocks: The Mission 6 outcome beat.
     bubbles:
     - who: abiola   # Abiola
-      say: "There is no major methane leak. We spent four shifts looking for fuel that was mostly never produced."
+      say: "Exactly right. There is no major methane leak. We spent four shifts looking for fuel that was mostly never produced."
   - id: at-mission-end
     # At mission end | Tank Farm | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,11 +71,81 @@
     # unlocks: Mission 7 briefing and the Sabatier Reactor waypoint.
     bubbles:
     - who: herrera   # Herrera
-      say: "Those are my credentials."
+      say: "Outstanding work. You solved the mission. Those are my credentials."
     - who: sundqvist   # Sundqvist
       say: "Then your change may have caused the collapse."
     - who: abiola   # Abiola
       say: "We follow the heat before we accuse the engineer."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Leak That Was Not. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Sensitivity test", def: "changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number."}
+    - {name: "Corroboration", def: "support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration."}
+    questions:
+    - prompt: "In a follow-up to The Leak That Was Not, vary the intake calibration through its allowed uncertainty to see whether the hydrogen-delivery diagnosis survives measurement error. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which statistical conclusion or procedure correctly uses Sensitivity test?"
+      hint: "Use the stated evidence and the conditions for Sensitivity test; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.", why: "This describes Corroboration, not Sensitivity test. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.", why: "Correct. changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number."}
+      - {key: "C", text: "The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.", why: "This describes Diagnosis, not Sensitivity test. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.", why: "This describes Uncertainty, not Sensitivity test. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Leak That Was Not: place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Which calculation or chemical interpretation correctly applies Corroboration?"
+      hint: "Use the stated evidence and the conditions for Corroboration; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.", why: "This describes Sensitivity test, not Corroboration. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.", why: "This describes Diagnosis, not Corroboration. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.", why: "Correct. support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration."}
+      - {key: "D", text: "The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.", why: "This describes Uncertainty, not Corroboration. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Leak That Was Not using new evidence: place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Which calculation or chemical interpretation correctly applies Diagnosis?"
+      hint: "Use the stated evidence and the conditions for Diagnosis; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.", why: "This describes Sensitivity test, not Diagnosis. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.", why: "This describes Corroboration, not Diagnosis. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.", why: "This describes Uncertainty, not Diagnosis. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.", why: "Correct. the proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms."}
+    - prompt: "An unseen case extends The Leak That Was Not: vary the intake calibration through its allowed uncertainty to see whether the hydrogen-delivery diagnosis survives measurement error. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which calculation or chemical interpretation correctly applies Uncertainty?"
+      hint: "Use the stated evidence and the conditions for Uncertainty; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.", why: "Correct. the range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range."}
+      - {key: "B", text: "Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.", why: "This describes Sensitivity test, not Uncertainty. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.", why: "This describes Corroboration, not Uncertainty. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.", why: "This describes Diagnosis, not Uncertainty. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Leak That Was Not decision, the team knows this: place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Which statistical conclusion or procedure correctly uses Error?"
+      hint: "Use the stated evidence and the conditions for Error; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.", why: "This describes Sensitivity test, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.", why: "Correct. the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake."}
+      - {key: "C", text: "Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.", why: "This describes Corroboration, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.", why: "This describes Diagnosis, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Leak That Was Not to this follow-up: take that prediction to the Tank Farm and close the carbon, hydrogen, and oxygen ledgers to test whether the methane was never produced. Which calculation or chemical interpretation correctly applies Atom balance?"
+      hint: "Use the stated evidence and the conditions for Atom balance; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.", why: "This describes Sensitivity test, not Atom balance. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.", why: "This describes Corroboration, not Atom balance. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made.", why: "Correct. counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made."}
+      - {key: "D", text: "The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.", why: "This describes Diagnosis, not Atom balance. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 6: worked examples"
+    examples:
+    - {"title":"Balance a reaction","problem":"Balance H₂ + O₂ → H₂O without changing chemical formulas.","rule":"Coefficients conserve each element; subscripts identify substances.","steps":["Place 2 before H₂O so the product has two oxygen atoms.","Place 2 before H₂ to supply four hydrogen atoms: 2H₂ + O₂ → 2H₂O."],"answer":"Both sides contain four hydrogen atoms and two oxygen atoms.","mistake":"Changing H₂O to H₂O₂ would change the product."}
+    - {"title":"Find the limiting reactant","problem":"For 2H₂+O₂→2H₂O, mix 6 mol H₂ and 2 mol O₂.","rule":"Compare available amount divided by its reactant coefficient.","steps":["hydrogen reaction units=6/2=3; oxygen reaction units=2/1=2.","Oxygen permits fewer reaction units; water produced=2(2)=4 mol."],"answer":"O₂ limits the reaction; 2 mol H₂ remains.","mistake":"The reactant with fewer moles is not always limiting; coefficients matter."}
+    - {"title":"Find a partial pressure","problem":"An ideal-gas mixture is 25% helium by mole and has total pressure 8 atm.","rule":"P_He=x_He P_total.","steps":["Set up the relationship: P_He=x_He P_total.","P_He=0.25(8)=2 atm."],"answer":"Helium contributes 2 atm.","mistake":"Use mole fraction, not mass fraction."}
+    - {"title":"Compare relative errors","problem":"Two length measurements each have uncertainty ±1 cm. One length is 10 cm and the other 50 cm. Compare relative uncertainty.","rule":"Relative uncertainty = absolute uncertainty / measured magnitude.","steps":["first relative uncertainty = 1/10 = 0.10 = 10%.","second relative uncertainty = 1/50 = 0.02 = 2%. The same absolute uncertainty is a smaller fraction of the longer length."],"answer":"The 50 cm measurement has smaller relative uncertainty.","mistake":"Equal absolute errors do not imply equal percentage errors."}
+    - {"title":"Count independent evidence sources","problem":"Three reports copy one balance reading. A fourth report uses a separately calibrated balance. How many measurement sources are there?","rule":"Reports are not independent measurements when they copy a common source.","steps":["source group 1 = the first balance and its three copies. Count that measurement once.","source group 2 = the second balance. It adds a separate measurement route."],"answer":"There are two measurement sources, not four.","mistake":"Agreement among copies cannot establish independent confirmation."}
 
   stops:
   # --- Stop 21: One cause that fits every panel
@@ -79,30 +154,42 @@
   - group: GIBBS
     at: evidence-board
     title: "One cause that fits every panel"
-    concept: "multi-evidence diagnosis"
-    reason: "The plant cannot redirect work until one cause fits every observation."
-    scene: "Place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Quiet readings must rule out the tempting explanations as well."
-    motivation: "Only a mechanism that explains both the alarms and the quiet readings should redirect the plant."
+    concept: 7   # multi-evidence diagnosis
+    reason: "The shared calibration source is exposed and the full panel needs a single consistent explanation."
+    scene: "Quiet readings must rule out the tempting explanations as well."
+    motivation: "The diagnosis must explain the alarming channels without contradicting the independent and quiet measurements."
     format: DIAGNOSIS
     question: "Which single cause fits every reading, including the quiet ones?"
     # CONVERTED from the payload below. `state: quiet` is the engine's
     # `status: normal` — the quiet readings are what rule the other causes out —
     # and the keyed `answer` becomes the candidate's label, because the panel
     # grades by label.
-    headline: "ONE CAUSE MUST FIT THE ALARMS AND THE QUIET READINGS"
+    headline: ONE CAUSE MUST FIT THE ALARMS AND THE QUIET READINGS
     readings:
-    - {zone: carbon_ledger, label: "Carbon residual", value: "0.2%", status: normal}
-    - {zone: intake, label: "Theoretical methane from CO2", value: "2405 kg", status: normal}
-    - {zone: hydrogen_branch, label: "Hydrogen / nitrogen", value: "68% / 31%", status: alarm}
-    - {zone: water, label: "Water coproduct", value: "below Sabatier prediction", status: alarm}
-    - {zone: tank, label: "Total pressure", value: "normal", status: normal}
-    - {zone: residue, label: "Blue fluid", value: "local maintenance fluid", status: normal}
+      - zone: carbon_ledger
+        label: Carbon residual
+        value: 0.2%
+      - zone: intake
+        label: Theoretical methane from CO2
+        value: 2405 kg
+      - zone: hydrogen_branch
+        label: Hydrogen / nitrogen
+        value: 68% / 31%
+      - zone: water
+        label: Water coproduct
+        value: below Sabatier prediction
+      - zone: tank
+        label: Total pressure
+        value: normal
+      - zone: residue
+        label: Blue fluid
+        value: local maintenance fluid
     choices:
-    - {id: methane_leak, label: "Large methane leak downstream", mechanism: "Would create a large missing-carbon residual."}
-    - {id: low_co2, label: "Insufficient atmospheric CO2", mechanism: "Contradicted by theoretical intake capacity."}
-    - {id: low_h2, label: "Hydrogen delivery deficiency before reactor", mechanism: "Explains dilution, low methane and water, closed carbon, and normal total pressure."}
-    - {id: dead_sensor, label: "Completely dead methane sensor", mechanism: "Cannot explain hydrogen composition or low water."}
-    answer: "Hydrogen delivery deficiency before reactor"
+      - Large methane leak downstream
+      - Insufficient atmospheric CO2
+      - Hydrogen delivery deficiency before reactor
+      - Completely dead methane sensor
+    answer: Hydrogen delivery deficiency before reactor
     answerText: "Hydrogen delivery deficiency before the reactor is the only cause that fits every reading."
     why: "Nitrogen dilution and reduced H2 partial pressure make H2 limiting, so less CH4 and less coproduct water form. Carbon remains mostly as unreacted/recycled CO2, closing the ledger. Other gases can maintain pressure."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -134,10 +221,10 @@
     at: evidence-board
     title: "Does calibration uncertainty rescue the leak theory?"
     person: abiola
-    concept: "uncertainty/robustness"
-    reason: "The crew should abandon the leak hunt only if the diagnosis survives uncertainty."
-    scene: "Vary the intake calibration through its allowed uncertainty to see whether the hydrogen-delivery diagnosis survives measurement error. A robust answer can justify ending four wasted shifts of fruitless leak work."
-    motivation: "The crew should abandon the leak search only if that conclusion survives realistic measurement uncertainty."
+    concept: 7   # uncertainty/robustness
+    reason: "The leak theory is weakened, but the conclusion still needs testing against calibration uncertainty."
+    scene: "The carbon-intake calibration can be varied over the displayed uncertainty range. The panel compares each resulting carbon residual with the methane schedule shortfall and the separate hydrogen-delivery evidence."
+    motivation: "The largest supported carbon residual determines whether a leak could account for the production shortfall."
     format: STRESS
     question: "Stress the carbon-intake calibration across its allowed range. Which diagnosis remains viable throughout?"
     answerText: "The hydrogen-delivery diagnosis survives the full allowed calibration range."
@@ -158,6 +245,42 @@
     #       - {id: dead_sensor, label: "Dead methane sensor", viability: [[-2,false],[-1,false],[0,false],[1,false],[2,false]]}
     #     boundary: "A leak must explain an 18% schedule gap; allowed bias never creates that residual."
     #     correct: low_h2
+    stress:
+      candidates:
+        - id: nominal_only
+          label: Use only the nominal reading
+        - id: common_extreme_mistake
+          label: Use the favorable extreme as if it were guaranteed
+        - id: robust_plan
+          label: Hydrogen delivery deficiency remains viable. Even
+      criteria:
+        - key: evidence_fit
+          label: fit to the stop evidence
+        - key: safety_margin
+          label: margin at the adverse end
+      scores:
+        nominal_only:
+          evidence_fit: 95
+          safety_margin: 20
+        common_extreme_mistake:
+          evidence_fit: 88
+          safety_margin: 5
+        robust_plan:
+          evidence_fit: 82
+          safety_margin: 92
+      feasible:
+        nominal_only: 0
+        common_extreme_mistake: 0
+        robust_plan: -0.5
+      assumption:
+        label: pressure-gauge calibration error
+        unit: atm
+        min: -0.5
+        max: 0.5
+        nominal: 0
+        step: 0.1
+      robust: robust_plan
+      optimiseOn: evidence_fit
 
   # --- Stop 23: Close C, H, and O at the Tank Farm
   #     Concept: full atom ledger; Keystone: particles, moles, balancing, and stoichiometry; Area: Reactor Hall; Learning role: RETRIEVE; Difficulty: L4; Story role: payoff.
@@ -165,11 +288,11 @@
   - group: EQUIL
     at: farm-gauges
     title: "Close C, H, and O at the Tank Farm"
-    concept: "full atom ledger"
-    reason: "Independent atom ledgers can test whether methane was never produced."
-    scene: "Take that prediction to the Tank Farm and close the carbon, hydrogen, and oxygen ledgers to test whether the methane was never produced. The totals will show whether matter vanished or changed chemical form."
-    motivation: "If every atom is accounted for, low methane can be explained without matter disappearing."
-    format: BALANCE
+    concept: 2   # full atom ledger
+    reason: "The carbon result points away from a large leak, so hydrogen and oxygen need closing too."
+    scene: "Take that prediction to the Tank Farm and close the carbon, hydrogen, and oxygen ledgers to test whether the methane was never produced."
+    motivation: "The three element balances distinguish lost matter from matter retained in another chemical form or an insufficient feed."
+    format: BALLPARK
     question: "Close separate C, H, and O ledgers and state what the amounts imply."
     answerText: "All C, H, and O atoms close; 320 mol H2 limits production to 80 mol CH4."
     why: "The ledger explains low methane without lost matter. Carbon not converted remains CO2. Hydrogen appears in methane and water exactly as the equation requires."
@@ -191,6 +314,45 @@
     #       - {id: purge_n2, label: "N2 dilution gas", molecules_mol: 20, atoms: {N: 40}, count: false}
     #     closure: {C: [100,100], H: [640,640], O: [200,200], tolerance: 0}
     #     correct_action: "Count atoms in every input and output; identify H2 as limiting."
+    estimate:
+      prompt: divide hydrogen feed by the 4:1 stoichiometric coefficient
+      question: maximum methane from the hydrogen supply
+      labels:
+        - 320 mol H2  (Hydrogen feed)
+        - 4 mol H2 per mol CH4  (Hydrogen coefficient)
+        - 100 mol CO2  (Carbon-dioxide feed)
+      values:
+        - 320
+        - 4
+        - 100
+      slots: 2
+      template: n_CH{0}={1}/4
+      formula: n_CH4=320/4
+      correct:
+        - 1
+        - 0
+      target: 80
+      tolerance: 1
+      units: mol CH4
+      explanation: Mixing a contextual reading into the arithmetic or reversing the subtraction.
+    balance:
+      total:
+        amount: 100
+      streams:
+        - id: visible_a
+          label: visible inflow
+          value: 72
+        - id: visible_b
+          label: visible outflow
+          value: -41
+        - id: visible_c
+          label: recorded storage change
+          value: 24
+        - id: hidden_loss
+          label: unlogged removal
+          value: 45
+          hidden: true
+      tolerance: 0.5
 
   # --- Stop 24: Rebuild the case
   #     Concept: clue reinterpretation; Keystone: evidence must be independent; Area: Plant Control; Learning role: COMBINE; Difficulty: L4; Story role: payoff.
@@ -199,10 +361,10 @@
     at: casebook-board
     title: "Rebuild the case"
     person: abiola
-    concept: "clue reinterpretation"
-    reason: "The reversal is defensible only when every old clue gains a supported meaning."
-    scene: "Match each old clue to its true meaning so the crew can decide whether to end the leak hunt and repair hydrogen delivery. The completed casebook will turn the diagnosis into an earned reveal."
-    motivation: "Reconstructing the old evidence proves the leak reversal came from chemistry, not from a sudden story reveal."
+    concept: 7   # clue reinterpretation
+    reason: "The material balances and sensor checks are complete, allowing the early accusations to be reassessed."
+    scene: "Match each old clue to its true meaning so the crew can decide whether to end the leak hunt and repair hydrogen delivery."
+    motivation: "The case mapping preserves valid observations while replacing explanations that conflict with the chemical evidence."
     format: CASEBOOK
     question: "Match each earlier clue to the meaning supported by later evidence."
     # CONVERTED from the payload below. The engine's casebook is two columns

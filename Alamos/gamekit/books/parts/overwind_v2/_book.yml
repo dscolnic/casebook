@@ -1,0 +1,520 @@
+# Overwind — Kerrow No. 3, and twelve working days before the winder is re-licensed.
+#
+# Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/overwind/site.js.
+#
+# AP Physics C: Mechanics, taught as derivations. Twelve of the thirty-six stops
+# are DERIVE panels and they are the spine, in the order the mechanics has to
+# arrive in rather than the order a shaft is walked:
+#
+#   day  1  the profile differentiated and integrated: acceleration, and depth
+#   day  2  the drum's moment of inertia, as an integral over its mass
+#   day  3  the tension at the drum, with the rope's own weight in it
+#   day  4  the torque the wind needs
+#   day  5  the work a brake does, as an integral of a force that changes
+#   day  6  the force in a stream of ore, out of impulse
+#   day  7  gravity at the shaft bottom, out of the shell theorem
+#   day  8  the power at the worst instant of the cycle
+#   day  9  the period of the cage bouncing on twelve hundred metres of rope
+#   day 10  the energy stored in the stretch, and the travel it pays for
+#   day 11  everything the brake has to absorb, rotation included
+#   day 12  the revised profile, integrated, and what the saving really is
+#
+# `askRule: true` is on. In this course the name of the licence is the content:
+# a student who gets the right line by differentiating when they should have
+# integrated has not done mechanics, and the commonest lost point on the paper is
+# a line that is algebraically legal and licensed by nothing.
+#
+# The argument: Marchetti holds that the cycle can come down twelve seconds and
+# that every number she has says the plant is inside its limits. Otieno holds
+# that a rope is not a wire — it is twelve hundred metres of steel with a period
+# of its own — and that a shorter ramp is a fatigue question rather than a torque
+# question. Marchetti is right on day 4: the torque is there, and the tension
+# stays under limit. Otieno is right on day 10: the ramp she wants lands on the
+# stretch of the rope, and the March overrun was that and not the brake.
+#
+# The timeline the cards are checked against:
+#   eighteen years ago   the shaft deepened to 1,240 m; the drum re-roped
+#   last March           an emergency stop — the descending cage travelled 1.6 m
+#                        after the drum had stopped, and came to rest below the
+#                        inset landing, on a brake applied on time
+#   the inquiry          blamed the pad friction, measured cold on the bench
+#   now                  twelve working days to the inspector's visit
+#   day 13               a trial wind, with the inspector in the winder house
+#   the licence          decides whether 41 men a shift ride a faster cycle
+
+theme:
+  id: overwind
+  title: Overwind
+  subtitle: 'Mine Lift Safety Engineer · Kerrow Mine No. 3, twelve days to the inspection'
+
+groups:
+  - id: BANK
+    code: BANK
+    name: The Bank
+    color: "#2f6f9f"
+    difficulty: 2
+    type: protocol
+    desc: "Source position (-9, -4); canonical named owner Ruth Bell, cage operator."
+    defaultLeader: bell
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: WIND
+    code: WIND
+    name: Winder House
+    color: "#7a5aa8"
+    difficulty: 3
+    type: protocol
+    desc: "Source position (-30, 6); canonical named owner Ewan Price, winding engineer."
+    defaultLeader: price
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: ROPE
+    code: ROPE
+    name: Rope Shop
+    color: "#c2704a"
+    difficulty: 4
+    type: protocol
+    desc: "Source position (-34, 34); canonical named owner Mara Shaw, rope technician."
+    defaultLeader: shaw
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: CAGE
+    code: CAGE
+    name: Shaft and Brake House
+    color: "#3f8d6e"
+    difficulty: 2
+    type: protocol
+    desc: "Source position (20, -4); canonical named owner Ada Kerr, mine safety engineer."
+    defaultLeader: kerr
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: TIP
+    code: TIP
+    name: Tip and Conveyor
+    color: "#8a7a3f"
+    difficulty: 3
+    type: protocol
+    desc: "Source position (34, -30); canonical named owner Ivo Reed, conveyor foreman."
+    defaultLeader: reed
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: GRAV
+    code: GRAV
+    name: Gravity Station
+    color: "#4f6f8f"
+    difficulty: 4
+    type: protocol
+    desc: "Source position (-70, -290); canonical named owner Nia Cole, survey engineer."
+    defaultLeader: cole
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+roster:
+- id: bell
+  name: "Ruth Bell"
+  role: "cage operator"
+  division: BANK
+  pronouns: "she/her"
+  bio: |
+    Ruth Bell is cage operator. Wants keep the shift moving without another landing overrun. The drum record has usually been a sufficient proxy for cage motion. The independent cage record makes her require two motion histories. Says, "Which part is still moving?"
+- id: price
+  name: "Ewan Price"
+  role: "winding engineer"
+  division: WIND
+  pronouns: "he/him"
+  bio: |
+    Ewan Price is winding engineer. Wants keep a usable winding service rather than shut the mine indefinitely. The old inertia drawing and a good empty test initially look adequate. He accepts a slower tested range instead of the largest motor-feasible speed. Says, "What else must this shaft turn?"
+- id: shaw
+  name: "Mara Shaw"
+  role: "rope technician"
+  division: ROPE
+  pronouns: "she/her"
+  bio: |
+    Mara Shaw is rope technician. Wants protect sound rope from replacement while identifying real motion limits. A passed mean-pull test can distract from rapidly changing stretch. She makes rope length and residual state explicit in each accepted profile. Says, "What length was hanging?"
+- id: kerr
+  name: "Ada Kerr"
+  role: "mine safety engineer"
+  division: CAGE
+  pronouns: "she/her"
+  bio: |
+    Ada Kerr is mine safety engineer. Wants explain March and protect the people who ride the cage. An empty success initially seems close to full acceptance. She narrows the approved test scope after the warm-pad contradiction. Says, "What did this test actually prove?"
+- id: reed
+  name: "Ivo Reed"
+  role: "conveyor foreman"
+  division: TIP
+  pronouns: "he/him"
+  bio: |
+    Ivo Reed is conveyor foreman. Wants restore steady ore delivery without breaking the bin again. Standing belt mass has been his familiar overload measure. He separates stored load, arrival rate and impact duration. Says, "How much arrives each second?"
+- id: cole
+  name: "Nia Cole"
+  role: "survey engineer"
+  division: GRAV
+  pronouns: "she/her"
+  bio: |
+    Nia Cole is survey engineer. Wants maintain a defensible survey tied to reference readings. A tidy spherical model can be easier to discuss than messy local evidence. She records local measurements separately from ideal depth predictions. Says, "What did the reference do?"
+
+glossary:
+  - name: Mass
+    aliases: [mass, masses]
+    def: How much matter a body has, in kilograms.
+  - name: Force
+    aliases: [force, forces]
+    def: What one body does to another to change its motion, in newtons.
+  - name: Energy
+    aliases: [energy]
+    def: The quantity that is the same before and after, however it moves between motion, height and heat.
+  - name: Shaft
+    aliases: [shaft]
+    def: The vertical hole down to the workings, 1,240 metres deep at this mine.
+  - name: Cage
+    aliases: [cage]
+    def: The box people ride in, guided down the shaft on rails.
+  - name: Skip
+    aliases: [skip, skips]
+    def: The bucket broken stone rides in, hung from the same rope as a cage when nobody is riding.
+  - name: Bank
+    aliases: [bank, the bank]
+    def: The place at the surface where every upward journey ends.
+  - name: Inset
+    aliases: [inset]
+    def: The loading place at the bottom of the shaft, 1,240 metres down.
+  - name: Winding rope
+    aliases: [winding rope, rope, ropes]
+    def: The line that carries the cage, eleven tonnes of it at this shaft.
+  - name: Cappel
+    aliases: [cappel]
+    def: The fitting that grips the rope end and hangs the cage off it.
+  - name: Drum
+    aliases: [drum]
+    def: The turning cylinder the rope winds on and off.
+  - name: Sheave
+    aliases: [sheave, sheave wheel]
+    def: The wheel at the very top of the headframe that the rope runs over.
+  - name: Headframe
+    aliases: [headframe]
+    def: The steel structure over the shaft that holds the wheels, thirty-two metres of it here.
+  - name: Winder
+    aliases: [winder, winding engine]
+    def: 'The machine that raises and lowers the rope: a motor, a gearbox and a brake.'
+  - name: Wind
+    aliases: [wind cycle, a wind, one wind]
+    def: One journey of the cage from one landing to the other, and the pattern of speed it is driven to.
+  - name: Ramp
+    aliases: [ramp, ramps]
+    def: The part of a journey when the speed is being changed on purpose.
+  - name: Crawl
+    aliases: [crawl]
+    def: The slow last stretch before a stop, so that the stop is made under control.
+  - name: Overwind
+    aliases: [overwind, overwound]
+    def: A journey that does not stop where it should and goes on past the bank.
+  - name: Arrestor
+    aliases: [arrestor, arrestors]
+    def: A crushable frame above the shaft that takes an overwind and is destroyed doing it.
+  - name: Brake
+    aliases: [brake, brakes, braking]
+    def: Two sets of pads that clamp the drum flanges, held on by weights and lifted by oil.
+  - name: Weightometer
+    aliases: [weightometer]
+    def: The scale built into a conveyor belt, reporting tonnes an hour rather than tonnes.
+  - name: Conveyor
+    aliases: [conveyor, belt]
+    def: The moving rubber band that carries ore up to the plant.
+  - name: Torque
+    aliases: [torque, torques]
+    def: The turning effort about a line, given by a force times its distance from that line.
+  - name: Moment of inertia
+    aliases: [moment of inertia]
+    def: How hard a body is to spin up, decided by how far its matter sits from the axis.
+  - name: Momentum
+    aliases: [momentum]
+    def: Mass times velocity, and the thing a collision moves from one body to another.
+  - name: Impulse
+    aliases: [impulse]
+    def: A force acting for a time, and the change of momentum it produces.
+  - name: Work
+    aliases: [work done, work]
+    def: What a force does when the body it acts on moves, in joules.
+  - name: Power
+    aliases: [power]
+    def: How fast work is being done, in watts.
+  - name: Kinetic energy
+    aliases: [kinetic energy]
+    def: The energy a body has because it is moving.
+  - name: Potential energy
+    aliases: [potential energy]
+    def: The energy a body has because of where it is, which can be got back.
+  - name: Stiffness
+    aliases: [stiffness, stiff]
+    def: How much pull it takes to stretch something by one metre.
+  - name: Period
+    aliases: [period]
+    def: How long one full swing of something back and forth takes.
+  - name: Resonance
+    aliases: [resonance, resonant]
+    def: What happens when a push arrives in step with a swing, so each one adds to the last.
+  - name: Damping
+    aliases: [damping, damped]
+    def: Whatever takes a swing out of something, so it dies away instead of continuing.
+  - name: Jerk
+    aliases: [jerk]
+    def: How fast an acceleration is itself changing, which is what passengers notice.
+  - name: Apparent weight
+    aliases: [apparent weight]
+    def: What the floor has to push with to carry a body, which changes while the floor is accelerating.
+  - name: Free-body diagram
+    aliases: [free-body diagram, free body]
+    def: A drawing of one chosen body with everything acting on it and nothing else.
+  - name: Gravimeter
+    aliases: [gravimeter]
+    def: A weighted spring in a case, so sensitive that it reads where it is standing to a millionth.
+  - name: Milligal
+    aliases: [milligal, milligals]
+    def: The unit a gravity survey works in, a hundred-thousandth of a metre a second squared.
+  - name: Shell theorem
+    aliases: [shell theorem]
+    def: The result that matter arranged in a sphere around you pulls you nowhere at all.
+
+missions:
+# <<< MISSIONS >>>
+
+interiors:
+  BANK:
+    caption: Every wind ends here, and the last three seconds of it are the ones nobody costs.
+    standLine: The signal board, the gate, and a chalk mark on the guide where the cage should stop.
+    station:
+      kind: panel
+      title: Landing desk
+      rows:
+        - { label: 'Winding speed, full', value: 7.2 m/s, status: normal }
+        - { label: Ramp up, value: 12 s, status: normal }
+        - { label: 'Crawl, present', value: 3.0 s, status: high }
+  WIND:
+    caption: A drum, a motor and a brake, and eighteen tonnes of steel nobody counts.
+    standLine: The drum record from March, still on the desk, showing a stop made on time.
+    station:
+      kind: panel
+      title: Winder desk
+      rows:
+        - { label: Drum inertia, value: 72200 kg·m², status: high }
+        - { label: 'Torque needed, worst instant', value: 390 kN·m, status: normal }
+        - { label: 'Power needed, worst instant', value: 1.03 MW, status: high }
+  ROPE:
+    caption: Twelve hundred metres of steel that weighs three times what it carries.
+    standLine: 'The rope record: four re-caps in two years, forty metres shorter, same steel.'
+    station:
+      kind: panel
+      title: Rope bench
+      rows:
+        - { label: 'Tension at the drum, worst', value: 166 kN, status: high }
+        - { label: Stiffness at the inset, value: 110 kN/m, status: alarm }
+        - { label: 'Period of the cage on it', value: 1.20 s, status: alarm }
+  CAGE:
+    caption: What the cage does, what stops it, and where the energy goes.
+    standLine: The pad certificate, the position tape from March, and a crush-tested arrestor in the corner.
+    station:
+      kind: panel
+      title: Brake bench
+      rows:
+        - { label: 'Pads rated, per stop', value: 600 kJ, status: normal }
+        - { label: 'Upward emergency stop', value: 558 kJ, status: high }
+        - { label: 'Downward emergency stop', value: 1.27 MJ, status: alarm }
+  TIP:
+    caption: Ore in a stream rather than in a lump, and the force a stream makes.
+    standLine: Two sheared bin bolts on the bench, and a belt drive that tripped twice on Friday.
+    station:
+      kind: panel
+      title: Belt desk
+      rows:
+        - { label: Arrival rate, value: 88.9 kg/s, status: normal }
+        - { label: 'Force on the drive, horizontal', value: 222 N, status: normal }
+        - { label: 'Force on the frame, vertical', value: 737 N, status: high }
+  GRAV:
+    caption: Three hundred metres out on the bench, where g is measured rather than assumed.
+    standLine: Four years of readings, two of them taken at the bottom of a working shaft.
+    station:
+      kind: panel
+      title: Gravity bench
+      rows:
+        - { label: 'Gradient, free air', value: 0.3086 mGal/m, status: normal }
+        - { label: 'Gradient, this shaft', value: 0.0849 mGal/m, status: high }
+        - { label: 'Rock density implied', value: 2.67 g/cm³, status: normal }
+
+warmups:
+  # MANDATE 4b: the run before mission 1 is orientation and nothing else. One
+  # sentence, purely functional — who is here and what the ground is. It used to
+  # carry four sentences of inspection-day plot on a morning the player has met
+  # nobody, which is manufactured drama rather than a reason. The mission-4, 8 and
+  # 13 runs keep their real reasons: they land once the cast and the argument are
+  # known.
+  trial-near:
+    title: Walk the yard before the inspection
+    why: >-
+      Five buildings, a headframe and a conveyor, and the rope crosses the yard at head height
+      between two of them.
+  trial-far:
+    title: The bench track, and the hut at the end of it
+    why: >-
+      The gravity station is three hundred metres out along the bench and the track is peat for the
+      last hundred. Take it once before you need to, because the day Dr. Lena Sokol, the geophysicist,
+      has the shaft for two hours you will be walking it with an instrument that must not be jarred.
+  greet:
+    title: Twelve people, and two of them have been arguing for two years
+    why: >-
+      This shaft runs on an argument between Delia Marchetti, the winding engineer, and Samuel Otieno,
+      the chief rope examiner, and you will be carrying numbers between them all fortnight. Get round
+      the whole crew first, because half of what is not in the submission is in somebody's notebook.
+  follow:
+    title: The rope inspection route, walked by the man who splices it
+    why: >-
+      Kit Nowak, the rope splicer, walks the rope from the drum to the sheave to the cappel on the
+      same route every week, and the route is not written down anywhere. Stay with him along it. Where
+      he stops is where the rope is watched, and the forty metres that have been cut off it in two
+      years were all cut at one of those stops.
+  hunt:
+    title: Six guide clamps, and the sheet accounts for four
+    item: { name: guide clamp, plural: guide clamps }
+    why: >-
+      The cage runs on steel guides held by clamps, and two of the clamps replaced after March are not
+      where the sheet says they are. A clamp nobody can find is either doing nothing or holding a
+      guide out of line, and a guide out of line is what turns a bounce into a jam.
+  canvass:
+    title: Who else felt the March stop
+    why: >-
+      Eleven men were underground when the brake went on in March and the only record is a drum trace
+      and a position tape. Ask round the crew and the fitters until enough accounts agree on what the
+      cage did afterwards, because two instruments and no witnesses is not an account of an incident.
+  evade:
+    title: The maker's man who wants to fit new pads today
+    why: >-
+      He has driven three hours with a set of pads and wants them on before the inspection, which
+      would replace the one piece of physical evidence from March. The argument belongs to Iona Craig,
+      the brake fitter, not to you. Keep clear of him and get your round done rather than spending the
+      afternoon at the brake house.
+  tag:
+    title: Catch Sokol before she goes down the shaft
+    why: >-
+      Dr. Lena Sokol, the geophysicist, has two hours in the shaft on Thursday and she leaves the
+      bench at seven. The elevation of the inset station comes off an eighteen-year-old shaft
+      measurement, and once she is below ground nobody can hand her anything, so the level book has to
+      reach her on the surface.
+
+copy:
+  BANK: <p>The bank. A signal board, a gate, and a chalk mark on the guide where the cage should stop, which the cage has been stopping a little past for eight months.</p>
+  WIND: <p>The winder house. A drum two metres to the rope, a motor rated at 480 kilonewton metres, and a brake that is held on by weights so that losing the oil applies it rather than releasing it.</p>
+  ROPE: <p>The rope shop. Splicing gear, four re-cap records in two years, and a length of locked coil clamped between two anchors with a dial gauge on it.</p>
+  CAGE: <p>The brake house, at the foot of the headframe. Pad certificates on the wall, a crush-tested arrestor in the corner, and the position tape from March in a drawer nobody has opened since the inquiry.</p>
+  TIP: <p>The tip. Bins, a chute and a belt that carries nine hundred tonnes a shift up to the plant, with two of its mounting bolts sheared and on the bench.</p>
+  GRAV: <p>The gravity station, three hundred metres out on the bench. A concrete pillar, a hut, and an instrument that reads where it is standing to a millionth.</p>
+  HEAD: <p>The headframe. Thirty-two metres of steel over the shaft, two sheave wheels at the top of it, and the arrestors above the bank that have never been used.</p>
+  COMPRESSOR: <p>The compressor house. Air for the drills below, and the loudest building on the site by a long way.</p>
+  LAMP: <p>The lamp room. Forty-one lamps on charge, forty-one tallies on the board, and the count that says who is underground.</p>
+  CHANGE: <p>The change house. Where a shift starts and ends, and where the men read whatever the winder house has decided about the cycle they ride.</p>
+
+# ---------------------------------------------------------------- review variants
+#
+# Lessons no mission stop points at. `shapeMissions` reaches a "<title> — Review"
+# by title when a callback day wants one, and without these the campaign carries
+# no spaced retrieval at all: from day 3 every day looks for the oldest taught
+# lesson that has an unserved variant, and finds nothing.
+#
+# Four bases, all from days 1–3, all chosen so the callback lands in an area the
+# day is not already visiting: BANK day 1 and day 2, ROPE day 2, WIND day 1.
+# None of them is a DERIVE variant. A derivation is reviewed by applying its
+# result to a different case, which is a board rather than a chain of lines —
+# and the twelve DERIVE stops are the course, so nothing here touches them.

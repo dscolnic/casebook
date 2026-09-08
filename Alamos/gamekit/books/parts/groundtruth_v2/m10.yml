@@ -6,10 +6,10 @@
     header: "6 DAYS;"
     title: "A Good Bond at the Wrong Speed"
     goNow: "Impulse Hall, Elise Strand at gap row."
-    body: "The loop model matches the trailer pulse, and the trench exposes a bond certified at low frequency. A changing current creates self-induced voltage, so a low-resistance lead can still oppose a fast pulse. You will derive inductance, compare pulse fronts, and carry a prediction to the trench. By the end of the mission, decide whether the bonding lead is safe for lightning timescales."
+    body: "The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims."
     objective: "Predict the bond's transient voltage and judge its certificate."
   objective: "Predict the bond's transient voltage and judge its certificate."
-  stake: "The loop model matches the trailer pulse, and the trench exposes a bond certified at low frequency. A changing current creates self-induced voltage, so a low-resistance lead can still oppose a fast pulse. You will derive inductance, compare pulse fronts, and carry a prediction to the trench. By the end of the mission, decide whether the bonding lead is safe for lightning timescales."
+  stake: "The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims."
   takeaway: "The bonding lead is not certified for lightning timescales. ---"
   segue: "Mission decision: Do not certify the bond lead for lightning. Its low-rate test is sound. A fast pulse adds voltage from the lead itself. Gap timing changes that voltage. Next, measure every current path."
 
@@ -23,7 +23,7 @@
     world: "accepted BANK/bubble/stage7 amber text/→S1; S2 correct/waypoint/acceptable delay tag/DELAY ≤ 50 ns; TAKE dI/dt TO TRENCH→EARTH; enter EARTH/panel/certificate visible/APRIL: 0.42 Ω DC→S3; S4 correct/world/certificate relabeled/VALID FOR STEADY CURRENT ONLY→outcome; outcome/radio/conduit bond pulses/A second path must be measured.→M11."
     panel: "Elise Strand, impulse engineer: \"Same energy, different front. Watch the derivative.\""
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "Same energy, different front. Watch the derivative."
   - id: after-stop-37
     # After Stop 37 | gap-row | automatic
@@ -31,32 +31,106 @@
     world: "The derive inductance result remains visible while the sweep stage-7 delay fixture lights."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 37 result to settle sweep stage-7 delay."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 37 result to settle sweep stage-7 delay."
   - id: after-stop-38
     # After Stop 38 | conduit-bond | automatic
     on: { after: [2] }
     world: "The sweep stage-7 delay result remains visible while the derive bond voltage fixture lights."
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 38 result to settle derive bond voltage."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 38 result to settle derive bond voltage."
   - id: after-stop-39
     # After Stop 39 | earth-cert | automatic
     on: { after: [3] }
     world: "The derive bond voltage result remains visible while the scope the april certificate fixture lights."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 39 result to settle scope the april certificate."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 39 result to settle scope the april certificate."
   - id: at-mission-end
     # At mission end | hall-board | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 10 EVIDENCE: RECORDED"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Inductance", def: "flux linkage per current and opposition to current change."}
+  - {name: "Transient", def: "brief change before a circuit settles."}
+  - {name: "Time constant", def: "characteristic response time."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed A Good Bond at the Wrong Speed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to A Good Bond at the Wrong Speed, model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies Inductance to this case?"
+      hint: "Use the stated evidence and the conditions for Inductance; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The derivation shows how geometry controls opposition to changing current.", why: "This describes solenoid inductance, not Inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.", why: "Correct. flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time."}
+      - {key: "C", text: "Equal stored energy can create unequal inductive hazard because waveform shape matters.", why: "This describes dI/dt, not Inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "The larger term identifies what the slow certificate failed to test.", why: "This describes bond voltage, not Inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to A Good Bond at the Wrong Speed: model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies solenoid inductance to this case?"
+      hint: "Use the stated evidence and the conditions for solenoid inductance; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.", why: "This describes Inductance, not solenoid inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Equal stored energy can create unequal inductive hazard because waveform shape matters.", why: "This describes dI/dt, not solenoid inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "The derivation shows how geometry controls opposition to changing current.", why: "Correct. the derivation shows how geometry controls opposition to changing current."}
+      - {key: "D", text: "The larger term identifies what the slow certificate failed to test.", why: "This describes bond voltage, not solenoid inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks A Good Bond at the Wrong Speed using new evidence: model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies dI/dt to this case?"
+      hint: "Use the stated evidence and the conditions for dI/dt; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.", why: "This describes Inductance, not dI/dt. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "The derivation shows how geometry controls opposition to changing current.", why: "This describes solenoid inductance, not dI/dt. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "The larger term identifies what the slow certificate failed to test.", why: "This describes bond voltage, not dI/dt. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Equal stored energy can create unequal inductive hazard because waveform shape matters.", why: "Correct. equal stored energy can create unequal inductive hazard because waveform shape matters."}
+    - prompt: "An unseen case extends A Good Bond at the Wrong Speed: at the trench, the bond has L=2.0 microH, R=0.42 ohm, current I=10 kA, and dI/dt=3.0×10^8 A/s. Which prediction or calculation correctly applies bond voltage to this case?"
+      hint: "Use the stated evidence and the conditions for bond voltage; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "The larger term identifies what the slow certificate failed to test.", why: "Correct. the larger term identifies what the slow certificate failed to test."}
+      - {key: "B", text: "Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.", why: "This describes Inductance, not bond voltage. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "The derivation shows how geometry controls opposition to changing current.", why: "This describes solenoid inductance, not bond voltage. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Equal stored energy can create unequal inductive hazard because waveform shape matters.", why: "This describes dI/dt, not bond voltage. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Good Bond at the Wrong Speed decision, the team knows this: now the same lead produces 4.2 kV resistive and 0.60 kV inductive drop during the pulse. Which prediction or calculation correctly applies DC vs transient safety to this case?"
+      hint: "Use the stated evidence and the conditions for DC vs transient safety; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.", why: "This describes Inductance, not DC vs transient safety. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "A measurement is valid only for the quantity and timescale it tested.", why: "Correct. a measurement is valid only for the quantity and timescale it tested."}
+      - {key: "C", text: "The derivation shows how geometry controls opposition to changing current.", why: "This describes solenoid inductance, not DC vs transient safety. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Equal stored energy can create unequal inductive hazard because waveform shape matters.", why: "This describes dI/dt, not DC vs transient safety. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from A Good Bond at the Wrong Speed to this follow-up: model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.", why: "This describes Inductance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "The derivation shows how geometry controls opposition to changing current.", why: "This describes solenoid inductance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Equal stored energy can create unequal inductive hazard because waveform shape matters.", why: "This describes dI/dt, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"ε_L=-L dI/dt, U_B=½ L I²","c":"self-induced voltage/energy","v":[["ε_L","induced voltage in volts"],["L","inductance in henries"],["I","current in amperes"],["t","time in seconds"],["U_B","stored magnetic energy in joules"]],"s":"bond."}
+  - {"e":"B=μ₀nI, L=μ₀N²A/ℓ","c":"solenoid field/inductance","v":[["B","magnetic field in teslas"],["μ₀","vacuum permeability"],["n","turns per metre"],["I","current in amperes"],["L","inductance in henries"],["N","number of turns"],["A","coil area in square metres"],["ℓ","coil length in metres"]],"s":"derive path model."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 10: worked examples"
+    examples:
+    - {"title":"Inductor voltage","problem":"An inductor has L=0.2 H and its current rises at 10 A/s. Find induced emf.","rule":"ε_L=-L(dI/dt) under the chosen positive-current convention.","steps":["Set up the relationship: ε_L=-L(dI/dt) under the chosen positive-current convention.","ε_L=-0.2(10)=-2 V."],"answer":"The induced emf opposes the current increase and has magnitude 2 V.","mistake":"Use current change per time, not current itself."}
+    - {"title":"Inductor energy","problem":"An inductor has L=0.5 H and I=4 A. Find stored magnetic energy.","rule":"U_B=LI²/2.","steps":["Set up the relationship: U_B=LI²/2.","U_B=0.5(4²)/2=4 J."],"answer":"Stored magnetic energy is 4 J.","mistake":"Energy is proportional to current squared."}
+    - {"title":"Mutual induction","problem":"Two coils have mutual inductance M=0.1 H. Current in the first rises at 20 A/s. Find induced-emf magnitude in the second.","rule":"|ε2|=M|dI1/dt|.","steps":["Set up the relationship: |ε2|=M|dI1/dt|.","|ε2|=0.1(20)=2 V."],"answer":"The second coil has induced emf magnitude 2 V.","mistake":"A constant current does not induce emf through this mechanism."}
+    - {"title":"Ohm's law","problem":"A 6 V supply is across a 3 Ω resistor. Find current.","rule":"For an ohmic resistor, I=V/R.","steps":["Set up the relationship: For an ohmic resistor, I=V/R.","I=6/3=2 A."],"answer":"Current is 2 amperes.","mistake":"Current is not voltage times resistance."}
+    - {"title":"Test an entire allowed range","problem":"A component must operate at or below 80 °C. Its estimated temperature is 77 ± 4 °C. Does every allowed value pass?","rule":"Test the worst allowed value against the stated bound.","steps":["allowed interval = [77-4, 77+4] = [73,81] °C.","maximum allowed temperature = 81 °C > 80 °C. At least one allowed value fails."],"answer":"The estimate does not establish that every allowed temperature passes.","mistake":"Checking only the central estimate ignores the uncertainty."}
 
   stops:
   # --- Stop 37: Derive Inductance
@@ -65,12 +139,12 @@
   - group: COUPLE
     at: hall-board
     title: "Derive Inductance"
-    concept: "solenoid inductance"
-    reason: "the lead model needs a defensible inductance relation."
-    scene: "Model a wound calibration coil with N turns, length ℓ, and area A. Derive its inductance from Ampere's field and flux linkage before testing the bond pulse.\", and record the result with its physical justification in the station report."
-    motivation: "the derivation shows how geometry controls opposition to changing current."
+    concept: 27   # solenoid inductance
+    reason: "The pulse investigation needs a coil model before the crew interprets inductive voltage in the bond."
+    scene: "Model a wound calibration coil with N turns, length ℓ, and area A. Derive its inductance from Ampere's field and flux linkage before testing the bond pulse."
+    motivation: "The coil's inductance expression links its turns and geometry to the voltage created by changing current."
     format: DERIVE
-    question: "Build four lines from Ampere's solenoid field through total flux linkage, name each rule, and submit L=μ₀N²A/ℓ."
+    question: "Submit L=μ₀N²A/ℓ."
     answerText: "The completed check shows l=μ₀N²A/ℓ. Ampere field plus N flux linkages gives the result."
     why: "the derivation shows how geometry controls opposition to changing current."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -81,6 +155,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines B=μ0NI/ℓ(Ampere), Φ=BA(flux), NΦ=LI(definition), L=μ0N²A/ℓ; exact.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Inductance in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: B=μ0NI/ℓ
+            - text: B=μ0NI
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Φ=BA
+            - text: Φ=B/A
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: NΦ=LI
+            - text: NΦ=LI/N
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: L=μ0N²A/ℓ
+            - text: L=μ0NA/ℓ
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 38: Sweep Stage-7 Delay
   #     Concept: dI/dt; Keystone: K11,K6; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: RETRIEVE L3.
@@ -88,10 +194,10 @@
   - group: COUPLE
     at: gap-row
     title: "Sweep Stage-7 Delay"
-    concept: "dI/dt"
-    reason: "stage 7 lateness changes the derivative that drives bond voltage."
-    scene: "With the inductance relation established, sweep stage-7 delay from 0 to 200 ns while energy stays 1.50 kJ. Record peak dI/dt and pulse ringing.\", and record the result with its physical justification in the station report."
-    motivation: "equal stored energy can create unequal inductive hazard because waveform shape matters."
+    concept: 26   # dI/dt
+    reason: "The coil model is established, but a late bank stage could change both pulse slope and ringing."
+    scene: "With the inductance relation established, sweep stage-7 delay from 0 to 200 ns while energy stays 1.50 kJ. Record peak dI/dt and pulse ringing."
+    motivation: "The joint current-rise and ringing limits determine how much stage-7 delay the shot plan can tolerate."
     format: SWEEP
     question: "Sweep only stage-7 delay from 0 to 200 ns while energy remains 1.50 kJ, record dI/dt and ringing at inspected delays, and submit the inclusive acceptable delay bound."
     answerText: "The completed check shows delay must be ≤50 ns. Greater delay lowers derivative but raises ringing beyond the joint rule."
@@ -145,12 +251,12 @@
   - group: MAST
     at: conduit-bond
     title: "Derive Bond Voltage"
-    concept: "bond voltage"
-    reason: "the certificate's 0.42 Ω must be compared with transient voltage."
+    concept: 28   # bond voltage
+    reason: "The timing check leaves the bond's voltage under a fast pulse to be quantified."
     scene: "At the trench, the bond has L=2.0 microH, R=0.42 ohm, current I=10 kA, and dI/dt=3.0×10^8 A/s. Derive the resistive and inductive voltage terms, then justify their physical meanings."
-    motivation: "the larger term identifies what the slow certificate failed to test."
+    motivation: "Separating resistive and inductive voltage shows which parts of the bond response a steady-resistance test cannot certify."
     format: DERIVE
-    question: "Using L=2.0 μH, R=0.42 Ω, I=10 kA, and dI/dt=3.0×10^8 A/s, build both voltage calculations and submit V_R and |V_L| in kV."
+    question: "Submit V_R and |V_L| in kV."
     answerText: "The completed check shows vR=4.2 kV; VL=0.600 kV. Resistance and inductance are separate voltage terms."
     why: "the larger term identifies what the slow certificate failed to test."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -161,6 +267,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines VR=IR=4.2kV; VL=LdI/dt=600V; total magnitude bound 4.8kV with polarity diagram. Prompt submit both/units; tolerances 0.1kV,10V.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Bond Voltage in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: VR=IR=(10000 A)(0.42 ohm)=4200 V=4.2 kV
+            - text: V_R=I/R
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|VL|=L|dI/dt|=(2.0e-6 H)(3.0e8 A/s)=600 V"
+            - text: V_L=L I
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: V_total=4.2 kV+0.6 kV=4.8 kV
+            - text: VR = Subtract the two voltage demands even though the polarity diagram makes them add
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 40: Scope the April Certificate
   #     Concept: DC vs transient safety; Keystone: K7,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
@@ -168,12 +299,12 @@
   - group: COUPLE
     at: earth-cert
     title: "Scope the April Certificate"
-    concept: "DC vs transient safety"
-    reason: "decide what the April certificate actually proves."
-    scene: "Now the same lead produces 4.2 kV resistive and 0.60 kV inductive drop during the pulse. Diagnose which statement the 0.42 Ω certificate can honestly support.\", and record the result with its physical justification in the station report."
-    motivation: "a measurement is valid only for the quantity and timescale it tested."
+    concept: 28   # DC vs transient safety
+    reason: "The calculated pulse voltages exceed what the April resistance certificate was designed to describe."
+    scene: "Now the same lead produces 4.2 kV resistive and 0.60 kV inductive drop during the pulse. Diagnose which statement the 0.42 Ω certificate can honestly support."
+    motivation: "The certificate's valid scope determines whether it can support fast-shot approval or only a steady-current resistance claim."
     format: DIAGNOSIS
-    question: "Read all four certificate zones, select the one scope statement they jointly support, and submit safe at all times, safe for DC only, or inductance only."
+    question: "Read all four certificate zones, then submit whether they support safe at all times, safe for direct current (DC) only, or inductance only."
     answerText: "The completed check shows the 0.42 Ω certificate supports steady-current resistance only."
     why: "a measurement is valid only for the quantity and timescale it tested."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -184,4 +315,28 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   readings [dc_R normal,pulse_L untested,stage_delay alarm,physical_bond intact]; choices [safe_all_times,safe_dc_only,inductance_only]; answer safe_dc_only.
+    readings:
+      - zone: alarm_source
+        label: alarming source zone
+        value: alarm present
+      - zone: transfer_path
+        label: possible transfer path
+        value: evidence present
+      - zone: quiet_control
+        label: quiet comparison zone
+        value: no alarm
+      - zone: protected_interior
+        label: protected interior
+        value: quiet
+    choices:
+      - Safe for steady DC only
+      - Safe at every timescale
+      - Certificate proves inductance only
+      - Physical bond was already broken
+    headline: Read all four certificate zones, select the one scope statement they jointly support, and submit safe at all times, safe for DC only, or inductance only.
+    answer: Safe for steady DC only
+    rebuttals:
+      - The untested pulse inductance and stage-delay alarm defeat an all-times claim.
+      - The certificate measured 0.42 Ω DC resistance, not inductance.
+      - The physical bond is intact, so breakage cannot explain the scope failure.
 

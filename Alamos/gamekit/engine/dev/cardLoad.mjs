@@ -36,7 +36,7 @@ import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { themeNames, themeDir, editionBase } from './registry.mjs';
 import { readingStats } from '../../tools/readability.js';
-import { METHOD, INSTRUMENTS } from '../core/instruments.js';
+import { INSTRUMENTS } from '../core/instruments.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const args = process.argv.slice(2);
@@ -88,7 +88,9 @@ function load(lesson, jargon){
   // three blocks lighter than it draws — the measurement missing exactly the thing
   // the sweep is trying to find.
   if(LIVE.has(fmt) && !converted){
-    add('what you are doing', METHOD[fmt] ?? '');
+    // NOT "what you are doing" any more: `method()` renders nothing, for every
+    // format and both code paths, so counting METHOD here would report a block
+    // the player never sees — a measurement of the table rather than the card.
     add('the panel hint', ch[fmt.toLowerCase()]?.hint ?? '(the engine\'s own wording)');
     if((ch[fmt.toLowerCase()]?.goals ?? []).length) add('what counts as done', '');
   } else if(INSTRUMENTS[fmt]){

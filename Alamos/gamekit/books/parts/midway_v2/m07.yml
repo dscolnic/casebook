@@ -6,13 +6,21 @@
     header: "9 DAYS UNTIL COUNTY INSPECTION"
     title: "THE CARD IN HART'S HAND"
     goNow: "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig."
-    body: "The shared speed kit invalidates the old overrun values, so the bumper cars need an independent collision test. Momentum tracks motion through a short impact, while impulse connects stopping time to rider force. Test the car and then compare the result with Hart's missing operator card in the Workshop. By the end of the mission, decide whether Hart's interruption increased the collision danger."
+    body: "The old speed measurements are unreliable, so the bumper cars need an independent collision test. Calculate their motion after impact and the forces on a test rider. Compare the results with Hart's interrupted operating sequence to decide whether her action increased the danger."
     objective: "Use independent collision data to judge the effect of Hart's interruption."
   objective: "Use independent collision data to judge the effect of Hart's interruption."
-  stake: "The shared speed kit invalidates the old overrun values, so the bumper cars need an independent collision test. Momentum tracks motion through a short impact, while impulse connects stopping time to rider force. Test the car and then compare the result with Hart's missing operator card in the Workshop. By the end of the mission, decide whether Hart's interruption increased the collision danger."
+  stake: "The old speed measurements are unreliable, so the bumper cars need an independent collision test. Calculate their motion after impact and the forces on a test rider. Compare the results with Hart's interrupted operating sequence to decide whether her action increased the danger."
   takeaway: "Evidence that proves an action does not automatically prove its effect or motive."
   segue: "Mission decision: Hart did not raise the crash risk in the Bumper Car test. The long padded stop kept the mean force below the game limit. Her stop is real, but the card gives no reason. The Pirate Ship timing trace may show what she stopped."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Momentum", def: "Momentum is mass times velocity; it is a vector and carries the velocity's direction."}
+  - {name: "Impulse", def: "Impulse is force applied over time; it equals the change in momentum."}
+  - {name: "Isolated system", def: "Isolated system is a chosen system with negligible net external impulse during the interval studied."}
+  - {name: "Inelastic collision", def: "Inelastic collision is a collision that conserves system momentum but not kinetic energy."}
+  equations:
+  - {"e":"p = mv and Σpbefore = Σpafter","c":"tracking motion through an isolated collision","v":[["p","momentum"],["m","mass"],["v","signed velocity"]],"s":"The cars' post-impact motion must be predicted without the disputed speed wheel."}
+  - {"e":"J = FavgΔt = Δp","c":"connecting a momentum change to average force and collision time","v":[["J","impulse"],["Favg","average force"],["Δt","contact time"],["Δp","momentum change"]],"s":"The dummy's neck load depends on how quickly the car and rider stop."}
   primer:
   - "Assign signs before adding momentum."
   - "Momentum can be conserved through a collision even when kinetic energy is not."
@@ -39,7 +47,7 @@
     # unlocks: No new stop; preserve the current mission state.
     bubbles:
     - who: chen   # Linh Chen
-      say: "This evidence changes what we test next, not more than that."
+      say: "Nice work. This evidence changes what we test next, not more than that."
   - id: on-arrival-at-brennan-s-workshop
     # On arrival at Brennan's Workshop | automatic | 
     on: { enter: true, at: WORKSHOP }
@@ -48,7 +56,7 @@
     # unlocks: Stop 28.
     bubbles:
     - who: hart   # Maya Hart
-      say: "I interrupted the sequence. The card says what I did, not whether it was right."
+      say: "Good thinking. I interrupted the sequence. The card says what I did, not whether it was right."
   - id: after-stop-28
     # After Stop 28 | automatic | 
     on: { after: [4] }
@@ -57,7 +65,7 @@
     # unlocks: No new stop; preserve the current mission state.
     bubbles:
     - who: chen   # Linh Chen
-      say: "This evidence changes what we test next, not more than that."
+      say: "Exactly right. This evidence changes what we test next, not more than that."
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
@@ -66,7 +74,76 @@
     # unlocks: Close the mission and preserve its Casebook evidence.
     bubbles:
     - who: chen   # Linh Chen
-      say: "Record exactly what this mission proved before we move on."
+      say: "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Card in Hart's Hand. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Center of mass", def: "Center of mass is the mass-weighted average position or velocity of a system."}
+    questions:
+    - prompt: "In a follow-up to The Card in Hart's Hand, a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Center of mass to this case?"
+      hint: "Use the stated evidence and the conditions for Center of mass; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Momentum is mass times velocity; it is a vector and carries the velocity's direction.", why: "This describes Momentum, not Center of mass. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Center of mass is the mass-weighted average position or velocity of a system.", why: "Correct. center of mass is the mass-weighted average position or velocity of a system."}
+      - {key: "C", text: "Impulse is force applied over time; it equals the change in momentum.", why: "This describes Impulse, not Center of mass. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Isolated system is a chosen system with negligible net external impulse during the interval studied.", why: "This describes Isolated system, not Center of mass. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "Horizon Park receives a second case related to The Card in Hart's Hand: a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Momentum to this case?"
+      hint: "Use the stated evidence and the conditions for Momentum; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Center of mass is the mass-weighted average position or velocity of a system.", why: "This describes Center of mass, not Momentum. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Impulse is force applied over time; it equals the change in momentum.", why: "This describes Impulse, not Momentum. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Momentum is mass times velocity; it is a vector and carries the velocity's direction.", why: "Correct. momentum is mass times velocity; it is a vector and carries the velocity's direction."}
+      - {key: "D", text: "Isolated system is a chosen system with negligible net external impulse during the interval studied.", why: "This describes Isolated system, not Momentum. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "A teammate rechecks The Card in Hart's Hand using new evidence: the independent sensors measure a 0.88 m/s joined speed and a 0.22 s padded stop for the 70 kg dummy. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies Impulse to this case?"
+      hint: "Use the stated evidence and the conditions for Impulse; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Center of mass is the mass-weighted average position or velocity of a system.", why: "This describes Center of mass, not Impulse. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Momentum is mass times velocity; it is a vector and carries the velocity's direction.", why: "This describes Momentum, not Impulse. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Isolated system is a chosen system with negligible net external impulse during the interval studied.", why: "This describes Isolated system, not Impulse. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Impulse is force applied over time; it equals the change in momentum.", why: "Correct. impulse is force applied over time; it equals the change in momentum."}
+    - prompt: "An unseen case extends The Card in Hart's Hand: a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Isolated system to this case?"
+      hint: "Use the stated evidence and the conditions for Isolated system; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Isolated system is a chosen system with negligible net external impulse during the interval studied.", why: "Correct. isolated system is a chosen system with negligible net external impulse during the interval studied."}
+      - {key: "B", text: "Center of mass is the mass-weighted average position or velocity of a system.", why: "This describes Center of mass, not Isolated system. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Momentum is mass times velocity; it is a vector and carries the velocity's direction.", why: "This describes Momentum, not Isolated system. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Impulse is force applied over time; it equals the change in momentum.", why: "This describes Impulse, not Isolated system. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "Before another Card in Hart's Hand decision, the team knows this: the test coupler makes the cars move together after impact, so kinetic energy is not conserved through the hit. Which prediction or calculation correctly applies Inelastic collision to this case?"
+      hint: "Use the stated evidence and the conditions for Inelastic collision; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Center of mass is the mass-weighted average position or velocity of a system.", why: "This describes Center of mass, not Inelastic collision. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Inelastic collision is a collision that conserves system momentum but not kinetic energy.", why: "Correct. inelastic collision is a collision that conserves system momentum but not kinetic energy."}
+      - {key: "C", text: "Momentum is mass times velocity; it is a vector and carries the velocity's direction.", why: "This describes Momentum, not Inelastic collision. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Impulse is force applied over time; it equals the change in momentum.", why: "This describes Impulse, not Inelastic collision. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "Horizon Park applies the lesson from The Card in Hart's Hand to this follow-up: a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Signed momentum to this case?"
+      hint: "Use the stated evidence and the conditions for Signed momentum; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Center of mass is the mass-weighted average position or velocity of a system.", why: "This describes Center of mass, not Signed momentum. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Momentum is mass times velocity; it is a vector and carries the velocity's direction.", why: "This describes Momentum, not Signed momentum. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Opposite directions receive opposite signs.", why: "Correct. opposite directions receive opposite signs."}
+      - {key: "D", text: "Impulse is force applied over time; it equals the change in momentum.", why: "This describes Impulse, not Signed momentum. It does not account for the quantities, conditions, or evidence in this physics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 7: worked examples"
+    examples:
+    - {"title":"Signed momentum","problem":"A 2 kg cart moves right at 3 m/s and a 1 kg cart moves left at 2 m/s. Find total momentum, right positive.","rule":"Total momentum=sum m_i v_i with signed velocities.","steps":["Set up the relationship: Total momentum=sum m_i v_i with signed velocities.","p_total=2(+3)+1(-2)=+4 kg m/s."],"answer":"Total momentum is 4 kg m/s to the right.","mistake":"Opposite velocities must have opposite signs."}
+    - {"title":"Objects stick together","problem":"A 2 kg cart at 3 m/s hits a stationary 1 kg cart and they stick. External impulse is negligible. Find final velocity.","rule":"Momentum conservation gives m1v1+m2v2=(m1+m2)vf.","steps":["Set up the relationship: Momentum conservation gives m1v1+m2v2=(m1+m2)vf.","vf=[2(3)+1(0)]/(2+1)=6/3=2 m/s."],"answer":"The joined carts move at 2 m/s in the initial direction.","mistake":"Kinetic energy need not be conserved in a sticking collision."}
+    - {"title":"Impulse from force and time","problem":"A constant 10 N net force acts for 0.2 s. Find impulse.","rule":"J=F_net Δt=Δp.","steps":["Set up the relationship: J=F_net Δt=Δp.","J=10(0.2)=2 N s=2 kg m/s."],"answer":"Momentum changes by 2 kg m/s in the force direction.","mistake":"Impulse depends on duration as well as force."}
+    - {"title":"Average stopping force","problem":"A 2 kg object slows from 4 m/s to rest in 0.5 s. Find average net force along the initial positive direction.","rule":"F_avg=Δp/Δt=m(vf-vi)/Δt.","steps":["Set up the relationship: F_avg=Δp/Δt=m(vf-vi)/Δt.","F_avg=2(0-4)/0.5=-16 N."],"answer":"Average net force is 16 N opposite the original motion.","mistake":"This average is not necessarily the peak force."}
+    - {"title":"Area under a force pulse","problem":"A triangular force-time pulse rises from 0 to 10 N and returns to 0 over 2 s. Find impulse.","rule":"Impulse is the signed area under the force-time graph.","steps":["Set up the relationship: Impulse is the signed area under the force-time graph.","J=(1/2)(2 s)(10 N)=10 N s."],"answer":"The impulse is 10 N s.","mistake":"Peak force times duration treats the triangle as a rectangle.","figure":{"kind":"line","xLabel":"Time (s)","yLabel":"Force (N)","caption":"A triangular force pulse.","series":[{"name":"Force (N)","points":[[0,0],[1,10],[2,0]]}]}}
 
   stops:
   # --- Stop 25: Put directions into momentum
@@ -75,10 +152,10 @@
   - group: BUMPER
     at: car-on-stands
     title: "Put directions into momentum"
-    concept: "Signed momentum"
-    reason: "The collision prediction fails if opposite directions are added as positive speeds."
+    concept: 19   # Signed momentum
+    reason: "The collision test is next, and opposite directions must be distinguished before combining momentum."
     scene: "A 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Estimate their signed total momentum before the instrumented test impact begins."
-    motivation: "Direction determines the momentum available to carry the joined cars after collision."
+    motivation: "Signed total momentum predicts the direction of motion that the joined cars should retain."
     format: BALLPARK
     question: "Given rightward momentum +960 kg m/s and leftward momentum -520 kg m/s, use p_total = p1 + p2. Submit one signed numerical total in kg m/s and state its direction."
     answerText: "Total momentum before impact is 440 kg m/s to the right."
@@ -112,12 +189,12 @@
   - group: BUMPER
     at: pavilion-board
     title: "Derive the joined speed"
-    concept: "Perfectly inelastic collision"
-    reason: "The dummy test needs a predicted post-impact speed."
-    scene: "The test coupler makes the cars move together after impact, so kinetic energy is not conserved through the hit. Use signed momentum to derive their shared velocity immediately after collision."
-    motivation: "Momentum predicts the immediate joined motion even when deformation removes kinetic energy."
+    concept: 20   # Perfectly inelastic collision
+    reason: "The incoming momentum is established and the cars' shared post-impact speed is still unknown."
+    scene: "Use signed momentum to derive their shared velocity immediately after collision."
+    motivation: "The joined velocity supplies the motion change needed for the restraint-force calculation."
     format: DERIVE
-    question: "Given m1 = 240 kg, v1 = +4.0 m/s, m2 = 260 kg, and v2 = -2.0 m/s, use m1v1 + m2v2 = (m1 + m2)vf. Submit an ordered derivation and one signed common-velocity number in m/s with direction."
+    question: "Submit an ordered derivation and one signed common-velocity number in m/s with direction."
     answerText: "The coupled cars move right at 0.88 m/s immediately after impact."
     why: "The 440 kg m/s net momentum is shared by 500 kg."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -143,6 +220,31 @@
     # candidate sets, a rebuttal on each wrong candidate, and which wrong branch
     # survives. Also `start` and `goal` — the line it begins from, and the FORM it
     # is going to, which is not the same as the answer.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive the joined speed in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: m1v1 + m2v2 = (m1+m2)vf
+            - text: m1v1 + m2v2 = (m1+m2)(0)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: 240(4.0)+260(-2.0)=500vf
+            - text: 240(4.0)+260(2.0)=500v_f
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: vf = 0.88 m/s right
+            - text: v_f = 2.96 m/s to the right
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 27: Verify the rider impulse
   #     Concept: Impulse and force; Keystone: impulse; Area: Bumper Car Pavilion; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
@@ -150,10 +252,10 @@
   - group: BUMPER
     at: dummy-rig
     title: "Verify the rider impulse"
-    concept: "Impulse and force"
-    reason: "Hart's interruption can be judged only through its measured effect on stopping time and force."
+    concept: 21   # Impulse and force
+    reason: "The collision prediction is ready for comparison with the independent neck-rig measurement."
     scene: "The independent sensors measure a 0.88 m/s joined speed and a 0.22 s padded stop for the 70 kg dummy. Predict average force, then compare it with the separate neck-rig reading."
-    motivation: "Extending the same momentum change over time lowers the force carried by the dummy."
+    motivation: "The average restraint force determines whether this tested impact stays below the stated force limit."
     format: VERIFY
     question: "CALCULATE AND COMMIT: Given dummy mass m = 70 kg, speed change magnitude Delta v = 0.88 m/s, stop time Delta t = 0.22 s, and campaign limit 350 N, use F_avg = m Delta v / Delta t and submit a force prediction in N; the rig stays locked until you commit. OPERATE: Run the padded coupled-car stop. MEASURE: Record average stopping force in N. INTERPRET: Submit one conclusion comparing prediction and measurement with the 25 N tolerance and the 350 N limit."
     answerText: "The padded stop agrees with a 280 N prediction and remains below the 350 N campaign limit."
@@ -187,10 +289,10 @@
     at: casebook-table
     title: "What does the card prove?"
     person: hart
-    concept: "Evidence interpretation"
-    reason: "The operator card proves an action, but the campaign must not invent its effect or motive."
+    concept: 35   # Evidence interpretation
+    reason: "The impact result is known, but the interruption record still mixes an action with assumptions about motive."
     scene: "The independent collision test stays below its force limit, while Hart's card records a manual interruption at 14:03. Match each clue to the claim it can actually support about that event."
-    motivation: "A timestamp establishes sequence; physics establishes consequence."
+    motivation: "Separating the verified action from its measured effect prevents the certificate from presenting speculation as evidence."
     format: CASEBOOK
     question: "Submit one four-pair casebook mapping from timestamp, manual-stop log, measured dummy force, and blank reason field to the single interpretation each clue supports."
     answerText: "Hart interrupted the sequence; the card does not show harmful force or motive."

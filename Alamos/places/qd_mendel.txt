@@ -1,0 +1,97 @@
+THE LAWS OF INHERITANCE (theme: qd_mendel) — PLACES AND LOCATIONS
+Experimental Assistant · The Abbey Garden
+Course: Genetics — the laws of inheritance. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a place".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_mendel npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — the monastery garden, as data. Outdoor.
+
+`engine/world/outdoorTown.js` builds everything below; nothing here is
+geometry. Outdoors because the experiment is a garden: two hundred and fifty
+trial beds, bagged flowers, and a season between one question and its answer.
+The scale of it is the argument — nobody infers a three-to-one ratio from a
+windowsill — and none of that survives being moved into a corridor.
+
+Looking down, -Z is away from the player at spawn:
+
+       [ Seed Store ]                                z = -84
+                       [ Counting Room ]             z = -46
+  [ Glasshouse ]           [ Plot Shelter ]          z = -11
+                   ¤ spawn ¤                         z =  36
+
+Two things here are load-bearing rather than decorative:
+
+  · The glasshouse and the plot shelter are either side of the beds and the
+    counting room and seed store are a long way down the walk. That is the
+    campaign's own chronology as geometry: level one is a cross, level two is a
+    tally, and the walk between them is a season.
+  · The spawn at (0, 36) has nothing within ten metres of it. A prop over the
+    spawn welds the player in place: the scene renders and W does nothing.
+
+==============================================================================
+1. THE AREAS — 4 of them, one group each
+==============================================================================
+
+PLOT — Trial Plots
+  Plot Shelter  ·  The bed book, and a bench out of the sun
+  (14, -11)   49 m from spawn   10 x 7 x 3.4
+  Two hundred and fifty beds, a bed book, and the season that separates a
+  question from its answer.
+  Calls: Choose the trait · Lay out the beds · Sow the season · Ready to hand
+  over
+
+GLASS — Glasshouse
+  Glasshouse  ·  Where a flower is opened and bagged
+  (-24, -12)   54 m from spawn   16 x 9 x 4.2
+  Where a flower is opened before it opens, and where the father of every seed
+  is decided by hand.
+  Calls: Bag the flowers · Make the cross · Label the pod · Ready to hand over
+
+COUNT — Counting Room
+  Counting Room  ·  Trays, a ledger and nothing growing
+  (20, -46)   84 m from spawn   14 x 11 x 4.2
+  Trays, a ledger and nothing growing. The only room here where a season
+  becomes a number.
+  Calls: Sort the trays · Tally the seed · Compare with the model · Ready to
+  hand over
+
+STORE — Seed Store
+  Seed Store  ·  Every line kept separate, and labelled twice
+  (-26, -84)   123 m from spawn   13 x 10 x 4
+  Every line kept apart and labelled twice, and the bins a sample is drawn
+  from.
+  Calls: Draw the sample · Read the share · Say how sure · Ready to hand over
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Gate House  ·  "The garden book everybody signs"
+  (17, 27)   19 m   9 x 7 x 3.6
+Bee House  ·  "Six skeps, and the reason a flower must be bagged"
+  (-38, 12)   45 m   7 x 5 x 2.8
+Tool Shed  ·  "Canes, netting, twine and a sharpening stone"
+  (28, -70)   110 m   9 x 7 x 3.2
+Garden book
+  (6, 30)
+Spawn
+  (0, 36)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 135, profile 'flat'
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_mendel/ — site/plan, fixtures, minors, groups, theme.

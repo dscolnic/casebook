@@ -1983,38 +1983,16 @@ missions:
                     dH/dt. Without it this is dQ/dH — a different quantity, and one that stays
                     algebraically respectable for the rest of the derivation, which is why it
                     survives being wrong.
-                - text: 'dQ/dt = C·L·(3/2)·H^(3/2)·dH/dt'
-                  rule: chain
-                  why: >-
-                    The power rule drops the exponent by one. Left at 3/2 it is the original
-                    power, so this line is not the derivative of anything.
-                - text: 'dQ/dt = C·L·H^(1/2)·dH/dt'
-                  rule: chain
-                  why: >-
-                    The 3/2 that comes down in front is part of the power rule, not a constant
-                    that can be absorbed into C·L.
             - ask: 'Put in C·L = 21.0 and H = 2.0, and keep dH/dt symbolic.'
-              answer: 2
+              answer: 1
               candidates:
                 - text: 'dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt'
                   rule: power
                   why: >-
                     H^(1/2) at H = 2.0 is the square root of 2, about 1.41. Using 2.00 evaluates
                     H rather than its square root.
-                - text: 'dQ/dt = 21.0 × 1.5 × 1.5 × dH/dt = 47.3·dH/dt'
-                  rule: power
-                  why: >-
-                    The 3/2 is already in front as the 1.5. Multiplying by it again applies the
-                    power rule twice.
                 - text: 'dQ/dt = 21.0 × 1.5 × 1.41 × dH/dt = 44.5·dH/dt'
                   rule: power
-                - text: 'dQ/dt = 21.0 × 1.41 × dH/dt = 29.7·dH/dt'
-                  rule: power
-                  survives: true
-                  why: >-
-                    This is the arithmetic of the line whose 3/2 was never brought down. Nothing
-                    about it looks broken, and it is the derivative of the wrong function — which
-                    is the mistake this step exists to catch.
           commit: Report the rate
         answerText: >-
           dQ/dt ≈ 44.5·dH/dt — so a head rising at 0.05 m/min raises the discharge by about

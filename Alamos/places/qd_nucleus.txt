@@ -1,0 +1,78 @@
+THE ATOMIC NUCLEUS (theme: qd_nucleus) — PLACES AND LOCATIONS
+Research Assistant · Scattering Laboratory
+Course: Physics — the atomic nucleus. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_nucleus npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the scattering laboratory, as data.
+
+One corridor and four working rooms, and the shape of the building is the
+experiment's own division of labour: the apparatus is down one side, the
+counting and the argument down the other, and nobody carries a number across
+without walking. That separation is the campaign's subject, so it is geometry
+rather than fiction — the professor's room cannot see the screen and the
+counting room cannot hear the professor.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+Two rooms are deliberately the wrong size for an office. The scattering chamber
+is fourteen metres deep because a beam line is a straight run and a room as
+shallow as a study reads as a study with a machine in it; the counting room is
+small, square and reached through a dark-adaptation room, because that is what
+counting faint flashes actually requires.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+BENCH — Instrument Bench
+  Instrument Bench   [BENCH]  side w, z 4 … 13
+  The source, the collimator, the foil, and the order they have to stand in.
+  Calls: Draw the foil · Line up the beam · Check the collimator · Ready to
+  hand over
+
+CHAMBER — Scattering Chamber
+  Scattering Chamber   [CHAMBER]  side w, z 15 … 29
+  A gold leaf in a vacuum, a screen on an arm, and a scale round the outside.
+  Calls: Mount the leaf · Pump down · Swing the arm · Ready to hand over
+
+COUNT — Counting Room
+  Counting Room   [COUNT]  side e, z 5 … 14
+  Dark, quiet, and where a flash becomes a number in a book.
+  Calls: Dark-adapt · Count the bin · Close the tally · Ready to hand over
+
+STUDY — Interpretation Room
+  Interpretation Room   [STUDY]  side e, z 18 … 29
+  A blackboard, three candidate atoms on it, and no apparatus at all.
+  Calls: State the model · Price the prediction · Name what survives · Ready
+  to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Desk   [PORCH]  side w, z -4 … 2, OPEN
+Tea Room   [TEA]  side w, z 31 … 37, OPEN
+Store   [RACK]  side w, z 37 … 45
+Dark-Adaptation Room   [DARK]  side e, z -4 … 3
+Reading Room   [LIB]  side e, z 33 … 45
+
+Metrics   corridorHalfWidth 2, roomDepth 8, ceilingH 3.6
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_nucleus/ — site/plan, fixtures, minors, groups, theme.

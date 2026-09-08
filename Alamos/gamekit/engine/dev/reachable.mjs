@@ -97,8 +97,14 @@ for(const name of wanted){
   }
 
   const R = theme.look?.playerRadius ?? 0.45;
+  // A SHUT DOOR IS NOT A WALL. The interior builder gives every room door a
+  // collider so the player has to open it, flagged `isDoor`; this fill is about
+  // whether a stop CAN be walked to, and a door the player opens on the way does
+  // not make it unreachable. Counting them would have turned every interior game
+  // red on this gate the moment the doors were shut.
   const hit = (x, z) =>
-    colliders.some(c => x > c.min.x - R && x < c.max.x + R && z > c.min.z - R && z < c.max.z + R)
+    colliders.some(c => !c.isDoor
+      && x > c.min.x - R && x < c.max.x + R && z > c.min.z - R && z < c.max.z + R)
     || softColliders.some(c => (x - c.x) ** 2 + (z - c.z) ** 2 < (c.r + R) ** 2);
 
   // The grid covers everything the player is allowed to reach.

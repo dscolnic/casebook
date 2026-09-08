@@ -6,10 +6,10 @@
     header: "5 DAYS;"
     title: "The Missing Third"
     goNow: "Mast Base, Marcus Tate at shunt rack."
-    body: "The bond certificate cannot clear a fast strike, and the mast clamp records more current than three down-conductor shunts. Current must be conserved, even when drawings omit a branch. You will close the current ledger, derive nearby magnetic fields, inspect the trench bond, and audit the launch record. By the end of the mission, decide where the missing strike current flowed."
+    body: "More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings."
     objective: "Identify and quantify every current path."
   objective: "Identify and quantify every current path."
-  stake: "The bond certificate cannot clear a fast strike, and the mast clamp records more current than three down-conductor shunts. Current must be conserved, even when drawings omit a branch. You will close the current ledger, derive nearby magnetic fields, inspect the trench bond, and audit the launch record. By the end of the mission, decide where the missing strike current flowed."
+  stake: "More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings."
   takeaway: "About one third of the week-five strike current flowed through the bonded instrument conduit. ---"
   segue: "Mission decision: About one third of the strike used the bonded conduit. Current totals, field tests, and timing all agree. Mark the conduit unsafe for now. Test a new route before the next shot."
 
@@ -23,7 +23,7 @@
     world: "accepted MAST/bubble/clamp and shunts side-by-side/→S1; S2 correct/waypoint/conduit label 10 kA PREDICTED/Inspect its earth bond.→EARTH; S3 correct/waypoint/test link restored/ISOLATION REMOVES MISSING CURRENT; TAKE RESULT TO RECORDS.→SHOT; S4 correct/panel/week-five records aligned/ONE THIRD VIA CONDUIT→outcome; outcome/world/conduit locked/tagged/UNSAFE PATH ISOLATED→metric."
     panel: "Marcus Tate, mast engineer: \"Thirty entered. Twenty is named. Find the path.\""
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "Thirty entered. Twenty is named. Find the path."
   - id: after-stop-41
     # After Stop 41 | cable-bay | automatic
@@ -31,32 +31,106 @@
     world: "The close the strike-current ledger result remains visible while the derive field and wire force fixture lights."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 41 result to settle derive field and wire force."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 41 result to settle derive field and wire force."
   - id: after-stop-42
     # After Stop 42 | conduit-bond | automatic
     on: { after: [2] }
     world: "The derive field and wire force result remains visible while the isolate conduit current fixture lights."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 42 result to settle isolate conduit current."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 42 result to settle isolate conduit current."
   - id: after-stop-43
     # After Stop 43 | record-desk | automatic
     on: { after: [3] }
     world: "The isolate conduit current result remains visible while the verify the historical path fixture lights."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 43 result to settle verify the historical path."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 43 result to settle verify the historical path."
   - id: at-mission-end
     # At mission end | shunt-rack | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 11 EVIDENCE: RECORDED"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Current density", def: "current per cross-sectional area."}
+  - {name: "Toroid", def: "ring-shaped winding whose field is mainly inside."}
+  - {name: "Displacement current", def: "changing electric flux term in Ampere-Maxwell law."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Missing Third. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Missing Third, the base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Close the ledger now so the next decision uses every real input and output exactly once. Which prediction or calculation correctly applies Current density to this case?"
+      hint: "Use the stated evidence and the conditions for Current density; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.", why: "This describes current ledger, not Current density. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.", why: "Correct. current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law."}
+      - {key: "C", text: "Field and force provide independent evidence for the hidden path.", why: "This describes coax/toroid Ampere field and force, not Current density. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Loss and return of the missing current ties it to the conduit branch.", why: "This describes bond causality, not Current density. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to The Missing Third: the base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Close the ledger now so the next decision uses every real input and output exactly once. Which prediction or calculation correctly applies current ledger to this case?"
+      hint: "Use the stated evidence and the conditions for current ledger; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.", why: "This describes Current density, not current ledger. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Field and force provide independent evidence for the hidden path.", why: "This describes coax/toroid Ampere field and force, not current ledger. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.", why: "Correct. charge conservation makes an unmeasured branch a physical requirement, not optional speculation."}
+      - {key: "D", text: "Loss and return of the missing current ties it to the conduit branch.", why: "This describes bond causality, not current ledger. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks The Missing Third using new evidence: treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Which prediction or calculation correctly applies coax/toroid Ampere field and force to this case?"
+      hint: "Use the stated evidence and the conditions for coax/toroid Ampere field and force; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.", why: "This describes Current density, not coax/toroid Ampere field and force. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.", why: "This describes current ledger, not coax/toroid Ampere field and force. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Loss and return of the missing current ties it to the conduit branch.", why: "This describes bond causality, not coax/toroid Ampere field and force. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Field and force provide independent evidence for the hidden path.", why: "Correct. field and force provide independent evidence for the hidden path."}
+    - prompt: "An unseen case extends The Missing Third: because the field predicts 10 kA, open only the approved test link, keep bank pulse, shunts, and geometry fixed, then restore the link. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies bond causality to this case?"
+      hint: "Use the stated evidence and the conditions for bond causality; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Loss and return of the missing current ties it to the conduit branch.", why: "Correct. loss and return of the missing current ties it to the conduit branch."}
+      - {key: "B", text: "Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.", why: "This describes Current density, not bond causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.", why: "This describes current ledger, not bond causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Field and force provide independent evidence for the hidden path.", why: "This describes coax/toroid Ampere field and force, not bond causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Missing Third decision, the team knows this: the controlled link proves today's path; now verify week-five shunt identity, clock alignment, conduit bond record, and clamp calibration within four checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies timestamps/current identity to this case?"
+      hint: "Use the stated evidence and the conditions for timestamps/current identity; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.", why: "This describes Current density, not timestamps/current identity. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Matched identity and timing transfer the causal result to the failed shot.", why: "Correct. matched identity and timing transfer the causal result to the failed shot."}
+      - {key: "C", text: "Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.", why: "This describes current ledger, not timestamps/current identity. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Field and force provide independent evidence for the hidden path.", why: "This describes coax/toroid Ampere field and force, not timestamps/current identity. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from The Missing Third to this follow-up: the base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Close the ledger now so the next decision uses every real input and output exactly once. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.", why: "This describes Current density, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.", why: "This describes current ledger, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Field and force provide independent evidence for the hidden path.", why: "This describes coax/toroid Ampere field and force, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"J=I/A","c":"heating/current concentration","v":[["J","current density in amperes per square metre"],["I","current in amperes"],["A","cross-sectional area in square metres"]],"s":"conduit."}
+  - {"e":"∮B·dl=μ₀(I+ε₀dΦ_E/dt)","c":"Ampere-Maxwell","v":[["B","magnetic field in teslas"],["dl","directed path element in metres"],["μ₀","vacuum permeability"],["I","conduction current in amperes"],["ε₀","vacuum permittivity"],["Φ_E","electric flux"],["dΦ_E/dt","rate of electric-flux change"]],"s":"distinguish conduction from changing-field contribution."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 11: worked examples"
+    examples:
+    - {"title":"Current per area","problem":"A wire carries 6 A through cross-sectional area 2 mm². Find average current density.","rule":"J=I/A.","steps":["Set up the relationship: J=I/A.","J=6/2=3 A/mm²=3×10^6 A/m²."],"answer":"Average current density is 3 million A/m².","mistake":"One square millimetre equals 10^-6 square metres, not 10^-3."}
+    - {"title":"A missing branch current","problem":"A node receives 8 mA and sends 3 mA through one branch. Find the other outgoing current in steady state.","rule":"Charge conservation requires total incoming current equal total outgoing current.","steps":["Set up the relationship: Charge conservation requires total incoming current equal total outgoing current.","8=3+I, so I=5 mA outward."],"answer":"The missing outgoing current is 5 mA.","mistake":"Do not add incoming and outgoing magnitudes as if they point the same way."}
+    - {"title":"Parallel currents","problem":"Two long wires carry 10 A each, 0.1 m apart in the same direction. Use μ0/(2π)=2×10^-7. Find force per length.","rule":"F/L=μ0 I1I2/(2πd).","steps":["Set up the relationship: F/L=μ0 I1I2/(2πd).","F/L=(2×10^-7)(10)(10)/0.1=2×10^-4 N/m."],"answer":"Force per length is 0.0002 N/m and the wires attract.","mistake":"Same-direction parallel currents attract; opposite-direction currents repel."}
+    - {"title":"Field around a straight wire","problem":"A long straight wire carries 10 A. Find field 0.1 m away, using μ0/(2π)=2×10^-7 T m/A.","rule":"B=μ0 I/(2πr).","steps":["Set up the relationship: B=μ0 I/(2πr).","B=(2×10^-7)(10)/0.1=2×10^-5 T=20 μT."],"answer":"The field magnitude is 20 μT; its direction circles the wire by the right-hand rule.","mistake":"The straight-wire field falls as 1/r, not 1/r²."}
+    - {"title":"Force on a wire segment","problem":"A straight 0.5 m wire carries 2 A perpendicular to a 4 T field. Find magnetic-force magnitude.","rule":"F=ILB sin θ.","steps":["Set up the relationship: F=ILB sin θ.","F=2(0.5)(4)=4 N."],"answer":"Force magnitude is 4 N.","mistake":"Only the component perpendicular to the field contributes."}
 
   stops:
   # --- Stop 41: Close the Strike-Current Ledger
@@ -65,10 +139,10 @@
   - group: SCREEN
     at: shunt-rack
     title: "Close the Strike-Current Ledger"
-    concept: "current ledger"
-    reason: "clamp total must equal named branches."
-    scene: "The base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Decide which readings count, close the ledger, and compute the missing current.\", and record the result with its physical justification in the station report."
-    motivation: "charge conservation makes an unmeasured branch a physical requirement, not optional speculation."
+    concept: 17   # current ledger
+    reason: "The base clamp and the listed down-conductors do not account for the same strike current."
+    scene: "The base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Decide which readings count, close the ledger, and compute the missing current."
+    motivation: "The current imbalance measures the unlisted branch that could be carrying the pulse toward the cabinet."
     format: BALANCE
     question: "Choose which identified streams count once, close the 30 kA current ledger, and submit the missing branch current in kA."
     answerText: "The completed check shows the unlisted branch carries 10 kA. A closed ledger enforces current conservation."
@@ -110,12 +184,12 @@
   - group: MAST
     at: cable-bay
     title: "Derive Field and Wire Force"
-    concept: "coax/toroid Ampere field and force"
-    reason: "the 10 kA branch must predict a measurable field."
-    scene: "Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away, and the team needs this result before it acts."
-    motivation: "field and force provide independent evidence for the hidden path."
+    concept: 22   # coax/toroid Ampere field and force
+    reason: "The missing-current estimate needs a magnetic and mechanical prediction along the suspected conduit."
+    scene: "Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away."
+    motivation: "The conduit field and force per unit length establish the exposure and loading expected from the proposed current split."
     format: DERIVE
-    question: "Build the long-wire field and parallel-wire-force derivations, name each rule, and submit B in mT, F/L in N/m, and attract or repel."
+    question: "Submit B in mT, F/L in N/m, and whether the force attracts or repels."
     answerText: "The completed check shows b=1.00 mT; F/L=50 N/m; same-direction currents attract."
     why: "field and force provide independent evidence for the hidden path."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -126,6 +200,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines B=μ0I/2πr=1.0mT; F/L=I2B1=μ0I1I2/(2πd)=50N/m; same currents attract. Tolerances. State waypoint EARTH.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Field and Wire Force in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: B=μ0I/(2πr)=(4πe-7)(10000)/(2π×2.0) T=1.0 mT
+            - text: B=μ0I/(2r)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: F/L=μ0I1I2/(2πd)=(4πe-7)(10000)(5000)/(2π×0.20)=50 N/m
+            - text: F/L=I_2/B_1
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: F = The same-direction currents attract
+            - text: F = Parallel currents repel
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 43: Isolate Conduit Current
   #     Concept: bond causality; Keystone: K7,K8,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L4.
@@ -133,10 +232,10 @@
   - group: COUPLE
     at: conduit-bond
     title: "Isolate Conduit Current"
-    concept: "bond causality"
-    reason: "drawings show a bond, but only isolation proves current uses it."
-    scene: "Because the field predicts 10 kA, open only the approved test link, keep bank pulse, shunts, and geometry fixed, then restore the link. Measure clamp-minus-shunt current each time.\", and record the result with its physical justification in the station report."
-    motivation: "loss and return of the missing current ties it to the conduit branch."
+    concept: 30   # bond causality
+    reason: "The conduit prediction must be tested by changing its approved link without changing the bank pulse."
+    scene: "Because the field predicts 10 kA, open only the approved test link, keep bank pulse, shunts, and geometry fixed, then restore the link. Measure clamp-minus-shunt current each time."
+    motivation: "The reversible clamp-minus-shunt difference tests whether the conduit actually carries the missing current."
     format: CONTROL
     question: "Change only the approved conduit link from closed to open while pulse, shunts, and geometry stay fixed. Measure clamp-minus-shunt current after the link settles, restore closed and remeasure, then submit the numerical comparison and causal conclusion."
     answerText: "The completed check shows open removes the 10 kA difference; restore returns it."
@@ -176,10 +275,10 @@
     at: record-desk
     title: "Verify the Historical Path"
     person: ortiz
-    concept: "timestamps/current identity"
-    reason: "Ortiz needs proof the branch existed on week five, not only today."
-    scene: "The controlled link proves today's path; now verify week-five shunt identity, clock alignment, conduit bond record, and clamp calibration within four checks. Decide whether the historical current split is defensible."
-    motivation: "matched identity and timing transfer the causal result to the failed shot."
+    concept: 30   # timestamps/current identity
+    reason: "A successful present-day conduit test does not automatically establish the path during the historical event."
+    scene: "Decide whether the historical current split is defensible."
+    motivation: "Matching conductor identity and event timing determines whether the old records support the same current split."
     format: ATTEST
     question: "Use no more than four checks to verify week-five identity, timing, bond, and calibration records, then submit the historical current fraction and path."
     answerText: "The completed check shows week-five records support one-third via conduit. Identity and timing transfer the test."
@@ -192,4 +291,25 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   attest:{verification_limit:4,claims:[{id:"shunt_identity",label:"week-five shunt identity",signed:true,backed:true,critical:true},{id:"clock_alignment",label:"week-five clock alignment",signed:true,backed:true,critical:true},{id:"conduit_work_order",label:"conduit bond work order",signed:true,backed:false,critical:true},{id:"clamp_calibration",label:"clamp calibration",signed:true,backed:true,critical:true},{id:"today_link",label:"today controlled-link result",signed:true,backed:true,critical:false}],correct_verified:["shunt_identity","clock_alignment","conduit_work_order","clamp_calibration"],critical_unbacked:"conduit_work_order",answerText:"Verify the four historical records, including the unbacked conduit work order, before applying the current causal result to week five."}
+    attest:
+      claims:
+        - id: primary
+          label: primary claim for Verify the Historical Path
+          evidence: the signed source reproduces the displayed result
+          critical: true
+          backed: true
+        - id: independent
+          label: independent confirmation
+          evidence: the independent record agrees within the stated tolerance
+          critical: true
+          backed: true
+        - id: scope
+          label: scope and date
+          evidence: the record names the population and time window
+          backed: true
+        - id: extension
+          label: stronger untested extension
+          evidence: no independent check supports the extension; it must be held
+          critical: true
+      checks: 3
 

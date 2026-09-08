@@ -6,13 +6,22 @@
     header: "5 DAYS."
     title: "ENERGY AND EMISSIONS LEDGER"
     goNow: "Turbine Yard, Elias Shaw at meter-board."
-    body: "Reef conditions now include climate and warm-water pressure, so ferry power cannot be judged by supply alone. Nameplate output differs from annual output, and each fuel releases different pollution. Meter demand, trace emissions through the tip, then cost controls at the Common. By the end of the mission, choose the energy mix the plan can honestly support."
+    body: "The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice."
     objective: "Close the useful-energy and pollution ledger."
   objective: "Close the useful-energy and pollution ledger."
-  stake: "Reef conditions now include climate and warm-water pressure, so ferry power cannot be judged by supply alone. Nameplate output differs from annual output, and each fuel releases different pollution. Meter demand, trace emissions through the tip, then cost controls at the Common. By the end of the mission, choose the energy mix the plan can honestly support."
+  stake: "The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Use repaired wind, storage, and less power. Keep a clean backup for short gaps. This mix saves the 15-kilowatt reserve. A methane leak now puts that reserve at risk."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Capacity factor", def: "actual energy divided by maximum possible energy."}
+  - {name: "Energy return on investment (EROI)", def: "energy returned divided by energy invested."}
+  - {name: "Primary pollutant", def: "emitted directly."}
+  - {name: "Secondary pollutant", def: "formed in air."}
+  equations:
+  - {"e":"capacity factor=actual kWh/(rated kW×8760 h);","c":"Apply this relationship to the mission decision.","v":[["8760 h","the number of hours in a standard year"]],"s":"It converts the island evidence into a defensible operating limit."}
+  - {"e":"efficiency=useful output/input;","c":"Apply this relationship to the mission decision.","v":[["efficiency","a decimal or percent; useful output and total input are measured in the same energy unit"]],"s":"It converts the island evidence into a defensible operating limit."}
+  - {"e":"EROI=energy returned/energy invested.","c":"Apply this relationship to the mission decision.","v":[["EROI","energy return on investment"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is low-carbon with costly long-lived waste; renewables are low-carbon but need land, storage, or backup."
   - "Weather is short-term; climate is a 30+ year average."
@@ -27,7 +36,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 11: CLOSE THE PEAK-POWER LEDGER OPEN"
     bubbles:
-    - who: shaw   # the bible's "mission lead", from this mission's own goNow line
+    - who: voss   # Mara Voss
       say: "Start with close the peak-power ledger. We need evidence the next decision can use."
   - id: after-stop-41
     # After Stop 41 | turbine-plate | automatic
@@ -35,32 +44,102 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
     bubbles:
-    - who: shaw   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 41 result to settle calculate capacity factor."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 41 result to settle calculate capacity factor."
   - id: after-stop-42
     # After Stop 42 | tip-lab-bench | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
     bubbles:
-    - who: shaw   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 42 result to settle match pollutants and controls."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 42 result to settle match pollutants and controls."
   - id: after-stop-43
     # After Stop 43 | delivery-board | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 43 changes the persistent board and unlocks the decision stop."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
     bubbles:
-    - who: shaw   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 43 result to settle fund the energy portfolio."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 43 result to settle fund the energy portfolio."
   - id: at-mission-end
     # At mission end | meter-board | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 44 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 11 EVIDENCE: RECORDED"
     bubbles:
-    - who: shaw   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Energy and Emissions Ledger. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Thermal inversion", def: "warm air trapping cooler polluted air below."}
+    questions:
+    - prompt: "In a follow-up to Energy and Emissions Ledger, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?"
+      hint: "Use the stated evidence and the conditions for Thermal inversion; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Warm air trapping cooler polluted air below.", why: "Correct. warm air trapping cooler polluted air below."}
+      - {key: "C", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Emitted directly.", why: "This describes Primary pollutant, not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to Energy and Emissions Ledger: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?"
+      hint: "Use the stated evidence and the conditions for Capacity factor; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Warm air trapping cooler polluted air below.", why: "This describes Thermal inversion, not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Actual energy divided by maximum possible energy.", why: "Correct. actual energy divided by maximum possible energy."}
+      - {key: "D", text: "Emitted directly.", why: "This describes Primary pollutant, not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks Energy and Emissions Ledger using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?"
+      hint: "Use the stated evidence and the conditions for Energy return on investment (EROI); do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Warm air trapping cooler polluted air below.", why: "This describes Thermal inversion, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Emitted directly.", why: "This describes Primary pollutant, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Energy returned divided by energy invested.", why: "Correct. energy returned divided by energy invested."}
+    - prompt: "An unseen case extends Energy and Emissions Ledger: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?"
+      hint: "Use the stated evidence and the conditions for Primary pollutant; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Emitted directly.", why: "Correct. emitted directly."}
+      - {key: "B", text: "Warm air trapping cooler polluted air below.", why: "This describes Thermal inversion, not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Energy and Emissions Ledger decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?"
+      hint: "Use the stated evidence and the conditions for Secondary pollutant; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Warm air trapping cooler polluted air below.", why: "This describes Thermal inversion, not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Formed in air.", why: "Correct. formed in air."}
+      - {key: "C", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from Energy and Emissions Ledger to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "C"
+      figure: {"kind":"bars","xLabel":"Plan","yLabel":"Daily energy demand (MWh)","caption":"Efficiency lowers the island's daily energy demand.","bars":[{"name":"Current plan","value":100},{"name":"Efficiency plan","value":76}]}
+      options:
+      - {key: "A", text: "Warm air trapping cooler polluted air below.", why: "This describes Thermal inversion, not demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Close the peak-power ledger connects the measured environmental mechanism to the next island condition.", why: "Correct. close the peak-power ledger connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 11: worked examples"
+    examples:
+    - {"title":"Capacity factor","problem":"A 10 kW generator produces 120 kWh during a 24-hour day. Find its capacity factor over that day.","rule":"Capacity factor=actual energy/(rated power×time).","steps":["Set up the relationship: Capacity factor=actual energy/(rated power×time).","factor=120/(10×24)=120/240=0.5=50%."],"answer":"The day's capacity factor is 50%.","mistake":"Use an energy denominator, not rated power alone."}
+    - {"title":"Energy from power","problem":"A device runs at 2 kW for 5 hours. Find energy use.","rule":"Energy=power×time.","steps":["Set up the relationship: Energy=power×time.","E=2 kW×5 h=10 kWh."],"answer":"The device uses 10 kilowatt-hours.","mistake":"Kilowatts and kilowatt-hours measure different quantities."}
+    - {"title":"Energy return on investment","problem":"A process delivers 100 energy units and requires 20 units to build and operate within the stated accounting boundary. Find EROI.","rule":"Energy return on investment EROI=energy returned/energy invested.","steps":["Set up the relationship: Energy return on investment EROI=energy returned/energy invested.","EROI=100/20=5."],"answer":"The return ratio is 5:1 under this boundary.","mistake":"Changing what is included in invested energy can change the comparison."}
+    - {"title":"Emissions from activity","problem":"An activity uses 100 fuel units with an emission factor of 2 kg per fuel unit. Find emissions.","rule":"Emissions=activity×emission factor.","steps":["Set up the relationship: Emissions=activity×emission factor.","emissions=100(2)=200 kg."],"answer":"Total emissions are 200 kg for the stated factor and boundary.","mistake":"A rate per fuel unit must be multiplied by fuel use."}
+    - {"title":"Primary versus secondary pollutant","problem":"A source emits sulfur dioxide; atmospheric reactions later form sulfate particles. Classify the pollutants.","rule":"Primary pollutants are emitted directly; secondary pollutants form through subsequent reactions.","steps":["Sulfur dioxide leaving the source is a primary pollutant.","Sulfate formed later through atmospheric chemistry is secondary."],"answer":"The classification depends on formation route.","mistake":"Secondary does not mean less harmful."}
 
   stops:
   # --- Stop 41: Close the peak-power ledger
@@ -69,10 +148,10 @@
   - group: POWER
     at: meter-board
     title: "Close the peak-power ledger"
-    concept: "demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation"
-    reason: "The island cannot commit close the peak-power ledger until this evidence is resolved."
-    scene: "The reef conditions add new electric loads, while essential evening demand must remain firm. Close the peak ledger before selecting any generator or storage plan, and the team needs this result before it acts."
-    motivation: "Close the peak-power ledger connects the measured environmental mechanism to the next island condition."
+    concept: 25   # demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation
+    reason: "The reef safeguards add electrical demand that the evening power plan must now cover."
+    scene: "The reef conditions add new electric loads, while essential evening demand must remain firm. Close the peak ledger before selecting any generator or storage plan."
+    motivation: "The peak-power balance determines how much firm reserve remains after protected loads are supplied."
     format: BALANCE
     question: "Using 310 kW supply and simultaneous loads of 160, 55, 20, 15, and 45 kW, apply reserve=supply-loads and submit one reserve in kW"
     relationship: "reserve = available supply - the sum of the active loads"
@@ -112,10 +191,10 @@
   - group: POWER
     at: turbine-plate
     title: "Calculate capacity factor"
-    concept: "capacity factor | energy | 11"
-    reason: "The island cannot commit calculate capacity factor until this evidence is resolved."
+    concept: 26   # capacity factor | energy | 11
+    reason: "The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
     scene: "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Calculate capacity factor connects the measured environmental mechanism to the next island condition."
+    motivation: "Annual capacity factor distinguishes rated turbine power from the energy the island actually receives over a year."
     format: BALLPARK
     question: "Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent"
     # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
@@ -156,10 +235,10 @@
   - group: TIP
     at: tip-lab-bench
     title: "Match pollutants and controls"
-    concept: "air pollution | atmosphere and climate | 11"
-    reason: "The island cannot commit match pollutants and controls until this evidence is resolved."
-    scene: "Because nameplate power overstates wind supply, backup fuels remain in the plan. Match each pollutant to its source, effect, and control, and the team needs this result before it acts."
-    motivation: "Match pollutants and controls connects the measured environmental mechanism to the next island condition."
+    concept: 27   # air pollution | atmosphere and climate | 11
+    reason: "The wind-performance result leaves backup generation necessary and its pollution needing controls."
+    scene: "Because nameplate power overstates wind supply, backup fuels remain in the plan. Match each pollutant to its source, effect, and control."
+    motivation: "The source-effect-control matches determine which safeguards belong with each backup fuel in the energy plan."
     format: CASEBOOK
     question: "Match CO, SO2, NOx, PM, and ground-level ozone to their printed mechanisms and controls"
     # THE BIBLE'S PAYLOAD, converted. Each pollutant's keyed triple — source,
@@ -197,10 +276,10 @@
     at: delivery-board
     title: "Fund the energy portfolio"
     person: voss
-    concept: "energy portfolio | energy and policy | 11"
-    reason: "The island cannot commit fund the energy portfolio until this evidence is resolved."
+    concept: 23   # energy portfolio | energy and policy | 11
+    reason: "The council now has both measured wind performance and backup pollution costs to fund together."
     scene: "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Fund the energy portfolio connects the measured environmental mechanism to the next island condition."
+    motivation: "The energy portfolio determines whether firm supply and pollutant controls survive the same planning budget."
     format: SCIENCETANK
     question: "Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35"
     # THE BIBLE'S PAYLOAD, converted. Its seven proposals carry the point cost

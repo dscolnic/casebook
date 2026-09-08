@@ -6,13 +6,22 @@
     header: "4 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE LOOP"
     goNow: "Go to the Ice Cut and meet Mei-Ling Cho, the water and cryogenics engineer, beside the raw-brine sampler."
-    body: "The safer reactor plan works only if recycled water returns to electrolysis, where electricity splits it into hydrogen and oxygen. Current records suggest that this loop is not closing. Follow water from the Ice Cut through treatment and electrolysis, then balance hydrogen across the whole plant. By the end of the mission, decide where the return loop fails and how much hydrogen that failure removes from the next shift."
+    body: "The safer reactor plan depends on recycled water returning to equipment that splits it into hydrogen and oxygen using electricity. Less water is returning than expected. Follow it through treatment and production, then find the missing return and calculate the hydrogen lost next shift."
     objective: "Find the failed recycling step and restore the whole-plant hydrogen balance."
   objective: "Find the failed recycling step and restore the whole-plant hydrogen balance."
-  stake: "The safer reactor plan works only if recycled water returns to electrolysis, where electricity splits it into hydrogen and oxygen. Current records suggest that this loop is not closing. Follow water from the Ice Cut through treatment and electrolysis, then balance hydrogen across the whole plant. By the end of the mission, decide where the return loop fails and how much hydrogen that failure removes from the next shift."
+  stake: "The safer reactor plan depends on recycled water returning to equipment that splits it into hydrogen and oxygen using electricity. Less water is returning than expected. Follow it through treatment and production, then find the missing return and calculate the hydrogen lost next shift."
   takeaway: "System boundaries and storage timing can create apparent missing material."
   segue: "Mission decision: The next shift is short because 80 kmol of water did not return to the power cell. The full-plant hydrogen count now closes. Water treatment fixes the return line. The plant can make both gases again. It still needs enough power for every key load."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Electrolysis", def: "uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen."}
+  - {name: "Acid", def: "increases hydrogen-ion concentration when placed in water. Excess acid must be measured and neutralized before water enters the electrolyzer."}
+  - {name: "Base", def: "accepts hydrogen ions or increases hydroxide-ion concentration in water. The treatment system uses a measured base amount to neutralize excess acid."}
+  - {name: "pH", def: "a logarithmic measure related to hydrogen-ion concentration. A smaller pH means a larger hydrogen-ion concentration."}
+  equations:
+  - {"e":"moles of dissolved substance = molarity x volume in liters","c":"turning a solution concentration and volume into a reacting amount","v":[["molarity","moles per liter"],["volume","the solution volume in liters"]],"s":"The treatment controller must add enough base to remove the measured acid without wasting purification capacity."}
+  - {"e":"pH = -log10[H+]","c":"predicting acidity after neutralization","v":[["[H+]","the hydrogen-ion concentration in moles per liter"],["log10","the base-ten logarithm"]],"s":"The predicted pH gives the electrolyzer a testable acceptance value before treated water is released."}
+  - {"e":"N_end=N_start+N_made+N_returned-N_used-N_sent","c":"closing a whole-plant material balance","v":[["N_end","ending amount"],["N_start","starting amount"],["N_made","amount produced"],["N_returned","amount recovered"],["N_used","amount consumed"],["N_sent","amount transferred away. All terms use the same substance"]],"s":"Missing return water becomes a calculable next-shift hydrogen deficit only when the entire plant is counted together."}
   primer:
   - "Follow material through the whole loop instead of balancing each room in isolation."
   - "Treatment order matters: remove solids, remove unwanted dissolved ions, then neutralize measured excess acid."
@@ -39,7 +48,7 @@
     # unlocks: The Water Plant waypoint and Stop 46; Stop 47 unlocks immediately after Stop 46.
     bubbles:
     - who: demir   # Demir
-      say: "The water can cycle. The energy cannot. First make sure the water reaching electrolysis is fit to use."
+      say: "Nice work. The water can cycle. The energy cannot. First make sure the water reaching electrolysis is fit to use."
   - id: after-stops-46-and-47
     # After Stops 46 and 47 | Water Plant | automatic treatment verification
     on: { after: [2, 3] }
@@ -48,7 +57,7 @@
     # unlocks: The Electrolysis Hall waypoint and Stop 48.
     bubbles:
     - who: achebe   # Achebe
-      say: "The treated stream now meets the electrolyzer limit. Release it and compare the amount that arrives with the amount the reactor returned."
+      say: "Good thinking. The treated stream now meets the electrolyzer limit. Release it and compare the amount that arrives with the amount the reactor returned."
   - id: after-stop-48
     # After Stop 48 | Electrolysis Hall | automatic deeper reveal
     on: { after: [4] }
@@ -57,7 +66,7 @@
     # unlocks: The Mission 12 outcome beat.
     bubbles:
     - who: cho   # Cho
-      say: "Our separator sent too much water away from the return path. The next shift began without the feed it was counting on."
+      say: "Exactly right. Our separator sent too much water away from the return path. The next shift began without the feed it was counting on."
   - id: at-mission-end
     # At mission end | Electrolysis Hall | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,9 +75,82 @@
     # unlocks: Mission 13 briefing and the Solar Array waypoint.
     bubbles:
     - who: cho   # Cho
-      say: "The loop can close now."
+      say: "Outstanding work. You solved the mission. The loop can close now."
     - who: demir   # Demir
       say: "If we can afford to run it. The dust front just cut the power budget."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Loop. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Coupled system", def: "contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed."}
+    - {name: "Recycle loop", def: "returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen."}
+    - {name: "Neutralization", def: "the reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity."}
+    - {name: "Logarithm", def: "reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration."}
+    - {name: "Inventory", def: "the amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks."}
+    questions:
+    - prompt: "In a follow-up to The Loop, trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Coupled system?"
+      hint: "Use the stated evidence and the conditions for Coupled system; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.", why: "This describes Recycle loop, not Coupled system. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.", why: "Correct. contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed."}
+      - {key: "C", text: "The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.", why: "This describes Neutralization, not Coupled system. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.", why: "This describes Logarithm, not Coupled system. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Loop: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Recycle loop?"
+      hint: "Use the stated evidence and the conditions for Recycle loop; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.", why: "This describes Coupled system, not Recycle loop. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.", why: "This describes Neutralization, not Recycle loop. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.", why: "Correct. returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen."}
+      - {key: "D", text: "Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.", why: "This describes Logarithm, not Recycle loop. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Loop using new evidence: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Neutralization?"
+      hint: "Use the stated evidence and the conditions for Neutralization; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.", why: "This describes Coupled system, not Neutralization. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.", why: "This describes Recycle loop, not Neutralization. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.", why: "This describes Logarithm, not Neutralization. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.", why: "Correct. the reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity."}
+    - prompt: "An unseen case extends The Loop: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Logarithm?"
+      hint: "Use the stated evidence and the conditions for Logarithm; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.", why: "Correct. reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration."}
+      - {key: "B", text: "Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.", why: "This describes Coupled system, not Logarithm. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.", why: "This describes Recycle loop, not Logarithm. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.", why: "This describes Neutralization, not Logarithm. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Loop decision, the team knows this: with clean water flowing, total hydrogen across the entire plant to identify the missing return and close the recycling loop. Close the ledger now so the next decision uses every real input and output exactly once. Which calculation or chemical interpretation correctly applies Inventory?"
+      hint: "Use the stated evidence and the conditions for Inventory; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.", why: "This describes Coupled system, not Inventory. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks.", why: "Correct. the amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks."}
+      - {key: "C", text: "Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.", why: "This describes Recycle loop, not Inventory. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.", why: "This describes Neutralization, not Inventory. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Loop to this follow-up: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Electrolysis?"
+      hint: "Use the stated evidence and the conditions for Electrolysis; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.", why: "This describes Coupled system, not Electrolysis. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.", why: "This describes Recycle loop, not Electrolysis. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen.", why: "Correct. uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen."}
+      - {key: "D", text: "The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.", why: "This describes Neutralization, not Electrolysis. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 12: worked examples"
+    examples:
+    - {"title":"Calculate pH","problem":"An ideal dilute solution has [H₃O⁺]=10⁻³ mol/L. Find pH.","rule":"pH=-log₁₀([H₃O⁺]/1 mol/L).","steps":["Set up the relationship: pH=-log₁₀([H₃O⁺]/1 mol/L).","pH=-log₁₀(10⁻³)=3."],"answer":"The pH is 3.","mistake":"The negative sign makes this pH positive."}
+    - {"title":"Find neutralization volume","problem":"Neutralize 20 mL of 0.1 M HCl with 0.2 M NaOH. Assume complete 1:1 reaction.","rule":"c_acid V_acid=c_base V_base at equivalence.","steps":["Set up the relationship: c_acid V_acid=c_base V_base at equivalence.","V_base=0.1(20)/0.2=10 mL."],"answer":"The equivalence volume is 10 mL.","mistake":"The volumes need not match when concentrations differ."}
+    - {"title":"Find excess strong acid","problem":"Mix 20 mL of 0.1 M HCl with 10 mL of 0.1 M NaOH. Assume additive volumes. Find excess H⁺ concentration.","rule":"Subtract reacting moles, then divide excess amount by total solution volume.","steps":["Set up the relationship: Subtract reacting moles, then divide excess amount by total solution volume.","n_excess=0.002-0.001=0.001 mol; [H⁺]=0.001/0.030=1/30 M."],"answer":"The excess acid concentration is approximately 0.033 M.","mistake":"Divide by the full 30 mL, not just the acid volume."}
+    - {"title":"Balance a reaction","problem":"Balance H₂ + O₂ → H₂O without changing chemical formulas.","rule":"Coefficients conserve each element; subscripts identify substances.","steps":["Place 2 before H₂O so the product has two oxygen atoms.","Place 2 before H₂ to supply four hydrogen atoms: 2H₂ + O₂ → 2H₂O."],"answer":"Both sides contain four hydrogen atoms and two oxygen atoms.","mistake":"Changing H₂O to H₂O₂ would change the product."}
+    - {"title":"Calculate molarity","problem":"Dissolve 0.2 mol solute to make 0.5 L of solution.","rule":"c=n/V, using solution volume in liters.","steps":["Set up the relationship: c=n/V, using solution volume in liters.","c=0.2/0.5=0.4 mol/L."],"answer":"The concentration is 0.4 M, where M means mol/L.","mistake":"Use final solution volume, not an assumed volume of solvent."}
 
   stops:
   # --- Stop 45: Build the water-hydrogen-carbon loop
@@ -77,10 +159,10 @@
   - group: ELEC
     at: process-map
     title: "Build the water-hydrogen-carbon loop"
-    concept: "coupled stoichiometry"
-    reason: "The hydrogen shortage cannot be solved without tracing the entire water loop."
-    scene: "Trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. The completed chain will reveal the step that consumes outside energy."
-    motivation: "The chain reveals which link must spend power and where water should return to keep launch production alive."
+    concept: 13   # coupled stoichiometry
+    reason: "The recovery condition is selected and the complete water-hydrogen loop needs checking for its energy input."
+    scene: "Trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished."
+    motivation: "The loop identifies electrolysis as a driven step, preventing recycled water from being mistaken for free hydrogen production."
     format: CHAIN
     # CONVERTED from the payload below. `transfers` -> `links`, `carries` ->
     # `transfers`, `order` unchanged, and the governing link is the bible's own
@@ -91,15 +173,22 @@
     # describes as the loop being "mistaken for an energy-free cycle".
     chain:
       links:
-      - { id: mine, label: "Ice and brine to Water Plant", transfers: "H2O plus dissolved material" }
-      - { id: clean, label: "Treatment to clean-water tank", transfers: "purified H2O" }
-      - { id: split, label: "Electrolysis", transfers: "2H2O -> 2H2 + O2; electrical energy enters" }
-      - { id: react, label: "Sabatier reactor", transfers: "CO2 + 4H2 -> CH4 + 2H2O" }
-      - { id: return, label: "Condenser return", transfers: "product H2O to recycle tank" }
-      order: [mine, clean, split, react, return]
-      governing: split
-      distractor: react
-      commit: "Name the governing transfer"
+        - id: mine
+          label: Ice and brine to Water Plant
+        - id: clean
+          label: Treatment to clean-water tank
+        - id: split
+          label: Electrolysis
+        - id: react
+          label: Sabatier reactor
+        - id: return
+          label: Condenser return
+      order:
+        - mine
+        - clean
+        - split
+        - react
+        - return
     question: "Build the closed material path and name the link that requires external energy."
     answerText: "Build ice/brine to clean water to electrolysis to Sabatier water return; electrolysis is the powered link."
     why: "Sabatier returns water, but electrolysis must spend electrical energy to split it. Recycle reduces fresh-water demand; it does not make the cycle energy-free."
@@ -130,25 +219,29 @@
   - group: SOIL
     at: columns
     title: "Match contaminants to treatment"
-    concept: "solutions/solubility"
-    reason: "Returned water must be treated without wasting limited purification capacity."
-    scene: "At the Water Plant, match each contaminant to a treatment so the return stream reaches electrolysis without wasting limited cleaning capacity. Each match must protect electrolysis while leaving useful reactor feed alone."
-    motivation: "The wrong treatment can leave ions that damage electrolysis or spend the column on material the reactor already wants."
+    concept: 6   # solutions/solubility
+    reason: "The loop depends on water treatment that removes harmful contaminants without wasting useful feed."
+    scene: "At the Water Plant, match each contaminant to a treatment so the return stream reaches electrolysis without wasting limited cleaning capacity."
+    motivation: "The treatment mapping protects electrolysis while retaining substances that remain useful to the reactor."
     format: PROTOCOL
     question: "Match each water contaminant to the treatment that addresses it."
     # CONVERTED from the payload below: the bible's contaminants on the left, its
     # treatments on the right, its keyed `mapping` as the permutation.
     scenarios:
-    - "Suspended regolith fines"
-    - "Dissolved chloride and perchlorate ions"
-    - "Acidic recycle water with excess H+"
-    - "Dissolved CO2 intended for reactor feed"
+      - Suspended regolith fines
+      - Dissolved chloride and perchlorate ions
+      - Acidic recycle water with excess H+
+      - Dissolved CO2 intended for reactor feed
     choices:
-    - "Particle filter"
-    - "Ion-exchange column"
-    - "Measured base neutralization"
-    - "Do not spend polishing capacity solely on it"
-    mapping: [0, 1, 2, 3]
+      - Particle filter
+      - Ion-exchange column
+      - Measured base neutralization
+      - Do not spend polishing capacity solely on it
+    mapping:
+      - 0
+      - 1
+      - 2
+      - 3
     answerText: "Filter solids, exchange dissolved ions, neutralize excess acid, and do not waste polishing capacity on useful CO2 feed."
     why: "Physical filters catch particles, not dissolved ions. Ion exchange targets charged solutes. Acid/base treatment is stoichiometric. Removing every measurable species is not automatically useful; treatment follows downstream consequence."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -176,10 +269,10 @@
   - group: SOIL
     at: brinetank
     title: "Predict, treat, measure"
-    concept: "strong acid/base stoichiometry and pH"
-    reason: "The electrolyzer needs measured proof that neutralization reached its target."
-    scene: "Predict and verify the treated water's pH to prove that it meets the electrolyzer's operating limit. A numerical prediction followed by an independent measurement will fully qualify the treatment controller."
-    motivation: "Correct neutralization lets recycled water return without damaging the electrolyzer."
+    concept: 13   # strong acid/base stoichiometry and pH
+    reason: "The treatment method is selected and must demonstrate the required water acidity numerically."
+    scene: "The treatment vessel contains 0.1000 L of 0.0100 M strong acid, and the planned addition is 0.0900 L of 0.0100 M strong base. Assume complete neutralization and additive volumes; pH = -log10([H+]), with [H+] in mol/L."
+    motivation: "Predicted and measured pH determine whether the treated sample meets the electrolyzer's stated operating condition."
     format: VERIFY
     # MODEL CONVERSION, the same one mission 3's VERIFY needed. The bible gives a
     # calculated prediction (pH 3.28, tolerance 0.05) and a measured 3.30; the
@@ -188,20 +281,23 @@
     # ±0.05 said as a ratio. The dial range is the implementation's.
     verify:
       prediction:
-        label: "Predicted pH after the addition"
-        unit: pH
-        min: 2.00
-        max: 5.00
-        step: 0.01
-      truth: 3.30
-      passRatio: [0.985, 1.015]
-      intervention:
-        label: "Add 90.0 mL of 0.0100 M NaOH"
-        note: "100.0 mL of 0.0100 M HCl in the tank; total volume 190.0 mL."
-        outcome: "Added and mixed."
+        min: NaN
+        max: NaN
+        step: NaN
+      action:
+        id: add_naoh
+        label: Add 90.0 mL of 0.0100 M NaOH
       measurement:
-        label: "pH meter reading"
-        note: "Resolution 0.02 pH units."
+        label: the measurement
+        cost: 1
+      required_sequence:
+        - commit_prediction
+        - add_naoh
+        - measure_pH
+      truth: NaN
+      passRatio:
+        - 0.9
+        - 1.1
     question: "Predict final pH, command addition, then measure."
     answerText: "After neutralization, predict pH 3.28 and accept the measured pH 3.30."
     why: "Neutralization is a mole subtraction before a concentration or logarithm calculation. Equal molarities do not neutralize if volumes differ. The measurement agrees within instrument resolution."
@@ -229,10 +325,10 @@
   - group: ELEC
     at: stack
     title: "Close hydrogen over the whole plant"
-    concept: "whole-system inventory"
-    reason: "A whole-plant balance can expose a deficit hidden between separate rooms."
-    scene: "With clean water flowing, total hydrogen across the entire plant to identify the missing return and close the recycling loop. The result will convert missing return water into next-shift hydrogen loss."
-    motivation: "The whole-plant boundary can reveal a recycle failure that looks like disappearing hydrogen inside one room."
+    concept: 13   # whole-system inventory
+    reason: "The water treatment passes, but the next shift's hydrogen shortage still needs a whole-plant explanation."
+    scene: "With clean water flowing, total hydrogen across the entire plant to identify the missing return and close the recycling loop."
+    motivation: "The hydrogen ledger separates a present unmeasured leak from lost future production caused by missing return water."
     format: BALANCE
     # MODEL CONVERSION. The bible's ledger has two sides; the engine's has a total
     # and the streams that have to add up to it. The total is the bible's
@@ -243,15 +339,52 @@
     # NUMBER IS NOT THE BIBLE'S: it writes `tolerance: 0`, and the engine needs a
     # positive tolerance, so the closure is graded to half a kilomole.
     balance:
-      total: { amount: 420, unit: "kmol H2", label: "Hydrogen available this shift" }
-      tolerance: 0.5
+      target:
+        label: Whole-plant hydrogen ledger
+        unit: kmol H2
       streams:
-      - { id: reactor_use, label: "Reactor consumption", value: 360, unit: "kmol H2" }
-      - { id: vents, label: "Measured vents", value: 4, unit: "kmol H2" }
-      - { id: line_fill, label: "Increase in line inventory", value: 6, unit: "kmol H2" }
-      - { id: oxygen_coproduct, label: "Electrolysis oxygen coproduct", value: 200, unit: "kmol O2", countable: false }
-      - { id: reserve, label: "Left in reserve", value: 50, unit: "kmol H2", hidden: true }
-      commit: "Close the hydrogen ledger"
+        - id: electrolysis
+          label: Electrolysis production
+          value: 400
+          side: available
+          count: true
+        - id: store_draw
+          label: Draw from storage
+          value: 20
+          side: available
+          count: true
+        - id: reactor_use
+          label: Reactor consumption
+          value: 360
+          side: use
+          count: true
+        - id: vents
+          label: Measured vents
+          value: 4
+          side: use
+          count: true
+        - id: line_fill
+          label: Increase in line inventory
+          value: 6
+          side: use
+          count: true
+        - id: oxygen_coproduct
+          label: Electrolysis oxygen coproduct
+          value: 200
+          unit: kmol O2
+          side: other
+          count: false
+      closure:
+        available: 420
+        uses: 370
+        reserve: 50
+        tolerance: 0
+      next_shift:
+        planned_h2: 480
+        actual_h2: 400
+        missing_return_water: 80
+        water_to_h2_ratio: 1:1 molar
+      correct_action: Close the current ledger, then identify an 80 kmol next-shift H2 deficit from missing return water.
     question: "Reconcile produced hydrogen and inventory, then identify why next-shift production falls."
     answerText: "The current ledger closes with 50 kmol H2; missing 80 kmol return water causes an 80 kmol next-shift H2 deficit."
     why: "The \"missing hydrogen\" is a timing and boundary error. Each room closes locally while the return stream fails between shifts. Expand the system boundary and include storage/recycle."

@@ -1,0 +1,88 @@
+OXYGEN AND COMBUSTION (theme: qd_oxygen) — PLACES AND LOCATIONS
+Assistant · The Pneumatic Laboratory
+Course: Chemistry — oxygen and combustion, 1775. Grade 9, nine stops, three
+levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_oxygen npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the pneumatic laboratory, as data.
+
+One corridor, four working rooms off it, and the rooms nobody works in that
+make it a building rather than a diagram. The place has a shape the campaign
+uses: the balance and the furnace are down one side, the trough and the
+accounting desk down the other, so every weighing crosses the corridor before
+it becomes an argument.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The furnace room is the deepest room on the plan and the only one with a
+chimney. A burning-glass and a reverberatory furnace need standing room and
+somewhere for the heat to go, and a furnace in a room the size of an office
+reads as an office with a stove in it.
+
+`ceiling: false` here, which no other building in this set does. A suspended
+tile grid over a Georgian laboratory is the loudest anachronism available and
+it is invisible in every check — the geometry, the collision and the lighting
+are identical either way, and only a photograph from inside says which century
+the room is in. Without it the builder puts a soffit up at ceiling height plus
+three quarters of a metre and hangs the fittings from that, which is a beamed
+ceiling with lamps under it.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+BAL — Balance Room
+  Balance Room   [BAL]  side w, z 4 … 14
+  A balance worth more than the room, a case of brass weights, and everything
+  weighed twice.
+  Calls: Weigh it cold · Weigh it after · Record both · Ready to hand over
+
+FURN — Furnace Room
+  Furnace Room   [FURN]  side w, z 24 … 38
+  A hearth, a chimney that draws badly in a south wind, and a burning glass
+  that adds heat and nothing else.
+  Calls: Charge the vessel · Heat it · Let it cool · Ready to hand over
+
+TROUGH — Pneumatic Trough
+  Pneumatic Trough   [TROUGH]  side e, z 5 … 18
+  Jars filled over water, a glowing splint, and four gases with no names on
+  them yet.
+  Calls: Catch the gas · Question it · Label the jar · Ready to hand over
+
+LEDGER — Accounting Desk
+  Accounting Desk   [LEDGER]  side e, z 20 … 33
+  Two columns, both totalled, and the rule that a story fitting every outcome
+  forecasts none.
+  Calls: Enter the masses · Find the missing term · Close it · Ready to hand
+  over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Lodge   [PORCH]  side w, z -4 … 2, OPEN
+Common Room   [TEA]  side w, z 16 … 22, OPEN
+Glass Store   [RACK]  side w, z 38 … 45
+Charcoal Store   [COAL]  side e, z -4 … 3
+Library   [LIB]  side e, z 35 … 45
+
+Metrics   corridorHalfWidth 2, roomDepth 8, ceilingH 3.9
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_oxygen/ — site/plan, fixtures, minors, groups, theme.

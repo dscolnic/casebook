@@ -1,0 +1,81 @@
+THE DOUBLE HELIX (theme: qd_dna) — PLACES AND LOCATIONS
+Research Student · Structural Biology Unit
+Course: Biology — the structure of DNA. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_dna npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Structural Biology Unit, as data.
+
+One corridor, four working rooms off it, and the two rooms nobody works in
+that make it a building rather than a diagram. The place has a shape the
+campaign uses: the chemistry bench and the model room are down one side, the
+X-ray room and the evidence room down the other, and the walk between them is
+what a clue crossing the corridor costs. Every level of the campaign sends the
+player across it at least once.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The X-ray room is deliberately the deepest room on the plan: a fibre camera
+needs a long run at a small target, and a room that is as shallow as an office
+reads as an office with a machine in it.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+CHEM — Nucleic Acid Chemistry
+  Chemistry Bench   [CHEM]  side w, z 5 … 15
+  What the sample is made of, in what proportions, and what a charge will and
+  will not tolerate.
+  Calls: Run the analysis · Close the composition · Say what it forbids ·
+  Ready to hand over
+
+MODEL — Model Room
+  Model Room   [MODEL]  side w, z 25 … 37
+  Brass rods, base plates and a diameter that has to come out the same on
+  every rung.
+  Calls: Build a strand · Close one rung · Wind the pair · Ready to hand over
+
+XRAY — X-ray Diffraction
+  X-ray Room   [XRAY]  side e, z -4 … 12
+  The camera, the photograph, and the two lengths anybody is allowed to
+  measure off it.
+  Calls: Mount the fibre · Expose the plate · Measure the spacings · Ready to
+  hand over
+
+BOARD — Evidence Room
+  Evidence Room   [BOARD]  side e, z 20 … 32
+  Every clue on one wall, and the argument about which candidates are still
+  standing.
+  Calls: Pin the clue · Name what it forbids · Cross off a candidate · Ready
+  to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Desk   [PORCH]  side w, z -4 … 3, OPEN
+Tea Room   [TEA]  side w, z 17 … 23, OPEN
+Brass Store   [RACK]  side w, z 37 … 43
+Dark Room   [DARK]  side e, z 12 … 18
+Reading Room   [LIB]  side e, z 34 … 43
+
+Metrics   corridorHalfWidth 1.7, roomDepth 7.2, ceilingH 3.15
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_dna/ — site/plan, fixtures, minors, groups, theme.

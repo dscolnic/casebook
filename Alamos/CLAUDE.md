@@ -43,7 +43,7 @@ skill you are in.
 | `gamekit/MIDDLE_SCHOOL_EDITIONS.md` | The junior-edition plan. |
 | `gamekit/FOURTH_GAME.md` | The plan the Project Y flip came from. |
 
-## The thirty-five campaigns
+## The thirty-six campaigns
 
 `GAMES.md` is the full inventory; the `alamos-games` skill carries the place, the
 silhouette and the fit-out lessons for each. Run any of them with
@@ -65,6 +65,7 @@ silhouette and the fit-out lessons for each. Run any of them with
 | `seedbank` | Wellmere | AP Biology, heredity half |
 | `midway` | Safety Factor | AP Physics 1, in derivations |
 | `redsand` | Red Sand | AP Chemistry, back half |
+| `redsand_oneshot` | Red Sand: Full Tank | AP Chemistry, the whole course (Red Sand's world, a new campaign) |
 | `yellowbay` | Yellow Bay | AP Chemistry, structure half (own world, two wings) |
 | `sightline` | Sightline | AP Psychology |
 | `groundtruth` | Ground Truth | AP Physics C E&M, ten derivations |
@@ -91,8 +92,10 @@ The last ten are the **Quick Discoveries** — nine stops in one sitting on a 3 
 spine, `dayNoun: 'Level'`, all at `audience: { grade: 9 }`, no second-day model and no
 warm-up runs.
 Twelve junior (`_ms`) and three same-grade AP editions exist beside these; an
-edition is a registered theme, not a build flag. Twenty-five games plus ten Quick
-Discoveries; `themes.json` maps every id to its directory.
+edition is a registered theme, not a build flag. Twenty-six games plus ten Quick
+Discoveries; `themes.json` maps every id to its directory. `redsand_oneshot` is the
+one entry that is a **second campaign in an existing world** rather than a new place:
+same site, same fourteen rooms, a new cast and sixty new stops.
 
 ## Tripwires — read these before you know you need them
 
@@ -175,6 +178,27 @@ are in.
 - **A refusal nothing exercises is a comment**, and **a wall of false failures is
   how a gate stops being read** — worse than the drift it was written to catch →
   `alamos-measurement`, `npm run traps`.
+- **A question can be sited at an object no room builds.** Five of the eight games in
+  the September pass had lessons whose `at:` named a fixture `fixtures.js` never
+  declared — a truncated id, a rename, a placeholder — and `placement.mjs` had been
+  red on each of them for as long as anyone had looked. The gate says so; nobody was
+  reading it → `gamekit/PLACEMENT_PASS.md`.
+- **A dark albedo is not automatically house rule 6.** The rule is about a mid tone
+  blowing out under a bright sky. Taken further than that a surface goes to solid
+  black and its own relief stops reading: a storm cloud deck became a field of
+  obsidian lozenges and a dry-stone wall became a crash barrier, both at coverage
+  and geometry that measured correct → `alamos-world`.
+- **Anything in the sky must be unlit.** A lit cloud under a storm rig renders black
+  with a specular highlight on it. The horizon ranks and the star field were already
+  `MeshBasicMaterial`; so is the cloud deck now → `alamos-world`.
+- **Do not edit a served file while `npm run shots` is rendering.** Vite reloads the
+  page, the harness's `window.gamekit` vanishes, and the run dies with `Cannot read
+  properties of undefined (reading 'teleport')` — which reads as a crash in the game
+  and is not one. A `git stash` round trip does the same. Three renders in one
+  session → `alamos-world`.
+- **A misspelt sound, weather or room style is silence, clear sky and a laboratory**,
+  never an error. `npm run check` runs `ambience.mjs` against the engine's own lists →
+  `alamos-world`, `engine/dev/ambience.mjs`.
 - **Nothing in `npm run check` asserts anything about input or the wire.** A and D
   strafed backwards for years; the co-op protocol has no checker at all →
   `alamos-world`, `alamos-shipping`.

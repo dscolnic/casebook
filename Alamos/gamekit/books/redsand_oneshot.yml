@@ -1863,7 +1863,7 @@ missions:
       - { id: h2, label: Hydrogen delivery short before the reactor }
       - { id: sensor, label: A dead methane sensor on the product line }
       criteria:
-      - { key: work, label: Sols of work before it can be acted on, unit: sols }
+      - { key: work, label: Sols of work before it can be acted on, unit: sols, direction: minimise }
       - { key: unexplained, label: Panels it leaves unexplained, unit: of 7 }
       - { key: cost, label: Production lost if acted on and wrong, unit: kg }
       scores:
@@ -2924,7 +2924,8 @@ missions:
       - { id: mid, label: A 550 K point with the recycle flow raised }
       - { id: low, label: The validated 540 K point }
       criteria:
-      - { key: shortfall, label: Methane behind schedule at dawn, unit: kg }
+      # Methane BEHIND schedule: a shortfall of zero is the good end of it.
+      - { key: shortfall, label: Methane behind schedule at dawn, unit: kg, direction: minimise }
       - { key: peak, label: Observed inlet peak, unit: K }
       - { key: margin, label: Margin under the limit as displayed, unit: K }
       scores:

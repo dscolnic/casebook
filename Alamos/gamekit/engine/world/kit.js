@@ -247,14 +247,38 @@ export function building(scene, opts){
     // canopy, the canopy stands in front of it, and its head overshot the eaves
     // by a metre. It read as a clipped sign, and no amount of text fitting could
     // help — the panel was behind a slab. Seat it in the band that is actually
-    // clear, between the canopy top and the wall head, and size it to fit.
+    // clear, between the canopy top and the roof, and size it to fit.
+    //
+    // AND THE ROOF IS NOT THE WALL HEAD. The parapet above is `d + 0.5` deep,
+    // so it stands 0.25 m PROUD of the wall the sign hangs on, and the sign is
+    // only 0.30 m proud itself. Measuring the clear band to the wall head left
+    // the sign's top 0.15 m under a slab overhanging it by almost as much: from
+    // any eye height below it — which is every eye height — the overhang cut
+    // the top off the panel, and Red Sand's Atmosphere Intake read as a sign
+    // half sunk into the building. Reported as exactly that. So the band ends
+    // 0.45 m below the wall head, which clears the overhang from the ground at
+    // any distance a player reads a sign from.
+    //
+    // A building too short to hold one gets no sign rather than a clipped one:
+    // the old `Math.max(0.55, headroom)` let the panel be TALLER than the space
+    // it was being fitted into, which is the defect above with the arithmetic
+    // agreeing to it.
     const canopyTop = floorY + doorH + 0.45 + 0.09;
-    const headroom = (floorY + h) - canopyTop - 0.3;
+    const signBottom = canopyTop + 0.15;
+    const clear = (floorY + h - 0.45) - signBottom;
     let signW = Math.min(w * 0.72, 5.2);
     let signH = signW * 0.42;
-    if(signH > headroom){ signH = Math.max(0.55, headroom); signW = signH / 0.42; }
+    // A building with a real band gets a panel that fits inside it. One without
+    // — 59 of the 342 named buildings in this repo are under 4.24 m, and on the
+    // shortest of them the door and its canopy already reach past the wall head
+    // — keeps exactly the plate it has always had. Fixing those is a question
+    // about the buildings, not about the sign, and dropping their names to make
+    // the arithmetic tidy would be a worse answer than the one they ship with.
+    const fits = clear >= 0.5;
+    if(signH > clear) signH = fits ? clear : 0.55;
+    signW = signH / 0.42;
     nameSign = sign(group, name, {
-      x: 0, y: canopyTop + 0.15 + signH / 2, z: d / 2 + 0.30,
+      x: 0, y: signBottom + signH / 2, z: d / 2 + 0.30,
       w: signW, h: signH,
       sub, accent: accent ? `#${accent.toString(16).padStart(6, '0')}` : null,
     });
@@ -1156,6 +1180,44 @@ export function litWindow(scene, w, h, x, y, z, opts = {}){
   pane.userData.lightChance = opts.lightChance ?? 0.5;
   scene.add(pane);
   return pane;
+}
+
+/**
+ * A wind turbine: tapered tower, nacelle, and a three-blade rotor on its own
+ * pivot so an animator can turn it — `animate(spin(t.rotor, 'z', 0.9))`.
+ *
+ * `facing` is the yaw the rotor faces (into the wind). The rotor group's local
+ * z is the shaft axis. Returns the tower's soft collider too; nobody should be
+ * able to walk through a two-metre steel tube.
+ */
+export function windTurbine(scene, x, z, y = 0, { height = 26, blade = 12, facing = 0, colour = 0xe6e8e6 } = {}){
+  const g = new THREE.Group();
+  const paint = MATERIALS.paintedSteel(colour);
+  const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 1.3, height, 14), paint);
+  tower.position.y = height / 2;
+  tower.castShadow = true; tower.receiveShadow = true;
+  g.add(tower);
+  const nacelle = box(g, 2.2, 1.7, 4.2, 0, height + 0.7, 0.6, paint);
+  nacelle.castShadow = true;
+  const rotor = new THREE.Group();
+  rotor.position.set(0, height + 0.7, -1.7);
+  const hub = new THREE.Mesh(new THREE.SphereGeometry(0.75, 12, 8), paint);
+  hub.scale.z = 1.3;
+  rotor.add(hub);
+  for(let i = 0; i < 3; i++){
+    const b = new THREE.Mesh(new THREE.BoxGeometry(0.62, blade, 0.14), paint);
+    b.position.y = blade / 2 + 0.4;
+    b.castShadow = true;
+    const arm = new THREE.Group();
+    arm.rotation.z = (i / 3) * Math.PI * 2;
+    arm.add(b);
+    rotor.add(arm);
+  }
+  g.add(rotor);
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  return { group: g, rotor, soft: { x, z, r: 1.9 } };
 }
 
 /** Raise or lower every window this kit made. `night` runs 0 (day) to 1. */

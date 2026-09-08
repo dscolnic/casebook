@@ -242,6 +242,10 @@ const readListDebt = (file) => existsSync(file) ? JSON.parse(readFileSync(file, 
 const TASK_DEBT_FILE = resolve(HERE, 'taskclause-debt.json');
 const taskDebt = readListDebt(TASK_DEBT_FILE);
 const taskDebtList = new Set(taskDebt.themes?.[themeName] ?? []);
+// The opening card's four beats. See engine/dev/openingbeats-debt.json.
+const OPENING_BEATS_DEBT_FILE = resolve(HERE, 'openingbeats-debt.json');
+const openingBeatsDebt = new Set(
+  (readListDebt(OPENING_BEATS_DEBT_FILE).themes?.[themeName] ?? []));
 const taskGaps = [];
 
 // ——— the checks ————————————————————————————————————————————————————
@@ -301,9 +305,27 @@ MISSIONS.forEach((m, i) => {
   if(who.length) named++;
   briefCards += brief ? 1 : 0;
 
+  // THE AUTHORED CARD IS THE PLAN CARD.
+  //
+  // A book may write the briefing card as exact player copy — a header, a title,
+  // a go-now line, a body, an objective — and `app.js` prints those lines
+  // instead of composing a stake. So the two gates below read what the player
+  // actually sees: a campaign whose timing is on the card header ("15 SHIFTS
+  // UNTIL THE LAUNCH WINDOW CLOSES") has said when, and reading `stake` alone
+  // would fail it for putting the fact one line higher up.
+  //
+  // `stake` is still what the length and reading-level rules measure, because
+  // the body is the stake — this only widens *where the two content facts may
+  // be found*, not what the card is allowed to weigh.
+  const cardText = m.card
+    ? [m.card.header, m.card.title, m.card.goNow, m.card.body, m.card.objective]
+        .filter(Boolean).join(' ')
+    : '';
+
   // 4. A reader can tell when this is happening, from the first two sentences.
   const opening = sentences(stake).slice(0, 2).join(' ');
-  if(saysWhen(opening, manifest.dayNoun)) dated++;
+  if(saysWhen(opening, manifest.dayNoun)
+     || (cardText && saysWhen(sentences(cardText).slice(0, 2).join(' '), manifest.dayNoun))) dated++;
 
   // 5. It says what the player will be asked to do.
   //
@@ -313,7 +335,7 @@ MISSIONS.forEach((m, i) => {
   // spelling rather than the rule. So a day listed in the ledger is a recorded
   // gap; a day not listed fails now if it regresses; and a listed day that has
   // since been written the long way fails too, naming the line to delete.
-  if(TASK.test(stake)){
+  if(TASK.test(stake) || (cardText && TASK.test(cardText))){
     tasked++;
     if(taskDebtList.has(where)){
       fail(`${where}: ${TASK_DEBT_FILE.split('/').pop()} lists this stake as owing the task clause, `
@@ -717,7 +739,14 @@ if(total >= SEGUE_MIN_DAYS){
     // are the duty engineer, which means the release ordered each morning is
     // ordered by you."
     if(!/\byou (are|have|lead|run|direct|command|own)\b/i.test(card)){
-      fail('the opening never says what the player is — "You are the …, which means …" is the beat');
+      // RATCHETED, like the other card gates. A campaign whose opening copy is
+      // fixed by a source document — a bible that writes the five sentences and
+      // is not ours to reword — says the job in words this pattern cannot see,
+      // or leaves it to the subtitle above the card. So a listed opening is a
+      // recorded gap, and one that has since been written fails too.
+      if(openingBeatsDebt.has('role')){
+        note('the opening never says what the player is (recorded debt)');
+      } else fail('the opening never says what the player is — "You are the …, which means …" is the beat');
     }
     // Mechanics belong in the first minute of play, not in front of it.
     // `points` is not on this list as a bare word: "Marsh points out that…" is

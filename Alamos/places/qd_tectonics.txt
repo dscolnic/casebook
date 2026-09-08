@@ -1,0 +1,77 @@
+PLATE TECTONICS (theme: qd_tectonics) — PLACES AND LOCATIONS
+Geoscientist · Global Survey Section
+Course: Earth science — plate tectonics. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_tectonics npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Global Survey Section, as data.
+
+One corridor with the land evidence down one side and the sea evidence down the
+other, which is the campaign's own division: level one is everything collected
+on land, level two is ten years of ships, and level three is the room at the far
+end that has no data in it at all.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The map room is the widest room on the plan and it is `open`, so the corridor
+runs into it rather than past a door. That is the one thing that makes this
+building read differently from a laboratory: the first thing anybody walking in
+meets is thirty feet of continents on pins, with no wall in the way.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+MAP — Map Room
+  Map Room   [MAP]  side w, z 4 … 20, OPEN to the spine
+  Continental outlines, fossil cards, ice scratches, and a wall you can move
+  the world on.
+  Calls: Pin the outline · Fit the shelves · Lay the clue on it · Ready to
+  hand over
+
+MODEL — Kinematics Room
+  Kinematics Room   [MODEL]  side w, z 30 … 41
+  Cross-sections, motion arrows, and the only place the whole thing is put
+  together.
+  Calls: Name the boundary · Run the section · Close the cycle · Ready to hand
+  over
+
+MARINE — Marine Survey
+  Marine Survey   [MARINE]  side e, z 5 … 18
+  Rock ages and magnetic bands from ten years of ships towing instruments.
+  Calls: Log the sample · Date the rock · Match the band · Ready to hand over
+
+SEIS — Seismology
+  Seismology   [SEIS]  side e, z 20 … 33
+  Every recorded earthquake, with a depth attached, on one blank world.
+  Calls: Locate it · Depth it · Draw the belt · Ready to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Desk   [PORCH]  side w, z -4 … 2, OPEN
+Tea Room   [TEA]  side w, z 22 … 28, OPEN
+Chart Store   [RACK]  side w, z 41 … 47
+Photographic Room   [DARK]  side e, z -4 … 3
+Reading Room   [LIB]  side e, z 35 … 47
+
+Metrics   corridorHalfWidth 2.1, roomDepth 9, ceilingH 3.4
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_tectonics/ — site/plan, fixtures, minors, groups, theme.

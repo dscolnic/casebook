@@ -1,4 +1,4 @@
-import { WEEKS, STARTING_RESERVE } from './constants.js';
+import { WEEKS, STARTING_RESERVE, STOPS_IN_ORDER } from './constants.js';
 import { LEADERS } from './leaders.js';
 import { GROUP_DEFS } from './divisions.js';
 import { CURRICULUM } from './curriculum.js';
@@ -49,7 +49,13 @@ export function openStopIndices(state){
   const m=getCurrentMission(state);
   if(!m) return [];
   const done=completedMissionStops(state);
-  return m.stops.map((_,i)=>i).filter(i=>!done.includes(i));
+  const open=m.stops.map((_,i)=>i).filter(i=>!done.includes(i));
+  // ONE AT A TIME, where the theme asks for it. See STOPS_IN_ORDER in
+  // constants.js: a campaign whose missions are beat scripts needs the calls in
+  // the order the beats were written for, because each beat sets up the next
+  // call. Everything that shows the player where to go reads this function, so
+  // the map, the beacons and the markers over people all narrow to one with it.
+  return STOPS_IN_ORDER ? open.slice(0, 1) : open;
 }
 export function openStopGroups(state){
   const m=getCurrentMission(state);
@@ -136,6 +142,10 @@ export function getPersonIdForStop(state, stopIdx){
   const m=getCurrentMission(state);
   if(!m || stopIdx<0 || stopIdx>=m.stops.length) return null;
   const stop=m.stops[stopIdx];
+  // THE BOOK'S OWN CHOICE WINS. A campaign whose source names the person for
+  // each stop — every mission card in Red Sand does — should not have the
+  // rotation below pick somebody else out of the same area.
+  if(stop.personId) return stop.personId;
   const list=PERSONS_BY_DIVISION[stop.group] || [];
   if(!list.length) return null;
   // Two person stops on the same area in one day must be two different people,

@@ -6,13 +6,20 @@
     header: "7 DAYS."
     title: "WASTE AND LAND-USE CONTROLS"
     goNow: "Tip, Mei at weighbridge."
-    body: "The school spike came from a local nutrient pulse, not added visitors. Waste and farming can release the same pollutants through different routes, so controls must begin at each source. Classify the tip loads, then revise practices at the Common. By the end of the mission, choose waste and land-use controls that protect water without ending food production."
+    body: "The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food."
     objective: "Cut pollution at source."
   objective: "Cut pollution at source."
-  stake: "The school spike came from a local nutrient pulse, not added visitors. Waste and farming can release the same pollutants through different routes, so controls must begin at each source. Classify the tip loads, then revise practices at the Common. By the end of the mission, choose waste and land-use controls that protect water without ending food production."
+  stake: "The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Line the waste cell and cut sewage nutrients. Use drip lines, IPM, and rain gardens. These steps stop waste near its source. The reef still loses oxygen in warm, nitrate-rich weeks."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Bioaccumulation", def: "pollutant buildup within one organism."}
+  - {name: "Biomagnification", def: "rising concentration at higher trophic levels."}
+  - {name: "Persistent organic pollutant", def: "long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB)."}
+  - {name: "Eutrophication", def: "nutrient enrichment leading to algae and oxygen loss."}
+  equations:
+  - {"e":"pollutant load=flow×concentration; net nutrient change=inputs-outputs","c":"Apply this relationship to the mission decision.","v":[["pollutant load","pollutant mass per time"],["flow","water volume per time"],["concentration","pollutant mass per volume"],["inputs and outputs","nutrient amounts over the same period"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "heavy metals damage nerves/kidneys; endocrine disruptors impair development; microplastic effects remain uncertain; mining can cause acid drainage; clearcutting increases erosion."
 
@@ -26,7 +33,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 9: SORT THE MIXED WASTE OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
+    - who: voss   # Mara Voss
       say: "Start with sort the mixed waste. We need evidence the next decision can use."
   - id: after-stop-33
     # After Stop 33 | tip-lab-bench | automatic
@@ -34,32 +41,99 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "Use the Stop 33 result to settle map source and fate."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 33 result to settle map source and fate."
   - id: after-stop-34
     # After Stop 34 | council-table | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "Use the Stop 34 result to settle control the compost process."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 34 result to settle control the compost process."
   - id: after-stop-35
     # After Stop 35 | council-table | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 35 changes the persistent board and unlocks the decision stop."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "Use the Stop 35 result to settle fund source controls."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 35 result to settle fund source controls."
   - id: at-mission-end
     # At mission end | weighbridge | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 36 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 9 EVIDENCE: RECORDED"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Waste and Land-Use Controls. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to Waste and Land-Use Controls, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?"
+      hint: "Use the stated evidence and the conditions for Bioaccumulation; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Pollutant buildup within one organism.", why: "Correct. pollutant buildup within one organism."}
+      - {key: "C", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "This describes Eutrophication, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?"
+      hint: "Use the stated evidence and the conditions for Biomagnification; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Pollutant buildup within one organism.", why: "This describes Bioaccumulation, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Rising concentration at higher trophic levels.", why: "Correct. rising concentration at higher trophic levels."}
+      - {key: "D", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "This describes Eutrophication, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks Waste and Land-Use Controls using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?"
+      hint: "Use the stated evidence and the conditions for Persistent organic pollutant; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Pollutant buildup within one organism.", why: "This describes Bioaccumulation, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "This describes Eutrophication, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "Correct. long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB)."}
+    - prompt: "An unseen case extends Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?"
+      hint: "Use the stated evidence and the conditions for Eutrophication; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "Correct. nutrient enrichment leading to algae and oxygen loss."}
+      - {key: "B", text: "Pollutant buildup within one organism.", why: "This describes Bioaccumulation, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Waste and Land-Use Controls decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?"
+      hint: "Use the stated evidence and the conditions for pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Pollutant buildup within one organism.", why: "This describes Bioaccumulation, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Sort the mixed waste connects the measured environmental mechanism to the next island condition.", why: "Correct. sort the mixed waste connects the measured environmental mechanism to the next island condition."}
+      - {key: "C", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from Waste and Land-Use Controls to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?"
+      hint: "Use the stated evidence and the conditions for point and nonpoint fate | pollution | 9; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Pollutant buildup within one organism.", why: "This describes Bioaccumulation, not point and nonpoint fate | pollution | 9. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not point and nonpoint fate | pollution | 9. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Map source and fate connects the measured environmental mechanism to the next island condition.", why: "Correct. map source and fate connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not point and nonpoint fate | pollution | 9. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 9: worked examples"
+    examples:
+    - {"title":"Accumulation versus magnification","problem":"A fish's contaminant level rises over its lifetime; predators have higher concentrations than prey. Name the two processes.","rule":"Bioaccumulation occurs within an organism; biomagnification increases concentration across feeding levels.","steps":["The individual fish's lifetime increase is bioaccumulation.","The predator-prey concentration increase is biomagnification."],"answer":"These describe different comparisons and may occur together.","mistake":"Not every substance necessarily biomagnifies."}
+    - {"title":"Compare food-chain concentrations","problem":"Prey contain 0.2 mg/kg of a persistent contaminant; predators contain 2 mg/kg. Find the concentration ratio.","rule":"Concentration ratio=predator concentration/prey concentration.","steps":["Set up the relationship: Concentration ratio=predator concentration/prey concentration.","ratio=2/0.2=10."],"answer":"Predator concentration is ten times prey concentration in these samples.","mistake":"Compare concentration units consistently; total body mass is a different quantity."}
+    - {"title":"Trace oxygen loss","problem":"Fertilizer runoff enters a lake, algae grow rapidly, and later dissolved oxygen falls. Explain the sequence.","rule":"Extra nutrients can stimulate growth; microbial decomposition consumes dissolved oxygen.","steps":["Nutrient enrichment promotes an algal bloom when other conditions permit.","After biomass dies, decomposers use oxygen while breaking it down."],"answer":"The resulting oxygen depletion can harm aquatic animals.","mistake":"Nutrients do not simply remove oxygen by their presence alone."}
+    - {"title":"Point versus nonpoint pollution","problem":"Compare waste leaving a single discharge pipe with fertilizer washed from many fields after rain.","rule":"A point source is an identifiable discrete discharge; nonpoint pollution is diffuse.","steps":["The single pipe has a defined outlet that can be sampled and controlled.","Field runoff arrives through many pathways over a broad area."],"answer":"The pipe is a point source; widespread field runoff is nonpoint.","mistake":"The distinction describes the release pathway, not whether the pollutant is dangerous."}
+    - {"title":"Integrated pest management","problem":"A grower observes a pest count below the action threshold and beneficial predators present. What is a reasoned next step?","rule":"Integrated pest management combines monitoring, prevention, biological methods, and targeted treatment when justified.","steps":["The count has not reached the preselected action threshold.","Continue monitoring and protect beneficial predators rather than automatically applying a broad pesticide."],"answer":"Use the evidence and threshold to decide whether treatment is needed.","mistake":"Integrated management does not mean either spraying constantly or never treating."}
 
   stops:
   # --- Stop 33: Sort the mixed waste
@@ -68,10 +142,10 @@
   - group: TIP
     at: weighbridge
     title: "Sort the mixed waste"
-    concept: "pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence"
-    reason: "The island cannot commit sort the mixed waste until this evidence is resolved."
-    scene: "The school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort each arrival by its pollutant class before treatment begins, and the team needs this result before it acts."
-    motivation: "Sort the mixed waste connects the measured environmental mechanism to the next island condition."
+    concept: 29   # pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence
+    reason: "Closing the school pathway does not prevent new mixed waste loads from introducing other hazards."
+    scene: "The school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort each arrival by its pollutant class before treatment begins."
+    motivation: "Pollutant classification determines which arriving materials require separate handling before treatment."
     format: BELT
     question: "Classify fertilizer, a lead battery, a PCB transformer, hormone medicines, and plastic fragments"
     answerText: "The completed check shows all five loads are separated by persistence and biological effect."
@@ -84,6 +158,62 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   belt:{categories:[nutrient,heavy_metal,persistent_organic_pollutant,endocrine_active_drug,microplastic],items:{fertilizer:nutrient,lead_battery:heavy_metal,PCB_transformer:persistent_organic_pollutant,hormones:endocrine_active_drug,plastic_fragments:microplastic},misses_allowed:2}
+    belt:
+      left:
+        name: Persistent or biologically active pollutant
+      right:
+        name: Readily managed ordinary waste
+      items:
+        - name: lead battery
+          bin: left
+        - name: PCB transformer
+          bin: left
+        - name: hormone medicine
+          bin: left
+        - name: microplastic
+          bin: left
+        - name: mercury lamp
+          bin: left
+        - name: pesticide concentrate
+          bin: left
+        - name: cadmium cell
+          bin: left
+        - name: oil sludge
+          bin: left
+        - name: PFAS coating
+          bin: left
+        - name: solvent can
+          bin: left
+        - name: medical sharps
+          bin: left
+        - name: copper biocide
+          bin: left
+        - name: clean glass
+          bin: right
+        - name: uncoated paper
+          bin: right
+        - name: food scraps
+          bin: right
+        - name: untreated wood offcut
+          bin: right
+        - name: clean steel
+          bin: right
+        - name: cardboard
+          bin: right
+        - name: cotton cloth
+          bin: right
+        - name: yard trimmings
+          bin: right
+        - name: clean ceramic
+          bin: right
+        - name: aluminium can
+          bin: right
+        - name: plain timber
+          bin: right
+        - name: compostable fiber
+          bin: right
+      need: 20
+      lives: 2
 
   # --- Stop 34: Map source and fate
   #     Concept: point and nonpoint fate | pollution | 9; Keystone: point and nonpoint fate | pollution | 9; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: point and nonpoint fate | pollution | 9.
@@ -91,10 +221,10 @@
   - group: TIP
     at: tip-lab-bench
     title: "Map source and fate"
-    concept: "point and nonpoint fate | pollution | 9"
-    reason: "The island cannot commit map source and fate until this evidence is resolved."
+    concept: 27   # point and nonpoint fate | pollution | 9
+    reason: "The sorted waste needs a source-and-fate map before controls are chosen."
     scene: "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Map source and fate connects the measured environmental mechanism to the next island condition."
+    motivation: "Each pollutant's pathway identifies where its control must intercept transport or exposure."
     format: CASEBOOK
     question: "Map pipe discharge, field runoff, landfill leachate, and fish mercury to point source, nonpoint source, groundwater pathway, and biomagnification"
     # THE BIBLE'S PAYLOAD, converted. Its four keyed pairs become the clue rows,
@@ -128,10 +258,10 @@
   - group: TIP
     at: council-table
     title: "Control the compost process"
-    concept: "compost process | causality | D3 | RETRIEVE | L3 | evidence"
-    reason: "The island cannot commit control the compost process until this evidence is resolved."
-    scene: "The pathway map favors prevention, and compost could replace imported fertilizer if its process is stable. Change aeration alone, measure, restore baseline, and repeat, and the team needs this result before it acts."
-    motivation: "Control the compost process connects the measured environmental mechanism to the next island condition."
+    concept: 5   # compost process | causality | D3 | RETRIEVE | L3 | evidence
+    reason: "The source map makes compost a possible fertilizer substitute whose operating conditions need testing."
+    scene: "The pathway map favors prevention, and compost could replace imported fertilizer if its process is stable. Change aeration alone, measure, restore baseline, and repeat."
+    motivation: "Temperature and odor responses determine whether aeration supports the decomposition process needed for usable compost."
     format: CONTROL
     question: "Measure at 1 exchange/hour after 24 hours; change only aeration to 3 exchanges/hour with moisture 55%, feed mix 1:1, mass 500 kg, and time fixed; restore 1 and remeasure; submit the causal conclusion"
     # THE BIBLE'S PAYLOAD, converted. Its three candidates and `correct_control:
@@ -170,12 +300,12 @@
   - group: CHAPEL
     at: council-table
     title: "Fund source controls"
-    concept: "integrated controls | policy | 9"
-    reason: "The island cannot commit fund source controls until this evidence is resolved."
-    scene: "The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources, and the team needs this result before it acts."
-    motivation: "Fund source controls connects the measured environmental mechanism to the next island condition."
+    concept: 21   # integrated controls | policy | 9
+    reason: "The compost test and source map now provide evidence for allocating prevention effort."
+    scene: "The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources."
+    motivation: "The funded controls determine which confirmed pollutant sources the island will intercept before another exposure occurs."
     format: ALLOCATE
-    question: "Fund liner and cap 25, tertiary nutrient removal 25, IPM 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20"
+    question: "Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20."
     answerText: "The completed check shows the five source controls use all 100 points."
     why: "Fund source controls connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -186,4 +316,37 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   allocate:{pool:100,items:[{id:"liner_cap",cost:25,required:true},{id:"tertiary",cost:25,required:true},{id:"IPM",cost:20,required:true},{id:"drip",cost:15,required:true},{id:"rain_garden",cost:15,required:true},{id:"clearcut_subsidy",cost:25,required:false},{id:"blanket_pesticide",cost:20,required:false}],questions:[{id:"waste",text:"Does the plan block landfill and sewage sources?",required:true},{id:"farm",text:"Does it reduce fertilizer and pesticide transport?",required:true},{id:"runoff",text:"Does it intercept stormwater before the reef?",required:true}],correct_allocation:{liner_cap:25,tertiary:25,IPM:20,drip:15,rain_garden:15},answerText:"Spend all 100 points on the five source controls; the two optional subsidies do not address the confirmed pathways."}
+    allocate:
+      pool:
+        amount: 100
+      items:
+        - id: liner_cap
+          cost: 25
+        - id: tertiary
+          cost: 25
+        - id: IPM
+          cost: 20
+        - id: drip
+          cost: 15
+        - id: rain_garden
+          cost: 15
+        - id: clearcut_subsidy
+          cost: 25
+        - id: blanket_pesticide
+          cost: 20
+      answers:
+        - question: Does the plan block landfill and sewage sources?
+          requires:
+            - liner_cap
+            - tertiary
+          required: true
+        - question: Does it reduce fertilizer and pesticide transport?
+          requires:
+            - IPM
+            - drip
+          required: true
+        - question: Does it intercept stormwater before the reef?
+          requires:
+            - rain_garden
+          required: false
 

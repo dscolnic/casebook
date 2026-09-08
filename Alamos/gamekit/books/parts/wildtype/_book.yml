@@ -1,0 +1,525 @@
+# Dark Fibre — Pellow Head Island, twelve days to guide one repair attempt.
+#
+# Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/darkfibre/site.js;
+# the sketch it came from is ../GAME_IDEAS.md under "Fibre", where it sat parked
+# because Deep Watch already owned "everything you know arrives as a signal".
+# What settled it is the course: AP Physics 2's optics and modern-physics half is
+# four concepts and three concepts in deepwatch_hs, retrofitted onto a submarine,
+# and it is the whole of both units here.
+#
+# Twelve of the thirty-six stops are DERIVE panels, one a day, in the order the
+# optics has to arrive in:
+#
+#   day  1  the acceptance cone, from Snell's law and the critical angle
+#   day  2  the apparent fault distance, from delay and the speed in glass
+#   day  3  the reflection expected from a clean break
+#   day  4  the full span loss budget in decibels
+#   day  5  the energy of one 1550 nm photon and the photon rate in a power
+#   day  6  the measured photodiode responsivity
+#   day  7  gamma attenuation through the replacement housing
+#   day  8  the anti-reflection coating used to clean up the two-colour test
+#   day  9  radioactive decay of the radiography source
+#   day 10  the corrected seabed route position
+#   day 11  the pump-power ceiling from photon energies
+#   day 12  the final loss budget after the spare-pump recovery
+#
+# `askRule: true` is on. Optics is a course where the same arithmetic is licensed
+# by four different physical laws, and a student who divides the indices the right
+# way round without knowing whether they are using Snell or the critical-angle
+# condition has not understood either.
+#
+# The story: Pellow Head is a small island whose main phone and internet link to the mainland
+# is an undersea fibre cable. The cable lost 4.1 dB suddenly and the island is running on one
+# backup route. A repair ship reaches the island in twelve days, just before bad weather closes
+# the sea for weeks. The player has to use the physics of light to answer two questions before
+# that one safe recovery day: what failed, and exactly where it is on the seabed route.
+#
+# The timeline the cards are checked against:
+#   eleven years ago    the cable laid; 1.5 per cent slack paid out over the route
+#   four years ago      repeater 6 replaced; its pump output logged at 118 mW
+#   eight months ago    the radiography source renewed; 73.8-day half-life
+#   nineteen days ago   the span lost 4.1 dB overnight and the traffic moved
+#   now                 twelve working days until the repair ship arrives
+#   day 13              one safe repair day before the weather closes the sea
+#   after that          the next safe offshore repair window may be weeks away
+
+theme:
+  id: darkfibre
+  title: Dark Fibre
+  subtitle: Optical Measurements Lead · Pellow Head Island · twelve days to guide one repair attempt
+  opening: >-
+    Pellow Head is a small island. Nearly every phone call and internet connection to the mainland runs through
+    one fibre-optic cable on the ocean floor. Nineteen days ago it lost most of its signal, leaving the island
+    on one backup line. If that fails, emergency calls, hospital links and normal communication with the mainland
+    go down.
+
+
+    A repair ship arrives in twelve days, just before bad weather closes the sea for weeks. It gets one safe day
+    to pull up one part of the cable. You are the optical measurements lead. Use the physics of light to answer
+    two questions: what failed, and where is it? Send the ship to the wrong thing or place, and Pellow Head may
+    stay on its last link until the sea reopens.
+
+groups:
+  - id: CLINIC
+    code: CLINIC
+    name: Field Clinic
+    color: "#2f6f9f"
+    difficulty: 2
+    type: protocol
+    defaultLeader: vale
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: GROW
+    code: GROW
+    name: Growth Hall
+    color: "#7a5aa8"
+    difficulty: 3
+    type: protocol
+    defaultLeader: reed
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: SEED
+    code: SEED
+    name: Seed Room
+    color: "#c2704a"
+    difficulty: 4
+    type: protocol
+    defaultLeader: shah
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: PLAN
+    code: PLAN
+    name: Field Planning Room
+    color: "#3f8d6e"
+    difficulty: 2
+    type: protocol
+    defaultLeader: penn
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: GENE
+    code: GENE
+    name: Genetics Trailer
+    color: "#8a7a3f"
+    difficulty: 3
+    type: protocol
+    defaultLeader: shah
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: MARSH
+    code: MARSH
+    name: Marsh Research Bay
+    color: "#4f6f8f"
+    difficulty: 4
+    type: protocol
+    defaultLeader: rowan
+    budget: 70
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+roster:
+- id: penn
+  name: "Ada Penn"
+  role: "preserve director"
+  division: PLAN
+  pronouns: "she/her."
+  bio: |
+    Ada Penn is preserve director. Wants give the mainland a justified chance to recover. A complete manifest can look more certain than its evidence. Moves from whole-manifest certification to a staged permit-limited pilot. Says, "What does this result let us do?"
+- id: vale
+  name: "Mara Vale"
+  role: "veterinary biologist"
+  division: CLINIC
+  pronouns: "she/her."
+  bio: |
+    Mara Vale is veterinary biologist. Wants keep each organism healthy through handling. Can focus on individual health before community needs. Accepts that a healthy organism can still lack a needed partner. Says, "Which comparison stayed healthy?"
+- id: reed
+  name: "Ivo Reed"
+  role: "plant physiologist"
+  division: GROW
+  pronouns: "he/him."
+  bio: |
+    Ivo Reed is plant physiologist. Wants restore vigorous nursery growth. Initially sees recovered leaves as evidence the old settings work broadly. Limits the reset after flowering and visitor evidence. Says, "What changed in the matched tray?"
+- id: shah
+  name: "Nell Shah"
+  role: "conservation geneticist"
+  division: SEED
+  pronouns: "she/her."
+  bio: |
+    Nell Shah is conservation geneticist. Wants preserve variation and traceable families. Can overvalue a sequence lead before organismal evidence. Keeps causal claims narrower than the sequence story. Says, "Can we still trace that family?"
+- id: rowan
+  name: "Tess Rowan"
+  role: "field ecologist"
+  division: MARSH
+  pronouns: "she/her."
+  bio: |
+    Tess Rowan is field ecologist. Wants protect working habitats and relationships. Can assume island dependencies transfer with the organisms. Requires receiving-site tests instead of copying the island wholesale. Says, "What else depends on that?"
+
+glossary:
+  - name: Calibration
+    aliases: [calibration, calibrate, calibrated, calibrating]
+    def: Checking an instrument against something already known, so its readings can be trusted.
+  - name: Spectrum
+    aliases: [spectrum, spectra]
+    def: The set of energies or wavelengths something gives out, and how much of each.
+  - name: Refractive index
+    aliases: [refractive index, index, indices]
+    def: How much more slowly light goes in a material than in empty space.
+  - name: Optical fibre
+    aliases: [optical fibre, fibre, fibres]
+    def: A hair of very pure glass that carries light along its own length.
+  - name: Core
+    aliases: [core]
+    def: The thin middle of a fibre, where the light travels.
+  - name: Cladding
+    aliases: [cladding]
+    def: The layer round the core, made with a slightly lower index than the middle.
+  - name: Total internal reflection
+    aliases: [total internal reflection]
+    def: What happens when light meets a boundary too obliquely to cross it, and none of it gets out.
+  - name: Critical angle
+    aliases: [critical angle]
+    def: The angle beyond which none of the light crosses a boundary at all.
+  - name: Numerical aperture
+    aliases: [numerical aperture, acceptance angle]
+    def: How wide a cone of light a fibre will take and keep.
+  - name: Wavelength
+    aliases: [wavelength, wavelengths]
+    def: The distance between one crest of a wave and the next.
+  - name: Nanometre
+    aliases: [nanometre, nanometres, nm]
+    def: A thousand-millionth of a metre, which is the unit light is measured in here.
+  - name: Photon
+    aliases: [photon, photons]
+    def: One indivisible quantum of light, carrying an amount of energy fixed by its own colour.
+  - name: Electron volt
+    aliases: [electron volt, electron volts, ev]
+    def: A very small unit of energy, convenient for one particle at a time.
+  - name: Decibel
+    aliases: [decibel, decibels, db]
+    def: A way of stating a ratio as a logarithm, so that stages along a path add up.
+  - name: Attenuation
+    aliases: [attenuation, attenuates]
+    def: The steady weakening of a signal as it goes, quoted per kilometre or per millimetre.
+  - name: Rayleigh scattering
+    aliases: [rayleigh scattering, scattering]
+    def: Light turned aside by the tiny irregularities of the material it is passing through.
+  - name: Dispersion
+    aliases: [dispersion]
+    def: The spreading of a pulse, because not every colour in it travels at quite the same speed.
+  - name: Group index
+    aliases: [group index]
+    def: The number that says how fast a pulse travels, as against how fast one steady colour does.
+  - name: Reflectometer
+    aliases: [reflectometer, otdr]
+    def: An instrument that sends a pulse down a fibre and times what comes back.
+  - name: Trace
+    aliases: [trace, traces]
+    def: "The picture a reflectometer draws: how much came back, against how long it took."
+  - name: Splice
+    aliases: [splice, splices, spliced]
+    def: A joint between two fibres, either welded or held end to end.
+  - name: Cleave
+    aliases: [cleave, cleaved, cleaving]
+    def: A cut made on purpose, so that the end of a fibre is square rather than ragged.
+  - name: Index-matching gel
+    aliases: [index-matching gel, matching gel, gel]
+    def: A clear jelly of the same index as the glass, used to remove a step at a joint.
+  - name: Fresnel reflection
+    aliases: [fresnel reflection, fresnel]
+    def: The part of a beam that comes straight back wherever the index changes abruptly.
+  - name: Repeater
+    aliases: [repeater, repeaters]
+    def: A sealed housing on the sea floor that strengthens the signals passing through it.
+  - name: Erbium amplifier
+    aliases: [erbium amplifier, erbium]
+    def: A coil of fibre with a rare-earth element in the glass, which gives the signal energy it takes from
+      a laser.
+  - name: Pump laser
+    aliases: [pump laser, pump]
+    def: The laser whose light lifts those atoms into a state they can give energy from.
+  - name: Stimulated emission
+    aliases: [stimulated emission]
+    def: An excited atom made to release its energy early, by a passing wave it then joins.
+  - name: Population inversion
+    aliases: [population inversion]
+    def: The state in which more atoms are excited than are not, without which nothing is amplified.
+  - name: Quantum efficiency
+    aliases: [quantum efficiency]
+    def: How often an arriving quantum of light frees a charge where it lands.
+  - name: Responsivity
+    aliases: [responsivity]
+    def: The current a detector gives for each watt falling on it.
+  - name: Shot noise
+    aliases: [shot noise]
+    def: The unevenness that comes from anything being counted rather than measured.
+  - name: Landing station
+    aliases: [landing station]
+    def: The building where an undersea cable comes ashore and its signals go onto land equipment.
+  - name: Power feed
+    aliases: [power feed]
+    def: The high voltage applied to a cable’s single conductor to run the housings along it.
+  - name: Slack
+    aliases: [slack]
+    def: The extra length paid out while laying, so the cable lies down instead of hanging.
+  - name: Grapnel
+    aliases: [grapnel]
+    def: A heavy hook dragged from a repair ship to catch an undersea cable so the crew can lift it.
+  - name: Radiography
+    aliases: [radiography, radiograph, radiographed]
+    def: Making a picture of the inside of something by shining rays through it onto film.
+  - name: Activity
+    aliases: [activity]
+    def: How many nuclei of a source break up each second.
+  - name: Half-life
+    aliases: [half-life]
+    def: The time in which half of a batch of unstable nuclei have decayed.
+  - name: Barrier distance
+    aliases: [barrier distance]
+    def: How far back everybody has to stand while an exposure is being made.
+
+missions:
+# <<< MISSIONS >>>
+
+interiors:
+  TERM:
+    caption: Where the sea cable becomes glass you can put light into.
+    standLine: The armour off, the conductor to the feed, and every fibre out to a connector.
+    station:
+      kind: panel
+      title: Termination bench
+      rows:
+        - {label: Core index, value: 1.4682, status: normal}
+        - {label: Numerical aperture, value: 0.125, status: normal}
+        - {label: Acceptance cone, value: 7.2°, status: high}
+  TEST:
+    caption: A pulse, a delay and a logarithm.
+    standLine: Eleven years of traces in the drawer, each with its settings on the corner.
+    station:
+      kind: panel
+      title: Reflectometer
+      rows:
+        - {label: Step in the trace, value: 4.1 dB, status: alarm}
+        - {label: Round-trip delay, value: 828.6 µs, status: normal}
+        - {label: 'Distance, corrected', value: 82.9 km, status: high}
+  SPLICE:
+    caption: Two ends of glass, and the step between them.
+    standLine: Eleven mechanical joints on the shore end, all as old as the cable.
+    station:
+      kind: panel
+      title: Splice bench
+      rows:
+        - {label: 'Reflection, dry end', value: −14.4 dB, status: alarm}
+        - {label: 'Reflection, in gel', value: −51 dB, status: normal}
+        - {label: Coating thickness, value: 320 nm, status: normal}
+  AMP:
+    caption: Erbium in a coil of glass, and a laser holding it excited.
+    standLine: Repeater 6's telemetry, four years of it, every reading inside limits.
+    station:
+      kind: panel
+      title: Amplifier desk
+      rows:
+        - {label: 'Pump, as logged', value: 118 mW, status: normal}
+        - {label: 'Ceiling on added signal', value: 74.6 mW, status: high}
+        - {label: 'Pump now, inferred', value: 46 mW, status: alarm}
+  RECV:
+    caption: Where photons become charges, and where the counting starts.
+    standLine: A diode measured at 82 conversions in a hundred, against a sheet claiming ninety.
+    station:
+      kind: panel
+      title: Receiver bench
+      rows:
+        - {label: Photon energy at 1550 nm, value: 0.80 eV, status: normal}
+        - {label: Responsivity, value: 1.03 A/W, status: normal}
+        - {label: Arrivals per bit, value: 6200, status: high}
+  RAD:
+    caption: Where the replacement repeater housing is X-rayed before it can go to sea.
+    standLine: The source is eight months old, so every exposure takes longer than it did when the source 
+      was new.
+    station:
+      kind: panel
+      title: Radiography bay
+      rows:
+        - {label: Through 40 mm of steel, value: 7 %, status: high}
+        - {label: Activity left, value: 10 %, status: alarm}
+        - {label: Barrier distance, value: 18.5 m, status: normal}
+
+warmups:
+  trial-near:
+    title: Learn the island station before the repair countdown starts
+    # One sentence, and purely functional: who is here and what the ground is.
+    # Mandate 4b of THREE_PASS_BRIEF.md — the reason for the mission-1 run is
+    # orientation itself, on a morning the player has met nobody yet.
+    why: >-
+      Five buildings, a duct trench and a beach manhole, all of it on sand, and the splice
+      trailer is not parked where the drawing puts it.
+  trial-far:
+    title: The dune track out to the bay
+    why: >-
+      The radiography bay is three hundred metres out in the dunes because of what is in the pot, and
+      the track shifts with the sand. Take it once before you have to, because Nadia Farouk, the
+      radiographer, will be waiting on a film and the exposure cannot be interrupted half way.
+  greet:
+    title: Meet the people who disagree about what failed
+    why: >-
+      Gerald Okonkwo, the station chief and cable engineer, distrusts turning an optical distance directly
+      into a seabed position. Ines Sarraf, the chief transmission engineer, trusts the trace but knows the
+      weather deadline is real. You will need both of them, and the rest of the crew,
+      before you can tell the ship what to repair.
+  follow:
+    title: The duct route, walked by the man who terminated it
+    why: >-
+      Halvard Nilsen, the cable termination technician, walks the duct from the beach manhole to the
+      termination room the same way every week and the route is not on the drawing at the accuracy
+      that matters. Stay with him along it. Where he stops is where the duct is shallow.
+  hunt:
+    title: Six spare pump modules, and the store lists four
+    item: {name: pump module, plural: pump modules}
+    why: >-
+      Every amplifier on this station has a spare pump module and two of them are not in the store where the book
+      says. A spare nobody can find is a repeater with no redundancy, which is exactly what repeater 6 became
+      after the spare-pump test.
+  canvass:
+    title: Who else saw the loss arrive on the night
+    why: >-
+      The span lost four decibels between two o'clock and four in the morning and only one instrument
+      recorded it. Ask round the crew and the night shift until enough accounts agree on when it
+      began, because a single trace is not yet a measurement of when anything happened.
+  evade:
+    title: The maker's engineer who wants the trace re-run his way
+    why: >-
+      He has driven from the mainland with a settings sheet and wants the span traced with a long
+      pulse, which would blur the very thing that is being looked at. The argument belongs to Ines
+      Sarraf, the chief transmission engineer.
+      Keep clear of him and get your round done rather than spending the afternoon in the test room.
+  tag:
+    title: Catch Whitlock before he signs the bay out
+    why: >-
+      Joe Whitlock, the radiation safety officer, signs the radiography bay closed at six and today's
+      exposure runs for more than two hours.
+      The replacement housing cannot sail without that inspection, so the safe barrier has to be set before he
+      leaves.
+
+copy:
+  TERM: <p>The cable termination room. The armour comes off here, the conductor goes to the power feed, and 
+    every fibre in the cable is brought out to a connector somebody made by hand.</p>
+  TEST: <p>The test room. One instrument, eleven years of traces in a drawer with their settings written on 
+    the corners, and a step nineteen days old that nobody has explained.</p>
+  SPLICE: <p>The splice trailer, parked against the duct trench. A fusion splicer, a microscope, and eleven 
+    mechanical joints' worth of history on the shore end.</p>
+  AMP: <p>The amplifier and power hall. Several thousand volts on the cable's single conductor, and a coil 
+    of glass with a rare-earth metal in it that does the work nothing electrical could.</p>
+  RECV: <p>The receiver lab. A diode, an amplifier and a decision about whether a bit was a one, made six 
+    thousand photons at a time.</p>
+  RAD: <p>The radiography bay, three hundred metres out in the dunes. A pot, a crank handle, a barrier rope 
+    and a film cassette, and a source that is a tenth of what it was in the spring.</p>
+  MANHOLE: <p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two 
+    hundred metres up the dune from the low-water mark.</p>
+  GEN: <p>The generator house. Two sets, one running, because a landing station that loses power stops 
+    feeding the repeaters and every one of them is on the seabed.</p>
+  STORE: <p>The ship's store. Replacement housings, spare pumps and jointing kits are staged here for the 
+    one-day weather window when the cable can be lifted safely.</p>
+
+# --------------------------------------------------------------- review variants
+#
+# Four lessons no mission stop points at. From day 3 every day carries a callback,
+# and `shapeMissions` only issues one where the oldest taught lesson has an unserved
+# "— Review" variant; with none authored this campaign served no callbacks at all.
+#
+# Each is its base lesson's concept on a different case, in a different format, and
+# none of them is a DERIVE — the twelve derivations are the course and they are not
+# to be duplicated, re-ordered or paraphrased. `concept:` is written out rather than
+# left to the picker, because a variant is the one stop whose subject is already
+# decided by the stop it is a review of.

@@ -151,7 +151,6 @@ export const CURRICULUM = {
           "start": "n₁sinθ₁ = n₂sinθ₂, with n = c/v so that sinθ₁/v₁ = sinθ₂/v₂",
           "goal": "the largest θ₁ for which a ray still crosses into the slower water",
           "startNote": "v₁ = 1500 m/s above the layer, v₂ = 1480 m/s below it",
-          "rules": [],
           "steps": [
             {
               "ask": "Write the condition for the refracted ray to lie along the boundary.",
@@ -159,23 +158,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "sinθ₂ = 1, so sinθ₁ = v₁ / v₂",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "sinθ₂ = 0, so sinθ₁ = 0",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "A refracted ray along the normal is a ray going straight down, which is the one case that crosses no matter what. It is the opposite end of the range from the limiting ray."
-                },
-                {
-                  "text": "sinθ₂ = 1, so sinθ₁ = v₂ / v₁",
-                  "rule": "substitution",
-                  "why": "This is the right condition with the ratio inverted, and it stays algebraically valid to the end — it yields a real angle of about 81 degrees. It is the critical angle for a ray going the other way, from slow water into fast, which is not the geometry in front of you.",
-                  "survives": true
-                },
-                {
-                  "text": "θ₂ = θ₁, so the speeds must be equal",
-                  "rule": "substitution",
-                  "why": "Equal angles is what happens when the speeds are equal, so this assumes away the twenty metres per second the whole question is about."
                 }
               ]
             },
@@ -185,18 +173,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "sinθ₁ = 1500/1480 = 1.014, which no angle satisfies",
-                  "rule": "evaluation"
+                  "note": "evaluation"
                 },
                 {
                   "text": "sinθ₁ = 1500/1480 = 1.014, and θ₁ = arcsin(1.014) ≈ 81 degrees from the normal",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "No angle has a sine above one. Reading 1.014 as though it were a cosine, or rounding it quietly down to one, is the step that turns an impossible condition into a plausible answer."
-                },
-                {
-                  "text": "sinθ₁ = 0.987, so θ₁ ≈ 81 degrees from the normal",
-                  "rule": "evaluation",
-                  "why": "This is the arithmetic of the surviving branch above, and it is internally consistent — it just answers the question about rays travelling from the slow water upward. Under this reading the shadow zone is above the layer, which is not where the contact went.",
-                  "survives": true
                 }
               ]
             }
@@ -3495,7 +3477,8 @@ export const CURRICULUM = {
             "min": 11,
             "max": 90,
             "nominal": 45,
-            "step": 1
+            "step": 1,
+            "worst": "min"
           },
           "robust": "strip",
           "optimiseOn": "hours",
@@ -3620,7 +3603,8 @@ export const CURRICULUM = {
             "min": 0,
             "max": 2,
             "nominal": 2,
-            "step": 0.05
+            "step": 0.05,
+            "worst": "min"
           },
           "robust": "balanced",
           "optimiseOn": "quiet",

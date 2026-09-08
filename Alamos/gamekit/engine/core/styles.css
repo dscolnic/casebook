@@ -27,7 +27,6 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 /* Hero / setup (2D fallback) */
 .hero{padding:18px 22px;margin-top:12px}
 .hero h2{font-size:clamp(32px,5vw,48px);margin:6px 0 0;letter-spacing:-.03em}
-.scope{margin-top:12px;padding:10px 12px;border-left:4px solid var(--gold);background:var(--goldSoft);font-size:.8rem;color:#584a24}
 .setup{margin-top:12px;padding:12px}
 .setupHead{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}
 .setupHead h3{font-size:1.35rem;margin:4px 0 0}
@@ -55,6 +54,104 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .modalBody{padding:12px 16px}
 .modalBody .modalActions{position:sticky;bottom:0;background:var(--panel);padding-top:10px;margin-top:12px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
 .briefBox{padding:10px 12px;background:var(--blueSoft);border-left:4px solid var(--blue);font-size:.8rem;margin-bottom:12px}
+
+/* THE GOAL CARD. Its own card between the opening and the briefing, so the four
+   bars are already on screen behind the sentence that talks about them. Larger
+   than body copy because it is the only thing on the card. */
+.goalCard p{font:600 .95rem/1.55 Inter,system-ui;margin:0}
+
+/* BEAT DIALOGUE ON THE VERDICT CARD. One row per speaker: their face, their
+   name and job, their words. It sits directly under the verdict — the person
+   answers first, then the card explains — so the rule that sets it apart is
+   BELOW it, between the speaker and the teaching, rather than above.
+   Collapsed until a beat fills it — an empty slot would be a stripe. */
+.verdictDialogue{display:none}
+.verdictDialogue.show{display:flex;flex-direction:column;gap:10px;
+  margin:12px 0 0;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.beatSaid{display:flex;gap:11px;align-items:flex-start}
+.beatSaid .beatFace{flex:0 0 auto;width:46px;height:46px;border-radius:10px;
+  overflow:hidden;background:rgba(0,0,0,.06)}
+.beatSaid .beatFace svg{width:100%;height:100%;display:block}
+.beatSaid .beatBody{flex:1 1 auto;min-width:0}
+.beatSaid .beatWho{font:800 .74rem/1.2 Inter,system-ui}
+.beatSaid .beatRole{margin-left:6px;font:600 .66rem/1.2 Inter,system-ui;color:var(--muted)}
+.beatSaid .beatSay{margin:3px 0 0;font:italic 500 .82rem/1.5 Inter,system-ui}
+/* A radio call is somebody four kilometres away, and reads as one. */
+.beatSaid.beatSaidRadio .beatFace{filter:grayscale(.5) contrast(.92)}
+.beatSaid.beatSaidRadio .beatSay::before{content:"radio · ";font-style:normal;
+  font-weight:700;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted)}
+
+/* THE FOUR LINES OF A QUESTION CARD. The situation (`.askBrief`) is the loudest
+   because it is what the player is looking at; the reason above it is why they
+   are here now, and the connection below it is what the answer settles. Both are
+   quieter and set off by their own rule, so the card reads as four steps rather
+   than four paragraphs. */
+.askConnect{font:500 .78rem/1.5 Inter,system-ui;color:var(--muted);
+  margin:.55rem 0 0;padding-top:.5rem;border-top:1px solid var(--line)}
+
+/* DEV ONLY (see `devSkip` in questionUI.js). Deliberately unlike every other
+   button on the panel — hatched, muted, and last in the row — so a screenshot
+   with one in it is obviously a skipped stop and not a played one. Compiled out
+   of a built dist/, so a player never sees it. */
+.btn.devSkip{
+  background:repeating-linear-gradient(45deg,#3a3f45,#3a3f45 6px,#4a5057 6px,#4a5057 12px);
+  color:#e8eef2;border-color:#2b3036;font-size:.72rem;letter-spacing:.04em;
+  margin-left:auto;opacity:.85}
+.btn.devSkip:hover{opacity:1}
+
+/* ---------------------------------------------- the post-mission metric screen
+   The two lines the player is scored on come first and read as instrument
+   output rather than prose: the bible's own labels, uppercase, with the figures
+   in tabular numerals so TIME and TARGET line up under each other. */
+.metricHead{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
+.metricLine{font:700 .62rem/1.4 Inter,system-ui;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.metricLine b{font:800 .95rem/1.2 Inter,system-ui;font-variant-numeric:tabular-nums;
+  color:var(--ink);letter-spacing:0}
+/* The event that caused the change, with the change under it. Named, because a
+   bar that fell for an unreadable reason is one the player cannot answer. */
+.metricEvent .metricDeltas{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px 10px}
+.metricDelta{font:800 .68rem/1 Inter,system-ui;font-variant-numeric:tabular-nums;
+  padding:3px 7px;border-radius:5px;background:rgba(0,0,0,.06);color:var(--muted)}
+.metricDelta.down{background:rgba(200,72,47,.13);color:#8f2f1c}
+.metricDelta.up{background:rgba(63,143,99,.15);color:#276845}
+/* The award as its own arithmetic. Two terms the player can change and one they
+   cannot, which is why it is not printed as a total. */
+.metricSum{font:800 .84rem/1.4 Inter,system-ui;font-variant-numeric:tabular-nums;
+  letter-spacing:.02em}
+.metricSum b{font-size:1.05rem}
+.metricNote{margin-top:5px;font-size:.72rem;color:var(--muted)}
+/* The allocation. Grid rather than flex: the four bars have to line up down the
+   card or comparing them is reading four separate widgets. */
+.allocBank{margin:10px 0 8px;font:700 .62rem/1 Inter,system-ui;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.allocBank b{margin-left:6px;font:800 1rem/1 Inter,system-ui;
+  font-variant-numeric:tabular-nums;color:var(--ink)}
+.allocRows{display:flex;flex-direction:column;gap:9px}
+.allocRow{display:grid;grid-template-columns:1fr 46px auto;
+  grid-template-areas:"name pct btns" "track track btns" "why why why";
+  align-items:center;column-gap:9px;row-gap:3px}
+.allocName{grid-area:name;font:700 .68rem/1.2 Inter,system-ui}
+.allocLock{font:700 .56rem/1 Inter,system-ui;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.allocPct{grid-area:pct;text-align:right;font:800 .78rem/1 Inter,system-ui;
+  font-variant-numeric:tabular-nums}
+.allocTrack{grid-area:track;height:7px;border-radius:4px;background:rgba(0,0,0,.13);
+  overflow:hidden}
+.allocTrack i{display:block;height:100%;width:0;border-radius:4px;
+  background:var(--blue);transition:width .3s ease}
+.allocRow[data-locked="1"] .allocTrack i{background:#3f8f63}
+.allocBtns{grid-area:btns;display:flex;gap:4px}
+.allocBtns .btn{min-width:30px;padding:4px 8px;font:800 .82rem/1 Inter,system-ui}
+.allocBtns .btn[disabled]{opacity:.4;cursor:default}
+/* Where a refused spend says what is missing. Empty until something is refused,
+   so the card is not carrying four lines of instruction nobody needs yet. */
+.allocWhy{grid-area:why;font-size:.68rem;color:#8f2f1c;min-height:0}
+.allocWhy:empty{display:none}
+.metricFailed{border-left-color:#c8482f;background:rgba(200,72,47,.1)}
+.metricReview{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.metricReview li{font-size:.78rem;line-height:1.45}
 .question{font:800 1.05rem/1.35 var(--serif);margin:12px 0}
 .feedback{margin-top:12px;padding:12px;border-radius:10px;font-size:.8rem;line-height:1.5}
 .feedback.good{background:var(--greenSoft);border-left:4px solid var(--green)}
@@ -172,6 +269,16 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    a clock, and what it costs. Set wide and readable, not as fine print. */
 .stakes{font:400 .92rem/1.62 Inter,system-ui;color:#33363a;text-align:left;margin:12px 0 0;max-width:62ch}
 .stakes + .stakes{margin-top:10px;color:#5f6368;font-size:.86rem}
+/* THE LAST LINE OF AN OPENING, said by the person who says it. The row is the
+   same `beatSaid` the verdict card draws, so the face, the name and the italic
+   quote need no rules of their own; what this adds is the separation from the
+   prose above it and a left edge, because on the title card the speech is the
+   thing the player is meant to leave the screen holding. */
+.openingSaid{margin:16px 0 0;padding:12px 0 2px 14px;max-width:62ch;
+  border-top:1px solid var(--line);border-left:3px solid var(--line);
+  border-top-left-radius:0}
+.openingSaid .beatSay{font-size:.9rem;color:#33363a}
+.openingSaid .beatFace{width:52px;height:52px}
 .controlsNote{font:500 .74rem/1.4 Inter,system-ui;color:#666158;margin-top:12px}
 .controlsHelp{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 10px;background:#faf8f2}
 .controlsHelp h4{margin:0 0 4px;font:800 .82rem/1 Inter,system-ui}
@@ -297,11 +404,10 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .choiceListLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
   color:#666158;margin-bottom:6px}
 
-/* The relationship the estimate is built on, stated before the tiles. */
-.calcLaw{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:10px 0 4px;
-  background:#f2f6fa;border:1px solid #cfdce8;border-left:4px solid #2a78d6;border-radius:8px;padding:9px 12px}
-.calcLawLabel{font:800 .6rem/1 Inter,system-ui;letter-spacing:.09em;text-transform:uppercase;color:#4a6a86}
-.calcLawBody{font:700 1rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#14324f}
+/* `.calcLaw` was the relationship stated as a sentence above the tiles, and it is
+   gone: the equation row below it is the same relationship with a slot per term,
+   so the card carried it twice. The rules go with the markup — a stylesheet that
+   still describes an element nobody renders is the next person's dead end. */
 
 /* The price of a wrong call. Two ways forward, each payable in money or time,
    so the choice is legible before it is made rather than after. */
@@ -422,41 +528,65 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    Shown before the countdown starts: what the day's calls are, where they
    are, and how far apart. The player chooses the order from this. */
 .planCard{display:grid;gap:12px}
-.planStake{font:600 .84rem/1.5 Inter,system-ui;color:#6b4b12;background:#fdf6e8;
-  border:1px solid #e6d5b0;border-left:4px solid #b0762a;border-radius:8px;padding:10px 12px}
+/* ONE TYPE SIZE FOR THE WHOLE CARD, and no colour of its own.
+   The body used to be 600-weight amber on a shaded panel with a gold rule down
+   its side, next to rows at .86rem and a title at 1.02 — four sizes and a colour
+   that appears nowhere else in the game, on the one card every day opens with.
+   It is the same prose as the rows beside it and it now reads as such: same
+   family, same size, same ink, told apart by its label and its rule. */
+.planStake, .planAim{font:400 .9rem/1.55 Inter,system-ui;color:#3c3830;
+  margin:0;padding-left:11px;border-left:2px solid var(--line)}
+.planStake > span, .planAim > span{display:block;font:800 .62rem/1.4 Inter,system-ui;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+/* The objective is the one row that is an instruction rather than background. */
+.planAim{border-left-color:var(--accent, #c2704a)}
 .planTable{width:100%;border-collapse:collapse;font-size:.84rem}
 .planTable th{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
   color:#8a8172;text-align:left;padding:0 8px 6px}
 .planTable td{border-top:1px solid var(--line);padding:9px 8px;vertical-align:top}
 .planNum{font:800 .9rem Inter,system-ui;color:#8a8172;width:24px}
 .planMade{font:600 .72rem Inter,system-ui;color:#3d6f52;margin-left:6px}
-/* The terms and relationships today's questions assume. Quiet — it is reference,
-   read once, and the map under it is what the player is deciding from. */
+/* WORTH KNOWING FIRST — one box, one row shape, whatever the row is.
+   It used to be three: a definition list for the terms, a bulleted list for the
+   primer lines and a bordered, monospaced block for the equations, so one card
+   read as three stacked and which treatment a line got depended on where it was
+   written in the bible rather than on what it says. Quiet throughout — it is
+   reference, read once, and the map under it is what the player decides from. */
 .planPrimer{border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#f7f5ef}
 .planPrimer h4{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
   color:#8a8172;margin:0 0 6px}
-.planPrimer ul{margin:0;padding-left:16px}
-.planPrimer li{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;margin:2px 0}
-/* The day's vocabulary, as a glossary rather than a list of sentences. The term
-   is what the eye is scanning for, so it carries the weight and sits on its own
-   line; a day that introduces a dozen words is then a column the reader skips
-   through instead of a paragraph they abandon. Scrolls at its own edge, because
-   the map below it is what the player presses start from. */
-.planPrimer dl{margin:0;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);
-  gap:2px 10px;max-height:min(26vh,220px);max-height:min(26dvh,220px);overflow-y:auto}
-.planPrimer dt{font:700 .78rem/1.45 Inter,system-ui;color:#3c3830}
-.planPrimer dd{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;margin:0}
-.planPrimer dl + ul{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
-/* The equations this day is the first to need, above the vocabulary. Boxed and
-   monospaced so they read as reference to be held onto rather than prose. */
-.planEqs{display:flex;flex-direction:column;gap:6px;margin:0 0 8px}
-.planEq{padding:6px 9px;border:1px solid #cfd8dd;border-radius:5px;background:#f6f9fa}
-.planEqHead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
-.planEq code{font:700 .78rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
-.planEqHead span{font:500 .74rem/1.4 Inter,system-ui;color:#5b6a72}
-/* Every symbol named, with its unit — but run together rather than stacked. A
-   two-column list of four variables cost four lines and pushed the vocabulary
-   off the card; flowed inline the same four wrap into one or two. */
+.planPrimer h4:not(:first-child){margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+/* The label carries the weight, because it is what the eye scans for — a term's
+   name, or the equation itself. Grid rather than flex so every line in the box
+   shares one column edge; a row with no label spans both, which is what makes a
+   whole-sentence primer line read as a sentence and not as a stray definition. */
+.planPrimerRows,.planPrimer{--planLabel:minmax(0,auto)}
+/* A BULLET PER ROW. The box is a list of things to know and it was reading as a
+   table — a column of bold labels beside a column of prose, with the unlabelled
+   primer lines spanning both and looking like stray paragraphs. The marker is
+   drawn rather than a list-item's own, because the row is a grid and needs the
+   label and the text to keep sharing a column edge. */
+.planRow{display:grid;grid-template-columns:10px var(--planLabel) minmax(0,1fr);
+  gap:2px 8px;margin:3px 0}
+.planRow::before{content:'•';color:var(--muted);line-height:1.45;font-size:.8rem}
+.planRow > b{font:700 .78rem/1.45 Inter,system-ui;color:#3c3830}
+.planRow > span{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;min-width:0}
+.planRow > span:only-child{grid-column:2 / -1}
+/* The equation is a label like any other, monospaced because it is notation. */
+.planRowEq > b code{font:700 .78rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+/* Its symbols run together under it rather than stacked: a two-column list of
+   four variables cost four lines and pushed the vocabulary off the card. */
+/* The symbols belong to the equation above them, so they take no bullet of their
+   own and sit under its text rather than under its marker. */
+.planRowVars{margin-top:0}
+.planRowVars::before{content:''}
+.planRowVars > span{grid-column:2 / -1;font:500 .7rem/1.55 Inter,system-ui;color:#5b6a72}
+.planRowVars em{font-style:normal}
+.planRowVars em:not(:last-child)::after{content:' · ';color:#9aa8b0}
+.planRowVars b{font:700 .7rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+/* The whole box scrolls at its own edge, because the map below it is what the
+   player presses start from. */
+.planPrimer{max-height:min(34vh,300px);max-height:min(34dvh,300px);overflow-y:auto}
 .eqVars{margin:5px 0 0;font:500 .7rem/1.55 Inter,system-ui;color:#5b6a72}
 .eqVars span:not(:last-child)::after{content:' · ';color:#9aa8b0}
 .eqVars b{font:700 .7rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
@@ -700,6 +830,18 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    a button, and the format reads as broken. */
 .sweepPanel{margin:10px auto 0;max-width:480px}
 .sweepHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+/* Source the question is about — the three Java lines Whiteout asks a player to
+   trace. Monospace and pre-wrapped, because the indentation of a program is part
+   of what is being read; a left rule rather than a box, so it reads as quoted
+   material and not as a panel with controls in it. It scrolls sideways on its
+   own rather than making the card do it. */
+.sourceBlock{margin:10px 0 12px;padding:10px 12px 10px 14px;
+  border-left:3px solid #7a8b95;border-radius:0 6px 6px 0;
+  background:#eef2f4;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sourceBlock code{font:600 .82rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:#243239;white-space:pre;display:block}
+@media (max-width:520px){ .sourceBlock code{font-size:.76rem} }
+
 /* The question itself. It has its own class rather than the `compactInstruction`
    the other formats use, because that class has no rules anywhere and renders as
    body text — which is survivable under a list of options and not under an
@@ -1558,3 +1700,260 @@ ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
 .liftCost{font-size:.72rem;color:var(--muted);white-space:nowrap}
 .liftBtn.liftHere{opacity:.75}
 .liftBtn.liftHere .liftNum{color:var(--muted)}
+
+/* ------------------------------------------------------------------ beats
+ *
+ * Dialogue bubbles and world-change cards, over the scene. `beats.js` owns the
+ * contents; this is the shape.
+ *
+ * The layer is pointer-events:none so the world keeps its cursor, and only the
+ * card inside it takes clicks — otherwise a bubble that happens to sit over a
+ * door swallows the interaction the beat just unlocked.
+ */
+#beatLayer{
+  position:fixed; inset:0; z-index:70; pointer-events:none;
+  display:none;
+}
+#beatLayer.show{ display:block; }
+#beatLayer > *{ pointer-events:auto; }
+
+.beatBubble{
+  position:absolute;
+  display:flex; gap:0.6rem; align-items:flex-start;
+  max-width:min(24rem, 66vw);
+  background:var(--card, #faf9f5);
+  color:var(--ink, #1b1e22);
+  border-radius:18px;
+  padding:0.7rem 0.9rem 0.6rem 0.7rem;
+  box-shadow:0 10px 34px rgba(0,0,0,0.34), 0 0 0 1px rgba(0,0,0,0.07);
+  /* NOT CLICKABLE, and that is the point. Nothing is paused behind this: the
+   * bubble clears itself on a dwell timer while the player keeps walking, and a
+   * balloon that swallowed the click would take the pointer lock with it. */
+  pointer-events:none;
+}
+/* The speaker's own face, small. On a radio call it is the whole of the
+ * connection between the words and the person; in the room it confirms which of
+ * two people standing together is talking. */
+.beatFace{ flex:0 0 auto; display:block; width:46px; }
+.beatFace .portrait{ width:46px; height:auto; border-radius:9px; display:block; }
+.beatBody{ min-width:0; }
+
+/* Bottom centre, and the ONLY case with no anchor left: a roster person the
+ * crowd never put a rig on. A bubble in the middle now means exactly that. */
+.beatBubble.beatCentre{
+  left:50%; top:auto; bottom:14vh; transform:translateX(-50%);
+}
+
+.beatWho{
+  font-weight:800; font-size:0.82rem; letter-spacing:0.01em;
+  display:flex; gap:0.5rem; align-items:baseline; margin-bottom:0.24rem;
+  flex-wrap:wrap;
+}
+.beatRole{ font-weight:500; font-size:0.72rem; opacity:0.62; }
+.beatSay{ margin:0; font-size:0.96rem; line-height:1.42; }
+/* Spoken, so it is quoted and set the way speech is set. */
+.beatQuote{ font-style:italic; }
+.beatQuote::before{ content:'\201C'; }
+.beatQuote::after{ content:'\201D'; }
+
+/* The tail, so a bubble anchored to somebody visibly belongs to them.
+ * `place()` in beats.js sets `tailLeft` or `tailRight` from the side it had room
+ * on. Centred, there is nobody to point at and it goes. */
+.beatTail{
+  position:absolute; top:22px; width:14px; height:20px;
+  background:var(--card, #faf9f5);
+}
+.tailLeft .beatTail{ left:-11px; clip-path:polygon(100% 0, 100% 100%, 0 34%); }
+.tailRight .beatTail{ right:-11px; clip-path:polygon(0 0, 0 100%, 100% 34%); }
+.beatCentre .beatTail{ display:none; }
+
+/* OFF THE EDGE. The speaker is behind the player or past the frame, so the
+ * balloon sits against the edge they are on and the tail runs off it — the
+ * direction to turn, rather than a card floating in the middle of a moving
+ * screen belonging to nobody. */
+/* THE SPEAKER IS NOT IN FRAME.
+   Not faded, not moved to the margin — down. A quote has to have a face on
+   screen to belong to, and `place()` puts it back the moment the player turns
+   far enough to see who is talking. */
+.beatUnseen{ display:none !important; }
+.beatOffscreen{ opacity:0.96; }
+.beatOffscreen.tailRight .beatTail{ right:-13px; width:16px; }
+.beatOffscreen.tailLeft .beatTail{ left:-13px; width:16px; }
+
+/* A RADIO CALL. The speaker is four kilometres away, so there is nothing in the
+ * scene to point at and the portrait in the balloon is the speaker. Pinned low
+ * and left, where a radio panel goes, with the tail pointing into its own face. */
+.beatBubble.beatRadioFixed{
+  left:auto; right:auto; top:auto;
+  left:calc(14px + env(safe-area-inset-left)); bottom:16vh;
+  background:#eef2f6;
+}
+.beatRadioFixed .beatTail{ display:none; }
+.beatRadio .beatWho::before{
+  content:'RADIO'; font-size:0.6rem; letter-spacing:0.1em; font-weight:800;
+  background:#25506b; color:#fff; padding:0.1rem 0.34rem; border-radius:4px;
+}
+.beatRadio .beatFace .portrait{ filter:grayscale(0.55) contrast(1.08); }
+
+/* ------------------------------------------------ the caption under a change
+ *
+ * The bible's own sentence for what just happened, under the thing that just
+ * happened. It is a subtitle: it labels a change the player can see on the wall
+ * rather than standing in for one, which is what it did when it was a card in
+ * the middle of the screen. Fades on its own; never takes a click.
+ */
+#beatCaption{
+  position:fixed; left:50%; transform:translateX(-50%);
+  bottom:calc(8vh + env(safe-area-inset-bottom));
+  z-index:26; pointer-events:none;
+  max-width:min(38rem, 84vw);
+  background:rgba(20,18,16,0.86); color:#f4f1ec;
+  border-radius:10px; padding:0.5rem 0.9rem;
+  font:500 0.9rem/1.42 Inter, system-ui;
+  text-align:center;
+  opacity:0; transition:opacity 260ms ease;
+  display:none;
+}
+#beatCaption.show{ display:block; opacity:1; }
+
+/* The panel line a beat leaves up. It sits under the objective card so it reads
+ * as instrumentation rather than as another thing to dismiss. */
+#beatPanel{
+  position:fixed; left:14px; z-index:24;
+  max-width:min(30rem, 60vw);
+  background:rgba(18,17,16,0.9); color:#f2efe9;
+  border-left:3px solid var(--accent, #c2704a);
+  border-radius:0 8px 8px 0;
+  padding:0.5rem 0.8rem;
+  font:600 0.8rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing:0.02em; white-space:pre-line;
+  display:none;
+}
+#beatPanel.show{ display:block; }
+
+@media (prefers-reduced-motion: reduce){
+  #beatCaption{ transition:none; }
+}
+
+/* ------------------------------------------- the authored briefing card
+ *
+ * A bible that writes the plan card as exact player copy gets these. The
+ * labelled rows are deliberately quiet: the body is what the player reads and
+ * the four labels are reference they come back to.
+ */
+.planHeader{
+  font:800 0.68rem/1.3 Inter, system-ui; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--accent, #c2704a);
+  margin:0 0 0.35rem;
+}
+.planCardTitle{
+  font:800 0.95rem/1.3 Inter, system-ui; letter-spacing:0.04em;
+  margin:0 0 0.5rem;
+}
+/* `.planCost`, `.planTravel` and `.planGoNow` are all gone with the card fields
+   they styled — Failure means, Later travel, and Go now, which is now the second
+   half of the Objective row rather than a row of its own. A rule for a class
+   nothing emits is a rule the next reader has to check the renderer to disprove.
+   `.planStake` and `.planAim` are styled together, up beside `.planCard`. */
+
+
+/* ---- sound. One small button, bottom right, clear of the thumb layer (bottom
+   left) and the prompt (bottom centre). engine/core/audio.js paints it. */
+#audioBtn{position:fixed;right:calc(14px + env(safe-area-inset-right));
+  bottom:calc(14px + env(safe-area-inset-bottom));z-index:24;
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.28);
+  background:rgba(20,24,28,.55);color:#f4f1e8;font-size:17px;line-height:36px;
+  text-align:center;cursor:pointer;padding:0;backdrop-filter:blur(4px);opacity:.72}
+#audioBtn:hover{opacity:1}
+#audioBtn[aria-pressed="true"]{opacity:.5}
+
+/* ---------------------------------------------------------------- go deeper
+   The optional review offered when a mission is finished. It is a reading
+   screen: no timer, no score, and every option stays live after a pick so all
+   four can be read. See engine/core/deeper.js. */
+.deeperCard{display:grid;gap:14px}
+.deeperIntro{margin:0;color:var(--muted);font:400 .92rem/1.6 Inter,system-ui}
+.deeperTerms{border-left:3px solid var(--line);padding:2px 0 2px 12px;display:grid;gap:6px}
+.deeperTerms h4{margin:0 0 2px;font:600 .74rem/1.4 Inter,system-ui;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted)}
+.deeperTerms p{margin:0;font:400 .9rem/1.55 Inter,system-ui}
+.deeperQs{display:grid;gap:16px}
+.deeperQ{display:grid;gap:8px}
+.deeperPrompt{margin:0;display:flex;gap:8px;align-items:baseline;font:600 .95rem/1.5 Inter,system-ui}
+.deeperNum{flex:0 0 auto;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--line);
+  color:var(--muted);font:600 .7rem/1.35rem Inter,system-ui;text-align:center}
+/* MATHS SET AS MATHS — engine/core/mathText.js. Classed rather than styling
+   `sup`/`sub` outright, because those tags are used elsewhere in the game and a
+   bare rule would resize every one of them. `line-height:0` is the part that
+   matters: a raised group with a normal line height pushes the line it is on
+   away from the line above, so a paragraph of equations comes out spaced like a
+   list. */
+.mathSup,.mathSub{font-size:.72em;line-height:0;position:relative}
+.mathSup{vertical-align:.42em}
+.mathSub{vertical-align:-.28em}
+/* `lim` with what it approaches as an ordinary SUBSCRIPT beside it, not stacked
+   under it. Stacked is how a textbook sets a displayed limit, and it is wrong
+   here: these are sentences — "find lim t→6 (t²−36)/(t−6) in centimetres" — and
+   a two-storey operator in the middle of a line pushes the line above it away
+   and reads as its own broken line. `lim` stays upright, because it is an
+   operator name and not a variable. */
+.mathLim{font-style:normal}
+/* The wrapper the render pass leaves behind must not change how a line flows. */
+.mathSet{display:inline}
+
+/* The heading and the way out to the worked examples, on one line. `baseline`
+   rather than `center`, so the button sits on the heading's own line of type
+   instead of floating beside a much smaller word. */
+.planPrimerHead{display:flex;align-items:baseline;justify-content:space-between;
+  gap:12px;margin:0 0 6px}
+.planPrimerHead h4{margin:0}
+.planPrimerHead .btn{flex:0 0 auto;padding:4px 10px;font:600 .72rem/1.3 Inter,system-ui}
+
+/* WORKED EXAMPLES, behind the mission card's own button. A numbered strip, then
+   one example at a time: problem, rule, steps, answer, and the mistake last. */
+.workedCard{display:grid;gap:12px}
+.workedTabs{display:flex;flex-wrap:wrap;gap:6px}
+.workedTab{display:flex;gap:7px;align-items:baseline;padding:6px 10px;border-radius:999px;
+  border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer;
+  font:500 .78rem/1.3 Inter,system-ui}
+.workedTab b{font:800 .7rem/1 Inter,system-ui;color:var(--muted)}
+.workedTab:hover{border-color:var(--muted)}
+/* The chosen one is said in the border and the weight, never by colour alone. */
+.workedTab.on{border-width:2px;font-weight:700}
+.workedTab.on b{color:inherit}
+.workedOne{display:grid;gap:10px}
+.workedOne h4{margin:0 0 3px;font:800 .6rem/1 Inter,system-ui;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted)}
+.workedOne p{margin:0;font:400 .9rem/1.55 Inter,system-ui}
+.workedSteps ol{margin:0;padding-left:20px}
+.workedSteps li{font:400 .9rem/1.6 Inter,system-ui;margin:2px 0}
+/* The answer is the thing a reader scans back for. */
+.workedAnswer{border-left:3px solid var(--line);padding-left:10px}
+.workedAnswer p{font-weight:600}
+/* And the mistake is marked, because it is the one part that must not be taken
+   away as the method. */
+.workedMistake{border-left:3px solid #d0733b;padding-left:10px}
+.workedMistake p{color:#7c4a22}
+/* Beside its problem where there is room, under it where there is not. */
+.workedFig{overflow-x:auto}
+
+/* A chart on a review question. `.figure` carries its own 10px margins for a
+   question panel that stacks blocks; this is a grid with its own gap, so the
+   margins would double the space above and below. The scroll box is the shared
+   one — an SVG has a 420px minimum and the card can be narrower than that. */
+.deeperFig .figure{margin:0}
+.deeperOpts{display:grid;gap:6px}
+.deeperOpt{display:flex;gap:10px;align-items:baseline;text-align:left;width:100%;
+  padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:transparent;
+  color:inherit;font:400 .9rem/1.45 Inter,system-ui;cursor:pointer}
+.deeperOpt:hover{border-color:var(--muted)}
+.deeperOpt b{flex:0 0 auto;color:var(--muted)}
+/* Right and wrong are said in the border and the label, never by colour alone. */
+.deeperOpt.picked{border-width:2px}
+.deeperOpt.right{border-color:#3f8f6a}
+.deeperOpt.wrong{border-color:#a8563c}
+.deeperOpt.isAnswer b::after{content:" ✓";color:#3f8f6a}
+.deeperHint summary{cursor:pointer;color:var(--muted);font:400 .82rem/1.5 Inter,system-ui}
+.deeperHint p{margin:6px 0 0;color:var(--muted);font:400 .86rem/1.55 Inter,system-ui}
+.deeperWhy{margin:2px 0 0;padding:8px 11px;border-radius:8px;background:var(--line);
+  font:400 .88rem/1.55 Inter,system-ui}

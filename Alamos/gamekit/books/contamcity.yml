@@ -4173,6 +4173,7 @@ missions:
       - key: time
         label: Time to clear the tank
         unit: × the fastest
+        direction: minimise
       scores:
         A:
           heat: 36

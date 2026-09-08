@@ -49,7 +49,7 @@
 // written for. The map is filtered at *draw* time instead, through the accessor
 // this module stamps onto the plan in `initWorld`.
 import * as THREE from 'three';
-import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from './interiorSite.js';
+import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay, blockedBy } from './interiorSite.js';
 import { deliveryHook } from './deliveryCase.js';
 /** The campaign's delivery board, in whichever build holds its room. */
 let deliveryCase = null;
@@ -64,6 +64,8 @@ export function setDeliveryPieces(pieces){ deliveryCase?.setPieces(pieces); }
 
 import { markStructure, markWallMounted } from './interiorKit.js';
 import { tuneRendererForDevice } from './materials.js';
+// Things that move: one list the props layer pushes into, run once a frame.
+import { animate, runAnimators, clearAnimators } from './animators.js';
 
 /** Spliced in place on every arrival. Never reassigned: see the header. */
 export const colliders = [];
@@ -75,6 +77,8 @@ export const stopMeshes = new Map();
 export const areaScreens = new Map();
 
 const caseStands = new Map();          // groupId -> { hit, beacon, floor }
+/** groupId -> the floor's own `setFixtureCall`, so a call can light its object. */
+const fixtureSetters = new Map();
 const openGroups = new Set();          // which cases the day has opened
 
 export let scene = null;
@@ -243,6 +247,15 @@ export function getStopEntry(id){
   const s = stopMeshes.get(id);
   return s ? s.entry : new THREE.Vector3(0, 0, 0);
 }
+/**
+ * Light the object today's call is asked at, and put the rest back to furniture.
+ *
+ * One room's fixtures are built by one floor, so the setter is kept per group.
+ */
+export function setFixtureCall(roomGroup, fixtureId, stopIndex, areaGroup){
+  return fixtureSetters.get(roomGroup)?.(roomGroup, fixtureId, stopIndex, areaGroup) ?? false;
+}
+
 export function setCaseOpen(groupId, on){
   if(on) openGroups.add(groupId); else openGroups.delete(groupId);
   const stand = caseStands.get(groupId);
@@ -418,6 +431,12 @@ export function initWorld(canvas, activeTheme){
 
   // 1. Each floor, built by the engine's own builder into a group at its own
   //    height, on the same footprint as every other floor.
+  // EVERY ANIMATOR FROM THE LAST BUILD GOES FIRST, and it has to be before the
+  // shell rather than after it. This call used to sit further down, just before
+  // `theme.decorate` — which was fine while the builder registered nothing, and
+  // silently threw away every door swing the moment it did. A door whose animator
+  // is discarded reads as a door that does not open.
+  clearAnimators();
   for(const f of FLOORS){
     const holder = new THREE.Group();
     holder.position.y = f.y;
@@ -446,6 +465,10 @@ export function initWorld(canvas, activeTheme){
       // One floor of the four holds the room the delivery is kept in; the other
       // three are handed the same hook and match nothing.
       delivery: deliveryHook(theme),
+      // The objects the questions are asked at. Declared per room in the
+      // theme's `fixtures.js` and built by `interiorSite`, which is the only
+      // place that knows where this room's walls are.
+      fixtures: theme.fixtures ?? {},
     });
     if(built.deliveryCase) deliveryCase = built.deliveryCase;
     firstBuilt = firstBuilt ?? built;
@@ -472,6 +495,11 @@ export function initWorld(canvas, activeTheme){
           entry: new THREE.Vector3(stop.entry.x, f.y, stop.entry.z),
           door: stop.leaf, doorMesh: stop.doorMesh,
         });
+        // The interactables themselves are already in `built.interactables`,
+        // pushed with the rest of the floor above; only the setter is new.
+        if(built.setFixtureCall && built.fixtureRooms?.has(room.group)){
+          fixtureSetters.set(room.group, built.setFixtureCall);
+        }
         const stand = built.caseStands?.get(room.group);
         if(stand){
           f.inter.push({ mesh: stand.hit, type: 'case', id: room.group,
@@ -510,8 +538,10 @@ export function initWorld(canvas, activeTheme){
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, lightPanels, areaScreens,
     floors: FLOORS, rise: RISE, plan,
-    blocked: (x, z, pad = 1) => colliders.some(c =>
-      x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad),
+    // `animate(fn)` runs `fn(t, dt, eye)` every frame — see animators.js.
+    animate,
+    // One copy of this rule, in interiorSite.js, and it skips shut doors.
+    blocked: blockedBy(colliders),
   });
 
   // 5. Where each area's people stand: outside their own door, facing it — and
@@ -578,10 +608,17 @@ export function getExtraSpots(){
   return out;
 }
 
-export function updateWorldAnimation(t){
+export function updateWorldAnimation(t, eye = null){
+  runAnimators(t, eye);
   for(const stand of caseStands.values()) stand.beacon?.update?.(1 / 60, null);
   if(waypointMesh?.visible){
     waypointMesh.userData.ring.rotation.z = t * 0.9;
     waypointMesh.position.y = groundHeight() + Math.sin(t * 2) * 0.05;
   }
+}
+
+/** Where somebody can sit, floor by floor: each floor's `seats` at its own height. */
+export function getSeats(){
+  return FLOORS.flatMap(f => (f.seats ?? []).map(([x, z, yaw]) =>
+    ({ x, z, y: f.y ?? 0, facing: yaw ?? 0, level: f.id })));
 }

@@ -1,0 +1,18 @@
+{
+  "_comment": "How many derivations in each campaign substitute a number the player was never given, or reach one without substituting at all. engine/dev/deriveGivens.mjs FAILS a campaign that gains one. Fix derivations \u2014 give them a `givens`, or have the previous stop produce the value \u2014 and re-bank with --write-debt. The numbers only fall.",
+  "themes": {
+    "changeover_v2": 3,
+    "darkfibre": 8,
+    "groundtruth": 0,
+    "groundtruth_v2": 12,
+    "headwater": 7,
+    "headwater_v2": 9,
+    "instruments": 0,
+    "midway": 8,
+    "midway_v2": 3,
+    "overwind": 12,
+    "planetary_defense_v2": 1,
+    "slackwater": 7,
+    "the_trial_v2": 8
+  }
+}

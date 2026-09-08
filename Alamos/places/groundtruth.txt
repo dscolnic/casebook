@@ -1,0 +1,219 @@
+GROUND TRUTH (theme: groundtruth) — PLACES AND LOCATIONS
+Measurements Lead · Station 12, where lightning is made on purpose
+Course: AP Physics C: Electricity & Magnetism, all five units, taught as ten
+derivations
+Grade 12. One mission is called a Day.
+Delivery: The Station 12 Season Report — the board is in SHOT. 15 pieces, one
+a day.
+
+Run it:  cd gamekit && THEME=groundtruth npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Station 12, Sablon Flats, as data. Outdoor, flat, and under weather.
+
+`engine/world/outdoorTown.js` builds all of it. The place is a lightning
+research station on a coastal salt flat: a sixty-metre instrumented mast, a
+launch rail out to the north of it, an impulse hall and a compound behind,
+and an outstation trailer two hundred metres away that the campaign is about.
+
+Looking down, -Z is away from the player at spawn:
+
+                   [ Launch Rail ]                       z = -74
+                      ¦ mast ¦                           z = -20   (props.js)
+  [ Earthing ]                    [ Mast Base ]          z =  -6
+                                  [ Impulse Hall ]       z =  12
+  [ Field Station ]                      [ Screened Room ] z = 26
+       [ Launch Control ]                 [ Crew Shelter ]  z = 30
+                ¤ spawn ¤                                   z = 52
+
+  Nothing stands on the axis between the spawn and the mast. That is
+  deliberate: the first frame of this game is sixty metres of lattice alone on
+  a flat, and the first version had launch control parked in front of it.
+
+                   [ Outstation ]                        z = 180
+
+Three things here are load-bearing rather than decorative:
+
+  · The outstation is 200 m from the mast because that is the distance the
+    campaign argues about, and the day budget is measured from the route — so
+    a call out there really does cost most of a morning.
+  · The flat is empty on purpose and the mast is the only thing on the
+    skyline. `props.js` builds it, and it is the whole silhouette of the game.
+  · The sky is a storm sky. Preetham solves for a clear atmosphere, so the
+    grey comes from `atmosphere.tint` and `atmosphere.haze` — the two keys Red
+    Sand added for a Martian sky, used here for weather. Set one without the
+    other and a seam appears along the horizon.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+SHOT — Launch & Records
+  Launch Control
+  (-17, 30)   28 m from spawn   14 x 9 x 4
+  DELIVERY ROOM — the board for The Station 12 Season Report is here.
+  When to trigger, what was predicted, and what the record can carry.
+  Calls: Set the rule · Call the shot · Close the record · Ready to hand over
+  Fixtures (at: targets):
+    launch-board       board  back
+      The launch board — Where the criterion is written before the cell
+      arrives, with the three lead times under it.
+    radar-desk         bench  left
+      The radar and mill desk — Radar on one screen, four mills on the other,
+      and a clock between them.
+    record-desk        bench  right
+      The records desk — Where a shot becomes a record. Or does not.
+
+FIELD — Field & Charge
+  Field Station
+  (-34, 26)   43 m from spawn   12 x 8 x 3.6
+  What is overhead, read from the ground, and what the reading is entitled to
+  say.
+  Calls: Read the mill · Bound the charge · Set the criterion · Ready to hand
+  over
+  Fixtures (at: targets):
+    mill-bench         bench  left
+      The reference mill, opened up — Its shutter, its sign convention on a
+      card beside it, and it never goes outside.
+    mill-array         board  back
+      The mill array readout — Four mills across the flat, read side by side,
+      and the spread between them.
+
+BANK — Impulse Hall
+  Impulse Hall
+  (34, 12)   52 m from spawn   20 x 13 x 7.2
+  Stored charge, stored energy, and air that stops being an insulator.
+  Calls: Charge the bank · Compute the energy · Fire the gap · Ready to hand
+  over
+  Fixtures (at: targets):
+    bank-stages        vessel left
+      The twelve stages — A hundred nanofarads each, fifty kilovolts each, and
+      the earthing stick visibly on.
+    gap-row            rack   right
+      The row of spark gaps — What is set here decides the front, and nothing
+      else does.
+    hall-board         board  back
+      Strand's board — Whatever the hall is standing in for this week is
+      written on it.
+
+MAST — Mast & Down-conductor
+  Mast Base
+  (14, -6)   60 m from spawn   9 x 7 x 3.2
+  Where the current goes, what it does on the way, and how it is measured.
+  Calls: Check the path · Read the shunts · Bound the field · Ready to hand
+  over
+  Fixtures (at: targets):
+    shunt-rack         rack   left
+      The shunt rack — Three shunts on the down-conductor and a clamp at its
+      base, all reading the same strike.
+    cabinet            rack   right
+      The instrument cabinet — Two metres from the down-conductor, and there
+      for nine years.
+    mast-desk          bench  back
+      Tate's bench — Bond sheets, torque figures, and what the last climb
+      found.
+    conduit-bond       rack   back  [from day 12]
+      The bonded instrument conduit — Bonded at both ends. It still carries a
+      third of every strike, and now it says so.
+
+EARTH — Earthing & Transients
+  Earthing Compound
+  (-30, -6)   65 m from spawn   11 x 8 x 3
+  The grid under the flat, and the difference between an ohm and a
+  microsecond.
+  Calls: Measure the grid · Model the lead · Time the transient · Ready to
+  hand over
+  Fixtures (at: targets):
+    earth-trench       bench  right [until day 11]
+      The trench at the halfway point — Still open. Nobody has agreed what the
+      certificate on the wall should say.
+    earth-cert         board  back  [from day 11]
+      The reissued April certificate — Back on the wall with the quantity it
+      measured written on its face.
+
+COUPLE — Coupling & the Outstation
+  Outstation
+  (3, 180)   128 m from spawn   9 x 4.5 x 3
+  How a strike reaches a cable it never touched.
+  Calls: Find the loop · Compute the flux · Break the coupling · Ready to hand
+  over
+  Fixtures (at: targets):
+    trailer-cards      rack   right [from day 13]
+      The outstation cards, out of their rack — Pulled after the week-five
+      strike. The trailer is out for the year and nobody was in it.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+SCREEN — Screened Room  ·  "Conducting sheet on all six faces"
+  (19, 26)   32 m from spawn   7 x 6 x 3.2
+  Sited calls:
+    sheet-cage         rack   left
+      The screened enclosure — Six faces of conducting sheet, and a door with
+      fingerstock all round it.
+    record-budget      board  right
+      The record budget board — One microsecond of record, and more channels
+      than there is room for.
+  Stand line: "A door left ajar is not a screened room, and the fingerstock is
+  what makes the door a face."
+    Field outside: 4.0 kV/m (alarm)
+    Field inside: 0.00 kV/m (normal)
+    Door seal: fingerstock (normal)
+    Record window: 1 µs (high)
+
+ROCKETS — Rocket Store  ·  "Wire spools and igniters, counted out and counted back"
+  (-14, -52)   105 m from spawn   7 x 5 x 2.8
+  Stand line: "A season is as long as the store is, and nothing here is made
+  on site."
+    Rockets in stores: 9 (low)
+    Wire on the spool: 700 m a shot (normal)
+    Igniters: 14 (normal)
+    Shots fired this season: 3 (normal)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Crew Shelter  ·  "Where the flat is watched from"
+  (17, 42)   20 m   9 x 6 x 3
+Season board
+  (-11, 44)
+Spawn
+  (0, 52)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 260, profile 'flat'
+
+==============================================================================
+THE DELIVERY — The Station 12 Season Report
+==============================================================================
+   1. The crew-clear criterion
+   2. The effective layer charge
+   3. The cloud-ground potential
+   4. The tip-field assessment
+   5. The cloud-ground capacitance
+   6. The stored-energy derivation
+   7. The shared-reference finding
+   8. The field and loop hazard
+   9. The trench-coupling prediction
+  10. The bonding-lead prediction
+  11. The current-path finding
+  12. The prediction, then measurement
+  13. The bandwidth finding
+  14. The last-shot coupling test
+  15. The final report, signed
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/groundtruth/ — site/plan, fixtures, minors, groups, theme.

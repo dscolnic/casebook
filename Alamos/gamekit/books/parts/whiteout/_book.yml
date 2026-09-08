@@ -1,0 +1,481 @@
+theme:
+  id: whiteout
+  title: Whiteout
+  subtitle: Software Lead · Aster Station
+format: 2
+
+# The areas of study. One column of the game each; every group needs somebody on the roster.
+groups:
+  - id: OPS
+    code: OPS
+    name: Operations Module
+    color: "#2f6f9f"
+    difficulty: 2
+    type: protocol
+    desc: Station command, incident coordination and the wall-size systems map.
+    defaultLeader: park
+    budget: 70
+    milestones:
+      - name: Read what it actually does
+        cost: 12
+        work: 9
+        brief: Read what it actually does
+      - name: Test the behaviour
+        cost: 16
+        work: 12
+        brief: Test the behaviour
+      - name: Fix it behind a gate
+        cost: 20
+        work: 15
+        brief: Fix it behind a gate
+      - name: Sign it off
+        cost: 24
+        work: 18
+        brief: Sign it off
+  - id: CODE
+    code: CODE
+    name: Software Lab
+    color: "#7a5aa8"
+    difficulty: 3
+    type: protocol
+    desc: The source mirror, the test harnesses and the safe simulations.
+    defaultLeader: nair
+    budget: 70
+    milestones:
+      - name: Read what it actually does
+        cost: 12
+        work: 9
+        brief: Read what it actually does
+      - name: Test the behaviour
+        cost: 16
+        work: 12
+        brief: Test the behaviour
+      - name: Fix it behind a gate
+        cost: 20
+        work: 15
+        brief: Fix it behind a gate
+      - name: Sign it off
+        cost: 24
+        work: 18
+        brief: Sign it off
+  - id: POWER
+    code: POWER
+    name: Power & Thermal Plant
+    color: "#c2704a"
+    difficulty: 4
+    type: protocol
+    desc: Generators, batteries, heat loops and the controllers that keep the station warm.
+    defaultLeader: okafor
+    budget: 70
+    milestones:
+      - name: Read what it actually does
+        cost: 12
+        work: 9
+        brief: Read what it actually does
+      - name: Test the behaviour
+        cost: 16
+        work: 12
+        brief: Test the behaviour
+      - name: Fix it behind a gate
+        cost: 20
+        work: 15
+        brief: Fix it behind a gate
+      - name: Sign it off
+        cost: 24
+        work: 18
+        brief: Sign it off
+  - id: HAB
+    code: HAB
+    name: Habitat Control
+    color: "#3f8d6e"
+    difficulty: 2
+    type: protocol
+    desc: Air handling, scrubbers, room sensors and life-support automation.
+    defaultLeader: alvarez
+    budget: 70
+    milestones:
+      - name: Read what it actually does
+        cost: 12
+        work: 9
+        brief: Read what it actually does
+      - name: Test the behaviour
+        cost: 16
+        work: 12
+        brief: Test the behaviour
+      - name: Fix it behind a gate
+        cost: 20
+        work: 15
+        brief: Fix it behind a gate
+      - name: Sign it off
+        cost: 24
+        work: 18
+        brief: Sign it off
+  - id: VEH
+    code: VEH
+    name: Vehicle Bay
+    color: "#8a7a3f"
+    difficulty: 3
+    type: protocol
+    desc: Rovers, drones, chargers and the software that moves field machines.
+    defaultLeader: reyes
+    budget: 70
+    milestones:
+      - name: Read what it actually does
+        cost: 12
+        work: 9
+        brief: Read what it actually does
+      - name: Test the behaviour
+        cost: 16
+        work: 12
+        brief: Test the behaviour
+      - name: Fix it behind a gate
+        cost: 20
+        work: 15
+        brief: Fix it behind a gate
+      - name: Sign it off
+        cost: 24
+        work: 18
+        brief: Sign it off
+  - id: COMMS
+    code: COMMS
+    name: Communications & Weather
+    color: "#4f6f8f"
+    difficulty: 4
+    type: protocol
+    desc: Satellite links, packet routing and the rescue-window traffic.
+    defaultLeader: andersen
+    budget: 70
+    milestones:
+      - name: Read what it actually does
+        cost: 12
+        work: 9
+        brief: Read what it actually does
+      - name: Test the behaviour
+        cost: 16
+        work: 12
+        brief: Test the behaviour
+      - name: Fix it behind a gate
+        cost: 20
+        work: 15
+        brief: Fix it behind a gate
+      - name: Sign it off
+        cost: 24
+        work: 18
+        brief: Sign it off
+roster:
+- id: park
+  name: "Elena Park"
+  role: "Station director"
+  division: OPS
+  pronouns: "she/her"
+  bio: |
+    Elena Park is Station director. Wants keep 28 people alive and preserve the evacuation option. She initially favors the fastest reversible action when evidence is incomplete. Moves from fast reversible action to requiring committed predictions and a staged canary release. Says, "What can we safely decide now?"
+- id: okafor
+  name: "Malik Okafor"
+  role: "Power and thermal engineer"
+  division: POWER
+  pronouns: "he/him"
+  bio: |
+    Malik Okafor is Power and thermal engineer. Wants keep heat and power above survival limits. He initially trusts physical symptoms more than software traces. Learns to treat code traces as physical evidence when independent readings support them. Says, "What changed before the load moved?"
+- id: nair
+  name: "Priya Nair"
+  role: "Software architect"
+  division: CODE
+  pronouns: "she/her"
+  bio: |
+    Priya Nair is Software architect. Wants restore reliable control without creating a second hidden failure. She initially trusts clean interfaces more than old integration code deserves. Moves from interface trust to adversarial testing across legacy boundaries. Says, "Which assumption does this method hide?"
+- id: reyes
+  name: "Jonah Reyes"
+  role: "Field robotics lead"
+  division: VEH
+  pronouns: "he/him"
+  bio: |
+    Jonah Reyes is Field robotics lead. Wants keep autonomous vehicles available for rescue and external repairs. He initially treats intermittent behavior as damaged hardware. Shifts from replacing hardware to demanding repeatable software failure before touching parts. Says, "Can you make it fail twice the same way?"
+- id: andersen
+  name: "Liv Andersen"
+  role: "Communications and weather lead"
+  division: COMMS
+  pronouns: "she/her"
+  bio: |
+    Liv Andersen is Communications and weather lead. Wants hold a satellite path and identify a safe rescue window. She can overvalue a fast primary path unless independence is tested. Broadens redundancy from networking into whole-system release design. Says, "Which path still works if this one disappears?"
+- id: alvarez
+  name: "Mei Alvarez"
+  role: "Habitat systems lead"
+  division: HAB
+  pronouns: "she/her"
+  bio: |
+    Mei Alvarez is Habitat systems lead. Wants keep air and water stable while controllers are isolated. She initially trusts agreement among sensors without asking what they share upstream. Learns that sensor agreement is not independence when software is shared upstream. Says, "Do these instruments agree because reality agrees, or because they share code?"
+
+leaders:
+  - id: park
+    name: Elena Park
+    role: Station director
+    science: 4
+    management: 4
+  - id: nair
+    name: Priya Nair
+    role: Software architect
+    science: 4
+    management: 4
+  - id: okafor
+    name: Malik Okafor
+    role: Power and thermal engineer
+    science: 4
+    management: 4
+  - id: alvarez
+    name: Mei Alvarez
+    role: Life-support and instrumentation engineer
+    science: 4
+    management: 4
+  - id: reyes
+    name: Jonah Reyes
+    role: Field and vehicle operations lead
+    science: 4
+    management: 4
+  - id: andersen
+    name: Liv Andersen
+    role: Communications and weather officer
+    science: 4
+    management: 4
+glossary:
+  - name: Accumulation
+    aliases:
+      - accumulate
+      - accumulates
+      - accumulated
+    def: How much snow is added to the surface in a year, after wind and sublimation have had their say.
+  - name: Ice equivalent
+    aliases:
+      - water equivalent
+    def: A snow thickness converted to the thickness of solid ice it will become, so two sites can be compared.
+  - name: Annual layer
+    aliases:
+      - annual layers
+      - layer counting
+      - layer count
+    def: One year of snowfall, recognisable in the core because summer and winter snow differ.
+  - name: Ice
+    def: Snow compressed until the air between its grains is sealed off, at about 917 kilograms per cubic metre.
+  - name: Calibration
+    aliases:
+      - calibrate
+      - calibrated
+      - calibration slope
+    def: Measuring an instrument or a relationship against something already known, so its numbers can be trusted.
+  - name: Firn
+    aliases:
+      - firn column
+    def: The layer of snow between the surface and solid ice, still open enough for air to move through it.
+  - name: Close-off depth
+    aliases:
+      - close-off
+      - closes off
+      - closed off
+    def: The depth where firn stops letting air through, 60 to 100 metres down, and the trapped air becomes separate bubbles.
+  - name: Delta age
+    aliases:
+      - Δage
+      - gas age
+      - ice age difference
+    def: The difference between the age of a bubble's air and the age of the ice around it, because the air kept moving until close-off.
+  - name: Precipitation
+    aliases:
+      - precipitates
+      - precipitated
+    def: Snow or rain falling out of the air onto the surface. On this plateau it is almost always snow.
+  - name: Proxy
+    aliases:
+      - proxies
+    def: Something measurable that stands in for something that was not measured, through a chain somebody has to be able to state.
+  - name: Isotope ratio
+    aliases:
+      - delta-18
+      - oxygen-18
+      - deuterium
+      - isotopic
+    def: How much heavy oxygen or hydrogen the ice holds compared with ocean water, reported as a difference in parts per thousand.
+  - name: Thinning
+    aliases:
+      - thinned
+      - thins
+    def: The stretching of every layer as the ice sheet spreads under its own weight, so old layers are thinner than they fell.
+  - name: Depth-age scale
+    aliases:
+      - depth–age
+      - age scale
+      - timescale
+    def: The table that turns a depth in the core into a year, built by counting layers and anchored to dated events.
+  - name: Tie point
+    aliases:
+      - tie points
+      - tied to
+    def: An event of known date found in two records, which fixes them to each other at that moment.
+  - name: Sulphate horizon
+    aliases:
+      - sulphate
+      - sulfate
+      - volcanic horizon
+    def: A thin band of volcanic sulphur in the ice, laid down within a year or two of a known eruption.
+  - name: Tephra
+    aliases:
+      - ash layer
+    def: Volcanic glass shards in the ice, which can be chemically matched to the volcano that produced them.
+  - name: Diffusion length
+    aliases:
+      - diffusion
+      - diffuses
+    def: How far a water molecule wanders in the firn before the ice seals, which smooths away anything thinner than about twice that distance.
+  - name: Brittle ice
+    aliases:
+      - brittle zone
+    def: The depth range where trapped bubbles are at high pressure and the core fractures as it is brought up.
+  - name: Blank
+    aliases:
+      - blank run
+      - blanks
+    def: A run with no sample in it. Anything it shows was added by the process rather than measured from the ice.
+  - name: Chain of custody
+    aliases:
+      - custody
+    def: The unbroken written record of who held a sample and when, which is what makes a measurement attributable to a depth.
+  - name: Radiative forcing
+    aliases:
+      - forcing
+    def: The change in the energy balance at the top of the atmosphere caused by a change in a greenhouse gas, in watts per square metre.
+  - name: Standard error
+    aliases:
+      - standard errors
+    def: How far an average is expected to sit from the truth, given the scatter in the data and how many years went into it.
+  - name: Replicate core
+    aliases:
+      - replicate
+      - replicates
+    def: A second core drilled nearby, so a feature can be checked against ice that shared the weather but not the drill.
+
+# The campaign: one working day each, three stops and a callback from day 3.
+
+missions:
+# <<< MISSIONS >>>
+
+interiors:
+  OPS:
+    caption: Station command, incident coordination, rescue decisions, and the wall-size systems map live here.
+    standLine: Six incidents open, none closed. Rescue window in 36 hours, aircraft not yet committed.
+    station:
+      kind: panel
+      title: Station status
+      rows:
+        - label: People on station
+          value: "28"
+          status: normal
+        - label: Rescue window
+          value: "36 h"
+          status: normal
+        - label: Open incidents
+          value: "6"
+          status: alarm
+        - label: Verified control paths
+          value: "0 of 6"
+          status: alarm
+  CODE:
+    caption: The station's source mirror, test harnesses, build tools, and safe simulations live here.
+    standLine: Live patching frozen. Nothing goes to a controller that has not been run against the mirror first.
+    station:
+      kind: panel
+      title: Build and mirror
+      rows:
+        - label: Mirror in step with live
+          value: "yes"
+          status: normal
+        - label: Builds since the storm
+          value: "4"
+          status: normal
+        - label: Tests run against them
+          value: "0"
+          status: alarm
+        - label: Patches applied live
+          value: "3"
+          status: alarm
+  POWER:
+    caption: Generators, batteries, heat loops, and the controllers that keep the station warm live here.
+    standLine: The generator is running and the board says it is not. Nobody has shut it down yet.
+    station:
+      kind: panel
+      title: Generator and load
+      rows:
+        - label: Delivered power
+          value: "83 kW"
+          status: normal
+        - label: Requested power
+          value: "100 kW"
+          status: normal
+        - label: Controller reports
+          value: "0 %"
+          status: alarm
+        - label: Battery reserve
+          value: "68 %"
+          status: normal
+  HAB:
+    caption: Air handling, scrubbers, room sensors, water, and life-support automation live here.
+    standLine: One sensor reading, two shutdown orders. The scrubber is off and the air is still good.
+    station:
+      kind: panel
+      title: Habitat and air
+      rows:
+        - label: Occupied rooms
+          value: "11"
+          status: normal
+        - label: Scrubbers running
+          value: "1 of 2"
+          status: alarm
+        - label: Shutdown orders today
+          value: "2"
+          status: alarm
+        - label: Habitat stability
+          value: "72 %"
+          status: normal
+  VEH:
+    caption: Rovers, drones, chargers, route maps, and the software that moves field machines live here.
+    standLine: Rover Three has driven the same lap eleven times. The wheels are fine.
+    station:
+      kind: panel
+      title: Vehicles and routes
+      rows:
+        - label: Rovers available
+          value: "2 of 3"
+          status: normal
+        - label: Laps completed
+          value: "0"
+          status: alarm
+        - label: Same lap repeated
+          value: "11"
+          status: alarm
+        - label: Charge on the bay
+          value: "4 of 6"
+          status: normal
+  COMMS:
+    caption: Satellite links, packet routing, weather instruments, and rescue-window traffic live here.
+    standLine: The packet says 08:07 and the wall display says 08:0. One of them is missing a character.
+    station:
+      kind: panel
+      title: Link and weather
+      rows:
+        - label: Next satellite pass
+          value: "00:41"
+          status: normal
+        - label: Burst length
+          value: "10 s"
+          status: normal
+        - label: Visibility
+          value: "under 20 m"
+          status: alarm
+        - label: Rescue readiness
+          value: "48 %"
+          status: alarm
+copy:
+  OPS: "<p>The operations module: the systems map across the end wall, the incident console under it, and the rescue board nobody has been able to fill in yet.</p>"
+  CODE: "<p>The software lab. The station’s source on glass, a bench to run a suite on, and a rack of every build the station has ever run.</p>"
+  POWER: "<p>The power and thermal plant: generators behind the wall, batteries along it, and a load board saying what is being asked for and what is arriving.</p>"
+  HAB: "<p>Habitat control, where the air is. A tile per occupied room, two scrubbers, and a cabinet of every alarm the habitat is allowed to raise.</p>"
+  VEH: "<p>The vehicle bay, big enough to drive out of. Rovers on the floor, drones on their sides, and the route the software thinks it is driving on the board.</p>"
+  COMMS: "<p>Communications and weather, out under the mast. The pass counted down to the second, the raw traffic before anything has formatted it, and the wind.</p>"

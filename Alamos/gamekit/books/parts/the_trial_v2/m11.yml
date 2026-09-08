@@ -6,13 +6,19 @@
     header: "DAY 11 - BOARD IN 5 DAYS"
     title: "Lock the File"
     goNow: "Go to Data Management and meet Mara Voss, trial director, at the extraction console."
-    body: "The adjusted estimate is ready, but three reports point to different final tables. Sampling distributions explain ordinary variation; shared extraction paths explain identical errors. Validate the table at Data Management, trace dependencies in Statistics, then lock the master file upstairs. By the end of the mission, decide which extraction is independent enough to become final."
+    body: "Three reports contain different tables, and the board needs one reliable final dataset. Trace each report back to its patient records and check why the numbers differ. Decide which version can be finalized without carrying a copied error into the treatment decision."
     objective: "Validate and lock one analysis file."
   objective: "Validate and lock one analysis file."
-  stake: "The adjusted estimate is ready, but three reports point to different final tables. Sampling distributions explain ordinary variation; shared extraction paths explain identical errors. Validate the table at Data Management, trace dependencies in Statistics, then lock the master file upstairs. By the end of the mission, decide which extraction is independent enough to become final."
+  stake: "Three reports contain different tables, and the board needs one reliable final dataset. Trace each report back to its patient records and check why the numbers differ. Decide which version can be finalized without carrying a copied error into the treatment decision."
   takeaway: "Validate on held-out data."
   segue: "Mission decision: Lock the fresh data run, not the three copied reports. Its tests, holdout, file mark, and access log all pass. Trial data are now secure. The last table holds three different problems."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Central Limit Theorem", def: "for large n, the sampling distribution of a sample mean is approximately Normal."}
+  - {name: "Standard error", def: "an estimate of a statistic's sampling spread."}
+  - {name: "Unbiased estimator", def: "an estimator whose sampling-distribution mean equals the parameter."}
+  equations:
+  - {"e":"mean(x-bar)=mu; standard deviation (SD) of x-bar = sigma/sqrt(n)","c":"Describing sample-mean behavior.","v":[["mu and sigma","population mean and SD"],["n","sample size"]],"s":"The lock check must separate expected sampling variation from copied extraction errors."}
   primer:
   - "Statistics vary; parameters are fixed."
   - "Larger n narrows sampling spread without changing its center."
@@ -25,7 +31,7 @@
   - id: on-arrival-at-data-management
     # On arrival at Data Management | sampling-board | automatic
     on: { enter: true, at: DATA }
-    world: "Arrival: DATA entry; three identical reports visible; Mara says, ; - After S1-S2: holdout hash prints; waypoint CARRY HOLDOUT HASH TO STAT. - STAT arrival/after S3: shared dependency lines appear; waypoint TAKE INDEPENDENT HASH TO TRIAL MASTER FILE. - ARCHIVE final: four attestations pass; archive becomes READ ONLY / LOCKED; binder 11 and outcome unlock."
+    world: "Arrival: DATA entry; three identical reports visible; Mara says,; - After S1-S2: holdout hash prints; waypoint CARRY HOLDOUT HASH TO STAT. - STAT arrival/after S3: shared dependency lines appear; waypoint TAKE INDEPENDENT HASH TO TRIAL MASTER FILE. - ARCHIVE final: four attestations pass; archive becomes READ ONLY / LOCKED; binder 11 and outcome unlock."
     panel: "MISSION 11: PREDICT SAMPLING SPREAD OPEN"
     bubbles:
     - who: voss   # Mara Voss
@@ -37,7 +43,7 @@
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
     bubbles:
     - who: voss   # Mara Voss
-      say: "Use the Stop 41 result to settle freeze before revealing."
+      say: "Nice work. Use the Stop 41 result to settle freeze before revealing."
   - id: after-stop-42
     # After Stop 42 | extraction-map | automatic
     on: { after: [2] }
@@ -45,7 +51,7 @@
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
     bubbles:
     - who: voss   # Mara Voss
-      say: "Use the Stop 42 result to settle trace the agreement."
+      say: "Good thinking. Use the Stop 42 result to settle trace the agreement."
   - id: after-stop-43
     # After Stop 43 | archive-seal | automatic
     on: { after: [3] }
@@ -53,7 +59,7 @@
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
     bubbles:
     - who: voss   # Mara Voss
-      say: "Use the Stop 43 result to settle make the lock real."
+      say: "Exactly right. Use the Stop 43 result to settle make the lock real."
   - id: at-mission-end
     # At mission end | sampling-board | automatic
     on: { missionEnd: true }
@@ -61,7 +67,74 @@
     panel: "MISSION 11 EVIDENCE: RECORDED"
     bubbles:
     - who: voss   # Mara Voss
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Lock the File. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to Lock the File, the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies Central Limit Theorem to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Central Limit Theorem; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.", why: "This describes CLT/unbiasedness/SE, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.", why: "Correct. for large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter."}
+      - {key: "C", text: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.", why: "This describes model validation, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Shared inputs make agreement redundant; only the source rerun can validate the final table.", why: "This describes dependence, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to Lock the File: the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies CLT/unbiasedness/SE to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for CLT/unbiasedness/SE; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.", why: "This describes Central Limit Theorem, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.", why: "This describes model validation, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.", why: "Correct. a discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."}
+      - {key: "D", text: "Shared inputs make agreement redundant; only the source rerun can validate the final table.", why: "This describes dependence, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks Lock the File using new evidence: the expected spread is two units, and three candidate cleaning rules fit the development rows. Which option correctly applies model validation to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for model validation; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.", why: "This describes Central Limit Theorem, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.", why: "This describes CLT/unbiasedness/SE, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Shared inputs make agreement redundant; only the source rerun can validate the final table.", why: "This describes dependence, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.", why: "Correct. a holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."}
+    - prompt: "An unseen case extends Lock the File: the held-out rule produced an independent hash, while efficacy, safety, and registry reports agree digit for digit. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies dependence to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for dependence; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Shared inputs make agreement redundant; only the source rerun can validate the final table.", why: "Correct. shared inputs make agreement redundant; only the source rerun can validate the final table."}
+      - {key: "B", text: "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.", why: "This describes Central Limit Theorem, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.", why: "This describes CLT/unbiasedness/SE, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.", why: "This describes model validation, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Lock the File decision, the team knows this: the independent extraction survives its holdout and dependency audit. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies file integrity to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for file integrity; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.", why: "This describes Central Limit Theorem, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed.", why: "Correct. a lock preserves the analysis boundary only if its evidence and permissions are independently backed."}
+      - {key: "C", text: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.", why: "This describes CLT/unbiasedness/SE, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.", why: "This describes model validation, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from Lock the File to this follow-up: the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.", why: "This describes Central Limit Theorem, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.", why: "This describes CLT/unbiasedness/SE, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.", why: "This describes model validation, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 11: worked examples"
+    examples:
+    - {"title":"Spread of sample means","problem":"A population has mean 50 and SD 12. Independent random samples each contain 36 observations. Find mean and SD of the sample mean.","rule":"Mean(x-bar)=μ; SD(x-bar)=σ/sqrt(n).","steps":["Set up the relationship: Mean(x-bar)=μ; SD(x-bar)=σ/sqrt(n).","mean(x-bar)=50; SD(x-bar)=12/sqrt(36)=12/6=2."],"answer":"Sample means are centered at 50 with spread 2.","mistake":"Individual observations still have SD 12; averaging changes the statistic's spread."}
+    - {"title":"Spread of sample proportions","problem":"Independent samples contain n=100 observations from a population with success probability p=0.5. Find SD of p-hat.","rule":"SD(p-hat)=sqrt[p(1-p)/n].","steps":["Set up the relationship: SD(p-hat)=sqrt[p(1-p)/n].","SD=sqrt[0.5(0.5)/100]=sqrt(0.0025)=0.05."],"answer":"Sample proportions have standard deviation 0.05.","mistake":"Use population p for a theoretical sampling distribution."}
+    - {"title":"What becomes approximately Normal?","problem":"A skewed population is sampled independently in groups of 100. What distribution may become approximately Normal?","rule":"The Central Limit Theorem concerns the sampling distribution of averages under suitable conditions.","steps":["Each sample produces one sample mean. Consider the distribution of those means over repetitions.","Averaging can make that distribution approximately Normal even while individual observations remain skewed."],"answer":"The approximately Normal distribution is the distribution of sample means.","mistake":"The theorem does not make the original population Normal."}
+    - {"title":"Improve precision","problem":"For the same population and method, increase sample size from 25 to 100. How does standard error change?","rule":"Standard error scales as 1/sqrt(n).","steps":["Set up the relationship: Standard error scales as 1/sqrt(n).","SE_new/SE_old=sqrt(25/100)=1/2."],"answer":"The standard error is halved.","mistake":"Doubling precision requires four times the sample size, not twice."}
+    - {"title":"Count independent evidence sources","problem":"Three reports copy one balance reading. A fourth report uses a separately calibrated balance. How many measurement sources are there?","rule":"Reports are not independent measurements when they copy a common source.","steps":["source group 1 = the first balance and its three copies. Count that measurement once.","source group 2 = the second balance. It adds a separate measurement route."],"answer":"There are two measurement sources, not four.","mistake":"Agreement among copies cannot establish independent confirmation."}
 
   stops:
   # --- Stop 41: Predict Sampling Spread
@@ -70,12 +143,12 @@
   - group: ENDP
     at: sampling-board
     title: "Predict Sampling Spread"
-    concept: "CLT/unbiasedness/SE"
-    reason: "Ordinary sample-to-sample change must not be mistaken for a corrupted extraction."
+    concept: 14   # CLT/unbiasedness/SE
+    reason: "The approaching file lock requires an expectation for ordinary variation between record extractions."
     scene: "The source population has mean 70, SD 12, and each extraction averages n=36 independent records. Derive the sampling distribution of x-bar and explain what increasing n changes in that distribution."
-    motivation: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."
+    motivation: "The sample-mean distribution distinguishes expected sampling spread from extraction differences too large for the model."
     format: DERIVE
-    question: "center=70 [unbiased]; SD=12/sqrt36=2 [sampling SD]; CLT approximate Normal [n>=30]. Submit 70 units,2 units."
+    question: "Submit the sampling distribution's center and standard deviation."
     answerText: "The completed check shows x-bar is approximately Normal with mean 70 and SD 2. Larger n narrows spread, not center. Use SE when sigma is estimated by s."
     why: "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -86,6 +159,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"center and spread of xbar","givens":["mu=70","sigma=12","n=36"],"lines":[{"id":"L1","expression":"mean(xbar)=mu=70","license":"state governing relationship"},{"id":"L2","expression":"SD(xbar)=sigma/sqrt(n)=12/6=2","license":"substitute displayed values"},{"id":"L3","expression":"n=36 supports an approximately Normal mean","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["SD=12","mean=72"],"correct_result":"mean 70, SD 2","answerText":"The sampling distribution is centered at 70 with standard deviation 2."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Predict Sampling Spread in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: mean(xbar)=mu=70
+            - text: mean(xbar)=mu/n=70/36
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: SD(xbar)=sigma/sqrt(n)=12/6=2
+            - text: SD(xbar)=sigma/n=12/36
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: n=36 supports an approximately Normal mean
+            - text: n=36 guarantees exact Normality for every population
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 42: Freeze Before Revealing
   #     Concept: model validation; Keystone: keystone sampling distributions; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L4; Story role: reveal.
@@ -93,10 +191,10 @@
   - group: ENDP
     at: holdout-safe
     title: "Freeze Before Revealing"
-    concept: "model validation"
-    reason: "The chosen extraction rule must face records it did not use to tune itself."
+    concept: 30   # model validation
+    reason: "The expected extraction spread allows a fair test of cleaning rules on untouched records."
     scene: "The expected spread is two units, and three candidate cleaning rules fit the development rows. Freeze one rule before the console reveals 20 previously held-out source records and their errors."
-    motivation: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
+    motivation: "Held-out errors determine whether the frozen cleaning rule generalizes beyond the development rows."
     format: HOLDOUT
     question: "Review training errors for rules A, B, and C, then freeze one documented rule before 20 held-out records unlock. Submit the rule with acceptable unseen error."
     answerText: "The completed check shows freeze B before reveal; it stays within expected error on unseen records."
@@ -109,6 +207,53 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   training fits A1.2,B1.3,C1.4 error; freeze B due documented rule; heldout A4.8,B1.6,C3.9; correct B; settings and revealed data supplied.
+    holdout:
+      axis:
+        label: allowed prediction error
+        min: 0
+        max: 5
+        step: 0.5
+        unit: "%"
+      fit:
+        - at: 0.5
+          value: 0.62
+        - at: 1
+          value: 0.78
+        - at: 1.5
+          value: 0.88
+        - at: 2
+          value: 0.98
+        - at: 2.5
+          value: 0.86
+      test:
+        - at: 0.5
+          value: 0.4
+        - at: 1
+          value: 0.66
+        - at: 1.5
+          value: 0.85
+        - at: 2
+          value: 0.55
+        - at: 2.5
+          value: 0.82
+      overfitAt: 2
+      correctAt: 1.5
+      frozenRule: B
+      ruleErrors:
+        - id: A
+          training: 1.2
+          heldout: 4.8
+          unit: "%"
+        - id: B
+          training: 1.3
+          heldout: 1.6
+          unit: "%"
+        - id: C
+          training: 1.4
+          heldout: 3.9
+          unit: "%"
+      correctChoice: B
+      pass: 0.8
 
   # --- Stop 43: Trace the Agreement
   #     Concept: dependence; Keystone: keystone inference integrity; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L4; Story role: twist.
@@ -116,10 +261,10 @@
   - group: SAFE
     at: extraction-map
     title: "Trace the Agreement"
-    concept: "dependence"
-    reason: "Three matching reports may share the same wrong upstream table."
+    concept: 32   # dependence
+    reason: "The independent holdout hash needs comparison with reports that agree suspiciously exactly."
     scene: "The held-out rule produced an independent hash, while efficacy, safety, and registry reports agree digit for digit. Open all their dependencies and identify which report channels share the same nightly extraction."
-    motivation: "Shared inputs make agreement redundant; only the source rerun can validate the final table."
+    motivation: "The dependency audit determines whether matching efficacy, safety, and registry reports provide separate confirmations of the data."
     format: TRACE
     question: "Open all four extraction channels and trace each to its upstream source. Submit the three dependent reports and the genuinely independent rerun."
     answerText: "The completed check shows the three matching reports are not independent confirmations; use the source rerun and held-out hash."
@@ -132,6 +277,36 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trace:{channels:[{id:"efficacy",label:"efficacy report",dependency:"nightly_v7 extraction",target_dependent:true},{id:"safety",label:"safety report",dependency:"nightly_v7 extraction",target_dependent:true},{id:"registry",label:"registry report",dependency:"nightly_v7 extraction",target_dependent:true},{id:"source_rerun",label:"independent source rerun",dependency:"raw source tables",independent:true}],shared_upstream:"nightly_v7 extraction",correct_conclusion:"only the source rerun is independent",answerText:"Digit-for-digit agreement among three reports is redundant because all use nightly_v7; the source rerun is independent."}
+    trace:
+      channels:
+        - id: efficacy
+          label: Efficacy report
+          reading: effect estimate 0.42
+          depends:
+            - nightly_v7
+        - id: safety
+          label: Safety report
+          reading: harm rate 0.08
+          depends:
+            - nightly_v7
+        - id: registry
+          label: Registry report
+          reading: effect 0.42; harm 0.08
+          depends:
+            - nightly_v7
+        - id: source_rerun
+          label: Independent source rerun
+          reading: effect 0.39; harm 0.09
+          depends:
+            - raw_source_tables
+      resources:
+        - id: nightly_v7
+          label: nightly_v7
+        - id: raw_source_tables
+          label: raw_source_tables
+      independent:
+        - source_rerun
+      target: nightly_v7
 
   # --- Stop 44: Make the Lock Real
   #     Concept: file integrity; Keystone: keystone study design/reporting; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -140,10 +315,10 @@
     at: archive-seal
     title: "Make the Lock Real"
     person: voss
-    concept: "file integrity"
-    reason: "Mara must verify identity, time, and physical condition before sealing the file."
+    concept: 30   # file integrity
+    reason: "The independent rerun passes, but the final data lock still needs enforceable controls."
     scene: "The independent extraction survives its holdout and dependency audit. Verify the source hash, signed timestamp, frozen analysis plan, and read-only archive while rejecting the copied report as genuinely independent support."
-    motivation: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
+    motivation: "Verified hashes, timestamps, analysis plans, and archive permissions determine whether the locked table is genuinely reproducible and protected."
     format: ATTEST
     question: "Select exactly four backed controls: source hash, signed timestamp, frozen plan, and read-only permission. Submit the attestation while rejecting copied-report agreement as independent evidence."
     # MODEL CONVERSION, the same one as M1 S4. `verification_limit` is the engine's
@@ -156,19 +331,40 @@
     # `signedBy` is DERIVED too: the bible marks every claim `signed:true` without
     # naming a signer, and this stop is asked by Mara Voss at the archive seal.
     attest:
-      checks: 4
+      verification_limit: 4
       claims:
-      - { id: source_hash, label: "source hash", critical: true, backed: true,
-          signedBy: "Mara Voss", evidence: "Hash recomputed from the archive and matched." }
-      - { id: timestamp, label: "signed timestamp", critical: true, backed: true,
-          signedBy: "Mara Voss", evidence: "Signed timestamp present on the lock record." }
-      - { id: analysis_plan, label: "frozen analysis plan", critical: true, backed: true,
-          signedBy: "Mara Voss", evidence: "Analysis plan frozen, with the freeze recorded." }
-      - { id: readonly, label: "read-only archive permission", critical: true, backed: true,
-          signedBy: "Mara Voss", evidence: "Archive permission confirmed read-only." }
-      - { id: copied_reports, label: "three copied reports are independent", critical: true,
-          signedBy: "Mara Voss", evidence: "Not backed: all three reports run off the same nightly extraction, so their agreement is not independent support." }
-      commit: "Seal the file"
+        - id: source_hash
+          label: source hash
+          signed: true
+          backed: true
+          critical: true
+        - id: timestamp
+          label: signed timestamp
+          signed: true
+          backed: true
+          critical: true
+        - id: analysis_plan
+          label: frozen analysis plan
+          signed: true
+          backed: true
+          critical: true
+        - id: readonly
+          label: read-only archive permission
+          signed: true
+          backed: true
+          critical: true
+        - id: copied_reports
+          label: three copied reports are independent
+          signed: true
+          backed: false
+          critical: true
+      correct_verified:
+        - source_hash
+        - timestamp
+        - analysis_plan
+        - readonly
+      critical_unbacked: copied_reports
+      answerText: Verify the four independent lock records and reject copied-report agreement as independent support.
     answerText: "The completed check shows lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence."
     why: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
     # wrong-path feedback, one rebuttal per wrong option:

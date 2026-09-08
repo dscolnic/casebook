@@ -6,13 +6,18 @@
     header: "2 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "FULL"
     goNow: "Go to the Tank Farm and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the newest sample vial."
-    body: "The methane and oxygen displays read full, so launch control starts the countdown. An independent sample may show that one full tank contains the wrong mixture. At the Tank Farm, Assay Lab, and Pad Office, trace each green signal, test the vial, diagnose the mixture, and set the acceptance rule. By the end of the mission, decide whether the propellant is ready to fly or must be quarantined."
+    body: "The fuel displays read full and launch preparations have begun, but a separate sample may contain the wrong gas mixture. Check how each display gets its information and test the sample independently. Decide whether the fuel is safe to use or must be isolated and cleaned."
     objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
   objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
-  stake: "The methane and oxygen displays read full, so launch control starts the countdown. An independent sample may show that one full tank contains the wrong mixture. At the Tank Farm, Assay Lab, and Pad Office, trace each green signal, test the vial, diagnose the mixture, and set the acceptance rule. By the end of the mission, decide whether the propellant is ready to fly or must be quarantined."
+  stake: "The fuel displays read full and launch preparations have begun, but a separate sample may contain the wrong gas mixture. Check how each display gets its information and test the sample independently. Decide whether the fuel is safe to use or must be isolated and cleaned."
   takeaway: "\"Enough\" and \"safe to use\" are separate scientific claims."
   segue: "Mission decision: Stop the launch clock and hold Batch C. Its mass and pressure pass, but the new test finds too little methane and too much carbon dioxide and water. The batch fails the rule set before the test. One shift remains to make clean fuel without bringing back the heat risk."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Specification", def: "a measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit."}
+  - {name: "Purity", def: "the fraction of a sample made of the desired substance. High total mass does not guarantee high purity."}
+  - {name: "Certification", def: "a documented decision that measured material meets every required specification. It must rely on evidence capable of testing the claimed property."}
+  - {name: "Dependency", def: "an earlier measurement, standard, or calculation another reading relies on. Two green displays sharing one dependency do not give two independent confirmations."}
   primer:
   - "Amount, pressure, and composition are different claims and require evidence that can measure each one."
   - "Certification should use a frozen model and a new independent sample."
@@ -39,7 +44,7 @@
     # unlocks: The Assay Lab waypoint and Stops 54-55.
     bubbles:
     - who: achebe   # Achebe
-      say: "Four displays do not make four measurements when three inherit the same calibration."
+      say: "Nice work. Four displays do not make four measurements when three inherit the same calibration."
   - id: after-stops-54-and-55
     # After Stops 54 and 55 | Assay Lab | automatic Twist 3
     on: { after: [2, 3] }
@@ -48,7 +53,7 @@
     # unlocks: The Ascent Pad office waypoint and Stop 56.
     bubbles:
     - who: abiola   # Abiola
-      say: "We made enough material. We did not make enough flight-ready methane."
+      say: "Good thinking. We made enough material. We did not make enough flight-ready methane."
   - id: after-stop-56
     # After Stop 56 | Pad Office | automatic crisis result
     on: { after: [4] }
@@ -57,7 +62,7 @@
     # unlocks: The Mission 14 outcome beat.
     bubbles:
     - who: achebe   # Achebe
-      say: "The deadline did not move the line. Batch C fails the rule we wrote before seeing it."
+      say: "Exactly right. The deadline did not move the line. Batch C fails the rule we wrote before seeing it."
     - who: abiola   # Abiola
       say: "Countdown remains stopped."
   - id: at-mission-end
@@ -68,7 +73,80 @@
     # unlocks: Mission 15 briefing and the Plant Control waypoint.
     bubbles:
     - who: abiola   # Abiola
-      say: "One shift. Enough total propellant. Not enough certified methane. Bring me the plan that gets us home without asking the rocket to trust a lie."
+      say: "Outstanding work. You solved the mission. One shift. Enough total propellant. Not enough certified methane. Bring me the plan that gets us home without asking the rocket to trust a lie."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed FULL. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Contaminant", def: "an unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits."}
+    - {name: "Threshold", def: "a value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed."}
+    - {name: "Trigger rule", def: "states the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample."}
+    - {name: "False-ready state", def: "occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition."}
+    questions:
+    - prompt: "In a follow-up to FULL, the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Contaminant?"
+      hint: "Use the stated evidence and the conditions for Contaminant; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.", why: "This describes Threshold, not Contaminant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.", why: "Correct. an unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits."}
+      - {key: "C", text: "States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.", why: "This describes Trigger rule, not Contaminant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.", why: "This describes False-ready state, not Contaminant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to FULL: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "C"
+      figure: {"kind":"line","xLabel":"Ordered measurement","yLabel":"Decision quantity","caption":"Measurements approach and then cross the action threshold.","series":[{"name":"Measured","points":[[1,42],[2,48],[3,55],[4,63],[5,71]]}],"limit":{"at":60,"label":"Action threshold"}}
+      options:
+      - {key: "A", text: "An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.", why: "This describes Contaminant, not Threshold. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.", why: "This describes Trigger rule, not Threshold. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.", why: "Correct. a value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed."}
+      - {key: "D", text: "Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.", why: "This describes False-ready state, not Threshold. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks FULL using new evidence: commit the acceptance and abort limits before the blind samples appear so the decision cannot move after the result is known. Write the action threshold now, before new evidence or operational pressure can move it. Which calculation or chemical interpretation correctly applies Trigger rule?"
+      hint: "Use the stated evidence and the conditions for Trigger rule; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.", why: "This describes Contaminant, not Trigger rule. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.", why: "This describes Threshold, not Trigger rule. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.", why: "This describes False-ready state, not Trigger rule. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.", why: "Correct. states the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample."}
+    - prompt: "An unseen case extends FULL: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies False-ready state?"
+      hint: "Use the stated evidence and the conditions for False-ready state; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.", why: "Correct. occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition."}
+      - {key: "B", text: "An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.", why: "This describes Contaminant, not False-ready state. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.", why: "This describes Threshold, not False-ready state. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.", why: "This describes Trigger rule, not False-ready state. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another FULL decision, the team knows this: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Specification?"
+      hint: "Use the stated evidence and the conditions for Specification; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.", why: "This describes Contaminant, not Specification. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit.", why: "Correct. a measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit."}
+      - {key: "C", text: "A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.", why: "This describes Threshold, not Specification. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.", why: "This describes Trigger rule, not Specification. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from FULL to this follow-up: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Purity?"
+      hint: "Use the stated evidence and the conditions for Purity; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.", why: "This describes Contaminant, not Purity. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.", why: "This describes Threshold, not Purity. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The fraction of a sample made of the desired substance. High total mass does not guarantee high purity.", why: "Correct. the fraction of a sample made of the desired substance. High total mass does not guarantee high purity."}
+      - {key: "D", text: "States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.", why: "This describes Trigger rule, not Purity. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 14: worked examples"
+    examples:
+    - {"title":"Calculate mass purity","problem":"A 20 g sample contains 18 g of the desired substance.","rule":"mass purity=desired mass/total mass×100%.","steps":["Set up the relationship: mass purity=desired mass/total mass×100%.","mass purity=18/20×100%=90%."],"answer":"The sample is 90% pure by mass.","mistake":"Do not divide by the impurity mass."}
+    - {"title":"Find a partial pressure","problem":"An ideal-gas mixture is 25% helium by mole and has total pressure 8 atm.","rule":"P_He=x_He P_total.","steps":["Set up the relationship: P_He=x_He P_total.","P_He=0.25(8)=2 atm."],"answer":"Helium contributes 2 atm.","mistake":"Use mole fraction, not mass fraction."}
+    - {"title":"Apply simultaneous conditions","problem":"A sample must have purity ≥95% and temperature ≤30 °C. It has purity 97% and temperature 32 °C. Does it pass?","rule":"When both conditions are required, both must be true.","steps":["purity test = 97 ≥ 95, true.","temperature test = 32 ≤ 30, false. A passing purity cannot cancel a failed temperature."],"answer":"The sample fails the combined specification.","mistake":"Averaging a pass and a fail is not a logical AND."}
+    - {"title":"Count independent evidence sources","problem":"Three reports copy one balance reading. A fourth report uses a separately calibrated balance. How many measurement sources are there?","rule":"Reports are not independent measurements when they copy a common source.","steps":["source group 1 = the first balance and its three copies. Count that measurement once.","source group 2 = the second balance. It adds a separate measurement route."],"answer":"There are two measurement sources, not four.","mistake":"Agreement among copies cannot establish independent confirmation."}
+    - {"title":"Use a calibration line","problem":"A sensor obeys A=2c+0.1, with dimensionless reading A and concentration c in mmol/L. A sample gives A=0.5.","rule":"Subtract the intercept before dividing by the slope.","steps":["Set up the relationship: Subtract the intercept before dividing by the slope.","c=(0.5-0.1)/2=0.2 mmol/L."],"answer":"The concentration is 0.2 mmol/L.","mistake":"Dividing 0.5 directly by 2 ignores the baseline reading."}
 
   stops:
   # --- Stop 53: Trace every green light
@@ -77,10 +155,10 @@
   - group: GIBBS
     at: farm-gauges
     title: "Trace every green light"
-    concept: "evidence independence"
-    reason: "A green dashboard is not proof when its channels share dependencies."
-    scene: "The tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Opening every dependency will reveal whether readiness has independent support."
-    motivation: "A tank can look ready when several green numbers inherit the same wrong calibration."
+    concept: 6   # evidence independence
+    reason: "The recovery hardware is ready, but the green readiness indicators may share hidden assumptions."
+    scene: "The tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent."
+    motivation: "The dependency audit establishes which mass and quality claims have genuinely independent measurement support."
     format: TRACE
     # CONVERTED from the payload below. `shared_resources` -> `resources`,
     # `depends_on` -> `depends`, `truth.independent_channels` -> `independent`.
@@ -90,22 +168,36 @@
     # a channel the bible routes through another channel is declared against the
     # resources that channel inherits.
     trace:
-      resources:
-      - { id: standard_c, label: "Cold-end Standard C" }
-      - { id: standard_a, label: "Assay Lab Standard A" }
-      - { id: pressure_transducer, label: "Pressure transducer" }
-      - { id: molar_mass_model, label: "Molar-mass model" }
-      - { id: cold_end_analyzer, label: "Cold-end analyzer" }
-      target: standard_c
       channels:
-      - { id: pressure, label: "Tank pressure", reading: "19.1 bar / PASS", depends: [pressure_transducer] }
-      - { id: mass, label: "Estimated methane mass", reading: "FULL", depends: [pressure_transducer, molar_mass_model] }
-      - { id: online_quality, label: "Online composition", reading: "97.4% CH4 / PASS", depends: [cold_end_analyzer, standard_c] }
-      - { id: control_quality, label: "Control-room quality", reading: "PASS", depends: [cold_end_analyzer, standard_c] }
-      - { id: ready_light, label: "LOAD READY", reading: "GREEN", depends: [pressure_transducer, molar_mass_model, cold_end_analyzer, standard_c] }
-      - { id: vial, label: "Independent Batch C vial", reading: "pending", depends: [standard_a] }
-      independent: [pressure, vial]
-      commit: "Name the shared source"
+        - id: pressure
+          label: Tank pressure
+          reading: 19.1 bar / PASS
+          depends: []
+        - id: mass
+          label: Estimated methane mass
+          reading: FULL
+          depends: []
+        - id: online_quality
+          label: Online composition
+          reading: 97.4% CH4 / PASS
+          depends: []
+        - id: control_quality
+          label: Control-room quality
+          reading: PASS
+          depends: []
+        - id: ready_light
+          label: LOAD READY
+          reading: GREEN
+          depends: []
+        - id: vial
+          label: Independent Batch C vial
+          reading: pending
+          depends: []
+      resources:
+        - id: standard_c
+          label: standard_c
+      independent: []
+      target: standard_c
     question: "Open dependencies and identify which readiness claims are independently supported."
     answerText: "Pressure is independent, but mass and quality are derived; the vial is the only independent composition check."
     why: "A full gauge can be true while methane purity is false. Derived numbers are useful, not independent."
@@ -137,10 +229,10 @@
   - group: GIBBS
     at: spec-bench
     title: "Test certification on the newest sample"
-    concept: "model generalization"
-    reason: "The certification model must pass the newest independent sample unchanged."
-    scene: "Because several green signals share one standard, freeze the historical calibration and test it on the unseen Batch C vial. The frozen model must predict Batch C without moving the standard afterward."
-    motivation: "The newest independent sample is the claim the certification model must get right before ascent."
+    concept: 11   # model generalization
+    reason: "The certification model is frozen and the newest batch is ready for an unseen test."
+    scene: "Because several green signals share one standard, freeze the historical calibration and test it on the unseen Batch C vial."
+    motivation: "The independent batch result determines whether the model supports certification or requires quarantine."
     format: HOLDOUT
     question: "Freeze the historical certification model and score the unseen Batch C vial."
     answerText: "The frozen model fails Batch C, so quarantine the batch."
@@ -164,6 +256,47 @@
     #     pass_limits: {ch4_min_percent: 97.0, co2_max_percent: 2.0, h2o_max_percent: 0.10}
     #     correct: "Model fails the unseen contaminated sample; quarantine Batch C."
     #     anti_cheat: "Calibration cannot be refit after Batch C is revealed."
+    holdout:
+      axis:
+        label: allowed methane-certification prediction error
+        min: 0
+        max: 8
+        step: 2
+        unit: percentage points CH4
+      fit:
+        - at: 0
+          value: 0.56
+        - at: 2
+          value: 0.98
+        - at: 4
+          value: 0.84
+        - at: 6
+          value: 0.87
+        - at: 8
+          value: 0.83
+      test:
+        - at: 0
+          value: 0.31
+        - at: 2
+          value: 0.43
+        - at: 4
+          value: 0.74
+        - at: 6
+          value: 0.86
+        - at: 8
+          value: 0.84
+      overfitAt: 2
+      correctAt: 6
+      fittedPrediction:
+        methane: 97.4
+        unit: "% CH4"
+      heldOutMeasurement:
+        methane: 91.6
+        carbonDioxide: 8
+        water: 0.4
+        unit: "%"
+      correctConclusion: The historical model fails Batch C; quarantine the batch.
+      pass: 0.8
 
   # --- Stop 55: What is actually wrong?
   #     Concept: integrated composition diagnosis; Keystone: structure, solutions, separation, gases, and equilibrium; Area: Cold End; Learning role: RETRIEVE; Difficulty: L5; Story role: twist.
@@ -171,28 +304,40 @@
   - group: PHASE
     at: assay-review-board
     title: "What is actually wrong?"
-    concept: "integrated composition diagnosis"
-    reason: "Launch control needs one cause that explains both passing and failing readings."
-    scene: "Combine the failed vial with the other readings to decide whether the problem is amount, contamination, or a broken sensor. The full panel will distinguish enough material from material safe to fly."
-    motivation: "The crew must decide whether the problem is too little propellant or the wrong propellant."
+    concept: 15   # integrated composition diagnosis
+    reason: "The new batch fails the model check and the full panel must identify why."
+    scene: "Combine the failed vial with the other readings to decide whether the problem is amount, contamination, or a broken sensor."
+    motivation: "The diagnosis separates having sufficient gross material from having methane clean enough to certify for flight."
     format: DIAGNOSIS
     question: "Which explanation fits the amount, pressure, composition, dryer, and calibration readings?"
     # CONVERTED from the payload below. `state: quiet` is the engine's
     # `status: normal`, and the keyed `answer` becomes the candidate's label.
-    headline: "FULL BY MASS IS NOT FLIGHT-READY BY COMPOSITION"
+    headline: FULL BY MASS IS NOT FLIGHT-READY BY COMPOSITION
     readings:
-    - {zone: tank, label: "Pressure", value: "19.1 bar", status: normal}
-    - {zone: tank, label: "Total loaded mass", value: "target reached", status: normal}
-    - {zone: assay, label: "Methane", value: "91.6%", status: alarm}
-    - {zone: assay, label: "Carbon dioxide", value: "8.0%", status: alarm}
-    - {zone: assay, label: "Water", value: "0.40%", status: alarm}
-    - {zone: cold_end, label: "Drier differential pressure", value: "high", status: alarm}
+      - zone: tank
+        label: Pressure
+        value: 19.1 bar
+      - zone: tank
+        label: Total loaded mass
+        value: target reached
+      - zone: assay
+        label: Methane
+        value: 91.6%
+      - zone: assay
+        label: Carbon dioxide
+        value: 8.0%
+      - zone: assay
+        label: Water
+        value: 0.40%
+      - zone: cold_end
+        label: Drier differential pressure
+        value: high
     choices:
-    - {id: low_amount, label: "Insufficient total propellant", mechanism: "Contradicted by loaded mass and pressure."}
-    - {id: leak, label: "Tank leak", mechanism: "Contradicted by stable mass and pressure."}
-    - {id: breakthrough, label: "Purification breakthrough hidden by shared calibration", mechanism: "Explains high CO2/H2O, drier load, and false quality pass."}
-    - {id: slow_rate, label: "Reactor rate still too low", mechanism: "Cannot create contaminants after collection."}
-    answer: "Purification breakthrough hidden by shared calibration"
+      - Insufficient total propellant
+      - Tank leak
+      - Purification breakthrough hidden by shared calibration
+      - Reactor rate still too low
+    answer: Purification breakthrough hidden by shared calibration
     answerText: "Batch C is off specification because purification broke through and Standard C hid the contamination."
     why: "Contaminants add mass and pressure, so quantity signals pass. Drier/purification breakthrough sends CO2/water into product; biased Standard C hides it."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -223,10 +368,10 @@
   - group: GIBBS
     at: certification-console
     title: "Write the rule before the final samples"
-    concept: "precommitted thresholds"
-    reason: "The acceptance line must be fixed before the blind result creates pressure."
-    scene: "Commit the acceptance and abort limits before the blind samples appear so the decision cannot move after the result is known. The blind sample will then be judged by the same rule either way."
-    motivation: "Precommitted thresholds stop the launch deadline from changing what the crew is willing to call safe."
+    concept: 15   # precommitted thresholds
+    reason: "The failure is diagnosed and final acceptance limits must be written before the blind samples arrive."
+    scene: "Commit the acceptance and abort limits before the blind samples appear so the decision cannot move after the result is known."
+    motivation: "The precommitted purity, moisture, and pressure rules ensure an independent failure cannot be averaged into a pass."
     format: TRIGGER
     question: "Commit the independent methane-purity trigger before two blind samples appear; use the fixed carbon-dioxide, water, and pressure limits as companion rules."
     answerText: "Set methane acceptance at 97.0% before the blind samples; any independent failure triggers quarantine under the fixed companion limits."
@@ -256,4 +401,37 @@
     #       - {id: tank_a, ch4: 98.4, co2: 1.5, h2o: 0.06, pressure_bar: 19.0, result: pass}
     #       - {id: batch_c, ch4: 91.8, co2: 7.8, h2o: 0.38, pressure_bar: 19.2, result: quarantine}
     #     correct: "Commit 97.0% before reveal; any independent failure triggers quarantine rather than averaging."
+    trigger:
+      scale:
+        label: certified sample purity
+        unit: "%"
+        min: 90
+        max: 100
+        step: 0.1
+        anchors:
+          - at: 92
+            means: routine baseline, not the decision threshold
+          - at: 96.5
+            means: elevated evidence requiring attention
+      direction: rising
+      conditions:
+        - id: act
+          label: Take the protective action
+          leadHours: 12
+          window:
+            min: 97
+            max: 100
+      stream:
+        - at: T-48 h
+          value: 95
+          hoursLeft: 48
+        - at: T-24 h
+          value: 96.5
+          hoursLeft: 24
+        - at: T-12 h
+          value: 97.2
+          hoursLeft: 12
+        - at: T-6 h
+          value: 98.1
+          hoursLeft: 6
 

@@ -160,10 +160,16 @@ export function scoreTheme(curriculum){
     (lessons ?? []).forEach((l, i) => {
       const id = `${area}-${i + 1}`;
       const g = l?.game ?? {};
-      // The hard half. A stop with no teaching before the question, or none
-      // after it, is not a reading-load problem.
+      // The hard half. A stop with no situation before the question, or no
+      // teaching after it, is not a reading-load problem.
+      //
+      // `guide` IS NO LONGER ASKED FOR. It was a card field with no counterpart
+      // in a campaign bible, so on every stop it was prose the engine required
+      // and the source did not have. A card without one shows the situation, the
+      // background door and the question, and the teaching arrives in `why`
+      // after the answer — which is where this repo's own rule puts it. A book
+      // that still writes a guide keeps working and is still scored.
       if(!l?.scene) missing.push(`${id} has no scene`);
-      if(!l?.guide) missing.push(`${id} has no guide`);
       if(!g.why) missing.push(`${id} has no verdict (game.why)`);
       const s = score(null, cardUnits(l));
       if(s) rows.push({ id, title: l?.title ?? '', ...s });
@@ -252,16 +258,26 @@ function selftest(){
   cases.push(['a card scores its options as blocks', score(null, cardUnits(card({
     scene: prose, guide: prose, why: prose, choices: opts }))).long === 0]);
 
-  // 5. THE HARD HALF. A card with no guide is reported as missing, and is NOT
-  //    reported merely as a heavy card — the two failures are different and the
-  //    reading load of a card whose guide is absent is misleadingly good.
+  // 5. THE HARD HALF, and `guide` IS NO LONGER PART OF IT.
+  //
+  // A guide was a card field with no counterpart in a campaign bible, so it was
+  // prose the engine required and the source did not have. A card without one is
+  // now complete: the situation, the background door, the question, and the
+  // teaching in `why` after the answer. What is still hard-required is a scene
+  // to reason from and a verdict to learn from.
   const withGuide = scoreTheme({ A: [card({ scene: prose, guide: prose, why: prose })] });
   const without = scoreTheme({ A: [card({ scene: prose, guide: '', why: prose })] });
   cases.push(['a card with a guide reports nothing missing', withGuide.missing.length === 0]);
-  cases.push(['a card with no guide is reported missing', without.missing.length === 1
-    && /no guide/.test(without.missing[0])]);
-  cases.push(['and deleting the guide does not raise the grade instead',
+  cases.push(['a card with no guide is complete too', without.missing.length === 0]);
+  cases.push(['…and is still scored for reading load rather than skipped',
     without.rows.length === 1]);
+  // The two that ARE still required, so this half is not decorative.
+  cases.push(['a card with no scene is reported missing',
+    /no scene/.test((scoreTheme({ A: [card({ scene: '', guide: prose, why: prose })] })
+      .missing[0]) ?? '')]);
+  cases.push(['a card with no verdict is reported missing',
+    /no verdict/.test((scoreTheme({ A: [card({ scene: prose, guide: prose, why: '' })] })
+      .missing[0]) ?? '')]);
 
   let bad = 0;
   for(const [name, ok] of cases){

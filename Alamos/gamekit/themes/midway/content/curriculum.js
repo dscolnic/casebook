@@ -77,7 +77,6 @@ export const CURRICULUM = {
           "start": "v² = v₀² + 2aΔx",
           "goal": "the speed at the bottom of the fall, in metres per second",
           "startNote": "the carriage is released from rest and falls 42 m before the fins engage",
-          "rules": [],
           "steps": [
             {
               "ask": "Put the conditions of this drop into the relation.",
@@ -85,23 +84,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v² = 0 + 2(9.8)(42)",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "v² = 0 + 2(9.8)(42)(2.9)",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "The time is already inside the relation; that is what makes it the useful one here. Multiplying by it as well counts the fall twice and leaves units of metres squared per second."
-                },
-                {
-                  "text": "v² = 0 + (9.8)(42)",
-                  "rule": "substitution",
-                  "why": "The factor of two is what carries the average speed of an accelerating body. Drop it and every step below is clean algebra with a speed 29% low — 20 metres a second, which reads perfectly plausible for a fall of this size.",
-                  "survives": true
-                },
-                {
-                  "text": "v = 0 + 2(9.8)(42)",
-                  "rule": "substitution",
-                  "why": "The relation gives the square of the speed. Reading the left side as v and not v² turns a speed into something 823 units large."
                 }
               ]
             },
@@ -111,49 +99,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v = 823 ÷ 2",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "Halving is not the inverse of squaring. It happens to be the operation that appears in the relation, applied to the wrong side of it."
                 },
                 {
                   "text": "v = √823",
-                  "rule": "rearrangement"
-                },
-                {
-                  "text": "v = 823²",
-                  "rule": "rearrangement",
-                  "why": "Squaring again moves in the wrong direction. The left-hand side is already a square and has to be undone rather than repeated."
-                },
-                {
-                  "text": "v = √(823) with the sign left open, since the root has 2 values",
-                  "rule": "definition",
-                  "why": "Algebraically correct and physically empty: the negative root is the same speed travelling upward, which this carriage is not doing. Carrying it down the page leaves an answer that cannot be reported as a number.",
-                  "survives": true
+                  "note": "rearrangement"
                 }
               ]
             },
             {
               "ask": "Evaluate it, and say what the answer is a statement about.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "v ≈ 28.7 m/s, the speed of anybody in the carriage",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "The arithmetic is right and the claim is too wide. It is the speed of the carriage and of everything falling with it, which happens to include the riders, and the derivation says nothing about what any of them feel.",
                   "survives": true
                 },
                 {
-                  "text": "v ≈ 41.2 m/s by the time the carriage reaches the bottom of the tower",
-                  "rule": "evaluation",
-                  "why": "That is the root of 1,700, which is what 2aΔx gives if the drop is taken as the whole tower rather than the free part of it. The fins take the last nine metres."
-                },
-                {
                   "text": "v ≈ 28.7 m/s, the speed of the carriage where the fins begin",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "v ≈ 28.7 m/s, the average speed over the fall",
-                  "rule": "definition",
-                  "why": "The average speed of a fall from rest is half the final 1, about 14. This number is the speed at one instant, which is the instant the brake has to work at."
+                  "note": "evaluation"
                 }
               ]
             }
@@ -779,7 +746,6 @@ export const CURRICULUM = {
           "start": "mgh₀ + ½mv₀² = mgh₁ + ½mv₁² + W_friction",
           "goal": "the speed at the foot of the drop with no losses, and what the measured 21.4 m/s implies",
           "startNote": "h₀ = 26 m, h₁ = 2 m, v₀ = 2.0 m/s at the crest, mass of the loaded train 4,800 kg",
-          "rules": [],
           "steps": [
             {
               "ask": "Set the friction term to zero for the ideal case and divide through by the mass.",
@@ -787,23 +753,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "gh₀ + ½v₀² = gh₁ + ½v₁², so the result depends on the mass of the train",
-                  "rule": "cancellation",
+                  "note": "cancellation",
                   "why": "The line is right and the conclusion contradicts it. Every term had an m and every m has just been divided out, which is the whole reason a heavy train and a light one reach the bottom together."
                 },
                 {
                   "text": "gh₀ + ½v₀² = gh₁ + ½v₁²",
-                  "rule": "cancellation"
-                },
-                {
-                  "text": "gh₀ + ½v₀² = gh₁ + ½v₁² + W_friction ÷ m",
-                  "rule": "cancellation",
-                  "why": "Correct algebra for the real circuit, and it is not the ideal case the step asked for. Carried down the page it gives an answer with an unknown in it, and the unknown is the thing this stop is trying to measure.",
-                  "survives": true
-                },
-                {
-                  "text": "mgh₀ + ½mv₀² = mgh₁ + ½mv₁², so v₁ = √(2g(h₀ − h₁))",
-                  "rule": "conservation",
-                  "why": "The final expression drops the starting speed, which is small here and not zero. It is the answer to a train released from rest, and this one is already moving."
+                  "note": "cancellation"
                 }
               ]
             },
@@ -813,54 +768,34 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v₁ = √(v₀² + 2g(h₀ − h₁))",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "v₁ = √(2g(h₀ − h₁))",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "Valid for a start from rest, and this train enters the drop at two metres a second. It understates the ideal speed by a tenth of a metre a second — small here, and the same omission on a launched circuit is a large error.",
                   "survives": true
-                },
-                {
-                  "text": "v₁ = v₀ + 2g(h₀ − h₁)",
-                  "rule": "substitution",
-                  "why": "Speeds and squares of speeds cannot be added. The left side is metres a second and the right is metres squared per second squared."
-                },
-                {
-                  "text": "v₁ = √(v₀² + g(h₀ − h₁))",
-                  "rule": "conservation",
-                  "why": "The half in the kinetic term is what puts a two in front of g when the equation is rearranged. Dropping it loses 30% of the speed."
                 }
               ]
             },
             {
               "ask": "Evaluate it and compare with the wheel's 21.4 metres a second.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "v₁ ≈ 21.7 m/s, so the measured speed shows the circuit is very nearly ideal",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "The arithmetic drops the starting speed and the difference looks like nothing. Compare energies rather than speeds and the same gap is about 130 kilojoules a lap — the square is what makes a small speed difference a large energy loss.",
                   "survives": true
                 },
                 {
-                  "text": "v₁ ≈ 23.6 m/s, and the wheel is reading 2 metres a second low",
-                  "rule": "evaluation",
-                  "why": "That is the ideal speed for a drop from 26 metres to the ground rather than to the station 2 metres above it."
-                },
-                {
                   "text": "v₁ ≈ 21.8 m/s, so friction has taken about 4% of the energy",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "v₁ ≈ 21.8 m/s, so friction has taken about 2% of the energy",
-                  "rule": "evaluation",
-                  "why": "2% is the shortfall in the speed. Energy goes as the square, so the fraction lost is close to twice the fraction of speed lost, and reporting the smaller one halves the loss the ride actually has."
+                  "note": "evaluation"
                 }
               ]
             }
           ],
-          "hint": "Write the energy statement first, then divide out what cancels. Name the move as well as the line.",
+          "hint": "Write the energy statement first, then divide out what cancels.",
           "commit": "Commit the derivation"
         }
       },
@@ -982,7 +917,6 @@ export const CURRICULUM = {
           "start": "N + mg = mv²/r",
           "goal": "the least speed the train can cross the crown at, for r = 7.4 m and for r = 5.6 m",
           "startNote": "at the crown the centre of the loop is below the train, so both forces point that way",
-          "rules": [],
           "steps": [
             {
               "ask": "Take the limiting case that fixes the minimum.",
@@ -990,23 +924,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "Set v = 0, giving N = −mg at the crown",
-                  "rule": "limit",
+                  "note": "limit",
                   "why": "A stationary train at the crown is not a limiting case of a ride, it is a train falling off. The negative sign is the algebra reporting that the rail would have to pull."
                 },
                 {
                   "text": "Set N = 0: the rail stops pushing, so mg = mv²/r",
-                  "rule": "limit"
-                },
-                {
-                  "text": "Set N = mg, so the rider feels normal weight at the crown",
-                  "rule": "dynamics",
-                  "why": "A perfectly sensible design condition and not the minimum. It gives a speed about 40% higher than the contact limit, which is a comfort criterion being mistaken for the minimum safety condition.",
-                  "survives": true
-                },
-                {
-                  "text": "Set N + mg = 0, so the 2 forces balance at the crown",
-                  "rule": "dynamics",
-                  "why": "Both forces point the same way at the crown — downward, toward the centre — so they add rather than cancel. Setting the sum to zero describes no situation on this track."
+                  "note": "limit"
                 }
               ]
             },
@@ -1016,49 +939,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v = √(gr), and the mass has cancelled",
-                  "rule": "cancellation"
+                  "note": "cancellation"
                 },
                 {
                   "text": "v = √(gr) for a full train, and less for an empty one",
-                  "rule": "cancellation",
+                  "note": "cancellation",
                   "why": "The mass divided out of both sides one line ago. Attaching a load condition to the answer means the ride ends up with two limits where the physics offers one.",
                   "survives": true
-                },
-                {
-                  "text": "v = gr",
-                  "rule": "cancellation",
-                  "why": "The left side is a speed and the right is a speed squared. As written, the number for the measured radius is 73, which is not a speed anything on this site reaches."
-                },
-                {
-                  "text": "v = √(g/r)",
-                  "rule": "evaluation",
-                  "why": "Inverting the radius makes a bigger loop need less speed, which is the opposite of what a wider curve does — and gives 1.2 m/s at the crown."
                 }
               ]
             },
             {
               "ask": "Evaluate for both radii and say what changed.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "8.5 m/s measured against 7.4 m/s drawn, so the drawing was conservative",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "Conservative means the drawing demanded more than reality does. It demanded less, which is the direction that spends a margin nobody knew they had."
                 },
                 {
-                  "text": "7.4 m/s measured against 8.5 m/s drawn, so the loop is easier than drawn",
-                  "rule": "evaluation",
-                  "why": "The radii have been swapped. The measured crown is the wider one, and a wider crown is the one that needs more speed."
-                },
-                {
                   "text": "8.5 m/s measured against 7.4 m/s drawn — the real loop demands 15% more",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "8.5 m/s measured against 7.4 m/s drawn, a difference of 1.1 m/s in the margin",
-                  "rule": "dynamics",
-                  "why": "The subtraction is right and the framing hides the size of it. What matters is the ratio to what the train actually has, and quoted as a difference it reads like small change.",
-                  "survives": true
+                  "note": "evaluation"
                 }
               ]
             }
@@ -1494,31 +1396,19 @@ export const CURRICULUM = {
           "start": "T sinθ = mv²/r  and  T cosθ = mg",
           "goal": "a relation for θ, and the quantities it turns out to depend on",
           "startNote": "θ is measured from the vertical; r is the radius of the circle the seat travels in",
-          "rules": [],
           "steps": [
             {
               "ask": "Divide the horizontal equation by the vertical one.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "tanθ = v²/(rg) × m",
-                  "rule": "division",
+                  "note": "division",
                   "why": "Both sides carried an m and the division removes it. Leaving one in makes the angle depend on the load, which would mean a full seat and an empty one hanging differently on the same ride, and they do not."
                 },
                 {
-                  "text": "sinθ/cosθ = mv²/r ÷ mg, so cotθ = v²/(rg)",
-                  "rule": "division",
-                  "why": "Sine over cosine is the tangent. Naming it the cotangent inverts the relation and gives an angle of about 60 degrees where the chains hang at 30."
-                },
-                {
                   "text": "tanθ = v²/(rg)",
-                  "rule": "division"
-                },
-                {
-                  "text": "T tanθ = v²/(rg)",
-                  "rule": "division",
-                  "why": "The tension divides out along with the mass; keeping it leaves an unknown on the left. The line is algebraically consistent and every step below it produces an angle in terms of a force nobody has measured.",
-                  "survives": true
+                  "note": "division"
                 }
               ]
             },
@@ -1528,23 +1418,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "The speed, the radius and the mass of the loaded seat.",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "Mass appeared on both sides of the original pair and has gone. This is the same result as a pendulum's period ignoring its bob, and for the same reason."
                 },
                 {
                   "text": "The speed of the seat and the radius of the circle it travels in.",
-                  "rule": "substitution"
-                },
-                {
-                  "text": "The length of the chain and nothing else, since that is what is hanging.",
-                  "rule": "resolution",
-                  "why": "The chain's length is genuinely in the problem — it sets the radius once the angle is known — but it is not what fixes the angle, and treating it as the only input gives a ride whose chains hang at one angle at every speed.",
-                  "survives": true
-                },
-                {
-                  "text": "The tension in the chain, which is what holds the seat out.",
-                  "rule": "resolution",
-                  "why": "The tension is what does the holding and it is not a free quantity: it adjusts itself to whatever the load and the angle require, which is why it divides out."
+                  "note": "substitution"
                 }
               ]
             },
@@ -1554,23 +1433,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "About 31° from the vertical, with the seats out at a radius of 5.3 m",
-                  "rule": "evaluation"
+                  "note": "evaluation"
                 },
                 {
                   "text": "About 31° from the horizontal, with the seats well above the hub",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "The angle in these equations is measured from the vertical, since that is the direction the weight acts in. Reading it from the horizontal puts the chains at 59 degrees and the seats far outside anything this ride does."
-                },
-                {
-                  "text": "About 21°, taking the radius as the 3.0 m hub",
-                  "rule": "substitution",
-                  "why": "Consistent arithmetic on the wrong radius. The seat travels in a circle wider than the hub by however far the chain has swung out, so the radius and the angle have to be solved together — and the answer is ten degrees shy.",
-                  "survives": true
-                },
-                {
-                  "text": "About 45°, since the speed and the radius are nearly equal in size",
-                  "rule": "evaluation",
-                  "why": "Comparing a speed with a length compares two different quantities. The tangent here is v² over rg, which is a pure number, and it is not close to one."
                 }
               ]
             }
@@ -2138,7 +2006,6 @@ export const CURRICULUM = {
           "start": "Στ = 0",
           "goal": "the force carried by one bolt, and the assumption behind that number",
           "startNote": "applied moment 177 kN·m; 8 bolts on a circle of radius 0.42 m",
-          "rules": [],
           "steps": [
             {
               "ask": "Write the moment the bolt ring can resist.",
@@ -2146,75 +2013,43 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "τ_resist = F × 0.42, taking the ring as a single fastening",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "A consistent statement about one bolt doing all the work. It over-sizes the force by a factor of eight, which errs safe here and would be an expensive answer to hand a supplier.",
                   "survives": true
                 },
                 {
                   "text": "τ_resist = 8 × F × 0.42",
-                  "rule": "substitution"
-                },
-                {
-                  "text": "τ_resist = 8 × F × 0.84",
-                  "rule": "substitution",
-                  "why": "That is the diameter of the bolt circle. A moment arm is measured from the centre of rotation to the line of the force, which is the radius."
-                },
-                {
-                  "text": "τ_resist = 8 × F",
-                  "rule": "equilibrium",
-                  "why": "A force with no distance attached is not a moment. The units on the two sides of the equation would not match."
+                  "note": "substitution"
                 }
               ]
             },
             {
               "ask": "Set the two moments equal and solve for the force in one bolt.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "F = 177,000 × 8 × 0.42 ≈ 595,000 N",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "Both the count and the arm are multiplying the unknown, so both divide. Here they have been multiplied instead, and the answer is 11 times the load in the entire arm."
                 },
                 {
-                  "text": "F = 177,000 ÷ 0.42 ≈ 421,000 N",
-                  "rule": "rearrangement",
-                  "why": "This is the total force the ring carries, which is a real and useful number, and it is not what one bolt sees. Sharing between eight is the step that has been skipped.",
-                  "survives": true
-                },
-                {
-                  "text": "F = 177,000 ÷ 8 ≈ 22,100 N",
-                  "rule": "rearrangement",
-                  "why": "Dividing by the count alone leaves a moment rather than a force, and the arm is what converts one into the other."
-                },
-                {
                   "text": "F = 177,000 ÷ (8 × 0.42) ≈ 52,700 N",
-                  "rule": "rearrangement"
+                  "note": "rearrangement"
                 }
               ]
             },
             {
               "ask": "State what that number rests on.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "That every bolt is loaded equally, which is exact for a ring in a machine of this age.",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "Equal sharing is an assumption rather than a fact, and it is least true in an old joint where fit and tension vary bolt to bolt."
                 },
                 {
-                  "text": "That the bolts carry the moment in shear, and nothing else is holding the arm.",
-                  "rule": "equilibrium",
-                  "why": "A defensible reading of the joint, and it ignores the friction the bolt tension produces between the faces — which in a properly tightened joint carries much of the load and makes 52 kilonewtons a conservative figure.",
-                  "survives": true
-                },
-                {
                   "text": "That the eight bolts share equally, so a loose one puts more into its neighbours.",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "That the moment is the largest the wheel sees, so no other case need be checked.",
-                  "rule": "evaluation",
-                  "why": "Loading is the worst *static* case. It says nothing about wind, about stopping the wheel quickly, or about the cyclic swing every gondola makes as it comes over the top."
+                  "note": "evaluation"
                 }
               ]
             }
@@ -2722,7 +2557,6 @@ export const CURRICULUM = {
           "start": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
           "goal": "the speed of the pair after impact, and the fraction of the kinetic energy left",
           "startNote": "m₁ = 320 kg at u₁ = 3.1 m/s; m₂ = 290 kg at rest",
-          "rules": [],
           "steps": [
             {
               "ask": "Put this collision into the statement.",
@@ -2730,23 +2564,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "320(3.1) + 290(3.1) = (320 + 290)v",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "The second car is stationary. Giving it the first car's speed puts momentum into the system that nothing supplied and returns the answer that nothing happened."
                 },
                 {
                   "text": "320(3.1) + 290(0) = (320 + 290)v",
-                  "rule": "substitution"
-                },
-                {
-                  "text": "320(3.1) = 290v",
-                  "rule": "conservation",
-                  "why": "Algebraically fine and it describes a different collision — one where the first car stops dead and hands everything to the second. It gives 3.4 m/s, faster than anything on the floor was going, which is the tell.",
-                  "survives": true
-                },
-                {
-                  "text": "½(320)(3.1²) + 0 = ½(320 + 290)v²",
-                  "rule": "conservation",
-                  "why": "This conserves kinetic energy, which a collision that ends with the cars locked together does not do. It gives a speed about 40% too high."
+                  "note": "substitution"
                 }
               ]
             },
@@ -2756,49 +2579,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v = 992 ÷ 610 ≈ 1.63 m/s",
-                  "rule": "rearrangement"
+                  "note": "rearrangement"
                 },
                 {
                   "text": "v = 992 × 610 ≈ 605,000 m/s",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "The combined mass divides, since it is multiplying the unknown. Multiplying gives a number with the units of kilograms squared metres per second."
-                },
-                {
-                  "text": "v = 992 ÷ 320 ≈ 3.1 m/s",
-                  "rule": "rearrangement",
-                  "why": "Dividing by the striking car's mass alone recovers the speed that went in, which is a consistent piece of arithmetic saying the collision did nothing. The mass on the right is the pair's, because the pair is what is moving.",
-                  "survives": true
-                },
-                {
-                  "text": "v = (3.1 + 0) ÷ 2 ≈ 1.55 m/s",
-                  "rule": "conservation",
-                  "why": "Averaging the two speeds happens to land near the right answer here and is not the physics. It ignores the masses entirely, and with a full car striking an empty one it is wrong by a third."
                 }
               ]
             },
             {
               "ask": "Compare the kinetic energy before and after.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "1,538 J before and 1,538 J after, since momentum was conserved and nothing left the floor",
-                  "rule": "conservation",
+                  "note": "conservation",
                   "why": "Momentum being conserved says nothing about the energy. They are different quantities and only one of them is protected in a collision like this."
                 },
                 {
-                  "text": "1,538 J before and 810 J after, so 47% has been destroyed",
-                  "rule": "evaluation",
-                  "why": "The arithmetic is right and the word is wrong. Energy is not destroyed; it has gone into deforming rubber, heating the bumpers and making the noise that is most of the ride's appeal.",
-                  "survives": true
-                },
-                {
                   "text": "1,538 J before and 810 J after, so 47% has left as heat, sound and deformation",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "1,538 J before and 810 J after, so the collision was elastic",
-                  "rule": "evaluation",
-                  "why": "An elastic collision is exactly the one that gives all its kinetic energy back. Losing nearly half of it is the definition of the other kind."
+                  "note": "evaluation"
                 }
               ]
             }
@@ -2968,31 +2769,19 @@ export const CURRICULUM = {
           "start": "FΔt = mΔv",
           "goal": "the average force, and what it is as a multiple of the rider's weight",
           "startNote": "rider 60 kg, change of speed 1.47 m/s, over 0.18 s",
-          "rules": [],
           "steps": [
             {
               "ask": "Solve for the average force.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "F = mΔvΔt = 60 × 1.47 × 0.18 ≈ 15.9 N",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "The time multiplies the force in the relation, so it divides when the force is made the subject. Multiplying gives a number a hundredth of the real one."
                 },
                 {
-                  "text": "F = Δv/(mΔt) = 1.47 ÷ (60 × 0.18) ≈ 0.14 N",
-                  "rule": "rearrangement",
-                  "why": "The mass belongs on top: a heavier rider needs a larger force for the same change of speed in the same time. As written, this says the opposite."
-                },
-                {
                   "text": "F = mΔv/Δt = 60 × 1.47 ÷ 0.18 ≈ 490 N",
-                  "rule": "rearrangement"
-                },
-                {
-                  "text": "F = mΔv/Δt with Δt taken as the car's 0.10 s, giving ≈ 880 N",
-                  "rule": "definition",
-                  "why": "Arithmetically clean, and it is the wrong body's time. The rider's momentum changes over the time the seat and their neck take, and using the car's collision time nearly doubles the answer.",
-                  "survives": true
+                  "note": "rearrangement"
                 }
               ]
             },
@@ -3002,23 +2791,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "490 ÷ (60 × 9.8) ≈ 0.83, so about 8 tenths of their weight",
-                  "rule": "comparison"
+                  "note": "comparison"
                 },
                 {
                   "text": "490 ÷ 60 ≈ 8.2, so about 8 times their weight",
-                  "rule": "comparison",
+                  "note": "comparison",
                   "why": "Dividing by the mass gives an acceleration, not a ratio, and 8.2 metres per second squared has been read as a multiple of weight. The number is real and it is not what it is being called.",
                   "survives": true
-                },
-                {
-                  "text": "490 × 9.8 ≈ 4,800, so nearly 5000 times their weight",
-                  "rule": "evaluation",
-                  "why": "Multiplying a force by g gives nothing with a meaning. Weight is a force already; the comparison is a division."
-                },
-                {
-                  "text": "490 N is the weight of a 490 kg person, so it is 8 times a rider",
-                  "rule": "definition",
-                  "why": "A newton and a kilogram are not the same unit. 490 newtons is the weight of a fifty-kilogram mass, near enough 1 rider rather than 8."
                 }
               ]
             }
@@ -3292,31 +3071,19 @@ export const CURRICULUM = {
           "start": "F = −mg sinθ",
           "goal": "the small-angle period predicted by the simple model, and the assumptions behind it",
           "startNote": "candidate simple-pendulum model: a point mass at distance L from the pivot",
-          "rules": [],
           "steps": [
             {
               "ask": "Write the restoring force in terms of the sideways displacement x.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "F = −mgθ, with θ the swing angle measured in degrees",
-                  "rule": "approximation",
+                  "note": "approximation",
                   "why": "The approximation only holds with the angle in radians, where an angle and its sine agree to within a per cent up to about 15 degrees. In degrees the 2 differ by a factor of 57."
                 },
                 {
-                  "text": "F = −mgL sinθ",
-                  "rule": "substitution",
-                  "why": "That is the torque about the pivot rather than the force along the arc — correct physics, one line early, and it carries a length through everything below where a force belongs.",
-                  "survives": true
-                },
-                {
                   "text": "F = −mg(x/L), using sinθ ≈ x/L for a small swing",
-                  "rule": "approximation"
-                },
-                {
-                  "text": "F = −mgx",
-                  "rule": "approximation",
-                  "why": "Replacing the sine with the displacement itself loses the length. A ten-metre pendulum and a one-metre one would then have the same period, which is the one thing everybody knows is untrue."
+                  "note": "approximation"
                 }
               ]
             },
@@ -3326,23 +3093,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "ma = −(mg/L)x, so a = −(g/L)x and ω² = g/L",
-                  "rule": "comparison"
+                  "note": "comparison"
                 },
                 {
                   "text": "ma = −(mg/L)x, so ω² = mg/L",
-                  "rule": "comparison",
+                  "note": "comparison",
                   "why": "The mass is on both sides and has to go from both. Keeping it makes the period depend on the load, which contradicts the console log this ride has been printing for 20 years.",
                   "survives": true
-                },
-                {
-                  "text": "ma = −(mg/L)x, so a = −(g/L)x and ω = g/L",
-                  "rule": "comparison",
-                  "why": "The comparison is with a = −ω²x, so what is read off is ω squared. Taking it as ω gives a period nearly six times too short."
-                },
-                {
-                  "text": "F = −kx with k = mg/L, so the period depends on the stiffness alone",
-                  "rule": "substitution",
-                  "why": "The effective stiffness is right and it is not the whole story: a period depends on the mass as well as the stiffness, and here the mass is inside k and cancels."
                 }
               ]
             },
@@ -3352,23 +3109,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "T = 2π√(g/L), so a longer pendulum has a shorter period",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "The ratio is inverted; the units are also those of inverse time rather than time."
                 },
                 {
                   "text": "T = 2π√(L/g) for the simple-pendulum model",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "T = 2π√(L/g), therefore the real pirate ship must have that exact period",
-                  "rule": "comparison",
-                  "why": "The algebra is right and the conclusion outruns the model. A rigid ride is a physical pendulum, not a point mass on a massless string.",
-                  "survives": true
-                },
-                {
-                  "text": "T = √(L/g), because 2π only matters for circular motion",
-                  "rule": "evaluation",
-                  "why": "The 2π converts angular frequency into the time for one full oscillation and cannot be dropped."
+                  "note": "evaluation"
                 }
               ]
             }
@@ -3795,7 +3541,6 @@ export const CURRICULUM = {
           "start": "P₁ = P₂",
           "goal": "the force at the gate, and what has been given up to get it",
           "startNote": "hand piston 2.0 cm across, gate piston 9.0 cm across, 250 N applied by hand",
-          "rules": [],
           "steps": [
             {
               "ask": "Write each pressure as a force over its own area.",
@@ -3803,49 +3548,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "F₁/A₁ = F₂/A₂, so F₂ = F₁ × (A₂/A₁)",
-                  "rule": "definition"
+                  "note": "definition"
                 },
                 {
                   "text": "F₁A₁ = F₂A₂, so F₂ = F₁ × (A₁/A₂)",
-                  "rule": "definition",
+                  "note": "definition",
                   "why": "Consistent algebra on an inverted definition. Pressure is force divided by area, not multiplied by it, and this version makes the wide piston the weak 1 — a ram that would give 5 newtons at the gate for 250 at the hand.",
                   "survives": true
-                },
-                {
-                  "text": "F₁ = F₂, since pressure is passed on undiminished",
-                  "rule": "substitution",
-                  "why": "What is passed on undiminished is the pressure. The force is the pressure times an area, and the 2 areas here differ by a factor of 20."
-                },
-                {
-                  "text": "F₂ = F₁ × (d₂/d₁)",
-                  "rule": "geometry",
-                  "why": "This uses the diameters where the areas belong. It gives a multiplication of 4 and a half instead of 20, which is the same mistake as pricing a pizza by its width."
                 }
               ]
             },
             {
               "ask": "Put the areas in, from the diameters given.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "A₂/A₁ = 9.0/2.0 = 4.5",
-                  "rule": "geometry",
+                  "note": "geometry",
                   "why": "That is the ratio of the diameters. Area grows with the square of the diameter, so the ratio of areas is the square of this."
                 },
                 {
-                  "text": "A₂/A₁ = (9.0² − 2.0²)/2.0² = 19.25",
-                  "rule": "geometry",
-                  "why": "Subtracting the small area from the large one is the arithmetic for an annulus. These are two separate cylinders and each has its own full circle."
-                },
-                {
-                  "text": "A₂/A₁ = π(9.0)²/π(2.0)², and the π has to be evaluated before dividing",
-                  "rule": "evaluation",
-                  "why": "Perfectly valid and needlessly so: the π appears above and below and cancels exactly. Evaluating it changes nothing except the number of chances to make an arithmetic slip.",
-                  "survives": true
-                },
-                {
                   "text": "A₂/A₁ = (9.0/2.0)² = 20.25",
-                  "rule": "geometry"
+                  "note": "geometry"
                 }
               ]
             },
@@ -3855,23 +3579,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "F₂ ≈ 5,060 N, and the ram delivers that over the same distance the hand moved",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "The force is right and the second half is not. Work cannot be created by plumbing: the gate piston moves about a twentieth as far as the hand piston, which is exactly what keeps the energy books straight.",
                   "survives": true
                 },
                 {
                   "text": "F₂ ≈ 5,060 N, and the gate piston moves about a twentieth as far",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "F₂ ≈ 1,125 N, from the ratio of the diameters",
-                  "rule": "substitution",
-                  "why": "This is the diameter ratio again, four and a half times the hand force. It understates the gate force by a factor of four and a half."
-                },
-                {
-                  "text": "F₂ ≈ 5,060 N, so the hand pump does 20 times the work",
-                  "rule": "evaluation",
-                  "why": "The work at each end is the same, less what the seals take. 20 times the force over a twentieth of the distance is the same product."
+                  "note": "evaluation"
                 }
               ]
             }
@@ -4067,31 +3781,19 @@ export const CURRICULUM = {
           "start": "P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂",
           "goal": "the speed the water leaves the chute at",
           "startNote": "point 1 is the pond surface, point 2 the open chute 4.2 m below it",
-          "rules": [],
           "steps": [
             {
               "ask": "Strike out what is equal at the two points.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "The heights cancel, since both points are in the same body of water",
-                  "rule": "cancellation",
+                  "note": "cancellation",
                   "why": "The height difference is the entire driving term. Cancelling it leaves an expression saying still water squirts, which is the one thing everybody knows it does not do."
                 },
                 {
-                  "text": "The pressures cancel, and the pond surface speed is what the answer depends on",
-                  "rule": "cancellation",
-                  "why": "The first half is right and the second reverses it. The pond falls a millimetre a minute, which is why its speed term is the one that can be dropped."
-                },
-                {
-                  "text": "Nothing cancels, since the two points are in different places",
-                  "rule": "conservation",
-                  "why": "Formally safe and it refuses the method. Both surfaces are open to the air, so the pressures are equal and identical terms on both sides may be struck out — which is what makes this statement usable with a tape measure.",
-                  "survives": true
-                },
-                {
                   "text": "The pressures cancel, both being atmospheric, and v₁ ≈ 0 at the pond surface",
-                  "rule": "cancellation"
+                  "note": "cancellation"
                 }
               ]
             },
@@ -4101,23 +3803,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "ρg(h₁ − h₂) = ½ρv₂², so v₂ = √(2g(h₁ − h₂))",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "ρg(h₁ − h₂) = ½ρv₂², so v₂ = √(g(h₁ − h₂))",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30% low, and the expression still looks like the one in every textbook.",
                   "survives": true
-                },
-                {
-                  "text": "ρg(h₁ − h₂) = ½ρv₂², so v₂ = 2g(h₁ − h₂)/ρ",
-                  "rule": "substitution",
-                  "why": "The density is on both sides and divides out. Leaving it below makes the answer depend on what the liquid is, and this expression is the same for water, oil and mercury."
-                },
-                {
-                  "text": "v₂ = √(2g(h₁ − h₂)) only if the chute is vertical",
-                  "rule": "conservation",
-                  "why": "Energy accounts for the height dropped and not the path taken to drop it, which is the same reason the ship's swing and the tower's fall share an expression."
                 }
               ]
             },
@@ -4127,23 +3819,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v₂ ≈ 9.1 m/s, and it is a coincidence that it looks like the free-fall expression",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "Not a coincidence. Both statements say the same thing — a height has been converted into motion — and one is written per unit mass and the other per unit volume."
                 },
                 {
                   "text": "v₂ ≈ 9.1 m/s, the same expression the tower gives for a 4.2 m fall",
-                  "rule": "evaluation"
-                },
-                {
-                  "text": "v₂ ≈ 4.2 m/s, the height being what the water leaves at",
-                  "rule": "evaluation",
-                  "why": "Reading the answer straight off the head is dimensionally impossible — a length is not a speed — and it lands close enough to be believed by somebody in a hurry.",
-                  "survives": true
-                },
-                {
-                  "text": "v₂ ≈ 82 m/s, from the square of the head",
-                  "rule": "evaluation",
-                  "why": "The expression takes a root rather than a square. 82 metres a second out of a log flume would be worth seeing."
+                  "note": "evaluation"
                 }
               ]
             }

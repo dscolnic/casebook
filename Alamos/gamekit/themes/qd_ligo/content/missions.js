@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "OPTICS",
         "lesson": 1,
-        "task": "Predict what the wave does to the arms"
+        "task": "Predict what the wave does to the arms",
+        "person": true
       },
       {
         "group": "ISOL",
@@ -66,7 +67,8 @@ export const MISSIONS = [
       {
         "group": "PARAM",
         "lesson": 1,
-        "task": "Close the ledger"
+        "task": "Close the ledger",
+        "person": true
       },
       {
         "group": "PARAM",

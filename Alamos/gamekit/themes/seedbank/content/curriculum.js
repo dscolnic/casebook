@@ -2253,7 +2253,8 @@ export const CURRICULUM = {
             "min": 10,
             "max": 210,
             "nominal": 130,
-            "step": 5
+            "step": 5,
+            "worst": "min"
           },
           "robust": "conditional",
           "optimiseOn": "hedging",

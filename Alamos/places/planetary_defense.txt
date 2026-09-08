@@ -1,0 +1,221 @@
+PLANETARY DEFENSE (theme: planetary_defense) — PLACES AND LOCATIONS
+Campaign Director · International NEO Response
+Course: Astronomy — discovery, astrometry, characterisation, radar, impact
+physics (college level; here for reference)
+Grade 12. One mission is called a Phase.
+Delivery: The Defense Review — the board is in OPS. 15 pieces, one a phase.
+
+Run it:  cd gamekit && THEME=planetary_defense npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — the Cerro Alto range, at night, as data.
+
+This is the one game in the set that is played in the dark, and the only one
+whose sites are kilometres apart. Both facts come from the same place: an
+observatory works nights, and its instruments cannot live together. A
+megawatt planetary radar beside an optical telescope ruins both of them. A
+survey dome wants the darkest, highest ground there is. A consequences lab
+wants to be near the emergency managers it is briefing, which means down in
+the valley with the road and the phones.
+
+So this is a RANGE, not a campus. Four landforms across two and a half
+kilometres:
+
+  Cerro Alto, 950 m NW, +170 m    [ Survey Telescope ]
+  The east summit, 780 m NE       [ Spectroscopy Dome ]
+  The saddle, base camp           [ Coordination Office · Orbit Determination ]
+  The basin, 1.1 km W             [ Planetary Radar ]
+  Valle Seco, 1.0 km S            [ Entry & Consequences Lab ]
+
+The range was twice this size and the sites read as unreachable rather than
+far: nine minutes of flying to a dome, and nothing to look at on the way. Every
+distance from base camp is now half what it was, the summit radii and heights
+with it so the slopes are the same grade they were.
+
+Base camp is walkable and holds two of the six areas, so a day that stays
+there is a day on foot. Everything else is driven or — from the fourth phase,
+when the aircraft is signed out — flown, from the pad by the office. Every site
+has a lit pad and a beacon: a landing site you cannot see from the air, at
+night, is a landing site you fly past.
+
+Two rules this file is careful about. Every `group` must exist in
+content/groups.js or that area's calls are unreachable. And the spawn has ten
+clear metres around it — a prop over the spawn welds the player in place, and
+the scene still renders perfectly.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+OPS — Survey & Response
+  Coordination Office
+  (-30, 40)   39 m from spawn   24 x 14 x 5.6
+  DELIVERY ROOM — the board for The Defense Review is here.
+  Completeness, observing geometry, response decisions, communication, and
+  long-term readiness.
+  Calls: Turn evidence into action · Connect the evidence · Verify with an
+  independent check · Ready to hand off
+  Fixtures (at: targets):
+    desk               bench  left
+      The coordination desk — Where every other room’s numbers get turned into
+      a decision.
+    scopeboard         board  back
+      The telescope scheduling board — Every hour of observing time this
+      campaign has, and what it still needs to buy.
+
+ORBIT — Astrometry & Orbit
+  Orbit Determination
+  (34, -46)   113 m from spawn   22 x 13 x 5.4
+  Sky position, timing, orbit fitting, covariance, and impact probability.
+  Calls: Constrain the orbit · Connect the evidence · Verify with an
+  independent check · Ready to hand off
+  Fixtures (at: targets):
+    astro-bench        bench  left
+      The astrometry reduction bench — Six observatories’ positions, waiting
+      to become one track.
+    fit-board          board  back
+      The orbit-fit board — Every orbit that still fits the data, drawn
+      together.
+    tracking-rack      rack   right
+      The post-impact tracking rack — Where the predicted deflection meets
+      what actually happened.
+
+IMPACT — Entry & Consequences
+  Entry & Consequences Lab
+  (130, 780)   729 m from spawn   22 x 13 x 5.4
+  Energy, atmospheric entry, fragmentation, consequence uncertainty, and
+  deflection physics.
+  Calls: Bound the consequence · Connect the evidence · Verify with an
+  independent check · Ready to hand off
+  Fixtures (at: targets):
+    risk-display       board  back
+      The impact-risk display — The whole band of orbits that still fit, and
+      how much of it still touches Earth.
+    energy-bench       bench  left
+      The impact-energy bench — Joules on one side, megatons on the other, and
+      a size nobody has pinned down yet.
+    deflection-desk    bench  right
+      The deflection-physics desk — How hard the spacecraft has to hit, and
+      what counts as proof it worked.
+
+CHAR — Physical Characterization
+  Spectroscopy Dome
+  (590, -510)   820 m from spawn   16 x 16 x 6, dome radius 9.5
+  Brightness, albedo, spectra, rotation, size, and composition.
+  Calls: Measure the body · Connect the evidence · Verify with an independent
+  check · Ready to hand off
+  Fixtures (at: targets):
+    photometry-bench   bench  left
+      The photometry bench — One brightness curve, and everything that could
+      be hiding inside it.
+    sizing-board       board  back
+      The size–albedo board — Reflected light and thermal glow, plotted until
+      they agree on one diameter.
+    spectrograph       rack   right
+      The spectrograph — A dip near 1.4 microns, and the question of whether
+      it belongs to the rock.
+
+DISC — Discovery & Imaging
+  Survey Telescope
+  (-725, -620)   997 m from spawn   20 x 20 x 7, dome radius 12.5
+  Images, signal-to-noise, moving-object detection, and artifact rejection.
+  Calls: Validate the detection · Connect the evidence · Verify with an
+  independent check · Ready to hand off
+  Fixtures (at: targets):
+    pipeline-bench     bench  left
+      The image-processing bench — Forty thousand catalogued stars, two
+      satellite trails, and one bad camera spot to sort from the real point.
+    dome-console       board  back
+      The survey dome console — Every detection tonight, plotted against the
+      sky it was found in.
+
+RADAR — Radar & Dynamics
+  Planetary Radar Control
+  (-995, 390)   1050 m from spawn   20 x 12 x 5
+  Range, delay, velocity, momentum transfer, and independent orbit
+  constraints.
+  Calls: Add geometric leverage · Connect the evidence · Verify with an
+  independent check · Ready to hand off
+  Fixtures (at: targets):
+    dish               vessel left
+      The radar dish — Pointed and holding, while the ridge wind tries to walk
+      it off target.
+    radar-console      board  back
+      The radar console — Delay and Doppler, read straight off the echo.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+TOWN — Valle Seco Emergency Office  ·  "The people the numbers are about"
+  (95, 810)   754 m from spawn   16 x 11 x 4.6
+  Sited calls:
+    evac-desk          bench  left
+      The evacuation planning desk — Two counties’ worth of people, and a plan
+      that costs trust nobody gets back.
+    threshold-board    board  back
+      The action-threshold board — What happens at each stage, written down
+      before the next update can panic anybody into changing it.
+  Stand line: "Stockpiles and plans are cheap to undo. Moving nine million
+  people is neither."
+    Population under the corridor: 9,000,000 (alarm)
+    Evacuation lead time needed: ~30 days (high)
+    Plans funded so far: 0 of 2 counties (low)
+    Warning time at discovery: 11 days (alarm)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Campaign Briefing Hall  ·  "Where the board sits"
+  (-74, -20)   112 m   22 x 13 x 6.2
+Time and Frequency Standards  ·  "Every timestamp on this range"
+  (66, 24)   74 m   12 x 9 x 4.2
+Plate and Data Archive  ·  "Every image the survey has taken"
+  (-72, 60)   74 m   14 x 10 x 4.6
+Night Crew Quarters  ·  "Blackout blinds, and a rule about noise"
+  (-20, 108)   51 m   18 x 11 x 4.8
+Campaign Status
+  (8, 62)
+Spawn
+  (2, 62)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 2800, playerLimit 1300, profile 'range'
+mapRadius 170 — the map draws a window this wide around the player, not the whole site.
+
+==============================================================================
+THE DELIVERY — The Defense Review
+==============================================================================
+   1. The discovery confirmation
+   2. The astrometric positions
+   3. The first orbit solution
+   4. The uncertainty corridor
+   5. The size estimate
+   6. The composition finding
+   7. The rotation and shape model
+   8. The radar range and Doppler
+   9. The impact energy estimate
+  10. The entry and airburst model
+  11. The survey completeness figure
+  12. The deflection feasibility
+  13. The intercept design
+  14. The evacuation decision
+  15. The residual risk statement
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· travelSpeed: 16 — the day's budget is measured at that speed.
+· aircraftFromDay: 4.
+· peopleHome: { DISC: 'OPS' } — that group's crew stands elsewhere.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/planetary_defense/ — site/plan, fixtures, minors, groups, theme.

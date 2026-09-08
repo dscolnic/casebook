@@ -6,10 +6,10 @@
     header: "4 DAYS;"
     title: "Predict, Then Fire"
     goNow: "Impulse Hall, Elise Strand at bank stages."
-    body: "The conduit carried one third of the strike, and a temporary reroute is ready. A repair earns trust only if it predicts fields and induced voltage before a new pulse. You will calculate the reduced shot, commit the prediction, measure current at the mast, and compare trench voltage. By the end of the mission, decide whether the reroute is safe for a full shot."
+    body: "A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test."
     objective: "Verify the reroute with a committed quantitative prediction."
   objective: "Verify the reroute with a committed quantitative prediction."
-  stake: "The conduit carried one third of the strike, and a temporary reroute is ready. A repair earns trust only if it predicts fields and induced voltage before a new pulse. You will calculate the reduced shot, commit the prediction, measure current at the mast, and compare trench voltage. By the end of the mission, decide whether the reroute is safe for a full shot."
+  stake: "A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test."
   takeaway: "The reroute is safe for a full shot under the stated tolerance. ---"
   segue: "Mission decision: The reroute is safe for a full shot under the stated tolerance. The reduced test measured 92 V against a 90 V prediction. And the worst allowed full-shot case is 224 V, below 250 V. The remaining question is whether the recorders can see the fastest pulse. Metric target 25:00."
 
@@ -23,7 +23,7 @@
     world: "accepted BANK/bubble/charge controls locked/→S1; S2 correct/panel/prediction seal 90 V/PREDICTION LOCKED→MAST; enter MAST/fixture/shot control enabled/25.0 kV STAGES • 8 mm GAP • REROUTE FIXED→S3; S3 complete/waypoint/measurements logged/Take 92 V to the trench tolerance board.→EARTH/S4; S4 correct/world/reroute tag green+PASS text/WORST CASE 224 V < 250 V→outcome."
     panel: "Elise Strand, impulse engineer: \"Calculate first. The charger stays locked until the number is committed.\""
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "Calculate first. The charger stays locked until the number is committed."
   - id: after-stop-45
     # After Stop 45 | hall-board | automatic
@@ -31,32 +31,104 @@
     world: "The calculate reduced energy result remains visible while the predict reroute voltage fixture lights."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 45 result to settle predict reroute voltage."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 45 result to settle predict reroute voltage."
   - id: after-stop-46
     # After Stop 46 | shunt-rack | automatic
     on: { after: [2] }
     world: "The predict reroute voltage result remains visible while the fire the reduced test fixture lights."
     panel: "STOP 46 RECORDED - STOP 47 OPEN"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 46 result to settle fire the reduced test."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 46 result to settle fire the reduced test."
   - id: after-stop-47
     # After Stop 47 | conduit-bond | automatic
     on: { after: [3] }
     world: "The fire the reduced test result remains visible while the stress worst-case coupling fixture lights."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 47 result to settle stress worst-case coupling."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 47 result to settle stress worst-case coupling."
   - id: at-mission-end
     # At mission end | bank-stages | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 12 EVIDENCE: RECORDED"
     bubbles:
-    - who: strand   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Mutual inductance", def: "flux linkage in one circuit per current in another."}
+  - {name: "Transfer function", def: "output divided by input as a function of frequency."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Predict, Then Fire. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to Predict, Then Fire, the old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. Which prediction or calculation correctly applies Mutual inductance to this case?"
+      hint: "Use the stated evidence and the conditions for Mutual inductance; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Halving voltage quarters capacitor energy.", why: "This describes reduced energy, not Mutual inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.", why: "Correct. flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency."}
+      - {key: "C", text: "Mutual inductance links the geometry repair directly to measurable voltage.", why: "This describes mutual emf, not Mutual inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Operation cannot tune the prediction after the measurement.", why: "This describes staged verification, not Mutual inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to Predict, Then Fire: the test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Which prediction or calculation correctly applies reduced energy to this case?"
+      hint: "Use the stated evidence and the conditions for reduced energy; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.", why: "This describes Mutual inductance, not reduced energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Mutual inductance links the geometry repair directly to measurable voltage.", why: "This describes mutual emf, not reduced energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Halving voltage quarters capacitor energy.", why: "Correct. halving voltage quarters capacitor energy."}
+      - {key: "D", text: "Operation cannot tune the prediction after the measurement.", why: "This describes staged verification, not reduced energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks Predict, Then Fire using new evidence: the old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. Which prediction or calculation correctly applies mutual emf to this case?"
+      hint: "Use the stated evidence and the conditions for mutual emf; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.", why: "This describes Mutual inductance, not mutual emf. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Halving voltage quarters capacitor energy.", why: "This describes reduced energy, not mutual emf. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Operation cannot tune the prediction after the measurement.", why: "This describes staged verification, not mutual emf. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Mutual inductance links the geometry repair directly to measurable voltage.", why: "Correct. mutual inductance links the geometry repair directly to measurable voltage."}
+    - prompt: "An unseen case extends Predict, Then Fire: the committed reduced-shot prediction is 90 V. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies staged verification to this case?"
+      hint: "Use the stated evidence and the conditions for staged verification; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Operation cannot tune the prediction after the measurement.", why: "Correct. operation cannot tune the prediction after the measurement."}
+      - {key: "B", text: "Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.", why: "This describes Mutual inductance, not staged verification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Halving voltage quarters capacitor energy.", why: "This describes reduced energy, not staged verification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Mutual inductance links the geometry repair directly to measurable voltage.", why: "This describes mutual emf, not staged verification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Predict, Then Fire decision, the team knows this: the reduced shot measured 92 V, but the full shot has uncertain coupling and rise rate. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which prediction or calculation correctly applies uncertainty to this case?"
+      hint: "Use the stated evidence and the conditions for uncertainty; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.", why: "This describes Mutual inductance, not uncertainty. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "The repair passes only if every allowed pair stays below the campaign limit.", why: "Correct. the repair passes only if every allowed pair stays below the campaign limit."}
+      - {key: "C", text: "Halving voltage quarters capacitor energy.", why: "This describes reduced energy, not uncertainty. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Mutual inductance links the geometry repair directly to measurable voltage.", why: "This describes mutual emf, not uncertainty. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from Predict, Then Fire to this follow-up: the test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.", why: "This describes Mutual inductance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Halving voltage quarters capacitor energy.", why: "This describes reduced energy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Mutual inductance links the geometry repair directly to measurable voltage.", why: "This describes mutual emf, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"ε₂=-M dI₁/dt","c":"mutual induction","v":[["ε₂","induced voltage in the second loop in volts"],["M","mutual inductance in henries"],["I₁","current in the first loop in amperes"],["t","time in seconds"]],"s":"reroute."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 12: worked examples"
+    examples:
+    - {"title":"Mutual induction","problem":"Two coils have mutual inductance M=0.1 H. Current in the first rises at 20 A/s. Find induced-emf magnitude in the second.","rule":"|ε2|=M|dI1/dt|.","steps":["Set up the relationship: |ε2|=M|dI1/dt|.","|ε2|=0.1(20)=2 V."],"answer":"The second coil has induced emf magnitude 2 V.","mistake":"A constant current does not induce emf through this mechanism."}
+    - {"title":"Induced voltage","problem":"Magnetic flux through a one-turn loop changes from 0.1 to 0.5 Wb in 0.2 s. Find the average induced emf with the stated positive flux direction.","rule":"Average emf ε=-ΔΦ/Δt.","steps":["Set up the relationship: Average emf ε=-ΔΦ/Δt.","ε=-(0.5-0.1)/0.2=-2 V."],"answer":"The signed induced emf is -2 V for that flux orientation.","mistake":"The minus sign expresses opposition to the change in flux, not always to the original field."}
+    - {"title":"Inductor voltage","problem":"An inductor has L=0.2 H and its current rises at 10 A/s. Find induced emf.","rule":"ε_L=-L(dI/dt) under the chosen positive-current convention.","steps":["Set up the relationship: ε_L=-L(dI/dt) under the chosen positive-current convention.","ε_L=-0.2(10)=-2 V."],"answer":"The induced emf opposes the current increase and has magnitude 2 V.","mistake":"Use current change per time, not current itself."}
+    - {"title":"Use a reversible intervention","problem":"A lamp draws 2 A at setting A, 3 A at setting B, and 2 A after returning to A. Supply voltage and the lamp are unchanged. What does this support?","rule":"Change one proposed cause, hold other relevant factors fixed, then restore the original condition.","steps":["A → B changes the current by 3-2 = 1 A.","B → A restores 2 A. The response reverses with the setting under the stated controls."],"answer":"The result supports a setting effect under these test conditions.","mistake":"One intervention does not prove the effect is identical under every other condition."}
+    - {"title":"Test a frozen prediction","problem":"Before seeing a new measurement, a model predicts 12 units with an allowed error of 1 unit. The new measurement is 15 units. Does it pass this test?","rule":"Absolute prediction error = |observed - predicted|.","steps":["absolute error = |15-12| = 3 units. The prediction remains fixed.","comparison = 3 > 1. The error exceeds the prewritten tolerance."],"answer":"The model fails this held-out test.","mistake":"Refitting to 15 before scoring would no longer test the original prediction."}
 
   stops:
   # --- Stop 45: Calculate Reduced Energy
@@ -65,10 +137,10 @@
   - group: COUPLE
     at: bank-stages
     title: "Calculate Reduced Energy"
-    concept: "reduced energy"
-    reason: "reduced shot must meet energy cap."
-    scene: "The test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Estimate total stored energy using U_total=12(½CV²) before the charging control unlocks.\", and record the result with its physical justification in the station report."
-    motivation: "halving voltage quarters capacitor energy."
+    concept: 13   # reduced energy
+    reason: "The reroute must first be tested at reduced energy before the crew attempts a full shot."
+    scene: "The test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Estimate total stored energy using U_total=12(½CV²) before the charging control unlocks."
+    motivation: "The reduced bank energy establishes the test exposure associated with the lower stage voltage."
     format: BALLPARK
     question: "Using twelve 100 nF stages at 25.0 kV, assemble U_total=12(½CV²) and submit total energy in joules before the charger unlocks."
     answerText: "The completed check shows reduced bank energy is 375 J. Halving V quarters U."
@@ -110,12 +182,12 @@
   - group: COUPLE
     at: hall-board
     title: "Predict Reroute Voltage"
-    concept: "mutual emf"
-    reason: "reroute must make a numerical promise."
+    concept: 26   # mutual emf
+    reason: "The reduced-shot plan needs a new voltage prediction for the rerouted cable geometry."
     scene: "The old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. The reroute lowers mutual inductance to 0.60 microH; derive its pulse prediction and justify the change."
-    motivation: "mutual inductance links the geometry repair directly to measurable voltage."
+    motivation: "The reroute's mutual inductance determines the expected trailer voltage at both full and reduced current-rise rates."
     format: DERIVE
-    question: "Build the mutual-emf calculation for M_new=0.60 μH, first at 3.0×10^8 A/s and then at half that rise rate; submit both voltages in volts and commit the reduced prediction."
+    question: "Submit both voltages in volts and commit the reduced prediction."
     answerText: "The completed check shows 180 V at full derivative; 90 V at reduced derivative."
     why: "mutual inductance links the geometry repair directly to measurable voltage."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -126,6 +198,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines |ε|=M|dI/dt|; substitution .60e-6×3e8; 180V; for half rise rate reduced shot 90V. Prompt build lines/rules, submit 90V, tolerance 5V. State commit locked→S3.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Predict Reroute Voltage in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|ε|=M|dI/dt|"
+            - text: "|ε|=M|I|"
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|ε|=(0.60e-6 H)(3.0e8 A/s)"
+            - text: R = Convert μH as 10^-3 H
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|ε|=180 V"
+            - text: 0.60e-6×3e8=18 V
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|ε_half|=(0.60e-6 H)(1.5e8 A/s)=90 V"
+            - text: R = Halving rise time halves induced voltage
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 47: Fire the Reduced Test
   #     Concept: staged verification; Keystone: K7,K10,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
@@ -133,10 +237,10 @@
   - group: COUPLE
     at: shunt-rack
     title: "Fire the Reduced Test"
-    concept: "staged verification"
-    reason: "prediction must be frozen before the bank fires."
-    scene: "The committed reduced-shot prediction is 90 V. Fire only the 25.0 kV stage setting, keep gap spacing 8 mm and reroute geometry fixed, then collect peak current and rise time, and the team needs this result before it acts."
-    motivation: "operation cannot tune the prediction after the measurement."
+    concept: 30   # staged verification
+    reason: "The reroute prediction is committed, so the crew can now collect an independent reduced-shot measurement."
+    scene: "The committed reduced-shot prediction is 90 V. Fire only the 25.0 kV stage setting, keep gap spacing 8 mm and reroute geometry fixed, then collect peak current and rise time."
+    motivation: "The measured trailer peak determines whether the new route passes its precommitted voltage band."
     format: VERIFY
     question: "CALCULATE AND COMMIT: Lock 90 V. OPERATE: Fire only 25.0 kV stages with 8 mm gap and reroute fixed. MEASURE: Record current, rise rate, and trailer peak. INTERPRET: Earth the bank and submit PASS or FAIL against 80–100 V."
     answerText: "The completed check shows measured 92 V passes the committed 80–100 V band."
@@ -149,6 +253,17 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{submit:{quantity:"trailer peak",unit:"V",truth:90,tolerance:10}},equipment_locked_until_prediction_commit:true,operation:{action:"fire reduced test",settings:{stage_voltage:25.0,unit:"kV",gap:8,unit_gap:"mm"},fixed:["reroute"]},measurements:{current:15,unit_current:"kA",rise_rate:1.5e8,unit_rise:"A/s",trailer_peak:92,unit_peak:"V"},restore:{required:true,action:"earth the bank",remeasure:false},acceptance:[80,100],correct_conclusion:"PASS",answerText:"The measured 92 V lies inside the 80-100 V window; earth the bank and record PASS."}
+    verify:
+      prediction:
+        min: 46
+        max: 138
+        step: 9.2
+      truth: 92
+      passRatio:
+        - 0.95
+        - 1.05
+      measurement:
+        label: independent measured value
 
   # --- Stop 48: Stress Worst-Case Coupling
   #     Concept: uncertainty; Keystone: K12,K11; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L5 decision.
@@ -157,10 +272,10 @@
     at: conduit-bond
     title: "Stress Worst-Case Coupling"
     person: ortiz
-    concept: "uncertainty"
-    reason: "full-shot safety needs extrapolation across component tolerance."
+    concept: 26   # uncertainty
+    reason: "The reduced-shot success must still survive the stronger pulse and uncertain coupling of a full shot."
     scene: "The reduced shot measured 92 V, but the full shot has uncertain coupling and rise rate. Vary mutual inductance from 0.50 to 0.70 microH and dI/dt from 2.8 to 3.2×10^8 A/s, then test the 250 V limit."
-    motivation: "the repair passes only if every allowed pair stays below the campaign limit."
+    motivation: "The worst-case coupled voltage determines whether the reroute remains below the trailer limit throughout the allowed uncertainty range."
     format: STRESS
     question: "Adjust M and dI/dt through both displayed ranges, submit the numerical worst-case pair and voltage in volts, then select safe or unsafe against the inclusive 250 V limit."
     answerText: "The completed check shows worst pair gives 224 V, below 250 V."
@@ -173,4 +288,40 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   ranges; maximum 224V; correct pass. Prompt move assumptions, submit worst voltage/conclusion.
+    stress:
+      candidates:
+        - id: nominal_only
+          label: Use only the nominal reading
+        - id: common_extreme_mistake
+          label: Use the favorable extreme as if it were guaranteed
+        - id: robust_plan
+          label: "`Worst pair gives 224 V, below 250 V."
+      criteria:
+        - key: evidence_fit
+          label: fit to the stop evidence
+        - key: safety_margin
+          label: margin at the adverse end
+      scores:
+        nominal_only:
+          evidence_fit: 95
+          safety_margin: 20
+        common_extreme_mistake:
+          evidence_fit: 88
+          safety_margin: 5
+        robust_plan:
+          evidence_fit: 82
+          safety_margin: 92
+      feasible:
+        nominal_only: 0.012
+        common_extreme_mistake: 0.012
+        robust_plan: 0.01
+      assumption:
+        label: mutual inductance
+        unit: H
+        min: 0.01
+        max: 0.014
+        nominal: 0.012
+        step: 0.001
+      robust: robust_plan
+      optimiseOn: evidence_fit
 

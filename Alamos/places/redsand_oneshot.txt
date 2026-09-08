@@ -1,0 +1,408 @@
+RED SAND: FULL TANK (theme: redsand_oneshot) — PLACES AND LOCATIONS
+Propellant Lead · Arcadia Rise
+Course: AP Chemistry, the whole course in one campaign
+Grade 12. One mission is called a Sol; a stop is "module".
+Delivery: A Full Tank — the board is in PAD. 15 pieces, one a sol.
+
+Run it:  cd gamekit && THEME=redsand_oneshot npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Arcadia Rise, as data. Outdoor, and on another planet.
+
+`engine/world/outdoorTown.js` builds all of it. The place is a propellant
+plant on Arcadia Planitia: nine half-buried modules along one graded track, a
+solar field to the east, a tank farm at the far end and an ascent vehicle
+standing on a pad beyond that.
+
+**The geography is the process.** The player walks the carbon: atmosphere in
+at the top of the site, water out of the ground beside it, hydrogen made in
+the middle, the two combined in the reactor, the product cooled at the far
+end, and what survives all of that stored in the tank farm and loaded into
+the vehicle. Walking from the spawn to the pad is walking one molecule
+through the whole plant, in order, which is the same trick Quantum plays with
+its temperature gradient and the reason a call at the cold end costs a real
+part of the sol.
+
+Looking down, -Z is away from the player at spawn:
+
+                      [ Ascent Vehicle ]                    z = -132
+                       [ Tank Farm ]                        z =  -70
+       [ Reactor Hall ]            [ Cold End ]             z = -34 … -46
+       [ Water Plant  ]            [ Catalyst Bay ]         z =  -2 … -10
+       [ Intake       ]            [ Electrolysis Hall ]    z =  26 … 30
+             [ Plant Control ]                              z =   16
+  [ Habitat ]        ¤ spawn ¤        [ Garage ]            z =  40 … 52
+                                               [ Array Shed → panels ] east
+
+Three things here are load-bearing rather than decorative:
+
+  · The spawn at (0, 52) has nothing within twelve metres. A prop over the
+    spawn welds the player in place: the scene renders and W does nothing.
+  · Every `group` below is a group id in content/groups.js. A group with no
+    building is a call the player cannot reach, and `worldParity` is the only
+    check that notices.
+  · The horizon is shaped rather than concentric. A crater rim stands across
+    the north, a butte sits west, and the east is open to the plain the array
+    is laid out on — so the skyline says which way the player is facing,
+    which on a plain with no other landmarks is the whole of wayfinding.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+GIBBS — Plant Control
+  Plant Control
+  (-6, 16)   36 m from spawn   16 x 11 x 5.2
+  Where the ledgers are closed, the power is allocated and the plant is aimed.
+  Calls: Close the first ledger honestly · Find the one cause that fits every
+  panel · Prove who did what, and when · Spend the last of everything on the
+  right thing
+  Fixtures (at: targets):
+    ledger             bench  left
+      The carbon ledger — Carbon in, carbon accounted for, and a magnet
+      labelled Do not explain yet.
+    loadboard          board  back
+      The load board — Every load on the plain, and the order they come off.
+    sample-tray        bench  left
+      The sample tray — Yesterday's samples, and four sealed cards beside
+      them.
+    conv-board         board  back
+      The conversion board — Molar masses, Avogadro’s number, and a shortfall
+      still written in kilograms.
+    unit-board         bench  right
+      The technician's spreadsheet — Molecules reported straight off a scale
+      reading, with the formula cells erased.
+    review-board       board  right
+      The plant review board — Every panel in the plant, printed side by side
+      for the first time.
+    rate-table         bench  back
+      The initial-rate table — Three trials, two concentrations and one rate
+      apiece.
+    plan-board         board  left
+      The operating-point board — Two plans on one plot, and the same rate
+      index under both.
+
+ELEC — Electrolysis Hall
+  Electrolysis Hall
+  (27, 26)   37 m from spawn   22 x 12 x 5.6
+  Splitting water with electricity, and what a finite number of kilowatt-hours
+  buys.
+  Calls: Name what happens at each electrode · Turn amps and hours into
+  kilograms · Close hydrogen over the whole plant · Fund the chain that
+  actually fills the tank
+  Fixtures (at: targets):
+    stack              rack   left
+      The water stack — Cells in series. Hydrogen one side, oxygen the other,
+      and a power controller under it.
+    stack-sheet        board  back
+      The stack's charge sheet — Amps, hours, current efficiency, and what the
+      separator actually caught.
+    volt-sheet         board  left
+      The stack's voltage marks — Three numbers on one sheet, and the gap
+      between them.
+    cell-diagram       board  right
+      The cell diagram — One cell drawn out in section, with its four parts
+      marked and unlabelled.
+
+SOIL — Water Plant
+  Water Plant
+  (-31, -2)   62 m from spawn   20 x 13 x 5.4
+  Getting water out of frozen ground, measuring what is dissolved in it, and
+  taking that out.
+  Calls: Tell concentration from amount · Measure against a standard rather
+  than a wall meter · Treat what the next machine cannot survive · Test the
+  certification on the newest sample
+  Fixtures (at: targets):
+    hopper             rack   left
+      The regolith hopper — One charge at a time, heated until it gives up its
+      water.
+    columns            vessel right
+      The polishing columns — Ion-exchange resin, a particle filter, and a
+      fixed number of sites.
+    brinetank          vessel back
+      The brine holding tank — A dosing head, a pH probe, and two hundred
+      millilitres of argument.
+    water-report       bench  back
+      The water report desk — Two bottles, one alarm label, and a chloride
+      figure nobody has checked.
+    spectro            bench  right
+      The spectrophotometer — Four hundred to seven hundred nanometres, and a
+      sealed standard beside it.
+    assay-desk         bench  left
+      The assay desk — A quarter-litre recycle sample and a balance reading in
+      milligrams.
+
+KINET — Catalyst Bay
+  Catalyst Bay
+  (25, -10)   67 m from spawn   18 x 12 x 5.6
+  How fast the reaction goes, what the catalyst does, and what takes it away.
+  Calls: Find which feed sets the ceiling · Get the rate law out of the data ·
+  Read the bed by where its heat is · Refuse the model with the best number
+  Fixtures (at: targets):
+    bed                vessel left
+      The Sabatier bed — A lagged vessel with sample ports down its side,
+      inlet to outlet.
+    charge-bench       bench  back
+      The catalyst bench — Two charges: one spent, one still in its can.
+    bed-log            board  back
+      The bed log — Flow, temperature and contact time, printed every sol.
+    model-rail         rack   right
+      The molecular model rail — Four structures on a rail, and a chain of
+      inferences nobody has written down.
+    model-desk         bench  right
+      The property-card desk — Shape, polarity and dominant force, on four
+      blank cards.
+    cartridge          vessel left
+      The separation cartridge — A nonpolar coating, a temperature jacket, and
+      three substances to push through it.
+
+EQUIL — Reactor Hall
+  Reactor Hall
+  (-27, -34)   90 m from spawn   24 x 14 x 6.6
+  What the Sabatier loop can give, what it gives out as heat, and what moves
+  both.
+  Calls: Turn a schedule into a feed · Account for the heat as well as the
+  product · State the balance the loop settles at · Certify a batch against
+  the flight limits
+  Fixtures (at: targets):
+    skid               vessel left
+      The reactor loop skid — The loop, the recycle line, and the valve that
+      sets the pass.
+    analyser           board  back
+      The gas analyser — What comes out of the bed, read continuously and
+      modelled two ways.
+    residual-field     board  back
+      The analyser's residual field — Observed minus predicted, one dot per
+      interval, laid out on the plant plan.
+    bed-head           vessel left
+      The bed and its thermowell — The tray of catalyst, and the line that
+      reads how hot it is running.
+    heat-bench         bench  right
+      The calorimetry bench — Coolant mass, specific heat, and a temperature
+      rise across one interval.
+    heat-model-board   board  right
+      The heat-model board — A water slug that arrives late, on cards, with
+      the phase change loose.
+    ice-board          board  back
+      The ICE board — Initial, change, equilibrium, and one row still blank.
+
+PHASE — Cold End
+  Cold End
+  (29, -46)   102 m from spawn   22 x 13 x 6.2
+  What condenses where, what sticks to what, and what must never reach a cold
+  line.
+  Calls: Rule out a path a substance cannot take · Keep water and carbon
+  dioxide out of the cold end · Take a product away and move the balance · Say
+  what is wrong with a tank that is full
+  Fixtures (at: targets):
+    coldline           vessel left
+      The cold line — 283 K to 115 K, in one run of pipe.
+    coldline-tap       vessel left
+      The condensate tap — Where product water is taken out of the gas, and
+      the valve that decides how much.
+    fridge             rack   right
+      The refrigerator — Compressor, condenser, and the radiator it hands heat
+      to.
+    phase-radiator     board  right
+      The radiator loop panel — Heat in, heat out, and a bank that has been
+      losing capacity for nine sols.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+INTAKE — Atmosphere Intake  ·  "Six millibars in, twelve bar out"
+  (-30, 30)   37 m from spawn   16 x 10 x 4.8
+  Sited calls:
+    compressors        rack   left
+      The intake compressors — Six millibars in, twelve bar out. Everything
+      the plant makes starts here.
+    stoich-board       board  back
+      The stoichiometry board — Five cards, and a warning that the
+      coefficients on the wall compare particles.
+    log-desk           bench  right
+      The compressor log desk — A whole shift's capture, in kilograms, against
+      a schedule written in kilograms.
+  Stand line: "The compressors run whenever the array will carry them."
+    Ambient pressure: 6.1 mbar (normal)
+    Delivery pressure: 12.0 bar (normal)
+    Carbon dioxide in: 95.3 % (normal)
+    Dust filter Δp: 0.34 bar (high)
+
+HAB — Habitat  ·  "Six people, nineteen degrees"
+  (-58, 42)   59 m from spawn   26 x 14 x 5.8
+  Stand line: "The habitat is the load nobody is allowed to shed."
+    Cabin temperature: 19.0 °C (normal)
+    Oxygen partial pressure: 21.1 kPa (normal)
+    Thermal margin: 1.4 kW (low)
+    Crew: 6 (normal)
+
+GARAGE — Vehicle Bay  ·  "Two rovers and everything that comes back in with them"
+  (48, 44)   49 m from spawn   20 x 14 x 6
+  Stand line: "A rover that is not on charge is a rover that is not going
+  out."
+    Rover 1 charge: 88 % (normal)
+    Rover 2 charge: 41 % (low)
+    Drill hours since service: 190 h (high)
+    Airlock cycles today: 4 (normal)
+
+ARRAY — Array Shed  ·  "Eighteen hundred square metres of panel"
+  (80, 22)   85 m from spawn   12 x 9 x 4.2
+  Sited calls:
+    array-controller   board  back
+      The array controller — Optical depth read straight off the sky, and the
+      current it leaves you.
+  Stand line: "What the field delivers is what the plant is allowed to want."
+    Optical depth: 2.4 (alarm)
+    Delivered today: 430 kWh (alarm)
+    A clear sol: 2000 kWh (normal)
+    Panels swept: 18 of 26 rows (low)
+
+TANKS — Tank Farm  ·  "Everything the plant has made so far"
+  (17, -72)   125 m from spawn   22 x 14 x 4.4
+  Sited calls:
+    farm-gauges        board  back
+      The tank farm gauges — Three cryogenic tanks, and every channel that
+      claims one is ready.
+    umbilical          vessel left
+      The transfer umbilical — The line the batch goes across on. It only runs
+      one way.
+  Stand line: "A kilogram boiled off is a kilogram never made."
+    Methane aboard: 3.9 t (low)
+    Oxygen aboard: 14.2 t (low)
+    Methane boil-off: 4 kg/sol (normal)
+    Oxygen boil-off: 26 kg/sol (alarm)
+
+PAD — Pad Office  ·  "The vehicle, and what has gone into it"
+  (-46, -104)   163 m from spawn   14 x 10 x 4.6
+  Sited calls:
+    cert-console       board  right
+      The certification console — Four flight limits, and the switch that says
+      the vehicle may fly.
+    pad-table          bench  left
+      The pad conference table — Where the last plan is argued, thirty metres
+      from the vehicle.
+  Stand line: "It leaves when Mars and Earth line up, and it leaves full or
+  not at all."
+    Methane required: 6.6 t (normal)
+    Oxygen required: 23.0 t (normal)
+    Loaded to date: 59 % (low)
+    Window opens: in 195 sols (high)
+
+HSTORE — Hydrogen Store  ·  "Where the kilograms are counted"
+  (54, 8)   70 m from spawn   14 x 10 x 5
+  Sited calls:
+    store-scales       board  back
+      The hydrogen scales — What the stacks actually delivered, weighed rather
+      than inferred.
+    sample-ports       vessel left
+      The three sampling ports — Headspace, regulator outlet and reactor
+      branch, with a portable analyser on a lead.
+    jacket-heater      rack   right
+      The jacket heater and logger — Thirty kelvin of warming, on a sealed
+      sample of fixed volume.
+  Stand line: "A stack reports current. A tank fills in kilograms. They are
+  not the same statement."
+    Delivered today: 546 g (low)
+    Predicted from charge: 594 g (normal)
+    Store pressure: 186 bar (normal)
+    Days of reactor feed: 1.4 (low)
+
+SHOP — Machine Shop  ·  "A furnace, a lathe, and everything that gets made here"
+  (70, 50)   70 m from spawn   16 x 11 x 5.2
+  Stand line: "Nickel oxide on alumina is not a catalyst. It becomes one in
+  here or not at all."
+    Furnace: 400 °C (normal)
+    Hydrogen flow: 2.0 L/min (normal)
+    Charges in stores: 1 (alarm)
+    Crew time this sol: 3 h (normal)
+
+BATT — Battery Bank  ·  "What the array leaves behind for the night"
+  (76, -12)   99 m from spawn   14 x 10 x 4.6
+  Sited calls:
+    cell-stacks        rack   left
+      The battery stacks — What the array leaves behind, and the floor nobody
+      is allowed to go under.
+  Stand line: "A storm does not stop the sun for one sol. It stops it for as
+  many as it likes."
+    State of charge: 30 % (alarm)
+    Capacity: 640 kWh (normal)
+    Overnight draw: 210 kWh (high)
+    Sols of reserve: 0.9 (alarm)
+
+ASSAY — Assay Lab  ·  "Nothing is signed for until it has been measured here"
+  (-54, -14)   85 m from spawn   15 x 11 x 5
+  Sited calls:
+    spec-bench         bench  back
+      The specification bench — Four assay lines against four flight limits,
+      and one sealed standard in a drawer.
+    assay-review       board  left
+      The assay review board — Pressure, mass, composition and drier pressure
+      drop, all on one wall.
+  Stand line: "A batch is what the assay says it is, and not what the tally
+  hoped."
+    Methane purity: 96.4 % (normal)
+    Carbon monoxide: 0.9 % (alarm)
+    Water: 18 ppm (normal)
+    Batches signed this season: 11 (normal)
+
+CUT — The Ice Cut  ·  "Where the water is dug"
+  (-96, -272)   338 m from spawn   18 x 12 x 4.4
+  Sited calls:
+    rover-sampler      bench  left
+      The rover sampler — A sealed field blank and a source vial, taken where
+      the ice is actually dug.
+    process-map        board  back
+      The process map — The whole plant on one sheet, with the return line
+      drawn in pencil.
+  Stand line: "The plant runs on whatever this face gives up, and it is giving
+  up less."
+    Ice by mass: 4.5 % (alarm)
+    Depth of cut: 2.4 m (normal)
+    Delivered this sol: 1.9 t regolith (low)
+    Distance to plant: 300 m (normal)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Sol board
+  (9, 40)
+Spawn
+  (0, 52)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 380, profile 'flat'
+
+==============================================================================
+THE DELIVERY — A Full Tank
+==============================================================================
+   1. The carbon ledger closed and counted
+   2. The feed cleared and the real limit named
+   3. The wrong gas found behind a normal gauge
+   4. A false clue taken off the board
+   5. Three agreeing meters unmasked
+   6. The leak hunt stopped and the plant re-aimed
+   7. The heat traced before anybody was blamed
+   8. The override proved instead of assumed
+   9. The poisoned inlet found inside the bed
+  10. The safe set point kept instead of restored
+  11. One plan that is both quick and full
+  12. The water loop closed across the whole plant
+  13. The power spent where it protects the fill
+  14. A full tank stopped and measured
+  15. The batch reprocessed and the launch signed
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/redsand_oneshot/ — site/plan, fixtures, minors, groups, theme.

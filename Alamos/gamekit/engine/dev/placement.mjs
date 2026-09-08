@@ -36,6 +36,7 @@
 //   NOTE   a day with no decision-format call, so the roster is never met.
 //          A content finding rather than a placement one: the fix is a question,
 //          not a place. Red Sand has three.
+import { sitedAt, siteForStop } from '../world/siting.js';
 import { pathToFileURL } from 'node:url';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
 import { stopKind, shapeMissions } from '../content/normalize.js';
@@ -79,17 +80,26 @@ export function judge({ missions = [], curriculum = {}, fixtures = {}, minorPlac
       // The first version knew only the first and the last, so siting a question at
       // the tank farm was reported as the stop being in the wrong area — a gate
       // failing on the very feature it was written to make possible.
-      const at = lesson?.at ?? stop.at;
+      // Stop first, then lesson — the same precedence `siteForStop` uses. This
+      // read `lesson?.at ?? stop.at`, the other way round, which is a second
+      // description of the rule and would have disagreed the moment a stop
+      // carried its own siting. A callback does exactly that.
+      const at = stop.at ?? lesson?.at;
       if(at){
         (pointedAt[stop.group] ||= new Set()).add(at);
         if(!declared(stop.group).has(at)){
-          const host = Object.keys(fixtures).find(g => g !== stop.group && declared(g).has(at));
-          if(host && minorPlaces.has(host)){
+          // ONE rule, imported. This used to carry its own copy — `host &&
+          // minorPlaces.has(host)` — and when the engine widened siting so a
+          // day's questions could share one hall, the copy here went on failing
+          // them as "the stop is in the wrong area". See engine/world/siting.js.
+          const host = siteForStop({ fixtures }, { ...stop, at }, null)?.place ?? null;
+          if(host){
             (pointedAt[host] ||= new Set()).add(at);
             sited++;
           } else {
-            fail.push(`${where}: "${title}" points at fixture "${at}", which ${host
-              ? `belongs to area ${host}, not to ${stop.group} — the stop is in the wrong area`
+            const declaredBy = Object.keys(fixtures).find(g => declared(g).has(at));
+            fail.push(`${where}: "${title}" points at fixture "${at}", which ${declaredBy
+              ? `belongs to area ${declaredBy}, not to ${stop.group}`
               : `${stop.group} does not declare`}`);
           }
         }
@@ -149,14 +159,26 @@ function selftest(){
       { missions: [day([{ group: 'B', lesson: 0, person: false }])],
         curriculum: { ...curriculum, B: [{ ...curriculum.B[0], at: 'bed' }] },
         fixtures: { B: [{ id: 'bed' }] } }, 0],
-    ['the same fixture declared in ANOTHER AREA fails — the stop is in the wrong room',
+    // THIS CASE CHANGED, deliberately. It used to assert that a fixture declared
+    // in another AREA fails as "the stop is in the wrong room". Siting was
+    // widened so a day whose questions are about objects in one hall can be
+    // asked in that hall, and the rule now lives in engine/world/siting.js,
+    // imported by both this file and the engine. See Red Sand's sol 291.
+    ['a fixture declared in ANOTHER AREA is a sited call, not a mistake',
       { missions: [day([{ group: 'B', lesson: 0, person: false }])],
         curriculum: { ...curriculum, B: [{ ...curriculum.B[0], at: 'bed' }] },
-        fixtures: { A: [{ id: 'bed' }] } }, 1],
+        fixtures: { A: [{ id: 'bed' }] } }, 0],
     ['and the same fixture under a MINOR PLACE passes — that is a sited call, not a mistake',
       { missions: [day([{ group: 'B', lesson: 0, person: false }])],
         curriculum: { ...curriculum, B: [{ ...curriculum.B[0], at: 'bed' }] },
         fixtures: { TANKS: [{ id: 'bed' }] }, minorPlaces: new Set(['TANKS']) }, 0],
+    // What still fails, so widening the rule did not make the gate toothless:
+    // an `at:` NOBODY declares is a stop pointed at nothing, which lands the
+    // player back at the case stand with no sign the placement was dropped.
+    ['a fixture no place declares still fails',
+      { missions: [day([{ group: 'B', lesson: 0, person: false }])],
+        curriculum: { ...curriculum, B: [{ ...curriculum.B[0], at: 'nowhere' }] },
+        fixtures: { A: [{ id: 'bed' }] } }, 1],
   ];
   let bad = 0;
   for(const [name, input, want] of cases){

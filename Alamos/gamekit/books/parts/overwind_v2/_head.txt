@@ -1,0 +1,233 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Velocity
+  aliases: [velocity]   # TODO: the plurals and spellings the prose uses
+  def: "speed with a direction."
+# mission 1
+- name: Acceleration
+  aliases: [acceleration]   # TODO: the plurals and spellings the prose uses
+  def: "the rate at which velocity changes."
+# mission 1
+- name: Derivative
+  aliases: [derivative]   # TODO: the plurals and spellings the prose uses
+  def: "the instantaneous rate at which a quantity changes."
+# mission 1
+- name: Integral
+  aliases: [integral]   # TODO: the plurals and spellings the prose uses
+  def: "an accumulated total found from a rate."
+# mission 2
+- name: Rotational inertia
+  aliases: [rotational inertia]   # TODO: the plurals and spellings the prose uses
+  def: "a measure of how mass distribution resists changes in turning speed."
+# mission 2
+- name: Axis
+  aliases: [axis]   # TODO: the plurals and spellings the prose uses
+  def: "the line around which an object turns."
+# mission 2
+- name: Annulus
+  aliases: [annulus]   # TODO: the plurals and spellings the prose uses
+  def: "a ring with an inner and an outer radius."
+# mission 3
+- name: Tension
+  aliases: [tension]   # TODO: the plurals and spellings the prose uses
+  def: "the pulling force carried by a stretched rope."
+# mission 3
+- name: Linear density
+  aliases: [linear density]   # TODO: the plurals and spellings the prose uses
+  def: "mass per unit length."
+# mission 3
+- name: Free-body diagram
+  aliases: [free-body diagram]   # TODO: the plurals and spellings the prose uses
+  def: "a drawing of the external forces acting on one chosen object."
+# mission 4
+- name: Torque
+  aliases: [torque]   # TODO: the plurals and spellings the prose uses
+  def: "the turning effect of a force about an axis."
+# mission 4
+- name: Angular acceleration
+  aliases: [angular acceleration]   # TODO: the plurals and spellings the prose uses
+  def: "the rate at which turning speed changes."
+# mission 4
+- name: Radian
+  aliases: [radian]   # TODO: the plurals and spellings the prose uses
+  def: "the angle that spans an arc equal to its radius."
+# mission 5
+- name: Work
+  aliases: [work]   # TODO: the plurals and spellings the prose uses
+  def: "energy transferred by a force through a displacement."
+# mission 5
+- name: Potential energy
+  aliases: [potential energy]   # TODO: the plurals and spellings the prose uses
+  def: "energy associated with a system's position or arrangement."
+# mission 5
+- name: Kinetic energy
+  aliases: [kinetic energy]   # TODO: the plurals and spellings the prose uses
+  def: "energy of motion."
+# mission 5
+- name: Conservative force
+  aliases: [conservative force]   # TODO: the plurals and spellings the prose uses
+  def: "a force whose work depends only on start and end positions."
+# mission 6
+- name: Momentum
+  aliases: [momentum]   # TODO: the plurals and spellings the prose uses
+  def: "mass multiplied by velocity."
+# mission 6
+- name: Impulse
+  aliases: [impulse]   # TODO: the plurals and spellings the prose uses
+  def: "the change in momentum caused by force over time."
+# mission 6
+- name: Mass flow
+  aliases: [mass flow]   # TODO: the plurals and spellings the prose uses
+  def: "the mass passing a point each second."
+# mission 7
+- name: Gravity
+  aliases: [gravity]   # TODO: the plurals and spellings the prose uses
+  def: "the attraction between masses."
+# mission 7
+- name: Drift
+  aliases: [drift]   # TODO: the plurals and spellings the prose uses
+  def: "a measuring instrument's gradual change over time."
+# mission 7
+- name: Spherical symmetry
+  aliases: [spherical symmetry]   # TODO: the plurals and spellings the prose uses
+  def: "mass distributed equally in every direction from a center."
+# mission 8
+- name: Power
+  aliases: [power]   # TODO: the plurals and spellings the prose uses
+  def: "the rate of energy transfer."
+# mission 8
+- name: Efficiency
+  aliases: [efficiency]   # TODO: the plurals and spellings the prose uses
+  def: "useful output energy divided by input energy over the same interval."
+# mission 8
+- name: Cruise
+  aliases: [cruise]   # TODO: the plurals and spellings the prose uses
+  def: "motion at a steady planned speed."
+# mission 9
+- name: Elasticity
+  aliases: [elasticity]   # TODO: the plurals and spellings the prose uses
+  def: "the ability to store energy while stretched and return toward the original shape."
+# mission 9
+- name: Equilibrium
+  aliases: [equilibrium]   # TODO: the plurals and spellings the prose uses
+  def: "a position where the net force is zero."
+# mission 9
+- name: Oscillation
+  aliases: [oscillation]   # TODO: the plurals and spellings the prose uses
+  def: "repeated motion about an equilibrium position."
+# mission 9
+- name: Effective mass
+  aliases: [effective mass]   # TODO: the plurals and spellings the prose uses
+  def: "the mass assigned to a simplified motion model to represent distributed moving material."
+# mission 10
+- name: Initial condition
+  aliases: [initial condition]   # TODO: the plurals and spellings the prose uses
+  def: "a measured starting position or velocity used to choose one motion from a family of solutions."
+# mission 10
+- name: Amplitude
+  aliases: [amplitude]   # TODO: the plurals and spellings the prose uses
+  def: "the largest displacement from equilibrium in an oscillation."
+# mission 10
+- name: Phase
+  aliases: [phase]   # TODO: the plurals and spellings the prose uses
+  def: "the part of an oscillation's cycle at a chosen time."
+# mission 11
+- name: Braking deceleration
+  aliases: [braking deceleration]   # TODO: the plurals and spellings the prose uses
+  def: "the positive size of acceleration opposite motion."
+# mission 11
+- name: Safety margin
+  aliases: [safety margin]   # TODO: the plurals and spellings the prose uses
+  def: "the unused space or capacity between a predicted demand and a stated limit."
+# mission 11
+- name: Envelope
+  aliases: [envelope]   # TODO: the plurals and spellings the prose uses
+  def: "a bound that covers every case in a stated range."
+# mission 12
+- name: Operating range
+  aliases: [operating range]   # TODO: the plurals and spellings the prose uses
+  def: "the loads, lengths and conditions for which a plan has been checked."
+# mission 12
+- name: Acceptance test
+  aliases: [acceptance test]   # TODO: the plurals and spellings the prose uses
+  def: "a final comparison between a committed prediction and an independent measurement."
+# mission 12
+- name: Constraint
+  aliases: [constraint]   # TODO: the plurals and spellings the prose uses
+  def: "a condition that every permitted plan must satisfy."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "v = dy/dt; a = dv/dt; Δy = ∫v dt",
+#     c: "calculus kinematics and reference frames in the measured system.",
+#     v: [ TODO: split "y,position in metres,t,time in seconds,v,velocity in metres per second,a,acceleration in metres per second squared,Δy,change in position" ],
+#     s: "Can the proposed start be used for passenger trips?",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "I = ∫r² dm; v = Rω",
+#     c: "mass distribution and rotational inertia in the measured system.",
+#     v: [ TODO: split "I,rotational inertia in kilogram metres squared,r,distance of a mass element dm from the axis in metres,R,rope-contact radius in metres,ω,angular speed in radians per second,v,rope speed in metres per second" ],
+#     s: "Which drum inertia belongs in the winding model?",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "T(s) = (M + λs)(g + a)",
+#     c: "newton laws and system boundaries in the measured system.",
+#     v: [ TODO: split "T,tension in newtons,s,hanging length below the cut in metres,M,cage plus payload mass in kilograms,λ,rope mass per metre,g,gravitational acceleration,a,upward acceleration in metres per second squared" ],
+#     s: "Does the proposed one-unit acceleration pass the rope pull limit?",
+#     k: [ TODO ] },
+#   // mission 4
+#   { e: "τmotor − TR = Iα; α = a/R",
+#     c: "torque and angular acceleration in the measured system.",
+#     v: [ TODO: split "τmotor,motor torque in newton metres,T,rope tension in newtons,R,drum radius in metres,I,rotational inertia,α,angular acceleration in radians per second squared,a,rope acceleration" ],
+#     s: "Which starting acceleration can the motor supply?",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "W = ∫F dy; Krot = Iω²/2",
+#     c: "work and potential energy in the measured system.",
+#     v: [ TODO: split "W,work in joules,F,force in newtons,y,upward travel in metres,Krot,rotational kinetic energy in joules,I,rotational inertia,ω,angular speed" ],
+#     s: "Does the lift energy budget clear the emergency stop?",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "F = ṁ(vout−vin); J = ∫F dt = Δp",
+#     c: "momentum, impulse and open systems in the measured system.",
+#     v: [ TODO: split "F,force on the stream in newtons,ṁ,mass flow in kilograms per second,vout,and vin exit and entry velocities,J,impulse in newton seconds,p,momentum in kilogram metres per second" ],
+#     s: "Which feed change protects the conveyor and bin?",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "g(r)=GM(r)/r²; M(r)=Mtotal(r/R)³ for a uniform sphere",
+#     c: "gravitation and measurement models in the measured system.",
+#     v: [ TODO: split "g,gravitational acceleration,G,gravitational constant,M(r),mass inside radius r,Mtotal,full sphere mass,R,sphere radius,r,distance from the sphere center" ],
+#     s: "Can the local gravity correction explain the March overrun?",
+#     k: [ TODO ] },
+#   // mission 8
+#   { e: "P = Fv = τω; Pin = Pout/η",
+#     c: "power and efficiency in the measured system.",
+#     v: [ TODO: split "P,power in watts,F,force in newtons,v,speed in metres per second,τ,torque,ω,angular speed,Pin,input power,Pout,useful output power,η,efficiency" ],
+#     s: "Which cruise speed fits the motor power limit?",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "m_eff x″ + kx = 0; ω = √(k/m_eff); Tperiod = 2π/ω",
+#     c: "elasticity and simple harmonic motion in the measured system.",
+#     v: [ TODO: split "m_eff,effective moving mass in kilograms,x,upward displacement from the fixed-support equilibrium in metres,x″,second time derivative,k,restoring stiffness in newtons per metre,ω,angular frequency,Tperiod,oscillation period in seconds" ],
+#     s: "Can a drum stop time alone predict when the cage stops?",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "x(t)=x0 cos(ωt)+(v0/ω)sin(ωt)",
+#     c: "elasticity and simple harmonic motion in the measured system.",
+#     v: [ TODO: split "x,upward displacement from fixed-support equilibrium,x0,initial displacement,v0,initial upward velocity,ω,angular frequency,t,time since drum reached rest" ],
+#     s: "What caused the cage to overrun its March landing?",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "d = v²/(2b); d_bound = v²/(2bmin)+v/ωmin",
+#     c: "stopping, friction and conservative limits in the measured system.",
+#     v: [ TODO: split "d,drum-equivalent braking travel in metres,v,initial speed,b,positive braking deceleration,d_bound,conservative total excursion bound,bmin,worst allowed braking deceleration,ωmin,lowest allowed angular frequency" ],
+#     s: "Does the empty test authorize the faster passenger profile?",
+#     k: [ TODO ] },

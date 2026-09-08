@@ -1,37 +1,6 @@
 {
   "_comment": "Closing cards reading above grade 6.5 (checkStory.mjs) — a flat ceiling, not the campaign's own audience grade, since the closing card motivates rather than teaches. Same ratchet as the other debt files here.",
   "themes": {
-    "outbreak_riverton": [
-      "Stage 1 (The First Cluster)",
-      "Stage 2 (What Kind of Agent?)",
-      "Stage 3 (Why the Lungs?)",
-      "Stage 4 (The Cell Is Hijacked)",
-      "Stage 5 (A Test Before Morning)",
-      "Stage 6 (Why Is Elias Crashing?)",
-      "Stage 7 (When Defense Becomes Damage)",
-      "Stage 8 (The Hidden Spread)",
-      "Stage 9 (The River Animals)",
-      "Stage 10 (A Variant Rises)",
-      "Stage 11 (The Drug Stops Working)",
-      "Stage 12 (What Do We Deploy?)",
-      "Stage 13 (Did the Treatment Work?)",
-      "Stage 14 (How Close to the Edge?)"
-    ],
-    "planetary_defense": [
-      "Phase 1 (The Discovery Image)",
-      "Phase 2 (Confirm the Motion)",
-      "Phase 3 (An Orbit from Sparse Data)",
-      "Phase 4 (The Uncertainty Corridor)",
-      "Phase 5 (How Large Is It?)",
-      "Phase 6 (What Is It Made Of?)",
-      "Phase 7 (The Spinning Target)",
-      "Phase 9 (Impact Energy)",
-      "Phase 10 (Through the Atmosphere)",
-      "Phase 11 (What Have We Failed to See?)",
-      "Phase 12 (Can We Move It?)",
-      "Phase 13 (Design the Intercept)",
-      "Phase 14 (Evacuate or Wait?)"
-    ],
     "carrying": [
       "Day 1 (What does Vellan actually depend on?)",
       "Day 2 (How much water does Vellan actually get?)",
@@ -78,6 +47,22 @@
       "Day 11 (A day when nothing happens)",
       "Day 14 (The last reversible moment)"
     ],
+    "outbreak_riverton": [
+      "Stage 1 (The First Cluster)",
+      "Stage 2 (What Kind of Agent?)",
+      "Stage 3 (Why the Lungs?)",
+      "Stage 4 (The Cell Is Hijacked)",
+      "Stage 5 (A Test Before Morning)",
+      "Stage 6 (Why Is Elias Crashing?)",
+      "Stage 7 (When Defense Becomes Damage)",
+      "Stage 8 (The Hidden Spread)",
+      "Stage 9 (The River Animals)",
+      "Stage 10 (A Variant Rises)",
+      "Stage 11 (The Drug Stops Working)",
+      "Stage 12 (What Do We Deploy?)",
+      "Stage 13 (Did the Treatment Work?)",
+      "Stage 14 (How Close to the Edge?)"
+    ],
     "overwind": [
       "Day 2 (Can we trust the machine's old numbers?)",
       "Day 3 (How hard is the rope really pulling?)",
@@ -85,6 +70,21 @@
       "Day 7 (Does gravity change at the bottom of the mine?)",
       "Day 8 (When is the motor working hardest?)",
       "Day 11 (Can the brakes survive an emergency stop?)"
+    ],
+    "planetary_defense": [
+      "Phase 1 (The Discovery Image)",
+      "Phase 2 (Confirm the Motion)",
+      "Phase 3 (An Orbit from Sparse Data)",
+      "Phase 4 (The Uncertainty Corridor)",
+      "Phase 5 (How Large Is It?)",
+      "Phase 6 (What Is It Made Of?)",
+      "Phase 7 (The Spinning Target)",
+      "Phase 9 (Impact Energy)",
+      "Phase 10 (Through the Atmosphere)",
+      "Phase 11 (What Have We Failed to See?)",
+      "Phase 12 (Can We Move It?)",
+      "Phase 13 (Design the Intercept)",
+      "Phase 14 (Evacuate or Wait?)"
     ],
     "slackwater": [
       "Day 2 (Follow the real water)",

@@ -6,13 +6,18 @@
     header: "7 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE CATALYST BED"
     goNow: "Go to Catalyst Bay and meet Dr. Tomás Herrera, the reactor and safety engineer, at the bed-sampling rail."
-    body: "The override caused the slowdown, but the reason for it is still unknown. The catalyst bed now shows weak conversion and may hide a dangerous inlet hot spot behind a normal average. At Catalyst Bay, identify what catalysts change, build the surface mechanism, probe the bed, and assay a sample. By the end of the mission, decide whether the bed is poisoned, starved, or overheating in one region."
+    body: "The reactor's catalyst, the material that speeds its reaction, is no longer working properly. Damage near the inlet could be hidden by a normal average temperature. Test samples along the reactor and decide whether contamination, missing feed, or overheating explains the loss of activity."
     objective: "Locate the catalyst-bed failure and distinguish damage, reactant shortage, and overheating."
   objective: "Locate the catalyst-bed failure and distinguish damage, reactant shortage, and overheating."
-  stake: "The override caused the slowdown, but the reason for it is still unknown. The catalyst bed now shows weak conversion and may hide a dangerous inlet hot spot behind a normal average. At Catalyst Bay, identify what catalysts change, build the surface mechanism, probe the bed, and assay a sample. By the end of the mission, decide whether the bed is poisoned, starved, or overheating in one region."
+  stake: "The reactor's catalyst, the material that speeds its reaction, is no longer working properly. Damage near the inlet could be hidden by a normal average temperature. Test samples along the reactor and decide whether contamination, missing feed, or overheating explains the loss of activity."
   takeaway: "A correct immediate diagnosis can still leave a deeper causal or safety problem."
   segue: "Mission decision: Halide damaged the catalyst most at the inlet. The surface test finds blocked nickel sites. Part of the bed must be replaced. Yet that damage does not explain the old 612 K hot spot. One hidden heat record will test whether the old setting was safe."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Catalyst", def: "speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition."}
+  - {name: "Equilibrium", def: "the steady state reached when forward and reverse chemical changes occur at equal rates. A catalyst reaches that state faster but does not change the final mixture at a fixed temperature."}
+  - {name: "Intermediate", def: "made in one mechanism step and consumed in a later step. It does not appear in the final balanced equation."}
+  - {name: "Catalyst poisoning", def: "occurs when another substance blocks or changes active sites. A poison entering at one end can create a spatial failure rather than a uniform loss."}
   primer:
   - "A catalyst changes how fast equilibrium is reached, not where equilibrium ends."
   - "A mechanism must reproduce the balanced reaction after intermediates and the catalyst cancel."
@@ -39,7 +44,7 @@
     # unlocks: Stop 35 at the bed sampling rail.
     bubbles:
     - who: herrera   # Herrera
-      say: "A fresh catalyst can restore a path, not change the final balance or the heat of reaction. Now probe the real bed."
+      say: "Nice work. A fresh catalyst can restore a path, not change the final balance or the heat of reaction. Now probe the real bed."
   - id: after-stop-35
     # After Stop 35 | bed sampling rail | automatic spatial discovery
     on: { after: [3] }
@@ -48,7 +53,7 @@
     # unlocks: The Assay Lab waypoint and Stop 36.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "That looks like catalyst poison. Send a sample to Achebe."
+      say: "Good thinking. That looks like catalyst poison. Send a sample to Achebe."
   - id: after-stop-36
     # After Stop 36 | Assay Lab | automatic diagnosis
     on: { after: [4] }
@@ -57,7 +62,7 @@
     # unlocks: The Mission 9 outcome beat.
     bubbles:
     - who: achebe   # Achebe
-      say: "The catalyst is damaged. The assay does not explain why the inlet reached 612 kelvin before the override."
+      say: "Exactly right. The catalyst is damaged. The assay does not explain why the inlet reached 612 kelvin before the override."
   - id: at-mission-end
     # At mission end | Assay Lab | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,11 +71,85 @@
     # unlocks: Mission 10 briefing and the Sabatier Reactor waypoint.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "We found the failure. Restore the old point after replacement."
+      say: "Outstanding work. You solved the mission. We found the failure. Restore the old point after replacement."
     - who: herrera   # Herrera
       say: "Only if your model predicts the run you never showed."
     - who: abiola   # Abiola
       say: "Freeze the model. Reveal the hidden data."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Catalyst Bed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Activation energy", def: "the minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction."}
+    - {name: "Reaction mechanism", def: "a sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step."}
+    - {name: "Rate-determining step", def: "the slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible."}
+    - {name: "Active site", def: "a location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains."}
+    - {name: "Spatial profile", def: "shows how a reading changes from one location to another. It can reveal a local hot spot or inlet-first failure hidden by an average."}
+    questions:
+    - prompt: "In a follow-up to The Catalyst Bed, sample the inlet, inlet shoulder, middle, and outlet to determine whether the loss is uniform or concentrated beside a hidden hot spot. Sample the locations in order now so the crew can identify where the system first departs from normal. Which calculation or chemical interpretation correctly applies Activation energy?"
+      hint: "Use the stated evidence and the conditions for Activation energy; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.", why: "This describes Reaction mechanism, not Activation energy. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.", why: "Correct. the minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction."}
+      - {key: "C", text: "The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.", why: "This describes Rate-determining step, not Activation energy. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains.", why: "This describes Active site, not Activation energy. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Catalyst Bed: build the surface mechanism to show how blocking nickel sites could slow the reaction where a contaminant first enters. Which calculation or chemical interpretation correctly applies Reaction mechanism?"
+      hint: "Use the stated evidence and the conditions for Reaction mechanism; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.", why: "This describes Activation energy, not Reaction mechanism. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.", why: "This describes Rate-determining step, not Reaction mechanism. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.", why: "Correct. a sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step."}
+      - {key: "D", text: "A location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains.", why: "This describes Active site, not Reaction mechanism. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Catalyst Bed using new evidence: sample the inlet, inlet shoulder, middle, and outlet to determine whether the loss is uniform or concentrated beside a hidden hot spot. Sample the locations in order now so the crew can identify where the system first departs from normal. Which calculation or chemical interpretation correctly applies Rate-determining step?"
+      hint: "Use the stated evidence and the conditions for Rate-determining step; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.", why: "This describes Activation energy, not Rate-determining step. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.", why: "This describes Reaction mechanism, not Rate-determining step. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains.", why: "This describes Active site, not Rate-determining step. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.", why: "Correct. the slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible."}
+    - prompt: "An unseen case extends The Catalyst Bed: build the surface mechanism to show how blocking nickel sites could slow the reaction where a contaminant first enters. Which calculation or chemical interpretation correctly applies Active site?"
+      hint: "Use the stated evidence and the conditions for Active site; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains.", why: "Correct. a location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains."}
+      - {key: "B", text: "The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.", why: "This describes Activation energy, not Active site. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.", why: "This describes Reaction mechanism, not Active site. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.", why: "This describes Rate-determining step, not Active site. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Catalyst Bed decision, the team knows this: before replacing the bed, determine exactly what a fresh catalyst can change and what it cannot fix about equilibrium or heat. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "B"
+      figure: {"kind":"line","xLabel":"Distance along catalyst bed (m)","yLabel":"Temperature (K)","caption":"Temperature rises sharply near the catalyst-bed inlet.","series":[{"name":"Measured profile","points":[[0,520],[1,535],[2,590],[3,625],[4,600],[5,570]]}]}
+      options:
+      - {key: "A", text: "The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.", why: "This describes Activation energy, not Spatial profile. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Shows how a reading changes from one location to another. It can reveal a local hot spot or inlet-first failure hidden by an average.", why: "Correct. shows how a reading changes from one location to another. It can reveal a local hot spot or inlet-first failure hidden by an average."}
+      - {key: "C", text: "A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.", why: "This describes Reaction mechanism, not Spatial profile. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.", why: "This describes Rate-determining step, not Spatial profile. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Catalyst Bed to this follow-up: before replacing the bed, determine exactly what a fresh catalyst can change and what it cannot fix about equilibrium or heat. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Catalyst?"
+      hint: "Use the stated evidence and the conditions for Catalyst; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.", why: "This describes Activation energy, not Catalyst. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.", why: "This describes Reaction mechanism, not Catalyst. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition.", why: "Correct. speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition."}
+      - {key: "D", text: "The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.", why: "This describes Rate-determining step, not Catalyst. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 9: worked examples"
+    examples:
+    - {"title":"Explain a catalyst","problem":"A catalyst lowers activation barriers without changing reactant and product energies. What changes at a fixed temperature?","rule":"A catalyst offers a faster pathway but does not change the equilibrium constant.","steps":["Forward and reverse reactions can proceed faster.","The equilibrium composition stays the same, though it is reached sooner."],"answer":"The catalyst changes kinetics, not the equilibrium constant.","mistake":"A faster forward reaction alone does not imply a new equilibrium yield."}
+    - {"title":"Identify an intermediate","problem":"A mechanism has A+B→X and X+C→D+B. Identify intermediate and catalyst.","rule":"An intermediate is formed then consumed; a catalyst is consumed then regenerated.","steps":["X is produced in the first step and consumed in the second.","B is consumed in the first step and regenerated in the second; net reaction A+C→D."],"answer":"X is an intermediate and B is a catalyst.","mistake":"Both cancel from the net equation, but their roles differ."}
+    - {"title":"Explain surface area","problem":"Equal masses of the same solid react with the same excess solution. One is powdered and one is a single piece. Why may powder react faster?","rule":"For a surface reaction, more exposed surface can provide more reaction sites.","steps":["Powder exposes more surface per unit mass.","More sites can contact the solution at once, increasing the observed rate under comparable conditions."],"answer":"Powder can react faster without changing the theoretical product amount.","mistake":"A rate increase does not create extra reactant."}
+    - {"title":"Interpret a blocked catalyst","problem":"An added substance binds strongly to catalyst surface sites. The rate drops while temperature and reactant concentrations stay fixed.","rule":"Blocked active sites can reduce catalytic activity.","steps":["Fewer sites remain available for the intended reaction.","This supports a site-blocking explanation; controlled comparisons can test it."],"answer":"The observation is consistent with catalyst poisoning.","mistake":"A slower reaction does not by itself establish a changed equilibrium constant."}
+    - {"title":"Infer a rate order","problem":"Doubling [A] while holding all else fixed makes the initial reaction rate four times as large. Find the order in A.","rule":"If rate=k[A]^m, the rate ratio is 2^m.","steps":["2^m=4.","m=2 because 2²=4."],"answer":"The reaction is second order in A over the tested conditions.","mistake":"Reaction coefficients do not generally determine measured rate orders."}
 
   stops:
   # --- Stop 33: What a catalyst can and cannot change
@@ -80,10 +159,10 @@
     at: charge-bench
     title: "What a catalyst can and cannot change"
     person: sundqvist
-    concept: "catalysis"
-    reason: "Replacing catalyst helps only if the crew knows what catalyst can change."
-    scene: "Before replacing the bed, determine exactly what a fresh catalyst can change and what it cannot fix about equilibrium or heat. The answer separates a speed repair from an equilibrium or heat solution."
-    motivation: "The answer determines whether a new bed can restore speed or move the equilibrium ceiling."
+    concept: 10   # catalysis
+    reason: "A catalyst repair is proposed, and its limits need separating from heat and equilibrium problems."
+    scene: "Before replacing the bed, determine exactly what a fresh catalyst can change and what it cannot fix about equilibrium or heat."
+    motivation: "The catalyst's role determines whether the repair changes reaction speed without promising a different equilibrium yield."
     format: CHOICE
     question: "A fresh catalyst replaces the old one at the same temperature, pressure, and feed. What changes?"
     choices:
@@ -105,10 +184,10 @@
   - group: KINET
     at: bed
     title: "Build the surface mechanism"
-    concept: "mechanisms/intermediates/RDS"
-    reason: "The surface mechanism predicts how inlet contamination removes active sites."
-    scene: "Build the surface mechanism to show how blocking nickel sites could slow the reaction where a contaminant first enters. The ordered steps identify the catalyst, intermediate, and slow controlling step."
-    motivation: "The mechanism explains how contamination at the inlet can remove productive reaction sites."
+    concept: 10   # mechanisms/intermediates/RDS
+    reason: "The catalyst's role is defined, but the surface reaction needs an explicit mechanism."
+    scene: "The ordered steps identify the catalyst, intermediate, and slow controlling step."
+    motivation: "The ordered surface steps identify regenerated sites, intermediates, and the step controlling the reaction rate."
     format: SEQUENCE
     question: "Order the simplified mechanism and identify the catalyst and intermediate."
     # CONVERTED from the bible's `data` line below; its `correct result` is
@@ -133,40 +212,40 @@
   - group: KINET
     at: bed
     title: "Sample the bed from inlet to outlet"
-    concept: "spatial diagnosis"
-    reason: "An average temperature cannot show where the catalyst bed first fails."
-    scene: "Sample the inlet, inlet shoulder, middle, and outlet to determine whether the loss is uniform or concentrated beside a hidden hot spot. The first broken station will distinguish local damage from a uniform loss."
-    motivation: "Where the pattern first breaks separates inlet poisoning from a uniform reactor failure."
+    concept: 10   # spatial diagnosis
+    reason: "The mechanism is established and samples along the bed can locate the activity loss."
+    scene: "The sampling panel follows the catalyst bed from inlet to outlet. Each station displays temperature, contaminant exposure, and local catalytic activity for comparison."
+    motivation: "The temperature and contaminant profile distinguishes localized inlet damage from a uniform catalyst decline."
     format: PROBE
     question: "Probe every station and name where the pattern first breaks."
     # CONVERTED from the payload below — a rename only. All four of the bible's
     # stations, with its readings, `expected` lines and `load` notes unchanged.
     probe:
-      chainLabel: "Catalyst-bed station"
-      commit: "Name the first station where the bed departs from the clean pattern"
-      minReadings: 4
-      target: inlet
+      chainLabel: Catalyst-bed station
       stations:
-      - id: inlet
-        label: "Inlet / 0 m"
-        reading: "612 K; cumulative conversion 18%; halide high; local activity low"
-        expected: "Clean inlet should remain below 590 K with low halide and normal local activity"
-        load: "First break: temperature exceeds the clean limit while halide is high and activity is depressed"
-      - id: inlet_shoulder
-        label: "Inlet shoulder / 1 m"
-        reading: "600 K; cumulative conversion 32%; halide medium-high; local activity low-medium"
-        expected: "A clean bed should remain below 590 K here, with low halide and conversion rising smoothly from the inlet"
-        load: "Confirms that the inlet-side disturbance persists downstream of the first break"
-      - id: middle
-        label: "Middle"
-        reading: "585 K; cumulative conversion 48%; halide medium; local activity medium"
-        expected: "Temperature below 590 K with conversion rising smoothly and little halide contamination"
-        load: "Partly degraded downstream of the inlet-first failure"
-      - id: outlet
-        label: "Outlet"
-        reading: "563 K; cumulative conversion 55%; halide low; local activity near normal"
-        expected: "Clean bed should finish near 70% cumulative conversion while remaining below 590 K"
-        load: "Temperature is acceptable, but total conversion remains below the clean-bed reference"
+        - id: inlet
+          label: Inlet / 0 m
+          reading: 612 K; cumulative conversion 18%; halide high; local activity low
+          expected: Clean inlet should remain below 590 K with low halide and normal local activity
+          load: "First break: temperature exceeds the clean limit while halide is high and activity is depressed"
+        - id: inlet_shoulder
+          label: Inlet shoulder / 1 m
+          reading: 600 K; cumulative conversion 32%; halide medium-high; local activity low-medium
+          expected: A clean bed should remain below 590 K here, with low halide and conversion rising smoothly from the inlet
+          load: Confirms that the inlet-side disturbance persists downstream of the first break
+        - id: middle
+          label: Middle
+          reading: 585 K; cumulative conversion 48%; halide medium; local activity medium
+          expected: Temperature below 590 K with conversion rising smoothly and little halide contamination
+          load: Partly degraded downstream of the inlet-first failure
+        - id: outlet
+          label: Outlet
+          reading: 563 K; cumulative conversion 55%; halide low; local activity near normal
+          expected: Clean bed should finish near 70% cumulative conversion while remaining below 590 K
+          load: Temperature is acceptable, but total conversion remains below the clean-bed reference
+      target: inlet
+      minReadings: 4
+      commit: Name the first station where the bed departs from the clean pattern
     answerText: "The first break is at the inlet, where heat and halide are high but activity is depressed."
     why: "Feed contaminant reaches the inlet first, so poisoning can start there. The inlet hot spot also matters: exothermic reaction and poorer heat removal can make the front hotter than the average. An average outlet reading hides it."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -209,29 +288,39 @@
   - group: KINET
     at: spec-bench
     title: "Diagnose the immediate bed failure"
-    concept: "catalyst poisoning vs operating limits"
-    reason: "The independent assay must distinguish poisoning from other plausible failures."
-    scene: "Combine that pattern with the independent surface assay to identify the immediate failure and decide whether catalyst replacement is necessary. The verdict decides whether replacement is necessary before any restart test."
-    motivation: "The crew needs to know whether replacing catalyst is necessary before testing the dangerous old setting."
+    concept: 10   # catalyst poisoning vs operating limits
+    reason: "The bed profile is measured and the crew must decide what failure requires repair before restart."
+    scene: "The verdict decides whether replacement is necessary before any restart test."
+    motivation: "The diagnosis connects the activity loss to the contaminant pattern and determines whether catalyst replacement is necessary."
     format: DIAGNOSIS
     question: "Which diagnosis fits the spatial pattern and the independent surface assay?"
     # CONVERTED from the payload below. `state: quiet` is the engine's
     # `status: normal`, and the keyed `answer` becomes the candidate's label.
-    headline: "WHERE DOES THE CATALYST BED FAIL FIRST?"
+    headline: WHERE DOES THE CATALYST BED FAIL FIRST?
     readings:
-    - {zone: surface_assay, label: "Halide on nickel", value: "high at inlet", status: alarm}
-    - {zone: surface_area, label: "Fresh-reference surface area", value: "normal", status: normal}
-    - {zone: gas_feed, label: "Hydrogen composition", value: "restored for test", status: normal}
-    - {zone: pressure, label: "Loop pressure", value: "normal", status: normal}
-    - {zone: activity, label: "Catalyst activity", value: "inlet depressed", status: alarm}
+      - zone: surface_assay
+        label: Halide on nickel
+        value: high at inlet
+      - zone: surface_area
+        label: Fresh-reference surface area
+        value: normal
+      - zone: gas_feed
+        label: Hydrogen composition
+        value: restored for test
+      - zone: pressure
+        label: Loop pressure
+        value: normal
+      - zone: activity
+        label: Catalyst activity
+        value: inlet depressed
     choices:
-    - {id: halide, label: "Halide poisoning concentrated at inlet", mechanism: "Matches surface assay and inlet-first loss."}
-    - {id: sintering, label: "Uniform thermal sintering", mechanism: "Would depress activity throughout bed."}
-    - {id: low_h2, label: "Insufficient hydrogen during test", mechanism: "Contradicted by controlled feed."}
-    - {id: low_pressure, label: "Equilibrium pressure too low", mechanism: "Contradicted by normal controlled pressure."}
-    answer: "Halide poisoning concentrated at inlet"
+      - Halide poisoning concentrated at inlet
+      - Uniform thermal sintering
+      - Insufficient hydrogen during test
+      - Equilibrium pressure too low
+    answer: Halide poisoning concentrated at inlet
     answerText: "Halide poisoning concentrated at the inlet is the immediate catalyst failure."
-    why: "The surface assay and inlet-first loss fit poisoning. Uniform sintering would reduce activity throughout; current H2 and pressure are controlled normal. The hot gradient is real but is not explained away—it becomes the safety question for Mission 10."
+    why: "The surface assay and inlet-first loss fit poisoning. Uniform sintering would reduce activity throughout; current H2 and pressure are controlled normal. The hot gradient is real but is not explained away - it becomes the safety question for Mission 10."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (2) Uniform sintering would depress activity throughout the bed, not mainly at the inlet. (3) Low H2 is ruled out because the test feed restores hydrogen composition. (4) Low pressure is ruled out because loop pressure is normal during the controlled test.
     # correct result: Diagnosis halide: halide poisoning concentrated at the inlet.

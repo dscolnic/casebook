@@ -1,0 +1,202 @@
+OVERWIND (theme: overwind) — PLACES AND LOCATIONS
+Mine Lift Safety Engineer · Kerrow Mine No. 3, twelve days to the inspection
+Course: AP Physics C: Mechanics, taught as derivations
+Grade 12. One mission is called a Day.
+Delivery: The Safe Winding Plan — the board is in WIND. 12 pieces, one a day.
+
+Run it:  cd gamekit && THEME=overwind npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Kerrow No. 3, as data. A deep shaft on a moorland bench.
+
+`engine/world/outdoorTown.js` builds all of it. The place is a working mine
+hoist: a headframe over the shaft with the winder house beside it, the rope
+running across the yard between them at head height, and a gravity station
+three hundred metres out on the bench where the moor takes over.
+
+Looking down, -Z is away from the player at spawn:
+
+       [ Gravity Station ]                                z = -290
+                       ~ the bench, and the moor ~
+                            [ Tip and Conveyor ]          z =  -30
+                   ¦ headframe ¦                          z =   -4  (props.js)
+                    [ The Bank ]     [ Shaft and Brake ]  z =   -4
+  [ Winder House ]                       [ Lamp Room ]    z =    6
+       [ Rope Shop ]     [ Change House ]                 z =   34
+                      ¤ spawn ¤                            z =   70
+
+Three things here are load-bearing rather than decorative:
+
+  · The gravity station is 367 m from the spawn and everything else is inside
+    107 m, which is what makes `engine/core/orientation.js` call this a
+    two-tier site: the far lap and the vehicles come out on day 4. Move it in
+    and the second lap silently stops being offered.
+  · The winder house is 26 m from the shaft and offset from it, because the
+    rope has to run from the drum, up over the sheaves and down the shaft.
+    `props.js` builds that run, and it is the one thing on this site the
+    player walks under rather than round.
+  · Nothing here is tall except the headframe. The silhouette of this game is
+    one steel frame on an empty moor with a horizontal yard under it, so the
+    buildings are low and the horizon ranks are hills rather than anything
+    built.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+ROPE — Rope Shop
+  Rope Shop
+  (-34, 34)   50 m from spawn   14 x 9 x 4.6
+  Twelve hundred metres of steel that weighs more than what it carries.
+  Calls: Measure the rope · Take the tension · Find its period · Ready to hand
+  over
+  Fixtures (at: targets):
+    rope-bench         bench  left
+      The rope bench — The rope record: four re-caps in two years, forty
+      metres shorter, the same steel.
+    coil-rig           rack   left
+      The coil rig — A length of locked coil between two anchors, with a dial
+      gauge on it.
+    cappel             vessel right
+      The spare cappel — The fitting that grips the rope end and hangs the
+      cage off it.
+
+WIND — Winder House
+  Winder House
+  (-30, 6)   71 m from spawn   20 x 14 x 8.6
+  DELIVERY ROOM — the board for The Safe Winding Plan is here.
+  A drum, a motor and a brake, and everything that turns with them.
+  Calls: Weigh the drum · Take the inertia · Find the torque · Ready to hand
+  over
+  Fixtures (at: targets):
+    drum               vessel left
+      The drum — Two metres to the rope, eighteen tonnes of steel, re-flanged
+      since the file was written.
+    winder-desk        bench  back
+      The winder desk — The motor rating, the drum trace from March, and the
+      submission open at the torque page.
+    test-trace         rack   left  [from day 11]
+      The test wind trace — One wind on the empty cage, recorded. The first
+      number here that was measured.
+
+BANK — The Bank
+  The Bank
+  (-9, -4)   75 m from spawn   13 x 9 x 5.4
+  The top landing, and the profile every wind is driven to.
+  Calls: Read the profile · Differentiate it · Integrate it back · Ready to
+  hand over
+  Fixtures (at: targets):
+    profile-desk       bench  left
+      The profile desk — The curve the winder is driven to, with the ramps and
+      the crawl marked on it.
+    signal-board       board  back
+      The signal board — Bell codes to the winder, and the handle that stops a
+      wind.
+    depth-dial         board  right
+      The depth indicator — Where the cage is, and how fast it is getting
+      there.
+
+CAGE — Shaft and Brake House
+  Shaft and Brake House
+  (20, -4)   77 m from spawn   12 x 9 x 4.8
+  What the cage does, what stops it, and where the energy goes.
+  Calls: Draw the body · Do the work · Absorb the energy · Ready to hand over
+  Fixtures (at: targets):
+    body-bench         bench  left
+      The bench drawing — One chosen body at a time, with everything acting on
+      it and nothing else.
+    pad-bench          bench  right
+      The pad bench — Two sets of pads, and a certificate that says cold, on a
+      bench, at a stated pressure.
+    arrestor           rack   left
+      The crush-tested arrestor — From the maker's rig, folded to about half
+      its original height.
+    march-drawer       bench  right [until day 10]
+      The inquiry drawer — The position tape from March, in a drawer nobody
+      has opened since the inquiry.
+    march-board        board  left  [from day 10]
+      The March board — The stiffness, the period and the tape, on one board
+      at last.
+
+TIP — Tip and Conveyor
+  Tip and Conveyor
+  (34, -30)   106 m from spawn   16 x 11 x 7.4
+  Ore in a stream rather than in a lump, and the force a stream makes.
+  Calls: Weigh the stream · Take the impulse · Close the ledger · Ready to
+  hand over
+  Fixtures (at: targets):
+    belt-drive         rack   left
+      The belt drive — It tripped twice on the night shift with nothing over
+      four tonnes on it.
+    weightometer       board  back
+      The weightometer — The belt's own scale, reading tonnes an hour rather
+      than newtons.
+    bin-bolts          bench  right [until day 7]
+      Two sheared bin bolts — On the bench since Friday, with nothing yet to
+      blame for them.
+
+GRAV — Gravity Station
+  Gravity Station
+  (-70, -290)   367 m from spawn   7 x 6 x 3.2
+  Three hundred metres out on the bench, where g is measured rather than
+  assumed.
+  Calls: Level the meter · Read the drift · Take the difference · Ready to
+  hand over
+  Fixtures (at: targets):
+    gravimeter         vessel right
+      The gravimeter — A weighted spring in a case, reading where it stands to
+      a millionth.
+    level-book         bench  right
+      The level book — The elevation of every station, the time of every
+      reading, and what they tie back to.
+    pillar             rack   back
+      The station pillar — Concrete to rock, so what is measured is the ground
+      and not the hut floor.
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Compressor House  ·  "Air for the drills below"
+  (40, 22)   62 m   14 x 10 x 5.6
+Lamp Room  ·  "Forty-one lamps, forty-one tallies"
+  (12, 8)   63 m   8 x 6 x 3.4
+Change House  ·  "Where a shift starts and ends"
+  (28, 44)   38 m   16 x 10 x 4.2
+Shift board
+  (14, 52)
+Spawn
+  (0, 70)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 1000, playerLimit 340, profile 'rolling'
+
+==============================================================================
+THE DELIVERY — The Safe Winding Plan
+==============================================================================
+   1. What the faster trip actually does
+   2. The drum's true rotational inertia
+   3. The maximum pull on the rope
+   4. The motor torque required
+   5. The energy in one full lift
+   6. The force created by moving loads
+   7. The value of gravity at depth
+   8. The motor's peak power
+   9. The rope's natural bounce period
+  10. The March overshoot explained
+  11. The brake's emergency-stop limit
+  12. The signed safe profile
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/overwind/ — site/plan, fixtures, minors, groups, theme.

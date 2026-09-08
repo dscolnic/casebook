@@ -6,13 +6,17 @@
     header: "DAY 14 - BOARD TOMORROW"
     title: "Stop or Continue"
     goNow: "Go to Statistics and meet Tomas Reed, trial statistician, at the uncertainty console."
-    body: "The primary benefit survives correction, but the late-harm interval still overlaps the stopping boundary. A decision must weigh Type I and Type II errors, power, effect size, and patient cost. Stress the estimates in Statistics, price evidence in Regulatory, then precommit the safety rule upstairs. By the end of the mission, decide whether one final follow-up wave is justified."
+    body: "The treatment still appears helpful, but later health problems could be serious enough to stop the trial. Test how uncertainty changes the balance between benefit and harm. Decide whether one more round of patient follow-up is justified, and set its safety rule first."
     objective: "Choose between stopping now and one bounded follow-up."
   objective: "Choose between stopping now and one bounded follow-up."
-  stake: "The primary benefit survives correction, but the late-harm interval still overlaps the stopping boundary. A decision must weigh Type I and Type II errors, power, effect size, and patient cost. Stress the estimates in Statistics, price evidence in Regulatory, then precommit the safety rule upstairs. By the end of the mission, decide whether one final follow-up wave is justified."
+  stake: "The treatment still appears helpful, but later health problems could be serious enough to stop the trial. Test how uncertainty changes the balance between benefit and harm. Decide whether one more round of patient follow-up is justified, and set its safety rule first."
   takeaway: "Buy evidence that can change the decision."
   segue: "Mission decision: Allow one small follow-up group under the safety rule. The benefit data support more study. The harm range blocks a full restart. Only source calls and a separate kit check can change that choice."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Practical significance", def: "whether an effect is large enough to matter in context."}
+  - {name: "False-positive family rate", def: "chance of at least one Type I error across a group of tests."}
+  - {name: "Decision rule", def: "a threshold and action written before new data arrive."}
   primer:
   - "Confidence level up means margin of error up, holding n fixed."
   - "Power increases with n, alpha, effect size, and lower variability."
@@ -25,7 +29,7 @@
   - id: on-arrival-at-statistics
     # On arrival at Statistics | uncertainty-console | automatic
     on: { enter: true, at: STAT }
-    world: "Arrival: STAT entry; harm interval crosses the line; Tomas says, ; - After S1: unconditional continuation darkens; waypoint TAKE LIVE UNCERTAINTY TO REGISTRY. - REG after S2: source calls and kit audit funded; waypoint CARRY EVIDENCE ORDER TO BOARD. - BOARD after S3/final: cloud narrows; trigger and 120-patient cap lock; binder 14 and outcome unlock."
+    world: "Arrival: STAT entry; harm interval crosses the line; Tomas says,; - After S1: unconditional continuation darkens; waypoint TAKE LIVE UNCERTAINTY TO REGISTRY. - REG after S2: source calls and kit audit funded; waypoint CARRY EVIDENCE ORDER TO BOARD. - BOARD after S3/final: cloud narrows; trigger and 120-patient cap lock; binder 14 and outcome unlock."
     panel: "MISSION 14: STRESS THE BOUNDARY OPEN"
     bubbles:
     - who: reed   # Tomas Reed
@@ -37,7 +41,7 @@
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Use the Stop 53 result to settle buy decision-changing evidence."
+      say: "Nice work. Use the Stop 53 result to settle buy decision-changing evidence."
   - id: after-stop-54
     # After Stop 54 | board-simulator | automatic
     on: { after: [2] }
@@ -45,7 +49,7 @@
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Use the Stop 54 result to settle predict power direction."
+      say: "Good thinking. Use the Stop 54 result to settle predict power direction."
   - id: after-stop-55
     # After Stop 55 | trigger-rail | automatic
     on: { after: [3] }
@@ -53,7 +57,7 @@
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Use the Stop 55 result to settle write the rule."
+      say: "Exactly right. Use the Stop 55 result to settle write the rule."
   - id: at-mission-end
     # At mission end | uncertainty-console | automatic
     on: { missionEnd: true }
@@ -61,7 +65,75 @@
     panel: "MISSION 14 EVIDENCE: RECORDED"
     bubbles:
     - who: reed   # Tomas Reed
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Stop or Continue. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to Stop or Continue, the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Practical significance to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Practical significance; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.", why: "This describes interval sensitivity/practical significance, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.", why: "Correct. whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive."}
+      - {key: "C", text: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.", why: "This describes value of information, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A narrower sampling distribution increases power and makes the final trigger informative.", why: "This describes power/sample size/effect/alpha/sigma, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to Stop or Continue: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which statistical conclusion or procedure correctly uses interval sensitivity/practical significance?"
+      hint: "Use the stated evidence and the conditions for interval sensitivity/practical significance; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.", why: "This describes Practical significance, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.", why: "This describes value of information, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.", why: "Correct. crossing a safety boundary under plausible assumptions blocks unconditional continuation."}
+      - {key: "D", text: "A narrower sampling distribution increases power and makes the final trigger informative.", why: "This describes power/sample size/effect/alpha/sigma, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks Stop or Continue using new evidence: the stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Choose the next measurement now based on whether its result could change the decision. Which option correctly applies value of information to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for value of information; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.", why: "This describes Practical significance, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.", why: "This describes interval sensitivity/practical significance, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A narrower sampling distribution increases power and makes the final trigger informative.", why: "This describes power/sample size/effect/alpha/sigma, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.", why: "Correct. more data are not automatically valuable; useful evidence must alter the stop-or-continue decision."}
+    - prompt: "An unseen case extends Stop or Continue: the funded calls add observations and reduce missingness without changing alpha or the target effect. The next action depends on selecting the conclusion that fits all of those facts. Which statistical conclusion or procedure correctly uses power/sample size/effect/alpha/sigma?"
+      hint: "Use the stated evidence and the conditions for power/sample size/effect/alpha/sigma; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A narrower sampling distribution increases power and makes the final trigger informative.", why: "Correct. a narrower sampling distribution increases power and makes the final trigger informative."}
+      - {key: "B", text: "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.", why: "This describes Practical significance, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.", why: "This describes interval sensitivity/practical significance, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.", why: "This describes value of information, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Stop or Continue decision, the team knows this: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "B"
+      figure: {"kind":"line","xLabel":"Ordered measurement","yLabel":"Decision quantity","caption":"Measurements approach and then cross the action threshold.","series":[{"name":"Measured","points":[[1,42],[2,48],[3,55],[4,63],[5,71]]}],"limit":{"at":60,"label":"Action threshold"}}
+      options:
+      - {key: "A", text: "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.", why: "This describes Practical significance, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Precommitment prevents a favored outcome from moving the safety boundary tomorrow.", why: "Correct. precommitment prevents a favored outcome from moving the safety boundary tomorrow."}
+      - {key: "C", text: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.", why: "This describes interval sensitivity/practical significance, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.", why: "This describes value of information, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from Stop or Continue to this follow-up: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.", why: "This describes Practical significance, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.", why: "This describes interval sensitivity/practical significance, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.", why: "This describes value of information, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 14: worked examples"
+    examples:
+    - {"title":"Statistical versus practical importance","problem":"A large study finds a mean improvement of 0.1 point, with P=0.001. A useful change was defined as at least 5 points. What follows?","rule":"Statistical significance and practical size answer different questions.","steps":["The small P-value is evidence against the stated no-effect null under the model.","The estimated improvement 0.1 is far below the predeclared 5-point practical target."],"answer":"The result is statistically significant but the estimated effect is not practically large.","mistake":"A small P-value does not measure effect size."}
+    - {"title":"Calculate power","problem":"A test has Type II error probability β=0.20 for one specified alternative. Find its power there.","rule":"Power=1-β.","steps":["Set up the relationship: Power=1-β.","power=1-0.20=0.80."],"answer":"The test rejects the false null 80% of the time under that particular alternative.","mistake":"Power changes with the actual effect, sample size, and testing rule."}
+    - {"title":"Distinguish two testing errors","problem":"The null hypothesis says a coin is fair. Describe a Type I and a Type II error.","rule":"Type I means rejecting a true null; Type II means failing to reject a false null.","steps":["Calling a truly fair coin unfair is Type I.","Failing to detect that a biased coin is unfair is Type II."],"answer":"The error type depends on both the decision and the coin's actual fairness.","mistake":"A failure to reject does not prove the null true."}
+    - {"title":"Repeated testing","problem":"Five independent tests each have false-positive probability 0.10 under their true nulls. Find the chance of at least one false positive.","rule":"P(at least one)=1-P(none), using independence for the product.","steps":["Set up the relationship: P(at least one)=1-P(none), using independence for the product.","P(at least one)=1-(0.9)^5=1-0.59049=0.40951."],"answer":"The chance is about 41%, not 10%.","mistake":"The independence assumption is needed for this exact product calculation."}
+    - {"title":"Read an inclusive threshold","problem":"A fictional laboratory rule permits a sample concentration at or below 5 mg/L. A sample measures exactly 5 mg/L. Classify it under that rule.","rule":"At or below means concentration ≤ limit.","steps":["comparison = 5 ≤ 5, which is true. Equality is included.","classification = passes this concentration rule. No claim about other requirements follows."],"answer":"This measurement passes the stated inclusive threshold.","mistake":"Replacing ≤ with < would wrongly exclude equality."}
 
   stops:
   # --- Stop 53: Stress the Boundary
@@ -71,10 +143,10 @@
     at: uncertainty-console
     title: "Stress the Boundary"
     person: reed
-    concept: "interval sensitivity/practical significance"
-    reason: "The late-harm conclusion must survive reasonable missing-outcome assumptions."
+    concept: 25   # interval sensitivity/practical significance
+    reason: "The corrected benefit finding does not remove uncertainty about late harm."
     scene: "The primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Move the missing-outcome assumption through its registered range and watch which actions remain defensible."
-    motivation: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation."
+    motivation: "The missing-outcome sensitivity range determines whether benefit supports unconditional continuation or only a bounded follow-up."
     format: STRESS
     question: "Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout."
     answerText: "The completed check shows the data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty."
@@ -87,6 +159,42 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   assumption -2 to +2 events/1000 step1; candidates stop now, continue unconditionally, bounded follow-up with trigger; only bounded follow-up remains across full range.
+    stress:
+      candidates:
+        - id: nominal_only
+          label: Use only the nominal reading
+        - id: common_extreme_mistake
+          label: Use the favorable extreme as if it were guaranteed
+        - id: robust_plan
+          label: The data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty.
+      criteria:
+        - key: evidence_fit
+          label: fit to the stop evidence
+        - key: safety_margin
+          label: margin at the adverse end
+      scores:
+        nominal_only:
+          evidence_fit: 95
+          safety_margin: 20
+        common_extreme_mistake:
+          evidence_fit: 88
+          safety_margin: 5
+        robust_plan:
+          evidence_fit: 82
+          safety_margin: 92
+      feasible:
+        nominal_only: 0.030000000000000002
+        common_extreme_mistake: 0.030000000000000002
+        robust_plan: 0.01
+      assumption:
+        label: stopping boundary
+        unit: p-value
+        min: 0.01
+        max: 0.05
+        nominal: 0.030000000000000002
+        step: 0.005
+      robust: robust_plan
+      optimiseOn: evidence_fit
 
   # --- Stop 54: Buy Decision-Changing Evidence
   #     Concept: value of information; Keystone: keystone decision/inference; Area: Monitoring Board Room; Learning role: COMBINE; Difficulty: L5; Story role: character.
@@ -95,10 +203,10 @@
     at: evidence-budget-desk
     title: "Buy Decision-Changing Evidence"
     person: reed
-    concept: "value of information"
-    reason: "Only one day of staff time remains, so evidence must be chosen by whether it could change action."
+    concept: 32   # value of information
+    reason: "The live decision now turns on unresolved harm rather than settled efficacy or file integrity."
     scene: "The stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Spend a 60-hour budget on evidence that can narrow harm uncertainty without reopening settled analyses."
-    motivation: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
+    motivation: "The selected evidence must narrow the harm boundary enough to inform the next enrollment decision."
     format: VALUE
     question: "Allocate at most 60 staff-hours among the five evidence options. Submit the combination that narrows harm uncertainty without reopening locked analyses."
     # MODEL CONVERSION. The payload marks the two options it wants bought
@@ -111,14 +219,37 @@
     # audit"). That is a rename, not new copy. The payload supplies no `reveals`
     # line for any option, so none is written; the importer warns and imports.
     value:
-      budget: { amount: 60, unit: "staff-hours" }
+      budget:
+        amount: 60
+        unit: ""
+      decision: ""
       options:
-      - { id: source_calls, label: "Source calls", axis: "late-event outcome verification", cost: 30, decisive: true }
-      - { id: kit_audit, label: "Independent kit audit", axis: "independent exposure verification", cost: 20, decisive: true }
-      - { id: efficacy_rerun, label: "Efficacy rerun", axis: "settled efficacy estimate", cost: 25 }
-      - { id: staff_survey, label: "Staff survey", axis: "workflow opinion", cost: 15 }
-      - { id: biomarker, label: "Biomarker", axis: "new exploratory mechanism", cost: 25 }
-      commit: "Order the evidence"
+        - id: source_calls
+          label: ""
+          cost: 30
+          axis: late-event outcome verification
+          reveals: ""
+        - id: kit_audit
+          label: ""
+          cost: 20
+          axis: independent exposure verification
+          reveals: ""
+        - id: efficacy_rerun
+          label: ""
+          cost: 25
+          axis: settled efficacy estimate
+          reveals: ""
+        - id: staff_survey
+          label: ""
+          cost: 15
+          axis: workflow opinion
+          reveals: ""
+        - id: biomarker
+          label: ""
+          cost: 25
+          axis: new exploratory mechanism
+          reveals: ""
+      commit: Commit the decision
     answerText: "The completed check shows fund source calls and the independent kit audit; they address the live harm boundary."
     why: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -136,12 +267,13 @@
   - group: RAND
     at: board-simulator
     title: "Predict Power Direction"
-    concept: "power/sample size/effect/alpha/sigma"
-    reason: "The board must know whether one follow-up wave can materially narrow uncertainty."
+    concept: 14   # power/sample size/effect/alpha/sigma
+    reason: "The funded follow-up changes sample size while leaving the test's effect target and threshold fixed."
     scene: "The funded calls add observations and reduce missingness without changing alpha or the target effect. Narrow the sampling cloud by increasing n from 200 to 320 while holding effect and variability assumptions fixed."
-    motivation: "A narrower sampling distribution increases power and makes the final trigger informative."
-    format: CLOUD
-    question: "control n 200-320; fixed alpha=.025,effect=4/1000,sigma assumption; target corridor harm boundary; correct conclusion spread decreases, power increases, center unchanged."
+    motivation: "The narrower sampling distribution explains how added observations can increase power without changing the expected treatment effect."
+    format: CHOICE
+    question: "Increase sample size from 200 to 320 while holding alpha=0.025, the target effect, and the variability assumption fixed. Observe the sampling distribution and submit how its spread, center, and test power change."
+    figure: {"kind":"line","xLabel":"Sample size","yLabel":"Power","caption":"Power rises as sample size increases with other inputs fixed.","series":[{"name":"Power","points":[[200,0.62],[230,0.69],[260,0.75],[290,0.81],[320,0.86]]}]}
     answerText: "The completed check shows increasing n narrows standard error and increases power; it does not move the expected center."
     why: "A narrower sampling distribution increases power and makes the final trigger informative."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -152,6 +284,18 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   cloud:{settings:[{id:"n200",n:200,center:0.004,spread:0.0031,power:0.52},{id:"n240",n:240,center:0.004,spread:0.0028,power:0.60},{id:"n280",n:280,center:0.004,spread:0.0026,power:0.67},{id:"n320",n:320,center:0.004,spread:0.0024,power:0.73}],fixed:{alpha:0.025,effect:0.004,variance_assumption:"unchanged"},corridor:"harm boundary",correct_conclusion:"larger n narrows spread and raises power without moving center",answerText:"Increasing n from 200 to 320 narrows the sampling cloud and raises power; its expected center stays fixed."}
+    choices:
+      - Increasing n narrows standard error and increases power; it does not move the expected center.
+      - Treat the settings table as the conclusion without reading the pattern.
+      - Claim a cause or trend stronger than the displayed readings support.
+    answer: Increasing n narrows standard error and increases power; it does not move the expected center.
+    rebuttals:
+      - Settings are inputs; the measured cloud or pattern is the evidence.
+      - The observations support the bounded conclusion, not the stronger claim.
+    cloud:
+      bounds: {}
+      centre: 0.004
+      spread: 0.0031
 
   # --- Stop 56: Write the Rule
   #     Concept: integrated decision threshold; Keystone: keystone tests/errors; Area: Monitoring Board Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -159,10 +303,10 @@
   - group: SAFE
     at: trigger-rail
     title: "Write the Rule"
-    concept: "integrated decision threshold"
-    reason: "The last follow-up cannot begin until its stop rule is fixed."
-    scene: "The chosen evidence can improve power, but waiting exposes more patients. Commit the harm threshold and maximum enrollment before the new calls arrive, then map each possible result to stop, modify, or continue."
-    motivation: "Precommitment prevents a favored outcome from moving the safety boundary tomorrow."
+    concept: 19   # integrated decision threshold
+    reason: "More evidence could help, but the board must limit patient exposure while waiting for it."
+    scene: "The chosen evidence can improve power, but waiting exposes more patients."
+    motivation: "The precommitted harm thresholds and enrollment cap determine when follow-up must stop, change, or continue."
     format: TRIGGER
     question: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000."
     answerText: "The completed check shows authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4."
@@ -175,4 +319,37 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trigger: {visible_prompt: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000.", keyed_result: "Authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.", feedback: "numeric threshold pair, enrollment cap, action mapping", answerText: "Use the keyed result and explanation printed below."}
+    trigger:
+      scale:
+        label: stopping p-value
+        unit: p
+        min: 0
+        max: 0.1
+        step: 0.005
+        anchors:
+          - at: 0.02
+            means: routine baseline, not the decision threshold
+          - at: 0.065
+            means: elevated evidence requiring attention
+      direction: falling
+      conditions:
+        - id: act
+          label: Take the protective action
+          leadHours: 12
+          window:
+            min: 0
+            max: 0.025
+      stream:
+        - at: T-48 h
+          value: 0.08
+          hoursLeft: 48
+        - at: T-24 h
+          value: 0.05
+          hoursLeft: 24
+        - at: T-12 h
+          value: 0.025
+          hoursLeft: 12
+        - at: T-6 h
+          value: 0.015
+          hoursLeft: 6
 

@@ -6,13 +6,20 @@
     header: "9 DAYS."
     title: "THE HIDDEN LOSSES"
     goNow: "Tip and Sorting Yard, Mei Chen at leachate-bench."
-    body: "Enforcement can control visible use, but the island still loses resources through unseen leaks. Landfills make leachate and methane, while broken pipes waste treated water before a tap. Trace the tip pathway, then test the Waterworks balance. By the end of the mission, decide which hidden loss must be stopped first."
+    body: "Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste."
     objective: "Find and rank hidden water and waste losses."
   objective: "Find and rank hidden water and waste losses."
-  stake: "Enforcement can control visible use, but the island still loses resources through unseen leaks. Landfills make leachate and methane, while broken pipes waste treated water before a tap. Trace the tip pathway, then test the Waterworks balance. By the end of the mission, decide which hidden loss must be stopped first."
+  stake: "Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Repair the liner and treatment chain. Count the 50 cubic metres lost each day. The leak is real. Next, trace where school nitrate enters the system."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Leachate", def: "polluted liquid draining through waste."}
+  - {name: "Point source", def: "one identifiable outlet."}
+  - {name: "Nonpoint source", def: "diffuse runoff."}
+  - {name: "Sewage treatment", def: "primary settling, secondary bacterial breakdown, tertiary nutrient removal."}
+  equations:
+  - {"e":"water loss=input volume-metered output volume","c":"Apply this relationship to the mission decision.","v":[["water loss","water entering the network but not recorded at its metered outlets"],["input volume","water measured entering the network"],["metered output volume","water measured leaving through the monitored outlets. Use the same volume unit and time period for all three"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "landfills generate methane and carbon dioxide; leachate can reach groundwater; prevention often costs less than treating exposure."
 
@@ -26,7 +33,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 7: TRACE THE HIDDEN EXPORTS OPEN"
     bubbles:
-    - who: chen   # the bible's "mission lead", from this mission's own goNow line
+    - who: voss   # Mara Voss
       say: "Start with trace the hidden exports. We need evidence the next decision can use."
   - id: after-stop-25
     # After Stop 25 | leachate-bench | automatic
@@ -34,32 +41,101 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
     bubbles:
-    - who: chen   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 25 result to settle build the treatment chain."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 25 result to settle build the treatment chain."
   - id: after-stop-26
     # After Stop 26 | pipe-balance | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
     bubbles:
-    - who: chen   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 26 result to settle close the water balance."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 26 result to settle close the water balance."
   - id: after-stop-27
     # After Stop 27 | council-table | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 27 changes the persistent board and unlocks the decision stop."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
     bubbles:
-    - who: chen   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 27 result to settle choose the repair priority."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 27 result to settle choose the repair priority."
   - id: at-mission-end
     # At mission end | leachate-bench | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 28 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 7 EVIDENCE: RECORDED"
     bubbles:
-    - who: chen   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Hidden Losses. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Anaerobic", def: "without oxygen."}
+    questions:
+    - prompt: "In a follow-up to The Hidden Losses, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?"
+      hint: "Use the stated evidence and the conditions for Anaerobic; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Without oxygen.", why: "Correct. without oxygen."}
+      - {key: "C", text: "One identifiable outlet.", why: "This describes Point source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Diffuse runoff.", why: "This describes Nonpoint source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to The Hidden Losses: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?"
+      hint: "Use the stated evidence and the conditions for Leachate; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Without oxygen.", why: "This describes Anaerobic, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "One identifiable outlet.", why: "This describes Point source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Polluted liquid draining through waste.", why: "Correct. polluted liquid draining through waste."}
+      - {key: "D", text: "Diffuse runoff.", why: "This describes Nonpoint source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks The Hidden Losses using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?"
+      hint: "Use the stated evidence and the conditions for Point source; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Without oxygen.", why: "This describes Anaerobic, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Diffuse runoff.", why: "This describes Nonpoint source, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "One identifiable outlet.", why: "Correct. one identifiable outlet."}
+    - prompt: "An unseen case extends The Hidden Losses: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?"
+      hint: "Use the stated evidence and the conditions for Nonpoint source; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Diffuse runoff.", why: "Correct. diffuse runoff."}
+      - {key: "B", text: "Without oxygen.", why: "This describes Anaerobic, not Nonpoint source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not Nonpoint source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "One identifiable outlet.", why: "This describes Point source, not Nonpoint source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Hidden Losses decision, the team knows this: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Sewage treatment?"
+      hint: "Use the stated evidence and the conditions for Sewage treatment; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Without oxygen.", why: "This describes Anaerobic, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Primary settling, secondary bacterial breakdown, tertiary nutrient removal.", why: "Correct. primary settling, secondary bacterial breakdown, tertiary nutrient removal."}
+      - {key: "C", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "One identifiable outlet.", why: "This describes Point source, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from The Hidden Losses to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?"
+      hint: "Use the stated evidence and the conditions for landfill pathways | pollution | D1 | RETRIEVE | L3 | clue; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Without oxygen.", why: "This describes Anaerobic, not landfill pathways | pollution | D1 | RETRIEVE | L3 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not landfill pathways | pollution | D1 | RETRIEVE | L3 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Trace the hidden exports connects the measured environmental mechanism to the next island condition.", why: "Correct. trace the hidden exports connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "One identifiable outlet.", why: "This describes Point source, not landfill pathways | pollution | D1 | RETRIEVE | L3 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 7: worked examples"
+    examples:
+    - {"title":"Point versus nonpoint pollution","problem":"Compare waste leaving a single discharge pipe with fertilizer washed from many fields after rain.","rule":"A point source is an identifiable discrete discharge; nonpoint pollution is diffuse.","steps":["The single pipe has a defined outlet that can be sampled and controlled.","Field runoff arrives through many pathways over a broad area."],"answer":"The pipe is a point source; widespread field runoff is nonpoint.","mistake":"The distinction describes the release pathway, not whether the pollutant is dangerous."}
+    - {"title":"Express a loss fraction","problem":"A tank receives 200 L and delivers 180 L, with no stock change. Find the unaccounted loss percentage.","rule":"Loss=input-output; loss fraction=loss/input.","steps":["Set up the relationship: Loss=input-output; loss fraction=loss/input.","loss=200-180=20 L; fraction=20/200=0.10=10%."],"answer":"Ten percent of the input is unaccounted for under the stated balance.","mistake":"Use the input as the reference for input-loss percentage."}
+    - {"title":"Balance a resource stock","problem":"A generic pond starts with 100 m³ of water, receives 30 m³, and loses 20 m³ during one day. Find the ending stock.","rule":"Ending stock=starting stock+inputs-outputs.","steps":["Set up the relationship: Ending stock=starting stock+inputs-outputs.","V_end=100+30-20=110 m³."],"answer":"The pond ends with 110 m³, a net increase of 10 m³.","mistake":"Do not confuse the ending stock with the net change."}
+    - {"title":"Concentration and pollutant load","problem":"A stream flows at 10 L/s with pollutant concentration 2 mg/L. Find pollutant load.","rule":"Mass load=volume flow×concentration.","steps":["Set up the relationship: Mass load=volume flow×concentration.","load=10 L/s×2 mg/L=20 mg/s."],"answer":"The stream carries 20 mg of pollutant each second.","mistake":"Concentration alone does not state total pollutant transport."}
+    - {"title":"Treatment removal efficiency","problem":"Water enters treatment at 10 mg/L and leaves at 2 mg/L with unchanged flow. Find concentration removal efficiency.","rule":"Removal fraction=(incoming-outgoing)/incoming.","steps":["Set up the relationship: Removal fraction=(incoming-outgoing)/incoming.","removal=(10-2)/10=0.8=80%."],"answer":"Concentration is reduced by 80%.","mistake":"A percentage reduction does not establish compliance with an unstated limit."}
 
   stops:
   # --- Stop 25: Trace the hidden exports
@@ -68,10 +144,10 @@
   - group: TIP
     at: leachate-bench
     title: "Trace the hidden exports"
-    concept: "landfill pathways | pollution | D1 | RETRIEVE | L3 | clue"
-    reason: "The island cannot commit trace the hidden exports until this evidence is resolved."
-    scene: "The enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Trace rain, leachate, methane, carbon dioxide, and collected solids to their shared and independent pathways"
-    motivation: "Trace the hidden exports connects the measured environmental mechanism to the next island condition."
+    concept: 27   # landfill pathways | pollution | D1 | RETRIEVE | L3 | clue
+    reason: "The tip's delivery totals cannot establish what leaves the uncapped waste cell after disposal."
+    scene: "The waste ledger counts material delivered to the uncapped cell, but rain, leachate, methane, carbon dioxide, and collected solids follow different paths. Trace their shared sources and identify which pathway can carry dissolved pollution toward groundwater."
+    motivation: "The waste pathways identify which exports affect air and which can carry dissolved contamination toward groundwater."
     format: TRACE
     question: "Open five channels; identify the waste cell as the shared source and rain as independent; submit the groundwater-dependent leachate pathway"
     answerText: "The completed check shows the uncapped cell affects both air and water."
@@ -84,6 +160,41 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trace:{channels:[{id:"rain",label:"rain entering the cell",dependency:"weather gauge",independent:true},{id:"leachate",label:"leachate outflow",dependency:"waste cell",target_dependent:true},{id:"methane",label:"methane outflow",dependency:"waste cell",target_dependent:true},{id:"carbon_dioxide",label:"carbon-dioxide outflow",dependency:"waste cell",target_dependent:true},{id:"collected_solids",label:"collected solids",dependency:"waste cell",target_dependent:true}],shared_upstream:"waste cell",correct_conclusion:"leachate is the groundwater path; rain is the independent input",answerText:"Four export channels share the waste cell, while rain is independent; leachate is the path carrying dissolved load toward groundwater."}
+    trace:
+      channels:
+        - id: rain
+          label: Rain entering cell
+          reading: 42 mm this week
+          depends:
+            - weather_gauge
+        - id: leachate
+          label: Leachate outflow
+          reading: 18 m³ carrying dissolved load
+          depends:
+            - waste_cell
+        - id: methane
+          label: Methane outflow
+          reading: 31 m³ gas
+          depends:
+            - waste_cell
+        - id: carbon_dioxide
+          label: Carbon-dioxide outflow
+          reading: 24 m³ gas
+          depends:
+            - waste_cell
+        - id: collected_solids
+          label: Collected solids
+          reading: 6.2 t retained
+          depends:
+            - waste_cell
+      resources:
+        - id: weather_gauge
+          label: weather_gauge
+        - id: waste_cell
+          label: waste_cell
+      independent:
+        - rain
+      target: waste_cell
 
   # --- Stop 26: Build the treatment chain
   #     Concept: sewage treatment | pollution | 7; Keystone: sewage treatment | pollution | 7; Area: Tip and Sorting Yard; Learning role: PRACTICE; Difficulty: L3; Story role: sewage treatment | pollution | 7.
@@ -91,12 +202,12 @@
   - group: TIP
     at: leachate-bench
     title: "Build the treatment chain"
-    concept: "sewage treatment | pollution | 7"
-    reason: "The island cannot commit build the treatment chain until this evidence is resolved."
-    scene: "Because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the wastewater path from solids removal through nutrient polishing before discharge, and the team needs this result before it acts."
-    motivation: "Build the treatment chain connects the measured environmental mechanism to the next island condition."
+    concept: 27   # sewage treatment | pollution | 7
+    reason: "The identified leachate pathway requires a treatment sequence before discharge is permitted."
+    scene: "Because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the wastewater path from solids removal through nutrient polishing before discharge."
+    motivation: "The treatment order determines whether solids and nutrients are removed rather than merely diluted downstream."
     format: CHAIN
-    question: "Order intake, primary settle and skim, secondary bacterial treatment, tertiary nitrogen and phosphorus removal, and disinfection; leave dilution out as the decoy"
+    question: "Arrange the displayed wastewater-treatment cards from raw inflow to safe discharge. Exclude the card that only dilutes untreated water without removing contaminant load."
     answerText: "The completed check shows the five treatment stages are placed in causal order and dilution is rejected."
     why: "Build the treatment chain connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -107,6 +218,34 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   chain:{transfers:[{id:"intake",label:"collect raw wastewater",quantity:"wastewater flow and suspended solids"},{id:"primary",label:"settle and skim",quantity:"settleable solids and floating material"},{id:"secondary",label:"biological treatment",quantity:"dissolved organic load"},{id:"tertiary",label:"nutrient removal",quantity:"nitrogen and phosphorus load"},{id:"disinfection",label:"disinfect before discharge",quantity:"viable pathogen load"},{id:"dilution_decoy",label:"dilute untreated water",quantity:"water volume only",decoy:true}],keyed_order:["intake","primary","secondary","tertiary","disinfection"],decoys:["dilution_decoy"],governing_relationship:"contaminant load=flow×concentration",answerText:"Remove solids, organics, nutrients, and pathogens in order; dilution alone does not remove contaminant load."}
+    chain:
+      links:
+        - id: intake
+          label: Collect raw wastewater
+          transfers: wastewater flow and suspended solids
+        - id: primary
+          label: Settle and skim
+          transfers: settleable solids and floating material
+        - id: secondary
+          label: Biological treatment
+          transfers: dissolved organic load
+        - id: tertiary
+          label: Nutrient removal
+          transfers: nitrogen and phosphorus load
+        - id: disinfection
+          label: Disinfect discharge
+          transfers: viable pathogen load
+        - id: dilution_decoy
+          label: Dilute untreated water
+          transfers: water volume only
+      order:
+        - intake
+        - primary
+        - secondary
+        - tertiary
+        - disinfection
+      governing: tertiary
+      distractor: dilution_decoy
 
   # --- Stop 27: Close the water balance
   #     Concept: pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal; Keystone: pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal.
@@ -114,10 +253,10 @@
   - group: CHAPEL
     at: pipe-balance
     title: "Close the water balance"
-    concept: "pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal"
-    reason: "The island cannot commit close the water balance until this evidence is resolved."
-    scene: "The tip pathway is real, but Waterworks reports a larger daily loss. Close the distribution ledger to calculate water that never reaches a billed tap, and the team needs this result before it acts."
-    motivation: "Close the water balance connects the measured environmental mechanism to the next island condition."
+    concept: 1   # pipe loss | closed budgets | D2 | RETRIEVE | L2 | reveal
+    reason: "The contamination pathway is understood, but the waterworks still cannot account for its delivered volume."
+    scene: "The tip pathway is real, but Waterworks reports a larger daily loss. Close the distribution ledger to calculate water that never reaches a billed tap."
+    motivation: "The unmetered water loss quantifies how much supply disappears before reaching billed taps."
     format: BALANCE
     question: "Use unmetered loss=plant output-households-businesses-ferry-tank increase with 410, 285, 55, 12, and 8 m3/day; submit one loss in m3/day"
     relationship: "unmetered loss = plant output - households - businesses - ferry - tank increase"
@@ -157,10 +296,10 @@
     at: council-table
     title: "Choose the repair priority"
     person: voss
-    concept: "repair priority | policy | 7"
-    reason: "The island cannot commit choose the repair priority until this evidence is resolved."
-    scene: "The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control, and the team needs this result before it acts."
-    motivation: "Choose the repair priority connects the measured environmental mechanism to the next island condition."
+    concept: 9   # repair priority | policy | 7
+    reason: "The missing distribution water and the leachate pathway now compete for the same repair budget."
+    scene: "The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control."
+    motivation: "The selected repairs determine whether immediate quantity loss is addressed without abandoning aquifer contamination control."
     format: VALUE
     question: "From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits"
     answerText: "The completed check shows locate and repair the main and test the leachate liner for exactly 60 credits."
@@ -173,4 +312,39 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   value:{budget:60,options:[{id:acoustic_location,cost:15,required:true},{id:main_repair,cost:30,required:true},{id:liner_test,cost:15,required:true},{id:cosmetic_fence,cost:12},{id:gas_flare_study,cost:10}],correct:[acoustic_location,main_repair,liner_test],total:60}
+    value:
+      budget:
+        amount: 60
+        unit: credits
+      decision: ""
+      options:
+        - id: acoustic_location
+          label: Acoustic leak location
+          cost: 15
+          axis: leak evidence
+          reveals: ""
+          decisive: true
+        - id: main_repair
+          label: Main repair
+          cost: 30
+          axis: water loss
+          reveals: ""
+          decisive: true
+        - id: liner_test
+          label: Leachate liner test
+          cost: 15
+          axis: groundwater protection
+          reveals: ""
+          decisive: true
+        - id: cosmetic_fence
+          label: Cosmetic fence
+          cost: 12
+          axis: appearance
+          reveals: ""
+        - id: gas_flare_study
+          label: Gas flare study
+          cost: 10
+          axis: air emissions
+          reveals: ""
+      commit: Commit the decision
 

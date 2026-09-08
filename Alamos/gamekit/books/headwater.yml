@@ -715,7 +715,7 @@ missions:
       Work the difference quotient down to an instantaneous rate, and evaluate it at four hours.
     derive:
       hint: >-
-        Each line has to follow from the one above it. Name the move as well as the line.
+        Each line has to follow from the one above it.
       start: 'V(t) = 5t² + 40t'
       startNote: storage in thousands of cubic metres, t in hours
       goal: "V'(4), from the definition rather than from a rule"
@@ -730,18 +730,6 @@ missions:
           why: >-
             A difference quotient divides by the change in the input, which is h. Dividing by
             h² is the slope of nothing, and the limit it produces does not exist.
-        - text: '(5t² + 5h² + 40t + 40h − 5t² − 40t) ÷ h'
-          rule: expansion
-          survives: true
-          why: >-
-            (t + h)² is t² + 2th + h², and the dropped cross term 2th is the only part of the
-            expansion that survives the limit. This divides by h cleanly and stays valid all
-            the way down to a derivative of 40, which is wrong at every hour but 1.
-        - text: '5(t + h)² + 40(t + h) − 5t² − 40t'
-          rule: expansion
-          why: >-
-            That is the change in the storage, not a rate. Without the division by h it is
-            measured in cubic metres rather than cubic metres an hour.
       - ask: Cancel the h and take the limit as h goes to zero.
         answer: 0
         candidates:
@@ -752,18 +740,6 @@ missions:
           why: >-
             Sending h to 0 removes the whole term 5h. It does not leave the coefficient 5
             standing on its own.
-        - text: '10t + 5h + 40 for every h, so the limit does not exist'
-          rule: limit
-          why: >-
-            This is a polynomial in h, and a polynomial has a limit everywhere. Nothing is
-            undefined once the h in the denominator has cancelled.
-        - text: '10t + 5h + 40, and h cannot be set to 0, so the quotient is undefined'
-          rule: cancellation
-          survives: true
-          why: >-
-            The quotient is undefined at h = 0, which is exactly why a limit is taken instead
-            of a substitution. The observation is correct and applied to the wrong step, and
-            it survives to the bottom of the page as a refusal to finish.
       - ask: Evaluate the rate at four hours.
         answer: 0
         candidates:
@@ -776,11 +752,6 @@ missions:
             The 40 is already the derivative of 40t and carries no further t with it.
             Multiplying it by four differentiates nothing and reports a rate two and a half
             times the real one, in units that still look right.
-        - text: 'V(4) = 5 × 16 + 40 × 4 = 240 thousand cubic metres'
-          rule: substitution
-          why: >-
-            That is the storage at four hours rather than the rate at four hours. It answers
-            how much, which is the number the call already has.
       commit: Report the rate
     answerText: >-
       80 thousand cubic metres an hour at 4 hours — a limit of the difference quotient, not
@@ -1005,38 +976,16 @@ missions:
             H depends on t, so differentiating with respect to t carries a factor of dH/dt.
             Without it this is dQ/dH — a slope, correct about a question nobody asked, and
             respectable enough to survive the rest of the derivation.
-        - text: 'dQ/dt = C·L·(3/2)·H^(3/2)·dH/dt'
-          rule: chain
-          why: >-
-            The power rule takes the exponent down by one. Left at 3/2 this is not the
-            derivative of anything.
-        - text: 'dQ/dt = C·L·H^(1/2)·dH/dt'
-          rule: chain
-          why: >-
-            The 3/2 that comes down in front is part of the power rule, not a constant that
-            can be folded into C·L.
       - ask: 'Evaluate it, with C·L = 21.0 and H = 2.0 m.'
-        answer: 2
+        answer: 1
         candidates:
         - text: 'dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt'
           rule: power
           why: >-
             H^(1/2) at 2.0 m is the square root of 2, about 1.41. Using 2.00 evaluates H
             rather than its square root.
-        - text: 'dQ/dt = 21.0 × 1.5 × 1.50 × dH/dt = 47.3·dH/dt'
-          rule: power
-          why: >-
-            The 3/2 is already in front as the 1.5. Using it twice applies the power rule
-            twice.
         - text: 'dQ/dt = 21.0 × 1.5 × 1.41 × dH/dt = 44.5·dH/dt'
           rule: power
-        - text: 'dQ/dt = 21.0 × 1.41 × dH/dt = 29.7·dH/dt'
-          rule: power
-          survives: true
-          why: >-
-            This is the arithmetic of the line whose 3/2 never came down. Nothing about it
-            looks broken, which is exactly why the mistake survives to the bottom of the
-            page.
       commit: Report the rate
     answerText: >-
       dQ/dt ≈ 44.5·dH/dt — so a head rising at 0.02 m/min raises the discharge by about
@@ -1322,16 +1271,6 @@ missions:
             The antiderivative of 8t is 4t², because the exponent rises to 2 and the term is
             divided by it. Left as 8t² this is a well-formed line that overstates the release
             by a third and goes on behaving itself to the end.
-        - text: '[48 + 4t²] from 0 to 6 = 144'
-          rule: antiderivative
-          why: >-
-            The constant 48 antidifferentiates to 48t. Left as 48 it takes the same value at
-            both ends and cancels, so 6 hours of base flow vanish from the total.
-        - text: 'Q(6) − Q(0) = 96 − 48 = 48'
-          rule: evaluation
-          why: >-
-            That is the change in the rate across the six hours rather than the accumulation
-            of the rate. It answers how much the release grew, which nobody asked.
       - ask: Turn the accumulation into the steady flow with the same total.
         answer: 0
         candidates:
@@ -1344,13 +1283,8 @@ missions:
             432 is the accumulation in the mixed units the integral produced, not a flow.
             Published as a release it is six times too large, and nothing about the figure
             looks wrong on the page.
-        - text: '432 × 6 = 2592 cubic metres a second'
-          rule: average
-          why: >-
-            An average divides the accumulation by the interval. Multiplying gives a number
-            with no meaning and a release the spillway could not pass.
       - ask: Say why 72 is also the mean of the two end readings.
-        answer: 2
+        answer: 1
         candidates:
         - text: 'because the average value of any rate is the mean of its endpoints'
           rule: endpoint
@@ -1359,11 +1293,6 @@ missions:
             True for a straight line and false in general. Applied to a curving hydrograph it
             is out by several per cent in a direction that depends on the curvature, and it
             is the shortcut that stops anybody integrating again.
-        - text: 'because 48 and 96 are both whole multiples of 6'
-          rule: substitution
-          why: >-
-            A coincidence of these particular numbers rather than a property of the schedule.
-            Changing the 48 to a 50 leaves the endpoint result exactly as true.
         - text: 'because the rate is linear, so its average is the mean of its endpoints'
           rule: endpoint
       commit: Report the steady flow
@@ -1524,40 +1453,16 @@ missions:
             undivided this doubles the whole ramp term.
         - text: 'F(t) = 120t + 30t² + C'
           rule: antiderivative
-        - text: 'F(t) = 120 + 30t² + C'
-          rule: antiderivative
-          survives: true
-          why: >-
-            The constant term 120 antidifferentiates to 120t, not to 120. It looks like a
-            tidy line and it drops 4 hours of base flow — about 1.7 million cubic metres —
-            without changing anything else on the page.
-        - text: "F(t) = 60"
-          rule: antiderivative
-          why: >-
-            That is the derivative of the rate rather than an antiderivative of it. It answers
-            how fast the ramp steepens, which is not a volume.
       - ask: Evaluate it between the two ends of the four hours.
-        answer: 2
+        answer: 1
         candidates:
         - text: 'F(4) = 120×4 + 30×16 + C = 960 + C'
           rule: evaluation
           why: >-
             A definite integral is a difference of two values, and the constant cancels in
             that difference. A volume that still contains an unknown C is not a number.
-        - text: 'F(4) − F(0) = 960 − 0 = 960 cubic metres'
-          rule: evaluation
-          survives: true
-          why: >-
-            The arithmetic is right and the units are not. The rate is per second and t is in
-            hours, so this figure is in cubic-metre-hours per second and is short of the truth
-            by a factor of 3,600.
         - text: 'F(4) − F(0) = 960, then × 3600 = 3.46 million cubic metres'
           rule: units
-        - text: 'F(4) − F(0) = 960, then ÷ 3600 = 0.267 cubic metres of water'
-          rule: units
-          why: >-
-            Converting hours to seconds multiplies the interval, so it multiplies the
-            accumulation. Dividing turns four hours of a major release into a bucketful.
       commit: Report the volume
     answerText: >-
       About 3.46 million cubic metres — 960 in the units the formula was written in, times the
@@ -1784,13 +1689,6 @@ missions:
           survives: true
           why: The product U·h has two changing factors. Dropping h·dU/dt treats U as constant inside the very
             relation whose rate you are solving for.
-        - text: 2U − 0.4·(U + h) = 0
-          rule: differentiation
-          why: Differentiating with respect to time must produce rates dU/dt and dh/dt; removing both rates 
-            changes the kind of quantity on the line.
-        - text: 2U·(dU/dt) − 0.4·((dU/dt)·h + U·(dh/dt)) = 200
-          rule: constant
-          why: The derivative of the constant 200 is 0.
       - ask: 'Solve for dU/dt and evaluate at U = 20 kPa, h = 25 m, with dh/dt = 0.4 m/day.'
         answer: 0
         candidates:
@@ -1801,9 +1699,6 @@ missions:
           survives: true
           why: Moving the U·dh/dt term to the other side makes it positive. Keeping the minus sign reverses 
             the physical trend predicted by this fitted relation.
-        - text: dU/dt = 0.4·U·(dh/dt) ÷ (2U + 0.4h) = 0.4×20×0.4 ÷ 50 ≈ +0.064 kPa a day
-          rule: solve
-          why: 'The denominator inherits the minus sign in the fitted relation: 2U − 0.4h.'
       commit: Report the rate
     answerText: >-
       About +0.107 kilopascals a day at that point on the fitted curve — increasing as the reservoir level rises.
@@ -2126,18 +2021,6 @@ missions:
             differentiation. Carried through it swamps everything else on the line.
         - text: "h'(t) = 0.9 − 0.06t"
           rule: power
-        - text: "h'(t) = 0.9 − 0.03t"
-          rule: power
-          survives: true
-          why: >-
-            The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates
-            to −0.06t. Halving it doubles the day the level turns over, and every line after
-            this one stays perfectly consistent with it.
-        - text: "h'(t) = 0.9t − 0.06t"
-          rule: power
-          why: >-
-            The term 0.9t differentiates to 0.9, with no t left. Keeping the t makes the
-            derivative 0 at t = 0 and nowhere else.
       - ask: Set the derivative to zero and solve for the day.
         answer: 0
         candidates:
@@ -2150,26 +2033,14 @@ missions:
             The rearrangement is inverted. It gives a plausible-looking small number in the
             right units, an hour and a half after Monday midnight, and nothing later in the
             working contradicts it.
-        - text: '0.9 − 0.06t = 0, so t = 0.9 × 0.06 = 0.054 days'
-          rule: evaluation
-          why: >-
-            Solving for t divides by the coefficient in front of it rather than multiplying
-            by it. The units alone rule this out.
       - ask: Classify the critical point.
-        answer: 2
+        answer: 1
         candidates:
         - text: "h''(t) = +0.06, so the critical point is a minimum"
           rule: second derivative
           why: >-
             Differentiating −0.06t gives −0.06. The sign carries through, and getting it
             wrong turns the highest level of the fortnight into the lowest.
-        - text: "h''(t) = −0.06t, so it is a maximum only on the days after t = 0"
-          rule: second derivative
-          survives: true
-          why: >-
-            The derivative of −0.06t is the constant −0.06, with no t in it. Carrying the t
-            through makes the classification depend on the day, which it does not, and the
-            conclusion is still right for every day that matters.
         - text: "h''(t) = −0.06 everywhere, so the critical point is a maximum"
           rule: second derivative
       commit: Report the day
@@ -2399,16 +2270,6 @@ missions:
             The power rule drops the exponent from 1/2 to −1/2. This line reaches the same
             conclusion by luck, and the luck runs out the moment the exponent is anything
             else — which is why the reason has to be right as well as the answer.
-        - text: 'd²Q/dH² = 31.5·H^(−1/2)'
-          rule: power
-          why: >-
-            The exponent 1/2 comes down as a factor as well as dropping by 1. Half the
-            coefficient is missing.
-        - text: 'd²Q/dH² is 0 at H = 0, so there is a critical point in the range'
-          rule: critical point
-          why: >-
-            H = 0 is outside this interval, which starts at half a metre. A critical point
-            that lies outside the interval is not a candidate for a maximum on it.
       - ask: Say where the greatest sensitivity is, and why.
         answer: 0
         candidates:
@@ -2421,11 +2282,6 @@ missions:
             The second derivative is positive and shrinking in size. A shrinking positive
             slope is still a positive slope, so the sensitivity is still climbing all the way
             to the top of the range.
-        - text: 'nowhere, since a quantity with no critical point has no maximum'
-          rule: critical point
-          why: >-
-            A continuous quantity on a closed interval always attains a maximum. If it is not
-            at a critical point, it is at an end.
       commit: Report the head
     answerText: >-
       At the top of the range, H = 3.0 metres. The sensitivity is about 54.6 (m³/s) per metre of head, so one extra
@@ -2731,18 +2587,6 @@ missions:
             also has the wrong units — kilowatts per second squared.
         - text: 'dP/dt = 8.6·((dQ/dt)·H + Q·(dH/dt))'
           rule: product
-        - text: 'dP/dt = 8.6·(dQ/dt)·H'
-          rule: product
-          survives: true
-          why: >-
-            This is the product rule with the head held constant, which is the standing
-            assumption in the powerhouse and is false on any day the reservoir is filling. It
-            stays valid arithmetic and reports a rate short by the whole second term.
-        - text: 'dP/dt = 8.6·Q·H·(dQ/dt + dH/dt)'
-          rule: chain
-          why: >-
-            That is what the derivative of an exponential in Q and H would look like. A plain
-            product does not reproduce itself when it is differentiated.
       - ask: 'Evaluate it, with Q = 46, H = 61, dQ/dt = 0 and dH/dt = 0.000011 m/s.'
         answer: 0
         candidates:
@@ -2755,11 +2599,6 @@ missions:
             The arithmetic is right and the unit is not. A rate of change of power is
             kilowatts per second, and reported as kilowatts it reads as an output of 4
             watts rather than a climb of 16 kilowatts an hour.
-        - text: 'dP/dt = 8.6 × 46 × 61 × 0.000011 ≈ 0.27 kW/s'
-          rule: product
-          why: >-
-            That multiplies the whole output by the head rate, which is the exponential form
-            again. The second term of the product rule is Q·dH/dt and carries no H.
       commit: Report the rate
     answerText: >-
       About 0.0044 kilowatts a second — roughly 16 kilowatts an hour, entirely from the
@@ -2845,16 +2684,6 @@ missions:
             Dividing by √h gives h to the power −1/2, not +1/2. The line separates cleanly
             and integrates to a law of the right general shape, falling with time, so nothing
             downstream objects to it.
-        - text: 'dh = −k·√h·dt, with the h still on the right'
-          rule: separation
-          why: >-
-            Nothing has been separated. An integral with h on both sides cannot be evaluated
-            a side at a time, which is the only reason for doing this step.
-        - text: 'h^(−1/2)·dh = −k·h·dt'
-          rule: chain
-          why: >-
-            Dividing by √h takes it off the right-hand side altogether. It cannot then
-            reappear there in a different power.
       - ask: Integrate both sides.
         answer: 1
         candidates:
@@ -2865,18 +2694,6 @@ missions:
             2. The missing factor of two halves every drawdown time this produces.
         - text: '2·√h = −k·t + C'
           rule: antiderivative
-        - text: '(1/2)·√h = −k·t + C'
-          rule: antiderivative
-          survives: true
-          why: >-
-            Dividing by the new exponent of 1/2 means multiplying by 2, not halving. The
-            curve has exactly the right shape and every time it predicts is out by a factor
-            of four.
-        - text: 'ln(h) = −k·t + C'
-          rule: antiderivative
-          why: >-
-            The logarithm is the antiderivative of h to the power −1, not −1/2. It is the
-            solution to an outlet whose flow is proportional to the head itself.
       - ask: Apply the level at the start and solve for h.
         answer: 0
         candidates:
@@ -2889,16 +2706,6 @@ missions:
             The factor of two from the integration divides the kt term when the equation is
             rearranged. Without it the reservoir empties in half the time, on a curve of
             exactly the same shape, and nothing but a clock catches it.
-        - text: 'h(t) = h₀ − k·t'
-          rule: initial condition
-          why: >-
-            That is the solution for a constant drain rate. The square root is there
-            precisely because a falling level drains more slowly than a high one.
-        - text: 'h(t) = h₀·e^(−k·t)'
-          rule: initial condition
-          why: >-
-            Exponential decay solves the equation where the rate is proportional to h. It
-            never reaches zero, and an outlet on a reservoir does.
       commit: Report the solution
     answerText: >-
       h(t) = (√h₀ − kt/2)², valid while the outlet model applies and h remains above its shutoff/zero-head limit.
@@ -3524,18 +3331,6 @@ missions:
             asked.
         - text: 'the numerator goes to 0 and the denominator to 0, so the form is indeterminate'
           rule: indeterminate form
-        - text: 'the numerator goes to 1 and the denominator to 0, so the limit is infinite'
-          rule: substitution
-          survives: true
-          why: >-
-            e^(−t/T) goes to 1 at t = 0, so the numerator is 1 − 1 and goes to 0, not to
-            1. The reading is a term out and produces a confident, wrong, infinite answer
-            that nothing later contradicts.
-        - text: 'the numerator goes to 0 and the denominator to 0, so the limit is 1'
-          rule: substitution
-          why: >-
-            Zero over zero is not one. That is the value for a quotient of two identical
-            quantities, which these are not.
       - ask: Differentiate the numerator and the denominator separately.
         answer: 0
         candidates:
@@ -3548,17 +3343,6 @@ missions:
             The 1 differentiates to nothing and the minus sign in front of the exponential
             cancels the minus that the chain rule brings down. Two negatives make the rate
             positive, and this line reports water leaving instead of arriving.
-        - text: 'the derivative of the whole quotient, by the quotient rule'
-          rule: quotient
-          why: >-
-            The rule differentiates the top and the bottom separately, and does not
-            differentiate the quotient. What the quotient rule produces here is a correct
-            derivative of an expression nobody asked about.
-        - text: 'the limit of (1 − e^(−t/T)) ÷ 1, since the t differentiates to 1'
-          rule: differentiation
-          why: >-
-            Only the denominator has been differentiated. Applying the rule to one half of
-            the quotient leaves the original zero on top.
       - ask: Evaluate the new limit.
         answer: 0
         candidates:
@@ -3570,10 +3354,6 @@ missions:
           why: >-
             The rate is the reciprocal of the time constant. Reported as 4 the arrival is
             16 times too fast, in units that read perfectly well on a warning sheet.
-        - text: '0, since the exponential still goes to 0 at t = 0'
-          rule: evaluation
-          why: >-
-            e^(−t/T) goes to 1 at t = 0, not to 0. It is e raised to nothing.
       commit: Report the rate
     answerText: >-
       0.25 per hour. The original quotient is 0/0, numerator and denominator are differentiable near 0, the denominator
@@ -3725,27 +3505,15 @@ missions:
       goal: 'Q as a function of t'
       steps:
       - ask: Separate the variables and integrate both sides.
-        answer: 2
+        answer: 1
         candidates:
         - text: 'Q^(−1)·dQ = −k·dt, giving Q^0 ÷ 0 = −k·t + C'
           rule: power
           why: >-
             The power rule fails at an exponent of −1, because raising it by 1 gives 0
             and the division is by nothing. That single exception is why the logarithm exists.
-        - text: 'dQ = −k·Q·dt, integrating to Q = −k·Q·t + C'
-          rule: separation
-          why: >-
-            Nothing has been separated, so the right-hand side cannot be integrated with
-            respect to t while Q is still sitting in it and moving.
         - text: 'Q^(−1)·dQ = −k·dt, giving ln(Q) = −k·t + C'
           rule: antiderivative
-        - text: 'Q^(−1)·dQ = −k·dt, giving ln(Q) = −k·t² ÷ 2 + C'
-          rule: antiderivative
-          survives: true
-          why: >-
-            The right-hand side is a constant with respect to t, so it integrates to −kt and
-            not to a square. The line is well formed and describes a recession that collapses
-            far too fast late on, which is exactly where nobody is checking it.
       - ask: Undo the logarithm and apply the flow at the start.
         answer: 0
         candidates:
@@ -3756,18 +3524,6 @@ missions:
           why: >-
             Exponentiating a sum gives a product, not a difference. This one goes negative
             the moment Q₀ is small, which no river does.
-        - text: 'Q(t) = e^(−k·t) + C'
-          rule: initial condition
-          survives: true
-          why: >-
-            The constant of integration was inside the logarithm, so exponentiating turns it
-            into a multiplying factor rather than an added one. The curve still falls and
-            still fits the first day, and it approaches C instead of zero.
-        - text: 'Q(t) = Q₀·e^(k·t)'
-          rule: exponentiation
-          why: >-
-            The minus sign is the whole content of a recession. Without it the river grows
-            without bound in dry weather.
       commit: Report the solution
     answerText: >-
       Q(t) = Q₀e^(−kt) for the recession model being tested — a constant fractional decay rate, not a constant absolute
@@ -4240,16 +3996,6 @@ missions:
           why: >-
             60t·dt is 30·du, because du already carries the factor of 2. Keeping the 60
             doubles the answer, and every line after it integrates and evaluates perfectly.
-        - text: 'u = t, du = dt, so the integral becomes ∫60u·du ÷ (u² + 4)'
-          rule: substitution
-          why: >-
-            Substituting the variable for itself changes nothing. The integral is exactly as
-            hard as it was before the substitution was made.
-        - text: 'u = 2t·dt, so the integral becomes 30·∫du ÷ u'
-          rule: chain
-          why: >-
-            A differential is not a substitution for the variable. Setting u equal to du
-            leaves nothing to integrate with respect to.
       - ask: Antidifferentiate, and deal with the limits.
         answer: 1
         candidates:
@@ -4260,15 +4006,8 @@ missions:
             down. An exponent of −1 is the one case the power rule cannot handle.
         - text: '30·ln(u), evaluated from u = 4 to u = 20'
           rule: limits
-        - text: '30·ln(u), evaluated from t = 0 to t = 4'
-          rule: limits
-          survives: true
-          why: >-
-            The limits belong to the old variable and have to be converted with it. Read as
-            t they give 30·(ln 4 − ln 0), whose second term is not a number, and the usual
-            repair is to drop it and report a confident 41.6 tonnes.
       - ask: Evaluate it.
-        answer: 2
+        answer: 1
         candidates:
         - text: '30·(ln 20 ÷ ln 4) ≈ 64.8 tonnes'
           rule: evaluation
@@ -4277,11 +4016,6 @@ missions:
             A difference of logarithms is the logarithm of a quotient, not a quotient of
             logarithms. The number that comes out is the right order of magnitude, which is
             what carries it past a sanity check.
-        - text: '30·ln(20 − 4) = 30·ln 16 ≈ 83.2 tonnes'
-          rule: evaluation
-          why: >-
-            Subtracting inside the logarithm is a different operation from subtracting two
-            logarithms, and it has no rule behind it.
         - text: '30·(ln 20 − ln 4) = 30·ln 5 ≈ 48.3 tonnes'
           rule: evaluation
       commit: Report the load
@@ -4466,18 +4200,6 @@ missions:
             than leaving it in place.
         - text: "S'(t) = N(t) = 40 − 8t"
           rule: fundamental theorem
-        - text: "S'(t) = 40t − 4t²"
-          rule: antiderivative
-          survives: true
-          why: >-
-            That is S, obtained by antidifferentiating N — a correct and useful line, labelled
-            as the wrong one. Used as a derivative it puts the peak at ten days instead of
-            five, and it goes on behaving like a derivative all the way down.
-        - text: "S'(t) = −8"
-          rule: fundamental theorem
-          why: >-
-            That is the derivative of N, which is the second derivative of S. It has been
-            differentiated once too often.
       - ask: Set the derivative to zero and solve for the day.
         answer: 0
         candidates:
@@ -4489,26 +4211,14 @@ missions:
           why: >-
             The rearrangement is inverted. It gives a small number in the right units — just
             under five hours from now — and nothing further down the page argues with it.
-        - text: '40 − 8t = 0, so t = 320 days'
-          rule: evaluation
-          why: >-
-            Solving for t divides by the coefficient in front of it rather than multiplying
-            by it.
       - ask: Classify the turning point.
-        answer: 2
+        answer: 1
         candidates:
         - text: "S''(t) = 40 − 8t, which is still positive before day 5"
           rule: second derivative
           why: >-
             That is the first derivative again. Differentiating it once more is what makes it
             the second.
-        - text: "S''(t) = +8, so the reservoir is emptiest on day 5"
-          rule: second derivative
-          survives: true
-          why: >-
-            The derivative of −8t is −8. The sign carries straight through to the
-            classification, and getting it wrong turns the fullest day of the fortnight into
-            the emptiest one.
         - text: "S''(t) = −8, so the accumulation is at a maximum on day 5"
           rule: second derivative
       commit: Report the day

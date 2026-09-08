@@ -26,6 +26,35 @@ const WEEKS=theme.content?.MISSIONS?.length || 15;
 // where "Day 12" sat directly against a card that opens "four months after the
 // pass". The label is the theme's; the model underneath is unchanged.
 const DAY_NOUN=theme.dayNoun || 'Day';
+// ---------------------------------------------------------- one call at a time
+//
+// The day model opens every one of the day's stops at once and lets the player
+// take them in whatever order they like. That is the right default: it is a
+// working day, the route is theirs to plan, and the plan card draws a map to
+// plan it from.
+//
+// It is the wrong default for a campaign with a BEAT SCRIPT. A beat fires after
+// a named stop and sets up the one after it — "Now the tank scale and the
+// reactor model are speaking the same language. Open the carbon ledger." Read
+// out of order, that line arrives after the ledger is already closed, and the
+// mission plays as five disconnected cards. So a theme may ask for the calls to
+// open one at a time, and then the beats carry.
+//
+// `openStopIndices` in simulation.js is the single place that decides, and
+// everything downstream — the map, the beacons, the wanted markers over people,
+// the HUD, and whether a question will open at all — reads it.
+const STOPS_IN_ORDER = theme.stopOrder === 'sequential';
+/**
+ * The four-bar model, in one place, because three modules ask the same question.
+ *
+ * `theme.economy: false` turns off the funds and the day countdown; what it
+ * turns ON is a mission timer, four bars and a count of wrong answers. Several
+ * things follow from being in that model rather than the day model — no warm-up
+ * before mission 1, no objectives list on the plan card, no paid errand attached
+ * to a character's biography — and each was about to be written as its own
+ * `theme.economy === false` in a different file.
+ */
+const TIMED = theme.economy === false;
 const STARTING_RESERVE=20;
 // Both allowances are OFF. The reserve now has exactly one source after the
 // opening $20 — the $3 a person signs off for answering a question about their
@@ -76,7 +105,21 @@ const RUN_SKIP_COST=10;
 const DAILY_STIPEND=0;
 const VISIT_BONUS=6;
 const ISSUE_VISIT_BONUS=10;
-export { KEY, ROOM, WEEKS, DAY_NOUN, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
+// ------------------------------------------------------- the priced day, or not
+//
+// A campaign scored on metric bars is not scored on money or on the clock, so
+// the penalty box above does not apply to it: the bible's own rule is
+// `RP = clamp(4, 12, 11 + time_modifier - incorrect_submissions)`, and a
+// committed wrong answer already costs a Recovery Point there. Shutting the call
+// for an hour on top of that bills the same mistake twice, in a currency the
+// campaign does not otherwise use — and there is no $10 to pay instead, because
+// a metrics campaign has no Director funds either.
+//
+// So: with bars, a wrong answer is retaken immediately and the tally at the end
+// of the mission is the whole of the consequence. Without them, the penalty box
+// is unchanged, which is every other campaign in the repo.
+const PRICED_MISTAKES = !((theme?.metrics?.bars ?? []).length > 0);
+export { KEY, ROOM, WEEKS, DAY_NOUN, STOPS_IN_ORDER, TIMED, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
          MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
-         RUN_SKIP_COST,
+         RUN_SKIP_COST, PRICED_MISTAKES,
          DAILY_STIPEND, VISIT_BONUS, ISSUE_VISIT_BONUS };

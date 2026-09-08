@@ -1,0 +1,3378 @@
+{
+ "BANK": [
+  {
+   "day": 1,
+   "title": "Twelve seconds of ramp",
+   "takeaway": "Integrating an acceleration gives a velocity, and integrating that gives a distance. Each",
+   "place": "The Bank",
+   "game": {
+    "type": "DERIVE",
+    "title": "Twelve seconds of ramp",
+    "setup": "The Bank",
+    "play": "Get the speed and the depth out of the programmed ramp",
+    "task": "Get the speed and the depth out of the programmed ramp",
+    "question": "What speed does the cage reach at the end of the ramp, and how much rope is wound?",
+    "answer": "7.2 metres a second, after 57.6 metres of rope. The speed is the area under the taper and the distance is the area under the speed.",
+    "derive": {
+     "start": "a = dv/dt, with a(t) = 1.2·(1 − t/12)",
+     "goal": "the speed at t = 12 s and the rope wound by then, in metres",
+     "startNote": "metres a second squared, with t in seconds from the start of the ramp; the cage starts from rest",
+     "askRule": true,
+     "rules": [
+      "integration with respect to time",
+      "the constant from the starting value",
+      "evaluation at the two ends",
+      "differentiation",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Get the velocity from the acceleration.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "v(t) = 1.2 − t/12",
+         "rule": "differentiation"
+        },
+        {
+         "text": "v(t) = 1.2t − 0.1t²",
+         "rule": "integration with respect to time",
+         "survives": true
+        },
+        {
+         "text": "v(t) = 1.2t − 0.05t²",
+         "rule": "integration with respect to time"
+        },
+        {
+         "text": "v(t) = 1.2t − 0.05t² + v₀",
+         "rule": "the constant from the starting value"
+        }
+       ]
+      },
+      {
+       "ask": "Evaluate the velocity at the end of the ramp.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "v(12) = 14.4 − 7.2 = 7.2 m/s",
+         "rule": "evaluation at the two ends"
+        },
+        {
+         "text": "v(12) = 1.2 × 12 = 14.4 m/s",
+         "rule": "evaluation at the two ends",
+         "survives": true
+        },
+        {
+         "text": "v(12) = 1.2 × 12 − 0.05 × 12 = 13.8 m/s",
+         "rule": "evaluation at the two ends"
+        },
+        {
+         "text": "v(12) = 0.6 × 12² = 86.4 m/s",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Get the distance from the velocity.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "y(t) = 1.2t² − 0.05t³",
+         "rule": "integration with respect to time"
+        },
+        {
+         "text": "y(t) = 0.6t² − t³/60",
+         "rule": "integration with respect to time"
+        },
+        {
+         "text": "y(t) = 0.6t² − 0.05t³",
+         "rule": "integration with respect to time",
+         "survives": true
+        },
+        {
+         "text": "y(t) = 1.2 − 0.1t",
+         "rule": "differentiation"
+        }
+       ]
+      },
+      {
+       "ask": "Evaluate the distance at the end of the ramp.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "y(12) = 86.4 − 28.8 = 57.6 m, and the mean speed check gives 43.2 m",
+         "rule": "evaluation at the two ends",
+         "survives": true
+        },
+        {
+         "text": "y(12) = 0.6 × 144 = 86.4 m",
+         "rule": "evaluation at the two ends"
+        },
+        {
+         "text": "y(12) = 7.2 × 12 = 86.4 m",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "y(12) = 86.4 − 28.8 = 57.6 m",
+         "rule": "evaluation at the two ends"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "an acceleration is the rate at which a velocity changes"
+   ],
+   "equations": [
+    {
+     "e": "a = dv/dt = d²y/dt²",
+     "c": "acceleration as a derivative of the profile",
+     "v": [
+      [
+       "y",
+       "the cage position down the shaft, in metres"
+      ],
+      [
+       "v",
+       "its velocity, in metres a second"
+      ],
+      [
+       "a",
+       "its acceleration, in metres a second squared"
+      ]
+     ],
+     "s": "Velocity is the slope of the position against time and acceleration is the slope of the velocity, so a winding profile drawn on paper contains both without stating either.",
+     "computed": true
+    },
+    {
+     "e": "v(t) = v₀ + ∫a dt,  y(t) = y₀ + ∫v dt",
+     "c": "getting the motion back from a rate",
+     "v": [
+      [
+       "v₀, y₀",
+       "the velocity and position at the start of the interval"
+      ],
+      [
+       "∫a dt",
+       "the area under the acceleration, in metres a second"
+      ],
+      [
+       "∫v dt",
+       "the area under the velocity, in metres"
+      ]
+     ],
+     "s": "An acceleration that is not constant cannot be put through the constant-acceleration formulas, and integrating it is what replaces them.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 1,
+    "c": "Position, velocity and acceleration as successive derivatives",
+    "t": "A record of position against time contains its own speed, acceleration and jerk, each one slope further down. It means a single pen on a single chart can answer three questions, and that none of the three has to be instrumented separately.",
+    "of": 34
+   }
+  },
+  {
+   "day": 2,
+   "title": "Three things out of one trace",
+   "takeaway": "A single record of position against time yields speed, acceleration and jerk by differentiating, and needs no other instrument.",
+   "place": "The Bank",
+   "game": {
+    "type": "PROTOCOL",
+    "title": "Three things out of one trace",
+    "setup": "The Bank",
+    "play": "Match each thing the inquiry wanted to what has to be done to the trace.",
+    "task": "Match each thing the inquiry wanted to what has to be done to the trace.",
+    "question": "Match each thing the inquiry wanted to what has to be done to the trace.",
+    "answer": "",
+    "scenarios": [
+     "How fast the cage was going as it approached the bank.",
+     "How hard it was being retarded in the last two seconds.",
+     "How far the cage went past the landing.",
+     "Whether the retardation was itself changing."
+    ],
+    "choices": [
+     "Take the slope of the trace at that point.",
+     "Take the slope of the slope.",
+     "Read the difference between two positions off the paper.",
+     "Take the slope a third time."
+    ],
+    "mapping": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "assumes": [
+    "a trace of position against time contains every rate derived from it"
+   ],
+   "concept": {
+    "n": 2,
+    "c": "Getting velocity and distance back by integrating an acceleration",
+    "t": "An acceleration that changes cannot be put through the constant-acceleration formulas, and integrating it is what replaces them. Each integration brings a constant that the starting condition fixes, and forgetting either is how a plausible answer comes out twice too large.",
+    "of": 34,
+    "rests": [
+     "Position, velocity and acceleration as successive derivatives"
+    ]
+   }
+  },
+  {
+   "day": 3,
+   "title": "One machine, two sets of units",
+   "takeaway": "Radius converts between the drum's angles and the cage's metres. Every rate converts the same way.",
+   "place": "The Bank",
+   "game": {
+    "type": "PROTOCOL",
+    "title": "One machine, two sets of units",
+    "setup": "The Bank",
+    "play": "Match each drum quantity to the cage quantity it fixes.",
+    "task": "Match each drum quantity to the cage quantity it fixes.",
+    "question": "Match each drum quantity to the cage quantity it fixes.",
+    "answer": "",
+    "scenarios": [
+     "Revolutions counted since the cage left the inset.",
+     "The drum's angular velocity, in radians a second.",
+     "The drum's angular acceleration, in radians a second squared.",
+     "The number of coils of rope left on the drum."
+    ],
+    "choices": [
+     "How far the cage has travelled, once multiplied by the radius.",
+     "The cage's speed, once multiplied by the radius.",
+     "The cage's acceleration, once multiplied by the radius.",
+     "Nothing about the cage's motion; it is a property of the drum's own winding."
+    ],
+    "mapping": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "assumes": [
+    "a rope that does not slip covers its own length as the drum turns"
+   ],
+   "equations": [
+    {
+     "e": "τ = Iα",
+     "c": "the angular form of the second law",
+     "v": [
+      [
+       "τ",
+       "the torque about the axis, in newton metres"
+      ],
+      [
+       "I",
+       "the moment of inertia about that axis"
+      ],
+      [
+       "α",
+       "the angular acceleration, in radians a second squared"
+      ]
+     ],
+     "s": "Torque is to rotation what force is to motion in a straight line, and the inertia that resists it is the integral rather than the mass.",
+     "demanded": true
+    }
+   ],
+   "concept": {
+    "n": 19,
+    "c": "Angular velocity and angular acceleration",
+    "of": 34,
+    "rests": [
+     "Position, velocity and acceleration as successive derivatives"
+    ]
+   }
+  },
+  {
+   "day": 4,
+   "title": "A megawatt and a bit",
+   "takeaway": "The peak power of a wind is at the top of the ramp. The speed has arrived there, and the rope has",
+   "place": "The Bank",
+   "game": {
+    "type": "DERIVE",
+    "title": "A megawatt and a bit",
+    "setup": "The Bank",
+    "play": "Take the power at the worst instant of the wind",
+    "task": "Take the power at the worst instant of the wind",
+    "question": "What power is the motor supplying just after the end of the ramp?",
+    "answer": "About 1.03 MW. The hanging mass is 4,000 + 8.9 × 1,182 = 14,520 kg, so the tension is 142.5 kN and the power is that times 7.2 m/s.",
+    "derive": {
+     "start": "P = F·v",
+     "goal": "the power supplied at that instant, in megawatts",
+     "startNote": "cage 4,000 kg, rope 8.9 kg a metre, 1,182 m hanging, speed 7.2 m/s, no acceleration at this instant",
+     "askRule": true,
+     "rules": [
+      "power as force times speed",
+      "the tension at that position",
+      "substitution of the stated values",
+      "comparison of magnitudes",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Write the tension at that position.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "T = (4,000 + 8.9 × 1,182) × 9.81 = 142.5 kN",
+         "rule": "the tension at that position"
+        },
+        {
+         "text": "T = (4,000 + 8.9 × 1,240) × 9.81 = 147.5 kN",
+         "rule": "the tension at that position",
+         "survives": true
+        },
+        {
+         "text": "T = (4,000 + 8.9 × 1,182) × (9.81 + 1.2) = 159.9 kN",
+         "rule": "the tension at that position"
+        },
+        {
+         "text": "T = 4,000 × 9.81 = 39.2 kN",
+         "rule": "the tension at that position"
+        }
+       ]
+      },
+      {
+       "ask": "Combine it with the speed.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "P = T ÷ v = 19.8 kN·s/m",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "P = ½T·v² = 3.7 MW",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "P = T·v = 142.5 kN × 7.2 m/s",
+         "rule": "power as force times speed"
+        },
+        {
+         "text": "P = T·v·t, over the 172 s of the run",
+         "rule": "power as force times speed"
+        }
+       ]
+      },
+      {
+       "ask": "Put the numbers in.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "P = 142,500 × 7.2 = 1.03 kW",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "P = 142,500 × 7.2 = 1.03 MW",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "P = 142.5 × 7.2 = 1,026 W",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "P = 142,500 × 7.2 × 60 = 61.6 MW",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Put that beside the motor's continuous rating of 1.2 MW.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "1.03 MW is 86 per cent of the rating, so the drum's inertia is what limits the cycle",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "1.03 MW exceeds the rating, so the faster cycle is impossible",
+         "rule": "comparison of magnitudes",
+         "survives": true
+        },
+        {
+         "text": "1.03 MW is 86 per cent of the rating, and raising the torque is what would exceed it",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "1.03 MW is 86 per cent of the rating, and it is the speed that the faster cycle raises",
+         "rule": "comparison of magnitudes"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "power is the rate at which a force does work"
+   ],
+   "equations": [
+    {
+     "e": "P = dW/dt = F·v",
+     "c": "power as the rate of doing work",
+     "v": [
+      [
+       "P",
+       "the power, in watts"
+      ],
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "v",
+       "the speed at that instant, in metres a second"
+      ]
+     ],
+     "s": "Power is what a motor is rated at, and it is largest not where the force is largest but where the product of force and speed is.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 13,
+    "c": "Power as the rate of doing work",
+    "t": "Power is a product of a force and a speed, so its peak is at neither of the places where its two factors peak. It is what a machine is rated by, and knowing where in a cycle the product is largest is what decides whether the rating is enough.",
+    "of": 34,
+    "rests": [
+     "Work as a force through a displacement, and as an integral"
+    ]
+   }
+  },
+  {
+   "day": 5,
+   "title": "Three seconds of nothing much",
+   "takeaway": "A margin that reads as caution is often a quantity somebody once computed and nobody wrote down.",
+   "place": "The Bank",
+   "game": {
+    "type": "CHOICE",
+    "title": "Three seconds of nothing much",
+    "setup": "The Bank",
+    "play": "Ask Ubah what the crawl is for",
+    "task": "Ask Ubah what the crawl is for",
+    "question": "What is the crawl at the end of a wind doing?",
+    "answer": "Letting the bounce on the rope die away before the stop",
+    "rebuttals": [
+     "The indicator is read throughout the wind, and the crawl is at the one point where it matters least.",
+     "The gate is opened after the cage is at rest, by rule, whatever the profile does.",
+     "Pad wear depends on the energy taken out, and a crawl removes almost none of it."
+    ],
+    "choices": [
+     "Letting the bounce on the rope die away before the stop",
+     "Giving the driver time to read the depth indicator",
+     "Allowing the banksman to open the gate before the cage arrives",
+     "Reducing the wear on the brake pads at each stop"
+    ],
+    "correctChoice": "Letting the bounce on the rope die away before the stop"
+   },
+   "assumes": [
+    "an oscillation loses amplitude over time to whatever damps it"
+   ],
+   "concept": {
+    "n": 28,
+    "c": "Damping, and a driving that arrives in step",
+    "of": 34,
+    "rests": [
+     "The period of an oscillation, and what it does not depend on"
+    ]
+   }
+  },
+  {
+   "day": 6,
+   "title": "Seven seconds, not twelve",
+   "takeaway": "A cycle time is only as good as the integral behind it. A saving that ignores a limit is not a",
+   "place": "The Bank",
+   "game": {
+    "type": "DERIVE",
+    "title": "Seven seconds, not twelve",
+    "setup": "The Bank",
+    "play": "Integrate the revised profile and get the cycle time",
+    "task": "Integrate the revised profile and get the cycle time",
+    "question": "What does the revised profile take off the cycle time?",
+    "answer": "About 7 s: the ramps and the retardation cap give back 5.5 s of the 12 asked for, and the shortened crawl 1.5 s.",
+    "derive": {
+     "start": "t_cycle = t_ramp + t_run + t_retard + t_crawl",
+     "goal": "the saving against the present cycle, in seconds",
+     "startNote": "1,240 m of shaft, ramp 12 s for 57.6 m, full speed 7.2 m/s, retardation to 4.5 m/s at 0.9 m/s², crawl 1.5 s",
+     "askRule": true,
+     "rules": [
+      "integration with respect to time",
+      "a distance divided by a speed",
+      "the sum of the pieces",
+      "substitution of the stated values",
+      "comparison of magnitudes",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Get the time and distance of the retardation ramp.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "t = 7.2 ÷ 0.9 = 8.0 s, over 28.8 m",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "t = (7.2 − 4.5) ÷ 0.9 = 3.0 s, over 17.6 m",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "t = (7.2 − 4.5) × 0.9 = 2.4 s, over 14.0 m",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "t = 4.5 ÷ 0.9 = 5.0 s, over 11.3 m",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      },
+      {
+       "ask": "Work out the full-speed run.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "1,240 ÷ 7.2 = 172.2 s",
+         "rule": "a distance divided by a speed",
+         "survives": true
+        },
+        {
+         "text": "(1,240 − 57.6) ÷ 7.2 = 164.2 s",
+         "rule": "a distance divided by a speed"
+        },
+        {
+         "text": "(1,240 − 57.6 − 17.6) ÷ 4.5 = 259 s, at the capped speed",
+         "rule": "a distance divided by a speed"
+        },
+        {
+         "text": "(1,240 − 57.6 − 17.6 − 6.8) ÷ 7.2 = 160.8 s, the run alone",
+         "rule": "a distance divided by a speed"
+        }
+       ]
+      },
+      {
+       "ask": "Add the pieces for the revised cycle.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "12 + 160.8 + 3.0 + 1.5 = 177.3 s",
+         "rule": "the sum of the pieces"
+        },
+        {
+         "text": "12 + 160.8 + 3.0 = 175.8 s",
+         "rule": "the sum of the pieces"
+        },
+        {
+         "text": "12 + 172.2 + 3.0 + 1.5 = 188.7 s",
+         "rule": "the sum of the pieces",
+         "survives": true
+        },
+        {
+         "text": "12 × 160.8 × 3.0 × 1.5 = 8,683 s",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Compare with the present cycle of 184.3 s.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "a saving of 12.0 s, which is what was proposed",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "a saving of 1.5 s, the crawl alone",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "a saving of 7.0 s",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "a loss of 4.0 s, so the revision is worse than the present cycle",
+         "rule": "comparison of magnitudes",
+         "survives": true
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a cycle time is the sum of the times of the parts of the journey"
+   ],
+   "equations": [
+    {
+     "e": "v(t) = v₀ + ∫a dt,  y(t) = y₀ + ∫v dt",
+     "c": "getting the motion back from a rate",
+     "v": [
+      [
+       "v₀, y₀",
+       "the velocity and position at the start of the interval"
+      ],
+      [
+       "∫a dt",
+       "the area under the acceleration, in metres a second"
+      ],
+      [
+       "∫v dt",
+       "the area under the velocity, in metres"
+      ]
+     ],
+     "s": "An acceleration that is not constant cannot be put through the constant-acceleration formulas, and integrating it is what replaces them.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 2,
+    "c": "Getting velocity and distance back by integrating an acceleration",
+    "t": "An acceleration that changes cannot be put through the constant-acceleration formulas, and integrating it is what replaces them. Each integration brings a constant that the starting condition fixes, and forgetting either is how a plausible answer comes out twice too large.",
+    "of": 34,
+    "rests": [
+     "Position, velocity and acceleration as successive derivatives"
+    ]
+   }
+  },
+  {
+   "day": 7,
+   "title": "Twelve seconds of ramp — Review",
+   "takeaway": "A rate that tapers to nothing does half the work its quoted peak suggests. What it delivers is the",
+   "place": "The Bank",
+   "game": {
+    "type": "BALLPARK",
+    "title": "Twelve seconds of ramp — Review",
+    "setup": "The Bank",
+    "play": "Get the speed the retardation ramp removes",
+    "task": "Get the speed the retardation ramp removes",
+    "question": "How much speed does the retardation ramp take off?",
+    "answer": "",
+    "givens": [],
+    "relationship": "The speed a ramp removes is its mean rate times how long it lasts, and the mean of a linear taper is half its peak.",
+    "calcKey": "BANK-7"
+   },
+   "assumes": [
+    "an acceleration that changes cannot be multiplied by a time"
+   ],
+   "concept": {
+    "n": 1,
+    "c": "Position, velocity and acceleration as successive derivatives",
+    "t": "A record of position against time contains its own speed, acceleration and jerk, each one slope further down. It means a single pen on a single chart can answer three questions, and that none of the three has to be instrumented separately.",
+    "of": 34
+   }
+  },
+  {
+   "day": 8,
+   "title": "Three things out of one trace — Review",
+   "takeaway": "A record of a rate gives up its totals only to an integration. An area is worth nothing until both",
+   "place": "The Bank",
+   "game": {
+    "type": "SEQUENCE",
+    "title": "Three things out of one trace — Review",
+    "setup": "The Bank",
+    "play": "Order the four steps that get the overrun distance out of a speed record.",
+    "task": "Order the four steps that get the overrun distance out of a speed record.",
+    "question": "Order the four steps that get the overrun distance out of a speed record.",
+    "answer": "",
+    "cards": [
+     "Mark the instant on the roll where the brake went on.",
+     "Mark where the trace reaches zero, which is where the cage stopped.",
+     "Take the area under the trace between the two marks.",
+     "Subtract the distance from the brake mark down to the landing."
+    ],
+    "order": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "axis": "Order the four steps, first to last. This is one procedure on one roll of paper, and every step needs the one before it to have been done.",
+    "ends": [
+     "First step",
+     "Last step"
+    ]
+   },
+   "assumes": [
+    "the area under a speed–time trace is a distance"
+   ],
+   "concept": {
+    "n": 2,
+    "c": "Getting velocity and distance back by integrating an acceleration",
+    "t": "An acceleration that changes cannot be put through the constant-acceleration formulas, and integrating it is what replaces them. Each integration brings a constant that the starting condition fixes, and forgetting either is how a plausible answer comes out twice too large.",
+    "of": 34,
+    "rests": [
+     "Position, velocity and acceleration as successive derivatives"
+    ]
+   }
+  }
+ ],
+ "WIND": [
+  {
+   "day": 1,
+   "title": "Where twelve seconds come from",
+   "takeaway": "A cycle time is the sum of parts fixed by different things. Only some of them are anybody's to",
+   "place": "Winder House",
+   "game": {
+    "type": "CHOICE",
+    "title": "Where twelve seconds come from",
+    "setup": "Winder House",
+    "play": "Ask Marchetti what the twelve seconds are made of",
+    "task": "Ask Marchetti what the twelve seconds are made of",
+    "question": "Where do Marchetti's twelve seconds have to come from?",
+    "answer": "The ramps and the crawl at the end",
+    "rebuttals": [
+     "The full-speed run is the depth divided by the speed, and both are set elsewhere.",
+     "Loading is set by how long it takes men to get on and off, which no winder controls.",
+     "Signalling happens while the cage is standing, and shortening it changes nothing about the journey."
+    ],
+    "choices": [
+     "The ramps and the crawl at the end",
+     "The full-speed run between the landings",
+     "The loading time at each landing",
+     "The signalling between the bank and the inset"
+    ],
+    "correctChoice": "The ramps and the crawl at the end"
+   },
+   "assumes": [
+    "a journey is made of a ramp up, a run at speed, a ramp down and a slow approach"
+   ],
+   "concept": {
+    "n": 1,
+    "c": "Position, velocity and acceleration as successive derivatives",
+    "t": "A record of position against time contains its own speed, acceleration and jerk, each one slope further down. It means a single pen on a single chart can answer three questions, and that none of the three has to be instrumented separately.",
+    "of": 34
+   }
+  },
+  {
+   "day": 2,
+   "title": "Eighteen tonnes, and where it sits",
+   "takeaway": "A moment of inertia is an integral over the body. Two bodies of one mass can differ in it by a",
+   "place": "Winder House",
+   "game": {
+    "type": "DERIVE",
+    "title": "Eighteen tonnes, and where it sits",
+    "setup": "Winder House",
+    "play": "Take the drum's moment of inertia off its dimensions",
+    "task": "Take the drum's moment of inertia off its dimensions",
+    "question": "What is the drum's moment of inertia about its own axis?",
+    "answer": "About 72,200 kg·m². The shells give I = ½m(R₁² + R₂²), which is 9,000 × (3.61 + 4.41).",
+    "derive": {
+     "start": "I = ∫r² dm",
+     "goal": "the moment of inertia about the axis, in kilogram metres squared",
+     "startNote": "m = 18,000 kg between R₁ = 1.9 m and R₂ = 2.1 m, of uniform steel, turning about its axis",
+     "askRule": true,
+     "rules": [
+      "the choice of the mass element",
+      "substitution of the element",
+      "integration with respect to radius",
+      "factorising a difference of powers",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Choose the element of mass.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "a flat slice of thickness dz along the axis",
+         "rule": "the choice of the mass element"
+        },
+        {
+         "text": "a thin cylindrical shell of radius r and thickness dr",
+         "rule": "the choice of the mass element"
+        },
+        {
+         "text": "a wedge of angle dθ cut through the whole thickness of the wall",
+         "rule": "the choice of the mass element",
+         "survives": true
+        },
+        {
+         "text": "the whole wall at its mean radius of 2.0 m",
+         "rule": "substitution of the element",
+         "survives": true
+        }
+       ]
+      },
+      {
+       "ask": "Write the element's mass in terms of r.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "dm = m·dr/(R₂ − R₁)",
+         "rule": "substitution of the element",
+         "survives": true
+        },
+        {
+         "text": "dm = m·2πr·dr",
+         "rule": "substitution of the element"
+        },
+        {
+         "text": "dm = m·r·dr/(R₂² − R₁²)",
+         "rule": "substitution of the element"
+        },
+        {
+         "text": "dm = 2m·r·dr/(R₂² − R₁²)",
+         "rule": "substitution of the element"
+        }
+       ]
+      },
+      {
+       "ask": "Do the integral.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "I = 2m/(R₂² − R₁²) · [r⁴/4] from R₁ to R₂",
+         "rule": "integration with respect to radius"
+        },
+        {
+         "text": "I = 2m/(R₂² − R₁²) · [r³/3] from R₁ to R₂",
+         "rule": "integration with respect to radius",
+         "survives": true
+        },
+        {
+         "text": "I = 2m/(R₂² − R₁²) · [r⁴] from R₁ to R₂",
+         "rule": "integration with respect to radius"
+        },
+        {
+         "text": "I = 2m·[r⁴/4] from R₁ to R₂",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Simplify and put the numbers in.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "I = ½m(R₂² − R₁²) = 9,000 × 0.80 = 7,200 kg·m²",
+         "rule": "factorising a difference of powers",
+         "survives": true
+        },
+        {
+         "text": "I = m(R₁² + R₂²) = 18,000 × 8.02 = 144,000 kg·m²",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "I = ½m(R₁² + R₂²) = 9,000 × 8.02 = 72,200 kg·m²",
+         "rule": "factorising a difference of powers"
+        },
+        {
+         "text": "I = ½m·R₂² = 9,000 × 4.41 = 39,700 kg·m²",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "the moment of inertia of a small mass is that mass times the square of its distance from the axis",
+    "angular velocity and angular acceleration — taken as read"
+   ],
+   "equations": [
+    {
+     "e": "I = ∫r² dm",
+     "c": "moment of inertia as an integral over the mass",
+     "v": [
+      [
+       "I",
+       "the moment of inertia about the axis, in kilogram metres squared"
+      ],
+      [
+       "r",
+       "the distance of an element of mass from the axis, in metres"
+      ],
+      [
+       "dm",
+       "that element of mass, in kilograms"
+      ]
+     ],
+     "s": "Two drums of the same mass do not have the same inertia: what counts is how far the mass is from the axis, and it counts as the square of that distance.",
+     "computed": true
+    }
+   ],
+   "takesAsRead": [
+    {
+     "n": 19,
+     "c": "Angular velocity and angular acceleration"
+    }
+   ],
+   "concept": {
+    "n": 20,
+    "c": "Moment of inertia as an integral over the mass",
+    "t": "How hard a body is to spin up depends on how far its mass sits from the axis, and it counts as the square of that distance. Two bodies of the same mass can differ by a factor of two, which is why the integral cannot be replaced by a weight.",
+    "of": 34,
+    "rests": [
+     "Angular velocity and angular acceleration"
+    ]
+   }
+  },
+  {
+   "day": 3,
+   "title": "What the driver feels",
+   "takeaway": "A rate can have a rate of its own. A body standing on a floor feels the second one.",
+   "place": "Winder House",
+   "game": {
+    "type": "CHOICE",
+    "title": "What the driver feels",
+    "setup": "Winder House",
+    "play": "Ask Anand what a hard ramp does",
+    "task": "Ask Anand what a hard ramp does",
+    "question": "What is different between a hard ramp and a soft one that reach the same speed?",
+    "answer": "How quickly the acceleration arrives and goes away",
+    "rebuttals": [
+     "Both ramps are specified to reach the same speed, so that cannot be what separates them.",
+     "The distance differs a little, and nobody standing in a cage can feel a distance.",
+     "Tension follows the acceleration, so at the end of the ramp where both are the same it is the same."
+    ],
+    "choices": [
+     "How quickly the acceleration arrives and goes away",
+     "The speed reached at the end of the ramp",
+     "The rope wound during the ramp",
+     "The tension at the cappel at the end of the ramp"
+    ],
+    "correctChoice": "How quickly the acceleration arrives and goes away"
+   },
+   "assumes": [
+    "an acceleration can itself change while a body is moving"
+   ],
+   "concept": {
+    "n": 3,
+    "c": "Motion when the acceleration is not constant",
+    "of": 34,
+    "rests": [
+     "Position, velocity and acceleration as successive derivatives",
+     "Getting velocity and distance back by integrating an acceleration"
+    ]
+   }
+  },
+  {
+   "day": 4,
+   "title": "What the motor is asked for",
+   "takeaway": "The torque a wind needs is the load torque plus the inertia torque. The second is the smaller of the",
+   "place": "Winder House",
+   "game": {
+    "type": "DERIVE",
+    "title": "What the motor is asked for",
+    "setup": "Winder House",
+    "play": "Take the torque the ramp needs at its worst instant",
+    "task": "Take the torque the ramp needs at its worst instant",
+    "question": "What torque does the motor have to produce at the start of an upward wind?",
+    "answer": "About 389 kN·m: 348 from the rope at 2.1 m and 41 from spinning the drum up at 0.571 rad/s².",
+    "derive": {
+     "start": "τ_motor − T·R = I·α",
+     "goal": "the motor torque at the start of the upward wind, in kilonewton metres",
+     "startNote": "I = 72,200 kg·m², R = 2.1 m, T = 166 kN, and the cage accelerates at 1.2 m/s²",
+     "askRule": true,
+     "rules": [
+      "the angular second law",
+      "the no-slip relation",
+      "substitution of the stated values",
+      "rearrangement",
+      "comparison of magnitudes"
+     ],
+     "steps": [
+      {
+       "ask": "Get the angular acceleration from the cage's acceleration.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "α = a·R = 1.2 × 2.1 = 2.52 rad/s²",
+         "rule": "the no-slip relation",
+         "survives": true
+        },
+        {
+         "text": "α = a/R = 1.2 ÷ 2.1 = 0.571 rad/s²",
+         "rule": "the no-slip relation"
+        },
+        {
+         "text": "α = a = 1.2 rad/s²",
+         "rule": "the no-slip relation"
+        },
+        {
+         "text": "α = v/R = 7.2 ÷ 2.1 = 3.43 rad/s²",
+         "rule": "the no-slip relation"
+        }
+       ]
+      },
+      {
+       "ask": "Rearrange for the motor torque.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "τ_motor = I·α − T·R",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "τ_motor = T·R ÷ I·α",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "τ_motor = I·α + T·R",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "τ_motor = (I + T)·α",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Put the numbers in.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "τ = 72,200 × 0.571 + 166,000 × 2.1 = 41,200 + 348,600 = 390 kN·m",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "τ = 72,200 × 0.571 + 166,000 = 41,200 + 166,000 = 207 kN·m",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "τ = 72,200 × 2.52 + 166,000 × 2.1 = 182,000 + 348,600 = 531 kN·m",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "τ = 72,200 + 166,000 × 2.1 = 421 kN·m",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      },
+      {
+       "ask": "Put that beside the motor's continuous rating of 480 kN·m.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "390 is 81 per cent of the rating, so the ramp cannot be run continuously",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "390 is 81 per cent of the rating, so the drum's inertia is the limiting term",
+         "rule": "comparison of magnitudes"
+        },
+        {
+         "text": "390 exceeds the rating, so the proposal fails on torque",
+         "rule": "comparison of magnitudes",
+         "survives": true
+        },
+        {
+         "text": "390 is 81 per cent of the rating, so the machine has the torque",
+         "rule": "comparison of magnitudes"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a rope that does not slip ties the cage's acceleration to the drum's angular acceleration"
+   ],
+   "equations": [
+    {
+     "e": "ΣF = ma",
+     "c": "Newton's second law, on one chosen body",
+     "v": [
+      [
+       "ΣF",
+       "the sum of the forces on the body, in newtons"
+      ],
+      [
+       "m",
+       "the mass of that body, in kilograms"
+      ],
+      [
+       "a",
+       "its acceleration, in metres a second squared"
+      ]
+     ],
+     "s": "The law applies to one body at a time, so the first decision in every problem here is which body has been drawn round.",
+     "computed": true
+    },
+    {
+     "e": "τ = Iα",
+     "c": "the angular form of the second law",
+     "v": [
+      [
+       "τ",
+       "the torque about the axis, in newton metres"
+      ],
+      [
+       "I",
+       "the moment of inertia about that axis"
+      ],
+      [
+       "α",
+       "the angular acceleration, in radians a second squared"
+      ]
+     ],
+     "s": "Torque is to rotation what force is to motion in a straight line, and the inertia that resists it is the integral rather than the mass.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 21,
+    "c": "Torque, and the angular form of the second law",
+    "t": "Torque is to rotation what force is to straight-line motion, and what resists it is the moment of inertia rather than the mass. It separates what a machine needs to hold a load from what it needs to change the load's speed.",
+    "of": 34,
+    "rests": [
+     "Moment of inertia as an integral over the mass",
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 5,
+   "title": "Forty-nine of a hundred and sixteen",
+   "takeaway": "Energy stored against gravity depends on the mass and the height. It depends on nothing about the",
+   "place": "Winder House",
+   "game": {
+    "type": "BALLPARK",
+    "title": "Forty-nine of a hundred and sixteen",
+    "setup": "Winder House",
+    "play": "Put the cage's own share beside the total",
+    "task": "Put the cage's own share beside the total",
+    "question": "How much of the wind's work is the cage's own weight?",
+    "answer": "",
+    "givens": [],
+    "relationship": "Energy against gravity = mass × gravity × the height it is raised.",
+    "calcKey": "WIND-5"
+   },
+   "assumes": [
+    "energy stored against gravity depends only on the change in height",
+    "work as a force through a displacement, and as an integral — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 10,
+     "c": "Work as a force through a displacement, and as an integral"
+    }
+   ],
+   "concept": {
+    "n": 12,
+    "c": "Potential energy, and what makes a force conservative",
+    "of": 34,
+    "rests": [
+     "Work as a force through a displacement, and as an integral"
+    ]
+   }
+  },
+  {
+   "day": 6,
+   "title": "Four instants, one rating",
+   "takeaway": "Ranking instants by power means multiplying at each one, because neither factor alone decides the order.",
+   "place": "Winder House",
+   "game": {
+    "type": "SEQUENCE",
+    "title": "Four instants, one rating",
+    "setup": "Winder House",
+    "play": "Order the four instants by the power the motor is supplying, largest first.",
+    "task": "Order the four instants by the power the motor is supplying, largest first.",
+    "question": "Order the four instants by the power the motor is supplying, largest first.",
+    "answer": "",
+    "cards": [
+     "Just past the end of the ramp, full speed and 1,182 m of rope hanging.",
+     "Half way up, full speed and 620 m of rope hanging.",
+     "The first instant off the inset, full tension and almost no speed.",
+     "At the bank, crawling in with almost no rope hanging."
+    ],
+    "order": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "axis": "Order the four by the power the motor is supplying, largest first. This is not a clock — every one of them happens during the same wind, and the question is which asks most of the machine.",
+    "ends": [
+     "Most power",
+     "Least power"
+    ]
+   },
+   "assumes": [
+    "a power is a force times a speed and has the units of both"
+   ],
+   "equations": [
+    {
+     "e": "P = dW/dt = F·v",
+     "c": "power as the rate of doing work",
+     "v": [
+      [
+       "P",
+       "the power, in watts"
+      ],
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "v",
+       "the speed at that instant, in metres a second"
+      ]
+     ],
+     "s": "Power is what a motor is rated at, and it is largest not where the force is largest but where the product of force and speed is."
+    }
+   ],
+   "concept": {
+    "n": 32,
+    "c": "Units and dimensional bookkeeping through a derivative or an integral",
+    "of": 34,
+    "rests": [
+     "Position, velocity and acceleration as successive derivatives",
+     "Work as a force through a displacement, and as an integral"
+    ]
+   }
+  },
+  {
+   "day": 7,
+   "title": "What the brake has hold of",
+   "takeaway": "A no-slip relation ties a drum to a rope. It stops being a relation the moment the rope stretches.",
+   "place": "Winder House",
+   "game": {
+    "type": "CHOICE",
+    "title": "What the brake has hold of",
+    "setup": "Winder House",
+    "play": "Ask Anand what the brake stops",
+    "task": "Ask Anand what the brake stops",
+    "question": "What does the brake have hold of?",
+    "answer": "The drum, and everything else only through the rope",
+    "rebuttals": [
+     "A rope that stretches 1.3 metres under load is not acting as a rigid link during a stop.",
+     "Connected is not rigid, and everything in this failure happens in the connection.",
+     "The sheaves turn freely; they change the rope's direction and apply no retardation to it."
+    ],
+    "choices": [
+     "The drum, and everything else only through the rope",
+     "The cage, through the rope, which acts as a rigid link",
+     "The whole machine at once, since the parts are connected",
+     "The sheave wheels, which transmit the retardation to both sides"
+    ],
+    "correctChoice": "The drum, and everything else only through the rope"
+   },
+   "assumes": [
+    "a brake acts on whatever it is in contact with"
+   ],
+   "concept": {
+    "n": 24,
+    "c": "A drum and a rope: translation and rotation tied together",
+    "of": 34,
+    "rests": [
+     "Torque, and the angular form of the second law",
+     "Angular velocity and angular acceleration"
+    ]
+   }
+  },
+  {
+   "day": 8,
+   "title": "Five hundred and sixty kilojoules",
+   "takeaway": "The energy a stop must absorb is the rotation plus the motion plus or minus what gravity does over the distance.",
+   "place": "Winder House",
+   "game": {
+    "type": "DERIVE",
+    "title": "Five hundred and sixty kilojoules",
+    "setup": "Winder House",
+    "play": "Total the energy an emergency stop puts into the pads",
+    "task": "Total the energy an emergency stop puts into the pads",
+    "question": "How much energy does an upward emergency stop put into the pads?",
+    "answer": "About 558 kJ: 578 in the drum, 336 in the cage and rope, less 355 taken out by gravity as the cage rises 3.8 m.",
+    "derive": {
+     "start": "E_pads = K_rot + K_trans ± mgh",
+     "goal": "the energy the pads absorb in an upward emergency stop, in kilojoules",
+     "startNote": "I = 72,200 kg·m², ω = 4.0 rad/s, cage and hanging rope 9,518 kg, v = 8.4 m/s, 3.8 m of travel",
+     "askRule": true,
+     "rules": [
+      "rotational kinetic energy",
+      "kinetic energy of a translating mass",
+      "work done against gravity",
+      "the sign of the gravity term",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Take the drum's rotational energy.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "K_rot = ½ × 72,200 × 4.0 = 144 kJ",
+         "rule": "rotational kinetic energy"
+        },
+        {
+         "text": "K_rot = 72,200 × 4.0² = 1,155 kJ",
+         "rule": "rotational kinetic energy",
+         "survives": true
+        },
+        {
+         "text": "K_rot = ½ × 72,200 × 4.0² = 578 kJ",
+         "rule": "rotational kinetic energy"
+        },
+        {
+         "text": "K_rot = ½ × 18,000 × 8.4² = 635 kJ",
+         "rule": "kinetic energy of a translating mass"
+        }
+       ]
+      },
+      {
+       "ask": "Take the energy of everything that is travelling.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "K_trans = ½ × 9,518 × 8.4² = 336 kJ",
+         "rule": "kinetic energy of a translating mass"
+        },
+        {
+         "text": "K_trans = ½ × 4,000 × 8.4² = 141 kJ",
+         "rule": "kinetic energy of a translating mass",
+         "survives": true
+        },
+        {
+         "text": "K_trans = ½ × 15,036 × 8.4² = 531 kJ",
+         "rule": "kinetic energy of a translating mass"
+        },
+        {
+         "text": "K_trans = 9,518 × 8.4 = 80 kJ",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Deal with what gravity does over the stopping distance.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "it adds 355 kJ, since the cage is still moving upward",
+         "rule": "the sign of the gravity term",
+         "survives": true
+        },
+        {
+         "text": "it removes 355 kJ, since the cage rises 3.8 m while stopping",
+         "rule": "work done against gravity"
+        },
+        {
+         "text": "it contributes nothing, since the brake is what stops the cage",
+         "rule": "the sign of the gravity term"
+        },
+        {
+         "text": "it removes 36 kJ, from the cage alone rising 3.8 m",
+         "rule": "work done against gravity"
+        }
+       ]
+      },
+      {
+       "ask": "Add them up, and put the total beside the pads' rating.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "578 + 336 + 355 = 1,269 kJ, over twice the rating",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "336 − 355 = −19 kJ, so the brake does nothing",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "578 + 336 = 914 kJ, over the rating",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "578 + 336 − 355 = 558 kJ, inside the rating of 600",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a turning body holds energy that has to be taken out of it to stop it"
+   ],
+   "equations": [
+    {
+     "e": "W = ∫F·dx",
+     "c": "work as an accumulation of force over distance",
+     "v": [
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "dx",
+       "an element of the displacement, in metres"
+      ],
+      [
+       "W",
+       "the work done, in joules"
+      ]
+     ],
+     "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it.",
+     "computed": true
+    },
+    {
+     "e": "K_rot = ½Iω²",
+     "c": "the energy stored in something turning",
+     "v": [
+      [
+       "K_rot",
+       "the rotational kinetic energy, in joules"
+      ],
+      [
+       "ω",
+       "the angular velocity, in radians a second"
+      ]
+     ],
+     "s": "A drum at speed holds energy nobody can see, and it all has to be taken out of it by whatever stops the wind.",
+     "computed": true
+    },
+    {
+     "e": "I = ∫r² dm",
+     "c": "moment of inertia as an integral over the mass",
+     "v": [
+      [
+       "I",
+       "the moment of inertia about the axis, in kilogram metres squared"
+      ],
+      [
+       "r",
+       "the distance of an element of mass from the axis, in metres"
+      ],
+      [
+       "dm",
+       "that element of mass, in kilograms"
+      ]
+     ],
+     "s": "Two drums of the same mass do not have the same inertia: what counts is how far the mass is from the axis, and it counts as the square of that distance.",
+     "card": false
+    }
+   ],
+   "concept": {
+    "n": 22,
+    "c": "Rotational kinetic energy",
+    "t": "Anything turning holds energy proportional to its inertia and to the square of its angular speed, and it is invisible on a drawing because nothing about it moves in a line. Whatever stops the machine has to take all of it out.",
+    "of": 34,
+    "rests": [
+     "Moment of inertia as an integral over the mass",
+     "Kinetic energy and the work–energy theorem"
+    ]
+   }
+  },
+  {
+   "day": 9,
+   "title": "A hundred points before the inspection",
+   "takeaway": "Evidence is worth what it would change about a decision, not what it would add to a record.",
+   "place": "Winder House",
+   "rules": "A hundred points, whole points, across the four. Spending is scored on what a measurement would change about a decision that gets made repeatedly, rather than on what it would add to a file: an instrument that would have seen March, or that turns a handbook number into a measured one, is worth more than a test of something already inside its own margin.",
+   "game": {
+    "type": "SCIENCETANK",
+    "title": "A hundred points before the inspection",
+    "setup": "Winder House",
+    "play": "Spread a hundred points across the four.",
+    "task": "Spread a hundred points across the four.",
+    "question": "Spread a hundred points across the four.",
+    "answer": "",
+    "proposals": [
+     {
+      "label": "A",
+      "text": "A cage position recorder at the bank as well as at the inset."
+     },
+     {
+      "label": "B",
+      "text": "Measure the rope's stiffness on the rope rather than from the modulus."
+     },
+     {
+      "label": "C",
+      "text": "A pad friction rig that works hot and at winding pressure."
+     },
+     {
+      "label": "D",
+      "text": "Proof-test one arrestor and replace it."
+     }
+    ],
+    "recommended": {
+     "A": 40,
+     "B": 30,
+     "C": 20
+    },
+    "research": ""
+   },
+   "assumes": [
+    "money spent on a measurement is worth what the measurement would change"
+   ],
+   "concept": {
+    "n": 34,
+    "c": "A measurement carries the conditions it was made under",
+    "of": 34,
+    "rests": [
+     "Friction as a force with a limit"
+    ]
+   }
+  },
+  {
+   "day": 10,
+   "title": "Where twelve seconds come from — Review",
+   "takeaway": "The longest part of a winding cycle is set by the depth and the permitted speed. It is not a place",
+   "place": "Winder House",
+   "game": {
+    "type": "BALLPARK",
+    "title": "Where twelve seconds come from — Review",
+    "setup": "Winder House",
+    "play": "Time the part of the cycle nobody can shorten",
+    "task": "Time the part of the cycle nobody can shorten",
+    "question": "How long does the full-speed section of one wind last?",
+    "answer": "",
+    "givens": [],
+    "relationship": "At a steady speed, the time a section takes is its distance divided by that speed.",
+    "calcKey": "WIND-10"
+   },
+   "assumes": [
+    "a wind is made of a ramp up, a run at full speed, a ramp down and a crawl"
+   ],
+   "concept": {
+    "n": 1,
+    "c": "Position, velocity and acceleration as successive derivatives",
+    "t": "A record of position against time contains its own speed, acceleration and jerk, each one slope further down. It means a single pen on a single chart can answer three questions, and that none of the three has to be instrumented separately.",
+    "of": 34
+   }
+  }
+ ],
+ "ROPE": [
+  {
+   "day": 1,
+   "title": "Eleven tonnes, hung from what",
+   "takeaway": "A force belongs to whichever body it acts on. Choosing the body is the first move in every problem",
+   "place": "Rope Shop",
+   "game": {
+    "type": "CHOICE",
+    "title": "Eleven tonnes, hung from what",
+    "setup": "Rope Shop",
+    "play": "Settle which body carries the rope",
+    "task": "Settle which body carries the rope",
+    "question": "Whose free-body diagram does the hanging rope's weight belong in?",
+    "answer": "The drum's, through the tension at the top of the rope",
+    "rebuttals": [
+     "The rope pulls up on the cage; the cage carries only itself and its load.",
+     "Eleven tonnes acts on something, and leaving it out of every diagram loses a third of the tension.",
+     "The sheave changes the direction of the rope's pull and does not decide what tension is in it."
+    ],
+    "choices": [
+     "The drum's, through the tension at the top of the rope",
+     "The cage's, since the rope is attached to it",
+     "Nobody's, since the rope is neither the load nor the machine",
+     "The headframe's, since the sheave wheels take the whole weight"
+    ],
+    "correctChoice": "The drum's, through the tension at the top of the rope"
+   },
+   "assumes": [
+    "a force appears in the equation of whichever body it acts on"
+   ],
+   "concept": {
+    "n": 5,
+    "c": "Newton's second law as a vector statement",
+    "of": 34,
+    "rests": [
+     "Free-body thinking, and the net force on one chosen body"
+    ]
+   }
+  },
+  {
+   "day": 2,
+   "title": "Where the tension is worst",
+   "takeaway": "Tension at the drum is the hanging mass times gravity plus the acceleration, and the hanging mass includes the rope.",
+   "place": "Rope Shop",
+   "game": {
+    "type": "DERIVE",
+    "title": "Where the tension is worst",
+    "setup": "Rope Shop",
+    "play": "Get the tension at the drum with the cage at the inset",
+    "task": "Get the tension at the drum with the cage at the inset",
+    "question": "What is the tension at the drum with the cage accelerating upward from the inset?",
+    "answer": "About 166 kN. The hanging mass is 4,000 + 8.9 × 1,240 = 15,036 kg, and the tension is that times 9.81 + 1.2.",
+    "derive": {
+     "start": "ΣF = ma, on the cage and the hanging rope together",
+     "goal": "the tension at the drum, in kilonewtons",
+     "startNote": "cage and load 4,000 kg, rope 8.9 kg a metre, 1,240 m hanging, accelerating upward at 1.2 m/s²",
+     "askRule": true,
+     "rules": [
+      "the choice of the body",
+      "the second law on that body",
+      "substitution of the hanging mass",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Choose the body and say what mass it has.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "the cage alone, 4,000 kg",
+         "rule": "the choice of the body",
+         "survives": true
+        },
+        {
+         "text": "the cage and the drum, 22,000 kg",
+         "rule": "the choice of the body"
+        },
+        {
+         "text": "the cage and the hanging rope, 4,000 + 8.9 × 1,240 kg",
+         "rule": "the choice of the body"
+        },
+        {
+         "text": "the whole rope and the cage together, 4,000 + 11,000 kg of steel",
+         "rule": "the choice of the body",
+         "survives": true
+        }
+       ]
+      },
+      {
+       "ask": "Write the second law for that body.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "T − Mg = Ma",
+         "rule": "the second law on that body"
+        },
+        {
+         "text": "T + Mg = Ma",
+         "rule": "the second law on that body"
+        },
+        {
+         "text": "T − Mg = 0",
+         "rule": "the second law on that body",
+         "survives": true
+        },
+        {
+         "text": "T = Ma",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Substitute the hanging mass.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "M = 4,000 + 8.9 = 4,008.9 kg",
+         "rule": "substitution of the hanging mass"
+        },
+        {
+         "text": "M = 4,000 × 8.9 × 1,240 kg",
+         "rule": "substitution of the hanging mass"
+        },
+        {
+         "text": "M = 8.9 × 1,240 = 11,036 kg, the rope on its own",
+         "rule": "substitution of the hanging mass",
+         "survives": true
+        },
+        {
+         "text": "M = 4,000 + 8.9 × 1,240 = 15,036 kg",
+         "rule": "substitution of the hanging mass"
+        }
+       ]
+      },
+      {
+       "ask": "Put the numbers in.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "T = 15,036 × 1.2 = 18.0 kN",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "T = 15,036 × (9.81 + 1.2) = 166 kN",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "T = 15,036 × (9.81 − 1.2) = 129 kN",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "T = 15,036 × 9.81 = 147 kN",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a rope's tension at a point carries everything hanging below that point"
+   ],
+   "equations": [
+    {
+     "e": "ΣF = ma",
+     "c": "Newton's second law, on one chosen body",
+     "v": [
+      [
+       "ΣF",
+       "the sum of the forces on the body, in newtons"
+      ],
+      [
+       "m",
+       "the mass of that body, in kilograms"
+      ],
+      [
+       "a",
+       "its acceleration, in metres a second squared"
+      ]
+     ],
+     "s": "The law applies to one body at a time, so the first decision in every problem here is which body has been drawn round.",
+     "computed": true
+    },
+    {
+     "e": "T = (m_c + μy)(g + a)",
+     "c": "rope tension with the rope’s own weight in it",
+     "v": [
+      [
+       "m_c",
+       "the mass of the cage and its load, in kilograms"
+      ],
+      [
+       "μ",
+       "the mass of a metre of rope, in kilograms a metre"
+      ],
+      [
+       "y",
+       "how much rope is hanging, in metres"
+      ],
+      [
+       "a",
+       "the acceleration of the wind, upward positive"
+      ]
+     ],
+     "s": "A rope long enough to reach the bottom of this shaft weighs more than the cage it carries, so the tension at the drum depends on where the cage is as well as on what it is doing.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 6,
+    "c": "Tension in a rope that carries its own weight",
+    "t": "In a rope long enough to weigh more than its load, the tension at a point carries everything below that point, so it is a function of position rather than a number. The worst value is at the top, which is not where the load is attached.",
+    "of": 34,
+    "rests": [
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 3,
+   "title": "Twelve hundred metres of spring",
+   "takeaway": "A restoring force proportional to displacement is what makes an oscillation. It gives the motion a",
+   "place": "Rope Shop",
+   "game": {
+    "type": "CHOICE",
+    "title": "Twelve hundred metres of spring",
+    "setup": "Rope Shop",
+    "play": "Ask Otieno why he calls the rope a spring",
+    "task": "Ask Otieno why he calls the rope a spring",
+    "question": "What makes the rope behave like a spring rather than like a link?",
+    "answer": "Its pull grows in proportion to how far it has been stretched",
+    "rebuttals": [
+     "Weight decides the tension and says nothing about how the rope responds to being pulled.",
+     "Returning to length is what makes it elastic rather than what gives it a period.",
+     "Coils on the drum are supported by the drum, and the stretch that matters is in the hanging part."
+    ],
+    "choices": [
+     "Its pull grows in proportion to how far it has been stretched",
+     "Its own weight is greater than the load it carries",
+     "Steel returns to its original length after being loaded",
+     "It is wound on a drum, which stores the stretch in the coils"
+    ],
+    "correctChoice": "Its pull grows in proportion to how far it has been stretched"
+   },
+   "assumes": [
+    "a force proportional to a displacement always acts back towards where it started"
+   ],
+   "concept": {
+    "n": 25,
+    "c": "Simple harmonic motion out of a linear restoring force",
+    "t": "A force proportional to displacement and directed back towards the start gives an oscillation with a period of its own, set by stiffness and mass and not by how far it was pulled. Anything elastic in a machine therefore has a timescale nobody chose.",
+    "of": 34,
+    "rests": [
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 4,
+   "title": "Forty metres shorter",
+   "takeaway": "A property that depends on a length changes whenever the length does, whether or not anybody writes it down.",
+   "place": "Rope Shop",
+   "game": {
+    "type": "CHOICE",
+    "title": "Forty metres shorter",
+    "setup": "Rope Shop",
+    "play": "Settle what six months of shortening has done",
+    "task": "Settle what six months of shortening has done",
+    "question": "What has forty metres of shortening changed that nobody has recorded?",
+    "answer": "Its stiffness, and so how fast the cage bounces on it",
+    "rebuttals": [
+     "Breaking load is a property of the cross-section, and the cross-section has not changed.",
+     "The hanging length is set by where the cage is, and forty metres of it is three per cent.",
+     "Mass per metre is a property of the construction, and cutting a rope does not alter it."
+    ],
+    "choices": [
+     "Its stiffness, and so how fast the cage bounces on it",
+     "Its breaking load, since less steel is carrying the cage",
+     "The tension at the drum, since less rope is hanging",
+     "Its mass per metre, since the ends have been re-capped"
+    ],
+    "correctChoice": "Its stiffness, and so how fast the cage bounces on it"
+   },
+   "assumes": [
+    "a shorter piece of the same material stretches less under the same pull"
+   ],
+   "equations": [
+    {
+     "e": "T = (m_c + μy)(g + a)",
+     "c": "rope tension with the rope’s own weight in it",
+     "v": [
+      [
+       "m_c",
+       "the mass of the cage and its load, in kilograms"
+      ],
+      [
+       "μ",
+       "the mass of a metre of rope, in kilograms a metre"
+      ],
+      [
+       "y",
+       "how much rope is hanging, in metres"
+      ],
+      [
+       "a",
+       "the acceleration of the wind, upward positive"
+      ]
+     ],
+     "s": "A rope long enough to reach the bottom of this shaft weighs more than the cage it carries, so the tension at the drum depends on where the cage is as well as on what it is doing."
+    }
+   ],
+   "concept": {
+    "n": 26,
+    "c": "The period of an oscillation, and what it does not depend on",
+    "of": 34,
+    "rests": [
+     "Simple harmonic motion out of a linear restoring force"
+    ]
+   }
+  },
+  {
+   "day": 5,
+   "title": "A hundred and ten kilonewtons a metre",
+   "takeaway": "Stiffness is the material times the area over the length. The period the cage has on it follows from",
+   "place": "Rope Shop",
+   "game": {
+    "type": "DERIVE",
+    "title": "A hundred and ten kilonewtons a metre",
+    "setup": "Rope Shop",
+    "play": "Get the rope's stiffness and the cage's period on it",
+    "task": "Get the rope's stiffness and the cage's period on it",
+    "question": "What period does the cage have bouncing on the rope, with the cage at the inset?",
+    "answer": "About 1.2 s. The stiffness is EA/L = 110 kN/m, so ω = √(k/m) = 5.25 rad/s and the period is 2π over that.",
+    "derive": {
+     "start": "k = E·A/L,  ω = √(k/m)",
+     "goal": "the period of the cage on the rope, in seconds",
+     "startNote": "E = 120 GPa, A = 1,140 mm², L = 1,240 m, cage and load 4,000 kg",
+     "askRule": true,
+     "rules": [
+      "stiffness from the material",
+      "the frequency of a mass on a spring",
+      "the period from the frequency",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Get the stiffness.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "k = E·A·L = 1.70 × 10¹¹ N/m",
+         "rule": "stiffness from the material",
+         "survives": true
+        },
+        {
+         "text": "k = E/A·L = 1.3 × 10¹⁴ N/m",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "k = E·A/L = 1.368 × 10⁸ ÷ 1,240 = 110,000 N/m",
+         "rule": "stiffness from the material"
+        },
+        {
+         "text": "k = E·A/L, with A in mm² = 1.10 × 10¹¹ N/m",
+         "rule": "substitution of the stated values",
+         "survives": true
+        }
+       ]
+      },
+      {
+       "ask": "Get the angular frequency.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "ω = √(m/k) = √0.0363 = 0.190 rad/s",
+         "rule": "the frequency of a mass on a spring"
+        },
+        {
+         "text": "ω = √(k/m) = √27.58 = 5.25 rad/s",
+         "rule": "the frequency of a mass on a spring"
+        },
+        {
+         "text": "ω = k/m = 27.6 rad/s",
+         "rule": "the frequency of a mass on a spring",
+         "survives": true
+        },
+        {
+         "text": "ω = √(k·m) = 21,000 rad/s",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Turn the angular frequency into a period.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "T = ω/2π = 0.836 s",
+         "rule": "the period from the frequency",
+         "survives": true
+        },
+        {
+         "text": "T = 1/ω = 0.190 s",
+         "rule": "the period from the frequency"
+        },
+        {
+         "text": "T = ω = 5.25 s",
+         "rule": "the period from the frequency"
+        },
+        {
+         "text": "T = 2π/ω = 1.20 s",
+         "rule": "the period from the frequency"
+        }
+       ]
+      },
+      {
+       "ask": "Check the static stretch this stiffness implies, under 147 kN.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "x = F/k = 147,000 ÷ 110,000 = 1.34 m",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "x = F·k = 147,000 × 110,000 = 1.6 × 10¹⁰ m",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "x = k/F = 0.75 m⁻¹",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "x = F/(k·L) = 1.1 mm",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a rope's stretch is proportional to the pull on it"
+   ],
+   "concept": {
+    "n": 25,
+    "c": "Simple harmonic motion out of a linear restoring force",
+    "t": "A force proportional to displacement and directed back towards the start gives an oscillation with a period of its own, set by stiffness and mass and not by how far it was pulled. Anything elastic in a machine therefore has a timescale nobody chose.",
+    "of": 34,
+    "rests": [
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 6,
+   "title": "Four records, one account",
+   "takeaway": "Pads wear from the energy they absorb. A stop that goes on longer absorbs more of it at the same",
+   "place": "Rope Shop",
+   "game": {
+    "type": "DIAGNOSIS",
+    "title": "Four records, one account",
+    "setup": "Rope Shop",
+    "play": "Which account fits all four records?",
+    "task": "Which account fits all four records?",
+    "question": "Which account fits all four records?",
+    "answer": "The drum stopped and the cage did not",
+    "headline": "The brake was applied on time, at the right force, and the cage went past the landing.",
+    "readings": [
+     {
+      "zone": "Pad certificate",
+      "label": "Coefficient, measured cold",
+      "value": "as specified",
+      "status": "normal"
+     },
+     {
+      "zone": "Drum record",
+      "label": "Stopped from 8.4 m/s in",
+      "value": "0.9 s",
+      "status": "normal"
+     },
+     {
+      "zone": "Position tape",
+      "label": "Travel after the drum stopped",
+      "value": "1.6 m",
+      "status": "alarm"
+     },
+     {
+      "zone": "Pads",
+      "label": "Replaced after the stop",
+      "value": "worn through",
+      "status": "alarm"
+     }
+    ],
+    "choices": [
+     {
+      "label": "The pads were below specification",
+      "mechanism": "A weak brake gives a longer stop and a longer overshoot."
+     },
+     {
+      "label": "The drum stopped and the cage did not",
+      "mechanism": "The cage was on a soft rope, with its own energy to lose."
+     },
+     {
+      "label": "The driver applied the brake late",
+      "mechanism": "A late application leaves less shaft to stop in."
+     },
+     {
+      "label": "The position tape was mis-reading",
+      "mechanism": "A cage stopping with its drum cannot travel afterwards."
+     }
+    ],
+    "correctChoice": "The drum stopped and the cage did not"
+   },
+   "assumes": [
+    "energy taken out of a moving body has to appear somewhere as heat or as work"
+   ],
+   "concept": {
+    "n": 14,
+    "c": "Energy dissipated in a brake",
+    "of": 34,
+    "rests": [
+     "Kinetic energy and the work–energy theorem",
+     "Potential energy, and what makes a force conservative"
+    ]
+   }
+  },
+  {
+   "day": 7,
+   "title": "Eleven tonnes, hung from what — Review",
+   "takeaway": "Two forces acting at the same place can belong to different diagrams. Which body each acts on is",
+   "place": "Rope Shop",
+   "game": {
+    "type": "PROTOCOL",
+    "title": "Eleven tonnes, hung from what — Review",
+    "setup": "Rope Shop",
+    "play": "Match each force to the body whose free-body diagram it belongs in.",
+    "task": "Match each force to the body whose free-body diagram it belongs in.",
+    "question": "Match each force to the body whose free-body diagram it belongs in.",
+    "answer": "",
+    "scenarios": [
+     "The weight of the four hundred metres of rope hanging below the sheave.",
+     "The upward pull of the rope at the skip's cappel.",
+     "The weight of the ore riding in the skip.",
+     "The push of the headframe's steelwork up on the sheave's bearings."
+    ],
+    "choices": [
+     "The drum's, since the tension at the top of the rope is where the hanging length is finally carried.",
+     "The skip's, as the only upward force acting on it.",
+     "The skip's, as a downward force that adds to what the rope has to lift.",
+     "The sheave's, as the reaction holding it up against both ends of the rope."
+    ],
+    "mapping": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "assumes": [
+    "a rope's tension at a point carries everything hanging below that point"
+   ],
+   "equations": [
+    {
+     "e": "T = (m_c + μy)(g + a)",
+     "c": "rope tension with the rope’s own weight in it",
+     "v": [
+      [
+       "m_c",
+       "the mass of the cage and its load, in kilograms"
+      ],
+      [
+       "μ",
+       "the mass of a metre of rope, in kilograms a metre"
+      ],
+      [
+       "y",
+       "how much rope is hanging, in metres"
+      ],
+      [
+       "a",
+       "the acceleration of the wind, upward positive"
+      ]
+     ],
+     "s": "A rope long enough to reach the bottom of this shaft weighs more than the cage it carries, so the tension at the drum depends on where the cage is as well as on what it is doing."
+    }
+   ],
+   "concept": {
+    "n": 5,
+    "c": "Newton's second law as a vector statement",
+    "of": 34,
+    "rests": [
+     "Free-body thinking, and the net force on one chosen body"
+    ]
+   }
+  }
+ ],
+ "CAGE": [
+  {
+   "day": 1,
+   "title": "What the floor has to push with",
+   "takeaway": "The force a floor pushes with is the weight plus whatever the acceleration needs, and only the chosen body's mass belongs in it.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "BALLPARK",
+    "title": "What the floor has to push with",
+    "setup": "Shaft and Brake House",
+    "play": "Work out what the cage floor pushes with on the ramp",
+    "task": "Work out what the cage floor pushes with on the ramp",
+    "question": "What force does the cage floor push up with at the peak of the ramp?",
+    "answer": "",
+    "givens": [],
+    "relationship": "Net force equals mass times the acceleration, so the floor's push is the mass times gravity plus the acceleration.",
+    "calcKey": "CAGE-1"
+   },
+   "assumes": [
+    "a net force upward means the upward forces exceed the downward ones"
+   ],
+   "equations": [
+    {
+     "e": "ΣF = ma",
+     "c": "Newton's second law, on one chosen body",
+     "v": [
+      [
+       "ΣF",
+       "the sum of the forces on the body, in newtons"
+      ],
+      [
+       "m",
+       "the mass of that body, in kilograms"
+      ],
+      [
+       "a",
+       "its acceleration, in metres a second squared"
+      ]
+     ],
+     "s": "The law applies to one body at a time, so the first decision in every problem here is which body has been drawn round.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 4,
+    "c": "Free-body thinking, and the net force on one chosen body",
+    "of": 34
+   }
+  },
+  {
+   "day": 2,
+   "title": "Eighty-two kilograms, going up and slowing",
+   "takeaway": "Going up and slowing down feels lighter, because the floor is pushing with less than the weight.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "BALLPARK",
+    "title": "Eighty-two kilograms, going up and slowing",
+    "setup": "Shaft and Brake House",
+    "play": "Work out what a man feels on the way into the stop",
+    "task": "Work out what a man feels on the way into the stop",
+    "question": "What does the floor push a man of eighty-two kilograms with, on the way into the stop?",
+    "answer": "",
+    "givens": [],
+    "relationship": "The floor's push is the man's mass times gravity less the retardation, because the cage is rising and slowing.",
+    "calcKey": "CAGE-2"
+   },
+   "assumes": [
+    "the floor's push is the only upward force on somebody standing on it"
+   ],
+   "concept": {
+    "n": 8,
+    "c": "Apparent weight in an accelerating cage",
+    "of": 34,
+    "rests": [
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 3,
+   "title": "A number measured cold",
+   "takeaway": "A friction coefficient gives the largest force a contact can hold, and it carries the conditions it was measured under.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "CHOICE",
+    "title": "A number measured cold",
+    "setup": "Shaft and Brake House",
+    "play": "Settle what the brake's friction figure is a limit on",
+    "task": "Settle what the brake's friction figure is a limit on",
+    "question": "What does Craig's coefficient tell the winder house?",
+    "answer": "The most the pads can hold, at the pressure and temperature she measured",
+    "rebuttals": [
+     "Below its limit a friction contact supplies only what is asked of it, which is usually less.",
+     "A retardation needs the mass and the tension as well, and those change through a wind.",
+     "How much heat a pad can take is a separate property, measured a different way entirely."
+    ],
+    "choices": [
+     "The most the pads can hold, at the pressure and temperature she measured",
+     "The force the pads apply whenever the brake is on",
+     "The retardation the cage will reach when the brake is applied",
+     "The energy the pads can absorb before they fade"
+    ],
+    "correctChoice": "The most the pads can hold, at the pressure and temperature she measured"
+   },
+   "assumes": [
+    "a friction force takes whatever value is needed up to a limit set by the surfaces"
+   ],
+   "concept": {
+    "n": 7,
+    "c": "Friction as a force with a limit",
+    "of": 34,
+    "rests": [
+     "Free-body thinking, and the net force on one chosen body"
+    ]
+   }
+  },
+  {
+   "day": 4,
+   "title": "A force that falls all the way up",
+   "takeaway": "With a force that falls linearly, the work is the same as if the mean force had acted the whole way.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "DERIVE",
+    "title": "A force that falls all the way up",
+    "setup": "Shaft and Brake House",
+    "play": "Take the work done lifting cage and rope from the inset to the bank",
+    "task": "Take the work done lifting cage and rope from the inset to the bank",
+    "question": "How much work does one wind from the inset to the bank do against gravity?",
+    "answer": "About 116 MJ. The integral gives g[m_c·H + μH²/2] = 9.81 × (4.96 + 6.84) × 10⁶.",
+    "derive": {
+     "start": "W = ∫₀^H F(y)·dy",
+     "goal": "the work done against gravity for one wind, in megajoules",
+     "startNote": "H = 1,240 m, cage 4,000 kg, rope 8.9 kg a metre; the wind is taken as steady, so no acceleration term",
+     "askRule": true,
+     "rules": [
+      "work as an integral of force",
+      "the force as a function of position",
+      "integration with respect to position",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Write the force as a function of how far the cage has risen.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "F(y) = (m_c + μ·y)·g",
+         "rule": "the force as a function of position",
+         "survives": true
+        },
+        {
+         "text": "F(y) = (m_c + μ·H)·g",
+         "rule": "the force as a function of position"
+        },
+        {
+         "text": "F(y) = (m_c + μ·(H − y))·g",
+         "rule": "the force as a function of position"
+        },
+        {
+         "text": "F(y) = m_c·g",
+         "rule": "the force as a function of position"
+        }
+       ]
+      },
+      {
+       "ask": "Set up and split the integral.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "W = g·∫₀^H m_c dy + g·μ·∫₀^H (H − y) dy",
+         "rule": "work as an integral of force"
+        },
+        {
+         "text": "W = g·∫₀^H m_c dy × g·μ·∫₀^H (H − y) dy",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "W = g·(m_c + μ)·∫₀^H (H − y) dy",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "W = g·∫₀^H (m_c + μ·(H − y)) dH",
+         "rule": "work as an integral of force"
+        }
+       ]
+      },
+      {
+       "ask": "Do both integrals.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "W = g·m_c·H + g·μ·H²",
+         "rule": "integration with respect to position",
+         "survives": true
+        },
+        {
+         "text": "W = g·m_c·H² /2 + g·μ·H²/2",
+         "rule": "integration with respect to position"
+        },
+        {
+         "text": "W = g·m_c·H + g·μ·H/2",
+         "rule": "integration with respect to position"
+        },
+        {
+         "text": "W = g·m_c·H + g·μ·H²/2",
+         "rule": "integration with respect to position"
+        }
+       ]
+      },
+      {
+       "ask": "Put the numbers in.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "W = 9.81 × (4,960,000 + 768,800) = 56.2 MJ",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "W = 9.81 × (4,960,000 + 6,842,320) = 116 MJ",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "W = 9.81 × 4,960,000 = 48.7 MJ",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "W = 4,960,000 + 6,842,320 = 11.8 MJ",
+         "rule": "rearrangement"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "work against a changing force is the accumulation of force over distance"
+   ],
+   "equations": [
+    {
+     "e": "W = ∫F·dx",
+     "c": "work as an accumulation of force over distance",
+     "v": [
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "dx",
+       "an element of the displacement, in metres"
+      ],
+      [
+       "W",
+       "the work done, in joules"
+      ]
+     ],
+     "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 10,
+    "c": "Work as a force through a displacement, and as an integral",
+    "t": "When the force changes as the body moves, work is the area under the force–distance curve rather than a product. It is the quantity to reach for whenever the question is how much energy a whole journey costs rather than how hard something is being pushed.",
+    "of": 34,
+    "rests": [
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 5,
+   "title": "Both ends of one force",
+   "takeaway": "An interaction is one thing seen twice, and its two halves belong to two different diagrams.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "CHOICE",
+    "title": "Both ends of one force",
+    "setup": "Shaft and Brake House",
+    "play": "Settle who feels the other end of the arrestor's force",
+    "task": "Settle who feels the other end of the arrestor's force",
+    "question": "What is the relation between the force on the falling mass and the force on the arrestor?",
+    "answer": "Equal and opposite, and on different bodies, so neither cancels the other",
+    "rebuttals": [
+     "Two forces on one body would leave nothing to stop the mass, which plainly stopped.",
+     "Being the moving body changes the momentum in play and not the size of a contact force.",
+     "Stopping something is what the pair does between them; it is not evidence of a larger member."
+    ],
+    "choices": [
+     "Equal and opposite, and on different bodies, so neither cancels the other",
+     "Equal and opposite on the same body, so they cancel",
+     "The falling mass's is larger, since it was the body that was moving",
+     "The arrestor's is larger, since it stopped the mass"
+    ],
+    "correctChoice": "Equal and opposite, and on different bodies, so neither cancels the other"
+   },
+   "assumes": [
+    "forces come in pairs acting on different bodies"
+   ],
+   "concept": {
+    "n": 9,
+    "c": "Newton's third law, and which force acts on which body",
+    "of": 34,
+    "rests": [
+     "Free-body thinking, and the net force on one chosen body"
+    ]
+   }
+  },
+  {
+   "day": 6,
+   "title": "A force or an energy",
+   "takeaway": "A brake is sized by the energy it has to absorb, and by the force only in so far as that decides the distance.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "CHOICE",
+    "title": "A force or an energy",
+    "setup": "Shaft and Brake House",
+    "play": "Ask Craig what the brake is being asked to do",
+    "task": "Ask Craig what the brake is being asked to do",
+    "question": "What decides how hard a stop is on the pads?",
+    "answer": "The energy the cage has to have taken out of it",
+    "rebuttals": [
+     "The same force can take out any amount of energy, depending on how far the drum turns under it.",
+     "A retardation is what the force produces on that mass and says nothing about the total.",
+     "Speed decides part of the energy, and the height still to be lost is the rest of it."
+    ],
+    "choices": [
+     "The energy the cage has to have taken out of it",
+     "The force the pads are pressed on with",
+     "The retardation the cage reaches",
+     "The speed the cage was going at when the brake was applied"
+    ],
+    "correctChoice": "The energy the cage has to have taken out of it"
+   },
+   "assumes": [
+    "work done against a body's motion is a change in its kinetic energy"
+   ],
+   "equations": [
+    {
+     "e": "W = ∫F·dx",
+     "c": "work as an accumulation of force over distance",
+     "v": [
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "dx",
+       "an element of the displacement, in metres"
+      ],
+      [
+       "W",
+       "the work done, in joules"
+      ]
+     ],
+     "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it."
+    }
+   ],
+   "concept": {
+    "n": 11,
+    "c": "Kinetic energy and the work–energy theorem",
+    "t": "The net work done on a body is exactly its change in kinetic energy, which lets a stopping distance be found without ever writing down a time. It also says a brake is sized by the energy it absorbs rather than by the force it applies.",
+    "of": 34,
+    "rests": [
+     "Work as a force through a displacement, and as an integral"
+    ]
+   }
+  },
+  {
+   "day": 7,
+   "title": "A metre and a third of stretch",
+   "takeaway": "A stretched rope holds energy proportional to the square of its stretch, and it gives it back to whatever is on the end.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "CHOICE",
+    "title": "A metre and a third of stretch",
+    "setup": "Shaft and Brake House",
+    "play": "Settle what a stretched rope is holding",
+    "task": "Settle what a stretched rope is holding",
+    "question": "What is the rope holding while it is stretched by a metre and a third?",
+    "answer": "Energy, which it will return to the cage as the stretch comes out",
+    "rebuttals": [
+     "The stretch is a consequence of the load and it is also a store; the work done to produce it went somewhere.",
+     "Momentum belongs to something moving; a stretched rope holding still has none to give.",
+     "Some heat is produced and it is a tiny fraction, and it is not recoverable at all."
+    ],
+    "choices": [
+     "Energy, which it will return to the cage as the stretch comes out",
+     "Nothing, since the stretch is a consequence of the load rather than a store",
+     "Momentum, which it transfers to the drum when the brake is applied",
+     "Heat, since stretching steel warms it"
+    ],
+    "correctChoice": "Energy, which it will return to the cage as the stretch comes out"
+   },
+   "assumes": [
+    "a stretched spring holds energy that can be recovered"
+   ],
+   "equations": [
+    {
+     "e": "W = ∫F·dx",
+     "c": "work as an accumulation of force over distance",
+     "v": [
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "dx",
+       "an element of the displacement, in metres"
+      ],
+      [
+       "W",
+       "the work done, in joules"
+      ]
+     ],
+     "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it."
+    }
+   ],
+   "concept": {
+    "n": 27,
+    "c": "Energy in an oscillation",
+    "of": 34,
+    "rests": [
+     "Simple harmonic motion out of a linear restoring force",
+     "Kinetic energy and the work–energy theorem"
+    ]
+   }
+  },
+  {
+   "day": 8,
+   "title": "What the brake does not stop",
+   "takeaway": "A cage on a soft rope overshoots its stopped drum by its speed divided by its own angular frequency.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "DERIVE",
+    "title": "What the brake does not stop",
+    "setup": "Shaft and Brake House",
+    "play": "Work out how far the cage goes after the drum has stopped",
+    "task": "Work out how far the cage goes after the drum has stopped",
+    "question": "How far past the drum's stopping point does the cage travel?",
+    "answer": "About 1.6 m. Setting ½mv² = ½kx² gives x = v·√(m/k) = 8.4 ÷ 5.25, which is the overwind measured in March.",
+    "derive": {
+     "start": "½mv² = ½kx²",
+     "goal": "the extra travel of the cage after the drum has stopped, in metres",
+     "startNote": "v = 8.4 m/s at the moment the drum stopped, m = 4,000 kg, k = 110,000 N/m, ω = 5.25 rad/s",
+     "askRule": true,
+     "rules": [
+      "the work–energy theorem",
+      "energy stored in a spring",
+      "rearrangement",
+      "substitution of the stated values",
+      "comparison with the record"
+     ],
+     "steps": [
+      {
+       "ask": "Say what the cage's kinetic energy has to become.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "heat in the brake pads",
+         "rule": "the work–energy theorem",
+         "survives": true
+        },
+        {
+         "text": "energy stored in the stretch of the rope",
+         "rule": "energy stored in a spring"
+        },
+        {
+         "text": "potential energy, as the cage rises further",
+         "rule": "the work–energy theorem"
+        },
+        {
+         "text": "nothing: the cage stops when the drum stops",
+         "rule": "the work–energy theorem"
+        }
+       ]
+      },
+      {
+       "ask": "Rearrange for the stretch.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "x = v²·m/k",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "x = v·√(k/m)",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "x = v·√(m/k)",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "x = √(v·m/k)",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Put the numbers in.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "x = 8.4 × √(4,000 ÷ 110,000) = 8.4 ÷ 5.25 = 1.60 m",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "x = 8.4 × √(4,000 ÷ 110,000) = 8.4 ÷ 52.5 = 0.16 m",
+         "rule": "substitution of the stated values",
+         "survives": true
+        },
+        {
+         "text": "x = v·ω = 8.4 × 5.25 = 44.1 m",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "x = 8.4 ÷ 1.20 = 7.0 m",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      },
+      {
+       "ask": "Put that beside what was measured in March.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "1.60 m against 1.6 m measured, so the pads were the cause after all",
+         "rule": "comparison with the record"
+        },
+        {
+         "text": "1.60 m against 1.6 m measured, so the position recorder was mis-calibrated",
+         "rule": "comparison with the record"
+        },
+        {
+         "text": "1.60 m against 1.6 m measured, which is a coincidence and settles nothing",
+         "rule": "comparison with the record",
+         "survives": true
+        },
+        {
+         "text": "1.60 m against 1.6 m measured, so the overshoot is the rope and not the brake",
+         "rule": "comparison with the record"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "all of a body's kinetic energy has to be accounted for by work done on it"
+   ],
+   "equations": [
+    {
+     "e": "ΔK = W_net",
+     "c": "the work–energy theorem",
+     "v": [
+      [
+       "ΔK",
+       "the change in kinetic energy, in joules"
+      ],
+      [
+       "W_net",
+       "the work done by every force acting, in joules"
+      ]
+     ],
+     "s": "The net work on a body is exactly its change in kinetic energy, which is why a stopping distance can be found without ever writing down a time.",
+     "computed": true
+    },
+    {
+     "e": "W = ∫F·dx",
+     "c": "work as an accumulation of force over distance",
+     "v": [
+      [
+       "F",
+       "the force in the direction of travel, in newtons"
+      ],
+      [
+       "dx",
+       "an element of the displacement, in metres"
+      ],
+      [
+       "W",
+       "the work done, in joules"
+      ]
+     ],
+     "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it."
+    }
+   ],
+   "concept": {
+    "n": 11,
+    "c": "Kinetic energy and the work–energy theorem",
+    "t": "The net work done on a body is exactly its change in kinetic energy, which lets a stopping distance be found without ever writing down a time. It also says a brake is sized by the energy it absorbs rather than by the force it applies.",
+    "of": 34,
+    "rests": [
+     "Work as a force through a displacement, and as an integral"
+    ]
+   }
+  },
+  {
+   "day": 9,
+   "title": "Nine tenths of a second",
+   "takeaway": "A prediction locked before an intervention is a measurement of the model; the same number chosen afterwards is a description.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "VERIFY",
+    "title": "Nine tenths of a second",
+    "setup": "Shaft and Brake House",
+    "play": "Predict the test wind's stop, then measure it",
+    "task": "Predict the test wind's stop, then measure it",
+    "question": "Predict how long the drum takes to stop, apply the brake, and report what happened.",
+    "answer": "About nine tenths of a second — but only the recorder trace establishes it. A stop that happened is not a stop that has been measured.",
+    "verify": {
+     "prediction": {
+      "label": "Predicted time for the drum to stop",
+      "unit": "s",
+      "min": 0.3,
+      "max": 2.4,
+      "step": 0.05
+     },
+     "truth": 0.9,
+     "passRatio": [
+      0.6,
+      1.6
+     ],
+     "intervention": {
+      "label": "The emergency brake, from 8.4 m/s",
+      "note": "Empty cage, mid-shaft, both pad sets. The oil is dumped and the weights apply the pads.",
+      "outcome": "Brake applied. Drum at rest, cage at rest, nothing damaged."
+     },
+     "measurement": {
+      "label": "The drum recorder trace",
+      "note": "Angular velocity against time through the stop, read off the paper afterwards.",
+      "cost": 1,
+      "costUnit": "test winds"
+     },
+     "hint": "Lock the prediction first. The brake can be applied without measuring anything, and a confirmed stop tells you the brake works rather than how long it took.",
+     "unmeasuredMoral": "The brake was applied and everything stopped. Nothing in that establishes how long the drum took, which is the one number the pad rating has to be compared against.",
+     "lock": "Lock the prediction",
+     "run": "Commit it",
+     "measure": "Take the measurement",
+     "commit": "Report the stopping time"
+    }
+   },
+   "assumes": [
+    "a retardation follows from the braking torque and the inertia it acts on"
+   ],
+   "equations": [
+    {
+     "e": "τ = Iα",
+     "c": "the angular form of the second law",
+     "v": [
+      [
+       "τ",
+       "the torque about the axis, in newton metres"
+      ],
+      [
+       "I",
+       "the moment of inertia about that axis"
+      ],
+      [
+       "α",
+       "the angular acceleration, in radians a second squared"
+      ]
+     ],
+     "s": "Torque is to rotation what force is to motion in a straight line, and the inertia that resists it is the integral rather than the mass."
+    }
+   ],
+   "concept": {
+    "n": 33,
+    "c": "Predicting, then measuring what was predicted",
+    "of": 34,
+    "rests": [
+     "Kinetic energy and the work–energy theorem"
+    ]
+   }
+  },
+  {
+   "day": 10,
+   "title": "What the licence rests on",
+   "takeaway": "A submission is a list of limits, and each one has to name the quantity it constrains and the reason it exists.",
+   "place": "Shaft and Brake House",
+   "game": {
+    "type": "CASEBOOK",
+    "title": "What the licence rests on",
+    "setup": "Shaft and Brake House",
+    "play": "Match each finding to the limit it puts in the submission.",
+    "task": "Match each finding to the limit it puts in the submission.",
+    "question": "Match each finding to the limit it puts in the submission.",
+    "answer": "",
+    "scenarios": [
+     "The motor reaches 81 per cent of its torque rating and 86 per cent of its power rating.",
+     "A cage travels its speed divided by 5.25 after the drum has stopped.",
+     "A downward emergency stop delivers 1.27 megajoules to pads rated at 600 kilojoules.",
+     "The rope is 40 m shorter than the file says and 3 per cent stiffer."
+    ],
+    "choices": [
+     "No limit needed: the machine has the margin and the faster cycle uses it.",
+     "A cap on the speed at which the brake may be applied.",
+     "A prohibition on emergency stops on the descending wind except in emergency.",
+     "A recomputation of every stiffness figure whenever the rope is re-capped."
+    ],
+    "mapping": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "assumes": [
+    "a limit is only useful if it names the quantity it limits"
+   ],
+   "equations": [
+    {
+     "e": "τ = Iα",
+     "c": "the angular form of the second law",
+     "v": [
+      [
+       "τ",
+       "the torque about the axis, in newton metres"
+      ],
+      [
+       "I",
+       "the moment of inertia about that axis"
+      ],
+      [
+       "α",
+       "the angular acceleration, in radians a second squared"
+      ]
+     ],
+     "s": "Torque is to rotation what force is to motion in a straight line, and the inertia that resists it is the integral rather than the mass."
+    }
+   ],
+   "concept": {
+    "n": 14,
+    "c": "Energy dissipated in a brake",
+    "of": 34,
+    "rests": [
+     "Kinetic energy and the work–energy theorem",
+     "Potential energy, and what makes a force conservative"
+    ]
+   }
+  }
+ ],
+ "TIP": [
+  {
+   "day": 1,
+   "title": "Three hundred and twenty tonnes an hour",
+   "takeaway": "A mass rate times a speed change is a force, and it is what a drive feels from anything arriving continuously.",
+   "place": "Tip and Conveyor",
+   "game": {
+    "type": "DERIVE",
+    "title": "Three hundred and twenty tonnes an hour",
+    "setup": "Tip and Conveyor",
+    "play": "Take the force the belt feels from the ore stream",
+    "task": "Take the force the belt feels from the ore stream",
+    "question": "What horizontal force does the ore stream put on the belt drive?",
+    "answer": "About 222 N. The rate is 88.9 kg a second and the speed change is 2.5 m/s, so the force is their product.",
+    "derive": {
+     "start": "J = ∫F dt = Δp",
+     "goal": "the horizontal force on the belt drive, in newtons",
+     "startNote": "320 tonnes an hour arriving with no forward speed, onto a belt running at 2.5 m/s",
+     "askRule": true,
+     "rules": [
+      "conversion of the rate",
+      "impulse and momentum",
+      "taking the limit of the interval",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Turn the arrival rate into kilograms a second.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "320 ÷ 60 = 5.33 kg/s",
+         "rule": "conversion of the rate",
+         "survives": true
+        },
+        {
+         "text": "320,000 ÷ 3,600 = 88.9 kg/s",
+         "rule": "conversion of the rate"
+        },
+        {
+         "text": "320 × 1,000 × 3,600 = 1.15 × 10⁹ kg/s",
+         "rule": "conversion of the rate"
+        },
+        {
+         "text": "320,000 ÷ 60 = 5,333 kg/s",
+         "rule": "conversion of the rate"
+        }
+       ]
+      },
+      {
+       "ask": "Write the momentum given to the ore that lands in a short interval.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "Δp = m·v, with m the whole shift's ore",
+         "rule": "impulse and momentum"
+        },
+        {
+         "text": "Δp = ½·(dm/dt)·Δt·v²",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "Δp = (dm/dt)·Δt·v",
+         "rule": "impulse and momentum"
+        },
+        {
+         "text": "Δp = (dm/dt)·v",
+         "rule": "impulse and momentum"
+        }
+       ]
+      },
+      {
+       "ask": "Divide by the interval to get the force.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "F = (dm/dt)·v, the interval cancelling",
+         "rule": "taking the limit of the interval"
+        },
+        {
+         "text": "F = (dm/dt)·v·Δt",
+         "rule": "rearrangement"
+        },
+        {
+         "text": "F = (dm/dt)·v ÷ 2",
+         "rule": "taking the limit of the interval",
+         "survives": true
+        },
+        {
+         "text": "F = v·Δt ÷ (dm/dt), the interval divided out the other way",
+         "rule": "rearrangement"
+        }
+       ]
+      },
+      {
+       "ask": "Put the numbers in.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "F = 88.9 × 2.5² = 556 N",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "F = 5.33 × 2.5 = 13.3 N",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "F = 88.9 ÷ 2.5 = 35.6 N",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "F = 88.9 × 2.5 = 222 N",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a force acting for a time changes momentum by their product"
+   ],
+   "equations": [
+    {
+     "e": "J = ∫F dt = Δp",
+     "c": "impulse as the change in momentum",
+     "v": [
+      [
+       "J",
+       "the impulse, in newton seconds"
+      ],
+      [
+       "F",
+       "the force, in newtons"
+      ],
+      [
+       "Δp",
+       "the change in momentum, in kilogram metres a second"
+      ]
+     ],
+     "s": "A force acting over a time changes momentum by the area under the force-time curve, so a short hard blow and a long gentle push can do the same thing.",
+     "computed": true
+    }
+   ],
+   "concept": {
+    "n": 15,
+    "c": "Impulse as the integral of a force over time",
+    "t": "A force acting over a time changes momentum by the area under the force–time curve, so a short hard blow and a long gentle push can do the same thing. It is also what turns a stream of arriving mass into a steady force nobody had counted.",
+    "of": 34,
+    "rests": [
+     "Newton's second law as a vector statement"
+    ]
+   }
+  },
+  {
+   "day": 2,
+   "title": "Four tonnes into a bin",
+   "takeaway": "Taking two bodies together removes the force between them from the accounting and leaves only what comes from outside.",
+   "place": "Tip and Conveyor",
+   "game": {
+    "type": "CHOICE",
+    "title": "Four tonnes into a bin",
+    "setup": "Tip and Conveyor",
+    "play": "Ask Lindqvist what a skip and a bin have in common with a stop",
+    "task": "Ask Lindqvist what a skip and a bin have in common with a stop",
+    "question": "What has to happen to the momentum the ore arrives with?",
+    "answer": "The bin takes it, and passes it to its bolts as an impulse",
+    "rebuttals": [
+     "Momentum does not disappear; something has to have taken it, and here the bolts are the only candidate.",
+     "The skip has stopped tipping and has no forward motion to carry away.",
+     "Energy becomes heat; momentum is a separate ledger and it has to balance on its own."
+    ],
+    "choices": [
+     "The bin takes it, and passes it to its bolts as an impulse",
+     "It disappears, since the ore comes to rest",
+     "The skip keeps it, since the skip was what was moving",
+     "It becomes heat in the ore and the bin"
+    ],
+    "correctChoice": "The bin takes it, and passes it to its bolts as an impulse"
+   },
+   "assumes": [
+    "momentum lost by one body is gained by another unless something outside acts"
+   ],
+   "equations": [
+    {
+     "e": "J = ∫F dt = Δp",
+     "c": "impulse as the change in momentum",
+     "v": [
+      [
+       "J",
+       "the impulse, in newton seconds"
+      ],
+      [
+       "F",
+       "the force, in newtons"
+      ],
+      [
+       "Δp",
+       "the change in momentum, in kilogram metres a second"
+      ]
+     ],
+     "s": "A force acting over a time changes momentum by the area under the force-time curve, so a short hard blow and a long gentle push can do the same thing.",
+     "demanded": true
+    }
+   ],
+   "concept": {
+    "n": 16,
+    "c": "Conservation of momentum in a system with no outside force",
+    "of": 34,
+    "rests": [
+     "Impulse as the integral of a force over time"
+    ]
+   }
+  }
+ ],
+ "GRAV": [
+  {
+   "day": 1,
+   "title": "Four readings for one number",
+   "takeaway": "A reading becomes a measurement only once the instrument's own drift and the station's own height are accounted for.",
+   "place": "Gravity Station",
+   "game": {
+    "type": "CASEBOOK",
+    "title": "Four readings for one number",
+    "setup": "Gravity Station",
+    "play": "Match each entry in the field book to what it is there for.",
+    "task": "Match each entry in the field book to what it is there for.",
+    "question": "Match each entry in the field book to what it is there for.",
+    "answer": "",
+    "scenarios": [
+     "The same reference station, read at the start and again at the end of the day.",
+     "The elevation of each station, to a centimetre.",
+     "The time each reading was taken.",
+     "The reading itself, in milligals."
+    ],
+    "choices": [
+     "It measures how far the instrument's own spring has crept during the day.",
+     "It removes the part of the difference that is only about being higher up.",
+     "It is what lets the creep be shared out between the readings in between.",
+     "It is the quantity everything else is a correction to."
+    ],
+    "mapping": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "assumes": [
+    "an instrument's own behaviour can change over the hours a survey takes"
+   ],
+   "concept": {
+    "n": 34,
+    "c": "A measurement carries the conditions it was made under",
+    "of": 34,
+    "rests": [
+     "Friction as a force with a limit"
+    ]
+   }
+  },
+  {
+   "day": 2,
+   "title": "The shells above you",
+   "takeaway": "Inside a uniform sphere gravity grows in proportion to the distance from the centre, because only the mass below you counts.",
+   "place": "Gravity Station",
+   "game": {
+    "type": "DERIVE",
+    "title": "The shells above you",
+    "setup": "Gravity Station",
+    "play": "Derive what gravity does as you go down inside a uniform sphere",
+    "task": "Derive what gravity does as you go down inside a uniform sphere",
+    "question": "What should gravity do over the 1,240 metres of this shaft, for a uniform earth?",
+    "answer": "Fall by about 191 milligals: g(r) = g₀·r/R, so the change is g₀ × 1,240 ÷ 6,371,000. The measurement is a rise of 105, so the earth is not uniform.",
+    "derive": {
+     "start": "g(r) = G·M(r)/r²",
+     "goal": "the predicted change in g over the depth of the shaft, in milligals",
+     "startNote": "R = 6,371 km, g₀ = 9.812 m/s² at the surface; the inset is 1,240 m below it",
+     "askRule": true,
+     "rules": [
+      "the shell theorem",
+      "the mass inside a radius",
+      "the inverse-square law",
+      "substitution of the stated values",
+      "rearrangement"
+     ],
+     "steps": [
+      {
+       "ask": "Say which mass acts at a radius inside the sphere.",
+       "answer": 3,
+       "candidates": [
+        {
+         "text": "the whole mass of the sphere, wherever you are inside it",
+         "rule": "the shell theorem",
+         "survives": true
+        },
+        {
+         "text": "the mass of the shells above the radius",
+         "rule": "the shell theorem"
+        },
+        {
+         "text": "no mass at all, since the pulls cancel",
+         "rule": "the shell theorem"
+        },
+        {
+         "text": "the mass of the sphere below the radius",
+         "rule": "the shell theorem"
+        }
+       ]
+      },
+      {
+       "ask": "Write that mass in terms of the density.",
+       "answer": 0,
+       "candidates": [
+        {
+         "text": "M(r) = ρ·(4/3)πr³",
+         "rule": "the mass inside a radius"
+        },
+        {
+         "text": "M(r) = ρ·4πr²",
+         "rule": "the mass inside a radius"
+        },
+        {
+         "text": "M(r) = ρ·(4/3)πR³·(r/R)²",
+         "rule": "the mass inside a radius",
+         "survives": true
+        },
+        {
+         "text": "M(r) = ρ·πr³",
+         "rule": "the mass inside a radius"
+        }
+       ]
+      },
+      {
+       "ask": "Put it into the inverse-square law.",
+       "answer": 2,
+       "candidates": [
+        {
+         "text": "g(r) = (4/3)πGρ·r², so gravity falls as the square of the radius",
+         "rule": "the inverse-square law"
+        },
+        {
+         "text": "g(r) = (4/3)πGρ/r, so gravity grows towards the centre",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "g(r) = (4/3)πGρ·r, so gravity is proportional to the radius",
+         "rule": "the inverse-square law"
+        },
+        {
+         "text": "g(r) = GρV/r², with V the whole volume",
+         "rule": "the inverse-square law"
+        }
+       ]
+      },
+      {
+       "ask": "Evaluate the change over the depth of the shaft.",
+       "answer": 1,
+       "candidates": [
+        {
+         "text": "Δg = g₀·(d/R)² = 3.7 × 10⁻⁸ m/s², which is nothing at all",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "Δg = −g₀·d/R = −1.91 × 10⁻³ m/s², a fall of 191 milligals",
+         "rule": "substitution of the stated values"
+        },
+        {
+         "text": "Δg = −g₀·R/d = −50,400 m/s²",
+         "rule": "rearrangement",
+         "survives": true
+        },
+        {
+         "text": "Δg = −g₀·d/R = −1.91 × 10⁻³ m/s², a fall of 1.91 milligals",
+         "rule": "substitution of the stated values"
+        }
+       ]
+      }
+     ],
+     "hint": "Each line has to follow from the one above it, and each one is licensed by a rule.",
+     "commit": "Commit the derivation"
+    }
+   },
+   "assumes": [
+    "a spherical shell of matter exerts no net pull on anything inside it",
+    "newton's law of gravitation — taken as read"
+   ],
+   "equations": [
+    {
+     "e": "g(r) = GMr/R³ inside,  g = GM/r² outside",
+     "c": "gravity inside and outside a uniform sphere",
+     "v": [
+      [
+       "G",
+       "the gravitational constant, 6.674 × 10⁻¹¹ in SI units"
+      ],
+      [
+       "M",
+       "the mass of the whole sphere, in kilograms"
+      ],
+      [
+       "R",
+       "its radius, in metres"
+      ],
+      [
+       "r",
+       "how far from the centre the measurement is made"
+      ]
+     ],
+     "s": "Outside a sphere the whole mass acts as though it were at the centre; inside one, the shells above you contribute nothing and only the mass below counts.",
+     "computed": true
+    }
+   ],
+   "takesAsRead": [
+    {
+     "n": 29,
+     "c": "Newton's law of gravitation"
+    }
+   ],
+   "concept": {
+    "n": 30,
+    "c": "The field inside a uniform sphere, and the shell theorem",
+    "t": "Matter arranged in a shell around you pulls you nowhere, so inside a sphere only the mass below counts and gravity grows in proportion to the radius. It is what makes a measurement of gravity underground a measurement of the rock above it.",
+    "of": 34,
+    "rests": [
+     "Newton's law of gravitation"
+    ]
+   }
+  },
+  {
+   "day": 3,
+   "title": "Two thousand six hundred and seventy",
+   "takeaway": "A gravity gradient down a shaft constrains the density of the rock passed through, and constrains nothing about what is deeper.",
+   "place": "Gravity Station",
+   "game": {
+    "type": "BALLPARK",
+    "title": "Two thousand six hundred and seventy",
+    "setup": "Gravity Station",
+    "play": "Get the rock density out of the disagreement with Sokol",
+    "task": "Get the rock density out of the disagreement with Sokol",
+    "question": "What density does the measured gradient give for the rock above the inset?",
+    "answer": "",
+    "givens": [],
+    "relationship": "Density = the free-air gradient less the measured gradient, divided by twice the plate coefficient.",
+    "calcKey": "GRAV-3"
+   },
+   "assumes": [
+    "rock that was above the instrument stops being above it as the instrument goes down",
+    "the field inside a uniform sphere, and the shell theorem — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 30,
+     "c": "The field inside a uniform sphere, and the shell theorem"
+    }
+   ],
+   "concept": {
+    "n": 31,
+    "c": "What a measurement of g constrains, and what it leaves free",
+    "of": 34,
+    "rests": [
+     "The field inside a uniform sphere, and the shell theorem"
+    ]
+   }
+  }
+ ]
+}

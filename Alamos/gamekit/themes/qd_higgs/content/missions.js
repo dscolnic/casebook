@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "CHART",
         "lesson": 1,
-        "task": "Say what the field actually does"
+        "task": "Say what the field actually does",
+        "person": true
       },
       {
         "group": "STATS",
@@ -71,7 +72,8 @@ export const MISSIONS = [
       {
         "group": "STATS",
         "lesson": 2,
-        "task": "Choose the announcement"
+        "task": "Choose the announcement",
+        "person": true
       }
     ]
   }

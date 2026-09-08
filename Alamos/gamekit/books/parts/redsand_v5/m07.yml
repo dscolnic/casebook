@@ -6,13 +6,21 @@
     header: "9 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "HEAT"
     goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the coolant panel."
-    body: "The leak search is over: too little usable hydrogen reached the reactor, so much of the missing methane was never made. A signed temperature change occurred just before production fell, but restoring the old setting could overheat the plant. At the Reactor and Cold End, calculate heat flow and rebuild the event order. By the end of the mission, decide whether cooling failed before or after the temperature change."
+    body: "Much of the missing methane was never made because too little hydrogen reached the reactor. Someone also lowered the temperature just before production slowed. Reconstruct the heat transfers and event times to decide whether that change caused trouble or followed an earlier cooling failure."
     objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
   objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
-  stake: "The leak search is over: too little usable hydrogen reached the reactor, so much of the missing methane was never made. A signed temperature change occurred just before production fell, but restoring the old setting could overheat the plant. At the Reactor and Cold End, calculate heat flow and rebuild the event order. By the end of the mission, decide whether cooling failed before or after the temperature change."
+  stake: "Much of the missing methane was never made because too little hydrogen reached the reactor. Someone also lowered the temperature just before production slowed. Reconstruct the heat transfers and event times to decide whether that change caused trouble or followed an earlier cooling failure."
   takeaway: "Timing matters: radiator loss before the override changes the story of motive."
   segue: "Mission decision: The cooling system grew weak before the reactor setting fell. The heat count leaves 2.7 MJ in the plant. That heat can form a hot spot. The lower setting then cut heat and fuel output. The next test asks if that change caused the fast drop in production."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Heat", def: "energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one."}
+  - {name: "Exothermic", def: "process releases heat to its surroundings. Increasing an exothermic reaction's production also increases the heat the plant must remove."}
+  - {name: "Specific heat capacity", def: "the heat needed to raise one unit of mass by one degree. It connects a measured temperature change to an amount of heat."}
+  - {name: "Phase change", def: "moves matter between solid, liquid, and gas without changing its chemical identity. During the change, energy can move while temperature stays constant."}
+  equations:
+  - {"e":"q = mcΔT","c":"calculating heat from a measured temperature change","v":[["q","heat"],["m","mass"],["c","specific heat capacity"],["ΔT","final temperature minus initial temperature"]],"s":"The coolant temperature rise reveals how much reactor heat was actually removed before the temperature override."}
+  - {"e":"E_stored=E_generated-E_removed-E_carried","c":"closing a thermal ledger","v":[["E_stored","energy retained in equipment or gas"],["E_generated","reaction energy released"],["E_removed","energy removed by cooling"],["E_carried","energy carried out with matter. All four use the same energy unit"]],"s":"A positive remainder can create an inlet hot spot even when the average reactor temperature looks safe."}
   primer:
   - "The sign of reaction enthalpy tells whether higher production adds to or reduces the cooling burden."
   - "A delayed temperature signal can result from melting or another phase change, not from a delayed event."
@@ -39,7 +47,7 @@
     # unlocks: The radiator-side travel beat.
     bubbles:
     - who: herrera   # Herrera
-      say: "More methane means more heat to remove. The question is whether the cooling system still had that capacity."
+      say: "Nice work. More methane means more heat to remove. The question is whether the cooling system still had that capacity."
   - id: after-stop-26
     # After Stop 26 | reactor coolant panel | automatic travel authorization
     on: { after: [2] }
@@ -48,7 +56,7 @@
     # unlocks: The Cold End waypoint and Stop 27; Stop 28 unlocks immediately after Stop 27.
     bubbles:
     - who: cho   # Cho
-      say: "The phase change delays the signal. To learn what failed first, we need the radiator-side ledger."
+      say: "Good thinking. The phase change delays the signal. To learn what failed first, we need the radiator-side ledger."
   - id: after-stops-27-and-28
     # After Stops 27 and 28 | Cold End | automatic discovery
     on: { after: [3, 4] }
@@ -57,7 +65,7 @@
     # unlocks: The Mission 7 outcome beat.
     bubbles:
     - who: herrera   # Herrera
-      say: "I lowered the temperature after heat rejection weakened."
+      say: "Exactly right. I lowered the temperature after heat rejection weakened."
   - id: at-mission-end
     # At mission end | Cold End | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,11 +74,82 @@
     # unlocks: Mission 8 briefing and the Plant Control waypoint.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "A cautious change can still be the reason we missed production."
+      say: "Outstanding work. You solved the mission. A cautious change can still be the reason we missed production."
     - who: herrera   # Herrera
       say: "Then test both claims."
     - who: abiola   # Abiola
       say: "We will. Controlled data, not timing alone."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Heat. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Endothermic", def: "process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process."}
+    - {name: "Enthalpy change", def: "records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat."}
+    - {name: "Energy ledger", def: "counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot."}
+    questions:
+    - prompt: "In a follow-up to Heat, to decide whether lowering the temperature was reckless or protective, first establish whether the Sabatier reaction releases heat as methane production rises. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Endothermic?"
+      hint: "Use the stated evidence and the conditions for Endothermic; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.", why: "This describes Enthalpy change, not Endothermic. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.", why: "Correct. process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process."}
+      - {key: "C", text: "Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.", why: "This describes Energy ledger, not Endothermic. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one.", why: "This describes Heat, not Endothermic. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to Heat: use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change. Close the ledger now so the next decision uses every real input and output exactly once. Which calculation or chemical interpretation correctly applies Enthalpy change?"
+      hint: "Use the stated evidence and the conditions for Enthalpy change; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.", why: "This describes Endothermic, not Enthalpy change. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.", why: "This describes Energy ledger, not Enthalpy change. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.", why: "Correct. records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat."}
+      - {key: "D", text: "Energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one.", why: "This describes Heat, not Enthalpy change. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks Heat using new evidence: use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change. Close the ledger now so the next decision uses every real input and output exactly once. Which calculation or chemical interpretation correctly applies Energy ledger?"
+      hint: "Use the stated evidence and the conditions for Energy ledger; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.", why: "This describes Endothermic, not Energy ledger. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.", why: "This describes Enthalpy change, not Energy ledger. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one.", why: "This describes Heat, not Energy ledger. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.", why: "Correct. counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot."}
+    - prompt: "An unseen case extends Heat: account for the delay caused by warming and melting so the thermal timeline does not mistake a late signal for the first failure. Which calculation or chemical interpretation correctly applies Heat?"
+      hint: "Use the stated evidence and the conditions for Heat; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one.", why: "Correct. energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one."}
+      - {key: "B", text: "Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.", why: "This describes Endothermic, not Heat. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.", why: "This describes Enthalpy change, not Heat. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.", why: "This describes Energy ledger, not Heat. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Heat decision, the team knows this: to decide whether lowering the temperature was reckless or protective, first establish whether the Sabatier reaction releases heat as methane production rises. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Exothermic?"
+      hint: "Use the stated evidence and the conditions for Exothermic; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.", why: "This describes Endothermic, not Exothermic. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Process releases heat to its surroundings. Increasing an exothermic reaction's production also increases the heat the plant must remove.", why: "Correct. process releases heat to its surroundings. Increasing an exothermic reaction's production also increases the heat the plant must remove."}
+      - {key: "C", text: "Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.", why: "This describes Enthalpy change, not Exothermic. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.", why: "This describes Energy ledger, not Exothermic. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from Heat to this follow-up: account for the delay caused by warming and melting so the thermal timeline does not mistake a late signal for the first failure. Which calculation or chemical interpretation correctly applies Specific heat capacity?"
+      hint: "Use the stated evidence and the conditions for Specific heat capacity; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.", why: "This describes Endothermic, not Specific heat capacity. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.", why: "This describes Enthalpy change, not Specific heat capacity. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The heat needed to raise one unit of mass by one degree. It connects a measured temperature change to an amount of heat.", why: "Correct. the heat needed to raise one unit of mass by one degree. It connects a measured temperature change to an amount of heat."}
+      - {key: "D", text: "Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.", why: "This describes Energy ledger, not Specific heat capacity. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 7: worked examples"
+    examples:
+    - {"title":"Calculate sensible heat","problem":"Warm 100 g of a material by 10 °C. Its specific heat is 4 J/(g °C).","rule":"q=mcΔT.","steps":["Set up the relationship: q=mcΔT.","q=100(4)(10)=4000 J=4 kJ."],"answer":"The material absorbs 4 kJ.","mistake":"Use temperature change, not final temperature."}
+    - {"title":"Scale reaction enthalpy","problem":"A reaction releases 40 kJ per mole of reactant consumed. Find system enthalpy change for 2 mol.","rule":"ΔH=n ΔH_molar; heat release has a negative system sign.","steps":["Set up the relationship: ΔH=n ΔH_molar; heat release has a negative system sign.","ΔH=2(-40)=-80 kJ."],"answer":"The reacting system has ΔH=-80 kJ.","mistake":"Released energy is positive in magnitude but negative as system enthalpy change."}
+    - {"title":"Heat during melting","problem":"A 20 g solid melts at its melting point. Latent heat of fusion is 100 J/g. Find heat absorbed.","rule":"q=mL_f during the phase change.","steps":["Set up the relationship: q=mL_f during the phase change.","q=20(100)=2000 J."],"answer":"The solid absorbs 2 kJ without a temperature rise during ideal melting.","mistake":"Using mcΔT alone misses latent heat."}
+    - {"title":"Combine reaction enthalpies","problem":"Reaction A→B has ΔH=+20 kJ/mol and B→C has ΔH=-50 kJ/mol. Find ΔH for A→C.","rule":"Add enthalpies for reactions that sum to the target reaction.","steps":["Set up the relationship: Add enthalpies for reactions that sum to the target reaction.","ΔH_total=20-50=-30 kJ/mol."],"answer":"A→C has ΔH=-30 kJ/mol.","mistake":"Reversing a reaction would also reverse its enthalpy sign."}
+    - {"title":"Warm a fixed-volume gas","problem":"A sealed ideal-gas sample has pressure 20 atm at 300 K. Find its pressure at 330 K if no reaction occurs.","rule":"At fixed amount and volume, P₂/P₁=T₂/T₁.","steps":["Set up the relationship: At fixed amount and volume, P₂/P₁=T₂/T₁.","P₂=20(330/300)=22 atm."],"answer":"The predicted pressure is 22 atm.","mistake":"Adding 30 to the pressure confuses temperature change with pressure change."}
 
   stops:
   # --- Stop 25: Which way does the heat flow?
@@ -80,10 +159,10 @@
     at: skid
     title: "Which way does the heat flow?"
     person: sundqvist
-    concept: "exothermic/endothermic"
-    reason: "Restoring the old setting is unsafe until the reaction's heat direction is clear."
-    scene: "To decide whether lowering the temperature was reckless or protective, first establish whether the Sabatier reaction releases heat as methane production rises. That sign determines whether more production adds or removes reactor heat."
-    motivation: "The crew must know whether more production adds heat before anyone restores the old setting."
+    concept: 8   # exothermic/endothermic
+    reason: "Recovery work is shifting to the reactor, where the direction of heat transfer matters for restart."
+    scene: "That sign determines whether more production adds or removes reactor heat."
+    motivation: "The heat sign establishes whether increased methane production adds to the cooling burden."
     format: CHOICE
     question: "What does the negative enthalpy mean?"
     choices:
@@ -105,18 +184,39 @@
   - group: EQUIL
     at: reactor-calculation-bench
     title: "Size the coolant load"
-    concept: "calorimetry"
-    reason: "The coolant's measured heat removal sets the scale of the missing load."
-    scene: "Calculate how much heat the coolant removed and compare it with the load the reactor produced before the override. The result supplies the known removal term for the full energy ledger."
-    motivation: "This number determines whether the cooling loop could carry away the reactor's released energy."
+    concept: 8   # calorimetry
+    reason: "The heat-flow direction is established and the coolant's removal capacity needs quantifying."
+    scene: "A 1000 kg coolant charge warmed by 3.0 K; its specific heat capacity is 3.8 kJ/(kg K). In q = mcΔT, q is transferred heat, m is coolant mass, c is specific heat capacity, and ΔT is its temperature rise."
+    motivation: "The coolant energy transfer supplies a measured removal term for the reactor's energy balance."
     format: BALLPARK
-    question: "How much heat did the coolant remove during this interval?"
+    question: "Submit the heat removed by the coolant in kilojoules."
     answerText: "The coolant removed 11.4 MJ of heat."
     why: "Multiply mass, energy per kilogram per kelvin, and temperature change. The positive number describes heat gained by coolant; the reactor system loses approximately that heat. Always name the system when assigning signs."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Using final temperature instead of temperature change overstates the load. A value of 11,400 J misses the kJ unit.
     # correct result: 11,400 kJ or 11.4 MJ; tolerance ±2%.
     # state/output: Add coolant_removed = 11.4 MJ to the ledger.
+    estimate:
+      prompt: multiply mass by specific heat capacity by temperature change
+      question: heat gained by the coolant
+      labels:
+        - 1000 kg  (Coolant mass)
+        - 3.8 kJ/(kg K)  (Specific heat capacity)
+        - 3 K  (Temperature change)
+      values:
+        - 1000
+        - 3.8
+        - 3
+      slots: 3
+      template: q=({0})({1})({2})
+      formula: q=(1000)(3.8)(3.0)
+      correct:
+        - 0
+        - 1
+        - 2
+      target: 11400
+      tolerance: 228
+      units: kJ
 
   # --- Stop 27: Follow energy through temperature and phase
   #     Concept: heating curves; Keystone: energy and calorimetry; Area: Reactor Hall; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
@@ -124,10 +224,10 @@
   - group: EQUIL
     at: heat-model-board
     title: "Follow energy through temperature and phase"
-    concept: "heating curves"
-    reason: "Phase changes delay signals and can reverse the apparent event order."
-    scene: "Account for the delay caused by warming and melting so the thermal timeline does not mistake a late signal for the first failure. The corrected delay will show which change actually happened first."
-    motivation: "Phase-change energy delays the thermal signal and helps establish which event occurred first."
+    concept: 8   # heating curves
+    reason: "The cooling record mixes temperature changes with phase changes and delayed sensor responses."
+    scene: "The cooling record includes sensible heating, a phase change, and the response delay of the temperature sensor. The event cards show those physical steps alongside their recorded times."
+    motivation: "The energy sequence resolves the timing needed to identify which thermal change preceded the incident."
     format: SEQUENCE
     question: "Order the energy steps."
     # CONVERTED from the bible's `data` line below; `correct result: As listed`.
@@ -150,10 +250,10 @@
   - group: EQUIL
     at: phase-radiator
     title: "Close the reactor-radiator energy ledger"
-    concept: "energy conservation"
-    reason: "The energy balance decides whether cooling loss came before the override."
-    scene: "Use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change. Any leftover energy must appear as storage, transfer, or dangerous heating."
-    motivation: "Unremoved heat can form the inlet hot spot that made Herrera lower the set point."
+    concept: 8   # energy conservation
+    reason: "The coolant transfer and timing are established, leaving the reactor's full energy balance to close."
+    scene: "Use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change."
+    motivation: "The unexplained energy load indicates how much heating must accumulate outside the listed removal paths."
     format: BALANCE
     question: "Find the unremoved energy and identify the operational consequence."
     # CONVERTED from the payload below. `target` -> `total`; `count:` ->
@@ -161,15 +261,37 @@
     # becomes the hidden stream, named from the bible's own correct action —
     # "Assign 2.7 MJ to accumulated hot-spot/structure load".
     balance:
-      total: { amount: 16.5, unit: MJ, label: "Heat released by reactor" }
-      tolerance: 0.05
+      target:
+        label: Heat released by reactor
+        value: 16.5
+        unit: MJ
       streams:
-      - { id: coolant, label: "Removed by coolant", value: 11.4, unit: MJ }
-      - { id: bed_storage, label: "Stored in metal bed", value: 1.6, unit: MJ }
-      - { id: product_gas, label: "Carried by product gas", value: 0.8, unit: MJ }
-      - { id: dashboard_power, label: "Electrical drive power", value: 0.9, unit: MJ, countable: false }
-      - { id: hot_spot, label: "Accumulated hot-spot / structure load", value: 2.7, unit: MJ, hidden: true }
-      commit: "Report the unremoved energy"
+        - id: coolant
+          label: Removed by coolant
+          value: 11.4
+          unit: MJ
+          count: true
+        - id: bed_storage
+          label: Stored in metal bed
+          value: 1.6
+          unit: MJ
+          count: true
+        - id: product_gas
+          label: Carried by product gas
+          value: 0.8
+          unit: MJ
+          count: true
+        - id: dashboard_power
+          label: Electrical drive power
+          value: 0.9
+          unit: MJ
+          count: false
+      closure:
+        accounted: 13.8
+        residual: 2.7
+        unit: MJ
+        tolerance: 0.05
+      correct_action: Assign 2.7 MJ to accumulated hot-spot/structure load.
     answerText: "The ledger leaves 2.7 MJ accumulating as a hot-spot or structure load."
     why: "Energy generated must be removed, carried away, stored, or accumulated elsewhere. 16.5 - 11.4 - 1.6 - 0.8 = 2.7 MJ. The radiator degradation appears before Herrera's override; lowering the set point reduced heat generation after removal capacity fell."
     # wrong-path feedback, one rebuttal per wrong option:

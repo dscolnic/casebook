@@ -78,6 +78,19 @@ for(const theme of wanted){
                      // sentence reads easily, and the person exists.
                      'passageDepth.mjs',
                      'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs',
+                     // A derivation may not substitute a number the player was
+                     // never given, and may not reach one without substituting at
+                     // all. Gated against engine/dev/derivegivens-debt.json.
+                     'deriveGivens.mjs',
+                     // Every room on a floor plan is behind a door the player has
+                     // to open, and the door's collider is flagged so the crowd and
+                     // the reachability fill still walk through it.
+                     'doors.mjs',
+                     // Does the manifest name a sound, a weather and a room style the
+                     // engine has? All three fail silent — a misspelt bed is a quiet
+                     // site, a misspelt style is a laboratory — so the names are
+                     // checked against the lists the engine itself exports.
+                     'ambience.mjs',
                      // Can this place be got about in more than one way? Eight sites
                      // have a far tier, so the engine signs the vehicles out on the
                      // unlock day and the warm-up card says so — "transport is signed
@@ -220,6 +233,9 @@ if(!process.argv[2]){
                      // `takesAsRead` declaration deliberately not.
                      'equationSupply.mjs --selftest',
                      'formatMix.mjs --selftest',
+                     // The ambience gate has to show that a valid manifest and an
+                     // empty one both score zero, and one broken name scores one.
+                     'ambience.mjs --selftest',
                      // And the tenth, which is mostly a statement about what it
                      // refuses to measure. Three broader versions were written first
                      // and all three reported correct keys as wrong, because a `why`
@@ -367,7 +383,28 @@ if(!process.argv[2]){
                      // not to this file — `../tools/...` pointed one level above the
                      // repo and the gate crashed instead of grading the template.
                      '../../tools/bible-lint.mjs tools/BIBLE_AUTHORING_PROMPT.md',
-                     '../../tools/yaml-lite.mjs --selftest']){
+                     '../../tools/yaml-lite.mjs --selftest',
+                     // The maths formatter, whose selftest is half prose: every
+                     // rule in it is one an English sentence could match if it
+                     // were written a little more loosely, and it rewrites the
+                     // text of 36 campaigns at render time.
+                     '../core/mathText.js --selftest',
+                     // The DERIVE shape measurement, which decides whether a
+                     // campaign's derivations can be answered by looking at the
+                     // length of the two lines. It has to score both directions
+                     // the same, and an earlier draft scored only one.
+                     '../../tools/import-book.mjs x y --selftest',
+                     // The opening card's last line, turned into speech. The
+                     // cases that matter are the ones where it must do nothing:
+                     // a card whose last sentence is not somebody speaking has to
+                     // come back whole, on the one screen read before day one.
+                     '../core/openingQuote.js --selftest',
+                     // …and its own measurement, which took four passes to stop
+                     // reporting arithmetic as a missing given.
+                     'deriveGivens.mjs --selftest',
+                     // The worked-examples panel. Its cases are about what it must
+                     // not do: lose an example, grade anything, or open blank.
+                     '../core/worked.js --selftest']){
     const [file, ...flags] = tool.split(' ');
     const res = spawnSync(process.execPath, [resolve(here, file), ...flags],
       { stdio: 'inherit', cwd: resolve(here, '../..') });

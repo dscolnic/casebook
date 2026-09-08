@@ -1,0 +1,9 @@
+{
+  "_comment": "Player-facing strings a book carries that its bible does not. Each is prose the implementation wrote, which it is not supposed to do — an entry the bible owes, a station a payload was short of, a label a format required. engine/dev/bibleParity.mjs. A string not listed here fails; one listed here that now matches the bible fails too, naming the line to delete.",
+  "themes": {
+    "redsand_v5": [
+      "Equal temperature, not equal speed, sets equal average kinetic energy.",
+      "Equal temperature, not equal mass, sets equal average kinetic energy."
+    ]
+  }
+}

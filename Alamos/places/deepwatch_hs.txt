@@ -1,0 +1,108 @@
+DEEP WATCH (theme: deepwatch_hs) — PLACES AND LOCATIONS
+Reasoning Under Pressure Beneath the Surface
+Course: AP Physics 2, all seven units (retarget of the naval-acoustics
+original)
+Grade 12. One mission is called a Watch.
+Delivery: The Standing Orders — the board is in NAV. 15 pieces, one a watch.
+
+Run it:  cd gamekit && THEME=deepwatch_hs npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+This is an EDITION. The place is themes/deepwatch/site.js — same world,
+same cast, same grade, a different course. What follows is that file.
+
+site.js — the boat, as data.
+
+Deep Watch was built as its own game with its own engine: a persistent
+submarine, five simulation systems, and a mission runtime of timed stages.
+The boat itself came across; the simulation did not, because this engine's
+loop is walk somewhere, work the evidence, hand off — and a flooding rate
+that keeps rising while you read a gauge has no place to live in it.
+
+What survives is the part that was already data. `boat/SubmarineWorld.js`
+keeps its own `LAYOUT`, and this reads it, so there is still exactly one
+description of the compartments: the world builds from it, and the checks,
+the map and the missions read it here.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+DC — Damage Control
+  Forward Equipment & Handling   [forward_equipment]  side spine, z 0 … 6.5
+  Water in the boat — finding it, stopping it, and knowing whether you are
+  winning.
+  Calls: Learn the compartments · Find the source · Stop the source · Ready to
+  dewater
+
+SONAR — Sonar & Acoustics
+  Sonar Room   [sonar_room]  side spine, z 10.5 … 16
+  What the water carries, what the boat makes, and how to tell them apart.
+  Calls: Learn the displays · Separate signal from noise · Hold a track ·
+  Ready to report
+
+NAV — Navigation & Position
+  Control Room   [control_room]  side spine, z 16 … 23.5
+  DELIVERY ROOM — the board for The Standing Orders is here.
+  Where the boat is, how old that answer is, and how wrong it is allowed to
+  be.
+  Calls: Learn the plot · Carry the error · Take an independent fix · Ready to
+  route
+
+ENG — Propulsion & Engineering
+  Propulsion Machinery   [propulsion]  side spine, z 38.5 … 45
+  What turns the shaft, what cools it, and what the boat gives away by running
+  it.
+  Calls: Learn the plant · Trace a dependency · Reduce a signature · Ready to
+  answer bells
+
+FIRE — Fire & Electrical
+  Electrical Distribution   [electrical]  side spine, z 45 … 50
+  Fire aboard is an electrical problem until the power is proved gone.
+  Calls: Learn the switchboard · Isolate the fault · Prove it dead · Ready to
+  restore
+
+ATMO — Atmosphere & Life Support
+  Auxiliary Machinery & Bilge   [auxiliary]  side spine, z 50 … 55.5
+  The air is a system with sources, sinks and a flow path, and people are in
+  it.
+  Calls: Learn the air path · Measure it yourself · Find the sink · Ready to
+  recover
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Sonar-Array Electronics   [sonar_electronics]  side spine, z 6.5 … 10.5
+Radio & Communications   [radio_room]  side spine, z 23.5 … 27
+Berthing, Mess & Medical   [berthing_mess]  side spine, z 27 … 33
+Machinery Control Room   [machinery_control]  side spine, z 33 … 38.5
+
+==============================================================================
+THE DELIVERY — The Standing Orders
+==============================================================================
+   1. The compartment boundary card
+   2. The contact tracking rule
+   3. The two-source fix rule
+   4. The quiet-state trade order
+   5. The flooding boundary order
+   6. The de-energise-first order
+   7. The atmosphere sampling rule
+   8. The casualty priority order
+   9. The own-noise diagnosis card
+  10. The depth control order
+  11. The cooling chain check
+  12. The silent lineup deadlines
+  13. The rig-for-dive proof list
+  14. The refit recommendation
+  15. The night orders, signed
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/deepwatch_hs/ — site/plan, fixtures, minors, groups, theme.

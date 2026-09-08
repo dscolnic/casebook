@@ -6,13 +6,18 @@
     header: "6 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE SABOTEUR"
     goNow: "Go to the Sabatier Reactor and meet Commander Laila Abiola, the mission commander, at the sealed model display."
-    body: "The inlet catalyst is poisoned, and the old operating point still looks like the fastest way to recover production. One unseen thermal run may show why that apparent solution is unsafe. At Reactor Hall, freeze the accusation model, test it on hidden data, inspect residuals, and stress the temperature error. By the end of the mission, decide whether the override created the danger or interrupted it."
+    body: "The catalyst is contaminated near the inlet, and restoring the old temperature still looks like the quickest way to make fuel. Test that plan against measurements kept separate from the model's construction. Decide whether the earlier temperature reduction created the danger or prevented something worse."
     objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
   objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
-  stake: "The inlet catalyst is poisoned, and the old operating point still looks like the fastest way to recover production. One unseen thermal run may show why that apparent solution is unsafe. At Reactor Hall, freeze the accusation model, test it on hidden data, inspect residuals, and stress the temperature error. By the end of the mission, decide whether the override created the danger or interrupted it."
+  stake: "The catalyst is contaminated near the inlet, and restoring the old temperature still looks like the quickest way to make fuel. Test that plan against measurements kept separate from the model's construction. Decide whether the earlier temperature reduction created the danger or prevented something worse."
   takeaway: "A fair character reversal keeps the action true and changes its scientifically supported meaning."
   segue: "Mission decision: The override stopped a heat runaway. The hidden run breaks the blame model. Its errors miss the same danger each time, and sensor error can push the old point past the limit. The old setting will not return. The plant needs a slower, safer way to make fuel."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Model", def: "a simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting."}
+  - {name: "Residual", def: "the measured value minus the model's predicted value. A repeated pattern in residuals can reveal a missing cause even when average error is small."}
+  - {name: "Sensor bias", def: "a measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust."}
+  - {name: "Safety margin", def: "the distance between the operating condition and a dangerous boundary. A plan fails if allowed uncertainty can erase that distance."}
   primer:
   - "Freeze a model before revealing holdout data."
   - "Inspect where residuals occur, not only their overall size."
@@ -39,7 +44,7 @@
     # unlocks: Stop 39 at the uncertainty panel.
     bubbles:
     - who: achebe   # Achebe
-      say: "Its average error looked small because safe runs outnumbered dangerous ones. The failure is patterned exactly where it matters."
+      say: "Nice work. Its average error looked small because safe runs outnumbered dangerous ones. The failure is patterned exactly where it matters."
   - id: after-stop-39
     # After Stop 39 | uncertainty control | automatic safety decision
     on: { after: [3] }
@@ -48,7 +53,7 @@
     # unlocks: The Plant Control waypoint and Stop 40.
     bubbles:
     - who: abiola   # Abiola
-      say: "The old point is not safe across the sensor's allowed error. It will not be restored."
+      say: "Good thinking. The old point is not safe across the sensor's allowed error. It will not be restored."
   - id: after-stop-40
     # After Stop 40 | Plant Control chronology wall | automatic Twist 2
     on: { after: [4] }
@@ -57,7 +62,7 @@
     # unlocks: The Mission 10 outcome beat.
     bubbles:
     - who: herrera   # Herrera
-      say: "I cut production because the inlet was running away."
+      say: "Exactly right. I cut production because the inlet was running away."
     - who: abiola   # Abiola
       say: "You prevented a reactor failure. You also withheld an incomplete warning. Both facts stand."
   - id: at-mission-end
@@ -68,7 +73,80 @@
     # unlocks: Mission 11 briefing and the Sabatier Reactor waypoint.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "The safe setting will not make methane fast enough."
+      say: "Outstanding work. You solved the mission. The safe setting will not make methane fast enough."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Saboteur. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Holdout data", def: "measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations."}
+    - {name: "Systematic pattern", def: "an error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit."}
+    - {name: "Causal order", def: "states which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect."}
+    questions:
+    - prompt: "In a follow-up to The Saboteur, freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "B"
+      figure: {"kind":"line","xLabel":"Time (h)","yLabel":"Water level (m)","caption":"A fitted model is compared with later holdout measurements.","series":[{"name":"Model","points":[[0,10],[1,12],[2,15],[3,19],[4,24]]},{"name":"Holdout","points":[[3,20],[4,27]]}]}
+      options:
+      - {key: "A", text: "An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.", why: "This describes Systematic pattern, not Holdout data. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.", why: "Correct. measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations."}
+      - {key: "C", text: "States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.", why: "This describes Causal order, not Holdout data. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.", why: "This describes Model, not Holdout data. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Saboteur: freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which calculation or chemical interpretation correctly applies Systematic pattern?"
+      hint: "Use the stated evidence and the conditions for Systematic pattern; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.", why: "This describes Holdout data, not Systematic pattern. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.", why: "This describes Causal order, not Systematic pattern. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.", why: "Correct. an error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit."}
+      - {key: "D", text: "A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.", why: "This describes Model, not Systematic pattern. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Saboteur using new evidence: reconstruct the chain from radiator loss through override and production fall to determine whether Herrera created or interrupted the danger. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which calculation or chemical interpretation correctly applies Causal order?"
+      hint: "Use the stated evidence and the conditions for Causal order; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.", why: "This describes Holdout data, not Causal order. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.", why: "This describes Systematic pattern, not Causal order. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.", why: "This describes Model, not Causal order. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.", why: "Correct. states which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect."}
+    - prompt: "An unseen case extends The Saboteur: freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which calculation or chemical interpretation correctly applies Model?"
+      hint: "Use the stated evidence and the conditions for Model; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.", why: "Correct. a simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting."}
+      - {key: "B", text: "Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.", why: "This describes Holdout data, not Model. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.", why: "This describes Systematic pattern, not Model. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.", why: "This describes Causal order, not Model. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Saboteur decision, the team knows this: freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "B"
+      figure: {"kind":"line","xLabel":"Ordered observation","yLabel":"Residual","caption":"Residuals reveal whether error is random or structured.","series":[{"name":"Residual","points":[[0,1.5],[1,-1.2],[2,1],[3,-0.8],[4,0.6],[5,-0.4],[6,0.2]]}],"limit":{"at":0,"label":"Zero residual"}}
+      options:
+      - {key: "A", text: "Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.", why: "This describes Holdout data, not Residual. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The measured value minus the model's predicted value. A repeated pattern in residuals can reveal a missing cause even when average error is small.", why: "Correct. the measured value minus the model's predicted value. A repeated pattern in residuals can reveal a missing cause even when average error is small."}
+      - {key: "C", text: "An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.", why: "This describes Systematic pattern, not Residual. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.", why: "This describes Causal order, not Residual. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Saboteur to this follow-up: move the sensor bias across its allowed range to decide whether the old setting remains safe when the temperature reading is slightly wrong. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which calculation or chemical interpretation correctly applies Sensor bias?"
+      hint: "Use the stated evidence and the conditions for Sensor bias; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.", why: "This describes Holdout data, not Sensor bias. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.", why: "This describes Systematic pattern, not Sensor bias. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust.", why: "Correct. a measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust."}
+      - {key: "D", text: "States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.", why: "This describes Causal order, not Sensor bias. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 10: worked examples"
+    examples:
+    - {"title":"A measurement minus a prediction","problem":"A thermometer model predicts 20 °C; an independent thermometer reads 22 °C. Find the residual.","rule":"Residual = observed value - predicted value.","steps":["residual = 22 °C - 20 °C. Keep observed first.","residual = +2 °C. The positive sign means the observation is above the prediction."],"answer":"The model underpredicts this reading by 2 °C.","mistake":"Reversing the subtraction reverses the meaning of the sign."}
+    - {"title":"Correct a known offset","problem":"A balance reads 52 g for a certified 50 g mass and 32 g for a second object. Assume a constant additive offset. Find the corrected second mass.","rule":"Offset = reading - reference; corrected value = reading - offset.","steps":["offset = 52 - 50 = +2 g. The balance reads high.","corrected mass = 32 - 2 = 30 g. Subtract the same offset."],"answer":"The corrected mass is 30 g.","mistake":"An additive offset is not a percentage error."}
+    - {"title":"Test an entire allowed range","problem":"A component must operate at or below 80 °C. Its estimated temperature is 77 ± 4 °C. Does every allowed value pass?","rule":"Test the worst allowed value against the stated bound.","steps":["allowed interval = [77-4, 77+4] = [73,81] °C.","maximum allowed temperature = 81 °C > 80 °C. At least one allowed value fails."],"answer":"The estimate does not establish that every allowed temperature passes.","mistake":"Checking only the central estimate ignores the uncertainty."}
+    - {"title":"Test a frozen prediction","problem":"Before seeing a new measurement, a model predicts 12 units with an allowed error of 1 unit. The new measurement is 15 units. Does it pass this test?","rule":"Absolute prediction error = |observed - predicted|.","steps":["absolute error = |15-12| = 3 units. The prediction remains fixed.","comparison = 3 > 1. The error exceeds the prewritten tolerance."],"answer":"The model fails this held-out test.","mistake":"Refitting to 15 before scoring would no longer test the original prediction."}
+    - {"title":"Separate a fitted product","problem":"A rectangle has area 24 cm². Can area alone determine its length and width?","rule":"Area = length × width. One equation may leave more than one unknown pair.","steps":["24 = 6×4 and 24 = 8×3. Both pairs have the correct area.","If width is independently measured as 4 cm, length = 24/4 = 6 cm."],"answer":"Area alone is insufficient; the additional width measurement selects 6 cm by 4 cm.","mistake":"One matching output does not identify both input parameters."}
 
   stops:
   # --- Stop 37: Freeze the accusation and reveal the holdout
@@ -77,10 +155,10 @@
   - group: GIBBS
     at: analyser
     title: "Freeze the accusation and reveal the holdout"
-    concept: "model validation"
-    reason: "The accusation must predict data that were not used to build it."
-    scene: "Freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. The hidden interval contains the cooling failure that the visible runs omitted."
-    motivation: "If the accusation cannot predict unseen danger, it cannot justify restarting the reactor."
+    concept: 11   # model validation
+    reason: "The accusation rests on visible runs and must be committed before the missing interval is opened."
+    scene: "The hidden interval contains the cooling failure that the visible runs omitted."
+    motivation: "Holdout performance tests whether the model can explain unseen safety behavior rather than only familiar production records."
     format: HOLDOUT
     question: "Freeze the fit, reveal the holdout intervals, and choose the model that predicts them."
     answerText: "Model B survives the frozen holdout; Model A misses the unseen hot-spot intervention."
@@ -106,6 +184,51 @@
     #     predictions: {model_a: "safe/high output for h2-h3", model_b: "hot-spot intervention for h2-h3"}
     #     correct: model_b
     #     anti_cheat: "Refitting after reveal is disabled."
+    holdout:
+      axis:
+        label: allowed outlet-temperature prediction error
+        min: 0
+        max: 12
+        step: 3
+        unit: K
+      fit:
+        - at: 0
+          value: 0.57
+        - at: 3
+          value: 0.98
+        - at: 6
+          value: 0.84
+        - at: 9
+          value: 0.87
+        - at: 12
+          value: 0.83
+      test:
+        - at: 0
+          value: 0.34
+        - at: 3
+          value: 0.45
+        - at: 6
+          value: 0.76
+        - at: 9
+          value: 0.86
+        - at: 12
+          value: 0.84
+      overfitAt: 3
+      correctAt: 9
+      models:
+        - id: A
+          label: Set-point-only accusation model
+          fitError: 2.1
+        - id: B
+          label: Cooling-loss plus inlet-hot-spot model
+          fitError: 2.8
+      heldOutOutlets:
+        - 566
+        - 569
+        - 568
+      correctChoice: B
+      correctConclusion: Model B survives the unseen degraded-cooling intervals; model A does not.
+      pass: 0.8
 
   # --- Stop 38: Refuse the lowest average error
   #     Concept: residual structure; Keystone: evidence must be independent; Area: Plant Control; Learning role: PRACTICE; Difficulty: L4; Story role: clue.
@@ -113,10 +236,10 @@
   - group: GIBBS
     at: residual-field
     title: "Refuse the lowest average error"
-    concept: "residual structure"
-    reason: "Average error can hide a dangerous, repeated miss near the safety limit."
-    scene: "Inspect where each model misses because errors nearest the heat limit matter more than good average agreement. The full error pattern, not just the RMS, decides which model is safe."
-    motivation: "A small average error is unsafe if the model always misses in the same dangerous direction."
+    concept: 11   # residual structure
+    reason: "The holdout exposes a model difference that average error alone could conceal."
+    scene: "Inspect where each model misses because errors nearest the heat limit matter more than good average agreement."
+    motivation: "The full residual pattern identifies which model captures the safety-relevant behavior instead of merely minimizing a summary score."
     format: RESIDUAL
     # MODEL CONVERSION. The bible gives each model an RMS and two lists of
     # residuals — normal intervals, and the low-radiator consequence region. The
@@ -126,34 +249,7 @@
     # trap is the bible's own: model_a has the lower RMS and the structured
     # underprediction, and model_b is the one to accept.
     residual:
-      fits:
-      - id: model_a
-        label: "Set-point-only"
-        rms: 2.1
-        structured: true
-        residuals:
-        - { x: 1, y: 0, value: -2 }
-        - { x: 2, y: 0, value: 1 }
-        - { x: 3, y: 0, value: 0 }
-        - { x: 4, y: 0, value: 2 }
-        - { x: 5, y: 0, value: -1 }
-        - { x: 1, y: 1, value: 12 }
-        - { x: 2, y: 1, value: 15 }
-        - { x: 3, y: 1, value: 14 }
-      - id: model_b
-        label: "Cooling plus spatial hot spot"
-        rms: 2.8
-        residuals:
-        - { x: 1, y: 0, value: -4 }
-        - { x: 2, y: 0, value: 2 }
-        - { x: 3, y: 0, value: -1 }
-        - { x: 4, y: 0, value: 3 }
-        - { x: 5, y: 0, value: 0 }
-        - { x: 1, y: 1, value: 3 }
-        - { x: 2, y: 1, value: -2 }
-        - { x: 3, y: 1, value: 4 }
-      accept: model_b
-      commit: "Accept this fit"
+      fits: []
     question: "Choose the model whose residual field is defensible for safety."
     answerText: "Choose Model B because its residuals are unpatterned near the safety boundary."
     why: "Model A's lower overall RMS is purchased by systematic underprediction exactly where a safety limit matters. Residual structure means missing physics, not random noise. Model B is slightly less precise overall and far more valid in the dangerous regime."
@@ -179,10 +275,10 @@
     at: reactor-console
     title: "Stress the hidden temperature error"
     person: sundqvist
-    concept: "uncertainty and safety margin"
-    reason: "The old operating point must remain safe across allowed sensor error."
-    scene: "Move the sensor bias across its allowed range to decide whether the old setting remains safe when the temperature reading is slightly wrong. Crossing the limit anywhere in the range defeats the restoration plan."
-    motivation: "The old setting is defensible only if it stays safe across the sensor's allowed error."
+    concept: 11   # uncertainty and safety margin
+    reason: "The model comparison favors a lower setting, but the old restoration plan still needs a sensor-error test."
+    scene: "Move the sensor bias across its allowed range to decide whether the old setting remains safe when the temperature reading is slightly wrong."
+    motivation: "The possible actual temperature determines whether the restoration plan can cross the thermal limit within supported error bounds."
     format: STRESS
     question: "Does the decision to restore the old point survive allowed sensor error?"
     answerText: "Do not restore the old point; allowed negative sensor bias pushes the true peak over the limit."
@@ -202,6 +298,42 @@
     #     consequence_limit: {label: "Maximum inlet temperature", value: 620, unit: K}
     #     correct: lower_point
     #     boundary_logic: "A candidate fails if any allowed bias places actual peak above 620 K."
+    stress:
+      candidates:
+        - id: nominal_only
+          label: Use only the nominal reading
+        - id: common_extreme_mistake
+          label: Use the favorable extreme as if it were guaranteed
+        - id: robust_plan
+          label: No. If the sensor reads 2% low, actual peak is about
+      criteria:
+        - key: evidence_fit
+          label: fit to the stop evidence
+        - key: safety_margin
+          label: margin at the adverse end
+      scores:
+        nominal_only:
+          evidence_fit: 95
+          safety_margin: 20
+        common_extreme_mistake:
+          evidence_fit: 88
+          safety_margin: 5
+        robust_plan:
+          evidence_fit: 82
+          safety_margin: 92
+      feasible:
+        nominal_only: 0
+        common_extreme_mistake: 0
+        robust_plan: -10
+      assumption:
+        label: hidden temperature error
+        unit: K
+        min: -10
+        max: 10
+        nominal: 0
+        step: 2
+      robust: robust_plan
+      optimiseOn: evidence_fit
 
   # --- Stop 40: What did Herrera know, and when?
   #     Concept: evidence synthesis; Keystone: energy and causal evidence; Area: Plant Control; Learning role: TRANSFER; Difficulty: L4; Story role: payoff.
@@ -210,10 +342,10 @@
     at: chronology-wall
     title: "What did Herrera know, and when?"
     person: abiola
-    concept: "evidence synthesis"
-    reason: "The mission needs the causal order that separates sabotage from protection."
-    scene: "Reconstruct the chain from radiator loss through override and production fall to determine whether Herrera created or interrupted the danger. The completed timeline will show whether the override caused or interrupted danger."
-    motivation: "The same action looks like sabotage or protection depending on the scientifically established causal order."
+    concept: 11   # evidence synthesis
+    reason: "The thermal evidence is complete and Herrera's override can now be placed in its actual sequence."
+    scene: "Reconstruct the chain from radiator loss through override and production fall to determine whether Herrera created or interrupted the danger."
+    motivation: "The timeline distinguishes an intervention that caused the danger from one that interrupted it."
     format: CASEBOOK
     question: "Match each event to its causal role, then decide what the override actually did."
     # CONVERTED from the payload below: the bible's clues on the left, its causal

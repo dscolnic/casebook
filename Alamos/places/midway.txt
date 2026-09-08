@@ -1,0 +1,290 @@
+SAFETY FACTOR (theme: midway) — PLACES AND LOCATIONS
+Ride Engineer · Corbin Park
+Course: AP Physics 1, all eight units, taught through derivations
+Grade 11. One mission is called a Day; a stop is "ride".
+Delivery: The Corbin Park Certificate — the board is in TOWER. 15 pieces, one
+a day.
+
+Run it:  cd gamekit && THEME=midway npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Corbin Park, as data. Outdoor, on the south shore of a lake.
+
+`engine/world/outdoorTown.js` builds all of it. The place is a closed
+amusement park three weeks before it tries to reopen: seven rides, a midway
+of boarded stalls between them, a workshop, and a lake along the north edge
+that the flume takes its water from.
+
+**The rides are the buildings.** Every area in this game is a ride, so every
+group here is a station or a plant room at the foot of a machine — and the
+machines themselves, which are the whole silhouette of the place, are props.
+The coaster's lift hill and loop, the wheel, the tower and the ship are what
+a player navigates by; the buildings under them are where the questions
+happen. Nothing else in this repo has a skyline made of rides.
+
+Looking down, -Z is away from the player at the gate:
+
+                   ~ ~ ~   the lake   ~ ~ ~                    z = -150
+             [ Log Flume ]                                     z = -96
+  [ Coaster ]                         [ Drop Tower ]           z = -44 … -60
+             [ Bumper Cars ]                                   z = -24
+  [ Carousel ]                        [ Pirate Ship ]          z =  -4 … 6
+             [ Ferris Wheel ]                                  z =  22
+  [ Workshop ]      ¤ spawn ¤      [ Arcade ]                  z =  44 … 58
+                    [ Front Gate ]                             z =  70
+
+Three things here are load-bearing rather than decorative:
+
+  · The spawn at (0, 58) is inside the gate and clear for twelve metres. A
+    prop over the spawn welds the player in place: the scene renders and W
+    does nothing.
+  · Every `group` below is a group id in content/groups.js — one per ride. A
+    group with no building is a call the player cannot reach, and
+    `worldParity` and `reachable` are what notice.
+  · The horizon is shaped. Low wooded hills stand across the south behind the
+    car park, the north is open water, and that asymmetry is the wayfinding:
+    if there are trees on the skyline you are facing away from the lake.
+
+==============================================================================
+1. THE AREAS — 7 of them, one group each
+==============================================================================
+
+WHEEL — The Ferris Wheel
+  Wheel Machine Room
+  (-18, 22)   40 m from spawn   16 x 11 x 4.6
+  28 metres of steel that has to balance before it turns.
+  Calls: Balance the wheel on paper · Find the load the arm actually sees ·
+  Turn a moment into a stress · Set a wind limit somebody can operate to
+  Fixtures (at: targets):
+    hub-schedule       board  back
+      The hub bolt schedule — Twenty-four arms, eight bolts a hub, and one
+      drawing from 1945.
+    gondola-shell      bench  left
+      A gondola shell, off the wheel — Down for painting. A flat side, and the
+      wind gets all of it.
+    brake-drum         vessel right
+      The wheel brake drum — A band on a drum, and eighty-one years of glaze
+      on the lining.
+    arm-nine-file      board  back  [from day 8]
+      The arm nine file — A 41 millimetre indication, photographed, sized, and
+      not judged.
+
+SHIP — The Pirate Ship
+  Pirate Ship Console
+  (42, 6)   67 m from spawn   14 x 10 x 4.2
+  A pendulum with 60 people on it, and a period that does not care how many.
+  Calls: Measure the period and get g out of it · Derive why the period
+  ignores the load · Find the drive frequency the ride must avoid · Certify
+  the swing angle
+  Fixtures (at: targets):
+    arm-trestles       bench  left
+      The swing arm, on trestles — 8.6 metres of it, off the ride, with the
+      pivot end towards the door.
+    drive-console      board  back
+      Idowu's console — Drive interval, seat count, and twenty years of
+      knowing which is wrong.
+    seat-frame         rack   right
+      A seat frame and its bar — One seat of the sixty, bolted to a stand at
+      the height it hangs at.
+    timing-trace       board  back  [from day 8]
+      The period trace — 6.15 seconds of swing against 5.85 seconds of drive,
+      on one sheet.
+
+CAROUSEL — The Carousel and Swings
+  Carousel Drive House
+  (-44, -4)   76 m from spawn   14 x 10 x 4.2
+  Everything here goes in a circle, which means everything here is
+  accelerating.
+  Calls: Separate speed from acceleration · Derive the angle the swings hang
+  at · Check the setting against the mechanic's number · Sign the speed limit
+  for both rides
+  Fixtures (at: targets):
+    chain-rig          rack   left
+      A swing chair on its chains — Hung off the roof beam so the angle can be
+      read with a protractor.
+    pole-jig           bench  back
+      An outer horse pole, in a jig — Out of the platform and clamped.
+      Brennan's note on it reads "outer, 1991".
+    drive-panel        board  right
+      The carousel drive panel — Current, revolutions, and one lamp nobody has
+      ever seen lit.
+    platform-jacks     bench  left
+      The platform jacks and shims — Four jacks, a box of shims, and a level
+      that has been on the floor all week.
+    controller-crate   rack   back  [until day 6]
+      The new controller, crated — Strapped, addressed to the park, and not
+      going in until somebody derives a number.
+
+BUMPER — The Bumper Cars
+  Bumper Car Pavilion
+  (22, -24)   85 m from spawn   26 x 18 x 5.6
+  100 collisions an hour, and every one of them is the same equation.
+  Calls: Count the momentum before and after · Find the energy the collision
+  does not return · Turn a collision into a force on a neck · Set the floor
+  speed and the car mass
+  Fixtures (at: targets):
+    car-on-stands      bench  left
+      A car up on stands — Chen's accelerometer taped to the seat frame and
+      another on the floor pan.
+    dummy-rig          rack   back
+      The dummy and its neck rig — What a collision does to a car, and what it
+      does to the head on top of it.
+    floor-console      board  right
+      The floor console — Power, a bell, and the switch that stops twelve cars
+      at once.
+    console-card       board  right [from day 7]
+      The operator's card — Laminated, in Hart's handwriting, at the height a
+      nineteen-year-old reads.
+
+COASTER — The Coaster
+  Coaster Station
+  (-46, -44)   112 m from spawn   26 x 12 x 5
+  1 lift hill, 1 drop, 1 loop, and whatever friction has taken since 1974.
+  Calls: Close the energy books on one circuit · Find where the losses
+  actually are · Derive the speed the loop demands · Recompute the margin the
+  drawing promised
+  Fixtures (at: targets):
+    profile-drawing    board  back
+      The 1974 track profile — One chain, one hill, one loop, drawn once and
+      never redrawn.
+    station-wheel      bench  left
+      The station speed wheel — Kovač's wheel, on the same bracket it has been
+      on for three springs.
+    lift-panel         board  right
+      The chain motor panel — Amps on the way up the hill, and a rating plate
+      underneath.
+    crown-tape         board  back  [from day 10]
+      The taped crown radius — 7.4 metres, pinned next to a drawing that says
+      5.6.
+
+TOWER — The Drop Tower
+  Drop Tower Control
+  (44, -60)   126 m from spawn   14 x 10 x 4.4
+  DELIVERY ROOM — the board for The Corbin Park Certificate is here.
+  Free fall down 42 metres, and a brake that has to take it back in 9.
+  Calls: Time the drop and get an acceleration out of it · Derive the speed at
+  the bottom two ways · Put a number on what the brake does to a body ·
+  Certify the tower or say why not
+  Fixtures (at: targets):
+    fin-stack          bench  left
+      A section of copper fin, on trestles — Fin and magnet, cut out of the
+      stack. Nothing here touches anything else.
+    drop-log           board  back
+      The drop log — Every test drop since 1996, with the height and nothing
+      else.
+    brake-desk         board  right
+      The brake desk — Two lamps, a current trace, and the key that arms the
+      carriage.
+    witness-sheet      board  back  [from day 15]
+      The witnessed drop test — 5.4 g against the 6.0 the certificate allows,
+      with a signature under it.
+
+FLUME — The Log Flume
+  Flume Pumphouse
+  (-26, -96)   156 m from spawn   20 x 13 x 5.2
+  Water doing the work, and a pump that has to lift it back up again.
+  Calls: Get a pressure out of a depth · Float a loaded boat on paper · Derive
+  the outlet speed · Match the pump to the channel
+  Fixtures (at: targets):
+    header-gauge       board  back
+      The header tank gauge board — Depth, delivery, and the difference that
+      has been growing for three seasons.
+    gate-ram           vessel left
+      The hydraulic gate, in section — A two centimetre ram driving a nine
+      centimetre one, and a note reading "plenty".
+    hull-scales        bench  right
+      A moulded hull, on scales — Empty, then with weight in it, and a
+      waterline drawn on the side in pencil.
+    pump-curve         board  back  [from day 11]
+      The new pump curve — Head against flow, with the duty point marked and
+      the plate rating beside it.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+WORKSHOP — Workshop  ·  "Brennan's bench, and eleven notebooks"
+  (-54, 46)   55 m from spawn   20 x 13 x 5.4
+  Sited calls:
+    bench-notebooks    bench  back
+      The bench, and eleven notebooks — Forty-one years of settings in one
+      hand, laid out in date order for the first time.
+  Stand line: "Everything the park knows about itself is in this room, and
+  none of it is working."
+    Notebooks on the bench: 11 (normal)
+    Years covered: 1984 to 2025 (normal)
+    Settings recorded: about 600 (normal)
+    Lines of working: 0 (alarm)
+
+ARCADE — Arcade and Stalls  ·  "Boarded, and not on the list"
+  (40, 44)   42 m from spawn   24 x 12 x 5
+  Sited calls:
+    stall-cannon       bench  back
+      The water cannon stall — A nozzle on a pivot, three marks on the back
+      wall, and a pressure gauge.
+  Stand line: "The only physics in this room that nobody has to sign for."
+    Stalls boarded: 9 of 12 (low)
+    On the inspection list: none (normal)
+    Water cannon supply: 2.4 bar (normal)
+    Takings, a good Saturday: 1,900 pounds (normal)
+
+PLANT — Plant Room  ·  "Everything on the midway runs off this board"
+  (-60, -70)   141 m from spawn   14 x 10 x 4.4
+  Sited calls:
+    motor-plate        board  left
+      The pump starter and its rating plate — 55 kilowatts on the plate.
+      Everything on the midway runs off this board.
+  Stand line: "Nothing in this room is on the inspection list, and nothing
+  turns without it."
+    Incoming supply: 400 V, 250 A (normal)
+    Flume pump plate: 55 kW (normal)
+    Flume pump measured: 53.7 kW (high)
+    Rides fed off this board: 7 of 7 (normal)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Front Gate  ·  "Closed since October"
+  (0, 74)   16 m   24 x 9 x 4.6
+Reopening board
+  (11, 60)
+Spawn
+  (0, 58)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 700, playerLimit 165, profile 'flat'
+Water     centre (0, -190), 460 x 150, level -1.4
+
+==============================================================================
+THE DELIVERY — The Corbin Park Certificate
+==============================================================================
+   1. The first ride's working, written
+   2. The brake energy figure
+   3. The friction loss per lap
+   4. The swing speed limit
+   5. The seat and ram loads
+   6. The bumper collision limits
+   7. The pendulum period, from g
+   8. The cracked arm assessment
+   9. The regraded loop's speed
+  10. The re-checked drop margin
+  11. The flume's closed books
+  12. The hot-Saturday limit
+  13. The ranked crew order
+  14. The signature's scope
+  15. The conditions written down
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/midway/ — site/plan, fixtures, minors, groups, theme.

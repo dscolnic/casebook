@@ -1,4 +1,5 @@
 import { getState } from './gameState.js';
+import { metricBars, metricValues, clockText } from './metrics.js';
 import { def, currentMilestone, groupPct, readiness, forecastReadiness, forecastMoney, getCurrentMission, nextMissionStopIndex, openStopIndices, completedMissionStops, isPersonStopForIdx, getPersonIdForStop, isSpecialRequestActive, getSpecialRequest, hasSpecialRequest } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { esc, fmt, clamp } from './utils.js';
@@ -9,6 +10,7 @@ import { callLabel } from './place.js';
 import theme from './theme.js';
 import { deliveryProgress } from './delivery.js';
 import { sitedAt } from '../world/interiorFixtures.js';
+import { siteForStop } from '../world/siting.js';
 import { CURRICULUM } from './curriculum.js';
 import { WEEKS, HINT_COST, RETRY_COST, FUND_COST } from './constants.js';
 import { PASSAGE_REWARD } from './personQuiz.js';
@@ -182,9 +184,85 @@ export function updateDayClock(){
   if(bar) bar.style.transform = `scaleX(${Math.max(0, Math.min(1, frac))})`;
 }
 
+/**
+ * THE FOUR CAMPAIGN BARS.
+ *
+ * Drawn from `state.metrics`, which only `metrics.js` writes. Nothing here
+ * decides anything: clamping, locks and collapse all happen in `applyDeltas`,
+ * and a HUD that did its own clamping would be a second description of the
+ * rules — which is the shape this repo keeps paying for.
+ *
+ * A theme with no `theme.metrics` never builds a row and the strip stays
+ * hidden, so the other sixty campaigns are untouched.
+ */
+export function updateMetricHUD(){
+  const wrap=document.getElementById('hudMetrics');
+  if(!wrap) return;
+  const state=getState();
+  const bars=metricBars(theme);
+  if(!state||!bars.length){ wrap.hidden=true; return; }
+  // Revealed by the opening card, not by the first frame. The bible has the
+  // bars appear at their starting values as the card clears, so `metricsShown`
+  // is what the entry point sets then.
+  if(!state.metricsShown){ wrap.hidden=true; return; }
+  wrap.hidden=false;
+
+  const vals=metricValues(theme,state.metrics??{});
+  const locked=new Set(state.metrics?.locked??[]);
+  const host=document.getElementById('hudMetricBars');
+  if(!host) return;
+  // Rebuilt only when the set of bars changes, so a bar's width can animate.
+  if(host.childElementCount!==bars.length){
+    host.innerHTML=bars.map(b=>
+      `<div class="metricRow" data-bar="${b.key}">`
+      +`<span class="metricName">${b.label}</span>`
+      +`<span class="metricPct">0%</span>`
+      +`<span class="metricTrack"><i></i></span>`
+      +`</div>`).join('');
+  }
+  for(const b of bars){
+    const row=host.querySelector(`.metricRow[data-bar="${b.key}"]`);
+    if(!row) continue;
+    const v=vals[b.key];
+    row.querySelector('.metricPct').textContent=`${v}%`;
+    row.querySelector('.metricTrack i').style.width=`${v}%`;
+    // Three bands and no more. Colour is the fastest reading on the screen and
+    // four shades of it is a legend the player has to learn.
+    row.dataset.band=v<=25?'low':v<60?'mid':'ok';
+    row.dataset.locked=locked.has(b.key)?'1':'0';
+  }
+}
+
+/**
+ * The mission stopwatch, and what is holding it.
+ *
+ * Called every frame from the entry point rather than on a timer of its own:
+ * the clock it reads is authoritative and this is only its face.
+ */
+export function updateMissionClock(clock,{target=0}={}){
+  const box=document.getElementById('hudMissionClock');
+  if(!box) return;
+  if(!clock||!clock.active()){ box.hidden=true; return; }
+  box.hidden=false;
+  const read=document.getElementById('hudClockRead');
+  const targetEl=document.getElementById('hudClockTarget');
+  if(read) read.textContent=clockText(clock.elapsed());
+  if(targetEl) targetEl.textContent=target>0?`/ ${clockText(target)}`:'';
+  // HELD, NOT HIDDEN. A clock that vanishes during a dialogue bubble reads as a
+  // clock that broke, and the player is about to be scored on it.
+  box.dataset.held=clock.running()?'0':'1';
+}
+
 export function updateHUD(){
   const state=getState();
   if(!state) return;
+  // A metrics campaign has no funds and no day countdown — see `economy:false`
+  // in the theme. Hidden rather than left showing dashes: three readings that
+  // never change is three readings the player learns to ignore, next to four
+  // that matter.
+  const status=document.getElementById('hudStatus');
+  if(status&&theme?.economy===false) status.hidden=true;
+  updateMetricHUD();
   const hours=state.timeHours??8;
   const pad=n=>String(Math.floor(n)).padStart(2,'0');
 
@@ -285,7 +363,11 @@ export function updateHUD(){
   } else if(idx<0){
     objEl?.classList.add('done');
     whereEl.textContent='Every call is made';
-    whyEl.textContent='The rest of the day is yours — talk to people, and they will sign off expenses.';
+    // NO EXPENSES IN A CAMPAIGN WITH NO MONEY. `economy:false` turns the funds
+    // off, and this line was still offering to have them signed off.
+    whyEl.textContent = theme?.economy===false
+      ? 'The rest of the shift is yours — the crew are worth talking to.'
+      : 'The rest of the day is yours — talk to people, and they will sign off expenses.';
   } else {
     objEl?.classList.remove('done');
     // Every open call, not one. The player chooses the order now, so naming a
@@ -300,7 +382,7 @@ export function updateHUD(){
       // subject name, which is on no door and no map label.
       // The same sited-call rule as the plan card: name where the player walks.
       const lesson = CURRICULUM?.[stop.group]?.[stop.lesson];
-      return callLabel(person, stop.group, sitedAt(theme, stop.group, lesson)?.place ?? null);
+      return callLabel(person, stop.group, siteForStop(theme, stop, lesson));
     };
     whereEl.textContent = open.length === 1
       ? `Still open: ${label(open[0])}`

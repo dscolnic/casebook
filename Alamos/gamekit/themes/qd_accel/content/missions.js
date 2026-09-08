@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "SPEC",
         "lesson": 0,
-        "task": "Turn a shifted line into a redshift."
+        "task": "Turn a shifted line into a redshift.",
+        "person": true
       },
       {
         "group": "COSMO",
@@ -42,7 +43,8 @@ export const MISSIONS = [
       {
         "group": "COSMO",
         "lesson": 1,
-        "task": "Commit to what a matter-only universe predicts, then unseal the sample."
+        "task": "Commit to what a matter-only universe predicts, then unseal the sample.",
+        "person": true
       },
       {
         "group": "SPEC",
@@ -66,7 +68,8 @@ export const MISSIONS = [
       {
         "group": "PRESS",
         "lesson": 0,
-        "task": "Choose the strongest statement the evidence will carry."
+        "task": "Choose the strongest statement the evidence will carry.",
+        "person": true
       },
       {
         "group": "COSMO",

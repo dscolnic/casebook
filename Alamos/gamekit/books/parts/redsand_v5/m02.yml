@@ -6,13 +6,21 @@
     header: "14 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE FEEDSTOCK PROBLEM"
     goNow: "Go to the Atmosphere Intake and meet Ingrid Sundqvist, the production and catalyst lead, at the compressor log desk."
-    body: "The carbon ledger makes a large leak unlikely, but the plant still cannot make enough methane. The Sabatier reactor combines carbon dioxide from Martian air with hydrogen recovered from water. At the Atmosphere Intake, calculate how much methane each supply can support and identify which one runs out first. By the end of the mission, decide whether to push the intake harder or investigate hydrogen delivery."
+    body: "The carbon records make a large leak unlikely, but the plant still produces too little fuel. It makes methane from carbon dioxide collected from the air and hydrogen recovered from water. Calculate what each supply can produce and decide which one needs attention first."
     objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
   objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
-  stake: "The carbon ledger makes a large leak unlikely, but the plant still cannot make enough methane. The Sabatier reactor combines carbon dioxide from Martian air with hydrogen recovered from water. At the Atmosphere Intake, calculate how much methane each supply can support and identify which one runs out first. By the end of the mission, decide whether to push the intake harder or investigate hydrogen delivery."
+  stake: "The carbon records make a large leak unlikely, but the plant still produces too little fuel. It makes methane from carbon dioxide collected from the air and hydrogen recovered from water. Calculate what each supply can produce and decide which one needs attention first."
   takeaway: "Scarce diagnostic material creates a real trade-off between learning and output."
   segue: "Mission decision: Do not push the air intake. Test the hydrogen line instead. The captured carbon dioxide could make 2405 kg of methane, more than this shift needs. Hydrogen runs out first. A test pulse now moves toward the Hydrogen Store."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Reactant", def: "a starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor."}
+  - {name: "Product", def: "a substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction."}
+  - {name: "Coefficient", def: "the number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses."}
+  - {name: "Limiting reactant", def: "the starting substance that runs out first. It sets the greatest amount of product the reactor can make."}
+  equations:
+  - {"e":"CO2 + 4 H2 -> CH4 + 2 H2O","c":"relating the plant's carbon dioxide and hydrogen feeds to methane and water production","v":[["CO2","carbon dioxide"],["H2","hydrogen"],["CH4","methane"],["H2O","water"],["the numbers","mole ratios"]],"s":"The crew must learn whether Martian carbon dioxide or recycled hydrogen sets the amount of methane available for the flight home."}
+  - {"e":"product moles = known moles x (product coefficient / known coefficient)","c":"calculating how much product one reactant can support","v":[["known moles","the measured reactant amount; each coefficient comes from the balanced equation"]],"s":"Converting both feeds into possible methane reveals which supply truly stops production first."}
   primer:
   - "Balance an equation before using its coefficients."
   - "Compare every reactant by the amount of the same product it could make; the smaller product amount identifies the limiting reactant."
@@ -39,7 +47,7 @@
     # unlocks: Stop 6 at the intake control panel.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "Use the captured amount. Tell me what this intake could make before I touch the compressor."
+      say: "Nice work. Use the captured amount. Tell me what this intake could make before I touch the compressor."
   - id: after-stop-6
     # After Stop 6 | intake control panel | automatic reversal
     on: { after: [2] }
@@ -48,7 +56,7 @@
     # unlocks: Stop 7 at the dual-feed display.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "Then the intake is not starving us. We have enough carbon dioxide to meet the launch target."
+      say: "Good thinking. Then the intake is not starving us. We have enough carbon dioxide to meet the launch target."
     - who: abiola   # Abiola
       radio: true
       say: "That is not good news. If the air is not holding us back, something else is."
@@ -60,7 +68,7 @@
     # unlocks: Stop 8 at the hydrogen-allocation manifold.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "The Martian air was never the bottleneck. We are not getting enough hydrogen."
+      say: "Exactly right. The Martian air was never the bottleneck. We are not getting enough hydrogen."
     - who: abiola   # Abiola
       say: "You may use one diagnostic pulse, but the reactor must retain enough hydrogen to restart safely. Divide what remains."
   - id: at-mission-end
@@ -71,9 +79,80 @@
     # unlocks: Mission 3 briefing and the Hydrogen Store waypoint.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "The intake stays at normal power. Your test gets one pulse. Restart reserve remains protected."
+      say: "Outstanding work. You solved the mission. The intake stays at normal power. Your test gets one pulse. Restart reserve remains protected."
     - who: abiola   # Abiola
       say: "Follow that pulse. Find where the hydrogen stops being usable."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Feedstock Problem. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Sabatier reaction", def: "combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel."}
+    - {name: "Excess reactant", def: "a starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue."}
+    - {name: "Theoretical yield", def: "the greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it."}
+    questions:
+    - prompt: "In a follow-up to The Feedstock Problem, to test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. Which calculation or chemical interpretation correctly applies Sabatier reaction?"
+      hint: "Use the stated evidence and the conditions for Sabatier reaction; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.", why: "This describes Excess reactant, not Sabatier reaction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.", why: "Correct. combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel."}
+      - {key: "C", text: "The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.", why: "This describes Theoretical yield, not Sabatier reaction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.", why: "This describes Reactant, not Sabatier reaction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Feedstock Problem: because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Excess reactant?"
+      hint: "Use the stated evidence and the conditions for Excess reactant; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.", why: "This describes Sabatier reaction, not Excess reactant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.", why: "This describes Theoretical yield, not Excess reactant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.", why: "Correct. a starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue."}
+      - {key: "D", text: "A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.", why: "This describes Reactant, not Excess reactant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Feedstock Problem using new evidence: use that conversion to calculate the most methane the captured carbon dioxide could make before Sundqvist increases compressor power. Which calculation or chemical interpretation correctly applies Theoretical yield?"
+      hint: "Use the stated evidence and the conditions for Theoretical yield; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.", why: "This describes Sabatier reaction, not Theoretical yield. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.", why: "This describes Excess reactant, not Theoretical yield. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.", why: "This describes Reactant, not Theoretical yield. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.", why: "Correct. the greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it."}
+    - prompt: "An unseen case extends The Feedstock Problem: because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reactant?"
+      hint: "Use the stated evidence and the conditions for Reactant; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.", why: "Correct. a starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor."}
+      - {key: "B", text: "Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.", why: "This describes Sabatier reaction, not Reactant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.", why: "This describes Excess reactant, not Reactant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.", why: "This describes Theoretical yield, not Reactant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Feedstock Problem decision, the team knows this: to test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. Which calculation or chemical interpretation correctly applies Product?"
+      hint: "Use the stated evidence and the conditions for Product; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.", why: "This describes Sabatier reaction, not Product. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction.", why: "Correct. a substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction."}
+      - {key: "C", text: "A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.", why: "This describes Excess reactant, not Product. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.", why: "This describes Theoretical yield, not Product. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Feedstock Problem to this follow-up: to test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. Which calculation or chemical interpretation correctly applies Coefficient?"
+      hint: "Use the stated evidence and the conditions for Coefficient; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.", why: "This describes Sabatier reaction, not Coefficient. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.", why: "This describes Excess reactant, not Coefficient. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses.", why: "Correct. the number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses."}
+      - {key: "D", text: "The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.", why: "This describes Theoretical yield, not Coefficient. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 2: worked examples"
+    examples:
+    - {"title":"Use a mole ratio","problem":"For N₂+3H₂→2NH₃, 3 mol H₂ reacts with excess N₂. Find NH₃ produced.","rule":"Use the balanced coefficient ratio: n_NH3=n_H2(2/3).","steps":["Set up the relationship: Use the balanced coefficient ratio: n_NH3=n_H2(2/3).","n_NH3=3(2/3)=2 mol."],"answer":"The theoretical product amount is 2 mol NH₃.","mistake":"Reaction coefficients relate moles, not directly grams."}
+    - {"title":"Find the limiting reactant","problem":"For 2H₂+O₂→2H₂O, mix 6 mol H₂ and 2 mol O₂.","rule":"Compare available amount divided by its reactant coefficient.","steps":["hydrogen reaction units=6/2=3; oxygen reaction units=2/1=2.","Oxygen permits fewer reaction units; water produced=2(2)=4 mol."],"answer":"O₂ limits the reaction; 2 mol H₂ remains.","mistake":"The reactant with fewer moles is not always limiting; coefficients matter."}
+    - {"title":"Calculate percent yield","problem":"A reaction could produce 20 g of product but yields 16 g.","rule":"percent yield=actual yield/theoretical yield×100%.","steps":["Set up the relationship: percent yield=actual yield/theoretical yield×100%.","percent yield=16/20×100%=80%."],"answer":"The percent yield is 80%.","mistake":"Reversing the ratio gives an inappropriate value above 100% here."}
+    - {"title":"Convert product moles to mass","problem":"A reaction produces 2 mol CO₂. Use M_CO2=44 g/mol. Find product mass.","rule":"m=nM.","steps":["Set up the relationship: m=nM.","m=2(44)=88 g."],"answer":"The product mass is 88 g.","mistake":"Multiplying by molar mass converts moles to grams."}
+    - {"title":"Balance a reaction","problem":"Balance H₂ + O₂ → H₂O without changing chemical formulas.","rule":"Coefficients conserve each element; subscripts identify substances.","steps":["Place 2 before H₂O so the product has two oxygen atoms.","Place 2 before H₂ to supply four hydrogen atoms: 2H₂ + O₂ → 2H₂O."],"answer":"Both sides contain four hydrogen atoms and two oxygen atoms.","mistake":"Changing H₂O to H₂O₂ would change the product."}
 
   stops:
   # --- Stop 5: The production workflow
@@ -82,10 +161,10 @@
   - group: EQUIL
     at: intake-calculation-board
     title: "The production workflow"
-    concept: "stoichiometric workflow"
-    reason: "The intake claim needs one valid mass-to-methane calculation path."
-    scene: "To test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. This chain will turn the capture log into a testable production claim."
-    motivation: "This tells the crew whether Martian air can supply enough carbon for the ride home."
+    concept: 2   # stoichiometric workflow
+    reason: "The carbon ledger is nearly closed, shifting attention to how captured feed becomes product."
+    scene: "To test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass."
+    motivation: "The production chain connects the air-capture record to the methane yield the reactor could actually deliver."
     format: SEQUENCE
     question: "Order the workflow for converting captured CO2 mass into theoretical CH4 mass."
     # CONVERTED from the bible's `data` line below; `correct result: As listed`.
@@ -110,10 +189,10 @@
   - group: EQUIL
     at: compressor-log-desk
     title: "Could today's air make enough methane?"
-    concept: "theoretical yield"
-    reason: "Compressor power should not increase until its possible methane output is known."
-    scene: "Use that conversion to calculate the most methane the captured carbon dioxide could make before Sundqvist increases compressor power. The answer decides whether extra compressor power could help this shift."
-    motivation: "If the theoretical yield already exceeds the target, pushing the compressors wastes power and risks damage."
+    concept: 3   # theoretical yield
+    reason: "The production steps are identified and today's captured feed needs a methane-yield estimate."
+    scene: "The intake captured 6.60 × 10^6 g of carbon dioxide. Its molar mass is 44.01 g/mol; the reaction produces one mole of methane per mole of carbon dioxide, and methane has molar mass 16.04 g/mol."
+    motivation: "The feed-based ceiling determines whether additional compressor power could increase this shift's useful production."
     format: BALLPARK
     question: "Estimate the theoretical methane from the captured CO2."
     # CONVERTED from the bible's `data` line below: its four factors become four
@@ -149,10 +228,10 @@
     at: compressors
     title: "Which feed runs out first?"
     person: sundqvist
-    concept: "limiting reactant"
-    reason: "The plant must identify the reactant that actually stops production."
-    scene: "Because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first. That comparison will move the search to the supply that fails first."
-    motivation: "The limiting reactant identifies which supply actually caps the methane available for launch."
+    concept: 3   # limiting reactant
+    reason: "The air-based yield is known, but another reactant may run out before that ceiling is reached."
+    scene: "Because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first."
+    motivation: "Identifying the limiting feed directs the repair effort toward the supply that actually constrains methane output."
     format: CHOICE
     question: "Which reactant limits methane production, and how much CH4 can it support?"
     choices:
@@ -174,10 +253,10 @@
   - group: EQUIL
     at: intake-bypass-manifold
     title: "Spend the hydrogen you have"
-    concept: "limiting reactant under constraints"
-    reason: "The diagnostic test must preserve enough hydrogen for a safe restart."
-    scene: "Hydrogen runs out first, so divide the limited release among production, diagnosis, and restart reserve before redirecting the investigation. The chosen split must buy useful evidence without disabling the reactor."
-    motivation: "Testing the line costs real fuel, but without the test the crew may spend another shift repairing the wrong system."
+    concept: 3   # limiting reactant under constraints
+    reason: "Hydrogen is limited and must cover production, a diagnostic tracer, and protected reserve."
+    scene: "Hydrogen runs out first, so divide the limited release among production, diagnosis, and restart reserve before redirecting the investigation."
+    motivation: "The allocation determines whether the crew can investigate the supply problem without disabling the reactor or exhausting reserve."
     format: ALLOCATE
     question: "With hydrogen identified as the limiting reactant, allocate the 80 kmol across methane production, tracer testing, restart reserve, and purge protection while satisfying both required checks."
     # MODEL CONVERSION. The bible splits a pool continuously; the engine funds a
@@ -187,17 +266,31 @@
     # buy. NOT `protected:`: the bible gives the reserve a minimum of 0 and a pass
     # rule of restart >= 16, so preserving it has to be the player's choice.
     allocate:
-      pool: { amount: 80, unit: "kmol H2", mode: scalar }
+      pool:
+        amount: 80
+        unit: kmol H2
       items:
-      - { id: production, label: "Interim methane production", cost: 56 }
-      - { id: tracer, label: "Diagnostic tracer pulse", cost: 8 }
-      - { id: restart, label: "Reactor restart reserve", cost: 16 }
-      - { id: purge, label: "Purge-line protection", cost: 8 }
+        - id: production
+          label: Interim methane production
+        - id: tracer
+          label: Diagnostic tracer pulse
+        - id: restart
+          label: Reactor restart reserve
+        - id: purge
+          label: Purge-line protection
       answers:
-      - { question: "Where does hydrogen stop being usable?", requires: [tracer], required: true }
-      - { question: "Can the reactor restart safely?", requires: [restart], required: true }
-      - { question: "Can this shift still make some methane?", requires: [production] }
-      - { question: "Can the diagnostic line be purged safely?", requires: [purge] }
+        - requires:
+            - "[object Object]"
+          required: true
+        - requires:
+            - "[object Object]"
+          required: true
+        - requires:
+            - "[object Object]"
+          required: false
+        - requires:
+            - "[object Object]"
+          required: false
     answerText: "Choose at least 8 kmol for the tracer and 16 kmol for restart; 56/8/16 is the recommended split."
     why: "No allocation creates hydrogen. The scientific choice is whether a small diagnostic spend is worth the production it displaces. Eight kilomoles gives the meter a resolvable pulse; sixteen preserves a restart. The remaining 56 kmol supports only 14 kmol CH4, a visible cost that makes the evidence meaningful."
     # wrong-path feedback, one rebuttal per wrong option:

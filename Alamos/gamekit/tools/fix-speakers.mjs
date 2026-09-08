@@ -26,7 +26,16 @@ const idFor = (slug) => {
     const full = c.name.toLowerCase();
     return full === n || full.includes(n) || n.includes(full) || n.split(/\s+/).includes(c.id);
   });
-  return hit?.id ?? null;
+  if(hit) return hit.id;
+  // A SLUG MAY BE A ROLE AND A NAME AT ONCE — `arrival-lina` is the arrival
+  // bubble, spoken by Lina Saye. Neither half matches on its own: "arrival lina"
+  // is not a full name, and the ROLE list below is exact. The unique-name-part
+  // rule reads it, and refuses a name two people share.
+  for(const word of n.split(/\s+/)){
+    const id = PARTS.get(word);
+    if(id) return id;
+  }
+  return null;
 };
 
 // Four of the bibles write a beat's speaker as a ROLE rather than a name —
@@ -38,12 +47,34 @@ const idFor = (slug) => {
 // to, and to nothing at all when the card names no one — which is a gap to report
 // rather than a name to invent.
 const ROLE = /^(mission-lead|mission-leader|lead|arrival|arrival-bubble|final-bubble|travel-waypoint|closing-bubble)$/i;
+//
+// A CARD MAY NAME SOMEBODY BY ONE NAME. Ten of the twelve bubbles left over
+// after the role rule are two Carrying missions whose cards read "Waterworks,
+// Nkemdi at store-gauges" and "Tip, Mei at weighbridge". Both name a person on
+// the roster; neither writes the full name, and matching on the full string
+// finds nobody. So a single name part counts too — but ONLY when it belongs to
+// exactly one person in the cast. Two people called Mei is a card that has not
+// said which, and guessing there would put words in the wrong mouth silently,
+// which is worse than the gap it would close.
+const PARTS = new Map();
+for(const c of bible.cast){
+  for(const part of String(c.name).split(/\s+/)){
+    if(part.length < 3) continue;
+    const k = part.toLowerCase();
+    PARTS.set(k, PARTS.has(k) ? null : c.id);   // null marks the name as shared
+  }
+}
 const nameIn = (text) => {
   const hit = bible.cast
     .map(c => ({ c, at: text.indexOf(c.name) }))
     .filter(x => x.at >= 0)
     .sort((a, b) => a.at - b.at)[0];
-  return hit?.c.id ?? null;
+  if(hit) return hit.c.id;
+  for(const word of String(text).match(/[A-Z][a-z]{2,}/g) ?? []){
+    const id = PARTS.get(word.toLowerCase());
+    if(id) return id;
+  }
+  return null;
 };
 
 let renamed = 0, dropped = 0, roled = 0, orphan = 0;
@@ -59,7 +90,23 @@ for(const f of readdirSync(dir).filter(x => /^m\d+\.ya?ml$/i.test(x))){
     const m = lines[i].match(/^(\s*)- who: ([\w-]+)(.*)$/);
     if(!m){ out.push(lines[i]); continue; }
     const [, indent, slug, rest] = m;
-    if(LABEL.test(slug)){
+    /**
+     * A SPEAKER OF ONE OR TWO LETTERS IS NOT A PERSON, it is the extractor
+     * having cut a sentence in the wrong place. The Trial's mission 4 ended on
+     * `- who: ii / say: "continue a harmful trial"` — the tail of a line about a
+     * Type II error, read as somebody's name and their words.
+     *
+     * ASKED OF THE ROSTER FIRST, and that is not a detail: The Trial's cast
+     * includes Lena Wu, whose id is `wu`. A length rule alone deleted five of
+     * her lines on the first run. Short is only evidence when the roster has
+     * never heard the name.
+     *
+     * Dropped with its `say`, the same way a panel label is, and counted. What
+     * is lost is a fragment that named nobody and would have been printed by
+     * nobody; what is kept is the bubble above it, which is the beat's real
+     * line.
+     */
+    if(LABEL.test(slug) || (slug.replace(/-/g, '').length < 3 && !idFor(slug))){
       // Drop the whole bubble: its `who`, and the `radio`/`say` lines under it.
       let j = i + 1;
       while(j < lines.length && /^\s+(radio|say):/.test(lines[j])) j++;

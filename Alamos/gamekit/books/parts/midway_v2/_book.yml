@@ -89,34 +89,52 @@ groups:
 roster:
 - id: hart
   name: "Maya Hart"
-  role: "park operations lead and mission authority"
-  division: WORKSHOP
+  role: "WHEEL park operations lead and mission authority"
+  division: WHEEL
   bio: |
-    Maya Hart is park operations lead and mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Maya Hart is park operations lead and mission authority. Wants a defensible reopening before the season is lost. Trusts experienced operators and remembered settings more than formal models. Her missing operator card makes her look responsible for the October event. The player later proves that her interruption prevented resonance, and she ends by accepting a scientifically justified coaster closure. Says, "What can we sign our names to?"
 - id: chen
   name: "Linh Chen"
-  role: "instrumentation and test lead"
-  division: WORKSHOP
+  role: "BUMPER instrumentation and test lead"
+  division: BUMPER
   bio: |
-    Linh Chen is instrumentation and test lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Linh Chen is instrumentation and test lead. Wants measurements that survive county review. Initially treats separate displays as independent even when they share one upstream clock or calibration. Chen discovers the shared chain, then insists that the coaster model face unseen physical geometry. Says, "What measured that?"
 - id: kova
   name: "Luka Kovač"
-  role: "mechanical lead"
-  division: SHIP
-  bio: |
-    Luka Kovač is mechanical lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
-- id: idowu
-  name: "Tunde Idowu"
-  role: "controls engineer"
-  division: WORKSHOP
-  bio: |
-    Tunde Idowu is controls engineer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
-- id: brennan
-  name: "Ruth Brennan"
-  role: "former chief engineer and keeper of the notebooks"
+  role: "TOWER mechanical lead, working the coaster and the flume"
   division: TOWER
   bio: |
-    Ruth Brennan is former chief engineer and keeper of the notebooks. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Luka Kovač is mechanical lead, working the coaster and the flume. Wants find worn hardware, replace it, and return safe machines to service. Mechanical wear is familiar, so it becomes the first explanation for unrelated anomalies. Kovač moves from replacing the likely part to measuring the system before naming a failure. Says, "What changed on the machine?"
+- id: idowu
+  name: "Tunde Idowu"
+  role: "CAROUSEL controls engineer"
+  division: CAROUSEL
+  bio: |
+    Tunde Idowu is controls engineer. Wants separate command errors from mechanical response. Treats controls and mechanics as separate systems even when a drive can excite mechanical resonance. Idowu first defends the controls, then helps write the forbidden timing band that makes the pirate ship operable. Says, "Change one thing, then change it back."
+- id: brennan
+  name: "Ruth Brennan"
+  role: "SHIP former chief engineer and keeper of the notebooks"
+  division: SHIP
+  bio: |
+    Ruth Brennan is former chief engineer and keeper of the notebooks. Wants preserve the park knowledge accumulated over forty-one years. Treats a long history of uneventful operation as evidence that copied dimensions and settings remain correct. Brennan accepts that the notebooks record what people did, not what the rides physically are now. Says, "That is how we always ran it."
+- id: silva
+  name: "Ana Silva"
+  role: "WORKSHOP reliability engineer"
+  division: WORKSHOP
+  bio: |
+    Ana Silva is reliability engineer. Wants a repair plan that can be reproduced. Initially assumes documentation gaps imply mechanical failure. Says, "Which record can we repeat?"
+- id: nair
+  name: "Priya Nair"
+  role: "COASTER geometry engineer"
+  division: COASTER
+  bio: |
+    Priya Nair is geometry engineer. Wants a physically correct coaster model. Initially trusts survey marks more than operating data. Says, "Measure the curve we have."
+- id: ruiz
+  name: "Mateo Ruiz"
+  role: "FLUME hydraulics engineer"
+  division: FLUME
+  bio: |
+    Mateo Ruiz is hydraulics engineer. Wants stable flow without consuming shared reserve. Initially treats a good pump curve as sufficient system proof. Says, "Where does the head go?"
 
 glossary:
 - name: Calibration

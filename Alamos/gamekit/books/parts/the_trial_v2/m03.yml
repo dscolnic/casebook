@@ -6,13 +6,22 @@
     header: "DAY 3 - BOARD IN 13 DAYS"
     title: "The Two-Site Alarm"
     goNow: "Go to the Monitoring Board Room and meet Jonas Berg, safety monitoring chair, at the event console."
-    body: "The recovery procedure is defensible, but serious events remain concentrated at two hospitals. Probability rules separate coincidence from patterns that need action. At the event console, calculate unions, conditional rates, and the expectation under independence. By the end of the mission, decide whether to pause enrollment at those hospitals."
+    body: "Serious health problems are concentrated at two hospitals. Is this a chance pattern, or a warning that needs action now? Calculate how likely the pattern would be under the stated assumptions and decide whether those hospitals should stop accepting new trial patients."
     objective: "Determine whether the two-site signal needs immediate action."
   objective: "Determine whether the two-site signal needs immediate action."
-  stake: "The recovery procedure is defensible, but serious events remain concentrated at two hospitals. Probability rules separate coincidence from patterns that need action. At the event console, calculate unions, conditional rates, and the expectation under independence. By the end of the mission, decide whether to pause enrollment at those hospitals."
+  stake: "Serious health problems are concentrated at two hospitals. Is this a chance pattern, or a warning that needs action now? Calculate how likely the pattern would be under the stated assumptions and decide whether those hospitals should stop accepting new trial patients."
   takeaway: "Independence predicts a product; association does not prove cause."
   segue: "Mission decision: Pause work at the two flagged hospitals. Check their drug shipments. The shared pattern is far above what chance predicts. It shows a link, not a cause. A hidden early analysis also needs review."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Union", def: "the event that A or B or both occur."}
+  - {name: "Intersection", def: "the event that A and B both occur."}
+  - {name: "Conditional probability", def: "the probability of A among cases where B occurred."}
+  - {name: "Independent events", def: "events for which knowing one occurred does not change the probability of the other."}
+  - {name: "Mutually exclusive events", def: "events that cannot occur together."}
+  equations:
+  - {"e":"P(A union B)=P(A)+P(B)-P(A and B)","c":"Avoiding double-counting cases in both events.","v":[["A and B","events"],["P","probability"]],"s":"Some reports belong to both a site cluster and a lab flag."}
+  - {"e":"P(A given B)=P(A and B)/P(B)","c":"Finding a rate within a selected group.","v":[["A given B","A among B cases"]],"s":"The board needs the event rate among flagged shipments."}
   primer:
   - "Use a complement to find at least one event."
   - "Mutually exclusive and independent do not mean the same thing."
@@ -25,7 +34,7 @@
   - id: on-arrival-at-the-monitoring-board-room
     # On arrival at the Monitoring Board Room | event-console | automatic
     on: { enter: true, at: SITE }
-    world: "Arrival: BOARD entry; nearby bubble; event map shows two-site cluster; Jonas says, ; - After S1-S2: correct commits; panel update; overlap becomes 11% and shipment subset 40%; player control restored; - After S3: model restore confirmed; persistent signs mark sites 12/19 PAUSED; - Final/outcome: S4 decision; early timestamp appears on console; binder 3 fills; metric screen unlocks."
+    world: "Arrival: BOARD entry; nearby bubble; event map shows two-site cluster; Jonas says,; - After S1-S2: correct commits; panel update; overlap becomes 11% and shipment subset 40%; player control restored; - After S3: model restore confirmed; persistent signs mark sites 12/19 PAUSED; - Final/outcome: S4 decision; early timestamp appears on console; binder 3 fills; metric screen unlocks."
     panel: "MISSION 3: COUNT THE OVERLAP ONCE OPEN"
     bubbles:
     - who: berg   # Jonas Berg
@@ -37,7 +46,7 @@
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Use the Stop 9 result to settle ask among the flagged."
+      say: "Nice work. Use the Stop 9 result to settle ask among the flagged."
   - id: after-stop-10
     # After Stop 10 | event-console | automatic
     on: { after: [2] }
@@ -45,7 +54,7 @@
     panel: "STOP 10 RECORDED - STOP 11 OPEN"
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Use the Stop 10 result to settle test independence."
+      say: "Good thinking. Use the Stop 10 result to settle test independence."
   - id: after-stop-11
     # After Stop 11 | board-console | automatic
     on: { after: [3] }
@@ -53,7 +62,7 @@
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Use the Stop 11 result to settle pause the right places."
+      say: "Exactly right. Use the Stop 11 result to settle pause the right places."
   - id: at-mission-end
     # At mission end | event-console | automatic
     on: { missionEnd: true }
@@ -61,7 +70,74 @@
     panel: "MISSION 3 EVIDENCE: RECORDED"
     bubbles:
     - who: berg   # Jonas Berg
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Two-Site Alarm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Two-Site Alarm, eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies Union to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Union; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Double-counting overlap would exaggerate the apparent size of the safety problem.", why: "This describes addition rule, not Union. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.", why: "Correct. the event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together."}
+      - {key: "C", text: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.", why: "This describes conditional probability, not Union. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.", why: "This describes multiplication rule and independence, not Union. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to The Two-Site Alarm: eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies addition rule to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for addition rule; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.", why: "This describes Union, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.", why: "This describes conditional probability, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Double-counting overlap would exaggerate the apparent size of the safety problem.", why: "Correct. double-counting overlap would exaggerate the apparent size of the safety problem."}
+      - {key: "D", text: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.", why: "This describes multiplication rule and independence, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks The Two-Site Alarm using new evidence: with duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Which statistical conclusion or procedure correctly uses conditional probability?"
+      hint: "Use the stated evidence and the conditions for conditional probability; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.", why: "This describes Union, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Double-counting overlap would exaggerate the apparent size of the safety problem.", why: "This describes addition rule, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.", why: "This describes multiplication rule and independence, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.", why: "Correct. a high conditional rate directs the next inspection toward handling without proving that handling caused harm."}
+    - prompt: "An unseen case extends The Two-Site Alarm: the conditional rate is high, but concentration alone does not show whether shipment flags and serious events move independently. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies multiplication rule and independence to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for multiplication rule and independence; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.", why: "Correct. a failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."}
+      - {key: "B", text: "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.", why: "This describes Union, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Double-counting overlap would exaggerate the apparent size of the safety problem.", why: "This describes addition rule, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.", why: "This describes conditional probability, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Two-Site Alarm decision, the team knows this: the unique warning rate is 11%, flagged shipments have a 40% serious-event rate, and observed overlap is five times the independent prediction. Which option correctly applies complement, independence versus exclusivity, exposure denominators to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for complement, independence versus exclusivity, exposure denominators; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.", why: "This describes Union, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated.", why: "Correct. the narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated."}
+      - {key: "C", text: "Double-counting overlap would exaggerate the apparent size of the safety problem.", why: "This describes addition rule, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.", why: "This describes conditional probability, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from The Two-Site Alarm to this follow-up: eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.", why: "This describes Union, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Double-counting overlap would exaggerate the apparent size of the safety problem.", why: "This describes addition rule, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.", why: "This describes conditional probability, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 3: worked examples"
+    examples:
+    - {"title":"Count overlap once","problem":"Events A and B have probabilities 0.4 and 0.3, with overlap 0.1. Find P(A or B).","rule":"P(A or B)=P(A)+P(B)-P(A and B).","steps":["Set up the relationship: P(A or B)=P(A)+P(B)-P(A and B).","P(A or B)=0.4+0.3-0.1=0.6."],"answer":"The probability of at least one event is 0.6.","mistake":"Adding without subtracting overlap counts the shared outcomes twice."}
+    - {"title":"Restrict the denominator","problem":"Among 20 red objects, 5 are large. Find the probability that an object is large given that it is red.","rule":"Conditional probability uses only cases satisfying the given condition.","steps":["Set up the relationship: Conditional probability uses only cases satisfying the given condition.","P(large|red)=5/20=0.25."],"answer":"One quarter of the red objects are large.","mistake":"Do not divide by the number of all objects when the condition restricts the sample space."}
+    - {"title":"Multiply independent probabilities","problem":"Two independent components work with probabilities 0.8 and 0.5. Find the probability both work.","rule":"For independent events, P(A and B)=P(A)P(B).","steps":["Set up the relationship: For independent events, P(A and B)=P(A)P(B).","P(both)=0.8×0.5=0.4."],"answer":"Both work with probability 0.4.","mistake":"Multiplication in this form requires independence."}
+    - {"title":"At least one success","problem":"Two independent attempts each succeed with probability 0.5. Find the probability of at least one success.","rule":"P(at least one)=1-P(none).","steps":["Set up the relationship: P(at least one)=1-P(none).","P(none)=0.5²=0.25; P(at least one)=1-0.25=0.75."],"answer":"The probability is 0.75.","mistake":"Adding the two success probabilities double-counts the case where both succeed."}
+    - {"title":"Exclusive is not independent","problem":"On one fair die roll, A is rolling 1 and B is rolling 2. Are these events independent?","rule":"Independence requires P(A and B)=P(A)P(B).","steps":["P(A and B)=0 because one roll cannot be both 1 and 2.","P(A)P(B)=(1/6)(1/6)=1/36, which is not zero."],"answer":"The events are mutually exclusive and not independent.","mistake":"For positive-probability events, mutually exclusive does not mean independent."}
 
   stops:
   # --- Stop 9: Count the Overlap Once
@@ -70,12 +146,12 @@
   - group: STAT
     at: event-console
     title: "Count the Overlap Once"
-    concept: "addition rule"
-    reason: "Duplicate reports must be removed before the board sees a combined alarm rate."
-    scene: "Eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Build the union calculation to find the percent with at least one warning."
-    motivation: "Double-counting overlap would exaggerate the apparent size of the safety problem."
+    concept: 16   # addition rule
+    reason: "The safety review needs a count of affected patients without counting overlapping warnings twice."
+    scene: "Build the union calculation to find the percent with at least one warning."
+    motivation: "The union probability measures the fraction with at least one warning for the board's initial exposure assessment."
     format: DERIVE
-    question: "Lines: P(A or B)=P(A)+P(B)-P(A and B) [addition rule]; =0.08+0.05-0.02 [substitute]; =0.11 [simplify]. Decoys omit subtraction or subtract twice. Submit probability."
+    question: "Submit the probability of at least one warning."
     answerText: "P(A union B)=0.08+0.05-0.02=0.11, so 11% had at least one warning."
     why: "Double-counting overlap would exaggerate the apparent size of the safety problem."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -86,6 +162,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"P(A or B)","givens":["P(A)=0.08","P(B)=0.05","P(A and B)=0.02"],"lines":[{"id":"L1","expression":"P(A or B)=P(A)+P(B)-P(A and B)","license":"state governing relationship"},{"id":"L2","expression":"=0.08+0.05-0.02","license":"substitute displayed values"},{"id":"L3","expression":"=0.11","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["0.13","0.09"],"correct_result":"0.11 or 11%","answerText":"The union probability is 0.11 because the overlap must be subtracted once."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Count the Overlap Once in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: P(A or B)=P(A)+P(B)-P(A and B)
+            - text: P(A or B)=P(A)+P(B)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: P(A or B)=0.08+0.05-0.02
+            - text: R = 0.08+0.05
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: P(A or B)=0.11
+            - text: R = 0.13
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 10: Ask Among the Flagged
   #     Concept: conditional probability; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: PRACTICE; Difficulty: L2; Story role: reveal.
@@ -93,12 +194,12 @@
   - group: STAT
     at: event-console
     title: "Ask Among the Flagged"
-    concept: "conditional probability"
-    reason: "The board must know how often serious events occurred specifically among flagged shipments."
+    concept: 24   # conditional probability
+    reason: "The unique warning count leaves the shipment-flagged group needing its own risk estimate."
     scene: "With duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Use the two-percent overlap and five-percent flag rate to calculate the serious-event probability among flagged shipments."
-    motivation: "A high conditional rate directs the next inspection toward handling without proving that handling caused harm."
+    motivation: "Conditional event probability measures how concentrated serious events are among flagged shipments."
     format: BALLPARK
-    question: "visible P(A and B)=0.02, P(B)=0.05; formula P(A|B)=P(A and B)/P(B); correct 0.40 or 40%; tolerance 0.005."
+    question: "The probability of both a serious event and a shipment flag is 0.02, while the probability of a shipment flag is 0.05. Use P(serious event | shipment flag)=P(serious event and shipment flag)/P(shipment flag) and submit the conditional probability as a percent."
     # The formula, the two visible probabilities, the target 0.40 and the 0.005
     # tolerance are all the prompt's own. The third tile, 0.08, is the marginal
     # rate this mission's other consoles carry (stop 9's P(A)=0.08 and stop 11's
@@ -134,10 +235,10 @@
   - group: STAT
     at: event-console
     title: "Test Independence"
-    concept: "multiplication rule and independence"
-    reason: "Jonas needs a comparison between the observed overlap and what independence predicts."
+    concept: 1   # multiplication rule and independence
+    reason: "The high conditional rate needs comparison with what unrelated warnings would produce."
     scene: "The conditional rate is high, but concentration alone does not show whether shipment flags and serious events move independently. Predict the overlap under independence, then compare it with the observed two-percent overlap while holding the cohort fixed."
-    motivation: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
+    motivation: "The predicted and observed overlaps determine whether shipment flags and serious events behave independently."
     format: CONTROL
     question: "**CALCULATE AND COMMIT:** Use $P(F\\cap E)=P(F)P(E)$ with $P(F)=0.08$ and $P(E)=0.05$; submit the predicted overlap as a percent before the model switch unlocks."
     # MODEL CONVERSION. The bible's three `candidates` are the engine's
@@ -149,19 +250,18 @@
     # percentage points. `noise` is the bible's noise_band of 0.05 percentage
     # point, which -1.6 clears many times over.
     control:
-      observable: { label: "Flag/event overlap", unit: "percent" }
       variables:
-      - { id: association_model, label: "association model" }
-      - { id: flag_rate, label: "shipment-flag marginal rate" }
-      - { id: event_rate, label: "serious-event marginal rate" }
-      held: ["cohort", "marginal rates", "time window"]
+        - id: association_model
+          label: association model
+        - id: flag_rate
+          label: shipment-flag marginal rate
+        - id: event_rate
+          label: serious-event marginal rate
+      held:
+        - cohort
+        - marginal rates
+        - time window
       truth: association_model
-      baseline: 2.0
-      response: -1.6
-      noise: 0.05
-      changeVerb: "Switch to the independent model"
-      run: "Measure the overlap"
-      commit: "Name the model that moved it"
     answerText: "Independence predicts 0.08(0.05)=0.004=0.4%, far below the observed 2.0%. The events are associated, but this alone does not prove causation."
     why: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -179,21 +279,17 @@
   - group: STAT
     at: board-console
     title: "Pause the Right Places"
-    concept: "complement, independence versus exclusivity, exposure denominators"
-    reason: "Jonas must choose between no pause, a global stop, and a targeted two-site pause."
+    concept: 27   # complement, independence versus exclusivity, exposure denominators
+    reason: "The warning overlap is established, but protective action must not outrun what the association proves."
     scene: "The unique warning rate is 11%, flagged shipments have a 40% serious-event rate, and observed overlap is five times the independent prediction. Choose the action fitting all evidence without claiming a cause the data cannot establish."
-    motivation: "The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated."
+    motivation: "The combined risk evidence determines where enrollment should pause without claiming the shipment flag is a proven cause."
     format: DIAGNOSIS
     question: "Compare the 11% warning rate, 40% conditional rate, 2.0% overlap, 0.4% independence expectation, and 29 stable sites. Submit one action and causal-scope conclusion."
     headline: "TWO-SITE SIGNAL"
     # The four readings, their numbers and their alarm/quiet statuses are the
     # bible's. DERIVED: `zone`, which groups a reading with the display it comes
     # off — each is the bible's own name for that reading.
-    readings:
-    - { zone: "Overall event rate", label: "Across the cohort", value: "8 percent", status: alarm }
-    - { zone: "Overlap", label: "Flagged shipments with a serious event", value: "2 percent", status: alarm }
-    - { zone: "Independence expectation", label: "Benchmark", value: "0.4 percent", status: normal }
-    - { zone: "29 other sites", label: "Enrollment and events", value: "stable", status: normal }
+    readings: []
     # The four candidates are the bible's own choice list, in its order and its
     # words: "continue all; stop all; pause sites 12/19 and audit handling;
     # declare drug cause", answer the targeted pause and audit.

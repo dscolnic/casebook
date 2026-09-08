@@ -49,6 +49,11 @@ async function readTheme(themeName){
     days: (content.MISSIONS ?? []).length,
     hasFar: !!tiers.hasFar,
     unlockDay: site ? unlockDay(site) : 4,
+    // A campaign the four bars time has no run before mission 1 — see the note
+    // on `opener` in engine/core/warmups.js. Read here so the checker judges the
+    // schedule the game actually runs rather than the default one.
+    opener: !(theme?.metrics?.bars ?? []).length,
+    runs: theme?.warmupRuns !== false,
     authored: content.WARMUPS ?? {},
     cast: (content.ROSTER ?? []).map(p => ({
       name: String(p.name ?? ''), role: String(p.role ?? '') })),
@@ -56,8 +61,8 @@ async function readTheme(themeName){
 }
 
 /** The properties the schedule has to have, whatever order it comes out in. */
-export function judgeSchedule({ days, hasFar, unlockDay }){
-  const plan = warmupPlan({ days, hasFar, unlockDay });
+export function judgeSchedule({ days, hasFar, unlockDay, opener = true, runs = true }){
+  const plan = warmupPlan({ days, hasFar, unlockDay, opener, runs });
   const problems = [];
   // A campaign under WARMUP_MIN_DAYS days is one sitting and opens on its first
   // card rather than on a run. Everything below asserts properties of a schedule
@@ -65,7 +70,13 @@ export function judgeSchedule({ days, hasFar, unlockDay }){
   // campaign missing all of them — the check has to know the same rule the
   // engine does, and asks it of the engine rather than restating the number.
   if(!plan.length){
-    if(days >= WARMUP_MIN_DAYS)
+    // A CAMPAIGN THAT SAYS IT HAS NONE HAS NONE. Whiteout's bible refuses warm-up
+    // runs outright and its theme says so with `warmupRuns: false`; reported as a
+    // missing schedule, that is a gate complaining that a decision was carried
+    // out. Length is still checked, because a fifteen-day campaign that simply
+    // forgot its runs looks identical from here — the difference is whether
+    // anybody declared it.
+    if(days >= WARMUP_MIN_DAYS && runs)
       problems.push(`a ${days}-day campaign schedules no warm-ups at all`);
     return { plan, problems };
   }
@@ -82,7 +93,13 @@ export function judgeSchedule({ days, hasFar, unlockDay }){
   const badDay = plan.find(p => !allowedDays.includes(p.day));
   if(badDay) problems.push(`a warm-up is scheduled on day ${badDay.day}, which is not one of ${allowedDays.join('/')}`);
   const d1 = plan.find(p => p.day === 1);
-  if(!d1) problems.push('day 1 must open on a warm-up');
+  // UNLESS THE CAMPAIGN IS TIMED, in which case there is deliberately no run
+  // before mission 1: the mission clock starts when its arrival beat closes, and
+  // a run in front of that is a tutorial wedged between the opening card and the
+  // first thing the campaign says. See `opener` in engine/core/warmups.js.
+  if(!d1 && opener) problems.push('day 1 must open on a warm-up');
+  if(d1 && !opener) problems.push('a warm-up is scheduled before mission 1 on a timed campaign');
+  else if(!d1){ /* no opener, and none owed — see above */ }
   else if(!WARMUP_OPENERS.includes(d1.format))
     problems.push(`day 1 is ${d1.format} — it must be TRIAL or GREET`);
   else if((hasFar && d1.format !== 'TRIAL') || (!hasFar && d1.format !== 'GREET'))
@@ -282,6 +299,20 @@ async function selftest(){
   check('and the schedule check accepts that rather than demanding four',
     judgeSchedule({ days: 5, hasFar: false }).problems.length === 0,
     judgeSchedule({ days: 5, hasFar: false }).problems.join(' | '));
+
+  // A CAMPAIGN THAT DECLARES NO RUNS. Whiteout's bible refuses them outright, and
+  // both halves have to hold: the engine schedules none, and this gate does not
+  // then report the campaign for having none. The third case is the one that
+  // fails if `runs` is quietly ignored — fifteen days with no declaration is
+  // still a campaign that forgot its warm-ups.
+  check('a campaign declaring no runs is scheduled none',
+    warmupPlan({ days: 15, hasFar: false, runs: false }).length === 0);
+  check('and the schedule check does not then ask for four',
+    judgeSchedule({ days: 15, hasFar: false, opener: false, runs: false }).problems.length === 0,
+    judgeSchedule({ days: 15, hasFar: false, opener: false, runs: false }).problems.join(' | '));
+  check('while the same campaign without the declaration still gets its three',
+    warmupPlan({ days: 15, hasFar: false, opener: false }).length === 3,
+    warmupPlan({ days: 15, hasFar: false, opener: false }).map(p => `d${p.day}`).join(','));
 
   // One sitting: the Quick Discoveries are three levels, and the schedule above
   // would open two of those three on a run. The three cases are the ones that

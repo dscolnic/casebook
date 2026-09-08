@@ -156,6 +156,30 @@ export function auditScene(scene, renderer, opts = {}){
     }
   }
 
+  // ---- rule 8: two signs may not share a patch of wall
+  //
+  // THE DEFECT. `addStageWall` planted the beat board at the centre of the back
+  // wall and `interiorBuilding.js` plants the room's instrument at the centre of
+  // the back wall, so in every room of every theme with a beat script the two
+  // were coplanar and overlapping — GIBBS had PLANT SUMMARY and a sort into
+  // ATOM/MOLECULE/ION fighting over the same 0.9 m of height at the same depth.
+  // It rendered, it exported, it built clean, and it was reported by eye: "you
+  // are putting the Plant Summary and the four sample labels on same screen and
+  // its glitching — these need to be separate things, only use screen for one
+  // thing."
+  //
+  // WHY IT NEEDS THE SCENE. Nothing in the content says where a board ends up.
+  // `interiorFixtures.js`, `interiorKit.js` and each theme's `props.js` all hang
+  // things, from three different sets of coordinates, and the only place they
+  // are all true at once is the built room. `placement.mjs` cannot see this: it
+  // reads books.
+  for(const clash of overlappingFaces(scene)){
+    add('error', 'signs-overlap',
+      `Two faces share a patch of wall: ${clash.a} and ${clash.b} overlap `
+      + `${Math.round(clash.frac * 100)}% of the smaller one, ${clash.gap.toFixed(2)} m apart `
+      + `on the ${clash.axis} axis. A screen shows one thing — move one of them along the wall.`);
+  }
+
   // ---- budget checks that are cheap to get wrong
   const info = renderer?.info?.render;
   if(info && info.calls > (opts.drawCallBudget ?? 2500)){
@@ -165,6 +189,112 @@ export function auditScene(scene, renderer, opts = {}){
   }
 
   return findings;
+}
+
+/**
+ * Every pair of sign-like faces that share a patch of wall.
+ *
+ * A "face" here is a mesh carrying a texture whose smallest dimension is much
+ * smaller than its other two — a board, a screen, a notice, a mural panel. The
+ * thin axis is taken as the wall normal rather than read off `userData.mount`,
+ * because a mesh hung by a theme's own `props.js` may carry no mount at all and
+ * a board nobody marked is exactly the board that ends up somewhere wrong.
+ *
+ * Near-coplanar rather than exactly coplanar: two boards 4 cm apart in depth do
+ * not z-fight, they simply hide one another, and the shipped defect was 5 cm.
+ *
+ * Skipped: structure, anything flagged `ignoreAudit`, and anything you can see
+ * through — a see-through overlay is a tint, not a second sign.
+ */
+export function overlappingFaces(scene, { depthTol = 0.25, minFrac = 0.05, maxSpan = 6 } = {}){
+  const faces = [];
+  const box = new THREE.Box3();
+  scene.traverse((o) => {
+    if(!o.isMesh || !o.visible) return;
+    if(o.userData?.structure || o.userData?.ignoreAudit) return;
+    const mats = Array.isArray(o.material) ? o.material : (o.material ? [o.material] : []);
+    if(!mats.some(m => m && (m.map || m.emissiveMap))) return;
+    if(mats.every(m => !m || m.depthWrite === false
+                       || (m.transparent && (m.opacity ?? 1) < 0.85))) return;
+    box.setFromObject(o);
+    if(box.isEmpty()) return;
+    const size = box.getSize(new THREE.Vector3());
+    const dims = [size.x, size.y, size.z];
+    const thin = dims.indexOf(Math.min(...dims));
+    const wide = dims.filter((_, i) => i !== thin);
+    // A face, not a box: the thin axis has to be genuinely thin, or a cabinet
+    // with a printed front is compared against a poster as if it were one.
+    if(dims[thin] > 0.35 || dims[thin] > Math.min(...wide) * 0.5) return;
+    if(Math.max(...wide) > maxSpan) return;
+    const centre = box.getCenter(new THREE.Vector3());
+    const normal = new THREE.Vector3();
+    o.getWorldDirection(normal);
+    faces.push({
+      normal,
+      axis: ['x', 'y', 'z'][thin],
+      plane: [centre.x, centre.y, centre.z][thin],
+      min: box.min.clone(), max: box.max.clone(),
+      area: wide[0] * wide[1],
+      // NAMED SO THE PAIR CAN BE TOLD APART. Geometry type and two coordinates
+      // were not enough to act on: "PlaneGeometry x=4300.0 over PlaneGeometry
+      // x=4299.1" names two things that could be any two signs in the room. The
+      // texture's own dimensions are what distinguish a fit-out notice from a
+      // machine screen from a mural panel, and the size in metres says which is
+      // the big one.
+      name: `${o.name || o.geometry?.type || 'mesh'}`
+        + (() => {
+          const img = (mats.find(m => m && (m.map || m.emissiveMap)) || {});
+          const t = (img.map || img.emissiveMap)?.image;
+          return t?.width ? ` ${t.width}×${t.height}` : '';
+        })()
+        + ` ${wide[0].toFixed(2)}×${wide[1].toFixed(2)}m`
+        + ` ${['x', 'y', 'z'].map((k, i) => i === thin ? '' : `${k}=${centre[k].toFixed(2)}`)
+              .filter(Boolean).join(' ')}`,
+    });
+  });
+
+  const out = [];
+  for(let i = 0; i < faces.length; i++){
+    for(let j = i + 1; j < faces.length; j++){
+      const a = faces[i], f = faces[j];
+      if(a.axis !== f.axis) continue;
+      const gap = Math.abs(a.plane - f.plane);
+      if(gap > depthTol) continue;
+      // The two in-plane axes.
+      const keys = ['x', 'y', 'z'].filter(k => k !== a.axis);
+      let overlap = 1;
+      for(const k of keys){
+        const o = Math.min(a.max[k], f.max[k]) - Math.max(a.min[k], f.min[k]);
+        if(o <= 0){ overlap = 0; break; }
+        overlap *= o;
+      }
+      if(!overlap) continue;
+
+      // ---- TWO MESHES THAT ARE ONE SIGN. Both of these are how this repo is
+      // built, and flagging them buried the real finding under four hundred.
+      //
+      // BACK TO BACK. THEME_CONTRACT forbids text on a DoubleSide material, so
+      // a sign readable from both directions is two single-sided faces a few
+      // centimetres apart pointing opposite ways. That is the sanctioned
+      // pattern, not two signs competing.
+      if(a.normal.dot(f.normal) < -0.5) continue;
+      // ON ITS OWN BACKING. `interiorKit`'s notices are a printed face on a
+      // backing panel: one rect wholly inside the other, a couple of
+      // centimetres apart. A board hung OVER a screen is not this — the shipped
+      // defect stuck out past the screen top and bottom — so containment has to
+      // be near-total and the stack has to be thin.
+      if(gap < 0.12){
+        const inside = (p, q) => keys.every(k => p.min[k] >= q.min[k] - 0.01
+                                              && p.max[k] <= q.max[k] + 0.01);
+        if(inside(a, f) || inside(f, a)) continue;
+      }
+
+      const frac = overlap / Math.min(a.area, f.area);
+      if(frac < minFrac) continue;
+      out.push({ a: a.name, b: f.name, frac, gap, axis: a.axis });
+    }
+  }
+  return out;
 }
 
 /** Prints the audit as a grouped console report. Returns the findings. */
@@ -284,4 +414,142 @@ export function reportPieces(scene, theme, world, { radius = 7 } = {}){
   console.log(`  ${'elsewhere'.padEnd(pad)} ${String(clusterPieces(loose)).padStart(3)} pieces`
     + `  (${loose.length} objects)`);
   return rows;
+}
+
+// --------------------------------------------------------------- selftest
+//
+//   node engine/dev/audit.js --selftest
+//
+// `overlappingFaces` is the only rule here that computes a geometric answer
+// rather than counting things, so it is the only one that can be quietly wrong.
+// The cases include the shipped defect itself — two textured faces 5 cm apart on
+// one wall — and the two ways of being fine that a careless version would fail:
+// side by side on the same wall, and stacked on different walls.
+if(typeof process !== 'undefined' && process.argv?.includes('--selftest')){
+  const fails = [];
+  let ran = 0;
+  const check = (what, ok, extra = '') => {
+    ran++;
+    if(!ok) fails.push(`${what}${extra ? ` — ${extra}` : ''}`);
+    console.log(`  ${ok ? 'ok  ' : 'FAIL'}  ${what}`);
+  };
+
+  const tex = () => {
+    const t = new THREE.Texture();
+    return new THREE.MeshStandardMaterial({ map: t });
+  };
+  /** A textured face on the z wall: `w` × `h` at (x, y, z). */
+  const face = (name, x, y, z, w = 2, h = 1.25, mat = null) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat ?? tex());
+    m.position.set(x, y, z);
+    m.name = name;
+    return m;
+  };
+  const sceneOf = (...objs) => { const s = new THREE.Scene(); for(const o of objs) s.add(o); return s; };
+
+  check('one sign on a wall clashes with nothing',
+        overlappingFaces(sceneOf(face('summary', 0, 1.85, 4.59))).length === 0);
+
+  // THE SHIPPED DEFECT: the instrument screen and the beat board, 5 cm and one
+  // wall apart, overlapping most of a metre of height.
+  const shipped = overlappingFaces(sceneOf(
+    face('summary', 0, 1.85, 4.59, 2, 1.25),
+    face('stagewall', 0, 2.16, 4.59, 3.4, 1.17)));
+  check('two faces on one patch of wall are caught', shipped.length === 1,
+        'this rendered, exported and built clean for every theme with a beat script');
+  check('…and the overlap is reported as most of the smaller one',
+        shipped[0] && shipped[0].frac > 0.5);
+
+  // NEAR-COPLANAR IS THE SAME DEFECT, and this is the case that exercises the
+  // tolerance rather than sitting inside it. Without these two the tolerance
+  // could be tightened to nothing and every case above would still pass —
+  // which is what happened the first time this selftest was written.
+  check('a hand’s breadth apart in depth is still one patch of wall',
+        overlappingFaces(sceneOf(
+          face('a', 0, 1.85, 4.59), face('b', 0, 1.95, 4.47))).length === 1,
+        'they do not z-fight at 12 cm, they simply hide one another');
+  check('…and 20 cm apart, which is a board hung over a screen',
+        overlappingFaces(sceneOf(
+          face('a', 0, 1.85, 4.59), face('b', 0, 1.95, 4.39))).length === 1);
+  check('but 40 cm apart is a board and a thing standing near it',
+        overlappingFaces(sceneOf(
+          face('a', 0, 1.85, 4.59), face('b', 0, 1.95, 4.19))).length === 0,
+        'past the tolerance it is a sightline question, not a shared wall');
+
+  // ---- the ways of being fine
+  check('side by side on the same wall is fine', overlappingFaces(sceneOf(
+    face('left', -3, 1.85, 4.59), face('right', 3, 1.85, 4.59))).length === 0,
+        'a wall with two boards on it is a wall with two boards on it');
+  check('one above the other is fine', overlappingFaces(sceneOf(
+    face('low', 0, 1.2, 4.59, 2, 0.5), face('high', 0, 2.4, 4.59, 2, 0.5))).length === 0);
+  check('the same footprint on opposite walls is fine', overlappingFaces(sceneOf(
+    face('back', 0, 1.85, 4.59), face('front', 0, 1.85, -4.59))).length === 0,
+        'depth is what separates them, and it is well past the tolerance');
+
+  // Two metres apart in depth is a board and a board across the room from it.
+  check('a face across the room is not on this wall', overlappingFaces(sceneOf(
+    face('a', 0, 1.85, 4.59), face('b', 0, 1.85, 2.0))).length === 0);
+
+  // ---- ONE SIGN MADE OF TWO MESHES. Both patterns are how this repo builds,
+  // and flagging them buried the one real finding under four hundred.
+  const backToBack = (() => {
+    const front = face('front', 0, 2.2, 4.59);
+    const back = face('back', 0, 2.2, 4.53);
+    back.rotation.y = Math.PI;                 // readable from the other side
+    back.updateMatrixWorld(true);
+    return overlappingFaces(sceneOf(front, back));
+  })();
+  check('a sign readable from both sides is one sign', backToBack.length === 0,
+        'THEME_CONTRACT forbids text on a DoubleSide material, so this is the sanctioned pattern');
+  check('a printed face on its own backing panel is one sign',
+        overlappingFaces(sceneOf(
+          face('backing', 0, 1.85, 4.59, 2.2, 1.4),
+          face('print', 0, 1.85, 4.57, 2, 1.25))).length === 0,
+        'interiorKit hangs every notice this way');
+  // AND THE DEFECT IS NOT MASKED BY EITHER. The board overhangs the screen top
+  // and bottom, so it is not contained, and both face the room.
+  check('a board hung over a screen is still caught', shipped.length === 1,
+        'if containment swallowed this the whole rule would be decorative');
+
+  // ---- the exclusions
+  const struct = face('wallpanel', 0, 1.85, 4.59);
+  struct.userData.structure = 'wall';
+  check('structure is not a sign', overlappingFaces(sceneOf(
+    struct, face('summary', 0, 1.85, 4.59))).length === 0,
+        'the wall is behind every board on it');
+  const ghost = face('beacon', 0, 1.85, 4.59, 2, 1.25,
+    new THREE.MeshBasicMaterial({ map: new THREE.Texture(), transparent: true, opacity: 0.055 }));
+  check('a see-through overlay is a tint, not a second sign',
+        overlappingFaces(sceneOf(ghost, face('summary', 0, 1.85, 4.59))).length === 0);
+  const blank = new THREE.Mesh(new THREE.PlaneGeometry(2, 1.25),
+    new THREE.MeshStandardMaterial({ color: 0x333333 }));
+  blank.position.set(0, 1.85, 4.59);
+  check('an untextured panel is not a sign', overlappingFaces(sceneOf(
+    blank, face('summary', 0, 1.85, 4.59))).length === 0,
+        'this rule is about what two things say, not about panels touching');
+
+  // A deep box with a printed front is a cabinet, and a poster in front of a
+  // cabinet is a real finding — but the cabinet is not itself a face.
+  const cabinet = new THREE.Mesh(new THREE.BoxGeometry(2, 1.2, 0.9), tex());
+  cabinet.position.set(0, 1.85, 4.2);
+  check('a deep cabinet is not compared as a face', overlappingFaces(sceneOf(
+    cabinet, face('summary', 0, 1.85, 4.59))).length === 0,
+        'its thin axis is not thin, so calling it a sign would fail every fitted room');
+
+  // THE EQUAL-INPUTS CASE. The same clash, described twice, is one clash — and
+  // the number attached to it may not move because the scene got busier.
+  const twice = overlappingFaces(sceneOf(
+    face('summary', 0, 1.85, 4.59, 2, 1.25),
+    face('stagewall', 0, 2.16, 4.59, 3.4, 1.17),
+    face('faraway', -20, 1.85, 4.59)));
+  check('an unrelated third sign changes neither the count nor the number',
+        twice.length === shipped.length && twice[0].frac === shipped[0].frac);
+
+  if(fails.length){
+    console.log(`\naudit --selftest: ${fails.length} case(s) failed.`);
+    for(const f of fails) console.log(`  - ${f}`);
+    process.exitCode = 1;
+  } else {
+    console.log(`\naudit --selftest: ${ran} cases, two signs cannot share a patch of wall.`);
+  }
 }

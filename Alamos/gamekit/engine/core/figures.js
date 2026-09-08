@@ -467,9 +467,33 @@ function svg(body, w, h, caption){
 }
 
 /** Dispatch on `kind`, so a pack only ever supplies data. */
+/**
+ * A FIGURE THIS CANNOT DRAW IS NO FIGURE, NEVER A BROKEN CARD.
+ *
+ * Each of these takes the shape its own instrument needs — `bars` wants
+ * `bars: [{name, value}]`, `line` wants `series: [{name, points}]` — and a spec
+ * written in the wrong one used to throw out of here and take the whole question
+ * panel with it: `Cannot read properties of undefined (reading 'map')`, on a
+ * CHOICE stop, from a bar chart authored as a line. Reported as "something is
+ * getting messed up", which is exactly what a thrown renderer looks like from the
+ * outside.
+ *
+ * So the draw is guarded and the console says which figure and why. The gate that
+ * stops it reaching a player at all is `figureShape` in tools/import-book.mjs;
+ * this is the belt underneath it, because a figure can also be hand-written into
+ * a book and every renderer here is reached from four different panels.
+ */
 export function renderFigure(fig){
   if(!fig) return '';
   if(Array.isArray(fig)) return fig.map(renderFigure).join('');
+  try { return drawFigure(fig); }
+  catch(e){
+    console.warn(`figures: a ${fig.kind ?? 'kind-less'} figure could not be drawn — ${e.message}`);
+    return '';
+  }
+}
+
+function drawFigure(fig){
   if(fig.kind === 'line') return lineChart(fig);
   if(fig.kind === 'peaks') return peaks(fig);
   if(fig.kind === 'bars') return bars(fig);
@@ -537,12 +561,18 @@ function readingBar(r){
 /** The table behind the picture. Required, not optional — see the header. */
 export function dataTable(fig, readings){
   const rows = [];
+  // EVERY LOOP HERE IS OVER A FIELD THAT MAY NOT BE THERE, and this function is
+  // called in the same expression as `renderFigure` — so guarding only the draw
+  // left the card still dying one call later, on `fig.bars is not iterable`, for
+  // a bars figure written in the line shape. The table is the accessible copy of
+  // the chart: no chart, no table, and never a thrown panel.
+  const list = (v) => (Array.isArray(v) ? v : []);
   if(fig?.kind === 'line'){
-    for(const s of fig.series) rows.push([s.name, s.points.map(p => `${p[0]}: ${p[1]}`).join(' · ')]);
+    for(const s of list(fig.series)) rows.push([s?.name, list(s?.points).map(p => `${p[0]}: ${p[1]}`).join(' · ')]);
   } else if(fig?.kind === 'bars'){
-    for(const b of fig.bars) rows.push([b.name, String(b.display ?? b.value)]);
+    for(const b of list(fig.bars)) rows.push([b?.name, String(b?.display ?? b?.value)]);
   } else if(fig?.kind === 'peaks'){
-    for(const p of fig.peaks) rows.push([p.label || `peak at ${p.at}`, `height ${p.height}`]);
+    for(const p of list(fig.peaks)) rows.push([p?.label || `peak at ${p?.at}`, `height ${p?.height}`]);
   }
   for(const r of readings ?? []) rows.push([`${r.zone} — ${r.label}`, `${r.value} (${(STATUS[r.status] ?? STATUS.normal).word})`]);
   if(!rows.length) return '';

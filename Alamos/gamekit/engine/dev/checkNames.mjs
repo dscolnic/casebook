@@ -55,6 +55,19 @@ export function narrativeSlots(theme, content){
       // The card is one thing to read: a name in the title is introduced by the why.
       if(w) push(`${day(mi + 1)} warm-up card "${slot}"`, `${w.title ?? ''}. ${w.why ?? ''}`, 'block');
     }
+    // THE BRIEFING CARD IS READ FIRST, so it introduces first.
+    //
+    // A bible written to the master brief puts each character's job on the Go-now
+    // line — "meet Ingrid Sundqvist, the production and catalyst lead, at the
+    // compressor log desk" — which is the first thing the player reads and the
+    // last thing this gate looked at. It reported a name as un-introduced while
+    // the card two screens earlier had introduced it properly.
+    const card = m.card ?? {};
+    push(`${day(mi + 1)} card title`, card.title);
+    push(`${day(mi + 1)} card header`, card.header);
+    push(`${day(mi + 1)} card "go now"`, card.goNow);
+    push(`${day(mi + 1)} card body`, card.body);
+    push(`${day(mi + 1)} card objective`, card.objective);
     push(`${day(mi + 1)} stake`, m.stake);
     push(`${day(mi + 1)} briefing`, m.briefing);
     push(`${day(mi + 1)} objective`, m.objective);

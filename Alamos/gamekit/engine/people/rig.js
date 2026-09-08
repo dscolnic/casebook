@@ -396,8 +396,24 @@ export function buildExtraBody(look){
   return group;
 }
 
-/** Sitting: thigh forward, shin down, and the hips *drop* to seat height. */
-export function poseSeated(group, seatHeight = 0.44){
+/**
+ * Sitting: thigh forward, shin down, and the hips drop.
+ *
+ * `drop` IS NOT THE SEAT HEIGHT. It is how far the body falls, and the two are
+ * different by the thigh — which is what put every seated person's hips inside
+ * the bench they were sitting on. The hip pivot stands at 0.88 on the nominal
+ * rig and the thigh capsule's radius is 0.078, so a horizontal thigh's underside
+ * ends up at `0.88 - drop - 0.078`. Resting that on a surface at height `s`:
+ *
+ *     drop = 0.802 - s
+ *
+ * A kit bench's slab is centred at 0.44 and 0.1 thick, so its top is 0.49 and
+ * the drop is 0.312. Passing 0.44 — the seat's own *centre*, which reads like a
+ * height and is not one — buried the pelvis 12.8 cm into the woodwork.
+ * `seatedDrop()` in crowd.js is the one place that arithmetic is written. The
+ * default here is the ordinary chair at 0.44, not the bench.
+ */
+export function poseSeated(group, drop = 0.362){
   group.userData.limbs.forEach(l => {
     if(l.userData.isLeg){
       l.rotation.x = -1.45;
@@ -406,7 +422,7 @@ export function poseSeated(group, seatHeight = 0.44){
     if(l.userData.isArm) l.rotation.x = -0.45;
   });
   if(group.userData.torso) group.userData.torso.rotation.x = 0.1;
-  group.position.y -= seatHeight * group.scale.y;
+  group.position.y -= drop * group.scale.y;
 }
 
 // Hip pivot to sole, at nominal scale: 0.88 (hip) - 0.44 (knee) - 0.40 (ankle).

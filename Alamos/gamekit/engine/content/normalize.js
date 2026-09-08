@@ -24,6 +24,7 @@
 // that teach it. This file only needs to know which day a far area starts being
 // called on.
 import { tiersFor, unlockDay } from '../core/orientation.js';
+import { sitedAt } from '../world/siting.js';
 
 /** The formats the question UI can render. Everything maps onto one of these. */
 export const FORMATS = new Set([
@@ -312,8 +313,14 @@ export function normalizeContent(content = {}, site = null, fixtures = {}){
     }
   }
   const covered = new Set(roster.map(p => p.division).filter(Boolean));
+  // Only a group the missions actually send the player to. A group on the roster
+  // sheet that no stop names is an unused heading, and reporting it says "every
+  // person stop there is unreachable" about a group with no person stops at all.
+  // tools/import-book.mjs refuses on exactly this rule; two copies of it drifted
+  // the first time one was corrected.
+  const asked = new Set((content.MISSIONS ?? []).flatMap(m => (m.stops ?? []).map(s => s.group)));
   for(const g of content.GROUPS ?? []){
-    if(!covered.has(g.id)){
+    if(asked.has(g.id) && !covered.has(g.id)){
       problems.push(`group "${g.id}" has nobody on the roster — every person stop there is unreachable`);
     }
   }
@@ -339,7 +346,19 @@ export function normalizeContent(content = {}, site = null, fixtures = {}){
   }
 
   // ---- last: the shape of the days themselves
-  shapeMissions(content.MISSIONS ?? [], curriculum, changes, content.TIERS, content.UNLOCK_DAY, fixtures);
+  // A TOWN BUILDS ITS FIXTURES AND A PLAN DOES NOT — see `sited` in
+  // `shapeMissions`. A town site declares `buildings`; a plan declares `rooms`.
+  // BOTH KINDS BUILD THEM NOW. A town's rooms come from `interiorBuilding` and
+  // are furnished by `createInteriors`; a plan's come from `interiorSite`, which
+  // builds its own. A caller with no place at all — a selftest fixture — has no
+  // world to put anything in.
+  // A town declares `buildings`; a plan declares `rooms`, and an interior theme
+  // wraps its plan one level down in `site.plan` — which is where `site.kind`
+  // says to look.
+  const buildsFixtures = !!(site?.buildings?.length
+    || site?.rooms?.length || site?.plan?.rooms?.length);
+  shapeMissions(content.MISSIONS ?? [], curriculum, changes, content.TIERS, content.UNLOCK_DAY,
+    fixtures, buildsFixtures);
   primeMissions(content.MISSIONS ?? [], curriculum, content.JARGON ?? [], changes);
   // After shaping, because shaping is what decides which day a lesson lands on:
   // an equation's first day is not knowable until the callbacks exist.
@@ -489,7 +508,38 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
   const introduced = new Set();
   let derived = 0;
   for(const [mi, m] of missions.entries()){
-    if(Array.isArray(m.primer) && m.primer.some(x => typeof x === 'string' && x.trim())) continue;
+    /**
+     * AN AUTHORED PRIMER IS NOT A REASON TO WITHHOLD THE VOCABULARY.
+     *
+     * This used to `continue` here, so a campaign that wrote its own primer got
+     * no glossary terms on any day card — and all eight of the revised
+     * campaigns write one, because their bibles have a "Primer concepts" list.
+     * The player then met every defined term for the first time inside a
+     * question, with a chip to click and no warning, which is the exact failure
+     * this card exists to prevent.
+     *
+     * Both are the bible's and both belong on the card. The terms go first,
+     * because they are what the authored lines are written in, and the authored
+     * lines follow instead of the derived prose — a formula the author already
+     * had a line for is not printed twice.
+     */
+    const authoredPrimer = (Array.isArray(m.primer) ? m.primer : [])
+      .filter(x => typeof x === 'string' && x.trim());
+    /**
+     * AND A MISSION MAY BRING ITS OWN TERMS. `primerTerms` authored on the
+     * mission is the bible's own "Worth knowing first" list for that day, in
+     * its order, and it is not this file's to second-guess: the selection below
+     * exists for books that have only a campaign-wide glossary to choose from.
+     */
+    if(Array.isArray(m.primerTerms) && m.primerTerms.length){
+      const said = m.primerTerms.filter(t => t?.name && t?.def);
+      const one = (d) => { const x = sentence(d); return x.charAt(0).toLowerCase() + x.slice(1); };
+      m.primer = [...said.map(t => `${t.name} — ${one(t.def)}`), ...authoredPrimer];
+      m.primerAssumes = [];
+      for(const t of said) introduced.add(t.name);
+      derived++;
+      continue;
+    }
     const lessons = lessonsOf(m);
     if(!lessons.length) continue;
     const stopTexts = dayTexts[mi];
@@ -575,10 +625,20 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     // them — a formula, a sentence of assumed knowledge — is what the four-line
     // rule was really about, so that is what stays capped, and it keeps the whole
     // old budget on a day with no vocabulary of its own to introduce.
-    const prose = [...formulas.slice(0, 2), ...assumes].slice(0, Math.max(2, 4 - terms.length));
+    const prose = authoredPrimer.length
+      ? authoredPrimer
+      : [...formulas.slice(0, 2), ...assumes].slice(0, Math.max(2, 4 - terms.length));
     const primer = [...terms, ...prose];
     if(!primer.length) continue;
     m.primer = primer;
+    // WHICH OF THOSE PROSE LINES IS AN ASSUMPTION. The plan card printed a
+    // definition, a formula and "a cooling machine sitting at the temperature it
+    // was asked to hold is doing its job" as one undifferentiated list, and the
+    // last of those reads as a stray fact — it is neither vocabulary nor a
+    // formula, it is the thing the day's questions take as given, and nothing on
+    // the card said so. The renderer cannot tell them apart from the flat list,
+    // so the split is recorded here.
+    m.primerAssumes = authoredPrimer.length ? [] : prose.filter(x => assumes.includes(x));
     // The same terms, structured, for the two surfaces that print them: the plan
     // card renders a definition list rather than a dozen bullets, and `checkStory`
     // needs to know which lines are definitions before it counts prose.
@@ -635,7 +695,11 @@ export function primeEquations(missions = [], curriculum = {}, changes = []){
           ...(eq.s ? { s: eq.s } : {}), ...(eq.computed ? { computed: true } : {}) });
       }
     }
-    if(rows.length){ m.equations = rows; printed += rows.length; }
+    // AUTHORED WINS. A bible that writes "Equations first needed today" has said
+    // which equations this day needs, in its own words and with its own symbol
+    // glosses; deriving a list from what the stops mention would replace that
+    // with a guess. Same rule as `primerTerms` above.
+    if(rows.length && !m.equations?.length){ m.equations = rows; printed += rows.length; }
   }
   if(printed) changes.push(`${printed} course equation(s) placed on the day card of a question that uses them`);
 }
@@ -921,7 +985,7 @@ function nearFirst(missions, tiers, unlockDay, changes, curriculum, fixtures){
   }
 }
 
-export function shapeMissions(missions = [], curriculum = {}, changes = [], tiers = null, unlockDay = 0, fixtures = {}){
+export function shapeMissions(missions = [], curriculum = {}, changes = [], tiers = null, unlockDay = 0, fixtures = {}, buildsFixtures = false){
   if(!Array.isArray(missions) || !missions.length) return missions;
   // Before anything else: the opening days must not call far ground. Person
   // stops and callbacks are decided below, on the days as they finally stand.
@@ -979,9 +1043,73 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
     // and an entirely ordinary thing to do, and `placement.mjs` reports those
     // rather than failing them.
     const canBePerson = (s) => kindOfStop(s) !== 'operated';
+
+    /**
+     * WHAT COUNTS AS A REPEAT: THE FIXTURE, WHERE THE BOOK SITES ONE.
+     *
+     * This keyed on the AREA, which was the whole truth while an area was a
+     * building and a call was "go to the Waterworks". The placement pass changed
+     * that: a lesson may name the object it is asked at, and a room holds
+     * several — Changeover's Rate Room has a queue board, an allocation slate
+     * and a wage-notice rail, and its bible sites the day's four calls at three
+     * of them.
+     *
+     * Keyed on the area, all four of those read as one room visited four times,
+     * so three became person stops and the player met Eli Voss four times over
+     * without touching a single object. Keyed on the fixture they are three
+     * different things to walk up to, and only the call that genuinely repeats
+     * one becomes a person stop.
+     *
+     * A book that sites nothing is unchanged: `at` is absent, the key falls back
+     * to the group, and the rule is exactly what it was. Five of the ten shipped
+     * books site nothing at all.
+     */
+    const placeKey = (s) => {
+      const at = buildsFixtures ? curriculum[s.group]?.[s.lesson]?.at : null;
+      return at ? `${s.group}@${at}` : s.group;
+    };
+
+    /**
+     * AND A SITED CALL IS NOT OVERRULED AT ALL.
+     *
+     * `at` on a lesson is the author saying which object this question is asked
+     * at — Changeover's bible sites its day 1 as a choice at the queue board, a
+     * derivation at the allocation slate, a diagnosis at the queue board again
+     * and an attestation at the wage-notice rail, and names the two Eli Voss
+     * asks. The rule above exists for books that say none of that, where a
+     * repeat means walking through the same door twice with nothing new behind
+     * it. Where a book has sited its calls the question is already answered, and
+     * turning the second reading of one board into a conversation is this file
+     * overriding the author.
+     *
+     * The day still gets its person stops: they are the ones the book itself
+     * marks. A sited book that marks none has a day with none, which is a
+     * finding about that book rather than something to paper over here.
+     */
+    /**
+     * AND ONLY WHERE THE WORLD CAN ACTUALLY BUILD THE OBJECT.
+     *
+     * `addFixture` is called from `createInteriors` in app.js, which is the
+     * OUTDOOR path: a town with a door per area, whose rooms are built by
+     * `interiorBuilding.js`. A campaign whose place is a plan — Changeover's
+     * tower, Headwater's levels, The Trial's floor — is built by
+     * `interiorSite.js`, and that module has never imported the fixture builder.
+     * Its rooms declare fixtures in `fixtures.js` that nothing puts in the
+     * world.
+     *
+     * So on those three, deferring to a sited call sends the player to an
+     * allocation slate that does not exist. Reported by somebody playing it:
+     * "I have to go to allocation slate, in counter room, but I cant find what
+     * to interact with in there."
+     *
+     * A plan has `rooms`; a town site has `buildings`. Until `interiorSite`
+     * builds fixtures, a plan's calls fall back to the area rule, which is what
+     * they did before and is reachable.
+     */
+    const sited = (s) => buildsFixtures && !!curriculum[s.group]?.[s.lesson]?.at;
     const seen = new Set();
     for(const stop of mission.stops){
-      if(seen.has(stop.group)){
+      if(seen.has(placeKey(stop)) && !sited(stop)){
         // A repeat still may not be a second visit to the same room. Where the
         // repeat is not a decision the day is better off three calls long: the
         // callback below will find it a different area, and a fourth call that
@@ -997,8 +1125,22 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
           changes.push(`day ${day + 1}: second call on ${stop.group} is operated, so it stays a room`);
         }
       } else {
-        seen.add(stop.group);
-        stop.person = false;
+        seen.add(placeKey(stop));
+        // AN AUTHORED `person: true` SURVIVES. This line used to set false
+        // unconditionally, which silently discarded the book's own choice and
+        // left the pick below to take the middle call by position. Twelve books
+        // author the key and BOOK_TEMPLATE.md promises it is honoured; between
+        // this line and an importer that dropped the key on the way in, it never
+        // was. It matters most on a day whose calls all stand in one place,
+        // where the person stop decides whether the player crosses the site: Red
+        // Sand's sol 291 asked three questions in the Reactor Hall and then sent
+        // the player to Catalyst Bay to talk to somebody.
+        // ...unless the format is one the player OPERATES. A control panel is
+        // not driven at a colleague, and the branch above already demotes that
+        // case for a repeat; an authored key does not get to bypass the rule.
+        // qd_accel and qd_tectonics both author `person: true` on a VERIFY, and
+        // `placement.mjs` caught both the moment the key started arriving.
+        if(stop.person !== true || !canBePerson(stop)) stop.person = false;
       }
     }
     if(!mission.stops.some(s => s.person)){
@@ -1076,6 +1218,43 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
             ? `A second look at "${base.title}", with what you have learned since`
             : 'Earlier work worth taking again with what you have learned since',
         });
+        // KEEP A ONE-ROOM DAY IN ONE ROOM. The callback is chosen from an area
+        // the day is not already using, and its point is partly that the player
+        // goes somewhere else — but a day the book has deliberately sited into a
+        // single place is a different contract, and the callback was quietly
+        // breaking it. Red Sand's first five sols are built that way: sol 293
+        // read as one room on the plan card and then sent the player to Catalyst
+        // Bay for a fourth call.
+        //
+        // So where every other call today resolves to ONE place, the callback is
+        // sited there too, on a fixture nothing else today is standing at. The
+        // `at:` goes on the STOP, never the lesson: the lesson belongs to the day
+        // that first taught it and moving it would move that day as well.
+        const placeOf = (st) => {
+          const l = curriculum[st.group]?.[st.lesson];
+          return sitedAt({ fixtures }, st.group, { at: st.at ?? l?.at })?.place ?? st.group;
+        };
+        // The rule is the general one: A CALLBACK NEVER ADDS A PLACE. It goes to
+        // whichever room the day is already using that has something free to
+        // stand at, busiest room first. Where nothing is free it falls back to
+        // its own area, exactly as before.
+        const others = mission.stops.slice(0, -1);
+        const count = new Map();
+        for(const st of others){ const p = placeOf(st); count.set(p, (count.get(p) ?? 0) + 1); }
+        const taken = new Set(others.map(st => st.at ?? curriculum[st.group]?.[st.lesson]?.at).filter(Boolean));
+        const homes = [...count.entries()].sort((a, b) => b[1] - a[1]).map(([p]) => p);
+        for(const home of homes){
+          const here = (fixtures?.[home] ?? []).filter(f => f?.id && !taken.has(f.id)
+            && (!f.until || day + 1 < f.until));
+          // A fixture built for this — `<area>-recall` — if the theme declares
+          // one; otherwise whatever in the room is free.
+          const pick = here.find(f => /-recall$/.test(f.id)) ?? here[0];
+          if(pick){
+            mission.stops[mission.stops.length - 1].at = pick.id;
+            changes.push(`day ${day + 1}: callback sited in ${home} at ${pick.id}, so the day gains no place`);
+            break;
+          }
+        }
         changes.push(`day ${day + 1}: callback to ${candidate.group} lesson ${lessonIdx}`);
       }
     }

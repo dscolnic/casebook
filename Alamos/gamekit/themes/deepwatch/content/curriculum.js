@@ -3324,7 +3324,8 @@ export const CURRICULUM = {
             "min": 0,
             "max": 2,
             "nominal": 2,
-            "step": 0.05
+            "step": 0.05,
+            "worst": "min"
           },
           "robust": "balanced",
           "optimiseOn": "quiet",

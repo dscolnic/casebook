@@ -98,16 +98,41 @@ export const WARMUP_SLOT_DAYS = [1, 4, 8, 13];
  * done, which is the bug the old two-key scheme would have grown the moment a
  * third lap existed.
  */
-export function warmupPlan({ days = 15, hasFar = false, unlockDay = 4 } = {}) {
+export function warmupPlan({ days = 15, hasFar = false, unlockDay = 4, opener = true,
+                             runs = true } = {}) {
+  // A CAMPAIGN MAY SAY IT HAS NONE, and one does. Whiteout's bible states it
+  // outright — "WHITEOUT authors no pre-day sightseeing, greeting, or race
+  // warm-up; movement is learned inside Mission 1" — which is a decision about
+  // the campaign, not about its length or its scoring. `opener: false` only
+  // clears day 1; days 4, 8 and 13 kept scheduling runs the bible had refused,
+  // each of them arriving with the engine's own words because the book authors
+  // no story for a run it never asked for.
+  if (!runs) return [];
   // One sitting, no runs. See WARMUP_MIN_DAYS above.
   if (days < WARMUP_MIN_DAYS) return [];
   const plan = [];
   const tail = [...WARMUP_TAIL];
 
-  // Day 1: the single opener. No second opener — there is no day 2 slot at all.
-  plan.push(hasFar
-    ? { day: 1, slot: 'trial-near', format: 'TRIAL' }
-    : { day: 1, slot: 'greet', format: 'GREET' });
+  /**
+   * Day 1: the single opener. No second opener — there is no day 2 slot at all.
+   *
+   * AND NO OPENER AT ALL ON A TIMED CAMPAIGN. `opener: false` is passed by every
+   * campaign scored on the four bars, and the reason is the clock: that model
+   * starts a mission's timer when the arrival beat closes and stop 1 activates,
+   * and grades the player on how long the mission took. A run in front of
+   * mission 1 is either time charged to a mission that has not begun or a
+   * tutorial wedged between the opening card and the first thing the campaign
+   * says — and on those eight it is the second, because they open on a
+   * full-screen card whose one control is Continue.
+   *
+   * The later slots are untouched. Days 4, 8 and 13 sit between missions, where
+   * the clock is stopped and the player already knows the place.
+   */
+  if (opener) {
+    plan.push(hasFar
+      ? { day: 1, slot: 'trial-near', format: 'TRIAL' }
+      : { day: 1, slot: 'greet', format: 'GREET' });
+  }
 
   // Day 4: the far lap where the unlock day actually falls there, else the
   // first tail format. A far site whose unlock day is not 4 keeps its lap on

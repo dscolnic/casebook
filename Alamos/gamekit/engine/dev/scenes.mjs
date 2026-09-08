@@ -38,6 +38,10 @@ export async function interiorScene(dir){
   const props = existsSync(resolve(dir, 'props.js')) ? await load(resolve(dir, 'props.js')) : {};
   const { buildInterior } = await load(resolve(gamekit, 'engine/world/interiorSite.js'));
   const scene = new THREE.Scene();
+  // What each build handed back — colliders, interactables, stop meshes. The
+  // scene alone cannot answer "is this room behind a door the player can open",
+  // because a door's collider is not a mesh and its toggle is not in the graph.
+  const builds = [];
 
   /**
    * A plan may also be more than one *floor*.
@@ -72,7 +76,7 @@ export async function interiorScene(dir){
       g.position.y = f.y ?? (f.id ?? 0) * (plan.rise ?? 4.4);
       g.userData.floorGroup = true;
       scene.add(g);
-      buildInterior(g, stubRenderer(), {
+      builds.push(buildInterior(g, stubRenderer(), {
         metrics: plan.metrics,
         spine: plan.spine,
         rooms: f.rooms,
@@ -86,7 +90,7 @@ export async function interiorScene(dir){
       }, {
         fitOutRoom: (room, ctx) => props.fitOutRoom?.(room, { ...ctx, floor: f }),
         fitOutSpine: (ctx) => props.fitOutSpine?.({ ...ctx, floor: f }),
-      });
+      }));
       // The lift is the world module's, not the builder's, and it is what the
       // rooms either side of it are hung on.
       buildLiftShaft(g, plan, makePlanGeometry(plan).P, floors.length);
@@ -97,7 +101,7 @@ export async function interiorScene(dir){
       g.position.x = wing.x ?? 0;
       g.userData.wingGroup = true;
       scene.add(g);
-      buildInterior(g, stubRenderer(), {
+      builds.push(buildInterior(g, stubRenderer(), {
         metrics: wing.metrics ?? plan.metrics,
         spine: wing.spine,
         rooms: wing.rooms,
@@ -105,15 +109,15 @@ export async function interiorScene(dir){
         openEnds: wing.openEnds ?? {},
         glazedSide: wing.glazedSide,
         ceiling: wing.ceiling,
-      }, { fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine });
+      }, { fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine }));
     }
   } else {
-    buildInterior(scene, stubRenderer(), plan, {
+    builds.push(buildInterior(scene, stubRenderer(), plan, {
       fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine,
-    });
+    }));
   }
   scene.updateMatrixWorld(true);
-  return { scene, plan, props };
+  return { scene, plan, props, builds };
 }
 
 /**

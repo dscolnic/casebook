@@ -6,12 +6,12 @@
     "contamcity": {
       "over": 0,
       "long": 0,
-      "worst": 6.1
+      "worst": 6
     },
     "projecty": {
       "over": 0,
       "long": 0,
-      "worst": 6.3
+      "worst": 5.8
     },
     "hospital": {
       "over": 0,
@@ -26,7 +26,7 @@
     "bring_them_home": {
       "over": 0,
       "long": 0,
-      "worst": 5.9
+      "worst": 4.5
     },
     "outbreak_riverton": {
       "over": 11,
@@ -41,7 +41,7 @@
     "blackout": {
       "over": 0,
       "long": 0,
-      "worst": 6.5
+      "worst": 6.1
     },
     "aftershock": {
       "over": 0,
@@ -56,7 +56,7 @@
     "the_trial": {
       "over": 0,
       "long": 0,
-      "worst": 5.5
+      "worst": 5.4
     },
     "headwater": {
       "over": 10,
@@ -66,7 +66,7 @@
     "icecore": {
       "over": 0,
       "long": 0,
-      "worst": 5.6
+      "worst": 5.5
     },
     "seedbank": {
       "over": 0,
@@ -77,6 +77,16 @@
       "over": 0,
       "long": 0,
       "worst": 5.5
+    },
+    "redsand_oneshot": {
+      "over": 0,
+      "long": 0,
+      "worst": 6.5
+    },
+    "redsand_v5": {
+      "over": 16,
+      "long": 0,
+      "worst": 11.7
     },
     "midway": {
       "over": 4,
@@ -106,7 +116,7 @@
     "sightline": {
       "over": 0,
       "long": 0,
-      "worst": 5.4
+      "worst": 5.3
     },
     "seedbank_ms": {
       "over": 0,
@@ -307,6 +317,41 @@
       "over": 0,
       "long": 0,
       "worst": 4.5
+    },
+    "carrying_v2": {
+      "over": 16,
+      "long": 1,
+      "worst": 11.2
+    },
+    "changeover_v2": {
+      "over": 16,
+      "long": 1,
+      "worst": 10.7
+    },
+    "planetary_defense_v2": {
+      "over": 16,
+      "long": 0,
+      "worst": 11.6
+    },
+    "groundtruth_v2": {
+      "over": 16,
+      "long": 1,
+      "worst": 10.4
+    },
+    "headwater_v2": {
+      "over": 16,
+      "long": 1,
+      "worst": 11.2
+    },
+    "midway_v2": {
+      "over": 16,
+      "long": 1,
+      "worst": 11.3
+    },
+    "the_trial_v2": {
+      "over": 16,
+      "long": 0,
+      "worst": 13
     }
   }
 }

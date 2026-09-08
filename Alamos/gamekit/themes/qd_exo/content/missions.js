@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "SPEC",
         "lesson": 1,
-        "task": "Find how long the pattern takes to repeat"
+        "task": "Find how long the pattern takes to repeat",
+        "person": true
       },
       {
         "group": "FOLLOW",
@@ -47,7 +48,8 @@ export const MISSIONS = [
       {
         "group": "FOLLOW",
         "lesson": 1,
-        "task": "Buy the check that could kill it"
+        "task": "Buy the check that could kill it",
+        "person": true
       }
     ]
   },

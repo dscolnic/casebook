@@ -1,0 +1,129 @@
+RED SAND - ARCADIA RISE
+The places, from themes/redsand/site.js
+
+A propellant plant on Arcadia Planitia. Outdoor site, 17 buildings.
+Spawn at (0, 52), yaw 0 - looking straight down the plant line, with the
+ascent vehicle on the pad at the end of it.
+Terrain 900 m square, player limit 380 m. Far ground opens on sol 5.
+
+Coordinates are (x, z). Looking down, -Z is away from the player at spawn.
+Distance is a straight line from the spawn.
+
+
+THE SIX AREAS OF STUDY
+Each is a group id in content/groups.js. Listed in process order down the site.
+
+  id      place                  x     z    from spawn   colour
+  ------  --------------------  ----  ----  ----------   --------
+  GIBBS   Plant Control          -6    16      36 m      0x8a7f92
+  ELEC    Electrolysis Hall      27    26      37 m      0x8f9aa0
+  SOIL    Water Plant           -31    -2      62 m      0x9a8f78
+  KINET   Catalyst Bay           25   -10      67 m      0xa3936a
+  EQUIL   Reactor Hall          -27   -34      90 m      0x9c7059
+  PHASE   Cold End               29   -46     102 m      0x7f909c
+
+Plant Control sits where the track from the habitat meets the plant line,
+which is where an argument about the energy budget actually happens.
+
+
+THE ELEVEN ENTERABLE NON-AREAS
+`enter:` gives a building an interiors key without making it an area: a door,
+a room, no case stand and no delivery board. Each carries a question that
+genuinely belongs in it. Contents are in themes/redsand/minors.js.
+
+  id       place               subtitle                                                x     z    from spawn
+  -------  ------------------  ------------------------------------------------------  ----  ----  ----------
+  INTAKE   Atmosphere Intake   Six millibars in, twelve bar out                         -30    30      37 m
+  GARAGE   Vehicle Bay         Two rovers and everything that comes back in with them    48    44      49 m
+  HAB      Habitat             Six people, nineteen degrees                             -58    42      59 m
+  HSTORE   Hydrogen Store      Where the kilograms are counted                           54     8      70 m
+  SHOP     Machine Shop        A furnace, a lathe, and everything that gets made here    70    50      70 m
+  ARRAY    Array Shed          Eighteen hundred square metres of panel                   80    22      85 m
+  ASSAY    Assay Lab           Nothing is signed for until it has been measured here    -54   -14      85 m
+  BATT     Battery Bank        What the array leaves behind for the night                76   -12      99 m
+  TANKS    Tank Farm           Everything the plant has made so far                      17   -72     125 m
+  PAD      Pad Office          The vehicle, and what has gone into it                   -46  -104     163 m
+  CUT      The Ice Cut         Where the water is dug                                   -96  -272     338 m
+
+
+NOT A BUILDING
+
+  The ascent vehicle stands at (0, -132) behind a 30 m blast berm, as a PROP.
+  The thing the entire fortnight is about. The Pad Office is the door onto it.
+
+  Sol board at (9, 40), facing the spawn.
+
+
+THE PLAN, LOOKING DOWN
+
+                        [ Ascent Vehicle ]                    z = -132
+                         [ Tank Farm ]                        z =  -70
+         [ Reactor Hall ]            [ Cold End ]             z = -34 ... -46
+         [ Water Plant  ]            [ Catalyst Bay ]         z =  -2 ... -10
+         [ Intake       ]            [ Electrolysis Hall ]    z =  26 ... 30
+               [ Plant Control ]                              z =   16
+    [ Habitat ]        * spawn *        [ Garage ]            z =  40 ... 52
+                                                 [ Array Shed -> panels ] east
+
+  (The Ice Cut is off this diagram, 272 m further north-west. The Pad Office,
+  Hydrogen Store, Machine Shop, Battery Bank and Assay Lab were added later to
+  spread WHEN the world opens rather than to add ground.)
+
+
+THREE THINGS THAT ARE LOAD-BEARING, NOT DECORATIVE
+
+  1. THE GEOGRAPHY IS THE PROCESS. Atmosphere in at the top of the site, water
+     out of the ground beside it, hydrogen made in the middle, the two combined
+     in the reactor, the product cooled at the far end, and what survives all
+     of that stored in the tank farm and loaded into the vehicle. Walking from
+     the spawn to the pad is walking one molecule through the whole plant, in
+     order - which is why a call at the cold end costs a real part of the sol.
+
+  2. THE ICE CUT'S 338 m IS DELIBERATE. `tiersFor` splits a site at its largest
+     distance gap and refuses the split under a ratio of 2, so a place does not
+     get a second orientation lap for being fifteen metres further along the
+     same track. At z = -232 the cut sat 300 m out against the pad office at
+     163: ratio 1.84, and the site stayed one tier. 338 / 163 = 2.07 is what
+     earns the far tier. The far ground then opens on sol 5 rather than the
+     default 4, so the ice cut does not share its opening with the intake.
+
+  3. TWO PLACEMENTS HAD TO MOVE, AND NO CHECK COULD SEE EITHER.
+     - The Pad Office first went to (-26, -120), whose door at (-26, -112) the
+       walk check could not reach from the spawn: the berm is a 30 m ring at
+       (0, -132) and the only approach ran through it. The berm is what makes
+       the pad read as a pad, so the office moved to (-46, -104) instead.
+     - The Tank Farm and its three cryogenic tanks first sat astride the track.
+       A straight-line route probe walked into them. It is east of the track now.
+     Also: the spawn at (0, 52) has nothing within twelve metres. A prop over
+     the spawn welds the player in place - the scene renders and W does nothing.
+
+
+WHERE THE QUESTIONS ARE ASKED INSIDE THESE PLACES
+
+  themes/redsand/fixtures.js names about 45 objects a stop can be asked AT, and
+  a lesson points at one with `at: <id>` in books/redsand.yml. Examples:
+
+    EQUIL   skid, analyser, assay bench, bed-head, coldline-tap, equil-stub
+    KINET   bed, charge-bench, kinet-crate, bed-log
+    PHASE   coldline, tankfarm, fridge, phase-scaffold, phase-radiator
+    ELEC    stack, arraypanel, volt-sheet, elec-frame, stack-sheet, cell-diagram
+    SOIL    hopper, columns, brinetank, lag-column, alarm-panel, water-report
+    GIBBS   ledger, loadboard, sample-tray, gibbs-crates
+
+  And the sited calls, in the rooms that are not areas - the question still
+  belongs to its own area, it is just asked there:
+
+    TANKS    farm-gauges, umbilical
+    INTAKE   compressors
+    HSTORE   store-scales
+    SHOP     reduction-furnace
+    BATT     cell-stacks
+    ASSAY    spec-bench
+
+
+SOURCES
+  themes/redsand/site.js        the places, the terrain, the horizon, the spawn
+  themes/redsand/fixtures.js    what stands in each room to be asked at
+  themes/redsand/minors.js      what is inside the eleven non-areas
+  books/redsand.yml             the campaign, and every `at:`
+  gamekit/PLACEMENT_PASS.md     why the non-areas were opened at all

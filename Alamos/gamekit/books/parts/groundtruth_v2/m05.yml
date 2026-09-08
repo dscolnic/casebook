@@ -6,10 +6,10 @@
     header: "11 DAYS TO FINAL STORM WINDOW;"
     title: "The Sky as a Capacitor"
     goNow: "Field Station, Ravi Sen at mill array."
-    body: "Tip enhancement starts the strike, but remote damage needs energy and a path. Two separated conductors can store opposite charge; their geometry and insulating material set capacitance. You will derive the cloud-ground model, test dielectric assumptions, and carry its charge prediction to the impulse bank. By the end of the mission, decide which bank setting can represent the storm without overstating it."
+    body: "The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it."
     objective: "Build a bounded cloud-ground capacitance and charge model."
   objective: "Build a bounded cloud-ground capacitance and charge model."
-  stake: "Tip enhancement starts the strike, but remote damage needs energy and a path. Two separated conductors can store opposite charge; their geometry and insulating material set capacitance. You will derive the cloud-ground model, test dielectric assumptions, and carry its charge prediction to the impulse bank. By the end of the mission, decide which bank setting can represent the storm without overstating it."
+  stake: "The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it."
   takeaway: "Use the twelve-stage Marx bank only as an electrical analog, matched in voltage, charge,. ---"
   segue: "Mission decision: Use the twelve-stage Marx bank only as an electrical model. Match voltage, charge, and timing. The storm capacitance is about 44.3 nF. The bank does not copy cloud shape. Next, calculate staged energy."
 
@@ -23,7 +23,7 @@
     world: "| trigger | location | presentation | world_state | exact copy | unlocks | |---|---|---|---|---|---| | accepted | FIELD/mill-array | nearby_character_bubble | cloud footprint overlay visible | | S1 | | S2 correct | FIELD/mill-array | waypoint_notification | truth pair pinned | Take A = 2.0×10^8 m² and κ = 1.00 to Impulse Hall. | BANK travel/S3 | | enter BANK | BANK/hall-board | nearby_character_bubble | earthing stick on | | S3 | | S4 correct | BANK/bank-stages | equipment_panel_update | selected evidence labels appear | MATCH: VOLTAGE • CHARGE • TIMING; GEOMETRY NOT MATCHED | outcome | | outcome closes | BANK/hall-board | system_banner | report piece 5 appears | CLOUD MODEL BOUNDED | metric/M6 |."
     panel: "Ravi Sen, field scientist: \"Use geometry first. Voltage comes only after we know what can store charge.\""
     bubbles:
-    - who: ravi   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "Use geometry first. Voltage comes only after we know what can store charge."
   - id: after-stop-17
     # After Stop 17 | storm-profile-board | automatic
@@ -31,32 +31,105 @@
     world: "The derive cloud-ground capacitance result remains visible while the break the area-dielectric degeneracy fixture lights."
     panel: "STOP 17 RECORDED - STOP 18 OPEN"
     bubbles:
-    - who: ravi   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 17 result to settle break the area-dielectric degeneracy."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 17 result to settle break the area-dielectric degeneracy."
   - id: after-stop-18
     # After Stop 18 | hall-board | automatic
     on: { after: [2] }
     world: "The break the area-dielectric degeneracy result remains visible while the derive marx topology fixture lights."
     panel: "STOP 18 RECORDED - STOP 19 OPEN"
     bubbles:
-    - who: ravi   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 18 result to settle derive marx topology."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 18 result to settle derive marx topology."
   - id: after-stop-19
     # After Stop 19 | trailer-cards | automatic
     on: { after: [3] }
     world: "The derive marx topology result remains visible while the buy model evidence fixture lights."
     panel: "STOP 19 RECORDED - STOP 20 OPEN"
     bubbles:
-    - who: ravi   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 19 result to settle buy model evidence."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 19 result to settle buy model evidence."
   - id: at-mission-end
     # At mission end | mill-array | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 5 EVIDENCE: RECORDED"
     bubbles:
-    - who: ravi   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Capacitance", def: "stored charge per voltage."}
+  - {name: "Dielectric", def: "insulating material that changes capacitance by polarization."}
+  - {name: "Polarization", def: "small charge separation inside matter."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Sky as a Capacitor. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Sky as a Capacitor, the layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Which prediction or calculation correctly applies Capacitance to this case?"
+      hint: "Use the stated evidence and the conditions for Capacitance; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Gauss gives field, and the field-potential relation turns it into capacitance.", why: "This describes parallel-plate capacitance, not Capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.", why: "Correct. stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter."}
+      - {key: "C", text: "A second physical constraint prevents a convenient but false parameter choice.", why: "This describes κ-area degeneracy, not Capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Marx topology stores charge at low stage voltage and delivers summed voltage.", why: "This describes series/parallel capacitors, not Capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to The Sky as a Capacitor: the layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Which prediction or calculation correctly applies parallel-plate capacitance to this case?"
+      hint: "Use the stated evidence and the conditions for parallel-plate capacitance; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.", why: "This describes Capacitance, not parallel-plate capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "A second physical constraint prevents a convenient but false parameter choice.", why: "This describes κ-area degeneracy, not parallel-plate capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Gauss gives field, and the field-potential relation turns it into capacitance.", why: "Correct. gauss gives field, and the field-potential relation turns it into capacitance."}
+      - {key: "D", text: "Marx topology stores charge at low stage voltage and delivers summed voltage.", why: "This describes series/parallel capacitors, not parallel-plate capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks The Sky as a Capacitor using new evidence: because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which prediction or calculation correctly applies κ-area degeneracy to this case?"
+      hint: "Use the stated evidence and the conditions for κ-area degeneracy; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.", why: "This describes Capacitance, not κ-area degeneracy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Gauss gives field, and the field-potential relation turns it into capacitance.", why: "This describes parallel-plate capacitance, not κ-area degeneracy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Marx topology stores charge at low stage voltage and delivers summed voltage.", why: "This describes series/parallel capacitors, not κ-area degeneracy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "A second physical constraint prevents a convenient but false parameter choice.", why: "Correct. a second physical constraint prevents a convenient but false parameter choice."}
+    - prompt: "An unseen case extends The Sky as a Capacitor: at Impulse Hall, Elise Strand, impulse engineer, shows twelve 100 nF stage capacitors. Which prediction or calculation correctly applies series/parallel capacitors to this case?"
+      hint: "Use the stated evidence and the conditions for series/parallel capacitors; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Marx topology stores charge at low stage voltage and delivers summed voltage.", why: "Correct. marx topology stores charge at low stage voltage and delivers summed voltage."}
+      - {key: "B", text: "Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.", why: "This describes Capacitance, not series/parallel capacitors. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Gauss gives field, and the field-potential relation turns it into capacitance.", why: "This describes parallel-plate capacitance, not series/parallel capacitors. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "A second physical constraint prevents a convenient but false parameter choice.", why: "This describes κ-area degeneracy, not series/parallel capacitors. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Sky as a Capacitor decision, the team knows this: with storm capacitance bounded and bank topology known, four possible measurements compete for six setup-hours. Choose the next measurement now based on whether its result could change the decision. Which prediction or calculation correctly applies bank representation to this case?"
+      hint: "Use the stated evidence and the conditions for bank representation; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.", why: "This describes Capacitance, not bank representation. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "A model is useful when its matched variables and limitations are explicit.", why: "Correct. a model is useful when its matched variables and limitations are explicit."}
+      - {key: "C", text: "Gauss gives field, and the field-potential relation turns it into capacitance.", why: "This describes parallel-plate capacitance, not bank representation. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "A second physical constraint prevents a convenient but false parameter choice.", why: "This describes κ-area degeneracy, not bank representation. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from The Sky as a Capacitor to this follow-up: because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.", why: "This describes Capacitance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Gauss gives field, and the field-potential relation turns it into capacitance.", why: "This describes parallel-plate capacitance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "A second physical constraint prevents a convenient but false parameter choice.", why: "This describes κ-area degeneracy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"C=Q/V, C=κε₀A/d","c":"connect geometry, material, charge, voltage","v":[["C","capacitance in farads"],["Q","stored charge in coulombs"],["V","potential difference in volts"],["κ","dimensionless dielectric constant"],["ε₀","vacuum permittivity"],["A","plate area in square metres"],["d","plate separation in metres"]],"s":"translate storm geometry into a safe bank target."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 5: worked examples"
+    examples:
+    - {"title":"Use capacitance","problem":"A capacitor holds Q=20 μC at V=10 V. Find capacitance.","rule":"C=Q/V.","steps":["Set up the relationship: C=Q/V.","C=(20 μC)/(10 V)=2 μF."],"answer":"Capacitance is 2 microfarads.","mistake":"Capacitance is charge per voltage, not voltage per charge."}
+    - {"title":"Parallel-plate capacitance","problem":"Vacuum plates have area A=0.02 m² and separation d=0.001 m. Use ε0≈9×10^-12 F/m and neglect edge effects.","rule":"C=ε0 A/d.","steps":["Set up the relationship: C=ε0 A/d.","C=(9×10^-12)(0.02)/(0.001)=1.8×10^-10 F=180 pF."],"answer":"Capacitance is approximately 180 pF.","mistake":"Increasing plate separation decreases capacitance."}
+    - {"title":"Insert a dielectric","problem":"A capacitor has vacuum capacitance 2 μF. A dielectric of relative permittivity κ=3 completely fills the gap. Find capacitance.","rule":"C_new=κ C_vacuum for the stated ideal filling.","steps":["Set up the relationship: C_new=κ C_vacuum for the stated ideal filling.","C_new=3(2)=6 μF."],"answer":"The new capacitance is 6 μF.","mistake":"Whether voltage or charge changes also depends on whether a battery remains connected."}
+    - {"title":"Parallel capacitors","problem":"Capacitors of 2 μF and 3 μF are connected in parallel. Find equivalent capacitance.","rule":"For parallel capacitors, C_eq=C1+C2.","steps":["Set up the relationship: For parallel capacitors, C_eq=C1+C2.","C_eq=2+3=5 μF."],"answer":"Equivalent capacitance is 5 μF.","mistake":"Parallel capacitors share voltage; their charges add."}
+    - {"title":"Series capacitors","problem":"Two identical 4 μF capacitors are connected in series. Find equivalent capacitance.","rule":"1/C_eq=1/C1+1/C2.","steps":["Set up the relationship: 1/C_eq=1/C1+1/C2.","1/C_eq=1/4+1/4=1/2 per μF, so C_eq=2 μF."],"answer":"Equivalent capacitance is 2 μF.","mistake":"Series capacitance is smaller than either component here."}
 
   stops:
   # --- Stop 17: Derive Cloud-Ground Capacitance
@@ -65,12 +138,12 @@
   - group: BANK
     at: mill-array
     title: "Derive Cloud-Ground Capacitance"
-    concept: "parallel-plate capacitance"
-    reason: "bank settings need a geometry-based C."
-    scene: "The layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Derive cloud-ground capacitance before using any voltage.\", and record the result with its physical justification in the station report."
-    motivation: "Gauss gives field, and the field-potential relation turns it into capacitance."
+    concept: 11   # parallel-plate capacitance
+    reason: "The storm model needs a capacitance estimate before its stored charge can be compared with the test bank."
+    scene: "The layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Derive cloud-ground capacitance before using any voltage."
+    motivation: "Cloud-ground capacitance connects the measured layer geometry to the amount of charge stored at a given voltage."
     format: DERIVE
-    question: "Using ε₀=8.854×10^-12 F/m, build every line from Gauss's law through C=Q/V, name each rule, and submit capacitance in nF to the displayed tolerance."
+    question: "Submit capacitance in nF to the displayed tolerance."
     answerText: "The completed check shows c=ε₀A/d=44.3 nF. Gauss plus V=Ed cancels Q."
     why: "Gauss gives field, and the field-potential relation turns it into capacitance."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -81,6 +154,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines E=σ/ε0(Gauss boundary), V=Ed=Qd/(ε0A)(σ=Q/A), C=Q/V=ε0A/d(definition), substitution→4.427×10^-8 F=44.3 nF. Prompt includes ε0; submit nF. Tolerance .2 nF. Worked answer.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Cloud-Ground Capacitance in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: E=σ/ε0
+            - text: E=σ/(2ε0)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: V=Ed=Qd/(ε0A)
+            - text: V=EQ/(ε0A)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: C=Q/V=ε0A/d
+            - text: C=V/Q
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: C=(8.854e-12 F/m)(2.0e8 m²)/(4.0e4 m)=4.427e-8 F=44.3 nF
+            - text: C=(8.854e-12 F/m)(2.0e8 m²)(4.0e4 m)=70.832 F
+              why: Plate separation divides the capacitance expression; multiplying by it also fails the unit check.
+              survives: true
 
   # --- Stop 18: Break the Area-Dielectric Degeneracy
   #     Concept: κ-area degeneracy; Keystone: K5,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L4.
@@ -88,10 +193,10 @@
   - group: COUPLE
     at: storm-profile-board
     title: "Break the Area-Dielectric Degeneracy"
-    concept: "κ-area degeneracy"
-    reason: "the same capacitance can come from several footprint/material pairs."
-    scene: "Because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Adjust both controls, then use radar area to collapse the matching curve.\", and record the result with its physical justification in the station report."
-    motivation: "a second physical constraint prevents a convenient but false parameter choice."
+    concept: 12   # κ-area degeneracy
+    reason: "The capacitance alone leaves multiple combinations of cloud area and dielectric factor possible."
+    scene: "Because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Adjust both controls, then use radar area to collapse the matching curve."
+    motivation: "The radar area constraint determines which geometry-material combination can legitimately feed the bank comparison."
     format: DEGENERACY
     question: "Use the two controls cloud area A and dielectric factor kappa. Adjust A from 1.0×10^8 to 3.0×10^8 m2 in 0.1×10^8 m2 steps and kappa from 1.0 to 2.0 in 0.1 steps; apply both loci, then submit the numerical pair (A,kappa) before selecting the radar-constrained plan."
     answerText: "Radar selects (2.0×10^8 m²,1.00). A second constraint breaks the product degeneracy."
@@ -140,12 +245,12 @@
   - group: BANK
     at: hall-board
     title: "Derive Marx Topology"
-    concept: "series/parallel capacitors"
-    reason: "Strand must convert one storm capacitance into twelve physical stages."
-    scene: "At Impulse Hall, Elise Strand, impulse engineer, shows twelve 100 nF stage capacitors. Derive the equivalent capacitance when they charge in parallel and discharge in series.\", and record the result with its physical justification in the station report."
-    motivation: "Marx topology stores charge at low stage voltage and delivers summed voltage."
+    concept: 14   # series/parallel capacitors
+    reason: "The storm estimate is ready for comparison with the bank's actual charging and discharge connections."
+    scene: "At Impulse Hall, Elise Strand, impulse engineer, shows twelve 100 nF stage capacitors. Derive the equivalent capacitance when they charge in parallel and discharge in series."
+    motivation: "The two equivalent capacitances explain why the bank can charge at one voltage arrangement and discharge at another."
     format: DERIVE
-    question: "Build and license the parallel-charge and series-discharge derivations, then submit both equivalent capacitances in μF and nF."
+    question: "Submit both equivalent capacitances in μF and nF."
     answerText: "Charge: 1.20 μF; discharge: 8.33 nF. Parallel adds C; series adds reciprocals."
     why: "Marx topology stores charge at low stage voltage and delivers summed voltage."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -156,6 +261,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines Ccharge=ΣC_i=12C=1.20µF(parallel), 1/Cdis=Σ1/C=12/C(series), Cdis=C/12=8.33nF(algebra).
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Marx Topology in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Ccharge=ΣC_i=12(100 nF)=1200 nF=1.20µF
+            - text: Ccharge=(1/C+1/C+...+1/C)^-1=C/12
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: 1/Cdis=Σ1/C=12/C
+            - text: 1/C_dis=1/(12C)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Cdis=(100 nF)/12=8.33 nF
+            - text: C_dis=12C
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 20: Buy Model Evidence
   #     Concept: bank representation; Keystone: K5,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5 decision.
@@ -164,10 +294,10 @@
     at: trailer-cards
     title: "Buy Model Evidence"
     person: ortiz
-    concept: "bank representation"
-    reason: "limited test budget must buy the setting that constrains the storm model."
+    concept: 14   # bank representation
+    reason: "The bank topology is known, but the shot model still lacks measurements needed for a defensible comparison."
     scene: "With storm capacitance bounded and bank topology known, four possible measurements compete for six setup-hours. Buy the evidence that determines voltage, charge, and timing without pretending the bank matches cloud geometry."
-    motivation: "a model is useful when its matched variables and limitations are explicit."
+    motivation: "The selected measurements must constrain the bank's voltage, charge storage, and discharge timing within the setup budget."
     format: VALUE
     question: "Spend no more than six setup-hours on the listed measurements and submit the evidence set that fixes represented voltage, charge, and timing without claiming matched geometry."
     answerText: "match V,Q,timing."

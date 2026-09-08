@@ -11,6 +11,8 @@ import * as THREE from 'three';
 import { addCaseBeacon } from './caseBeacon.js';
 import { markStructure, bladeSign, markWallMounted } from './interiorKit.js';
 import { buildDeliveryCase } from './deliveryCase.js';
+import { addFixture } from './interiorFixtures.js';
+import { animate } from './animators.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import {
   paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture,
@@ -37,6 +39,25 @@ export const DEFAULTS = {
     signBand: '#25506b',
   },
 };
+
+/**
+ * Where a PERSON may not stand, which is not the same list the player collides
+ * against.
+ *
+ * A shut door blocks the player until they open it. It must not block anything
+ * else: the crowd places people by asking this, and `engine/dev/reachable.mjs`
+ * floods the floor with it — so counting a door as a wall strands every walker in
+ * whichever room they spawned in and reports every stop in every interior game as
+ * unreachable behind its own door.
+ *
+ * One copy, three callers. `interiorFloor`, `interiorTower` and `interiorLevels`
+ * each had their own identical `blocked` lambda, which is the shape this repo has
+ * been bitten by before: the first correction lands in one of them.
+ */
+export function blockedBy(colliders){
+  return (x, z, pad = 1) => colliders.some(c => !c.isDoor
+    && x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad);
+}
 
 /** Geometry helpers for a plan. Pure functions, safe for themes to use. */
 export function makePlanGeometry(plan){
@@ -86,6 +107,17 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   const roomDoors = new Map();
   /** The campaign's delivery board, in whichever room `hooks.delivery.where` names. */
   let deliveryCase = null;
+  /**
+   * Per group: the objects a question can be asked at, by fixture id.
+   *
+   * A theme declares these in `fixtures.js` — a queue board, an allocation
+   * slate, a wage-notice rail — and until now only the OUTDOOR path built them:
+   * `addFixture` is called from `createInteriors` in app.js, whose rooms come
+   * from `interiorBuilding.js`. A campaign whose place is a plan got none of
+   * them, so every stop sited at one sent the player to an object that was not
+   * in the world, and the rooms were four walls and a case stand.
+   */
+  const fixtureRooms = new Map();
 
   const M = {
     wall:  mat('wall',  () => new THREE.MeshStandardMaterial({ map: paintTexture(P.palette.wall), roughness: 0.92, envMapIntensity: 0.5 })),
@@ -463,13 +495,101 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     hit.position.set(x, P.doorH / 2, cz);
     hit.rotation.y = Math.PI / 2;
     scene.add(hit);
-    return { leaf, hit };
+
+    /**
+     * THE DOOR IS SHUT, AND IT IS A DOOR.
+     *
+     * It used to stand permanently ajar and the opening had no collider at all:
+     * the leaf was scenery and the player walked through the gap beside it. So a
+     * building read as a floor plan with decorations rather than as somewhere with
+     * rooms in it, and a room nobody had any business being in cost nothing to
+     * wander into.
+     *
+     * The collider is FLAGGED, and everything that reads `colliders` to decide
+     * where a person may stand or whether a stop can be reached has to skip it —
+     * see `blockedBy` below. A closed door is not a wall: it is a wall the player
+     * can open, and a flood fill that cannot tell the difference reports every
+     * room in every interior game as unreachable.
+     */
+    const shut = new THREE.Box3().setFromCenterAndSize(
+      new THREE.Vector3(x, P.doorH / 2, cz),
+      new THREE.Vector3(P.wall + 0.10, P.doorH, dw));
+    shut.isDoor = true;
+    const blocking = shut.clone();
+    blocking.isDoor = true;
+    colliders.push(blocking);
+
+    const state = { open: false, at: 0 };
+    const CLOSED = 0, OPEN = s * 1.42;
+    leaf.rotation.y = CLOSED;
+
+    /**
+     * THE DOOR OPENS IN `toggle`, NOT IN THE ANIMATOR.
+     *
+     * It was the other way round, and the door did not open at all: all three
+     * interior worlds call `clearAnimators()` AFTER `buildInterior`, so every
+     * animator registered in here was thrown away a few lines later. `toggle`
+     * flipped a flag that nothing was left to read — prompt changed, leaf did not
+     * move, collider stayed in the doorway.
+     *
+     * So the state change is applied here, at once and completely: the collider
+     * goes, and the leaf takes its final angle. The animator below only EASES the
+     * angle it has already been given. That ordering is the point — if the swing
+     * is ever thrown away again the door still opens, it just stops being pretty.
+     *
+     * The box is emptied rather than spliced out of `colliders`: the array is read
+     * every frame by the player's own collision and by three `blocked` predicates,
+     * and an index into it is not something to shuffle underneath them.
+     */
+    const apply = () => {
+      if(state.open){ blocking.makeEmpty(); }
+      else { blocking.copy(shut); blocking.isDoor = true; }
+      leaf.rotation.y = CLOSED + (OPEN - CLOSED) * (state.open ? 1 : 0);
+      state.at = state.open ? 1 : 0;
+    };
+
+    // The swing, if anything is still running animators when the frame loop
+    // starts. `at` is where the leaf is; `open` is where it is going.
+    let eased = 0;
+    animate((t, dt) => {
+      const want = state.open ? 1 : 0;
+      if(eased === want) return;
+      const step = Math.min(1, (dt ?? 0.016) * 3.2);
+      eased += (want - eased) * step;
+      if(Math.abs(want - eased) < 0.01) eased = want;
+      leaf.rotation.y = CLOSED + (OPEN - CLOSED) * eased;
+    });
+
+    return { leaf, hit, state, collider: blocking,
+      toggle: () => { state.open = !state.open; apply(); return state.open; } };
   }
 
   const ctx = {
     scene, plan, geo, P, box, wall, collide,
     materials: M,
-    soft: (x, z, r) => softColliders.push({ x, z, r }),
+    /**
+     * A cylinder you brush past. BOTH CALLING CONVENTIONS, because there are
+     * two in this repo and one of them failed silently.
+     *
+     * The outdoor `decorate` ctx hands a theme `softColliders` and themes push
+     * `{x, z, r}` objects into it; this interior ctx hands them a function
+     * taking three numbers. Six themes write the object form, and calling this
+     * with one produced `{ x: {…}, z: undefined, r: undefined }` — a collider
+     * whose every comparison is NaN, so it is not merely in the wrong place, it
+     * does nothing at all. Headwater had three: every seat, machine and
+     * standpipe in the building was uncollidable and nothing anywhere said so.
+     */
+    soft: (x, z, r) => {
+      if(x && typeof x === 'object'){
+        const { x: ox, z: oz, r: orr } = x;
+        if(Number.isFinite(ox) && Number.isFinite(oz) && Number.isFinite(orr)){
+          softColliders.push({ x: ox, z: oz, r: orr });
+        }
+        return;
+      }
+      if(!Number.isFinite(x) || !Number.isFinite(z) || !Number.isFinite(r)) return;
+      softColliders.push({ x, z, r });
+    },
     hard: (cx, cz, w, d, h) => collide(cx, cz, w, d, h),
     addInteractable: (i) => interactables.push(i),
     lightPanels,
@@ -489,6 +609,20 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     if(opening){
       const d = door(r, opening);
       roomDoors.set(r.id, d.hit);
+      // Press E to open it. A separate type from `door`, which in an OUTDOOR game
+      // means "walk into this building" and teleports; this one swings a leaf and
+      // takes its collider out of the way, and the player then walks in themselves.
+      interactables.push({
+        mesh: d.hit, type: 'roomdoor', id: `door:${r.id}`,
+        prompt: `E — open the door to ${r.name ?? r.id}`,
+        toggle: () => {
+          const open = d.toggle();
+          const it = interactables.find(i => i.id === `door:${r.id}`);
+          if(it) it.prompt = open ? `E — close the door to ${r.name ?? r.id}`
+                                  : `E — open the door to ${r.name ?? r.id}`;
+          return open;
+        },
+      });
       if(r.group){
         stopMeshes.set(r.group, {
           room: r, doorMesh: d.hit, leaf: d.leaf,
@@ -526,6 +660,56 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
       });
       beacon.setActive(false);
       caseStands.set(r.group, { hit, beacon, x: sx, z: sz, room: r });
+
+      /**
+       * THE OBJECTS THE QUESTIONS ARE ASKED AT.
+       *
+       * `addFixture` was written for the town's rooms, which are their own
+       * boxes: the back wall is at `z1`, the sides at `x0`/`x1`, and the room
+       * group sits unrotated at the middle of it. A room off a corridor is the
+       * same shape turned a quarter turn — its back wall is the outer one, and
+       * that faces along x. So an anchor group is put at the middle of the room
+       * and turned until local +z points out of the corridor, and the bounds
+       * handed over are the room's own, in that frame.
+       *
+       * Everything is built as scenery. A fixture is furniture first — these
+       * rooms have been four walls and a table — and which one carries today's
+       * call changes during the day, so it is marked live by `setFixtureCall`
+       * below rather than decided here.
+       */
+      const decl = (hooks.fixtures?.[r.group] ?? []).filter(f => f?.id);
+      if(decl.length){
+        const anchor = new THREE.Group();
+        anchor.position.set(b.cx, 0, b.cz);
+        // Local +z out of the corridor: +x for an east room, -x for a west one.
+        anchor.rotation.y = b.sign * Math.PI / 2;
+        scene.add(anchor);
+        // In the anchor's frame: x runs along the room's length, z into it.
+        const w = Math.abs(r.z1 - r.z0);
+        const d = Math.abs(b.xOuter - b.xInner);
+        const room = { group: anchor, bounds: {
+          w, d, x0: -w / 2, x1: w / 2, z0: -d / 2, z1: d / 2, wall: P.wall ?? 0.2, flip: 1 } };
+        //
+        // BUILT LIVE AND THEN TURNED DOWN, rather than built as scenery. The two
+        // differ in one more thing than the label: a scenery fixture gets no
+        // marker, and the marker is how anybody finds the object the HUD is
+        // naming — `caseBeacon.js` says so in its own header. So each is made
+        // with its area's id, which is what `openVisit` needs, and then put back
+        // to furniture by `setFixtureCall(group, null)` immediately below.
+        // Nothing is lit until a call is actually open at it.
+        const built = new Map();
+        for(const f of decl){
+          const made = addFixture(room, f, { caseId: r.group, stopIndex: null });
+          if(!made) continue;
+          colliders.push(made.collider);
+          interactables.push(...made.interactables);
+          built.set(f.id, made);
+        }
+        if(built.size){
+          fixtureRooms.set(r.group, { anchor, built, room: r });
+          quietFixtures(r.group);
+        }
+      }
     }
     // ---- the delivery board, in the one room the campaign keeps it in
     //
@@ -597,8 +781,54 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
 
   if(hooks.fitOutSpine) hooks.fitOutSpine(ctx);
 
+  /**
+   * Mark which of a room's objects carries today's call, if any.
+   *
+   * The fixtures are all built as scenery, because furniture is what they mostly
+   * are and because which one holds the call changes as the day is answered. The
+   * live one is retagged in place rather than rebuilt: `type: 'case'` with the
+   * area's id and the stop's index is what `main.js` already routes to
+   * `openVisit`, and the marker over it is the same one the case stand carries.
+   *
+   * Retagged, not replaced, so the object keeps its collider and its position and
+   * the player sees the same thing whether or not it is today's.
+   */
+  /** Every one of a room's objects back to furniture, marker off. */
+  function quietFixtures(groupId){ setFixtureCall(groupId, null, null); }
+
+  /**
+   * `roomGroup` is where the object STANDS; `areaGroup` is whose call it opens.
+   *
+   * They are not the same and that is the whole point of siting: Changeover asks
+   * four of the Rate Room's calls at the counter floor's boards. `openVisit`
+   * takes the AREA, so an object tagged with the room it stands in sent the
+   * player to a room with nothing open in it and the card read "Nothing is
+   * waiting for you here at the moment" — over a lit marker, which is worse than
+   * no marker at all. `interiorFixtures.js` says this in its own note about
+   * `caseId`; this is the same rule, one level up.
+   */
+  function setFixtureCall(roomGroup, fixtureId, stopIndex, areaGroup){
+    const room = fixtureRooms.get(roomGroup);
+    if(!room) return false;
+    let marked = false;
+    for(const [id, made] of room.built){
+      const it = made.interactables?.[0];
+      if(!it) continue;
+      const live = id === fixtureId;
+      if(live){
+        it.type = 'case'; it.id = areaGroup ?? roomGroup; it.stopIndex = stopIndex;
+        marked = true;
+      } else {
+        it.type = 'info'; it.id = id; delete it.stopIndex;
+        it.info = it.info ?? '';
+      }
+      made.beacon?.setActive?.(live);
+    }
+    return marked;
+  }
+
   return { geo, colliders, softColliders, interactables, stopMeshes, roomDoors, caseStands,
-           deliveryCase,
+           deliveryCase, fixtureRooms, setFixtureCall,
            lightPanels, groundHeight: () => 0 };
 }
 
@@ -676,10 +906,21 @@ export function updateInteriorTimeOfDay(scene, renderer, hours, lightPanels = []
   });
   u.day.intensity = isNight ? 0.05 : dusk ? 0.45 : 0.85;
   u.day.color.setHex(dusk ? 0xffd9a8 : 0xfff0d8);
-  lightPanels.forEach(p => {
-    if(p.material?.emissiveIntensity !== undefined){
-      p.material.emissiveIntensity = (p.userData.base ??= p.material.emissiveIntensity) * level;
-    }
+  // A panel that belongs to the NIGHT runs the other way.
+  //
+  // Everything in this list used to be dimmed by `level` — right for a ceiling
+  // troffer, and exactly backwards for the thing a tower's whole design is
+  // about: the city across the river, which is dark at noon and a field of lit
+  // windows after dusk. Changeover had to register a stand-in object with an
+  // inverting setter to get it, which is a second description of this rule
+  // living in a theme. An entry may be a mesh, or `{ material, night: true }`.
+  lightPanels.forEach(entry => {
+    const night = entry?.night === true;
+    const mat = entry?.material ?? entry?.mesh?.material;
+    if(mat?.emissiveIntensity === undefined) return;
+    const store = entry.userData ?? (entry.userData = {});
+    const base = (store.base ??= mat.emissiveIntensity);
+    mat.emissiveIntensity = night ? base * (1.15 - level) : base * level;
   });
   renderer.toneMappingExposure = isNight ? 1.22 : 1.0;
   return { isNight, dusk, level };

@@ -1,0 +1,209 @@
+HEADWATER (theme: headwater) — PLACES AND LOCATIONS
+Duty Engineer · Ashfell Dam
+Course: Calculus, through a reservoir that has to be drawn down before it
+rains. Home of DERIVE
+Grade 12. One mission is called a Day.
+Delivery: The Ashfell Release Rules — the board is in STORE. 15 pieces, one a
+day.
+
+Run it:  cd gamekit && THEME=headwater npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Ashfell control tower, as data. Five floors of it, beside a fall.
+
+**This place exists to be looked out of.** The tower stands on the east
+abutment with its long side glazed from floor to head on every level, and
+forty metres away across the gorge the spillway comes over in a sheet a
+hundred metres tall. Every room on the glazed side has the fall in the window;
+the stair does too. When the gates open, the view is the lesson.
+
+The first version of this game was a stack of galleries buried inside the dam,
+on the same world module as The Trial — and it looked like The Trial, because
+**a game's silhouette comes from its world module** and a palette is not a
+silhouette. The fix is not a different corridor. It is a building with one
+wall made of glass and something enormous behind it.
+
+  Level 0, +0     the machine floor: turbines, switch room, the way in
+  Level 1, +5.4   the gallery portal — the tunnel into the wall starts here
+  Level 2, +10.8  operations: inflow, storage, the control room
+  Level 3, +16.2  the gate floor: hoists, and the spillway deck door
+  Level 4, +21.6  the lookout, level with the crest and the top of the fall
+
+**Why the levels step back along the spine as well as up.**
+`groundHeight(x, z)` takes no level argument and collision is tested in x and
+z with the player's y ignored, so two rooms at one (x, z) on different floors
+would share a floor height and each other's walls. Offsetting each level keeps
+every (x, z) on exactly one floor, and it is why the tower reads as stepping
+back into the hillside as it climbs — which is what a building on an abutment
+does anyway. `engine/world/interiorLevels.js` builds it.
+
+Load-bearing rather than decorative:
+
+  · `glazedSide: 'e'` is the whole point of the building. It makes the east
+    envelope a mullioned screen instead of a wall, so `props.decorate()` can
+    put the gorge, the fall and the plunge pool behind it.
+  · Nothing is placed on the east side but the glass. Rooms live on the west.
+  · Every `group` here exists in content/groups.js or its calls are
+    unreachable, and only `worldParity` notices.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+POWER — Power & Demand
+  Powerhouse   [POWER]  side w, level 0, z 2 … 13, floor y 0
+  Water through the turbines is water released, and it is worth money on the
+  way past.
+  Calls: Read the load · Convert flow to power · Weigh it against storage ·
+  Ready to hand over
+  Fixtures (at: targets):
+    machine-board      board  back
+      The machine board — What each unit is passing, to the cubic metre.
+    penstock-gauge     vessel left
+      The penstock head gauge — What the pipe loses the harder the machines
+      are driven.
+    power-runner-crate bench  right [until day 12]
+      The spare runner, crated — One machine short of the pair while it sits
+      there.
+
+STRUCT — Structure & Seepage
+  Seepage & Uplift Bay   [STRUCT]  side w, level 1, z 22 … 33, floor y 5.4
+  What the wall does under load, and what it says about itself in the gallery.
+  Calls: Read the weirs · Plot the uplift · Compare with the rise · Ready to
+  hand over
+  Fixtures (at: targets):
+    weir-bench         bench  left
+      The seepage weir bench — Nine weirs, read by hand, and the level they
+      have to be read beside.
+    uplift-wall        board  back
+      The uplift plot wall — Every gauge in the foundation gallery, plotted
+      against head.
+    struct-piezo-crate bench  right [until day 9]
+      Two piezometer heads, off the wall — Silent since the last flood. A
+      cable and a change in the ground look the same from here.
+    struct-piezo-live  vessel right [from day 9]
+      The re-cabled piezometer head — Back on the plot, and the silence turned
+      out to be a cable.
+
+INFLOW — Catchment & Inflow
+  Catchment & Inflow Desk   [INFLOW]  side w, level 2, z 48 … 59, floor y 10.8
+  What the river is bringing, how fast it is changing, and how long ago it
+  rained.
+  Calls: Read the gauges · Fit the rise · Forecast the peak · Ready to hand
+  over
+  Fixtures (at: targets):
+    gauge-wall         board  back
+      The catchment gauge wall — Eleven rain gauges and four river gauges,
+      every fifteen minutes.
+    trace-bench        bench  left
+      The hydrograph bench — Where a column of readings gets drawn as a curve.
+    inflow-crate       bench  right [until day 6]
+      The high-ground gauge, still crated — Strapped since March. Nobody has
+      had a dry day to walk it up.
+    inflow-highgauge   vessel right [from day 6]
+      The high-ground gauge, telemetered — Reporting on the hour from the
+      ground the radar cannot see.
+
+STORE — Storage & Level
+  Storage & Level Board   [STORE]  side w, level 2, z 59 … 70, floor y 10.8
+  DELIVERY ROOM — the board for The Ashfell Release Rules is here.
+  What the reservoir holds, and why the level is not the same question as the
+  volume.
+  Calls: Read the level · Convert to volume · Account for the change · Ready
+  to hand over
+  Fixtures (at: targets):
+    storage-board      board  back
+      The stage–storage board — Level in, volume out. Every total in the
+      building comes through it.
+    level-desk         bench  left
+      The level desk — The float gauge, the strip chart, and the pencil
+      corrections on it.
+    store-oldsheet     bench  right [until day 11]
+      Sheet 3, surveyed 2003 — Measured once, by somebody, in a particular
+      year.
+    store-resurvey     board  right [from day 11]
+      The resurveyed curve, pinned up — Eleven transects and twenty years of
+      silt, drawn to scale.
+
+GATES — Spillway & Gates
+  Gate House   [GATES]  side w, level 3, z 78 … 89, floor y 16.200000000000003
+  How much can be let out, how fast, and what the last half metre of head
+  does.
+  Calls: Set the opening · Predict the discharge · Watch the head · Ready to
+  hand over
+  Fixtures (at: targets):
+    hoist-stand        vessel left
+      The Gate 2 hoist stand — Wound by hand at the top of its travel, and
+      Wilkes can hear a bad bearing in it.
+    discharge-board    board  back
+      The spillway discharge board — Head over the sill, gate opening, and
+      what is actually going past.
+    gates-bulkhead     rack   right [until day 7]
+      The bulkhead job, staged on the floor — Plates, seals and a spare gate
+      out of service until it clears.
+
+SAFE — Downstream & Public Safety
+  Downstream Warning Desk   [SAFE]  side w, level 3, z 89 … 98, floor y 16.200000000000003
+  How long a release takes to arrive, how high it gets, and who has to be
+  told.
+  Calls: Route the release · Time the arrival · Warn the reach · Ready to hand
+  over
+  Fixtures (at: targets):
+    warning-list       board  back
+      The warning list — Eleven villages, two caravan sites, a school and a
+      road that goes first.
+    arrival-map        bench  left
+      The arrival-time map — Four hours to the first village and eleven to the
+      last, walked by Baptiste herself.
+    safe-siren-panel   board  right [from day 14]
+      The siren repeater panel, wired — The four settlements that did not hear
+      Sunday's test, on the circuit.
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Sign-in   [ARRIVE]  side w, level 0, z -4 … 2
+Switch Room   [SWITCH]  side w, level 0, z 13 … 15
+Core Store   [CORE]  side w, level 1, z 33 … 38
+Crew Room   [REST]  side w, level 1, z 38 … 41
+Records & Rating Curves   [ARCHIVE]  side w, level 4, z 105 … 112
+Briefing Room   [BRIEF]  side w, level 4, z 112 … 121
+
+Metrics   corridorHalfWidth 2.6, roomDepth 7.4, ceilingH 3.2
+Floor-to-floor rise: 5.4 m
+
+==============================================================================
+THE DELIVERY — The Ashfell Release Rules
+==============================================================================
+   1. The rate-limit rule
+   2. The rising-fast rule
+   3. The inflow accumulation
+   4. The two-day cost note
+   5. The last-half-metre relation
+   6. The peak test
+   7. The wall's carrying limit
+   8. The just-clears release
+   9. The seepage ledger rule
+  10. The error carried into volume
+  11. The quiet-day check
+  12. The decay constant, scored
+  13. The three-before-nine order
+  14. The lead-time rule
+  15. The corrected release rules, signed
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/headwater/ — site/plan, fixtures, minors, groups, theme.

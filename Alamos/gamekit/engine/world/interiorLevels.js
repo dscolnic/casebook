@@ -33,7 +33,7 @@
 // through. Stack two levels on the same footprint and the player will walk into
 // the floor above's furniture.
 import * as THREE from 'three';
-import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from './interiorSite.js';
+import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay, blockedBy } from './interiorSite.js';
 import { deliveryHook } from './deliveryCase.js';
 /** The campaign's delivery board, in whichever build holds its room. */
 let deliveryCase = null;
@@ -48,6 +48,8 @@ export function setDeliveryPieces(pieces){ deliveryCase?.setPieces(pieces); }
 
 import { markStructure } from './interiorKit.js';
 import { tuneRendererForDevice } from './materials.js';
+// Things that move: one list the props layer pushes into, run once a frame.
+import { animate, runAnimators, clearAnimators } from './animators.js';
 
 export const colliders = [];
 export const softColliders = [];
@@ -55,6 +57,12 @@ export const interactables = [];
 /** groupId -> { id, name, pos, entry, door } — one per mission destination. */
 export const stopMeshes = new Map();
 const caseStands = new Map();
+/** groupId -> that level's `setFixtureCall`. See interiorTower for the note. */
+const fixtureSetters = new Map();
+
+export function setFixtureCall(roomGroup, fixtureId, stopIndex, areaGroup){
+  return fixtureSetters.get(roomGroup)?.(roomGroup, fixtureId, stopIndex, areaGroup) ?? false;
+}
 
 export function setCaseOpen(groupId, on){
   caseStands.get(groupId)?.beacon?.setActive(!!on);
@@ -271,6 +279,12 @@ export function initWorld(canvas, activeTheme){
   //    height. The ends that meet a stair are left open — `plan.openEnds` —
   //    because the shell would otherwise finish in a wall the player has to
   //    walk through to reach the flight.
+  // EVERY ANIMATOR FROM THE LAST BUILD GOES FIRST, and it has to be before the
+  // shell rather than after it. This call used to sit further down, just before
+  // `theme.decorate` — which was fine while the builder registered nothing, and
+  // silently threw away every door swing the moment it did. A door whose animator
+  // is discarded reads as a door that does not open.
+  clearAnimators();
   for(const level of LEVELS){
     const holder = new THREE.Group();
     holder.position.y = level.y;
@@ -300,6 +314,10 @@ export function initWorld(canvas, activeTheme){
       // The delivery board goes up in whichever level holds the room that keeps
       // it; every other level is handed the same hook and matches nothing.
       delivery: deliveryHook(theme),
+      // The objects the questions are asked at. Declared per room in the
+      // theme's `fixtures.js` and built by `interiorSite`, which is the only
+      // place that knows where this room's walls are.
+      fixtures: theme.fixtures ?? {},
     });
     if(built.deliveryCase) deliveryCase = built.deliveryCase;
     firstBuilt = firstBuilt ?? built;
@@ -325,6 +343,8 @@ export function initWorld(canvas, activeTheme){
           entry: new THREE.Vector3(stop.entry.x, level.y, stop.entry.z),
           door: stop.leaf, doorMesh: stop.doorMesh,
         });
+        if(built.setFixtureCall && built.fixtureRooms?.has(room.group))
+          fixtureSetters.set(room.group, built.setFixtureCall);
         const stand = built.caseStands?.get(room.group);
         if(stand){
           interactables.push({
@@ -362,8 +382,10 @@ export function initWorld(canvas, activeTheme){
   // 4. Theme hook, for anything the fit-out hooks could not reach.
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, lightPanels, areaScreens,
-    blocked: (x, z, pad = 1) => colliders.some(c =>
-      x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad),
+    // `animate(fn)` runs `fn(t, dt, eye)` every frame — see animators.js.
+    animate,
+    // One copy of this rule, in interiorSite.js, and it skips shut doors.
+    blocked: blockedBy(colliders),
   });
 
   // 5. Where each area's people stand: outside their own door, facing it.
@@ -407,13 +429,25 @@ export function updateTimeOfDay(hours){
 }
 
 export function getPeopleStations(){ return peopleStations; }
+/**
+ * Where somebody can sit: `plan.seats` is `[x, z, yaw]`, on whichever level the
+ * z falls in, at that level's floor height. The theme's fit-out builds the chairs
+ * at these same coordinates, so a seated extra lands on one.
+ */
+export function getSeats(){
+  return (plan?.seats ?? []).map(([x, z, yaw]) => {
+    const L = LEVELS.find(l => z >= l.spine.z0 && z <= (l.stairUp?.z1 ?? l.spine.z1)) ?? LEVELS[0];
+    return { x, z, y: L?.y ?? 0, facing: yaw ?? 0, level: L?.id ?? null };
+  });
+}
 export function getExtraSpots(){
   const spots = plan?.spots ?? {};
   const pairs = [...(spots.spine ?? []), ...(spots.open ?? [])];
   return pairs.map(([x, z]) => ({ x, z }));
 }
 
-export function updateWorldAnimation(t){
+export function updateWorldAnimation(t, eye = null){
+  runAnimators(t, eye);
   for(const stand of caseStands.values()) stand.beacon?.update?.(1 / 60, null);
   if(waypointMesh?.visible){
     waypointMesh.userData.ring.rotation.z = t * 0.9;

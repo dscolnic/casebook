@@ -35,19 +35,15 @@
       "hypoperfusion",
       "solubility"
     ],
-    "aftershock": [
-      "value"
-    ],
+    "aftershock": [],
     "quantum": [
       "spectroscopy"
     ],
     "instruments": [
-      "quadrature",
-      "rate"
+      "quadrature"
     ],
     "the_trial": [
-      "calibrated",
-      "value"
+      "calibrated"
     ],
     "headwater": [
       "precipitation",
@@ -69,8 +65,7 @@
       "calibration",
       "cv",
       "equilibrium",
-      "ir",
-      "value"
+      "ir"
     ],
     "redsand_ms": [
       "enthalpy",
@@ -92,8 +87,7 @@
       "undersaturated"
     ],
     "the_trial_hs": [
-      "calibrated",
-      "value"
+      "calibrated"
     ],
     "carrying": [
       "buffer",

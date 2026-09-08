@@ -101,8 +101,24 @@ export function debriefRows(content, opts){
       const where = `${dayNoun.toLowerCase()} ${week}, ${tier}`;
 
       // 1 — a whole card
-      if(!d.lede) rows.push({ where, why: 'no lede' });
-      if(!d.quotes.length) rows.push({ where, why: 'nobody says anything' });
+      //
+      // A CAMPAIGN MAY WRITE ITS OWN. The lede and the two quotes are composed
+      // from banked lines and a roster name, and this asked for them because a
+      // day that ends on "2 of 3" has not said what the two bought anybody. A
+      // mission with a beat script says it in its own words instead — the
+      // bible's "Mission outcome", printed as the segue — and the generated
+      // lines are then somebody else talking over it. So the rule is that the
+      // card says SOMETHING, and either shape satisfies it.
+      const authored = Array.isArray((content.MISSIONS ?? [])[week - 1]?.beats)
+        && (content.MISSIONS ?? [])[week - 1].beats.length > 0;
+      if(authored){
+        if(!String(d.segue ?? '').trim()){
+          rows.push({ where, why: 'a beat script and no closing line — the mission outcome goes in `segue`' });
+        }
+      } else {
+        if(!d.lede) rows.push({ where, why: 'no lede' });
+        if(!d.quotes.length) rows.push({ where, why: 'nobody says anything' });
+      }
       for(const q of d.quotes){
         if(!q.name) rows.push({ where, why: 'a quote with no speaker' });
         if(!q.role) rows.push({ where, why: `"${q.name}" is cited without the job attached` });

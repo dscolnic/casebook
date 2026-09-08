@@ -1,0 +1,91 @@
+THE COSMIC MICROWAVE BACKGROUND (theme: qd_cmb) — PLACES AND LOCATIONS
+Radio Astronomer · Hilltop Antenna
+Course: Cosmology — the cosmic microwave background. Grade 9, nine stops,
+three levels
+Grade 9. One mission is called a Level; a stop is "a place".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_cmb npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — the hilltop antenna site, as data. Outdoor.
+
+`engine/world/outdoorTown.js` builds everything below; nothing here is
+geometry. Outdoors because the antenna is: a twenty-foot horn on a hill above a
+road is the whole reason the first explanation offered was pigeons, and none of
+that survives being moved into a corridor.
+
+Looking down, -Z is away from the player at spawn:
+
+       [ Theory Room ]                              z = -86
+                       [ Spectrum Building ]        z = -44
+  [ Horn ]   [ Receiver Hut ]                       z = -10
+                   ¤ spawn ¤                        z =  40
+
+Two things here are load-bearing rather than decorative:
+
+  · The horn and the receiver hut are a few metres apart and everything else is
+    a long way up the ridge. That is the campaign's own chronology as geometry:
+    level one happens at the antenna, and level two is a walk to a building put
+    there decades later.
+  · The spawn at (0, 40) has nothing within ten metres of it. A prop over the
+    spawn welds the player in place: the scene renders and W does nothing.
+
+==============================================================================
+1. THE AREAS — 4 of them, one group each
+==============================================================================
+
+RECV — Receiver Hut
+  Receiver Hut  ·  A cold load and a list
+  (8, -10)   51 m from spawn   12 x 9 x 3.6
+  A cold load, an amplifier, and a list of everything that could be making
+  this up.
+  Calls: Cool the load · Check the chain · Cross one off · Ready to hand over
+
+HORN — Horn Antenna
+  Horn Antenna  ·  Twenty feet, open to the sky
+  (-22, -10)   55 m from spawn   12 x 10 x 4
+  Twenty feet of aluminium open to the sky, on a mount that will point it
+  anywhere.
+  Calls: Point it · Sweep the sky · Log the excess · Ready to hand over
+
+SPECTRUM — Spectrum Building
+  Spectrum Building  ·  Forty channels, decades later
+  (24, -44)   87 m from spawn   20 x 13 x 6.4
+  Decades later, up the hill: the same sky measured at forty frequencies
+  instead of one.
+  Calls: Take the band · Fit the shape · Read the peak · Ready to hand over
+
+COSMO — Theory Room
+  Theory Room  ·  Two blackboards, no instruments
+  (-26, -86)   129 m from spawn   14 x 11 x 4.2
+  Two frameworks on a blackboard, one of which has to invent a source.
+  Calls: State the frameworks · Cool it forward · Name the relic · Ready to
+  hand over
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Site Hut  ·  "The log everybody signs"
+  (20, 30)   22 m   10 x 8 x 3.4
+Site log
+  (8, 34)
+Spawn
+  (0, 40)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 135, profile 'flat'
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_cmb/ — site/plan, fixtures, minors, groups, theme.

@@ -6,10 +6,10 @@
     header: "2 DAYS;"
     title: "The Shot That Almost Closed the Case"
     goNow: "Launch Control, Dr. Lena Ortiz at launch board."
-    body: "The reroute and fast recorders are ready, and every derived limit can now be tested together. The shot is safe only if field, current, induced voltage, and record independence all pass their prewritten rules. You will commit thresholds, fire once, inspect the mast, and compare the trailer trace. By the end of the mission, decide whether the station has reproduced and removed the failure."
+    body: "The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions."
     objective: "Run the integrated full-shot coupling test."
   objective: "Run the integrated full-shot coupling test."
-  stake: "The reroute and fast recorders are ready, and every derived limit can now be tested together. The shot is safe only if field, current, induced voltage, and record independence all pass their prewritten rules. You will commit thresholds, fire once, inspect the mast, and compare the trailer trace. By the end of the mission, decide whether the station has reproduced and removed the failure."
+  stake: "The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions."
   takeaway: "The station reproduced. ---"
   segue: "Mission decision: The station reproduced. And removed the main cable failure, but it has not removed every hazard. The reroute holds the main probe to 188 V, while card E reaches 310 V because its rack wiring forms a smaller hidden loop. One repair remains before the report can be signed. Metric target 27:00."
 
@@ -20,7 +20,7 @@
   - id: on-arrival-at-launch-control
     # On arrival at Launch Control | launch-board | automatic
     on: { enter: true, at: SHOT }
-    world: "accepted SHOT/bubble/blank rule fields/→S1; S2 correct/panel/Poynting arrow up/ENERGY FLOW: 1.59×10^7 W/m² UP→S3; S3 pass/waypoint/main probe PASS/Main reroute passes; Inspect every rack position.→COUPLE/S4; S4 correct/world/card E red+text/CARD E 310 V — LIMIT 250 V→outcome; outcome/radio/local loop highlighted/Main path repaired; local loop remains.→metric."
+    world: "accepted SHOT/bubble/blank rule fields/→S1; S2 correct/panel/Poynting arrow up/ENERGY FLOW: 1.59×10^7 W/m² UP→S3; S3 pass/waypoint/main probe PASS/Main reroute passes; Inspect every rack position.→COUPLE/S4; S4 correct/world/card E red+text/CARD E 310 V - LIMIT 250 V→outcome; outcome/radio/local loop highlighted/Main path repaired; local loop remains.→metric."
     panel: "Dr. Lena Ortiz, station director: \"Write every stop condition before the cell arrives.\""
     bubbles:
     - who: ortiz   # Lena Ortiz
@@ -31,32 +31,103 @@
     world: "The freeze final thresholds result remains visible while the derive energy flow fixture lights."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
     bubbles:
-    - who: ortiz   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 53 result to settle derive energy flow."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 53 result to settle derive energy flow."
   - id: after-stop-54
     # After Stop 54 | shunt-rack | automatic
     on: { after: [2] }
     world: "The derive energy flow result remains visible while the fire the full shot fixture lights."
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
     bubbles:
-    - who: ortiz   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 54 result to settle fire the full shot."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 54 result to settle fire the full shot."
   - id: after-stop-55
     # After Stop 55 | probe-rack | automatic
     on: { after: [3] }
     world: "The fire the full shot result remains visible while the probe the rack fixture lights."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
     bubbles:
-    - who: ortiz   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 55 result to settle probe the rack."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 55 result to settle probe the rack."
   - id: at-mission-end
     # At mission end | launch-board | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 14 EVIDENCE: RECORDED"
     bubbles:
-    - who: ortiz   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Poynting vector", def: "electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Shot That Almost Closed the Case. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Shot That Almost Closed the Case, at one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Which prediction or calculation correctly applies Poynting vector to this case?"
+      hint: "Use the stated evidence and the conditions for Poynting vector; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "One precommitted rule protects against choosing whichever successful measure looks best.", why: "This describes integrated rules, not Poynting vector. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.", why: "Correct. electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux."}
+      - {key: "C", text: "E×B shows energy moving upward rather than along either field alone.", why: "This describes Poynting, not Poynting vector. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "One controlled shot tests the full causal chain.", why: "This describes full test, not Poynting vector. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to The Shot That Almost Closed the Case: the board is blank and the storm cell is approaching. Write the action threshold now, before new evidence or operational pressure can move it. Which prediction or calculation correctly applies integrated rules to this case?"
+      hint: "Use the stated evidence and the conditions for integrated rules; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.", why: "This describes Poynting vector, not integrated rules. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "E×B shows energy moving upward rather than along either field alone.", why: "This describes Poynting, not integrated rules. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "One precommitted rule protects against choosing whichever successful measure looks best.", why: "Correct. one precommitted rule protects against choosing whichever successful measure looks best."}
+      - {key: "D", text: "One controlled shot tests the full causal chain.", why: "This describes full test, not integrated rules. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks The Shot That Almost Closed the Case using new evidence: at one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Which prediction or calculation correctly applies Poynting to this case?"
+      hint: "Use the stated evidence and the conditions for Poynting; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.", why: "This describes Poynting vector, not Poynting. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "One precommitted rule protects against choosing whichever successful measure looks best.", why: "This describes integrated rules, not Poynting. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "One controlled shot tests the full causal chain.", why: "This describes full test, not Poynting. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "E×B shows energy moving upward rather than along either field alone.", why: "Correct. e×B shows energy moving upward rather than along either field alone."}
+    - prompt: "An unseen case extends The Shot That Almost Closed the Case: the GO board passes the incoming field. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses full test?"
+      hint: "Use the stated evidence and the conditions for full test; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "One controlled shot tests the full causal chain.", why: "Correct. one controlled shot tests the full causal chain."}
+      - {key: "B", text: "Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.", why: "This describes Poynting vector, not full test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "One precommitted rule protects against choosing whichever successful measure looks best.", why: "This describes integrated rules, not full test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "E×B shows energy moving upward rather than along either field alone.", why: "This describes Poynting, not full test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Shot That Almost Closed the Case decision, the team knows this: because the main trailer probe reads 188 V, sample all six card positions before declaring victory. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies spatial coupling to this case?"
+      hint: "Use the stated evidence and the conditions for spatial coupling; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.", why: "This describes Poynting vector, not spatial coupling. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Local loop area can preserve a hazard after the main cable reroute succeeds.", why: "Correct. local loop area can preserve a hazard after the main cable reroute succeeds."}
+      - {key: "C", text: "One precommitted rule protects against choosing whichever successful measure looks best.", why: "This describes integrated rules, not spatial coupling. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "E×B shows energy moving upward rather than along either field alone.", why: "This describes Poynting, not spatial coupling. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from The Shot That Almost Closed the Case to this follow-up: the board is blank and the storm cell is approaching. Write the action threshold now, before new evidence or operational pressure can move it. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.", why: "This describes Poynting vector, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "One precommitted rule protects against choosing whichever successful measure looks best.", why: "This describes integrated rules, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "E×B shows energy moving upward rather than along either field alone.", why: "This describes Poynting, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"S=(1/μ₀)E×B, u=u_E+u_B","c":"energy flow/density","v":[["S","electromagnetic energy-flow rate per unit area"],["E","electric field"],["B","magnetic field"],["μ₀","vacuum permeability"],["u","total electromagnetic energy density"],["u_E","electric energy density"],["u_B","magnetic energy density"]],"s":"track where shot energy travels."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 14: worked examples"
+    examples:
+    - {"title":"Electromagnetic energy flow","problem":"Perpendicular fields have E=6 V/m and B=2 μT. Use μ0=4π×10^-7 T m/A. Find energy-flow magnitude.","rule":"S=EB/μ0 when E and B are perpendicular.","steps":["Set up the relationship: S=EB/μ0 when E and B are perpendicular.","S=(6)(2×10^-6)/(4π×10^-7)=30/π≈9.55 W/m²."],"answer":"Energy-flow magnitude is about 9.55 W/m², directed along E×B.","mistake":"Poynting flux is power per area, not energy per volume."}
+    - {"title":"Use a vector direction","problem":"An electric field points east and a magnetic field north. Find the direction of electromagnetic energy flow.","rule":"The Poynting direction is E×B.","steps":["Take east as +x, north as +y, and upward as +z.","The right-hand rule gives +x×+y=+z."],"answer":"Energy flows upward.","mistake":"Reversing the cross-product order reverses the direction."}
+    - {"title":"Electric field energy density","problem":"A vacuum electric field has magnitude E=10^6 V/m. Use ε0≈9×10^-12 F/m. Find energy per volume.","rule":"u_E=ε0 E²/2.","steps":["Set up the relationship: u_E=ε0 E²/2.","u_E=(9×10^-12)(10^12)/2=4.5 J/m³."],"answer":"Energy density is 4.5 J per cubic metre.","mistake":"The field is squared before powers of ten are combined."}
+    - {"title":"Read an inclusive threshold","problem":"A fictional laboratory rule permits a sample concentration at or below 5 mg/L. A sample measures exactly 5 mg/L. Classify it under that rule.","rule":"At or below means concentration ≤ limit.","steps":["comparison = 5 ≤ 5, which is true. Equality is included.","classification = passes this concentration rule. No claim about other requirements follows."],"answer":"This measurement passes the stated inclusive threshold.","mistake":"Replacing ≤ with < would wrongly exclude equality."}
+    - {"title":"Apply simultaneous conditions","problem":"A sample must have purity ≥95% and temperature ≤30 °C. It has purity 97% and temperature 32 °C. Does it pass?","rule":"When both conditions are required, both must be true.","steps":["purity test = 97 ≥ 95, true.","temperature test = 32 ≤ 30, false. A passing purity cannot cancel a failed temperature."],"answer":"The sample fails the combined specification.","mistake":"Averaging a pass and a fail is not a logical AND."}
 
   stops:
   # --- Stop 53: Freeze Final Thresholds
@@ -65,10 +136,10 @@
   - group: COUPLE
     at: launch-board
     title: "Freeze Final Thresholds"
-    concept: "integrated rules"
-    reason: "all limits must be frozen before final test data."
-    scene: "The board is blank and the storm cell is approaching. Enter the inclusive limits for field 5.0 kV/m, conduit current 1.0 kA, trailer voltage 250 V, and channel spread 0.50 kV/m, and the team needs this result before it acts."
-    motivation: "one precommitted rule protects against choosing whichever successful measure looks best."
+    concept: 30   # integrated rules
+    reason: "The approaching storm leaves no room to negotiate acceptance limits after the full-shot data arrive."
+    scene: "The board is blank and the storm cell is approaching. Enter the inclusive limits for field 5.0 kV/m, conduit current 1.0 kA, trailer voltage 250 V, and channel spread 0.50 kV/m."
+    motivation: "The four frozen limits define the field, current, voltage, and channel-agreement conditions required for final approval."
     format: TRIGGER
     question: "Before any update appears, enter the inclusive field, conduit-current, trailer-voltage, and channel-spread limits with units; submit the complete GO rule."
     answerText: "The completed check shows all four inclusive thresholds are frozen before data."
@@ -81,6 +152,39 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   four anchors/rules and consequence; exact. Prompt enter four numeric thresholds/units and submit GO rule before updates.
+    trigger:
+      scale:
+        label: vertical electric-field magnitude
+        unit: kV/m
+        min: 0
+        max: 8
+        step: 0.1
+        anchors:
+          - at: 1.6
+            means: routine baseline, not the decision threshold
+          - at: 5.2
+            means: elevated evidence requiring attention
+      direction: rising
+      conditions:
+        - id: act
+          label: Take the protective action
+          leadHours: 12
+          window:
+            min: 5
+            max: 8
+      stream:
+        - at: T-48 h
+          value: 3.7
+          hoursLeft: 48
+        - at: T-24 h
+          value: 4.5
+          hoursLeft: 24
+        - at: T-12 h
+          value: 5.1
+          hoursLeft: 12
+        - at: T-6 h
+          value: 5.4
+          hoursLeft: 6
 
   # --- Stop 54: Derive Energy Flow
   #     Concept: Poynting; Keystone: K1,K6,K8; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: COMBINE L4.
@@ -88,12 +192,12 @@
   - group: COUPLE
     at: radar-desk
     title: "Derive Energy Flow"
-    concept: "Poynting"
-    reason: "the report needs direction of electromagnetic energy flow."
-    scene: "At one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Derive the Poynting-vector magnitude and direction before the shot trace appears.\", and record the result with its physical justification in the station report."
-    motivation: "E×B shows energy moving upward rather than along either field alone."
+    concept: 29   # Poynting
+    reason: "The final shot also needs a prediction of where electromagnetic energy crosses the probe location."
+    scene: "At one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Derive the Poynting-vector magnitude and direction before the shot trace appears."
+    motivation: "The energy-flow magnitude and direction connect the local electric and magnetic fields to the shot's spatial energy path."
     format: DERIVE
-    question: "Build three Poynting-vector lines using E=2.0×10^4 N/C, B=1.0×10^-3 T, and μ₀=4π×10^-7 T·m/A; submit W/m² and direction."
+    question: "Submit W/m² and direction."
     answerText: "The completed check shows s=1.59×10^7 W/m² upward. East×north is up."
     why: "E×B shows energy moving upward rather than along either field alone."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -104,6 +208,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines S=E×B/μ0; magnitude EB/μ0; substitution (20)/(4π×10^-7)=1.59×10^7 W/m²; east×north=up. Prompt rules/value/direction; tolerance 2%. State fire unlocked.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive Energy Flow in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: S=E×B/μ0
+            - text: S=EBμ0
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|S|=EB/μ0"
+            - text: "|S|=(E+B)/μ0"
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|S|=(20)/(4π×10^-7)=1.59×10^7 W/m²"
+            - text: "|S|=EB/(4π×10^7)"
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: U = east×north points upward
+            - text: U = east×north points down
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 55: Fire the Full Shot
   #     Concept: full test; Keystone: K7,K10,K11,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
@@ -111,10 +247,10 @@
   - group: COUPLE
     at: shunt-rack
     title: "Fire the Full Shot"
-    concept: "full test"
-    reason: "operate only after thresholds and energy-flow prediction are committed."
+    concept: 30   # full test
+    reason: "The incoming field passes the frozen criterion, allowing the full reroute test to proceed."
     scene: "The GO board passes the incoming field. Fire one full shot, keep 8 mm gap and reroute fixed, measure current, rise time, conduit current, and independent trailer voltage, then earth the bank."
-    motivation: "one controlled shot tests the full causal chain."
+    motivation: "The full-shot measurements determine whether the main conduit and trailer route meet the precommitted limits."
     format: VERIFY
     question: "CALCULATE AND COMMIT: Lock 180 V. OPERATE: Fire one full shot with 8 mm gap and reroute fixed. MEASURE: Record field, current, rise time, conduit current, and trailer voltage. INTERPRET: Earth the bank and submit the all-threshold verdict."
     answerText: "The completed check shows main reroute passes: 188 V, 0.40 kA conduit, thresholds met."
@@ -127,6 +263,17 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{submit:{quantity:"trailer voltage",unit:"V",truth:180,tolerance:10}},equipment_locked_until_prediction_commit:true,operation:{action:"fire one full shot",settings:{gap:8,unit:"mm"},fixed:["reroute"]},measurements:{current:30,unit_current:"kA",rise_time:100,unit_rise:"ns",conduit_current:0.4,unit_conduit:"kA",trailer_voltage:188,unit_voltage:"V"},restore:{required:true,action:"earth the bank",remeasure:false},correct_conclusion:"all thresholds pass",answerText:"All full-shot readings meet their written limits; earth the bank and record PASS."}
+    verify:
+      prediction:
+        min: 94
+        max: 282
+        step: 18.8
+      truth: 188
+      passRatio:
+        - 0.95
+        - 1.05
+      measurement:
+        label: independent measured value
 
   # --- Stop 56: Probe the Rack
   #     Concept: spatial coupling; Keystone: K10,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5.
@@ -134,10 +281,10 @@
   - group: COUPLE
     at: probe-rack
     title: "Probe the Rack"
-    concept: "spatial coupling"
-    reason: "a passing peak at one probe cannot clear the whole rack."
-    scene: "Because the main trailer probe reads 188 V, sample all six card positions before declaring victory. Identify where the spatial pattern breaks the 250 V limit and submit the failed location, and the team needs this result before it acts."
-    motivation: "local loop area can preserve a hazard after the main cable reroute succeeds."
+    concept: 26   # spatial coupling
+    reason: "A passing main trailer probe cannot exclude a dangerous local peak elsewhere in the card rack."
+    scene: "Because the main trailer probe reads 188 V, sample all six card positions before declaring victory. Identify where the spatial pattern breaks the 250 V limit and submit the failed location."
+    motivation: "The six-position voltage survey determines whether any individual card still exceeds the accepted exposure limit."
     format: PROBE
     question: "Probe all six card positions, record each peak in volts, identify the location exceeding the inclusive 250 V limit, and submit location, value, and mechanism."
     answerText: "The completed check shows card E fails at 310 V; local loop remains."

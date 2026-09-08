@@ -3270,7 +3270,8 @@ export const CURRICULUM = {
             "min": 64,
             "max": 112,
             "nominal": 88,
-            "step": 1
+            "step": 1,
+            "worst": "min"
           },
           "robust": "balanced",
           "optimiseOn": "returnHours",

@@ -29,6 +29,7 @@ export function updateInteractions(promptEl, only = null){
     const hitMesh=hits[0].object;
     const found = interactables.find(i=> i.mesh===hitMesh);
     const limit = found?.type==='door' ? 6
+                : found?.type==='roomdoor' ? 3.2
                 : found?.type==='board' ? 7
                 : found?.type==='info' ? 8
                 : found?.type==='case' ? 5

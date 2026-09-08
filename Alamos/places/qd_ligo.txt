@@ -1,0 +1,78 @@
+GRAVITATIONAL WAVES (theme: qd_ligo) — PLACES AND LOCATIONS
+Detector Scientist · Interferometer Site
+Course: Physics — gravitational waves. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_ligo npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the interferometer corner station, as data.
+
+One corridor, four rooms, and the layout is the argument: the instrument is on
+one side, everything that is not the instrument is on the other, and the room
+that interprets a signal is at the far end with no instrument in it at all.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The isolation bay is the deepest room on the plan, because a suspension stack
+is four storeys of nothing on top of each other and a room the size of an
+office reads as an office with a spring in it. The optics lab has its two
+windows on the outer wall at right angles to each other, which is where the
+arms leave the building.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+OPTICS — Optics Lab
+  Optics Lab   [OPTICS]  side w, z 4 … 18
+  A laser split two ways, recombined, and held at almost complete
+  cancellation.
+  Calls: Split the beam · Lock the fringe · Hold it · Ready to hand over
+
+PARAM — Parameter Room
+  Parameter Room   [PARAM]  side w, z 28 … 40
+  What went in, what came out, and the difference between them.
+  Calls: Fit the masses · Close the ledger · Write the claim · Ready to hand
+  over
+
+ISOL — Isolation Bay
+  Isolation Bay   [ISOL]  side e, z 6 … 22
+  Every other thing that moves a mirror, sorted by the frequency it moves it
+  at.
+  Calls: Log the noise · Band it · Isolate it · Ready to hand over
+
+CTRL — Control Room
+  Control Room   [CTRL]  side e, z 24 … 36
+  One strain channel, a bank of templates, and a candidate that lasted a fifth
+  of a second.
+  Calls: Flag the candidate · Match a template · Check the other site · Ready
+  to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Entrance Desk   [PORCH]  side w, z -4 … 2, OPEN
+Coffee Area   [TEA]  side w, z 20 … 26, OPEN
+Store   [RACK]  side w, z 40 … 47
+Calibration Bay   [DARK]  side e, z -4 … 4
+Reading Room   [LIB]  side e, z 38 … 47
+
+Metrics   corridorHalfWidth 2, roomDepth 9, ceilingH 4.2
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_ligo/ — site/plan, fixtures, minors, groups, theme.

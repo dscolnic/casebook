@@ -53,6 +53,13 @@ const tidy = (x) => String(x ?? '').toLowerCase()
 function idFor(place){
   const k = tidy(place);
   if(!k) return null;
+  // AN AREA ID IS ALREADY AN ANSWER. Boomtown's table names the area rather than
+  // the room — `T`, `CM`, `E`, `P`, `X` — and those are the theme's own group
+  // ids. Sent through the fuzzy match below, `t` is a substring of nearly every
+  // label, so E's four fixtures landed in T and X's in P: twenty objects across
+  // three areas instead of five. An exact id match is not a guess and is tried
+  // before anything that is.
+  for(const id of known.keys()) if(id.toLowerCase() === k) return id;
   for(const [id, label] of known) if(tidy(label).includes(k) || k.includes(id.toLowerCase())) return id;
   const want = sig(k);
   let best = null, score = 0;
@@ -94,6 +101,11 @@ const KIND = (k) => ['vessel', 'rack', 'bench', 'board'].includes(String(k).toLo
   ? String(k).toLowerCase() : 'board';
 const esc = (s) => String(s ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 const nameOf = (f) => {
+  // THE BIBLE'S OWN NAME FIRST. A table with an `ID` column beside a `Fixture`
+  // column has already said what the object is called — "Sample Bench",
+  // "Budget Desk" — and taking the first clause of the caption instead put
+  // "The table holds signed hearing records" on the label of a table.
+  if(String(f.name ?? '').trim()) return String(f.name).trim();
   const first = String(f.caption ?? '').split(/[.,;]/)[0].trim();
   return first.length >= 4 && first.length <= 46 ? first : f.id.replace(/-/g, ' ');
 };
@@ -113,8 +125,11 @@ out.push('export const FIXTURES = {');
 for(const [place, list] of byPlace){
   out.push(`  ${place}: [`);
   list.forEach((f, i) => {
+    // The bible's wall where it states one; otherwise dealt round the three.
+    const wall = ['left', 'right', 'back'].includes(String(f.wall ?? '').toLowerCase())
+      ? String(f.wall).toLowerCase() : WALLS[i % WALLS.length];
     out.push(`    { id: '${esc(f.id)}', name: '${esc(nameOf(f))}', build: '${KIND(f.build)}', `
-      + `wall: '${WALLS[i % WALLS.length]}', along: ${ALONG[Math.floor(i / WALLS.length) % ALONG.length]},`);
+      + `wall: '${wall}', along: ${ALONG[Math.floor(i / WALLS.length) % ALONG.length]},`);
     out.push(`      caption: ${JSON.stringify(f.caption || '')} },`);
   });
   out.push('  ],');

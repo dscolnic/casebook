@@ -38,6 +38,11 @@
 // find the object is never stuck and no campaign without fixtures changes.
 import * as THREE from 'three';
 import { printedSheet } from './screens.js';
+// The same marker the case stand gets. A fixture with no marker is the defect
+// this import exists for: the HUD said "Go to the conversion board", the board
+// was one printed sheet among six in a furnished room, and nothing anywhere
+// said which one it was.
+import { addCaseBeacon } from './caseBeacon.js';
 
 const STEEL = 0x8f9aa2;
 const LAGGING = 0xd8d2c4;
@@ -113,7 +118,42 @@ const BUILDERS = {
  * `room` is what `buildInteriorBuilding` returned. Returns `{ interactables,
  * dispose() }`, or null when there is nothing to build.
  */
-export function addFixture(room, fixture, { openPrompt = 'Open the case', caseId = null } = {}){
+/**
+ * WHERE AN AUTHORED FIXTURE STANDS, from the room rather than from the theme.
+ *
+ * Exported because two things need it and a second copy of it would drift the
+ * first time either was corrected: `addFixture` places the object, and
+ * `interiorBuilding` has to reserve that patch of wall BEFORE the fit-out hangs
+ * posters along it. The fit-out and the fixtures are different builders running
+ * at different times, and neither could see the other — `npm run signs` found a
+ * poster 96% inside a fixture board because of it.
+ *
+ * `flip` mirrors half the rooms, and `side()` in interiorBuilding swaps left and
+ * right with it — the same swap has to happen here or a fixture declared on the
+ * left stands on the right in half the campaign.
+ *
+ * `along` HAS TO MIRROR TOO, on the back wall. `flip` mirrors the whole room in
+ * x, and on the BACK wall `along` *is* x, so a fixture authored at -0.75 landed
+ * at +0.75 in half the campaign. That is how the Cold End's scaffolding ended up
+ * standing inside the room's own shelving: the position was right and the room
+ * was the other way round. Nothing threw, and it read as a prop clipping
+ * furniture.
+ */
+export function fixtureSpot(b, fixture){
+  const inset = b.wall / 2 + 0.95;
+  const wall = fixture?.wall ?? 'back';
+  const mirrored = b.flip > 0 ? wall : wall === 'left' ? 'right' : wall === 'right' ? 'left' : wall;
+  const along = (fixture?.along ?? 0) * (mirrored === 'back' ? b.flip : 1);
+  if(mirrored === 'left'){
+    return { x: b.x0 + inset, z: along * (b.d / 2 - 1.6), yaw: Math.PI / 2, wall: mirrored };
+  }
+  if(mirrored === 'right'){
+    return { x: b.x1 - inset, z: along * (b.d / 2 - 1.6), yaw: -Math.PI / 2, wall: mirrored };
+  }
+  return { x: along * (b.w / 2 - 1.6), z: b.z1 - inset, yaw: Math.PI, wall: mirrored };
+}
+
+export function addFixture(room, fixture, { openPrompt = 'Open the case', caseId = null, stopIndex = null, scenery = false } = {}){
   if(!fixture?.id) return null;
   const build = BUILDERS[fixture.build] ?? BUILDERS.vessel;
   const b = room.bounds;
@@ -142,22 +182,28 @@ export function addFixture(room, fixture, { openPrompt = 'Open the case', caseId
   // rooms, and `side()` in interiorBuilding swaps left and right with it — the
   // same swap has to happen here or a fixture declared on the left stands on the
   // right in half the campaign.
-  const inset = b.wall / 2 + 0.95;
-  const wall = fixture.wall ?? 'back';
-  const mirrored = b.flip > 0 ? wall : wall === 'left' ? 'right' : wall === 'right' ? 'left' : wall;
-  // `along` HAS TO MIRROR TOO, on the back wall. `flip` mirrors the whole room in
-  // x, and `side()` in interiorBuilding swaps left and right with it — but on the
-  // BACK wall `along` *is* x, so a fixture authored at -0.75 landed at +0.75 in
-  // half the campaign. That is how the Cold End's scaffolding ended up standing
-  // inside the room's own shelving: the position was right and the room was the
-  // other way round. Nothing threw, and it read as a prop clipping furniture.
-  const along = (fixture.along ?? 0) * (mirrored === 'back' ? b.flip : 1);
-  let x, z, yaw;
-  if(mirrored === 'left'){ x = b.x0 + inset; z = along * (b.d / 2 - 1.6); yaw = Math.PI / 2; }
-  else if(mirrored === 'right'){ x = b.x1 - inset; z = along * (b.d / 2 - 1.6); yaw = -Math.PI / 2; }
-  else { x = along * (b.w / 2 - 1.6); z = b.z1 - inset; yaw = Math.PI; }
+  const { x, z, yaw } = fixtureSpot(b, fixture);
 
   const height = build(g, x, z, yaw);
+  // ------------------------------------------------------- MARK THE OBJECT
+  //
+  // A ring on the floor, a column of light and a bobbing arrow, in the area's
+  // own colour — the same marker the case stand carries, for the same reason it
+  // carries one. `caseBeacon.js` says it in its own header: the thing that
+  // starts a question looks exactly like the other paper in the room, so people
+  // walked in, read the screen and walked out again without ever finding what
+  // they came for. That was true of the case stand and it stayed true of the
+  // fixture, which is the object the HUD actually names.
+  //
+  // Only on today's object. `scenery` is a capped stub or a strapped crate with
+  // no question at it, and a beacon over one teaches the player that the beacon
+  // means nothing — the note that file already makes.
+  const beacon = scenery ? null : addCaseBeacon(g, {
+    x: x + Math.sin(yaw) * 0.95, z: z + Math.cos(yaw) * 0.95, y: 0,
+    colour: fixture.colour ?? 0xf0b429,
+    height: Math.max(1.9, height + 0.5),
+  });
+  beacon?.setActive(true);
   // The band is built before the placement is known, so it is moved into place
   // here rather than positioned twice.
   if(g.userData.unfinishedBand) g.userData.unfinishedBand.position.set(x, 0.5, z);
@@ -184,13 +230,34 @@ export function addFixture(room, fixture, { openPrompt = 'Open the case', caseId
 
   // A real collider on the object, and none on the hit box. The object is
   // something you walk around; the approach is something you stand in.
-  const solid = new THREE.Box3().setFromCenterAndSize(
-    new THREE.Vector3(room.group.position.x + x, height / 2, room.group.position.z + z),
-    new THREE.Vector3(1.5, height, 1.0));
+  //
+  // TAKEN THROUGH THE ROOM'S OWN MATRIX, not by adding its position. Every room
+  // this was written for is axis-aligned and unrotated, so `position.x + x` was
+  // the same answer and cheaper. A room off a corridor is not: its outward wall
+  // faces along x rather than z, so its anchor is turned a quarter turn, and a
+  // collider built by addition lands in the corridor instead of against the
+  // wall. `localToWorld` is right for both, and identical for the first.
+  room.group.updateWorldMatrix(true, false);
+  const centre = room.group.localToWorld(new THREE.Vector3(x, height / 2, z));
+  // WHICH WAY IT FACES, IN THE WORLD. `yaw` is the object's turn inside the
+  // room and the room itself may be turned, so the two are composed by taking a
+  // point half a metre in front of the face through the same matrix. A box
+  // 1.5 m across the face and 1.0 m into the wall then lands the right way
+  // round however the room is oriented — and the box used to be 1.5 × 1.0 for
+  // every wall, so a fixture on a side wall reserved a metre and a half of the
+  // room and half a metre of the wall, the wrong way about.
+  const ahead = room.group.localToWorld(
+    new THREE.Vector3(x + Math.sin(yaw) * 0.5, height / 2, z + Math.cos(yaw) * 0.5));
+  const facesX = Math.abs(ahead.x - centre.x) > Math.abs(ahead.z - centre.z);
+  const solid = new THREE.Box3().setFromCenterAndSize(centre,
+    new THREE.Vector3(facesX ? 1.0 : 1.5, height, facesX ? 1.5 : 1.0));
 
   return {
     group: g,
     collider: solid,
+    // The marker needs a frame: its arrow bobs and it turns to face the player.
+    // Driven by the room's own `update`, which walks the fixtures it built.
+    beacon,
     // `type: 'case'` with the room's id: main.js already routes that to
     // `openVisit(room.id)`, so the object opens the day's call with no new wiring.
     // `caseId` is the AREA whose call this opens, which is not always the room it
@@ -198,8 +265,22 @@ export function addFixture(room, fixture, { openPrompt = 'Open the case', caseId
     // is still a question about its own area; it is only asked somewhere else. So
     // the id here is the group, and `openVisit` gets the same argument it always
     // did while the player is standing three hundred metres from the area's door.
-    interactables: [{
-      mesh: hit, type: 'case', id: caseId ?? room.id, fixture: fixture.id,
+    interactables: [scenery ? {
+      // SCENERY IS NOT A CASE. A `from:`/`until:` fixture is the world growing or
+      // still unfinished — a capped stub, a strapped crate, scaffolding — and no
+      // question is asked at it. Registered as a case it took the room's own id
+      // with no stop index, so pressing the Reactor Hall's capped recycle tie-in
+      // on sol 4 opened whatever EQUIL call came first, which was that day's
+      // PERSON stop, and the card read "no case open right now" at an object that
+      // was never holding a call. It says what it is instead.
+      mesh: hit, type: 'info', id: fixture.id, fixture: fixture.id,
+      info: fixture.caption || openPrompt,
+      prompt: `E — ${fixture.name ?? fixture.id}`,
+    } : {
+      // `stopIndex` addresses the CALL, not just its area. Two calls of one area
+      // in one room — Red Sand's sol 294 has two — both register the same id, so
+      // without this the object you press does not decide the question you get.
+      mesh: hit, type: 'case', id: caseId ?? room.id, fixture: fixture.id, stopIndex,
       prompt: `E — ${fixture.name ?? fixture.id}`,
     }],
     dispose(){
@@ -219,25 +300,7 @@ export function fixtureFor(theme, groupId, lesson){
   return (theme?.fixtures?.[groupId] ?? []).find(f => f.id === at) ?? null;
 }
 
-/**
- * Where a lesson is asked, when that is not its own area.
- *
- * `theme.fixtures` may be keyed by a MINOR place as well as by an area. A lesson
- * whose `at:` resolves under one of those is *sited* there: the question still
- * belongs to its area and is still about that area's subject, and the player is
- * sent to the tank farm to answer it because that is where the tanks are.
- *
- * Returns `{ place, fixture }`, or null when the lesson is asked at home.
- */
-export function sitedAt(theme, groupId, lesson){
-  const at = lesson?.at;
-  if(!at) return null;
-  if((theme?.fixtures?.[groupId] ?? []).some(f => f.id === at)) return null;
-  const minors = new Set((theme?.site?.buildings ?? []).map(b => b.enter).filter(Boolean));
-  for(const [key, list] of Object.entries(theme?.fixtures ?? {})){
-    if(!minors.has(key)) continue;
-    const fixture = (list ?? []).find(f => f.id === at);
-    if(fixture) return { place: key, fixture };
-  }
-  return null;
-}
+// `sitedAt` now lives in ./siting.js so `placement.mjs` can read the same rule.
+// Re-exported here because five modules already import it from this file.
+export { sitedAt } from './siting.js';
+

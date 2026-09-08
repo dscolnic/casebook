@@ -770,9 +770,26 @@ export function furnishRoom(spec){
   const taken = { floor: [], wall: [] };
   const blocked = (x, z, r = 0.5, scale = 1) => keepClear.some(k =>
     Math.hypot(k.x - x, k.z - z) < (k.r ?? 1) * scale + r);
-  const crowded = (list, x, z, sep) => list.some(t => Math.hypot(t.x - x, t.z - z) < sep);
+  /**
+   * Too close to something of its own kind — and SIZE COUNTS.
+   *
+   * This was one radius, centre to centre, for everything on a wall. A
+   * whiteboard is 2.2 m across, so a poster placed the full 1.1 m away sat
+   * exactly on its edge and a whiteboard placed 1.1 m from a poster swallowed
+   * it whole: `npm run signs` measured 96% of one poster inside a whiteboard in
+   * INTAKE and 90% in TANKS. Two things a metre apart are not separated if one
+   * of them is two metres wide.
+   *
+   * So each placed item remembers its half-width and the gap required is
+   * whichever is larger: the kind's own separation, or the two half-widths plus
+   * enough to read as a gap.
+   */
+  const crowded = (list, x, z, sep, hw = 0) => list.some((t) => {
+    const need = Math.max(sep, (t.hw ?? 0) + hw + 0.15);
+    return Math.hypot(t.x - x, t.z - z) < need;
+  });
   /** Place one piece, unless the spot is spoken for or too close to its own kind. */
-  const put = (fn, x, z, lane = 'floor') => {
+  const put = (fn, x, z, lane = 'floor', halfWide = 0) => {
     const sep = lane === 'wall' ? WALL_SEP : FLOOR_SEP;
     // `keepClear` is about the floor: it keeps furniture out of the way in, and off
     // the spot where a case stand goes. Enforced at full radius on the wall as
@@ -781,9 +798,11 @@ export function furnishRoom(spec){
     // poster on a wall has never been in anybody's way. The wall keeps a smaller
     // margin, enough that nothing is hung directly behind the thing you walk up to.
     if(blocked(x, z, lane === 'wall' ? 0.35 : 0.5, lane === 'wall' ? 0.4 : 1)
-      || crowded(taken[lane], x, z, sep)) return false;
+      || crowded(taken[lane], x, z, sep, halfWide)) return false;
     fn(x, z);
-    taken[lane].push({ x, z });
+    // Its half-width goes in the record, so the next thing on this wall is kept
+    // clear of the whole of it and not of its centre. See `crowded`.
+    taken[lane].push({ x, z, hw: halfWide });
     placed++;
     return true;
   };
@@ -1263,7 +1282,8 @@ export function furnishRoom(spec){
         // across, so a centre that clears a doorway by 200 mm still hangs half a
         // metre of board over the opening — which is what floated in every entrance.
         if(!spanOk(p.x, p.z, wall, 0.7)) continue;
-        if(put(onWall(wall, (px, pz) => make(px, pz, wall)), p.x, p.z, 'wall')){
+        // 0.45 — the widest thing in `WALL_VOCAB` is a 0.9 m poster.
+        if(put(onWall(wall, (px, pz) => make(px, pz, wall)), p.x, p.z, 'wall', 0.45)){
           signsUp++; vi++;
           break;
         }
@@ -1288,8 +1308,10 @@ export function furnishRoom(spec){
       for(let k = 0; k < 8; k++){
         const p = along[wallName]((k + 0.5) / 8);
         if(!spanOk(p.x, p.z, wallName, 1.2)) continue;
+        // 1.1 — a whiteboard and a tool board are both 2.2 m across, which is the
+        // measurement the old single-radius separation was blind to.
         if(put(onWall(wallName, (px, pz) => make(px, pz, wallName.startsWith('x') ? 'z' : 'x')),
-          p.x, p.z, 'wall')) break;
+          p.x, p.z, 'wall', 1.1)) break;
       }
       continue;
     }

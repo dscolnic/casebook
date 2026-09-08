@@ -27,6 +27,7 @@ export const MISSIONS = [
         "group": "WIND",
         "lesson": 0,
         "task": "Find which parts of a trip can actually be shortened",
+        "person": true,
         "reason": "Marchetti wants twelve seconds removed from every trip, but Ubah will not let the inspector see a saving that quietly changes the shaft depth or the permitted top speed."
       }
     ]
@@ -55,6 +56,7 @@ export const MISSIONS = [
         "group": "BANK",
         "lesson": 1,
         "task": "Match each fact in the March trace to what that one recorder can establish.",
+        "person": true,
         "reason": "Halloway kept the only trace that followed the cage itself during the March emergency stop. If the story is going to be solved, this record has to say exactly what it measured and nothing more."
       }
     ]
@@ -83,6 +85,7 @@ export const MISSIONS = [
         "group": "WIND",
         "lesson": 2,
         "task": "Explain why two ramps that reach the same speed can feel different",
+        "person": true,
         "reason": "Anand has driven the winder for twelve years and says the harder proposed ramp feels like a different machine even when the final speed is unchanged. The physics should say why."
       }
     ]
@@ -111,6 +114,7 @@ export const MISSIONS = [
         "group": "BANK",
         "lesson": 2,
         "task": "Match each drum reading to the cage motion it determines.",
+        "person": true,
         "reason": "The depth indicator never measures the cage directly; it reads the drum shaft. Ubah needs the conversion made explicit before the inspector trusts any distance or speed shown on the bank."
       }
     ]
@@ -139,6 +143,7 @@ export const MISSIONS = [
         "group": "ROPE",
         "lesson": 2,
         "task": "Explain why the long steel rope can store and return energy",
+        "person": true,
         "reason": "Otieno keeps calling the 1,240-metre rope a spring. That claim matters now because a spring can keep a cage moving after the drum has changed what it is doing."
       }
     ]
@@ -167,6 +172,7 @@ export const MISSIONS = [
         "group": "GRAV",
         "lesson": 0,
         "task": "Match each field-book entry to the correction or measurement it provides.",
+        "person": true,
         "reason": "Every force calculation in the safety case uses g. Before Sokol compares the top and bottom of the shaft, Adebayo has to show that the gravimeter's own drift and the station height are not being mistaken for physics."
       }
     ]
@@ -189,6 +195,7 @@ export const MISSIONS = [
         "group": "GRAV",
         "lesson": 2,
         "task": "Use the measured gravity gradient to infer the density of the rock around the shaft",
+        "person": true,
         "reason": "The measured gradient differs from the empty-sphere prediction. Sokol wants to know whether ordinary rock around the shaft explains that gap before anybody treats the gravimeter as unreliable."
       },
       {
@@ -223,6 +230,7 @@ export const MISSIONS = [
         "group": "CAGE",
         "lesson": 5,
         "task": "Decide whether brake-pad damage is set by force or by energy",
+        "person": true,
         "reason": "The pads were replaced after March even though the brake force was not unusual. Craig wants the quantity that actually predicts pad heating and wear before the new profile is approved."
       }
     ]
@@ -251,6 +259,7 @@ export const MISSIONS = [
         "group": "BANK",
         "lesson": 4,
         "task": "Explain the safety purpose of the slow final crawl",
+        "person": true,
         "reason": "Marchetti wants to remove two of the final three slow seconds from every trip. Ubah has watched thousands of arrivals and wants a physical reason before giving up that margin."
       }
     ]
@@ -279,6 +288,7 @@ export const MISSIONS = [
         "group": "WIND",
         "lesson": 6,
         "task": "Identify what the brake directly stops",
+        "person": true,
         "reason": "Anand has said since March that 'the machine stopped and the cage did not.' The distinction only makes sense if you are precise about what the brake is physically clamped to."
       }
     ]
@@ -307,6 +317,7 @@ export const MISSIONS = [
         "group": "TIP",
         "lesson": 1,
         "task": "Track the momentum of ore when it is dumped into a stationary bin",
+        "person": true,
         "reason": "The mine has now seen the same mistake in two places: equipment sized for a standing load can still fail when a moving load arrives. Lindqvist's sheared bin bolts are the final reminder before you write the lift limits."
       }
     ]
@@ -334,6 +345,7 @@ export const MISSIONS = [
         "group": "CAGE",
         "lesson": 9,
         "task": "Match each finding to the operating rule it requires.",
+        "person": true,
         "reason": "Rahimi has one final submission to write. The inspector does not need a pile of calculations; he needs the operating rules those calculations justify for every miner who rides the cage."
       }
     ]

@@ -6,13 +6,22 @@
     header: "3 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "POWER"
     goNow: "Go to the Solar Array and meet Yusuf Demir, the power and life-support officer, at the live power board."
-    body: "The recycle loop can restore hydrogen, but electrolysis, cooling, purification, refrigeration, and the habitat all need the same limited power. A dust front has reduced the solar array's output. At the Array, Battery Bank, and Electrolysis Hall, trace electron flow and turn available current into gas production. By the end of the mission, allocate power so the crew, reactor, and propellant all remain safe."
+    body: "A dust front has reduced solar power just as fuel recovery needs more electricity. The crew's living quarters, cooling, water treatment, and hydrogen equipment all share the supply. Calculate possible gas production and divide the available power without sacrificing the crew's essential systems."
     objective: "Turn the available electricity into launch gases while protecting every critical system."
   objective: "Turn the available electricity into launch gases while protecting every critical system."
-  stake: "The recycle loop can restore hydrogen, but electrolysis, cooling, purification, refrigeration, and the habitat all need the same limited power. A dust front has reduced the solar array's output. At the Array, Battery Bank, and Electrolysis Hall, trace electron flow and turn available current into gas production. By the end of the mission, allocate power so the crew, reactor, and propellant all remain safe."
+  stake: "A dust front has reduced solar power just as fuel recovery needs more electricity. The crew's living quarters, cooling, water treatment, and hydrogen equipment all share the supply. Calculate possible gas production and divide the available power without sacrificing the crew's essential systems."
   takeaway: "A power allocation is scientific when every funded load protects a named consequence."
   segue: "Mission decision: Run the power cell only while the habitat, cooling, cleanup, and cold tanks stay safe. The plan turns the available charge into hydrogen and finishes the oxygen goal. Both amount bars now read full. The launch clock starts. A new vial now tests what full really means."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Electron", def: "a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge."}
+  - {name: "Electrode", def: "a solid part where electrons enter or leave a chemical system. The water cell has a cathode and an anode."}
+  - {name: "Cathode", def: "the electrode where reduction occurs. The powered cell sends electrons to this electrode."}
+  - {name: "Anode", def: "the electrode where oxidation occurs. Electrons leave this electrode through the outside circuit."}
+  equations:
+  - {"e":"Q = It","c":"finding the total electric charge delivered during a timed run","v":[["Q","charge in coulombs"],["I","current in amperes"],["t","time in seconds"]],"s":"The dust-limited array gives the crew current and time, but the recovery plan needs a predicted amount of hydrogen and oxygen."}
+  - {"e":"Faraday's law calculation, moles of electrons = Q / F","c":"converting electric charge into chemical amount","v":[["Q","charge in coulombs"],["F","96,485 coulombs per mole of electrons"]],"s":"Electron amount is the bridge between the power board and the number of gas molecules the plant can make."}
+  - {"e":"actual product = theoretical product x current efficiency","c":"correcting ideal gas production for practical electrical losses","v":[["actual product","the usable amount made; theoretical product follows electron stoichiometry; current efficiency is written as a decimal fraction"]],"s":"The launch plan must budget for the cell the crew actually has rather than a perfect 100-percent cell."}
   primer:
   - "Reduction occurs at the cathode and oxidation occurs at the anode in both driven and spontaneous cells."
   - "Electrons travel through the outside circuit; ions move through the liquid to keep charge balanced."
@@ -39,7 +48,7 @@
     # unlocks: The Battery Gallery travel beat.
     bubbles:
     - who: demir   # Demir
-      say: "Now the electrical path and the chemical products agree. Check the battery floor before promising current we cannot sustain."
+      say: "Nice work. Now the electrical path and the chemical products agree. Check the battery floor before promising current we cannot sustain."
   - id: on-arrival-at-battery-bank
     # On arrival at Battery Bank | automatic constraint reveal | 
     on: { enter: true, at: BATT }
@@ -48,7 +57,7 @@
     # unlocks: The Battery Gallery waypoint, followed by the Electrolysis Hall waypoint and Stops 51-52.
     bubbles:
     - who: abiola   # Abiola
-      say: "These loads are not bargaining chips. Whatever remains can recover propellant."
+      say: "Good thinking. These loads are not bargaining chips. Whatever remains can recover propellant."
   - id: after-stops-51-and-52
     # After Stops 51 and 52 | Electrolysis Hall | automatic decision
     on: { after: [3, 4] }
@@ -57,7 +66,7 @@
     # unlocks: The Mission 13 outcome beat.
     bubbles:
     - who: demir   # Demir
-      say: "The plan does not maximize one machine. It keeps the entire route to launch alive."
+      say: "Exactly right. The plan does not maximize one machine. It keeps the entire route to launch alive."
   - id: at-mission-end
     # At mission end | Electrolysis Hall | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,7 +75,84 @@
     # unlocks: Mission 14 briefing and the Tank Farm waypoint.
     bubbles:
     - who: achebe   # Achebe
-      say: "Stop the countdown. Batch C does not match the green quality channel."
+      say: "Outstanding work. You solved the mission. Stop the countdown. Batch C does not match the green quality channel."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Power. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Electrical circuit", def: "a connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions."}
+    - {name: "Oxidation", def: "the loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas."}
+    - {name: "Reduction", def: "the gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas."}
+    - {name: "Electric current", def: "the rate at which electric charge moves. One ampere is one coulomb of charge per second."}
+    - {name: "Coulomb", def: "a unit used to count electric charge. Current multiplied by time in seconds gives charge in coulombs."}
+    - {name: "Electric charge", def: "a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral."}
+    - {name: "Faraday constant", def: "the charge carried by one mole of electrons, about 96,485 coulombs per mole. It converts electrical charge into a chemical amount."}
+    - {name: "Current efficiency", def: "the fraction of electrical charge that makes the intended product. A value below 100 percent means some charge follows unwanted processes."}
+    - {name: "Protected load", def: "an electrical use that must remain powered for safety or mission function. Funding it reduces the energy available for optional work."}
+    questions:
+    - prompt: "In a follow-up to Power, assemble the electron and ion paths to confirm that the powered cell can split water without shorting or mixing products. Which calculation or chemical interpretation correctly applies Electrical circuit?"
+      hint: "Use the stated evidence and the conditions for Electrical circuit; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.", why: "This describes Oxidation, not Electrical circuit. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.", why: "Correct. a connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions."}
+      - {key: "C", text: "The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.", why: "This describes Reduction, not Electrical circuit. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The rate at which electric charge moves. One ampere is one coulomb of charge per second.", why: "This describes Electric current, not Electrical circuit. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to Power: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Oxidation?"
+      hint: "Use the stated evidence and the conditions for Oxidation; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.", why: "This describes Electrical circuit, not Oxidation. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.", why: "This describes Reduction, not Oxidation. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.", why: "Correct. the loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas."}
+      - {key: "D", text: "The rate at which electric charge moves. One ampere is one coulomb of charge per second.", why: "This describes Electric current, not Oxidation. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks Power using new evidence: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reduction?"
+      hint: "Use the stated evidence and the conditions for Reduction; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.", why: "This describes Electrical circuit, not Reduction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.", why: "This describes Oxidation, not Reduction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The rate at which electric charge moves. One ampere is one coulomb of charge per second.", why: "This describes Electric current, not Reduction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.", why: "Correct. the gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas."}
+    - prompt: "An unseen case extends Power: convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone. Which calculation or chemical interpretation correctly applies Electric current?"
+      hint: "Use the stated evidence and the conditions for Electric current; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "The rate at which electric charge moves. One ampere is one coulomb of charge per second.", why: "Correct. the rate at which electric charge moves. One ampere is one coulomb of charge per second."}
+      - {key: "B", text: "A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.", why: "This describes Electrical circuit, not Electric current. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.", why: "This describes Oxidation, not Electric current. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.", why: "This describes Reduction, not Electric current. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Power decision, the team knows this: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Coulomb?"
+      hint: "Use the stated evidence and the conditions for Coulomb; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.", why: "This describes Electrical circuit, not Coulomb. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A unit used to count electric charge. Current multiplied by time in seconds gives charge in coulombs.", why: "Correct. a unit used to count electric charge. Current multiplied by time in seconds gives charge in coulombs."}
+      - {key: "C", text: "The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.", why: "This describes Oxidation, not Coulomb. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.", why: "This describes Reduction, not Coulomb. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from Power to this follow-up: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Electric charge?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.", why: "This describes Electrical circuit, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.", why: "This describes Oxidation, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "Correct. a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral."}
+      - {key: "D", text: "The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.", why: "This describes Reduction, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 13: worked examples"
+    examples:
+    - {"title":"Identify oxidation and reduction","problem":"In Zn+Cu²⁺→Zn²⁺+Cu, identify electron transfer.","rule":"Oxidation loses electrons; reduction gains electrons.","steps":["Zn→Zn²⁺+2e⁻ is oxidation.","Cu²⁺+2e⁻→Cu is reduction."],"answer":"Zinc is oxidized and copper ions are reduced.","mistake":"Positive ions can be reduced by gaining electrons."}
+    - {"title":"Find charge passed","problem":"A current of 2 A flows for 50 s. Find electric charge.","rule":"Q=It; 1 A=1 C/s.","steps":["Set up the relationship: Q=It; 1 A=1 C/s.","Q=2(50)=100 C."],"answer":"The transferred charge is 100 C.","mistake":"Current is charge per time, not total charge."}
+    - {"title":"Convert charge to electron amount","problem":"An electrolysis passes 10000 C. Use rounded Faraday constant F=100000 C/mol. Find electron amount.","rule":"n_e=Q/F.","steps":["Set up the relationship: n_e=Q/F.","n_e=10000/100000=0.1 mol."],"answer":"The electron amount is 0.1 mol with the supplied rounded constant.","mistake":"Dividing by the Avogadro constant does not convert coulombs directly to moles."}
+    - {"title":"Use electrons per deposited ion","problem":"Copper deposition follows Cu²⁺+2e⁻→Cu. An electrolysis supplies 0.1 mol electrons with 100% current efficiency. Use M_Cu=64 g/mol.","rule":"n_Cu=n_e/2; m_Cu=n_Cu M_Cu.","steps":["Set up the relationship: n_Cu=n_e/2; m_Cu=n_Cu M_Cu.","n_Cu=0.1/2=0.05 mol; m_Cu=0.05(64)=3.2 g."],"answer":"The deposited copper mass is 3.2 g.","mistake":"Two moles of electrons deposit one mole of copper."}
+    - {"title":"Find the limiting reactant","problem":"For 2H₂+O₂→2H₂O, mix 6 mol H₂ and 2 mol O₂.","rule":"Compare available amount divided by its reactant coefficient.","steps":["hydrogen reaction units=6/2=3; oxygen reaction units=2/1=2.","Oxygen permits fewer reaction units; water produced=2(2)=4 mol."],"answer":"O₂ limits the reaction; 2 mol H₂ remains.","mistake":"The reactant with fewer moles is not always limiting; coefficients matter."}
 
   stops:
   # --- Stop 49: Name oxidation and reduction
@@ -76,10 +162,10 @@
     at: array-controller
     title: "Name oxidation and reduction"
     person: cho
-    concept: "redox"
-    reason: "Gas routing depends on knowing which electrode makes hydrogen and oxygen."
-    scene: "Before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The correct half-reactions keep the product lines from being routed backward."
-    motivation: "Electron direction tells the crew where hydrogen and oxygen form and prevents the gases from being routed backward."
+    concept: 14   # redox
+    reason: "Electrolysis is next, and the gas lines must be assigned to the correct electrode reactions."
+    scene: "Before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions."
+    motivation: "Identifying oxidation and reduction prevents hydrogen and oxygen products from being routed to the wrong outlets."
     format: CHOICE
     question: "In alkaline electrolysis, which statement is correct?"
     choices:
@@ -101,10 +187,10 @@
   - group: ELEC
     at: cell-stacks
     title: "Assemble electron and ion flow"
-    concept: "half-reactions and circuit"
-    reason: "Both the electron circuit and ion path must close before startup."
-    scene: "Assemble the electron and ion paths to confirm that the powered cell can split water without shorting or mixing products. The assembled path will expose any impossible break in charge balance."
-    motivation: "Both paths must close before electrical power can become launch gases."
+    concept: 14   # half-reactions and circuit
+    reason: "The electrode products are identified, leaving the complete charge path to assemble."
+    scene: "The assembled path will expose any impossible break in charge balance."
+    motivation: "The electron and ion routes establish whether the proposed cell maintains continuous charge balance."
     format: SEQUENCE
     # CONVERTED from the bible's `data` line below; its `correct result` is the
     # cyclic order as listed.
@@ -130,10 +216,10 @@
   - group: ELEC
     at: stack
     title: "Turn current into hydrogen"
-    concept: "Faraday's law"
-    reason: "Power allocation needs predicted hydrogen, not amperes alone."
-    scene: "Convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone. The result converts the remaining operating time into a real gas yield."
-    motivation: "This calculation tells the crew exactly how much ascent propellant the remaining power can buy."
+    concept: 14   # Faraday's law
+    reason: "The electrolysis circuit is defined and the remaining operating time needs translating into hydrogen yield."
+    scene: "Convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone."
+    motivation: "The current-based yield determines how much hydrogen the scheduled run can actually add to recovery."
     format: BALLPARK
     # CONVERTED from the bible's Data (current 10,000 A for 8.00 h; current
     # efficiency 92.0%; 2 e- per H2; molar mass H2 2.016 g/mol) and its worked
@@ -172,10 +258,10 @@
   - group: ELEC
     at: stack
     title: "Allocate the recovery power"
-    concept: "electrochemistry under constraints"
-    reason: "The dust-limited power pool must protect every binding system constraint."
-    scene: "Use that yield and the protected minimums to divide dust-limited power among electrolysis and the systems that keep the crew and propellant safe. The committed plan must make gas without recreating earlier failures."
-    motivation: "Making more gas does not get the crew home if the same plan overheats the reactor, spoils the batch, or shuts down life support."
+    concept: 14   # electrochemistry under constraints
+    reason: "The hydrogen yield is estimated and its power must fit alongside habitat, treatment, and cooling demands."
+    scene: "The committed plan must make gas without recreating earlier failures."
+    motivation: "The allocation determines whether recovery can proceed without sacrificing the systems that prevent a repeat failure."
     format: ALLOCATE
     # CONVERTED from the payload below — already the engine's model, a subset
     # funded out of a pool: `pool.value` -> `pool.amount`, each item's `cost`
@@ -187,20 +273,50 @@
     # no question attached to it. Written as the bible has it rather than
     # demoting one of its required checks.
     allocate:
-      pool: { amount: 600, unit: kWh, mode: scalar }
+      pool:
+        amount: 600
+        unit: kWh
       items:
-      - { id: habitat, label: "Protected habitat load", cost: 180 }
-      - { id: cooling, label: "Reactor thermal control", cost: 120 }
-      - { id: purification, label: "Product purification", cost: 80 }
-      - { id: electrolysis, label: "Recovery electrolysis", cost: 160 }
-      - { id: refrigeration, label: "Tank refrigeration", cost: 60 }
-      - { id: fast_charge, label: "Optional battery fast charge", cost: 60 }
+        - id: habitat
+          label: Protected habitat load
+          cost: 180
+        - id: cooling
+          label: Reactor thermal control
+          cost: 120
+        - id: purification
+          label: Product purification
+          cost: 80
+        - id: electrolysis
+          label: Recovery electrolysis
+          cost: 160
+        - id: refrigeration
+          label: Tank refrigeration
+          cost: 60
+        - id: fast_charge
+          label: Optional battery fast charge
+          cost: 60
       answers:
-      - { question: "Does the habitat remain safe?", requires: [habitat], required: true }
-      - { question: "Does the reactor remain below the validated heat limit?", requires: [cooling], required: true }
-      - { question: "Will recovered product stay within specification?", requires: [purification, refrigeration], required: true }
-      - { question: "Will electrolysis replace required hydrogen?", requires: [electrolysis], required: true }
-      commit: "Commit the plan"
+        - question: Does the habitat remain safe?
+          requires:
+            - habitat
+          required: true
+        - question: Does the reactor remain below the validated heat limit?
+          requires:
+            - cooling
+          required: true
+        - question: Will recovered product stay within specification?
+          requires:
+            - purification
+            - refrigeration
+          required: true
+        - question: Will electrolysis replace required hydrogen?
+          requires:
+            - electrolysis
+          required: true
+        - question: Can optional battery fast charging run now?
+          requires:
+            - fast_charge
+          required: false
     question: "Build a plan that keeps crew safe, prevents another hot spot, purifies Batch C precursor gas, and produces recovery hydrogen."
     answerText: "Fund habitat 180, cooling 120, purification 80, electrolysis 160, and refrigeration 60 kWh; omit fast charging."
     why: "Every funded item answers a known constraint. The reserve is valuable but can be restored after the dust front; losing refrigeration wastes existing propellant, and losing purification creates off-spec product. The full pool requires accepting no discretionary margin this shift."

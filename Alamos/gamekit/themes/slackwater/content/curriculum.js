@@ -31,14 +31,6 @@ export const CURRICULUM = {
           "start": "h(t) = A·cos(ω₁t) + A·cos(ω₂t)",
           "goal": "the interval between one spring tide and the next, in days",
           "startNote": "ω₁ = 28.98 °/h for the moon term, ω₂ = 30.00 °/h for the sun term, A = 1.7 m for both this month",
-          "askRule": true,
-          "rules": [
-            "trigonometric identity",
-            "rearrangement",
-            "period of a cosine",
-            "the size of a factor",
-            "substitution of the fitted values"
-          ],
           "steps": [
             {
               "ask": "Write the sum of the two cosines as a product.",
@@ -46,49 +38,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "2A·cos(½(ω₁+ω₂)t)·cos(½(ω₁−ω₂)t)",
-                  "rule": "trigonometric identity"
+                  "note": "trigonometric identity"
                 },
                 {
                   "text": "2A·cos(½(ω₁+ω₂)t)·sin(½(ω₁−ω₂)t)",
-                  "rule": "trigonometric identity",
+                  "note": "trigonometric identity",
                   "why": "That is the identity for a difference of two cosines, and it is a perfectly good product. But it is zero at t = 0. That's exactly when the two terms are in step, which is a spring tide, not a neap. Follow this path and you get a spring tide where a neap really is.",
                   "survives": true
-                },
-                {
-                  "text": "A²·cos(ω₁t)·cos(ω₂t)",
-                  "rule": "trigonometric identity",
-                  "why": "The two terms are added, not multiplied, so nothing here should end up with an amplitude squared. A metre squared is not a level."
-                },
-                {
-                  "text": "A·cos((ω₁·ω₂)t)",
-                  "rule": "rearrangement",
-                  "why": "A product of two angular speeds has units of degrees squared per hour squared. That cannot sit inside a cosine at all."
                 }
               ]
             },
             {
               "ask": "Say which factor is the slow one, and what its angular speed is.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "the first factor, at ½(28.98 + 30.00) = 29.49 °/h",
-                  "rule": "substitution of the fitted values",
+                  "note": "substitution of the fitted values",
                   "why": "That is the fast factor. It turns all the way around in a little over twelve hours. That's the tide itself, not the fortnight the tide runs inside."
                 },
                 {
-                  "text": "the second factor, at (30.00 − 28.98) = 1.02 °/h",
-                  "rule": "substitution of the fitted values",
-                  "why": "The half got dropped. The number is the right size but the wrong value, and it halves every answer that follows. A fortnight turns into a week and still looks believable.",
-                  "survives": true
-                },
-                {
                   "text": "the second factor, at ½(30.00 − 28.98) = 0.51 °/h",
-                  "rule": "substitution of the fitted values"
-                },
-                {
-                  "text": "the second factor, at ½(30.00 + 28.98) = 29.49 °/h",
-                  "rule": "rearrangement",
-                  "why": "The identity puts the difference in the slow factor and the sum in the fast one. Using the sum for both leaves nothing slow anywhere in the expression."
+                  "note": "substitution of the fitted values"
                 }
               ]
             },
@@ -98,49 +69,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "T = 2π ÷ 0.51 = 12.3 h",
-                  "rule": "period of a cosine",
+                  "note": "period of a cosine",
                   "why": "The speed is in degrees an hour, so a full turn is 360 of them, not 2π. Mixing the two conventions gives an answer close to the tidal period itself. That's exactly the wrong size to notice as a mistake."
                 },
                 {
                   "text": "T = 360° ÷ 0.51 °/h = 706 h",
-                  "rule": "period of a cosine"
-                },
-                {
-                  "text": "T = 0.51 ÷ 360 = 0.0014 h",
-                  "rule": "rearrangement",
-                  "why": "This still divides, just upside down. Every unit cancels the wrong way. The only clue is that a fortnight comes out as five seconds.",
-                  "survives": true
-                },
-                {
-                  "text": "T = 180° ÷ 0.51 °/h = 353 h",
-                  "rule": "period of a cosine",
-                  "why": "That is the right final number, reached one step too early. It comes from treating half a turn as a full period. The real halving happens on the next line, and for a clear reason."
+                  "note": "period of a cosine"
                 }
               ]
             },
             {
               "ask": "The springs come whenever the slow factor is largest in size. How often is that?",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "once per period, 706 h — every 29.4 days",
-                  "rule": "period of a cosine",
+                  "note": "period of a cosine",
                   "why": "A month sounds like a fine answer for a tidal cycle, and it is the wrong one. It counts only the positive peaks of the slow wave. But the envelope is that factor's size, and its negative peak is just as large.",
                   "survives": true
                 },
                 {
-                  "text": "four times per period, 176 h — every 7.4 days",
-                  "rule": "the size of a factor",
-                  "why": "A cosine reaches its biggest size twice each period, not four times. Four also counts the zero-crossings, which are the neaps."
-                },
-                {
-                  "text": "it does not repeat, so there is no interval",
-                  "rule": "the size of a factor",
-                  "why": "The slow factor is a cosine, so its size repeats by its very nature. Something that never repeated could not be written as this kind of product at all."
-                },
-                {
                   "text": "twice per period, 353 h — every 14.7 days",
-                  "rule": "the size of a factor"
+                  "note": "the size of a factor"
                 }
               ]
             }
@@ -233,14 +183,6 @@ export const CURRICULUM = {
           "start": "R = Σ_{n=9}^{37} Aₙ·cos(ωₙt − φₙ)",
           "goal": "a ceiling on |R| in metres, valid at any hour",
           "startNote": "the twenty-nine dropped amplitudes are 0.041, 0.033, 0.028, 0.022 and twenty-five more totalling 0.066 m",
-          "askRule": true,
-          "rules": [
-            "the size of a cosine",
-            "triangle inequality",
-            "substitution of the fitted values",
-            "comparison of magnitudes",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Bound the size of one dropped term.",
@@ -248,75 +190,44 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "|Aₙ·cos(ωₙt − φₙ)| ≤ Aₙ·ωₙ",
-                  "rule": "the size of a cosine",
+                  "note": "the size of a cosine",
                   "why": "An angular speed has no place in a height. Multiplying an amplitude by degrees-per-hour gives something that isn't a water level at all."
                 },
                 {
                   "text": "|Aₙ·cos(ωₙt − φₙ)| ≤ Aₙ",
-                  "rule": "the size of a cosine"
-                },
-                {
-                  "text": "|Aₙ·cos(ωₙt − φₙ)| ≤ Aₙ/2",
-                  "rule": "the size of a cosine",
-                  "why": "A cosine averages to zero. Its size averages to about two-thirds. So a half looks like a believable typical value. But it's not a ceiling. At the hour the cosine equals one, the real term is twice this size.",
-                  "survives": true
-                },
-                {
-                  "text": "|Aₙ·cos(ωₙt − φₙ)| ≤ 1",
-                  "rule": "the size of a cosine",
-                  "why": "The bound on the cosine got applied to the whole term instead. One meter is technically a ceiling, but a useless one. It's bigger than every amplitude on the list added together."
+                  "note": "the size of a cosine"
                 }
               ]
             },
             {
               "ask": "Bound the size of the whole sum.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "|R| ≤ √(Σ Aₙ²)",
-                  "rule": "triangle inequality",
+                  "note": "triangle inequality",
                   "why": "That is the root-sum-of-squares rule. It's the right combination for independent random errors, and the wrong one here. It gives 0.06 m, three times too small, and nothing about these terms is random. Their timings are fitted, fixed constants.",
                   "survives": true
                 },
                 {
-                  "text": "|R| ≤ 29 × max Aₙ",
-                  "rule": "comparison of magnitudes",
-                  "why": "A ceiling, but a very loose one: 1.19 m, six times bigger than the real tail. It treats every term as if it were the biggest one."
-                },
-                {
-                  "text": "|R| ≤ Σ Aₙ − A₉",
-                  "rule": "rearrangement",
-                  "why": "The biggest term got removed from its own ceiling. Nothing allows dropping a term out of a sum of sizes."
-                },
-                {
                   "text": "|R| ≤ Σ Aₙ",
-                  "rule": "triangle inequality"
+                  "note": "triangle inequality"
                 }
               ]
             },
             {
               "ask": "Put the fitted amplitudes in.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "0.041 + 0.033 + 0.028 + 0.022 = 0.124 m",
-                  "rule": "substitution of the fitted values",
+                  "note": "substitution of the fitted values",
                   "why": "The twenty-five smaller terms got left out of the ceiling. That's the same mistake one level down. A tail dropped from a calculation that is itself about a dropped tail.",
                   "survives": true
                 },
                 {
-                  "text": "29 × 0.041 = 1.19 m, the largest amplitude taken twenty-nine times",
-                  "rule": "substitution of the fitted values",
-                  "why": "Every term has been given the largest amplitude. That was the loose bound rejected at the previous line."
-                },
-                {
                   "text": "0.041 + 0.033 + 0.028 + 0.022 + 0.066 = 0.19 m",
-                  "rule": "substitution of the fitted values"
-                },
-                {
-                  "text": "0.041 + 0.066 = 0.107 m",
-                  "rule": "substitution of the fitted values",
-                  "why": "Only the biggest term and the block of small ones got added. The second, third and fourth terms went missing in between."
+                  "note": "substitution of the fitted values"
                 }
               ]
             },
@@ -326,23 +237,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "the level moves 0.60 m in that time, three times the bound",
-                  "rule": "comparison of magnitudes"
+                  "note": "comparison of magnitudes"
                 },
                 {
                   "text": "the level moves 0.15 m in that time, less than the bound",
-                  "rule": "comparison of magnitudes",
+                  "note": "comparison of magnitudes",
                   "why": "Forty minutes got turned into a fraction of an hour by dividing by four instead of sixty. Or the rate got cut in half. Either way, the comparison flips, and the whole day's argument comes out backwards.",
                   "survives": true
-                },
-                {
-                  "text": "the level moves 36 m in that time, so no comparison is needed",
-                  "rule": "substitution of the fitted values",
-                  "why": "A rate in meters-per-hour, multiplied straight by a time in minutes. The units were never matched up, and the answer comes out deeper than the estuary itself."
-                },
-                {
-                  "text": "the two cannot be compared, since one is a bound and one is a movement",
-                  "rule": "comparison of magnitudes",
-                  "why": "Both numbers are heights of water, in meters. A ceiling is worth having exactly for that reason. You can set it beside the other costs of a decision."
                 }
               ]
             }
@@ -599,38 +500,20 @@ export const CURRICULUM = {
           "start": "Q(η) = C·(H + η)^{3/2}",
           "goal": "the second-order term of Q, written in terms of the tidal movement",
           "startNote": "H = 2.1 m mean head, η the tidal movement about it, with amplitude a = 0.85 m",
-          "askRule": true,
-          "rules": [
-            "the power rule",
-            "the coefficients of a Taylor polynomial",
-            "substitution of the tidal movement",
-            "the double-angle form",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Take the first two derivatives at mean head.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "Q′ = (3/2)C·(H + η)^{1/2},  Q″ = (3/2)C·(H + η)^{−1/2}",
-                  "rule": "the power rule",
+                  "note": "the power rule",
                   "why": "The second derivative kept the three-halves instead of picking up the extra half it should gain. It's off by a factor of two, but it has exactly the right form. So the overtide comes out twice as big and still looks believable against the record.",
                   "survives": true
                 },
                 {
-                  "text": "Q′ = (3/2)C·(H + η)^{1/2},  Q″ = (3/4)C·(H + η)^{1/2}",
-                  "rule": "the power rule",
-                  "why": "The coefficient is right and the exponent has not dropped. Differentiating cannot leave the power where it was."
-                },
-                {
                   "text": "Q′ = (3/2)C·(H + η)^{1/2},  Q″ = (3/4)C·(H + η)^{−1/2}",
-                  "rule": "the power rule"
-                },
-                {
-                  "text": "Q′ = (3/2)C·(H + η)^{3/2},  Q″ = (3/4)C·(H + η)^{3/2}",
-                  "rule": "the power rule",
-                  "why": "Neither exponent has moved. The three-halves power is the law itself, and its derivatives must have lower powers than it does."
+                  "note": "the power rule"
                 }
               ]
             },
@@ -640,49 +523,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "Q ≈ C·H^{3/2}·[1 + (3/2)(η/H) + (3/4)(η/H)²]",
-                  "rule": "the coefficients of a Taylor polynomial",
+                  "note": "the coefficients of a Taylor polynomial",
                   "why": "The second derivative got used without dividing by two-factorial, which is just 2. Every Taylor coefficient carries that factorial. Skipping it doubles the very term the whole day is about.",
                   "survives": true
                 },
                 {
                   "text": "Q ≈ C·H^{3/2}·[1 + (3/2)(η/H) + (3/8)(η/H)²]",
-                  "rule": "the coefficients of a Taylor polynomial"
-                },
-                {
-                  "text": "Q ≈ C·H^{3/2}·[1 + (3/2)(η/H)]",
-                  "rule": "the coefficients of a Taylor polynomial",
-                  "why": "That is the first-order expansion, which is symmetric in the movement. It therefore contains no asymmetry and no overtide at all."
-                },
-                {
-                  "text": "Q ≈ C·H^{3/2}·[1 + (3/2)(η/H) + (3/8)(η/H)³]",
-                  "rule": "rearrangement",
-                  "why": "The second-order coefficient has been attached to a cube. The power and the coefficient come from the same derivative and cannot be separated."
+                  "note": "the coefficients of a Taylor polynomial"
                 }
               ]
             },
             {
               "ask": "Put the tidal movement in as a cosine.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "the squared term becomes (3/8)(a/H)²·cos(2ωt)",
-                  "rule": "substitution of the tidal movement",
+                  "note": "substitution of the tidal movement",
                   "why": "The overtide is there, but the steady part got lost. A cosine squared averages to one-half. So squaring a tide raises the average flow, not just adding a faster wave. That raised average is exactly what shows up as a datum error.",
                   "survives": true
                 },
                 {
-                  "text": "the squared term becomes (3/8)(a/H)²·cos²(ωt), and cannot be simplified",
-                  "rule": "substitution of the tidal movement",
-                  "why": "It can be simplified. Until it is, the term cannot be compared with a constituent list. Nothing in that list is a squared cosine."
-                },
-                {
-                  "text": "the squared term becomes (3/8)(a/H)·cos²(ωt)",
-                  "rule": "rearrangement",
-                  "why": "One power of the mean head has gone missing from the denominator. That leaves the term with units instead of being a pure ratio."
-                },
-                {
                   "text": "the squared term becomes (3/8)(a/H)²·cos²(ωt)",
-                  "rule": "substitution of the tidal movement"
+                  "note": "substitution of the tidal movement"
                 }
               ]
             },
@@ -692,23 +555,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "(3/16)(a/H)²·[1 + cos 2ωt] — a constant and a term at twice the tidal speed",
-                  "rule": "the double-angle form"
+                  "note": "the double-angle form"
                 },
                 {
                   "text": "(3/8)(a/H)²·[1 + cos 2ωt] — a constant and a term at twice the tidal speed",
-                  "rule": "the double-angle form",
+                  "note": "the double-angle form",
                   "why": "The half from the double-angle rule never made it into the coefficient. The shape of the answer is exactly right, but both parts of it are twice too big.",
                   "survives": true
-                },
-                {
-                  "text": "(3/16)(a/H)²·cos 2ωt — a term at twice the tidal speed and nothing else",
-                  "rule": "the double-angle form",
-                  "why": "The constant has been dropped again. It is the part that shifts the mean, which is the visible symptom at the gauges."
-                },
-                {
-                  "text": "(3/16)(a/H)²·[1 + cos ωt] — a constant and a term at the tidal speed",
-                  "rule": "the double-angle form",
-                  "why": "The doubling is the whole content of the identity. At the tidal speed this would be absorbed into the existing constituent. It would never have been noticed."
                 }
               ]
             }
@@ -735,26 +588,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size.",
-          "computed": true
-        },
-        {
-          "e": "f(x) ≈ f(a) + f′(a)(x − a) + f″(a)(x − a)²/2! + …",
-          "c": "a Taylor polynomial about a point",
-          "v": [
-            [
-              "a",
-              "the point the expansion is built at"
-            ],
-            [
-              "f′(a), f″(a)",
-              "the derivatives there"
-            ],
-            [
-              "n!",
-              "the factorial that keeps each term honest"
-            ]
-          ],
-          "s": "Every term is fixed by one derivative at a single point, which is why an expansion is excellent nearby and says progressively less the further you go from where it was built.",
           "computed": true
         }
       ],
@@ -796,38 +629,19 @@ export const CURRICULUM = {
           "start": "|R₂| ≤ M·|η|³ / 3!",
           "goal": "a ceiling on the error of the second-order expansion, as a fraction of the mean discharge",
           "startNote": "the third derivative of C(H + η)^{3/2} is −(3/8)C(H + η)^{−3/2}; H = 2.1 m, |η| ≤ 0.85 m",
-          "askRule": true,
-          "rules": [
-            "the form of the remainder",
-            "the largest value on an interval",
-            "substitution of the stated values",
-            "comparison of magnitudes",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Say which derivative the bound is built from.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "the second, since that is the last term kept",
-                  "rule": "the form of the remainder",
+                  "note": "the form of the remainder",
                   "why": "The bound is on what was dropped. So it is built from the first derivative that was not used. Using the last one kept would bound a term that is already in the answer."
                 },
                 {
-                  "text": "the fourth, since the error is at least two terms deep",
-                  "rule": "the form of the remainder",
-                  "why": "The error begins at the very next term. Skipping to the fourth derivative bounds only part of what was left out. That's not a ceiling at all."
-                },
-                {
                   "text": "the third, the first one not used",
-                  "rule": "the form of the remainder"
-                },
-                {
-                  "text": "the third, evaluated at the expansion point",
-                  "rule": "the largest value on an interval",
-                  "why": "The right derivative, evaluated at the wrong spot. At the expansion point it's 0.123, but the interval reaches about 0.268 at low water. The mean-head value is less than half the required maximum. That makes it a ceiling that isn't quite a real ceiling. No arithmetic afterward will catch the difference.",
-                  "survives": true
+                  "note": "the form of the remainder"
                 }
               ]
             },
@@ -837,49 +651,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "M = (3/8)(H − 0.85)^{−3/2} = 0.268, at the low-water end",
-                  "rule": "the largest value on an interval"
+                  "note": "the largest value on an interval"
                 },
                 {
                   "text": "M = (3/8)(H + 0.85)^{−3/2} = 0.074, at the high-water end",
-                  "rule": "the largest value on an interval",
+                  "note": "the largest value on an interval",
                   "why": "The endpoint got picked without checking the sign of the power. A negative power is biggest where the head is smallest. So this actually takes the interval's smallest value and calls it the largest.",
                   "survives": true
-                },
-                {
-                  "text": "M = (3/8)H^{−3/2} = 0.123, at mean head",
-                  "rule": "substitution of the stated values",
-                  "why": "Mean head is inside the interval rather than at its worst end. The value is close and it is not a maximum."
-                },
-                {
-                  "text": "M = (3/8)H^{3/2} = 1.14, at mean head",
-                  "rule": "rearrangement",
-                  "why": "The sign of the power has been dropped. That is a number ten times too large and the resulting bound is useless rather than wrong."
                 }
               ]
             },
             {
               "ask": "Put the step and the factorial in.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "|R₂| ≤ 0.268 × 0.85 ÷ 6 = 0.038",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The step has not been cubed. A remainder after the squared term goes as the step to the third power. That's what makes an expansion good near its own point."
                 },
                 {
-                  "text": "|R₂| ≤ 0.268 × 0.614 ÷ 3 = 0.055",
-                  "rule": "substitution of the stated values",
-                  "why": "Three rather than three-factorial. It is exactly twice the true bound, which is still small. So it neither fails a sanity check nor changes the decision.",
-                  "survives": true
-                },
-                {
-                  "text": "|R₂| ≤ 0.268 × 0.614 × 6 = 0.987",
-                  "rule": "rearrangement",
-                  "why": "The factorial is multiplying instead of dividing. That turns a bound of about one per cent into one that is tens of per cent."
-                },
-                {
                   "text": "|R₂| ≤ 0.268 × 0.614 ÷ 6 = 0.0274",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 }
               ]
             },
@@ -889,23 +682,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "0.0274 ÷ 3.04 = 0.90 per cent, so the total water-level forecast is also accurate to 0.90 per cent",
-                  "rule": "comparison of magnitudes",
+                  "note": "comparison of magnitudes",
                   "why": "The arithmetic is right, but the conclusion changes the question. This bound controls the polynomial approximation to discharge for a supplied head. It does not bound errors in the forecast of that head, including uncertainty in the storm surge."
                 },
                 {
                   "text": "0.0274 ÷ 3.04 = 0.90 per cent of the mean discharge",
-                  "rule": "comparison of magnitudes"
-                },
-                {
-                  "text": "0.0274 × 3.04 = 0.083, reported incorrectly as 8.3 per cent",
-                  "rule": "rearrangement",
-                  "why": "Multiplied rather than divided. Eight per cent is still a believable-looking size for an expansion error. That's why nothing about the number itself gives it away.",
-                  "survives": true
-                },
-                {
-                  "text": "0.0274 is already a fraction, so it is 2.7 per cent",
-                  "rule": "comparison of magnitudes",
-                  "why": "It is in the units of the discharge law rather than a fraction. It has to be divided by the mean discharge before it becomes a percentage."
+                  "note": "comparison of magnitudes"
                 }
               ]
             }
@@ -917,28 +699,6 @@ export const CURRICULUM = {
       "assumes": [
         "a bound uses the largest the next derivative reaches on the interval. Not its value at one point",
         "alternating series, and the error after n terms — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "|Rₙ(x)| ≤ M·|x − a|^(n+1) / (n + 1)!",
-          "c": "the Lagrange bound on what a polynomial left out",
-          "v": [
-            [
-              "M",
-              "the largest the next derivative gets between a and x"
-            ],
-            [
-              "n",
-              "the order of the polynomial you kept"
-            ],
-            [
-              "|x − a|",
-              "how far you have gone from the expansion point"
-            ]
-          ],
-          "s": "The bound is the next term with its derivative replaced by the worst value it takes on the interval, so it is an honest ceiling on the error rather than an estimate of it.",
-          "computed": true
-        }
       ],
       "takesAsRead": [
         {
@@ -1028,14 +788,6 @@ export const CURRICULUM = {
           "start": "term n = cₙ·(η/H)ⁿ,  with cₙ₊₁/cₙ = (3/2 − n)/(n + 1)",
           "goal": "the radius within which the ratio test guarantees convergence",
           "startNote": "H = 2.1 m; the storm tide's movement including the surge is |η| = 1.40 m",
-          "askRule": true,
-          "rules": [
-            "the ratio of consecutive terms",
-            "taking the limit",
-            "the condition on the ratio",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Form the ratio of consecutive terms.",
@@ -1043,49 +795,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "|cₙ₊₁/cₙ| on its own",
-                  "rule": "the ratio of consecutive terms",
+                  "note": "the ratio of consecutive terms",
                   "why": "The powers of the movement got left out of the ratio. The coefficients alone settle at one, which would wrongly conclude the series converges for every possible movement.",
                   "survives": true
                 },
                 {
                   "text": "|cₙ₊₁/cₙ| × |η/H|",
-                  "rule": "the ratio of consecutive terms"
-                },
-                {
-                  "text": "|cₙ₊₁/cₙ| × |η/H|ⁿ",
-                  "rule": "the ratio of consecutive terms",
-                  "why": "Dividing one term by the next leaves one power of the movement, not n of them. The powers very nearly cancel."
-                },
-                {
-                  "text": "|cₙ/cₙ₊₁| × |H/η|",
-                  "rule": "rearrangement",
-                  "why": "Both ratios are the wrong way up. The condition that comes out of this is that the movement must be larger than the head."
+                  "note": "the ratio of consecutive terms"
                 }
               ]
             },
             {
               "ask": "Take the limit of that ratio as the terms go on.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "it goes to 3/2, so the limit is 1.5|η/H|",
-                  "rule": "taking the limit",
+                  "note": "taking the limit",
                   "why": "The three-halves in the numerator got kept while the n next to it was dropped. For large n, that n dominates the constant, so the ratio that survives is really just one. This gives a radius two-thirds of the true value. It's still comfortably past the storm tide's movement, so nobody notices.",
                   "survives": true
                 },
                 {
-                  "text": "it goes to 0, so the series converges for every movement",
-                  "rule": "taking the limit",
-                  "why": "The numerator grows like n and so does the denominator. So the ratio settles at one rather than falling away to nothing."
-                },
-                {
-                  "text": "it grows without limit, so the series never converges",
-                  "rule": "taking the limit",
-                  "why": "Both numerator and denominator grow at the same rate, so nothing here grows without limit. The expansion plainly does work for small movements."
-                },
-                {
                   "text": "it goes to 1, so the limit is |η/H|",
-                  "rule": "taking the limit"
+                  "note": "taking the limit"
                 }
               ]
             },
@@ -1095,49 +827,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "|η/H| < 1, so |η| < H = 2.1 m",
-                  "rule": "the condition on the ratio"
+                  "note": "the condition on the ratio"
                 },
                 {
                   "text": "|η/H| ≤ 1, so |η| ≤ H = 2.1 m",
-                  "rule": "the condition on the ratio",
+                  "note": "the condition on the ratio",
                   "why": "The ratio test is inconclusive when the limiting ratio equals one. Writing ≤ quietly claims the boundary case without doing the separate endpoint test it requires.",
                   "survives": true
-                },
-                {
-                  "text": "|η/H| < 1, so |η| < 1 m",
-                  "rule": "substitution of the stated values",
-                  "why": "The condition is on the ratio. So clearing the H gives the head in metres and not a bare one."
-                },
-                {
-                  "text": "|η/H| > 1, so |η| > 2.1 m",
-                  "rule": "rearrangement",
-                  "why": "The inequality has been reversed. A ratio larger than one is the divergent case, in which the terms grow."
                 }
               ]
             },
             {
               "ask": "Put the storm tide's movement in.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "1.40 × 2.1 = 2.94, which is larger than one, so it cannot be used",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The movement has been multiplied by the head rather than divided by it. That is a product of two lengths and cannot be compared with one at all."
                 },
                 {
-                  "text": "2.1 ÷ 1.40 = 1.50, which is larger than one, so it cannot be used",
-                  "rule": "rearrangement",
-                  "why": "The ratio got formed upside down, so it comes out above one. That means the expansion fails on exactly the day it actually works. Both numbers are correct; the division is just flipped.",
-                  "survives": true
-                },
-                {
                   "text": "1.40 ÷ 2.1 = 0.67, which is less than one, so it converges",
-                  "rule": "substitution of the stated values"
-                },
-                {
-                  "text": "1.40 − 2.1 = −0.70, which is less than one, so it converges",
-                  "rule": "rearrangement",
-                  "why": "A difference rather than a ratio. It would say the expansion converges for every movement smaller than the head plus one metre. That's in whatever unit happened to be used."
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -1283,14 +994,6 @@ export const CURRICULUM = {
           "start": "x(t) = 5600·sin(πt/6.2),  y(t) = 380t − 14t²",
           "goal": "the speed at t = 2.0 h, in metres an hour",
           "startNote": "metres, with t in hours from local low water; the tide here comes round in 12.4 hours",
-          "askRule": true,
-          "rules": [
-            "chain rule",
-            "power rule",
-            "definition of speed",
-            "substitution of the stated time",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Differentiate the easting with respect to time.",
@@ -1298,75 +1001,44 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "dx/dt = 5600·cos(πt/6.2)",
-                  "rule": "chain rule",
+                  "note": "chain rule",
                   "why": "The inner factor has been dropped. It is a clean derivative of a sine. It is 2,837 metres an hour at its peak instead of 1,436. That's a current no instrument at this station has ever seen. Nothing later in the working checks catches it.",
                   "survives": true
                 },
                 {
                   "text": "dx/dt = 5600·(π/6.2)·cos(πt/6.2)",
-                  "rule": "chain rule"
-                },
-                {
-                  "text": "dx/dt = 5600·(π/6.2)·sin(πt/6.2)",
-                  "rule": "chain rule",
-                  "why": "Differentiating a sine gives a cosine. Leaving it as a sine puts the largest eastward rate when the float is furthest east. That's the moment it is turning."
-                },
-                {
-                  "text": "dx/dt = 5600·(6.2/π)·cos(πt/6.2)",
-                  "rule": "rearrangement",
-                  "why": "The inner factor is inverted. The chain rule multiplies by the derivative of the inside. That derivative is π/6.2 per hour, not its reciprocal."
+                  "note": "chain rule"
                 }
               ]
             },
             {
               "ask": "Differentiate the northing with respect to time.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "dy/dt = 380 − 14t",
-                  "rule": "power rule",
+                  "note": "power rule",
                   "why": "The exponent has not come down. Differentiating t² gives 2t, so the coefficient is 28 and not 14."
                 },
                 {
-                  "text": "dy/dt = 380t − 28t",
-                  "rule": "power rule",
-                  "why": "The first term has been left undifferentiated while the second was done. A rate cannot contain the quantity it is the rate of."
-                },
-                {
                   "text": "dy/dt = 380 − 28t",
-                  "rule": "power rule"
-                },
-                {
-                  "text": "dy/dt = −28t",
-                  "rule": "power rule",
-                  "why": "A constant term does differentiate to nothing — but 380t is not a constant. Losing it makes the northward rate negative all afternoon. But the float has been going north all afternoon.",
-                  "survives": true
+                  "note": "power rule"
                 }
               ]
             },
             {
               "ask": "Put t = 2.0 h into both rates.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "dx/dt = 2837·cos(2.0) = −1181,  dy/dt = 324",
-                  "rule": "substitution of the stated time",
+                  "note": "substitution of the stated time",
                   "why": "The cosine has been taken of 2.0 radians rather than of πt/6.2 at t = 2. That's 1.013 radians. The sign flips, so the float is now travelling west, and every later line is arithmetically perfect.",
                   "survives": true
                 },
                 {
-                  "text": "dx/dt = 2837·cos(1.013°) = 2837,  dy/dt = 324",
-                  "rule": "substitution of the stated time",
-                  "why": "The argument is in radians, not degrees. Read as degrees, it is almost zero. So the cosine is almost one. The rate comes out at its maximum at an arbitrary hour."
-                },
-                {
-                  "text": "dx/dt = 1501,  dy/dt = 380",
-                  "rule": "substitution of the stated time",
-                  "why": "The northward rate has been left at its value at t = 0. It falls by 28 metres an hour for every hour, and two hours have passed."
-                },
-                {
                   "text": "dx/dt = 1501,  dy/dt = 324",
-                  "rule": "substitution of the stated time"
+                  "note": "substitution of the stated time"
                 }
               ]
             },
@@ -1376,23 +1048,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "speed = √(1501² + 324²) = 1536 m/h",
-                  "rule": "definition of speed"
+                  "note": "definition of speed"
                 },
                 {
                   "text": "speed = 1501 + 324 = 1825 m/h",
-                  "rule": "definition of speed",
+                  "note": "definition of speed",
                   "why": "Adding the components is only right when they point the same way. These are at right angles. It overstates every speed by up to forty per cent and never by enough to look absurd.",
                   "survives": true
-                },
-                {
-                  "text": "speed = √(1501² − 324²) = 1466 m/h",
-                  "rule": "definition of speed",
-                  "why": "A difference of squares belongs to a right-angled triangle where one of these is the hypotenuse. Here they are the two shorter sides."
-                },
-                {
-                  "text": "speed = 1501 × 324 = 486,324 m/h",
-                  "rule": "rearrangement",
-                  "why": "A product of two speeds has units of metres squared per hour squared. That is not a speed at all."
                 }
               ]
             }
@@ -1467,65 +1129,35 @@ export const CURRICULUM = {
           "start": "x(t) = 300t²,  y(t) = 200t³",
           "goal": "the length of the path from t = 0 to t = 2, in metres",
           "startNote": "metres, with t in hours from release; the launch surveyed the float from t = 0 to t = 2",
-          "askRule": true,
-          "rules": [
-            "power rule",
-            "definition of speed",
-            "arc length as an integral of speed",
-            "substitution",
-            "evaluation at the two ends",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Differentiate both coordinates with respect to time.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "dx/dt = 300t,  dy/dt = 200t²",
-                  "rule": "power rule",
+                  "note": "power rule",
                   "why": "The exponents have come down by one and the factors have not come out in front. Both rates are then too small by a factor of two or three. Every line after this one is clean arithmetic on the wrong numbers.",
                   "survives": true
                 },
                 {
-                  "text": "dx/dt = 600t²,  dy/dt = 600t³",
-                  "rule": "power rule",
-                  "why": "The factor has come out in front and the exponent has not dropped. A rate cannot have the same power of t as the quantity it is the rate of."
-                },
-                {
                   "text": "dx/dt = 600t,  dy/dt = 600t²",
-                  "rule": "power rule"
-                },
-                {
-                  "text": "dx/dt = 600t,  dy/dt = 200t³",
-                  "rule": "power rule",
-                  "why": "The northing has been left undifferentiated. One coordinate has been done and the other copied across."
+                  "note": "power rule"
                 }
               ]
             },
             {
               "ask": "Write down the speed those two rates make.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "speed = 600t + 600t²",
-                  "rule": "definition of speed",
+                  "note": "definition of speed",
                   "why": "Adding components is only correct when they point the same way. Easting and northing are at right angles by construction."
                 },
                 {
-                  "text": "speed = √(600t + 600t²)",
-                  "rule": "definition of speed",
-                  "why": "The components are squared before they are added, not after. As written, the units inside the root are metres an hour rather than their square."
-                },
-                {
-                  "text": "speed = 600t²·√(1 + t²)",
-                  "rule": "rearrangement",
-                  "why": "One power too many outside the root. It is dimensionally consistent, and it factors beautifully. But it gives a length forty per cent too large.",
-                  "survives": true
-                },
-                {
                   "text": "speed = 600t·√(1 + t²)",
-                  "rule": "definition of speed"
+                  "note": "definition of speed"
                 }
               ]
             },
@@ -1535,23 +1167,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "L = 600t·√(1 + t²) × 2",
-                  "rule": "arc length as an integral of speed",
+                  "note": "arc length as an integral of speed",
                   "why": "Speed times the interval is right only for a constant speed. But this speed goes from nothing to 2,683 metres an hour across the two hours. Taken at the end point it overstates the length by a third.",
                   "survives": true
                 },
                 {
                   "text": "L = ∫₀² 600t·√(1 + t²) dt",
-                  "rule": "arc length as an integral of speed"
-                },
-                {
-                  "text": "L = ∫₀² (600t + 600t²) dt",
-                  "rule": "arc length as an integral of speed",
-                  "why": "That accumulates the sum of the two rates rather than the speed. That counts the two directions as though the float went east and then north. But the float actually moves both directions at once."
-                },
-                {
-                  "text": "L = ∫₀² 600t·√(1 + t²) dx",
-                  "rule": "substitution",
-                  "why": "The variable of integration has to match the variable the rates are with respect to. Everything here is a function of time."
+                  "note": "arc length as an integral of speed"
                 }
               ]
             },
@@ -1561,23 +1183,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "u = 1 + t²,  L = 300∫₁⁵√u du = 200[5^{3/2} − 1] = 2036 m",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "u = 1 + t²,  L = 600∫₁⁵√u du = 400[5^{3/2} − 1] = 4072 m",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "The factor of a half from du = 2t dt has been dropped. The limits are carried across correctly and the answer is exactly twice the truth.",
                   "survives": true
-                },
-                {
-                  "text": "u = 1 + t²,  L = 300∫₀²√u du = 200[2^{3/2}] = 566 m",
-                  "rule": "evaluation at the two ends",
-                  "why": "The limits have not been carried across with the variable. When t runs 0 to 2, u runs 1 to 5. Integrating in u between 0 and 2 answers a different question."
-                },
-                {
-                  "text": "L = 600·[t²/2]₀² ·√(1 + t²) = 1200·√5 = 2683 m",
-                  "rule": "rearrangement",
-                  "why": "The root has been treated as a constant. It was left outside the integral while the t was integrated. It contains the variable."
                 }
               ]
             }
@@ -1605,22 +1217,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size.",
-          "computed": true
-        },
-        {
-          "e": "L = ∫√((dx/dt)² + (dy/dt)²) dt",
-          "c": "arc length, as the accumulation of speed",
-          "v": [
-            [
-              "L",
-              "the length of the path actually travelled, in metres"
-            ],
-            [
-              "t",
-              "time, over the interval the float was in the water"
-            ]
-          ],
-          "s": "Length is what you get by accumulating speed over time, which is why a float that loops back on itself travels far further than the distance between where it started and where it was found.",
           "computed": true
         }
       ],
@@ -1863,65 +1459,36 @@ export const CURRICULUM = {
           "start": "r(θ) = 1.4 + 0.9·cos θ",
           "goal": "the area the rose encloses over that half turn",
           "startNote": "metres a second, with θ the bearing in radians; the ebb occupies θ from −π/2 to +π/2",
-          "askRule": true,
-          "rules": [
-            "area of a thin wedge",
-            "expansion of a square",
-            "the double-angle form",
-            "term-by-term integration",
-            "evaluation at the two ends",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Write the area as an integral.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "A = ∫ r dθ",
-                  "rule": "area of a thin wedge",
+                  "note": "area of a thin wedge",
                   "why": "That is the sum of the reaches, which is a length times an angle rather than an area. It integrates cleanly and gives 4.4, which is the right order of magnitude and the wrong quantity.",
                   "survives": true
                 },
                 {
-                  "text": "A = ∫ 2πr dθ",
-                  "rule": "area of a thin wedge",
-                  "why": "That is the circumference of a full circle at each reach. Nothing here is a full circle, and an area does not have a 2π in it from this construction."
-                },
-                {
                   "text": "A = ½∫ r² dθ",
-                  "rule": "area of a thin wedge"
-                },
-                {
-                  "text": "A = π∫ r² dθ",
-                  "rule": "rearrangement",
-                  "why": "The half in front comes from the area of a triangle. Replacing it with π is borrowing the area of a circle for a shape that is not one, and it is six times too large."
+                  "note": "area of a thin wedge"
                 }
               ]
             },
             {
               "ask": "Square the reach and expand it.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "r² = 1.96 + 0.81·cos²θ",
-                  "rule": "expansion of a square",
+                  "note": "expansion of a square",
                   "why": "The cross term has been dropped. It is the term that integrates to zero over this particular half turn, so the final answer is right here. Over the flood half, though, the tide is not symmetric about the same axis. There, the same line would be wrong.",
                   "survives": true
                 },
                 {
-                  "text": "r² = 1.96 + 2.52·cos θ",
-                  "rule": "expansion of a square",
-                  "why": "The square of the cosine term has gone missing. That term carries the asymmetry and is the reason the two roses differ at all."
-                },
-                {
-                  "text": "r² = (1.4 + 0.9·cos θ)² = (1.4 + 0.9)²·cos²θ",
-                  "rule": "rearrangement",
-                  "why": "The constant and the cosine cannot be added before the cosine is evaluated. As written, the reach is zero at ninety degrees, which the rose plainly is not."
-                },
-                {
                   "text": "r² = 1.96 + 2.52·cos θ + 0.81·cos²θ",
-                  "rule": "expansion of a square"
+                  "note": "expansion of a square"
                 }
               ]
             },
@@ -1931,23 +1498,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "cos²θ = ½(1 + cos 2θ)",
-                  "rule": "the double-angle form"
+                  "note": "the double-angle form"
                 },
                 {
                   "text": "cos²θ = 1 − sin²θ",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "A true identity that has not helped. The sine squared is exactly as hard to integrate as the cosine squared, so the working goes round in a circle rather than wrong.",
                   "survives": true
-                },
-                {
-                  "text": "cos²θ = cos 2θ",
-                  "rule": "the double-angle form",
-                  "why": "A cosine squared is never negative and cos 2θ is negative over half its range, so these cannot be the same function."
-                },
-                {
-                  "text": "cos²θ = ½·cos 2θ",
-                  "rule": "the double-angle form",
-                  "why": "The constant half has been dropped. That constant is the whole average value of a cosine squared, and losing it removes 1.27 from the answer."
                 }
               ]
             },
@@ -1957,24 +1514,14 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "A = ½[1.96π + 5.04 + 1.27] = 4.14",
-                  "rule": "term-by-term integration",
+                  "note": "term-by-term integration",
                   "why": "The cross term has been integrated as though the range ran from zero, rather than from minus a half turn. Over a range symmetric about zero, the sine values at the two ends cancel out. So that 5.04 does not belong.",
                   "survives": true
                 },
                 {
                   "text": "A = ½[1.96π + 0 + 1.27] = 3.12",
-                  "rule": "term-by-term integration",
+                  "note": "term-by-term integration",
                   "why": "Every piece is right and the halving has been done twice. Both the wedge formula's half and a further half have been applied."
-                },
-                {
-                  "text": "A = 1.96π + 0 + 1.27 = 7.43",
-                  "rule": "term-by-term integration",
-                  "why": "The half from the wedge has been forgotten altogether, so this is twice the area of the figure."
-                },
-                {
-                  "text": "A = ½[1.96π + 0 + 2.54] = 4.35",
-                  "rule": "evaluation at the two ends",
-                  "why": "The cosine-squared term has been given the whole half turn rather than half of it. Its average value over any whole number of half turns is one half."
                 }
               ]
             }
@@ -2463,14 +2010,6 @@ export const CURRICULUM = {
           "start": "dh/dt = k·√(H − h)",
           "goal": "the time for h to reach H, in minutes",
           "startNote": "H = 7.4 m held outside, h₀ = 4.3 m in the impoundment, k = 0.11 in metres and minutes",
-          "askRule": true,
-          "rules": [
-            "separation of the variables",
-            "integration of each side",
-            "the constant from the starting value",
-            "rearrangement",
-            "substitution of the stated values"
-          ],
           "steps": [
             {
               "ask": "Separate the variables.",
@@ -2478,49 +2017,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "dh·√(H − h) = k·dt",
-                  "rule": "separation of the variables",
+                  "note": "separation of the variables",
                   "why": "The square root has been multiplied across instead of divided. It still integrates cleanly, but it describes an impoundment that fills faster as the head closes."
                 },
                 {
                   "text": "dh ÷ √(H − h) = k·dt",
-                  "rule": "separation of the variables"
-                },
-                {
-                  "text": "dh ÷ (H − h) = k·dt",
-                  "rule": "separation of the variables",
-                  "why": "The square root has been dropped. That turns this into the exponential case. It solves cleanly, and it looks like every other tank problem. But its impoundment never quite fills, so there is no filling time to report at all.",
-                  "survives": true
-                },
-                {
-                  "text": "dh ÷ √(H − h) = dt ÷ k",
-                  "rule": "rearrangement",
-                  "why": "The constant has gone to the wrong side. It ends up dividing the time instead of multiplying it, so the filling time comes out eighty times too long."
+                  "note": "separation of the variables"
                 }
               ]
             },
             {
               "ask": "Integrate each side.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "√(H − h) = kt + C",
-                  "rule": "integration of each side",
+                  "note": "integration of each side",
                   "why": "The factor of minus two is missing entirely. The sign error alone would get caught, but losing the two as well makes the filling time come out to 16 minutes. That is exactly what a careless multiplication would give.",
                   "survives": true
                 },
                 {
-                  "text": "2√(H − h) = kt + C",
-                  "rule": "integration of each side",
-                  "why": "The two is right and the sign is not. Differentiating this back gives a rate with the wrong sign, so the impoundment empties."
-                },
-                {
                   "text": "−2√(H − h) = kt + C",
-                  "rule": "integration of each side"
-                },
-                {
-                  "text": "ln(H − h) = kt + C",
-                  "rule": "integration of each side",
-                  "why": "That is the antiderivative of one over the head, not one over its root. It belongs to the equation without the square root in it."
+                  "note": "integration of each side"
                 }
               ]
             },
@@ -2530,49 +2048,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "C = −2√(H − h₀) = −2√3.1 = −3.52",
-                  "rule": "the constant from the starting value"
+                  "note": "the constant from the starting value"
                 },
                 {
                   "text": "C = 2√(H − h₀) = +3.52",
-                  "rule": "the constant from the starting value",
+                  "note": "the constant from the starting value",
                   "why": "The sign has been taken from the number rather than from the equation. It gives a negative filling time, and that is the one obviously wrong thing about it. But the size is right, so it survives any check that only looks at magnitude.",
                   "survives": true
-                },
-                {
-                  "text": "C = −2√h₀ = −4.15",
-                  "rule": "substitution of the stated values",
-                  "why": "The head is the difference between the two levels, not the level in the impoundment. This uses 4.3 where 3.1 belongs."
-                },
-                {
-                  "text": "C = 0, since t is measured from the start",
-                  "rule": "the constant from the starting value",
-                  "why": "Measuring time from the start does set t to zero, and that is what fixes C. But it fixes C at minus twice the root of the starting head, not at nothing."
                 }
               ]
             },
             {
               "ask": "Rearrange for the time at which h reaches H.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "t = √(H − h₀) ÷ k = 16.0 min",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "The factor of two got lost along the way. Sixteen minutes is also what you get by just multiplying by the starting rate. So the two most common errors here agree with each other.",
                   "survives": true
                 },
                 {
-                  "text": "t = 2(H − h₀) ÷ k = 56.4 min",
-                  "rule": "substitution of the stated values",
-                  "why": "The head has not been put under a square root. The units give this away: k is measured in root-metres a minute, so it can only divide a square root."
-                },
-                {
-                  "text": "t = 2k·√(H − h₀) = 0.39 min",
-                  "rule": "rearrangement",
-                  "why": "The constant is multiplying where it should divide. Twenty-three seconds to move three metres of water across four hundred hectares."
-                },
-                {
                   "text": "t = 2√(H − h₀) ÷ k = 32.0 min",
-                  "rule": "rearrangement"
+                  "note": "rearrangement"
                 }
               ]
             }
@@ -2744,14 +2242,6 @@ export const CURRICULUM = {
           "start": "M = ∫₀^{T} t·q₀·cos(ωt) dt",
           "goal": "the flow-weighted mean time, in hours into the ebb",
           "startNote": "ω = 0.5068 rad/h, T = 3.1 h so that ωT = π/2; the total release is ∫₀^T q₀cos(ωt)dt = q₀/ω",
-          "askRule": true,
-          "rules": [
-            "the choice of the two factors",
-            "integration by parts",
-            "evaluation at the two ends",
-            "antidifferentiation",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Choose which factor to differentiate.",
@@ -2759,49 +2249,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "differentiate the cosine, integrate the t",
-                  "rule": "the choice of the two factors",
+                  "note": "the choice of the two factors",
                   "why": "A legal choice that goes backwards. What comes back is a t squared multiplying a sine, which is harder than what you started with. Every line of it is correct.",
                   "survives": true
                 },
                 {
                   "text": "differentiate the t, integrate the cosine",
-                  "rule": "the choice of the two factors"
-                },
-                {
-                  "text": "differentiate both and multiply the results",
-                  "rule": "rearrangement",
-                  "why": "That is not a rule about integrals at all. The derivative of a product is not the product of the derivatives, and neither is the integral."
-                },
-                {
-                  "text": "integrate both and subtract",
-                  "rule": "rearrangement",
-                  "why": "There is one integral here, not two. Nothing allows splitting a product into a difference."
+                  "note": "the choice of the two factors"
                 }
               ]
             },
             {
               "ask": "Apply parts.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "M = q₀·[t·sin(ωt)] + q₀∫sin(ωt) dt",
-                  "rule": "integration by parts",
+                  "note": "integration by parts",
                   "why": "The one over ω from integrating the cosine has been dropped in both terms, and the sign on the second is wrong as well."
                 },
                 {
-                  "text": "M = q₀·[t·sin(ωt)/ω] + q₀∫sin(ωt)/ω dt",
-                  "rule": "integration by parts",
-                  "why": "The factors are right, but the minus sign has gone missing. Parts is supposed to subtract the second integral. With a plus sign instead, the boundary term and the integral add together instead of partly cancelling, giving 4.2 instead of 2.2.",
-                  "survives": true
-                },
-                {
                   "text": "M = q₀·[t·sin(ωt)/ω] − q₀∫sin(ωt)/ω dt",
-                  "rule": "integration by parts"
-                },
-                {
-                  "text": "M = q₀·[t·cos(ωt)/ω] − q₀∫cos(ωt)/ω dt",
-                  "rule": "integration by parts",
-                  "why": "The cosine has not been integrated. The boundary term has to carry the antiderivative of the factor you chose to integrate."
+                  "note": "integration by parts"
                 }
               ]
             },
@@ -2811,49 +2280,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "[t·sin(ωt)/ω]₀^T = T/ω = 3.1 ÷ 0.5068 = 6.12 h²",
-                  "rule": "evaluation at the two ends"
+                  "note": "evaluation at the two ends"
                 },
                 {
                   "text": "[t·sin(ωt)/ω]₀^T = 0, since the flow is nothing at T",
-                  "rule": "evaluation at the two ends",
+                  "note": "evaluation at the two ends",
                   "why": "The flow is nothing at T because the cosine is zero there. But the sine at that same instant is one, not nothing. This is the right thought applied to the wrong function, and it throws away the larger of the two contributions.",
                   "survives": true
-                },
-                {
-                  "text": "[t·sin(ωt)/ω]₀^T = T·sin(T)/ω = 0.25 h²",
-                  "rule": "evaluation at the two ends",
-                  "why": "The sine has been taken of the time rather than of ω times the time, so the argument is 3.1 instead of π/2."
-                },
-                {
-                  "text": "[t·sin(ωt)/ω]₀^T = T²/2ω = 9.5 h²",
-                  "rule": "rearrangement",
-                  "why": "The t has been integrated a second time. It has already done its work in the boundary term."
                 }
               ]
             },
             {
               "ask": "Do the remaining integral and turn the moment into a mean.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "M = 6.12 + 1/ω² = 10.0 h², so the mean is 5.1 h",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "The remaining integral is subtracted, not added, and a mean time of 5.1 hours is outside a release that lasts 3.1."
                 },
                 {
-                  "text": "M = 6.12 − 1/ω² = 2.22 h², so the mean is 2.22 h",
-                  "rule": "rearrangement",
-                  "why": "The moment has been reported as the mean without dividing by the total release. The number is inside the release window, which is what makes it survive a glance.",
-                  "survives": true
-                },
-                {
-                  "text": "M = 6.12 − 1/ω = 4.15 h², so the mean is 2.1 h",
-                  "rule": "antidifferentiation",
-                  "why": "Integrating the sine gives a second factor of one over ω. Only one has been applied."
-                },
-                {
                   "text": "M = 6.12 − 1/ω² = 2.22 h², and 2.22 ÷ 1.97 = 1.13 h",
-                  "rule": "rearrangement"
+                  "note": "rearrangement"
                 }
               ]
             }
@@ -2865,28 +2313,6 @@ export const CURRICULUM = {
       "assumes": [
         "a mean weighted by a rate is the moment of that rate divided by its total",
         "the fundamental theorem, and the antiderivative it rests on — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "∫u dv = uv − ∫v du",
-          "c": "integration by parts",
-          "v": [
-            [
-              "u",
-              "the factor you differentiate"
-            ],
-            [
-              "dv",
-              "the factor you integrate"
-            ],
-            [
-              "uv",
-              "the boundary term, evaluated at both ends"
-            ]
-          ],
-          "s": "Parts trades one integral for another, and it is worth doing only when the one you get back is easier — which is decided when you choose which factor to differentiate.",
-          "computed": true
-        }
       ],
       "takesAsRead": [
         {
@@ -3181,38 +2607,19 @@ export const CURRICULUM = {
           "start": "E = ∫₀^∞ 48·e^(−t/6.2) dt",
           "goal": "the total exposure, in kilogram-tides",
           "startNote": "kilograms against tides; the decay time is 6.2 tides",
-          "askRule": true,
-          "rules": [
-            "the definition of an improper integral",
-            "antidifferentiation",
-            "evaluation at the two ends",
-            "taking the limit",
-            "substitution of the stated values"
-          ],
           "steps": [
             {
               "ask": "Write the improper integral in a form that can be evaluated.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "E = 48·e^(−∞/6.2) − 48·e⁰",
-                  "rule": "evaluation at the two ends",
+                  "note": "evaluation at the two ends",
                   "why": "Here, infinity has been plugged in as though it were an ordinary number, and the antiderivative step got skipped entirely. What is written is really just a difference between two values of the integrand itself."
                 },
                 {
-                  "text": "E = ∫₀^{6.2} 48·e^(−t/6.2) dt",
-                  "rule": "the definition of an improper integral",
-                  "why": "Here, the upper end has been swapped for the decay time itself. That is a real, useful integral — it is the exposure over just the first decay time. It comes out to 63 per cent of the true answer, and nothing about the arithmetic afterward looks wrong on its own.",
-                  "survives": true
-                },
-                {
                   "text": "E = lim_{b→∞} ∫₀^b 48·e^(−t/6.2) dt",
-                  "rule": "the definition of an improper integral"
-                },
-                {
-                  "text": "E = ∫₀^∞ 48·e^(−t/6.2) dt, evaluated directly",
-                  "rule": "antidifferentiation",
-                  "why": "That is just a restatement of the problem, not a step toward solving it. The upper end is not a number, so it cannot be plugged into an antiderivative directly."
+                  "note": "the definition of an improper integral"
                 }
               ]
             },
@@ -3222,23 +2629,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "−6.2 × 48·e^(−t/6.2)",
-                  "rule": "antidifferentiation"
+                  "note": "antidifferentiation"
                 },
                 {
                   "text": "−48·e^(−t/6.2) ÷ 6.2",
-                  "rule": "antidifferentiation",
+                  "note": "antidifferentiation",
                   "why": "Here the decay time is dividing when it should be multiplying instead. That makes it wrong by a factor of 38. The shape of the expression looks perfectly right — only its size gives the mistake away.",
-                  "survives": true
-                },
-                {
-                  "text": "48·e^(−t/6.2)",
-                  "rule": "antidifferentiation",
-                  "why": "An exponential is its own derivative only when its exponent is plain t, with no scaling factor. Differentiating this expression back leaves a factor of one-over-6.2 unaccounted for."
-                },
-                {
-                  "text": "−6.2 × 48·e^(−t/6.2) × t",
-                  "rule": "antidifferentiation",
-                  "why": "This has a stray factor of t, as though the exponential were treated as a constant and the dt integrated on its own. That stray t vanishes at the lower end, so the arithmetic there still happens to work.",
                   "survives": true
                 }
               ]
@@ -3249,49 +2645,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "E = 6.2 × 48 × (e^(−b/6.2) − 1) → −298",
-                  "rule": "evaluation at the two ends",
+                  "note": "evaluation at the two ends",
                   "why": "The two ends are in the right order inside the expression, but in the wrong order in the subtraction. That flips the sign, giving a negative exposure."
                 },
                 {
                   "text": "E = 6.2 × 48 × (1 − e^(−b/6.2)) → 6.2 × 48",
-                  "rule": "taking the limit"
-                },
-                {
-                  "text": "E = 6.2 × 48 × (1 − e^(−b/6.2)) → 0",
-                  "rule": "taking the limit",
-                  "why": "The limit has been taken of the wrong piece here. The exponential term goes to zero, which means the bracket goes to one, not to nothing. It is the right working with just the last line flipped.",
-                  "survives": true
-                },
-                {
-                  "text": "E = 6.2 × 48 × e^(−b/6.2) → ∞",
-                  "rule": "taking the limit",
-                  "why": "A negative exponent only grows without bound if its minus sign gets dropped by mistake. As the upper end moves farther out, this term actually gets smaller, not larger."
+                  "note": "taking the limit"
                 }
               ]
             },
             {
               "ask": "Put the numbers in.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "E = 48 ÷ 6.2 = 7.7 kilogram-tides",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "Here the decay time divides instead of multiplying. That would mean a longer-lived discharge produces less exposure overall, which is backwards."
                 },
                 {
-                  "text": "E = 48 × 6.2 × 2 = 595 kilogram-tides",
-                  "rule": "substitution of the stated values",
-                  "why": "There is no factor of two anywhere in this integral. It looks like it was carried over from a different, square-root case, where it does belong."
-                },
-                {
-                  "text": "E = 48 kilogram-tides",
-                  "rule": "substitution of the stated values",
-                  "why": "This just reports the starting load as though it were the exposure. The number is real, but it is a mass, not a mass times a time. That unit mismatch is the only way to catch the error.",
-                  "survives": true
-                },
-                {
                   "text": "E = 48 × 6.2 = 298 kilogram-tides",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -3439,38 +2813,19 @@ export const CURRICULUM = {
           "start": "a₀ = 0.34 m,  each return = 0.62 × the one before it",
           "goal": "the total height at the wall head, in metres",
           "startNote": "the round trip along the wall and back takes about one forcing period — one tide cycle — so the returns arrive in step",
-          "askRule": true,
-          "rules": [
-            "the form of the nth term",
-            "the partial sum",
-            "recognising a geometric series",
-            "the condition on the ratio",
-            "substitution of the fitted values"
-          ],
           "steps": [
             {
               "ask": "Write down what the nth return is worth.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "aₙ = 0.34 − 0.62n",
-                  "rule": "the form of the nth term",
+                  "note": "the form of the nth term",
                   "why": "That takes a fixed amount off each time rather than a fixed fraction. And it goes negative at the first return. A reflection cannot subtract height it never had."
                 },
                 {
-                  "text": "aₙ = 0.34 × 0.62 × n",
-                  "rule": "the form of the nth term",
-                  "why": "A fraction applied once and then multiplied by how many returns there have been. The terms grow instead of shrinking. So the sum has no total at all. And the first two terms are exactly right — which is what makes it survive a spot check.",
-                  "survives": true
-                },
-                {
-                  "text": "aₙ = 0.34 × 0.62ⁿ⁺¹",
-                  "rule": "the form of the nth term",
-                  "why": "The first arrival has been given a reflection it has not had yet. At n = 0 this gives 0.21 m rather than the 0.34 m the gauge records."
-                },
-                {
                   "text": "aₙ = 0.34 × 0.62ⁿ",
-                  "rule": "the form of the nth term"
+                  "note": "the form of the nth term"
                 }
               ]
             },
@@ -3480,49 +2835,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "S_N = 0.34(1 + 0.62 + 0.62² + … + 0.62^N)",
-                  "rule": "the partial sum"
+                  "note": "the partial sum"
                 },
                 {
                   "text": "S_N = 0.34 × 0.62^N",
-                  "rule": "the partial sum",
+                  "note": "the partial sum",
                   "why": "That is the last term rather than the sum of them. It shrinks towards nothing as N grows. So the conclusion is this — a long wall reads lower at its head than a short one.",
                   "survives": true
-                },
-                {
-                  "text": "S_N = 0.34 × N × 0.62, one term's worth taken N times",
-                  "rule": "the partial sum",
-                  "why": "Every term has been given the same size. The whole point of the chain is that they are not the same size."
-                },
-                {
-                  "text": "S_N = 0.34 + 0.62",
-                  "rule": "the partial sum",
-                  "why": "A height and a fraction added together. The returned fraction has no units and cannot be added to metres."
                 }
               ]
             },
             {
               "ask": "Say what kind of sum this is, and what it comes to as more returns are added.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "arithmetic, so the sum grows without limit",
-                  "rule": "recognising a geometric series",
+                  "note": "recognising a geometric series",
                   "why": "An arithmetic sum adds a fixed amount each time. Here each term is a fixed multiple of the last, which is a different animal entirely."
                 },
                 {
-                  "text": "geometric, so the sum is a₀ × (1 − r)",
-                  "rule": "recognising a geometric series",
-                  "why": "The right recognition and an inverted closed form. It gives 0.13 m, which is less than the first arrival. And the only tell is that a total cannot be smaller than its own first term.",
-                  "survives": true
-                },
-                {
                   "text": "geometric, so the sum is a₀ ÷ (1 − r)",
-                  "rule": "recognising a geometric series"
-                },
-                {
-                  "text": "geometric, so the sum is a₀ ÷ r",
-                  "rule": "recognising a geometric series",
-                  "why": "Dividing by the ratio alone gives 0.55 m and has the wrong behaviour at both ends. As the returned fraction goes to zero, this grows without limit. But in fact, the total should fall back to the first arrival."
+                  "note": "recognising a geometric series"
                 }
               ]
             },
@@ -3532,23 +2866,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "r = 0.62 > 0, so S = 0.34 ÷ 0.62 = 0.55 m",
-                  "rule": "the condition on the ratio",
+                  "note": "the condition on the ratio",
                   "why": "The condition is on the size of the ratio against one, not against zero. And the substitution has gone into the wrong denominator."
                 },
                 {
                   "text": "|r| = 0.62 < 1, so S = 0.34 ÷ 0.38 = 0.89 m",
-                  "rule": "substitution of the fitted values"
-                },
-                {
-                  "text": "|r| = 0.62 < 1, so S = 0.34 ÷ 1.62 = 0.21 m",
-                  "rule": "substitution of the fitted values",
-                  "why": "One plus the ratio instead of one minus it. It is smaller than the first arrival, which is the tell. And it is the version that comes out. It comes out if the returns are assumed to arrive against the forcing rather than with it.",
-                  "survives": true
-                },
-                {
-                  "text": "no condition is needed, so S = 0.34 ÷ 0.38 = 0.89 m",
-                  "rule": "the condition on the ratio",
-                  "why": "The right number reached without the step that licenses it. At a returned fraction of one, the same formula divides by zero. And at more than one, it returns a negative height. So the condition is what makes the line mean anything."
+                  "note": "substitution of the fitted values"
                 }
               ]
             }
@@ -3575,7 +2898,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "When every pass returns the same fraction of the last one, the whole endless chain adds to a finite number, and it is the first term divided by what each pass loses.",
-          "computed": true
+          "demanded": true
         }
       ],
       "concept": {

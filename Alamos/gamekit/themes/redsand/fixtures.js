@@ -18,6 +18,16 @@ export const FIXTURES = {
     { id: 'charge-bench', name: 'The catalyst bench', build: 'bench', wall: 'back', along: 0.45,
       caption: 'Two charges: one spent, one still in its can.' },
     // Gone once the spare charge is commissioned on sol 10 — the crate it came in.
+    // Sol 295 is worked from this bay: the cold end's procedure is sent up to be
+    // checked rather than read at the pipe.
+    // Sol 297 and sol 299: what the analyser and the water trace say about this bed,
+    // brought to the bay where the bed is.
+    { id: 'co-trace', name: 'The carbon monoxide trace', build: 'board', wall: 'back', along: -0.3,
+      caption: 'Nine sols of it, climbing every time the bed is turned up.' },
+    { id: 'water-trace', name: 'The conductivity trace', build: 'bench', wall: 'left', along: 0.5,
+      caption: 'Every sol since the plant started, printed and never read.' },
+    { id: 'coldend-card', name: 'The cold end procedure', build: 'board', wall: 'right', along: 0.3,
+      caption: 'Four stages on cards, sent up while the line is rebuilt.' },
     { id: 'kinet-crate', name: 'The spare charge, crated', build: 'bench', wall: 'right', along: -0.7,
       until: 11, caption: 'Still strapped. There is no second one on this planet.' },
   ],
@@ -28,13 +38,32 @@ export const FIXTURES = {
       caption: 'What comes out of the bed, read continuously.' },
     { id: 'assay', name: 'The assay bench', build: 'bench', wall: 'right', along: 0.35,
       caption: 'Where a batch is measured before anybody signs for it.' },
+    // The bed stands in this hall: it IS the reactor, and the loop is plumbed round
+    // it. Sol 291 asks about its temperature here rather than sending the player to
+    // Catalyst Bay, which is where the spare charges and the bench live.
+    { id: 'bed-head', name: 'The bed and its thermowell', build: 'vessel', wall: 'left', along: 0.3,
+      caption: 'The tray of catalyst, and the line that reads how hot it is running.' },
+    // Where the product gas leaves the hall for the cold line. The pipe itself is
+    // Cold End's fixture; this is the flange it starts at.
+    { id: 'coldline-tap', name: 'The cold line take-off', build: 'vessel', wall: 'right', along: -0.9,
+      caption: 'Where the gas leaves this hall, and the last valve before it does.' },
     // The recycle tie-in, capped, until the loop argument is settled on sol 9.
+    // Sol 294 is worked from this room: the stack's charge sheet and the water
+    // analysis both come up to the hall.
+    { id: 'stack-sheet', name: "The stack's charge sheet", build: 'board', wall: 'back', along: 0.2,
+      caption: 'Amps, hours, and what the separator actually caught.' },
+    { id: 'water-report', name: 'The water analysis', build: 'bench', wall: 'right', along: 0.9,
+      caption: 'What came up with the feed, and how much of each.' },
+    // Sol 296: the stack's three voltage marks come up to the hall rather than the
+    // day crossing to the Electrolysis Hall for one question.
+    { id: 'volt-sheet', name: "The stack's voltage marks", build: 'board', wall: 'left', along: 0.0,
+      caption: 'Three numbers on one sheet, and the gap between them.' },
     { id: 'equil-stub', name: 'The capped recycle tie-in', build: 'vessel', wall: 'back', along: 0.75,
       until: 10, caption: 'Flanged and blanked. Nobody has agreed what it should feed.' },
   ],
   PHASE: [
     { id: 'coldline', name: 'The cold line', build: 'vessel', wall: 'left', along: -0.45,
-      caption: 'Ten degrees to 115 kelvin, in one run of pipe.' },
+      caption: '283 K to 115 K, in one run of pipe.' },
     { id: 'tankfarm', name: 'The tank farm gauges', build: 'board', wall: 'back', along: 0.4,
       caption: 'Every tank on the plain, and what each one is losing.' },
     { id: 'fridge', name: 'The refrigerator', build: 'rack', wall: 'right', along: -0.3,
@@ -42,6 +71,12 @@ export const FIXTURES = {
     // Scaffolding, up since the blockage. Down once the cold end is rebuilt on sol 5.
     // On the cold line's own wall, beside it — not on the back wall, which is where
     // this room's shelving is and where the first placement buried it.
+    // Sol 293 is worked from this room: the hot run's assay and the water plant's
+    // running order are both carried down here rather than walked to.
+    { id: 'assay-print', name: "The hot run's assay", build: 'bench', wall: 'back', along: 0.1,
+      caption: 'Walked down from the hall, still warm off the printer.' },
+    { id: 'water-order', name: 'The water plant order', build: 'board', wall: 'right', along: -0.6,
+      caption: 'Four step cards, sent over to be put back in order.' },
     { id: 'phase-scaffold', name: 'Scaffolding on the cold line', build: 'rack', wall: 'left', along: 0.55,
       until: 6, caption: 'Up since the line closed. The stages are being put back in order.' },
     // The second radiator bank, added after the storm shows the first is not enough.
@@ -54,6 +89,10 @@ export const FIXTURES = {
     { id: 'arraypanel', name: 'The array feed panel', build: 'board', wall: 'back', along: 0.35,
       caption: 'What the field is delivering, cell by cell.' },
     // An empty frame waiting for the second stack, until the ledger closes on sol 8.
+    // Sol 300: the tank's own gauges are repeated here, so the day that spends the
+    // last spare parts does not also cross the plain.
+    { id: 'tank-gauge', name: 'The tank pressure repeat', build: 'board', wall: 'right', along: 0.2,
+      caption: 'Pressure and mass for every tank, repeated on this wall.' },
     { id: 'elec-frame', name: 'The empty stack frame', build: 'rack', wall: 'right', along: 0.75,
       until: 9, caption: 'Bolted down, wired to nothing. Nobody has said what the current is doing yet.' },
   ],
@@ -63,6 +102,15 @@ export const FIXTURES = {
     { id: 'loadboard', name: 'The load board', build: 'board', wall: 'back', along: 0.3,
       caption: 'Every load on the plain, and the order they come off.' },
     // The unpacked crates of instruments, until the books are closed on sol 11.
+    // Sol 292 is worked entirely from this room: the bed, the stack and the hopper
+    // all report in rather than being walked to. Each report is an object on the
+    // desk or the wall, so the call still has something to stand at.
+    { id: 'bed-log', name: 'The bed log', build: 'board', wall: 'back', along: -0.5,
+      caption: 'Flow, temperature and contact time, printed every sol.' },
+    { id: 'cell-diagram', name: 'The cell diagram', build: 'board', wall: 'right', along: 0.4,
+      caption: 'One cell drawn out in section, with its four parts marked.' },
+    { id: 'sample-tray', name: 'The sample tray', build: 'bench', wall: 'left', along: 0.2,
+      caption: "This morning's ground, bagged and labelled, waiting on a decision." },
     { id: 'gibbs-crates', name: 'Instrument crates, unpacked', build: 'bench', wall: 'right', along: -0.75,
       until: 12, caption: 'Nobody has had a quiet sol to fit them.' },
   ],

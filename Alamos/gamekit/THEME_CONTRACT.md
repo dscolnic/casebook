@@ -56,9 +56,17 @@ export default {
   people: { OUTFITS, roleToOutfit, spawn: ROSTER.length, extras: 22 },
 
   // What is inside each room the player walks into, keyed by group id, and how
-  // those rooms are built: 'lab' | 'timber' | 'steel'. Written by the book.
+  // those rooms are built: lab | timber | observatory | steel | module | station
+  // | plant | island. Written by the book. engine/dev/ambience.mjs refuses a
+  // name interiorBuilding does not have, because the fallback is silent.
   interiors: INTERIORS,
   interiorStyle: 'lab',
+
+  // What the place sounds like. Everything is synthesised — no asset files.
+  // Beds: wind sea rain hum city night mars silence. Emitter kinds: waterfall
+  // surf water machinery transformer generator fan crowd wind. Defaults: wind
+  // outdoors, hum indoors. See engine/core/audio.js.
+  audio: { bed: 'wind', indoors: 'hum', emitters: [{ x: 0, z: -20, kind: 'transformer', r: 40, gain: 0.6 }] },
 
   // The title card, in the theme's own words. ONE paragraph, 70–180 words, and
   // required — `checkStory` fails a manifest without one, because two games
@@ -101,7 +109,10 @@ new — satisfies this and nothing else:
 | `getStopEntry(id)` | where the player stands after entering |
 | `getWaypointMesh()`, `setWaypointPosition(x,z)` | the objective marker |
 | `updateTimeOfDay()` | light level for the clock; may be a no-op |
+| `updateWorldAnimation(t, eye)` | everything that moves; must call `runAnimators(t, eye)` from `animators.js` |
 | `groundHeight(x, z)` | **one** source of truth for floor height |
+| `getSeats()` | optional — `{x, z, y, facing}[]`, where the crowd may sit |
+| `onLightning(cb)`, `getWeather()` | optional, outdoor — the weather cloud and its flashes |
 
 `groundHeight` is not optional even indoors, where it returns 0. Both existing
 builds had a bug from having two answers to this question.
@@ -115,6 +126,18 @@ a fifth reached the same way, through a theme shim. **`interiorSite.js` does not
 pointed `kind: 'interior'` straight at it for a year; nothing noticed, because
 the two indoor games predate this engine. The first theme scaffolded as an
 interior failed on `import`, before a frame was drawn.
+
+## Motion, weather and sound
+
+Three declarations, all optional, all checked by `engine/dev/ambience.mjs`:
+
+- `site.weather = { kind: 'rain' | 'drizzle' | 'snow' | 'dust', density, wind: { x, z },
+  lightning: { every: [min, max] } }` — one particle cloud following the eye, hidden
+  indoors. `engine/world/weather.js`.
+- `theme.audio` — above. `engine/core/audio.js`; starts on the title button.
+- Motion is code, not data: a props layer calls `animate(fn)` from
+  `engine/world/animators.js` (or takes `ctx.animate` from `decorate`), with the helpers
+  `spin`, `blink`, `flicker`, `sway`, `bob`, `scrollUV`, `patrol`, `wander`.
 
 ## Interaction types the engine handles
 

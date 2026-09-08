@@ -1235,19 +1235,6 @@ missions:
                     A refracted ray along the normal is a ray going straight down, which is the one
                     case that crosses no matter what. It is the opposite end of the range from the
                     limiting ray.
-                - text: 'sinθ₂ = 1, so sinθ₁ = v₂ / v₁'
-                  rule: substitution
-                  survives: true
-                  why: >-
-                    This is the right condition with the ratio inverted, and it stays algebraically
-                    valid to the end — it yields a real angle of about 81 degrees. It is the critical
-                    angle for a ray going the other way, from slow water into fast, which is not the
-                    geometry in front of you.
-                - text: 'θ₂ = θ₁, so the speeds must be equal'
-                  rule: substitution
-                  why: >-
-                    Equal angles is what happens when the speeds are equal, so this assumes away the
-                    twenty metres per second the whole question is about.
             - ask: Put the two speeds in and say what the number means.
               answer: 0
               candidates:
@@ -1259,14 +1246,6 @@ missions:
                     No angle has a sine above one. Reading 1.014 as though it were a cosine, or
                     rounding it quietly down to one, is the step that turns an impossible condition
                     into a plausible answer.
-                - text: 'sinθ₁ = 0.987, so θ₁ ≈ 81 degrees from the normal'
-                  rule: evaluation
-                  survives: true
-                  why: >-
-                    This is the arithmetic of the surviving branch above, and it is internally
-                    consistent — it just answers the question about rays travelling from the slow
-                    water upward. Under this reading the shadow zone is above the layer, which is not
-                    where the contact went.
         answerText: >-
           The ratio comes out above one, so no ray from the fast layer is turned back — going from
           fast to slow water there is no critical angle at all. What loses the contact is the
@@ -2906,7 +2885,7 @@ missions:
             nominal: 45
             step: 1
           criteria:
-            - { key: hours, label: Time to restore transfer, unit: h }
+            - { key: hours, label: Time to restore transfer, unit: h, direction: minimise }
             - { key: risk, label: Chance of a repeat this patrol, unit: '%' }
             - { key: air, label: High-pressure air spent, unit: m3 }
           candidates:

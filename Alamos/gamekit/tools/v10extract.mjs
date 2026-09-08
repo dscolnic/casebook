@@ -82,8 +82,23 @@ function missionYaml(m){
     p('  # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are');
     p('  # the implementation\'s: which trigger, and which board the change lands on.');
     p('  beats:');
+    /**
+     * A BEAT'S ID HAS TO BE ITS OWN, and the slug of its name is not always.
+     * A mission may fire two beats after one stop — Safety Factor's eighth does,
+     * one moving a card and one lighting the ride — and both are headed "After
+     * Stop 32", so both slugged to `after-stop-32`. The engine keys a beat by
+     * its id, so the second silently replaced the first: one beat played twice
+     * and the other never played at all, with nothing in the book to see.
+     *
+     * Suffixed by order of appearance, and only from the second onward, so every
+     * id that was already unique stays exactly as it was.
+     */
+    const seen = new Map();
     for(const b of m.beats){
-      p(`  - id: ${slug(b.name) || 'beat-' + b.n}`);
+      const base = slug(b.name) || 'beat-' + b.n;
+      const n = (seen.get(base) ?? 0) + 1;
+      seen.set(base, n);
+      p(`  - id: ${n === 1 ? base : `${base}-${n}`}`);
       p(`    # ${b.name} | ${b.where} | ${b.trigger}`);
       p(`    on: ${trigger(b, m)}`);
       if(b.world) p(`    world: ${q(b.world)}`);

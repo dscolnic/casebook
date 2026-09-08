@@ -48,6 +48,11 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
   left:calc(12px + env(safe-area-inset-left));z-index:4;display:flex;gap:0;
   background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
   border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+/* HIDDEN HAS TO WIN. `#hudStatus` and `#hudMissionClock` both set a `display`,
+   and an author rule beats the UA stylesheet's `[hidden]{display:none}` — so
+   setting `.hidden = true` on either left it fully visible. The funds box sat
+   over the four bars in the corner they share, in a campaign that has no funds. */
+#hudStatus[hidden],#hudMissionClock[hidden],#hudMetrics[hidden]{display:none !important}
 .hudStat{padding:6px 13px;display:flex;flex-direction:column;gap:2px;min-width:74px;
   border-right:1px solid var(--line)}
 .hudStat:last-child{border-right:0}
@@ -56,6 +61,46 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 /* The meter is the width of the reading above it, not of the box: a bar that
    grows the strip as it fills would shuffle Projection and Funds sideways every
    day. Fixed 78px, and the box keeps its own min-width. */
+/* THE FOUR CAMPAIGN BARS. Under the status strip and in the same material, so
+   they read as one instrument rather than a second HUD. Four rows rather than
+   four columns: the label, the figure and the bar have to be legible at a
+   glance and side by side they were three abbreviations. */
+#hudMetrics{position:fixed;top:calc(10px + env(safe-area-inset-top));
+  left:calc(12px + env(safe-area-inset-left));z-index:4;
+  background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  padding:7px 11px 8px;min-width:196px}
+#hudMetricBars{display:flex;flex-direction:column;gap:5px}
+.metricRow{display:grid;grid-template-columns:1fr auto;align-items:center;
+  column-gap:8px;row-gap:2px}
+.metricName{font:700 .58rem/1 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted)}
+.metricPct{font:800 .78rem/1 Inter,system-ui;font-variant-numeric:tabular-nums;color:var(--ink)}
+.metricTrack{grid-column:1/-1;height:6px;border-radius:4px;background:rgba(0,0,0,.13);
+  overflow:hidden}
+.metricTrack i{display:block;height:100%;width:0;border-radius:4px;
+  background:var(--accent,#b0762a);transition:width .45s ease}
+/* Three states, and only three: healthy, watch it, and about to end the
+   campaign. Colour is the fastest reading on the screen and four shades of it
+   would be a legend the player has to learn. */
+.metricRow[data-band="low"] .metricTrack i{background:#c8482f}
+.metricRow[data-band="mid"] .metricTrack i{background:#c8912f}
+.metricRow[data-band="ok"] .metricTrack i{background:#3f8f63}
+/* A locked bar has stopped being a risk, and says so rather than going quiet. */
+.metricRow[data-locked="1"] .metricName::after{content:" · locked";color:var(--muted)}
+.metricRow[data-locked="1"] .metricTrack i{background:#3f8f63}
+#hudMissionClock{display:flex;align-items:baseline;gap:6px;margin-top:8px;
+  padding-top:7px;border-top:1px solid var(--line)}
+#hudClockRead{font:800 .92rem/1.1 Inter,system-ui;font-variant-numeric:tabular-nums;color:var(--ink)}
+/* The target is beside the reading and quieter than it. The player is being
+   scored against it, not asked to watch it. */
+#hudClockTarget{font:700 .62rem/1 Inter,system-ui;color:var(--muted);
+  font-variant-numeric:tabular-nums}
+/* Held for a dialogue bubble or a menu. Dimmed rather than hidden, because a
+   clock that disappears reads as a clock that broke. */
+#hudMissionClock[data-held="1"] #hudClockRead{color:var(--muted)}
+#hudMissionClock[data-held="1"]::after{content:"held";font:700 .56rem/1 Inter,system-ui;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .hudStatMeter{min-width:88px;justify-content:center}
 .hudMeter{display:block;width:78px;height:7px;margin-top:3px;border-radius:4px;
   background:rgba(0,0,0,.13);overflow:hidden}
@@ -71,6 +116,13 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 /* Under the clock on the left, not across the middle. Centred, it sat over the
    view you are walking into and fought the corner map for the top of the frame;
    the two HUD corners are where a player already looks. */
+/* THE OBJECTIVE CARD SITS UNDER WHATEVER IS ABOVE IT, and in a metrics campaign
+   that is four bars and a stopwatch rather than one strip of three readings. Set
+   from the entry point when the bars are revealed; without it the card lands on
+   top of them and the player sees two of the four. */
+body.metricsHud #objective{top:calc(208px + env(safe-area-inset-top))}
+@media (max-width:874px){body.metricsHud #objective{top:calc(214px + env(safe-area-inset-top))}}
+@media (max-height:520px){body.metricsHud #objective{top:calc(196px + env(safe-area-inset-top))}}
 #objective{position:fixed;top:calc(66px + env(safe-area-inset-top));
   left:calc(12px + env(safe-area-inset-left));z-index:4;
   max-width:min(420px,42vw);text-align:left;pointer-events:none;
@@ -83,6 +135,8 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 #objectiveWhere{font:800 .92rem/1.25 Inter,system-ui;color:#fff;letter-spacing:.01em}
 #objectiveWhy{font:500 .82rem/1.4 Inter,system-ui;color:rgba(255,255,255,.86);margin-top:3px}
 #objective.done #objectiveWhere{color:#9fe6a8}
+/* Under the objective card, which is 66px down and about 62px tall. */
+#beatPanel{top:calc(150px + env(safe-area-inset-top));left:calc(12px + env(safe-area-inset-left))}
 
 /* Map and settings, opposite the readings. */
 #hudTools{position:fixed;top:calc(10px + env(safe-area-inset-top));
@@ -123,7 +177,6 @@ body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{anima
 #blockerBox h2{font:600 .95rem/1.3 Inter,system-ui;color:var(--muted);margin:0 0 14px}
 #blockerBox p{font-size:.86rem;line-height:1.5;color:#3a3d40;margin:0 0 10px}
 #blockerBox kbd{background:var(--ink);color:#fff;padding:2px 6px;border-radius:4px;font:800 .74rem ui-monospace,monospace}
-#blockerBox .scope{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:12px}
 
 #statsOverlay{position:fixed;inset:0;background:rgba(10,13,15,.62);display:none;z-index:16;place-items:center;padding:18px}
 #statsOverlay.show{display:grid}
@@ -258,6 +311,9 @@ body.touch #turnInBar .btn small{display:none}
 <canvas id="canvas"></canvas>
 <div id="crosshair"></div>
 <div id="prompt" class="hidden"></div>
+<!-- Sound on or off. `M` does the same; this is for thumbs. engine/core/audio.js
+     paints it and persists the choice. -->
+<button id="audioBtn" type="button" aria-label="Toggle sound" aria-pressed="false">🔊</button>
 
 <!-- Three readings and one instruction. The full-width toolbar that was here
      carried the mission name, the route chips, a "Why:" line and a timeline,
@@ -290,10 +346,30 @@ body.touch #turnInBar .btn small{display:none}
   <div class="hudStat"><span class="hudLabel">Funds</span><b id="hudMoney">—</b></div>
 </div>
 
+<!-- THE FOUR CAMPAIGN BARS, and the mission stopwatch beside them.
+     Hidden in every theme that does not declare `theme.metrics`, and hidden in
+     one that does until the opening card is dismissed: the bible has the HUD
+     revealed at its starting values as the card clears, so the first thing the
+     player sees the bars do is exist.
+     Filled from engine/core/metrics.js. Never written to directly — a bar is
+     moved by `applyDeltas` so that clamping, locks and collapse are decided in
+     one place. -->
+<div id="hudMetrics" hidden>
+  <div id="hudMetricBars"></div>
+  <div id="hudMissionClock" hidden>
+    <span class="hudLabel">Shift time</span>
+    <b id="hudClockRead">00:00</b>
+    <span id="hudClockTarget"></span>
+  </div>
+</div>
+
 <div id="objective">
   <div id="objectiveWhere"></div>
   <div id="objectiveWhy"></div>
 </div>
+<!-- The line a beat leaves up. engine/core/beats.js writes it; it sits under
+     the objective card because it is instrumentation, not another card. -->
+<div id="beatPanel"></div>
 
 <div id="hudTools">
   <button class="hudBtn" id="mapBtn" type="button" title="Map (M)"><span aria-hidden="true">🗺</span> Map</button>
@@ -339,6 +415,14 @@ body.touch #turnInBar .btn small{display:none}
 <!-- The verdict. Its own layer above the question modal: the result used to be
      appended below the panel, so on a Diagnosis you had to scroll past six
      readings and five candidates to find out whether you were right. -->
+<!-- The beat layer. Dialogue bubbles are DOM over the scene rather than sprites in
+     it: forty words on a plane at four metres is unreadable, and it would inherit
+     the tone mapping. engine/core/beats.js owns everything inside it. -->
+<div id="beatLayer" aria-live="polite"></div>
+<!-- The sentence a beat script uses for what just changed, under the change
+     itself. See #beatCaption in styles.css and applyStage in beats.js. -->
+<div id="beatCaption" aria-live="polite"></div>
+
 <div id="verdictOverlay" aria-live="assertive"><div id="verdictCard"></div></div>
 
 <div id="statsOverlay"><div id="statsBody"></div></div>
@@ -351,8 +435,15 @@ body.touch #turnInBar .btn small{display:none}
     <h1 id="titleName">Loading…</h1>
     <h2 id="titleRole"></h2>
     <div id="titleStakes"></div>
-    <p class="scope" id="titleScope"></p>
-    <button class="btn primary" id="startBtn" type="button">Take the response</button>
+    <!-- NO SCOPE LINE. It carried "a fictional scenario for teaching, nothing here
+         is a real procedure" — the last thing between the player and the game,
+         telling them the stakes they had just read were not real. The text was
+         emptied a while ago and the ELEMENT stayed, which is a gold-shaded bar
+         with nothing in it between the opening's last line and the button. Gone
+         with its `.scope` rule. -->
+    <!-- The bible names this control. The entry point relabels it per theme;
+         this is the default the other sixty use. -->
+    <button class="btn primary" id="startBtn" type="button">Ready to save the day</button>
   </div>
 </div>
 

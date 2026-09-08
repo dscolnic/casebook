@@ -22,10 +22,12 @@
 // `groundHeight()` returns 0 for every (x, z), and nothing else may hold a
 // second opinion about the floor. Both earlier builds had a bug from having two.
 import * as THREE from 'three';
-import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from './interiorSite.js';
+import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay, blockedBy } from './interiorSite.js';
 import { displayBoard } from './kit.js';
 import { deliveryHook } from './deliveryCase.js';
 import { tuneRendererForDevice } from './materials.js';
+// Things that move: one list the props layer pushes into, run once a frame.
+import { animate, runAnimators, clearAnimators } from './animators.js';
 
 export const colliders = [];
 export const softColliders = [];
@@ -149,6 +151,12 @@ export function initWorld(canvas, activeTheme){
   // colour halfway down it.
   scene.fog = new THREE.Fog(fog.colour, fog.near, fog.far);
 
+  // EVERY ANIMATOR FROM THE LAST BUILD GOES FIRST, and it has to be before the
+  // shell rather than after it. This call used to sit further down, just before
+  // `theme.decorate` — which was fine while the builder registered nothing, and
+  // silently threw away every door swing the moment it did. A door whose animator
+  // is discarded reads as a door that does not open.
+  clearAnimators();
   // 1. The shell, with the theme's own fit-out hooks.
   built = buildInterior(scene, renderer, plan, {
     fitOutRoom: theme.fitOutRoom,
@@ -156,7 +164,9 @@ export function initWorld(canvas, activeTheme){
     // The campaign's product, on a board in the one room that keeps it. Absent
     // for a theme with no `delivery`, and then nothing here is built.
     delivery: deliveryHook(theme),
-  });
+      // The objects the questions are asked at — see interiorSite.
+    fixtures: theme.fixtures ?? {},
+});
   colliders.push(...built.colliders);
   softColliders.push(...built.softColliders);
   interactables.push(...built.interactables);
@@ -228,8 +238,10 @@ export function initWorld(canvas, activeTheme){
   // 5. Theme hook, for anything the fit-out hooks could not reach.
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, lightPanels, areaScreens,
-    blocked: (x, z, pad = 1) => colliders.some(c =>
-      x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad),
+    // `animate(fn)` runs `fn(t, dt, eye)` every frame — see animators.js.
+    animate,
+    // One copy of this rule, in interiorSite.js, and it skips shut doors.
+    blocked: blockedBy(colliders),
   });
 
   // 6. Where each area's people stand: just outside their own door, facing it,
@@ -276,6 +288,10 @@ export function updateTimeOfDay(hours){
 
 /** Where the cast stands, and the walk-up spots for everybody else. */
 export function getPeopleStations(){ return peopleStations; }
+/** Where somebody can sit: `plan.seats`, `[x, z, yaw]`, on the one floor. */
+export function getSeats(){
+  return (theme?.site?.plan?.seats ?? []).map(([x, z, yaw]) => ({ x, z, y: 0, facing: yaw ?? 0 }));
+}
 export function getExtraSpots(){
   const spots = plan?.spots ?? {};
   const pairs = [...(spots.spine ?? []), ...(spots.open ?? [])];
@@ -283,7 +299,8 @@ export function getExtraSpots(){
 }
 
 /** Spin the objective ring, so it is findable in peripheral vision. */
-export function updateWorldAnimation(t){
+export function updateWorldAnimation(t, eye = null){
+  runAnimators(t, eye);
   // The case markers bob, so they need the frame. No camera here: this module
   // does not own one, and the beacon only uses it to face the player.
   for(const stand of caseStands.values()) stand.beacon?.update?.(1 / 60, null);
@@ -294,4 +311,9 @@ export function updateWorldAnimation(t){
   for(const s of boardScreens){
     if(s.material) s.material.emissiveIntensity = 0.5 + Math.sin(t * 1.7) * 0.06;
   }
+}
+
+/** Light the object today's call is asked at. See interiorSite.setFixtureCall. */
+export function setFixtureCall(roomGroup, fixtureId, stopIndex, areaGroup){
+  return built?.setFixtureCall?.(roomGroup, fixtureId, stopIndex, areaGroup) ?? false;
 }

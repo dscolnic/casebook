@@ -6,10 +6,10 @@
     header: "7 DAYS;"
     title: "The Buried Loop"
     goNow: "Earthing Compound, Marcus Tate at earth trench."
-    body: "Magnetic field reaches the cable route, but only changing flux can drive the opposite-polarity trailer pulse. Magnetic flux measures field through a loop, and Faraday's law connects its change to induced voltage. You will derive the pulse, use Lenz's law, and test trench geometry at the trailer. By the end of the mission, decide whether the buried loop predicts the failed card."
+    body: "The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board."
     objective: "Predict the induced pulse from measured geometry and current rise."
   objective: "Predict the induced pulse from measured geometry and current rise."
-  stake: "Magnetic field reaches the cable route, but only changing flux can drive the opposite-polarity trailer pulse. Magnetic flux measures field through a loop, and Faraday's law connects its change to induced voltage. You will derive the pulse, use Lenz's law, and test trench geometry at the trailer. By the end of the mission, decide whether the buried loop predicts the failed card."
+  stake: "The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board."
   takeaway: "The buried loop predicts the failed card. ---"
   segue: "Mission decision: The buried loop predicts the failed card. Its pulse is near -1.10 kV, close to the archived -1.06 kV peak. The trench reveals another bonded lead. The current path is still incomplete."
 
@@ -23,7 +23,7 @@
     world: "accepted EARTH/bubble/trench open/→S1; S2 correct/waypoint/polarity arrow locked/PREDICTION: NEGATIVE DURING CURRENT RISE; TAKE IT TO OUTSTATION.→travel; enter COUPLE/panel/archive locked/Commit magnitude before archive unlock.→S3; S3 correct/panel/archive reveals -1.06 kV/PREDICTED -1.10 kV • MEASURED -1.06 kV→S4; S4 correct/world/second lead appears in trench photo/Model passes; current path remains incomplete.→outcome."
     panel: "Marcus Tate, mast engineer: \"Draw the loop we built, not the cable we meant to build.\""
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
+    - who: ortiz   # Dr. Lena Ortiz
       say: "Draw the loop we built, not the cable we meant to build."
   - id: after-stop-33
     # After Stop 33 | loop-bench | automatic
@@ -31,32 +31,105 @@
     world: "The derive the buried-loop emf result remains visible while the match induction sources fixture lights."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 33 result to settle match induction sources."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Nice work. Use the Stop 33 result to settle match induction sources."
   - id: after-stop-34
     # After Stop 34 | cable-bay | automatic
     on: { after: [2] }
     world: "The match induction sources result remains visible while the calculate the archived emf fixture lights."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 34 result to settle calculate the archived emf."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Good thinking. Use the Stop 34 result to settle calculate the archived emf."
   - id: after-stop-35
     # After Stop 35 | cable-bay | automatic
     on: { after: [3] }
     world: "The calculate the archived emf result remains visible while the verify the loop model fixture lights."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 35 result to settle verify the loop model."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Exactly right. Use the Stop 35 result to settle verify the loop model."
   - id: at-mission-end
     # At mission end | loop-bench | automatic
     on: { missionEnd: true }
     world: "The completed decision changes the mission world and locks into the campaign record."
     panel: "MISSION 9 EVIDENCE: RECORDED"
     bubbles:
-    - who: tate   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: ortiz   # Dr. Lena Ortiz
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  terms:
+  - {name: "Magnetic flux", def: "magnetic field passing through a surface."}
+  - {name: "Induced emf", def: "voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change."}
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Buried Loop. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Buried Loop, the buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Which prediction or calculation correctly applies Magnetic flux to this case?"
+      hint: "Use the stated evidence and the conditions for Magnetic flux; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Integrating nonuniform B(r) prevents a false uniform-field estimate.", why: "This describes Faraday rectangular loop near wire, not Magnetic flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.", why: "Correct. magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change."}
+      - {key: "C", text: "Lenz's law fixes direction while flux change can come from field, motion, or rotation.", why: "This describes Lenz direction and emf sources, not Magnetic flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "A precomputed magnitude and sign make the archived waveform a real test.", why: "This describes numerical induction, not Magnetic flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 receives a second case related to The Buried Loop: the buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Which prediction or calculation correctly applies Faraday rectangular loop near wire to this case?"
+      hint: "Use the stated evidence and the conditions for Faraday rectangular loop near wire; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.", why: "This describes Magnetic flux, not Faraday rectangular loop near wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Lenz's law fixes direction while flux change can come from field, motion, or rotation.", why: "This describes Lenz direction and emf sources, not Faraday rectangular loop near wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Integrating nonuniform B(r) prevents a false uniform-field estimate.", why: "Correct. integrating nonuniform B(r) prevents a false uniform-field estimate."}
+      - {key: "D", text: "A precomputed magnitude and sign make the archived waveform a real test.", why: "This describes numerical induction, not Faraday rectangular loop near wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "A teammate rechecks The Buried Loop using new evidence: with the symbolic pulse fixed, match rising, steady, and falling mast current to loop polarity. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Lenz direction and emf sources to this case?"
+      hint: "Use the stated evidence and the conditions for Lenz direction and emf sources; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.", why: "This describes Magnetic flux, not Lenz direction and emf sources. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Integrating nonuniform B(r) prevents a false uniform-field estimate.", why: "This describes Faraday rectangular loop near wire, not Lenz direction and emf sources. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A precomputed magnitude and sign make the archived waveform a real test.", why: "This describes numerical induction, not Lenz direction and emf sources. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Lenz's law fixes direction while flux change can come from field, motion, or rotation.", why: "Correct. lenz's law fixes direction while flux change can come from field, motion, or rotation."}
+    - prompt: "An unseen case extends The Buried Loop: take the derived model to the outstation with loop dimensions ell=20 m, a=2.0 m, b=5.0 m, and current rise dI/dt=3.0×10^8 A/s. Which prediction or calculation correctly applies numerical induction to this case?"
+      hint: "Use the stated evidence and the conditions for numerical induction; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A precomputed magnitude and sign make the archived waveform a real test.", why: "Correct. a precomputed magnitude and sign make the archived waveform a real test."}
+      - {key: "B", text: "Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.", why: "This describes Magnetic flux, not numerical induction. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "Integrating nonuniform B(r) prevents a false uniform-field estimate.", why: "This describes Faraday rectangular loop near wire, not numerical induction. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Lenz's law fixes direction while flux change can come from field, motion, or rotation.", why: "This describes Lenz direction and emf sources, not numerical induction. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Before another Buried Loop decision, the team knows this: because the prediction is -1.10 kV, compare it with the archived -1.06 kV peak while varying a by ±0.10 m. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses prediction test?"
+      hint: "Use the stated evidence and the conditions for prediction test; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.", why: "This describes Magnetic flux, not prediction test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Prediction before reveal protects the test from after-the-fact tuning.", why: "Correct. prediction before reveal protects the test from after-the-fact tuning."}
+      - {key: "C", text: "Integrating nonuniform B(r) prevents a false uniform-field estimate.", why: "This describes Faraday rectangular loop near wire, not prediction test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "D", text: "Lenz's law fixes direction while flux change can come from field, motion, or rotation.", why: "This describes Lenz direction and emf sources, not prediction test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+    - prompt: "Station 12 applies the lesson from The Buried Loop to this follow-up: the buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Which prediction or calculation correctly applies Electric charge to this case?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.", why: "This describes Magnetic flux, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "B", text: "Integrating nonuniform B(r) prevents a false uniform-field estimate.", why: "This describes Faraday rectangular loop near wire, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+      - {key: "C", text: "A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.", why: "Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field."}
+      - {key: "D", text: "Lenz's law fixes direction while flux change can come from field, motion, or rotation.", why: "This describes Lenz direction and emf sources, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case."}
+
+  equations:
+  - {"e":"Φ_B=∫B·dA, ε=-dΦ_B/dt","c":"induction","v":[["Φ_B","magnetic flux in webers"],["B","magnetic field in teslas"],["dA","directed area element in square metres"],["ε","induced electromotive force in volts"],["dΦ_B/dt","rate of flux change in webers per second"]],"s":"trailer."}
+  - {"e":"ε=BLv","c":"motional emf","v":[["ε","motional electromotive force in volts"],["B","magnetic-field magnitude in teslas"],["L","conductor length in metres"],["v","conductor speed perpendicular to the field in metres per second"]],"s":"distinguish moving-wire tests."}
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 9: worked examples"
+    examples:
+    - {"title":"Induced voltage","problem":"Magnetic flux through a one-turn loop changes from 0.1 to 0.5 Wb in 0.2 s. Find the average induced emf with the stated positive flux direction.","rule":"Average emf ε=-ΔΦ/Δt.","steps":["Set up the relationship: Average emf ε=-ΔΦ/Δt.","ε=-(0.5-0.1)/0.2=-2 V."],"answer":"The signed induced emf is -2 V for that flux orientation.","mistake":"The minus sign expresses opposition to the change in flux, not always to the original field."}
+    - {"title":"Several turns of wire","problem":"A coil has 10 turns. Flux per turn changes by 0.02 Wb in 0.1 s. Find emf magnitude.","rule":"|ε|=N|ΔΦ|/Δt.","steps":["Set up the relationship: |ε|=N|ΔΦ|/Δt.","|ε|=10(0.02)/0.1=2 V."],"answer":"The emf magnitude is 2 V.","mistake":"Use flux per turn before multiplying by the turn count."}
+    - {"title":"A moving conductor","problem":"A rod of length 0.5 m moves at 2 m/s perpendicular to a 3 T field, with the rod perpendicular to both. Find emf magnitude.","rule":"For this geometry, |ε|=BLv.","steps":["Set up the relationship: For this geometry, |ε|=BLv.","|ε|=3(0.5)(2)=3 V."],"answer":"The induced voltage magnitude is 3 V.","mistake":"The simple product requires the stated perpendicular geometry."}
+    - {"title":"A tilted surface","problem":"A field E=10 N/C crosses area A=2 m² at 60° to its normal. Find flux.","rule":"Φ=EA cos θ.","steps":["Set up the relationship: Φ=EA cos θ.","Φ=10(2)(1/2)=10 N m²/C."],"answer":"The flux is 10 N m²/C.","mistake":"Projected area, not full area, determines flux when the surface is tilted."}
+    - {"title":"Field around a straight wire","problem":"A long straight wire carries 10 A. Find field 0.1 m away, using μ0/(2π)=2×10^-7 T m/A.","rule":"B=μ0 I/(2πr).","steps":["Set up the relationship: B=μ0 I/(2πr).","B=(2×10^-7)(10)/0.1=2×10^-5 T=20 μT."],"answer":"The field magnitude is 20 μT; its direction circles the wire by the right-hand rule.","mistake":"The straight-wire field falls as 1/r, not 1/r²."}
 
   stops:
   # --- Stop 33: Derive the Buried-Loop EMF
@@ -65,12 +138,12 @@
   - group: COUPLE
     at: loop-bench
     title: "Derive the Buried-Loop EMF"
-    concept: "Faraday rectangular loop near wire"
-    reason: "the trench path must predict voltage before record is opened."
-    scene: "The buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Derive induced emf from changing mast current before seeing the trailer trace."
-    motivation: "integrating nonuniform B(r) prevents a false uniform-field estimate."
+    concept: 24   # Faraday rectangular loop near wire
+    reason: "The induction diagnosis needs a geometric prediction before the archived trailer pulse is opened."
+    scene: "Derive induced emf from changing mast current before seeing the trailer trace."
+    motivation: "The buried-loop expression connects mast-current rise rate and loop dimensions to the voltage the trailer should experience."
     format: DERIVE
-    question: "Build the three-line flux and Faraday derivation for the rectangular loop, name Ampere, integration, and Faraday-Lenz rules, and submit the symbolic emf."
+    question: "Submit the symbolic emf."
     answerText: "The completed check shows ε=-(μ₀ℓ/2π)ln(b/a)dI/dt. Integrate the 1/r field over loop width."
     why: "integrating nonuniform B(r) prevents a false uniform-field estimate."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -81,6 +154,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   lines B=μ0I/(2πr), Φ=∫a^b Bℓdr=μ0Iℓ/(2π)ln(b/a), ε=-μ0ℓ/(2π)ln(b/a)dI/dt. Prompt derive/rules.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Derive the Buried-Loop EMF in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: B=μ0I/(2πr)
+            - text: B=μ0I/(4πr²)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Φ=∫a^b Bℓdr=μ0Iℓ/(2π)ln(b/a)
+            - text: Φ=Bℓ(b−a) with B treated as constant
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: ε=-μ0ℓ/(2π)ln(b/a)dI/dt
+            - text: ε=+μ0ℓ/(2π)ln(b/a)dI/dt
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 34: Match Induction Sources
   #     Concept: Lenz direction and emf sources; Keystone: K10; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: PRACTICE L2.
@@ -88,10 +186,10 @@
   - group: COUPLE
     at: loop-bench
     title: "Match Induction Sources"
-    concept: "Lenz direction and emf sources"
-    reason: "polarity is the strongest archived clue."
-    scene: "With the symbolic pulse fixed, match rising, steady, and falling mast current to loop polarity. Then match sliding rod, changing field, and rotating coil to their specific Faraday expressions.\", and record the result with its physical justification in the station report."
-    motivation: "Lenz's law fixes direction while flux change can come from field, motion, or rotation."
+    concept: 25   # Lenz direction and emf sources
+    reason: "The loop prediction needs its polarity checked against changes in the mast current."
+    scene: "With the symbolic pulse fixed, match rising, steady, and falling mast current to loop polarity. Then match sliding rod, changing field, and rotating coil to their specific Faraday expressions."
+    motivation: "The induction mappings establish whether each source should produce a positive, negative, or zero voltage during the pulse."
     format: PROTOCOL
     question: "Match rising, steady, and falling current to polarity; match sliding rod, changing uniform field, and rotating loop to BLv, -A dB/dt, and NABωsin(ωt); submit all six matches."
     answerText: "The completed check shows rising opposes, steady gives zero, falling reverses; BLv, -A dB/dt, and rotating-loop form match."
@@ -134,12 +232,12 @@
   - group: COUPLE
     at: cable-bay
     title: "Calculate the Archived EMF"
-    concept: "numerical induction"
-    reason: "archived trace can be opened only after prediction is frozen."
+    concept: 24   # numerical induction
+    reason: "The symbolic loop model is ready to be tested using the archived event's measured geometry and current rise."
     scene: "Take the derived model to the outstation with loop dimensions ell=20 m, a=2.0 m, b=5.0 m, and current rise dI/dt=3.0×10^8 A/s. Calculate the predicted emf and record its physical justification."
-    motivation: "a precomputed magnitude and sign make the archived waveform a real test."
+    motivation: "The predicted loop voltage provides an independent value for comparison with the trailer's stored pulse trace."
     format: DERIVE
-    question: "Using μ₀=4π×10^-7 T·m/A and the displayed ℓ, a, b, and dI/dt, build the substitution and submit predicted emf in kV with sign."
+    question: "Submit predicted emf in kV with sign."
     answerText: "The completed check shows prediction is -1.10 kV. Visible substitution reproduces it."
     why: "a precomputed magnitude and sign make the archived waveform a real test."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -150,6 +248,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   substitution in formula with μ0; result magnitude 1099.8 V≈1.10kV, negative during rise. Prompt lines/rules, submit kV/sign; tolerance .03kV. State trace reveals -1.06kV.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Calculate the Archived EMF in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|ε| = μ0ℓ/(2π) ln(b/a)|dI/dt|"
+            - text: "|ε| = [μ0I/(2πb)](b-a)l"
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "|ε|=(4πe-7)(20)/(2π) ln(5.0/2.0)(3.0e8) V=1.0998e3 V"
+            - text: "|ε|=(4πe-7)(20)/(2π) ln(2.0/5.0)(3.0e8) V=-1.0998e3 V"
+              why: Reversing the integration bounds changes the sign; an emf magnitude cannot be negative.
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: ε = -1.10 kV during the rise
+            - text: emf = Report +1.10 kV during a current rise
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 36: Verify the Loop Model
   #     Concept: prediction test; Keystone: K10,K12; Area: Remote Outstation; Learning role: PRACTICE; Difficulty: L3; Story role: TRANSFER L5 decision.
@@ -157,10 +280,10 @@
   - group: COUPLE
     at: cable-bay
     title: "Verify the Loop Model"
-    concept: "prediction test"
-    reason: "prediction must survive measured pulse and geometry uncertainty."
-    scene: "Because the prediction is -1.10 kV, compare it with the archived -1.06 kV peak while varying a by ±0.10 m. Decide whether one loop model explains both.\", and record the result with its physical justification in the station report."
-    motivation: "prediction before reveal protects the test from after-the-fact tuning."
+    concept: 30   # prediction test
+    reason: "The archived pulse cannot confirm the model unless it also fits the uncertainty in loop geometry."
+    scene: "Because the prediction is -1.10 kV, compare it with the archived -1.06 kV peak while varying a by ±0.10 m. Decide whether one loop model explains both."
+    motivation: "The predicted voltage band determines whether one loop model can account for the measured archived peak."
     format: VERIFY
     question: "CALCULATE AND COMMIT: Lock -1.10 kV. OPERATE: Vary only a from 1.90 to 2.10 m while ℓ, b, and dI/dt stay fixed. MEASURE: Record the predicted range and archived peak. INTERPRET: Submit consistent or inconsistent; no restoration is required."
     answerText: "The completed check shows archived -1.06 kV lies inside the predicted geometry band."
@@ -173,4 +296,15 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{source:"Stop 35 loop model",submit:{quantity:"induced voltage",unit:"kV",truth:-1.10,tolerance:0.03}},equipment_locked_until_prediction_commit:true,operation:{control:"loop dimension a",range:[1.90,2.10],unit:"m",fixed:["ell","b","dI/dt"]},measurements:{predicted_range:[-1.13,-1.07],archived_peak:-1.10,unit:"kV"},restore:{required:false,reason:"uncertainty sweep changes no equipment setting"},correct_conclusion:"consistent",answerText:"The archived -1.10 kV peak lies inside the predicted uncertainty range, so the loop model is consistent."}
+    verify:
+      prediction:
+        min: 0.53
+        max: 1.59
+        step: 0.106
+      truth: 1.06
+      passRatio:
+        - 0.95
+        - 1.05
+      measurement:
+        label: independent measured value
 

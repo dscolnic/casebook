@@ -226,3 +226,114 @@ tell is a board. It is not a light.
 An outdoor game refreshes it on entering the room; a floor game has no arrival to
 hang that on, so `world.setDeliveryPieces(...)` is called from `refreshWorld` and
 the board is right the moment a saved campaign loads.
+
+## Motion, weather, sound, and a crowd that sits down
+
+Four layers the engine did not have until September 2026, found by looking at eight
+games' contact sheets side by side: nothing moved but the waypoint ring, nothing was in
+the air, nothing made a sound, and every extra was either walking or standing. Each is
+one shared module; the props layer only declares.
+
+- **`engine/world/animators.js` is the one list of things that move.** `animate(fn)`
+  registers `fn(t, dt, eye)`; every world module's `updateWorldAnimation(t, eye)` runs the
+  list. Helpers: `spin`, `blink`, `flicker`, `sway`, `bob`, `scrollUV`, `patrol`, `wander`.
+  A throwing animator is stopped and named, never fatal — the `stateHooks` rule. `dt` is
+  clamped at 0.1 s because a background tab hands the first frame back a delta of minutes,
+  and a wheel that turns a hundred radians in one frame reads as a glitch. **The cheap
+  rig has legs and a merged torso, no arms**, so an extra's gesture is torso and head; a
+  named person's work pose (`stationedIdle`) can put hands on the bench.
+- **`engine/world/weather.js` is one `Points` cloud that follows the eye.** `site.weather
+  = { kind: rain|drizzle|snow|dust, density, wind: {x, z}, lightning: { every } }`. Hidden
+  when the eye is past `DISTRICT_X - 500`, because a room has a roof. Lightning spikes
+  the ambient and hemisphere and decays; `onLightning(cb)` is how the sound layer learns
+  the distance to delay the thunder by. Flash restores the *captured* intensities, since
+  `updateTimeOfDay` rewrites them every half second.
+- **`engine/core/audio.js` synthesises everything.** No asset files: noise buffers and
+  filters make wind, surf, rain, hum, city, waterfall, machinery, transformer, generator,
+  fan, crowd. `theme.audio = { bed, indoors, gain, emitters: [{ x, z, kind, r, gain }] }`,
+  with defaults per world kind (wind outdoors, hum indoors). Gain by distance and a
+  stereo pan from the camera yaw — right is `(cos yaw, -sin yaw)` — not a `PannerNode`,
+  which is the one thing on a tablet dearer than the renderer. Starts on the first
+  gesture (`unlockAudio()` from the title button), `M` and `#audioBtn` toggle, the choice
+  is in `localStorage`. Indoors (`interiors.current`) crossfades to the room bed and
+  muffles emitters; a card up ducks the mix. A misspelt voice is *silence*, so
+  `engine/dev/ambience.mjs` checks the names against the engine's own lists.
+- **`interiorBuilding` has more than four rooms now.** Styles `lab`, `timber`,
+  `observatory`, `steel`, `module`, `station`, `plant`, `island`; ceilings `tiles`,
+  `rafters`, `ribbed`, `strip`, `concrete`, `truss`; wall kinds `paint`, `board`, `block`,
+  `ribbed`, `plywood`; floors `sheet`, `plank`, `deck`, `concrete`. A Martian module had a
+  suspended tile ceiling and green carpet; that is what this is for.
+- **Every doorway in every outdoor game's rooms was a black rectangle**, because the
+  district is an empty scene. `spec.outside = { sky, ground }` (read off the site by
+  `outsideOf` in app.js) paints a sky-over-ground gradient behind the door, and
+  `room.setOutsideNight()` darkens it from `dayBlendAt()` — exported from
+  `outdoorSite.js` so the sun and the doorway agree.
+- **The crowd has three kinds of extra**: a quarter sit on whatever `world.getSeats()`
+  returns (bench seats outdoors, `plan.seats` indoors, `poseSeated` and never
+  re-grounded), every third walker brings a partner and stands talking, the rest walk.
+  `stationPeople(who, station, { work })` puts one person at the room's `workSpot` — a
+  metre in front of the first bench, facing it — with hands on the worktop.
+- **Do not edit a served file while `npm run shots` is running.** Vite reloads the page,
+  the harness's `window.gamekit` vanishes mid-run, and the report is `Cannot read
+  properties of undefined (reading 'teleport')` — which looks like a crash in the game and
+  is not one. A `git stash` round trip does the same. Cost three renders in one session.
+
+## What eight games at once turned up, and the engine gaps behind them
+
+Eight parallel world passes in September 2026, one per game. Every finding below was
+invisible to `npm run check` and most were invisible until somebody looked at a still.
+
+**The engine gaps, all now closed:**
+
+- **The sky is not the size of the world.** `sky.scale.setScalar(A.scale)` is a BOX, so
+  its half-extent is `scale / 2` — 475 m on a 950 m scale — and the star field sits at
+  `scale × 0.92`. Planetary Defense lets the player 1,300 m out, so on the summits they
+  stood *outside their own sky*, and the response had been to give up and set
+  `dayWindow: [8, 20]` — a nocturnal campaign played in daylight, which is how it
+  shipped. It cannot be bought off with a bigger dome either: `updateSky` bakes the IBL
+  with `pmrem.fromScene(envScene, 0, 1, 900)`, so a dome past 900 m bakes black wedges
+  into the environment. `parkSkyOnEye(x, z)` moves the dome and the stars with the
+  player, in x and z only — following in y would take the horizon with it.
+- **`kit.setWindowGlow` was exported and called by nothing**, for the life of the repo.
+  Every framed `litWindow` pane in every outdoor game sat at `emissiveIntensity: 0`, so
+  a town at one in the morning was a set of dark boxes. `updateTimeOfDay` calls it now.
+- **A `lightPanels` entry may be a mesh, a material, or `{ material, night }`.** It was
+  read only as a mesh, so a theme registering a bare material was silently skipped —
+  Planetary Defense's pad strobes among them. And `night: true` inverts the curve, for
+  the thing a tower is built around: a city across a river is dark at noon and lit after
+  dusk. Changeover had to register a stand-in object with an inverting setter to get it.
+- **The interior fit-out's `soft` is `(x, z, r)` and the outdoor one takes `{x, z, r}`.**
+  Six themes write the object form. Passed to the interior one it produced
+  `{x: {…}, z: undefined, r: undefined}` — a collider whose every comparison is NaN, so
+  it does not merely sit in the wrong place, it does nothing. Headwater had three, and
+  every seat, machine and standpipe in that building was uncollidable. It takes both now
+  and rejects a non-finite.
+- **`teleport` could not pitch and `--sol` only worked for room shots.** So nothing tall
+  was photographable — a 60 m mast, a fly tower, a lift hill — and every outdoor
+  screenshot ever taken was of day one whatever the flag said, which is why no
+  day-gated world change had ever been seen. `teleport(pos, yaw, pitch)` in YXZ, and the
+  sol block is hoisted above the view loop and calls `refreshWorld` so props state hooks
+  actually fire.
+- **`updatePlayer` builds its collision box at an absolute y of 0 to eye height**, never
+  relative to the ground. Every collider on Vellan's foreshore sits between −9 and −1,
+  so a quay and a slipway were geometrically perfect and blocked nothing. Not yet fixed:
+  a theme with a dock, a pit or a quarry must top its colliders out above zero. Nothing
+  in `npm run check` looks at colliders in y.
+
+**The theme-side traps, which recur:**
+
+- **Five of eight games had a question sited at a fixture nothing declares** — see the
+  tripwire. `placement.mjs` had been red on each for months.
+- **`computeFrenetFrames` has no curvature to work from on a straight**, so it falls back
+  to a world axis: Corbin Park's coaster had its two rails stacked *vertically* for the
+  whole lift hill, and it survived because from most angles that reads as one rail. Found
+  by printing frames, not by looking. Parallel transport from world up, arc-length
+  indexed, with the closing roll error spread. Only `blackout` and `midway` make the same
+  call. A repeated control point on a `closed: true` curve also stalls the arc-length
+  table — the train concertina'd every lap.
+- **A bench centred on the room's own centre line stands on `getStopEntry`.** Three of
+  The Trial's rooms could only be entered by half a metre.
+- **A theme's `plan.world` is read literally by `vite.config.js`**, so an edition that
+  copies its parent's plan points at the parent's directory.
+- **Two animators on one property: the later registration wins**, because `runAnimators`
+  iterates backwards. Fold them, do not stack them.

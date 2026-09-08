@@ -494,6 +494,17 @@ export function isNextBuilding(id){
   const s=getNextMissionStop();
   return s && s.group===id;
 }
+/**
+ * Who wants to know that a stop just closed.
+ *
+ * `beats.js` does: a mission's beat script fires "after Stop 1", and the only
+ * place that knows a stop closed is this function. A subscriber list rather
+ * than an import, because gameState is imported by everything and must not
+ * import a renderer back.
+ */
+const stopClosedSubs=[];
+export function onStopClosed(fn){ if(typeof fn==='function') stopClosedSubs.push(fn); }
+
 export function markMissionStopComplete(stopIndex, correct){
   if(!_state || _state.status!=='playing') return;
   if(!Array.isArray(_state.missionStopsCompleted)) _state.missionStopsCompleted=[];
@@ -508,6 +519,8 @@ export function markMissionStopComplete(stopIndex, correct){
   save();
   // don't auto-complete mission here; user must press Complete Mission (or we auto if desired)
   // check if mission now complete and auto-grant? Keep manual per original.
+  // AFTER the save, so a beat that reads the state sees the closed stop.
+  for(const fn of stopClosedSubs){ try{ fn(stopIndex, !!correct); }catch(e){} }
 }
 export function removeMissionStop(stopIndex){
   if(!_state) return;

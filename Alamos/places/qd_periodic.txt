@@ -1,0 +1,88 @@
+PERIODIC TABLE (theme: qd_periodic) — PLACES AND LOCATIONS
+Assistant · The Chemistry Institute
+Course: Chemistry — the periodic table, 1869. Grade 9, nine stops, three
+levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_periodic npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Chemistry Institute, as data.
+
+One corridor, four working rooms off it, and the rooms nobody works in that
+make it a building rather than a diagram. The place has a shape the campaign
+uses: the specimens and the card desk are down one side, the analysis bench
+and the lecture hall down the other, so every card carried from the drawers to
+the desk crosses the corridor and every claim crosses it again to be defended.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The specimen store is the deepest room on the plan, because it is a wall of
+numbered drawers with room to open one and a bench to put it down on. A store
+of sixty-three elements in a room the size of an office is a cupboard, and
+this campaign begins with somebody pulling drawers out and laying cards on a
+table.
+
+`ceiling: false`, as in the pneumatic laboratory. A suspended tile grid over an
+1869 institute is the loudest anachronism available and it is invisible in
+every check — geometry, collision and lighting are identical either way.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+SPEC — Specimen Store
+  Specimen Store   [SPEC]  side w, z 4 … 18
+  Sixty-three elements in numbered drawers, stored in the order they were
+  acquired and in no other.
+  Calls: Open the drawers · Compare behaviour · Group them · Ready to hand
+  over
+
+CARDS — Card Desk
+  Card Desk   [CARDS]  side w, z 28 … 40
+  A long table, one card an element, and permission to leave a hole where
+  nothing fits.
+  Calls: Lay the cards · Find the recurrence · Leave the gap · Ready to hand
+  over
+
+BENCH — Analysis Bench
+  Analysis Bench   [BENCH]  side e, z 6 … 20
+  Mass, density and the formula of an oxide, each by its own method and none
+  of them settling another.
+  Calls: Weigh it · Measure the density · Analyse the oxide · Ready to hand
+  over
+
+HALL — Lecture Hall
+  Lecture Hall   [HALL]  side e, z 22 … 38
+  Where a claim is defended, and where an instrument nobody in 1869 had was
+  eventually wheeled in.
+  Calls: Read the sealed figures · Set them beside the measurements · Say what
+  it supports · Ready to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Room   [PORCH]  side w, z -4 … 2, OPEN
+Common Room   [TEA]  side w, z 20 … 26, OPEN
+Reagent Store   [RACK]  side w, z 40 … 46
+Weighing Room   [WEIGH]  side e, z -4 … 4
+Library   [LIB]  side e, z 40 … 46
+
+Metrics   corridorHalfWidth 1.9, roomDepth 8.2, ceilingH 4.1
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_periodic/ — site/plan, fixtures, minors, groups, theme.

@@ -6,13 +6,22 @@
     header: "DAY 7 - BOARD IN 9 DAYS"
     title: "The Missing Outcomes"
     goNow: "Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the query map."
-    body: "The amendment repairs enrollment, but many rural outcomes are still missing at day 30. Regression predicts one quantitative variable from another and residuals show where the prediction fails. At Site Operations, model missingness by travel distance, then test its residual pattern at Data Management. By the end of the mission, decide whether complete-case analysis is defensible."
+    body: "Many patients have no recorded result at 30 days, especially those who travel farther to hospital. Their absence could change the apparent treatment benefit. Compare travel distance with recovery records and decide whether leaving out patients with missing results would give a misleading answer."
     objective: "Set the missing-data rule."
   objective: "Set the missing-data rule."
-  stake: "The amendment repairs enrollment, but many rural outcomes are still missing at day 30. Regression predicts one quantitative variable from another and residuals show where the prediction fails. At Site Operations, model missingness by travel distance, then test its residual pattern at Data Management. By the end of the mission, decide whether complete-case analysis is defensible."
+  stake: "Many patients have no recorded result at 30 days, especially those who travel farther to hospital. Their absence could change the apparent treatment benefit. Compare travel distance with recovery records and decide whether leaving out patients with missing results would give a misleading answer."
   takeaway: "Residual patterns test model form."
   segue: "Mission decision: Do not use only patients with complete records. Recover results by travel band. Delay grows with travel distance. One fast site changes the fitted line. The fix needs four more days of follow-up."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Scatterplot", def: "a graph of paired quantitative values."}
+  - {name: "Correlation", def: "the strength and direction of a linear relationship between two quantitative variables."}
+  - {name: "Least-squares regression line", def: "the line minimizing squared vertical residuals."}
+  - {name: "Residual", def: "observed y minus predicted y."}
+  - {name: "Influential point", def: "a point whose removal substantially changes the fitted line."}
+  equations:
+  - {"e":"b=r(sy/sx); a=y-bar-bx-bar; y-hat=a+bx","c":"Building the least-squares line from summary statistics.","v":[["b","slope"],["a","intercept"],["r","correlation"],["sx,sy","SDs"],["x-bar,y-bar","means"]],"s":"The query team must predict follow-up delay from travel distance."}
+  - {"e":"residual=y-y-hat","c":"Showing how far each observed outcome lies above or below prediction.","v":[["y","observed"],["y-hat","predicted"]],"s":"A patterned miss can expose a biased complete-case set."}
   primer:
   - "Describe direction, form, strength, and outliers."
   - "Correlation measures linear association, not causation."
@@ -25,7 +34,7 @@
   - id: on-arrival-at-monitors-room
     # On arrival at Monitors' Room | query-map | automatic
     on: { enter: true, at: SITE }
-    world: "Arrival: MONITOR entry; query map visible; Eli says, ; timer pauses; - After S1-S2: fitted line appears; waypoint TAKE MODEL ID L7 TO DATA; travel unlocks. - DATA arrival/after S3: residual candidates render; selected field remains; - Final: restored influence control; panel reads DISTANCE-LINKED; binder 7 fills; outcome unlocks."
+    world: "Arrival: MONITOR entry; query map visible; Eli says,; timer pauses; - After S1-S2: fitted line appears; waypoint TAKE MODEL ID L7 TO DATA; travel unlocks. - DATA arrival/after S3: residual candidates render; selected field remains; - Final: restored influence control; panel reads DISTANCE-LINKED; binder 7 fills; outcome unlocks."
     panel: "MISSION 7: DESCRIBE THE RELATIONSHIP OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
@@ -37,7 +46,7 @@
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Use the Stop 25 result to settle build and read the line."
+      say: "Nice work. Use the Stop 25 result to settle build and read the line."
   - id: after-stop-26
     # After Stop 26 | deletion-diagnostic | automatic
     on: { after: [2] }
@@ -45,7 +54,7 @@
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Use the Stop 26 result to settle read the residual."
+      say: "Good thinking. Use the Stop 26 result to settle read the residual."
   - id: after-stop-27
     # After Stop 27 | site-comparison-board | automatic
     on: { after: [3] }
@@ -53,7 +62,7 @@
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Use the Stop 27 result to settle test the fast-site point."
+      say: "Exactly right. Use the Stop 27 result to settle test the fast-site point."
   - id: at-mission-end
     # At mission end | query-map | automatic
     on: { missionEnd: true }
@@ -61,7 +70,77 @@
     panel: "MISSION 7 EVIDENCE: RECORDED"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Missing Outcomes. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Missing Outcomes, rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "B"
+      figure: {"kind":"line","xLabel":"Distance from clinic (km)","yLabel":"Follow-up delay (days)","caption":"Paired observations show a positive association.","series":[{"name":"Patients","points":[[10,2],[22,3],[35,4],[48,6],[61,7],[75,9]]}]}
+      options:
+      - {key: "A", text: "If delay is associated with distance, complete cases may systematically omit remote patients.", why: "This describes scatterplot/correlation, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.", why: "Correct. a graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line."}
+      - {key: "C", text: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.", why: "This describes LSRL, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.", why: "This describes residual plots/nonlinearity, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to The Missing Outcomes: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "C"
+      figure: {"kind":"line","xLabel":"Distance from clinic (km)","yLabel":"Follow-up delay (days)","caption":"Paired observations show a positive association.","series":[{"name":"Patients","points":[[10,2],[22,3],[35,4],[48,6],[61,7],[75,9]]}]}
+      options:
+      - {key: "A", text: "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.", why: "This describes Scatterplot, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.", why: "This describes LSRL, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "If delay is associated with distance, complete cases may systematically omit remote patients.", why: "Correct. if delay is associated with distance, complete cases may systematically omit remote patients."}
+      - {key: "D", text: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.", why: "This describes residual plots/nonlinearity, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks The Missing Outcomes using new evidence: the scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Which option correctly applies LSRL to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for LSRL; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.", why: "This describes Scatterplot, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "If delay is associated with distance, complete cases may systematically omit remote patients.", why: "This describes scatterplot/correlation, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.", why: "This describes residual plots/nonlinearity, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.", why: "Correct. a contextual line can direct calls, but its intercept and extrapolated values may lack meaning."}
+    - prompt: "An unseen case extends The Missing Outcomes: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "A"
+      figure: {"kind":"line","xLabel":"Ordered observation","yLabel":"Residual","caption":"Residuals reveal whether error is random or structured.","series":[{"name":"Residual","points":[[0,2.2],[1,0.8],[2,-0.6],[3,-1.4],[4,-0.5],[5,0.9],[6,2.1]]}],"limit":{"at":0,"label":"Zero residual"}}
+      options:
+      - {key: "A", text: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.", why: "Correct. random residual scatter supports linear form; structure means the missingness rule remains incomplete."}
+      - {key: "B", text: "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.", why: "This describes Scatterplot, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "If delay is associated with distance, complete cases may systematically omit remote patients.", why: "This describes scatterplot/correlation, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.", why: "This describes LSRL, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Missing Outcomes decision, the team knows this: the residual field is acceptable, but the far-right fast-site point may pull the fitted slope. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies outlier/leverage/influence and missingness to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for outlier/leverage/influence and missingness; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.", why: "This describes Scatterplot, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A substantial line change makes the point influential and blocks an unqualified complete-case analysis.", why: "Correct. a substantial line change makes the point influential and blocks an unqualified complete-case analysis."}
+      - {key: "C", text: "If delay is associated with distance, complete cases may systematically omit remote patients.", why: "This describes scatterplot/correlation, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.", why: "This describes LSRL, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from The Missing Outcomes to this follow-up: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.", why: "This describes Scatterplot, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "If delay is associated with distance, complete cases may systematically omit remote patients.", why: "This describes scatterplot/correlation, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.", why: "This describes LSRL, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 7: worked examples"
+    examples:
+    - {"title":"Use a regression prediction","problem":"A fitted line predicts length y-hat=2+3x cm from age x in weeks. Predict at x=4 and interpret the slope.","rule":"A fitted line has form y-hat=a+bx.","steps":["Set up the relationship: A fitted line has form y-hat=a+bx.","y-hat=2+3(4)=14 cm; b=3 cm/week."],"answer":"Predicted length is 14 cm; each extra week adds 3 cm to the fitted prediction.","mistake":"A fitted association is not automatically a causal effect."}
+    - {"title":"Build a regression line","problem":"Data have r=0.5, sx=2, sy=4, x-bar=6 and y-bar=10. Find slope and intercept.","rule":"b=r(sy/sx); a=y-bar-b x-bar.","steps":["Set up the relationship: b=r(sy/sx); a=y-bar-b x-bar.","b=0.5(4/2)=1; a=10-1(6)=4."],"answer":"The fitted line is y-hat=4+x.","mistake":"The line passes through the two sample means, not necessarily the origin."}
+    - {"title":"Interpret explained variation","problem":"A linear regression has correlation r=-0.8. Find and interpret r².","rule":"r² is the fraction of response variation explained by the fitted linear relationship.","steps":["Set up the relationship: r² is the fraction of response variation explained by the fitted linear relationship.","r²=(-0.8)²=0.64."],"answer":"The fit explains 64% of the observed variation in the response.","mistake":"r² is not negative and does not mean 64% of points lie on the line."}
+    - {"title":"A measurement minus a prediction","problem":"A thermometer model predicts 20 °C; an independent thermometer reads 22 °C. Find the residual.","rule":"Residual = observed value - predicted value.","steps":["residual = 22 °C - 20 °C. Keep observed first.","residual = +2 °C. The positive sign means the observation is above the prediction."],"answer":"The model underpredicts this reading by 2 °C.","mistake":"Reversing the subtraction reverses the meaning of the sign."}
+    - {"title":"Recognize extrapolation","problem":"A line was fitted to plants aged 1 to 5 weeks. It predicts their height at 30 weeks. Is this use supported?","rule":"Extrapolation predicts beyond the input range used to fit a model.","steps":["Thirty weeks is outside the observed 1-to-5-week range.","Growth may change after five weeks; the observed fit does not test that later behavior."],"answer":"The prediction is extrapolation and needs new evidence.","mistake":"A high correlation inside the data range does not validate distant predictions."}
 
   stops:
   # --- Stop 25: Describe the Relationship
@@ -71,10 +150,10 @@
     at: query-map
     title: "Describe the Relationship"
     person: navarro
-    concept: "scatterplot/correlation"
-    reason: "The team needs an honest description before fitting a line."
-    scene: "Rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. Describe direction, form, strength, and the unusual point without claiming causation."
-    motivation: "If delay is associated with distance, complete cases may systematically omit remote patients."
+    concept: 10   # scatterplot/correlation
+    reason: "The access audit now needs to assess whether travel distance is associated with follow-up delay."
+    scene: "Describe direction, form, strength, and the unusual point without claiming causation."
+    motivation: "The scatterplot description establishes the relationship's form and unusual points without converting association into causation."
     format: CHOICE
     question: "Submit one selection from the four distinct choice items below."
     choices:
@@ -96,13 +175,13 @@
   - group: ENDP
     at: monitor-desk
     title: "Build and Read the Line"
-    concept: "LSRL"
-    reason: "Monitors need a prediction rule to prioritize overdue visits."
+    concept: 30   # LSRL
+    reason: "The distance-delay pattern is ready to become a quantitative prediction rule."
     scene: "The scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Derive slope and intercept, then interpret both values in patient follow-up context."
-    motivation: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning."
+    motivation: "The fitted slope and intercept determine predicted delay within the observed distance range and expose meaningless extrapolation."
     format: DERIVE
-    question: "b=.8(4/20)=.16 day/km; a=6-.16(50)=-2 days; y-hat=-2+.16x. Licenses slope formula, passes through means, substitute. Submit pair b=.16 day/km, a=-2 days."
-    answerText: "The completed check shows each additional kilometer predicts .16 more day of delay. The -2-day intercept at 0 km is not meaningful here; do not extrapolate beyond observed distances."
+    question: "Submit the least-squares slope and intercept, with units."
+    answerText: "The completed check shows each additional kilometer predicts.16 more day of delay. The -2-day intercept at 0 km is not meaningful here; do not extrapolate beyond observed distances."
     why: "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning."
     # wrong-path feedback, one rebuttal per wrong option:
     #   pair: b in day/km, a in days
@@ -112,6 +191,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"least-squares slope and intercept","givens":["r=0.80","xbar=50 km","sx=20 km","ybar=6 days","sy=4 days"],"lines":[{"id":"L1","expression":"b=r(sy/sx)=0.8(4/20)=0.16 day/km","license":"state governing relationship"},{"id":"L2","expression":"a=ybar-bxbar=6-0.16(50)=-2 days","license":"substitute displayed values"},{"id":"L3","expression":"yhat=-2+0.16x","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["b=4.0","a=+2"],"correct_result":"b=0.16 day/km, a=-2 days","answerText":"Each added kilometre predicts 0.16 day more delay; the -2-day intercept lies outside a meaningful context."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Build and Read the Line in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: b=r(sy/sx)=0.8(4/20)=0.16 day/km
+            - text: b=r(sx/sy)=0.8(20/4)=4.0 day/km
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: a=ybar-bxbar=6-0.16(50)=-2 days
+            - text: a=ybar+bxbar=6+0.16(50)=14 days
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: yhat=-2+0.16x
+            - text: yhat=0.16−2x
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 27: Read the Residual
   #     Concept: residual plots/nonlinearity; Keystone: keystone regression; Area: Endpoint Adjudication; Learning role: PRACTICE; Difficulty: L3; Story role: reveal.
@@ -119,12 +223,12 @@
   - group: ENDP
     at: deletion-diagnostic
     title: "Read the Residual"
-    concept: "residual plots/nonlinearity"
-    reason: "A good correlation can still hide a model failure that biases recovered outcomes."
-    scene: "With the line established, Data Management reveals residuals by distance band. Compare the candidate residual fields and reject the lowest-RMS fit if it leaves a curved or fan-shaped pattern behind."
-    motivation: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete."
+    concept: 30   # residual plots/nonlinearity
+    reason: "The fitted line needs a residual check before it is used to adjust patient follow-up comparisons."
+    scene: "With the line established, Data Management reveals residuals by distance band. Compare their root-mean-square error (RMS) and shapes, rejecting a lower RMS when its curved or fan-shaped pattern shows systematic error."
+    motivation: "Residual structure determines whether the distance model systematically misses curvature or changing variability."
     format: RESIDUAL
-    question: "fields A random scatter RMS2.1, B U-shape RMS1.8, C fan RMS1.9; correct A despite higher RMS; residual sign labels positive=underprediction, negative=overprediction."
+    question: "Compare three residual fields: A has random scatter and root-mean-square error (RMS) 2.1, B has a U-shape and RMS 1.8, and C has a fan shape and RMS 1.9. Submit the valid model and interpret residual signs."
     answerText: "The completed check shows choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS."
     why: "Random residual scatter supports linear form; structure means the missingness rule remains incomplete."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -135,6 +239,48 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   residual: {visible_prompt: "fields A random scatter RMS2.1, B U-shape RMS1.8, C fan RMS1.9; correct A despite higher RMS; residual sign labels positive=underprediction, negative=overprediction.", keyed_result: "Choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS.", feedback: "Lowest RMS always wins; reject structured error", answerText: "Use the keyed result and explanation printed below."}
+    residual:
+      fits:
+        - id: patterned_low_error
+          label: lower average error but patterned residuals
+          rms: 0.18
+          structured: true
+          residuals:
+            - x: 1
+              y: -0.12
+              value: -0.12
+            - x: 2
+              y: -0.06
+              value: -0.06
+            - x: 3
+              y: 0
+              value: 0
+            - x: 4
+              y: 0.06
+              value: 0.06
+            - x: 5
+              y: 0.12
+              value: 0.12
+        - id: unpatterned_generalising
+          label: slightly higher error with no directional pattern
+          rms: 0.21
+          residuals:
+            - x: 1
+              y: 0.05
+              value: 0.05
+            - x: 2
+              y: -0.04
+              value: -0.04
+            - x: 3
+              y: 0.02
+              value: 0.02
+            - x: 4
+              y: -0.03
+              value: -0.03
+            - x: 5
+              y: 0.01
+              value: 0.01
+      accept: unpatterned_generalising
 
   # --- Stop 28: Test the Fast-Site Point
   #     Concept: outlier/leverage/influence and missingness; Keystone: keystone regression/sampling bias; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L4; Story role: decision.
@@ -142,10 +288,10 @@
   - group: ENDP
     at: site-comparison-board
     title: "Test the Fast-Site Point"
-    concept: "outlier/leverage/influence and missingness"
-    reason: "The complete-case rule depends on whether one extreme-x site controls the line."
+    concept: 23   # outlier/leverage/influence and missingness
+    reason: "The acceptable residual field leaves one distant fast site needing an influence test."
     scene: "The residual field is acceptable, but the far-right fast-site point may pull the fitted slope. Remove that point while holding all other records fixed, refit, measure slope change, then restore it."
-    motivation: "A substantial line change makes the point influential and blocks an unqualified complete-case analysis."
+    motivation: "The refitted slope change determines whether a single site materially controls the distance adjustment."
     format: CONTROL
     question: "Choose fast-site point from candidate controls fast-site point, ordinary residual-outlier point, and display scale. Measure slope at 0.16 day/km, change only the fast-site-point control by removing that point while all other records and the fitted method remain fixed, measure the slope after refitting, restore the point and remeasure, then submit both slopes and whether the point is influential."
     # MODEL CONVERSION. The bible's `candidates` are the engine's `variables` and
@@ -155,20 +301,18 @@
     # wants the signed change between them, so 0.10 - 0.16 = -0.06 day/km.
     # The restore step is the engine's own behaviour and needs no field.
     control:
-      observable: { label: "Slope", unit: "day/km" }
       variables:
-      - { id: fast_site, label: "fast-site point" }
-      - { id: residual_outlier, label: "ordinary residual-outlier point" }
-      - { id: display_scale, label: "display scale" }
-      held: ["all other records", "least-squares method"]
+        - id: fast_site
+          label: fast-site point
+        - id: residual_outlier
+          label: ordinary residual-outlier point
+        - id: display_scale
+          label: display scale
+      held:
+        - all other records
+        - least-squares method
       truth: fast_site
-      baseline: 0.16
-      response: -0.06
-      noise: 0.005
-      changeVerb: "Remove"
-      run: "Refit the line"
-      commit: "Name the influential control"
-    answerText: "Removal changes slope from .16 to .10, a large change, so the point is influential. Complete cases overrepresent nearby patients."
+    answerText: "Removal changes slope from.16 to.10, a large change, so the point is influential. Complete cases overrepresent nearby patients."
     why: "A substantial line change makes the point influential and blocks an unqualified complete-case analysis."
     # wrong-path feedback, one rebuttal per wrong option:
     #   three readings in day/km and conclusion pair

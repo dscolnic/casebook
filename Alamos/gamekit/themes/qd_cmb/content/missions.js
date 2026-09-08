@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "RECV",
         "lesson": 1,
-        "task": "Find out what the signal depends on"
+        "task": "Find out what the signal depends on",
+        "person": true
       },
       {
         "group": "HORN",
@@ -66,7 +67,8 @@ export const MISSIONS = [
       {
         "group": "COSMO",
         "lesson": 1,
-        "task": "Cool the early universe forward"
+        "task": "Cool the early universe forward",
+        "person": true
       },
       {
         "group": "COSMO",

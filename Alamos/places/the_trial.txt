@@ -1,0 +1,143 @@
+THE TRIAL (theme: the_trial) — PLACES AND LOCATIONS
+Methodology & Operations Lead · CLARION-3
+Course: AP Statistics — experimental design and inference, through a running
+clinical trial
+Grade 12. One mission is called a Day.
+Delivery: The Monitoring Board Pack — the board is in REG. 15 pieces, one a
+day.
+
+Run it:  cd gamekit && THEME=the_trial npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Fenwick Coordinating Centre, as data. Three floors of it.
+
+A spine with rooms down both sides is the shape the engine builds. This place
+is three of them, stacked, and the stack is the point: **the walk from the
+patient to the number is a climb.**
+
+  Level 0, at ground     the clinic and the stores. Screening, the infusion
+                         bay, the monitors' room, the lab, and the kit
+                         warehouse where the blind is four thousand identical
+                         boxes in numbered order.
+  Level 1, +4.2 m        the working floor. Data management, adjudication,
+                         statistics, regulatory. Nobody here knows an arm.
+  Level 2, +8.4 m        past the firewall. Randomisation, the unblinded
+                         statistician, the monitoring board room, the master
+                         file. The blinded/unblinded boundary is not a door
+                         in this building. It is a flight of stairs.
+
+**Why the levels are also offset along z.** `groundHeight(x, z)` is the
+engine's one source of truth for floor height and it takes no third argument,
+and collision boxes are tested in x and z with the player's own y ignored — so
+two rooms at the same (x, z) on different floors would share a floor height
+and each other's walls. Offsetting each level along the spine keeps every
+(x, z) belonging to exactly one floor, which means the height function, the
+colliders, the map, the waypoint and the day's travel budget all keep working
+unchanged. The building reads as a section: three storeys stepping back, with
+a stair well at each joint and a void to see down through.
+
+  z = -8 … 22    level 0, floor at y = 0
+  z = 22 … 28    the lower stair, rising 4.2 m
+  z = 28 … 54    level 1, floor at y = 4.2
+  z = 54 … 60    the upper stair, and the firewall gates at the top of it
+  z = 60 … 84    level 2, floor at y = 8.4
+
+Load-bearing rather than decorative:
+
+  · Every `group` below is a group id in content/groups.js. A group with no
+    room is a call the player cannot reach and only `worldParity` notices.
+  · The rooms with no group carry the place: goods in, the infusion bay, the
+    sample store, the randomisation office, the master file.
+  · `open: true` means no spine wall — the infusion bay is glazed to the
+    corridor and the data floor really is open to it. Nowhere else.
+  · `openEnds` on a level's own plan is what lets the shell continue into the
+    stair instead of ending in a wall. `engine/world/interiorSite.js` honours
+    it; `themes/the_trial/world.js` builds what is on the other side.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+SITE — Site Operations
+  Monitors’ Room   [MONITOR]  side w, level 0, z 12 … 21, floor y 0
+  31 hospitals, and the distance between a chart and a database.
+  Calls: Visit the site · Verify the source · Close the query · Ready to hand
+  over
+
+RAND — Randomisation & Blinding
+  Kit Warehouse & Cold Room   [KIT]  side e, level 0, z 8 … 21, floor y 0
+  How an arm is assigned, and what has to be true for nobody to know which.
+  Calls: Read the allocation · Hold the blind · Account for the kit · Ready to
+  hand over
+
+STAT — Statistical Analysis
+  Statistics & Analysis   [STATS]  side w, level 1, z 39 … 50, floor y 4.2
+  Power, boundaries, intervals, and what a number is entitled to claim.
+  Calls: State the question · Fix the rule · Estimate the effect · Ready to
+  hand over
+
+ENDP — Endpoints & Measurement
+  Adjudication Room   [ADJUD]  side e, level 1, z 29 … 39, floor y 4.2
+  What is being counted, who counts it, and how the counting can go wrong.
+  Calls: Define the event · Adjudicate the file · Check the measurement ·
+  Ready to hand over
+
+REG — Regulatory & Reporting
+  Regulatory & Registry   [REG]  side e, level 1, z 39 … 49, floor y 4.2
+  DELIVERY ROOM — the board for The Monitoring Board Pack is here.
+  What was promised in advance, and what has to be said out loud afterwards.
+  Calls: Find the commitment · Record the change · State the result · Ready to
+  hand over
+
+SAFE — Safety Monitoring
+  Monitoring Board Room   [BOARD]  side w, level 2, z 69 … 81, floor y 8.4
+  What harm looks like early, and who is allowed to see it.
+  Calls: Read the report · Rate the event · Brief the board · Ready to hand
+  over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Screening & Consent   [SCREEN]  side w, level 0, z -6 … 2
+Infusion Bay   [INFUSE]  side w, level 0, z 2 … 12, OPEN
+Goods In   [GOODS]  side e, level 0, z -6 … 0
+Central Lab & Sample Store   [LAB]  side e, level 0, z 0 … 8
+Data Management Floor   [DATA]  side w, level 1, z 29 … 39, OPEN
+Kitchen   [TEA]  side w, level 1, z 50 … 53
+Records Store   [FILES]  side e, level 1, z 49 … 53
+Unblinded Statistics   [UNBLIND]  side w, level 2, z 61 … 69
+Randomisation Office   [RANDOM]  side e, level 2, z 61 … 71
+Trial Master File   [ARCHIVE]  side e, level 2, z 71 … 81
+
+Metrics   corridorHalfWidth 2, roomDepth 8, ceilingH 3
+Floor-to-floor rise: 4.2 m
+
+==============================================================================
+THE DELIVERY — The Monitoring Board Pack
+==============================================================================
+   1. The pre-specified claims
+   2. The measurement procedures
+   3. The two-site safety signal
+   4. The unplanned look, accounted
+   5. The fast site's audit
+   6. The amendment's cost in events
+   7. The missing-data rule
+   8. The cold-room exposure note
+   9. The blinding survey result
+  10. The bias-adjusted estimate
+  11. The locked file
+  12. The three separated problems
+  13. The multiplicity correction
+  14. The stop-or-continue trade-off
+  15. The signed board pack
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/the_trial/ — site/plan, fixtures, minors, groups, theme.

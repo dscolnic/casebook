@@ -1,6 +1,23 @@
 {
   "_comment": "Missions whose stake does not say what the player decides in the \"Today you …\" shape (checkStory.mjs). A campaign written in the imperative says it in words the rule's regex cannot see. Same ratchet as the other debt files here.",
   "themes": {
+    "bring_them_home": [
+      "Shift 1 (The Failure)",
+      "Shift 2 (Find the Spacecraft)",
+      "Shift 3 (The Wrong Trajectory)",
+      "Shift 4 (Turn Without Wasting Fuel)",
+      "Shift 5 (The Power Budget)",
+      "Shift 6 (A Dangerous Battery Configuration)",
+      "Shift 7 (The Cabin Is Cooling)",
+      "Shift 8 (The Air Problem)",
+      "Shift 9 (Communication Fades)",
+      "Shift 10 (A Blind Maneuver)",
+      "Shift 11 (Crossing the Atmosphere)",
+      "Shift 12 (The Structure Is Vibrating)",
+      "Shift 13 (Choose the Return Path)",
+      "Shift 14 (The Last Correction)",
+      "Shift 15 (Reentry)"
+    ],
     "carrying": [
       "Day 1 (What does Vellan actually depend on?)",
       "Day 4 (The salt warning)",
@@ -66,6 +83,11 @@
       "Stage 7 (When Defense Becomes Damage)",
       "Stage 10 (A Variant Rises)"
     ],
+    "redsand_v5": [
+      "Shift 1 (The Shortfall)",
+      "Shift 2 (The Feedstock Problem)",
+      "Shift 3 (Pressure Does Not Lie. Or Does It?)"
+    ],
     "yellowbay": [
       "Day 1 (Is the silicon itself wrong?)",
       "Day 2 (Why Yellow Bay is yellow)",
@@ -82,23 +104,6 @@
       "Day 13 (Freeze the process)",
       "Day 14 (The dress rehearsal)",
       "Day 15 (The batch that decides the plant)"
-    ],
-    "bring_them_home": [
-      "Shift 1 (The Failure)",
-      "Shift 2 (Find the Spacecraft)",
-      "Shift 3 (The Wrong Trajectory)",
-      "Shift 4 (Turn Without Wasting Fuel)",
-      "Shift 5 (The Power Budget)",
-      "Shift 6 (A Dangerous Battery Configuration)",
-      "Shift 7 (The Cabin Is Cooling)",
-      "Shift 8 (The Air Problem)",
-      "Shift 9 (Communication Fades)",
-      "Shift 10 (A Blind Maneuver)",
-      "Shift 11 (Crossing the Atmosphere)",
-      "Shift 12 (The Structure Is Vibrating)",
-      "Shift 13 (Choose the Return Path)",
-      "Shift 14 (The Last Correction)",
-      "Shift 15 (Reentry)"
     ]
   }
 }

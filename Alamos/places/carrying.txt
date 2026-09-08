@@ -1,0 +1,236 @@
+CARRYING CAPACITY (theme: carrying) — PLACES AND LOCATIONS
+Island Resources Officer · Vellan Island, fifteen days to the ferry vote
+Course: AP Environmental Science, all nine units
+Grade 12. One mission is called a Day.
+Delivery: The Second-Ferry Plan — the board is in COMMON. 15 pieces, one a
+day.
+
+Run it:  cd gamekit && THEME=carrying npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Vellan Island, as data. Outdoor.
+
+AN ISLAND, WHICH IS WHY THIS COURSE FITS HERE. Every quantity in AP
+Environmental Science is a budget, and on an island every budget closes: the
+water is what falls on it, the fish are what the boats do not take, the power
+is what arrives on the cable or is made on the hill, and the waste stays.
+Nothing here can be exported to somewhere off the map, which is the one thing
+a mainland site lets a student assume.
+
+Looking down, -Z is north and away from the player at spawn:
+
+                 [ Reef Station ]                        z = -318
+       [ Tip ]                    [ Turbine Yard ]        z = -206
+             [ Waterworks ]   [ Common ]                  z =  -30
+                    [ Harbour Office ]                    z =   40
+                       ¤ spawn ¤                          z =   75
+
+The island is a mesa with a hard coast on every bearing, and the only way off
+it is the ferry berth at the south end — so `rimRadius` wobbles rather than
+opening a neck the way Wellmere's causeway does. The horizon is empty on all
+four bearings except a low mainland smudge to the south-east, which is where
+the ferry, the cable and every argument about visitors comes from.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+HARB — Harbour Office
+  Harbour Office  ·  Landings and the ferry
+  (6, 40)   36 m from spawn   22 x 14 x 7.2
+  Landings, the quota, the ferry and who is on the island.
+  Calls: Read the landings · Work the stock · Set the rule · Ready for the
+  council
+  Fixtures (at: targets):
+    landings-book      bench  left
+      The landings book — Nineteen years of it, by hand, with the column the
+      electronic one loses.
+    fee-desk           board  back
+      The landing fee desk — What every tonne over the rail pays, and what the
+      fees are spent on.
+
+WATER — Waterworks
+  Waterworks  ·  The borehole and the store
+  (-52, -30)   117 m from spawn   20 x 15 x 7.6
+  Rain in, borehole out, and the salt behind both.
+  Calls: Measure the recharge · Balance the store · Find the salt · Ready for
+  the council
+  Fixtures (at: targets):
+    rain-bench         bench  left
+      The rain gauge bench — Fourteen years of readings taken by hand at
+      seven, because the automatic one under-reads in wind.
+    store-gauges       board  back
+      The store gauges — The borehole meter, the tank levels, and the chloride
+      trace under both.
+
+COMMON — Common Office
+  Common Office  ·  Grazing, gardens and the sheds
+  (56, -30)   119 m from spawn   20 x 13 x 6.6
+  DELIVERY ROOM — the board for The Second-Ferry Plan is here.
+  Grazing, gardens, soil and what is sprayed on them.
+  Calls: Walk the common · Read the soil · Weigh the inputs · Ready for the
+  council
+  Fixtures (at: targets):
+    soil-bench         bench  left
+      The soil bench — Cores off the common, laid out in the order they came
+      out of the pit.
+    windrow-panel      board  back
+      The windrow panel — Salinity and temperature down the compost heap, week
+      by week.
+    nitrogen-bench     bench  right
+      The nitrogen bench — Clover, imported fertiliser, dung and compost,
+      weighed separately.
+    common-map         board  back
+      The plan of the common — Forty-one shares over sixty-two hectares, with
+      the plant list pinned beside it.
+
+POWER — Turbine Yard
+  Turbine Yard  ·  Diesel house and the hill
+  (94, -206)   296 m from spawn   22 x 15 x 8
+  Diesel, the hill, and what a kilowatt-hour costs here.
+  Calls: Meter the demand · Rate the machines · Cost the change · Ready for
+  the council
+  Fixtures (at: targets):
+    meter-board        board  back
+      The demand board — Four years of half-hourly demand, and the July
+      evening that sizes the plant.
+    fuel-bench         bench  left
+      The fuel ledger — Every delivery note for the year, and what came out of
+      the sets against it.
+    turbine-plate      board  right
+      The turbine plate and log — 250 kilowatts on the plate, and the last
+      full year it actually ran.
+    gearbox-crate      rack   left  [from day 13]
+      The gearbox, crated — Eleven weeks to fit, and two years of waiting
+      behind it.
+
+TIP — Tip and Sorting Yard
+  Tip and Sorting Yard  ·  Everything that stays
+  (-96, -206)   297 m from spawn   24 x 16 x 6.4
+  Everything that stays, and what leaks out of it.
+  Calls: Weigh the arrivals · Trace the leachate · Count the gas · Ready for
+  the council
+  Fixtures (at: targets):
+    leachate-bench     bench  left
+      The leachate bench — The collection sump's log, kept because the hole is
+      up-catchment of the borehole.
+    weighbridge        board  back
+      The weighbridge readout — Everything that arrives, weighed. Two hundred
+      and four tonnes last year.
+    lab-bench          bench  right
+      The sample bench — The stream below the tip, in three sets of units
+      nobody has reconciled.
+    open-cell-frame    rack   right [until day 10]
+      The uncapped cell frame — Waiting on this year's money. Until it is
+      capped the cell vents where it likes.
+
+REEF — Reef Station
+  Reef Station  ·  The point, and the water off it
+  (4, -318)   393 m from spawn   20 x 14 x 6.8
+  The species the island keeps, and the water they live in.
+  Calls: Count the transect · Read the tolerance · Test the claim · Ready for
+  the council
+  Fixtures (at: targets):
+    transect-bench     bench  left
+      The transect bench — Eleven springs of cover on eleven lines, the
+      longest record on the island.
+    flow-tank          vessel right
+      The flow tank — Holds a reef fragment at a set temperature for six weeks
+      at a time.
+    water-rack         rack   back
+      The bay water rack — Temperature, dissolved oxygen and nitrate off the
+      inner bay, month by month.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+BERTH — Ferry Berth  ·  "Tuesdays and Fridays"
+  (-30, 96)   37 m from spawn   14 x 9 x 4.8
+  Sited calls:
+    berth-standpipe    vessel left
+      The berth standpipe — Where a sailing takes on fresh water. Six cubic
+      metres a crossing.
+  Stand line: "Everything that arrives on Vellan arrives through this gate,
+  uninspected."
+    Sailings a week: 2 (normal)
+    Fresh water a crossing: 6 m³ (normal)
+    July day visitors: 340 (high)
+    Berth inspections: none (alarm)
+
+SCHOOL — Island School  ·  "Nineteen on the register"
+  (48, 24)   70 m from spawn   16 x 11 x 6
+  Sited calls:
+    school-tap         vessel left
+      The school tap — Sampled separately since Nkemdi asked three times. The
+      highest reading on the network.
+    register-desk      bench  back
+      The register desk — Nineteen names, ages five to eleven, and two of them
+      leaving in August.
+  Stand line: "The same water is a different dose for the smallest body
+  drinking it."
+    On the register: 19 (low)
+    Leaving in August: 2 (alarm)
+    School tap nitrate: 11.2 mg/L (high)
+    Distribution main: 8.4 mg/L (normal)
+
+CHAPEL — Chapel and Hall  ·  "Where the council meets"
+  (-46, 12)   78 m from spawn   13 x 16 x 8.4
+  Sited calls:
+    pack-table         bench  back
+      The council table — Where the pack is read out at seven. Nine seats,
+      four of them undecided.
+  Stand line: "A figure with no period on it comes back in three years as a
+  fact."
+    Seats on the council: 9 (normal)
+    Pack closes: 16:00 (high)
+    Vote: 19:00 (alarm)
+    Conditions drafted: see the board (normal)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Old Light  ·  "Unlit since 1974"
+  (-8, -366)   441 m   7 x 7 x 15.5
+Island Board
+  (16, 66)
+Spawn
+  (0, 75)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 1200, playerLimit 372, profile 'mesa'
+Water     centre (0, 0), 2600 x 2600, level -6.2
+
+==============================================================================
+THE DELIVERY — The Second-Ferry Plan
+==============================================================================
+   1. What the island actually depends on
+   2. The groundwater recharge estimate
+   3. The ecological limits
+   4. The aquifer warning
+   5. The fishery ceiling
+   6. The enforcement plan
+   7. The hidden losses
+   8. The school-water finding
+   9. The waste and land-use controls
+  10. The reef evidence
+  11. The energy and emissions ledger
+  12. The leak and turbine case
+  13. The biosecurity rule
+  14. The population outlook
+  15. The conditional ferry recommendation
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/carrying/ — site/plan, fixtures, minors, groups, theme.

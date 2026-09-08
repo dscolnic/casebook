@@ -6,13 +6,21 @@
     header: "15 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE SHORTFALL"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the carbon ledger."
-    body: "The ascent vehicle still lacks the methane fuel needed to carry the crew home. The crew suspects a leak, but closing the wrong valves could waste a shift and reduce production. At Plant Control, classify samples, convert tank mass into moles, and account for the carbon entering and leaving the plant. By the end of the mission, decide whether a large methane leak can explain the shortage."
+    body: "The Mars crew does not have enough methane fuel to get home. They suspect a leak, but shutting the wrong valves would waste time and stop useful production. Use chemistry to compare samples and track the carbon, then decide whether a large leak explains the shortage."
     objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
   objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
-  stake: "The ascent vehicle still lacks the methane fuel needed to carry the crew home. The crew suspects a leak, but closing the wrong valves could waste a shift and reduce production. At Plant Control, classify samples, convert tank mass into moles, and account for the carbon entering and leaving the plant. By the end of the mission, decide whether a large methane leak can explain the shortage."
+  stake: "The Mars crew does not have enough methane fuel to get home. They suspect a leak, but shutting the wrong valves would waste time and stop useful production. Use chemistry to compare samples and track the carbon, then decide whether a large leak explains the shortage."
   takeaway: "A nearly closed carbon ledger weakens a large methane-leak explanation; it does not identify the real cause."
   segue: "Mission decision: A large methane leak cannot explain the fuel gap. The new count finds 99.8% of the carbon. Work on random valves stops. The plant still needs fuel. The next test asks if the air intake brings in enough carbon dioxide."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Particle", def: "one counted piece of matter. In this mission, a particle may be an atom, a molecule, or an ion."}
+  - {name: "Atom", def: "the smallest ordinary piece of one kind of matter that keeps that identity. Counting atoms lets the plant check whether matter has disappeared."}
+  - {name: "Ion", def: "an atom or group of atoms with an electrical charge. It is not the same thing as a neutral atom or molecule."}
+  - {name: "Mole", def: "a fixed count of particles, the same count for every substance. One mole contains 6.022 x 10^23 particles; one kilomole contains one thousand moles."}
+  equations:
+  - {"e":"moles = grams / molar mass; particles = moles x 6.022 x 10^23","c":"turning a mass on a scale into a count of particles","v":[["grams","the measured mass"],["molar mass","the grams in one mole"],["6.022 x 10^23","Avogadro's number, the particles in one mole"]],"s":"The tank scale reports mass, but the reactor and atom ledger must count particles before the crew can decide whether fuel is missing."}
+  - {"e":"unaccounted amount = amount entering - amount accounted for","c":"closing a material ledger","v":[["amount entering","the measured input"],["amount accounted for","the total in products, recycle, samples, and measured losses"]],"s":"The crew should hunt a leak only if the carbon entering the plant cannot be found in known streams."}
   primer:
   - "Matter can change form during a reaction, but atoms are not created or destroyed."
   - "A mass shortage is not automatically a leak; first ask whether the unit conversion and atom count close."
@@ -39,7 +47,7 @@
     # unlocks: Stop 2 at the conversion board; Stop 3 unlocks immediately after Stop 2.
     bubbles:
     - who: abiola   # Abiola
-      say: "Good. If the software calls every object the same kind of particle, the count can be correct and the conclusion can still be wrong."
+      say: "Nice work. If the software calls every object the same kind of particle, the count can be correct and the conclusion can still be wrong."
   - id: after-stops-2-and-3
     # After Stops 2 and 3 | conversion board | automatic transition
     on: { after: [2, 3] }
@@ -48,7 +56,7 @@
     # unlocks: Stop 4 at the carbon ledger.
     bubbles:
     - who: abiola   # Abiola
-      say: "Now the tank scale and the reactor model are speaking the same language. Open the carbon ledger."
+      say: "Good thinking. Now the tank scale and the reactor model are speaking the same language. Open the carbon ledger."
   - id: after-stop-4
     # After Stop 4 | carbon ledger | automatic discovery
     on: { after: [4] }
@@ -57,7 +65,7 @@
     # unlocks: The Mission 1 outcome beat.
     bubbles:
     - who: abiola   # Abiola
-      say: "We are still short of methane. We may not be short of carbon."
+      say: "Exactly right. We are still short of methane. We may not be short of carbon."
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,9 +74,83 @@
     # unlocks: Mission 2 briefing and the Atmosphere Intake waypoint.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "Then the Martian air may never be reaching the reactor in the first place."
+      say: "Outstanding work. You solved the mission. Then the Martian air may never be reaching the reactor in the first place."
     - who: abiola   # Abiola
       say: "Do not increase compressor power. The Propellant Lead will test that claim first."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Shortfall. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Electric charge", def: "a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral."}
+    - {name: "Electron", def: "a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge."}
+    - {name: "Chemical bond", def: "a strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms."}
+    - {name: "Chemical reaction", def: "rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change."}
+    - {name: "Molecule", def: "two or more atoms joined by chemical bonds. Methane and carbon dioxide are molecules, so one molecule contains several atoms."}
+    - {name: "Molar mass", def: "the mass of one mole of a substance. It connects a mass on a scale to the number of particles in the plant."}
+    questions:
+    - prompt: "In a follow-up to The Shortfall, before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Electric charge?"
+      hint: "Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.", why: "This describes Electron, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "Correct. a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral."}
+      - {key: "C", text: "A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.", why: "This describes Chemical bond, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change.", why: "This describes Chemical reaction, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Shortfall: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Electron?"
+      hint: "Use the stated evidence and the conditions for Electron; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "This describes Electric charge, not Electron. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.", why: "This describes Chemical bond, not Electron. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.", why: "Correct. a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge."}
+      - {key: "D", text: "Rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change.", why: "This describes Chemical reaction, not Electron. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Shortfall using new evidence: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Chemical bond?"
+      hint: "Use the stated evidence and the conditions for Chemical bond; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "This describes Electric charge, not Chemical bond. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.", why: "This describes Electron, not Chemical bond. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change.", why: "This describes Chemical reaction, not Chemical bond. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.", why: "Correct. a strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms."}
+    - prompt: "An unseen case extends The Shortfall: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Chemical reaction?"
+      hint: "Use the stated evidence and the conditions for Chemical reaction; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change.", why: "Correct. rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change."}
+      - {key: "B", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "This describes Electric charge, not Chemical reaction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.", why: "This describes Electron, not Chemical reaction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.", why: "This describes Chemical bond, not Chemical reaction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Shortfall decision, the team knows this: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Molecule?"
+      hint: "Use the stated evidence and the conditions for Molecule; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "This describes Electric charge, not Molecule. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Two or more atoms joined by chemical bonds. Methane and carbon dioxide are molecules, so one molecule contains several atoms.", why: "Correct. two or more atoms joined by chemical bonds. Methane and carbon dioxide are molecules, so one molecule contains several atoms."}
+      - {key: "C", text: "A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.", why: "This describes Electron, not Molecule. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.", why: "This describes Chemical bond, not Molecule. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Shortfall to this follow-up: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Molar mass?"
+      hint: "Use the stated evidence and the conditions for Molar mass; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.", why: "This describes Electric charge, not Molar mass. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.", why: "This describes Electron, not Molar mass. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The mass of one mole of a substance. It connects a mass on a scale to the number of particles in the plant.", why: "Correct. the mass of one mole of a substance. It connects a mass on a scale to the number of particles in the plant."}
+      - {key: "D", text: "A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.", why: "This describes Chemical bond, not Molar mass. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 1: worked examples"
+    examples:
+    - {"title":"Mass and amount","problem":"A sample contains 18 g of water. Use molar mass M=18 g/mol. Find amount n.","rule":"n=m/M.","steps":["Set up the relationship: n=m/M.","n=18/18=1 mol."],"answer":"The sample contains 1 mol of water molecules.","mistake":"Grams measure mass; moles measure amount."}
+    - {"title":"Count molecules","problem":"A sample contains 0.5 mol of nitrogen molecules. Use Avogadro constant N_A=6×10²³ molecules/mol for this example.","rule":"N=nN_A.","steps":["Set up the relationship: N=nN_A.","N=0.5(6×10²³)=3×10²³ molecules."],"answer":"There are approximately 3×10²³ molecules.","mistake":"Each nitrogen molecule contains two atoms; the molecule count is not the atom count."}
+    - {"title":"Count atoms in a formula","problem":"How many moles of oxygen atoms are in 2 mol of CO₂ molecules?","rule":"Each CO₂ molecule has two oxygen atoms.","steps":["Set up the relationship: Each CO₂ molecule has two oxygen atoms.","n_oxygen_atoms=2(2)=4 mol."],"answer":"The sample contains 4 mol of oxygen atoms.","mistake":"The subscript applies to oxygen, not to every atom in the molecule."}
+    - {"title":"Count electrons in an ion","problem":"A magnesium nucleus has 12 protons. How many electrons does Mg²⁺ have?","rule":"Positive charge means fewer electrons than protons.","steps":["neutral electron count=12.","ion electron count=12-2=10."],"answer":"Mg²⁺ has 10 electrons and 12 protons.","mistake":"Forming this ion changes electrons, not the number of protons."}
+    - {"title":"Balance a reaction","problem":"Balance H₂ + O₂ → H₂O without changing chemical formulas.","rule":"Coefficients conserve each element; subscripts identify substances.","steps":["Place 2 before H₂O so the product has two oxygen atoms.","Place 2 before H₂ to supply four hydrogen atoms: 2H₂ + O₂ → 2H₂O."],"answer":"Both sides contain four hydrogen atoms and two oxygen atoms.","mistake":"Changing H₂O to H₂O₂ would change the product."}
 
   stops:
   # --- Stop 1: Labels on the sample tray
@@ -78,10 +160,10 @@
     at: sample-tray
     title: "Labels on the sample tray"
     person: abiola
-    concept: "particles"
-    reason: "The ledger cannot be trusted until every sample type is identified."
-    scene: "Before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. This gives every later calculation a trustworthy starting point."
-    motivation: "Correct labels prevent the plant from counting unlike particles as though they were interchangeable."
+    concept: 1   # particles
+    reason: "The shortage investigation cannot compare samples until their chemical labels are interpreted consistently."
+    scene: "Before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly."
+    motivation: "Distinguishing atoms, molecules, and ions prevents the first inventory from counting different kinds of particles as equivalent."
     format: CHOICE
     question: "Which classification is completely correct?"
     choices:
@@ -103,10 +185,10 @@
   - group: GIBBS
     at: conversion-board
     title: "How much methane is missing?"
-    concept: "grams-moles-particles"
-    reason: "The tank scale and reactor model must use the same amount units."
-    scene: "With the samples labeled correctly, convert the reported methane shortage from tank mass into the molecule count used by the reactor model. The result lets the two records be compared without guessing."
-    motivation: "The crew cannot compare a tank scale with molecular production until both are expressed through moles."
+    concept: 1   # grams-moles-particles
+    reason: "The sample labels are checked, but the methane mass record still needs comparison with a particle count."
+    scene: "The tank report lists a methane shortfall of 1.60 × 10^3 kg. Use 1000 g/kg, methane molar mass 16.04 g/mol, and Avogadro's constant 6.022 × 10^23 molecules/mol to compare mass with particle count."
+    motivation: "The molecule total puts the methane inventory on the same counting basis as the production record."
     format: BALLPARK
     question: "Estimate the number of methane molecules represented by the shortfall."
     # CONVERTED from the bible's `data` and `correct result` lines below. The four
@@ -142,10 +224,10 @@
   - group: GIBBS
     at: conversion-board
     title: "Rebuild the conversion"
-    concept: "dimensional analysis"
-    reason: "A deleted conversion could create the shortage the crew thinks it sees."
+    concept: 1   # dimensional analysis
+    reason: "A deleted spreadsheet formula could have created the apparent shortage before any material was lost."
     scene: "Because a deleted formula could create a false shortage, rebuild the full mass-to-molecules conversion before trusting yesterday's estimate. A complete unit path will expose whether the estimate is artificial before repairs begin."
-    motivation: "A broken unit chain could create a false shortfall and send technicians after a leak that does not exist."
+    motivation: "The complete mass-to-molecule conversion determines whether the earlier methane estimate has a valid unit path."
     format: SEQUENCE
     question: "Put the methane conversion workflow in order."
     # CONVERTED from the bible's `data` line below; `correct result: As listed`.
@@ -170,25 +252,47 @@
   - group: GIBBS
     at: ledger
     title: "Close the first carbon ledger"
-    concept: "atom conservation"
-    reason: "The first repair decision depends on whether carbon is actually missing."
-    scene: "Use the corrected counts to total every carbon stream and decide whether enough carbon is actually missing to support a large methane leak. The closed balance will determine whether leak work should continue."
-    motivation: "If carbon is still inside the process, the supposedly missing methane may never have leaked."
+    concept: 2   # atom conservation
+    reason: "The conversion is checked and the carbon inputs must now be reconciled with the outputs."
+    scene: "The ledger records 100.0 kmol of carbon entering the interval, with 81.6 kmol in methane, 17.9 kmol in recycled carbon dioxide, and 0.3 kmol in samples and measured vents. A separate row lists 160.0 kmol of water coproduct."
+    motivation: "The unassigned carbon fraction tests whether a large methane leak is compatible with the material balance."
     format: BALANCE
     question: "Count the legitimate carbon streams and close the ledger."
     # CONVERTED from the payload below. `target` -> `total`; `count:` -> `countable:`;
     # `closure.tolerance` -> `tolerance`; `closure.residual` becomes the hidden
     # stream, which is what the engine's ledger is short by until it is found.
     balance:
-      total: { amount: 100.0, unit: "kmol C", label: "Carbon entering interval" }
-      tolerance: 0.1
+      target:
+        label: Carbon entering interval
+        value: 100
+        unit: kmol C
       streams:
-      - { id: methane_product, label: "Carbon in methane product", value: 81.6, unit: "kmol C" }
-      - { id: recycle_co2, label: "Carbon in recycle CO2", value: 17.9, unit: "kmol C" }
-      - { id: sample_and_vents, label: "Carbon in samples and measured vents", value: 0.3, unit: "kmol C" }
-      - { id: water, label: "Water coproduct", value: 160.0, unit: "kmol H2O", countable: false }
-      - { id: unassigned, label: "Carbon unassigned", value: 0.2, unit: "kmol C", hidden: true }
-      commit: "Report the total carbon"
+        - id: methane_product
+          label: Carbon in methane product
+          value: 81.6
+          unit: kmol C
+          count: true
+        - id: recycle_co2
+          label: Carbon in recycle CO2
+          value: 17.9
+          unit: kmol C
+          count: true
+        - id: sample_and_vents
+          label: Carbon in samples and measured vents
+          value: 0.3
+          unit: kmol C
+          count: true
+        - id: water
+          label: Water coproduct
+          value: 160
+          unit: kmol H2O
+          count: false
+      closure:
+        value: 99.8
+        unit: kmol C
+        residual: 0.2
+        tolerance: 0.1
+      correct_action: Count the three carbon-bearing streams; exclude water and the schedule gap.
     answerText: "The ledger accounts for 99.8 kmol C and leaves only 0.2 kmol C unassigned."
     why: "One mole of CO2 and one mole of CH4 each contain one mole of carbon atoms. Add carbon streams as carbon, not total molecular mass. A 0.2% residual can be measurement uncertainty; it cannot explain an 18% methane schedule shortfall. This does not yet prove there is no leak, but it makes a large carbon leak a poor explanation."
     # wrong-path feedback, one rebuttal per wrong option:

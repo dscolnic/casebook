@@ -6,13 +6,17 @@
     header: "DAY 15 - BOARD TODAY"
     title: "The Board Pack"
     goNow: "Go to Regulatory & Registry and meet Mara Voss, trial director, at the delivery board."
-    body: "The follow-up is complete, and every earlier result now feeds one board decision. The final claim must match the design, conditions, uncertainty, error rules, and patient stakes. Audit the pack in Regulatory, verify the source at Adjudication, then execute the rule upstairs. By the end of the mission, decide whether CLARION-3 stops, changes, or continues under safeguards."
+    body: "The final patient follow-up is complete. Check that every claimed benefit and risk matches the study records and the rules agreed before the results arrived. Recommend whether the trial should stop, change, or continue with safeguards that protect its patients."
     objective: "Sign and deliver the Monitoring Board Pack."
   objective: "Sign and deliver the Monitoring Board Pack."
-  stake: "The follow-up is complete, and every earlier result now feeds one board decision. The final claim must match the design, conditions, uncertainty, error rules, and patient stakes. Audit the pack in Regulatory, verify the source at Adjudication, then execute the rule upstairs. By the end of the mission, decide whether CLARION-3 stops, changes, or continues under safeguards."
+  stake: "The final patient follow-up is complete. Check that every claimed benefit and risk matches the study records and the rules agreed before the results arrived. Recommend whether the trial should stop, change, or continue with safeguards that protect its patients."
   takeaway: "Use State-Plan-Do-Conclude for every inference argument. ---"
   segue: "Mission decision: Continue with safeguards. The harm bound is below the written line. The benefit range stays above zero. The board signs the full statistical case."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "State-Plan-Do-Conclude", def: "the four-part structure for a complete inference response."}
+  - {name: "Context", def: "naming the population, variable, units, and decision in statistical conclusions."}
+  - {name: "Safeguard", def: "a required action or threshold protecting patients during continuation."}
   primer:
   - "Do not introduce new analyses in the finale."
   - "Carry earlier results forward even after an arithmetic error; the reasoning can still be assessed."
@@ -25,7 +29,7 @@
   - id: on-arrival-at-regulatory-registry
     # On arrival at Regulatory & Registry | records-wall | automatic
     on: { enter: true, at: REG }
-    world: "Arrival: REG entry; 14 binder slots lit; Mara says, ; - After S1: method links illuminate; waypoint TAKE SOURCE CLAIMS TO ADJUDICATION. - ADJUD after S2: source/scope stamp appears; waypoint CARRY COMPLETE PACK TO MONITORING BOARD. - BOARD after S3: locked rule displays CONTINUE WITH SAFEGUARDS; - Final/outcome: signatures appear, binder slot15 fills, doors open, BOARD PACK ACCEPTED; timer remains paused; metric victory screen unlocks."
+    world: "Arrival: REG entry; 14 binder slots lit; Mara says,; - After S1: method links illuminate; waypoint TAKE SOURCE CLAIMS TO ADJUDICATION. - ADJUD after S2: source/scope stamp appears; waypoint CARRY COMPLETE PACK TO MONITORING BOARD. - BOARD after S3: locked rule displays CONTINUE WITH SAFEGUARDS; - Final/outcome: signatures appear, binder slot15 fills, doors open, BOARD PACK ACCEPTED; timer remains paused; metric victory screen unlocks."
     panel: "MISSION 15: RECONSTRUCT THE EVIDENCE CHAIN OPEN"
     bubbles:
     - who: voss   # Mara Voss
@@ -37,7 +41,7 @@
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
     bubbles:
     - who: voss   # Mara Voss
-      say: "Use the Stop 57 result to settle state the reach."
+      say: "Nice work. Use the Stop 57 result to settle state the reach."
   - id: after-stop-58
     # After Stop 58 | board-console | automatic
     on: { after: [2] }
@@ -45,7 +49,7 @@
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
     bubbles:
     - who: voss   # Mara Voss
-      say: "Use the Stop 58 result to settle apply the trigger."
+      say: "Good thinking. Use the Stop 58 result to settle apply the trigger."
   - id: after-stop-59
     # After Stop 59 | board-table | automatic
     on: { after: [3] }
@@ -53,7 +57,7 @@
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
     bubbles:
     - who: voss   # Mara Voss
-      say: "Use the Stop 59 result to settle sign the statistical argument."
+      say: "Exactly right. Use the Stop 59 result to settle sign the statistical argument."
   - id: at-mission-end
     # At mission end | records-wall | automatic
     on: { missionEnd: true }
@@ -61,7 +65,74 @@
     panel: "MISSION 15 EVIDENCE: RECORDED"
     bubbles:
     - who: voss   # Mara Voss
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Board Pack. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Board Pack, the trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Which option correctly applies State-Plan-Do-Conclude to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for State-Plan-Do-Conclude; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The board can act only when every conclusion remains traceable to the data-generating process.", why: "This describes cumulative matching, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.", why: "Correct. the four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation."}
+      - {key: "C", text: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.", why: "This describes causation/generalization/measurement, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.", why: "This describes integrated interval/trigger, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to The Board Pack: fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which option correctly applies cumulative matching to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for cumulative matching; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.", why: "This describes State-Plan-Do-Conclude, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.", why: "This describes causation/generalization/measurement, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "The board can act only when every conclusion remains traceable to the data-generating process.", why: "Correct. the board can act only when every conclusion remains traceable to the data-generating process."}
+      - {key: "D", text: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.", why: "This describes integrated interval/trigger, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks The Board Pack using new evidence: the reconstructed chain shows random assignment, repaired but not population-random enrollment, verified endpoints, and bounded missingness. Which option correctly applies causation/generalization/measurement to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for causation/generalization/measurement; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.", why: "This describes State-Plan-Do-Conclude, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The board can act only when every conclusion remains traceable to the data-generating process.", why: "This describes cumulative matching, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.", why: "This describes integrated interval/trigger, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.", why: "Correct. a correct calculation can still produce an invalid claim if its population or causal reach is overstated."}
+    - prompt: "An unseen case extends The Board Pack: the final source calls yield an excess-harm 95% upper bound of 1.8 per 1,000, below the prewritten continuation line of 2.0. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses integrated interval/trigger?"
+      hint: "Use the stated evidence and the conditions for integrated interval/trigger; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.", why: "Correct. executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."}
+      - {key: "B", text: "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.", why: "This describes State-Plan-Do-Conclude, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "The board can act only when every conclusion remains traceable to the data-generating process.", why: "This describes cumulative matching, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.", why: "This describes causation/generalization/measurement, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Board Pack decision, the team knows this: the trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Which option correctly applies FRQ State-Plan-Do-Conclude to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for FRQ State-Plan-Do-Conclude; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.", why: "This describes State-Plan-Do-Conclude, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A reproducible argument lets future monitors challenge any step without rewriting the result.", why: "Correct. a reproducible argument lets future monitors challenge any step without rewriting the result."}
+      - {key: "C", text: "The board can act only when every conclusion remains traceable to the data-generating process.", why: "This describes cumulative matching, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.", why: "This describes causation/generalization/measurement, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from The Board Pack to this follow-up: fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.", why: "This describes State-Plan-Do-Conclude, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The board can act only when every conclusion remains traceable to the data-generating process.", why: "This describes cumulative matching, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.", why: "This describes causation/generalization/measurement, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 15: worked examples"
+    examples:
+    - {"title":"A one-proportion test statistic","problem":"A sample of 100 has 60 successes. Test against p0=0.5 using the null standard error.","rule":"z=(p-hat-p0)/sqrt[p0(1-p0)/n].","steps":["Set up the relationship: z=(p-hat-p0)/sqrt[p0(1-p0)/n].","p-hat=60/100=0.6; null SE=sqrt[0.5(0.5)/100]=0.05; z=(0.6-0.5)/0.05=2."],"answer":"The sample result is two null standard errors above the benchmark.","mistake":"The hypothesis-test denominator uses p0, not p-hat."}
+    - {"title":"Make a test decision","problem":"A properly conducted test reports P=0.03. The preselected significance level is α=0.05. What decision follows?","rule":"Reject the null when the P-value is at or below the preselected significance level.","steps":["comparison=0.03<0.05, so the result crosses the threshold.","Reject the null in favor of the stated alternative, subject to the study assumptions."],"answer":"The evidence is statistically significant at the 5% level.","mistake":"P=0.03 is not a 3% probability that the null is true."}
+    - {"title":"Interpret confidence correctly","problem":"A valid 95% confidence procedure produces an interval [40,50] for a population mean. What does 95% describe?","rule":"Confidence is the long-run capture rate of the procedure under its assumptions.","steps":["Imagine repeating the sampling and interval construction many times.","About 95% of those intervals would contain the fixed population mean."],"answer":"This interval estimates the mean as 40 to 50; 95% describes the method.","mistake":"It does not say that 95% of individual observations lie between 40 and 50."}
+    - {"title":"Random assignment versus sampling","problem":"A volunteer group is randomly assigned to two teaching methods. What kind of conclusion does this strengthen?","rule":"Random assignment supports a causal comparison; random population sampling supports generalization.","steps":["Assignment helps balance other characteristics between the two methods.","The volunteers may still differ from all students, limiting broad generalization."],"answer":"A causal comparison within the study is strengthened, subject to proper execution.","mistake":"Random assignment does not make volunteers a random population sample."}
+    - {"title":"Statistical versus practical importance","problem":"A large study finds a mean improvement of 0.1 point, with P=0.001. A useful change was defined as at least 5 points. What follows?","rule":"Statistical significance and practical size answer different questions.","steps":["The small P-value is evidence against the stated no-effect null under the model.","The estimated improvement 0.1 is far below the predeclared 5-point practical target."],"answer":"The result is statistically significant but the estimated effect is not practically large.","mistake":"A small P-value does not measure effect size."}
 
   stops:
   # --- Stop 57: Reconstruct the Evidence Chain
@@ -70,10 +141,10 @@
   - group: SAFE
     at: records-wall
     title: "Reconstruct the Evidence Chain"
-    concept: "cumulative matching"
-    reason: "A pack piece is useless if its result is attached to the wrong claim or design."
+    concept: 32   # cumulative matching
+    reason: "The completed board pack needs each headline reconnected to the method that supports it."
     scene: "Fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match each conclusion to its study design, conditions, and correct statistical procedure before signing."
-    motivation: "The board can act only when every conclusion remains traceable to the data-generating process."
+    motivation: "The evidence-to-method mapping determines whether each conclusion uses the correct variable type, design, and inference conditions."
     format: CASEBOOK
     question: "Match each of four conclusions to its study design, required conditions, and correct procedure. Submit the complete evidence-chain mapping."
     # The four conclusions, the four procedures and the order they pair in are the
@@ -106,10 +177,10 @@
   - group: RAND
     at: outcome-viewer
     title: "State the Reach"
-    concept: "causation/generalization/measurement"
-    reason: "The final claim must not reach beyond the patients or measurements the trial can support."
+    concept: 31   # causation/generalization/measurement
+    reason: "The reconstructed methods leave the final treatment claim's population reach to be stated."
     scene: "The reconstructed chain shows random assignment, repaired but not population-random enrollment, verified endpoints, and bounded missingness. Choose the strongest treatment conclusion that every one of those design facts permits the board to state."
-    motivation: "A correct calculation can still produce an invalid claim if its population or causal reach is overstated."
+    motivation: "The design facts determine how a causal conclusion can apply to similar enrolled patients without claiming population-wide generality."
     format: DIAGNOSIS
     question: "Use random assignment, nonrandom enrollment, partial rural repair, and verified endpoints. Submit one causal conclusion and one generalization limit."
     # The four readings, their pass/absent/partial values and the four choices are
@@ -119,11 +190,7 @@
     # subject as the payload names it, and `label` says only that the row is a
     # check. The payload's "pass" is a normal status, "absent" an alarm, and
     # "partial" the one in between.
-    readings:
-    - { zone: "random assignment", label: "check", value: "pass", status: normal }
-    - { zone: "random population sample", label: "check", value: "absent", status: alarm }
-    - { zone: "rural repair", label: "check", value: "partial", status: low }
-    - { zone: "endpoint audit", label: "check", value: "pass", status: normal }
+    readings: []
     choices:
     - "causation for trial-like patients with limited generalization"
     - "association only"
@@ -147,10 +214,10 @@
   - group: SAFE
     at: board-console
     title: "Apply the Trigger"
-    concept: "integrated interval/trigger"
-    reason: "The written safety rule, not preference, must control the board action."
+    concept: 19   # integrated interval/trigger
+    reason: "The new follow-up evidence is ready to be judged against the locked harm rule."
     scene: "The final source calls yield an excess-harm 95% upper bound of 1.8 per 1,000, below the prewritten continuation line of 2.0. Verify the displayed calculation and apply the locked rule."
-    motivation: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
+    motivation: "The upper harm bound determines whether continued enrollment is permitted under the agreed safeguards."
     format: VERIFY
     question: "**CALCULATE AND COMMIT:** Use upper bound = estimate + 1.96(SE) with estimate 0.60 events/1,000 and SE 0.612 events/1,000; submit the upper bound in events/1,000 before the rule panel unlocks."
     relationship: "upper bound = estimate + 1.96 x SE, so 0.60 + 1.96 x 0.612 events per 1,000 patients"
@@ -169,19 +236,38 @@
     # `measurements` row; the payload sets restore.required false, so nothing is
     # restored here.
     verify:
+      required_sequence:
+        - calculate_and_commit
+        - operate
+        - measure
+        - interpret
       prediction:
-        label: "Upper harm bound"
-        unit: "events per 1,000 patients"
-        min: 0
-        max: 4.0
-        step: 0.01
-      truth: 1.80
-      passRatio: [0.9944, 1.0056]
-      intervention:
-        label: "Apply the locked safety rule"
-        note: "Continue below 2.0; modify from 2.0 to below 4.0; stop at or above 4.0."
+        min: NaN
+        max: NaN
+        step: NaN
+      equipment_locked_until_prediction_commit: true
+      operation:
+        action: apply locked safety rule
+        fixed:
+          - continue below 2.0
+          - modify from 2.0 to below 4.0
+          - stop at or above 4.0
+      measurements:
+        upper_bound: 1.8
+        unit: events per 1,000 patients
+        benefit_interval: excludes zero
+      restore:
+        required: false
+        reason: rule application changes no equipment setting
+      correct_conclusion: continue under safeguards
+      answerText: The upper harm bound is 1.80 per 1,000, below 2.0, while benefit excludes zero; continue under safeguards.
+      truth: NaN
+      passRatio:
+        - 0.9
+        - 1.1
       measurement:
-        label: "Final source calls: upper harm bound and benefit interval"
+        label: the measurement
+        cost: 1
     answerText: "0.6+1.96(.612)=1.80 per 1,000, below 2.0; benefit interval excludes zero, so continue under safeguards."
     why: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -199,20 +285,24 @@
   - group: SAFE
     at: board-table
     title: "Sign the Statistical Argument"
-    concept: "FRQ State-Plan-Do-Conclude"
-    reason: "The board needs one complete argument whose words, symbols, conditions, work, and conclusion agree."
-    scene: "The trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Order State, Plan, Do, and Conclude, preserving population names, units, conditions, calculations, and cautious language."
-    motivation: "A reproducible argument lets future monitors challenge any step without rewriting the result."
+    concept: 31   # FRQ State-Plan-Do-Conclude
+    reason: "The trigger decision needs a signed argument another statistician can audit from start to finish."
+    scene: "The trigger permits guarded continuation, but the signed record must let another statistician audit the reasoning. Build the argument from the study question through method and calculation to a cautious conclusion about the patients represented."
+    motivation: "The ordered statistical argument connects the patient question, justified method, calculation, and appropriately limited continuation conclusion."
     format: SEQUENCE
-    question: "cards: State parameters/hypotheses in words/symbols; Plan procedure/check conditions; Do formula/statistic/p-value or interval; Conclude compare p to alpha and interpret in context. Exact order. A prior guessed value may carry forward without double penalty."
+    question: "The harm bound is below the locked continuation threshold, and the benefit interval excludes zero. Arrange the four inference cards so the board can audit the statistical argument from question to decision."
     # The four cards are the prompt's own list, split at its semicolons and kept
     # word for word; "Exact order" is the order they are listed in.
     cards:
-    - "State parameters/hypotheses in words/symbols"
-    - "Plan procedure/check conditions"
-    - "Do formula/statistic/p-value or interval"
-    - "Conclude compare p to alpha and interpret in context"
-    order: [0, 1, 2, 3]
+      - Name the patient population and state the parameters and hypotheses.
+      - Choose the inference procedure and verify its conditions.
+      - Calculate the statistic and p-value or confidence interval.
+      - Compare with the decision rule and interpret the result for the patient population.
+    order:
+      - 0
+      - 1
+      - 2
+      - 3
     answerText: "The completed check shows state, Plan, Do, Conclude. Use patient variables and units; never say accept H0, prove H0, or omit context."
     why: "A reproducible argument lets future monitors challenge any step without rewriting the result."
     # wrong-path feedback, one rebuttal per wrong option:

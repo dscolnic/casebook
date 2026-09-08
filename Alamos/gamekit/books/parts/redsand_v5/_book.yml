@@ -98,37 +98,37 @@ roster:
   role: "mission authority"
   division: GIBBS
   bio: |
-    Commander Laila Abiola is mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Commander Laila Abiola is mission authority. Wants a defensible launch decision before the window. Treats converging dashboard numbers as independent evidence. Begins by demanding production; ends by demanding proof of composition. She changes because the player shows that "green" channels can share one bad dependency.
 - id: sundqvist
   name: "Ingrid Sundqvist"
   role: "production and catalyst lead"
-  division: EQUIL
+  division: KINET
   bio: |
-    Ingrid Sundqvist is production and catalyst lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Ingrid Sundqvist is production and catalyst lead. Wants recover lost kilograms every remaining shift. Rate is the first explanation she reaches for, even when yield or quality is binding. Accuses Herrera because his override cut output; later becomes the person who helps validate his safer high-pressure/lower-temperature plan.
 - id: herrera
   name: "Tomás Herrera"
   role: "reactor and safety engineer"
-  division: KINET
+  division: EQUIL
   bio: |
-    Tomás Herrera is reactor and safety engineer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Tomás Herrera is reactor and safety engineer. Wants keep the Sabatier loop inside a tested thermal envelope. Withholds incomplete safety evidence because he fears command will overreact; that secrecy makes him look guilty. Apparent saboteur in Missions 7-9; vindicated by the player's holdout and stress tests in Mission 10; openly collaborates thereafter.
 - id: cho
   name: "Mei-Ling Cho"
   role: "water and cryogenics engineer"
-  division: PHASE
-  bio: |
-    Mei-Ling Cho is water and cryogenics engineer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
-- id: achebe
-  name: "Rosalind Achebe"
-  role: "analytical and electrochemistry lead"
   division: SOIL
   bio: |
-    Rosalind Achebe is analytical and electrochemistry lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Mei-Ling Cho is water and cryogenics engineer. Wants keep water and carbon dioxide out of equipment that becomes dangerously cold. Trusts physical separation models more than messy maintenance history. Starts as the skeptic who disproves the false leak path; later accepts that her cold-end analyzer and the control-room estimate share the same calibration source.
+- id: achebe
+  name: "Rosalind Achebe"
+  role: "PHASE analytical and electrochemistry lead"
+  division: PHASE
+  bio: |
+    Rosalind Achebe is analytical and electrochemistry lead. Wants make every important number traceable to a physical standard. Can slow decisions by asking for perfect evidence when sufficient evidence would do. Her insistence on an independent sample causes Twist 3 and saves the launch from a false-ready state.
 - id: demir
   name: "Yusuf Demir"
   role: "power and life-support officer"
   division: ELEC
   bio: |
-    Yusuf Demir is power and life-support officer. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Yusuf Demir is power and life-support officer. Wants protect the crew's heat, air, and water while supplying the plant. Frames every choice as scarcity, sometimes underestimating how recycling can change the budget. Moves from opposing extra production power to designing the timed power diversion that makes the final recovery possible.
 
 glossary:
 - name: Sabatier reaction

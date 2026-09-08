@@ -28,6 +28,13 @@ import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { themeDir } from '../engine/dev/registry.mjs';
 import { pathToFileURL } from 'node:url';
+// The steps `tools/derive-two.mjs` cut to two and could not leave meeting the
+// format — see the comment at the DERIVE checks. Missing file means no debt,
+// which is the right default for a fresh checkout and for a new campaign.
+const DERIVE_DEBT = new Set((() => {
+  const f = new URL('./derive-two-debt.json', import.meta.url);
+  try { return JSON.parse(readFileSync(f, 'utf8')).asks ?? []; } catch { return []; }
+})().map(a => String(a).trim().slice(0, 90)));
 import { agreesWithPanel, claimedWords, claimsPhrase, conceptMatches, conceptZones,
   demandsEquation, deriveWork, EQUATIONS, keywordHit, panelWork, pickKeyConcept,
   symbolSignature, SYLLABUS } from './syllabus.js';
@@ -36,7 +43,7 @@ const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
 
 const [bookPath, themeName, ...flags] = process.argv.slice(2);
-if(!bookPath || !themeName){
+if(!bookPath || (!themeName && !process.argv.includes('--selftest'))){
   console.error('usage: node tools/import-book.mjs <book.yml> <theme> [--dry] [--verify] [--out <dir>]');
   process.exit(2);
 }
@@ -56,6 +63,134 @@ const problems = [];
 const warnings = [];
 const fail = (m) => problems.push(m);
 const warn = (m) => warnings.push(m);
+
+/**
+ * Every two-candidate DERIVE step's two line lengths, and which one is keyed.
+ *
+ * Filled as the steps are checked and read once at the end by `lengthTell`. The
+ * question it answers is not "is this step's answer the longer line" — that is a
+ * property of one step and often just what the algebra is — but "would a player
+ * who never read a line and always picked the longer, or always the shorter, beat
+ * the coin". That is a property of the CAMPAIGN and it is the one that decides
+ * whether the format is a test of calculus or of typography.
+ */
+const deriveLengths = [];
+
+/**
+ * A figure's shape, against the instrument it names.
+ *
+ * `engine/core/figures.js` takes a different object per kind — `bars` wants
+ * `bars: [{name, value}]` and `line` wants `series: [{name, points}]` — and a
+ * spec in the wrong one threw out of the renderer and took the whole question
+ * panel down with it. A player saw a stop that would not draw; nothing anywhere
+ * said which stop or why.
+ *
+ * A warning rather than a refusal: the figure is decoration on top of a stop that
+ * is otherwise complete, and refusing the book would hold back sixty stops for
+ * one chart. The renderer is guarded too, so a shape that gets past this draws
+ * nothing instead of breaking the card.
+ */
+const FIGURE_SHAPES = {
+  line:     (f) => Array.isArray(f.series) && f.series.every(x => Array.isArray(x?.points)),
+  peaks:    (f) => Array.isArray(f.series) && f.series.every(x => Array.isArray(x?.points)),
+  bars:     (f) => Array.isArray(f.bars) && f.bars.every(b => typeof b?.value === 'number'),
+  gauge:    (f) => typeof f.value === 'number',
+  gauges:   (f) => Array.isArray(f.gauges),
+  readout:  (f) => f.value !== undefined,
+  scale:    (f) => typeof f.value === 'number' || typeof f.truth === 'number',
+  timeline: (f) => Array.isArray(f.steps ?? f.items),
+  match:    (f) => Array.isArray(f.left) && Array.isArray(f.right),
+  waveform: (f) => Array.isArray(f.points ?? f.series),
+};
+function figureShape(fig, where){
+  for(const f of (Array.isArray(fig) ? fig : [fig])){
+    const kind = String(f?.kind ?? '');
+    const test = FIGURE_SHAPES[kind];
+    if(!test){
+      warn(`${where}: figure kind "${kind}" is not one this engine draws —`
+        + ` ${Object.keys(FIGURE_SHAPES).join(', ')}`);
+      continue;
+    }
+    if(!test(f)){
+      warn(`${where}: a "${kind}" figure is not in the shape that kind takes`
+        + (kind === 'bars' ? ' — `bars: [{name, value}]`, not `series` with points'
+                           : ' — see engine/core/figures.js'));
+    }
+  }
+}
+
+
+/**
+ * The tell, in the campaign's own numbers.
+ *
+ * Level steps — within six characters — are the honest ones: they score half,
+ * exactly as a guess does. So the best a length-picker can do is the better of
+ * the two directions plus half the level steps, and 50% is the floor.
+ */
+function lengthTell(rows){
+  let longer = 0, shorter = 0, level = 0;
+  for(const [a, b, key] of rows){
+    const k = key === 0 ? a : b, o = key === 0 ? b : a;
+    if(k - o > 6) longer++; else if(o - k > 6) shorter++; else level++;
+  }
+  const n = rows.length;
+  if(!n) return null;
+  const best = (Math.max(longer, shorter) + level * 0.5) / n;
+  return { n, longer, shorter, level, best,
+    which: longer >= shorter ? 'the longer line' : 'the shorter line' };
+}
+
+// The measurement, proved before it is trusted. Three cases: a campaign with no
+// tell has to score the coin, the two directions have to score the SAME (a book
+// whose answers are always longer is exactly as broken as one where they are
+// always shorter, and an earlier draft scored only one of them), and the level
+// steps have to count as the coin flips they are.
+if(process.argv.includes('--selftest')){
+  // THE TILE LABEL THAT CARRIES A NUMBER, and the unit that only looks like one.
+  // Each pair below fails if the exponent rule is dropped: the first three are
+  // units and must read as prose, the rest are quantities and must still be read.
+  let labelBad = 0;
+  const labelCase = (label, want) => {
+    const got = labelNumbers(label);
+    const ok = want === null ? got.length === 0 : got.some(x => Math.abs(x - want) < 1e-9);
+    if(!ok) labelBad++;
+    console.log(`  ${ok ? 'ok  ' : 'FAIL'}  label "${label}" -> ${got.join(', ') || 'no number'}`
+      + (ok ? '' : `, wanted ${want ?? 'none'}`));
+  };
+  labelCase('linear acceleration (m/s²)', null);
+  labelCase('inertia (kg m²)', null);
+  labelCase('rope tension (kN)', null);
+  labelCase('60 lunches a day', 60);
+  labelCase('drum radius 2.4 m', 2.4);
+  labelCase('mass in 10³ kg', 1000);
+  // `×10³` is folded to `e` by the scientific-notation rule above BEFORE the
+  // power rule looks for a `10`, so it reads as nothing at all. Recorded rather
+  // than fixed: it is older than this change and no book in the repo writes it.
+  labelCase('mass ×10³ kg', null);
+  if(labelBad) process.exitCode = 1;
+
+  const cases = [
+    ['no tell at all', [[20, 20, 0], [30, 30, 1], [40, 41, 0], [15, 14, 1]], 50],
+    ['answers always the longer line', [[40, 20, 0], [50, 20, 0], [60, 20, 0], [44, 12, 0]], 100],
+    ['answers always the shorter line', [[20, 40, 0], [20, 50, 0], [20, 60, 0], [12, 44, 0]], 100],
+    ['half tell, half level', [[40, 20, 0], [50, 20, 0], [20, 20, 0], [30, 30, 1]], 75],
+  ];
+  let bad = 0;
+  for(const [what, rows, want] of cases){
+    const got = Math.round(lengthTell(rows).best * 100);
+    const ok = got === want;
+    if(!ok) bad++;
+    console.log(`  ${ok ? 'ok  ' : 'FAIL'}  ${what} — ${got}%${ok ? '' : `, wanted ${want}%`}`);
+  }
+  const up = lengthTell([[40, 20, 0], [50, 20, 0], [60, 20, 0], [44, 12, 0]]).best;
+  const down = lengthTell([[20, 40, 0], [20, 50, 0], [20, 60, 0], [12, 44, 0]]).best;
+  const same = up === down;
+  if(!same) bad++;
+  console.log(`  ${same ? 'ok  ' : 'FAIL'}  the two directions score the same`);
+  console.log(bad ? `\nlengthTell --selftest: ${bad} case(s) failed.`
+                  : `\nlengthTell --selftest: 5 cases, a length-picker is measured in both directions.`);
+  process.exit(bad ? 1 : 0);
+}
 
 // ------------------------------------------------------------------- read
 const raw = readFileSync(resolve(process.cwd(), bookPath), 'utf8');
@@ -142,18 +277,101 @@ const ROSTER = roster.map((p) => {
     fail(`roster "${p.id}": \`real\` is a flag — write \`real: true\` or leave it out`);
   }
   return {
-    id: p.id, name: p.name, role: p.role ?? '', division: p.division,
+    id: p.id, name: p.name,
+    /**
+     * THE GROUP ID IS AN INSTRUCTION, NOT A JOB TITLE.
+     *
+     * Several bibles prefix a role with the group the person works in —
+     * "NOTES counter operations lead", "COASTER geometry engineer" — and
+     * `build-head` reads that to place them. It is not what they do, and it is
+     * printed under their name on every question card and every beat bubble:
+     * "Eli Voss / NOTES counter operations lead".
+     *
+     * Stripped only when the leading word is one of THIS book's group ids, so a
+     * role that happens to start with a capitalised word keeps it.
+     */
+    role: String(p.role ?? '').replace(
+      new RegExp(`^(?:${GROUPS.map(g => String(g.id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\s+`), ''),
+    division: p.division,
     color: p.color ?? GROUPS.find(g => g.id === p.division)?.color ?? '#5b6068',
     bio: bio.split(/\n{2,}/).map(s => `<p>${s.replace(/\n/g, ' ').trim()}</p>`).join(''),
     ...(p.real ? { real: true } : {}),
     ...(quiz.length ? { quiz } : {}),
   };
 });
+/**
+ * A GROUP THE CAMPAIGN NEVER VISITS CANNOT HAVE AN UNREACHABLE PERSON STOP.
+ *
+ * The check below is about person stops, and person stops are made by
+ * `normalize.js` out of the AREAS A DAY VISITS — a repeat visit becomes a person
+ * stop, and each day gets one anyway. A group no stop is written into is never a
+ * day's area, so it never receives one, and there is nothing there to be
+ * unreachable.
+ *
+ * Changeover declares eight groups because the shipped edition it was built from
+ * has eight, and writes its sixty stops into four of them. The four it does not
+ * use were failing this check for as long as anybody looked, and the sentence it
+ * printed was untrue about every one of them. A refusal nobody can act on is how
+ * a gate stops being read.
+ *
+ * A group WITH stops and nobody posted to it is still refused, unchanged: that
+ * is the real defect, and Safety Factor has one.
+ */
+const GROUPS_WITH_STOPS = new Set(missions.flatMap(m => (m.stops ?? []).map(s => s.group)));
 for(const g of GROUPS){
-  if(!ROSTER.some(p => p.division === g.id)){
+  /**
+   * A GROUP'S LEADER HAS TO BE SOMEBODY ON THIS BOOK'S ROSTER, and in seven of
+   * the eight revised campaigns it was not. `groups:` was carried across from
+   * the shipped edition while the roster was rewritten, so every
+   * `defaultLeader` still named the OLD cast — Carrying's six leaders are
+   * berhane, calloway, ferris, pike and sorley, and only one of them, okafor,
+   * exists in the book that ships them.
+   *
+   * NOTHING FAILED AND THE GAME STILL BROKE. `LEADERS` below falls back to
+   * whoever works in the group, so the leader roster came out right; `GROUPS`
+   * kept the stale id, and that is the field `main.js` assigns each group's
+   * leader from. `plannedWeeklySpend` then reads that leader's management score
+   * as every mission closes, found nothing, and threw — three of the eight
+   * campaigns could not be played past mission 1.
+   *
+   * Resolved to whoever works there, and failing that to anybody on this book's
+   * roster: a group nobody works in still needs a leader the engine can look
+   * up. This runs for EVERY group, before the stops test below, because a group
+   * with no stops still has a leader assigned to it at boot.
+   */
+  if(!ROSTER.some(p => p.id === g.defaultLeader)){
+    const anyone = ROSTER.find(p => p.division === g.id) ?? ROSTER[0];
+    if(anyone) g.defaultLeader = anyone.id;
+  }
+
+  /**
+   * A GROUP THE CAMPAIGN NEVER VISITS CANNOT HAVE AN UNREACHABLE PERSON STOP.
+   *
+   * Person stops are made by `normalize.js` out of the AREAS A DAY VISITS — a
+   * repeat visit becomes one, and each day gets one anyway. A group no stop is
+   * written into is never a day's area, so it never receives one and there is
+   * nothing there to be unreachable. Changeover declares eight groups because
+   * the edition it was built from has eight and writes its sixty stops into
+   * four; the other four failed this check for as long as anybody looked, and
+   * the sentence it printed was untrue about every one of them.
+   *
+   * A group WITH stops and nobody posted to it is still refused: that is the
+   * real defect.
+   */
+  if(!GROUPS_WITH_STOPS.has(g.id)) continue;
+  // ONE PERSON MAY WORK IN TWO ROOMS. `division` is where somebody stands, and a
+  // person stands in one place — but a campaign may give one of its cast two
+  // areas, which Wildtype does: its conservation geneticist owns SEED and GENE,
+  // and both rooms are hers. Posted to SEED, GENE then read as a room with
+  // nobody in it, and the refusal said its person stops were unreachable when
+  // the area's own declared lead is on the roster and `getPersonIdForStop`
+  // finds her by name.
+  const lead = ROSTER.find(p => p.id === g.defaultLeader);
+  if(!ROSTER.some(p => p.division === g.id) && !lead){
     fail(`group "${g.id}" has nobody on the roster — its person stops are unreachable`);
   }
 }
+
 const LEADERS = leaders.length ? leaders : GROUPS.map(g => {
   const p = ROSTER.find(x => x.id === g.defaultLeader) ?? ROSTER.find(x => x.division === g.id);
   return { id: p?.id ?? g.id, name: p?.name ?? g.name, role: p?.role ?? '',
@@ -778,6 +996,88 @@ missions.forEach((m, mi) => {
     // The terms and relationships the day's questions assume, printed on the
     // plan card between the calls and the map.
     ...(Array.isArray(m.primer) ? { primer: m.primer } : {}),
+    /**
+     * THE OPTIONAL REVIEW, and it is optional all the way down.
+     *
+     * The bible's own availability note is explicit: it changes no metric, no
+     * Recovery Point and no unlock. So it is carried as its own block, read only
+     * by the review screen, and nothing that scores a campaign looks at it —
+     * which is why it is not folded into `primer` or into the lessons, where
+     * every gate in the repo would start counting it.
+     */
+    ...(m.deeper && (m.deeper.intro || m.deeper.questions?.length || m.deeper.concepts?.length)
+      ? { deeper: {
+          intro: String(m.deeper.intro ?? ''),
+          concepts: (m.deeper.concepts ?? []).filter(c => c?.name || c?.say),
+          questions: (m.deeper.questions ?? [])
+            .filter(x => x?.prompt && (x.options ?? []).length >= 2)
+            .map(x => ({
+              prompt: String(x.prompt), hint: String(x.hint ?? ''),
+              answer: String(x.answer ?? ''),
+              // A CHART, WHERE THE QUESTION IS ABOUT ONE. Same `figure` spec the
+              // stops take — engine/core/figures.js — so a review question about
+              // a bowed curve can show the curve instead of describing it. Carried
+              // through untouched; nothing here invents one.
+              ...(x.figure ? { figure: x.figure } : {}),
+              options: x.options.map(o => ({
+                key: String(o.key), text: String(o.text), why: String(o.why ?? '') })),
+            })),
+        } }
+      : {}),
+    // THE DAY'S OWN VOCABULARY, from the bible's "Worth knowing first". Carried
+    // rather than re-derived: the plan card used to pick the day's terms out of
+    // the campaign glossary by looking for their names in that day's question
+    // text, which printed one of Changeover's four because the other three are
+    // what the questions are ABOUT rather than words they use. See
+    // tools/bible-terms.mjs.
+    ...(Array.isArray(m.terms) && m.terms.length
+      ? { primerTerms: m.terms.filter(t => t?.name && t?.def)
+          .map(t => ({ name: String(t.name), def: String(t.def) })) }
+      : {}),
+    // THE DAY'S OWN EQUATIONS, from the bible's "Equations first needed today".
+    //
+    // `engine/core/app.js` has drawn `mission.equations` on the plan card for as
+    // long as that card has existed, and `normalize.js` filled the key from what
+    // `tools/syllabus.js` stamps on each lesson — which has no entry for any of
+    // these eight courses, so the card came out with no equation on it while the
+    // bible had one written out with its symbols named. 144 of them across the
+    // set. Authored wins; see the note in normalize.js.
+    ...(Array.isArray(m.equations) && m.equations.length
+      ? { equations: m.equations.filter(x => x?.e).map(x => ({
+          e: String(x.e), c: String(x.c ?? ''),
+          ...(Array.isArray(x.v) && x.v.length
+            ? { v: x.v.map(pair => [String(pair[0] ?? ''), String(pair[1] ?? '')]) } : {}),
+          ...(x.s ? { s: String(x.s) } : {}),
+        })) }
+      : {}),
+    /**
+     * THE FIVE WORKED EXAMPLES, behind a button on the mission card.
+     *
+     * Reference the player opens, and the bible is explicit about what that means:
+     * "not an interaction to grade — no answer input, points, metric changes, or
+     * unlock requirement". So this is carried and never inspected: no format is
+     * inferred from it, no equation stamped off it, and nothing in the day model
+     * reads it. The only rule is that an example has a problem and something to
+     * show for it, since a card with an empty panel behind a button is worse than
+     * no button.
+     */
+    ...(m.worked?.examples?.length
+      ? { worked: {
+          label: String(m.worked.label ?? 'Worked examples'),
+          title: String(m.worked.title ?? 'Worked examples'),
+          examples: m.worked.examples
+            .filter(x => String(x?.problem ?? '').trim()
+              && (String(x?.answer ?? '').trim() || (x?.steps ?? []).length))
+            .map(x => ({
+              title: String(x.title ?? ''), problem: String(x.problem),
+              ...(x.rule ? { rule: String(x.rule) } : {}),
+              steps: (x.steps ?? []).map(String),
+              ...(x.answer ? { answer: String(x.answer) } : {}),
+              ...(x.mistake ? { mistake: String(x.mistake) } : {}),
+              ...(x.figure ? { figure: x.figure } : {}),
+            })),
+        } }
+      : {}),
     takeaway: m.takeaway ?? '',
     // ---------------------------------------------- the authored plan card
     //
@@ -1091,9 +1391,14 @@ function labelNumbers(label){
   if(frac) out.push(Number(frac[1]) / Number(frac[2]));
   const sci = text.match(/-?\d+(?:\.\d+)?e[+-]?\d+/i);
   if(sci) out.push(Number(sci[0]));
-  const plain = text.match(/-?\d[\d,]*(?:\.\d+)?/);
+  // A UNIT'S EXPONENT IS NOT A NUMBER THE TILE IS WORTH. The fold above turns
+  // `m/s²` into `m/s2` so that `×10²` can be read as a power — and then the
+  // plain search found that 2 and refused a tile labelled "linear acceleration
+  // (m/s²)" for being worth 1. A digit stuck to a LETTER is an exponent or a
+  // subscript; a digit standing on its own, or after `10`, is a quantity.
+  const plain = text.match(/(?:^|[^A-Za-z\d])(-?\d[\d,]*(?:\.\d+)?)/);
   if(plain){
-    const n = Number(plain[0].replace(/,/g, ''));
+    const n = Number(plain[1].replace(/,/g, ''));
     const scale = /\bbillion\b/i.test(text) ? 1e9 : /\bmillion\b/i.test(text) ? 1e6
       : /\bthousand\b/i.test(text) ? 1e3 : 1;
     out.push(n, n * scale, n / 100);
@@ -1122,10 +1427,22 @@ function gameFor(s, at, group, day){
     // "1. X → Y 2. …" line, which the printed book reproduces verbatim.
     answer: s.answerText ?? (typeof s.answer === 'string' ? s.answer : '') ?? '', why: s.why ?? '',
     ...(s.rebuttals ? { rebuttals: s.rebuttals } : {}),
+    // SOURCE THE QUESTION IS ABOUT, printed above the options. Whiteout is the
+    // first campaign to ask a player to read code, and its first stop says
+    // "Read the three displayed lines" — so a card with no way to show them is
+    // a question that cannot be answered from the screen. Any format may carry
+    // one; only the panel decides where it goes. Kept verbatim, because the
+    // indentation of a program is part of it.
+    ...(typeof s.code === 'string' && s.code.trim() ? { code: s.code } : {}),
     // Any format can carry an instrument. It used to be passed through for
     // DIAGNOSIS only, which is why a line chart on a sequence item was dropped
     // silently on import.
-    ...(s.figure ? { figure: s.figure } : {}),
+    //
+    // CHECKED, because each kind takes a different shape and the wrong one used
+    // to throw out of the renderer and take the question panel with it. See
+    // `figureShape` below.
+    ...(s.figure ? (figureShape(s.figure, `stop "${s.title ?? s.question ?? ''}"`.slice(0, 60)),
+                    { figure: s.figure }) : {}),
     // THE ARITHMETIC AN INSTRUMENT STOP DOES, STATED BY THE AUTHOR.
     //
     // `relationship` used to be read only out of an `estimate:` block, so it was
@@ -1229,7 +1546,9 @@ function gameFor(s, at, group, day){
         response: x.response.map(p => ({ at: +p.at, value: +p.value })) })),
       // Kept for the single-curve case, which is most of them, so nothing
       // downstream has to branch to read one response.
-      response: series[0].response.map(p => ({ at: +p.at, value: +p.value })),
+      // Same guard, same reason: the empty-series refusal is already collected,
+      // and throwing here would bury it.
+      response: (series[0]?.response ?? []).map(p => ({ at: +p.at, value: +p.value })),
       baseline: Number.isFinite(+w.baseline) ? +w.baseline : 0,
       target: +w.target, tolerance: +w.tolerance, start,
       commit: w.commit ?? 'Mark it',
@@ -1797,12 +2116,22 @@ function gameFor(s, at, group, day){
       // nobody has to decide anything about: the plan passes before the player
       // touches it. Caught by driving the panel, not by reading it.
       const protIds = new Set(costed.filter(it => it.protected).map(it => String(it.id ?? it.label)));
-      required.forEach(q => need(!(q.requires ?? []).every(r => protIds.has(String(r))),
+      // `.every()` IS TRUE OF AN EMPTY LIST, so an answer with no `requires` was
+      // reported twice — once above for requiring nothing, and again here for
+      // having everything it needs already protected. Two sentences, one missing
+      // field, and the second one is not even true. The length guard leaves the
+      // real case: a required answer whose named items are all protected.
+      required.forEach(q => need(!((q.requires ?? []).length
+        && (q.requires ?? []).every(r => protIds.has(String(r)))),
         `"${q.question}" is required and everything it needs is already protected — the plan`
         + ' answers it before the player chooses anything'));
       return { ...base, allocate: {
         pool: { amount: +pool.amount, unit: pool.unit ?? '', mode: pool.mode ?? 'scalar' },
-        items: costed.map(it => ({ id: String(it.id ?? it.label), label: String(it.label),
+        // `String(undefined)` is the word "undefined", and it goes on the slate
+        // in front of the player. An unlabelled item falls back to its id, which
+        // is at least the author's own word for the thing.
+        items: costed.map(it => ({ id: String(it.id ?? it.label),
+          label: String(it.label ?? it.id ?? ''),
           cost: +it.cost.toFixed(4), ...(it.protected ? { protected: true } : {}),
           ...(it.note ? { note: String(it.note) } : {}) })),
         answers: answers.map(q => ({ question: String(q.question),
@@ -2111,76 +2440,95 @@ function gameFor(s, at, group, day){
     }
 
     if(format === 'DERIVE'){
-      const steps = b.steps ?? [], rules = b.rules ?? [];
+      const steps = b.steps ?? [];
       need(String(b.start ?? '').trim(), 'a derivation needs a `start` — the line it begins from');
       need(String(b.goal ?? '').trim(),
         'a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel'
         + ' can say where it is going without printing where it ends up');
       need(steps.length >= 2, 'a derivation of one line is not a derivation');
-      // Naming the rule is off by default and opted into with `askRule: true`.
-      // Half-offering it is not allowed: a list of one or two rules answers the
-      // second half of every step by elimination, so a book that asks for the
-      // rule offers three or more.
-      const asksRule = b.askRule === true;
-      need(!asksRule || rules.length >= 3,
-        '`askRule: true` needs at least three named rules — one or two to choose from answers the'
-        + ' second half of every step by elimination');
-      need(asksRule || !rules.length,
-        'this derivation lists `rules` but does not set `askRule: true`, so nothing would ever show'
-        + ' them. Add `askRule: true` to ask for the rule, or drop the `rules` list');
+      // Naming the rule is gone, and a book that still asks for it is REFUSED
+      // rather than quietly stripped. `askRule` reached no screen for four books
+      // once already; a key that is silently dropped is indistinguishable from a
+      // key that works, which is how that went unnoticed.
+      need(b.askRule === undefined && b.rules === undefined,
+        'this derivation carries `askRule`/`rules`, and naming the licensing rule is no longer part'
+        + ' of the format — a two-candidate step cannot offer a rule list without the list naming'
+        + ' the answer. Delete both keys; keep the rule in the step\'s `ask` if it matters');
       steps.forEach((st, i) => {
         const cands = st.candidates ?? [];
         const n = `step ${i + 1}`;
         need(String(st.ask ?? '').trim(), `${n} needs an \`ask\` — what this line is doing`);
-        need(cands.length >= 3, `${n} needs at least three candidates`);
-        need(cands.every(c => String(c.text ?? '').trim())
-          && (!asksRule || cands.every(c => String(c.rule ?? '').trim())),
-          `every candidate in ${n} needs \`text\`, and the \`rule\` it claims wherever rules are asked for`);
-        // Only when the player is being asked to name one. A book with the
-        // naming half off may keep its per-candidate `rule` values — they cost
-        // nothing, and they are what switching it back on would need.
-        need(!asksRule || cands.every(c => rules.includes(String(c.rule))),
-          `${n} has a candidate claiming a rule that is not in \`rules\` — the player could never`
-          + ' pick it, so that candidate can never be scored right');
+        // Exactly two. Not "at least" — a panel of three where its neighbours
+        // show two is a different question wearing the same name, and the
+        // shuffle makes the odd one out impossible to miss.
+        need(cands.length === 2,
+          `${n} has ${cands.length} candidates and a derivation step has exactly two — the line that`
+          + ' follows, and one that does not');
+        need(cands.every(c => String(c.text ?? '').trim()),
+          `every candidate in ${n} needs \`text\` — the whole line as the panel will print it`);
         const key = +st.answer;
-        need(Number.isInteger(key) && key >= 0 && key < cands.length,
-          `${n} needs an \`answer\` index into its own candidates`);
+        need(Number.isInteger(key) && (key === 0 || key === 1),
+          `${n} needs an \`answer\` of 0 or 1 — which of its two candidates follows`);
         const wrong = cands.filter((_, j) => j !== key);
         need(wrong.every(c => String(c.why ?? '').trim()),
-          `${n} has a wrong candidate with no \`why\` — a distractor that is merely wrong teaches`
-          + ' nothing, and the reason is the whole value of authoring it');
-        // The trap. A step whose wrong branches are all immediately broken is a
-        // corridor with the walls painted to look like doors: the player learns
-        // to pick whatever is not obviously malformed, which is not calculus.
-        need(wrong.some(c => c.survives),
-          `${n} has no wrong candidate marked \`survives\` — every wrong branch dies at once, so`
-          + ' the step can be passed by elimination rather than by differentiating');
-        // And the answer must not be findable by shape. The commonest tell is
-        // the keyed line being the longest thing on the panel, every time.
+          `${n}'s wrong line has no \`why\` — with one distractor a step it is the only teaching`
+          + ' the step carries, and a distractor that is merely wrong teaches nothing');
+        // The trap, and with two candidates it is the whole format. A guess is
+        // right half the time, so the distractor has to be wrong in a way that
+        // survives a glance — otherwise the step reads "one of these is
+        // malformed, pick the other one", which is not calculus.
+        // The shipped derivations were cut from four candidates to two by
+        // `tools/derive-two.mjs` ahead of being re-authored, and it kept the
+        // first two rather than judging which distractor was the better one. So
+        // these two rules are hard everywhere except on the exact steps that cut
+        // left short, which are listed by their `ask` in derive-two-debt.json.
+        // The list may shrink and may never grow: nothing new is in it, and a
+        // step written properly drops out of it. A blanket downgrade would make
+        // both rules advisory for every campaign that follows, which is the
+        // wall-of-false-failures problem in its other direction.
+        const owed = DERIVE_DEBT.has(String(st.ask ?? '').trim().slice(0, 90));
+        const soft = owed ? ((cond, m) => { if(!cond) warn(m); }) : need;
+        soft(wrong.every(c => c.survives),
+          `${n}'s wrong line is not marked \`survives\` — with two candidates a step that`
+          + ' dies at a glance is a coin flip the player never has to think about');
+        // And the answer must not be findable by shape. With two lines side by
+        // side this is the easiest tell there is.
+        //
+        // A WARNING, NOT A REFUSAL, AND THE MEASUREMENT BELOW IS WHY. This rule
+        // fired only when the KEYED line was the longer one, and that is the rare
+        // direction: across the six campaigns with derivations it is true of 3
+        // steps out of 297. The common direction — the keyed line reliably the
+        // SHORTER one — it never looked at, and that is where the tell actually
+        // is: 39 of Midway's 40 steps, 57 of Ground Truth's 69, 44 of The Trial's
+        // 58. A player who always picked the shorter line would score 99%, 91% and
+        // 88% in those three without reading a word of calculus.
+        //
+        // So one step being long is not the defect; a campaign whose lengths are
+        // predictable is, and that is `lengthTell` at the foot of this file. It is
+        // reported per campaign, in both directions, against the recorded numbers
+        // in derive-shape-debt.json. Refusing a book over a single step while the
+        // campaign-wide tell went unmeasured was stopping the wrong thing: two
+        // steps of Headwater held back a whole round of bible fixes, and the 78%
+        // it scores on the real measurement was never printed.
         const keyLen = String(cands[key].text).length;
-        need(!wrong.every(c => String(c.text).length < keyLen - 6),
-          `${n}'s keyed line is longer than every distractor — the answer is identifiable by its`
-          + ' shape without reading any of it');
+        if(wrong.every(c => String(c.text).length < keyLen - 6)){
+          warn(`${n}'s keyed line is longer than its distractor — the answer is identifiable by`
+            + ' its shape without reading either of them');
+        }
+        deriveLengths.push(cands.map(c => String(c.text ?? '').length).concat(key));
       });
-      // A rule named by no correct step is a rule nobody can ever be right to
-      // pick, which is fine; a correct step whose rule is missing is not.
       return { ...base, derive: {
         start: String(b.start), goal: String(b.goal),
         ...(b.startNote ? { startNote: String(b.startNote) } : {}),
-        // The flag, and not only the list. `instruments.js` asks for the rule on
-        // `d.askRule === true && rules.length > 0`; every check above this line
-        // was validating a flag that then reached no content, so three campaigns
-        // authored `askRule: true` on thirty-six stops and the second half of
-        // every derivation was inert in the shipped game. `bookParity` could not
-        // see it — the generated content is byte-identical either way — which is
-        // the same blind spot `export-book.mjs` had with `takesAsRead`.
-        ...(asksRule ? { askRule: true } : {}),
-        rules: rules.map(String),
         steps: steps.map(st => ({
           ask: String(st.ask),
           answer: +st.answer,
           candidates: (st.candidates ?? []).map(c => ({
-            text: String(c.text), rule: String(c.rule),
+            text: String(c.text),
+            // The rail prints this beside a line once it is taken. It is what
+            // `rule` used to be when the player had to name it, kept as a label
+            // the panel shows rather than a second thing to answer.
+            ...(c.note ?? c.rule ? { note: String(c.note ?? c.rule) } : {}),
             ...(c.why ? { why: String(c.why) } : {}),
             ...(c.survives ? { survives: true } : {}),
           })),
@@ -2360,11 +2708,57 @@ function gameFor(s, at, group, day){
       const ids = cands.map(c => String(c.id));
       need(ids.includes(String(b.robust)),
         `the stress robust candidate "${b.robust}" is not one of its candidates`);
-      const needs = (id) => +((b.feasible ?? {})[id] ?? -Infinity);
-      const survivors = ids.filter(id => needs(id) <= +a.min);
+      // WHICH END OF THE RANGE IS THE HARD ONE.
+      //
+      // The panel greys a row when the assumption passes the point that
+      // candidate holds to, and until Whiteout every board in the repo got
+      // worse DOWNWARDS: a margin, a yield, a budget, where `feasible` is the
+      // floor a candidate needs and the pessimistic end is `min`. Whiteout's
+      // assumption is the longest run of adjacent resolved records, which gets
+      // worse UPWARDS — forward removal holds to a run of 1, hold index to 3,
+      // backward removal to 4 — and read as a floor that board says every
+      // candidate survives everything, so the slider decides nothing.
+      //
+      // `assumption.worst` says which end it is. A board that does not say is
+      // read off its own numbers: whichever end leaves exactly one survivor and
+      // that survivor the candidate the board already calls `robust`. Nothing
+      // is invented — the board states the limits and states the answer, and
+      // this reads which reading of the limits agrees with the answer. When
+      // neither does, the refusals below say so in the board's own terms.
+      const limitOf = (id) => {
+        const v = (b.feasible ?? {})[id];
+        return v === undefined ? undefined : +v;
+      };
+      const holdsAt = (id, end) => {
+        const v = limitOf(id);
+        if(v === undefined) return true;         // no stated limit: survives everything
+        return end === 'max' ? v >= +a.max : v <= +a.min;
+      };
+      const decidesAs = (end) => {
+        const s2 = ids.filter(id => holdsAt(id, end));
+        return s2.length === 1 && s2[0] === String(b.robust);
+      };
+      const stated = String(a.worst ?? '').toLowerCase();
+      const worst = ['min', 'max'].includes(stated) ? stated
+        : (decidesAs('min') ? 'min' : (decidesAs('max') ? 'max' : 'min'));
+      const needs = (id) => +((b.feasible ?? {})[id] ?? (worst === 'max' ? Infinity : -Infinity));
+      const survivors = ids.filter(id => holdsAt(id, worst));
+      // SAY WHICH END WAS READ. The polarity is inferred where the board does
+      // not state it, so "no candidate survives the pessimistic end" is only
+      // half a sentence: Boomtown's overrun gets worse upwards and two of its
+      // three candidates hold to the top, which is a different defect from a
+      // board nothing survives. Naming the other reading turns a misleading
+      // refusal into an accurate one.
+      const otherEnd = worst === 'max' ? 'min' : 'max';
+      const otherSide = ids.filter(id => holdsAt(id, otherEnd));
       need(survivors.length === 1 && survivors[0] === String(b.robust),
         survivors.length === 0
-          ? 'no candidate survives the pessimistic end of the range — the stop cannot be answered'
+          ? `no candidate survives the ${worst === 'max' ? 'top' : 'bottom'} of the range`
+            + (otherSide.length
+              ? ` — read the other way round, ${otherSide.length} survive`
+                + ` (${otherSide.join(', ')}); say which end is the hard one with`
+                + ' `assumption.worst: min|max`'
+              : ' — the stop cannot be answered')
           : !survivors.includes(String(b.robust))
             ? `the robust candidate "${b.robust}" does not survive its own range; "${survivors[0]}"`
               + ' does'
@@ -2377,7 +2771,46 @@ function gameFor(s, at, group, day){
       const at = (id) => +(((b.scores ?? {})[id] ?? {})[b.optimiseOn] ?? NaN);
       need(ids.every(id => Number.isFinite(at(id))),
         `every candidate needs a numeric "${b.optimiseOn}" score`);
-      const best = ids.reduce((x, y) => (at(y) < at(x) ? y : x));
+      // WHICH WAY IS "BEST" — and the board says so, in a field nothing read.
+      //
+      // This took the LOWEST `optimiseOn` score and called it best, which is
+      // right only where a low score wins. The bibles author
+      // `criteria[].direction: maximise` on every criterion, and with the robust
+      // candidate deliberately scoring worst on the headline number — 95, 88,
+      // 82 with robust last — the lowest score IS the robust one, so the board
+      // was refused for being exactly the trap it was written to be. Twenty-two
+      // boards, and two separate readings of this file found it independently.
+      //
+      // Default `maximise`, because a score is a score unless told otherwise,
+      // and that is also what the old behaviour meant on the boards that had no
+      // `direction`: they key `optimiseOn` to a cost, where lower is better, and
+      // those now say so.
+      // A DIRECTION IS A DIRECTION, WHATEVER IT IS SPELT. `maximise` and its
+      // American half are what most books write; Sightline writes
+      // `lower_is_better`, which says the same thing in the words a
+      // spreadsheet column would use. Compared as a raw string that is a board
+      // refused for naming its own direction clearly — the same defect as
+      // comparing a format name without `kindOf()`, which this repo has paid
+      // for once already. Canonicalised here, and the refusals below still fire
+      // on a direction nobody can read.
+      const DIRECTIONS = {
+        maximise: 'maximise', maximize: 'maximise',
+        higher_is_better: 'maximise', 'higher-is-better': 'maximise', higher: 'maximise',
+        up: 'maximise', more_is_better: 'maximise',
+        minimise: 'minimise', minimize: 'minimise',
+        lower_is_better: 'minimise', 'lower-is-better': 'minimise', lower: 'minimise',
+        down: 'minimise', less_is_better: 'minimise', cost: 'minimise',
+      };
+      const readDir = (v) => DIRECTIONS[String(v ?? '').trim().toLowerCase()] ?? '';
+      const dirOf = (key) => readDir(
+        (crits.find(c => String(c.key ?? '') === String(key)) ?? {}).direction ?? 'maximise',
+      );
+      need(['maximise', 'minimise'].includes(dirOf(b.optimiseOn)),
+        `the criterion "${b.optimiseOn}" has direction "${dirOf(b.optimiseOn)}" — it is`
+        + ' `maximise` or `minimise`, which is the difference between a high score being'
+        + ' good and being a cost');
+      const wantsHigh = dirOf(b.optimiseOn).startsWith('max');
+      const best = ids.reduce((x, y) => ((wantsHigh ? at(y) > at(x) : at(y) < at(x)) ? y : x));
       need(best !== String(b.robust),
         `the robust candidate also wins on ${b.optimiseOn} at the nominal — nothing is traded`
         + ' away by choosing well, so moving the slider teaches nothing');
@@ -2391,6 +2824,13 @@ function gameFor(s, at, group, day){
       for(const c of crits){
         const k = String(c.key ?? '');
         need(k, 'every stress criterion needs a `key` naming the score field it reads');
+        // Carried, so the panel can say which way each column reads. It was
+        // authored on every board and kept on none.
+        if(c.direction !== undefined){
+          need(!!readDir(c.direction),
+          `the stress criterion "${c.label ?? k}" has direction "${c.direction}" —`
+          + ' it is `maximise` or `minimise`');
+        }
         need(ids.some(id => ((b.scores ?? {})[id] ?? {})[k] !== undefined),
           `the stress criterion "${c.label ?? k}" is keyed to "${k}", which no candidate has a`
           + ' score for — that column renders as an em dash for every candidate');
@@ -2401,7 +2841,11 @@ function gameFor(s, at, group, day){
           unit: c.unit ?? '' })),
         scores: b.scores ?? {}, feasible: b.feasible ?? {},
         assumption: { label: String(a.label ?? ''), unit: a.unit ?? '',
-          min: +a.min, max: +a.max, nominal: +a.nominal, step: +a.step },
+          min: +a.min, max: +a.max, nominal: +a.nominal, step: +a.step,
+          // Written down rather than re-derived: the panel must grey the same
+          // rows this refusal was checked against, and an inference repeated in
+          // two places is two descriptions of one fact.
+          worst },
         robust: String(b.robust), optimiseOn: String(b.optimiseOn),
         ...(b.hint ? { hint: String(b.hint) } : {}),
         ...(b.moral ? { moral: String(b.moral) } : {}),
@@ -2571,7 +3015,13 @@ function gameFor(s, at, group, day){
       need(String(b.blindSpot ?? '').trim(),
         'an inject needs a `blindSpot` — what never comes back, in any configuration');
       return { ...base, inject: {
-        population: { n: +b.population.n },
+        // GUARDED, because `need` COLLECTS rather than throws. The refusal for a
+        // missing population has already been recorded by the time this line
+        // runs, and reaching through the undefined here replaces that one honest
+        // sentence with "the INJECT board could not be read — Cannot read
+        // properties of undefined", which sends the reader to the parser instead
+        // of to the missing field.
+        population: { n: +(b.population?.n ?? 0) },
         metric: { label: String(m.label), unit: m.unit ?? '' },
         configs: cfgs.map(c => ({ id: String(c.id), label: String(c.label),
           detections: +c.detections, metric: +c.metric })),
@@ -3470,6 +3920,15 @@ function gameFor(s, at, group, day){
     if(hasSpec){
       need((e.labels ?? []).length === (e.values ?? []).length, 'estimate labels and values must line up');
       need(Number.isFinite(+e.target), 'estimate needs a numeric target');
+      // THE PANEL CALLS `.replace` ON THIS, so a spec without one does not
+      // render a poorer board — it throws before drawing anything, and the
+      // player meets a dead panel where a question should be. Seven stops
+      // across four campaigns were in that state, all of them carrying the old
+      // one-board-per-format template whose slots were never written.
+      need(String(e.template ?? '').includes('{0}'),
+        'estimate needs a `template` — the printed row with `{0}` and `{1}` where the slots go.'
+        + ' The panel builds the equation by replacing those, and without it the stop opens on a'
+        + ' broken panel rather than a wrong number');
       need((e.correct ?? []).every(i => i >= 0 && i < (e.values ?? []).length),
            'estimate `correct` names a value index that does not exist');
       need((e.correct ?? []).length === (e.slots ?? (e.correct ?? []).length),
@@ -3662,6 +4121,17 @@ if(warnings.length){
   console.log(`\n${warnings.length} warning(s):`);
   warnings.forEach(w => console.log('  · ' + w));
 }
+// THE SHAPE TELL, PRINTED WHETHER IT IS GOOD OR BAD. A number nobody sees is a
+// number nobody fixes, and this one was invisible while the per-step rule was
+// refusing books over three steps in 297.
+const tell = lengthTell(deriveLengths);
+if(tell){
+  const pct = Math.round(tell.best * 100);
+  console.log(`\nDERIVE shape: ${tell.n} two-candidate step(s) — always picking ${tell.which}`
+    + ` scores ${pct}% (${tell.longer} keyed longer, ${tell.shorter} keyed shorter,`
+    + ` ${tell.level} level). 50% is a coin.`);
+}
+
 console.log(`\n${GROUPS.length} groups, ${MISSIONS.length} missions, ` +
   `${Object.values(CURRICULUM).reduce((n, v) => n + v.length, 0)} lessons, ` +
   `${ROSTER.length} people, ${Object.keys(BALLPARK_CALCS).length} estimate specs, ${JARGON.length} terms`);

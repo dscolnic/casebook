@@ -3,6 +3,8 @@
 //   node engine/dev/shots.mjs quantum
 //   node engine/dev/shots.mjs bring_them_home --hud
 //   node engine/dev/shots.mjs quantum --at -6,0,32 --yaw 90 --name cryostat
+//   node engine/dev/shots.mjs groundtruth --at 0,0,-120 --yaw 180 --pitch 34 --name mast
+//   node engine/dev/shots.mjs midway --sol 12          the park part-way certified
 //   node engine/dev/shots.mjs blackout --case      just the delivery board
 //   npm run shots quantum
 //
@@ -66,7 +68,8 @@ const theme = args.find(a => !a.startsWith('--') && args[args.indexOf(a) - 1] !=
   && args[args.indexOf(a) - 1] !== '--yaw' && args[args.indexOf(a) - 1] !== '--name'
   && args[args.indexOf(a) - 1] !== '--out');
 if(!theme){
-  console.error('usage: node engine/dev/shots.mjs <theme> [--hud] [--at x,y,z --yaw deg] [--out dir]');
+  console.error('usage: node engine/dev/shots.mjs <theme> [--hud] [--at x,y,z --yaw deg]'
+    + ' [--room ID,ID] [--card GROUP:STOP] [--out dir]');
   process.exit(2);
 }
 const W = Number(flag('width', 1280));
@@ -83,7 +86,8 @@ async function viewsFor(dir){
   if(at){
     const [x, y, z] = at.split(',').map(Number);
     return [{ name: flag('name', 'view'), at: { x, y: y || 0, z },
-      yaw: (Number(flag('yaw', 0)) * Math.PI) / 180, note: 'from the command line' }];
+      yaw: (Number(flag('yaw', 0)) * Math.PI) / 180,
+      pitch: (Number(flag('pitch', 0)) * Math.PI) / 180, note: 'from the command line' }];
   }
 
   // A world nobody generated has to say where to stand.
@@ -100,7 +104,8 @@ async function viewsFor(dir){
     // a roller-coaster loop. Nobody writes 90 radians on purpose, so anything
     // past a full turn is taken as degrees.
     const asRadians = (y) => (Math.abs(y ?? 0) > Math.PI * 2 ? ((y ?? 0) * Math.PI) / 180 : (y ?? 0));
-    if(list.length) return list.map(v => ({ note: 'from the theme', ...v, yaw: asRadians(v.yaw) }));
+    if(list.length) return list.map(v => ({ note: 'from the theme', ...v,
+      yaw: asRadians(v.yaw), pitch: asRadians(v.pitch ?? 0) }));
   }
 
   const planPath = resolve(dir, 'plan.js');
@@ -320,6 +325,53 @@ try{
   })()`;
   if(!has('hud')) await cdp.eval(hideChrome);
 
+  // ---------------------------------------------------------------- the day
+  //
+  // HOISTED ABOVE THE VIEW LOOP, and it used to sit inside the `--room` branch.
+  // Every OUTDOOR shot this tool has ever taken was of day 1, whatever `--sol`
+  // said — so a world that changes over the campaign could not be photographed
+  // changing. Ground Truth's launch rail arms and empties, Red Sand's vehicle
+  // fills, Corbin Park's rides start turning as they are signed off, and not one
+  // of those states was reachable by a screenshot.
+  //
+  // Fixtures are built on entry from the open call, and `from:`/`until:`
+  // fixtures appear and go over the campaign, so a day-1 contact sheet can only
+  // ever show the first frame of a place.
+  //
+  // The results are faked the same way `--case` fakes them: every stop of every
+  // earlier day marked answered, so the week advances and anything gated on
+  // progress is in the state it would really be in. Then the world is pushed the
+  // new state by hand — a props layer's `stateHooks` fire from
+  // `updateWorldFromState`, which nothing else here calls, and without it the
+  // state changes and the scene does not.
+  const sol = +flag('sol') || 1;
+  if(sol > 1){
+    const week = await cdp.eval(`(() => {
+      const g = window.gamekit, st = g.getState && g.getState();
+      const M = (g.theme.content && g.theme.content.MISSIONS) || [];
+      if(!st) return false;
+      st.missionResults = st.missionResults || {};
+      for(let w = 1; w < ${sol}; w++){
+        ((M[w - 1] || {}).stops || []).forEach((s, i) => {
+          st.missionResults[w + '-' + i] = { group: s.group, lesson: s.lesson, correct: true };
+        });
+      }
+      st.week = ${sol};
+      // The whole push, where the entry point exposes it: state onto the world's
+      // signage and lamps, every props stateHook, and the delivery board. The
+      // two fallbacks are for a theme served by an older bundle.
+      if(g.refreshWorld) g.refreshWorld();
+      else {
+        if(g.world && g.world.updateWorldFromState) g.world.updateWorldFromState(st);
+        if(g.world && g.world.setDeliveryPieces && g.deliveryPieces){
+          try{ g.world.setDeliveryPieces(g.deliveryPieces(g.theme, st)); }catch(e){}
+        }
+      }
+      return st.week;
+    })()`);
+    console.log(`  sol ${week}: earlier days marked answered, and the world told`);
+  }
+
   const written = [];
   for(const v of views){
     const at = v.at
@@ -339,8 +391,10 @@ try{
     }
     // Two frames after the move: one to render the new position, one because a
     // texture or a light that arrived with it lands on the frame after.
+    // `pitch` is radians above the horizon — a view of something tall is the one
+    // frame this tool could not take. Degrees are accepted the same way yaw is.
     await cdp.eval(`new Promise(ok => {
-      window.gamekit.teleport(${at}, ${v.yaw});
+      window.gamekit.teleport(${at}, ${v.yaw}, ${v.pitch ?? 0});
       requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => ok(true), 60)));
     })`);
     if(!has('hud')) await cdp.eval(hideChrome);
@@ -369,32 +423,6 @@ try{
   if(roomArg){
     // `--sol N` — photograph a LATER day.
     //
-    // Every shot this tool has ever taken was of day 1, which was the whole truth
-    // until a room stopped being the same room every day. Fixtures are built on
-    // entry from the open call, and `from:`/`until:` fixtures appear and go over
-    // the campaign, so a day-1 contact sheet cannot show a plant that starts
-    // unfinished and fills in — it can only show the first frame of it.
-    //
-    // The results are faked the same way `--case` fakes them: every stop of every
-    // earlier day marked answered, so the week advances and anything gated on
-    // progress is in the state it would really be in.
-    const sol = +flag('sol') || 1;
-    if(sol > 1){
-      await cdp.eval(`(() => {
-        const g = window.gamekit, st = g.getState && g.getState();
-        const M = (g.theme.content && g.theme.content.MISSIONS) || [];
-        if(!st) return false;
-        st.missionResults = st.missionResults || {};
-        for(let w = 1; w < ${sol}; w++){
-          ((M[w - 1] || {}).stops || []).forEach((s, i) => {
-            st.missionResults[w + '-' + i] = { group: s.group, lesson: s.lesson, correct: true };
-          });
-        }
-        st.week = ${sol};
-        return st.week;
-      })()`);
-      console.log(`  sol ${sol}: earlier days marked answered`);
-    }
     const ids = roomArg === 'all'
       ? await cdp.eval('Object.keys(window.gamekit.theme.interiors || {})')
       : roomArg.split(',').map(s => s.trim()).filter(Boolean);
@@ -436,6 +464,88 @@ try{
         written.push({ name: `room ${id} (${suffix})${sol > 1 ? ` — sol ${sol}` : ''}`, file });
       }
       console.log(`  room ${id}: 2 shot(s)`);
+    }
+  }
+
+  // ---- a question card, for the campaigns whose panels carry something new
+  //
+  //   npm run shots whiteout -- --card POWER:0
+  //
+  // Every view above is of the world. A card is the other half of the screen and
+  // nothing here had ever photographed one, which is how Whiteout's first stop —
+  // "Read the three displayed lines, trace the expression as Java evaluates it" —
+  // could ship with the three lines dropped on import and every gate green. The
+  // panel is opened the way the room's own case opens it, through the game's
+  // `openVisit`, so what is photographed is the panel a player gets.
+  const card = flag('card');
+  if(card){
+    const [group, at] = String(card).split(':');
+    const opened = await cdp.eval(`(async () => {
+      const g = window.gamekit;
+      if(!g.openVisit) return 'this build does not expose openVisit';
+      // Past the opening card and the plan card, which cover the panel.
+      for(const b of document.querySelectorAll('button')){
+        const t = (b.textContent || '').toLowerCase();
+        if(/ready to save|take the response|continue/.test(t)){ b.click(); break; }
+      }
+      await new Promise(r => setTimeout(r, 400));
+      for(const b of document.querySelectorAll('button')){
+        const t = (b.textContent || '').toLowerCase();
+        if(/accept|start the (day|shift|mission)/.test(t)){ b.click(); break; }
+      }
+      await new Promise(r => setTimeout(r, 400));
+      try{ g.openVisit(${JSON.stringify(group)}, false, ${Number(at) || 0}); }
+      catch(e){ return 'openVisit threw: ' + (e.stack || e.message); }
+      await new Promise(r => setTimeout(r, 500));
+      const m = document.querySelector('#overlay');
+      if(!m || !m.classList.contains('show')) return 'the panel did not open';
+      // Everything but the panel, so the shot is of the card. Hidden by walking
+      // DOWN from the body and stepping over whatever contains the overlay —
+      // hiding body's children by id hid the wrapper the panel lives inside,
+      // which left an overlay that reported 897 characters of card and painted
+      // a dark rectangle.
+      // THE WORLD SHOTS GOT HERE FIRST. hideChrome runs before any of them and
+      // sets an inline display:none on every body child but the canvas — the
+      // overlay included — and an inline style beats the .overlay.show rule. So
+      // the panel opened, carried its 897 characters of card, and painted a
+      // dark rectangle. (No backticks in here: this comment is inside the
+      // template literal that carries the whole expression.)
+      m.style.removeProperty('display');
+      const keep = new Set();
+      for(let el = m; el && el !== document.body; el = el.parentElement) keep.add(el);
+      const hide = (parent) => {
+        for(const el of parent.children){
+          if(el === m || el.id === 'canvas') continue;
+          if(keep.has(el)){ hide(el); continue; }
+          el.style.display = 'none';
+        }
+      };
+      hide(document.body);
+      const box = m.querySelector('.modal') || m.firstElementChild;
+      if(box){ box.scrollTop = 0; }
+      // What the card turned out to carry, printed beside the filename. A
+      // source block is the one thing on a card that must arrive UNTOUCHED, so
+      // it is checked here rather than left to the eye: setMath runs a DOM pass
+      // over the card and a program rewritten as maths is a program that no
+      // longer compiles.
+      const src = m.querySelector('.sourceBlock');
+      const parts = [
+        m.querySelector('.candidate') ? 'options' : null,
+        src ? (src.querySelector('.mathSet') ? 'SOURCE REWRITTEN BY setMath' : 'source verbatim') : null,
+        m.querySelector('.instPanel') ? 'instrument' : null,
+        m.querySelector('svg') ? 'figure' : null,
+      ].filter(Boolean);
+      return 'ok:' + (parts.join(', ') || 'nothing but the card');
+    })()`);
+    if(!String(opened).startsWith('ok')){
+      console.log(`  card ${card}: ${opened}`);
+    } else {
+      await wait(400);
+      const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
+      const file = `card-${String(card).replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.png`;
+      writeFileSync(resolve(outDir, file), Buffer.from(shot.data, 'base64'));
+      written.push({ name: `card ${card}`, file, note: 'the question panel as a player meets it' });
+      console.log(`  card ${card}: 1 shot — ${String(opened).slice(3)}`);
     }
   }
 

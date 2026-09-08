@@ -1,11 +1,36 @@
 import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, advanceTime, penaliseStop, penaltyLeft } from './gameState.js';
 import { forecastReadiness, leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, openStopIndices, openStopGroups, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
+
+/**
+ * How many of the day's calls are still to make.
+ *
+ * NOT `openStopIndices().length`, which is how many are open *now* — and under
+ * `stopOrder: 'sequential'` that is always one. The verdict card needs the size
+ * of what is left, not the size of what is offered.
+ */
+function remainingStops(state){
+  const m = getCurrentMission(state);
+  if(!m) return 0;
+  return (m.stops ?? []).length - completedMissionStops(state).length;
+}
+
+/**
+ * Does this mission write its own account of what just changed?
+ *
+ * A beat script does — see engine/core/beats.js — and it plays within a second
+ * of the verdict card closing. Where it does, this card stops narrating the
+ * world and lets the campaign's own words do it.
+ */
+function hasBeats(state){
+  const m = getCurrentMission(state);
+  return Array.isArray(m?.beats) && m.beats.length > 0;
+}
 import { MISSION_DEFS } from './missions.js';
 import { CURRICULUM } from './curriculum.js';
 import { GROUP_DEFS } from './divisions.js';
 import { BALLPARK_CALCS, JARGON } from './curriculum.js';
 import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
-         VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
+         VISIT_BONUS, ISSUE_VISIT_BONUS, STOPS_IN_ORDER, PRICED_MISTAKES, TIMED } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
 // Co-op. Inert without `?room=`; the claim gate below is the only thing in this
 // file that knows a room can exist.
@@ -23,6 +48,7 @@ import * as room from './room.js';
  */
 const runSeed = () => Number(getState()?.runSeed) || 0;
 import { formatCountdown, PANEL_PACE } from './day.js';
+import { mathHTML, looksMathy, looksLikeCode } from './mathText.js';
 import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard,
          lineChart } from './figures.js';
 // The twelve formats the six interaction documents converged on. They live in
@@ -176,74 +202,16 @@ function solutionText(ch){
   if(ch.recommended) return Object.entries(ch.recommended).map(([k,v])=>`Proposal ${k}: about ${v} points`).join('; ');
   return ch.answer;
 }
-/**
- * A portrait, drawn from the person's own id.
- *
- * It was a rounded square with the first letter of their name in it, which is
- * a placeholder, and it sat next to three lines of metadata that mattered to
- * nobody. The person asking is the one part of this panel that should look
- * like something: a bust in their group's colour, with skin, hair and build
- * varied by a hash of their id so the same person is the same face every time.
- *
- * Deliberately flat and geometric — the same language as the rigs walking
- * around outside, not an attempt at a photograph.
- */
-const SKINS = ['#f0c9a4', '#e0ab7d', '#c78a5c', '#a2663d', '#7d4b2a', '#5c3720'];
-const HAIRS = ['#2b2119', '#4a3526', '#6f5137', '#8d7a5f', '#b8b2a8', '#3a2f2a'];
-function hashOf(str){
-  let n = 0;
-  for(const c of String(str || '?')) n = (n * 31 + c.charCodeAt(0)) >>> 0;
-  return n;
-}
-export function portraitSvg(person, accent){
-  const h = hashOf(person?.id || person?.name);
-  // Unsigned shifts throughout. `hashOf` returns a full 32-bit value, and a
-  // signed `>>` on anything above 2^31 goes negative — which indexes a style
-  // array at -1 and puts the literal text "undefined" in the middle of the
-  // portrait, for about half of all ids.
-  const skin = SKINS[h % SKINS.length];
-  const hair = HAIRS[(h >>> 3) % HAIRS.length];
-  const col = accent || person?.color || '#3b566b';
-  const style = (h >>> 6) % 4;                     // cropped, swept, tied back, bald
-  const glasses = ((h >>> 9) % 4) === 0;
-  const W = 132, H = 148, cx = W / 2, cy = 58;
-  const rx = 25, ry = 29;
-  const hairShape = [
-    // cropped: a close cap that stops above the brow
-    `<path d="M${cx - rx - 1} ${cy - 6} q1-27 ${rx + 1}-27 q${rx} 0 ${rx + 1} 27 q-7-13-${rx + 1}-13 q-19 0-${rx + 1} 13z" fill="${hair}"/>`,
-    // swept: a side parting with a fringe across one side
-    `<path d="M${cx - rx - 1} ${cy - 4} q0-29 ${rx + 2}-29 q${rx} 0 ${rx}-27 q6 30-14 32 q-16 2-24 10 q-4 4-5 14z" fill="${hair}"/>`,
-    // tied back: cap plus a bun behind
-    `<path d="M${cx - rx - 1} ${cy - 6} q1-27 ${rx + 1}-27 q${rx} 0 ${rx + 1} 27 q-7-13-${rx + 1}-13 q-19 0-${rx + 1} 13z" fill="${hair}"/>`
-      + `<circle cx="${cx + rx + 3}" cy="${cy - 6}" r="8" fill="${hair}"/>`,
-    // bald: a trim at the temples only
-    `<path d="M${cx - rx - 1} ${cy + 2} q2-14 8-18 q-3 9-2 18z M${cx + rx + 1} ${cy + 2} q-2-14-8-18 q3 9 2 18z" fill="${hair}"/>`,
-  ][style];
-  return `<svg class="portrait" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(person?.name || 'portrait')}">`
-    + `<defs><clipPath id="pc${h}"><rect x="0" y="0" width="${W}" height="${H}" rx="12"/></clipPath></defs>`
-    + `<g clip-path="url(#pc${h})">`
-    + `<rect width="${W}" height="${H}" fill="#efece3"/>`
-    + `<circle cx="${cx}" cy="${cy + 4}" r="50" fill="${col}" opacity="0.14"/>`
-    // shoulders and collar, in the group's colour: the uniform reads first
-    + `<path d="M4 ${H} q0-40 34-52 l22-7 h12 l22 7 q34 12 34 52 z" fill="${col}"/>`
-    + `<path d="M${cx - 15} ${H - 59} l15 21 15-21 l-7-5h-16z" fill="#f7f5ef"/>`
-    + `<rect x="${cx + 21}" y="${H - 32}" width="15" height="4" rx="2" fill="#f0e2b8"/>`
-    + `<rect x="${cx + 21}" y="${H - 24}" width="15" height="4" rx="2" fill="#f0e2b8"/>`
-    // neck, ears, head
-    + `<rect x="${cx - 10}" y="${cy + 18}" width="20" height="22" rx="8" fill="${skin}"/>`
-    + `<ellipse cx="${cx - rx}" cy="${cy + 4}" rx="4" ry="6" fill="${skin}"/>`
-    + `<ellipse cx="${cx + rx}" cy="${cy + 4}" rx="4" ry="6" fill="${skin}"/>`
-    + `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${skin}"/>`
-    + hairShape
-    + (glasses
-      ? `<g fill="none" stroke="#33302b" stroke-width="1.6"><circle cx="${cx - 9}" cy="${cy + 2}" r="6.4"/>`
-        + `<circle cx="${cx + 9}" cy="${cy + 2}" r="6.4"/><path d="M${cx - 2.6} ${cy + 2}h5.2"/></g>`
-      : `<ellipse cx="${cx - 9}" cy="${cy + 2}" rx="2" ry="2.4" fill="#2a221c"/>`
-        + `<ellipse cx="${cx + 9}" cy="${cy + 2}" rx="2" ry="2.4" fill="#2a221c"/>`)
-    + `<path d="M${cx - 13} ${cy - 5} q5-3 10-1 M${cx + 3} ${cy - 6} q5-2 10 1" stroke="${hair}" stroke-width="2" fill="none" stroke-linecap="round"/>`
-    + `<path d="M${cx - 6} ${cy + 15} q6 4 12 0" stroke="#9c6549" stroke-width="1.8" fill="none" stroke-linecap="round"/>`
-    + `</g></svg>`;
-}
+// The portrait moved to ./portrait.js so beats.js can draw the same face on a
+// speech bubble without dragging this module onto a node path. Re-exported
+// here because everything in this file already calls it by that name.
+// Imported AND re-exported. `export { x } from './y.js'` forwards the name
+// without binding it locally, so the eleven call sites in this file below threw
+// "portraitSvg is not defined" — green build, green import, dead on the first
+// question panel.
+import { portraitSvg } from './portrait.js';
+export { portraitSvg };
+
 function leaderPortrait(gs){
   const l = leader(gs?.leaderId);
   return portraitSvg({ id: l?.id, name: l?.name }, def(gs?.id)?.color);
@@ -422,7 +390,57 @@ function coopBusy(stopIndex, what){
     + `The verdict comes to everyone when it lands — take one of the others in the meantime.</div>`);
   return true;
 }
+/**
+ * THE MATHS ON A CARD, SET AS MATHS — one pass, after the card is written.
+ *
+ * `lim_(h->0) [sqrt(16+h)-4]/h` is what a calculus game was printing, and the
+ * notation is the subject of the question. The alternative to this pass was
+ * `mathHTML(` in place of `esc(` at some ninety call sites across this file,
+ * which is ninety chances to miss one and no way to tell that a renderer added
+ * next year has been missed.
+ *
+ * A WHITELIST, NOT THE WHOLE CARD. Only the elements that carry a sentence a
+ * writer wrote — the ask, the options, the verdict's reasoning, the estimate's
+ * governing relationship. The instruments' own readouts are left alone: they
+ * are written by code from numbers, several of them are read back out of the
+ * DOM by their own controls, and a formatter has nothing to add to "21.4 MW".
+ *
+ * Grading never reads any of this: a CHOICE is graded on `ch.choices[i]` from
+ * the book, not on the label in the button. That is what makes the pass safe.
+ */
+const MATH_IN = ['.question', '.askBrief', '.askAbout', '.askEq', '.askConnect',
+  '.compactInstruction', '.sweepAsk', '.calcEquation', '.candidate',
+  '.orderItem', '.verdictWhy', '.answerScienceLead', '.answerScience', '.takeaway',
+  '.termDefinition', '.deeperPrompt', '.goalCard p'].join(',');
+
+export function setMath(root){
+  if(!root?.querySelectorAll || typeof document === 'undefined') return;
+  const jobs = [];
+  for(const host of root.querySelectorAll(MATH_IN)){
+    // Once. The wrapper this pass leaves behind is how a second bind — and
+    // several paths bind the same card twice — knows the work is done.
+    if(host.closest('.mathSet')) continue;
+    const walk = document.createTreeWalker(host, NodeFilter.SHOW_TEXT);
+    for(let n = walk.nextNode(); n; n = walk.nextNode()){
+      const t = n.nodeValue;
+      if(!t || !t.trim() || !looksMathy(t) || looksLikeCode(t)) continue;
+      const html = mathHTML(t);
+      // `mathHTML` escapes, so a string it did not change comes back escaped
+      // and equal to the plain escape of it. Nothing to do for those.
+      if(html === esc(t)) continue;
+      jobs.push([n, html]);
+    }
+  }
+  for(const [node, html] of jobs){
+    const span = document.createElement('span');
+    span.className = 'mathSet';
+    span.innerHTML = html;
+    node.parentNode?.replaceChild(span, node);
+  }
+}
+
 function bindTerms(container, list=JARGON){
+  setMath(container);
   container.querySelectorAll('.termChip').forEach(btn=>{
     // Idempotent, because several paths bind the same chips: openModal binds
     // when it writes the body, and the challenge renderers bind again after
@@ -737,7 +755,13 @@ function ballparkBody(ch,spec){
     dim: !complete,
     note: `${activeCalc.chosen.length} of ${spec.slots} values placed`,
   });
-  return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div>${ch.relationship?`<div class="calcLaw"><span class="calcLawLabel">Governing relationship</span><span class="calcLawBody">${esc(ch.relationship)}</span></div>`:''}<div class="numberBank">${bank}</div><div class="calcEquation">${lhs?`<span class="calcLhs">${esc(lhs)}</span><span class="calcEquals">=</span>`:''}${equation}${spec.units?`<span class="calcUnits">${esc(spec.units)}</span>`:''}</div><div class="calcReadout">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
+  // NO "GOVERNING RELATIONSHIP" BLOCK. It printed the law as a sentence directly
+  // above the equation row that IS the law — the same relationship, with its left
+  // side on the equals sign and a slot per term — so the card said the same thing
+  // twice and the second copy was the one the player was filling in. The
+  // relationship is still read: `equationLeftSide` above takes the left of it to
+  // label that row, which is what the block was really there to supply.
+  return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div><div class="numberBank">${bank}</div><div class="calcEquation">${lhs?`<span class="calcLhs">${esc(lhs)}</span><span class="calcEquals">=</span>`:''}${equation}${spec.units?`<span class="calcUnits">${esc(spec.units)}</span>`:''}</div><div class="calcReadout">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
 }
 function ballparkHTML(ch){
   const spec=calcSpec();
@@ -947,9 +971,11 @@ export function sweepHTML(ch){
     + `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
     + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
     + `<b class="sweepAt">${num(w.start, ad)}${unit}</b></div>`
+    // NO ENGINE-WRITTEN HINT. The stop's own prints where the book writes one;
+    // otherwise nothing, the same rule the twenty-eight panels in instruments.js
+    // now follow. `methodBlock` renders nothing at all any more.
     + (briefed() ? '' : methodBlock('SWEEP')
-       + `<div class="sweepHint">${esc(w.hint
-           ?? 'Drag the slider across the range. Only the positions you visit are plotted.')}</div>`
+       + (w.hint ? `<div class="sweepHint">${esc(w.hint)}</div>` : '')
        + goalBlock(w.goals))
     + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Response against ${esc(a.label)}">`
     + `<rect width="320" height="120" fill="#f7f9fa"/>`
@@ -1213,10 +1239,9 @@ export function holdoutHTML(ch){
     // The hint stays either way: `afterFreeze` is written into it, so it is the
     // line that changes when the line is frozen. On a briefed stop it starts empty
     // and fills in at that moment.
-    + `<div class="sweepHint" id="holdoutHint">${esc(briefed() ? '' : (h.hint
-        ?? `Move the line and watch what it scores on the `
-           + `${(h.fitLabel ?? 'calibration set').toLowerCase()}. `
-           + `Freeze it when you are satisfied.`))}</div>`
+    // The element stays even when empty: `bind` writes the freeze result into it
+    // by id, and a hint nobody authored is no reason to remove the slot.
+    + `<div class="sweepHint" id="holdoutHint">${esc(briefed() ? '' : (h.hint ?? ''))}</div>`
     + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Score against ${esc(a.label)}">`
     + `<rect width="320" height="120" fill="#f7f9fa"/>`
     + `<polyline class="holdoutTrace" fill="none" stroke="${SWEEP_INK[0]}" stroke-width="2" points=""/>`
@@ -1375,9 +1400,7 @@ export function tallyHTML(ch){
   return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Acquire the correlations.')}</div>`
     + `<div class="tallyPanel">`
     + (briefed() ? '' : methodBlock('TALLY')
-       + `<div class="sweepHint">${esc(t.hint
-           ?? `Each batch is ${t.batch ?? 100} shots. A correlation is the probability the two `
-              + `outcomes agree minus the probability they disagree, so it runs from −1 to +1.`)}</div>`
+       + (t.hint ? `<div class="sweepHint">${esc(t.hint)}</div>` : '')
        + goalBlock(t.goals))
     // THE CONVERGENCE PLOT. The subject of this format is when a statistic has
     // enough data behind it, and for most of this engine's life the only picture of
@@ -1630,8 +1653,7 @@ export function probeHTML(ch){
   return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Find where the pattern breaks.')}</div>`
     + `<div class="probePanel">`
     + (briefed() ? '' : methodBlock('PROBE')
-       + `<div class="sweepHint">${esc(p.hint ?? 'Take a reading at any station. Each one reports what it'
-         + ' is at now, what it was on the last run, and what its cooling is having to do.')}</div>`
+       + (p.hint ? `<div class="sweepHint">${esc(p.hint)}</div>` : '')
        + goalBlock(p.goals))
     + `<div class="probeChain">${rows}</div>`
     + `<div class="probeCount" id="probeCount">No readings taken.</div>`
@@ -1813,8 +1835,21 @@ function diagnosisHTML(ch){
       + (c.mechanism?`<span class="candidateMechanism">${esc(c.mechanism)}</span>`:'')
       + `</button>`;
   }).join('');
-  const headline = ch.headline
-    ? `<div class="alarmLine"><span aria-hidden="true">■</span> ${esc(ch.headline)}</div>` : '';
+  /**
+   * THE HEADLINE IS NOT PRINTED, and the format is the reason.
+   *
+   * A diagnosis gives the player four readings and asks which cause fits all of
+   * them. `headline` is the bible's own summary of those readings — "Price up,
+   * quantity down" over +6% price and −9% quantity — so printing it hands over
+   * the first half of the work: the player reads the sentence instead of the
+   * numbers, and then only has to match it against the candidates, two of which
+   * are worded in the same shorthand ("supply falls: P↑ Q↓").
+   *
+   * The field is kept rather than dropped from the book: it is the author's
+   * statement of what the readings say, and `answerShape` and the trap checks
+   * read it. It is simply not shown to the player.
+   */
+  const headline = '';
   // An L4 panel is one no single cause fits: the answer is a pair, so the
   // candidates become a multiple choice of exactly two rather than one.
   const pairN = Array.isArray(ch.correctChoices) ? ch.correctChoices.length : 0;
@@ -1844,6 +1879,25 @@ function diagnosisHTML(ch){
  * are carried by the content and shown in the verdict, so a wrong answer is
  * told why it is wrong rather than only what the right one was.
  */
+/**
+ * The source a question is about, printed as written.
+ *
+ * Whiteout asks a player what `int percent = delivered / requested * 100;`
+ * stores, and a card that does not show those three lines is a question about
+ * something the player cannot see — its own stop says "Read the three displayed
+ * lines". Nothing here is set as maths: `mathHTML` turns `^` into a power and
+ * `->` into an arrow, which is right for a formula and wrong for a program, so
+ * the text is escaped and left alone. Whitespace is content in a program, which
+ * is why it is a `<pre>`.
+ *
+ * Any format may carry `code`; this is the one place that draws it.
+ */
+export function sourceHTML(code){
+  const said = String(code ?? '');
+  if(!said.trim()) return '';
+  return `<pre class="sourceBlock"><code>${esc(said.replace(/\s+$/, ''))}</code></pre>`;
+}
+
 function choiceHTML(ch){
   const all=(ch.choices||[]).map(c=> typeof c==='string' ? { label:c, mechanism:'' } : c);
   const order=shuffleSeeded(all.map((_,i)=>i),
@@ -1856,6 +1910,8 @@ function choiceHTML(ch){
       + `</button>`;
   }).join('');
   return `<div class="compactInstruction">${esc(ch.question||ch.task||ch.play||'Choose the best answer.')}</div>`
+    + sourceHTML(ch.code)
+    + renderFigure(ch.figure)
     + `<div class="candidateBank">${opts}</div>`
     + `<div id="visitFeedback"></div>`
     + `<div class="modalActions"><button class="btn primary" id="choiceCheck" type="button" disabled>Check</button></div>`;
@@ -1965,7 +2021,7 @@ function bindTank(){
  * briefing already. What they cannot get anywhere else is the person in front
  * of them and the situation, so that is what this is.
  */
-function askCard(gs, lesson, ch, person){
+function askCard(gs, lesson, ch, person, stop){
   const d = def(gs.id);
   const who = person || leader(gs.leaderId);
   return askCardHTML({
@@ -1973,7 +2029,7 @@ function askCard(gs, lesson, ch, person){
     role: person ? (person.role || '') : `${d?.name ?? ''} lead`,
     art: person ? portraitSvg(person, d?.color) : leaderPortrait(gs),
     accent: d?.color,
-  }, lesson, ch);
+  }, lesson, ch, JARGON, stop);
 }
 /**
  * The card above the question, from an already-resolved asker.
@@ -1985,8 +2041,70 @@ function askCard(gs, lesson, ch, person){
  *
  * `jargon` defaults to the running theme's, so the game path is unchanged.
  */
-export function askCardHTML(who, lesson, ch, jargon=JARGON){
+/**
+ * `guide` as one paragraph per blank-line-separated block. A guide with no blank
+ * line is one paragraph, which is what every card written before this had.
+ */
+const guideParagraphs = (guide) => String(guide).split(/\n\s*\n/)
+  .map(p => p.trim()).filter(Boolean)
+  .map(p => `<p class="askBrief askGuide">${esc(p)}</p>`).join('');
+
+export function askCardHTML(who, lesson, ch, jargon=JARGON, stop=null){
   const brief = storyBriefText(lesson);
+  // ---- THE FOUR THINGS A QUESTION CARD SAYS, in the order a bible writes them.
+  //
+  // A campaign bible gives every stop four player-facing lines and this card was
+  // printing two of them:
+  //
+  //   Stop reason               why this task, now       `stop.reason`
+  //   Story setup               the situation            `lesson.scene`    shown
+  //   Story-science connection  what the answer settles  `stop.why`
+  //   Prompt                    the task                 `ch.question`     shown
+  //
+  // The reason only ever reached the plan card, and the connection reached
+  // nothing at all — `motivation` was imported to `stop.why` and rendered
+  // nowhere, which is the dead-field defect this repo keeps paying for. Both are
+  // written for the player and both belong here, where the player is standing
+  // when the question is asked.
+  //
+  // THE SITUATION FIRST, THEN ONE PARAGRAPH OF WHY.
+  //
+  // These were three paragraphs — reason, situation, connection — and the first
+  // two are about the same moment: "the board must count demand weakness" and
+  // "because SRAS moved left, output is 685.2 while Yf is 720". Split across two
+  // paragraphs with the situation between them, the reason read as a heading and
+  // the connection as an afterthought. Joined, and put after the situation, they
+  // are one short paragraph that says why this is being asked now and what the
+  // answer settles — which is what both sentences were written to do.
+  //
+  // The reason leads, because it is the older of the two facts: this task, now,
+  // and then what turns on it.
+  /**
+   * SAY IT ONCE. The reason and the setup share their opening sentence on 314 of
+   * the 480 stops in the set — word for word, because both are generated from the
+   * same fact about the day:
+   *
+   *   setup   "With the resistant center chosen, one hospital's delay must still
+   *            be compared with its own baseline. Build the standardization from
+   *            an observed 84 hours, mean 70 hours…"
+   *   reason  "With the resistant center chosen, one hospital's delay must still
+   *            be compared with its own baseline. Work through the calculation…"
+   *
+   * Printed as written the card opens with that sentence and then repeats it two
+   * lines later, which reads as a stutter and pushes the actual task down the
+   * card. So a sentence already in the situation is not said again underneath it.
+   *
+   * ONLY EXACT REPEATS GO. This drops a sentence the player has just read on this
+   * same card; it does not judge whether two sentences mean the same thing, and it
+   * never empties the paragraph — a reason that is ALL repeats leaves the
+   * connection, and both being repeats leaves nothing, which is correct.
+   */
+  const said = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
+  const seen = new Set(said(brief).split(/(?<=[.!?])\s+(?=[A-Z"“(])/).map(said).filter(Boolean));
+  const fresh = (t) => said(t).split(/(?<=[.!?])\s+(?=[A-Z"“(])/)
+    .map(said).filter(x => x && !seen.has(x)).join(' ');
+  const reason = fresh(stop?.reason);
+  const connect = fresh(stop?.why);
   const guide = String(lesson?.guide ?? '').trim();
   // FOLD BY DEFAULT. `cardLoad` measured 841 of 1,334 stops showing more than four
   // things above the controls — the situation, the assumptions, the principle, a row
@@ -2007,8 +2125,15 @@ export function askCardHTML(who, lesson, ch, jargon=JARGON){
     + `<div class="askName">${esc(who.name)}</div><div class="askRole">${esc(who.role ?? '')}</div></div>`
     + `<div class="askBody">`
     + `<p class="askBrief">${esc(brief)}</p>`
+    + ((reason || connect)
+      ? `<p class="askConnect">${esc([reason, connect].filter(Boolean).join(' '))}</p>` : '')
     // Two paragraphs, and then a door. See askMoreHTML.
-    + (guide ? `<p class="askBrief askGuide">${esc(guide)}</p>` : '')
+    // A blank line in `guide` is a paragraph break. Zero of the 2,331 stops that
+    // predate this carried one, so every existing card renders byte-identically;
+    // it exists because the second-grade voice needs to breathe — a 150-word
+    // teaching guide set as one block is the wall the reading level was lowered
+    // to remove.
+    + (guide ? guideParagraphs(guide) : '')
     + (!guide ? aboutRow(lesson) : '')
     // The equations this question is worked from, if any. See workedFromHTML: the
     // fold is right for context and wrong when the equation is the question.
@@ -2332,8 +2457,8 @@ function figureBlock(lesson, ch){
  * the middle of the reading. It goes under the controls now — see
  * `withAssist`.
  */
-function challengePrefix(gs, lesson, ch, person){
-  return askCard(gs, lesson, ch, person)
+function challengePrefix(gs, lesson, ch, person, stop){
+  return askCard(gs, lesson, ch, person, stop)
     + (kindOf(ch) === 'DIAGNOSIS' ? '' : figureBlock(lesson, ch));
 }
 /**
@@ -2415,7 +2540,7 @@ function reasoningHTML(ch, lesson, solution, whyText, showAnswer){
   if(kindOf(ch)==='BALLPARK'){
     const spec=calcSpec();
     // The explanation is the ballpark's own whyText, already on the card.
-    detail=spec?`<p>The appropriate estimates are <b>${spec.correct.map(i=>esc(spec.labels[i])).join(', ')}</b>. Inserting them into the displayed relationship gives <b>${esc(spec.solution)}</b>.</p>`:'';
+    detail=spec?`<p>The appropriate estimates are <b>${spec.correct.map(i=>esc(spec.labels[i])).join(', ')}</b>. Placed in the equation they give <b>${esc(spec.solution)}</b>.</p>`:'';
   } else if(kindOf(ch)==='SCIENCETANK'){
     const rec=ch.recommended||{};
     detail=`<div class="proposalReview">${(ch.proposals||[]).map(p=>`<div><b>Proposal ${esc(p.label)}</b><span>${esc(p.text)}</span><em>${rec[p.label]!==undefined?`Recommended weight: ${rec[p.label]} points`:''}</em></div>`).join('')}</div>`;
@@ -2669,6 +2794,17 @@ function finishVisit(ok){
   const attemptKey = state.week + '-' + stopIndex;
   const attempt = (state.attempts[attemptKey] || 0) + 1;
   state.attempts[attemptKey] = attempt;
+  // COMMITTED WRONG ANSWERS, per mission.
+  //
+  // This is the only place a submission is graded, so it is the only place that
+  // can count one. It counts commits and nothing else — a metrics campaign
+  // scores `incorrect_submissions`, and the bible is explicit that exploratory
+  // drags and changes made before Commit are not submissions. A theme without
+  // metrics writes the counter and nobody reads it, which costs one integer.
+  if(!ok){
+    state.wrongSubmissions = state.wrongSubmissions || {};
+    state.wrongSubmissions[state.week] = (state.wrongSubmissions[state.week] || 0) + 1;
+  }
   // Only a correct call closes the stop by itself. A wrong one leaves it open
   // and lets the player choose: answer again, or take the miss and move on.
   // Both are on offer in money or in time, so this can never trap anyone —
@@ -2764,11 +2900,28 @@ function finishVisit(ok){
       ? `${def(gs.id).code} is at 100% — every milestone signed off`
       : `${def(gs.id).code} has the work for "${ledger.milestoneName}" and is waiting on funding; `
         + 'this call counts towards the next one';
-  const ledgerHTML =
+  /**
+   * THREE READINGS OUT OF THE DAY MODEL, AND A TIMED CAMPAIGN HAS NONE OF THEM.
+   *
+   * Readiness is the funding-and-work track, "Left today" is the day countdown,
+   * and the projection is where that track lands by the deadline. A campaign
+   * with `economy: false` runs no readiness track and no day clock — it is
+   * scored on four bars, a mission stopwatch and a count of wrong answers — so
+   * every one of these printed a number about machinery the player is not in.
+   * "Readiness — no gain, RATE now 8.3%" under a correct answer reads as a mark
+   * against it.
+   *
+   * The verdict, the reason and the rebuttal are untouched; it is only the
+   * ledger strip that goes.
+   */
+  const ledgerHTML = TIMED ? '' :
     cell('Readiness', readinessValue, ok ? 'gain' : '', readinessNote) +
     cell('Left today', formatCountdown(state.dayLeft ?? 0),
          (state.dayLeft ?? 0) < (state.dayBudget ?? 1) * 0.2 ? 'cost' : '',
-         `${openStopIndices(state).length} call${openStopIndices(state).length === 1 ? '' : 's'} still open`) +
+         // Calls REMAINING, not calls open: a sequential campaign has exactly one
+         // open at any moment, and "1 call still open" on every verdict says
+         // nothing about how much of the day is left to do.
+         `${remainingStops(state)} call${remainingStops(state) === 1 ? '' : 's'} still to make`) +
     cell('Projection at deadline', `${fmt(ledger.projectionAfter)}%`,
          projDelta > 0.5 ? 'gain' : projDelta < -0.5 ? 'cost' : '',
          projDelta === 0 ? 'unchanged' : `${projDelta > 0 ? '+' : ''}${fmt(projDelta)} from this call`);
@@ -2783,21 +2936,59 @@ function finishVisit(ok){
     : 'The call does not hold';
   const colour = ok ? '#0ca30c' : '#c0392b';
 
+  // ------------------------------------------- WHOSE WORDS THE VERDICT IS IN
+  //
+  // A mission with a BEAT SCRIPT has authored prose for what just changed, and
+  // the beat plays within a second of this card closing. So the engine's own
+  // three lines are not merely redundant there, they contradict it: this card
+  // said "Outside, Plant Control has gone green" while the beat that followed
+  // said the leak warning drops to amber and the methane shortfall stays red.
+  // Reported as exactly that, alongside "That call is closed. 3 still to make,
+  // in order.", which is progress chatter the HUD banner already carries.
+  //
+  // Keyed on the beats rather than on a theme flag, because the two facts are
+  // the same fact: a mission that authored the world change is a mission whose
+  // world change is written down. A mission without beats keeps every line it
+  // ever had.
+  const authored = hasBeats(state);
+
   const consequence = ok
-    ? `<p class="verdictWhy"><b>${esc(def(gs.id).name)} is clear to proceed.</b> ${esc(ch.why || lesson.takeaway || '')}</p>`
+    // The stop's own verdict. Where the mission writes its own account, that is
+    // ALL of it: the bold sentence that used to open this — "<Area> is clear to
+    // proceed." — is the engine talking over the author, and the beat that
+    // follows says what actually changed. Every other campaign keeps it, since
+    // for them it is the only line that says the world moved.
+    ? (authored
+        ? `<p class="verdictWhy">${esc(ch.why || lesson.takeaway || '')}</p>`
+        : `<p class="verdictWhy"><b>${esc(def(gs.id).name)} is clear to proceed.</b> ${esc(ch.why || lesson.takeaway || '')}</p>`)
     : `<div class="wrongAnswerCompare"><div class="answerCompareBox user"><b>Your answer</b>${esc(activeChallenge.userAnswer || '(no answer)')}</div>` +
       `<div class="answerCompareBox correct"><b>What the evidence supports</b>${esc(solution)}</div></div>` +
       `<p class="verdictWhy">${esc(whyText || '')}</p>`;
 
-  const worldNote = ok
-    ? `<p class="verdictWhy">Outside, ${esc(def(gs.id).name)} has gone green.</p>`
-    : `<p class="verdictWhy">Outside, ${esc(def(gs.id).name)} is showing red, and stays that way until this is settled.</p>`;
+  const worldNote = authored ? ''
+    : ok
+      ? `<p class="verdictWhy">Outside, ${esc(def(gs.id).name)} has gone green.</p>`
+      : `<p class="verdictWhy">Outside, ${esc(def(gs.id).name)} is showing red, and stays that way until this is settled.</p>`;
 
   const stopNote = ledger.closes
-    ? (isLastStop
-        ? `<p class="verdictWhy"><b>Every call today is made.</b> The rest of the day is yours.</p>`
-        : `<p class="verdictWhy">That call is closed. ${openStopIndices(state).length} still open — take them in any order.</p>`)
-    : `<p class="verdictWhy"><b>This call stays open.</b> It closes for an hour and reopens on its own, or $${RETRY_COST} has it back now. The clock keeps running either way.</p>`;
+    // What is closed and what is left. Dropped where a beat says it: the
+    // outcome beat is the "every call is made" line, in the campaign's voice.
+    ? (authored ? ''
+        : isLastStop
+          ? `<p class="verdictWhy"><b>Every call today is made.</b> The rest of the day is yours.</p>`
+          : `<p class="verdictWhy">That call is closed. ${remainingStops(state)} still to make${
+              STOPS_IN_ORDER ? ', in order.' : ' — take them in any order.'}</p>`)
+    // KEPT EVEN WITH BEATS. This one is not world prose, it is how to get the
+    // call back — the free hour, the price, and that the clock runs either way.
+    // No beat covers it, and a wrong answer with no way forward printed is the
+    // one place this card cannot afford to go quiet.
+    // A METRICS CAMPAIGN HAS NO PENALTY BOX. The miss is already on the
+    // mission's tally and will be taken off the Recovery Points at the end of
+    // it; the call itself reopens at once. Saying "closes for an hour" there
+    // described a rule that does not apply and a price that cannot be paid.
+    : PRICED_MISTAKES
+      ? `<p class="verdictWhy"><b>This call stays open.</b> It closes for an hour and reopens on its own, or $${RETRY_COST} has it back now. The clock keeps running either way.</p>`
+      : `<p class="verdictWhy"><b>This call stays open.</b> Answer it again whenever you like. The miss is counted, and it comes off your Recovery Points at the end of the mission.</p>`;
 
   const detail = reasoningFoldHTML(ch, lesson, solution, whyText, false, ok);
 
@@ -2821,9 +3012,12 @@ function finishVisit(ok){
   // a "Decide later" close on this card as well, which closed the verdict without
   // penalising anything — so the whole penalty box was opt-in, and a player who
   // ignored the button walked straight back in and answered again for nothing.
-  const hourAvailable = (state.dayLeft ?? 0) > PENALTY_MINUTES;
-  const stuck = !hourAvailable && state.reserve < RETRY_COST;
-  const choices = ok ? '' :
+  // With bars there is no hour to wait out and no reserve to spend, so neither
+  // the penalty box nor its dead end exists: `retryAgain` below is the only way
+  // on, and it is free.
+  const hourAvailable = !PRICED_MISTAKES || (state.dayLeft ?? 0) > PENALTY_MINUTES;
+  const stuck = PRICED_MISTAKES && !hourAvailable && state.reserve < RETRY_COST;
+  const choices = ok || !PRICED_MISTAKES ? '' :
     (stuck
       ? '<div class="verdictChoice"><div class="verdictChoiceLabel">Nothing left to spend</div>'
         + '<p class="verdictWhy">$' + fmt(state.reserve) + ' in hand, and less than an hour left to '
@@ -2844,19 +3038,40 @@ function finishVisit(ok){
   // The close button is gone from a wrong call. The one exception is a day with
   // less than an hour left to wait out and money in hand — nobody is made to
   // spend to get out of a card.
-  const showClose = ok || (!stuck && !hourAvailable);
+  // AND A WAY OUT OF THE CARD THAT IS NOT ANSWERING. Under the penalty box the
+  // close is hidden on a wrong call, because the hour is the consequence and a
+  // free close would be a way round it. With bars there is nothing to get round
+  // — the miss is already counted — so hiding it would only mean a player who
+  // wants to think about it has to answer anyway.
+  const showClose = ok || !PRICED_MISTAKES || (!stuck && !hourAvailable);
+  // -------------------------------------------------------- ONE WAY ONWARD
+  //
+  // A correct last call offered three: "Every call made — take the rest of the
+  // day", "Go to sleep, wake up tomorrow." and "Return". Three buttons is three
+  // decisions at the moment the player has just finished the mission and the
+  // outcome beat is waiting behind the card, and two of them are the same
+  // decision phrased twice.
+  //
+  // So where the campaign writes its own close, there is one: Continue. It shuts
+  // the card, the mission-outcome beat plays, and the turn-in bar — which is a
+  // separate route in app.js and always was — ends the shift when they are
+  // ready. Every other campaign keeps all three, because for them the free rest
+  // of the day is the economy: talking to people is where the money comes from.
+  const oneWay = authored && ok;
   const actions =
-    (isLastStop && ledger.closes
+    (isLastStop && ledger.closes && !oneWay
       ? '<button class="btn primary" id="dayIsYours" type="button">Every call made — take the rest of the day</button>'
         + '<button class="btn" id="sleepNow" type="button">Go to sleep, wake up tomorrow.</button>'
       : '') +
-    (ok || stuck ? '' :
-      '<button class="btn primary priced" id="waitOut" type="button"'
-      + (hourAvailable ? '' : ' disabled') + '>'
-      + '<span>Come back in an hour</span><small>free</small></button>') +
+    (ok || stuck ? '' : PRICED_MISTAKES
+      ? '<button class="btn primary priced" id="waitOut" type="button"'
+        + (hourAvailable ? '' : ' disabled') + '>'
+        + '<span>Come back in an hour</span><small>free</small></button>'
+      : '<button class="btn primary" id="retryNow" type="button">Answer it again</button>') +
     (showClose
       ? '<button class="btn ' + (ok ? 'primary' : 'ghost') + '" id="visitClose" type="button">' +
-        (ok ? 'Return' : 'Leave it for today') + '</button>'
+        (ok ? (oneWay ? 'Continue' : 'Return')
+            : PRICED_MISTAKES ? 'Leave it for today' : 'Leave it for now') + '</button>'
       : '');
 
   const card = document.getElementById('verdictCard');
@@ -2869,7 +3084,21 @@ function finishVisit(ok){
       // under the headline — a hundred words the player read on the plan card
       // minutes ago, above the one thing they opened this panel to find out.
       `<h3 class="verdictTitle">${esc(headline)}</h3></div>` +
-      `<div class="verdictLedger">${ledgerHTML}</div>` +
+      // WHERE THE BEAT'S DIALOGUE GOES: DIRECTLY UNDER THE VERDICT.
+      //
+      // A mission's after-stop beat fires within a second of this card
+      // appearing, and it used to speak in a balloon out in the world — behind
+      // the card the player is reading, next to a head they cannot see. So the
+      // beat renders on the card, with the speaker's face beside their words.
+      //
+      // AND IT SITS ABOVE THE TEACHING, not under it. At the foot of the card
+      // the reply to what the player just did was the last thing on a screen
+      // whose Continue button is at the bottom — read after the explanation it
+      // is a reaction to, if it was read at all. Empty and collapsed until a
+      // beat fills it; see `hostFor` in src/main.js and `render` in
+      // engine/core/beats.js.
+      `<div class="verdictDialogue" id="verdictDialogue"></div>` +
+      (ledgerHTML ? `<div class="verdictLedger">${ledgerHTML}</div>` : '') +
       `<div class="verdictBody">${verdictFigureHTML(ch, lesson, ok)}${consequence}${worldNote}${stopNote}${detail}</div>` +
       choices +
       // Nothing to put in it means no bar: it is sticky, ruled and padded, so an
@@ -2950,6 +3179,18 @@ function finishVisit(ok){
   };
   const bind = (id, fn) => { const b = document.getElementById(id); if(b && !b.disabled) b.onclick = fn; };
   bind('retryMoney', () => again(RETRY_COST, 0));
+  // Free, and immediate. `again` still logs the second attempt and clears the
+  // stop so the panel reopens; what it does not do here is charge for it. The
+  // wrong answer was counted when it was committed — see `wrongSubmissions`
+  // above — so nothing about the score depends on this button.
+  bind('retryNow', () => {
+    state.retries = state.retries || {};
+    state.retries[key] = true;
+    closeVerdict();
+    removeMissionStop(stopIndex);
+    save();
+    openVisit(gs.id, true);
+  });
   bind('waitOut', () => {
     // The stop stays open and stays uncredited; what changes is that it will not
     // let anybody in until the hour has run off the day's countdown.
@@ -2965,6 +3206,7 @@ function finishVisit(ok){
   // Default in the keyboard sense too, not only the visual one: the hour is the
   // button Enter presses on a wrong call, and the money one has to be aimed at.
   const defaultBtn = document.getElementById('waitOut')
+    || document.getElementById('retryNow')
     || document.getElementById('restartDayBtn')
     || document.getElementById('visitClose');
   if(defaultBtn && !defaultBtn.disabled) defaultBtn.focus();
@@ -3006,8 +3248,16 @@ function renderMissionLock(id, personHint){
   const nextText = nextIsPerson
     ? `with the <b>${nextGroup?esc(nextGroup.name):'?'}</b> person — look for the <b>[${next?next.group:''}]</b> nameplate`
     : `in <b>${nextGroup?esc(nextGroup.name):'?'}</b>${next?` — ${esc(next.task)}`:''}`;
+  // WHEN SOMEBODY IS WAITING, DO NOT SAY NOTHING IS. This card is two cards: a
+  // room with no call open today, and a room whose call is with a person and is
+  // answered by finding them. The second was printing the first's lead — "nothing
+  // is waiting for you here" over a hint saying go and find Herrera — which reads
+  // as the game contradicting itself at the object the player just pressed.
+  const lead = personHint
+    ? `The call open here is with a colleague, not with the instruments.`
+    : `Nothing is waiting for you here at the moment. Look around as long as you like — the instruments are live and the people will talk to you.`;
   const body=`<div class="roomIdle">`
-    + `<div class="roomIdleLead">Nothing is waiting for you here at the moment. Look around as long as you like — the instruments are live and the people will talk to you.</div>`
+    + `<div class="roomIdleLead">${lead}</div>`
     + `<div class="roomIdleNext">The open case is ${nextText}${/[.?!]$/.test(nextText.replace(/<[^>]+>/g,'')) ? '' : '.'}</div>`
     + hint
     + `<div class="missionRoute" style="margin-top:12px">${(curMission?.stops||[]).map((s,i)=>{
@@ -3021,7 +3271,9 @@ function renderMissionLock(id, personHint){
     + `<div class="modalActions"><button class="btn primary" id="visitCloseLock" type="button">Keep looking around</button></div>`;
   // openModal writes the title with textContent, so it must not be pre-escaped:
   // "Bones, Muscles &amp; Skin" is what the player would read otherwise.
-  openModal(`${def(id).name} — no case open right now`, body);
+  openModal(personHint
+    ? `${def(id).name} — this call is with a person`
+    : `${def(id).name} — no case open right now`, body);
   const cl=document.getElementById('visitCloseLock');
   if(cl) cl.onclick=()=> closeModal();
 }
@@ -3172,6 +3424,52 @@ function bindChallengeBody(ch, host){
     const btn=document.getElementById('visitCloseFallback');
     if(btn) btn.onclick=()=> closeModal();
   }
+  devSkip(live());
+}
+
+/**
+ * DEV ONLY: close this stop as if it had been answered correctly.
+ *
+ * Forty-four formats, each with its own controls and its own commit. Driving each
+ * one properly from a button would mean forty-four more code paths to keep in
+ * step with the real ones — so this does not simulate the player. It calls the
+ * same `finishVisit(true)` every format's own commit calls when the answer is
+ * right, which is the one thing they all share.
+ *
+ * WHAT IT THEREFORE DOES NOT TEST. The panel. A stop skipped this way proves
+ * nothing about whether its board renders, grades or can be completed by hand —
+ * that is what `npm run drive` and playing it are for. It exists so a fifteen-
+ * mission campaign can be walked end to end in a couple of minutes to look at
+ * beats, boards, the metric screen and the day model.
+ *
+ * `import.meta.env.DEV` is Vite's, and is compiled out of a built `dist/`, so
+ * this cannot reach a player. The same guard wraps the debug handles in
+ * `src/main.js`.
+ */
+function devSkip(host){
+  if(!import.meta.env?.DEV) return;
+  const panel = host ?? document.getElementById('modalBody');
+  if(!panel || panel.querySelector('#devSkipStop')) return;
+  const bar = panel.querySelector('.modalActions');
+  const btn = document.createElement('button');
+  btn.id = 'devSkipStop';
+  btn.type = 'button';
+  btn.className = 'btn devSkip';
+  btn.title = 'Dev only: mark this stop correct and move on. Does not exercise the panel.';
+  btn.textContent = 'Dev: answer correctly';
+  btn.onclick = () => {
+    // So the verdict card does not show a blank where the player's answer goes,
+    // and so a screenshot of one of these is obviously not a real answer.
+    if(activeChallenge) activeChallenge.userAnswer = '(dev: skipped)';
+    finishVisit(true);
+  };
+  if(bar) bar.appendChild(btn);
+  else {
+    const row = document.createElement('div');
+    row.className = 'modalActions';
+    row.appendChild(btn);
+    panel.appendChild(row);
+  }
 }
 
 function showChallengeForStop(id, stop, isRetry, person=null){
@@ -3184,7 +3482,7 @@ function showChallengeForStop(id, stop, isRetry, person=null){
     stopIndex: stop.index, person,
     // The estimate's numbers, stamped once. See calcSpec().
     calc: BALLPARK_CALCS[`${id}-${lesson.day}`] ?? null };
-  const bodyPrefix = challengePrefix(gs, lesson, ch, person);
+  const bodyPrefix = challengePrefix(gs, lesson, ch, person, stop);
   // One shuffle seed per format, because the two that shuffle want different
   // ones — an order dealt the same way as its own protocol board would pair the
   // two panels of a day together for the rest of the campaign.
@@ -3328,9 +3626,23 @@ export function openPersonVisit(npc, isRetry=false){
   if(coopBusy(idx, npc.char?.name ? `${npc.char.name}'s call` : 'this call')) return true;
   const stop={ ...m.stops[idx], index: idx };
   takeStop(idx);
-  // The person asks the same science question a room would, and the panel
-  // shows them rather than the area's leader.
-  showChallengeForStop(division, stop, isRetry, npc.char);
+  /**
+   * THE QUESTION BELONGS TO THE STOP, NOT TO THE PERSON ASKING IT.
+   *
+   * This passed the PERSON's division, and `showChallengeForStop` indexes
+   * `CURRICULUM[division][stop.lesson]` with it. That is the same list whenever
+   * somebody is asked in the area they work in, which is every shipped campaign
+   * — so it was right for years and wrong the moment a day sent a person to
+   * another area. Ground Truth's Lena Ortiz runs SHOT and is met on day 1 at
+   * COUPLE: `CURRICULUM.SHOT[1]` is a shorter list, the lookup came back
+   * undefined, and reading `.game` off it threw before the panel drew anything.
+   *
+   * The stop's own group is what the curriculum is indexed by, and the person is
+   * already passed separately for the panel to show. Where the two agree — every
+   * campaign that shipped before this — nothing changes.
+   */
+  const asks = stop.group || division;
+  showChallengeForStop(asks, stop, isRetry, npc.char);
   return true;
 }
 function renderSpecialFundingModal(req, onFund, onDecline){
@@ -3390,12 +3702,33 @@ export function openSpecialRequest(npc){
   );
   return true;
 }
-export function openVisit(id, isRetry=false){
+export function openVisit(id, isRetry=false, stopIndex=null){
   const state=getState();
   if(!state) return;
   const gs=state.groups.find(x=>x.id===id);
   const d=def(id);
-  const stop=missionStopForGroup(state, id);
+  // AN OBJECT MAY ADDRESS ITS OWN CALL. `missionStopForGroup` resolves a group
+  // to one stop, which is right until a day puts two calls of the same area in
+  // one room: both objects then open whichever is first, and pressing the skid
+  // asked the analyser's question. A fixture that knows its stop index says so.
+  const m=getCurrentMission(state);
+  const named = Number.isInteger(stopIndex) && m?.stops?.[stopIndex]?.group === id
+    ? { ...m.stops[stopIndex], index: stopIndex } : null;
+  // THE STAND DOES NOT KNOW WHICH CALL IT IS. Objects carry a stop index; the
+  // room's case stand, the map and the plan card do not, and `missionStopForGroup`
+  // hands back the FIRST open stop of the area. When that first one is the day's
+  // person call, the stand in a room that also has a room-answerable call of the
+  // same area refused with "no case open right now" while the call sat two metres
+  // away — sol 4 of Red Sand, where EQUIL-2 is the person and EQUIL-3 is the skid.
+  // So an unaddressed open takes the first call this room can actually answer,
+  // and only falls through to the person stop when that is all the area has left
+  // — which is what makes the "find the person" hint still appear.
+  const roomStop = () => {
+    const i = openStopIndices(state)
+      .find(i => m?.stops?.[i]?.group === id && !isPersonStopForIdx(state, i));
+    return Number.isInteger(i) ? { ...m.stops[i], index: i } : null;
+  };
+  const stop=named ?? roomStop() ?? missionStopForGroup(state, id);
   const nextIdx=nextMissionStopIndex(state);
   if(!stop){
     state.selectedGroup=id;

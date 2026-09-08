@@ -1,0 +1,1245 @@
+theme:
+  id: projecty
+  title: Project Y
+  subtitle: Los Alamos · 1943–45
+format: 2
+
+# The areas of study. One column of the game each; every group needs somebody on the roster.
+groups:
+  - id: T
+    code: T
+    name: Civic Advice Office
+    color: "#315c78"
+    difficulty: 5
+    type: ballpark
+    budget: 72
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: CM
+    code: CM
+    name: Business Workshop
+    color: "#8a6921"
+    difficulty: 4
+    type: protocol
+    budget: 80
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: E
+    code: E
+    name: Freight Contract Office
+    color: "#865044"
+    difficulty: 3
+    type: sequence
+    budget: 88
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: P
+    code: P
+    name: Housing and Work Office
+    color: "#4b775f"
+    difficulty: 4
+    type: diagnosis
+    budget: 72
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+  - id: X
+    code: X
+    name: Water and Land Office
+    color: "#704f88"
+    difficulty: 5
+    type: sciencetank
+    budget: 96
+    milestones:
+      - name: Open the room
+        cost: 12
+        work: 9
+        brief: Open the room
+      - name: Read what it holds
+        cost: 16
+        work: 12
+        brief: Read what it holds
+      - name: Settle the question
+        cost: 20
+        work: 15
+        brief: Settle the question
+      - name: Hand it on
+        cost: 24
+        work: 18
+        brief: Hand it on
+roster:
+- id: velez
+  name: "Mara Velez"
+  role: "state economic adviser"
+  division: T
+  pronouns: "she/her."
+  bio: |
+    Mara Velez is state economic adviser. Wants resolve disputes without spending promises twice. Initially trusts neatly balanced aggregate totals. After M14 she requests separate resource and transfer columns before any recommendation. Says, "What claim would change our choice?"
+- id: bell
+  name: "Nico Bell"
+  role: "diner owner"
+  division: CM
+  pronouns: "he/him."
+  bio: |
+    Nico Bell is diner owner. Wants keep the diner solvent and the town fed. Welcomes cheaper suppliers but initially resists competing food sellers. After M8 he accepts the entry rule he wanted applied to his suppliers. Says, "What changes if I do one more?"
+- id: sen
+  name: "Ruth Sen"
+  role: "terminal manager"
+  division: E
+  pronouns: "she/her."
+  bio: |
+    Ruth Sen is terminal manager. Wants keep the terminal solvent and its contractual service reliable. Initially presents private profit targets as physical capacity needs. After M10 she separates cost recovery from exclusion and accepts an explicit access regime. Says, "Who covers the fixed bill?"
+- id: moss
+  name: "Leila Moss"
+  role: "housing cooperative organizer"
+  division: P
+  pronouns: "she/her."
+  bio: |
+    Leila Moss is housing cooperative organizer. Wants keep both current tenants and new workers housed. Initially lets incumbent tenant gains stand for all applicants. After M5 she retains tenant relief but demands a separate access count. Says, "Who is still outside?"
+- id: price
+  name: "Owen Price"
+  role: "watershed engineer"
+  division: X
+  pronouns: "he/him."
+  bio: |
+    Owen Price is watershed engineer. Wants keep downstream water costs visible and protection funded. Initially treats a technically effective filter as affordable without checking trade policy. After M13 he carries resource and payment accounts together. Says, "Where did the cost go?"
+
+leaders:
+- id: bethe
+  name: Hans Bethe
+  role: Theoretical physicist and division organizer
+  science: 5
+  management: 4
+  trait: Turns many calculations into one coordinated theory program.
+- id: bacher
+  name: Robert Bacher
+  role: Experimental physicist and laboratory leader
+  science: 4
+  management: 5
+  trait: Strong at organizing independent measurements and technical teams.
+- id: kennedy
+  name: Joseph Kennedy
+  role: Chemist and division leader
+  science: 4
+  management: 4
+  trait: Balances chemical evidence, materials work, and laboratory discipline.
+- id: parsons
+  name: Deke Parsons
+  role: Naval ordnance officer and engineer
+  science: 3
+  management: 5
+  trait: Excels at schedules, interfaces, qualification, and delivery constraints.
+- id: kistiakowsky
+  name: George Kistiakowsky
+  role: Physical chemist and explosives-program leader
+  science: 4
+  management: 4
+  trait: Connects difficult physical science to a focused engineering campaign.
+- id: fermi
+  name: Enrico Fermi
+  role: Experimental and theoretical physicist
+  science: 5
+  management: 3
+  trait: Rapidly identifies the simplest decisive calculation or experiment.
+- id: vonneumann
+  name: John von Neumann
+  role: Mathematician and scientific consultant
+  science: 5
+  management: 3
+  trait: Exceptional at mathematical structure, modeling, and hard tradeoffs.
+avatars:
+  bethe:
+    skin: "#f0c8a0"
+    hair: "#6d6d6d"
+    glasses: true
+    mustache: false
+    brow: "#5e5e5e"
+    coat: "#315c78"
+    tie: "#9a741d"
+    hairStyle: side
+  bacher:
+    skin: "#efc3a0"
+    hair: "#533b2f"
+    glasses: false
+    mustache: false
+    brow: "#533b2f"
+    coat: "#4b775f"
+    tie: "#315c78"
+    hairStyle: short
+  kennedy:
+    skin: "#edbf9a"
+    hair: "#5b4738"
+    glasses: false
+    mustache: true
+    brow: "#5b4738"
+    coat: "#8a6921"
+    tie: "#4b775f"
+    hairStyle: short
+  parsons:
+    skin: "#efc8a6"
+    hair: "#3f3029"
+    glasses: false
+    mustache: true
+    brow: "#3f3029"
+    coat: "#865044"
+    tie: "#9a741d"
+    hairStyle: cap
+  kistiakowsky:
+    skin: "#e8bb96"
+    hair: "#e7e7e7"
+    glasses: false
+    mustache: true
+    brow: "#cfcfcf"
+    coat: "#704f88"
+    tie: "#315c78"
+    hairStyle: wild
+  fermi:
+    skin: "#efc49f"
+    hair: "#2f2b2d"
+    glasses: false
+    mustache: false
+    brow: "#2f2b2d"
+    coat: "#315c78"
+    tie: "#4b775f"
+    hairStyle: wave
+  vonneumann:
+    skin: "#f0c6a1"
+    hair: "#1f1f1f"
+    glasses: true
+    mustache: false
+    brow: "#1f1f1f"
+    coat: "#704f88"
+    tie: "#8a6921"
+    hairStyle: slick
+
+# Terms the game may explain in place.
+glossary:
+- name: Absorption
+  aliases:
+  - absorption
+  - absorbing
+  - absorbed
+  def: An interaction in which the incoming particle is captured or otherwise removed from the outgoing particle 
+    population.
+- name: Acceptance criterion
+  aliases:
+  - acceptance criteria
+  - acceptance criterion
+  - pass/fail criteria
+  def: A measurable rule decided before a test that determines whether the result is acceptable.
+- name: Activation
+  aliases:
+  - activated material
+  - activation
+  def: The creation of radioactive nuclei when stable material captures neutrons or undergoes another nuclear reaction.
+- name: Activity
+  aliases:
+  - activity a=
+  - radioactive activity
+  - activity
+  def: The number of nuclear decays occurring per unit time in a sample.
+- name: Adsorption
+  aliases:
+  - adsorbed
+  - adsorb
+  - adsorption
+  def: Sticking to a surface rather than mixing in. Contamination adsorbed on a glovebox wall is still there after the 
+    air is clean.
+- name: Arming
+  aliases:
+  - arming
+  def: Changing a system from a safe condition toward a state in which it can function as intended, under controlled 
+    authorization.
+- name: Assay
+  aliases:
+  - assay
+  - assayed
+  def: A quantitative measurement of a material’s composition, purity, or amount of a specified isotope.
+- name: Atomic mass unit, u
+  aliases:
+  - atomic mass unit
+  - " mass units"
+  - " mev/u"
+  - " u/nucleon"
+  def: A mass unit used for atoms and nuclei. One atomic mass unit is close to the mass of one proton or neutron.
+- name: Atomic number, Z
+  aliases:
+  - atomic number
+  - number z
+  - " z "
+  def: The number of protons in a nucleus. It identifies the chemical element.
+- name: Background
+  aliases:
+  - background subtraction
+  - background rate
+  - background counts
+  - background
+  def: Detector events not produced by the source or process of interest. They must be measured or estimated separately.
+- name: Bandwidth
+  aliases:
+  - bandwidth
+  def: The range of signal frequencies an instrument can reproduce accurately; insufficient bandwidth can distort fast 
+    signals.
+- name: Barn
+  aliases:
+  - barn scale
+  - barns
+  - barn
+  def: A nuclear cross-section unit equal to 10⁻²⁴ square centimeters.
+- name: Binding energy
+  aliases:
+  - binding energy
+  - binding-energy
+  def: The energy required to separate a nucleus into its individual protons and neutrons; equivalently, the energy 
+    released when the nucleus is formed.
+- name: Binding energy per nucleon
+  aliases:
+  - binding energy per nucleon
+  - binding-energy-per-nucleon
+  def: The average binding energy for each proton or neutron. It is a useful broad indicator of how tightly a nucleus is
+    bound.
+- name: Calibration
+  aliases:
+  - calibration
+  - calibrate
+  - calibrated
+  def: Determining how an instrument’s output corresponds to known physical inputs.
+- name: Carrier
+  aliases:
+  - carrier material
+  - carrier
+  def: A larger amount of chemically similar material added so a tiny radioactive quantity can be handled or recovered 
+    more reliably.
+- name: Chain of custody
+  aliases:
+  - chain of custody
+  def: A documented record of who handled a sample or component and when, preserving identity and traceability.
+- name: Chain reaction
+  aliases:
+  - chain reaction
+  - chain-reaction
+  def: A process in which neutrons from one fission can cause additional fissions, producing successive generations.
+- name: Chemical yield
+  aliases:
+  - chemical yield
+  - recovery fraction
+  - recovered fraction
+  - separation yield
+  def: The fraction of the desired material recovered after a chemical process.
+- name: Coincidence
+  aliases:
+  - coincidence window
+  - coincidence counts
+  - coincidence
+  def: The requirement that signals in two or more detectors occur within a defined short time interval, helping 
+    identify correlated events.
+- name: Compression
+  aliases:
+  - compression
+  - compress
+  def: A reduction in volume that raises material density.
+- name: Configuration control
+  aliases:
+  - configuration control
+  - configuration freeze
+  - freeze the configuration
+  def: The formal process for documenting and approving exactly which version of every part and procedure is being used.
+- name: Contamination
+  aliases:
+  - contamination
+  - contaminated
+  def: Unwanted radioactive or chemical material present in a sample, instrument, or workspace.
+- name: Converging wave
+  aliases:
+  - converging wave
+  - converging shock
+  - convergence
+  def: A wave moving inward toward a central region, where its geometry can amplify pressure and magnify any 
+    imperfection in the shape.
+- name: Corrosion
+  aliases:
+  - corrosion
+  - corrode
+  - corrosive
+  def: The chemical or electrochemical degradation of a material through reaction with its environment.
+- name: Count rate
+  aliases:
+  - count rate
+  - counts/s
+  - counts per second
+  - counting rate
+  def: The number of events recorded by a detector per unit time. It can differ from the true activity because detection
+    is imperfect and backgrounds are present.
+- name: Critical
+  aliases:
+  - criticality
+  - exactly critical
+  - critical state
+  def: A state with multiplication factor equal to one, so the average neutron population remains steady.
+- name: Cross section
+  aliases:
+  - microscopic cross section
+  - cross section
+  - cross-section
+  def: A measure of the likelihood that a particle will undergo a particular interaction with a target nucleus. It has 
+    units of area.
+- name: Dead time
+  aliases:
+  - dead time
+  - dead-time
+  def: The short recovery period after an event during which a detector or electronics cannot record another event 
+    correctly.
+- name: Decay constant, λ
+  aliases:
+  - decay constant
+  - lambda
+  - λ
+  def: The probability per unit time that a radioactive nucleus will decay.
+- name: Decision gate
+  aliases:
+  - decision gate
+  - hold point
+  - final hold
+  def: A formally defined point where evidence is reviewed and authority is required before work proceeds.
+- name: Delayed neutron
+  aliases:
+  - delayed neutron
+  - delayed-neutron
+  def: A neutron emitted later by certain radioactive fission products. Delayed neutrons are important for controllable 
+    reactor behavior.
+- name: Detector efficiency
+  aliases:
+  - detector efficiency
+  - intrinsic efficiency
+  - absolute efficiency
+  - efficiency correction
+  - efficiency
+  def: The fraction of relevant particles or decays that a detector actually records.
+- name: Detonation wave
+  aliases:
+  - detonation wave
+  - detonation
+  def: A rapidly moving reaction front in high explosive, coupled to a strong shock wave.
+- name: Detonator
+  aliases:
+  - detonator
+  - detonators
+  def: A historical component that initiates an explosive event. In this game it appears only in past work on 
+    synchronization and reliability; no construction or firing details are taught.
+- name: Diffusion
+  aliases:
+  - diffusion length
+  - diffusion
+  def: The statistical spreading of particles through many random scattering events.
+- name: Discriminating test
+  aliases:
+  - discriminating test
+  - discriminating evidence
+  - separate competing
+  def: A test designed so competing explanations predict measurably different outcomes.
+- name: Drop time
+  aliases:
+  - drop time
+  - fall time
+  def: The elapsed time between release and impact or another defined point during a drop test.
+- name: Dynamic range
+  aliases:
+  - dynamic range
+  def: The span from the smallest to the largest signal an instrument can measure without losing the small ones or 
+    saturating on the large ones.
+- name: Electronvolt
+  aliases:
+  - eV
+  - keV
+  - MeV
+  - GeV
+  def: The energy unit of particle physics. A chemical bond is a few eV; a nuclear event is millions of them, which is 
+    the whole difference between the two.
+- name: Energy resolution
+  aliases:
+  - energy resolution
+  - spectral resolution
+  - resolution broadening
+  def: A detector’s ability to distinguish nearby particle or photon energies.
+- name: Explosive lens
+  aliases:
+  - explosive lens
+  - explosive lenses
+  - lens system
+  def: A historical wave-shaping concept used in the implosion program. Here it is discussed only at the level of 
+    measurement, symmetry, and the program record, not geometry or construction.
+- name: Exponential attenuation
+  aliases:
+  - exponential attenuation
+  - attenuation
+  def: The gradual reduction of an uncollided particle beam as particles interact while moving through matter.
+- name: Fallout
+  aliases:
+  - fallout
+  def: Radioactive particles transported through the atmosphere and deposited after a nuclear explosion.
+- name: Fast neutron
+  aliases:
+  - fast neutron
+  - fast-neutron
+  def: A neutron with relatively high kinetic energy, typically soon after being produced by fission or another nuclear 
+    reaction.
+- name: Fat Man
+  aliases:
+  - fat man
+  def: The implosion-type plutonium weapon developed at Los Alamos and used against Nagasaki.
+- name: Firing chain
+  aliases:
+  - firing chain
+  - firing system
+  def: The ordered set of commands, safety conditions, timing elements, and outputs that leads from authorization to 
+    initiation.
+- name: Fissile material
+  aliases:
+  - fissile material
+  - fissile isotope
+  - fissile
+  def: A material whose nuclei can sustain a neutron-driven fission chain under suitable conditions.
+- name: Fission
+  aliases:
+  - fission
+  - fissioning
+  def: The splitting of a heavy nucleus into smaller nuclei, usually accompanied by neutrons and a release of energy.
+- name: Fusion
+  aliases:
+  - fusion
+  def: The joining of light nuclei into a heavier nucleus, which can release energy when the final nucleus is more 
+    tightly bound.
+- name: Fuzing
+  aliases:
+  - fuzing
+  - fuze
+  def: The sensing and logic used to determine when a weapon or test article should initiate its firing sequence.
+- name: Gadget
+  aliases:
+  - the gadget
+  - gadget
+  def: The name the laboratory used for the implosion device it assembled for the first test.
+- name: Gain drift
+  aliases:
+  - gain drift
+  - drift
+  def: A gradual change in the conversion between a physical signal and the instrument’s recorded output.
+- name: Geiger–Müller counter
+  aliases:
+  - geiger
+  - geiger–müller
+  - geiger-müller
+  def: A gas detector that produces a large standard pulse for each event; it counts events well but generally does not 
+    measure their energy.
+- name: Generation time
+  aliases:
+  - generation time
+  - neutron generation
+  def: The characteristic time between one neutron generation and the next in a multiplying system.
+- name: Geometric acceptance
+  aliases:
+  - geometric acceptance
+  - solid angle
+  def: The fraction of particles that travel toward and enter a detector because of its size and position.
+- name: Grain boundary
+  aliases:
+  - grain boundary
+  - grain boundaries
+  def: The interface between differently oriented crystals in a solid; it can affect strength, corrosion, and diffusion.
+- name: Half-life
+  aliases:
+  - half-life
+  - half life
+  - half-lives
+  def: The time required for half of a large radioactive population to decay.
+- name: Heavy water
+  aliases:
+  - heavy water
+  - deuterium oxide
+  def: Water whose hydrogen is mostly deuterium. It can slow neutrons while absorbing fewer of them than ordinary water.
+- name: Hydrodynamic test
+  aliases:
+  - hydrodynamic test
+  - hydrodynamic testing
+  - hydrodynamics
+  def: A test that studies materials moving under extreme pressure as if they were fluids, often using non-nuclear 
+    substitutes and fast diagnostics.
+- name: Implosion
+  aliases:
+  - implosion
+  - implosion-development
+  def: Compressing material inward from every side at once, with a converging pressure wave.
+- name: Independent diagnostic
+  aliases:
+  - independent diagnostic
+  - independent diagnostics
+  - independent measurement
+  def: A second measurement method with different failure modes, used to check whether a conclusion depends on one 
+    instrument.
+- name: Inspection
+  aliases:
+  - inspection
+  - inspect
+  def: A planned examination or measurement used to determine whether a part, material, or process meets documented 
+    requirements.
+- name: Interface
+  aliases:
+  - interface requirement
+  - system interfaces
+  - interface
+  def: The physical, electrical, timing, or information boundary where two subsystems must work together.
+- name: Ion exchange
+  aliases:
+  - ion exchange
+  - ion-exchange
+  def: A separation method in which charged atoms or molecules attach selectively to a solid resin and are later 
+    released under different chemical conditions.
+- name: Ionization chamber
+  aliases:
+  - ionization chamber
+  def: A detector that measures electric charge created when radiation ionizes gas.
+- name: Ionizing radiation
+  aliases:
+  - ionizing radiation
+  def: Radiation energetic enough to remove electrons from atoms or molecules, potentially damaging living tissue.
+- name: Isotope
+  aliases:
+  - isotope
+  - isotopes
+  - isotopic
+  def: Atoms of the same element with the same number of protons but different numbers of neutrons.
+- name: Kinetic energy
+  aliases:
+  - kinetic
+  def: "The energy a moving thing carries: half the mass times the speed squared."
+- name: Leakage
+  aliases:
+  - neutron leakage
+  - leakage
+  def: Neutrons escaping from the boundary of a system instead of causing further interactions inside it.
+- name: Lot traceability
+  aliases:
+  - lot traceability
+  - lot record
+  - batch traceability
+  def: The ability to connect each finished item to its production batch, materials, process records, inspections, and 
+    test records.
+- name: Macroscopic cross section, Σ
+  aliases:
+  - macroscopic cross section
+  - sigma=n
+  - sigma = n
+  - Σ
+  def: The interaction probability per unit path length in a bulk material, found by multiplying microscopic cross 
+    section by target number density.
+- name: Mass balance
+  aliases:
+  - mass balance
+  - material balance
+  def: An accounting rule stating that material entering a process must equal material leaving, accumulating, or being 
+    lost through identified pathways.
+- name: Mass defect
+  aliases:
+  - mass defect
+  def: The difference between the summed masses of separate protons and neutrons and the smaller mass of the bound 
+    nucleus.
+- name: Mass number, A
+  aliases:
+  - mass number
+  - " a - z"
+  - a-z
+  def: The total number of protons plus neutrons in a nucleus.
+- name: Material compatibility
+  aliases:
+  - material compatibility
+  - compatibility
+  def: Whether two materials can remain in contact without unacceptable corrosion, reaction, contamination, swelling, or
+    loss of strength.
+- name: Mean free path
+  aliases:
+  - mean free path
+  def: The average distance a particle travels in a material before the specified interaction occurs.
+- name: Mechanical properties
+  aliases:
+  - mechanical properties
+  - tensile strength
+  - ductility
+  - hardness
+  def: Measurements describing how a material responds to force, including strength, stiffness, hardness, and ability to
+    deform without cracking.
+- name: MeV
+  aliases:
+  - mev
+  def: Mega-electron-volt, a unit of energy equal to 1 million electron-volts and commonly used for nuclear processes.
+- name: Moderator
+  aliases:
+  - moderator
+  - moderation
+  - moderates
+  def: A material used to slow neutrons through repeated scattering while ideally absorbing relatively few of them.
+- name: Multiplication factor, k
+  aliases:
+  - multiplication factor
+  - k=
+  - " k "
+  def: The ratio of neutrons in one chain-reaction generation to the preceding generation.
+- name: Neutron
+  aliases:
+  - neutron
+  - neutrons
+  def: An electrically neutral particle in the nucleus. Neutrons affect nuclear mass, stability, and the ability of some
+    nuclei to sustain fission.
+- name: Neutron economy
+  aliases:
+  - neutron economy
+  def: An accounting of where neutrons are produced, absorbed usefully, absorbed parasitically, or lost by leakage.
+- name: Nucleon
+  aliases:
+  - nucleon
+  - nucleons
+  def: A collective name for either a proton or a neutron.
+- name: Nucleus
+  aliases:
+  - nucleus
+  - nuclei
+  def: The tiny central part of an atom, holding almost all of its mass in a space far smaller than the atom itself. It 
+    is built from protons and neutrons.
+- name: Nuclide
+  aliases:
+  - nuclide
+  - nuclides
+  def: A particular kind of nucleus specified by its numbers of protons and neutrons.
+- name: Number density
+  aliases:
+  - number density
+  - atoms per cubic
+  - cm⁻³
+  - cm^-3
+  def: The number of target atoms or nuclei in a unit volume.
+- name: Observable
+  aliases:
+  - observable
+  - observables
+  def: A quantity that can actually be measured and compared with a prediction.
+- name: Oxidation state
+  aliases:
+  - oxidation state
+  - valence state
+  def: A bookkeeping description of how many electrons an atom has effectively lost or gained in a compound; it strongly
+    affects chemical behavior.
+- name: Phase
+  aliases:
+  - phase diagram
+  - phase transition
+  - phase change
+  - allotrope
+  - phase
+  def: A physically distinct form of a material, such as a particular crystal structure, liquid, or gas.
+- name: Photoelectron
+  aliases:
+  - photoelectron
+  - photoelectrons
+  def: An electron released when light transfers energy to a photosensitive surface; photoelectrons form the counted 
+    signal in many light-based detectors.
+- name: Poisson statistics
+  aliases:
+  - poisson
+  - counting statistics
+  - statistical counting
+  def: The probability model commonly used for independent counted events. Its standard fluctuation is approximately the
+    square root of the number of counts.
+- name: Porosity
+  aliases:
+  - porosity
+  - voids
+  def: The fraction of a material occupied by small empty spaces or pores.
+- name: Precipitation
+  aliases:
+  - precipitation
+  - precipitate
+  def: A chemical process in which dissolved material forms a solid that can be separated from the liquid.
+- name: Prediction band
+  aliases:
+  - prediction band
+  - uncertainty band
+  - prediction range
+  def: A range of outcomes considered plausible after accounting for uncertain inputs and model limitations.
+- name: Preinitiation
+  aliases:
+  - preinitiation
+  - pre-initiation
+  def: The start of a neutron chain earlier than intended because a neutron appears before the desired physical state is
+    reached.
+- name: Process safety
+  aliases:
+  - process safety
+  - chemical process safety
+  def: The systematic control of chemical, thermal, pressure, contamination, and equipment hazards during an operation.
+- name: Project Alberta
+  aliases:
+  - project alberta
+  def: The Manhattan Project unit responsible for final weapon assembly, overseas deployment, and aircraft integration.
+- name: Prompt neutron
+  aliases:
+  - prompt neutron
+  - prompt-neutron
+  def: A neutron emitted essentially immediately during fission.
+- name: Prompt radiation
+  aliases:
+  - prompt ionizing radiation
+  - prompt radiation
+  def: Neutrons and gamma rays emitted during and immediately after a nuclear event.
+- name: Proportional counter
+  aliases:
+  - proportional counter
+  def: A gas detector whose pulse size is approximately proportional to the energy deposited by the incoming radiation.
+- name: Proton
+  aliases:
+  - proton
+  - protons
+  def: A positively charged particle in the nucleus. The number of protons determines which chemical element an atom is.
+- name: Prototype
+  aliases:
+  - prototype
+  def: An early version built to expose design, fit, timing, or manufacturing problems before final production.
+- name: Pulse height
+  aliases:
+  - pulse height
+  - pulse-height
+  def: The amplitude of a detector’s electrical pulse, often related to the energy deposited in the detector.
+- name: Pumpkin bomb
+  aliases:
+  - pumpkin bomb
+  - pumpkin-bomb
+  def: An inert or conventionally filled test shape used to practice aircraft handling and bombing behavior similar to 
+    the Fat Man external form.
+- name: Qualification test
+  aliases:
+  - qualification
+  - qualify
+  - qualified
+  def: A test showing that a component or process meets defined requirements under representative conditions.
+- name: Radioactive decay
+  aliases:
+  - radioactive decay
+  - decay law
+  - decays
+  def: A spontaneous nuclear transformation. Individual decay times are random, but a large population follows a 
+    predictable statistical law.
+- name: Radiography
+  aliases:
+  - radiography
+  - radiograph
+  - x-ray image
+  - flash x-ray
+  def: Imaging the interior of an object using penetrating radiation; fast radiography can capture rapidly changing 
+    density patterns.
+- name: RaLa experiment
+  aliases:
+  - rala
+  - ra-la
+  def: The Los Alamos radiolanthanum method that used gamma radiation to infer changing density during implosion 
+    experiments.
+- name: Random error
+  aliases:
+  - random error
+  - random uncertainty
+  def: Measurement variation that changes unpredictably from one observation to another and can often be reduced by 
+    collecting more data.
+- name: Random walk
+  aliases:
+  - random walk
+  - random-walk
+  def: Motion made of many steps in changing directions. The net displacement grows roughly with the square root of the 
+    number of steps.
+- name: Readiness review
+  aliases:
+  - readiness review
+  - review board
+  def: A structured assessment of evidence, unresolved risks, interfaces, and contingency plans before proceeding.
+- name: Redundancy
+  aliases:
+  - redundancy
+  - redundant
+  def: Using more than one component or measurement path so one failure does not erase the needed evidence or function.
+- name: Reflector
+  aliases:
+  - reflector
+  def: A layer around the fissile region that scatters escaping neutrons back into it, so fewer are lost.
+- name: Residual radiation
+  aliases:
+  - residual radiation
+  - residual radioactivity
+  def: Radiation emitted later by radioactive products and activated materials.
+- name: Rest-mass energy
+  aliases:
+  - rest-mass energy
+  - rest mass energy
+  - e=mc
+  - mc²
+  - mc^2
+  def: The energy associated with mass itself, expressed by E = mc².
+- name: Safety interlock
+  aliases:
+  - safety interlock
+  - interlock
+  def: A device or rule that prevents an action unless specified safety conditions are satisfied.
+- name: Saturation
+  aliases:
+  - saturation
+  - saturated
+  - clips
+  - clipping
+  def: A condition in which increasing the true signal no longer produces a larger recorded response because the 
+    instrument has reached its limit.
+- name: Scattering
+  aliases:
+  - elastic scattering
+  - scattering
+  - scatter
+  def: An interaction that changes a particle’s direction and often its energy without necessarily removing the 
+    particle.
+- name: Scintillation detector
+  aliases:
+  - scintillation
+  - scintillator
+  def: A detector in which radiation produces flashes of light that are converted into electrical signals.
+- name: Sensitivity analysis
+  aliases:
+  - sensitivity analysis
+  - sensitivity
+  def: Studying how strongly a prediction changes when an input or assumption is varied.
+- name: Shock wave
+  aliases:
+  - shock wave
+  - shock-like
+  - shock front
+  def: A very abrupt pressure disturbance that moves faster than ordinary sound and strongly compresses material.
+- name: Signal-to-noise ratio
+  aliases:
+  - signal-to-noise
+  - signal to noise
+  - snr
+  def: The size of the desired signal compared with fluctuations and unwanted background.
+- name: Silverplate
+  aliases:
+  - silverplate
+  def: The modification program for B-29 aircraft intended to carry early atomic weapons.
+- name: Simultaneity
+  aliases:
+  - simultaneity
+  - simultaneous initiation
+  - synchronization
+  def: The requirement that multiple events occur within a very small allowed timing difference.
+- name: Single-point failure
+  aliases:
+  - single-point failure
+  - single point failure
+  def: One component or event whose failure would cause the entire system or evidence chain to fail.
+- name: Spontaneous fission
+  aliases:
+  - spontaneous fission
+  - spontaneous-fission
+  def: Fission that happens on its own, with no incoming neutron and nothing setting it off.
+- name: Standard deviation, σ
+  aliases:
+  - standard deviation
+  - 1σ
+  - sigma_net
+  - σ
+  def: A measure of the typical spread or uncertainty of repeated measurements.
+- name: Stoichiometry
+  aliases:
+  - stoichiometry
+  - stoichiometric
+  def: The numerical ratios in which chemical elements or compounds react.
+- name: Subcritical
+  aliases:
+  - subcritical
+  - below critical
+  def: A state with multiplication factor below one, so the neutron population decreases from generation to generation.
+- name: Supercritical
+  aliases:
+  - supercritical
+  - above critical
+  def: A state with multiplication factor above one, so the neutron population grows from generation to generation.
+- name: Surrogate material
+  aliases:
+  - surrogate
+  - non-nuclear substitute
+  - inert substitute
+  def: A safer or more available material used to reproduce selected physical behavior without using the final hazardous
+    material.
+- name: Symmetry
+  aliases:
+  - symmetry
+  - symmetric
+  - asymmetry
+  - asymmetric
+  def: How uniformly a physical process occurs around a center or axis. In converging systems, small asymmetries can 
+    grow and spoil the intended state.
+- name: Systematic error
+  aliases:
+  - systematic error
+  - systematic uncertainty
+  def: A consistent bias or calibration problem that does not necessarily shrink when more data are collected.
+- name: Thermal expansion
+  aliases:
+  - thermal expansion
+  def: The change in a material’s dimensions as its temperature changes.
+- name: Thermal neutron
+  aliases:
+  - thermal neutron
+  - thermal-neutron
+  def: A neutron slowed until its typical energy is comparable to the thermal motion of surrounding matter.
+- name: Thin Man
+  aliases:
+  - thin man
+  def: An early elongated plutonium gun-type weapon concept abandoned when spontaneous-neutron measurements made 
+    premature initiation too likely.
+- name: Time of flight
+  aliases:
+  - time-of-flight
+  - time of flight
+  def: A measurement that infers speed or energy from the time a particle takes to travel a known distance.
+- name: Timing gate
+  aliases:
+  - timing gate
+  - gate duration
+  - timing window
+  - trigger window
+  def: A selected time interval during which detector events are accepted for analysis.
+- name: Tolerance
+  aliases:
+  - tolerance stack
+  - tolerances
+  - tolerance
+  def: The permitted variation in a dimension, timing, or property while a part or process remains acceptable.
+- name: Tracer
+  aliases:
+  - radioactive tracer
+  - tracer
+  def: A detectable isotope used to follow material through a chemical, biological, or industrial process.
+- name: Trigger
+  aliases:
+  - trigger
+  - triggering
+  def: The electronic condition that tells a measurement system when to begin recording an event.
+- name: Trinity
+  aliases:
+  - trinity
+  def: The July 1945 test in New Mexico of the plutonium implosion design.
+- name: Uncertainty in quadrature
+  aliases:
+  - quadrature
+  - combine uncertainties
+  def: Combining independent uncertainties by taking the square root of the sum of their squares.
+- name: Waste control
+  aliases:
+  - waste control
+  - waste and environmental
+  - environmental control
+  def: Tracking, containing, treating, and monitoring unwanted radioactive or chemical material so it does not spread to
+    workers or the environment.
+
+# The campaign: One working day each, 3 stops and a callback from day 3.
+
+missions:
+# <<< MISSIONS >>>
+
+interiors:
+  T:
+    caption: A number without its uncertainty is an opinion with a decimal point.
+    standLine: Two computing groups have returned estimates that disagree by more than either one’s stated error. One of
+      the two error bars is wrong.
+    station:
+      kind: panel
+      title: Computing room
+      rows:
+      - label: Group A estimate
+        value: 1.00 ×
+        status: normal
+      - label: Group B estimate
+        value: 1.31 ×
+        status: high
+      - label: Stated spread
+        value: ± 4 %
+        status: alarm
+      - label: Method
+        value: hand computation, checked twice
+        status: normal
+  P:
+    caption: Counting is a random process. A single run is a sample, not a result.
+    standLine: The counter is running against a background that has not been measured today. Everything downstream 
+      depends on that subtraction.
+    station:
+      kind: vitals
+      animated: true
+      wave: ecg
+      rate: 7
+      title: Counting bench
+      rows:
+      - label: Counts
+        value: 412
+        unit: per minute
+        status: normal
+      - label: Background
+        value: not run
+        unit: today
+        status: alarm
+      - label: Dead time
+        value: 3.1
+        unit: "% of window"
+        status: high
+  CM:
+    caption: A material is what the analysis says it is, not what the label says.
+    standLine: Purity is inside tolerance and the swipe survey outside the glovebox is not. Both belong to the same 
+      batch.
+    station:
+      kind: panel
+      title: Metallurgy bay
+      rows:
+      - label: Purity, assayed
+        value: 99.4 %
+        status: normal
+      - label: Swipe, bench edge
+        value: above limit
+        status: alarm
+      - label: Glovebox pressure
+        value: "-12 Pa"
+        status: normal
+      - label: Batch traceability
+        value: complete
+        status: normal
+  E:
+    caption: An interface is where two groups each assumed the other had it.
+    standLine: Channel timing across the firing set is inside specification on average and outside it on two channels. 
+      Averages do not fire anything.
+    station:
+      kind: vitals
+      animated: true
+      wave: sine
+      rate: 4
+      title: Timing rig
+      status: high
+      rows:
+      - label: Spread, all channels
+        value: 0.9
+        unit: µs
+        status: normal
+      - label: Worst channel
+        value: 4.2
+        unit: µs
+        status: alarm
+      - label: Qualification shots
+        value: 6
+        unit: of 20
+        status: low
+  X:
+    caption: Integration is where four groups’ evidence has to survive being put together.
+    standLine: Every group reports success against its own criterion. The question on this bench is whether the four 
+      criteria are the same one.
+    station:
+      kind: panel
+      title: Integration board
+      rows:
+      - label: Theory
+        value: estimate delivered
+        status: normal
+      - label: Diagnostics
+        value: background pending
+        status: high
+      - label: Materials
+        value: batch cleared
+        status: normal
+      - label: Engineering
+        value: two channels out
+        status: alarm
+      - label: Agreed criterion
+        value: none written
+        status: alarm
+
+# --------------------------------------------------------------- the warm-ups
+
+warmups:
+  greet:
+    title: The mesa is full of people who cannot tell you what they do
+    why: Meet the people in each division so you know who can help when the work begins.
+  trial-near:
+    title: Walk the mesa before you are trusted with an errand on it
+    why: Visit the main buildings now so you can cross the mesa quickly when an urgent job starts.
+  follow:
+    title: Keep up with the commanding general
+    why: Keep up with the commanding general so you can see which parts of the lab need help.
+  hunt:
+    title: Five detectors signed out, and the log accounts for three
+    item: {name: detector, plural: detectors}
+    why: Find the two missing detectors so every later count can be tied to the right instrument.
+  canvass:
+    title: Who is worried about the same thing you are
+    why: Ask each division about the problem so you know whether anyone has already solved part of it.
+  evade:
+    title: The security officer with questions about your notebook
+    why: Avoid the security officer until the laboratory director can explain why your notebook was in the wrong building.
+  tag:
+    title: Catch the theory chief before the Tuesday meeting
+    why: Reach the theory chief before his meeting so your team uses the corrected number this afternoon.

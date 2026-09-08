@@ -35,11 +35,15 @@
 import * as THREE from 'three';
 import {
   mat, paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture, grainTexture,
-  boardTexture,
+  boardTexture, blockTexture, ribbedTexture, concreteTexture, deckTexture, outsideTexture,
 } from './materials.js';
 import { instrumentScreen, printedSheet, chalkboard, typedSheet } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
 import { furnishRoom, furnishingMaterials, markStructure, markWallMounted } from './interiorKit.js';
+// Where an authored fixture stands. Imported rather than recomputed: the fit-out
+// below has to keep off that patch of wall, and two copies of a placement rule
+// drift the first time either is corrected.
+import { fixtureSpot } from './interiorFixtures.js';
 import { buildDeliveryCase } from './deliveryCase.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
@@ -84,7 +88,7 @@ const STYLES = {
     // in the world rather than a dark wall.
     wall: '#3c3944', wallKind: 'paint',
     floor: 'sheet', floorTint: [38, 36, 42],
-    ceiling: 'tiles', ceilingLight: 0xff3b24,
+    ceiling: 'concrete', ceilingLight: 0xff3b24,
     skirt: 0x1c1a20, bench: 0x35323a, worktop: '#43404a',
     instrument: 'screen',
     // Dark paint under the engine's standard room lighting renders as a black
@@ -96,12 +100,52 @@ const STYLES = {
   // Painted steel, deck matting, a low deckhead with strip lighting.
   steel: {
     wall: '#8d9a94', wallKind: 'paint',
-    floor: 'sheet', floorTint: [92, 104, 100],
-    ceiling: 'tiles', ceilingLight: 0xdfe9ff,
+    floor: 'deck', floorTint: [78, 88, 84],
+    ceiling: 'ribbed', ceilingLight: 0xdfe9ff,
     skirt: 0x3c4a46, bench: 0x7c8a86, worktop: '#6b7772',
     instrument: 'screen',
   },
+  // A pressurised module: ribbed sheet walls, rubber deck, a ribbed deckhead
+  // with strip lights and a duct along it. A room on Mars had a suspended tile
+  // ceiling and green carpet, which is the one thing it cannot have.
+  module: {
+    wall: '#cdd2d1', wallKind: 'ribbed',
+    floor: 'deck', floorTint: [70, 74, 72],
+    ceiling: 'ribbed', ceilingLight: 0xe6f0ff,
+    skirt: 0x4a5250, bench: 0x9aa39f, worktop: '#7b8480',
+    instrument: 'screen',
+  },
+  // A field station or a site trailer: plywood-lined, flat panel ceiling with
+  // surface strip lights, vinyl underfoot. Nothing suspended, nothing tiled.
+  station: {
+    wall: '#d7cfba', wallKind: 'plywood',
+    floor: 'sheet', floorTint: [152, 146, 132],
+    ceiling: 'strip', ceilingLight: 0xfff4e0,
+    skirt: 0x5a5148, bench: 0xb9ad94, worktop: '#8a7d66',
+    instrument: 'screen',
+  },
+  // A plant room or a workshop: block walls, a concrete floor, open steel
+  // trusses with high-bay lamps hanging off them.
+  plant: {
+    wall: '#b9b4a8', wallKind: 'block',
+    floor: 'concrete', floorTint: '#8e8c86',
+    ceiling: 'truss', ceilingLight: 0xfff1d6,
+    skirt: 0x3a3d40, bench: 0x8c8a82, worktop: '#6f6a5e',
+    instrument: 'screen',
+  },
+  // A small island's public building: painted block, a boarded floor, and the
+  // rafters showing. Somewhere between a chapel hall and a harbour office.
+  island: {
+    wall: '#e3dccb', wallKind: 'block',
+    floor: 'plank', floorTint: '#8a7458',
+    ceiling: 'rafters', ceilingLight: 0xfff0d0,
+    skirt: 0x5b4f40, bench: 0xa8977a, worktop: '#7d6a52',
+    instrument: 'screen',
+  },
 };
+
+/** The style names a manifest may ask for, so a checker can refuse a typo. */
+export const STYLE_NAMES = Object.keys(STYLES);
 
 const DEFAULTS = {
   w: 13,        // across, as you look in from the door
@@ -294,8 +338,9 @@ export function buildInteriorBuilding(scene, spec){
   const wallSpan = (wall) => (wall === 'back' ? P.w : P.d);
 
   // ---------------------------------------------------------------- shell
-  const floorTex = S.floor === 'plank'
-    ? grainTexture(S.floorTint)
+  const floorTex = S.floor === 'plank' ? grainTexture(S.floorTint)
+    : S.floor === 'deck' ? deckTexture(S.floorTint)
+    : S.floor === 'concrete' ? concreteTexture(S.floorTint)
     : sheetFloorTexture(S.floorTint, 0.55);
   floorTex.repeat.set(P.w / 2.4, P.d / 2.4);
   const floor = add(new THREE.Mesh(
@@ -306,10 +351,18 @@ export function buildInteriorBuilding(scene, spec){
   floor.receiveShadow = true;
   markStructure([floor], 'floor');
 
-  const wallMat = () => mat(`int-wall-${S.wallKind}-${S.wall}`, () => new THREE.MeshStandardMaterial({
-    map: S.wallKind === 'board' ? boardTexture(S.wall) : paintTexture(S.wall),
-    roughness: 0.92, metalness: 0.0, envMapIntensity: 0.3,
-  }));
+  const wallMat = () => mat(`int-wall-${S.wallKind}-${S.wall}`, () => {
+    const map = S.wallKind === 'board' ? boardTexture(S.wall)
+      : S.wallKind === 'block' ? blockTexture(S.wall)
+      : S.wallKind === 'ribbed' ? ribbedTexture(S.wall)
+      : S.wallKind === 'plywood' ? grainTexture(S.wall)
+      : paintTexture(S.wall);
+    if(S.wallKind === 'plywood') map.repeat.set(4, 2.5);
+    return new THREE.MeshStandardMaterial({
+      map, roughness: S.wallKind === 'ribbed' ? 0.55 : 0.92,
+      metalness: S.wallKind === 'ribbed' ? 0.25 : 0.0, envMapIntensity: 0.3,
+    });
+  });
   const baseMat = () => mat(`int-base-${S.skirt}`, () => new THREE.MeshStandardMaterial({
     color: S.skirt, roughness: 0.7, metalness: 0.05, envMapIntensity: 0.3,
   }));
@@ -348,6 +401,29 @@ export function buildInteriorBuilding(scene, spec){
     new THREE.BoxGeometry(P.doorW, P.h - P.doorH, P.wall), wallMat()));
   header.position.set(0, P.doorH + (P.h - P.doorH) / 2, z0);
 
+  // ---- what is outside the door
+  //
+  // Nothing, literally: the district is an empty scene, so every doorway in
+  // every room of every outdoor game was a black rectangle in the wall. A sky
+  // over a ground, on a plane wide enough that no angle from inside sees past
+  // its edge, and a strip of ground so the floor line continues out the door.
+  // `setOutsideNight` darkens it after dusk. Unlit and unfogged on purpose.
+  let outsideMat = null;
+  if(spec.outside){
+    outsideMat = new THREE.MeshBasicMaterial({
+      map: outsideTexture(spec.outside.sky, spec.outside.ground), fog: false });
+    const backdrop = add(new THREE.Mesh(new THREE.PlaneGeometry(9, 5), outsideMat));
+    backdrop.position.set(0, 2.3, z0 - 1.6);
+    backdrop.userData.ignoreAudit = true;
+    markStructure([backdrop], 'scenery');
+    const g = spec.outside.ground ?? [116, 96, 68];
+    const apron = add(new THREE.Mesh(new THREE.BoxGeometry(9, 0.06, 1.7),
+      new THREE.MeshBasicMaterial({ color: new THREE.Color(g[0] / 255 * 0.8, g[1] / 255 * 0.8, g[2] / 255 * 0.8), fog: false })));
+    apron.position.set(0, -0.031, z0 - 0.85);
+    apron.userData.ignoreAudit = true;
+    markStructure([apron], 'scenery');
+  }
+
   // Ceiling. A suspended tile grid with lit diffusers for a laboratory or a
   // boat; open rafters and a hanging bulb for a building that was put up in a
   // fortnight in 1943. Both are emissive rather than lit — see the light budget
@@ -382,6 +458,133 @@ export function buildInteriorBuilding(scene, spec){
       const shade = add(new THREE.Mesh(new THREE.ConeGeometry(0.26, 0.18, 16, 1, true),
         new THREE.MeshStandardMaterial({ color: 0x3a3229, roughness: 0.8, side: THREE.DoubleSide })));
       shade.position.set(0, P.h - 0.6, bz);
+    }
+  } else if(S.ceiling === 'ribbed'){
+    // A deckhead: ribbed sheet, a duct down one side, and strip lights in two
+    // rows. Lower than a tile grid, because a module is.
+    const tex = ribbedTexture(S.wall, 26);
+    tex.repeat.set(P.w / 2.2, P.d / 2.2);
+    const deck = add(new THREE.Mesh(new THREE.PlaneGeometry(P.w, P.d),
+      new THREE.MeshStandardMaterial({ map: tex, roughness: 0.6, metalness: 0.2, envMapIntensity: 0.25 })));
+    deck.rotation.x = Math.PI / 2;
+    deck.rotation.z = Math.PI / 2;
+    deck.position.y = P.h - 0.12;
+    const ductMat = mat(`int-duct-${S.skirt}`, () => new THREE.MeshStandardMaterial({
+      color: 0x9aa4a6, roughness: 0.5, metalness: 0.4, envMapIntensity: 0.3 }));
+    const duct = add(new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.34, P.d - 0.6), ductMat));
+    duct.position.set(mx(P.w / 2 - 0.9), P.h - 0.36, 0);
+    for(let i = 0; i < 3; i++){
+      const brace = add(new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.3, 0.06), ductMat));
+      brace.position.set(mx(P.w / 2 - 0.9), P.h - 0.18, -P.d / 2 + 1 + i * ((P.d - 2) / 2));
+    }
+    const stripMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff, emissive: S.ceilingLight, emissiveIntensity: 1.3, roughness: 0.5 });
+    const rows = Math.max(1, Math.round(P.w / 5.5));
+    for(let c = 0; c < rows; c++){
+      const s = add(new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.06, P.d - 2.2), stripMat));
+      s.position.set(rows === 1 ? mx(-0.8) : -P.w / 2 + (c + 1) * (P.w / (rows + 1)), P.h - 0.2, 0);
+    }
+  } else if(S.ceiling === 'strip'){
+    // A flat painted panel ceiling with surface-mounted strip lights. What a
+    // site trailer or a field hut actually has: no grid, no diffusers.
+    const tex = paintTexture(S.ceilingTint ?? '#e6e2d8');
+    tex.repeat.set(P.w / 3, P.d / 3);
+    const panel = add(new THREE.Mesh(new THREE.PlaneGeometry(P.w, P.d),
+      new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95, envMapIntensity: 0.2 })));
+    panel.rotation.x = Math.PI / 2;
+    panel.position.y = P.h - 0.08;
+    const stripMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff, emissive: S.ceilingLight, emissiveIntensity: 1.25, roughness: 0.5 });
+    const housing = mat('int-striphousing', () => new THREE.MeshStandardMaterial({
+      color: 0xd8d8d2, roughness: 0.6, metalness: 0.2, envMapIntensity: 0.3 }));
+    const rows = Math.max(2, Math.round(P.d / 3.4));
+    for(let r = 0; r < rows; r++){
+      const z = -P.d / 2 + (r + 1) * (P.d / (rows + 1));
+      const h = add(new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.09, 0.22), housing));
+      h.position.set(0, P.h - 0.14, z);
+      const s = add(new THREE.Mesh(new THREE.BoxGeometry(1.36, 0.02, 0.12), stripMat));
+      s.position.set(0, P.h - 0.19, z);
+    }
+  } else if(S.ceiling === 'concrete'){
+    // A cast slab with conduit run across it and pendant strip fittings hanging
+    // off rods. Dark rooms get a red strip; the fitting colour is the style's.
+    const tex = concreteTexture(S.ceilingTint ?? '#8c8a86');
+    tex.repeat.set(P.w / 4, P.d / 4);
+    const slab = add(new THREE.Mesh(new THREE.PlaneGeometry(P.w, P.d),
+      new THREE.MeshStandardMaterial({ map: tex, roughness: 0.96, envMapIntensity: 0.15 })));
+    slab.rotation.x = Math.PI / 2;
+    slab.position.y = P.h - 0.02;
+    const conduit = mat('int-conduit', () => new THREE.MeshStandardMaterial({
+      color: 0x6d6f6a, roughness: 0.6, metalness: 0.5, envMapIntensity: 0.3 }));
+    for(const u of [-0.32, 0.18]){
+      const c = add(new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, P.d - 0.4), conduit));
+      c.position.set(mx(u * P.w), P.h - 0.06, 0);
+    }
+    const cross = add(new THREE.Mesh(new THREE.BoxGeometry(P.w - 0.4, 0.05, 0.05), conduit));
+    cross.position.set(0, P.h - 0.06, mx(P.d * 0.2));
+    const stripMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff, emissive: S.ceilingLight, emissiveIntensity: 1.35, roughness: 0.5 });
+    const rows = Math.max(2, Math.round(P.d / 3.6));
+    const cols = Math.max(1, Math.round(P.w / 6));
+    for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
+      const x = cols === 1 ? 0 : -P.w / 2 + (c + 1) * (P.w / (cols + 1));
+      const z = -P.d / 2 + (r + 1) * (P.d / (rows + 1));
+      for(const dx of [-0.6, 0.6]){
+        const rod = add(new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.42, 6), conduit));
+        rod.position.set(x + dx, P.h - 0.23, z);
+      }
+      const body = add(new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.08, 0.2), conduit));
+      body.position.set(x, P.h - 0.46, z);
+      const s = add(new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.02, 0.12), stripMat));
+      s.position.set(x, P.h - 0.505, z);
+    }
+  } else if(S.ceiling === 'truss'){
+    // A high bay: a dark roof deck, steel trusses across the room, and high-bay
+    // lamps hanging under them. The trusses are the whole reason a workshop
+    // reads as a workshop from the door.
+    const deck = add(new THREE.Mesh(new THREE.PlaneGeometry(P.w, P.d),
+      new THREE.MeshStandardMaterial({ color: 0x4a4c4a, roughness: 0.95, envMapIntensity: 0.1 })));
+    deck.rotation.x = Math.PI / 2;
+    deck.position.y = P.h - 0.02;
+    const steel = mat('int-truss', () => new THREE.MeshStandardMaterial({
+      color: 0x5f6266, roughness: 0.55, metalness: 0.55, envMapIntensity: 0.3 }));
+    const trusses = Math.max(2, Math.round(P.d / 3.2));
+    const depth = 0.55;
+    for(let i = 0; i < trusses; i++){
+      const z = -P.d / 2 + (i + 1) * (P.d / (trusses + 1));
+      const top = add(new THREE.Mesh(new THREE.BoxGeometry(P.w - 0.3, 0.08, 0.08), steel));
+      top.position.set(0, P.h - 0.1, z);
+      const bot = add(new THREE.Mesh(new THREE.BoxGeometry(P.w - 0.3, 0.08, 0.08), steel));
+      bot.position.set(0, P.h - 0.1 - depth, z);
+      const n = Math.max(4, Math.round(P.w / 1.1));
+      for(let k = 0; k <= n; k++){
+        const x = -(P.w - 0.3) / 2 + k * ((P.w - 0.3) / n);
+        const d = add(new THREE.Mesh(new THREE.BoxGeometry(0.05, Math.hypot(depth, (P.w - 0.3) / n), 0.05), steel));
+        d.position.set(x, P.h - 0.1 - depth / 2, z);
+        d.rotation.z = (k % 2 ? 1 : -1) * Math.atan2((P.w - 0.3) / n, depth);
+      }
+    }
+    // A purlin or two the long way, tying the trusses.
+    for(const u of [-0.3, 0.3]){
+      const p = add(new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, P.d - 0.3), steel));
+      p.position.set(u * P.w, P.h - 0.1 - depth, 0);
+    }
+    const lampMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff, emissive: S.ceilingLight, emissiveIntensity: 1.6, roughness: 0.5 });
+    const shade = mat('int-highbay', () => new THREE.MeshStandardMaterial({
+      color: 0x3b3e42, roughness: 0.6, metalness: 0.3, side: THREE.DoubleSide, envMapIntensity: 0.2 }));
+    const rows = Math.max(1, Math.round(P.d / 4.5));
+    const cols = Math.max(1, Math.round(P.w / 5.5));
+    for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
+      const x = cols === 1 ? 0 : -P.w / 2 + (c + 1) * (P.w / (cols + 1));
+      const z = -P.d / 2 + (r + 1) * (P.d / (rows + 1));
+      const chain = add(new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.7, 6), steel));
+      chain.position.set(x, P.h - 0.45, z);
+      const bell = add(new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.34, 18, 1, true), shade));
+      bell.position.set(x, P.h - 0.9, z);
+      const disc = add(new THREE.Mesh(new THREE.CircleGeometry(0.3, 18), lampMat));
+      disc.rotation.x = Math.PI / 2;
+      disc.position.set(x, P.h - 1.06, z);
     }
   } else {
     const ceilTex = ceilingTileTexture(4);
@@ -451,6 +654,13 @@ export function buildInteriorBuilding(scene, spec){
    * reads instead.
    */
   const wallFittings = [];
+  /**
+   * Where somebody works: a metre in front of the first bench, facing it, in
+   * WORLD coordinates. The crowd stands one of the room's people here with
+   * their hands on the worktop, so a room reads as worked in rather than waited
+   * in. Null in a room with no bench.
+   */
+  let workSpot = null;
 
   function against(wall, u = 0){
     const w = side(wall);
@@ -466,6 +676,8 @@ export function buildInteriorBuilding(scene, spec){
     return {
       wall: w,
       span: wallSpan(w),
+      /** Where on the wall this fitting stands, in room space, and its yaw. */
+      at: { x: g.position.x, z: g.position.z, rotY: g.rotation.y },
       /** A mesh in the wall's own frame. */
       mesh(geo, material, lx, ly, lz){
         const m = new THREE.Mesh(geo, material);
@@ -487,6 +699,17 @@ export function buildInteriorBuilding(scene, spec){
   /** Counter along a wall: carcass, worktop, and the area's colour on the front. */
   function benchAlong(wall){
     const f = against(wall);
+    if(!workSpot){
+      // A metre out from the bench and 1.6 m along it, off the centre line: the
+      // instrument hangs over the middle of the bench, and the first person
+      // stood here hid the screen with their back.
+      const along = 1.6 * mx(1);
+      workSpot = {
+        x: ox + f.at.x + Math.sin(f.at.rotY) * 0.95 + Math.cos(f.at.rotY) * along,
+        z: oz + f.at.z + Math.cos(f.at.rotY) * 0.95 - Math.sin(f.at.rotY) * along,
+        y: 0, facing: f.at.rotY + Math.PI,
+      };
+    }
     const span = Math.min(f.span - 2.6, 9.6);
     const D = 0.78;
     f.mesh(new THREE.BoxGeometry(span, 0.86, D),
@@ -837,6 +1060,32 @@ export function buildInteriorBuilding(scene, spec){
       SW / 2 - 0.24, SY - SH / 2 - 0.02, 0.1);
   }
 
+  // WHERE THE FIT-OUT MAY NOT HANG ANYTHING.
+  //
+  // The instrument takes the middle of its wall, and the fit-out hangs posters
+  // and notices along that same wall from a different builder with its own
+  // occupancy map — so nothing knew about anything. `npm run signs` found the
+  // result in seven rooms of one theme: a 0.7 m portrait poster placed 0.9 m
+  // from the centre of a 2.0 m screen, overlapping it by nearly half a metre,
+  // in ELEC, HAB, BATT and CUT identically.
+  //
+  // Half the screen plus half the widest poster plus a hand's breadth. Fed to
+  // `wallOk` below, which `spanOk` already samples across an item's whole width
+  // — so a poster whose EDGE lands in here is refused, not just its centre.
+  const instrumentWall = (() => {
+    const p = onWall(IW, IU, SY);
+    return { x: p.x, z: p.z, r: SW / 2 + 0.45 + 0.15 };
+  })();
+  // AND OFF THE AUTHORED FIXTURES. Those are placed by `addFixture` from the
+  // entry point, after this room is built, so the fit-out cannot see them and
+  // hung posters straight over them — 96% of one poster inside a fixture board
+  // in INTAKE. Their positions are the theme's and known now, so they are
+  // reserved now. Half a board plus half the widest poster plus a gap.
+  const fixtureWalls = (spec.fixtures ?? []).map((f) => {
+    const p = fixtureSpot({ w: P.w, d: P.d, x0, x1, z0, z1, wall: P.wall, flip }, f);
+    return { x: p.x, z: p.z, r: 0.8 + 0.45 + 0.15 };
+  });
+
   // The case plate, under the screen. Paper, because it is the one thing in
   // the room about a situation rather than a measurement.
   const sheet_ = isChalk ? typedSheet : printedSheet;
@@ -1157,7 +1406,11 @@ export function buildInteriorBuilding(scene, spec){
     // The doorway is a hole in the front wall, and a notice hung across it floats
     // in the opening.
     wallOk: (wx, wz) => !(Math.abs(wz - z0) < 0.4 && Math.abs(wx) < P.doorW / 2 + 0.35)
-      && !(deliveryWall && Math.hypot(wx - deliveryWall.x, wz - deliveryWall.z) < deliveryWall.r),
+      && !(deliveryWall && Math.hypot(wx - deliveryWall.x, wz - deliveryWall.z) < deliveryWall.r)
+      // And off the room's own instrument — see `instrumentWall` above.
+      && !(Math.hypot(wx - instrumentWall.x, wz - instrumentWall.z) < instrumentWall.r)
+      // And off every authored fixture — see `fixtureWalls` above.
+      && !fixtureWalls.some(f => Math.hypot(wx - f.x, wz - f.z) < f.r),
     kind: kindOfRoom,
     // Both names: the building the player walked into ("Generation Hall") is more
     // specific than the area's ("Generation & Fuel"), and the kit reads whichever
@@ -1205,6 +1458,14 @@ export function buildInteriorBuilding(scene, spec){
     bounds: { w: P.w, d: P.d, x0, x1, z0, z1, wall: P.wall, flip },
     /** The campaign's own product, in the one room that keeps it. Absent elsewhere. */
     delivery,
+    /** A metre in front of the bench, facing it, in world space — or null. */
+    workSpot,
+    /** Darken what is seen through the door: 0 by day, 1 at night. */
+    setOutsideNight(n){
+      if(!outsideMat) return;
+      const k = Math.max(0, Math.min(1, n ?? 0));
+      outsideMat.color.setRGB(1 - 0.82 * k, 1 - 0.80 * k, 1 - 0.74 * k);
+    },
     /** Light the marker only while there is actually a case waiting here. */
     setCaseOpen(on){ beacon.setActive(on); },
     /** Where the player stands on entering: just inside, facing the room. */

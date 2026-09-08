@@ -51,6 +51,12 @@ export function initPlayer(canvas, scene, renderer, opts = {}){
     if(overlay && overlay.classList.contains('show')) return;
     const setup=document.getElementById('setupOverlay');
     if(setup && !setup.classList.contains('hidden')) return;
+    // NO BEAT GUARD HERE ANY MORE. A beat used to release the pointer so its
+    // Continue button could be clicked, and this handler took it straight back
+    // — so a card was reachable only by pressing Escape first. It has no button
+    // and takes no clicks now: the bubble is pointer-transparent and clears
+    // itself on a timer while the player keeps walking, which is the whole of
+    // "you see the dialogue bubble going on" while looking for the next call.
     if(!isLocked) controls.lock();
   });
 
@@ -194,13 +200,30 @@ export function getGround(){ return GROUND; }
 export function getBounds(){ return BOUNDS; }
 
 /**
- * Move the player, optionally turning them to face a given yaw. Walking into a
- * room should leave you looking at the case, not at the wall you came through.
+ * Move the player, optionally turning them to face a given yaw and pitch.
+ *
+ * Walking into a room should leave you looking at the case, not at the wall you
+ * came through. `pitch` is radians above the horizon, and it exists because
+ * nothing could look UP: a sixty-metre mast, a fly tower, a coaster's lift hill
+ * and a curtain wall six floors tall are all things this engine builds and no
+ * screenshot could frame. Clamped just short of the poles, where a yaw-then-
+ * pitch Euler gimbals.
+ *
+ * `pos.y` is deliberately still ignored. The camera stands at eye height above
+ * whatever the ground function says, which is the one rule that keeps a
+ * teleport into a stacked building or an interior district from putting the
+ * player inside a slab.
  */
-export function teleport(pos, yaw){
+export function teleport(pos, yaw, pitch){
   controls.getObject().position.set(pos.x, GROUND(pos.x, pos.z)+playerHeight, pos.z);
   if(typeof yaw === 'number'){
-    camera.rotation.set(0, yaw, 0);
+    const p = typeof pitch === 'number'
+      ? Math.max(-1.5, Math.min(1.5, pitch)) : 0;
+    // YXZ, which is what PointerLockControls uses: yaw about the world's up,
+    // then pitch about the camera's own right. The default XYZ order applies
+    // them the other way round, so a pitched camera also rolls.
+    camera.rotation.order = 'YXZ';
+    camera.rotation.set(p, yaw, 0);
     camera.updateMatrixWorld(true);
   }
 }

@@ -654,8 +654,6 @@ missions:
       start: ∮E·dA = Q_enc/ε₀
       startNote: the measured gap field is E_gap = 4.5 × 10³ V/m, and ε₀ = 8.85 × 10⁻¹² F/m
       goal: the effective charge per square metre on the cloud layer, in coulombs per square metre
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -672,27 +670,14 @@ missions:
           rule: symmetry argument
           survives: true
           why: A closed surface, and the integral over it is perfectly well defined. It is also zero for a uniform field, so the derivation runs on and concludes there is no charge anywhere — clean algebra, silent physics.
-        - text: a sphere centred on the mast tip
-          rule: Gauss's law
-          why: The law holds for any closed surface and is only useful where the field is constant on it. On this sphere it is not, so nothing can be taken outside the integral.
-        - text: a hemisphere resting on the ground under the mill
-          rule: boundary condition
-          why: That is not closed until the flat disc is added, and the disc is where the ground is, which is exactly the part being asked about.
       - ask: Add up the flux through the surface you chose.
-        answer: 2
+        answer: 1
         candidates:
         - text: Φ = E_sheet(4πr²)
           rule: superposition
           why: That is the area of a sphere, and there is no sphere here. The pillbox has two flat faces and a short side wall.
-        - text: Φ = E_sheet A + E_sheet(2πrh)
-          rule: Gauss's law
-          why: The field runs along the side wall rather than through it, so the dot product there is zero and the sides contribute nothing however tall the box is.
         - text: Φ = 2E_sheet A, the two faces only
           rule: symmetry argument
-        - text: Φ = E_sheet A, one face
-          rule: symmetry argument
-          survives: true
-          why: Counting one face is arithmetically clean and gives a charge density exactly half the true one, which is well inside the range anybody would believe.
       - ask: Set the flux equal to the enclosed charge over ε₀.
         answer: 1
         candidates:
@@ -701,26 +686,12 @@ missions:
           why: ε₀ divides the charge, it does not multiply it. Written this way the units come out as coulombs per farad and the answer is twenty orders out.
         - text: 2E_sheet A = σA/ε₀
           rule: Gauss's law
-        - text: 2E_sheet A = σ/ε₀
-          rule: rearrangement
-          survives: true
-          why: Dropping the area on the right leaves an equation that still solves, and σ then depends on how big a pillbox you happened to draw — which is the tell, and it is only visible if you check the units.
-        - text: 2E_sheet = σA/ε₀
-          rule: boundary condition
-          why: The area belongs on both sides or neither. Here it has been cancelled from the left only.
       - ask: Now include the induced opposite charge on the ground and use the measured gap field.
-        answer: 3
+        answer: 1
         candidates:
         - text: E_gap = 2E_sheet = 2σε₀, so σ = E_gap/(2ε₀)
           rule: rearrangement
           why: ε₀ has moved to the wrong side, and the result has the wrong units for charge density.
-        - text: E_sheet = E_gap = 2σ/ε₀, so σ = ε₀E_gap/2 ≈ 2.0 × 10⁻⁸ C/m²
-          rule: rearrangement
-          survives: true
-          why: "That would use the measured gap field as if it were the field from one sheet and then divide by two again."
-        - text: E_gap = E_sheet = σ/(2ε₀), so σ = 2ε₀E_gap ≈ 8.0 × 10⁻⁸ C/m²
-          rule: rearrangement
-          why: That is what you would infer if the measured field were produced by one isolated sheet. Here the induced ground charge contributes a field in the same direction between the two layers.
         - text: E_gap = 2E_sheet = σ/ε₀, so σ = ε₀E_gap ≈ 4.0 × 10⁻⁸ C/m²
           rule: superposition
       commit: Commit the derivation
@@ -848,8 +819,6 @@ missions:
       start: V_b − V_a = −∫E·dl
       startNote: E = 4.5 × 10³ V/m, directed upward; the cloud base is 1.2 × 10³ m up
       goal: the potential of the cloud base relative to the ground, in volts
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -865,28 +834,14 @@ missions:
           why: The integral is path-independent in an electrostatic field, so the straight line is a convenience rather than a requirement. Believing it is a requirement is what makes the next problem, with a curved route, look impossible.
         - text: straight up from the flat to the base, along the field
           rule: line integral of E
-        - text: a path around the mast and up, to stay off the field lines
-          rule: line integral of E
-          survives: true
-          why: Perfectly legitimate — the answer is the same by any route — and it turns a one-line product into an integral nobody can do in their head, which is how a correct choice still costs the derivation.
-        - text: along an equipotential from the flat to a point under the base
-          rule: symmetry argument
-          why: That leg contributes nothing at all, which is what an equipotential is. It is not wrong so much as it is not yet an answer.
       - ask: Write the integral for a uniform field along that path.
-        answer: 2
+        answer: 1
         candidates:
         - text: V_b − V_a = −∫E dl = −E/d
           rule: rearrangement
           why: Dividing rather than multiplying. Volts per metre divided by metres is not volts, and the answer comes out at about four, which looks harmless.
-        - text: V_b − V_a = −E·d²/2
-          rule: line integral of E
-          why: That is the integral of a field growing linearly with height. This one is uniform, so nothing inside the integral depends on l.
         - text: V_b − V_a = −E·d
           rule: line integral of E
-        - text: V_b − V_a = E·d
-          rule: line integral of E
-          survives: true
-          why: The magnitude is right and the sign is not, and every later line stays clean. It says the cloud base is positive with respect to the flat, which for this cell is exactly backwards.
       - ask: Put the numbers in.
         answer: 0
         candidates:
@@ -896,12 +851,6 @@ missions:
           rule: rearrangement
           survives: true
           why: The kilometre never became metres. Five and a half kilovolts is a plausible number for something and it is not this.
-        - text: V_b − V_a = −(4.5)(1.2 × 10³)
-          rule: rearrangement
-          why: The kilovolts per metre never became volts per metre either, and the two errors are the same error at different ends of the product.
-        - text: V_b − V_a = −(4.5 × 10³) + (1.2 × 10³)
-          rule: superposition
-          why: Adding a field to a distance. Superposition adds fields to fields, and there is only one field here.
       commit: Commit the derivation
   - group: COUPLE
     task: Say what an equipotential means for somebody standing on it
@@ -1023,8 +972,6 @@ missions:
       start: V = kQ/r and E = kQ/r² for an isolated sphere
       startNote: undisturbed potential at 60 m is E_flat × h = 4.5 × 10³ × 60 = 2.7 × 10⁵ V; tip radius 0.020 m
       goal: an order-of-magnitude field at the rounded tip surface, in volts per metre
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -1040,41 +987,20 @@ missions:
           why: Multiplying rather than dividing. It gives 5.4 × 10³, which is the same order as the field over the flat and therefore looks reasonable and says nothing.
         - text: E = V/r
           rule: rearrangement
-        - text: E = V/r²
-          rule: rearrangement
-          survives: true
-          why: Only one factor of r cancels between the two relations. Keeping both gives a field fifty times too large, and it is fifty times an already enormous number, so nothing about the result looks wrong.
-        - text: E = kV/r
-          rule: superposition
-          why: The Coulomb constant cancels with the charge. Leaving it in multiplies the answer by nine billion and gives units nothing has.
       - ask: Say which potential difference belongs in it.
-        answer: 2
+        answer: 1
         candidates:
         - text: the potential of the flat, which is zero
           rule: boundary condition
           why: The mast and the flat are both at earth potential, so that difference is zero and nothing happens — which is the correct answer to a different question.
-        - text: the full cloud-to-ground potential, 5.4 × 10⁶ V
-          rule: superposition
-          survives: true
-          why: "Algebraically fine and twenty times too big: it puts the tip at the potential of the cloud base rather than of the air at sixty metres, and the conclusion — corona — comes out the same, which is what makes it hard to catch."
         - text: the mast against the air at its own height, 2.7 × 10⁵ V
           rule: boundary condition
-        - text: the potential drop along the sixty metres of the mast itself
-          rule: line integral of E
-          why: A conductor has no potential drop along it in electrostatics. That is what being a conductor means, and it is why the whole mast is at ground potential.
       - ask: Put the numbers in and compare with what air can stand.
-        answer: 3
+        answer: 1
         candidates:
         - text: E = 2.7 × 10⁵ / 0.020 = 1.4 × 10⁴ V/m, below breakdown
           rule: rearrangement
           why: "The division has been done as though the radius were in centimetres rather than metres, and the conclusion reverses: it says the tip is quiet, and the tip is audibly not."
-        - text: E = 2.7 × 10⁵ × 0.020 = 5.4 × 10³ V/m
-          rule: rearrangement
-          why: "Multiplying again, one line later. The check is the units: volts times metres is not volts per metre."
-        - text: E = 0.020 / 2.7 × 10⁵ = 7.4 × 10⁻⁸ V/m
-          rule: rearrangement
-          survives: true
-          why: Inverted, and it solves cleanly to a number so small nobody reads it as wrong — they read it as scientific notation and move on.
         - text: E = 2.7 × 10⁵ / 0.020 = 1.4 × 10⁷ V/m
           rule: rearrangement
       commit: Commit the derivation
@@ -1183,8 +1109,6 @@ missions:
       start: C = Q/V
       startNote: effective plate area A = 1.0 × 10⁸ m², separation d = 1.2 × 10³ m, ε₀ = 8.85 × 10⁻¹² F/m
       goal: the capacitance of the pair, in farads
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -1201,27 +1125,14 @@ missions:
           rule: Gauss's law
           survives: true
           why: That is one sheet on its own. Between a pair the two contributions add, and taking the single-sheet value halves the field, halves the volts and doubles the capacitance — all of it clean.
-        - text: E = Q/(4πε₀d²)
-          rule: superposition
-          why: The field of a point charge. The plates are wide compared with their spacing, which is the whole reason this model is worth writing down.
-        - text: E = Qd/(ε₀A)
-          rule: rearrangement
-          why: The separation has no business in the field between wide plates; it is what turns that field into volts on the next line, and only there.
       - ask: Turn the field into the potential difference across the gap.
-        answer: 2
+        answer: 1
         candidates:
         - text: V = E/d
           rule: line integral of E
           why: Volts per metre divided by metres. The units say it immediately and the number it produces — about four hundred — is small enough to look ordinary.
-        - text: V = ∫E·dl with E falling off as one over r squared
-          rule: line integral of E
-          why: That is the point-charge integral again. Between wide plates the field does not change across the gap at all, which is what makes the integral a product.
         - text: V = Ed = Qd/(ε₀A)
           rule: line integral of E
-        - text: V = Ed², integrating the uniform field twice
-          rule: rearrangement
-          survives: true
-          why: A clean line with an extra metre in it. It gives a capacitance in farads per metre, which is a real unit and belongs to a different quantity.
       - ask: Form the ratio and put the numbers in.
         answer: 1
         candidates:
@@ -1230,13 +1141,6 @@ missions:
           why: The separation has ended up multiplying. A wider gap holds more charge per volt, which is backwards, and the number is a hundred million times too big.
         - text: C = Q/V = ε₀A/d = (8.85 × 10⁻¹²)(1.0 × 10⁸)/(1.2 × 10³)
           rule: rearrangement
-        - text: C = V/Q = d/(ε₀A)
-          rule: rearrangement
-          survives: true
-          why: "The reciprocal, and it solves perfectly well: 1.4 × 10⁷ of something. Farads are charge per volt, and this is volts per coulomb, which is a stiffness rather than a capacitance."
-        - text: C = ε₀/(Ad)
-          rule: rearrangement
-          why: Both geometric quantities have gone to the bottom. Doubling the area of a capacitor does not halve what it holds.
       commit: Commit the derivation
   - group: EARTH
     task: Work out what the trench pair does
@@ -1358,8 +1262,6 @@ missions:
       start: dU = V dq
       startNote: one stage is C = 100 nF, charged to V = 5.0 × 10⁴ V
       goal: the energy stored in one stage, in joules
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -1376,27 +1278,14 @@ missions:
           why: This is the whole trap of the derivation and it produces a clean, wrong answer twice the true one. The first charge crosses no voltage at all; only the last one crosses the full fifty kilovolts.
         - text: dU = (q/C) dq
           rule: rearrangement
-        - text: dU = (C/q) dq
-          rule: rearrangement
-          why: Inverted. It integrates to a logarithm, which is a respectable-looking result and has units of farads rather than of joules.
-        - text: dU = (Q/C) dq
-          rule: boundary condition
-          why: Q is the final charge and q is what is on the plates as you go. Using the final value inside the integral is the same error as the first line, written in charge rather than in volts.
       - ask: Integrate from empty to the final charge.
-        answer: 2
+        answer: 1
         candidates:
         - text: U = Q²/C
           rule: rearrangement
           why: The integral of q dq is q²/2, and the two has been lost. This is exactly the factor the derivation exists to produce.
-        - text: U = ∫₀^Q (q/C) dq = Q²/(2C²)
-          rule: rearrangement
-          survives: true
-          why: A second C has appeared from the integration, which it cannot. The line is algebraically consistent and the units are joules per farad.
         - text: U = ∫₀^Q (q/C) dq = Q²/(2C)
           rule: rearrangement
-        - text: U = ∫₀^Q (q/C) dq = QC/2
-          rule: rearrangement
-          why: Multiplying by C rather than dividing. Charge times capacitance is not an energy in any system of units.
       - ask: Write it in terms of the voltage and put the numbers in.
         answer: 0
         candidates:
@@ -1405,13 +1294,6 @@ missions:
         - text: U = ½CV = ½(100 × 10⁻⁹)(5.0 × 10⁴) = 2.5 × 10⁻³ J
           rule: rearrangement
           why: One factor of V short. Two and a half millijoules for a bank that can punch a hole through a metre of air is the kind of answer worth stopping at.
-        - text: U = ½C²V = ½(100 × 10⁻⁹)²(5.0 × 10⁴)
-          rule: rearrangement
-          survives: true
-          why: The square has moved from the volts to the farads. It is a clean substitution of Q = CV into the wrong slot, and nothing later in the arithmetic complains.
-        - text: U = CV² = (100 × 10⁻⁹)(5.0 × 10⁴)² = 250 J
-          rule: boundary condition
-          why: The half again, dropped at the last line rather than the first. Twice the energy, and the placard on the barrier would be wrong in the dangerous direction.
       commit: Commit the derivation
   - group: MAST
     task: Say what the earthing stick is for
@@ -1734,8 +1616,6 @@ missions:
       start: ∮B·dl = μ₀I_enc
       startNote: I = 3.0 × 10⁴ A at the peak, r = 2.0 m, μ₀ = 4π × 10⁻⁷ T·m/A
       goal: the magnetic field at the cabinet, in tesla
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -1744,20 +1624,14 @@ missions:
       - boundary condition
       steps:
       - ask: Choose the path to go round.
-        answer: 2
+        answer: 1
         candidates:
         - text: a square loop of side 2 m centred on the conductor
           rule: symmetry argument
           survives: true
           why: The law holds for it and the enclosed current is the same, so the equation is true — and B is not constant along a square, so it cannot come out of the integral and the line leads nowhere.
-        - text: a straight path from the conductor out to the cabinet
-          rule: line integral of E
-          why: Ampère's law is about a closed path. An open one encloses no area and there is no current through it to count.
         - text: a circle of radius 2 m centred on the conductor
           rule: symmetry argument
-        - text: a closed surface around the base of the mast
-          rule: Gauss's law
-          why: That is the other law. A surface counts flux out of it; this one needs a path with a current threading it.
       - ask: Write the circulation along that path.
         answer: 0
         candidates:
@@ -1767,12 +1641,6 @@ missions:
           rule: rearrangement
           survives: true
           why: An area where a length belongs. It solves cleanly and gives a field in tesla per metre, and at r = 2 the two numbers are close enough that the answer looks ordinary.
-        - text: ∮B·dl = B(2πr)cos θ, carrying the angle
-          rule: symmetry argument
-          why: The angle between B and dl is genuinely in the definition, and on this path it is zero everywhere. Carrying it is correct and unfinished.
-        - text: ∮B·dl = B(4πr²)
-          rule: Gauss's law
-          why: The area of a sphere, borrowed from the electrostatic problem. Nothing here is a sphere and nothing here is a surface.
       - ask: Set it equal to the enclosed current and solve.
         answer: 1
         candidates:
@@ -1781,13 +1649,6 @@ missions:
           why: The path length has moved to the top. It gives a field that grows with distance, which would make the far side of the compound the dangerous place.
         - text: B = μ₀I/(2πr)
           rule: rearrangement
-        - text: B = I/(2πrμ₀)
-          rule: rearrangement
-          survives: true
-          why: μ₀ inverted. The line is consistent and the answer is 1.9 × 10⁹, which reads as a large number in a domain where large numbers are normal.
-        - text: B = μ₀I/(4πr²)
-          rule: superposition
-          why: That is the Biot–Savart contribution of a single current element, not the total for a long conductor. Integrating along the whole wire is what removes the square.
       commit: Commit the derivation
   - group: BANK
     task: Estimate the charge the stroke moved
@@ -1963,8 +1824,6 @@ missions:
       start: B(r) = μ₀I/(2πr)
       startNote: ℓ = 40 m parallel, a = 1.5 m, b = 3.5 m, dI/dt = 3.0 × 10¹⁰ A/s; use the straight-conductor, quasi-static approximation
       goal: the EMF driven around the trench loop, in volts
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -1973,18 +1832,12 @@ missions:
       - boundary condition
       steps:
       - ask: Write the flux through a strip of the loop at distance r.
-        answer: 3
+        answer: 1
         candidates:
         - text: dΦ = B·ℓ·dr with B taken at the middle of the loop
           rule: boundary condition
           survives: true
           why: Using the mid-distance value turns the integral into a product and loses the logarithm. It is about eight per cent low here and it is the version most people write, because it is right whenever the field is uniform and this field is not.
-        - text: dΦ = B·dr, without the length
-          rule: rearrangement
-          why: A strip has two dimensions. Dropping the forty metres leaves webers per metre, and the answer is forty times small.
-        - text: dΦ = B·ℓ·r·dr
-          rule: rearrangement
-          why: An extra factor of r, borrowed from a polar area element. The strip here is a rectangle and its area is ℓ dr.
         - text: dΦ = B(r)·ℓ·dr
           rule: superposition
       - ask: Integrate across the loop, from the near conductor to the far one.
@@ -1996,12 +1849,6 @@ missions:
           why: The integral of dr rather than of dr/r. Clean, and it says a loop twice as far away links the same flux for the same width, which is not how a field that falls off works.
         - text: Φ = (μ₀Iℓ/2π)·ln(b/a)
           rule: line integral of E
-        - text: Φ = (μ₀Iℓ/2π)·ln(b − a)
-          rule: rearrangement
-          why: "A logarithm of a length, which has no meaning: the argument of a log has to be a ratio. It is also negative for gaps under a metre."
-        - text: Φ = (μ₀Iℓ/2π)(1/a − 1/b)
-          rule: rearrangement
-          why: That is the integral of dr/r², which belongs to a point source. Here the field goes as one over r and integrates to a logarithm.
       - ask: Differentiate to get the EMF.
         answer: 0
         candidates:
@@ -2011,27 +1858,14 @@ missions:
           rule: rearrangement
           survives: true
           why: The current has been kept as well as its derivative. The line is tidy and the answer is thirty thousand times too large, which in a domain of large numbers is not obviously absurd.
-        - text: ε = (μ₀ℓ/2π)·ln(b/a)·I
-          rule: boundary condition
-          why: Faraday's law is about the rate of change. Using the current itself makes the steady state as dangerous as the front, which the site's nine quiet years disprove.
-        - text: ε = (μ₀ℓ/2π)·d[ln(b/a)]/dt
-          rule: line integral of E
-          why: The geometry is not moving. Nothing in the logarithm depends on time, so this differentiates to zero and predicts that nothing ever happens.
       - ask: Put the numbers in.
-        answer: 2
+        answer: 1
         candidates:
         - text: ε = (2 × 10⁻⁷)(40)(0.85)(3.0 × 10¹⁰)/40
           rule: rearrangement
           why: The length has been divided out again at the end, which undoes the strip. Five kilovolts is survivable and the trailer did not survive.
-        - text: ε = (2 × 10⁻⁷)(0.85)(3.0 × 10¹⁰)
-          rule: rearrangement
-          survives: true
-          why: The forty metres was dropped between lines. Five kilovolts again, by a different route, and it is the number somebody quotes when the cable run is described as short.
         - text: ε = (2 × 10⁻⁷)(40)(0.85)(3.0 × 10¹⁰)
           rule: rearrangement
-        - text: ε = (2 × 10⁻⁷)(40)(0.85)(3.0 × 10⁴)
-          rule: rearrangement
-          why: The peak current has been used where its rate of change belongs. It gives two tenths of a volt and would close the investigation with the wrong answer.
       commit: Commit the derivation
   - group: MAST
     task: Which explanation best fits all four observations?
@@ -2162,8 +1996,6 @@ missions:
       start: V = IR for the steady case, V = L·dI/dt for the changing one
       startNote: R = 3.0 × 10⁻⁴ Ω; assume an effective lead-plus-return inductance L ≈ 6 µH for this geometry; I = 3.0 × 10⁴ A; dI/dt = 3.0 × 10¹⁰ A/s
       goal: the two voltages across the same lead, in volts
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -2179,13 +2011,6 @@ missions:
           why: Dividing by the resistance instead of multiplying. A hundred megavolts across a piece of copper, which is the sort of answer that ends an investigation early.
         - text: V = IR = (3.0 × 10⁴)(3.0 × 10⁻⁴)
           rule: rearrangement
-        - text: V = IR with R the earth resistance, 25 Ω
-          rule: boundary condition
-          survives: true
-          why: 'Using 25 Ω here mixes two different measurements: that value belongs to the low-frequency earth test, not to the 0.3 mΩ bonding lead. Multiplying 30 kA by it gives 750 kV, but that is not a valid lightning-transient prediction for either the lead or the grid.'
-        - text: V = I²R
-          rule: rearrangement
-          why: That is a power rather than a voltage, and it puts watts where volts belong.
       - ask: Write the inductance of the lead.
         answer: 0
         candidates:
@@ -2195,27 +2020,14 @@ missions:
           rule: boundary condition
           survives: true
           why: Inductance belongs to a current loop and depends on geometry. Treating “one conductor” as one microhenry ignores both length and the return path.
-        - text: L = 0 because a straight lead is not a coil
-          rule: symmetry argument
-          why: Straight conductors still have inductance because their current creates magnetic flux linked with the return path.
-        - text: L = R because resistance and inductance are both impedances
-          rule: rearrangement
-          why: They enter impedance with different units and different frequency dependence; one cannot be substituted for the other.
       - ask: Write the inductive voltage on the front of the stroke.
-        answer: 2
+        answer: 1
         candidates:
         - text: V = L·I = (6 × 10⁻⁶)(3.0 × 10⁴)
           rule: boundary condition
           why: The current rather than its rate of change. It gives a fifth of a volt and would exonerate the lead completely.
-        - text: V = I·dL/dt
-          rule: rearrangement
-          why: The inductance is not changing — nobody is moving the wire. This differentiates the wrong factor and gives zero.
         - text: V = L·dI/dt = (6 × 10⁻⁶)(3.0 × 10¹⁰)
           rule: rearrangement
-        - text: V = L·dI/dt with dI/dt = 3.0 × 10⁴ A/s
-          rule: rearrangement
-          survives: true
-          why: The peak current has been written in as though it were the slope. The line is correct in form and the answer, a fifth of a volt, is the same wrong conclusion as the first branch by a tidier route.
       - ask: Say which of the two the April certificate measured.
         answer: 1
         candidates:
@@ -2224,13 +2036,6 @@ missions:
           why: An earth tester injects a steady current, and a steady current has no rate of change for an inductance to respond to. It cannot see the second term at all.
         - text: the resistive one, because the tester injects a steady current
           rule: boundary condition
-        - text: the inductive one, because the tester uses an alternating source
-          rule: rearrangement
-          survives: true
-          why: Testers do use a low-frequency alternating source, which makes this sound right. At a hundred hertz the inductive part of six microhenries is four milliohms — real, and ten million times smaller than what a microsecond front produces.
-        - text: neither, because it measured the soil rather than the lead
-          rule: symmetry argument
-          why: The measurement includes everything in the loop it injects around, lead included. What it cannot include is a rate of change it never applies.
       commit: Commit the derivation
   - group: FIELD
     task: Say what follows for how the site should be bonded
@@ -2763,8 +2568,6 @@ missions:
       start: q/C + IR = 0 around the loop
       startNote: R = 1.0 × 10⁷ Ω, C = 1.0 × 10⁻¹⁰ F, and the current out of the capacitor is I = −dq/dt
       goal: the charge as a function of time, and the time constant
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -2773,20 +2576,14 @@ missions:
       - boundary condition
       steps:
       - ask: Put the current in terms of the charge.
-        answer: 2
+        answer: 1
         candidates:
         - text: q/C + R(dq/dt) = 0
           rule: rearrangement
           survives: true
           why: The sign of the current has been dropped. It integrates just as cleanly to a growing exponential, which says the electrometer charges itself up out of nothing and never comes back.
-        - text: q/C + R(d²q/dt²) = 0
-          rule: rearrangement
-          why: A second derivative belongs to a circuit with an inductance in it. There is none here, and this predicts an oscillation nobody has ever seen on this bench.
         - text: q/C − R(dq/dt) = 0
           rule: rearrangement
-        - text: q/C + IR = 0 with I taken as constant
-          rule: boundary condition
-          why: A constant current empties the capacitor in a straight line and stops. That is a different circuit — a current source rather than a resistor.
       - ask: Separate the variables.
         answer: 0
         candidates:
@@ -2796,12 +2593,6 @@ missions:
           rule: separation of variables
           survives: true
           why: RC has moved to the top. It integrates perfectly well and gives a time constant of one over RC — a million per second rather than a millisecond, which happens to be the answer everybody wants and is dimensionally impossible.
-        - text: q dq = dt/(RC)
-          rule: rearrangement
-          why: The q has moved to the wrong side. This integrates to a square root in time, which is the solution to a different equation entirely.
-        - text: dq = q·dt
-          rule: rearrangement
-          why: The resistance and the capacitance have both disappeared, which would make every circuit respond at the same speed.
       - ask: Integrate both sides and apply the starting charge.
         answer: 1
         candidates:
@@ -2811,25 +2602,12 @@ missions:
           why: Same sign slip as the first branch, arriving one line later. It fits the starting charge exactly and then grows without limit.
         - text: ln q = −t/(RC) + k, so q = Q·e^(−t/RC)
           rule: separation of variables
-        - text: q = Q − t/(RC)
-          rule: rearrangement
-          why: That is what you get by integrating the right-hand side and forgetting the left one. A capacitor discharging linearly would reach negative charge and stop being a capacitor.
-        - text: q = Q·e^(−RC·t)
-          rule: rearrangement
-          why: RC is a time and it belongs under t, not multiplying it. As written the exponent has units of seconds squared.
       - ask: Put the numbers in and compare with the stroke.
-        answer: 3
+        answer: 1
         candidates:
         - text: RC = 10⁷ × 10⁻¹⁰ = 10⁻³ s, about the length of the stroke
           rule: rearrangement
           why: The arithmetic is right and the comparison is not. The stroke front is a microsecond and the whole stroke about a hundred, both far shorter than this.
-        - text: RC = 10⁷/10⁻¹⁰ = 10¹⁷ s
-          rule: rearrangement
-          why: Dividing rather than multiplying gives three billion years, which is a long time to wait for a field reading.
-        - text: RC = 10⁻⁷ × 10¹⁰ = 10³ s
-          rule: rearrangement
-          survives: true
-          why: Both exponents inverted, and the product is a clean seventeen minutes. It is wrong by a factor of a million and it reads like a sensible instrument specification.
         - text: RC = 10⁷ × 10⁻¹⁰ = 10⁻³ s, a thousand times the stroke front
           rule: rearrangement
       commit: Commit the derivation
@@ -3040,8 +2818,6 @@ missions:
       start: n = 12 stages, each C = 100 nF charged to V₀ = 50 kV
       startNote: in parallel while charging, in series once the gaps break down
       goal: the output voltage, the series capacitance and the stored energy
-      askRule: true
-      rules:
       - Gauss's law
       - symmetry argument
       - superposition
@@ -3058,25 +2834,12 @@ missions:
           why: That is the parallel result, which is correct for the charging arrangement and wrong for the firing one. It is the commonest single error on this circuit, and everything after it stays arithmetically clean.
         - text: C_s = C/n = 8.3 nF
           rule: rearrangement
-        - text: C_s = C = 100 nF, since the same charge passes through all of them
-          rule: boundary condition
-          why: The charge is indeed common to all of them, and that is the reason the voltages add and the capacitance falls. Equal charge is the premise rather than the conclusion.
-        - text: C_s = n/C
-          rule: rearrangement
-          why: Reciprocals add, and then the reciprocal of the sum is taken. Stopping halfway leaves per-farad units.
       - ask: Write the voltage across the chain.
-        answer: 3
+        answer: 1
         candidates:
         - text: V = V₀ = 50 kV, since they are all the same
           rule: boundary condition
           why: In parallel that is right. In series the potential differences add along the chain, which is the entire purpose of the arrangement.
-        - text: V = V₀/n = 4.2 kV
-          rule: rearrangement
-          why: Dividing rather than multiplying. A generator that lowers the voltage would be a strange thing to build a hall around.
-        - text: V = √(n)·V₀ = 173 kV
-          rule: superposition
-          survives: true
-          why: "Root-n is what independent random contributions give. These are not independent and not random: they are twelve equal steps in series, and they add linearly."
         - text: V = nV₀ = 600 kV
           rule: rearrangement
       - ask: Check the energy against what the twelve stages held.
@@ -3088,12 +2851,6 @@ missions:
           rule: rearrangement
           survives: true
           why: The parallel capacitance carried down from the first branch. It says the act of switching created a hundred and forty times the energy, which nothing in the hall did.
-        - text: U = n·½C_sV² = 1.8 × 10⁴ J
-          rule: superposition
-          why: The n is already inside the series capacitance and the voltage. Multiplying by it again counts the stages twice.
-        - text: U = ½C_sV₀² = 10 J
-          rule: boundary condition
-          why: The stage voltage with the series capacitance, which are quantities from two different arrangements of the same hardware.
       commit: Commit the derivation
   - group: SHOT
     task: Decide what the final shot is for

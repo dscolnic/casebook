@@ -14,7 +14,7 @@
 //   · anonymous extras carry the same rig and no interaction, which is what
 //     makes a street feel worked rather than staffed by exactly the cast list
 import * as THREE from 'three';
-import { pickLook, buildBody, buildExtraBody, stepGait, gaitAdvance, idleSway } from './rig.js';
+import { pickLook, buildBody, buildExtraBody, stepGait, gaitAdvance, idleSway, poseSeated } from './rig.js';
 import { srand, srandRange, resetSeed } from '../world/materials.js';
 // Which people the day still wants. The crowd is the only place that knows
 // where those people are standing right now, so it is the only place that can
@@ -51,6 +51,74 @@ const extras = [];
  *                     wider than their shoulders.
  * }
  */
+/**
+ * Where the nth person at a station stands.
+ *
+ * Fan out along the frontage, alternating sides. The default spacing suits a
+ * town square; a station may ask for less, and a submarine has to — a
+ * compartment is five metres long and the third person on a 4.6 m offset stands
+ * in the next one. A ROOM asks for less again: nine metres of floor with a
+ * bench down one side of it.
+ *
+ * Extracted so that indoors and outdoors place people by the same arithmetic.
+ * It was inline in `initCrowd`, and `stationIndoors` below needs exactly this —
+ * a second copy would have drifted the first time either spacing was tuned.
+ */
+function spotFor(station, n, blocked){
+  const gap = station.spread ?? 2.2;
+  const rankGap = station.rankSpread ?? 2.4;
+  const side = n % 2 ? 1 : -1;
+  const rank = Math.floor(n / 2);
+  const off = side * (gap + rank * rankGap);
+  const back = rank * (station.backSpread ?? 1.3);
+  let x = station.x + Math.cos(station.facing) * off + Math.sin(station.facing) * back;
+  let z = station.z - Math.sin(station.facing) * off + Math.cos(station.facing) * back;
+  // The station is somewhere a person can stand; a fanned-out offset from it is
+  // not necessarily. Nudge along the frontage until it is, because a named
+  // person placed inside the furniture stands there for the whole game — every
+  // direction out is blocked, so they never get a target they can walk to.
+  if(blocked){
+    const found = settle(x, z, blocked, station.facing);
+    x = found[0]; z = found[1];
+  }
+  return [x, z];
+}
+
+/**
+ * How far a body has to fall to sit on a surface `surface` metres up.
+ *
+ * The hip pivot is at 0.88 on the nominal rig and the thigh capsule's radius is
+ * 0.078, so the underside of a horizontal thigh ends at `0.88 - drop - 0.078`.
+ * Setting that equal to the seat gives `drop = 0.802 - surface`.
+ *
+ * THE SEAT'S SURFACE IS NOT THE NUMBER IN ITS BUILDER. A kit bench is built with
+ * its slab *centred* at 0.44 and 0.1 thick, so people sit at 0.49; passing 0.44
+ * put every seated person 12.8 cm into the bench, which is what it looked like.
+ * A seat may declare its own `surface`; 0.44 is the ordinary chair.
+ */
+const HIP_PIVOT = 0.88, THIGH_R = 0.078;
+export function seatedDrop(surface){
+  const s = Number.isFinite(surface) ? surface : 0.44;
+  return Math.max(0.05, HIP_PIVOT - THIGH_R - s);
+}
+
+/**
+ * The floor under one person.
+ *
+ * `ctx.groundHeight` answers for the terrain, and a person standing in an
+ * interior is four kilometres out in x where the terrain means nothing — so
+ * somebody moved into a room would have their feet, their raycast cylinder and
+ * their wanted marker all placed at whatever the heightfield says out there.
+ * `floorY` is set while they are indoors and is the answer then.
+ *
+ * Not `?? 0`: a room's floor is not always zero. Mission Control and the
+ * theatre stand their rooms on a raised tier, and anything placed at zero there
+ * is under the floor.
+ */
+function floorOf(n, x, z){
+  return Number.isFinite(n.floorY) ? n.floorY : ctx.groundHeight(x, z);
+}
+
 export function initCrowd(opts){
   if(group) return { npcs, extras };
   ctx = opts;
@@ -60,6 +128,11 @@ export function initCrowd(opts){
   opts.scene.add(group);
 
   const byStation = new Map(opts.stations.map(s => [s.id, s]));
+  // Named people are found INSIDE their area, not at its door. Off by default:
+  // every game written before this meets its cast in the street, and a person
+  // stop answered on the pavement is most of how they are met. See
+  // `stationIndoors` and `people.indoors` in the manifest.
+  const indoorOnly = opts.indoorOnly === true;
 
   // ---- named people, standing near the area they belong to
   // Spread around their station on a small arc rather than a single point:
@@ -71,27 +144,7 @@ export function initCrowd(opts){
     const n = perStation.get(station.id) ?? 0;
     perStation.set(station.id, n + 1);
 
-    // Fan out along the frontage, alternating sides. The default spacing suits
-    // a town square; a station may ask for less, and a submarine has to — a
-    // compartment is five metres long and the third person on a 4.6 m offset
-    // stands in the next one.
-    const gap = station.spread ?? 2.2;
-    const rankGap = station.rankSpread ?? 2.4;
-    const side = n % 2 ? 1 : -1;
-    const rank = Math.floor(n / 2);
-    const off = side * (gap + rank * rankGap);
-    const back = rank * (station.backSpread ?? 1.3);
-    let x = station.x + Math.cos(station.facing) * off + Math.sin(station.facing) * back;
-    let z = station.z - Math.sin(station.facing) * off + Math.cos(station.facing) * back;
-    // The station is somewhere a person can stand; a fanned-out offset from it
-    // is not necessarily. Nudge along the frontage until it is, because a
-    // named person placed inside the furniture stands there for the whole game
-    // — every direction out is blocked, so they never get a target they can
-    // walk to.
-    if(opts.blocked){
-      const found = settle(x, z, opts.blocked, station.facing);
-      x = found[0]; z = found[1];
-    }
+    let [x, z] = spotFor(station, n, opts.blocked);
 
     const outfitKey = opts.roleToOutfit(person.role, (n2) => Math.floor(srand() * n2));
     const look = pickLook(opts.outfits[outfitKey] ?? Object.values(opts.outfits)[0]);
@@ -102,6 +155,10 @@ export function initCrowd(opts){
     const y = Number.isFinite(station.y) ? station.y : opts.groundHeight(x, z);
     body.position.set(x, y, z);                    // feet at ground level
     body.rotation.y = station.facing + Math.PI + srandRange(-0.3, 0.3);
+    // Drawn from the first frame, or not at all. `updateCrowd` sets this every
+    // frame after, but the first frame comes before the first update and a cast
+    // that flickers into the street and out again is worse than either.
+    body.visible = !indoorOnly;
     group.add(body);
 
     const plate = nameplate(person);
@@ -128,6 +185,13 @@ export function initCrowd(opts){
       speed: srandRange(0.75, 1.15),
       phase: srand() * 6.28,
       pause: srandRange(0.5, 4),
+      // Off the street until their room is opened, where the theme asks for it.
+      // `offFloor` reads this, so they lose their collider, their raycast target,
+      // their nameplate and their marker with it.
+      ...(indoorOnly ? { away: true } : {}),
+      // Their own facing at spawn, kept so `stationIndoors(null)` can put them
+      // back the way they were rather than however they last turned.
+      homeFacing: body.rotation.y,
     };
     npcs.push(npc);
     // The collider travels with them. It used to be pushed once at spawn and
@@ -146,8 +210,57 @@ export function initCrowd(opts){
   }
 
   // ---- anonymous extras, scattered along the routes
+  //
+  // Three kinds of extra, because a street where everybody is walking somewhere
+  // reads as a station concourse. Some SIT, on whatever the world says can be
+  // sat on — a bench, a chair the plan declared. Some stand in PAIRS, talking,
+  // facing each other. The rest walk a short beat around a home point.
   const spots = opts.extraSpots ?? [];
-  for(let i = 0; i < (opts.extras ?? 0) && spots.length; i++){
+  const total = opts.extras ?? 0;
+  const newExtra = (look, x, y, z, s) => {
+    // The cheap merged rig, which is what this tier is for: four meshes instead
+    // of fourteen. It was building the full one, so 26 extras cost as much as 26
+    // named people and the header's claim about it was simply untrue.
+    const body = buildExtraBody(look);
+    body.position.set(x, y, z);
+    body.rotation.y = srand() * 6.28;
+    group.add(body);
+    const e = {
+      body, phase: srand() * 6.28, level: s?.level ?? null,
+      pos: new THREE.Vector3(x, y, z),
+      home: new THREE.Vector3(x, y, z),
+      target: new THREE.Vector3(x, y, z),
+      facing: body.rotation.y,
+      speed: srandRange(0.7, 1.2),
+      pause: srandRange(0.5, 6),
+    };
+    e.soft = { x, z, r: BODY_RADIUS };
+    opts.softColliders.push(e.soft);
+    extras.push(e);
+    return e;
+  };
+  const randomLook = () => pickLook(opts.outfits[opts.roleToOutfit('', (n) => Math.floor(srand() * n))]
+                          ?? Object.values(opts.outfits)[0]);
+
+  // Seated first: about a quarter of the crowd, and never more than there are
+  // seats. A seat is `{ x, z, y, facing }`; the sitter faces the way it does.
+  const seatList = (opts.seats ?? []).filter(s => Number.isFinite(s.x) && Number.isFinite(s.z));
+  const seated = Math.min(seatList.length, Math.floor(total * 0.28));
+  for(let i = 0; i < seated; i++){
+    const s = seatList[i];
+    const y = Number.isFinite(s.y) ? s.y : opts.groundHeight(s.x, s.z);
+    const e = newExtra(randomLook(), s.x, y, s.z, s);
+    e.seated = true;
+    e.facing = s.facing ?? 0;
+    e.body.rotation.y = e.facing;
+    // The drop is computed from the seat's own surface — see `seatedDrop`. The
+    // body's y is left where the pose put it and never re-grounded.
+    poseSeated(e.body, seatedDrop(s.surface));
+    e.soft.r = 0.3;
+  }
+
+  let placed = seated;
+  for(let i = 0; placed < total && spots.length && i < total * 3; i++){
     const s = spots[i % spots.length];
     let x = s.x + srandRange(-3.5, 3.5);
     let z = s.z + srandRange(-3.5, 3.5);
@@ -159,33 +272,74 @@ export function initCrowd(opts){
       x = found[0]; z = found[1];
       if(opts.blocked(x, z, 0.4)) continue;
     }
-    const look = pickLook(opts.outfits[opts.roleToOutfit('', (n) => Math.floor(srand() * n))]
-                          ?? Object.values(opts.outfits)[0]);
-    // The cheap merged rig, which is what this tier is for: four meshes instead
-    // of fourteen. It was building the full one, so 26 extras cost as much as 26
-    // named people and the header's claim about it was simply untrue.
-    const body = buildExtraBody(look);
     const y = Number.isFinite(s.y) ? s.y : opts.groundHeight(x, z);
-    body.position.set(x, y, z);
-    body.rotation.y = srand() * 6.28;
-    group.add(body);
-    // Extras walk too. They had idle sway and nothing else, so half the street
-    // was permanently rooted to the spot while the named cast moved around them.
-    extras.push({
-      body, phase: srand() * 6.28, level: s.level ?? null,
-      pos: new THREE.Vector3(x, y, z),
-      home: new THREE.Vector3(x, y, z),
-      target: new THREE.Vector3(x, y, z),
-      facing: body.rotation.y,
-      speed: srandRange(0.7, 1.2),
-      pause: srandRange(0.5, 6),
-    });
-    const e = extras[extras.length - 1];
-    e.soft = { x, z, r: BODY_RADIUS };
-    opts.softColliders.push(e.soft);
+    const e = newExtra(randomLook(), x, y, z, s);
+    placed++;
+    // Every third walker brings a partner and stops to talk to them. The pair
+    // stand a pace apart, facing each other, and neither wanders off.
+    if(placed % 3 === 0 && placed < total){
+      const a = srand() * Math.PI * 2;
+      const px = x + Math.cos(a) * 1.25, pz = z + Math.sin(a) * 1.25;
+      if(!opts.blocked?.(px, pz, 0.4)){
+        const py = Number.isFinite(s.y) ? s.y : opts.groundHeight(px, pz);
+        const p = newExtra(randomLook(), px, py, pz, s);
+        placed++;
+        e.talk = p; p.talk = e;
+        e.talkSide = 0; p.talkSide = 1;
+        e.talkPhase = p.talkPhase = srand() * 7;
+        e.facing = Math.atan2(px - x, pz - z); e.body.rotation.y = e.facing;
+        p.facing = e.facing + Math.PI; p.body.rotation.y = p.facing;
+      }
+    }
   }
 
   return { npcs, extras };
+}
+
+/**
+ * Two people talking. The speaker's torso turns a little as they make a point
+ * and the listener nods; every few seconds they swap. The cheap rig has no
+ * arms of its own, so this is done with what it has — and at ten metres a
+ * torso that moves reads as a person who is talking.
+ */
+function converse(n, t){
+  const body = n.body;
+  const beat = Math.floor((t + n.talkPhase) / 3.4);
+  const speaking = (beat % 2) === n.talkSide;
+  const torso = body.userData.torso;
+  if(torso){
+    torso.rotation.y = speaking ? Math.sin(t * 3.1 + n.phase) * 0.09 : Math.sin(t * 0.8 + n.phase) * 0.03;
+    torso.rotation.x = speaking ? 0.02 : Math.max(0, Math.sin(t * 2.2 + n.phase)) * 0.05;
+  }
+  body.position.y = floorOf(n, n.pos.x, n.pos.z) + (speaking ? Math.abs(Math.sin(t * 3.1)) * 0.008 : 0);
+  body.userData.limbs?.forEach(l => {
+    if(l.userData.isLeg){
+      l.rotation.x = l.userData.side * 0.02;
+      if(l.userData.knee) l.userData.knee.rotation.x = 0;
+      if(l.userData.shoe) l.userData.shoe.rotation.x = 0;
+    }
+  });
+}
+
+/**
+ * Somebody stationed in a room. Standing still is not standing frozen; and one
+ * of them, at the bench, has their hands on the work.
+ */
+function stationedIdle(n, t){
+  if(n.pose === 'work'){
+    n.body.userData.limbs?.forEach(l => {
+      if(l.userData.isArm) l.rotation.x = -1.15 + Math.sin(t * 5.5 + l.userData.side * 1.7 + n.phase) * 0.06;
+      else if(l.userData.isLeg){
+        l.rotation.x = 0;
+        if(l.userData.knee) l.userData.knee.rotation.x = 0;
+        if(l.userData.shoe) l.userData.shoe.rotation.x = 0;
+      }
+    });
+    if(n.body.userData.torso) n.body.userData.torso.rotation.x = 0.09;
+    if(n.body.userData.head) n.body.userData.head.rotation.x = 0.18;
+    return;
+  }
+  idleSway(n.body, Math.sin(t * 0.9 + n.phase) * 0.03);
 }
 
 /**
@@ -413,7 +567,7 @@ function yieldToPlayer(n, px, pz){
     if(n.hit) n.hit.position.set(nx, n.body.position.y + 0.95, nz);
     if(n.soft){ n.soft.x = nx; n.soft.z = nz; n.soft.r = BODY_RADIUS; }
     // Do not immediately walk back into the person who just displaced you.
-    n.target.set(nx, ctx.groundHeight(nx, nz), nz);
+    n.target.set(nx, floorOf(n, nx, nz), nz);
     n.pause = Math.max(n.pause, 0.6);
     return true;
   }
@@ -483,8 +637,12 @@ export function updateCrowd(delta, t){
       if(n.hit){ n.hit.visible = false; n.hit.layers.disable(0); }
       n.plate.visible = false;
       if(n.marker) n.marker.visible = false;
+      // The body goes too, but only for somebody who is somewhere else
+      // entirely — see `away` above for why a floor below keeps theirs.
+      if(away(n)) n.body.visible = false;
       continue;
     }
+    if(!n.body.visible) n.body.visible = true;
     if(n.soft && n.soft.r === 0) n.soft.r = BODY_RADIUS;
     if(n.hit){ n.hit.visible = true; n.hit.layers.enable(0); }
     walk(n, delta, t);
@@ -516,7 +674,7 @@ export function updateCrowd(delta, t){
     if(n.marker){
       n.marker.visible = wanted;
       if(wanted){
-        n.marker.position.set(n.pos.x, ctx.groundHeight(n.pos.x, n.pos.z) + MARKER_LIFT
+        n.marker.position.set(n.pos.x, floorOf(n, n.pos.x, n.pos.z) + MARKER_LIFT
           + Math.sin(t * 2.2 + n.phase) * 0.09, n.pos.z);
         n.marker.rotation.y = t * 1.1;
       }
@@ -545,11 +703,32 @@ export function updateCrowd(delta, t){
  */
 function offFloor(n){
   const active = ctx.activeLevel?.();
-  return active != null && n.level != null && n.level !== active;
+  return (active != null && n.level != null && n.level !== active) || n.away === true;
 }
+
+/**
+ * Somebody who is not in this place at all.
+ *
+ * DIFFERENT FROM `offFloor`, and the difference is the body. Somebody two floors
+ * down keeps theirs and stays drawn on purpose — the note on `offFloor` says
+ * why: a tower whose other floors are empty through the glass is a stage set.
+ * Somebody who is INDOORS while the player is on the street is not visible from
+ * it at all, and drawing them anyway is what "I see Laila Abiola outside the
+ * building and inside" was: she stood at her door as you walked up and was in
+ * the room a second later.
+ *
+ * Set by `stationIndoors`, and only in a theme that asked for `people.indoors`.
+ */
+function away(n){ return n.away === true; }
 
 function walk(n, delta, t){
   if(offFloor(n)) return;
+  // Sitting down. The pose is set once; the sway is the only motion.
+  if(n.seated){ idleSway(n.body, Math.sin(t * 0.7 + n.phase) * 0.03, true); return; }
+  // Talking to somebody. Neither of them goes anywhere.
+  if(n.talk){ converse(n, t); return; }
+  // Stationed in a room by `stationPeople`: still, but not frozen.
+  if(n.stationed){ stationedIdle(n, t); return; }
   // Somebody a world format has taken over. FOLLOW's guide and EVADE's pursuer
   // are people who already stand in this crowd with a body, a nameplate and a
   // collider, and the run drives them directly — see worldFormats.js takeOver.
@@ -608,6 +787,118 @@ function walk(n, delta, t){
   n.body.position.set(n.pos.x, ctx.groundHeight(n.pos.x, n.pos.z) + bob, n.pos.z);
   if(n.hit) n.hit.position.set(n.pos.x, n.body.position.y + 0.95, n.pos.z);
   if(n.soft){ n.soft.x = n.pos.x; n.soft.z = n.pos.z; }
+}
+
+/**
+ * Move an area's people INTO a room, or send them back to their doorstep.
+ *
+ * THE DEFECT THIS IS FOR. Named people stand outside their own area's building,
+ * because `initCrowd` places them at the outdoor stations the world hands over
+ * and nothing ever put anybody inside an interior. So a room is a furnished
+ * space with a lit case stand and nobody in it, and every mission beat spoken
+ * by somebody indoors had nobody to be spoken by: `beats.js` projects a bubble
+ * onto the speaker's chest, found nobody within four kilometres, and fell back
+ * to a card in the middle of the screen. A commander who steps between two
+ * technicians and locks their panels was a caption.
+ *
+ * `station` is the same shape the outdoor ones are — `{ x, z, y, facing }` in
+ * WORLD coordinates, plus the optional spreads — so `spotFor` fans a cast out
+ * along a bench exactly as it fans them along a frontage. Pass `null` to send
+ * them home.
+ *
+ * They are marked `scripted` while they are in there, which is the flag the
+ * world formats already use to mean "somebody else is driving this person":
+ * `walk()` returns early on it, so nobody wanders out through a wall looking
+ * for a target on the terrain outside. `floorY` is the room's floor, for the
+ * reason `floorOf` gives.
+ *
+ * Returns how many people were moved, so a caller can tell an empty area from
+ * a missing one.
+ */
+export function stationIndoors(division, station, opts = {}){
+  return stationPeople(n => n.division === division, station, opts);
+}
+
+/**
+ * The same move, for people chosen by something other than their area.
+ *
+ * A person stop may be SITED somewhere that is not the area the person belongs
+ * to — Red Sand's mission 2 asks Sundqvist, who works in the Catalyst Bay, a
+ * question at the Atmosphere Intake, because that is where the compressors are.
+ * `stationIndoors` moves a whole division and could not express that: the map
+ * marked her at her own building, the player walked to a door sealed until
+ * mission 9, and the intake they were actually sent to was empty. Everything
+ * else about the day already knew — `siteForStop` is read by the call line, the
+ * access rules and the room's fixtures — and the cast was the one thing still
+ * standing where the roster said rather than where the day said.
+ *
+ * `who` is a predicate, or a list of character ids. `from` is where in the
+ * station's fan to start, so a room that stations its own people and then a
+ * visitor does not stand the visitor inside somebody.
+ *
+ * Returns how many people were moved.
+ */
+export function stationPeople(who, station, { from = 0, work = null } = {}){
+  if(!ctx) return 0;
+  const match = typeof who === 'function'
+    ? who
+    : (n) => (who ?? []).includes(n.char?.id ?? n.id);
+  const here = npcs.filter(match);
+  let i = from;
+  let workTaken = false;
+  for(const n of here){
+    if(!station){
+      // Home is where they were placed at the start of the game, and their own
+      // facing with it — not `n.facing`, which is wherever they last turned to.
+      n.scripted = false;
+      n.stationed = false;
+      n.pose = null;
+      delete n.floorY;
+      // Arms back down: the work pose left them on the bench.
+      n.body.userData.limbs?.forEach(l => { if(l.userData.isArm) l.rotation.x = 0; });
+      if(n.body.userData.torso) n.body.userData.torso.rotation.x = 0;
+      if(n.body.userData.head) n.body.userData.head.rotation.x = 0;
+      put(n, n.home.x, n.home.y, n.home.z, n.homeFacing ?? n.facing);
+      n.target.copy(n.home);
+      // And back off the street, in a theme whose cast lives indoors. Their home
+      // is their area's doorstep and they are not standing on it.
+      if(ctx.indoorOnly === true){ n.away = true; n.body.visible = false; }
+      continue;
+    }
+    if(n.homeFacing === undefined) n.homeFacing = n.facing;
+    // THE FIRST ONE WORKS. A bench with nobody at it is a room that is waiting
+    // for the player; a bench with somebody's hands on it is a room with a job
+    // going on in it. `work` is the room's own spot — see `workSpot` in
+    // interiorBuilding.js — and only one person takes it.
+    const atWork = !!work && !workTaken && Number.isFinite(work.x);
+    if(atWork) workTaken = true;
+    const [x, z] = atWork ? [work.x, work.z] : spotFor(station, i++, ctx.blocked);
+    const y = Number.isFinite(station.y) ? station.y : 0;
+    n.scripted = true;
+    n.stationed = true;
+    n.pose = atWork ? 'work' : null;
+    n.away = false;                 // in the room, so reachable again
+    // AND VISIBLE HERE, not one frame later. `updateCrowd` also restores this,
+    // but it runs on requestAnimationFrame — which a throttled tab never gets,
+    // and which leaves a frame of an empty room even when it does. The function
+    // that decides where somebody is is the one that should say whether they
+    // can be seen.
+    n.body.visible = true;
+    n.floorY = y;
+    put(n, x, y, z, atWork ? work.facing : station.facing + Math.PI);
+    n.target.set(x, y, z);
+  }
+  return here.length;
+}
+
+/** One person, moved bodily: rig, raycast cylinder, soft collider and position. */
+function put(n, x, y, z, rotY){
+  n.pos.set(x, y, z);
+  n.body.position.set(x, y, z);
+  n.body.rotation.y = rotY;
+  n.facing = rotY;
+  if(n.hit) n.hit.position.set(x, y + 0.95, z);
+  if(n.soft){ n.soft.x = x; n.soft.z = z; }
 }
 
 export function getNPCs(){ return npcs; }

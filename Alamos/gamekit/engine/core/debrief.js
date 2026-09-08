@@ -385,7 +385,19 @@ export function dayDebrief(content, state, opts = {}){
   // first, before a word of compliment. See rule 11 in STORY_SPEC.md: a segue
   // is a But or a Therefore, never an "and then", and the thing pushing back
   // is the situation the player is in, never another named person.
-  const segue = !opts.lastDay ? String(mission?.segue ?? '').trim() : '';
+  // AN AUTHORED CLOSING LINE PRINTS WHATEVER DAY IT IS, where the campaign
+  // writes its own. The last-day suppression is there because a forward-pointing
+  // segue has nowhere to point on the final morning and the campaign's `ending`
+  // is the next card up — true of a generated push into tomorrow, and not true
+  // of a bible's own "Mission outcome", which every mission has including the
+  // last. A campaign mid-build is also *all* last day: with one mission written,
+  // suppressing it meant the outcome never appeared at all.
+  //
+  // Keyed on the beat script, like the verdict card, because the two facts are
+  // one fact: a mission that authored its own account of what just happened is
+  // a mission whose closing words are written down.
+  const authored = Array.isArray(mission?.beats) && mission.beats.length > 0;
+  const segue = (!opts.lastDay || authored) ? String(mission?.segue ?? '').trim() : '';
   const segueHTML = segue ? `<p class="debriefSegue">${esc(segue)}</p>` : '';
 
   if(!total){
@@ -396,9 +408,16 @@ export function dayDebrief(content, state, opts = {}){
              html: body ? `<div class="briefBox debrief debrief-${tier}">${body}</div>` : '' };
   }
 
-  const lede = fill(LEDE[reg][tier]);
+  // NO GENERATED PRAISE WHERE THE CAMPAIGN WROTE THE CLOSE.
+  //
+  // The lede and the two quotes are composed from banked lines and a named
+  // person off the roster, which is the right card for a campaign that authored
+  // no closing prose. Against one that did they are somebody else talking over
+  // it — reported as "it shows me the quotes from other people, which it
+  // shouldn't as that is not in the md file".
+  const lede = authored ? '' : fill(LEDE[reg][tier]);
   const quotes = [];
-  if(people[0]){
+  if(people[0] && !authored){
     quotes.push({
       name: people[0].name,
       role: citeRole(people[0].role),
@@ -406,7 +425,7 @@ export function dayDebrief(content, state, opts = {}){
     });
   }
   const secondBank = SECOND[reg][tier] ?? [];
-  if(people[1] && secondBank.length){
+  if(people[1] && secondBank.length && !authored){
     quotes.push({
       name: people[1].name,
       role: citeRole(people[1].role),

@@ -40,6 +40,7 @@
 
 import { esc, clamp, seeded, shuffleSeeded } from './utils.js';
 import { lineChart, bars } from './figures.js';
+import { looksMathy } from './mathText.js';
 import { createPlaySurface, roundRect, fitText } from './playSurface.js';
 
 /**
@@ -197,18 +198,24 @@ const goal = (parts) => {
     : '';
 };
 /**
- * The format's own line about what the move is. Rendered above the stop's hint.
+ * NOT RENDERED. The "What you are doing" block is off, on instruction, for every
+ * format and every campaign.
  *
- * Skipped where the stop carries a `guide` — its second paragraph is the
- * instruction, written for that stop, and this is the generic version of the same
- * sentence. `ch.briefed` is stamped by engine/content/normalize.js from the lesson,
- * because a panel here is handed the challenge and nothing else. The stop's own
- * hint and its "what counts as done" both stay: they are short, specific, and the
- * goal is the constraint the answer is written against — see FLY, and the note on
- * rule 2 at the top of this file.
+ * It was the format's own paragraph about what the move is, printed above the
+ * stop's hint — one generic sentence shown identically on every DERIVE in the
+ * repo, on every VALUE, and so on. The objection to it is the one this repo has
+ * about content generally: it is written here rather than in the campaign, so a
+ * player reading a calculus derivation was reading the engine's description of a
+ * rail, not the course.
+ *
+ * The `METHOD` table above is KEPT, and is now documentation rather than copy: it
+ * is the one place each instrument's move is written down in a sentence, it is
+ * quoted by the `alamos-formats` skill, and an author writing a stop's own `hint`
+ * for one of these formats needs to know what the instrument does. Nothing prints
+ * it. `methodBlock` is still exported because the four panels in questionUI.js
+ * call it, and they must go quiet along with the twenty-eight here.
  */
-const method = (fmt, ch) => (METHOD[fmt] && !ch?.briefed
-  ? `<div class="instMethod"><span>What you are doing</span>${esc(METHOD[fmt])}</div>` : '');
+const method = (fmt, ch) => '';
 /**
  * Both blocks, for the four panels that live in questionUI.js.
  *
@@ -626,10 +633,7 @@ const TRIGGER = {
         t.objective || 'No rule fires on a reading that had not yet shown it was needed.',
         'It is not fired by a reading that had shown nothing yet.',
       ])
-      + hint(t.hint ?? `The readings ${falling ? 'fall' : 'climb'} once you release the board,`
-        + ' and your rule fires on its own. Put the line where you would want the action'
-        + ' taken — too far along and it fires with no time left to carry it out, too early'
-        + ' and it fires before the readings have told you anything.')
+      + (t.hint ? hint(t.hint) : '')
       + plot
       + anchorBlock
       + `<div class="trigRows">${scaleName}${rows}</div>`
@@ -843,8 +847,7 @@ const VALUE = {
     return ask(ch, 'Spend it on the thing that would change the decision.')
       + `<div class="instPanel valPanel">`
       + method('VALUE', ch)
-      + hint(v.hint ?? 'Everything here is real evidence. The question is which of it changes'
-        + ' what you are about to decide.')
+      + (v.hint ? hint(v.hint) : '')
       + (String(v.decision ?? '').trim()
           && String(v.decision).trim() !== String(ch.question ?? '').trim()
           ? `<div class="valDecision"><span>the decision</span><b>${esc(v.decision)}</b></div>` : '')
@@ -1000,8 +1003,7 @@ const CLOUD = {
     return ask(ch, 'Report the middle and the uncertainty, and say whether it clears the limits.')
       + `<div class="instPanel cloudPanel">`
       + method('CLOUD', ch)
-      + hint(c.hint ?? 'The band is what the measurements permit, not what is most likely.'
-        + ' Everything in it is a trajectory you might actually be on.')
+      + (c.hint ? hint(c.hint) : '')
       // The pass mark is a budgeting constraint, not the answer: which actions
       // buy it is still the whole question. Without it the live "inside the
       // limits" readout is a percentage against nothing, and the player cannot
@@ -1328,8 +1330,7 @@ const ALLOCATE = {
     return ask(ch, 'Spend the pool.')
       + `<div class="instPanel allocPanel">`
       + method('ALLOCATE', ch)
-      + hint(a.hint ?? 'Nothing here is a wrong choice on its own. What a plan cannot answer is'
-        + ' the cost of what it can.')
+      + (a.hint ? hint(a.hint) : '')
       + `<div class="allocMeter"><span>Committed</span><b id="allocSpent">0</b>`
       + `<span>of ${esc(String(p.amount))} ${esc(p.unit ?? '')}</span>`
       + `<div class="allocBar"><i id="allocFill"></i></div></div>`
@@ -1484,8 +1485,7 @@ const TRACE = {
     return ask(ch, 'Which of these agree because they are right, and which because they share a source?')
       + `<div class="instPanel tracePanel">`
       + method('TRACE', ch)
-      + hint(t.hint ?? 'Open a channel to see what it was computed from. Tick the ones whose'
-        + ' evidence still stands, then name the source at fault.')
+      + (t.hint ? hint(t.hint) : '')
       + correctionBlock(t.correction)
       + `<div class="traceRows">${rows}</div>`
       // The container is deliberately NOT `.traceRes`: it was, and a click on a
@@ -1620,8 +1620,7 @@ const ATTEST = {
     return ask(ch, 'Close the list with evidence behind every critical claim.')
       + `<div class="instPanel attPanel">`
       + method('ATTEST', ch)
-      + hint(a.hint ?? 'Every one of these is signed. Verifying costs time and there is not'
-        + ' enough of it for the whole list.')
+      + (a.hint ? hint(a.hint) : '')
       + `<div class="attMeter">Verifications left <b id="attLeft">${esc(String(a.checks ?? 0))}</b></div>`
       + `<div class="attRows">${rows}</div>`
       + foot(btn('attCommit', a.commit ?? 'Close the list', { primary: true }))
@@ -1724,8 +1723,7 @@ const CONTROL = {
     return ask(ch, 'Find which one is doing it.')
       + `<div class="instPanel ctrlPanel">`
       + method('CONTROL', ch)
-      + hint(c.hint ?? 'Change what you like and run the measurement. What you change is a'
-        + ' decision; what it tells you depends on how many things moved.')
+      + (c.hint ? hint(c.hint) : '')
       // The commit is gated on isolating the suspect and then reversing it, and
       // for as long as those were unstated a player who had named a machine sat
       // looking at a greyed-out button with nothing telling them what was
@@ -1899,8 +1897,7 @@ const TRIANGULATE = {
     return ask(ch, 'Where is it?')
       + `<div class="instPanel triPanel">`
       + method('TRIANGULATE', ch)
-      + hint(t.hint ?? 'Switch a station in to draw what its own measurement permits. Click the'
-        + ' map to report where you think it is.')
+      + (t.hint ? hint(t.hint) : '')
       // Three stations is a procedural requirement with nothing on screen to
       // announce it: a player who crosses two rings has a plausible point, marks
       // it, and is graded down for a rule they were never told. Saying so gives
@@ -2075,8 +2072,7 @@ const DEGENERACY = {
     return ask(ch, 'What size is it?')
       + `<div class="instPanel degPanel">`
       + method('DEGENERACY', ch)
-      + hint(d.hint ?? 'Both controls change the model. The match to the measurement is the'
-        + ' number to watch.')
+      + (d.hint ? hint(d.hint) : '')
       + `<svg class="degPlot" viewBox="0 0 320 150" role="img" aria-label="Solution space">`
       + `<rect width="320" height="150" fill="#f7f9fa"/>`
       + `<polyline class="degLocus1" fill="none" stroke="#2f6f8f" stroke-width="2" points="" opacity=".55"/>`
@@ -2228,8 +2224,7 @@ const CHAIN = {
     return ask(ch, 'Follow it from one end to the other.')
       + `<div class="instPanel chainPanel">`
       + method('CHAIN', ch)
-      + hint(c.hint ?? 'Put the transfers in the order the thing actually travels, then say which'
-        + ' one decides what the whole path can do.')
+      + (c.hint ? hint(c.hint) : '')
       + `<div class="chainRail" id="chainRail"></div>`
       + `<div class="chainPrompt" id="chainPrompt" hidden>Now click the link that governs it.</div>`
       + `<div class="chainBankHead">Available transfers</div>`
@@ -2392,8 +2387,7 @@ const BALANCE = {
     return ask(ch, 'What is the total?')
       + `<div class="instPanel balPanel">`
       + method('BALANCE', ch)
-      + hint(b.hint ?? 'Reading a stream is free. Counting it is the claim you are making about'
-        + ' where the quantity went.')
+      + (b.hint ? hint(b.hint) : '')
       + `<div class="balRows">${rows}</div>`
       + `<div class="sweepReadouts"><div class="sweepReadout sweepTotal">`
       + `<span>${esc((b.total ?? {}).label ?? 'Total')}</span>`
@@ -2508,8 +2502,7 @@ const VERIFY = {
     return ask(ch, 'Predict it, do it, then find out.')
       + `<div class="instPanel verPanel">`
       + method('VERIFY', ch)
-      + hint(v.hint ?? 'Lock a prediction before the intervention. Nothing about it can be'
-        + ' changed afterwards, which is the point of making it first.')
+      + (v.hint ? hint(v.hint) : '')
       + `<div class="verStep on" data-step="1"><b>1 · The prediction</b>`
       + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(p.label ?? '')}</span>`
       + `<b class="verAt">—</b></div>`
@@ -2674,8 +2667,7 @@ const PROPAGATE = {
     return ask(ch, 'Which measurement is worth buying?')
       + `<div class="instPanel propPanel">`
       + method('PROPAGATE', ch)
-      + hint(p.hint ?? 'Each term contributes its own width times the power it is raised to.'
-        + ' The bar is that contribution.')
+      + (p.hint ? hint(p.hint) : '')
       + `<table class="propTable"><thead><tr><th>Input</th><th>Value</th><th>Known to</th>`
       + `<th>Power</th><th>Share of the output width</th></tr></thead><tbody>${rows}</tbody></table>`
       + `<div class="sweepReadouts"><div class="sweepReadout sweepTotal">`
@@ -2833,14 +2825,19 @@ const STRESS = {
     return ask(ch, 'Which one still works when the assumption moves?')
       + `<div class="instPanel stressPanel">`
       + method('STRESS', ch)
-      + hint(s.hint ?? 'The assumption has a range because nobody measured it exactly. Move it'
-        + ' through the range before you choose.')
+      + (s.hint ? hint(s.hint) : '')
       + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label ?? '')}</span>`
       + `<b class="stressAt">—</b></div>`
       + `<input class="stressRange" type="range" min="${a.min}" max="${a.max}" step="${a.step}"`
       + ` value="${a.nominal}">`
-      + `<div class="sweepEnds"><span>${esc(String(a.min))} ${esc(a.unit ?? '')}`
-      + ` — pessimistic</span><span>${esc(String(a.max))} ${esc(a.unit ?? '')}</span></div>`
+      // The word goes on whichever end is the hard one. Printed under `min` on a
+      // board that gets worse upwards, it pointed the player at the safe end and
+      // told them it was the dangerous one.
+      + (String(a.worst ?? 'min').toLowerCase() === 'max'
+        ? `<div class="sweepEnds"><span>${esc(String(a.min))} ${esc(a.unit ?? '')}</span>`
+          + `<span>${esc(String(a.max))} ${esc(a.unit ?? '')} — pessimistic</span></div>`
+        : `<div class="sweepEnds"><span>${esc(String(a.min))} ${esc(a.unit ?? '')}`
+          + ` — pessimistic</span><span>${esc(String(a.max))} ${esc(a.unit ?? '')}</span></div>`)
       + `<table class="stressTable"><thead>${head}</thead><tbody>${rows}</tbody></table>`
       + `<div class="stressNote" id="stressNote"></div>`
       + foot(btn('stressCommit', s.commit ?? 'Commit the choice', { primary: true, disabled: true }))
@@ -2853,19 +2850,24 @@ const STRESS = {
     const a = s.assumption ?? {};
     const d = decimals(a.step);
     const cands = s.candidates ?? [];
+    // WHICH END IS THE HARD ONE. `min` unless the board says otherwise — see
+    // the note in `tools/import-book.mjs`. A board whose assumption gets worse
+    // upwards greys a row when the slider passes ABOVE the point it holds to.
+    const worst = String(a.worst ?? 'min').toLowerCase() === 'max' ? 'max' : 'min';
     const st = { at: +a.nominal, picked: null, done: false, seenLow: false };
     const range = panel.querySelector('.stressRange');
     const atEl = panel.querySelector('.stressAt');
     const note = panel.querySelector('#stressNote');
     const commit = panel.querySelector('#stressCommit');
     // A candidate needs at least this much of the assumption to remain possible.
-    const needs = (c) => +((s.feasible ?? {})[c.id] ?? -Infinity);
+    const needs = (c) => +((s.feasible ?? {})[c.id]
+      ?? (worst === 'max' ? Infinity : -Infinity));
 
     const render = () => {
       atEl.textContent = `${nf(st.at, d)}${a.unit ? ' ' + a.unit : ''}`;
       let out = 0;
       cands.forEach((c, i) => {
-        const dead = st.at < needs(c);
+        const dead = worst === 'max' ? st.at > needs(c) : st.at < needs(c);
         if(dead) out++;
         panel.querySelector(`[data-cand="${i}"]`)?.classList.toggle('dead', dead);
         const pick = panel.querySelector(`[data-pick="${i}"]`);
@@ -2881,7 +2883,8 @@ const STRESS = {
       st.at = +range.value;
       // Whether they ever looked at the bad end. Not graded — reported, the way
       // a PROBE reports how many stations were read.
-      if(st.at <= +a.min + (+a.max - +a.min) * 0.15) st.seenLow = true;
+      const span = (+a.max - +a.min) * 0.15;
+      if(worst === 'max' ? st.at >= +a.max - span : st.at <= +a.min + span) st.seenLow = true;
       render();
     });
     panel.querySelectorAll('.stressPick').forEach(b => {
@@ -2908,13 +2911,17 @@ const STRESS = {
   verdict(ch, r){
     const s = ch.stress ?? {};
     const a = s.assumption ?? {};
+    const worst = String(a.worst ?? 'min').toLowerCase() === 'max' ? 'max' : 'min';
     const rows = (s.candidates ?? []).map((c, i) => {
-      const need = +((s.feasible ?? {})[c.id] ?? -Infinity);
-      const survives = need <= +a.min;
+      const need = +((s.feasible ?? {})[c.id]
+        ?? (worst === 'max' ? Infinity : -Infinity));
+      const survives = worst === 'max' ? need >= +a.max : need <= +a.min;
+      const short = worst === 'max' ? need < +a.max : need > +a.min;
       return row([tick(survives === (String(c.id) === String(s.robust)))
           + ` <b>${esc(c.label)}</b>`,
-        Number.isFinite(need) && need > +a.min
-          ? `stops being possible below ${nf(need, decimals(a.step))} ${a.unit ?? ''}`
+        Number.isFinite(need) && short
+          ? `stops being possible ${worst === 'max' ? 'above' : 'below'}`
+            + ` ${nf(need, decimals(a.step))} ${a.unit ?? ''}`
           : 'possible across the whole range',
         i === r?.stressPicked ? 'you chose it' : ''],
       String(c.id) === String(s.robust) ? '' : (i === r?.stressPicked ? 'bad' : ''));
@@ -2963,8 +2970,7 @@ const DELEGATE = {
     return ask(ch, 'What do you change first, and who has the rest?')
       + `<div class="instPanel delPanel">`
       + method('DELEGATE', ch)
-      + hint(d.hint ?? 'One of these you deal with yourself. Everything else goes to somebody,'
-        + ' with a first action and a condition that brings them back.')
+      + (d.hint ? hint(d.hint) : '')
       + `<div class="delRows">${rows}</div>`
       + `<div class="delNote" id="delNote"></div>`
       + foot(btn('delCommit', d.commit ?? 'Take the watch', { primary: true, disabled: true }))
@@ -3080,8 +3086,7 @@ const FLY = {
     return ask(ch, 'Get there, and arrive stopped.')
       + `<div class="instPanel flyPanel">`
       + method('FLY', ch)
-      + hint(f.hint ?? 'There is nothing to slow it down. Whatever you put in has to be taken'
-        + ' back out, and taking it out takes as long as putting it in.')
+      + (f.hint ? hint(f.hint) : '')
       + goal([
         `Arrive at ${qty(+f.target, s.unit, decimals(+f.target))}`
           + `, give or take ${qty(+f.tolerance, s.unit, decimals(+f.tolerance))}`,
@@ -3304,8 +3309,7 @@ const RESIDUAL = {
     return ask(ch, 'Which fit would you propagate?')
       + `<div class="instPanel resPanel">`
       + method('RESIDUAL', ch)
-      + hint(r.hint ?? 'Each residual is one reference star, drawn where it sits on the focal'
-        + ' plane. Up is a positive residual, down a negative one.')
+      + (r.hint ? hint(r.hint) : '')
       + `<div class="resTabs">${tabs}</div>`
       + `<svg class="resPlot" viewBox="0 0 320 180" role="img" aria-label="Residuals over the field">`
       + `<rect width="320" height="180" fill="#f7f9fa"/>`
@@ -3415,8 +3419,7 @@ const INJECT = {
     return ask(ch, 'Which upgrade actually buys anything?')
       + `<div class="instPanel injPanel">`
       + method('INJECT', ch)
-      + hint(j.hint ?? 'The population is synthetic and its truth is known, so what comes back'
-        + ' out is a measurement of the pipeline rather than of the sky.')
+      + (j.hint ? hint(j.hint) : '')
       + `<div class="injPop">${esc(String(j.population?.n ?? 0))} injected objects,`
       + ` known orbits and sizes</div>`
       + `<div class="injRows">${rows}</div>`
@@ -3529,8 +3532,7 @@ const ROUTE = {
     return ask(ch, 'Learn it, then find it again with the lights down.')
       + `<div class="instPanel routePanel">`
       + method('ROUTE', ch)
-      + hint(r.hint ?? 'Walk it once with the names showing. They will not be there on the way'
-        + ' back, and one of the hatches will not open.')
+      + (r.hint ? hint(r.hint) : '')
       + `<div class="routeLit" id="routeLit"><div class="routeHead">Lit — the route as it is</div>`
       + lit + `</div>`
       + `<div class="routeDark" id="routeDark" hidden>`
@@ -3682,17 +3684,18 @@ const ROUTE = {
  *     built, and the verdict shows where it left the correct path and what number
  *     that path would have produced. A panel that refuses a wrong line teaches the
  *     player to hunt for the one it accepts, which is the opposite of a derivation.
- *   · **Nothing marks the answer.** Candidates are shuffled on the lesson's own
- *     text, the rules are the full list for the course rather than the two that
- *     are plausible here, and the goal is stated as a *form* — "dQ/dt in terms of
+ *   · **Nothing marks the answer.** The two candidates are shuffled on the
+ *     lesson's own text, and the goal is stated as a *form* — "dQ/dt in terms of
  *     dH/dt" — never as the expression the derivation ends on.
  *
- * The trap, which is an importer check: at least one wrong candidate has to stay
- * algebraically *valid* for the rest of the derivation. A step whose wrong
- * branches are all immediately broken is a corridor with the walls painted to
- * look like doors, and the player learns to pick whatever is not obviously
- * malformed. `tools/import-book.mjs` refuses a DERIVE where no wrong candidate
- * carries `survives`.
+ * **Two candidates a step, and the distractor is the whole format.** A step is
+ * one decision, and with two lines on the panel a guess is right half the time —
+ * so everything rests on the wrong line being wrong in a way that survives a
+ * glance. `tools/import-book.mjs` refuses a step whose wrong line is not marked
+ * `survives`, refuses one with no `why` on it, and refuses one whose keyed line
+ * is simply the longer of the two, because that is an answer readable without
+ * reading either line. A distractor that is visibly malformed is a corridor with
+ * the walls painted to look like doors.
  */
 const DERIVE = {
   html(ch){
@@ -3700,9 +3703,11 @@ const DERIVE = {
     return ask(ch, 'Work it through, one line at a time.')
       + `<div class="instPanel derivePanel">`
       + method('DERIVE', ch)
-      + hint(d.hint ?? (d.askRule === true
-        ? 'Choose the line that follows, and name the rule that gets you there.'
-        : 'Choose the line that follows from the one above it.'))
+      // NO FALLBACK. The stop's own hint prints where the book writes one; where
+      // it does not, nothing prints. "Two lines. One of them follows from the one
+      // above it." was appearing on all twenty of Headwater's derivations, none of
+      // which authors a hint, and it describes the panel rather than the question.
+      + (d.hint ? hint(d.hint) : '')
       + `<div class="deriveGoal"><span>Goal</span><b>${esc(d.goal ?? '')}</b></div>`
       + `<div class="deriveRail" id="deriveRail"></div>`
       + `<div class="deriveStep" id="deriveStep"></div>`
@@ -3715,24 +3720,22 @@ const DERIVE = {
     const panel = container.querySelector('.derivePanel');
     if(!panel) return;
     const steps = d.steps ?? [];
-    const rules = d.rules ?? [];
-    // Naming the rule is off unless a book asks for it, and that is the default
-    // on purpose.
+    // Two candidates a step, and naming the rule is gone.
     //
-    // It was written on the argument that the right line for the wrong reason is
-    // the commonest way to pass a calculus course without learning it. That
-    // holds only where the candidates genuinely differ in what licenses them,
-    // and mostly they did not: in five of Midway's 29 steps and ten of
-    // Headwater's 33, every candidate carried the *same* rule, so the second
-    // half of the answer was a click with one possible value. What that teaches
-    // is that the panel wants two clicks.
+    // Both halves were the same finding twice. The rule half was written on the
+    // argument that the right line for the wrong reason is the commonest way to
+    // pass a calculus course without learning it — true, and it only bites where
+    // the candidates genuinely differ in what licenses them. Mostly they did
+    // not: in five of Midway's 29 steps and ten of Headwater's 33, every
+    // candidate carried the SAME rule, so the second half of the answer was a
+    // click with one possible value. And a two-candidate step cannot offer a
+    // rule list at all without the list itself naming the answer.
     //
-    // `askRule: true` on the derive block turns it back on, and the importer
-    // then insists on at least three rules — a list of two answers itself by
-    // elimination. A `rules` list on its own does nothing: opting in has to be
-    // deliberate, or the half comes back the first time somebody pastes a block
-    // from an older book.
-    const naming = d.askRule === true && rules.length > 0;
+    // So the step is one decision: which line follows. What stops it being a
+    // coin flip is the distractor — exactly one wrong line, and it has to be
+    // wrong in a way that survives a glance. The importer refuses a step whose
+    // wrong line is not marked `survives`, and refuses one whose keyed line is
+    // simply the longer of the two.
     const rail = panel.querySelector('#deriveRail');
     const stepEl = panel.querySelector('#deriveStep');
     const take = panel.querySelector('#deriveTake');
@@ -3741,7 +3744,7 @@ const DERIVE = {
     // never the order the book wrote them in.
     const orderFor = (i) => shuffleSeeded((steps[i].candidates ?? []).map((_, n) => n),
       String(steps[i].ask ?? i).split('').reduce((n, c) => n + c.charCodeAt(0), 11));
-    const st = { at: 0, taken: [], pick: null, rule: null, done: false };
+    const st = { at: 0, taken: [], pick: null, done: false };
 
     const lineHTML = (text, n, rule, bad) =>
       `<div class="deriveLine${bad ? ' bad' : ''}"><span class="deriveNum">${n}</span>`
@@ -3749,10 +3752,17 @@ const DERIVE = {
       + (rule ? `<em>${esc(rule)}</em>` : '') + `</div>`;
 
     const render = () => {
-      rail.innerHTML = lineHTML(d.start ?? '', 0, d.startNote ?? 'given')
+      // LINE 0 IS AN EXPRESSION, NOT AN INSTRUCTION. The shipped games write the
+      // derivation's first line there — `L(t) = 60t ÷ (t² + 4)`, `v² = v₀² + 2aΔx`
+      // — and four of the v2 bibles write a sentence instead: "Begin with the
+      // displayed givens and governing relationship on the card", the same words on
+      // all twenty of Headwater's and all twenty of Changeover's. A sentence is not
+      // a line of the derivation, so it is not put on the rail as one; `looksMathy`
+      // is the same test the maths formatter uses to decide a string is maths.
+      rail.innerHTML = (looksMathy(d.start ?? '') ? lineHTML(d.start, 0, d.startNote ?? 'given') : '')
         + st.taken.map((t, n) => lineHTML(
           steps[n].candidates[t.pick]?.text ?? '', n + 1,
-          t.rule, false)).join('');
+          steps[n].candidates[t.pick]?.note ?? '', false)).join('');
 
       if(st.at >= steps.length || st.done){
         stepEl.innerHTML = `<div class="deriveDone">Every line is down. Commit it.</div>`;
@@ -3766,26 +3776,15 @@ const DERIVE = {
         + `<div class="deriveCands">`
         + orderFor(st.at).map(i => `<button class="btn deriveCand${st.pick === i ? ' on' : ''}"`
           + ` data-cand="${i}" type="button"><code>${esc(s.candidates[i].text)}</code></button>`).join('')
-        + `</div>`
-        + (naming
-          ? `<div class="deriveRulesHead">and the rule that licenses it</div>`
-            + `<div class="deriveRules">`
-            + rules.map(r => `<button class="btn deriveRule${st.rule === r ? ' on' : ''}"`
-              + ` data-rule="${esc(r)}" type="button">${esc(r)}</button>`).join('')
-            + `</div>`
-          : '');
+        + `</div>`;
       take.textContent = st.at === steps.length - 1
         ? (d.lastStep ?? 'Take the last step') : 'Take this step';
-      take.disabled = st.pick === null || (naming && st.rule === null);
+      take.disabled = st.pick === null;
       back.disabled = st.taken.length === 0;
 
       stepEl.querySelectorAll('[data-cand]').forEach(b => b.addEventListener('click', () => {
         if(st.done) return;
         st.pick = +b.dataset.cand; render();
-      }));
-      stepEl.querySelectorAll('[data-rule]').forEach(b => b.addEventListener('click', () => {
-        if(st.done) return;
-        st.rule = b.dataset.rule; render();
       }));
     };
     render();
@@ -3794,26 +3793,22 @@ const DERIVE = {
       if(st.done || !st.taken.length) return;
       const last = st.taken.pop();
       st.at = st.taken.length;
-      st.pick = last.pick; st.rule = last.rule;
+      st.pick = last.pick;
       render();
     });
 
     take.addEventListener('click', () => {
       if(st.done) return;
       if(st.at < steps.length){
-        st.taken.push({ pick: st.pick, rule: st.rule });
+        st.taken.push({ pick: st.pick });
         st.at += 1;
-        st.pick = null; st.rule = null;
+        st.pick = null;
         render();
         return;
       }
       st.done = true;
-      const wrong = st.taken.map((t, n) => {
-        const s = steps[n];
-        const lineOk = t.pick === +s.answer;
-        const ruleOk = !naming || String(t.rule) === String(s.candidates[+s.answer]?.rule ?? '');
-        return lineOk && ruleOk ? null : { n, lineOk, ruleOk };
-      }).filter(Boolean);
+      const wrong = st.taken.map((t, n) => t.pick === +steps[n].answer ? null : { n, lineOk: false })
+        .filter(Boolean);
       const ok = wrong.length === 0;
       ctx.commit(ok,
         st.taken.map((t, n) => steps[n].candidates[t.pick]?.text).join('  →  '),
@@ -3823,38 +3818,28 @@ const DERIVE = {
   verdict(ch, r){
     const d = ch.derive ?? {};
     const steps = d.steps ?? [];
-    const naming = d.askRule === true && (d.rules ?? []).length > 0;
     const taken = r?.deriveTaken ?? [];
     const rows = steps.map((s, n) => {
       const t = taken[n];
       const key = s.candidates[+s.answer] ?? {};
       const chosen = t ? s.candidates[t.pick] ?? {} : {};
       const lineOk = t && t.pick === +s.answer;
-      const ruleOk = !naming || (t && String(t.rule) === String(key.rule ?? ''));
-      return row(naming ? [
+      return row([
         `<b>${n + 1}</b>`,
         `<code>${esc(chosen.text ?? '—')}</code>`,
         `${tick(!!lineOk)} line`,
-        `${esc(t?.rule ?? '—')} ${tick(!!ruleOk)}`,
-      ] : [
-        `<b>${n + 1}</b>`,
-        `<code>${esc(chosen.text ?? '—')}</code>`,
-        `${tick(!!lineOk)} line`,
-      ], lineOk && ruleOk ? '' : 'bad')
+      ], lineOk ? '' : 'bad')
         // The reason the wrong move is wrong, which is the whole teaching value
-        // of a distractor. A step that fails silently teaches nothing.
-        + (lineOk ? '' : row(naming
-          ? [' ', `<em>${esc(chosen.why ?? key.why ?? '')}</em>`, ' ',
-             `<em>${esc(key.text ? `should be ${key.text}` : '')}</em>`]
-          : [' ', `<em>${esc(chosen.why ?? key.why ?? '')}</em>`,
+        // of a distractor. A step that fails silently teaches nothing — and with
+        // one distractor a step it is the only teaching the step carries.
+        + (lineOk ? '' : row([' ', `<em>${esc(chosen.why ?? key.why ?? '')}</em>`,
              `<em>${esc(key.text ? `should be ${key.text}` : '')}</em>`], 'note'));
     }).join('');
-    return board(d.caption ?? (naming ? 'Each line, and what licenses it.' : 'Each line you took.'), rows);
+    return board(d.caption ?? 'Each line you took.', rows);
   },
   // `facts` is handed the challenge, not the block — the dev page printed
   // "0 line(s) · 0 rules offered" for a panel with four of each.
-  facts: (g) => `${(g.derive?.steps ?? []).length} line(s)`
-    + (g.derive?.askRule === true ? ` · ${(g.derive?.rules ?? []).length} rules offered` : '')
+  facts: (g) => `${(g.derive?.steps ?? []).length} line(s) · two a step`
     + ` · goal ${g.derive?.goal ?? '—'}`,
   tag: () => 'derivation',
 };
@@ -3909,7 +3894,7 @@ const BELT = {
     return ask(ch, 'Sort what comes down the belt.')
       + `<div class="instPanel beltPanel">`
       + method('BELT', ch)
-      + hint(b.hint ?? 'Up sends it to the top bin, down to the bottom. Nothing comes back.')
+      + (b.hint ? hint(b.hint) : '')
       // The run length and the miss allowance are goals: constraints the player
       // plans against, and a player who does not know a miss costs a life plays
       // a different game. The accuracy the run is GRADED on is not printed —
@@ -4174,7 +4159,7 @@ const LOB = {
     return ask(ch, 'Put it on the mark.')
       + `<div class="instPanel lobPanel">`
       + method('LOB', ch)
-      + hint(l.hint ?? 'Move one control at a time and watch where the short one lands.')
+      + (l.hint ? hint(l.hint) : '')
       + goal([`${marks.length} marks, ${shots} shots at each`,
         'The range to each mark is on its flag',
         'The charge is not calibrated in anything'])
@@ -4436,7 +4421,7 @@ const STACK = {
     return ask(ch, 'Answer the rail, and keep the stack down.')
       + `<div class="instPanel stackPanel">`
       + method('STACK', ch)
-      + hint(b.hint ?? 'A wrong answer packs a row in under everything you have built.')
+      + (b.hint ? hint(b.hint) : '')
       + goal([`${need} questions before the run ends`,
         'A wrong answer costs a row, not a life',
         'Lines cleared are a score and are not graded'])
@@ -4736,7 +4721,7 @@ const SPOT = {
     return ask(ch, 'Take the ones the instruction wants.')
       + `<div class="instPanel spotPanel">`
       + method('SPOT', ch)
-      + hint(s.hint ?? 'The instruction is at the top of the board.')
+      + (s.hint ? hint(s.hint) : '')
       // The run length, and that the instruction is not fixed. Neither is the
       // answer: which items match it is, and how long the player takes to
       // notice a change is what is weighted. The pass mark stays unprinted.
@@ -4970,7 +4955,7 @@ const HOLD = {
     return ask(ch, `Hold ${esc(h.quantity ?? 'the value')} inside the band.`)
       + `<div class="instPanel holdPanel">`
       + method('HOLD', ch)
-      + hint(h.hint ?? 'The control is the only thing that pushes back.')
+      + (h.hint ? hint(h.hint) : '')
       // The corridor and the length of the run: both are constraints the player
       // works against. The fraction of the run that has to be inside it is not
       // here, and must not be.
@@ -5219,7 +5204,7 @@ const TRIAL = {
     return ask(ch, 'Take the gates in the order the work has to happen in.')
       + `<div class="instPanel trialPanel">`
       + method('TRIAL', ch)
-      + hint(t.hint ?? 'Every gate is lit. None of them is marked as next.')
+      + (t.hint ? hint(t.hint) : '')
       + goal([`${gates.length} gates, in one run`,
         'The order is what is graded, and the clock is a limit rather than a score',
         'You start back at the gate, however you got here'])
@@ -5411,7 +5396,7 @@ const GREET = {
     return ask(ch, 'Get round the site and say hello.')
       + `<div class="instPanel trialPanel greetPanel">`
       + method('GREET', ch)
-      + hint(g.hint ?? 'They are all walking about. The rings on the ground are the people on the list.')
+      + (g.hint ? hint(g.hint) : '')
       + goal([`${g.target} of the ${list.length} on the list`,
         `${g.minutes} minutes of the working day`,
         'Get to somebody and press Use to say hello — walking past is not a hello'])
@@ -5484,7 +5469,7 @@ const FOLLOW = {
     return ask(ch, 'Stay with them.')
       + `<div class="instPanel trialPanel followPanel">`
       + method('FOLLOW', ch)
-      + hint(f.hint ?? 'They will not wait, and they will stop without saying so.')
+      + (f.hint ? hint(f.hint) : '')
       + goal([`Between ${f.band?.near} and ${f.band?.far} m of them`,
         'All the way to the end of the walk',
         `Inside ${f.band?.near} m and the walk is over — you are in front of them`])
@@ -5563,7 +5548,7 @@ const HUNT = {
     return ask(ch, 'Find them and bring the count back.')
       + `<div class="instPanel trialPanel huntPanel">`
       + method('HUNT', ch)
-      + hint(h.hint ?? 'They are not on the map. You have to be close to one to see it.')
+      + (h.hint ? hint(h.hint) : '')
       + goal([`${h.target} of them`, `${h.minutes} minutes`,
         `${(h.at ?? []).length} are out there, so most of them can be left`,
         'Nothing is marked and nothing is on the map — you have to walk the ground'])
@@ -5623,8 +5608,7 @@ const CANVASS = {
       + `<div class="instPanel trialPanel canvassPanel">`
       + method('CANVASS', ch)
       + `<div class="canvassClaim">${esc(c.claim ?? '')}</div>`
-      + hint(c.hint ?? 'Everybody answers, and two people in the same room can answer'
-        + ' differently. Nobody will tell you how many is enough.')
+      + (c.hint ? hint(c.hint) : '')
       + goal([`${pop.length} people work here`, `${c.minutes} minutes`,
         'Get to somebody and press Use to ask them',
         'You answer the claim yourself at the end, from what you were told'])
@@ -5713,7 +5697,7 @@ const EVADE = {
     return ask(ch, 'Keep out of their way.')
       + `<div class="instPanel trialPanel evadePanel">`
       + method('EVADE', ch)
-      + hint(e.hint ?? 'They walk straight at you and they do not go through buildings.')
+      + (e.hint ? hint(e.hint) : '')
       + goal([`${e.distance} m of clear ground`, `${e.seconds} seconds of it, added up`,
         'The count stops while they are close, and starts again when you are clear'])
       + `<div class="trialNoWorld hidden"></div>`
@@ -5779,7 +5763,7 @@ const TAG = {
     return ask(ch, 'Catch them before they get there.')
       + `<div class="instPanel trialPanel tagPanel">`
       + method('TAG', ch)
-      + hint(t.hint ?? 'They walk away from you and nowhere else. They are slower than you are.')
+      + (t.hint ? hint(t.hint) : '')
       + goal([`Within ${t.reach} m of them`, `${t.seconds} seconds`,
         'Walking straight at them is not fast enough on its own'])
       + `<div class="trialNoWorld hidden"></div>`

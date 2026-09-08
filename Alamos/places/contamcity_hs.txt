@@ -1,0 +1,152 @@
+THE CONTAMINATED CITY (theme: contamcity_hs) — PLACES AND LOCATIONS
+Chief Scientific Officer · Riverton Contamination Response
+Course: AP Chemistry, the aqueous half — acids, buffers and titration
+Grade 12. One mission is called a Day.
+Delivery: The Riverton Evidence Package — the board is in IDENT. 15 pieces,
+one a day.
+
+Run it:  cd gamekit && THEME=contamcity_hs npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+This is an EDITION. The place is themes/contamcity/site.js — same world,
+same cast, same grade, a different course. What follows is that file.
+
+site.js — Riverton, as data.
+
+The design book names forty-five locations but never says what kind of place
+this is. It is a working river city: a freight yard on the high side, the
+drinking-water intake and the laboratories along a cross street, and the
+river itself across the north edge, behind a bank the player cannot walk off.
+
+Layout, looking down (-Z is north, toward the river):
+
+       ~~~~~~~~~~~~~~ RIVER ~~~~~~~~~~~~~~          z = -112
+       ============ river bank ==========           z = -66
+       ------------ riverfront road -----           z = -52
+                  [ City Command ]                  z = -40
+    [ Water Intake ]                [ Air & Plume ]  z = -34
+       ------------ cross street --------           z = -16
+    [ Molecular ID ]                [ Quant / QA  ]  z =   4
+  [Records]        | avenue |          [Briefing]    z =  26
+                   ¤ spawn ¤                         z =  36
+       ------------ yard road -----------           z =  58
+    [ Reactions   ]                [ Treatment   ]   z =  76
+                 [ Freight Yard ]                    z =  92
+
+Two things here are load-bearing rather than decorative:
+
+  · The spawn point at (0, 36) sits on the avenue with nothing within ten
+    metres. A prop dropped over the spawn welds the player in place — the
+    scene renders perfectly and W does nothing.
+  · Every building's footprint becomes a graded pad inside groundHeight().
+    outdoorTown registers them before the first height query, so the visible
+    ground and the height function cannot disagree.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+ENERGY — Reactions & Energy
+  Reaction & Thermal Hall
+  (-42, 76)   58 m from spawn   26 x 16 x 8.4
+  Stoichiometry, calorimetry and kinetics — how much can react, how much heat,
+  and how fast.
+  Calls: Balance the reaction and find what limits it · Separate stored heat
+  from ongoing reaction · Connect rate and activation energy to thermal
+  feedback · State the condition under which the vessel is safe
+
+TREAT — Treatment & Infrastructure
+  Pilot Treatment Plant
+  (44, 76)   59 m from spawn   28 x 18 x 8.8
+  Corrosion, treatment trains, byproducts and the long tail — fixing it
+  without making it worse.
+  Calls: Identify the redox couples attacking the pipeline · Compare
+  treatments by their complete consequences · Account for what the treatment
+  moved rather than destroyed · Close the campaign with a monitoring and
+  stewardship plan
+
+IDENT — Molecular Identification
+  Molecular Identification Lab
+  (-54, 4)   63 m from spawn   24 x 15 x 7.4
+  DELIVERY ROOM — the board for The Riverton Evidence Package is here.
+  Composition, charge, separation and spectra — what the material in the
+  containers actually is.
+  Calls: Build the provisional identity list · Separate the mixture before
+  naming it · Confirm identity with independent methods · Release a
+  confidence-ranked identity dossier
+
+QUANT — Quantitative Analysis
+  Quantitative Analysis & QA
+  (54, 4)   63 m from spawn   22 x 14 x 7
+  Dilution, calibration, detection limits and uncertainty — turning a signal
+  into a defensible number.
+  Calls: Turn instrument signal into concentration · Put a calibration and a
+  blank behind every number · Attach an uncertainty to the decision, not just
+  the sample · Establish the release rule before the result arrives
+
+GASES — Atmosphere & Gases
+  Air & Plume Station
+  (46, -34)   84 m from spawn   20 x 13 x 6.4
+  Gas laws, plume behaviour, photochemistry — how the release moves and
+  changes in air.
+  Calls: Bound the release with a gas-law estimate · Separate transport from
+  chemistry in the plume · Track the secondary products after the source stops
+  · Issue a defensible exposure picture over time
+
+WATER — Solutions & Water Chemistry
+  Water Intake Laboratory
+  (-48, -34)   85 m from spawn   22 x 14 x 7
+  Polarity, partitioning, pH and equilibrium — where the contaminant goes once
+  it is wet.
+  Calls: Predict partitioning from molecular interactions · Bring the intake
+  pH under control without masking risk · Show whether equilibrium moved the
+  hazard or removed it · Account for the contaminant across water, sediment
+  and solids
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+City Command  ·  "Incident command · Riverton"
+  (0, -40)   76 m   20 x 13 x 7.6
+Records & Shipping Office  ·  "Manifests · chain of custody"
+  (-86, 26)   87 m   18 x 12 x 6.2
+Public Briefing Center  ·  "What the city is told"
+  (86, 26)   87 m   18 x 12 x 6.2
+Freight Yard Gatehouse  ·  "Where it started"
+  (0, 92)   56 m   16 x 11 x 5.6
+Response Status
+  (9, 30)
+Spawn
+  (0, 36)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 760, playerLimit 105, profile 'flat'
+Water     centre (0, -112), 420 x 90, level -0.8
+
+==============================================================================
+THE DELIVERY — The Riverton Evidence Package
+==============================================================================
+   1. The provisional identity list
+   2. The plume assessment
+   3. The underground reaction estimate
+   4. The confirmed component list
+   5. The mass balance sampling plan
+   6. The concentration maps
+   7. The neutralisation strategy
+   8. The reservoir equilibrium forecast
+   9. The secondary product watch list
+  10. The energy balance
+  11. The corrosion cell finding
+  12. The safe operating envelope
+  13. The treatment train choice
+  14. The release decision
+  15. The claim-by-claim summary
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/contamcity_hs/ — site/plan, fixtures, minors, groups, theme.

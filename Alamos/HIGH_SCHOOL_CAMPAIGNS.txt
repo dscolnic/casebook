@@ -1,0 +1,542 @@
+ALAMOS — HIGH-SCHOOL-LEVEL CAMPAIGNS
+Location and main storyline for every campaign written at high-school course level.
+Generated 2026-09-04 from themes.json, each theme's theme.js opening card, GAMES.md and STORIES.md.
+
+Scope: campaigns whose COURSE is high school (AP or senior-high) plus the twenty
+Quick Discoveries (audience grade 9). Excluded and listed at the end: the college
+games, the twelve junior (_ms) editions at grade 6, and Hospital Heroes at grade 2.
+
+================================================================================
+PART 1 — THE FULL AP / SENIOR-HIGH CAMPAIGNS (fifteen days each unless noted)
+================================================================================
+
+--------------------------------------------------------------------------------
+BLACKOUT                                        theme: blackout        grade 12
+Course:   Senior-high / first-year electrical engineering — AC power,
+          transmission, protection, load
+Location: Calder Switching Station. A flat graded river plain, a switchyard of
+          gantries and transformers, and two circuits of lattice towers walking
+          off the map. The only steel skyline in the set.
+Story:    You are the night system operator for the Calder grid. Four million
+          people are on it and nearly all their power crosses one line. The
+          coldest week of the winter starts tonight. Over fifteen shifts you
+          write The Calder Winter Survival Plan: what reserve is real, how hard
+          the line may be pushed, and how to restart from dark. A bad call puts
+          homes, a kidney clinic and the valley pumps dark for hours.
+
+--------------------------------------------------------------------------------
+THE TRIAL                                       theme: the_trial       grade 12
+Course:   AP Statistics — experimental design and inference, carried through a
+          running clinical trial
+Location: One long floor of the CLARION-3 coordinating centre. The walk down it
+          is distance from the patient: screening and infusion at the south end,
+          then monitoring, the central lab, adjudication, and the data floor
+          with the enrolment wall at the north. The corridor is a gradient in
+          evidence.
+Story:    CLARION-3 tests a new drug against usual care — 2,400 people at 31
+          hospitals, and nobody running it may know which arm is ahead. You are
+          the methods and operations lead. In fifteen days you build The
+          Monitoring Board Pack; a board of outsiders reads it in three weeks
+          and decides whether more people are asked to join.
+
+--------------------------------------------------------------------------------
+THE TRIAL (HS edition)                          theme: the_trial_hs    grade 12
+Course:   AP Statistics, all nine units (retarget of the clinical-epidemiology
+          and biostatistics original — same place, same cast, new syllabus)
+Location: As above — the CLARION-3 coordinating centre floor.
+Story:    Same fortnight, told for the AP student: the independent monitoring
+          board sits in three weeks and can stop the trial. Stop early on noise
+          and a drug that works is buried for ten years; carry on past the point
+          the evidence was in, and everyone who joins after today is in a trial
+          that already had its answer.
+
+--------------------------------------------------------------------------------
+HEADWATER                                       theme: headwater       grade 12
+Course:   Calculus. Home of DERIVE — build a result line by line, each line
+          naming the rule it used
+Location: A five-storey tower in a gorge beside Ashfell Dam. The whole east side
+          is one floor-to-soffit glazed screen onto the spillway; the hallways
+          and stairs have no ceiling at all — you look up the shaft to the sky.
+Story:    Ashfell is 88% full and nine days of rain are forecast for the high
+          ground. Four villages sit below the wall, and a dry summer means every
+          cubic metre released now may be missed later. You are the duty
+          engineer: each morning you decide how much water goes out and you show
+          the working. The gauges are hours old and the storage numbers still
+          rest on a 2003 lake-bed survey. In fifteen days you leave behind
+          release rules another engineer can trust.
+
+--------------------------------------------------------------------------------
+WELLMERE                                        theme: seedbank        grade 12
+Course:   AP Biology — heredity, population genetics, selection, plant
+          energetics
+Location: Wellmere seed bank and breeding station on Saltmere Point. The layout
+          IS the syllabus and the quantity is isolation distance: the crossing
+          block alone at the centre, an empty buffer, the increase ring, another
+          buffer, the trial ring in arcs, and the compound out on the neck. Sea
+          on three bearings; one causeway south to a gate — also the only
+          bearing contamination can arrive on.
+Story:    A wheat disease is two hundred kilometres east and the wind that would
+          carry it comes in over the causeway. The programme has one gene that
+          stands up to it, and one is not enough. You are Season Lead: what goes
+          into the ground in the next three weeks goes in because you said so.
+          Anything not sown waits a year, and the forty-one thousand samples in
+          the vault do not wait well.
+
+--------------------------------------------------------------------------------
+SAFETY FACTOR                                   theme: midway          grade 11
+Course:   AP Physics 1, all eight units, taught through derivations
+Location: Corbin Park — a closed lakeside amusement park three weeks before it
+          tries to reopen. The rides are the areas: the drop tower is
+          kinematics, the coaster is energy, the wheel is torque, the flume is
+          fluids. A 26 m lift hill, a vertical loop, a 28 m Ferris wheel, a 45 m
+          drop tower and a pirate ship make the skyline.
+Story:    The county has shut every ride because nobody can prove the old
+          settings are safe. Eleven notebooks hold the numbers and almost none
+          of the physics behind them. You are the ride engineer; in fifteen days
+          you decide which of seven rides reopen. Sign a bad limit and riders
+          take the risk; refuse everything and the park loses the season. Rebuild
+          the proof before your name goes on the Corbin Park Certificate.
+
+--------------------------------------------------------------------------------
+RED SAND                                        theme: redsand         grade 12
+Course:   AP Chemistry, back half — kinetics, equilibrium, electrochemistry,
+          entropy and free energy, phase behaviour, colligative properties
+Location: Arcadia Rise, a propellant plant on Mars — the only place in the set
+          on another planet. Nine modules buried to the eaves in regolith along
+          one graded track, an ascent vehicle on a pad four hundred metres past
+          the last of them with a propellant gauge up its side that fills as the
+          campaign does, six hundred solar panels, butterscotch sky. The
+          geography is the process: walking the site walks one carbon atom
+          through the whole plant, in order.
+Story:    The rocket must leave when Mars and Earth line up. You lead the plant
+          that makes fuel from Martian air and ground. Over fifteen key sols you
+          fill A Full Tank — enough methane and oxygen for six people to fly
+          home. If the tanks fall short the rocket stays, and the crew waits
+          twenty-six months for another way home.
+
+--------------------------------------------------------------------------------
+RED SAND: FULL TANK                             theme: redsand_oneshot grade 12
+Course:   AP Chemistry, the WHOLE course in one campaign — moles, stoichiometry,
+          gases, structure and IMFs, solutions and spectroscopy, calorimetry,
+          kinetics, catalysis, equilibrium, acids and bases, redox
+Location: Red Sand's world, rebuilt around a mystery — the same fourteen places
+          on the same graded track, a new cast and sixty new stops.
+Story:    Mars is already making your ride home, and the tanks are 18 percent
+          behind. A fifteen-sol investigation with three reversals in it: the
+          methane leak that was never a leak, the engineer whose sabotage was
+          the safest act of the fortnight, and a tank that reaches FULL and
+          cannot be certified.
+
+--------------------------------------------------------------------------------
+YELLOW BAY                                      theme: yellowbay       grade 12
+Course:   AP Chemistry, structure half — atomic structure and photoelectron
+          spectroscopy, Coulombic attraction and ionisation energy, periodic
+          trends, Lewis structures and VSEPR, bond enthalpy, the four kinds of
+          solid, doping and semiconductors, surface chemistry
+Location: Ardley Fab 7, a chip plant with its own world: two parallel gowned
+          wings joined at the far end by a glazed crossing whose floor is glass
+          over the subfab, so carrying a lot between them means walking over the
+          pumps, the abatement and six hundred metres of gas line. The litho end
+          is lit amber. The route is the syllabus.
+Story:    Since March, four wafers in ten come off the line with too many bad
+          chips to sell. In fifteen days the plant must run a proving batch for
+          the customer that buys most of its output; if it fails, nine hundred
+          jobs go. Two senior engineers disagree — Ferreira says the incoming
+          silicon is wrong, Ostrowski says the line chemistry has drifted. You
+          are the process integration lead: find what is failing, prove the fix,
+          and decide whether the batch is ready. (Both faults are real; every
+          investigation assumed one.)
+
+--------------------------------------------------------------------------------
+SIGHTLINE                                       theme: sightline       grade 12
+Course:   AP Psychology, all five units — sensation and perception, memory,
+          development and learning, social psychology, health through procedure
+Location: A 1960s telephone exchange with the switch floor taken out: one hall
+          54 m long, rooms down both sides, home of the Hallam Conviction
+          Integrity Unit. The hall IS the sightline — the Ferrier Street corner
+          is rebuilt across the south end at 1:1 (shopfront, doorway, kerb, a
+          dark lamp column) and the identification distances are let into the
+          floor running away from it. Two marks are the case: the 22 m the file
+          asserted for seven years, and the 34 m the ground gives.
+Story:    In 2019 Alma Cardoza watched a robbery across Ferrier Street. Weeks
+          later she picked Elias Ward out of six photos. Her choice is the only
+          thing that put him in that shop, and he has served seven of fourteen
+          years. You are the review analyst; in fifteen days you hand the board
+          the Ward Referral. The board does not ask who was in the doorway — if
+          it says no, nobody looks at this case until 2033.
+
+--------------------------------------------------------------------------------
+GROUND TRUTH                                    theme: groundtruth     grade 12
+Course:   AP Physics C: Electricity & Magnetism, all five units, as ten
+          derivations — Gauss, the potential integral, capacitance, stored
+          energy, Ampere, flux and Faraday, self-inductance, the RC transient,
+          a Marx bank
+Location: Station 12, a rocket-triggered lightning research station on a coastal
+          salt flat. A 60 m instrumented mast alone on the skyline with three
+          shunts down its conductor, a launch rail north, an impulse hall, a
+          grounding grid open in a trench, and the outstation trailer 200 m away
+          that the campaign is about. Sky is weather rather than climate.
+Story:    Station 12 makes lightning on purpose: a rocket carries a thin wire
+          into a storm. Last August one strike destroyed every circuit board in
+          a trailer 200 metres away even though the lightning never touched it.
+          You are the measurements lead. In fifteen days find how the strike
+          reached that trailer and write the rule that gets all six crew inside
+          before the sky becomes dangerous. Until you can defend both, the
+          station cannot keep firing.
+
+--------------------------------------------------------------------------------
+CARRYING CAPACITY                               theme: carrying        grade 12
+Course:   AP Environmental Science, all nine units (17/17 syllabus equations
+          computed)
+Location: Vellan Island — ninety-one people, one borehole, one cable, one tip.
+          On an island every budget closes: the water is what fell on it, the
+          fish are what the boats did not take, the waste stays.
+Story:    The school has nineteen children left; at twelve it closes, and
+          families are leaving. The council wants a second summer ferry to make
+          the island easier to live on — but the only freshwater well is getting
+          saltier, catches are down, the dump is filling and the power system
+          struggles in July. In fifteen days the council votes. You are the
+          island resources officer and you write the Second-Ferry Plan: can
+          Vellan add the ferry without using up the water, food, land and energy
+          that let people live here?
+
+--------------------------------------------------------------------------------
+GHOST LIGHT                                     theme: ghostlight      grade 11
+Course:   AP Precalculus, all four units. Every family of function is a piece of
+          equipment: the board is polar and matrices, the pit is sinusoids and
+          logarithms, the box office is a rational function with a real
+          asymptote, the fly floor is vectors
+Location: The Ellery Variety Theatre, dark eleven years — its own world: nine
+          hundred seats on a four-tier rake, a fly tower over a walkable stage,
+          six offices round the scene-dock yard behind the house.
+Story:    Nine hundred seats are on sale for a reopening in two weeks, but the
+          rig, sightlines and exit plan still rest on drawings and settings older
+          than most of the crew. You are the production manager and your name
+          goes on the licence file. In fifteen days prove what the building can
+          actually do. If the numbers do not hold, the audience does not come in
+          and forty-one people lose the run.
+
+--------------------------------------------------------------------------------
+CHANGEOVER                                      theme: changeover      grade 12
+Course:   AP Macroeconomics, all six units (16/16 equations computed)
+Location: The top four floors of Kesteven House, Halvern, commandeered for a
+          currency changeover — four floor plates on one footprint, joined by a
+          lift you choose a floor in. A hundred and eighty metres up, macro
+          becomes visible: the queue is on the plaza below the window, Vend
+          Street is two thirds of the basket, the port is the current account,
+          the money supply is a mass on a platform scale.
+Story:    In fourteen days Halvern's old mark stops being money. The emergency
+          currency board must choose how many old marks one new mark is worth.
+          You are the chief economist and the rate book carries your name. Too
+          strong and the reserves may be gone before the promise is over; too
+          weak and imported food gets dearer than it has to be. Nine hundred
+          thousand people wake on the fifteenth using whatever you sign.
+
+--------------------------------------------------------------------------------
+SLACK WATER                              theme: slackwater  grade 12 · 12 days
+Course:   AP Calculus BC, the half Headwater stops before — parametric, polar
+          and vector-valued functions, series and convergence, second-term
+          integration techniques. Twelve DERIVE stops, one a day
+Location: Sarn Barrage: six sluice gates across the neck of an estuary, mudflats
+          at low water, a training wall running out into the channel and a
+          station three hundred metres along it. A tide IS a truncated series.
+Story:    In twelve days the biggest tide of the year arrives and a coastal storm
+          may push more water in. Close the gates too late and seawater floods
+          the marsh; too early and river water backs up behind them. Idris
+          Calloway says the tide can be calculated in advance; Renate Oyelaran
+          says storms add water the tide equations cannot see. You are the flood
+          prediction lead: decide what the water will do, how wrong the model can
+          be, and exactly what the gate crew should act on. (The bound is honest
+          and it is on the wrong quantity.)
+
+--------------------------------------------------------------------------------
+OVERWIND                                 theme: overwind    grade 12 · 12 days
+Course:   AP Physics C: Mechanics, taught as derivations — rotation, a rope that
+          weighs more than its load, an oscillation with a period of its own,
+          gravitation measured at depth. Twelve DERIVE stops, one a day
+Location: Kerrow Mine No. 3: a 32 m headframe over a 1,240 m shaft, alone on a
+          moor, the winding rope crossing the yard at head height.
+Story:    Forty-one miners a shift ride the cage. Last March, during an emergency
+          stop, the drum stopped on time but the cage kept moving 1.6 metres past
+          its landing; at the top of the shaft the same overrun would drive it
+          into the steel above. An inspector arrives in twelve days, just as the
+          mine wants every trip faster. You must answer two questions — why did
+          the cage keep moving, and what is the fastest it can safely run — and
+          the inspector reads nothing but your Safe Winding Plan. (The brake
+          stops the drum.)
+
+--------------------------------------------------------------------------------
+DARK FIBRE                               theme: darkfibre   grade 12 · 12 days
+Course:   AP Physics 2, optics and modern half. Twelve DERIVE stops, one a day
+Location: Pellow Head: a low concrete landing station in the dunes where a
+          submarine cable comes ashore, plus a radiography bay three hundred
+          metres out, because a gamma source is separated by distance rather
+          than by lead.
+Story:    Nearly every call and connection to the mainland runs through one
+          fibre on the ocean floor. Nineteen days ago it lost most of its signal,
+          leaving the island on one backup line. A repair ship arrives in twelve
+          days, just before bad weather closes the sea for weeks, and gets one
+          safe day to pull up one part of the cable. You are the optical
+          measurements lead: what failed, and where is it? (The fibre was never
+          damaged.)
+
+--------------------------------------------------------------------------------
+DEEP WATCH (HS edition)                         theme: deepwatch_hs    grade 12
+Course:   AP Physics 2, all seven units (retarget of the naval-acoustics
+          original)
+Location: A submarine, and its own world — one line of ten compartments,
+          hatches, no sky.
+Story:    You have the watch ninety metres down. Nobody aboard can see out; what
+          you know about the water comes from sonar and what you know about the
+          boat comes from gauges read out to you over a telephone. An unnamed
+          contact is closing and water inside the hull is rising. In fifteen
+          watches you hand over the standing orders — where flooding gets
+          stopped, when a repair can be trusted, when the boat comes up — one a
+          night, in the words of whatever went wrong.
+
+--------------------------------------------------------------------------------
+THE CONTAMINATED CITY (HS edition)              theme: contamcity_hs   grade 12
+Course:   AP Chemistry, the aqueous half — and the only game in the set that
+          teaches acids, buffers and titration (retarget of the first-year
+          analytical chemistry original)
+Location: Riverton: a wide, bright, spread-out river city. Grid streets, boxy
+          buildings, drivable trucks, and a burnt freight yard beside the river.
+Story:    A freight yard beside the river burned last night and nobody can say
+          what came off it. Nine hundred metres downstream the city draws
+          drinking water for a hundred and forty thousand people, and that intake
+          is shut. You are the Chief Scientific Officer: you decide what gets
+          measured and what the city is told about it. In fifteen days the state
+          has to accept one evidence package — what burned, where it went in
+          water and air, what is cleaned up first — every claim named twice by
+          two different methods, one claim settled a day. The city is drinking
+          its reserves, measured in days.
+
+================================================================================
+PART 2 — THE QUICK DISCOVERIES (grade 9; nine stops, three levels, one sitting)
+================================================================================
+Written for grade 9 rather than AP. Every card teaches its method before it asks
+anything; every campaign is one historical discovery, played from inside it. No
+warm-up runs and no second day; dayNoun is 'Level'.
+
+01 THE DOUBLE HELIX                    qd_dna         Biology
+   Where: the Structural Biology Unit — four benches off one spine.
+   Story: nobody knows what the instructions for life are made of. Four benches
+   have each measured something true about the same substance and none can say
+   its shape. Three shapes are standing this morning; one gets defended in print
+   on Friday, and no shape comes off the wall until somebody names the clue it
+   breaks.
+
+02 THE ACCELERATING UNIVERSE           qd_accel       Astronomy / cosmology
+   Where: Cerro Vela Survey Operations, a mountain survey site.
+   Story: forty-two exploding stars have come back too faint — further away than
+   a universe of matter can allow. Either something nobody has found is pushing
+   the universe apart faster and faster, or it is dust, bad calibration, or a
+   ruler built wrong. You are the analyst; the sealed sample opens Wednesday.
+
+03 THE ATOMIC NUCLEUS                  qd_nucleus     Physics
+   Where: the scattering laboratory.
+   Story: ten alpha particles in ten thousand come back out of a gold sheet the
+   way they went in — impossible on the accepted, smeared-out atom. Something in
+   that gold hits far harder than any atom should. You write the number on
+   Monday; five people spend the week counting flashes in the dark on it.
+
+04 PLATE TECTONICS                     qd_tectonics   Earth science
+   Where: the Global Survey Section, with a second wall locked until this morning.
+   Story: the Atlantic coasts match — fossils, rock belts, glacial scratches —
+   and for forty years nobody could name a force big enough to move a continent.
+   Then the ships came back with sea-floor rock ages, magnetic traces and forty
+   years of undersea quakes. One story that covers all of it, by Wednesday.
+
+05 THE HIGGS BOSON                     qd_higgs       Particle physics
+   Where: the collider analysis floor.
+   Story: one slot on the wall chart is empty, and filling it makes the reason
+   anything has mass measurable. The thing falls apart the moment it is made,
+   leaving a few extra events at one mass among billions that look identical. A
+   hall is booked for Thursday; the sentence on that screen is quoted for twenty
+   years.
+
+06 THE BENDING OF STARLIGHT            qd_eclipse     Physics (outdoors)
+   Where: an eclipse expedition camp on a plain with a clear horizon.
+   Story: two theories say starlight bends past the Sun and they differ by a
+   factor of two — the larger number means space itself is bent. The bend shows
+   only right beside the Sun, where the Sun is far too bright. The Moon covers it
+   for five minutes next month. One mount, two lenses, no second try, and the
+   shift is a third of the width of a hair.
+
+07 THE FIRST EXOPLANET                 qd_exo         Astronomy
+   Where: the planet search programme's working floor.
+   Story: twenty nights of spectra show a star's whole forest of lines sliding
+   one way then the other, a few parts in ten million. If the puller is another
+   star this is a plain binary and the season is wasted; if it is small enough,
+   it is a planet round somebody else's sun and nobody has ever measured one. A
+   class goes on the sheet by Thursday and onto the discovery paper.
+
+08 GRAVITATIONAL WAVES                 qd_ligo        Physics
+   Where: the interferometer corner station.
+   Story: at four in the morning something crossed both instruments at once —
+   a fifth of a second, climbing in pitch, then gone. A lorry, a cracked weld,
+   or two black holes a billion light years off stretching a four-kilometre arm
+   by a thousandth of a proton's width. Nobody calls the second site until you
+   can say what the shape is.
+
+09 THE COSMIC MICROWAVE BACKGROUND     qd_cmb         Cosmology (outdoors)
+   Where: a hilltop horn-antenna site above a road.
+   Story: a hiss about three degrees above absolute zero arrives from every
+   direction and will not go away. Air, ground and road are already subtracted.
+   Everyone on the hill thinks the receiver is broken — and if it is not, the
+   whole sky glows at one temperature and nobody here can name a thing that
+   would do that. (The first explanation offered was pigeons.)
+
+10 THE EXPANDING UNIVERSE              qd_hubble      Astronomy
+   Where: a mountain observatory's working floor, with the plate vault across
+   the corridor.
+   Story: every faint nebula anybody has a spectrum of is running away, and the
+   list has stayed a list because none of them carries a distance. Now the vault
+   has a way to measure distance. If speed and distance go together, only two
+   answers are left: we sit at the middle of something enormous, or the whole
+   thing is getting bigger. Hubble wants a line on the plot by Wednesday.
+
+11 PENICILLIN                          qd_penicillin  Microbiology (1928)
+   Where: the Inoculation Department.
+   Story: a plate that should have gone into the wash has a ring on it with
+   nothing growing inside and a wind-blown mould colony at the centre. If
+   something is coming off that mould, an untreatable infection has an answer;
+   if the ring is a dry patch, four benches waste a week. Florey lets no claim
+   stay on the wall without the measurement under it — and a week of everything
+   the department can make comes to three days of treatment for one adult.
+
+12 GERM THEORY OF DISEASE              qd_germ        Medicine / public health
+   Where: Marlow Fields — an 1854 Victorian court, outdoors, with a standpipe.
+   Story: sixty-six people in one court are dead or dying while houses fifty
+   yards away are untouched. Some blame the smell, some the weather, some the
+   poor themselves. If one thing reaches these people by a nameable route,
+   blocking it would stop the illness and change how doctors work everywhere.
+   The vestry votes Friday on the pump handle; forty households draw from it.
+
+13 THE LAWS OF INHERITANCE             qd_mendel      Genetics
+   Where: the abbey garden — trial beds, outdoors.
+   Story: cross a yellow-seeded pea with a green and every seed is yellow; sow
+   those and a quarter come up green again. Something green rode through a plant
+   that never showed it. If the counts follow a rule, inheritance is arithmetic;
+   if they wander, it is a blending nobody will get a grip on. Mendel has one
+   season and two hundred and fifty beds and will not sow until the trait is
+   settled.
+
+14 CRISPR GENE EDITING                 qd_crispr      Molecular biology (2012)
+   Where: the Genome Editing Institute.
+   Story: forty bacterial genomes carry the same odd shape — one short repeat,
+   and between every pair a different piece, one of which matches a virus
+   exactly over thirty bases. Either these cells keep a written record of what
+   attacked them, and a machine told what to find by a copy can be told to find
+   anything — or the match is luck and a month is wasted. One sequencing run on
+   Friday, nineteen sites worth worrying about, depth for four.
+
+15 OXYGEN AND COMBUSTION               qd_oxygen      Chemistry (1775)
+   Where: the pneumatic laboratory.
+   Story: ten grams of lead heated in open air leave 12.7 grams of powder.
+   Burning is supposed to take things away. If the gain is real, something
+   joined the lead while it burnt and every account of fire has to be rewritten;
+   if the balance is wrong, a season is wasted. Lavoisier will not write a figure
+   he cannot account for, the academy pays for one more experiment, and six
+   people disagree about which.
+
+16 PERIODIC TABLE                      qd_periodic    Chemistry (1869)
+   Where: the Chemistry Institute — sixty-three numbered drawers and a long
+   table.
+   Story: lithium, sodium and potassium behave the same and weigh nothing like
+   each other, so chemistry stays a list to be learned by heart. Lay the elements
+   out so behaviour keeps coming round and something underneath is causing it —
+   and the layout can say what belongs in a place nobody has filled. The
+   proceedings go to press Friday: either figures for elements nobody has, or
+   nothing at all.
+
+17 STROOP EFFECT                       qd_stroop      Cognitive psychology (1935)
+   Where: the reaction-time laboratory.
+   Story: print GREEN in red ink, ask for the ink colour, and people stumble
+   though they know the answer. If a well-drilled habit runs whether anybody
+   wants it or not, attention is a race between two answers rather than a
+   choice; if the stumble is a fiddly card, a week of counting is wasted.
+   Forty-two people booked, two numbers a session.
+
+18 FALSE MEMORIES                      qd_memory      Cognitive psychology
+   Where: the Memory and Testimony Unit (Sightline's twelve-room shape).
+   Story: read fifteen words that all point at a sixteenth, leave that one out,
+   and more than half the room reports hearing it — not guessing, not lying. If
+   memory can be built out of meaning alone, what you ask a witness matters as
+   much as what they saw. Two hundred people booked, one clause of one question
+   different between them, and nine officers arrive Friday wanting to know what
+   to change.
+
+19 KEYNES AND THE GREAT DEPRESSION     qd_keynes      Macroeconomics (1933)
+   Where: the Economic Advisory Building.
+   Story: a fifth of the country is out of work and staying that way, factories
+   stand still, people want jobs — and prices have barely moved, which is the
+   wrong way round. Maybe an economy can settle in a bad place and stay there,
+   and something could shift it. Keynes wants the fall traced arrow by arrow
+   before anybody argues about prices. The report goes out Friday; two million
+   are out of work while it is written.
+
+20 BANK RUNS                           qd_bankrun     Economics and finance
+   Where: floors two to five of Marrable House, on interiorTower — one footprint,
+   a lift the only way between floors.
+   Story: a queue on the pavement below the window. Nothing has changed since
+   yesterday: the loans are good, the borrowers are paying, the book covers the
+   deposits. But ten units of cash are in the building and thirty-two have been
+   asked for by noon. Can a sound bank be closed by the order people arrive in?
+   If so, the thing that fails is the arrangement, not the bank.
+
+================================================================================
+PART 3 — BORDERLINE: grade-12 reading, course level not stated as AP
+================================================================================
+Included for completeness; both sit at the school/undergraduate boundary and each
+also ships a grade-6 junior edition.
+
+ICE CORE                                        theme: icecore         grade 12
+Course:   Earth and environmental science — the measurement half of a
+          palaeoclimate course
+Location: Vestri Dome: a deep-drilling camp on a high polar plateau. Six modules
+          on legs beside a groomed route, flag lines both sides, a trench with a
+          tower over it, a stake array two kilometres out. The flattest, emptiest
+          horizon in the set.
+Story:    Vestri and Skarv drilled ice four hundred kilometres apart; both cores
+          cover one cold spell and the two records disagree. You are the season
+          science lead, so the signing is yours. In fifteen days you sign the
+          Vestri Record: what the ice measured, which clocks turn that into
+          dates, and where the proof stops. If the gap is really the two labs and
+          you call it climate, every record tied to these cores carries it for
+          years.
+
+AFTERSHOCK                                      theme: aftershock      grade 12
+Course:   Seismology and structural engineering
+Location: Kestrel Bay — two places on one map that the same earthquake treated
+          differently: Upper Town on a granite bench, mostly standing; the Flats
+          on hydraulic fill, liquefied, with sand fans and a block sitting over
+          at eight degrees. Between them the Kestrel Fault broke the surface and
+          the player walks a 1.8 m scarp with a road and a fence offset across
+          it. The site-effect lesson is drawn on the ground.
+Story:    Three days after a magnitude 6.8 quake, four hundred homes still sleep
+          in halls. Every door has a card: green to use, yellow for limits, red
+          for nobody. You are the building safety coordinator and aftershocks
+          keep coming. In fifteen days you sign the Placard Register — what each
+          building may be used for, and what proves it. Too bold and a child goes
+          back into a wall that will not hold; too shy and a school stays shut.
+
+================================================================================
+NOT HIGH SCHOOL — excluded from the list above
+================================================================================
+College / undergraduate:
+  contamcity        The Contaminated City   college chemistry (Riverton)
+  deepwatch         Deep Watch              naval acoustics (a submarine)
+  outbreak_riverton Outbreak: Riverton      college biology / epidemiology
+  bring_them_home   Bring Them Home         college physics (Mission Control)
+  planetary_defense Planetary Defense       astronomy (mountain ridge, nocturnal)
+  quantum           Quantum                 modern quantum through the hardware
+  projecty          Project Y               Los Alamos 1943-45, five divisions
+
+Junior editions at grade 6 (same worlds, rewritten): aftershock_ms, blackout_ms,
+bring_them_home_ms, contamcity_ms, deepwatch_ms, icecore_ms, outbreak_riverton_ms,
+planetary_defense_ms, redsand_ms, seedbank_ms, sightline_ms, the_trial_ms.
+
+Grades 3-4: hospital (Hospital Heroes, children's hospital ward, grade 2 type).
+
+Run any of them:  cd gamekit && THEME=<id> npm run dev

@@ -579,13 +579,6 @@ missions:
           start: n₁·sin θ₁ = n₂·sin θ₂
           startNote: core n₁ = 1.4682, cladding n₂ = 1.4629, air n = 1.0003
           goal: the largest launch angle from the axis, in degrees, and the numerical aperture
-          askRule: true
-          rules:
-            - Snell's law
-            - the critical-angle condition
-            - complementary angles
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Find the angle at the core-cladding boundary beyond which nothing crosses.
               answer: 1
@@ -599,18 +592,8 @@ missions:
                     slip, because it is so close to one.
                 - text: sin θ_c = n₂/n₁ = 0.99639, so θ_c = 85.1°
                   rule: the critical-angle condition
-                - text: sin θ_c = n₂ − n₁ = −0.0053, so θ_c = −0.3°
-                  rule: rearrangement
-                  why: >-
-                    A difference of indices where a ratio belongs. A negative angle at a boundary is
-                    not a physical statement.
-                - text: sin θ_c = n₂/n_air = 1.4625, so θ_c = 89.9°
-                  rule: the critical-angle condition
-                  why: >-
-                    The boundary in question is between the core and the cladding, not between the
-                    cladding and the air outside the fibre.
             - ask: Turn that into an angle from the axis of the fibre.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 85.1° from the axis, the same angle
                   rule: complementary angles
@@ -619,15 +602,6 @@ missions:
                     A ray at 85 degrees to the axis is very nearly across the fibre and would not go
                     anywhere. The two angles are measured from different references, and this line is
                     the reason the final answer is sometimes reported as 83 degrees.
-                - text: 85.1° ÷ 2 = 42.6° from the axis
-                  rule: rearrangement
-                  why: >-
-                    Halving an angle is not a conversion between references. Nothing here is bisected.
-                - text: 90° + 85.1° = 175.1° from the axis
-                  rule: complementary angles
-                  why: >-
-                    An angle from the axis cannot exceed ninety degrees, which is the tell. The two
-                    references are complementary, so they subtract.
                 - text: 90° − 85.1° = 4.9° from the axis
                   rule: complementary angles
             - ask: Refract that internal angle out through the end face into air.
@@ -642,18 +616,8 @@ missions:
                     The two sides of Snell's law swapped. It gives 3.3 degrees — a narrower cone,
                     entirely believable, and a termination built to it would throw away most of the
                     light it was capable of accepting.
-                - text: sin θ_a = sin 4.9°, so θ_a = 4.9°
-                  rule: Snell's law
-                  why: >-
-                    That is the internal angle reported as the external one. Light bends on the way
-                    out because the two indices differ, which is the whole content of the step.
-                - text: sin θ_a = 1.4682 × 4.9° = 7.19°
-                  rule: rearrangement
-                  why: >-
-                    An index multiplying an angle rather than a sine. It arrives at nearly the right
-                    number for entirely the wrong reason, which is the version worth being able to spot.
             - ask: Report the angle and the numerical aperture.
-              answer: 2
+              answer: 1
               candidates:
                 - text: θ_a = 7.2°, NA = sin 7.2° × n_core = 0.183
                   rule: substitution of the stated values
@@ -661,18 +625,8 @@ missions:
                   why: >-
                     The core's index applied a second time, having already been used in the refraction.
                     Numerical aperture is the sine of the external angle and nothing further.
-                - text: θ_a = 7.2°, NA = √(n₁ − n₂) = 0.073
-                  rule: rearrangement
-                  why: >-
-                    The root of a difference of the indices rather than of their squares. It happens to
-                    be the right order of magnitude and it is dimensionally meaningless.
                 - text: θ_a = 7.2°, NA = 0.125 = √(n₁² − n₂²)
                   rule: substitution of the stated values
-                - text: θ_a = 7.2°, NA = 7.2
-                  rule: rearrangement
-                  why: >-
-                    An aperture is a number with no units and it is the sine of the angle, not the
-                    angle in degrees.
           commit: Commit the derivation
       - group: TEST
         task: Separate what the instrument measured from what people are inferring
@@ -828,16 +782,9 @@ missions:
           start: v = c/n,  d = v·t/2
           startNote: c = 2.998 × 10⁸ m/s, n = 1.4682, round-trip delay t = 828.6 µs
           goal: the distance along the fibre to the event, in kilometres
-          askRule: true
-          rules:
-            - the speed of light in a material
-            - the return journey
-            - substitution of the stated values
-            - rearrangement
-            - a check on the units
           steps:
             - ask: Get the speed of light in the glass.
-              answer: 2
+              answer: 1
               candidates:
                 - text: v = c·n = 4.401 × 10⁸ m/s
                   rule: the speed of light in a material
@@ -845,18 +792,8 @@ missions:
                   why: >-
                     Faster than light in vacuum, which is the tell — and it is a tell nobody looks for,
                     because the number is written in exponent form and the exponent is unchanged.
-                - text: v = c − n = 2.998 × 10⁸ m/s
-                  rule: rearrangement
-                  why: >-
-                    A speed minus a pure number. The index has no units, so it can only multiply or
-                    divide.
                 - text: v = c/n = 2.042 × 10⁸ m/s
                   rule: the speed of light in a material
-                - text: v = n/c = 4.9 × 10⁻⁹ s/m
-                  rule: rearrangement
-                  why: >-
-                    Inverted, and the units say so: seconds per metre is a delay per unit length, which
-                    is a useful quantity and is not a speed.
             - ask: Deal with the return journey.
               answer: 0
               candidates:
@@ -868,35 +805,14 @@ missions:
                   why: >-
                     The out-and-back not accounted for. It gives 169 kilometres, which is a believable
                     length for a span and is twice the answer.
-                - text: d = 2·v·t
-                  rule: the return journey
-                  why: >-
-                    The factor applied the wrong way. Four times the truth, and it would put the fault
-                    beyond the end of the cable.
-                - text: d = v/(2t)
-                  rule: rearrangement
-                  why: >-
-                    The delay dividing rather than multiplying. The units come out as metres per second
-                    squared.
             - ask: Put the numbers in.
-              answer: 3
+              answer: 1
               candidates:
                 - text: d = 2.042 × 10⁸ × 828.6 ÷ 2 = 8.46 × 10¹⁰ m
                   rule: substitution of the stated values
                   why: >-
                     The delay left in microseconds. The digits are right and the answer is in the
                     hundreds of millions of kilometres.
-                - text: d = 2.998 × 10⁸ × 828.6 × 10⁻⁶ ÷ 2 = 124.2 km
-                  rule: substitution of the stated values
-                  survives: true
-                  why: >-
-                    The vacuum speed used in the glass. It is 47 per cent long and it is inside the
-                    length of the span, so nothing about it looks impossible.
-                - text: d = 2.042 × 10⁸ × 828.6 × 10⁻⁶ = 169.2 km
-                  rule: substitution of the stated values
-                  why: >-
-                    The return journey dropped at the last line, having been written correctly at the
-                    line before.
                 - text: d = 2.042 × 10⁸ × 828.6 × 10⁻⁶ ÷ 2 = 84.6 km
                   rule: substitution of the stated values
             - ask: Check the units of the result.
@@ -909,18 +825,6 @@ missions:
                     itself done wrongly, which is worse than not doing it.
                 - text: metres a second times seconds gives metres
                   rule: a check on the units
-                - text: the index carries units, so the result is in fibre-metres
-                  rule: a check on the units
-                  survives: true
-                  why: >-
-                    An index is a ratio of two speeds and has no units at all. Inventing a unit for the
-                    answer is how a distance along a fibre stops being compared with a distance on the
-                    seabed.
-                - text: dividing by two makes it dimensionless
-                  rule: rearrangement
-                  why: >-
-                    A pure number divides out of nothing. The two is a count of journeys, not a
-                    conversion.
           commit: Commit the derivation
       - group: TERM
         task: Connect refractive index to the speed used in the first distance estimate
@@ -1092,13 +996,6 @@ missions:
           start: R = ((n₁ − n₂)/(n₁ + n₂))²
           startNote: glass n₁ = 1.4682; air n₂ = 1.0003; gel n₂ = 1.4600
           goal: the reflected fraction at a dry end, and the same in decibels
-          askRule: true
-          rules:
-            - the reflection at a step
-            - power as the square of amplitude
-            - conversion to decibels
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Write the amplitude ratio at the glass-air step.
               answer: 1
@@ -1112,38 +1009,16 @@ missions:
                     limiting case catches it.
                 - text: (n₁ − n₂)/(n₁ + n₂) = 0.1896
                   rule: the reflection at a step
-                - text: (n₁ + n₂)/(n₁ − n₂) = 5.275
-                  rule: rearrangement
-                  why: >-
-                    Inverted. An amplitude ratio greater than one would mean more light coming back
-                    than went in.
-                - text: n₁ − n₂ = 0.4679
-                  rule: the reflection at a step
-                  why: >-
-                    A difference of indices is not a ratio. It happens to be a number less than one
-                    here, which is why it survives a glance.
             - ask: Turn that into a fraction of the power.
-              answer: 2
+              answer: 1
               candidates:
                 - text: R = 0.1896, since power and amplitude are the same thing
                   rule: power as the square of amplitude
                   why: >-
                     They are not. Nineteen per cent of the light coming back off a cleaved end would be
                     visible to the eye and would have been noticed eleven years ago.
-                - text: R = 2 × 0.1896 = 0.379
-                  rule: rearrangement
-                  why: >-
-                    Doubling instead of squaring. It is the one operation that gives a larger answer
-                    where a smaller one is wanted.
                 - text: R = 0.1896² = 0.0359
                   rule: power as the square of amplitude
-                - text: R = √0.1896 = 0.435
-                  rule: power as the square of amplitude
-                  survives: true
-                  why: >-
-                    The square root rather than the square, which is the same relation applied
-                    backwards. It gives 44 per cent and it would make every cleaved end in the trailer
-                    a mirror.
             - ask: Put it into decibels.
               answer: 0
               candidates:
@@ -1155,17 +1030,8 @@ missions:
                   why: >-
                     The factor of twenty belongs to amplitude ratios and this is already a power ratio.
                     Squaring has been done twice, once in the arithmetic and once in the conversion.
-                - text: 10·log₁₀(1/0.0359) = +14.4 dB
-                  rule: rearrangement
-                  why: >-
-                    A reflection is a loss relative to what went in, so it is negative. The size is
-                    right and the sign makes it a gain.
-                - text: 0.0359 × 10 = 0.359 dB
-                  rule: conversion to decibels
-                  why: >-
-                    A decibel is a logarithm. Multiplying a ratio by ten is not a conversion into one.
             - ask: Do the same for an end in gel and compare.
-              answer: 3
+              answer: 1
               candidates:
                 - text: R = 7.8 × 10⁻⁶, which is −41 dB, a difference of 27 dB
                   rule: substitution of the stated values
@@ -1173,16 +1039,6 @@ missions:
                   why: >-
                     The right fraction and its decibel value out by ten. Ten decibels is a factor of
                     ten, and the difference between the two cases is what the whole comparison is for.
-                - text: R = 7.8 × 10⁻⁴, which is −31 dB
-                  rule: substitution of the stated values
-                  why: >-
-                    The step is 0.0082 rather than 0.082 — a factor of ten in the index difference and
-                    a hundred in the power.
-                - text: R = 0.0359 in gel as well, since the glass is the same
-                  rule: the reflection at a step
-                  why: >-
-                    The reflection is a property of the boundary rather than of the glass. Changing what
-                    is on the other side is the whole intervention.
                 - text: R = 7.8 × 10⁻⁶, which is −51 dB, a difference of 37 dB
                   rule: substitution of the stated values
           commit: Commit the derivation
@@ -1348,35 +1204,17 @@ missions:
           start: loss(dB) = 10·log₁₀(P_in/P_out)
           startNote: 84.6 km at 0.19 dB/km, 11 joints at 0.15 dB, one event at 4.1 dB, allowance 24 dB
           goal: the total loss in decibels, and the margin against the allowance
-          askRule: true
-          rules:
-            - loss per unit length
-            - decibels add along a path
-            - conversion to a power ratio
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Get the loss of the fibre itself.
-              answer: 2
+              answer: 1
               candidates:
                 - text: 0.19 ÷ 84.6 = 0.0022 dB
                   rule: rearrangement
                   why: >-
                     Divided rather than multiplied. A longer fibre would then lose less, which is
                     backwards.
-                - text: 0.19^84.6, since losses multiply
-                  rule: decibels add along a path
-                  survives: true
-                  why: >-
-                    Losses do multiply — as power ratios. In decibels they add, and raising a decibel
-                    figure to a power is mixing the two currencies in one line.
                 - text: 0.19 × 84.6 = 16.1 dB
                   rule: loss per unit length
-                - text: 0.19 × 84,600 = 16,074 dB
-                  rule: substitution of the stated values
-                  why: >-
-                    The rate is per kilometre and the length has been put in metres. Sixteen thousand
-                    decibels is more loss than there is light in the universe.
             - ask: Add the joints and the event.
               answer: 0
               candidates:
@@ -1388,15 +1226,6 @@ missions:
                   why: >-
                     One joint counted instead of eleven. It is 1.4 decibels light, which is inside what
                     anybody would call agreement and is most of the margin.
-                - text: 16.1 × 11 × 0.15 × 4.1 = 109 dB
-                  rule: rearrangement
-                  why: >-
-                    Multiplied. That is what would be done with the ratios themselves, and it is the
-                    reason the unit is a logarithm.
-                - text: 16.1 + 11 × 0.15 = 17.8 dB
-                  rule: decibels add along a path
-                  why: >-
-                    The new event left out of the total, which is the one term the fortnight is about.
             - ask: Turn the total into a power ratio.
               answer: 1
               candidates:
@@ -1407,37 +1236,14 @@ missions:
                     logarithm, so the conversion back divides by ten first.
                 - text: 10^(21.8/10) = 151
                   rule: conversion to a power ratio
-                - text: 21.8 × 10 = 218
-                  rule: conversion to a power ratio
-                  survives: true
-                  why: >-
-                    Multiplying by ten instead of taking a power of ten. It gives 218 against 151, which
-                    is the right order and would make the margin look like a factor rather than a
-                    difference.
-                - text: 2^21.8 = 3.6 × 10⁶
-                  rule: rearrangement
-                  why: >-
-                    A decibel is built on tens, not twos. The three-decibel doubling rule is a
-                    consequence of that and not a definition.
             - ask: Take the margin against the allowance.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 24 ÷ 21.8 = 1.10, so there is ten per cent in hand
                   rule: rearrangement
                   why: >-
                     Decibels are subtracted, not divided. Dividing two logarithms gives a number that
                     means nothing.
-                - text: 24 − 21.8 = 2.2 dB, which is a factor of 251
-                  rule: substitution of the stated values
-                  survives: true
-                  why: >-
-                    The subtraction is right and the ratio quoted is the allowance's rather than the
-                    margin's. 251 is what 24 decibels is; 2.2 decibels is a factor of 1.66.
-                - text: 24 + 21.8 = 45.8 dB of margin
-                  rule: decibels add along a path
-                  why: >-
-                    An allowance is what may be spent, so the spend is taken off it. Adding gives more
-                    margin the worse the span gets.
                 - text: 24 − 21.8 = 2.2 dB, which is a factor of 1.66
                   rule: substitution of the stated values
           commit: Commit the derivation
@@ -1595,13 +1401,6 @@ missions:
           start: E = h·f = h·c/λ
           startNote: h = 6.626 × 10⁻³⁴ J·s, c = 2.998 × 10⁸ m/s, λ = 1550 nm, 1 eV = 1.602 × 10⁻¹⁹ J
           goal: the photon energy in electron volts, and the arrival rate for one milliwatt
-          askRule: true
-          rules:
-            - the quantum of energy
-            - wavelength and frequency
-            - conversion of units
-            - a power divided by an energy
-            - rearrangement
           steps:
             - ask: Get the frequency from the wavelength.
               answer: 0
@@ -1613,37 +1412,15 @@ missions:
                   why: >-
                     Multiplied. The units are metres squared a second, which is not a frequency of
                     anything.
-                - text: f = c/λ = 2.998 × 10⁸ ÷ 1550 nm = 1.93 × 10⁵ Hz, in nanometres
-                  rule: wavelength and frequency
-                  survives: true
-                  why: >-
-                    The wavelength left in nanometres. It is nine orders out and it is a perfectly
-                    ordinary-looking radio frequency, so nothing about it reads as absurd.
-                - text: f = λ/c = 5.2 × 10⁻¹⁵ s
-                  rule: rearrangement
-                  why: >-
-                    Inverted: that is a period rather than a frequency, and it is in seconds.
             - ask: Get the energy in joules.
-              answer: 2
+              answer: 1
               candidates:
                 - text: E = h/f = 3.4 × 10⁻⁴⁸ J
                   rule: rearrangement
                   why: >-
                     Divided rather than multiplied. A bluer photon would then carry less energy.
-                - text: E = h·c·λ = 3.1 × 10⁻³¹ J
-                  rule: the quantum of energy
-                  why: >-
-                    The wavelength multiplying where it divides. It has the wrong units by a metre
-                    squared.
                 - text: E = h·f = 6.626 × 10⁻³⁴ × 1.93 × 10¹⁴ = 1.28 × 10⁻¹⁹ J
                   rule: the quantum of energy
-                - text: E = h·c/λ = 1.99 × 10⁻²⁵ ÷ 1.55 = 1.28 × 10⁻²⁵ J
-                  rule: the quantum of energy
-                  survives: true
-                  why: >-
-                    The same relation with the wavelength in micrometres against an hc in joule metres.
-                    The digits are exactly right and the exponent is six out, which is the hardest kind
-                    of error to see in this form.
             - ask: Convert it into electron volts.
               answer: 1
               candidates:
@@ -1654,36 +1431,13 @@ missions:
                     unit, so the number of them should be larger rather than vanishing.
                 - text: 1.28 × 10⁻¹⁹ ÷ 1.602 × 10⁻¹⁹ = 0.80 eV
                   rule: conversion of units
-                - text: 1.28 × 10⁻¹⁹ ÷ 1.602 = 0.80 × 10⁻¹⁹ eV
-                  rule: conversion of units
-                  survives: true
-                  why: >-
-                    The mantissas divided and the exponents left alone. The leading digits are right
-                    and the answer is nineteen orders too small, which is invisible if only the digits
-                    are checked.
-                - text: 1.28 × 10⁻¹⁹ J is already in electron volts
-                  rule: conversion of units
-                  why: >-
-                    A joule and an electron volt are different sizes by a factor of 1.6 × 10⁻¹⁹, which
-                    is exactly what makes both useful.
             - ask: Turn a milliwatt into arrivals a second.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 10⁻³ × 1.28 × 10⁻¹⁹ = 1.28 × 10⁻²² photons/s
                   rule: rearrangement
                   why: >-
                     Multiplied. A power times an energy is not a rate of anything.
-                - text: 10⁻³ ÷ 0.80 = 1.25 × 10⁻³ photons/s
-                  rule: a power divided by an energy
-                  why: >-
-                    Divided by the energy in electron volts rather than in joules, so the units do not
-                    cancel and the answer is a thousandth of a photon a second.
-                - text: 10⁻³ ÷ 1.93 × 10¹⁴ = 5.2 × 10⁻¹⁸ photons/s
-                  rule: a power divided by an energy
-                  survives: true
-                  why: >-
-                    Divided by the frequency rather than by the energy. Planck's constant has gone
-                    missing, and what comes out has the units of joule seconds.
                 - text: 10⁻³ ÷ 1.28 × 10⁻¹⁹ = 7.8 × 10¹⁵ photons/s
                   rule: a power divided by an energy
           commit: Commit the derivation
@@ -1858,34 +1612,15 @@ missions:
           start: R_λ = η·e/(h·f)
           startNote: η = 0.82, e = 1.602 × 10⁻¹⁹ C, photon energy at 1550 nm = 1.28 × 10⁻¹⁹ J
           goal: the current per watt, in amps a watt
-          askRule: true
-          rules:
-            - a power divided by an energy
-            - the efficiency of conversion
-            - charge times a rate
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Turn one watt into arrivals a second.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 1 × 1.28 × 10⁻¹⁹ = 1.28 × 10⁻¹⁹ arrivals/s
                   rule: rearrangement
                   why: >-
                     Multiplied by the energy of one arrival rather than divided by it. A watt is not a
                     fraction of a photon.
-                - text: 1 ÷ 0.80 = 1.25 arrivals/s
-                  rule: a power divided by an energy
-                  why: >-
-                    Divided by the energy in electron volts, so the units have not cancelled. A watt is
-                    a joule a second and the energy has to be in joules.
-                - text: 1 ÷ 1.28 × 10⁻¹⁹ = 7.8 × 10¹⁸ arrivals/s, times the efficiency already
-                  rule: the efficiency of conversion
-                  survives: true
-                  why: >-
-                    The right count with the efficiency applied a line early. It gets applied again at
-                    the next step, so the answer comes out at 0.84 rather than 1.03 — a difference of
-                    0.9 decibels, and nothing in the working looks wrong.
                 - text: 1 ÷ 1.28 × 10⁻¹⁹ = 7.8 × 10¹⁸ arrivals/s
                   rule: a power divided by an energy
             - ask: Apply the efficiency.
@@ -1898,18 +1633,6 @@ missions:
                   why: >-
                     Divided by an efficiency less than one, which gives more charges out than arrivals
                     in.
-                - text: 0.82 × 0.82 × 7.8 × 10¹⁸ = 5.2 × 10¹⁸ charges/s
-                  rule: the efficiency of conversion
-                  why: >-
-                    The efficiency applied twice. It is what the previous line's survivor leads to and
-                    it is 1.6 decibels low.
-                - text: 7.8 × 10¹⁸ charges/s, since each arrival frees a charge
-                  rule: the efficiency of conversion
-                  survives: true
-                  why: >-
-                    True of a perfect detector and this one is not: 18 arrivals in a hundred are
-                    absorbed without freeing anything, or pass straight through. It gives the data
-                    sheet's ideal figure of 1.25 amps a watt.
             - ask: Turn charges a second into a current.
               answer: 1
               candidates:
@@ -1919,18 +1642,8 @@ missions:
                     Divided by the charge rather than multiplied. The size of the answer is the check.
                 - text: I = 6.4 × 10¹⁸ × 1.602 × 10⁻¹⁹ = 1.03 A
                   rule: charge times a rate
-                - text: I = 6.4 × 10¹⁸ A
-                  rule: charge times a rate
-                  survives: true
-                  why: >-
-                    A count of charges a second reported as a current. It is the right physical
-                    quantity in the wrong units, and the conversion is the whole of what a coulomb is.
-                - text: I = 1.602 × 10⁻¹⁹ ÷ 6.4 × 10¹⁸ = 2.5 × 10⁻³⁸ A
-                  rule: rearrangement
-                  why: >-
-                    Inverted, and the answer is a current no instrument could detect.
             - ask: Say what the responsivity would be at 1300 nm.
-              answer: 2
+              answer: 1
               candidates:
                 - text: the same, 1.03 A/W, since the diode has not changed
                   rule: substitution of the stated values
@@ -1938,18 +1651,8 @@ missions:
                   why: >-
                     The diode has not changed and the light has. A shorter wavelength carries more
                     energy per arrival, so a watt of it is fewer arrivals and fewer charges.
-                - text: higher, about 1.23 A/W, since shorter wavelengths carry more energy
-                  rule: rearrangement
-                  why: >-
-                    More energy per arrival means fewer arrivals in a watt, so the current goes down
-                    rather than up. The reasoning is right and the direction is inverted.
                 - text: lower, about 0.86 A/W, in proportion to the wavelength
                   rule: substitution of the stated values
-                - text: zero, since the diode is specified for 1550 nm
-                  rule: the efficiency of conversion
-                  why: >-
-                    A cut-off happens at long wavelengths, where the arrivals are too weak. Shorter
-                    ones are detected perfectly well.
           commit: Commit the derivation
       - group: SPLICE
         task: Match each physical fault to the trace shape it should produce
@@ -2098,16 +1801,9 @@ missions:
           start: I = I₀·e^(−μx)
           startNote: μ = 0.666 per cm in steel at this energy, x = 4.0 cm of wall
           goal: the fraction through the wall, and the half-value thickness
-          askRule: true
-          rules:
-            - exponential attenuation
-            - the half-value thickness
-            - counting half-values
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Get the exponent.
-              answer: 2
+              answer: 1
               candidates:
                 - text: μ·x = 0.666 × 40 = 26.6
                   rule: substitution of the stated values
@@ -2116,18 +1812,8 @@ missions:
                     The coefficient is per centimetre and the wall has been put in millimetres. It
                     gives a fraction of 2.8 × 10⁻¹² through, which is a film that would never expose —
                     and radiographers do wait a long time, so it does not read as impossible.
-                - text: μ/x = 0.666 ÷ 4.0 = 0.167
-                  rule: rearrangement
-                  why: >-
-                    Divided. The exponent has to be dimensionless, so a per-centimetre coefficient
-                    multiplies a length in centimetres.
                 - text: μ·x = 0.666 × 4.0 = 2.66
                   rule: exponential attenuation
-                - text: μ·x = 0.666 × 4.0 × ln2 = 1.85
-                  rule: counting half-values
-                  why: >-
-                    The logarithm of two belongs to the conversion between the two bases, not to the
-                    exponent itself. It has been applied a step early.
             - ask: Get the fraction through.
               answer: 0
               candidates:
@@ -2138,17 +1824,6 @@ missions:
                   why: >-
                     A negative fraction of a beam. The exponent is an exponent rather than a proportion
                     removed.
-                - text: e^(2.66) = 14.3
-                  rule: exponential attenuation
-                  survives: true
-                  why: >-
-                    The sign of the exponent dropped, giving more out than in — and 14.3 is exactly the
-                    factor the exposure has to be lengthened by, so it turns up later looking right.
-                - text: 1/2.66 = 0.376
-                  rule: rearrangement
-                  why: >-
-                    A reciprocal rather than an exponential. It gives 38 per cent through, five times
-                    too much, and would set every exposure short.
             - ask: Get the half-value thickness.
               answer: 1
               candidates:
@@ -2161,19 +1836,8 @@ missions:
                     routinely confused.
                 - text: ln2/μ = 0.693 ÷ 0.666 = 1.04 cm
                   rule: the half-value thickness
-                - text: μ/ln2 = 0.961 cm
-                  rule: rearrangement
-                  why: >-
-                    Inverted, and it happens to come out near enough to the right answer to pass a
-                    glance — the units are centimetres either way and the numbers differ by eight per
-                    cent.
-                - text: 2/μ = 3.00 cm
-                  rule: the half-value thickness
-                  why: >-
-                    A factor of two where a logarithm belongs. Halving is about the logarithm of two,
-                    not about two.
             - ask: Say how many half-values the wall is, and check the fraction.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 4.0 ÷ 1.04 = 3.85, and 2⁻³·⁸⁵ = 0.14
                   rule: counting half-values
@@ -2181,16 +1845,6 @@ missions:
                   why: >-
                     The count is right and the power of two has been evaluated as though it were 2.85.
                     It is exactly twice the true fraction, which is one half-value out.
-                - text: 4.0 × 1.04 = 4.16 half-values
-                  rule: rearrangement
-                  why: >-
-                    Multiplied by the half-value thickness rather than divided by it. The units come
-                    out as centimetres squared.
-                - text: 2.66 half-values, since that is the exponent
-                  rule: counting half-values
-                  why: >-
-                    The exponent is in base e and the count is in base two. Converting between them is
-                    the factor of ln2 this step exists for.
                 - text: 4.0 ÷ 1.04 = 3.85, and 2⁻³·⁸⁵ = 0.069
                   rule: counting half-values
           commit: Commit the derivation
@@ -2346,13 +2000,6 @@ missions:
           start: 2·n·t = (m + ½)·λ
           startNote: glass 1.4682, air 1.0003, λ = 1550 nm in vacuum; take the thinnest film that works
           goal: the thickness in nanometres and the index the film should have
-          askRule: true
-          rules:
-            - the path difference in a film
-            - the wavelength inside a material
-            - equal reflections at both faces
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Write the condition for the two reflections to cancel.
               answer: 1
@@ -2366,18 +2013,8 @@ missions:
                     3100 nanometres.
                 - text: 2·n·t = λ/2, a half-wavelength of path difference
                   rule: the path difference in a film
-                - text: 2·n·t = λ, a whole wavelength of path difference
-                  rule: the path difference in a film
-                  why: >-
-                    A whole wavelength brings the two reflections back into step, so they add rather
-                    than cancel. That is a coating that makes a face reflect more.
-                - text: t = λ/2, a half-wavelength of thickness
-                  rule: rearrangement
-                  why: >-
-                    Neither the return trip nor the film's own index has been accounted for, so the
-                    thickness is out by a factor of four and a half.
             - ask: Solve for the thickness.
-              answer: 3
+              answer: 1
               candidates:
                 - text: t = λ/4 = 388 nm
                   rule: the wavelength inside a material
@@ -2386,20 +2023,10 @@ missions:
                     The film's index left out. It is 21 per cent thick and would leave a reflection
                     about a fifth of the original — better than nothing, which is what makes it
                     survive.
-                - text: t = λ·n/4 = 470 nm
-                  rule: rearrangement
-                  why: >-
-                    The index multiplying rather than dividing. A slower wave has a shorter wavelength
-                    inside the film, so the thickness goes down.
-                - text: t = λ/(2n) = 1550 ÷ (2 × 1.212) = 639 nm
-                  rule: rearrangement
-                  why: >-
-                    The four has become a two: the return trip has been counted once instead of
-                    doubling the path.
                 - text: t = λ/(4n) = 1550 ÷ (4 × 1.212) = 320 nm
                   rule: substitution of the stated values
             - ask: Say what index makes the two reflections the same size.
-              answer: 2
+              answer: 1
               candidates:
                 - text: the mean of the two, (1.4682 + 1.0003)/2 = 1.234
                   rule: equal reflections at both faces
@@ -2408,17 +2035,8 @@ missions:
                     An arithmetic mean where a geometric one belongs. It is 1.8 per cent out, it leaves
                     a residual reflection about a thousandth of the original, and it would pass every
                     test anybody here could run.
-                - text: the same as the glass, 1.4682
-                  rule: equal reflections at both faces
-                  why: >-
-                    Then there is no step at the glass face at all, only at the air face — which is the
-                    reflection you started with, moved.
                 - text: the root of the product, √(1.4682 × 1.0003) = 1.212
                   rule: equal reflections at both faces
-                - text: the difference of the two, 0.4679
-                  rule: rearrangement
-                  why: >-
-                    No material has an index below one, so this is not a candidate for a film.
             - ask: Check what the same film does at 1310 nm.
               answer: 0
               candidates:
@@ -2430,16 +2048,6 @@ missions:
                   why: >-
                     The film has not changed and the wavelength has. The condition is a relation
                     between the two, which is why a coating is specified for a wavelength.
-                - text: it reflects more than an uncoated face at that wavelength
-                  rule: the path difference in a film
-                  why: >-
-                    That happens where the path difference is a whole wavelength, which is at 640
-                    nanometres for this film rather than at 1310.
-                - text: it cancels completely, since the index condition is independent of wavelength
-                  rule: equal reflections at both faces
-                  why: >-
-                    The index condition is nearly independent of wavelength and the thickness condition
-                    is not, and both are needed.
           commit: Commit the derivation
       - group: RECV
         task: Use photon energy to understand the detector's long-wavelength cutoff
@@ -2590,13 +2198,6 @@ missions:
           start: A = A₀·e^(−λt),  λ = ln2/T½
           startNote: T½ = 73.8 days, t = 243 days since renewal
           goal: the fraction of the original activity left, and the factor on the exposure
-          askRule: true
-          rules:
-            - the decay constant from the half-life
-            - exponential decay
-            - counting half-lives
-            - the exposure a film needs
-            - rearrangement
           steps:
             - ask: Get the decay constant.
               answer: 0
@@ -2608,39 +2209,16 @@ missions:
                   why: >-
                     Inverted. A decay constant is a chance per unit time, so its units are per day
                     rather than days.
-                - text: λ = 1/T½ = 0.01355 per day
-                  rule: the decay constant from the half-life
-                  survives: true
-                  why: >-
-                    The logarithm of two left out. It is 44 per cent high, its units are right, and it
-                    is the constant for a fall by a factor of e rather than by two.
-                - text: λ = 2/T½ = 0.0271 per day
-                  rule: rearrangement
-                  why: >-
-                    A factor of two where its logarithm belongs, which is the same confusion as a
-                    half-value thickness against a mean free path.
             - ask: Get the fraction left.
-              answer: 2
+              answer: 1
               candidates:
                 - text: e^(−0.00939 × 243) = e^(−2.28) = 10.2
                   rule: exponential decay
                   why: >-
                     A fraction cannot exceed one. The exponential of a negative number has been
                     evaluated as though the sign were positive.
-                - text: 1 − 0.00939 × 243 = −1.28
-                  rule: rearrangement
-                  survives: true
-                  why: >-
-                    The exponential replaced by its first two terms, which is a fair approximation for
-                    small exponents and useless at 2.28 — and here it returns a negative fraction,
-                    which at least announces itself.
                 - text: e^(−0.00939 × 243) = e^(−2.28) = 0.102
                   rule: exponential decay
-                - text: e^(−0.00939 ÷ 243) = 0.99996
-                  rule: rearrangement
-                  why: >-
-                    Divided rather than multiplied. It says the source has lost nothing in eight
-                    months, which is the answer somebody would like.
             - ask: Check it by counting half-lives.
               answer: 1
               candidates:
@@ -2650,36 +2228,14 @@ missions:
                     Halvings multiply rather than divide: three of them is an eighth, not a third.
                 - text: 243 ÷ 73.8 = 3.29, and 2⁻³·²⁹ = 0.102
                   rule: counting half-lives
-                - text: 243 ÷ 73.8 = 3.29, and 2⁻³ = 0.125
-                  rule: counting half-lives
-                  survives: true
-                  why: >-
-                    The count rounded down to a whole number of halvings. It is 23 per cent high and it
-                    is the version anybody does in their head, which is fine as an estimate and not as
-                    a check on an exponential.
-                - text: 73.8 ÷ 243 = 0.304 half-lives
-                  rule: rearrangement
-                  why: >-
-                    Inverted. Eight months is more than one half-life, not a third of one.
             - ask: Say what that does to the exposure.
-              answer: 3
+              answer: 1
               candidates:
                 - text: the exposure falls by a tenth, since less is arriving
                   rule: the exposure a film needs
                   why: >-
                     A film needs a fixed number of arrivals, so a weaker source needs longer rather
                     than shorter.
-                - text: the exposure is unchanged, since the film's sensitivity has not altered
-                  rule: the exposure a film needs
-                  survives: true
-                  why: >-
-                    The sensitivity has not altered and the arrival rate has. What is fixed is the
-                    number of arrivals the film needs, which is a rate times a time.
-                - text: the exposure grows by ln2, since that is the decay constant's factor
-                  rule: rearrangement
-                  why: >-
-                    The logarithm of two is a conversion between two ways of writing the decay, not a
-                    factor on anything physical.
                 - text: the exposure grows by ten, the reciprocal of what is left
                   rule: the exposure a film needs
           commit: Commit the derivation
@@ -2848,13 +2404,6 @@ missions:
           start: d_route = d_optical × (n_core/n_group) ÷ (1 + h) ÷ (1 + s)
           startNote: d_optical = 84.60 km at n = 1.4682; n_group = 1.4718; helix h = 0.003; slack s = 0.015
           goal: the distance along the route, in kilometres
-          askRule: true
-          rules:
-            - the index a pulse travels at
-            - the length of fibre in a cable
-            - the slack paid out on laying
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Correct the index the instrument used.
               answer: 1
@@ -2868,18 +2417,8 @@ missions:
                     the same 207 metres.
                 - text: 84.60 × (1.4682/1.4718) = 84.39 km
                   rule: the index a pulse travels at
-                - text: 84.60 × 1.4718 = 124.5 km
-                  rule: rearrangement
-                  why: >-
-                    An index applied to a distance that already has one in it. The correction is a ratio
-                    of two indices, both nearly 1.47, so it can only be a fraction of a per cent.
-                - text: 84.60 km, since the difference is in the third decimal place
-                  rule: the index a pulse travels at
-                  why: >-
-                    The difference in the indices is only a few tenths of a per cent, but over 84 kilometres that
-                    is about 207 metres. Small fractional errors become real distances on a long cable.
             - ask: Take out the extra fibre in the cable.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 84.39 × 1.003 = 84.64 km
                   rule: the length of fibre in a cable
@@ -2888,16 +2427,6 @@ missions:
                     Multiplied. There is more fibre than cable, so a length of fibre corresponds to a
                     shorter length of cable, and the correction divides. The size is right and the sign
                     puts the answer 500 metres the wrong way.
-                - text: 84.39 − 0.003 = 84.39 km
-                  rule: rearrangement
-                  why: >-
-                    A ratio subtracted as though it were a length. Three thousandths of a kilometre is
-                    three metres and the correction is 253.
-                - text: 84.39 ÷ 0.003 = 28,130 km
-                  rule: rearrangement
-                  why: >-
-                    Divided by the excess rather than by one plus it. Twenty-eight thousand kilometres
-                    is most of the way round the earth.
                 - text: 84.39 ÷ 1.003 = 84.14 km
                   rule: the length of fibre in a cable
             - ask: Take out the slack.
@@ -2912,39 +2441,17 @@ missions:
                     Multiplying by one minus the fraction rather than dividing by one plus it. The two
                     agree to twenty metres here and diverge as the fraction grows, and the second is
                     not what slack means.
-                - text: 84.14 × 1.015 = 85.40 km
-                  rule: rearrangement
-                  why: >-
-                    Multiplied. Slack makes the cable longer than the route, so the route is shorter
-                    than the cable.
-                - text: 84.14 − 1.5 = 82.64 km
-                  rule: rearrangement
-                  why: >-
-                    A percentage subtracted as though it were kilometres. It is close to the right
-                    answer by coincidence, because 1.5 per cent of 84 is 1.26.
             - ask: Decide whether the full 1.7 km correction is small enough to ignore.
-              answer: 2
+              answer: 1
               candidates:
                 - text: Yes. 1.7 km is small compared with an 84.6 km span.
                   rule: substitution of the stated values
                   why: >-
                     The comparison that matters is not the total span length; it is whether the ship would work
                     on the same section of seabed. A 1.7 km shift changes the target.
-                - text: Yes. Only the 0.21 km index correction is physically real.
-                  rule: substitution of the stated values
-                  survives: true
-                  why: >-
-                    The fibre-in-cable and slack corrections are physical lengths too. Ignoring them confuses
-                    optical path length with route length.
                 - text: No. A 1.7 km shift changes the section of seabed the ship would lift, so the 
                     position must be corrected.
                   rule: substitution of the stated values
-                - text: No. The correction is 2.7 km because the three percentage corrections should be 
-                    added as kilometres.
-                  rule: rearrangement
-                  why: >-
-                    The three effects are ratios applied to the distance, not kilometre amounts to add. Applying
-                    them gives 82.9 km, a 1.7 km shift.
           commit: Commit the derivation
       - group: AMP
         task: Write down the expected power change before switching repeater 6 to its unused spare pump
@@ -3116,16 +2623,9 @@ missions:
           start: P_signal ≤ P_pump × (E_signal/E_pump)
           startNote: pump 980 nm, signal 1550 nm, pump power as logged 118 mW; suspected now 46 mW
           goal: the ceiling on added signal power, in milliwatts, and the loss if the pump has fallen
-          askRule: true
-          rules:
-            - one arrival for one arrival
-            - the energy of a photon
-            - conversion to decibels
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Write the ratio of the two arrival energies.
-              answer: 2
+              answer: 1
               candidates:
                 - text: E_signal/E_pump = 1550/980 = 1.582
                   rule: the energy of a photon
@@ -3134,18 +2634,8 @@ missions:
                     The wavelengths in the ratio the same way round as the energies, when energy goes
                     inversely with wavelength. It gives a ceiling above the pump power, which is a
                     machine that makes energy.
-                - text: E_signal/E_pump = (1550/980)² = 2.50
-                  rule: rearrangement
-                  why: >-
-                    Energy goes as one over the wavelength, not one over its square. There is no square
-                    anywhere in this relation.
                 - text: E_signal/E_pump = 980/1550 = 0.632
                   rule: the energy of a photon
-                - text: E_signal/E_pump = 1550 − 980 = 570 nm
-                  rule: rearrangement
-                  why: >-
-                    A difference of wavelengths is a wavelength, not a ratio of energies. It is the
-                    quantum defect expressed in the least useful unit available.
             - ask: Apply the one-for-one ceiling.
               answer: 0
               candidates:
@@ -3158,18 +2648,8 @@ missions:
                     Energy is conserved and the ceiling is tighter than that: the surplus 37 per cent
                     cannot leave as signal light because there is no level for it to come from. The
                     bound is real and this one is merely true.
-                - text: P_signal ≤ 118 ÷ 0.632 = 187 mW
-                  rule: rearrangement
-                  why: >-
-                    Divided, which puts more power out than in. The same slip as the inverted ratio,
-                    arriving one line later.
-                - text: P_signal ≤ 118 × 2 = 236 mW, two signal arrivals per pump arrival
-                  rule: one arrival for one arrival
-                  why: >-
-                    Nothing in this glass produces two arrivals from one. That would need the pump
-                    arrival to carry twice the signal energy, and it carries 1.58 times it.
             - ask: Apply the same ceiling to a pump at 46 mW.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 46 × 0.632 = 29.1 mW, so the ceiling has fallen by 45 mW
                   rule: substitution of the stated values
@@ -3177,16 +2657,6 @@ missions:
                   why: >-
                     Right arithmetic, and the difference reported as a power rather than as a ratio. A
                     span's loss is a ratio, and 45 milliwatts means nothing until it is one.
-                - text: 46 × 1.582 = 72.8 mW, barely changed
-                  rule: rearrangement
-                  why: >-
-                    The inverted ratio again, and it happens to give almost the original ceiling — which
-                    would say a pump can fall by 60 per cent with no effect at all.
-                - text: 46 mW, since the ceiling is set by the wavelengths rather than the power
-                  rule: one arrival for one arrival
-                  why: >-
-                    The wavelengths set the ratio and the pump power sets the size. Both are in the
-                    expression.
                 - text: 46 × 0.632 = 29.1 mW
                   rule: substitution of the stated values
             - ask: Put the two ceilings into decibels.
@@ -3199,18 +2669,6 @@ missions:
                     ratio through a logarithm.
                 - text: 10·log₁₀(74.6/29.1) = 4.1 dB
                   rule: conversion to decibels
-                - text: 20·log₁₀(74.6/29.1) = 8.2 dB
-                  rule: conversion to decibels
-                  survives: true
-                  why: >-
-                    The factor of twenty, which belongs to amplitudes. These are powers, and the answer
-                    is exactly twice the loss the span actually saw — which would send everybody looking
-                    for a second fault.
-                - text: 10·log₁₀(29.1/74.6) = −4.1 dB, a gain
-                  rule: rearrangement
-                  why: >-
-                    The size is right and the sign makes a loss into a gain. The span lost light; the
-                    ratio has to be written the way that says so.
           commit: Commit the derivation
       - group: TEST
         task: Force each suspect to explain all four records, not just the dramatic 4.1 dB step
@@ -3409,13 +2867,6 @@ missions:
           start: total = span + joints + event
           startNote: span 16.1 dB, joints 1.65 dB, event 4.1 dB, allowance 24 dB, the switch returned 3.6 dB
           goal: the event residue, the current total loss, and the margin after the switch
-          askRule: true
-          rules:
-            - decibels add along a path
-            - attributing a term
-            - the margin against the allowance
-            - substitution of the stated values
-            - rearrangement
           steps:
             - ask: Attribute what the switch returned.
               answer: 1
@@ -3429,18 +2880,8 @@ missions:
                     difference is the thing to explain.
                 - text: the pump accounts for 3.6 of the 4.1, leaving 0.5 dB
                   rule: attributing a term
-                - text: the pump accounts for all 4.1, since it is the only cause found
-                  rule: attributing a term
-                  why: >-
-                    Being the only cause found is not the same as accounting for the whole figure. The
-                    half decibel is either explained or recorded.
-                - text: the pump accounts for 3.6 and the joints for the other 0.5
-                  rule: rearrangement
-                  why: >-
-                    The joints were in the budget before the event and have not changed. Attributing
-                    part of a new loss to a term that was already counted is double counting.
             - ask: Restate the total.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 16.1 + 1.65 + 4.1 − 3.6 = 18.25 dB
                   rule: rearrangement
@@ -3449,37 +2890,16 @@ missions:
                     The switch's 3.6 subtracted from the whole budget rather than from the event. It
                     arrives at the right number by a route that would give the wrong one as soon as
                     any other term moved.
-                - text: 16.1 + 1.65 + 3.6 = 21.35 dB, taking the returned figure as the event
-                  rule: decibels add along a path
-                  why: >-
-                    The returned figure put in as the event, when what remains after the switch is the
-                    part that did not come back.
-                - text: 16.1 + 1.65 = 17.75 dB, the budget as it stood before the event
-                  rule: decibels add along a path
-                  why: >-
-                    That is the span before anything happened. Half a decibel of the event is still
-                    there and has to be carried.
                 - text: 16.1 + 1.65 + 0.5 = 18.25 dB
                   rule: decibels add along a path
             - ask: Take the current total away from the receiver allowance.
-              answer: 3
+              answer: 1
               candidates:
                 - text: 24 ÷ 18.25 = 1.32, so there is 32 per cent in hand
                   rule: rearrangement
                   why: >-
                     Decibels are logarithmic quantities and a margin in decibels is found by subtraction, not
                     by dividing the two dB numbers.
-                - text: 24 − 21.8 = 2.2 dB, using the loss before the spare-pump recovery
-                  rule: substitution of the stated values
-                  survives: true
-                  why: >-
-                    That is the old margin before the intervention. The current budget must use the 0.5 dB residue
-                    rather than the original 4.1 dB event.
-                - text: 24 + 18.25 = 42.25 dB of margin
-                  rule: decibels add along a path
-                  why: >-
-                    An allowance is what may be spent, so the current loss is subtracted from it. Adding makes
-                    the margin grow as the link gets worse.
                 - text: 24 − 18.25 = 5.75 dB
                   rule: substitution of the stated values
           commit: Commit the derivation

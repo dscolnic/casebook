@@ -1,0 +1,108 @@
+BANK RUNS (theme: qd_bankrun) — PLACES AND LOCATIONS
+Junior Clerk · Marrable House
+Course: Economics and finance — bank runs. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_bankrun npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — floors two to five of Marrable House, as data.
+
+A BANK IN ITS OWN BUILDING, WHICH IS WHY THE TOWER EARNS ITS KEEP. The trouble
+with putting a bank run in a place is that everything in the subject is
+arithmetic done in a room: a balance sheet, a maturity mismatch, a fire-sale
+price. Stack the rooms and one of them stops being arithmetic — **the queue is
+out of the window**. The counter floor is level with the top of it. The crisis
+desk is three floors up and can see how far down Marrable Street it now goes,
+which is the only number in this game nobody has to be told.
+
+Walking *up* the building walks the argument the course teaches:
+
+  Floor 2   the counter — deposits, and the people asking for them
+  Floor 3   the loan book — what the money was turned into, and for how long
+  Floor 4   the reserve floor — the cash there actually is, and what a sale raises
+  Floor 5   the crisis desk — where somebody decides which problem this is
+
+The lift is what makes that a decision rather than a corridor — see
+`engine/world/interiorTower.js` and `engine/core/lift.js`.
+
+Load-bearing rather than decorative:
+
+  · `world:` points at the tower module, spelled out as a literal below. The
+    floors are stacked on ONE footprint, which `interiorFloor.js` cannot do.
+  · `glazedSide: 'w'` and no glazed ends. A 1933 stone bank has punched windows
+    on the street front and solid party walls, not a curtain wall — and
+    everything glazed has to have something built outside it, or the tower is
+    four trays of furniture stacked in mid-air. `props.decorate()` builds
+    Marrable Street, the block opposite, the city out to two kilometres, and
+    the queue.
+  · The lift band on the west side is the same z on every floor, because it is
+    one shaft. Move it on one floor and the car opens into a wall on the others.
+
+Units are metres. +z runs along the corridor, +x is east, y is up the building.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+COUNTER — Counter Floor
+  Banking Hall   [COUNTER]  side w, level 0, z -11 … 0.6, floor y 0
+  A mahogany counter, four thousand accounts payable on demand, and a queue on
+  the pavement below the windows.
+  Calls: Open the tills · Read both sides · Pay in order · Ready to hand over
+
+LOANS — Loan Book Floor
+  Loan Book Room   [LOANS]  side w, level 1, z -11 … 0.6, floor y 4.6
+  What the deposits were turned into, how long it is tied up for, and two
+  different numbers for what it is worth.
+  Calls: Read the book · Read the maturities · Say what it fetches · Ready to
+  hand over
+
+VAULT — Reserve Floor
+  Reserve Room   [VAULT]  side w, level 2, z -11 … 0.6, floor y 9.2
+  The cash there actually is, counted twice a day, and a dealing room finding
+  out what a hurried sale raises.
+  Calls: Count it · Price a sale · Report the gap · Ready to hand over
+
+CRISIS — Crisis Desk
+  Crisis Desk   [CRISIS]  side w, level 3, z -11 … 0.6, floor y 13.799999999999999
+  The top floor, four banks on the wire, and the only room that can see the
+  whole length of the queue.
+  Calls: Read the wire · Change the incentive · Diagnose each one · Ready to
+  hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Tellers' Room   [TELLER]  side w, level 0, z 5 … 13
+Deposit Ledgers   [LEDGERS]  side e, level 0, z -11 … 1.2
+Post Room   [POST]  side e, level 0, z 1.2 … 13
+Securities Room   [SEC]  side w, level 1, z 5 … 13
+Credit Files   [CREDIT]  side e, level 1, z -11 … 1.2
+Valuers' Room   [VALUERS]  side e, level 1, z 1.2 … 13
+Counting Room   [COUNT]  side w, level 2, z 5 … 13
+Dealing Room   [DEALING]  side e, level 2, z -11 … 1.2
+Strongroom   [STRONG]  side e, level 2, z 1.2 … 13
+Chairman's Room   [CHAIR]  side w, level 3, z 5 … 13
+Wire Room   [WIRE]  side e, level 3, z -11 … 1.2, OPEN
+Press Room   [PRESS]  side e, level 3, z 1.2 … 13
+
+Metrics   corridorHalfWidth 2.3, roomDepth 7, ceilingH 3.2
+Floor-to-floor rise: 4.6 m
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_bankrun/ — site/plan, fixtures, minors, groups, theme.

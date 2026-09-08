@@ -1,0 +1,143 @@
+CHANGEOVER (theme: changeover) — PLACES AND LOCATIONS
+Chief Economist · Halvern Currency Board
+Course: AP Macroeconomics, all six units
+Grade 12. One mission is called a Day.
+Delivery: The Halvern Rate Book — the board is in RATE. 15 pieces, one a day.
+
+Run it:  cd gamekit && THEME=changeover npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the top four floors of Kesteven House, as data.
+
+A CURRENCY BOARD IN A BORROWED TOWER, WHICH IS WHY THE COURSE FITS. AP
+Macroeconomics is a set of national quantities and a set of levers on them,
+and the problem with putting either in a building is that nothing in the
+subject is visible: an index, a money supply and a multiplier are all
+arithmetic done in a room. A changeover makes them local for a fortnight —
+and forty-five floors up, it makes them *visible*. The queue for the counter
+is on the plaza directly below. Vend Street, whose prices are two thirds of
+the basket, runs west from the foot of the building. The port the trade
+figures come off is on the horizon, and so is the weather coming in over it.
+
+**The window is the aggregate.** That is the whole argument for this place:
+every quantity the course asks about has something out of the glass that it is
+a number for, and the player can look at both at once.
+
+The board took the top four floors in nine days, because they were the only
+vacant plate in Halvern big enough for four hundred people — empty since
+Ambrose Life folded in the spring, with the lift engineers' notices still on
+the wall. Nobody chose a tower. What a tower gives is the one thing the old
+stone bank on Ferrand Row could not: the counter, the statisticians, the wires
+and the board in one building, four minutes apart.
+
+  Floor 45   the counter floor — households, and the notes coming back
+  Floor 46   the measurement floor — the basket, the index, the ledgers
+  Floor 47   the wire floor — the open economy, one telex at a time
+  Floor 48   the board floor — where the rate is set, glass on four sides
+
+Walking *up* the building walks the causal chain the course teaches:
+households, then prices, then banks, then the outside world, then policy. The
+lift is what makes that a decision rather than a corridor — see
+`engine/world/interiorTower.js` and `engine/core/lift.js`.
+
+Load-bearing rather than decorative:
+
+  · `world:` points at the tower module. The floors are stacked on ONE
+    footprint, which `interiorLevels.js` cannot do, and the reason it cannot
+    is written at the top of both files.
+  · `glazedSide: 'all'` with `glazedEnds: true` is the point of the building:
+    curtain wall on four faces, so every room and both ends of the corridor
+    look out. `props.decorate()` builds what is out there.
+  · The lift band on the west side is the same z on every floor, because it is
+    a shaft. Move it on one floor and the car opens into a wall on the others.
+  · Every `group` here exists in content/groups.js or its calls are
+    unreachable, and only `worldParity` notices.
+
+Units are metres. +z runs along the corridor, +x is east, y is up the building.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+COUNTER — Counter Room
+  Counter Room   [COUNTER]  side w, level 0, z -12 … 0.4, floor y 0
+  Households, one at a time, with money in their hands.
+  Calls: Open the counter · Read the queue · Set the terms · Ready for the
+  fifteenth
+
+NOTES — Note Room
+  Note Room   [NOTES]  side e, level 0, z -12 … 1, floor y 0
+  The old currency, weighed on the way out of circulation.
+  Calls: Weigh the returns · Count the supply · Reconcile it · Ready for the
+  fifteenth
+
+PRICES — Price Room
+  Price Room   [PRICES]  side w, level 1, z -12 … 0.4, floor y 4.4
+  The basket, the index and what the index is an index of.
+  Calls: Price the basket · Build the index · Defend it · Ready for the
+  fifteenth
+
+BANKS — Ledger Hall
+  Ledger Hall   [BANKS]  side e, level 1, z -12 … 1, floor y 4.4
+  Reserves, deposits and what the banks can create out of both.
+  Calls: Read the reserves · Work the multiplier · Set the requirement · Ready
+  for the fifteenth
+
+TRADE — Wire Room
+  Wire Room   [TRADE]  side w, level 2, z -12 … 0.4, floor y 8.8
+  The open economy, one wire at a time.
+  Calls: Read the wires · Balance the account · Price the currency · Ready for
+  the fifteenth
+
+RATE — Rate Room
+  Rate Room   [RATE]  side w, level 3, z -12 … 0.4, floor y 13.200000000000001
+  DELIVERY ROOM — the board for The Halvern Rate Book is here.
+  The rate, the tools and the lag between them.
+  Calls: Read the market · Choose the tool · Time it · Ready for the fifteenth
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Cashiers' Room   [CASHIER]  side w, level 0, z 4.8 … 14
+Strongroom   [STRONG]  side e, level 0, z 1 … 14
+Calculating Room   [CALC]  side w, level 1, z 4.8 … 14
+Returns Room   [RETURNS]  side e, level 1, z 1 … 14
+Telex Room   [TELEX]  side w, level 2, z 4.8 … 14
+Port Desk   [PORT]  side e, level 2, z -12 … 1
+Press Room   [PRESS]  side e, level 2, z 1 … 14
+Chair's Office   [CHAIR]  side w, level 3, z 4.8 … 14
+Dealing Desk   [DEALING]  side e, level 3, z -12 … 1
+Observation Room   [LOOKOUT]  side e, level 3, z 1 … 14, OPEN
+
+Metrics   corridorHalfWidth 2.6, roomDepth 8, ceilingH 3
+Floor-to-floor rise: 4.4 m
+
+==============================================================================
+THE DELIVERY — The Halvern Rate Book
+==============================================================================
+   1. The counted statistics, dated
+   2. The output aggregate
+   3. The index and its rate
+   4. The basket, fixed and revised
+   5. The reserve-model ceiling
+   6. The spending rounds
+   7. The reserve clock
+   8. The real rate's owner
+   9. The money supply count
+  10. The output gap
+  11. The policy lag
+  12. The 4.15 conversion rehearsal
+  13. The exporters' side
+  14. The first week's cover
+  15. The rate, signed with conditions
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/changeover/ — site/plan, fixtures, minors, groups, theme.

@@ -1,0 +1,115 @@
+SIGHTLINE (theme: sightline) — PLACES AND LOCATIONS
+Review Analyst · Conviction Integrity Unit
+Course: AP Psychology, all five units, taught as the method of a conviction
+review
+Grade 12. One mission is called a Day.
+Delivery: The Ward Referral — the board is in MEASURE. 15 pieces, one a day.
+
+Run it:  cd gamekit && THEME=sightline npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Hallam Exchange, as data.
+
+A 1960s telephone exchange with the switch floor taken out of it: one hall
+fifty-four metres long, rooms down both sides, and nothing in the middle. The
+Conviction Integrity Unit took it because the hall was the only room in the
+city long enough for what it does with it.
+
+**The hall is the sightline.** The reconstruction of the Ferrier Street corner
+stands across the south end — shopfront, doorway, kerb, lamp column — and the
+distance marks are let into the floor of the corridor running away from it, so
+walking north from the bay is walking away from the doorway at 1:1. The two
+numbers this case turns on are painted there: 22 m, which is what the case
+summary said for seven years, and 34 m, which is what the ground says. A
+player who has walked from one to the other has already met day nine.
+
+Which is why the geometry below is not free. `props.js` puts the facade at the
+end wall and measures every mark from it, so moving `spine.z0` moves the
+distances the game is about.
+
+Units are metres. +z runs north along the hall, +x is to the east of it.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+PERCEPT — Perception & the Scene
+  Reconstruction Bay   [BAYW]  side w, z -10 … 4, OPEN to the spine
+  What an eye can take from a place, at that distance and in that light.
+  Calls: Measure the place · Light it as it was · Find the limit · Ready to
+  hand over
+
+MEMORY — Memory & Interview
+  Interview Suite A   [INT1]  side w, z 4 … 12
+  What happens to an account between the night and the question.
+  Calls: Date the account · Find what arrived later · Separate the sources ·
+  Ready to hand over
+
+BRAIN — Stress, Sleep & the Body
+  Physiology Bay   [PHYS]  side w, z 24 … 33
+  What arousal and exhaustion do to what gets in and what comes out.
+  Calls: Read the physiology · Reconstruct the hours · Weigh the state · Ready
+  to hand over
+
+IDENT — Identification Procedure
+  Identification Suite   [LINEUP]  side e, z 4 … 13
+  How the six were chosen, who stood behind the witness, and what was said
+  after.
+  Calls: Rebuild the array · Test it on strangers · Date the certainty · Ready
+  to hand over
+
+SOCIAL — Influence & the Room
+  Deliberation Room   [DELIB]  side e, z 18 … 27
+  What other people do to an account, a decision and a report.
+  Calls: Find the influence · Name who was present · Test the room · Ready to
+  hand over
+
+MEASURE — Testing & Records
+  Data Room   [DATA]  side e, z 27 … 35
+  DELIVERY ROOM — the board for The Ward Referral is here.
+  What a number about a person is entitled to claim, and what the file says
+  instead.
+  Calls: Read the record · Check the instrument · State the strength · Ready
+  to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Interview Suite B   [INT2]  side w, z 12 … 19
+Dark Adaptation Booth   [BOOTH]  side w, z 19 … 24
+Quiet Room   [QUIET]  side w, z 33 … 42
+Survey & Equipment Store   [BAYE]  side e, z -10 … 4, OPEN
+Observation Room   [OBS]  side e, z 13 … 18
+Records Store   [RECS]  side e, z 35 … 44
+
+Metrics   corridorHalfWidth 2.6, roomDepth 8, ceilingH 3.4
+
+==============================================================================
+THE DELIVERY — The Ward Referral
+==============================================================================
+   1. The file's unsupported claims
+   2. The twenty-two-metre visual bound
+   3. The reconstruction's chance bound
+   4. The working-lamp model, premise open
+   5. The first-interview pathways
+   6. The post-event photograph finding
+   7. The shared-source finding
+   8. The array's functional size
+   9. The surveyed thirty-four metres
+  10. The blind-administration finding
+  11. The streetlamp outage and confidence timeline
+  12. The nineteenth-hour statement, weighted
+  13. What one identification can carry
+  14. The evidence not worth consuming
+  15. The signed referral
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/sightline/ — site/plan, fixtures, minors, groups, theme.

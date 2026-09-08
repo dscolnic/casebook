@@ -1569,7 +1569,8 @@ export const CURRICULUM = {
             "min": 20,
             "max": 100,
             "nominal": 70,
-            "step": 10
+            "step": 10,
+            "worst": "min"
           },
           "robust": "corroborate",
           "optimiseOn": "closure_days",

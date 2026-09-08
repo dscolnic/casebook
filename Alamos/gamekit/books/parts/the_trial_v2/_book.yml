@@ -62,50 +62,51 @@ roster:
   name: "Mara Voss"
   role: "Trial director and mission authority"
   division: SAFE
+  pronouns: "she/her"
   bio: |
-    Mara Voss is Trial director and mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Mara Voss is Trial director and mission authority. Wants a defensible board decision on day 15. Schedule pressure can make a settled-looking number feel final. Says, "What can that number honestly claim?" She moves from deadline-first to evidence-first.
 - id: navarro
   name: "Eli Navarro"
-  role: "Site operations lead"
-  division: SAFE
+  role: "SITE division operations lead"
+  division: SITE
+  pronouns: "he/him"
   bio: |
-    Eli Navarro is Site operations lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Eli Navarro is division operations lead. Wants keep hospitals enrolling and queries moving. Fast sites look efficient before representativeness is checked. Says, "Who is missing?" He ultimately pauses the fastest site himself.
 - id: shah
   name: "Priya Shah"
   role: "Randomisation and blinding lead"
-  division: SAFE
+  division: RAND
+  pronouns: "she/her"
   bio: |
-    Priya Shah is Randomisation and blinding lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Priya Shah is Randomisation and blinding lead. Wants preserve treatment concealment and causal validity. A correct allocation file can hide failures in physical kit handling. Says, "Could anyone predict the next box?" She accepts an audit beyond her records.
 - id: reed
   name: "Tomas Reed"
-  role: "Trial statistician"
-  division: SAFE
+  role: "STAT division trial statistician"
+  division: STAT
+  pronouns: "he/him"
   bio: |
-    Tomas Reed is Trial statistician. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Tomas Reed is division trial statistician. Wants protect the analysis plan and statistical power. Formal significance can distract him from bias and practical size. Says, "State the parameter first." He presents uncertainty before the headline.
 - id: okafor
   name: "Amina Okafor"
   role: "Endpoint adjudication lead"
-  division: RAND
+  division: ENDP
+  pronouns: "she/her"
   bio: |
-    Amina Okafor is Endpoint adjudication lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Amina Okafor is Endpoint adjudication lead. Wants count the same clinical event the same way everywhere. Precise rules can still measure the wrong construct. Says, "What exactly was counted?" She revises the endpoint rule.
 - id: wu
   name: "Lena Wu"
-  role: "Regulatory and registry lead"
-  division: ENDP
+  role: "REG division regulatory and registry lead"
+  division: REG
+  pronouns: "she/her"
   bio: |
-    Lena Wu is Regulatory and registry lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Lena Wu is division regulatory and registry lead. Wants keep every change transparent and reproducible. Documentation can verify a record without verifying a patient's condition. Says, "Was that promised before the data?" She distinguishes audit trail from truth.
 - id: berg
   name: "Jonas Berg"
   role: "Safety monitoring chair"
-  division: RAND
+  division: SAFE
+  pronouns: "he/him"
   bio: |
-    Jonas Berg is Safety monitoring chair. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
-- id: manifest
-  name: "Numerical visibility manifest"
-  role: "mandatory player-visible shipping data"
-  division: RAND
-  bio: |
-    Numerical visibility manifest is mandatory player-visible shipping data. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Jonas Berg is Safety monitoring chair. Wants prevent avoidable patient harm. Early clusters can tempt him to stop before accounting for chance and exposure. Says, "What would change the decision?" He accepts continuation only with enforceable triggers.
 
 glossary:
   - name: Randomisation

@@ -1,0 +1,325 @@
+WELLMERE (theme: seedbank) — PLACES AND LOCATIONS
+Season Lead · Wellmere Seed Bank
+Course: AP Biology — heredity, population genetics, selection, plant
+energetics
+Grade 12. One mission is called a Day.
+Delivery: The Season in the Ground — the board is in CROSS. 12 pieces, one a
+day.
+
+Run it:  cd gamekit && THEME=seedbank npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Wellmere, on Saltmere Point, as data.
+
+THE LAYOUT IS THE SYLLABUS, AND THE QUANTITY IS ISOLATION DISTANCE.
+
+The first version of this place was buildings standing in a yard with a trial
+field north of them, and nothing about where anything sat taught anything —
+the vault was near the drying hall because a station has to put them
+somewhere. The set's good places all have an axis that is the course: Quantum
+walks a temperature, Red Sand walks a carbon atom through a process, Headwater
+walks a height. This one walks the hardest practical constraint in plant
+breeding.
+
+**Two populations that must not cross must not be able to reach each other.**
+Wheat is safe at about 20 m, maize wants 200, and a wind-pollinated outcrosser
+wants a kilometre. So the station is concentric, and the rings are the rule:
+
+       r = 0        THE CROSSING BLOCK — bagged heads, eight slots a year
+       r = 18–40    inner buffer: mown, empty, and empty is the point
+       r = 42–75    THE INCREASE RING — screenhouses, regeneration plots
+       r = 78–100   outer buffer
+       r = 102–150  THE TRIAL RING — plots in arcs, on the ring
+       r = 141      THE COMPOUND, on the neck: vault, laboratory, records
+       r = 170      the cliff, and the sea, on every bearing but one
+       r = 170–392  THE CAUSEWAY, tapering south, sea on both sides
+       r = 326      THE GATE — the only way on or off, and the end of the walk
+
+The mainland is horizon and distant props, never terrain. A rim is one radius
+per bearing and cannot say land, sea, land; the player is stopped at the gate,
+so Idris Fenn's farm is a silhouette to the south-west that is looked at and
+argued about and never walked to.
+
+What that buys, and none of it needed a line of question-writing:
+
+  · **The walk costs what the science costs.** `budgetForRoute` measures the
+    day from the actual map, so reaching the crossing block is expensive
+    *because it is isolated*, which is the trade-off a breeder makes for real.
+  · **The buffers are visible and empty.** A player asking why nothing is
+    planted in a forty-metre band has asked the question the ring answers.
+  · **The threat has a direction.** The prevailing wind is south-west, over
+    the causeway, off the mainland — so the one approach to the headland is
+    also the one bearing contamination can arrive on. Fenn's farm is at the
+    end of it, visible and not enterable, which is why the argument about
+    somebody else's crop is an argument about something you can see.
+  · **The sea is the isolation.** Three bearings of open water is a boundary
+    that needs no fence and no explaining.
+
+Load-bearing rather than decorative:
+
+  · Every `group` is a group id in content/groups.js, or that area's calls are
+    unreachable and only `worldParity` says so.
+  · `terrain.mesa.rimRadius` is a **function of bearing** — see `rimRadius()`
+    in engine/world/outdoorSite.js. It is what makes this a promontory rather
+    than a mesa, and it is the only thing keeping the causeway above water.
+  · `water.open` skips the carved channel and the bank. This is a sea, not a
+    river; a bank is a kerb along one edge and a kerb across open water is a
+    concrete wall standing in it.
+  · The spawn is at the gate with ten clear metres round it. A prop over the
+    spawn welds the player in place and the scene still renders perfectly.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+VAULT — Conservation & Viability
+  Seed Vault
+  (-27, 138)   32 m from spawn   25 x 15 x 6.2
+  What a seed is doing while it sits still, and how long it can go on doing
+  it.
+  Calls: Read the store · Test the germination · Decide what to regenerate ·
+  Ready to hand over
+  Fixtures (at: targets):
+    germ-bench         bench  left
+      The germination bench — Two lots of one accession, side by side. One was
+      kept properly.
+    dry-room           vessel back
+      The drying room — Where seed comes down to six per cent before the door
+      to the cold rooms opens.
+    viability-log      board  right
+      The viability record — Eleven years of germination tests on one
+      accession, and the line it is falling towards.
+    intake-pallets     bench  right [until day 4]
+      This week's intake, still on pallets — Wet off the field. Nothing on
+      this pallet may go through the door yet.
+
+LAB — Markers & Gene Expression
+  Molecular Laboratory
+  (29, 138)   34 m from spawn   21 x 14 x 6.2
+  What a piece of DNA can tell you about a plant you have not grown yet.
+  Calls: Run the marker · Check the linkage · Predict the phenotype · Ready to
+  hand over
+  Fixtures (at: targets):
+    marker-bench       bench  left
+      The marker bench — A hundred plants scored twice — once by the marker,
+      once by the disease.
+    screen-plates      rack   back  [from day 8]
+      The second-gene screen — Fifty accessions, ninety-six wells at a time,
+      looking for a lock the new race has not seen.
+
+CROSS — Heredity & Crossing
+  Crossing Hall
+  (0, 0)   155 m from spawn   18 x 12 x 5.4
+  DELIVERY ROOM — the board for The Season in the Ground is here.
+  Which parents, which offspring, and what a ratio is evidence of.
+  Calls: Choose the parents · Make the cross · Read the generation · Ready to
+  hand over
+  Fixtures (at: targets):
+    crossing-board     board  back
+      The crossing board — Eight slots for the next two years, and every name
+      anybody has proposed for them.
+    bagging-bench      bench  left
+      The emasculation bench — Forceps, glassine bags and a tag block. A cross
+      is made here or it is not made.
+    block-bags         rack   right [from day 15]
+      The season’s crosses, bagged — Eight tags, eight bags, and four years
+      before any of them is a line.
+
+DRY — Agronomy & Plant Energetics
+  Drying & Processing Hall
+  (128.29332450250726, 13.48417176152728)   191 m from spawn   22 x 14 x 6.8
+  Where the mass in a seed comes from, and what it costs the plant to make it.
+  Calls: Measure the crop · Follow the carbon · Account for the water · Ready
+  to hand over
+  Fixtures (at: targets):
+    weighbridge        board  back
+      The weighbridge slips — Eleven tonnes off one field, and a trainee who
+      thinks it came out of the soil.
+    rain-record        board  left
+      The rainfall and yield record — Eleven summers plotted against eleven
+      harvests, and a straight-ish line through them.
+    straw-bench        bench  left
+      The straw and grain bench — Two sheaves of the same cross. One is
+      fifteen centimetres shorter and nobody asked for it.
+    paired-bench       bench  right
+      The paired-plot bench — Same line with the gene and without it, grown
+      clean, weighed against each other.
+    season-books       rack   right
+      The season notebooks — Twelve years of canopy, flowering and weather,
+      and nobody has ever asked for the series.
+
+POP — Population Genetics
+  Genetic Resources Office
+  (-41.719300090006314, -41.71930009000629)   201 m from spawn   17 x 12 x 5.2
+  What a collection holds, and what is lost every time it is grown out.
+  Calls: Count the alleles · Test against the null · Size the sample · Ready
+  to hand over
+  Fixtures (at: targets):
+    genotype-board     board  back
+      The genotype board — A hundred plants at one locus, written up as counts
+      rather than as plants.
+    regen-log          bench  left
+      The regeneration log — Who grew what out, in what year, and how many
+      plants gave the seed.
+    pedigree-wall      board  right
+      The pedigree wall — Six elite parents across three metres of paper, and
+      the grandparent four of them share.
+    tag-bench          bench  back
+      The tagging bench — Flagging tape, paper bags and plot tags, ready for a
+      field somebody is about to spray.
+    regrow-list        board  left  [from day 11]
+      The regrowing list — Thirty accessions, and the fifteen years of
+      glasshouse it would take to put them right.
+
+TRIAL — Field Trials & Selection
+  Field Laboratory
+  (82.02438661763951, -82.02438661763952)   251 m from spawn   19 x 12 x 5.6
+  Telling a good line from a good year, on ground that is never uniform.
+  Calls: Lay out the trial · Score the plots · Separate line from site · Ready
+  to hand over
+  Fixtures (at: targets):
+    plot-table         bench  left
+      The plot plan table — Two hundred and forty plots on one sheet, and the
+      wet corner drawn in.
+    scoring-bench      bench  back
+      The scoring bench — Plot means, replicate by replicate, before anybody
+      averages them.
+    morning-board      board  right
+      The morning board — What the drill, the crew and the merchant are each
+      waiting on today.
+    seed-lots          rack   right [until day 11]
+      The trial seed, still in its lots — Two hundred and forty numbered bags.
+      None of it is in the ground yet.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+GH1 — Glasshouse 1  ·  "Warm bay · the crosses that cannot wait for spring"
+  (-20.073918190765745, -22.294344764321828)   178 m from spawn   12 x 20 x 5.2
+  Sited calls:
+    f2-benches         rack   left
+      The second-generation benches — Four hundred plants from one cross, and
+      this is the generation where they come apart.
+  Stand line: "Everything on these benches is a cross somebody could not wait
+  a season for."
+    Day temperature: 22 °C (normal)
+    Night temperature: 16 °C (normal)
+    Generations a year: 2 (high)
+    F2 plants on the benches: 400 (normal)
+
+GH2 — Glasshouse 2  ·  "Cool bay · vernalisation"
+  (0, -31)   186 m from spawn   12 x 20 x 5.2
+  Stand line: "Eight weeks at four degrees, and then they behave as though it
+  is March."
+    Vernalisation temperature: 4 °C (normal)
+    Weeks required: 6 to 8 (normal)
+    Trays in cold treatment: 34 (normal)
+    Out on schedule: 31 of 34 (low)
+
+GH3 — Glasshouse 3  ·  "Screening bay · rust nursery, kept apart"
+  (20.073918190765745, -22.294344764321828)   178 m from spawn   12 x 20 x 5.2
+  Sited calls:
+    row-slate          board  back
+      The standing instruction — Chalked at the end of the row, rewritten when
+      the season turns, announced to nobody.
+  Stand line: "Nothing walks from this house to the crossing block without
+  changing its boots."
+    Rust race in the nursery: the new one (alarm)
+    Accessions inoculated: 50 (normal)
+    Scored clean so far: 2 (high)
+    Spore filter on the vents: in service (normal)
+
+RECORDS — Passport Records  ·  "Where every accession came from"
+  (-48, 148)   49 m from spawn   15 x 10 x 4.8
+  Sited calls:
+    passport-run       rack   left
+      The passport run — Where every accession says it came from, in the hand
+      of whoever collected it.
+    evidence-board     board  back
+      The evidence board — Four channels pinned up side by side, and one
+      grow-out standing behind three of them.
+  Stand line: "A gene bank sells one thing, which is knowing what is in the
+  packet."
+    Accessions on file: 41,000 (normal)
+    Genotyped against the file: 90 (normal)
+    File and plant disagree: 30 of 90 (alarm)
+    Labelling errors found: 0 (normal)
+
+THRESH — Threshing Floor  ·  "Harvest in, chaff out"
+  (48, 148)   49 m from spawn   17 x 11 x 5.6
+  Sited calls:
+    bag-line           bench  left
+      The bagging line — Two hours of heads to clear, and only the cover tells
+      you who the father was.
+  Stand line: "The cover is the whole of the record. Once it is off, nothing
+  says who the father was."
+    Bags waiting: 2 hours of them (high)
+    Store closes: 17:00 (high)
+    Bagged heads: father known (normal)
+    Open heads: father unknown (alarm)
+
+OFFICE — The Site Office  ·  "Postings for a season lead’s first morning"
+  (0, 175)   20 m from spawn   9 x 7 x 4.4
+  Sited calls:
+    goals-note         board  left
+      The season’s stated aim — Two parents pinned side by side, and what the
+      programme is trying to get from them.
+    trial-plan-copy    board  right
+      A copy of the trial plan — Two hundred and forty plots, each line sown
+      four times, posted for anyone who has not walked the ring yet.
+    weighbridge-copy   board  left
+      A copy of the weighbridge slip — Eleven tonnes off one field, and a
+      trainee who thinks it came out of the soil.
+    genotype-copy      board  right
+      A copy of the genotype count — A hundred plants at one locus, written up
+      as counts rather than as plants.
+  Stand line: "The board changes every year. The rule for reading it does
+  not."
+    Crossing slots open: 8 (high)
+    Trial plots this year: 240 (normal)
+    Season: Week 1 (normal)
+    Postings current as of: this morning (normal)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Season Board
+  (13, 160)
+Spawn
+  (0, 155)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 1200, playerLimit 400, profile 'mesa'
+Water     centre (0, 0), 2400 x 2400, level -19.5
+
+==============================================================================
+THE DELIVERY — The Season in the Ground
+==============================================================================
+   1. Sixty accessions pulled for grow-out
+   2. A duplicate slot handed back
+   3. The west ground allotted
+   4. The short lines kept anyway
+   5. Forty regrowing plots chosen
+   6. The rust screen aimed
+   7. Twenty plots carried into next year
+   8. Thirty accessions off the screening list
+   9. One clean source of the second gene
+  10. The drill sent out in the right order
+  11. Eight crosses bagged in the block
+  12. Fifteen years of regrowing, scheduled
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/seedbank/ — site/plan, fixtures, minors, groups, theme.

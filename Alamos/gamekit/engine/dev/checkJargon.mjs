@@ -135,10 +135,26 @@ const phrasesIn = (text) => {
   return [...new Set(PHRASES.filter(p => phraseRe(p).test(t)).map(flatPhrase))];
 };
 
+/**
+ * Words this campaign also writes in ordinary case, filled in below.
+ *
+ * A SHOUTED WORD IS NOT AN ACRONYM. The rule under it — two to five capitals is
+ * an acronym — is right for EVA and MSV and wrong for a panel that labels its
+ * options KEEP, SHUT DOWN, VENT, HOLD, GREEN and LIVE, which is how Whiteout
+ * was reported for twenty-two undefined terms of which seventeen were English
+ * words the same card uses in a sentence. A wall of false findings is how a
+ * gate stops being read, so the test is corpus-relative and needs no word list:
+ * a campaign that writes "keep the generator online" somewhere is shouting
+ * rather than abbreviating, while nothing anywhere writes "eva" or "rms" as a
+ * word.
+ */
+const alsoLowerCase = new Set();
+
 const hardWord = (w) => {
   const word = w.toLowerCase().replace(/[’']s$/, '');
   if(TERMS.has(word)) return true;
-  if(/^[A-Z]{2,5}$/.test(w) && !/^(THE|AND|FOR|NOT|ONE|TWO|YOU|ALL)$/.test(w)) return true;   // an acronym
+  if(/^[A-Z]{2,5}$/.test(w) && !/^(THE|AND|FOR|NOT|ONE|TWO|YOU|ALL)$/.test(w)
+     && !alsoLowerCase.has(word)) return true;   // an acronym
   // Units are notation rather than vocabulary — "cm/s" needs the relationship
   // line, not a glossary entry — so they are not findings.
   if(word.includes('/')) return false;
@@ -299,6 +315,18 @@ if(selftestMode){
   ok('BUG BACK: and leaves the scene case passing',
     definedInPlace('ppm', withoutGuide({ scene: GLOSS }, {})));
 
+  // A SHOUTED WORD IS NOT AN ACRONYM, and the pair below is the whole rule: the
+  // same token, the same shape, and the only difference is whether the campaign
+  // ever writes it as a word. Both fail if the corpus clause is dropped — the
+  // first by reporting KEEP, the second by no longer reporting EVA.
+  alsoLowerCase.clear();
+  ok('a two-to-five letter capital is an acronym', hardWord('EVA'));
+  for(const w of ['keep', 'shut', 'green']) alsoLowerCase.add(w);
+  ok('…unless the campaign also writes it as a word', !hardWord('KEEP'));
+  ok('…which is decided per token, not for the whole card', hardWord('EVA'));
+  ok('a real term stays a term however it is cased', hardWord('scrubber'));
+  alsoLowerCase.clear();
+
   console.log(bad ? `\ncheckJargon selftest: ${bad} case(s) failed.`
                   : '\ncheckJargon selftest: all cases pass.');
   process.exit(bad ? 1 : 0);
@@ -306,6 +334,26 @@ if(selftestMode){
 
 const firstUse = new Map();    // word -> { day, where, kind }
 const perDay = [];
+
+// THE CORPUS FIRST, because `hardWord` asks whether the campaign ever writes a
+// capitalised token as a word. Everything a player reads counts, verdicts
+// included: a term explained after the question is still the campaign using the
+// word in a sentence.
+for(const m of MISSIONS){
+  const said = [(m.primer ?? []).join(' '), m.stake ?? '', m.takeaway ?? '',
+    ...(m.stops ?? []).map((stop) => {
+      const l = CURRICULUM[stop.group]?.[stop.lesson];
+      if(!l) return '';
+      const ch = l.game ?? {};
+      return [askedText(l, ch), l.why ?? '', l.answer ?? '', l.takeaway ?? ''].join(' ');
+    })].join(' ');
+  // Only tokens written in lower or sentence case — a token that is ALWAYS
+  // capitals adds nothing here and would defeat the test it feeds.
+  for(const raw of words(said)){
+    if(/^[A-Z]{2,}$/.test(raw)) continue;
+    alsoLowerCase.add(raw.toLowerCase().replace(/[’']s$/, ''));
+  }
+}
 
 MISSIONS.forEach((m, mi) => {
   const dayNo = mi + 1;

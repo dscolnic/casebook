@@ -6,13 +6,21 @@
     header: "5 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "FAST IS NOT THE SAME AS MORE"
     goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the equilibrium board."
-    body: "The hidden run proves that lowering the temperature prevented a thermal runaway. The safe setting is slower, but reaction speed does not determine the final methane amount. At the Reactor, Cold End, and Plant Control, use equilibrium, product removal, pressure, and heat limits to compare operating plans. By the end of the mission, choose a plan that can recover methane without crossing the thermal limit."
+    body: "Lowering the temperature prevented dangerous overheating, but the crew still needs more methane. A faster reaction does not always produce more usable fuel in the end. Compare temperature, pressure, and water removal to choose a production plan that stays within the reactor's heat limit."
     objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
   objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
-  stake: "The hidden run proves that lowering the temperature prevented a thermal runaway. The safe setting is slower, but reaction speed does not determine the final methane amount. At the Reactor, Cold End, and Plant Control, use equilibrium, product removal, pressure, and heat limits to compare operating plans. By the end of the mission, choose a plan that can recover methane without crossing the thermal limit."
+  stake: "Lowering the temperature prevented dangerous overheating, but the crew still needs more methane. A faster reaction does not always produce more usable fuel in the end. Compare temperature, pressure, and water removal to choose a production plan that stays within the reactor's heat limit."
   takeaway: "Kinetics sets speed; equilibrium sets the composition approached."
   segue: "Mission decision: Use lower heat, higher pressure, and water removal. This plan keeps a safe heat margin and raises the final methane share. Two plans with the same early speed did not make the same final amount. The next test asks if the water and hydrogen loop can feed this plan."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Equilibrium constant", def: "compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes."}
+  - {name: "Reaction quotient", def: "uses the same concentration form as the equilibrium constant but can be calculated before equilibrium. Comparing Q with K predicts the direction of net change."}
+  - {name: "Initial-change-equilibrium (ICE) table", def: "organizes initial concentrations, their linked changes, and equilibrium concentrations. One reaction extent controls every change through the balanced coefficients."}
+  - {name: "Equilibrium yield", def: "the product amount or fraction present after forward and reverse rates become equal. It is different from how quickly that state is reached."}
+  equations:
+  - {"e":"Kc = [CH4][H2O]^2 / ([CO2][H2]^4)","c":"comparing equilibrium products with reactants for the Sabatier reaction","v":[["brackets","equilibrium molar concentrations"],["each exponent","the coefficient from the balanced equation"]],"s":"The safer reactor setting must still reach enough final methane, not merely produce methane quickly at the start."}
+  - {"e":"concentration at equilibrium = initial concentration + coefficient-linked change","c":"completing an ICE table with one reaction extent","v":[["initial concentration","the starting value; change is negative for consumed reactants and positive for formed products; coefficients set relative sizes"]],"s":"The plant needs a numerical methane ceiling at the safe temperature before committing pressure and water-removal power."}
   primer:
   - "Kinetics determines speed; equilibrium determines final composition."
   - "For an exothermic reaction, raising temperature can speed the approach while reducing the equilibrium methane yield."
@@ -39,7 +47,7 @@
     # unlocks: The Cold End waypoint and Stop 43.
     bubbles:
     - who: herrera   # Herrera
-      say: "Raising temperature may speed this exothermic reaction while lowering its equilibrium methane yield. Look for a different lever."
+      say: "Nice work. Raising temperature may speed this exothermic reaction while lowering its equilibrium methane yield. Look for a different lever."
   - id: after-stop-43
     # After Stop 43 | Cold End | automatic experiment
     on: { after: [3] }
@@ -48,7 +56,7 @@
     # unlocks: The Plant Control waypoint and Stop 44.
     bubbles:
     - who: cho   # Cho
-      say: "The separator can pull the reaction forward and return that water to the plant."
+      say: "Good thinking. The separator can pull the reaction forward and return that water to the plant."
   - id: after-stop-44
     # After Stop 44 | Plant Control | automatic integrated decision
     on: { after: [4] }
@@ -57,7 +65,7 @@
     # unlocks: The Mission 11 outcome beat.
     bubbles:
     - who: abiola   # Abiola
-      say: "One plan. One set of limits. Reactor, separator, and control room sign together."
+      say: "Exactly right. One plan. One set of limits. Reactor, separator, and control room sign together."
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,9 +74,80 @@
     # unlocks: Mission 12 briefing and the Ice Cut waypoint.
     bubbles:
     - who: demir   # Demir
-      say: "This plan can make the fuel. It also spends power in three places, and its hydrogen still comes from recycled water."
+      say: "Outstanding work. You solved the mission. This plan can make the fuel. It also spends power in three places, and its hydrogen still comes from recycled water."
     - who: abiola   # Abiola
       say: "Then we stop treating the plant like separate rooms."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Fast Is Not the Same as More. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Dynamic equilibrium", def: "a state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react."}
+    - {name: "Le Chatelier's principle", def: "predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value."}
+    - {name: "Degeneracy", def: "occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them."}
+    questions:
+    - prompt: "In a follow-up to Fast Is Not the Same as More, to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Dynamic equilibrium?"
+      hint: "Use the stated evidence and the conditions for Dynamic equilibrium; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.", why: "This describes Le Chatelier's principle, not Dynamic equilibrium. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.", why: "Correct. a state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react."}
+      - {key: "C", text: "Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.", why: "This describes Degeneracy, not Dynamic equilibrium. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes.", why: "This describes Equilibrium constant, not Dynamic equilibrium. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to Fast Is Not the Same as More: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Le Chatelier's principle?"
+      hint: "Use the stated evidence and the conditions for Le Chatelier's principle; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.", why: "This describes Dynamic equilibrium, not Le Chatelier's principle. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.", why: "This describes Degeneracy, not Le Chatelier's principle. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.", why: "Correct. predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value."}
+      - {key: "D", text: "Compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes.", why: "This describes Equilibrium constant, not Le Chatelier's principle. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks Fast Is Not the Same as More using new evidence: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Degeneracy?"
+      hint: "Use the stated evidence and the conditions for Degeneracy; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.", why: "This describes Dynamic equilibrium, not Degeneracy. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.", why: "This describes Le Chatelier's principle, not Degeneracy. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes.", why: "This describes Equilibrium constant, not Degeneracy. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.", why: "Correct. occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them."}
+    - prompt: "An unseen case extends Fast Is Not the Same as More: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Equilibrium constant?"
+      hint: "Use the stated evidence and the conditions for Equilibrium constant; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes.", why: "Correct. compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes."}
+      - {key: "B", text: "A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.", why: "This describes Dynamic equilibrium, not Equilibrium constant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.", why: "This describes Le Chatelier's principle, not Equilibrium constant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.", why: "This describes Degeneracy, not Equilibrium constant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Fast Is Not the Same as More decision, the team knows this: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reaction quotient?"
+      hint: "Use the stated evidence and the conditions for Reaction quotient; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.", why: "This describes Dynamic equilibrium, not Reaction quotient. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Uses the same concentration form as the equilibrium constant but can be calculated before equilibrium. Comparing Q with K predicts the direction of net change.", why: "Correct. uses the same concentration form as the equilibrium constant but can be calculated before equilibrium. Comparing Q with K predicts the direction of net change."}
+      - {key: "C", text: "Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.", why: "This describes Le Chatelier's principle, not Reaction quotient. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.", why: "This describes Degeneracy, not Reaction quotient. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from Fast Is Not the Same as More to this follow-up: use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature. Which calculation or chemical interpretation correctly applies Initial-change-equilibrium (ICE) table?"
+      hint: "Use the stated evidence and the conditions for Initial-change-equilibrium (ICE) table; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.", why: "This describes Dynamic equilibrium, not Initial-change-equilibrium (ICE) table. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.", why: "This describes Le Chatelier's principle, not Initial-change-equilibrium (ICE) table. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Organizes initial concentrations, their linked changes, and equilibrium concentrations. One reaction extent controls every change through the balanced coefficients.", why: "Correct. organizes initial concentrations, their linked changes, and equilibrium concentrations. One reaction extent controls every change through the balanced coefficients."}
+      - {key: "D", text: "Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.", why: "This describes Degeneracy, not Initial-change-equilibrium (ICE) table. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 11: worked examples"
+    examples:
+    - {"title":"Compute an equilibrium constant","problem":"For A⇌B, equilibrium concentrations are [A]=0.2 M and [B]=0.6 M. Find the concentration quotient used for K.","rule":"K=[B]/[A] for this 1:1 idealized reaction, using standard-state normalized concentrations.","steps":["Set up the relationship: K=[B]/[A] for this 1:1 idealized reaction, using standard-state normalized concentrations.","K=0.6/0.2=3."],"answer":"The equilibrium constant is 3.","mistake":"Use equilibrium concentrations, not initial concentrations."}
+    - {"title":"Predict net reaction direction","problem":"For A⇌B, K=4. A mixture has [A]=0.5 M and [B]=1 M. Compare Q with K.","rule":"Q=[B]/[A]; Q<K favors net forward reaction.","steps":["Set up the relationship: Q=[B]/[A]; Q<K favors net forward reaction.","Q=1/0.5=2<4."],"answer":"The mixture undergoes net forward reaction toward B.","mistake":"A large product concentration alone does not determine the direction."}
+    - {"title":"Solve a simple equilibrium","problem":"Initially [A]=1 M and [B]=0 for A⇌B in a fixed volume. At equilibrium K=1.","rule":"Let x M convert: [A]=1-x and [B]=x.","steps":["Set up the relationship: Let x M convert: [A]=1-x and [B]=x.","x/(1-x)=1; x=1-x; x=0.5 M."],"answer":"Both equilibrium concentrations are 0.5 M.","mistake":"Equal equilibrium concentrations follow from K=1 here, not from a universal rule."}
+    - {"title":"Compress an equilibrium mixture","problem":"For N₂O₄(g)⇌2NO₂(g), the volume is reduced at constant temperature. Which net direction is favored initially?","rule":"Compression favors the side with fewer gas particles for this equilibrium.","steps":["The left side has one gas molecule per reaction unit; the right has two.","Net reverse reaction reduces the increased pressure relative to no reaction."],"answer":"The mixture shifts toward N₂O₄; K stays unchanged at fixed temperature.","mistake":"Compression changes composition, not K when temperature is fixed."}
+    - {"title":"Explain a catalyst","problem":"A catalyst lowers activation barriers without changing reactant and product energies. What changes at a fixed temperature?","rule":"A catalyst offers a faster pathway but does not change the equilibrium constant.","steps":["Forward and reverse reactions can proceed faster.","The equilibrium composition stays the same, though it is reached sooner."],"answer":"The catalyst changes kinetics, not the equilibrium constant.","mistake":"A faster forward reaction alone does not imply a new equilibrium yield."}
 
   stops:
   # --- Stop 41: Build the equilibrium expression
@@ -78,10 +157,10 @@
     at: equil-stub
     title: "Build the equilibrium expression"
     person: herrera
-    concept: "equilibrium expressions"
-    reason: "A safer operating plan needs the correct expression for final composition."
-    scene: "To replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. This expression defines the balance the recovery plan must satisfy."
-    motivation: "The expression defines the methane-water balance the safer operating plan must reach."
+    concept: 12   # equilibrium expressions
+    reason: "A safer recovery plan is being developed and needs the reactor's equilibrium relationship."
+    scene: "To replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases."
+    motivation: "The equilibrium expression defines how reactant and product concentrations constrain the achievable methane mixture."
     format: CHOICE
     question: "Which Kc expression matches the gas-phase Sabatier equation?"
     choices:
@@ -103,13 +182,13 @@
   - group: EQUIL
     at: ice-board
     title: "Complete the ICE table"
-    concept: "ICE stoichiometry"
-    reason: "The equilibrium ceiling must be calculated before another control is changed."
-    scene: "Use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature. The result sets the methane ceiling at the safe temperature."
-    motivation: "The equilibrium ceiling tells the crew how much methane is possible after the reaction has enough time."
-    format: BALANCE
+    concept: 12   # ICE stoichiometry
+    reason: "The equilibrium relationship is selected and the safe-temperature mixture needs calculating."
+    scene: "Use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature."
+    motivation: "The concentration table establishes the methane ceiling and remaining reactants for the proposed operating condition."
+    format: BALLPARK
     question: "Complete changes and equilibrium concentrations, then calculate Kc for this training condition."
-    answerText: "The equilibrium row is 0.40, 1.60, 0.60, and 1.20 M, giving Kc about 0.33."
+    answerText: "The equilibrium row is 1.00, 1.00, 0.50, and 1.00 M, giving Kc = 0.50."
     why: "Every change is tied to one reaction extent x and multiplied by coefficients. Hydrogen changes by -4x; water by +2x. The balanced row is the guardrail against treating each concentration independently."
     # wrong-path feedback, one rebuttal per wrong option:
     #   If H2 falls by 0.60, point to coefficient four. If water becomes 0.60, point to coefficient two.
@@ -128,6 +207,49 @@
     #       - {id: catalyst, label: "Solid nickel catalyst", count: false, reason: "not part of the ICE concentration row or Kc expression"}
     #     closure: {Kc: 0.3296, tolerance: 0.01}
     #     correct_action: "Use one extent x with coefficients -1, -4, +1, +2, then calculate Kc."
+    estimate:
+      prompt: "[CH4][H2O]^2 / ([CO2][H2]^4)"
+      question: equilibrium constant Kc
+      labels:
+        - 1 M  (Equilibrium CO2)
+        - 1 M  (Equilibrium H2)
+        - 0.5 M  (Equilibrium CH4)
+        - 1 M  (Equilibrium H2O)
+      values:
+        - 1
+        - 1
+        - 0.5
+        - 1
+      slots: 4
+      template: Kc=({0})({1})^2/[({2})({3})^4]
+      formula: Kc=(0.50)(1.00)^2/[(1.00)(1.00)^4]
+      correct:
+        - 2
+        - 0
+        - 1
+        - 3
+      target: 0.5
+      tolerance: 0.01
+      units: dimensionless
+      explanation: Mixing a contextual reading into the arithmetic or reversing the subtraction.
+    balance:
+      total:
+        amount: 100
+      streams:
+        - id: visible_a
+          label: visible inflow
+          value: 72
+        - id: visible_b
+          label: visible outflow
+          value: -41
+        - id: visible_c
+          label: recorded storage change
+          value: 24
+        - id: hidden_loss
+          label: unlogged removal
+          value: 45
+          hidden: true
+      tolerance: 0.5
 
   # --- Stop 43: Push the balance on purpose
   #     Concept: Le Châtelier/Q vs K; Keystone: equilibrium and reaction quotient; Area: Reactor Hall; Learning role: COMBINE; Difficulty: L3; Story role: experiment.
@@ -135,10 +257,10 @@
   - group: EQUIL
     at: coldline
     title: "Push the balance on purpose"
-    concept: "Le Châtelier/Q vs K"
-    reason: "Product removal offers a yield test without raising dangerous temperature."
-    scene: "Because the temperature cannot simply be raised, remove product water at fixed temperature to test whether separation can increase methane yield safely. Reversal will show whether the yield gain truly follows product removal."
-    motivation: "Product removal can raise methane yield without recreating the dangerous high temperature."
+    concept: 12   # Le Châtelier/Q vs K
+    reason: "The safe-temperature yield is known and product removal is ready for a reversible test."
+    scene: "Reversal will show whether the yield gain truly follows product removal."
+    motivation: "The response to water removal tests whether shifting equilibrium can improve methane yield without raising temperature."
     format: CONTROL
     # MODEL CONVERSION. The bible offers three candidate changes and a conversion
     # that goes 60 -> 68 under the right one and returns to 60. The engine's
@@ -146,18 +268,15 @@
     # signed change in the reading: `response` is 68 - 60, `noise` the bible's
     # noise band, `truth` its `correct`.
     control:
-      observable: { label: "Methane conversion", unit: percent }
       variables:
-      - { id: water_removal, label: "Remove product water" }
-      - { id: inert_n2, label: "Add inert N2 at fixed volume" }
-      - { id: pressure_bar, label: "Compress mixture" }
-      held: ["Temperature", "Feed composition"]
-      truth: water_removal
-      baseline: 60
-      response: 8
-      noise: 1
-      run: "Run the measurement"
-      commit: "Name the change"
+        - id: water_removal
+          label: Remove product water
+        - id: inert_n2
+          label: Add inert N2 at fixed volume
+        - id: pressure_bar
+          label: Compress mixture
+      held:
+        - ""
     question: "Use a controlled change to increase methane yield without raising temperature, then reverse it."
     answerText: "Remove product water at fixed temperature, measure the higher conversion, then restore the baseline."
     why: "Removing a product lowers Q below K, so the reaction moves forward until Q=K again. The equilibrium constant at fixed temperature does not change. An inert gas at fixed volume raises total pressure but not component partial pressures."
@@ -185,10 +304,10 @@
   - group: EQUIL
     at: operating-point-board
     title: "Two plans look equally fast"
-    concept: "kinetics vs equilibrium"
-    reason: "Equal rates must be separated by gas, equilibrium, and thermal constraints."
-    scene: "Combine rate, equilibrium, pressure, and heat limits to choose between two plans that initially appear equally fast. Only the plan that survives all three kinds of physics can be approved."
-    motivation: "Equal speed is not enough; the plan must also make sufficient methane and remain safe."
+    concept: 12   # kinetics vs equilibrium
+    reason: "Two plans appear equally fast, but neither can be approved on reaction rate alone."
+    scene: "Combine rate, equilibrium, pressure, and heat limits to choose between two plans that initially appear equally fast."
+    motivation: "The combined rate, equilibrium, and thermal checks identify which operating pair also preserves yield and safety margin."
     format: DEGENERACY
     # CONVERTED from the payload below. `first_locus` -> `locus` and its label ->
     # the observable both plans match on; `second_locus` -> `second`;
@@ -196,26 +315,41 @@
     # controls, and its `physics` line is the second measurement's hint.
     degeneracy:
       controls:
-      - { id: temperature_K, label: "Temperature", min: 545, max: 575, step: 5, unit: K }
-      - { id: pressure_bar, label: "Pressure", min: 8, max: 13, step: 1, unit: bar }
-      observable: { label: "Equal immediate rate index" }
+        - id: temperature_K
+          label: Temperature
+          min: 545
+          max: 575
+          step: 5
+        - id: pressure_bar
+          label: Pressure
+          min: 8
+          max: 13
+          step: 1
+      truth:
+        a: 550
+        b: 12
       locus:
-      - { a: 575, b: 8 }
-      - { a: 570, b: 9 }
-      - { a: 565, b: 10 }
-      - { a: 558, b: 11 }
-      - { a: 550, b: 12 }
+        - a: 575
+          b: 8
+        - a: 570
+          b: 9
+        - a: 565
+          b: 10
+        - a: 558
+          b: 11
+        - a: 550
+          b: 12
       second:
-        label: "Equilibrium methane fraction >=70% and inlet peak <600 K"
-        apply: "Apply the second measurement"
+        label: Equilibrium methane fraction >=70% and inlet peak <600 K
         locus:
-        - { a: 550, b: 12 }
-        - { a: 550, b: 13 }
-        - { a: 545, b: 13 }
-      truth: { a: 550, b: 12 }
-      tolerance: { a: 2, b: 2 }
-      hint: "Exothermic equilibrium, gas-mole compression, and thermal margin"
-      commit: "Report the operating point"
+          - a: 550
+            b: 12
+          - a: 550
+            b: 13
+          - a: 545
+            b: 13
+      observable:
+        label: Equal immediate rate index
     question: "Add the physical constraints that separate the equal-rate plans."
     answerText: "Use 550 K and 12 bar with water removal; it alone meets rate, equilibrium-yield, and heat limits."
     why: "Equal immediate rates do not imply equal final composition or safety. The extra physics collapses the degeneracy."

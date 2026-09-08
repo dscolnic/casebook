@@ -91,49 +91,49 @@ roster:
   role: "Board Chair and mission authority"
   division: STATS
   bio: |
-    Mara Venn is Board Chair and mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Mara Venn is Board Chair and mission authority. Wants a credible on-time conversion. Equates decisiveness with a high rate. Learns that a defensible rule includes conditions for changing course.
 - id: voss
   name: "Eli Voss"
-  role: "counter operations lead"
-  division: RATE
+  role: "NOTES counter operations lead"
+  division: NOTES
   bio: |
-    Eli Voss is counter operations lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Eli Voss is counter operations lead. Wants keep families moving. Treats every queue as a cash shortage. Learns to separate visible congestion from national monetary evidence.
 - id: pell
   name: "Idris Pell"
-  role: "national accounts chief"
-  division: COUNTER
+  role: "PRICES national accounts chief"
+  division: PRICES
   bio: |
-    Idris Pell is national accounts chief. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Idris Pell is national accounts chief. Wants publish defensible output data. Trusts aggregates before composition. Moves from exact totals to transparent scope and dependency.
 - id: saye
   name: "Lina Saye"
   role: "price statistics lead"
   division: STATS
   bio: |
-    Lina Saye is price statistics lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Lina Saye is price statistics lead. Wants protect the basket's integrity. Defends fixed weights too long. Preserves history while publishing a representative companion measure.
 - id: arendt
   name: "Tomas Arendt"
-  role: "bank supervision lead"
-  division: RATE
+  role: "BANKS bank supervision lead"
+  division: BANKS
   bio: |
-    Tomas Arendt is bank supervision lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Tomas Arendt is bank supervision lead. Wants prevent a bank run. Focuses on maximum lending rather than willing lending. Learns that capacity, timing, and behavior are separate constraints.
 - id: corren
   name: "Nia Corren"
-  role: "open-economy analyst"
-  division: OPENEC
+  role: "TRADE open-economy analyst"
+  division: TRADE
   bio: |
-    Nia Corren is open-economy analyst. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Nia Corren is open-economy analyst. Wants keep payments and trade clearing. Initially treats appreciation as strength alone. Makes the financing benefit and export cost visible together.
 - id: dane
   name: "Rhea Dane"
   role: "finance minister"
   division: RATE
   bio: |
-    Rhea Dane is finance minister. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Rhea Dane is finance minister. Wants show control before launch. Underweights lags and crowding out. Replaces an announcement-first plan with a smaller conditional bridge.
 - id: vale
   name: "Soren Vale"
-  role: "export council liaison"
-  division: COUNTER
+  role: "OPENEC export council liaison"
+  division: OPENEC
   bio: |
-    Soren Vale is export council liaison. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Soren Vale is export council liaison. Wants protect orders and jobs. Treats depreciation as costless. Accepts a stable conversion with targeted first-week cover.
 
 glossary:
 # mission 1
@@ -332,11 +332,11 @@ warmups:
       stall — visible from the window, four hundred metres west — is the only place in Halvern
       where the new one can be checked against something real.
   hunt:
-    title: Six ledgers, and one of them does not reconcile
+    title: Eight ledgers, and one of them does not reconcile
     item: {name: ledger, plural: ledgers}
     why: >-
-      Femi Adeyinka, the vault officer, has six regional ledgers out across these four floors and
-      a weighed total that does not match their sum. Find all six and read them. The gap between
+      Femi Adeyinka, the vault officer, has eight regional ledgers out across these four floors and
+      a weighed total that does not match their sum. Find all eight and read them. The gap between
       the weighed returns and the ledgers is either an accounting error or several hundred thousand
       marks that never came back.
   canvass:

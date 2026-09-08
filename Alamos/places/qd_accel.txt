@@ -1,0 +1,83 @@
+THE ACCELERATING UNIVERSE (theme: qd_accel) — PLACES AND LOCATIONS
+Analyst · High-Redshift Supernova Team
+Course: Astronomy and cosmology — the accelerating universe. Grade 9, nine
+stops, three levels
+Grade 9. One mission is called a Level; a stop is "a place".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_accel npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Cerro Vela Survey Operations, as data.
+
+A Quick Discovery reskin of themes/bring_them_home/site.js. The geometry is
+that file's, unchanged, because themes/qd_accel/props.js and world.js are
+copies of that game's and are placed off these numbers. What is changed is
+everything a player reads: the name, the four areas of study, the console
+labels and the three plot boards.
+
+The place is the analysis floor of a supernova survey: a single large volume
+with the floor stepped down toward a wall of plot boards, teams sitting as
+rows rather than in rooms, a ring corridor behind it and two rooms off that.
+
+Looking at the floor from the back doors:
+
+       ╔══════════════ PLOT BOARDS ══════════════╗   z = -19
+       ║  row 1   PHOT                            ║   z = -10
+       ║  row 2                                    ║   z =  -3
+       ║  row 3                                    ║   z =   4
+       ║  row 4   COSMO · the cosmology console    ║   z =  11
+       ╚══ back doors ═══ gallery above ════════╝   z =  20
+
+SPEC and PRESS are the two rooms off the ring corridor behind that, one each
+side. Each row sits one step higher than the row in front of it, so the whole
+floor looks down at the boards.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+PHOT — Photometry
+  Photometry Desk   [PHOT]  side w, z -11.6 … -8
+  Light curves, magnitudes and the residual plot everything ends up on.
+  Calls: Fit the light curve · Standardise it · Put it on the diagram · Ready
+  to hand over
+
+COSMO — Cosmology Console
+  Cosmology Console   [COSMO]  side spine, z 9.4 … 13
+  Expansion histories, laid over the same points and read off the leftovers.
+  Calls: State the model · Fit the sample · Read the residuals · Ready to hand
+  over
+
+SPEC — Spectroscopy & Calibration
+  Spectroscopy Room   [SPEC]  side w, z 20 … 40
+  What the lines say the redshift is, and whether dust is in the way.
+  Calls: Take the arc · Measure the line · Check the colour · Ready to hand
+  over
+
+PRESS — Publication Room
+  Publication Room   [PRESS]  side e, z 20 … 40
+  What the result is allowed to say out loud, in the order it is allowed to
+  say it.
+  Calls: Draft the claim · Separate the mechanism · Get it argued with · Ready
+  to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_accel/ — site/plan, fixtures, minors, groups, theme.

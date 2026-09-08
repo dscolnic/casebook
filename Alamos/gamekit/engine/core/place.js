@@ -53,14 +53,45 @@ export function destinationLabel(group){
  * @param person  the character for a person stop, or null for a room stop
  * @param group   the area the call is about
  */
-export function callLabel(person, group, sitedPlace = null){
+export function callLabel(person, group, sited = null){
   if(person) return `Talk to ${person.name ?? 'your colleague'}`;
+  // A SITED call names its OBJECT, not its building. Three calls that share one
+  // hall printed "Go to Reactor Hall" three times down the plan card, which is a
+  // list of one instruction repeated and tells the player nothing about which is
+  // which. The object is what they are actually walking to, it is what the
+  // question is about, and the building is on the map beside it.
+  const fixtureName = typeof sited === 'object' && sited ? sited.fixture?.name : null;
+  if(fixtureName){
+    // THE OBJECT, AND THEN WHERE IT IS.
+    //
+    // The object alone is what tells three calls in one hall apart, and it was
+    // right to put it first. It is not enough on its own: a player who has
+    // never been in that room is told to go to the conversion board and has no
+    // way to know which of fourteen doors it is behind. Reported in exactly
+    // those words — "it says Go to the conversion board, but I don't know where
+    // it is."
+    //
+    // So both, in that order: the object distinguishes, the place directs.
+    const at = (theme.site?.buildings ?? [])
+      .find(b => b.enter === sited.place || b.id === sited.place);
+    const where = at?.name || placeForGroup(sited.place)?.name || null;
+    return where
+      ? `Go to ${fixtureName.replace(/^The /, 'the ')}, in ${where}`
+      : `Go to ${fixtureName.replace(/^The /, 'the ')}`;
+  }
+  const sitedPlace = typeof sited === 'string' ? sited : sited?.place ?? null;
   // A SITED call: the question belongs to its area and is asked somewhere else,
   // so the instruction has to name where the player actually walks. "Go to Cold
   // End" for a question answered at the tank farm is the same defect as naming
   // the subject instead of the place, one level out.
   if(sitedPlace){
-    const at = (theme.site?.buildings ?? []).find(b => b.enter === sitedPlace);
+    // `enter` OR `id`. A minor place is keyed by `enter`; an AREA is keyed by
+    // `id`, and matching only the first meant a call sited in another area fell
+    // through to its own area's name — the HUD said "Go to Catalyst Bay" for a
+    // question the player answers in the Reactor Hall. Third copy of the same
+    // minors-only assumption, after engine/world/siting.js and placement.mjs.
+    const at = (theme.site?.buildings ?? [])
+      .find(b => b.enter === sitedPlace || b.id === sitedPlace);
     if(at) return `Go to ${at.name}`;
   }
   // The PLACE only. `destinationLabel` appends the subject when the two names

@@ -6,13 +6,20 @@
     header: "DAY 5 - BOARD IN 11 DAYS"
     title: "The Fast Site"
     goNow: "Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the enrollment wall."
-    body: "The early look used data dominated by the fastest hospital, so speed may have shaped the result. A sampling method controls who can enter the evidence and whom it can represent. Inspect the frame, reproduce selections, and trace missing groups before carrying records upstairs. By the end of the mission, decide whether the fast site's estimate can generalize."
+    body: "Most early results came from the hospital that recruited patients fastest. Its patients may differ from the people treated elsewhere. Inspect who was included and who was missed, then decide whether this hospital's result can speak for the wider patient population."
     objective: "Audit the fast site's patient sample."
   objective: "Audit the fast site's patient sample."
-  stake: "The early look used data dominated by the fastest hospital, so speed may have shaped the result. A sampling method controls who can enter the evidence and whom it can represent. Inspect the frame, reproduce selections, and trace missing groups before carrying records upstairs. By the end of the mission, decide whether the fast site's estimate can generalize."
+  stake: "Most early results came from the hospital that recruited patients fastest. Its patients may differ from the people treated elsewhere. Inspect who was included and who was missed, then decide whether this hospital's result can speak for the wider patient population."
   takeaway: "Random assignment and random sampling justify different claims."
   segue: "Mission decision: Do not apply the fast site result to all patients. Random assignment still supports cause within the trial. Rural patients were missed before sampling. Fixing that gap will take more people and more time."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Sampling frame", def: "the list or process from which a sample is selected."}
+  - {name: "Simple random sample", def: "a sample for which every set of size n is equally likely."}
+  - {name: "Stratified sample", def: "separate random samples drawn within defined groups."}
+  - {name: "Cluster sample", def: "randomly selected whole groups."}
+  - {name: "Systematic sample", def: "a random start followed by every kth item."}
+  - {name: "Undercoverage", def: "members of the population are absent from the frame."}
   primer:
   - "Convenience and voluntary-response samples are biased."
   - "Random sampling supports generalization."
@@ -25,7 +32,7 @@
   - id: on-arrival-at-the-monitors-room
     # On arrival at the Monitors' Room | monitor-desk | automatic
     on: { enter: true, at: SITE }
-    world: "Arrival: SITE entry; nearby bubble; fast enrollment dashboard visible; Eli says, ; - After S1-S2: sample and stratification committed; roster prints; waypoint TAKE THE AUDIT ROSTER TO DATA MANAGEMENT; unlock travel. - DATA arrival/after S3: probe reveals FRAME GAP; panel text and icon persist; - Final: scope decision; dashboard changes to NARROW SAMPLE; Eli concedes; binder 5 and outcome unlock."
+    world: "Arrival: SITE entry; nearby bubble; fast enrollment dashboard visible; Eli says,; - After S1-S2: sample and stratification committed; roster prints; waypoint TAKE THE AUDIT ROSTER TO DATA MANAGEMENT; unlock travel. - DATA arrival/after S3: probe reveals FRAME GAP; panel text and icon persist; - Final: scope decision; dashboard changes to NARROW SAMPLE; Eli concedes; binder 5 and outcome unlock."
     panel: "MISSION 5: DRAW AN SRS OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
@@ -37,7 +44,7 @@
     panel: "STOP 17 RECORDED - STOP 18 OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Use the Stop 17 result to settle preserve every region."
+      say: "Nice work. Use the Stop 17 result to settle preserve every region."
   - id: after-stop-18
     # After Stop 18 | roster-wall | automatic
     on: { after: [2] }
@@ -45,7 +52,7 @@
     panel: "STOP 18 RECORDED - STOP 19 OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Use the Stop 18 result to settle find who never entered."
+      say: "Good thinking. Use the Stop 18 result to settle find who never entered."
   - id: after-stop-19
     # After Stop 19 | extraction-console | automatic
     on: { after: [3] }
@@ -53,7 +60,7 @@
     panel: "STOP 19 RECORDED - STOP 20 OPEN"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Use the Stop 19 result to settle set the scope."
+      say: "Exactly right. Use the Stop 19 result to settle set the scope."
   - id: at-mission-end
     # At mission end | monitor-desk | automatic
     on: { missionEnd: true }
@@ -61,7 +68,74 @@
     panel: "MISSION 5 EVIDENCE: RECORDED"
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Fast Site. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Fast Site, random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Which option correctly applies Sampling frame to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Sampling frame; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A chance mechanism prevents staff from selecting only easy or complete charts.", why: "This describes SRS/RNG, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.", why: "Correct. the list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame."}
+      - {key: "C", text: "Stratification protects comparison across important groups while keeping selection random.", why: "This describes stratified/cluster/systematic, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Different bias mechanisms require different repairs and support different claims.", why: "This describes undercoverage/nonresponse/response bias, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to The Fast Site: the site has charts numbered 001 through 240, and the audit needs 12 without replacement. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies SRS/RNG to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for SRS/RNG; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.", why: "This describes Sampling frame, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Stratification protects comparison across important groups while keeping selection random.", why: "This describes stratified/cluster/systematic, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A chance mechanism prevents staff from selecting only easy or complete charts.", why: "Correct. a chance mechanism prevents staff from selecting only easy or complete charts."}
+      - {key: "D", text: "Different bias mechanisms require different repairs and support different claims.", why: "This describes undercoverage/nonresponse/response bias, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks The Fast Site using new evidence: the chance audit works, but a plain SRS could include too few rural patients to check travel barriers. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies stratified/cluster/systematic to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for stratified/cluster/systematic; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.", why: "This describes Sampling frame, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A chance mechanism prevents staff from selecting only easy or complete charts.", why: "This describes SRS/RNG, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Different bias mechanisms require different repairs and support different claims.", why: "This describes undercoverage/nonresponse/response bias, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Stratification protects comparison across important groups while keeping selection random.", why: "Correct. stratification protects comparison across important groups while keeping selection random."}
+    - prompt: "An unseen case extends The Fast Site: the stratified roster exposes a sharp drop before enrollment, not only after questionnaires were sent. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies undercoverage/nonresponse/response bias to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for undercoverage/nonresponse/response bias; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Different bias mechanisms require different repairs and support different claims.", why: "Correct. different bias mechanisms require different repairs and support different claims."}
+      - {key: "B", text: "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.", why: "This describes Sampling frame, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A chance mechanism prevents staff from selecting only easy or complete charts.", why: "This describes SRS/RNG, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Stratification protects comparison across important groups while keeping selection random.", why: "This describes stratified/cluster/systematic, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Fast Site decision, the team knows this: random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Which option correctly applies observational/experiment and inference scope to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for observational/experiment and inference scope; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.", why: "This describes Sampling frame, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A randomized experiment can support causation for studied participants without representing everyone the treatment may reach.", why: "Correct. a randomized experiment can support causation for studied participants without representing everyone the treatment may reach."}
+      - {key: "C", text: "A chance mechanism prevents staff from selecting only easy or complete charts.", why: "This describes SRS/RNG, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Stratification protects comparison across important groups while keeping selection random.", why: "This describes stratified/cluster/systematic, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from The Fast Site to this follow-up: the site has charts numbered 001 through 240, and the audit needs 12 without replacement. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.", why: "This describes Sampling frame, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A chance mechanism prevents staff from selecting only easy or complete charts.", why: "This describes SRS/RNG, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "Stratification protects comparison across important groups while keeping selection random.", why: "This describes stratified/cluster/systematic, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 5: worked examples"
+    examples:
+    - {"title":"A simple random sample","problem":"A list contains 100 students. Describe a simple random sample of 10.","rule":"Every subset of 10 should have the same chance of selection.","steps":["Assign each student a distinct number from 1 to 100.","Use a random generator to select 10 distinct numbers without replacement."],"answer":"Survey the selected students, while tracking any nonresponse.","mistake":"Choosing whoever replies first is not random sampling."}
+    - {"title":"Sample within groups","problem":"A school has 60 juniors and 40 seniors. Select a proportional stratified sample of 20.","rule":"Sample randomly within each defined group.","steps":["junior sample=20(60/100)=12; senior sample=20(40/100)=8.","Randomly choose 12 juniors and 8 seniors from their separate lists."],"answer":"Both groups are represented in their population proportions.","mistake":"Stratification does not mean choosing the easiest people in each group."}
+    - {"title":"Sample whole groups","problem":"A district has 20 classes. It randomly selects 4 and surveys every student in those classes. Identify the design.","rule":"Cluster sampling selects whole groups and measures their members.","steps":["The random selection acts on classes, not directly on individual students.","Every member of each selected class is included."],"answer":"This is a cluster sample.","mistake":"Sampling a few students from every class would instead resemble stratification."}
+    - {"title":"Identify undercoverage","problem":"A town estimates average resident age using only a list of homeowners. What can go wrong?","rule":"Undercoverage occurs when some population members cannot enter the sampling frame.","steps":["Renters and residents who do not own their homes are missing from the list.","If their ages differ systematically, random selection within the homeowner list does not remove that bias."],"answer":"The sample may not represent all town residents.","mistake":"A large sample cannot repair a frame that excludes relevant groups."}
+    - {"title":"Distinguish parameter from statistic","problem":"A school has 800 students. A random sample of 40 has mean height 160 cm. Is 160 a parameter or a statistic?","rule":"A parameter describes the population; a statistic is calculated from a sample.","steps":["The population is all 800 students; only 40 heights were used.","The value 160 cm is a sample mean, so it estimates the unknown population mean."],"answer":"It is a statistic.","mistake":"Random sampling does not turn a statistic into a population parameter."}
 
   stops:
   # --- Stop 17: Draw an SRS
@@ -70,12 +144,12 @@
   - group: SAFE
     at: monitor-desk
     title: "Draw an SRS"
-    concept: "SRS/RNG"
-    reason: "The audit must reproduce a chance sample of source charts."
+    concept: 2   # SRS/RNG
+    reason: "The targeted audit needs a reproducible chart sample before monitors inspect the records."
     scene: "The site has charts numbered 001 through 240, and the audit needs 12 without replacement. Build a fully reproducible random-number procedure that another monitor can repeat from the saved seed."
-    motivation: "A chance mechanism prevents staff from selecting only easy or complete charts."
+    motivation: "The random-number procedure determines whether every eligible chart has the intended selection chance without replacement."
     format: PROTOCOL
-    question: "Map scenarios: label 001-240 -> assign unique labels; generate 001-240 -> RNG; repeated number -> ignore repeat; number 241-999 -> ignore outside range; stop -> 12 unique valid labels. Choices are those actions; exact permutation mapping."
+    question: "Build a simple random sample (SRS) using a random-number generator (RNG). Assign labels 001-240; accept generated labels in that range, ignore repeats and values 241-999, and stop after 12 unique valid labels."
     # THE BIBLE'S PAYLOAD, converted. Its five `scenarios` and five `choices` keep
     # their own text, and its `mapping` — label:assign, draw:rng,
     # repeat:ignore_repeat, outside:ignore_outside, stop:finish — becomes the same
@@ -83,18 +157,23 @@
     # again" responses read alike because the bible wrote them alike.
     columns: [Situation, Response]
     scenarios:
-    - "label 240 charts"
-    - "generate a three-digit number"
-    - "number repeats"
-    - "number is 241-999"
-    - "12 unique valid labels recorded"
+      - label 240 charts
+      - generate a three-digit number
+      - number repeats
+      - number is 241-999
+      - 12 unique valid labels recorded
     choices:
-    - "assign unique labels 001-240"
-    - "use the recorded RNG seed"
-    - "ignore and draw again"
-    - "ignore and draw again"
-    - "stop sampling"
-    mapping: [0, 1, 2, 3, 4]
+      - assign unique labels 001-240
+      - use the recorded RNG seed
+      - ignore and draw again
+      - ignore and draw again
+      - stop sampling
+    mapping:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
     answerText: "The completed check shows record the seed, generate three-digit numbers, ignore repeats and 241-999, and stop after 12 unique charts."
     why: "A chance mechanism prevents staff from selecting only easy or complete charts."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -113,10 +192,10 @@
     at: enrollment-wall
     title: "Preserve Every Region"
     person: navarro
-    concept: "stratified/cluster/systematic"
-    reason: "Rural patients are few, so the design must guarantee their presence."
+    concept: 5   # stratified/cluster/systematic
+    reason: "The chart-sampling procedure does not guarantee enough rural patients for a useful access audit."
     scene: "The chance audit works, but a plain SRS could include too few rural patients to check travel barriers. Choose a design that splits urban and rural patients first, then samples randomly within each group."
-    motivation: "Stratification protects comparison across important groups while keeping selection random."
+    motivation: "The sampling design determines whether both residence groups are represented while retaining random selection within each."
     format: CHOICE
     question: "Submit one selection from the four distinct choice items below."
     choices:
@@ -138,35 +217,48 @@
   - group: RAND
     at: roster-wall
     title: "Find Who Never Entered"
-    concept: "undercoverage/nonresponse/response bias"
-    reason: "The roster must separate people absent from the frame from people who were sampled but did not answer."
+    concept: 7   # undercoverage/nonresponse/response bias
+    reason: "The stratified plan reveals that some rural patients disappear before sampling even begins."
     scene: "The stratified roster exposes a sharp drop before enrollment, not only after questionnaires were sent. Probe eligibility, contact, response, and enrollment stations to locate exactly where rural patients disappear today."
-    motivation: "Different bias mechanisms require different repairs and support different claims."
+    motivation: "The stage-by-stage counts distinguish missing coverage in the sampling frame from later nonresponse."
     format: PROBE
-    question: "Probe the four stations in order—eligible list, sampling frame, contacted sample, and completed response. At each station compare the observed count with its stated expected count, then submit the first break and classify the bias."
+    question: "Probe the four stations in order - eligible list, sampling frame, contacted sample, and completed response. At each station compare the observed count with its stated expected count, then submit the first break and classify the bias."
     # THE BIBLE'S PAYLOAD, converted. Its four stations keep their ids, labels,
     # readings and expected counts; `first_break` is the engine's `target`, and
     # `load` becomes the chain's own load line. The bible writes reading and
     # expected as bare numbers with a separate `unit: patients`, so each is
     # written here as the quantity it is — the engine prints these strings.
     probe:
-      chainLabel: "Roster station"
-      commit: "Name the station where the count first breaks"
-      minReadings: 4
-      target: frame
+      load: Rural-patient roster, expected flow from the eligibility audit
       stations:
-      - { id: eligible, label: "Eligible list", reading: "120 patients",
-          expected: "120 patients on the eligibility audit",
-          load: "Rural-patient roster, expected flow from the eligibility audit" }
-      - { id: frame, label: "Sampling frame", reading: "92 patients",
-          expected: "120 patients on the eligibility audit",
-          load: "Rural-patient roster, expected flow from the eligibility audit" }
-      - { id: contacted, label: "Contacted sample", reading: "80 patients",
-          expected: "92 patients in the sampling frame",
-          load: "Rural-patient roster, expected flow from the eligibility audit" }
-      - { id: response, label: "Completed response", reading: "74 patients",
-          expected: "80 patients contacted",
-          load: "Rural-patient roster, expected flow from the eligibility audit" }
+        - id: eligible
+          label: Eligible list
+          reading: 120
+          expected: 120
+          comparison: matches
+          unit: patients
+        - id: frame
+          label: Sampling frame
+          reading: 92
+          expected: 120
+          comparison: 28 missing before sampling
+          unit: patients
+        - id: contacted
+          label: Contacted sample
+          reading: 80
+          expected: 92
+          comparison: 12 sampled patients not reached
+          unit: patients
+        - id: response
+          label: Completed response
+          reading: 74
+          expected: 80
+          comparison: 6 contacted patients did not answer
+          unit: patients
+      ordered: true
+      first_break: frame
+      correct_conclusion: 28-person undercoverage before sampling; later losses are nonresponse
+      submission: station, numerical gap, and bias classification
     answerText: "The completed check shows twenty-eight eligible rural patients never entered the frame, so this is undercoverage; later losses include nonresponse. Leading questions would instead create response bias."
     why: "Different bias mechanisms require different repairs and support different claims."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -184,10 +276,10 @@
   - group: RAND
     at: extraction-console
     title: "Set the Scope"
-    concept: "observational/experiment and inference scope"
-    reason: "The board needs one honest statement about cause and generalization."
-    scene: "Random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Select the conclusion that respects causal design while limiting population generalization."
-    motivation: "A randomized experiment can support causation for studied participants without representing everyone the treatment may reach."
+    concept: 1   # observational/experiment and inference scope
+    reason: "The enrollment audit changes how broadly the trial's treatment comparison can be interpreted."
+    scene: "Select the conclusion that respects causal design while limiting population generalization."
+    motivation: "The distinction between random assignment and representative sampling determines the causal claim and the population it can address."
     format: DIAGNOSIS
     question: "Use the random-assignment, sampling-frame, undercoverage, and concealment readings. Submit the strongest causal conclusion and honest population-generalization limit."
     headline: "SCOPE OF INFERENCE"
@@ -197,11 +289,7 @@
     # engine's amber status, which is what the bible's "warning" is.
     # DERIVED: `zone`, the display each reading comes off — each is the bible's
     # own name for that reading.
-    readings:
-    - { zone: "Random assignment", label: "Inside the trial", value: "pass", status: normal }
-    - { zone: "Population random sample", label: "Selection from the population", value: "none", status: low }
-    - { zone: "Rural undercoverage", label: "Eligible patients never in the frame", value: "28 patients", status: alarm }
-    - { zone: "Treatment concealment", label: "Assignment path", value: "intact", status: normal }
+    readings: []
     # The four candidates are the bible's own choice list, in its order and its
     # words: "cause+all patients; association only; cause for trial-like patients
     # with limited generalization; generalize no cause", answer the third.

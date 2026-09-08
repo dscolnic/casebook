@@ -9,7 +9,7 @@ export const COPY = {
   "ELEC": "<p>The electrolysis hall. Water stacks make hydrogen and oxygen; one hot solid-oxide stack splits carbon dioxide into oxygen and carbon monoxide.</p>",
   "GIBBS": "<p>Plant control. The energy ledger for everything on this plain, and the desk where the arguments about it end.</p>",
   "SOIL": "<p>The water plant. Frozen ground in at one end, and a brine that has to be cleaned before anything downstream can use it.</p>",
-  "HAB": "<p>The habitat. 6 people, 19 degrees, and the only room on the planet with a window somebody chose the view from.</p>",
+  "HAB": "<p>The habitat. 6 people, 19 °C, and the only room on the planet with a window somebody chose the view from.</p>",
   "PAD": "<p>The pad. The ascent vehicle stands on it, 4.3 tonnes of methane aboard and 6.6 needed.</p>",
   "ARRAY": "<p>The array shed. 1800 square metres of panel out there, and a sun sensor that says how much of the sun is reaching it.</p>",
   "TANKS": "<p>The tank farm. Everything the plant has made so far, held at its own boiling point and losing a little every sol.</p>",

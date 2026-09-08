@@ -1,6 +1,6 @@
 # redsand_v5: the stops that cannot be built yet
 
-**11 of the campaign's stops are held back.** Every one names a
+**0 of the campaign's stops are held back.** Every one names a
 format the game has, and the science in each is right — what is missing is a
 number or a line the board is physically made of. Below is each stop and what
 the build refused it with, grouped by format so one decision fixes many.
@@ -10,112 +10,101 @@ uses. Where a board genuinely cannot carry what is asked — three quantities th
 all have to be predicted, an order that really does branch — **split it into two
 stops** and say so, rather than thinning the science to fit.
 
-## STRESS — 2 stops
+## Not tied to one stop
 
-**M6 S2 — Does calibration uncertainty rescue the leak theory?** *(The Leak That Was Not)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-**M10 S3 — Stress the hidden temperature error** *(The Saboteur)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-## BALANCE — 2 stops
-
-**M6 S3 — Close C, H, and O at the Tank Farm** *(The Leak That Was Not)*
-
-- a BALANCE needs a `balance` block — without it the panel renders empty
-- a balance needs at least three streams
-- a balance needs a numeric total
-- a balance needs a positive tolerance
-- a balance needs at least three countable streams
-- the countable streams sum to 0 and the total is undefined — the ledger does not close even when everything is counted
-- a balance with no `hidden` stream is arithmetic — the removal term that does not announce itself is the format
-- the obvious streams alone sum to 0, inside the tolerance — leaving the hidden term out is not wrong, so nothing is learned by finding it
-
-**M11 S2 — Complete the ICE table** *(Fast Is Not the Same as More)*
-
-- a BALANCE needs a `balance` block — without it the panel renders empty
-- a balance needs at least three streams
-- a balance needs a numeric total
-- a balance needs a positive tolerance
-- a balance needs at least three countable streams
-- the countable streams sum to 0 and the total is undefined — the ledger does not close even when everything is counted
-- a balance with no `hidden` stream is arithmetic — the removal term that does not announce itself is the format
-- the obvious streams alone sum to 0, inside the tolerance — leaving the hidden term out is not wrong, so nothing is learned by finding it
-
-## HOLDOUT — 2 stops
-
-**M10 S1 — Freeze the accusation and reveal the holdout** *(The Saboteur)*
-
-- holdout needs axis.min and axis.max, with max greater than min
-- holdout needs at least five authored points in `fit`
-- the HOLDOUT board could not be read — Cannot read properties of undefined (reading 'every'). Its payload is probably still in the bible's own field names.
-
-**M14 S2 — Test certification on the newest sample** *(FULL)*
-
-- holdout needs axis.min and axis.max, with max greater than min
-- holdout needs at least five authored points in `fit`
-- the HOLDOUT board could not be read — Cannot read properties of undefined (reading 'every'). Its payload is probably still in the bible's own field names.
-
-## SWEEP — 1 stop
-
-**M4 S4 — Can the blue residue ride the gas stream?** *(What Can Travel Where?)*
-
-- sweep needs axis.min and axis.max, with max greater than min
-- every sweep series needs at least four authored response points
-- every sweep response point needs a numeric `at` and `value`
-- sweep needs a numeric target
-- the sweep target is outside its own axis
-- sweep needs a positive tolerance
-- the sweep starts on its own answer — move `start` away from `target`
-- the SWEEP board could not be read — Cannot read properties of undefined (reading 'map'). Its payload is probably still in the bible's own field names.
-
-## BALLPARK — 1 stop
-
-**M7 S2 — Size the coolant load** *(Heat)*
-
-- ballpark needs an `estimate` block, or an `estimatesByTitle` entry for its title — prose carries no arithmetic
-
-## ALLOCATE — 1 stop
-
-**M13 S4 — Allocate the recovery power** *(Power)*
-
-- every allocation answer is required — there is nothing the plan is allowed to forgo, which is the decision this format exists to make
-
-## TRIGGER — 1 stop
-
-**M14 S4 — Write the rule before the final samples** *(FULL)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-## DEGENERACY — 1 stop
-
-**M15 S2 — Collapse the last degeneracy** *(GO / NO-GO)*
-
-- the two loci do not both pass through the truth — they have to cross there, or the intersection is not the answer
+- day 7, walking to sundqvist first: threw Cannot read properties of undefined (reading 'game')
+- theme "redsand_v5" story: 22 problem(s)
+- Shift 4 (What Can Travel Where?): never says what the player decides — no "Today you …" clause
+- Shift 4 (What Can Travel Where?): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Shift 5 (The Water Account): never says what the player decides — no "Today you …" clause
+- Shift 5 (The Water Account): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Shift 6 (The Leak That Was Not): never says what the player decides — no "Today you …" clause
+- Shift 6 (The Leak That Was Not): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Shift 7 (Heat): never says what the player decides — no "Today you …" clause
+- Shift 7 (Heat): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Shift 8 (The Override): never says what the player decides — no "Today you …" clause
+- Shift 8 (The Override): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Shift 9 (The Catalyst Bed): never says what the player decides — no "Today you …" clause
+- Shift 10 (The Saboteur): never says what the player decides — no "Today you …" clause
+- Shift 10 (The Saboteur): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Shift 11 (Fast Is Not the Same as More): never says what the player decides — no "Today you …" clause
+- Shift 11 (Fast Is Not the Same as More): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Shift 12 (The Loop): never says what the player decides — no "Today you …" clause
+- Shift 12 (The Loop): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Shift 13 (Power): never says what the player decides — no "Today you …" clause
+- Shift 13 (Power): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Shift 14 (FULL): never says what the player decides — no "Today you …" clause
+- Shift 15 (GO / NO-GO): never says what the player decides — no "Today you …" clause
+- Shift 15 (GO / NO-GO): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- day  3: primer names 0 of 4 hard word(s), 3 unexplained  ✗ — kinetic, rt, pv
+- day  5: primer names 0 of 6 hard word(s), 2 unexplained  ✗ — molarity, calibration
+- day 14: primer names 0 of 6 hard word(s), 4 unexplained  ✗ — ready, full, by, is
+- theme "redsand_v5" jargon: 2 problem(s)
+- 22 hard word(s) are used and never introduced — no glossary entry, no primer, no definition in place: molar, kinetic, rt, pv, molarity, calibration, cause, must, fit, does, fail, first, rms, ice, neutralization, oxidized, ready, full, by, is, go, recalibration
+- 3 day(s) leave two or more terms unexplained and the primer names none of them
+- redsand_v5: 6 of 60 scene(s) name somebody (10%)
+- above the floor now — delete "redsand_v5" from scenecast-debt.json
+- sceneCast: 1 theme(s) whose scene-cast rate is unrecorded.
+- theme "redsand_v5": 6 passage(s), 0 authored question(s)
+- 6 bio(s) with no authored question — the engine will lift a sentence instead:
+- stop 4 (day 1) claims "Balanced equations and stoichiometry as an atom ledger", which is built out of "Atoms, molecules and ions, and the mole as a way of counting them" — the same day
+- 1 concept-ordering problem(s).
+- BURIED "Match contaminants to treatment" — asks about "Concentration, molarity and Beer-Lambert, and evidence that only looks independent" and names it nowhere in the question or the options, while carrying 4 glossary term(s): feed, perchlorate, chloride, ion exchange
+- UNNAMED "Calculate k" — asks about "Rate laws from experiment, the rate constant, and the controlled experiment" and names it nowhere in the question or the options
+- UNNAMED "Sample the bed from inlet to outlet" — asks about "Catalysis, mechanisms, the rate-determining step and poisoning" and names it nowhere in the question or the options
+- UNNAMED "Sample the branches" — asks about "Gas behaviour and partial pressure" and names it nowhere in the question or the options
+- UNNAMED "Stress the hidden temperature error" — asks about "Overfitting, the holdout test, residual structure and stress testing" and names it nowhere in the question or the options
+- UNNAMED "Two plans look equally fast" — asks about "Equilibrium: Kc, the ICE table, Q against K, and Le Châtelier" and names it nowhere in the question or the options
+- UNNAMED "Can the blue residue ride the gas stream?" — asks about "Lewis structures, VSEPR, and what shape does to a molecule's behaviour" and names it nowhere in the question or the options
+- UNNAMED "Build the water-hydrogen-carbon loop" — asks about "Coupled reactions, acid-base stoichiometry, and a whole-system balance" and names it nowhere in the question or the options
+- UNNAMED "Close hydrogen over the whole plant" — asks about "Coupled reactions, acid-base stoichiometry, and a whole-system balance" and names it nowhere in the question or the options
+- UNNAMED "Turn current into hydrogen" — asks about "Redox and electrolysis: half-reactions, Q = It and Faraday's law" and names it nowhere in the question or the options
+- UNNAMED "Rebuild the case" — asks about "Diagnosis from one mechanism, and whether measurement error could change it" and names it nowhere in the question or the options
+- UNNAMED "Verify who changed it" — asks about "Rate laws from experiment, the rate constant, and the controlled experiment" and names it nowhere in the question or the options
+- UNNAMED "What did Herrera know, and when?" — asks about "Overfitting, the holdout test, residual structure and stress testing" and names it nowhere in the question or the options
+- UNNAMED "Write the rule before the final samples" — asks about "Composition against a specification, and thresholds chosen before the result" and names it nowhere in the question or the options
+- UNNAMED "Concentrated is not necessarily more" — asks about "Concentration, molarity and Beer-Lambert, and evidence that only looks independent" and names it nowhere in the question or the options
+- redsand_v5: 12 mission(s) unscored or misdeclared
+- redsand_v5             A Full Tank                        1 piece(s) · kept in Pad Office
+- redsand_v5             mean 9.4  worst 11.7  16/16 over grade 6.5
+- redsand_v5: the trial-near warm-up is scheduled for day 1 and has no story — give it a title and a why in the book's `warmups` block
+- redsand_v5: the trial-far warm-up is scheduled for day 5 and has no story — give it a title and a why in the book's `warmups` block
+- redsand_v5: the follow warm-up is scheduled for day 8 and has no story — give it a title and a why in the book's `warmups` block
+- redsand_v5: the hunt warm-up is scheduled for day 13 and has no story — give it a title and a why in the book's `warmups` block
+- 5 problem(s):
+- redsand_v5: nothing computes "unaccounted amount = amount entering − amount accounted for" (closing a material ledger) — mentioned only, at stop(s) 4, 24
+- redsand_v5: nothing computes "product moles = known moles × (product coefficient ÷ known coefficient)" (calculating how much product one reactant can support) — mentioned only, at stop(s) 6, 7, 8
+- redsand_v5: nothing computes "PV = nRT" (finding the total amount of gas from pressure, volume, and temperature) — mentioned only, at stop(s) 10
+- redsand_v5: nothing computes "component pressure = mole fraction × total pressure" (finding one gas's pressure inside a mixture) — mentioned only, at stop(s) 11, 21, 43
+- redsand_v5: nothing computes "P₂ = P₁ × (T₂ ÷ T₁), for fixed gas amount and volume" (predicting how a sealed gas responds to warming) — mentioned only, at stop(s) 12, 27, 43
+- KINET lesson 2 ("Calculate k"): estimate offers no distractor tiles, so every number given belongs in the answer
+- EQUIL lesson 2 ("Could today's air make enough methane?"): estimate offers no distractor tiles, so every number given belongs in the answer
+- EQUIL lesson 6 ("How many total moles are in the branch?"): estimate offers no distractor tiles, so every number given belongs in the answer
+- EQUIL lesson 9 ("Close C, H, and O at the Tank Farm"): estimate has no relationship, so the panel shows tiles and no law to apply them with
+- EQUIL lesson 11 ("Size the coolant load"): estimate has undefined correct tiles for 0 slots
+- EQUIL lesson 11 ("Size the coolant load"): estimate formula "displayed numerator / displayed divisor" does not evaluate — the panel can never be answered
+- EQUIL lesson 11 ("Size the coolant load"): estimate has no units
+- EQUIL lesson 11 ("Size the coolant load"): estimate has no relationship, so the panel shows tiles and no law to apply them with
+- EQUIL lesson 14 ("Stress the hidden temperature error"): the robust candidate also wins on evidence_fit at the nominal
+- EQUIL lesson 16 ("Complete the ICE table"): estimate formula "0.50×1.00²/(1.00×1.00⁴)" does not evaluate — the panel can never be answered
+- EQUIL lesson 16 ("Complete the ICE table"): estimate offers no distractor tiles, so every number given belongs in the answer
+- EQUIL lesson 16 ("Complete the ICE table"): estimate has no relationship, so the panel shows tiles and no law to apply them with
+- ELEC lesson 5 ("Turn current into hydrogen"): estimate offers no distractor tiles, so every number given belongs in the answer
+- GIBBS lesson 2 ("How much methane is missing?"): estimate offers no distractor tiles, so every number given belongs in the answer
+- GIBBS lesson 7 ("Does calibration uncertainty rescue the leak theory?"): the robust candidate also wins on evidence_fit at the nominal
+- SOIL lesson 2 ("Put the water sample on a molar scale"): estimate offers no distractor tiles, so every number given belongs in the answer
+- Match shape, polarity, and dominant force: scene reads at grade 15.0, and the theme is written for grade 12
+- Read the initial-rate table: scene reads at grade 14.3, and the theme is written for grade 12
+- Diagnose the immediate bed failure: scene reads at grade 15.2, and the theme is written for grade 12
+- Predict, treat, measure: verdict reads at grade 15.5, and the theme is written for grade 12
+- Buy one measurement that could change the decision: verdict reads at grade 14.7, and the theme is written for grade 12
+- Spend 100 decision points: scene reads at grade 18.2, and the theme is written for grade 12
+- theme "redsand_v5" jargon depth: 5 problem(s)
+- "bed" holds up 3 defined term(s) and nothing defines it
+- "packed" holds up 2 defined term(s) and nothing defines it
+- Gibbs free energy (d1) is defined with Entropy, first seen d3
+- Boiling point (d1) is defined with Vapour pressure, first seen d3
+- Chloride (d1) is defined with Perchlorate, first seen d12
 
 ## What to hand back
 

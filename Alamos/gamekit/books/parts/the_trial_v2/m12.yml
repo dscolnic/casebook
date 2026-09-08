@@ -6,13 +6,20 @@
     header: "DAY 12 - BOARD IN 4 DAYS"
     title: "Three Different Tables"
     goNow: "Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the categorical-table wall."
-    body: "The file is locked, and it separates the alert into outcome mix, arm association, and site differences. Chi-square procedures compare observed categorical counts with expected counts. Build each expected table at Adjudication, verify design at Site Operations, then brief the board upstairs. By the end of the mission, decide whether the three problems share one explanation."
+    body: "The final records show differences among patient outcomes, treatment groups, and hospitals. These may have different explanations. Compare the observed patient counts with the counts each proposed explanation predicts, then decide whether one cause really accounts for all three patterns."
     objective: "Separate the categorical findings."
   objective: "Separate the categorical findings."
-  stake: "The file is locked, and it separates the alert into outcome mix, arm association, and site differences. Chi-square procedures compare observed categorical counts with expected counts. Build each expected table at Adjudication, verify design at Site Operations, then brief the board upstairs. By the end of the mission, decide whether the three problems share one explanation."
+  stake: "The final records show differences among patient outcomes, treatment groups, and hospitals. These may have different explanations. Compare the observed patient counts with the counts each proposed explanation predicts, then decide whether one cause really accounts for all three patterns."
   takeaway: "Test name follows the study design."
   segue: "Mission decision: Do not force one cause onto all three tables. Event grades match the planned mix. Treatment arm and hospital do not. The study design calls for different tests. New side studies now compete for one error budget."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Goodness-of-fit test", def: "compares one categorical variable with a claimed distribution."}
+  - {name: "Independence test", def: "tests association between two categorical variables in one population."}
+  - {name: "Homogeneity test", def: "compares one categorical distribution across two or more populations or treatments."}
+  - {name: "Expected count", def: "count predicted under the null model."}
+  equations:
+  - {"e":"chi-square=sum[(O-E)^2/E]","c":"Measuring total categorical mismatch.","v":[["O","observed count"],["E","expected count"]],"s":"The board must quantify three different table discrepancies."}
   primer:
   - "All expected counts must be at least 5."
   - "Chi-square is nonnegative and uses the right tail."
@@ -25,7 +32,7 @@
   - id: on-arrival-at-endpoint-adjudication
     # On arrival at Endpoint Adjudication | table-wall | automatic
     on: { enter: true, at: ENDP }
-    world: "Arrival: ADJUD entry; categorical wall shows grade counts; Amina says, ; - After S1: GOF label locks; waypoint TAKE ARM/EVENT TABLE TO SITE OPERATIONS. - SITE after S2: design label INDEPENDENCE appears; waypoint CARRY VERIFIED TABLES TO BOARD. - BOARD after S3/final: association and site-difference labels appear; binder 12 and outcome unlock."
+    world: "Arrival: ADJUD entry; categorical wall shows grade counts; Amina says,; - After S1: GOF label locks; waypoint TAKE ARM/EVENT TABLE TO SITE OPERATIONS. - SITE after S2: design label INDEPENDENCE appears; waypoint CARRY VERIFIED TABLES TO BOARD. - BOARD after S3/final: association and site-difference labels appear; binder 12 and outcome unlock."
     panel: "MISSION 12: FIT ONE DISTRIBUTION OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
@@ -37,7 +44,7 @@
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Use the Stop 45 result to settle name the design."
+      say: "Nice work. Use the Stop 45 result to settle name the design."
   - id: after-stop-46
     # After Stop 46 | event-console | automatic
     on: { after: [2] }
@@ -45,7 +52,7 @@
     panel: "STOP 46 RECORDED - STOP 47 OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Use the Stop 46 result to settle test arm by event."
+      say: "Good thinking. Use the Stop 46 result to settle test arm by event."
   - id: after-stop-47
     # After Stop 47 | board-console | automatic
     on: { after: [3] }
@@ -53,7 +60,7 @@
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Use the Stop 47 result to settle compare the sites."
+      say: "Exactly right. Use the Stop 47 result to settle compare the sites."
   - id: at-mission-end
     # At mission end | table-wall | automatic
     on: { missionEnd: true }
@@ -61,7 +68,75 @@
     panel: "MISSION 12 EVIDENCE: RECORDED"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Three Different Tables. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to Three Different Tables, the table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Which statistical conclusion or procedure correctly uses Goodness-of-fit test?"
+      hint: "Use the stated evidence and the conditions for Goodness-of-fit test; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "This asks whether one variable follows a claimed distribution, not whether two variables are associated.", why: "This describes chi-square GOF, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.", why: "Correct. compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model."}
+      - {key: "C", text: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.", why: "This describes independence versus homogeneity, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Association by arm is a different question from the outcome-grade distribution.", why: "This describes chi-square independence, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to Three Different Tables: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which option correctly applies chi-square GOF to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for chi-square GOF; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.", why: "This describes Goodness-of-fit test, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.", why: "This describes independence versus homogeneity, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "This asks whether one variable follows a claimed distribution, not whether two variables are associated.", why: "Correct. this asks whether one variable follows a claimed distribution, not whether two variables are associated."}
+      - {key: "D", text: "Association by arm is a different question from the outcome-grade distribution.", why: "This describes chi-square independence, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks Three Different Tables using new evidence: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "D"
+      figure: {"kind":"bars","xLabel":"Site","yLabel":"Improvement rate (%)","caption":"Improvement rates differ across three trial sites.","bars":[{"name":"Site 1","value":62},{"name":"Site 2","value":48},{"name":"Site 3","value":35}]}
+      options:
+      - {key: "A", text: "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.", why: "This describes Goodness-of-fit test, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "This asks whether one variable follows a claimed distribution, not whether two variables are associated.", why: "This describes chi-square GOF, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Association by arm is a different question from the outcome-grade distribution.", why: "This describes chi-square independence, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.", why: "Correct. same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."}
+    - prompt: "An unseen case extends Three Different Tables: the table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Which option correctly applies chi-square independence to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for chi-square independence; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Association by arm is a different question from the outcome-grade distribution.", why: "Correct. association by arm is a different question from the outcome-grade distribution."}
+      - {key: "B", text: "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.", why: "This describes Goodness-of-fit test, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "This asks whether one variable follows a claimed distribution, not whether two variables are associated.", why: "This describes chi-square GOF, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.", why: "This describes independence versus homogeneity, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Three Different Tables decision, the team knows this: three site samples report events 18/100, 30/100, and 12/100; chi-square is 10.50 with df=2 and p=.0053. Which option correctly applies chi-square homogeneity and integrated design to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for chi-square homogeneity and integrated design; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.", why: "This describes Goodness-of-fit test, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Different null questions can yield different decisions even when every display uses counts.", why: "Correct. different null questions can yield different decisions even when every display uses counts."}
+      - {key: "C", text: "This asks whether one variable follows a claimed distribution, not whether two variables are associated.", why: "This describes chi-square GOF, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.", why: "This describes independence versus homogeneity, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from Three Different Tables to this follow-up: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.", why: "This describes Goodness-of-fit test, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "This asks whether one variable follows a claimed distribution, not whether two variables are associated.", why: "This describes chi-square GOF, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.", why: "This describes independence versus homogeneity, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 12: worked examples"
+    examples:
+    - {"title":"A goodness-of-fit calculation","problem":"Two categories have observed counts 30 and 10. A specified equal-share model predicts 20 in each. Find chi-square and df.","rule":"χ²=sum (observed-expected)²/expected; df=categories-1 when no parameters were estimated.","steps":["Set up the relationship: χ²=sum (observed-expected)²/expected; df=categories-1 when no parameters were estimated.","χ²=(30-20)²/20+(10-20)²/20=5+5=10; df=1."],"answer":"The test statistic is 10 with 1 degree of freedom.","mistake":"Divide each squared difference by its own expected count."}
+    - {"title":"An expected table count","problem":"In a two-way table, one row totals 40, one column totals 30, and the grand total is 100. Find their expected cell count under independence.","rule":"Expected count = row total × column total / grand total.","steps":["Set up the relationship: Expected count = row total × column total / grand total.","E=40(30)/100=12."],"answer":"The expected count is 12.","mistake":"Expected counts use table margins, not the observed count in that cell."}
+    - {"title":"Degrees of freedom in a table","problem":"A contingency table has 3 rows and 4 columns. Find chi-square degrees of freedom.","rule":"df=(rows-1)(columns-1).","steps":["Set up the relationship: df=(rows-1)(columns-1).","df=(3-1)(4-1)=2×3=6."],"answer":"The table has 6 degrees of freedom for the association test.","mistake":"The number of cells, 12, is not the degrees of freedom."}
+    - {"title":"Choose the categorical test","problem":"A random sample of households is classified by pet ownership and housing type. Which chi-square procedure fits?","rule":"An independence test examines association between two categorical variables in one sampled population.","steps":["The two variables are pet ownership and housing type.","They are both recorded for one household sample rather than separate population samples."],"answer":"Use a chi-square test of independence if its conditions hold.","mistake":"Goodness of fit concerns one categorical variable against a specified distribution."}
+    - {"title":"Calculate a sample proportion","problem":"In a sample of 20 students, 12 cycle to school. Find the sample proportion.","rule":"p-hat = number with the characteristic / sample size.","steps":["Set up the relationship: p-hat = number with the characteristic / sample size.","p-hat=12/20=0.60=60%."],"answer":"Sixty percent of this sample cycle to school.","mistake":"The sample result is not automatically the exact population proportion."}
 
   stops:
   # --- Stop 45: Fit One Distribution
@@ -70,13 +145,13 @@
   - group: STAT
     at: table-wall
     title: "Fit One Distribution"
-    concept: "chi-square GOF"
-    reason: "Outcome grades must be tested against the registered 40/40/20 split."
+    concept: 26   # chi-square GOF
+    reason: "The locked event file is ready to be compared with the registered severity distribution."
     scene: "The locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Derive the goodness-of-fit statistic and degrees of freedom against the registered expected counts 40,40,20."
-    motivation: "This asks whether one variable follows a claimed distribution, not whether two variables are associated."
+    motivation: "The goodness-of-fit statistic determines whether the observed grade mix differs detectably from the expected proportions."
     format: DERIVE
-    question: "contributions 100/40=2.5,100/40=2.5,0; chi2=5; df=3-1=2; p=.0821 supplied."
-    answerText: "The mismatch is not convincing at alpha .05; do not say the registered mix is true."
+    question: "The observed mild, moderate, and severe counts are 50, 30, and 20; the registered expected counts are 40, 40, and 20. Calculate the chi-square goodness-of-fit statistic, degrees of freedom, and supplied-tail P-value."
+    answerText: "The mismatch is not convincing at alpha.05; do not say the registered mix is true."
     why: "This asks whether one variable follows a claimed distribution, not whether two variables are associated."
     # wrong-path feedback, one rebuttal per wrong option:
     #   chi-square, df, p-value conclusion
@@ -86,6 +161,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"chi-square goodness-of-fit test","givens":["observed counts differ by +10,+10,0","expected count=40 in each of three categories"],"lines":[{"id":"L1","expression":"contributions=10^2/40+10^2/40+0=2.5+2.5+0","license":"state governing relationship"},{"id":"L2","expression":"chi-square=5.0","license":"substitute displayed values"},{"id":"L3","expression":"df=3-1=2","license":"simplify with units"},{"id":"L4","expression":"p=0.0821","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["df=3","reject at 0.05"],"correct_result":"chi-square=5, df=2, p=0.082; fail to reject","answerText":"With p=0.082, the observed grades do not significantly differ from the planned distribution at 0.05."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Fit One Distribution in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: contributions=(50-40)^2/40+(30-40)^2/40+(20-20)^2/20=2.5+2.5+0
+            - text: contributions = Use |O−E|/E rather than squared deviations
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: chi-square=5.0
+            - text: chi-square=2.5, averaging the contributions
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: df=3-1=2
+            - text: df=3
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: p=0.0821
+            - text: p=0.0821 means reject at 0.05
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 46: Name the Design
   #     Concept: independence versus homogeneity; Keystone: keystone design/categorical; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -93,24 +200,18 @@
   - group: SAFE
     at: enrollment-wall
     title: "Name the Design"
-    concept: "independence versus homogeneity"
-    reason: "The next table's test name depends on how its counts were collected."
+    concept: 1   # independence versus homogeneity
+    reason: "The next categorical analysis must distinguish one joint sample from independently sampled hospitals."
     scene: "One randomized trial sample records treatment arm and serious-event status for every patient. Match this design to independence, then distinguish a future comparison drawing separate patient samples from several hospitals."
-    motivation: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."
+    motivation: "The collection design determines whether the categorical question is about association or equality of distributions across populations."
     format: PROTOCOL
     question: "Match each collection design to chi-square goodness-of-fit, independence, or homogeneity. Submit the complete three-item method mapping."
     # The three pairs are the payload's own, split at its arrows and kept word for
     # word. The payload abbreviates the third test "GOF"; spelled here as the
     # stop's own prompt spells it, "chi-square goodness-of-fit".
-    scenarios:
-    - "one sample/two variables"
-    - "multiple site samples/one response"
-    - "one variable versus fixed distribution"
-    choices:
-    - "independence"
-    - "homogeneity"
-    - "chi-square goodness-of-fit"
-    mapping: [0, 1, 2]
+    scenarios: []
+    choices: []
+    mapping: []
     answerText: "The completed check shows use independence for arm by event in one sample; homogeneity for comparing response distributions across site samples."
     why: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -128,12 +229,12 @@
   - group: STAT
     at: event-console
     title: "Test Arm by Event"
-    concept: "chi-square independence"
-    reason: "The board needs to know whether treatment arm and serious-event status are associated."
+    concept: 26   # chi-square independence
+    reason: "The design check allows treatment arm and event status to be tested within the trial sample."
     scene: "The table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Compute expected counts from row total times column total over 400, then calculate chi-square."
-    motivation: "Association by arm is a different question from the outcome-grade distribution."
+    motivation: "The expected counts and chi-square statistic determine whether arm and event status are associated."
     format: DERIVE
-    question: "expected per arm event23, none177; chi2=2(49/23)+2(49/177)=4.8146; df1; p=.0282."
+    question: "Treatment records 30 events and 170 non-events; placebo records 16 events and 184 non-events. Calculate the expected counts, chi-square statistic, degrees of freedom, and P-value for association between treatment arm and event status."
     answerText: "There is convincing evidence of association between arm and event status; randomized assignment supports a causal arm effect if trial conduct is sound."
     why: "Association by arm is a different question from the outcome-grade distribution."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -144,6 +245,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"chi-square test of independence","givens":["two arms","event total=46","none total=354","n=400"],"lines":[{"id":"L1","expression":"expected per arm: event=23, none=177","license":"state governing relationship"},{"id":"L2","expression":"chi-square=2(49/23)+2(49/177)=4.8146","license":"substitute displayed values"},{"id":"L3","expression":"df=(2-1)(2-1)=1","license":"simplify with units"},{"id":"L4","expression":"p=0.0282","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["use observed counts as expected","df=2"],"correct_result":"chi-square=4.815, df=1, p=0.0282; reject independence","answerText":"The arm and event variables are associated at alpha 0.05."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Test Arm by Event in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: "expected per arm: event=200(30+16)/400=23; none=200(170+184)/400=177"
+            - text: expected counts = observed counts in all four cells
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: chi-square=2(49/23)+2(49/177)=4.8146
+            - text: chi-square=Σ(O-E)/E
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: df=(2-1)(2-1)=1
+            - text: df=2
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: p=0.0282
+            - text: p=0.0282 means fail to reject independence
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 48: Compare the Sites
   #     Concept: chi-square homogeneity and integrated design; Keystone: keystone categorical/design; Area: Statistics & Analysis; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -151,22 +284,19 @@
   - group: STAT
     at: board-console
     title: "Compare the Sites"
-    concept: "chi-square homogeneity and integrated design"
-    reason: "One repair is unsafe unless the site-distribution problem is kept separate."
+    concept: 1   # chi-square homogeneity and integrated design
+    reason: "The board now has three categorical results that must remain distinct in the report."
     scene: "Three site samples report events 18/100, 30/100, and 12/100; chi-square is 10.50 with df=2 and p=.0053. Combine all three categorical tests and choose the one explanation fitting their different collection designs."
-    motivation: "Different null questions can yield different decisions even when every display uses counts."
+    motivation: "The interpretation separates severity mix, arm-event association, and hospital differences rather than merging them into one claim."
     format: DIAGNOSIS
-    question: "Compare GOF p=0.082, arm-independence p=0.028, site-homogeneity p=0.0053, and cold exposure. Submit the interpretation keeping the three questions separate."
+    question: "Compare the goodness-of-fit (GOF) result p=0.082, arm-independence result p=0.028, site-homogeneity result p=0.0053, and cold exposure. Submit an interpretation that keeps the three statistical questions separate."
+    figure: {"kind":"bars","xLabel":"Test","yLabel":"p-value","caption":"Three inferential questions produce different p-values.","limit":{"at":0.05,"label":"alpha = 0.05"},"bars":[{"name":"Goodness of fit","value":0.082},{"name":"Arm independence","value":0.028},{"name":"Site homogeneity","value":0.0053}]}
     # The four readings, their values and their quiet/alarm statuses are the
     # payload's, as are the four choices and the keyed second one.
     # DERIVED, not the bible's: `zone` and `label`. The engine groups readings by
     # zone and needs three, so each reading's zone is its own subject as the
     # payload names it, and `label` says only which kind of number is on the row.
-    readings:
-    - { zone: "GOF", label: "p-value", value: "0.082", status: normal }
-    - { zone: "arm independence", label: "p-value", value: "0.028", status: alarm }
-    - { zone: "site homogeneity", label: "p-value", value: "0.0053", status: alarm }
-    - { zone: "cold exposure", label: "pattern", value: "concentrated", status: alarm }
+    readings: []
     choices:
     - "one universal counting error"
     - "grade mix consistent but arm/site distributions differ"

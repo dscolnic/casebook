@@ -1,0 +1,83 @@
+CRISPR GENE EDITING (theme: qd_crispr) — PLACES AND LOCATIONS
+Molecular Biologist · Genome Editing Institute
+Course: Molecular biology — CRISPR gene editing, 2012. Grade 9, nine stops,
+three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_crispr npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Genome Editing Institute, as data.
+
+One corridor, four working rooms off it, and the rooms nobody works in that
+make it a building rather than a diagram. The place has a shape the campaign
+uses: the genome room and the design desk are down one side, the editing bay
+and the sequencing room down the other, and every design crosses the corridor
+before anybody finds out whether it did what it was supposed to.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The sequencing room is the deepest room on the plan. A bank of instruments
+that runs unattended for two days needs floor, air and a way round the back of
+every machine, and a sequencer squeezed into an office reads as an office with
+a photocopier in it.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+ARRAY — Genome Room
+  Genome Room   [ARRAY]  side w, z 5 … 18
+  Bacterial genomes on screens, a phage library beside them, and a pattern
+  nobody has explained.
+  Calls: Find the pattern · Match a spacer · Price the chance · Ready to hand
+  over
+
+DESIGN — Design Desk
+  Design Desk   [DESIGN]  side w, z 28 … 40
+  Candidate sites, motif checks and off-target scores, and the order form at
+  the end of them.
+  Calls: Pick the site · Check the motif · Order the guide · Ready to hand
+  over
+
+EDIT — Editing Bay
+  Editing Bay   [EDIT]  side e, z 6 … 20
+  Cells, a hood, two controls that always go on the plate, and a cut whose
+  position is fixed.
+  Calls: Deliver the guide · Locate the cut · Choose the repair · Ready to
+  hand over
+
+SEQ — Sequencing Room
+  Sequencing Room   [SEQ]  side e, z 22 … 38
+  Twenty-six hours a run, four sites you can afford to read, and nineteen you
+  would like to.
+  Calls: Queue the run · Read the target · Read the others · Ready to hand
+  over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Entrance Desk   [PORCH]  side w, z -4 … 3, OPEN
+Coffee Area   [TEA]  side w, z 20 … 26, OPEN
+Consumables Store   [RACK]  side w, z 40 … 46
+Cold Room   [COLD]  side e, z -4 … 4
+Reading Room   [LIB]  side e, z 40 … 46
+
+Metrics   corridorHalfWidth 1.9, roomDepth 8.4, ceilingH 3.6
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_crispr/ — site/plan, fixtures, minors, groups, theme.

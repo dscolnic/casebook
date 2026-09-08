@@ -6,13 +6,22 @@
     header: "5 DAYS UNTIL COUNTY INSPECTION"
     title: "WATER HAS A BUDGET"
     goNow: "Go to the Flume Pumphouse and meet Linh Chen, the instrumentation and test lead, at the header gauge."
-    body: "The coaster may receive one measurement run, but the flume now delivers less water than its gauge predicts. Fluid pressure depends on depth, and flow must conserve volume through changing channels. Probe the header, calculate the pump duty, then use the Arcade cannon as an independent speed check. By the end of the mission, decide what flow and plant-power schedule the flume can support."
+    body: "The water ride is delivering less water than its gauge predicts. Follow the water from intake to outlet and compare pressure, flow, and pump power. Use the arcade water cannon as a separate speed check, then decide what operating schedule the supply can support."
     objective: "Set a verified flume flow and power schedule."
   objective: "Set a verified flume flow and power schedule."
-  stake: "The coaster may receive one measurement run, but the flume now delivers less water than its gauge predicts. Fluid pressure depends on depth, and flow must conserve volume through changing channels. Probe the header, calculate the pump duty, then use the Arcade cannon as an independent speed check. By the end of the mission, decide what flow and plant-power schedule the flume can support."
+  stake: "The water ride is delivering less water than its gauge predicts. Follow the water from intake to outlet and compare pressure, flow, and pump power. Use the arcade water cannon as a separate speed check, then decide what operating schedule the supply can support."
   takeaway: "A subsystem can meet its own requirement and still need a shared-resource schedule."
   segue: "Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate is clear. It cannot share power with the coaster lift test. Stop power must stay safe. The water arc backs the flow result."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Pressure", def: "Pressure is force per area; fluid pressure acts in all directions at a point."}
+  - {name: "Gauge pressure", def: "Gauge pressure is pressure above atmospheric pressure."}
+  - {name: "Buoyant force", def: "Buoyant force is upward force equal to the weight of displaced fluid."}
+  - {name: "Continuity", def: "Continuity is conservation of volume flow for steady incompressible fluid."}
+  equations:
+  - {"e":"P = ρgh and Fb = ρfluid Vdisplaced g","c":"calculating fluid pressure and buoyant force","v":[["ρ","density"],["g","gravity"],["h","depth"],["Vdisplaced","displaced volume"]],"s":"The header gauge and loaded log must both match the water they physically contact."}
+  - {"e":"F1/A1 = F2/A2","c":"relating forces produced by the same pressure in connected hydraulic fluid","v":[["F1","and"],["F2","forces on pistons with areas"],["A1","and"]],"s":"The small gate-control ram must create the force required at the larger gate piston."}
+  - {"e":"Q = Av and Ppump = ρgQH/η","c":"connecting area, speed, flow, head, and pump power","v":[["Q","volume flow"],["A","cross-sectional area"],["v","speed"],["H","pump head"],["η","efficiency"]],"s":"The flume flow must fit both the channel and the 55 kW shared motor limit."}
   primer:
   - "Pressure depends on depth, not container width."
   - "A floating object's buoyant force equals its weight."
@@ -39,7 +48,7 @@
     # unlocks: No new stop; preserve the current mission state.
     bubbles:
     - who: idowu   # Tunde Idowu
-      say: "The pump does not own the motor feeding it."
+      say: "Nice work. The pump does not own the motor feeding it."
   - id: after-stop-43
     # After Stop 43 | automatic | 
     on: { after: [3] }
@@ -48,7 +57,7 @@
     # unlocks: No new stop; preserve the current mission state.
     bubbles:
     - who: chen   # Linh Chen
-      say: "This evidence changes what we test next, not more than that."
+      say: "Good thinking. This evidence changes what we test next, not more than that."
   - id: on-arrival-at-arcade-test-stall
     # On arrival at Arcade Test Stall | automatic | 
     on: { enter: true, at: ARCADE }
@@ -57,7 +66,7 @@
     # unlocks: Stop 44.
     bubbles:
     - who: chen   # Linh Chen
-      say: "The next check is ready; keep the current evidence visible."
+      say: "Exactly right. The next check is ready; keep the current evidence visible."
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
@@ -66,7 +75,76 @@
     # unlocks: Close the mission and preserve its Casebook evidence.
     bubbles:
     - who: chen   # Linh Chen
-      say: "Record exactly what this mission proved before we move on."
+      say: "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Water Has a Budget. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Flow rate", def: "Flow rate is volume passing a location per time."}
+    questions:
+    - prompt: "In a follow-up to Water Has a Budget, the cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Which prediction or calculation correctly applies Flow rate to this case?"
+      hint: "Use the stated evidence and the conditions for Flow rate; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Pressure is force per area; fluid pressure acts in all directions at a point.", why: "This describes Pressure, not Flow rate. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Flow rate is volume passing a location per time.", why: "Correct. flow rate is volume passing a location per time."}
+      - {key: "C", text: "Gauge pressure is pressure above atmospheric pressure.", why: "This describes Gauge pressure, not Flow rate. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Buoyant force is upward force equal to the weight of displaced fluid.", why: "This describes Buoyant force, not Flow rate. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "Horizon Park receives a second case related to Water Has a Budget: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Pressure to this case?"
+      hint: "Use the stated evidence and the conditions for Pressure; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Flow rate is volume passing a location per time.", why: "This describes Flow rate, not Pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Gauge pressure is pressure above atmospheric pressure.", why: "This describes Gauge pressure, not Pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Pressure is force per area; fluid pressure acts in all directions at a point.", why: "Correct. pressure is force per area; fluid pressure acts in all directions at a point."}
+      - {key: "D", text: "Buoyant force is upward force equal to the weight of displaced fluid.", why: "This describes Buoyant force, not Pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "A teammate rechecks Water Has a Budget using new evidence: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Gauge pressure to this case?"
+      hint: "Use the stated evidence and the conditions for Gauge pressure; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Flow rate is volume passing a location per time.", why: "This describes Flow rate, not Gauge pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Pressure is force per area; fluid pressure acts in all directions at a point.", why: "This describes Pressure, not Gauge pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Buoyant force is upward force equal to the weight of displaced fluid.", why: "This describes Buoyant force, not Gauge pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Gauge pressure is pressure above atmospheric pressure.", why: "Correct. gauge pressure is pressure above atmospheric pressure."}
+    - prompt: "An unseen case extends Water Has a Budget: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Buoyant force to this case?"
+      hint: "Use the stated evidence and the conditions for Buoyant force; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Buoyant force is upward force equal to the weight of displaced fluid.", why: "Correct. buoyant force is upward force equal to the weight of displaced fluid."}
+      - {key: "B", text: "Flow rate is volume passing a location per time.", why: "This describes Flow rate, not Buoyant force. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Pressure is force per area; fluid pressure acts in all directions at a point.", why: "This describes Pressure, not Buoyant force. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Gauge pressure is pressure above atmospheric pressure.", why: "This describes Gauge pressure, not Buoyant force. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "Before another Water Has a Budget decision, the team knows this: the cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Which condition or conclusion correctly determines continuity here?"
+      hint: "Use the stated evidence and the conditions for Continuity; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Flow rate is volume passing a location per time.", why: "This describes Flow rate, not Continuity. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Continuity is conservation of volume flow for steady incompressible fluid.", why: "Correct. continuity is conservation of volume flow for steady incompressible fluid."}
+      - {key: "C", text: "Pressure is force per area; fluid pressure acts in all directions at a point.", why: "This describes Pressure, not Continuity. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "D", text: "Gauge pressure is pressure above atmospheric pressure.", why: "This describes Gauge pressure, not Continuity. It does not account for the quantities, conditions, or evidence in this physics case."}
+    - prompt: "Horizon Park applies the lesson from Water Has a Budget to this follow-up: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Hydrostatic pressure to this case?"
+      hint: "Use the stated evidence and the conditions for Hydrostatic pressure; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Flow rate is volume passing a location per time.", why: "This describes Flow rate, not Hydrostatic pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "B", text: "Pressure is force per area; fluid pressure acts in all directions at a point.", why: "This describes Pressure, not Hydrostatic pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+      - {key: "C", text: "Intake and header agree with ρgh, the ram carries equal pressure, and the floating log's 5.39 kN buoyant force matches its weight. The sudden pressure loss begins after the valve and persists downstream.", why: "Correct. intake and header agree with ρgh, the ram carries equal pressure, and the floating log's 5.39 kN buoyant force matches its weight. The sudden pressure loss begins after the valve and persists downstream."}
+      - {key: "D", text: "Gauge pressure is pressure above atmospheric pressure.", why: "This describes Gauge pressure, not Hydrostatic pressure. It does not account for the quantities, conditions, or evidence in this physics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 11: worked examples"
+    examples:
+    - {"title":"Pressure from force","problem":"A 100 N perpendicular force is spread over 0.5 m². Find pressure.","rule":"P=F/A.","steps":["Set up the relationship: P=F/A.","P=100/0.5=200 Pa."],"answer":"Pressure is 200 pascals.","mistake":"The same force produces greater pressure over a smaller area."}
+    - {"title":"Hydrostatic gauge pressure","problem":"Water has density 1000 kg/m³. Find gauge pressure 2 m below its surface using g=10 m/s².","rule":"Gauge pressure=ρgh for a static liquid.","steps":["Set up the relationship: Gauge pressure=ρgh for a static liquid.","P_gauge=1000(10)(2)=20000 Pa=20 kPa."],"answer":"Pressure is 20 kPa above the surface pressure.","mistake":"Absolute pressure would also include the surface pressure."}
+    - {"title":"Buoyant force","problem":"An object displaces 0.002 m³ of water with density 1000 kg/m³. Use g=10 m/s².","rule":"Buoyant force=ρ_fluid g V_displaced.","steps":["Set up the relationship: Buoyant force=ρ_fluid g V_displaced.","F_b=1000(10)(0.002)=20 N upward."],"answer":"The buoyant force is 20 N.","mistake":"Use displaced-fluid density, not the object's density."}
+    - {"title":"Continuity of flow","problem":"Water flows at 2 m/s through area 0.04 m², then through area 0.02 m². Find the second speed for steady incompressible flow.","rule":"A1v1=A2v2.","steps":["Set up the relationship: A1v1=A2v2.","v2=(0.04×2)/0.02=4 m/s."],"answer":"The narrower section has speed 4 m/s.","mistake":"Conserved volume flow does not mean equal speed at unequal areas."}
+    - {"title":"Input versus useful power","problem":"A machine delivers 80 W useful output at efficiency 0.8. Find input power.","rule":"Efficiency=useful output/input power.","steps":["Set up the relationship: Efficiency=useful output/input power.","P_input=80/0.8=100 W."],"answer":"The input is 100 W, with 20 W going to other transfers.","mistake":"Dividing by efficiency makes required input larger than useful output."}
 
   stops:
   # --- Stop 41: Probe the header
@@ -75,10 +153,10 @@
   - group: FLUME
     at: header-gauge
     title: "Probe the header"
-    concept: "Hydrostatic pressure"
-    reason: "The pump model cannot be trusted until the location of pressure divergence is known."
+    concept: 31   # Hydrostatic pressure
+    reason: "The water ride's readings disagree, and the first physical mismatch needs locating before repairs."
     scene: "Take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Use pressure, hydraulic force, and buoyancy to identify the first station whose measurement stops matching its physical prediction."
-    motivation: "The first broken pattern locates the restriction without blaming the whole pump."
+    motivation: "Pressure, force, and buoyancy comparisons identify where the hydraulic system first departs from its prediction."
     format: PROBE
     question: "OPERATE: Probe the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet in that order. MEASURE: At every station, compare its displayed expected value with its observed reading and load text in kPa, or in kN for the hull. INTERPRET: Submit one location conclusion naming the first station where prediction and measurement break apart."
     answerText: "The pattern first breaks downstream of the gate valve."
@@ -134,12 +212,12 @@
   - group: FLUME
     at: pumphouse-board
     title: "Build the flow and power result"
-    concept: "Continuity and pump power"
-    reason: "The power schedule needs a duty point derived from the required channel flow."
+    concept: 34   # Continuity and pump power
+    reason: "The valve is cleaned and its planned flow must now be translated into electrical demand."
     scene: "The cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Derive the volume-flow relationship and electrical input power required by that full planned operating duty."
-    motivation: "The calculated duty determines whether the shared 55 kW plant can operate the flume."
+    motivation: "Required pump power tells the crew how much shared plant capacity the flume test needs."
     format: DERIVE
-    question: "Given flow Q = 0.45 m^3/s, head H = 7.0 m, water density rho = 1000 kg/m^3, g = 9.80 m/s^2, and efficiency eta = 0.70, use P_useful = rho gQH and P_input = P_useful/eta. Submit an ordered derivation and one pump-input-power number in kW."
+    question: "Submit an ordered derivation and one pump-input-power number in kW."
     answerText: "The required pump input power is 44.1 kW."
     why: "The pump raises flowing water against gravity; only 70% of input reaches the water."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -166,6 +244,38 @@
     # candidate sets, a rebuttal on each wrong candidate, and which wrong branch
     # survives. Also `start` and `goal` — the line it begins from, and the FORM it
     # is going to, which is not the same as the answer.
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Build the flow and power result in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Q = Av
+            - text: Q=A/v
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: P_useful = rho g Q H
+            - text: P_useful = rho g H/Q
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: P_input = rho g Q H / eta
+            - text: P_input = rho g Q H * eta
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: P_input = 1000(9.80)(0.45)(7.0)/0.70 = 44.1 kW
+            - text: P_input=1000(9.80)(0.45)(7.0)(0.70)=21.6 kW
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 43: Allocate shared plant power
   #     Concept: Finite power; Keystone: energy and coupled systems; Area: Brennan's workshop; Learning role: COMBINE; Difficulty: L4; Story role: decision.
@@ -173,10 +283,10 @@
   - group: WORKSHOP
     at: motor-plate
     title: "Allocate shared plant power"
-    concept: "Finite power"
-    reason: "The 55 kW source cannot run the flume duty and coaster lift together."
+    concept: 18   # Finite power
+    reason: "The flume's power demand is known, but shutdown and logging must also fit in the test block."
     scene: "The flume needs 44.1 kW, while the coaster measurement run needs 54.6 kW and shutdown controls need protected reserve. Allocate one complete test block without exceeding the shared plant limit."
-    motivation: "Scheduling is part of the physics when simultaneous power demand exceeds supply."
+    motivation: "The allocation determines whether the test can run without sacrificing essential monitoring or emergency power."
     format: ALLOCATE
     question: "From a 55 kW pool, submit one numerical allocation in kW among flume 44.1, protected shutdown controls 5.0, independent logging 3.0, and coaster lift 54.6; name what runs now, what waits, and whether shutdown remains protected."
     answerText: "Run flume, shutdown controls, and logging now; schedule the coaster separately."
@@ -231,10 +341,10 @@
   - group: TOWER
     at: stall-cannon
     title: "Use the water arc as a speed check"
-    concept: "Projectile motion transfer"
-    reason: "An independent water arc can test the nozzle speed without the header gauge."
+    concept: 3   # Projectile motion transfer
+    reason: "The cleaned water line is ready for an independent exit-speed check."
     scene: "The stall cannon uses the same cleaned water line and launches from ground level toward a mark 3.60 m away. Set the angle and pressure charge that reproduce the predicted 5.94 m/s exit speed."
-    motivation: "Projectile range provides an independent check of the fluid-speed prediction."
+    motivation: "The projectile's range links the water arc to launch speed and tests the line's predicted delivery."
     format: LOB
     question: "Given target range R = 3.60 m +/- 0.12 m, g = 9.80 m/s^2, launch and landing at equal height, angle control 20-70 degrees, and charge-speed control 3.0-7.0 m/s, use R = v^2 sin(2theta)/g. Submit one numerical pair: launch angle in degrees and charge-speed setting in m/s."
     answerText: "At 45 degrees, a 5.94 m/s launch reaches about 3.60 m on level ground."
@@ -257,4 +367,23 @@
     # the charge have to be re-solved for a target that has moved. The bible gives
     # one mark — 3.60 m, tolerance 0.12 m — and a single keyed pair. Owed by the
     # bible: at least one more mark, with its own distance and radius.
+    lob_patch:
+      question: "Given target range `R = 3.60 m +/- 0.12 m`, `g = 9.80 m/s^2`, launch and landing at equal height, angle control `20-70 degrees`, and charge-speed control `3.0-7.0 m/s`, use `R = v^2 sin(2theta)/g`. Submit one numerical pair: launch angle in `degrees` and charge-speed setting in `m/s`."
+      authoredPayload: No structured payload was present; this block supplies it.
+      correctResult: Submit pair (45°, 5.94 m/s); accept speed 5.85-6.03 m/s.
+      wrongButPlausible: A plausible shortcut that ignores one condition or treats dependent evidence as independent.
+      decisionCanFail: true
+      questionAndUnits: "Given target range `R = 3.60 m +/- 0.12 m`, `g = 9.80 m/s^2`, launch and landing at equal height, angle control `20-70 degrees`, and charge-speed control `3.0-7.0 m/s`, use `R = v^2 sin(2theta)/g`. Submit one numerical pair: launch angle in `degrees` and charge-speed setting in `m/s`."
+    lob:
+      targets:
+        - label: Short marker
+          distance: 3
+          radius: 0.12
+        - label: Target marker
+          distance: 3.6
+          radius: 0.12
+        - label: Long marker
+          distance: 4.2
+          radius: 0.12
+      maxSpeed: 7
 

@@ -1,0 +1,91 @@
+THE BENDING OF STARLIGHT (theme: qd_eclipse) — PLACES AND LOCATIONS
+Expedition Astronomer · Eclipse Camp
+Course: Physics — the bending of starlight. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a place".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_eclipse npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — the eclipse camp, as data. Outdoor.
+
+`engine/world/outdoorTown.js` builds everything below; nothing here is
+geometry. This is the first Quick Discovery that is not a corridor, and the
+reason is the subject: an eclipse expedition is a camp pitched on a flat place
+with a clear horizon, and half of what makes it hard is that it is a camp.
+
+Looking down, -Z is away from the player at spawn:
+
+                 [ Camera Field ]                z = -78
+       [ Plate Hut ]      [ Computing Tent ]     z = -18
+             [ Telegraph Hut ]                   z =  16
+                 ¤ spawn ¤                       z =  44
+
+Two things here are load-bearing rather than decorative:
+
+  · The camera field is a long way out on its own. That is the shape of the
+    campaign — level one and level two are a walk apart, and the walk is what
+    five minutes of totality costs you if a plate box is in the wrong hut.
+  · The spawn at (0, 44) has nothing within ten metres of it. A prop over the
+    spawn welds the player in place: the scene renders and W does nothing.
+
+==============================================================================
+1. THE AREAS — 4 of them, one group each
+==============================================================================
+
+CABLE — Telegraph Hut
+  Telegraph Hut  ·  One wire to the coast
+  (26, 16)   38 m from spawn   10 x 8 x 3.2
+  One wire to the coast, and a word limit that makes overclaiming cheap.
+  Calls: Draft it · Cut it · Send it · Ready to hand over
+
+PLATES — Plate Hut
+  Plate Hut  ·  Light-tight
+  (-34, -18)   71 m from spawn   14 x 10 x 3.8
+  Developing dishes, a measuring engine, and two sets of plates that have to
+  be made comparable.
+  Calls: Develop it · Register the field · Measure the residual · Ready to
+  hand over
+
+COMPUTE — Computing Tent
+  Computing Tent  ·  Tables and the budget
+  (34, -18)   71 m from spawn   13 x 10 x 3.4
+  Log tables, an error budget, and the arithmetic that turns residuals into a
+  number with a band on it.
+  Calls: Budget the errors · Weight the sets · Draw the band · Ready to hand
+  over
+
+CAMERA — Camera Field
+  Camera Field  ·  Coelostat and lens
+  (0, -78)   122 m from spawn   16 x 10 x 3.6
+  A mirror that follows the Sun, a lens on its side, and about five minutes to
+  use them.
+  Calls: Level the mount · Focus the lens · Expose the plates · Ready to hand
+  over
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Store Tent  ·  "Water, plates, and the day's times"
+  (-26, 20)   35 m   13 x 9 x 3.4
+Times
+  (8, 36)
+Spawn
+  (0, 44)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 130, profile 'flat'
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_eclipse/ — site/plan, fixtures, minors, groups, theme.

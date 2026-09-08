@@ -1,0 +1,79 @@
+THE FIRST EXOPLANET (theme: qd_exo) — PLACES AND LOCATIONS
+Observer · Planet Search Programme
+Course: Astronomy — the first exoplanet. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_exo npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the planet search programme's floor, as data.
+
+One corridor, four rooms, and the layout is the argument: the two instruments
+that detect the planet are on opposite sides of it and share nothing, which is
+the whole reason their agreeing on one period counts for anything. The room
+that combines them is at the far end and has no instrument in it at all.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The photometry room is the widest room on the plan because its long wall is a
+month of light curve at one metre a night, and the tape room is beside it
+rather than across the corridor because raw frames are carried by hand.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+SPEC — Spectrograph Room
+  Spectrograph Room   [SPEC]  side w, z 4 … 16
+  One star, a thousand absorption lines, and a shift smaller than the width of
+  any of them.
+  Calls: Take the exposure · Measure the shift · Fold the record · Ready to
+  hand over
+
+CLASS — Characterisation Desk
+  Characterisation Desk   [CLASS]  side w, z 26 … 37
+  A mass, a radius, a tilt, and the difference between a label and a
+  description.
+  Calls: Combine the two · Fix the tilt · Name the class · Ready to hand over
+
+PHOT — Survey Photometry
+  Survey Photometry   [PHOT]  side e, z 5 … 19
+  Brightness measured every four minutes for a month, and a dip a hundredth
+  deep.
+  Calls: Reduce the frames · Find the dip · Predict the next · Ready to hand
+  over
+
+FOLLOW — Validation Room
+  Validation Room   [FOLLOW]  side e, z 21 … 32
+  Everything else that makes a dip of exactly the right size and is not a
+  planet.
+  Calls: List the impostors · Buy the check · Rule one out · Ready to hand
+  over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Entrance Desk   [PORCH]  side w, z -4 … 2, OPEN
+Coffee Area   [TEA]  side w, z 18 … 24, OPEN
+Store   [RACK]  side w, z 37 … 43
+Tape Room   [DARK]  side e, z -4 … 3
+Reading Room   [LIB]  side e, z 34 … 43
+
+Metrics   corridorHalfWidth 1.85, roomDepth 8.2, ceilingH 3.1
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_exo/ — site/plan, fixtures, minors, groups, theme.

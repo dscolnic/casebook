@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "LADDER",
         "lesson": 0,
-        "task": "Say what each brightness fixes"
+        "task": "Say what each brightness fixes",
+        "person": true
       },
       {
         "group": "PLATES",
@@ -66,7 +67,8 @@ export const MISSIONS = [
       {
         "group": "DIAGRAM",
         "lesson": 1,
-        "task": "Read what the units mean"
+        "task": "Read what the units mean",
+        "person": true
       },
       {
         "group": "DIAGRAM",

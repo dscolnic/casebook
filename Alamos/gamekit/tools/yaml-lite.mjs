@@ -31,6 +31,21 @@
 // book is doing something the game does not need.
 
 export function parseYaml(text){
+  // JSON IS THE OTHER HAND, and it is a hand a bible actually writes in.
+  // Boomtown fences every interaction block as ```json — a whole campaign's
+  // sixty boards — and read as YAML those come back as an empty object, so
+  // fifteen CHOICE stops were reported as having no options about stops that
+  // list four each. JSON is valid YAML by specification and not by this
+  // parser, so it is handed to the one parser that is exactly right for it.
+  // Tried first and only when it parses, so nothing else changes: a YAML
+  // document that is not JSON throws here and falls through untouched.
+  const said = String(text).trim();
+  if(said.startsWith('{') || said.startsWith('[')){
+    try{
+      const doc = JSON.parse(said);
+      if(doc && typeof doc === 'object') return doc;
+    }catch{ /* not JSON after all — read it as YAML below */ }
+  }
   const lines = [];
   for(const raw of String(text).replace(/\r\n?/g, '\n').split('\n')){
     lines.push(raw);
@@ -360,10 +375,27 @@ function scalar(raw){
     // `’` and `\xB7` are how most writers emit a curly quote, a middle dot
     // or a Greek letter. Left undecoded they reach the game as those six
     // literal characters, in the middle of a sentence.
-    return s.slice(1, -1)
-      .replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
-      .replace(/\\x([0-9a-fA-F]{2})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
-      .replace(/\\"/g, '"').replace(/\\n/g, '\n').replace(/\\t/g, '\t').replace(/\\\\/g, '\\');
+    /**
+     * ONE PASS, LEFT TO RIGHT — not six replaces in a row.
+     *
+     * Run in sequence, `\\t` is seen by the `\\t` rule before the `\\\\` rule ever
+     * gets to it: an escaped backslash followed by a `t` came out as a backslash
+     * and a TAB. That is `\\tfrac12kx^2` — the LaTeX in Headwater's mission 12 —
+     * arriving in the game as `\` + tab + `frac`, and it is the shape of every
+     * sequential-unescaper bug there has ever been. A single scan cannot double
+     * back over what it has already written.
+     */
+    return s.slice(1, -1).replace(
+      /\\(u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|.)/gs,
+      (all, esc) => {
+        if(esc[0] === 'u' && esc.length === 5) return String.fromCharCode(parseInt(esc.slice(1), 16));
+        if(esc[0] === 'x' && esc.length === 3) return String.fromCharCode(parseInt(esc.slice(1), 16));
+        return ({ n: '\n', t: '\t', r: '\r', '"': '"', "'": "'", '\\': '\\', '/': '/', '0': '\0' })[esc]
+          // AN UNKNOWN ESCAPE IS TWO CHARACTERS, kept as written. `\tfrac` after
+          // the backslash rule has consumed the pair is a `t` this must not eat,
+          // and `\rho` in a symbols line is not a carriage return.
+          ?? ('\\' + esc);
+      });
   }
   if(s.startsWith("'") && s.endsWith("'") && s.length > 1) return s.slice(1, -1).replace(/''/g, "'");
   if(s.startsWith('[') && s.endsWith(']')){
@@ -448,6 +480,23 @@ function selftest(){
     bad++;
     console.log(`  ✗ ${name}\n      got  ${a}\n      want ${b}`);
   };
+
+  /**
+   * ESCAPES, IN ONE PASS. `\\tfrac` is LaTeX and `\\rho` is a symbol name; both
+   * are an escaped backslash followed by an ordinary letter, and a chain of
+   * sequential replaces turns the first into a backslash and a TAB. Headwater's
+   * mission 12 carried `$W=\\tfrac12kx^2$` and the game printed a tab in the
+   * middle of the equation. The pair either side is the case that matters: a
+   * REAL tab escape has to keep working while an escaped backslash before a `t`
+   * does not become one.
+   */
+  check('an escaped backslash before t stays two characters',
+        parseYaml('a: "\\\\tfrac12"').a, '\\tfrac12');
+  check('…while a real tab escape is still a tab', parseYaml('a: "one\\ttwo"').a, 'one\ttwo');
+  check('an escaped backslash before r is not a carriage return',
+        parseYaml('a: "\\\\rho"').a, '\\rho');
+  check('a real newline escape survives', parseYaml('a: "one\\ntwo"').a, 'one\ntwo');
+  check('an unknown escape is kept as written', parseYaml('a: "50\\%"').a, '\\%'.length ? '50\\%' : '');
 
   // The equality case, in a sequence: one line against the same record wrapped.
   const flat = parseYaml([

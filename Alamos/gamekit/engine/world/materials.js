@@ -160,6 +160,125 @@ export function boardTexture(base){
   });
 }
 
+/**
+ * Concrete block, laid in courses. Painted or bare: `hex` is the block, and the
+ * mortar is a little darker. Eight courses to the texture, so at the (3, 2)
+ * repeat a wall reads as 0.2 m blocks.
+ */
+export function blockTexture(hex = '#b9b4a8'){
+  const c = new THREE.Color(hex);
+  const r = c.r * 255 | 0, g0 = c.g * 255 | 0, b = c.b * 255 | 0;
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = `rgb(${r * 0.78 | 0},${g0 * 0.78 | 0},${b * 0.78 | 0})`;
+    g.fillRect(0, 0, s, s);
+    const course = s / 8, block = s / 4;
+    for(let row = 0; row < 8; row++){
+      const off = row % 2 ? block / 2 : 0;
+      for(let col = -1; col < 5; col++){
+        const v = (srand() - 0.5) * 18;
+        g.fillStyle = `rgb(${r + v | 0},${g0 + v | 0},${b + v | 0})`;
+        g.fillRect(col * block + off + 3, row * course + 3, block - 6, course - 6);
+      }
+    }
+    for(let i = 0; i < 9000; i++){
+      g.fillStyle = srand() > 0.5 ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.05)';
+      g.fillRect(srand() * s, srand() * s, 1.6, 1.6);
+    }
+  }, 3, 2);
+}
+
+/** Corrugated or ribbed sheet: vertical ribs shaded as if lit from one side. */
+export function ribbedTexture(hex = '#cfd3d2', ribs = 20){
+  const c = new THREE.Color(hex);
+  const r = c.r * 255 | 0, g0 = c.g * 255 | 0, b = c.b * 255 | 0;
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = `rgb(${r},${g0},${b})`;
+    g.fillRect(0, 0, s, s);
+    const w = s / ribs;
+    for(let i = 0; i < ribs; i++){
+      const x = i * w;
+      const grad = g.createLinearGradient(x, 0, x + w, 0);
+      grad.addColorStop(0, 'rgba(0,0,0,0.22)');
+      grad.addColorStop(0.35, 'rgba(255,255,255,0.10)');
+      grad.addColorStop(0.7, 'rgba(0,0,0,0.04)');
+      grad.addColorStop(1, 'rgba(0,0,0,0.26)');
+      g.fillStyle = grad;
+      g.fillRect(x, 0, w, s);
+    }
+    for(let i = 0; i < 6000; i++){
+      g.fillStyle = srand() > 0.5 ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
+      g.fillRect(srand() * s, srand() * s, 1.5, 1.5);
+    }
+  }, 3, 2);
+}
+
+/** Cast concrete: cloudy, with formwork joints and the odd tie hole. */
+export function concreteTexture(hex = '#9a9892'){
+  const c = new THREE.Color(hex);
+  const r = c.r * 255 | 0, g0 = c.g * 255 | 0, b = c.b * 255 | 0;
+  return canvasTex(512, (g, s) => {
+    const img = g.createImageData(s, s), d = img.data;
+    for(let y = 0; y < s; y++) for(let x = 0; x < s; x++){
+      const n = (fbm(x / 90, y / 90, 4) - 0.5) * 36 + (srand() - 0.5) * 10;
+      const i = (y * s + x) * 4;
+      d[i] = r + n; d[i + 1] = g0 + n; d[i + 2] = b + n; d[i + 3] = 255;
+    }
+    g.putImageData(img, 0, 0);
+    g.fillStyle = 'rgba(0,0,0,0.16)';
+    g.fillRect(0, s / 2 - 1, s, 2);
+    g.fillRect(s / 2 - 1, 0, 2, s);
+    g.fillStyle = 'rgba(0,0,0,0.30)';
+    for(const [x, y] of [[0.25, 0.25], [0.75, 0.25], [0.25, 0.75], [0.75, 0.75]]){
+      g.beginPath(); g.arc(x * s, y * s, 4, 0, 6.3); g.fill();
+    }
+  }, 2, 2);
+}
+
+/** Rubber deck matting: dark, with a raised stud pattern. */
+export function deckTexture(base = [70, 74, 72]){
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = `rgb(${base[0]},${base[1]},${base[2]})`;
+    g.fillRect(0, 0, s, s);
+    const pitch = s / 16;
+    for(let y = 0; y < 16; y++) for(let x = 0; x < 16; x++){
+      const cx = x * pitch + pitch / 2, cy = y * pitch + pitch / 2;
+      g.fillStyle = 'rgba(255,255,255,0.09)';
+      g.beginPath(); g.arc(cx, cy, pitch * 0.22, 0, 6.3); g.fill();
+      g.fillStyle = 'rgba(0,0,0,0.22)';
+      g.beginPath(); g.arc(cx + 1.5, cy + 1.5, pitch * 0.2, 0, 6.3); g.fill();
+    }
+    for(let i = 0; i < 4000; i++){
+      g.fillStyle = srand() > 0.5 ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.04)';
+      g.fillRect(srand() * s, srand() * s, 1.6, 1.6);
+    }
+  }, 5, 5);
+}
+
+/**
+ * What is outside a door: a sky above a ground, as a gradient. The interior
+ * district is built in an empty black scene four kilometres from the town, so a
+ * doorway that shows what is really behind it shows nothing — a black rectangle
+ * in the wall of every room in every outdoor game.
+ */
+export function outsideTexture(sky = 0xb9c4c8, ground = [116, 96, 68]){
+  const c = new THREE.Color(sky);
+  const sr = c.r * 255 | 0, sg = c.g * 255 | 0, sb = c.b * 255 | 0;
+  const t = canvasTex(64, (g, s) => {
+    const grad = g.createLinearGradient(0, 0, 0, s);
+    grad.addColorStop(0, `rgb(${sr * 0.86 | 0},${sg * 0.88 | 0},${sb * 0.92 | 0})`);
+    // The horizon sits at 63% down the plane, which on a 5 m plane whose top is
+    // at 4.8 m puts it at eye height through the door. Higher and the doorway
+    // showed only ground; the first render of this was a brown rectangle.
+    grad.addColorStop(0.60, `rgb(${Math.min(255, sr * 1.08) | 0},${Math.min(255, sg * 1.06) | 0},${Math.min(255, sb * 1.04) | 0})`);
+    grad.addColorStop(0.64, `rgb(${Math.min(255, ground[0] * 1.05) | 0},${Math.min(255, ground[1] * 1.05) | 0},${Math.min(255, ground[2] * 1.05) | 0})`);
+    grad.addColorStop(1, `rgb(${ground[0] * 0.82 | 0},${ground[1] * 0.82 | 0},${ground[2] * 0.82 | 0})`);
+    g.fillStyle = grad;
+    g.fillRect(0, 0, s, s);
+  }, 1, 1);
+  t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+  return t;
+}
+
 // --------------------------------------------------------------------- cache
 const cache = new Map();
 /** Shared material by key, so a whole level is a handful of shader programs. */

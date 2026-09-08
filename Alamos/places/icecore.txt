@@ -1,0 +1,127 @@
+ICE CORE (theme: icecore) — PLACES AND LOCATIONS
+Season Science Lead · Vestri Dome
+Course: Earth and environmental science — the measurement half of a
+palaeoclimate course
+Grade 12. One mission is called a Day.
+Delivery: The Vestri Record — the board is in DATA. 15 pieces, one a day.
+
+Run it:  cd gamekit && THEME=icecore npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Vestri Dome, as data. Outdoor, and flatter than anywhere else here.
+
+`engine/world/outdoorTown.js` builds all of it. The place is a deep-drilling
+camp on the high plateau: six modules on legs beside a groomed route, a drill
+trench dug into the snow at the far end, and a stake array out to the east.
+
+Looking down, -Z is away from the player at spawn:
+
+       [ Drill Trench ]                                z = -68
+  [ Cold Lab ]        [ Gas Lab ]                      z = -32
+  [ Science Module ]  [ Core Line ]                    z =   0
+       [ Mess ]  [ Generators ]                        z =  22
+                ¤ spawn ¤            [ Snow Study Hut ] (east, on its own)
+
+Three things here are load-bearing rather than decorative:
+
+  · The spawn at (0, 44) has nothing within ten metres of it. A prop over the
+    spawn welds the player in place: the scene renders and W does nothing.
+  · Every `group` below is a group id in content/groups.js. A group with no
+    building is a call the player cannot reach, and `worldParity` is the only
+    check that notices.
+  · The horizon ranks are almost flat on purpose. This is the one place in the
+    set with nothing on the skyline, and the low ranks are what sell it —
+    removing them entirely leaves a hard line where the dome meets the ground.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+CORE — Chronology & the Core Line
+  Core Line
+  (20, 0)   48 m from spawn   24 x 11 x 5.2
+  What is a year, how it is counted, and what the counting is worth at depth.
+  Calls: Log the section · Count the layers · Fix the depth · Ready to hand
+  over
+
+DATA — Records & Reporting
+  Science Module
+  (-22, 0)   49 m from spawn   20 x 12 x 5.4
+  DELIVERY ROOM — the board for The Vestri Record is here.
+  What the season can say out loud, and with how much of a margin.
+  Calls: Assemble the record · State the uncertainty · Agree the wording ·
+  Ready to hand over
+
+GAS — Trapped Gas
+  Gas Laboratory
+  (22, -32)   79 m from spawn   18 x 12 x 5.2
+  Air that stopped moving centuries after the snow around it fell.
+  Calls: Cut the sample · Extract the air · Compare the record · Ready to hand
+  over
+
+COLD — Cold Laboratory
+  Cold Laboratory
+  (-24, -32)   80 m from spawn   18 x 12 x 5.2
+  Melting a sample without adding to it, and turning a ratio into a
+  temperature.
+  Calls: Prepare the sample · Run the standard · Read the ratio · Ready to
+  hand over
+
+FIELD — Surface & Accumulation
+  Snow Study Hut
+  (82, 26)   84 m from spawn   12 x 9 x 4.4
+  What the surface is doing now, which is the only part anybody can check.
+  Calls: Read the mast · Dig the pit · Weigh the year · Ready to hand over
+
+DRILL — Drilling & Recovery
+  Drill Trench
+  (-4, -68)   112 m from spawn   34 x 18 x 9.5
+  Getting ice out of a hole three kilometres deep without changing what it
+  says.
+  Calls: Read the run sheet · Get the core up whole · Log what came back ·
+  Ready to hand over
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Mess and Accommodation  ·  "Where the season is argued about"
+  (-26, 26)   32 m   26 x 13 x 5
+Generator Module  ·  "Two sets, one of them running"
+  (24, 26)   30 m   14 x 10 x 4.6
+Core Store  ·  "Below the surface, and colder than the air"
+  (46, -14)   74 m   14 x 10 x 3.4
+Season board
+  (8, 34)
+Spawn
+  (0, 44)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 150, profile 'flat'
+
+==============================================================================
+THE DELIVERY — The Vestri Record
+==============================================================================
+   1. The accumulation rate
+   2. The recovery and custody log
+   3. The counted-record limit
+   4. The shared-instrument calibration
+   5. The isotope-temperature calibration
+   6. The first gas–ice age estimate
+   7. The dust interpretation
+   8. The volcanic ice-age tie point
+   9. The deep-model limit
+  10. The shared-dependency map
+  11. The clock-alignment test
+  12. The final drilling plan
+  13. The cold-chain exception
+  14. The robust comparison statement
+  15. The signed Vestri Record
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/icecore/ — site/plan, fixtures, minors, groups, theme.

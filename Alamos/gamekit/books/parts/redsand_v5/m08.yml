@@ -6,13 +6,21 @@
     header: "8 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE OVERRIDE"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the initial-rate board."
-    body: "The cooling system weakened before the temperature was lowered, yet the lower setting clearly reduced methane production. The crew must separate what the change caused from why it was made. In Plant Control and Reactor Hall, derive the rate law, calculate its constant, and reverse one controlled temperature change. By the end of the mission, decide who changed the setting and whether that action caused the immediate slowdown."
+    body: "Cooling weakened before the temperature was lowered, but the lower setting did slow fuel production. Test how the reaction responds to a controlled temperature change and check the operating records. Decide who changed the setting and what effect the action actually had."
     objective: "Measure the effect of the temperature change and verify who made the override."
   objective: "Measure the effect of the temperature change and verify who made the override."
-  stake: "The cooling system weakened before the temperature was lowered, yet the lower setting clearly reduced methane production. The crew must separate what the change caused from why it was made. In Plant Control and Reactor Hall, derive the rate law, calculate its constant, and reverse one controlled temperature change. By the end of the mission, decide who changed the setting and whether that action caused the immediate slowdown."
+  stake: "Cooling weakened before the temperature was lowered, but the lower setting did slow fuel production. Test how the reaction responds to a controlled temperature change and check the operating records. Decide who changed the setting and what effect the action actually had."
   takeaway: "Verification may require separate evidence for identity, timing, and physical condition."
   segue: "Mission decision: The signed change caused the fast rate drop. Its purpose is still not known. One test lowers and restores the rate while all other controls stay fixed. Separate records prove who made the change and when. The catalyst bed must be mapped before the old setting can return."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Reaction rate", def: "measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much."}
+  - {name: "Rate law", def: "describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation."}
+  - {name: "Reaction order", def: "the exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four."}
+  - {name: "Rate constant", def: "the proportional number in a rate law at a particular temperature. Its units depend on the total reaction order."}
+  equations:
+  - {"e":"rate = k[CO2]^m[H2]^n","c":"predicting how carbon-dioxide and hydrogen concentrations change methane-production speed","v":[["rate","methane formation per unit time"],["k","rate constant"],["[CO2]","carbon-dioxide concentration"],["[H2]","hydrogen concentration"],["m","and"],["n","experimentally measured reaction orders"]],"s":"The crew must quantify how hydrogen dilution and the temperature setting changed production before judging the override."}
+  - {"e":"k = rate / ([CO2]^m[H2]^n)","c":"finding the rate constant from one measured trial","v":[["k","rate constant"],["rate","measured methane formation per unit time"],["[CO2]","carbon-dioxide concentration"],["[H2]","hydrogen concentration"],["m","and"],["n","reaction orders"]],"s":"A correct baseline lets the controlled temperature reversal be compared to the response predicted at the starting condition."}
   primer:
   - "Compare trials that change one concentration at a time."
   - "Rate describes speed, not the final amount present after the reaction settles."
@@ -39,7 +47,7 @@
     # unlocks: The Sabatier Reactor waypoint and Stop 31.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "Hydrogen dilution hurts twice in the rate law. Now isolate temperature at the reactor."
+      say: "Nice work. Hydrogen dilution hurts twice in the rate law. Now isolate temperature at the reactor."
   - id: after-stop-31
     # After Stop 31 | Sabatier Reactor | automatic causal result
     on: { after: [3] }
@@ -48,7 +56,7 @@
     # unlocks: Stop 32 at the verification panel.
     bubbles:
     - who: abiola   # Abiola
-      say: "The override caused the immediate slowdown. That proves the effect, not the motive."
+      say: "Good thinking. The override caused the immediate slowdown. That proves the effect, not the motive."
   - id: after-stop-32
     # After Stop 32 | verification panel | automatic character beat
     on: { after: [4] }
@@ -57,7 +65,7 @@
     # unlocks: The Mission 8 outcome beat.
     bubbles:
     - who: abiola   # Abiola
-      say: "Herrera made the change. The hardware changed when the signed log says it did."
+      say: "Exactly right. Herrera made the change. The hardware changed when the signed log says it did."
     - who: herrera   # Herrera
       say: "Then inspect the bed before you decide whether I should have left it hot."
   - id: at-mission-end
@@ -68,9 +76,79 @@
     # unlocks: Mission 9 briefing and the Catalyst Bay waypoint.
     bubbles:
     - who: herrera   # Herrera
-      say: "A catalyst bed does not have one temperature. An average can hide the point that destroys it."
+      say: "Outstanding work. You solved the mission. A catalyst bed does not have one temperature. An average can hide the point that destroys it."
     - who: sundqvist   # Sundqvist
       say: "Then we probe from front to back before restart."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Override. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Controlled experiment", def: "changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift."}
+    - {name: "Noise band", def: "the small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause."}
+    questions:
+    - prompt: "In a follow-up to The Override, to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Controlled experiment?"
+      hint: "Use the stated evidence and the conditions for Controlled experiment; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.", why: "This describes Noise band, not Controlled experiment. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.", why: "Correct. changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift."}
+      - {key: "C", text: "Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.", why: "This describes Reaction rate, not Controlled experiment. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.", why: "This describes Rate law, not Controlled experiment. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Override: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Noise band?"
+      hint: "Use the stated evidence and the conditions for Noise band; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.", why: "This describes Controlled experiment, not Noise band. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.", why: "This describes Reaction rate, not Noise band. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.", why: "Correct. the small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause."}
+      - {key: "D", text: "Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.", why: "This describes Rate law, not Noise band. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Override using new evidence: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reaction rate?"
+      hint: "Use the stated evidence and the conditions for Reaction rate; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.", why: "This describes Controlled experiment, not Reaction rate. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.", why: "This describes Noise band, not Reaction rate. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.", why: "This describes Rate law, not Reaction rate. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.", why: "Correct. measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much."}
+    - prompt: "An unseen case extends The Override: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Rate law?"
+      hint: "Use the stated evidence and the conditions for Rate law; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.", why: "Correct. describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation."}
+      - {key: "B", text: "Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.", why: "This describes Controlled experiment, not Rate law. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.", why: "This describes Noise band, not Rate law. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.", why: "This describes Reaction rate, not Rate law. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Override decision, the team knows this: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reaction order?"
+      hint: "Use the stated evidence and the conditions for Reaction order; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.", why: "This describes Controlled experiment, not Reaction order. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four.", why: "Correct. the exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four."}
+      - {key: "C", text: "The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.", why: "This describes Noise band, not Reaction order. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.", why: "This describes Reaction rate, not Reaction order. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Override to this follow-up: calculate the rate constant from one trial so the controlled temperature test has a quantitative baseline. Which calculation or chemical interpretation correctly applies Rate constant?"
+      hint: "Use the stated evidence and the conditions for Rate constant; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.", why: "This describes Controlled experiment, not Rate constant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.", why: "This describes Noise band, not Rate constant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The proportional number in a rate law at a particular temperature. Its units depend on the total reaction order.", why: "Correct. the proportional number in a rate law at a particular temperature. Its units depend on the total reaction order."}
+      - {key: "D", text: "Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.", why: "This describes Reaction rate, not Rate constant. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 8: worked examples"
+    examples:
+    - {"title":"Infer a rate order","problem":"Doubling [A] while holding all else fixed makes the initial reaction rate four times as large. Find the order in A.","rule":"If rate=k[A]^m, the rate ratio is 2^m.","steps":["2^m=4.","m=2 because 2²=4."],"answer":"The reaction is second order in A over the tested conditions.","mistake":"Reaction coefficients do not generally determine measured rate orders."}
+    - {"title":"Find a rate constant","problem":"For rate=k[A]², rate=0.08 mol/(L s) when [A]=0.2 mol/L. Find k.","rule":"k=rate/[A]².","steps":["Set up the relationship: k=rate/[A]².","k=0.08/(0.2)²=0.08/0.04=2 L/(mol s)."],"answer":"The rate constant is 2 L/(mol s).","mistake":"Square the concentration, and retain the resulting units."}
+    - {"title":"Change two concentrations","problem":"A reaction has rate=k[A][B]². Double [A] and halve [B]. Find the rate factor.","rule":"rate_new/rate_old=(A_new/A_old)(B_new/B_old)².","steps":["Set up the relationship: rate_new/rate_old=(A_new/A_old)(B_new/B_old)².","rate factor=2(1/2)²=1/2."],"answer":"The new rate is half the original rate.","mistake":"Halving B changes its squared contribution by one quarter."}
+    - {"title":"Use a reversible intervention","problem":"A lamp draws 2 A at setting A, 3 A at setting B, and 2 A after returning to A. Supply voltage and the lamp are unchanged. What does this support?","rule":"Change one proposed cause, hold other relevant factors fixed, then restore the original condition.","steps":["A → B changes the current by 3-2 = 1 A.","B → A restores 2 A. The response reverses with the setting under the stated controls."],"answer":"The result supports a setting effect under these test conditions.","mistake":"One intervention does not prove the effect is identical under every other condition."}
+    - {"title":"Explain surface area","problem":"Equal masses of the same solid react with the same excess solution. One is powdered and one is a single piece. Why may powder react faster?","rule":"For a surface reaction, more exposed surface can provide more reaction sites.","steps":["Powder exposes more surface per unit mass.","More sites can contact the solution at once, increasing the observed rate under comparable conditions."],"answer":"Powder can react faster without changing the theoretical product amount.","mistake":"A rate increase does not create extra reactant."}
 
   stops:
   # --- Stop 29: Read the initial-rate table
@@ -80,10 +158,10 @@
     at: rate-board
     title: "Read the initial-rate table"
     person: sundqvist
-    concept: "experimental rate laws"
-    reason: "The rate response must come from experiment, not equation coefficients."
-    scene: "To measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The exponents will predict why hydrogen dilution damages output so strongly."
-    motivation: "The rate law predicts how strongly hydrogen dilution could cut methane production."
+    concept: 9   # experimental rate laws
+    reason: "The thermal review is complete and the rate data can now test the effect of diluted hydrogen."
+    scene: "The exponents will predict why hydrogen dilution damages output so strongly."
+    motivation: "The reaction orders show how strongly output responds to each feed concentration."
     format: CHOICE
     question: "Which rate law fits?"
     choices:
@@ -105,10 +183,10 @@
   - group: KINET
     at: rate-board
     title: "Calculate k"
-    concept: "rate constant/units"
-    reason: "The controlled trial needs a numerical baseline for the rate constant."
-    scene: "Calculate the rate constant from one trial so the controlled temperature test has a quantitative baseline. That numerical baseline makes the later temperature reversal a useful quantitative test of cause."
-    motivation: "A valid rate constant lets the crew predict the rate change instead of arguing from the timing alone."
+    concept: 9   # rate constant/units
+    reason: "The reaction orders are identified and the temperature intervention needs a quantitative rate baseline."
+    scene: "Trial 1 records rate = 1.20 × 10^-3 M/s, [CO2] = 0.10 M, and [H2] = 0.20 M. The established rate law is rate = k[CO2][H2]^2, where k is the rate constant."
+    motivation: "The rate constant makes the later temperature test comparable with the measured initial-rate trials."
     format: BALLPARK
     question: "Use Trial 1 and rate = k\\[CO2\\]\\[H2\\]^2 to find k."
     # CONVERTED from the bible's `data` line, k = 1.20e-3 / [(0.10)(0.20)^2], and
@@ -142,10 +220,10 @@
   - group: KINET
     at: skid
     title: "Establish causation by reversal"
-    concept: "temperature and rate"
-    reason: "A reversible one-variable test can prove the immediate causal effect."
-    scene: "Hold feed, pressure, and flow fixed and reverse only temperature to prove whether Herrera's change caused the slowdown. Restoring the response afterward will clearly separate deliberate intervention from ordinary drift."
-    motivation: "The reversal proves the lower set point caused the immediate slowdown, while leaving the safety motive open."
+    concept: 9   # temperature and rate
+    reason: "The rate baseline is fixed and the suspected temperature effect is ready for a controlled intervention."
+    scene: "Hold feed, pressure, and flow fixed and reverse only temperature to prove whether Herrera's change caused the slowdown."
+    motivation: "A reversible rate response isolates temperature as a cause rather than relying on coincident changes."
     format: CONTROL
     question: "Which controlled change demonstrates that the override caused the immediate rate loss, and does the response reverse?"
     # MODEL CONVERSION. The bible lists five plant variables, three of them
@@ -154,18 +232,17 @@
     # cause: `response` is the signed change in the reading (72 - 100), `noise` is
     # the bible's noise band, and `truth` its `correct`.
     control:
-      observable: { label: "Rate index" }
       variables:
-      - { id: temperature_K, label: "Reactor temperature" }
-      - { id: h2_M, label: "H2 concentration" }
-      - { id: pressure_bar, label: "Pressure" }
-      held: ["CO2 concentration", "Flow"]
-      truth: temperature_K
-      baseline: 100
-      response: -28
-      noise: 2
-      run: "Run the measurement"
-      commit: "Name the cause"
+        - id: temperature_K
+          label: Reactor temperature
+        - id: co2_M
+          label: CO2 concentration
+        - id: h2_M
+          label: H2 concentration
+        - id: pressure_bar
+          label: Pressure
+        - id: flow_index
+          label: Flow
     answerText: "Lower only temperature, observe the rate fall, then restore temperature and observe the rate return."
     why: "Reversal makes drift less plausible. The result proves the lower set point reduced reaction rate. It does not prove whether lowering it was unnecessary, because the short test does not recreate the developing thermal condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -194,24 +271,48 @@
     at: verification-panel
     title: "Verify who changed it"
     person: abiola
-    concept: "verification/chain of custody"
-    reason: "The crew needs separate proof of identity, timing, and physical change."
-    scene: "With the effect established, compare independent access and instrument records to determine who made the change and when. The evidence budget must verify the action without pretending to prove motive."
-    motivation: "The crew must distinguish proof that Herrera acted from assumptions about why he acted."
+    concept: 9   # verification/chain of custody
+    reason: "The intervention's physical effect is established, but who changed the setting still needs independent records."
+    scene: "With the effect established, compare independent access and instrument records to determine who made the change and when."
+    motivation: "The audit distinguishes evidence of an action and its timing from unsupported claims about motive."
     format: ATTEST
     question: "Choose the three checks that verify who changed the setting and when."
     # CONVERTED from the payload below. `limit` -> `checks`; each claim's
     # `backing` is the `evidence` a verification turns up; `backed` and `critical`
     # carry across unchanged.
     attest:
-      checks: 3
+      limit: 3
       claims:
-      - { id: presence, label: "Herrera was in Reactor Hall", evidence: "Badge log", backed: true }
-      - { id: command, label: "Herrera's authenticated account changed the set point", evidence: "Signed controller audit", backed: true, critical: true }
-      - { id: physical_change, label: "Temperature changed at the same time", evidence: "Independent temperature historian", backed: true, critical: true }
-      - { id: written_note, label: "The handwritten note was written before the change", evidence: "No verified timestamp" }
-      - { id: sabotage_motive, label: "The change was intended as sabotage", evidence: "No direct evidence", critical: true }
-      commit: "Close the list"
+        - id: presence
+          label: Herrera was in Reactor Hall
+          backing: Badge log
+          backed: true
+          critical: false
+        - id: command
+          label: Herrera's authenticated account changed the set point
+          backing: Signed controller audit
+          backed: true
+          critical: true
+        - id: physical_change
+          label: Temperature changed at the same time
+          backing: Independent temperature historian
+          backed: true
+          critical: true
+        - id: written_note
+          label: The handwritten note was written before the change
+          backing: No verified timestamp
+          backed: false
+          critical: false
+        - id: sabotage_motive
+          label: The change was intended as sabotage
+          backing: No direct evidence
+          backed: false
+          critical: true
+      recommended_checks:
+        - command
+        - physical_change
+        - presence
+      correct: Action and time verified; sabotage motive remains unbacked.
     answerText: "Use the controller audit, independent temperature history, and badge log; motive remains unverified."
     why: "A record of access is not a record of the physical condition, and a physical trace without identity does not name the actor. Independent identity and condition records together verify the claim."
     # wrong-path feedback, one rebuttal per wrong option:

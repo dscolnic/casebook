@@ -1,0 +1,237 @@
+DARK FIBRE (theme: darkfibre) — PLACES AND LOCATIONS
+Optical Measurements Lead · Pellow Head Island · twelve days to guide one repair attempt
+Course: AP Physics 2's optics and modern half
+Grade 12. One mission is called a Day.
+Delivery: The Repair Order — the board is in TEST. 12 pieces, one a day.
+
+Run it:  cd gamekit && THEME=darkfibre npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Pellow Head landing station, as data. Dunes, a blockhouse and a bay.
+
+`engine/world/outdoorTown.js` builds all of it. The place is where a submarine
+cable comes ashore: a manhole in the dunes above the tide line, a duct trench
+up to a low concrete station, and a radiography bay three hundred metres out
+along the dunes because of what is in the pot.
+
+Looking down, -Z is seaward and away from the player at spawn:
+
+                ~ the sea, to the horizon ~                 z = -430
+       — — — the dune crest — — —                           z = -210
+  [ Radiography Bay ]                                       z = -196
+                   [ Beach Manhole ]                        z = -120
+       [ Splice Trailer ]      [ Test Room ]                z =  -18
+  [ Cable Termination ]   [ Amplifier and Power Hall ]      z =    8
+       [ Receiver Lab ]     [ Generator House ]             z =   34
+                    ¤ spawn ¤                               z =   70
+
+Three things here are load-bearing rather than decorative:
+
+  · The radiography bay is 307 m from the spawn and everything else is inside
+    91 m, which is what makes `engine/core/orientation.js` call this a
+    two-tier site: the far lap and the vehicles come out on day 4. It is also
+    why the bay is out there at all — a gamma source is separated by distance
+    rather than by lead, which is day nine's arithmetic standing in the world.
+  · The water is a channel rather than open sea, because a channel cuts a bed
+    into the terrain and leaves a bank along its landward edge. On a flat
+    profile an `open: true` plane sits *under* the ground and renders as
+    nothing at all. The dune crest at z = -210 is that edge.
+  · The station is one storey and the dunes are higher than it. The silhouette
+    of this game is a low concrete box with sand above it and nothing on the
+    skyline, which is what a cable landing station actually looks like: the
+    interesting object is buried.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+RECV — Receiver Lab
+  Receiver Lab
+  (-18, 34)   40 m from spawn   13 x 9 x 3.8
+  Where the faint light from the far end becomes electrical current and data.
+  Calls: Count the photons · Take the efficiency · Set the sensitivity · Ready
+  to hand over
+  Fixtures (at: targets):
+    recv-bench         bench  back
+      The receiver bench — Power in, bits out, and the count that sits between
+      the two.
+    diode-station      rack   left
+      The photodiode test station — A measured efficiency of 82 in a hundred,
+      against a sheet that claims ninety.
+
+AMP — Amplifier and Power Hall
+  Amplifier and Power Hall
+  (16, 8)   64 m from spawn   18 x 12 x 5.4
+  Where the team studies the laser pumps that keep the cable signal strong
+  across the ocean floor.
+  Calls: Read the pump · Take the transition · Find the gain · Ready to hand
+  over
+  Fixtures (at: targets):
+    amp-desk           board  back
+      The amplifier desk — Two wavelengths, four years of telemetry, and every
+      reading inside limits.
+    pump-panel         rack   left
+      Repeater 6's pump panel — The working pump and the spare, and one switch
+      that can only be thrown once.
+    cause-board        bench  right
+      The cause board — Four things that could have taken four decibels, and
+      what each costs to test.
+
+TERM — Cable Termination Room
+  Cable Termination Room
+  (-28, 8)   68 m from spawn   14 x 10 x 4.2
+  Where the island cable comes ashore and light is launched into its glass
+  fibres.
+  Calls: Read the ends · Take the angles · Set the launch · Ready to hand over
+  Fixtures (at: targets):
+    term-bench         bench  back
+      The termination bench — Two indices on a card, and every fibre in the
+      cable brought out by hand.
+    index-book         board  left
+      The maker's fibre data book — Core, cladding and group index, measured
+      eleven years ago and not since.
+    term-dark          rack   right [until day 11]
+      The dark end — The span's own connector, with nothing coming back out of
+      it.
+    term-live          rack   right [from day 11]
+      The span, live again — Light on the fibre again since the switch, and
+      three and a half decibels better.
+
+TEST — Test Room
+  Test Room
+  (24, -18)   91 m from spawn   12 x 9 x 4
+  DELIVERY ROOM — the board for The Repair Order is here.
+  Where pulses are sent down the cable and the returning light becomes
+  evidence.
+  Calls: Fire the pulse · Read the trace · Place the event · Ready to hand
+  over
+  Fixtures (at: targets):
+    otdr               board  back
+      The reflectometer — One pulse out, one trace back, and a step in it
+      nineteen days old.
+    sweep-drum         vessel left
+      The spare fibre drum — A kilometre of this cable's own fibre, wound and
+      never laid.
+    trace-table        bench  right
+      The trace table — Three weeks of records, laid out so that no two of
+      them can hide each other.
+    front-connector    rack   back  [until day 10]
+      The instrument's front connector, bare — Uncoated since the cable was
+      landed. Its reflection comes off every trace by hand.
+
+SPLICE — Splice Trailer
+  Splice Trailer
+  (-22, -18)   91 m from spawn   10 x 4.5 x 3.2
+  Where old joints are tested to see whether they could be stealing or
+  reflecting light.
+  Calls: Prepare the ends · Match the index · Prove the joint · Ready to hand
+  over
+  Fixtures (at: targets):
+    splicer            bench  left
+      The fusion splicer — Two cleaved ends, one dry and one in gel, and a
+      microscope over both.
+    fault-tray         bench  right
+      The fault tray — Four faults cut out of shore ends over the years, each
+      with its trace beside it.
+    coating-rig        rack   back
+      The coating rig — A face, a film and a thickness gauge. The thickness is
+      the whole question.
+    coated-face        board  left  [from day 10]
+      The first coated face — Three hundred and twenty nanometres of film, and
+      the reflection gone with it.
+
+RAD — Radiography Bay
+  Radiography Bay
+  (-70, -196)   275 m from spawn   9 x 8 x 3.6
+  Where the replacement repeater housing is X-rayed before the ship is allowed
+  to take it to sea.
+  Calls: Check the source · Take the dose · Shoot the weld · Ready to hand
+  over
+  Fixtures (at: targets):
+    bay-bench          bench  back
+      The bay bench — Three radiographs of one weld, two years apart, and one
+      of them annotated.
+    source-pot         vessel left
+      The source pot — Renewed eight months ago. Every exposure since has been
+      a little longer.
+    survey-meter       rack   right
+      The survey meter and the barrier tape — A dose rate at two metres, and
+      the distance it has to fall to.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+GEN — Generator House  ·  "Two sets, one running"
+  (26, 34)   44 m from spawn   12 x 9 x 4.4
+  Sited calls:
+    feed-board         board  back
+      The cable power feed board — Constant current up the cable, and the
+      span's loss written beside it as a rate.
+  Stand line: "The cable is fed from both ends, and this end is the one that
+  is still feeding it."
+    Feed current: 0.92 A (normal)
+    Feed voltage: 3.9 kV (normal)
+    Repeaters on this end: 11 (normal)
+    Set 2: standby (low)
+
+STORE — Ship's Store  ·  "Staged for a charter from the thirteenth"
+  (-44, 52)   48 m from spawn   14 x 9 x 4.6
+  Sited calls:
+    offcut-rack        bench  back
+      The offcut rack — Short lengths kept for exactly this: bending one to
+      see what it costs.
+    spares-cage        rack   left
+      The spares cage — What a hundred points of spares money has already been
+      spent on.
+  Stand line: "Everything the ship takes out has to be signed out of this room
+  first."
+    Spare pump modules: 4 listed, 6 held (high)
+    Mechanical joints: 18 (normal)
+    Spares and survey money: 100 points (normal)
+    Charter: from the 13th (alarm)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Beach Manhole  ·  "Where the sea cable stops being one"
+  (4, -120)   190 m   4 x 4 x 1.2
+Station board
+  (10, 54)
+Spawn
+  (0, 70)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 1000, playerLimit 280, profile 'rolling'
+Water     centre (0, -430), 1600 x 440, level -3.4
+
+==============================================================================
+THE DELIVERY — The Repair Order
+==============================================================================
+   1. The station launch cleared
+   2. The trace delay as an optical distance
+   3. A clean break ruled out
+   4. The damaged route's remaining margin
+   5. The receiver's photon count
+   6. The receiver calibrated on its diode
+   7. The replacement housing proved inspectable
+   8. The two-wavelength fault test prepared
+   9. The replacement housing cleared to sail
+  10. The corrected seabed position
+  11. The repeater diagnosis
+  12. The signed repair order
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/darkfibre/ — site/plan, fixtures, minors, groups, theme.

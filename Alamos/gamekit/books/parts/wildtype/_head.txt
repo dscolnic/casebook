@@ -1,0 +1,637 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: Element
+  aliases: [element]   # TODO: the plurals and spellings the prose uses
+  def: "A substance made of one kind of atom."
+# mission 1
+- name: Monomer
+  aliases: [monomer]   # TODO: the plurals and spellings the prose uses
+  def: "A small building unit that can join others."
+# mission 1
+- name: Protein
+  aliases: [protein]   # TODO: the plurals and spellings the prose uses
+  def: "A chain of amino acids folded into a working shape."
+# mission 1
+- name: Enzyme
+  aliases: [enzyme]   # TODO: the plurals and spellings the prose uses
+  def: "A protein or RNA catalyst that speeds a reaction without being consumed."
+# mission 1
+- name: Control
+  aliases: [control]   # TODO: the plurals and spellings the prose uses
+  def: "A comparison treated the same way except for the tested factor."
+# mission 1
+- name: Atom
+  aliases: [atom]   # TODO: the plurals and spellings the prose uses
+  def: "A small unit of an element."
+# mission 1
+- name: Molecule
+  aliases: [molecule]   # TODO: the plurals and spellings the prose uses
+  def: "Two or more atoms bonded together."
+# mission 1
+- name: Amino acid
+  aliases: [amino acid]   # TODO: the plurals and spellings the prose uses
+  def: "A building unit of a protein."
+# mission 1
+- name: Nucleotide
+  aliases: [nucleotide]   # TODO: the plurals and spellings the prose uses
+  def: "A building unit of DNA or RNA."
+# mission 1
+- name: DNA
+  aliases: [dna]   # TODO: the plurals and spellings the prose uses
+  def: "A molecule that stores inherited sequence information."
+# mission 1
+- name: RNA
+  aliases: [rna]   # TODO: the plurals and spellings the prose uses
+  def: "A molecule used in gene expression and other cell functions."
+# mission 1
+- name: Phospholipid
+  aliases: [phospholipid]   # TODO: the plurals and spellings the prose uses
+  def: "A lipid with a water-attracting head and water-avoiding tails."
+# mission 1
+- name: Lipid
+  aliases: [lipid]   # TODO: the plurals and spellings the prose uses
+  def: "A mostly water-insoluble molecule used in membranes or energy storage."
+# mission 1
+- name: Nitrate
+  aliases: [nitrate]   # TODO: the plurals and spellings the prose uses
+  def: "A nitrogen-containing ion that some organisms use as a nitrogen source."
+# mission 1
+- name: Phosphate
+  aliases: [phosphate]   # TODO: the plurals and spellings the prose uses
+  def: "A phosphorus-containing ion used in many biological molecules."
+# mission 1
+- name: Carbon skeleton
+  aliases: [carbon skeleton]   # TODO: the plurals and spellings the prose uses
+  def: "The connected carbon atoms forming the framework of an organic molecule."
+# mission 1
+- name: Hydrolysis
+  aliases: [hydrolysis]   # TODO: the plurals and spellings the prose uses
+  def: "Breaking a chemical link by adding water."
+# mission 2
+- name: Membrane
+  aliases: [membrane]   # TODO: the plurals and spellings the prose uses
+  def: "A thin selective barrier around a cell."
+# mission 2
+- name: Osmosis
+  aliases: [osmosis]   # TODO: the plurals and spellings the prose uses
+  def: "Net water movement through a selective membrane toward lower water potential."
+# mission 2
+- name: Solute
+  aliases: [solute]   # TODO: the plurals and spellings the prose uses
+  def: "A substance dissolved in a liquid."
+# mission 2
+- name: Organelle
+  aliases: [organelle]   # TODO: the plurals and spellings the prose uses
+  def: "A specialized structure inside a cell."
+# mission 2
+- name: Surface-area-to-volume ratio
+  aliases: [surface-area-to-volume ratio]   # TODO: the plurals and spellings the prose uses
+  def: "Outside area divided by enclosed volume."
+# mission 2
+- name: Prokaryote
+  aliases: [prokaryote]   # TODO: the plurals and spellings the prose uses
+  def: "A cell without a nucleus or typical membrane-bound organelles."
+# mission 2
+- name: Eukaryote
+  aliases: [eukaryote]   # TODO: the plurals and spellings the prose uses
+  def: "A cell with a nucleus and internal membrane-bound compartments."
+# mission 2
+- name: Nucleus
+  aliases: [nucleus]   # TODO: the plurals and spellings the prose uses
+  def: "The compartment containing most DNA in a eukaryotic cell."
+# mission 2
+- name: Vacuole
+  aliases: [vacuole]   # TODO: the plurals and spellings the prose uses
+  def: "A membrane-bound storage compartment in a cell."
+# mission 2
+- name: Mitochondrion
+  aliases: [mitochondrion]   # TODO: the plurals and spellings the prose uses
+  def: "An organelle that supports aerobic energy transfer into ATP."
+# mission 2
+- name: Endosymbiosis
+  aliases: [endosymbiosis]   # TODO: the plurals and spellings the prose uses
+  def: "A lasting association in which one organism lives inside another; it explains the bacterial ancestry of mitochondria and chloroplasts."
+# mission 2
+- name: Water potential
+  aliases: [water potential]   # TODO: the plurals and spellings the prose uses
+  def: "A measure used to predict water movement; solute and pressure both affect it."
+# mission 2
+- name: Viability
+  aliases: [viability]   # TODO: the plurals and spellings the prose uses
+  def: "The fraction of cells alive by the stated assay."
+# mission 2
+- name: Impermeant
+  aliases: [impermeant]   # TODO: the plurals and spellings the prose uses
+  def: "Unable to cross the membrane in the stated test."
+# mission 3
+- name: ATP
+  aliases: [atp]   # TODO: the plurals and spellings the prose uses
+  def: "A molecule that couples energy-releasing reactions to cellular work."
+# mission 3
+- name: Respiration
+  aliases: [respiration]   # TODO: the plurals and spellings the prose uses
+  def: "Cellular pathways that transfer energy from food into ATP."
+# mission 3
+- name: Photosynthesis
+  aliases: [photosynthesis]   # TODO: the plurals and spellings the prose uses
+  def: "Conversion of light energy into chemical energy while fixing carbon dioxide."
+# mission 3
+- name: Chemiosmosis
+  aliases: [chemiosmosis]   # TODO: the plurals and spellings the prose uses
+  def: "ATP production driven by ions moving down a gradient through ATP synthase."
+# mission 3
+- name: Fermentation
+  aliases: [fermentation]   # TODO: the plurals and spellings the prose uses
+  def: "Reactions that regenerate NAD+ so glycolysis can continue without an oxygen-dependent chain."
+# mission 3
+- name: Electron
+  aliases: [electron]   # TODO: the plurals and spellings the prose uses
+  def: "A negatively charged particle transferred in energy pathways."
+# mission 3
+- name: Proton
+  aliases: [proton]   # TODO: the plurals and spellings the prose uses
+  def: "A positively charged particle whose gradient can drive ATP synthesis."
+# mission 3
+- name: Gradient
+  aliases: [gradient]   # TODO: the plurals and spellings the prose uses
+  def: "A difference in a quantity between places."
+# mission 3
+- name: ATP synthase
+  aliases: [atp synthase]   # TODO: the plurals and spellings the prose uses
+  def: "An enzyme that couples ion movement down a gradient to ATP production."
+# mission 3
+- name: NADH
+  aliases: [nadh]   # TODO: the plurals and spellings the prose uses
+  def: "An electron carrier used in respiration."
+# mission 3
+- name: NADPH
+  aliases: [nadph]   # TODO: the plurals and spellings the prose uses
+  def: "An electron carrier used in photosynthetic carbon fixation. NAD+: The oxidized carrier that can accept electrons during glycolysis."
+# mission 3
+- name: Glycolysis
+  aliases: [glycolysis]   # TODO: the plurals and spellings the prose uses
+  def: "A cytosolic pathway that splits glucose and yields a small net ATP gain."
+# mission 3
+- name: Thylakoid
+  aliases: [thylakoid]   # TODO: the plurals and spellings the prose uses
+  def: "A membrane compartment carrying light-reaction machinery in a chloroplast."
+# mission 3
+- name: Stroma
+  aliases: [stroma]   # TODO: the plurals and spellings the prose uses
+  def: "The fluid compartment around chloroplast thylakoids."
+# mission 3
+- name: Calvin cycle
+  aliases: [calvin cycle]   # TODO: the plurals and spellings the prose uses
+  def: "The carbon-fixation reactions that use ATP and NADPH to build organic molecules."
+# mission 4
+- name: Signal
+  aliases: [signal]   # TODO: the plurals and spellings the prose uses
+  def: "A cue that a cell can detect and respond to."
+# mission 4
+- name: Receptor
+  aliases: [receptor]   # TODO: the plurals and spellings the prose uses
+  def: "A molecule that binds or detects a signal."
+# mission 4
+- name: Gene expression
+  aliases: [gene expression]   # TODO: the plurals and spellings the prose uses
+  def: "Use of genetic instructions to make RNA or protein."
+# mission 4
+- name: Negative feedback
+  aliases: [negative feedback]   # TODO: the plurals and spellings the prose uses
+  def: "A response that opposes the change that triggered it."
+# mission 4
+- name: Substrate
+  aliases: [substrate]   # TODO: the plurals and spellings the prose uses
+  def: "The molecule an enzyme acts on."
+# mission 4
+- name: Active site
+  aliases: [active site]   # TODO: the plurals and spellings the prose uses
+  def: "The region where an enzyme binds and acts on its substrate."
+# mission 4
+- name: Allosteric site
+  aliases: [allosteric site]   # TODO: the plurals and spellings the prose uses
+  def: "A binding region separate from the active site that can change protein activity."
+# mission 4
+- name: Denaturation
+  aliases: [denaturation]   # TODO: the plurals and spellings the prose uses
+  def: "Loss of a molecule's functional folded structure."
+# mission 4
+- name: Transcription factor
+  aliases: [transcription factor]   # TODO: the plurals and spellings the prose uses
+  def: "A protein that helps regulate transcription of genes."
+# mission 4
+- name: Transcript
+  aliases: [transcript]   # TODO: the plurals and spellings the prose uses
+  def: "An RNA product copied from a DNA template."
+# mission 5
+- name: Mutualism
+  aliases: [mutualism]   # TODO: the plurals and spellings the prose uses
+  def: "An interaction that benefits both participating species."
+# mission 5
+- name: Niche
+  aliases: [niche]   # TODO: the plurals and spellings the prose uses
+  def: "The resources and conditions a species uses and its ecological role."
+# mission 5
+- name: Pollinator
+  aliases: [pollinator]   # TODO: the plurals and spellings the prose uses
+  def: "An animal that transfers pollen between flowers."
+# mission 5
+- name: Carbon fixation
+  aliases: [carbon fixation]   # TODO: the plurals and spellings the prose uses
+  def: "Incorporation of carbon dioxide into organic molecules."
+# mission 6
+- name: Cell cycle
+  aliases: [cell cycle]   # TODO: the plurals and spellings the prose uses
+  def: "The sequence of growth, DNA copying and cell division."
+# mission 6
+- name: Checkpoint
+  aliases: [checkpoint]   # TODO: the plurals and spellings the prose uses
+  def: "A control that delays cell-cycle progress until a requirement is met."
+# mission 6
+- name: Mitosis
+  aliases: [mitosis]   # TODO: the plurals and spellings the prose uses
+  def: "Division of a nucleus into two nuclei with matching chromosome sets."
+# mission 6
+- name: Apoptosis
+  aliases: [apoptosis]   # TODO: the plurals and spellings the prose uses
+  def: "Regulated cell death."
+# mission 6
+- name: Transduction
+  aliases: [transduction]   # TODO: the plurals and spellings the prose uses
+  def: "Steps that relay a detected signal inside a cell."
+# mission 6
+- name: Chromosome
+  aliases: [chromosome]   # TODO: the plurals and spellings the prose uses
+  def: "A DNA molecule with associated proteins carrying genetic information."
+# mission 6
+- name: Chromatid
+  aliases: [chromatid]   # TODO: the plurals and spellings the prose uses
+  def: "One of the two copied chromosome units before separation."
+# mission 6
+- name: Centromere
+  aliases: [centromere]   # TODO: the plurals and spellings the prose uses
+  def: "The chromosome region used here to count chromosomes and attach division machinery."
+# mission 6
+- name: Cytokinesis
+  aliases: [cytokinesis]   # TODO: the plurals and spellings the prose uses
+  def: "Division of cell contents into daughter cells."
+# mission 6
+- name: Diploid
+  aliases: [diploid]   # TODO: the plurals and spellings the prose uses
+  def: "Having two chromosome sets."
+# mission 6
+- name: Haploid
+  aliases: [haploid]   # TODO: the plurals and spellings the prose uses
+  def: "Having one chromosome set."
+# mission 7
+- name: Allele
+  aliases: [allele]   # TODO: the plurals and spellings the prose uses
+  def: "An alternative DNA version at a gene locus."
+# mission 7
+- name: Genotype
+  aliases: [genotype]   # TODO: the plurals and spellings the prose uses
+  def: "The allele combination an organism carries."
+# mission 7
+- name: Phenotype
+  aliases: [phenotype]   # TODO: the plurals and spellings the prose uses
+  def: "An observable trait shaped by genotype and environment."
+# mission 7
+- name: Meiosis
+  aliases: [meiosis]   # TODO: the plurals and spellings the prose uses
+  def: "Cell division that reduces chromosome sets to form haploid products."
+# mission 7
+- name: Recessive
+  aliases: [recessive]   # TODO: the plurals and spellings the prose uses
+  def: "An allele effect masked in a heterozygote under a stated dominance model."
+# mission 7
+- name: Locus
+  aliases: [locus]   # TODO: the plurals and spellings the prose uses
+  def: "A location in a genome."
+# mission 7
+- name: Heterozygote
+  aliases: [heterozygote]   # TODO: the plurals and spellings the prose uses
+  def: "An organism with two different alleles at a locus."
+# mission 7
+- name: Homozygote
+  aliases: [homozygote]   # TODO: the plurals and spellings the prose uses
+  def: "An organism with two matching alleles at a locus."
+# mission 7
+- name: Dominance
+  aliases: [dominance]   # TODO: the plurals and spellings the prose uses
+  def: "The relationship in which a heterozygote shows the specified dominant phenotype."
+# mission 7
+- name: Gamete
+  aliases: [gamete]   # TODO: the plurals and spellings the prose uses
+  def: "A reproductive cell that can fuse with another at fertilization."
+# mission 7
+- name: Homologous chromosomes
+  aliases: [homologous chromosomes]   # TODO: the plurals and spellings the prose uses
+  def: "Chromosomes carrying corresponding gene loci, one from each parent in a diploid pair."
+# mission 7
+- name: Codominance
+  aliases: [codominance]   # TODO: the plurals and spellings the prose uses
+  def: "Expression of both specified allele products in a heterozygote."
+# mission 7
+- name: Incomplete dominance
+  aliases: [incomplete dominance]   # TODO: the plurals and spellings the prose uses
+  def: "An intermediate heterozygote phenotype in the stated trait."
+# mission 7
+- name: Pleiotropy
+  aliases: [pleiotropy]   # TODO: the plurals and spellings the prose uses
+  def: "One gene affecting several traits."
+# mission 7
+- name: Epistasis
+  aliases: [epistasis]   # TODO: the plurals and spellings the prose uses
+  def: "One gene altering or masking the effect of another."
+# mission 8
+- name: Transcription
+  aliases: [transcription]   # TODO: the plurals and spellings the prose uses
+  def: "Making an RNA copy using a DNA template."
+# mission 8
+- name: Translation
+  aliases: [translation]   # TODO: the plurals and spellings the prose uses
+  def: "Using mRNA codons to build an amino-acid chain."
+# mission 8
+- name: Codon
+  aliases: [codon]   # TODO: the plurals and spellings the prose uses
+  def: "A three-base mRNA sequence specifying an amino acid or stop."
+# mission 8
+- name: Mutation
+  aliases: [mutation]   # TODO: the plurals and spellings the prose uses
+  def: "A change in DNA sequence."
+# mission 8
+- name: PCR
+  aliases: [pcr]   # TODO: the plurals and spellings the prose uses
+  def: "A method that amplifies a selected DNA region."
+# mission 8
+- name: Template
+  aliases: [template]   # TODO: the plurals and spellings the prose uses
+  def: "A strand used to determine a complementary new sequence. mRNA: Messenger RNA read by a ribosome to make a protein. tRNA: Transfer RNA that carries an amino acid and pairs with an mRNA codon."
+# mission 8
+- name: Ribosome
+  aliases: [ribosome]   # TODO: the plurals and spellings the prose uses
+  def: "The cellular structure that reads mRNA and assembles a protein chain."
+# mission 8
+- name: Polymerase
+  aliases: [polymerase]   # TODO: the plurals and spellings the prose uses
+  def: "An enzyme that builds a nucleic-acid strand from a template."
+# mission 8
+- name: Splicing
+  aliases: [splicing]   # TODO: the plurals and spellings the prose uses
+  def: "Removal and joining of RNA segments during processing."
+# mission 8
+- name: Purified enzyme
+  aliases: [purified enzyme]   # TODO: the plurals and spellings the prose uses
+  def: "An enzyme separated from many other sample components for testing."
+# mission 9
+- name: Common-garden test
+  aliases: [common-garden test]   # TODO: the plurals and spellings the prose uses
+  def: "A comparison that raises organisms in the same conditions."
+# mission 9
+- name: Polygenic trait
+  aliases: [polygenic trait]   # TODO: the plurals and spellings the prose uses
+  def: "A trait affected by more than one gene."
+# mission 9
+- name: Epigenetic regulation
+  aliases: [epigenetic regulation]   # TODO: the plurals and spellings the prose uses
+  def: "Changes in gene use associated with DNA or chromatin marks without changing the DNA sequence."
+# mission 9
+- name: Linked genes
+  aliases: [linked genes]   # TODO: the plurals and spellings the prose uses
+  def: "Genes on the same chromosome that can be inherited together."
+# mission 9
+- name: Chromatin
+  aliases: [chromatin]   # TODO: the plurals and spellings the prose uses
+  def: "DNA with its associated proteins."
+# mission 9
+- name: Replication
+  aliases: [replication]   # TODO: the plurals and spellings the prose uses
+  def: "Copying DNA before cell division."
+# mission 9
+- name: Replication fork
+  aliases: [replication fork]   # TODO: the plurals and spellings the prose uses
+  def: "The region where DNA strands separate and are copied."
+# mission 9
+- name: Ligase
+  aliases: [ligase]   # TODO: the plurals and spellings the prose uses
+  def: "An enzyme that joins adjacent DNA fragments."
+# mission 9
+- name: Semiconservative
+  aliases: [semiconservative]   # TODO: the plurals and spellings the prose uses
+  def: "Describing DNA copying that leaves one old and one new strand in each daughter molecule."
+# mission 10
+- name: Natural selection
+  aliases: [natural selection]   # TODO: the plurals and spellings the prose uses
+  def: "Change driven by differences in survival and reproduction associated with inherited traits."
+# mission 10
+- name: Fitness
+  aliases: [fitness]   # TODO: the plurals and spellings the prose uses
+  def: "Reproductive success in a specified environment."
+# mission 10
+- name: Genetic drift
+  aliases: [genetic drift]   # TODO: the plurals and spellings the prose uses
+  def: "Random change in allele frequencies in a finite population."
+# mission 10
+- name: Gene flow
+  aliases: [gene flow]   # TODO: the plurals and spellings the prose uses
+  def: "Movement of alleles between populations through reproduction."
+# mission 10
+- name: Allele frequency
+  aliases: [allele frequency]   # TODO: the plurals and spellings the prose uses
+  def: "The fraction of gene copies that are a particular allele."
+# mission 11
+- name: Hardy-Weinberg model
+  aliases: [hardy-weinberg model]   # TODO: the plurals and spellings the prose uses
+  def: "A no-evolution reference model relating allele and genotype frequencies under stated assumptions."
+# mission 11
+- name: Reproductive isolation
+  aliases: [reproductive isolation]   # TODO: the plurals and spellings the prose uses
+  def: "Barriers that reduce successful reproduction between populations."
+# mission 11
+- name: Phylogeny
+  aliases: [phylogeny]   # TODO: the plurals and spellings the prose uses
+  def: "A hypothesis about evolutionary relationships."
+# mission 11
+- name: Prezygotic barrier
+  aliases: [prezygotic barrier]   # TODO: the plurals and spellings the prose uses
+  def: "A barrier acting before a fertilized cell forms."
+# mission 11
+- name: Postzygotic barrier
+  aliases: [postzygotic barrier]   # TODO: the plurals and spellings the prose uses
+  def: "A barrier affecting hybrid survival or reproduction after fertilization."
+# mission 11
+- name: Founder effect
+  aliases: [founder effect]   # TODO: the plurals and spellings the prose uses
+  def: "A change in allele frequencies caused by the chance composition of a small founding group."
+# mission 12
+- name: Keystone species
+  aliases: [keystone species]   # TODO: the plurals and spellings the prose uses
+  def: "A species with a disproportionately large community effect relative to its abundance."
+# mission 12
+- name: Decomposer
+  aliases: [decomposer]   # TODO: the plurals and spellings the prose uses
+  def: "An organism that breaks down dead organic material and recycles nutrients."
+# mission 12
+- name: Trophic level
+  aliases: [trophic level]   # TODO: the plurals and spellings the prose uses
+  def: "A position in a food chain based on feeding."
+# mission 12
+- name: Nutrient
+  aliases: [nutrient]   # TODO: the plurals and spellings the prose uses
+  def: "A material an organism needs for growth or function."
+# mission 12
+- name: Isolate
+  aliases: [isolate]   # TODO: the plurals and spellings the prose uses
+  def: "A particular organismal strain separated for testing."
+# mission 12
+- name: Phage
+  aliases: [phage]   # TODO: the plurals and spellings the prose uses
+  def: "A virus that infects bacteria."
+# mission 12
+- name: Lytic infection
+  aliases: [lytic infection]   # TODO: the plurals and spellings the prose uses
+  def: "An infection in which new virus particles are produced and the host cell is lysed."
+# mission 12
+- name: Lysogenic state
+  aliases: [lysogenic state]   # TODO: the plurals and spellings the prose uses
+  def: "A phage state in which viral genetic material persists with the host genome."
+# mission 12
+- name: Reverse transcription
+  aliases: [reverse transcription]   # TODO: the plurals and spellings the prose uses
+  def: "Making DNA from an RNA template."
+# mission 12
+- name: Lysis
+  aliases: [lysis]   # TODO: the plurals and spellings the prose uses
+  def: "Rupture of a cell."
+# mission 13
+- name: Nitrogen fixation
+  aliases: [nitrogen fixation]   # TODO: the plurals and spellings the prose uses
+  def: "Conversion of nitrogen gas into biologically usable reduced nitrogen."
+# mission 13
+- name: Nitrification
+  aliases: [nitrification]   # TODO: the plurals and spellings the prose uses
+  def: "Microbial conversion of ammonium to nitrite and then nitrate."
+# mission 13
+- name: Denitrification
+  aliases: [denitrification]   # TODO: the plurals and spellings the prose uses
+  def: "Microbial conversion of nitrate into gaseous nitrogen forms."
+# mission 13
+- name: Carrying capacity
+  aliases: [carrying capacity]   # TODO: the plurals and spellings the prose uses
+  def: "The population size an environment can support under specified conditions."
+# mission 13
+- name: Ammonium
+  aliases: [ammonium]   # TODO: the plurals and spellings the prose uses
+  def: "A reduced nitrogen-containing ion used by microbes and plants."
+# mission 13
+- name: Ammonification
+  aliases: [ammonification]   # TODO: the plurals and spellings the prose uses
+  def: "Conversion of organic nitrogen to ammonium."
+# mission 13
+- name: Assimilation
+  aliases: [assimilation]   # TODO: the plurals and spellings the prose uses
+  def: "Incorporation of an acquired substance into an organism's molecules."
+# mission 14
+- name: Net production
+  aliases: [net production]   # TODO: the plurals and spellings the prose uses
+  def: "Production remaining after the relevant consumption is subtracted."
+# mission 14
+- name: Dissolved oxygen
+  aliases: [dissolved oxygen]   # TODO: the plurals and spellings the prose uses
+  def: "Oxygen gas present in water and available to aquatic organisms."
+# mission 14
+- name: Respiratory demand
+  aliases: [respiratory demand]   # TODO: the plurals and spellings the prose uses
+  def: "The rate at which organisms consume oxygen through respiration."
+# mission 14
+- name: Controlled comparison
+  aliases: [controlled comparison]   # TODO: the plurals and spellings the prose uses
+  def: "A test that changes a specified factor while keeping relevant alternatives matched."
+# mission 15
+- name: Pilot
+  aliases: [pilot]   # TODO: the plurals and spellings the prose uses
+  def: "A limited test before a wider action."
+# mission 15
+- name: Stop rule
+  aliases: [stop rule]   # TODO: the plurals and spellings the prose uses
+  def: "A stated condition that pauses an action."
+# mission 15
+- name: Reserve population
+  aliases: [reserve population]   # TODO: the plurals and spellings the prose uses
+  def: "A retained group that preserves organisms and variation if a trial fails."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "deficit = requirement − supply",
+#     c: "Find the missing daily amount.",
+#     v: [ TODO: split "" ],
+#     s: "Size the nutrient replacement test.",
+#     k: [ TODO ] },
+#   // mission 2
+#   { e: "SA/V = 6/L for a cube",
+#     c: "Compare cell exchange area per volume.",
+#     v: [ TODO: split "SA,surface area,V,volume,L,cube side length" ],
+#     s: "Separate exchange capacity from rinse direction.",
+#     k: [ TODO ] },
+#   // mission 3
+#   { e: "net oxygen change = gross production − consumption",
+#     c: "Account for simultaneous oxygen source and sink.",
+#     v: [ TODO: split "All three quantities,oxygen mass per hour" ],
+#     s: "Avoid using daylight gross production as net gain.",
+#     k: [ TODO ] },
+#   // mission 5
+#   { e: "overlap = last shared day − first shared day + 1",
+#     c: "Count inclusive shared calendar days.",
+#     v: [ TODO: split "Each day label,an integer,overlap,days" ],
+#     s: "Check flower and visitor timing.",
+#     k: [ TODO ] },
+#   // mission 6
+#   { e: "dividing fraction (%) = dividing cells / counted cells × 100",
+#     c: "Compare cell-cycle samples.",
+#     v: [ TODO: split "" ],
+#     s: "Quantify the unusual tissue sample.",
+#     k: [ TODO ] },
+#   // mission 7
+#   { e: "expected count = total offspring × trait probability",
+#     c: "Predict offspring under the stated cross.",
+#     v: [ TODO: split "Count and total,offspring numbers,probability,dimensionless" ],
+#     s: "Distinguish TT from Tt predictions.",
+#     k: [ TODO ] },
+#   // mission 9
+#   { e: "recombination (%) = recombinant offspring / total offspring × 100",
+#     c: "Estimate marker recombination frequency.",
+#     v: [ TODO: split "Both quantities,counts from the same scored cross" ],
+#     s: "Keep ancestry traceable across changing leaf forms.",
+#     k: [ TODO ] },
+#   // mission 11
+#   { e: "p = (2AA + Aa)/(2N); p + q = 1; expected heterozygote fraction = 2pq",
+#     c: "Count alleles and obtain a Hardy-Weinberg reference.",
+#     v: [ TODO: split "AA and Aa,genotype counts,N,diploid plant count,p and q,allele frequencies" ],
+#     s: "Compare what a founding family contains with a conditional reference.",
+#     k: [ TODO ] },
+#   // mission 12
+#   { e: "next-level energy = producer biomass energy × transfer fraction",
+#     c: "Estimate food-web transfer under a stated model.",
+#     v: [ TODO: split "Energy,kJ,transfer fraction,dimensionless" ],
+#     s: "Check the pilot food-web demand.",
+#     k: [ TODO ] },
+#   // mission 13
+#   { e: "dN/dt = rN(K−N)/K",
+#     c: "Estimate logistic population growth.",
+#     v: [ TODO: split "N,population,t,time,r,growth parameter per time,K,carrying capacity" ],
+#     s: "Make stocking assumptions explicit.",
+#     k: [ TODO ] },
+#   // mission 14
+#   { e: "final oxygen = starting oxygen − net loss rate × duration",
+#     c: "Project the tested dark interval.",
+#     v: [ TODO: split "Oxygen,mg/L,rate,mg/L/hour,duration,hours" ],
+#     s: "Test the missing night-time margin.",
+#     k: [ TODO ] },

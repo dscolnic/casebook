@@ -2366,6 +2366,10 @@ missions:
             - key: weeks
               label: Weeks to draft and review
               unit: wk
+              # A cost: the fewer weeks the better. Without this the panel reads a
+              # long draft as a good score and the board is refused for a trap
+              # it does have.
+              direction: minimise
             - key: risk
               label: Chance of later correction
               unit: "%"

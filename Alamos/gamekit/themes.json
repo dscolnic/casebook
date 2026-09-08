@@ -17,6 +17,8 @@
     "icecore": "themes/icecore",
     "seedbank": "themes/seedbank",
     "redsand": "themes/redsand",
+    "redsand_oneshot": "themes/redsand_oneshot",
+    "redsand_v5": "themes/redsand_v5",
     "midway": "themes/midway",
     "planetary_defense_ms": "themes/planetary_defense_ms",
     "deepwatch_ms": "themes/deepwatch_ms",
@@ -62,6 +64,17 @@
     "qd_stroop": "themes/qd_stroop",
     "qd_memory": "themes/qd_memory",
     "qd_keynes": "themes/qd_keynes",
-    "qd_bankrun": "themes/qd_bankrun"
+    "qd_bankrun": "themes/qd_bankrun",
+    "carrying_v2": "themes/carrying_v2",
+    "changeover_v2": "themes/changeover_v2",
+    "planetary_defense_v2": "themes/planetary_defense_v2",
+    "groundtruth_v2": "themes/groundtruth_v2",
+    "headwater_v2": "themes/headwater_v2",
+    "midway_v2": "themes/midway_v2",
+    "the_trial_v2": "themes/the_trial_v2",
+    "whiteout": "themes/whiteout",
+    "overwind_v2": "themes/overwind_v2",
+    "boomtown": "themes/boomtown",
+    "wildtype": "themes/wildtype"
   }
 }

@@ -1,0 +1,87 @@
+# --------------------------------------------------------------- glossary
+# Every "Worth knowing first" glossary entry in the bible, in the order the
+# missions introduce them. `aliases` is the only thing added: it is not copy,
+# it is the spellings engine/dev/checkJargon.mjs matches the prose against.
+glossary:
+# mission 1
+- name: integer division
+  aliases: [integer division]   # TODO: the plurals and spellings the prose uses
+  def: "division between two integers that discards the fractional part before any later conversion. cast: an explicit conversion that changes how Java treats a value for an expression."
+# mission 1
+- name: Boolean expression
+  aliases: [boolean expression]   # TODO: the plurals and spellings the prose uses
+  def: "a comparison or logical test whose value is true or false."
+# mission 3
+- name: loop
+  aliases: [loop]   # TODO: the plurals and spellings the prose uses
+  def: "code that repeats while a condition or counter says more work remains. termination: the condition that makes repeated or recursive work stop. index: the numbered position used to access an element; Java arrays and lists start at index zero."
+# mission 4
+- name: edge case
+  aliases: [edge case]   # TODO: the plurals and spellings the prose uses
+  def: "an input at a boundary or unusual condition that can expose a hidden bug. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."
+# mission 5
+- name: reference
+  aliases: [reference]   # TODO: the plurals and spellings the prose uses
+  def: "a value that points to an object rather than containing a separate copy of that object. constructor: code that initializes a new object when it is created. instance field: state stored separately inside each object."
+# mission 6
+- name: packet
+  aliases: [packet]   # TODO: the plurals and spellings the prose uses
+  def: "a chunk of network data routed independently before messages are reassembled."
+# mission 6
+- name: String
+  aliases: [string]   # TODO: the plurals and spellings the prose uses
+  def: "an object that stores an ordered sequence of characters. substring: a String method that returns characters from a chosen start index up to, but not including, an end index."
+# mission 7
+- name: array
+  aliases: [array]   # TODO: the plurals and spellings the prose uses
+  def: "a fixed-length indexed collection whose elements all use one declared type. index: the numbered position used to access an element; Java arrays and lists start at index zero."
+# mission 8
+- name: ArrayList
+  aliases: [arraylist]   # TODO: the plurals and spellings the prose uses
+  def: "a resizable indexed collection that can add and remove elements while a program runs. index: the numbered position used to access an element; Java arrays and lists start at index zero. edge case: an input at a boundary or unusual condition that can expose a hidden bug."
+# mission 9
+- name: 2D array
+  aliases: [2d array]   # TODO: the plurals and spellings the prose uses
+  def: "an array of rows and columns accessed with two indexes. index: the numbered position used to access an element; Java arrays and lists start at index zero."
+# mission 10
+- name: binary search
+  aliases: [binary search]   # TODO: the plurals and spellings the prose uses
+  def: "a search on sorted data that repeatedly discards half of the remaining range. loop: code that repeats while a condition or counter says more work remains."
+# mission 11
+- name: static field
+  aliases: [static field]   # TODO: the plurals and spellings the prose uses
+  def: "one field shared by the class rather than stored separately in each object. instance field: state stored separately inside each object. reference: a value that points to an object rather than containing a separate copy of that object."
+# mission 12
+- name: PII
+  aliases: [pii]   # TODO: the plurals and spellings the prose uses
+  def: "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: a sorting algorithm that inserts each new item into the correct place in an already-sorted prefix."
+# mission 13
+- name: recursion
+  aliases: [recursion]   # TODO: the plurals and spellings the prose uses
+  def: "a method solving a problem by calling itself on a smaller version of that problem. base case: the input a recursive method can answer directly without another recursive call. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."
+# mission 14
+- name: holdout test
+  aliases: [holdout test]   # TODO: the plurals and spellings the prose uses
+  def: "a test on cases that were not used while choosing or tuning the solution. residual: the difference between an observed result and the result a model or program predicts."
+# mission 15
+- name: redundancy
+  aliases: [redundancy]   # TODO: the plurals and spellings the prose uses
+  def: "having an independent backup path so one failure does not remove the whole function."
+
+# ------------------------------------------- for tools/syllabus.js EQUATIONS
+# The mission cards' own "Equations first needed today", one for one:
+#   e <- Equation   c <- What it is for   v <- Symbols   s <- Why this campaign needs it
+# `k` (what attaches an equation to the stops that use it) and `needs` (the
+# order the bible introduces them in) have no counterpart in the bible.
+#   // mission 1
+#   { e: "percent = 100.0 × delivered / requested",
+#     c: "turn delivered power into a percentage of requested power.",
+#     v: [ TODO: split "delivered,measured power,requested,requested power,percent,calculated percentage" ],
+#     s: "the first alarm is generated from this relationship.",
+#     k: [ TODO ] },
+#   // mission 10
+#   { e: "binary-search work ≈ log₂(n)",
+#     c: "estimate how many halvings are needed for a sorted table.",
+#     v: [ TODO: split "n,number of sorted records" ],
+#     s: "the rescue link has a short time window.",
+#     k: [ TODO ] },

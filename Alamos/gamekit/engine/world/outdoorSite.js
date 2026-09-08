@@ -865,6 +865,22 @@ export function updateSky(scene, direction, dayBlend){
  * light is clamped just above the horizon so shadows never flip at dusk.
  * Clamping before handing it to the sky is what kept the night sky pale blue.
  */
+/**
+ * How much daylight there is at this hour: 1 through the day, 0 at night, and a
+ * two-hour ramp at each end. THE one description of the day's shape — the sun
+ * rig reads it, and so does anything that has to agree with the sun (the view
+ * out of a room's door, the window glow), which is why it is exported rather
+ * than inlined twice.
+ */
+export function dayBlendAt(hours){
+  const h = (((hours ?? 8) % 24) + 24) % 24;
+  let dayBlend = 0;
+  if(h >= 5.2 && h < 7.2) dayBlend = (h - 5.2) / 2;
+  else if(h >= 7.2 && h < 16.8) dayBlend = 1;
+  else if(h >= 16.8 && h < 19.0) dayBlend = (19.0 - h) / 2.2;
+  return Math.max(0, Math.min(1, dayBlend));
+}
+
 export function updateOutdoorTimeOfDay(scene, renderer, hours, extras = {}){
   const u = scene.userData;
   if(!u.sun) return null;
@@ -872,12 +888,7 @@ export function updateOutdoorTimeOfDay(scene, renderer, hours, extras = {}){
   const solar = (h - 6) / 12 * Math.PI;
   const dir = new THREE.Vector3(Math.cos(solar), Math.sin(solar), extras.tilt ?? -0.30).normalize();
   const isNight = h < 6 || h >= 18;
-
-  let dayBlend = 0;
-  if(h >= 5.2 && h < 7.2) dayBlend = (h - 5.2) / 2;
-  else if(h >= 7.2 && h < 16.8) dayBlend = 1;
-  else if(h >= 16.8 && h < 19.0) dayBlend = (19.0 - h) / 2.2;
-  dayBlend = Math.max(0, Math.min(1, dayBlend));
+  const dayBlend = dayBlendAt(h);
 
   u.sun.position.set(dir.x * 160, Math.max(6, dir.y * 160), dir.z * 160);
   u.sun.intensity = u.sun.userData.base * (0.02 + 0.98 * Math.pow(dayBlend, 0.75));
@@ -924,3 +935,27 @@ export function configureTerrain(cfg = {}){
 }
 export function terrainConfig(){ return CFG; }
 export function disposeSky(){ envRT?.dispose(); pmrem?.dispose(); }
+
+/**
+ * Park the sky and the stars on the player, once a frame.
+ *
+ * THE DOME IS NOT THE SIZE OF THE WORLD. `sky.scale.setScalar(A.scale)` gives a
+ * box of half-extent `scale / 2` — 475 m on a 950 m scale — and the star field
+ * sits at `scale * 0.92`. Planetary Defense's range lets the player 1,300 m from
+ * the origin, so at the survey telescope (954 m out) and the radar basin (1,044)
+ * they are standing OUTSIDE both: the sky renders behind them, the stars are on
+ * the wrong side of the camera, and the fix anybody reaches for is to give up and
+ * play the game in daylight. That is exactly what had been done.
+ *
+ * It cannot be bought off with a bigger dome either, because `updateSky` bakes
+ * the IBL with `pmrem.fromScene(envScene, 0, 1, 900)` — a dome whose corners pass
+ * 900 m bakes black wedges into the environment map. So the dome stays the size
+ * it is and travels with the eye, which is what a sky does.
+ *
+ * Only x and z. Following the eye in y as well would take the horizon with it,
+ * and the horizon is where the ground is.
+ */
+export function parkSkyOnEye(x, z){
+  if(sky) sky.position.set(x, 0, z);
+  if(starField) starField.position.set(x, 0, z);
+}

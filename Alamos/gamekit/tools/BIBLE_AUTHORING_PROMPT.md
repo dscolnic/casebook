@@ -78,6 +78,39 @@ Never: `**Setup:**`, `**Reason:**`, `**Connection:**`, `**Prompt:**`,
 - **`Answer text` must not repeat `Correct result`**, and **`Wrong-path
   feedback` gives one rebuttal per wrong option**, numbered to match.
 
+### The four lines on a stop, and the one job each has
+
+Every stop carries four player-facing lines. They are four different jobs. **No two
+of them may be swappable**, and none of them may be a sentence you could paste onto
+another stop of the same format.
+
+| label | its one job | the test |
+| --- | --- | --- |
+| **Stop reason** | **why this task, now** | Would it change if the player arrived on a different day, or after a different result? If not, it is not a reason. |
+| **Question card story setup** | **the situation** — what is in front of the player, carrying the numbers | Could somebody start work from this alone? |
+| **Question card story-science connection** | **what the answer settles** | Does it name *this* quantity and the decision it feeds? If it would fit any question of the same format, it is not a connection. |
+| **Question card prompt** | **the task** | Does it say what to submit, in what form and unit — and nothing about how to get there? |
+
+The player reads the situation first, then the reason and the connection joined
+into one short paragraph, then the task. So those two sit side by side: **if either
+repeats a sentence of the setup, the repeat is visible in the same breath**, and
+the build now deletes it rather than printing it twice.
+
+Two ways this has gone wrong before, both measured across 480 stops:
+
+- **The reason opened with the setup's own first sentence, word for word, on 314
+  of them.** Write the reason about the state of the campaign — what the last stop
+  settled, what is now blocked — not about the same fact the setup opens with.
+- **The connection was written once per format and pasted onto every stop of that
+  format: 470 of 480.** *"Writing each transformation exposes sign, unit, and
+  dependency mistakes"* appeared on all 85 DERIVE stops in the set. The player
+  meets that sentence 85 times in a fortnight. The panel already explains the
+  instrument; this line exists to say what THIS answer settles.
+
+Do not end the reason with a sentence about the format either — *"Work through the
+calculation line by line now"* is on 85 stops and says nothing a player could not
+see from the panel in front of them.
+
 ### The measured limits
 
 | What | Limit |

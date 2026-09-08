@@ -18,7 +18,8 @@ export const MISSIONS = [
       {
         "group": "MAP",
         "lesson": 1,
-        "task": "Decide which fossil survey to fund"
+        "task": "Decide which fossil survey to fund",
+        "person": true
       },
       {
         "group": "MODEL",
@@ -66,7 +67,8 @@ export const MISSIONS = [
       {
         "group": "MODEL",
         "lesson": 1,
-        "task": "Predict which plate goes down"
+        "task": "Predict which plate goes down",
+        "person": true
       },
       {
         "group": "MAP",

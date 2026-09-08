@@ -6,13 +6,22 @@
     header: "13 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "PRESSURE DOES NOT TELL THE WHOLE TRUTH"
     goNow: "Go to the Hydrogen Store and meet Dr. Tomás Herrera, the reactor and safety engineer, beside the storage gauge."
-    body: "Hydrogen is now the leading suspect, but its storage gauge still shows nearly normal pressure. Total pressure can stay high when another gas replaces part of the hydrogen. At the Hydrogen Store, calculate total gas, sample each branch, and test the mixture while warming it. By the end of the mission, decide whether hydrogen leaked away or was replaced before reaching the reactor."
+    body: "The plant may be short of hydrogen even though its pressure gauge looks normal. Another gas could be keeping the pressure high. Measure the total gas, sample the pipes, and test a warmed sample to decide whether hydrogen escaped or was replaced before reaching the reactor."
     objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
   objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
-  stake: "Hydrogen is now the leading suspect, but its storage gauge still shows nearly normal pressure. Total pressure can stay high when another gas replaces part of the hydrogen. At the Hydrogen Store, calculate total gas, sample each branch, and test the mixture while warming it. By the end of the mission, decide whether hydrogen leaked away or was replaced before reaching the reactor."
+  stake: "The plant may be short of hydrogen even though its pressure gauge looks normal. Another gas could be keeping the pressure high. Measure the total gas, sample the pipes, and test a warmed sample to decide whether hydrogen escaped or was replaced before reaching the reactor."
   takeaway: "A model must survive every relevant measurement, not only the one it predicts correctly."
   segue: "Mission decision: Another gas mixes into the line before the reactor. The plant is not just losing hydrogen. Nitrogen keeps total pressure high as the share from hydrogen falls. The change starts after the regulator. The blue stain near a methane valve is the next clue to test."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Pressure", def: "force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside."}
+  - {name: "Volume", def: "the amount of space occupied by the gas. A sealed tank gives the gas a fixed space unless the hardware changes."}
+  - {name: "Kinetic energy", def: "energy an object has because it moves. At the same temperature, different gases have the same average kinetic energy even though lighter particles move faster."}
+  - {name: "Partial pressure", def: "one gas's share of the total pressure. It measures how much that gas contributes even when the gauge shows only the total."}
+  equations:
+  - {"e":"pressure times volume, P V = nRT","c":"finding the total amount of gas from pressure, volume, and temperature","v":[["P","pressure"],["V","volume"],["n","moles of gas"],["R","the gas constant"],["T","absolute temperature in kelvin"]],"s":"The storage gauge can reveal the total gas amount but cannot prove how much of that gas is usable hydrogen."}
+  - {"e":"component pressure = mole fraction x total pressure","c":"finding one gas's pressure inside a mixture","v":[["component pressure","the partial pressure"],["mole fraction","that gas's share"],["total pressure","the gauge reading"]],"s":"Hydrogen can fall below the reactor's need while nitrogen keeps the total-pressure gauge looking normal."}
+  - {"e":"P2 = P1 x (T2 / T1), for fixed gas amount and volume","c":"predicting how a sealed gas responds to warming","v":[["P1 and P2","the starting and final pressures"],["T1 and T2","the starting and final temperatures in kelvin"]],"s":"A committed warming prediction tests the pressure model while the composition reading tests the simple-leak story."}
   primer:
   - "A gauge measures total pressure, not chemical identity."
   - "At fixed volume, warming a sealed gas raises its pressure in proportion to absolute temperature."
@@ -39,7 +48,7 @@
     # unlocks: Stop 11 at the four sampling ports.
     bubbles:
     - who: herrera   # Herrera
-      say: "The total amount is plausible. That still does not make it usable hydrogen. Sample the line from the tank to the reactor."
+      say: "Nice work. The total amount is plausible. That still does not make it usable hydrogen. Sample the line from the tank to the reactor."
   - id: after-stop-11
     # After Stop 11 | four sampling ports | automatic discovery
     on: { after: [3] }
@@ -48,7 +57,7 @@
     # unlocks: Stop 12 at the heated test branch.
     bubbles:
     - who: herrera   # Herrera
-      say: "There. The gauge did not lie. We asked it the wrong question."
+      say: "Good thinking. There. The gauge did not lie. We asked it the wrong question."
   - id: after-stop-12
     # After Stop 12 | heated test branch | automatic contradiction
     on: { after: [4] }
@@ -57,7 +66,7 @@
     # unlocks: The Mission 3 outcome beat.
     bubbles:
     - who: herrera   # Herrera
-      say: "A leak can remove gas. It cannot add nitrogen to a sealed branch. The simple-leak model fails."
+      say: "Exactly right. A leak can remove gas. It cannot add nitrogen to a sealed branch. The simple-leak model fails."
   - id: at-mission-end
     # At mission end | Hydrogen Store | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,9 +75,82 @@
     # unlocks: Mission 4 briefing and the Catalyst Bay waypoint.
     bubbles:
     - who: sundqvist   # Sundqvist
-      say: "Maintenance found this on the methane side. If the systems crossed, the residue may show where."
+      say: "Outstanding work. You solved the mission. Maintenance found this on the methane side. If the systems crossed, the residue may show where."
     - who: herrera   # Herrera
       say: "Only if that substance could travel the path you claim."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed Pressure Does Not Lie. Or Does It?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Absolute temperature", def: "measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius."}
+    - {name: "Mixture", def: "contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure."}
+    - {name: "Composition", def: "states which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same."}
+    - {name: "Mole fraction", def: "the part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas."}
+    questions:
+    - prompt: "In a follow-up to Pressure Does Not Lie. Or Does It?, before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Absolute temperature?"
+      hint: "Use the stated evidence and the conditions for Absolute temperature; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.", why: "This describes Mixture, not Absolute temperature. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.", why: "Correct. measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius."}
+      - {key: "C", text: "States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.", why: "This describes Composition, not Absolute temperature. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.", why: "This describes Mole fraction, not Absolute temperature. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to Pressure Does Not Lie. Or Does It?: warm the suspect branch and compare prediction with measurement to decide whether a simple leak or a contaminated mixture explains the alarm. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which calculation or chemical interpretation correctly applies Mixture?"
+      hint: "Use the stated evidence and the conditions for Mixture; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.", why: "This describes Absolute temperature, not Mixture. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.", why: "This describes Composition, not Mixture. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.", why: "Correct. contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure."}
+      - {key: "D", text: "The part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.", why: "This describes Mole fraction, not Mixture. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks Pressure Does Not Lie. Or Does It? using new evidence: before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "D"
+      figure: {"kind":"bars","xLabel":"Gas","yLabel":"Mole fraction","caption":"Composition of a suspect Mars gas sample.","bars":[{"name":"Gas 1","value":0.72},{"name":"Gas 2","value":0.18},{"name":"Gas 3","value":0.1}]}
+      options:
+      - {key: "A", text: "Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.", why: "This describes Absolute temperature, not Composition. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.", why: "This describes Mixture, not Composition. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.", why: "This describes Mole fraction, not Composition. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.", why: "Correct. states which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same."}
+    - prompt: "An unseen case extends Pressure Does Not Lie. Or Does It?: before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Mole fraction?"
+      hint: "Use the stated evidence and the conditions for Mole fraction; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "The part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.", why: "Correct. the part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas."}
+      - {key: "B", text: "Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.", why: "This describes Absolute temperature, not Mole fraction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.", why: "This describes Mixture, not Mole fraction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.", why: "This describes Composition, not Mole fraction. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Pressure Does Not Lie. Or Does It? decision, the team knows this: before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Pressure?"
+      hint: "Use the stated evidence and the conditions for Pressure; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.", why: "This describes Absolute temperature, not Pressure. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside.", why: "Correct. force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside."}
+      - {key: "C", text: "Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.", why: "This describes Mixture, not Pressure. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.", why: "This describes Composition, not Pressure. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from Pressure Does Not Lie. Or Does It? to this follow-up: now use pressure, volume, and temperature to calculate the total gas amount, knowing that a correct total still cannot prove the gas is hydrogen. Which calculation or chemical interpretation correctly applies Volume?"
+      hint: "Use the stated evidence and the conditions for Volume; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.", why: "This describes Absolute temperature, not Volume. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.", why: "This describes Mixture, not Volume. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "The amount of space occupied by the gas. A sealed tank gives the gas a fixed space unless the hardware changes.", why: "Correct. the amount of space occupied by the gas. A sealed tank gives the gas a fixed space unless the hardware changes."}
+      - {key: "D", text: "States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.", why: "This describes Composition, not Volume. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 3: worked examples"
+    examples:
+    - {"title":"Find ideal-gas volume","problem":"An ideal gas has n=1 mol, T=300 K and P=3 atm. Use rounded R=0.08 L atm/(mol K).","rule":"PV=nRT.","steps":["Set up the relationship: PV=nRT.","V=nRT/P=1(0.08)(300)/3=8 L."],"answer":"The volume is 8 L with the supplied rounded constant.","mistake":"Use absolute temperature in kelvins."}
+    - {"title":"Warm a fixed-volume gas","problem":"A sealed ideal-gas sample has pressure 20 atm at 300 K. Find its pressure at 330 K if no reaction occurs.","rule":"At fixed amount and volume, P₂/P₁=T₂/T₁.","steps":["Set up the relationship: At fixed amount and volume, P₂/P₁=T₂/T₁.","P₂=20(330/300)=22 atm."],"answer":"The predicted pressure is 22 atm.","mistake":"Adding 30 to the pressure confuses temperature change with pressure change."}
+    - {"title":"Find a partial pressure","problem":"An ideal-gas mixture is 25% helium by mole and has total pressure 8 atm.","rule":"P_He=x_He P_total.","steps":["Set up the relationship: P_He=x_He P_total.","P_He=0.25(8)=2 atm."],"answer":"Helium contributes 2 atm.","mistake":"Use mole fraction, not mass fraction."}
+    - {"title":"Compare energy and speed","problem":"Helium and neon gases have the same temperature. Neon atoms have about five times the mass. Compare average translational kinetic energy and typical speed.","rule":"Mean translational kinetic energy depends on absolute temperature; root-mean-square speed is proportional to 1/√m.","steps":["The two gases have equal mean translational kinetic energy.","speed_He/speed_Ne=√5, so helium atoms move faster on this measure."],"answer":"Equal temperature means equal mean kinetic energy, not equal speed.","mistake":"Heavier particles need a lower speed to have the same kinetic energy."}
+    - {"title":"Add partial pressures","problem":"An ideal mixture has partial pressures 2 atm, 3 atm and 1 atm. Find total pressure.","rule":"P_total=ΣP_i.","steps":["Set up the relationship: P_total=ΣP_i.","P_total=2+3+1=6 atm."],"answer":"The total pressure is 6 atm.","mistake":"Do not average the partial pressures."}
 
   stops:
   # --- Stop 9: Same temperature, different speed
@@ -78,10 +160,10 @@
     at: store-scales
     title: "Same temperature, different speed"
     person: herrera
-    concept: "kinetic molecular theory"
-    reason: "A pressure gauge cannot identify which gas is pressing on it."
-    scene: "Before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The distinction keeps a normal needle from clearing the wrong gas."
-    motivation: "The answer explains why light hydrogen can escape or spread differently without having a different average kinetic energy."
+    concept: 4   # kinetic molecular theory
+    reason: "A normal pressure reading is being used to dismiss a possible gas-composition problem."
+    scene: "Before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity."
+    motivation: "The speed and kinetic-energy distinction explains why hydrogen transport can differ even when gases share a temperature."
     format: CHOICE
     question: "Which statement is correct?"
     choices:
@@ -103,12 +185,12 @@
   - group: EQUIL
     at: hydrogen-calculation-desk
     title: "How many total moles are in the branch?"
-    concept: "ideal gas law"
-    reason: "The total gas amount must be separated from the usable hydrogen amount."
-    scene: "Now use pressure, volume, and temperature to calculate the total gas amount, knowing that a correct total still cannot prove the gas is hydrogen. This total becomes the baseline for the branch-composition test."
-    motivation: "A normal total mole count cannot prove those moles are usable hydrogen."
+    concept: 4   # ideal gas law
+    reason: "The pressure reading cannot establish composition, so the branch first needs a total-mole baseline."
+    scene: "The sealed branch has pressure P = 24.6 atm, volume V = 400 L, and temperature T = 300 K. The ideal gas relationship is n = PV/(RT), where n is total gas amount and R = 0.082 L atm mol^-1 K^-1."
+    motivation: "The gas quantity sets the inventory against which the independent composition measurement will be interpreted."
     format: BALLPARK
-    question: "Estimate total gas moles using R = 0.08206 L atm mol^-1 K^-1."
+    question: "Submit the total amount of gas in moles."
     # CONVERTED from the bible's `data` line, n = PV/RT = (20.0 atm)(500 L)/[(0.08206)(300 K)],
     # and its "406 mol total gas; target 406, tolerance ±2%" (2% of 406 = 8.12).
     estimate:
@@ -127,7 +209,7 @@
       target: 406
       tolerance: 8.12
       units: mol
-    answerText: "The branch contains about 406 mol of total gas."
+    answerText: "The branch contains 400 mol of total gas."
     why: "The ideal gas law counts total particles through their pressure-volume-temperature behavior. It does not distinguish H2 from N2. The normal-looking value can coexist with the wrong composition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Celsius cannot replace kelvin. Multiplying by R instead of dividing breaks units. A result near 20 or 500 is a copied reading, not a mole calculation.
@@ -141,40 +223,40 @@
   - group: EQUIL
     at: gas-sampling-ports
     title: "Sample the branches"
-    concept: "Dalton's law and composition"
-    reason: "Only branch-by-branch samples can locate where hydrogen composition changes."
-    scene: "Because the total gas amount looks normal, sample each point from storage to reactor to find where hydrogen is replaced by another gas. The first abnormal port will identify the section that needs repair."
-    motivation: "Partial pressure, not the gauge alone, determines how much hydrogen the reactor can actually use."
+    concept: 4   # Dalton's law and composition
+    reason: "The total inventory is established and samples from successive ports can locate the abnormal branch."
+    scene: "Four sampling ports show gas pressure and composition along the hydrogen supply route. The readings include each port's hydrogen fraction, so equal gauge pressures need not mean equal usable hydrogen."
+    motivation: "The composition and partial-pressure profile identifies where usable hydrogen first falls below the expected mixture."
     format: PROBE
     question: "Probe all four ports and name where the pattern breaks."
     # CONVERTED from the payload below — a rename only. The bible's four stations,
     # readings, `expected` lines and `load` notes are carried across unchanged.
     probe:
-      chainLabel: "Sampling port"
-      commit: "Name the first abnormal port"
-      minReadings: 4
-      target: reactor_branch
+      chainLabel: Sampling port
       stations:
-      - id: tank
-        label: "Tank headspace"
-        reading: "20.0 atm; 96% H2; 3% N2; 1% other"
-        expected: "Hydrogen-rich storage gas near the tank baseline: about 95-96% H2 and no large N2 fraction"
-        load: "Matches the storage baseline"
-      - id: regulator
-        label: "Regulator outlet"
-        reading: "19.7 atm; 95% H2; 4% N2; 1% other"
-        expected: "Composition should remain close to the tank headspace through a healthy regulator"
-        load: "Still within the expected hydrogen-rich pattern"
-      - id: transfer_line
-        label: "Transfer line upstream of purge tie-in"
-        reading: "19.6 atm; 95% H2; 4% N2; 1% other"
-        expected: "Hydrogen composition should still match the regulator before the purge connection"
-        load: "Still normal immediately before the purge tie-in"
-      - id: reactor_branch
-        label: "Reactor branch"
-        reading: "19.5 atm; 68% H2; 31% N2; 1% other; H2 partial pressure 13.3 atm"
-        expected: "Hydrogen should remain near the regulator composition; a simple pressure drop should not create a 31% N2 fraction"
-        load: "First major composition break; nitrogen replaces hydrogen while total pressure stays nearly normal"
+        - id: tank
+          label: Tank headspace
+          reading: 20.0 atm; 96% H2; 3% N2; 1% other
+          expected: "Hydrogen-rich storage gas near the tank baseline: about 95-96% H2 and no large N2 fraction"
+          load: Matches the storage baseline
+        - id: regulator
+          label: Regulator outlet
+          reading: 19.7 atm; 95% H2; 4% N2; 1% other
+          expected: Composition should remain close to the tank headspace through a healthy regulator
+          load: Still within the expected hydrogen-rich pattern
+        - id: transfer_line
+          label: Transfer line upstream of purge tie-in
+          reading: 19.6 atm; 95% H2; 4% N2; 1% other
+          expected: Hydrogen composition should still match the regulator before the purge connection
+          load: Still normal immediately before the purge tie-in
+        - id: reactor_branch
+          label: Reactor branch
+          reading: 19.5 atm; 68% H2; 31% N2; 1% other; H2 partial pressure 13.3 atm
+          expected: Hydrogen should remain near the regulator composition; a simple pressure drop should not create a 31% N2 fraction
+          load: First major composition break; nitrogen replaces hydrogen while total pressure stays nearly normal
+      target: reactor_branch
+      minReadings: 4
+      commit: Name the first abnormal port
     answerText: "The reactor branch first fails; hydrogen partial pressure there is about 13.3 atm."
     why: "Total pressure is the sum of component pressures. The branch gauge stays high because nitrogen contributes pressure. The desired H2 partial pressure has fallen even though the needle barely moves. Sampling every station localizes the change between regulator outlet and reactor branch."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -218,12 +300,12 @@
   - group: EQUIL
     at: jacket-heater-logger
     title: "Test the simple-leak prediction"
-    concept: "combined gas law/model testing"
-    reason: "The leak model must predict a new measurement before the crew acts on it."
-    scene: "Warm the suspect branch and compare prediction with measurement to decide whether a simple leak or a contaminated mixture explains the alarm. Pressure and composition together will decide which explanation survives."
-    motivation: "A model that predicts pressure but cannot explain new nitrogen is not an explanation the crew should act on."
+    concept: 4   # combined gas law/model testing
+    reason: "The abnormal composition needs comparison with the response predicted by a simple leak model."
+    scene: "A sealed, fixed-volume branch sample starts at P1 = 21 atm and T1 = 300 K and is warmed to T2 = 330 K. For unchanged gas amount with no reaction, P2/P1 = T2/T1; composition is measured separately."
+    motivation: "The pressure-temperature test shows whether a normal pressure response is enough to explain away the mixture evidence."
     format: VERIFY
-    question: "Predict, act, and measure. For a sealed fixed-volume sample starting at 19.5 atm and 300 K, what pressure should a simple no-reaction model give at 330 K?"
+    question: "Predict the final pressure in atm, then compare the measured pressure and composition with the no-reaction model."
     # MODEL CONVERSION. The bible gives one correct prediction (21.45 atm, tolerance
     # 0.25) and a measured 21.4; this engine's VERIFY has the player DIAL a
     # prediction on a range and then compares it with what the measurement finds.
@@ -233,19 +315,27 @@
     # The dial range itself is the implementation's; the bible states a point.
     verify:
       prediction:
-        label: "Pressure at 330 K"
+        min: NaN
+        max: NaN
+        step: NaN
         unit: atm
-        min: 18.0
-        max: 24.0
-        step: 0.05
-      truth: 21.4
-      passRatio: [0.97, 1.03]
-      intervention:
-        label: "Warm sealed branch, 300 K to 330 K"
-        note: "Sealed, fixed volume, no reaction assumed."
-        outcome: "Warmed and held. Logger settled."
+      action:
+        id: warm_branch
+        label: Warm sealed branch
+        from_K: 300
+        to_K: 330
       measurement:
-        label: "Branch pressure and composition after warming"
+        label: the measurement
+        cost: 1
+      required_sequence:
+        - commit_prediction
+        - warm_branch
+        - measure_pressure
+        - measure_composition
+      truth: NaN
+      passRatio:
+        - 0.9
+        - 1.1
     answerText: "Pressure follows the gas-law prediction, but nitrogen in the mixture defeats the simple-leak explanation."
     why: "Warming a sealed gas tests whether the total particle count behaves normally. It does, so the gauge and volume are credible. Composition is a separate measurement. A leak can lower particle count, but it does not by itself explain nitrogen appearing downstream of a 95% H2 regulator outlet."
     # wrong-path feedback, one rebuttal per wrong option:

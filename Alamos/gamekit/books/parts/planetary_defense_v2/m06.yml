@@ -6,13 +6,21 @@
     header: "IMPACT WINDOW: 9 DAYS, 10 HOURS"
     title: "THE DARKER ANSWER"
     goNow: "Go to the Survey Telescope and meet Sanaa Vale, physical-characterization lead, by radio at the dome-console."
-    body: "The summit positions passed their controls, but visible brightness alone allows a small bright body or a much larger dark one. Thermal infrared measures the heat leaving the surface and helps separate size from reflectivity. Begin at the Survey Telescope, then carry the light curve to the Spectroscopy Dome. By the end of the mission, decide which diameter and consequence range the response must use."
+    body: "A bright asteroid could be small and reflective or large and dark, with very different consequences if it hits. Compare reflected sunlight with the heat the asteroid gives off. Decide what size range the emergency team must prepare for."
     objective: "Break the brightness-size degeneracy and adopt a defensible diameter range."
   objective: "Break the brightness-size degeneracy and adopt a defensible diameter range."
-  stake: "The summit positions passed their controls, but visible brightness alone allows a small bright body or a much larger dark one. Thermal infrared measures the heat leaving the surface and helps separate size from reflectivity. Begin at the Survey Telescope, then carry the light curve to the Spectroscopy Dome. By the end of the mission, decide which diameter and consequence range the response must use."
+  stake: "A bright asteroid could be small and reflective or large and dark, with very different consequences if it hits. Compare reflected sunlight with the heat the asteroid gives off. Decide what size range the emergency team must prepare for."
   takeaway: "Break a degeneracy with evidence that depends on the unknowns in a different way. ---"
   segue: "Mission decision: Plan for a dark body that is 230–290 m wide. Its heat shows that it is larger than first thought. Its light may point to two lobes. Radar must test its shape and path."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Absolute magnitude H", def: "a standardized visible brightness used with albedo to estimate asteroid diameter."}
+  - {name: "Albedo", def: "a measure of how strongly a surface reflects visible light."}
+  - {name: "Light curve", def: "brightness measured over time, often used to infer spin and shape."}
+  - {name: "Thermal infrared", def: "heat radiation that can constrain emitting area and temperature."}
+  equations:
+  - {"e":"D(km) = 1329 × 10^(-H/5) / sqrt(pv)","c":"estimating diameter from absolute magnitude and assumed visible albedo.","v":[["D","diameter"],["H","asteroid absolute magnitude"],["pv","visible geometric albedo"]],"s":"the response cannot estimate energy until it replaces the assumed albedo with measured constraints."}
+  - {"e":"wavelength_peak × T = 2.90 × 10^-3 m K","c":"estimating surface temperature from the peak thermal wavelength.","v":[["wavelength_peak","the peak wavelength"],["T","temperature in kelvin"]],"s":"temperature and thermal flux together constrain the asteroid's emitting area."}
   primer:
   - "The same visible brightness can come from a small bright surface or a large dark surface."
   - "Thermal emission depends strongly on size and temperature."
@@ -34,12 +42,12 @@
   - id: after-stop-21
     # After Stop 21 | automatic | 
     on: { after: [1] }
-    world: "The 106 m estimate receives ASSUMES pv = 0.25. Waypoint: FLY TO EAST SUMMIT — MEASURE HEAT, NOT JUST REFLECTION."
+    world: "The 106 m estimate receives ASSUMES pv = 0.25. Waypoint: FLY TO EAST SUMMIT - MEASURE HEAT, NOT JUST REFLECTION."
     panel: "THE DARKER ANSWER / FIRST RESULT LOGGED"
     # unlocks: The Spectroscopy Dome waypoint and Stop 22.
     bubbles:
     - who: vale   # Sanaa Vale
-      say: "That result is now part of the record. Use it in the next test."
+      say: "Nice work. That result is now part of the record. Use it in the next test."
   - id: after-stop-22
     # After Stop 22 | automatic | 
     on: { after: [2] }
@@ -48,7 +56,7 @@
     # unlocks: Stop 23.
     bubbles:
     - who: vale   # Sanaa Vale
-      say: "The handoff is ready. Follow the newly unlocked evidence."
+      say: "Good thinking. The handoff is ready. Follow the newly unlocked evidence."
   - id: after-stop-23
     # After Stop 23 | automatic | 
     on: { after: [3] }
@@ -57,7 +65,7 @@
     # unlocks: Stop 24.
     bubbles:
     - who: vale   # Sanaa Vale
-      say: "The decision evidence is complete. Make the narrowest claim that fits it."
+      say: "Exactly right. The decision evidence is complete. Make the narrowest claim that fits it."
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
@@ -66,7 +74,75 @@
     # unlocks: Mission 6 outcome, metric screen, concept review, and Mission 7 briefing.
     bubbles:
     - who: vale   # Sanaa Vale
-      say: "The decision is logged. Carry this result into the next shift."
+      say: "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Darker Answer. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Darker Answer, the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies Absolute magnitude H to the observations and physics?"
+      hint: "Use the stated evidence and the conditions for Absolute magnitude H; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A measure of how strongly a surface reflects visible light.", why: "This describes Albedo, not Absolute magnitude H. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "B", text: "A standardized visible brightness used with albedo to estimate asteroid diameter.", why: "Correct. a standardized visible brightness used with albedo to estimate asteroid diameter."}
+      - {key: "C", text: "Brightness measured over time, often used to infer spin and shape.", why: "This describes Light curve, not Absolute magnitude H. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "D", text: "Heat radiation that can constrain emitting area and temperature.", why: "This describes Thermal infrared, not Absolute magnitude H. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+    - prompt: "the planetary-defense center receives a second case related to The Darker Answer: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies Albedo to the observations and physics?"
+      hint: "Use the stated evidence and the conditions for Albedo; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A standardized visible brightness used with albedo to estimate asteroid diameter.", why: "This describes Absolute magnitude H, not Albedo. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "B", text: "Brightness measured over time, often used to infer spin and shape.", why: "This describes Light curve, not Albedo. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "C", text: "A measure of how strongly a surface reflects visible light.", why: "Correct. a measure of how strongly a surface reflects visible light."}
+      - {key: "D", text: "Heat radiation that can constrain emitting area and temperature.", why: "This describes Thermal infrared, not Albedo. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+    - prompt: "A teammate rechecks The Darker Answer using new evidence: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "D"
+      figure: {"kind":"line","xLabel":"Rotation phase","yLabel":"Relative brightness","caption":"A repeating light curve with unequal maxima.","series":[{"name":"Brightness","points":[[0,1],[0.125,0.82],[0.25,1.08],[0.375,0.78],[0.5,1],[0.625,0.82],[0.75,1.08],[0.875,0.78],[1,1]]}]}
+      options:
+      - {key: "A", text: "A standardized visible brightness used with albedo to estimate asteroid diameter.", why: "This describes Absolute magnitude H, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "B", text: "A measure of how strongly a surface reflects visible light.", why: "This describes Albedo, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "C", text: "Heat radiation that can constrain emitting area and temperature.", why: "This describes Thermal infrared, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "D", text: "Brightness measured over time, often used to infer spin and shape.", why: "Correct. brightness measured over time, often used to infer spin and shape."}
+    - prompt: "An unseen case extends The Darker Answer: because the thermal locus selects a large dark body, sweep model temperature and compare the predicted spectral peak with the observed 10.2-micrometer maximum. Which conclusion correctly applies Thermal infrared to the observations and physics?"
+      hint: "Use the stated evidence and the conditions for Thermal infrared; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Heat radiation that can constrain emitting area and temperature.", why: "Correct. heat radiation that can constrain emitting area and temperature."}
+      - {key: "B", text: "A standardized visible brightness used with albedo to estimate asteroid diameter.", why: "This describes Absolute magnitude H, not Thermal infrared. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "C", text: "A measure of how strongly a surface reflects visible light.", why: "This describes Albedo, not Thermal infrared. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "D", text: "Brightness measured over time, often used to infer spin and shape.", why: "This describes Light curve, not Thermal infrared. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+    - prompt: "Before another Darker Answer decision, the team knows this: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies H-to-diameter estimate to the observations and physics?"
+      hint: "Use the stated evidence and the conditions for H-to-diameter estimate; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A standardized visible brightness used with albedo to estimate asteroid diameter.", why: "This describes Absolute magnitude H, not H-to-diameter estimate. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "B", text: "Lower albedo requires a larger area to produce the same reflected brightness.", why: "Correct. lower albedo requires a larger area to produce the same reflected brightness."}
+      - {key: "C", text: "A measure of how strongly a surface reflects visible light.", why: "This describes Albedo, not H-to-diameter estimate. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "D", text: "Brightness measured over time, often used to infer spin and shape.", why: "This describes Light curve, not H-to-diameter estimate. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+    - prompt: "the planetary-defense center applies the lesson from The Darker Answer to this follow-up: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies diameter-albedo degeneracy to the observations and physics?"
+      hint: "Use the stated evidence and the conditions for diameter-albedo degeneracy; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A standardized visible brightness used with albedo to estimate asteroid diameter.", why: "This describes Absolute magnitude H, not diameter-albedo degeneracy. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "B", text: "A measure of how strongly a surface reflects visible light.", why: "This describes Albedo, not diameter-albedo degeneracy. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+      - {key: "C", text: "Two measurements with different parameter dependence break a degeneracy.", why: "Correct. two measurements with different parameter dependence break a degeneracy."}
+      - {key: "D", text: "Brightness measured over time, often used to infer spin and shape.", why: "This describes Light curve, not diameter-albedo degeneracy. It does not account for the quantities, conditions, or evidence in this planetary science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 6: worked examples"
+    examples:
+    - {"title":"Size-reflectivity ambiguity","problem":"At equal distances and geometry, reflected brightness is proportional to pD², where p is reflectivity and D diameter. If p falls by a factor of four, what D preserves brightness?","rule":"For fixed brightness, D is proportional to 1/sqrt(p).","steps":["Set up the relationship: For fixed brightness, D is proportional to 1/sqrt(p).","D_new/D_old=sqrt(p_old/p_new)=sqrt(4)=2."],"answer":"The diameter must double under this simplified reflected-light model.","mistake":"Equal brightness does not imply equal diameter."}
+    - {"title":"Diameter and cross section","problem":"One sphere has twice another's diameter. Compare projected areas.","rule":"Projected area A=πD²/4.","steps":["Set up the relationship: Projected area A=πD²/4.","A2/A1=(D2/D1)²=2²=4."],"answer":"The larger sphere has four times the projected area.","mistake":"Area scales as diameter squared, not cubed."}
+    - {"title":"Thermal peak wavelength","problem":"A blackbody has temperature 300 K. Use Wien's constant b=3000 μm K for a rounded estimate. Find peak wavelength.","rule":"λ_peak=b/T.","steps":["Set up the relationship: λ_peak=b/T.","λ_peak=3000/300=10 μm."],"answer":"The rounded peak wavelength is 10 micrometres in the infrared.","mistake":"A hotter blackbody peaks at a shorter wavelength."}
+    - {"title":"Read a repeating light curve","problem":"A brightness pattern repeats every 4 hours. What repetition period is measured, and what caution applies to rotation?","rule":"A light curve measures repeated brightness, which may repeat more than once per physical rotation.","steps":["The observed brightness period is 4 h.","If the shape gives two similar brightness cycles per rotation, the rotation period could be 8 h."],"answer":"The light curve alone may not distinguish 4-hour rotation from a double-peaked 8-hour rotation.","mistake":"Do not automatically identify every brightness cycle with one full turn."}
+    - {"title":"Separate a fitted product","problem":"A rectangle has area 24 cm². Can area alone determine its length and width?","rule":"Area = length × width. One equation may leave more than one unknown pair.","steps":["24 = 6×4 and 24 = 8×3. Both pairs have the correct area.","If width is independently measured as 4 cm, length = 24/4 = 6 cm."],"answer":"Area alone is insufficient; the additional width measurement selects 6 cm by 4 cm.","mistake":"One matching output does not identify both input parameters."}
 
   stops:
   # --- Stop 21: Reproduce the assumption
@@ -75,10 +151,10 @@
   - group: CHAR
     at: dome-console
     title: "Reproduce the assumption"
-    concept: "H-to-diameter estimate"
-    reason: "The team must expose the assumption behind the public 100 m estimate before replacing it."
+    concept: 3   # H-to-diameter estimate
+    reason: "Certified brightness does not establish size until the notice's assumed reflectivity is made explicit."
     scene: "The certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Estimate the diameter produced by that assumption and label the preliminary result as explicitly conditional."
-    motivation: "Reproducing the old estimate shows that the arithmetic was sound even though the physical assumption may be wrong."
+    motivation: "The conditional diameter shows how strongly the early size estimate depends on the adopted albedo."
     format: BALLPARK
     question: "Using every displayed input, submit one conditional diameter in meters."
     # Converted from the payload's `estimate`. Its three tiles keep its own
@@ -125,10 +201,10 @@
   - group: CHAR
     at: sizing-board
     title: "Break the reflected-light locus"
-    concept: "diameter-albedo degeneracy"
-    reason: "Reflected light alone leaves many diameter and albedo pairs that fit H = 22.0."
+    concept: 3   # diameter-albedo degeneracy
+    reason: "The brightness-based estimate leaves size and reflectivity entangled."
     scene: "With the conditional 106 m result visible, slide diameter and albedo along every pair that matches the reflected brightness. Then add the thermal-area constraint and locate the smaller region that satisfies both."
-    motivation: "The intersection, not either measurement alone, sets the diameter used for impact energy."
+    motivation: "The thermal-area constraint separates diameter from albedo so consequence planning need not assume a bright surface."
     format: DEGENERACY
     question: "Submit the numerical pair (D in meters, pv dimensionless) that satisfies both the reflected-light and thermal controls."
     # Converted from the payload's `degeneracy`. Its two controls are the engine's
@@ -195,10 +271,10 @@
   - group: CHAR
     at: spectrograph
     title: "Check the thermal temperature"
-    concept: "Wien relation"
-    reason: "The emitting-area result depends on a defensible surface temperature."
+    concept: 23   # Wien relation
+    reason: "The thermal size constraint depends on matching the measured spectral shape to a plausible temperature."
     scene: "Because the thermal locus selects a large dark body, sweep model temperature and compare the predicted spectral peak with the observed 10.2-micrometer maximum. Choose the temperature that aligns the shape before accepting the area."
-    motivation: "A correct temperature prevents a hot small body from imitating a cooler large one."
+    motivation: "The temperature fit determines whether the emitting area used in the diameter estimate is physically supported."
     format: SWEEP
     question: "Calculate and commit the predicted temperature in kelvin before the temperature control unlocks; then operate the sweep, measure the model peak in micrometers, and submit the setting plus PASS or FAIL."
     # Converted from the payload's `sweep`. Its `control.values` are the axis and
@@ -245,10 +321,10 @@
   - group: CHAR
     at: sizing-board
     title: "Adopt the consequence body"
-    concept: "physical characterization"
-    reason: "Evelyn cannot update consequences until one physical explanation fits brightness, heat, and the light curve."
+    concept: 3   # physical characterization
+    reason: "The independent size and temperature evidence now needs one body model for consequence planning."
     scene: "With diameter and temperature constrained, compare explanations against H = 22.0, pv = 0.041, the 230-290 m thermal size, and unequal light-curve maxima. Name the physical model that fits every independent reading."
-    motivation: "The diagnosis sets both the energy range and the unresolved structure risk carried into radar."
+    motivation: "The diagnosis determines which size, darkness, and shape description fits all measurements without overstating unresolved structure."
     format: DIAGNOSIS
     question: "Diagnose the one model that fits every reading, including the quiet lack of visible activity."
     # Converted from the payload's `headline` / `readings` / `choices` / `answer`.

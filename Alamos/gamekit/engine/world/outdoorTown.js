@@ -23,11 +23,16 @@ import * as THREE from 'three';
 import {
   configureTerrain, setPads, setPaths, setWaterBed, groundHeight as terrainHeight,
   buildTerrain, buildPaths, buildSky, buildSunRig, buildHorizon,
-  plantScrub, updateOutdoorTimeOfDay, onPath,
+  plantScrub, updateOutdoorTimeOfDay, onPath, parkSkyOnEye,
 } from './outdoorSite.js';
-import { building, sign, displayBoard, post, bench, bin, MATERIALS } from './kit.js';
+import { building, sign, displayBoard, post, bench, bin, MATERIALS, setWindowGlow } from './kit.js';
 import { openingSols, isOpen } from '../core/access.js';
 import { mat, tuneRendererForDevice } from './materials.js';
+// Things that move, and what is in the air. Both are one list the props layer
+// pushes into and this module runs once a frame — see animators.js.
+import { animate, runAnimators, clearAnimators } from './animators.js';
+import { buildWeather, onLightning } from './weather.js';
+export { onLightning };
 
 export const colliders = [];
 export const softColliders = [];
@@ -59,6 +64,10 @@ let lightPanels = [];
 // this a props layer can only build a place, never let it respond.
 let stateHooks = [];
 let peopleStations = [];
+/** Where somebody can sit down: every bench the site declares, two seats each. */
+let seats = [];
+/** The weather cloud, if the site declares any. `getWeather()` hands it out. */
+let weather = null;
 /** groupId -> the area's readout screen, so a call can change the street. */
 export const areaScreens = new Map();
 
@@ -228,12 +237,28 @@ export function initWorld(canvas, activeTheme){
     // day changes on, and it must not search the site for a name.
     if(opens) sealable.set(opens, { hit, built, name: b.name, door: built.door });
 
-    if(b.group){
-      stopMeshes.set(b.group, {
-        id: b.group, name: b.name,
+    // ONE ENTRY PER PLACE THE PLAYER CAN BE SENT TO, not one per area.
+    //
+    // A call may be SITED at a building that is not an area — the tank farm, the
+    // hydrogen store, the pad office — and a day's route, its budget and the
+    // waypoint post over the next stop all resolve a place through this map. Keyed
+    // by area id where there is one and by the `enter:` id otherwise, so
+    // `stopMeshes.get('TANKS')` answers as readily as `get('EQUIL')`.
+    //
+    // Without this a sited call put the waypoint over the stop's own AREA while
+    // the question was answered somewhere else entirely: Red Sand sites 37 of its
+    // 60 calls, so the post pointed at the wrong building for most of the
+    // campaign and the day's budget was measured to it.
+    const key = b.group || b.enter;
+    if(key && !stopMeshes.has(key)){
+      stopMeshes.set(key, {
+        id: key, name: b.name,
         pos: new THREE.Vector3(built.doorPos.x, y, built.doorPos.z),
         entry: new THREE.Vector3(built.entry.x, y, built.entry.z),
         door: built.door, group: built.group,
+        // Whether this is an area. `peopleStations` below wants areas only: a
+        // station is where an area's cast stands, and a minor place has no cast.
+        area: !!b.group,
       });
     }
   }
@@ -257,9 +282,24 @@ export function initWorld(canvas, activeTheme){
   //    player brushes past rather than being stopped dead by a bin.
   const blocked = (x, z, pad = 2) =>
     colliders.some(c => x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad);
+  seats = [];
   for(const f of site.furniture ?? []){
     const y = groundHeight(f.x, f.z);
-    if(f.kind === 'bench') softColliders.push(bench(scene, f.x, f.z, y, f.facing ?? 0));
+    if(f.kind === 'bench'){
+      softColliders.push(bench(scene, f.x, f.z, y, f.facing ?? 0));
+      // Two seats on every bench, so the crowd has somewhere to sit. The bench
+      // faces `facing`, and a sitter faces the same way; the seats sit half a
+      // metre either side of centre along the bench's own x axis.
+      //
+      // `surface` is where the seat actually IS — `kit.bench` centres a 0.1 m
+      // slab at 0.44, so its top is 0.49. Without it the crowd sits at the
+      // ordinary chair height and every bench has somebody's pelvis in it.
+      const fc = f.facing ?? 0;
+      for(const s of [-0.5, 0.5]){
+        seats.push({ x: f.x + Math.cos(fc) * s, z: f.z - Math.sin(fc) * s, y,
+          facing: fc, surface: 0.49 });
+      }
+    }
     else if(f.kind === 'bin') softColliders.push(bin(scene, f.x, f.z, y, f.colour));
     else softColliders.push(post(scene, f.x, f.z, y, f.height ?? 1.1, f.r ?? 0.09, f.colour));
   }
@@ -271,11 +311,19 @@ export function initWorld(canvas, activeTheme){
     });
   }
 
+  // 6b. What is in the air. Declared on the site, changeable by a prop.
+  clearAnimators();
+  weather = buildWeather(scene, site.weather ?? null);
+  animate((t, dt, eye) => weather.update(t, dt, eye));
+
   // 7. Theme hook for the objects that make this place recognisable.
   stateHooks = [];
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, blocked, sign, MATERIALS,
     lightPanels, areaScreens, stateHooks,
+    // Motion and weather. `animate(fn)` runs `fn(t, dt, eye)` every frame; see
+    // animators.js for the helpers. `weather.set(spec)` changes what is falling.
+    animate, weather,
     // The theme itself, so a prop can read the campaign it belongs to without
     // importing `engine/core/theme.js`. That module resolves through the `@theme`
     // vite alias, and a theme's props.js is loaded by the dev checks in plain
@@ -287,7 +335,12 @@ export function initWorld(canvas, activeTheme){
   // 8. The people. Every third mission stop is a person stop, so this is
   //    gameplay, not decoration — without it a third of the campaign has nobody
   //    to talk to. Each area's crew stands outside its own building.
-  peopleStations = [...stopMeshes.values()].map(s => ({
+  // AREAS ONLY. `stopMeshes` now carries every enterable place so a sited call
+  // can be routed to, and a station is a place an area's people stand — a minor
+  // building has no division and nobody would ever match it. It matters because
+  // `initCrowd` falls back to `stations[0]` for a person whose division has no
+  // station of its own, and that fallback must stay an area.
+  peopleStations = [...stopMeshes.values()].filter(s => s.area !== false).map(s => ({
     id: s.id,
     x: s.entry.x, z: s.entry.z,
     // Face back toward the door, so the crew reads as standing outside it.
@@ -392,10 +445,24 @@ export function updateTimeOfDay(hours){
     fog: look.fog,
   });
   // Emissive panels carry the night, since the light budget cannot.
+  //
+  // AN ENTRY MAY BE A MESH, A MATERIAL, OR `{ material }`. It used to be read
+  // only as a mesh, so every theme that registered a bare material — Planetary
+  // Defense's pad strobes and pad lamps among them — was silently skipped, and
+  // the one thing that was supposed to carry a night site did not change at
+  // dusk. Nothing warned; the lamps simply held one brightness all campaign.
   const night = info ? 1 - info.dayBlend : 0;
   for(const p of lightPanels){
-    if(p.material?.emissiveIntensity !== undefined) p.material.emissiveIntensity = 0.35 + 0.85 * night;
+    const mat = p?.isMaterial ? p : (p?.material ?? p?.mesh?.material);
+    if(mat?.emissiveIntensity === undefined) continue;
+    mat.emissiveIntensity = 0.35 + 0.85 * night;
   }
+  // And the windows this kit built. `setWindowGlow` has existed for as long as
+  // `litWindow` has and NOTHING CALLED IT — every framed pane in every outdoor
+  // game sat at emissiveIntensity 0 for the life of the repo, so a town at one
+  // in the morning was a set of dark boxes. It is the cheapest night lighting
+  // there is: no light, one traverse, and the panes were already tagged.
+  if(scene) setWindowGlow(scene, night);
   return info;
 }
 
@@ -405,6 +472,10 @@ export function updateTimeOfDay(hours){
  * what made the previous implementation impossible to reuse.
  */
 export function getPeopleStations(){ return peopleStations; }
+/** Every place somebody can sit: `{ x, z, y, facing }`, one per bench seat. */
+export function getSeats(){ return seats; }
+/** The weather cloud, for the dev handle and for a prop that wants to change it. */
+export function getWeather(){ return weather; }
 export function getExtraSpots(){
   const site = theme?.site ?? {};
   // A site may name its own gathering points — a triage queue, an ambulance
@@ -425,8 +496,17 @@ export function getExtraSpots(){
   })];
 }
 
-/** Spin the objective ring so the marker is findable in peripheral vision. */
-export function updateWorldAnimation(t){
+/**
+ * Everything that moves, once a frame. The objective ring, the board screens,
+ * and every animator a prop registered — the weather cloud among them. `eye` is
+ * the player's position, which is what the weather follows.
+ */
+export function updateWorldAnimation(t, eye = null){
+  runAnimators(t, eye);
+  // The sky travels with the player — see `parkSkyOnEye`. A site whose player
+  // limit is larger than half the dome's scale otherwise lets them walk out of
+  // their own sky.
+  if(eye) parkSkyOnEye(eye.x, eye.z);
   if(waypointMesh?.visible){
     waypointMesh.userData.ring.rotation.z = t * 0.9;
     waypointMesh.position.y = groundHeight(waypointMesh.position.x, waypointMesh.position.z)

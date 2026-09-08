@@ -32,6 +32,7 @@
 // Anything not named by any of those never opens, which is a finding rather than
 // a feature — `engine/dev/placement.mjs` reports it.
 import { sitedAt } from '../world/interiorFixtures.js';
+import { siteForStop } from '../world/siting.js';
 import { warmupPlan } from './warmups.js';
 import { tiersFor, unlockDay as siteUnlockDay } from './orientation.js';
 
@@ -57,7 +58,7 @@ export function openingSols(theme){
   (theme?.content?.MISSIONS ?? []).forEach((m, i) => {
     for(const stop of m.stops ?? []){
       const lesson = curriculum[stop.group]?.[stop.lesson];
-      const sited = sitedAt(theme, stop.group, lesson);
+      const sited = siteForStop(theme, stop, lesson);
       first(sited ? sited.place : stop.group, i + 1);
     }
   });
@@ -75,7 +76,10 @@ export function openingSols(theme){
   try{
     const tiers = theme?.site ? tiersFor(theme.site) : { hasFar: false };
     const hasFar = !!tiers.hasFar;
-    plan = warmupPlan({ days, hasFar, unlockDay: hasFar ? siteUnlockDay(theme.site) : 4 }) ?? [];
+    plan = warmupPlan({ days, hasFar, unlockDay: hasFar ? siteUnlockDay(theme.site) : 4,
+      // A timed campaign has no day-1 run, so it opens no building on sol 1.
+      opener: !(theme?.metrics?.bars ?? []).length,
+      runs: theme?.warmupRuns !== false }) ?? [];
   }catch{ plan = []; }
   for(const { day, slot } of plan){
     for(const p of runs[slot]?.at ?? []){

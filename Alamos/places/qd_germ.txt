@@ -1,0 +1,98 @@
+GERM THEORY OF DISEASE (theme: qd_germ) — PLACES AND LOCATIONS
+Investigator · Marlow Fields
+Course: Medicine and public health — germ theory, 1854. Grade 9, nine stops,
+three levels
+Grade 9. One mission is called a Level; a stop is "a place".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_germ npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Marlow Fields, as data. Outdoor.
+
+`engine/world/outdoorTown.js` builds everything below; nothing here is
+geometry. Outdoors because the first evidence in this subject is a map: a
+pump standing in a court with houses round it, and the houses that drew from
+it falling ill while the ones fifty yards off did not. A cluster is a shape on
+the ground, and nothing about it survives being moved into a corridor.
+
+Looking down, -Z is away from the player at spawn:
+
+       [ Laboratory Hut ]                           z = -88
+                     [ Fever Ward ]                 z = -46
+  [ The Court Pump ]      [ Registrar's Office ]    z = -12
+                   ¤ spawn ¤                        z =  38
+
+Two things here are load-bearing rather than decorative:
+
+  · The pump and the registrar's office are within sight of each other and the
+    ward and the laboratory are a long way up the lane. That is the campaign's
+    chronology as geometry: level one is a map and a doorstep, and level two is
+    a walk to a building where the argument becomes an experiment.
+  · The spawn at (0, 38) has nothing within ten metres of it. A prop over the
+    spawn welds the player in place: the scene renders and W does nothing.
+
+==============================================================================
+1. THE AREAS — 4 of them, one group each
+==============================================================================
+
+REG — Registrar's Office
+  Registrar's Office  ·  Every death, with an address on it
+  (12, -12)   51 m from spawn   13 x 10 x 4
+  Every death in the district with an address against it, and the map they are
+  stuck into.
+  Calls: Plot the cases · Find a comparison · Say what it forbids · Ready to
+  hand over
+
+PUMP — The Court
+  The Court Pump  ·  One standpipe, forty households
+  (-24, -12)   55 m from spawn   6 x 6 x 3.2
+  One standpipe, forty households, and the streets fifty yards off that draw
+  from somewhere else.
+  Calls: Walk the court · Ask who draws where · Name the exposure · Ready to
+  hand over
+
+WARD — Fever Ward
+  Fever Ward  ·  Two wings, and different rates in each
+  (22, -46)   87 m from spawn   24 x 12 x 5
+  Two wings with different rates in them, and the routes by which anything
+  might be travelling between beds.
+  Calls: Read the rates · Name a route · Close it · Ready to hand over
+
+LAB — Laboratory Hut
+  Laboratory Hut  ·  Plates, a microscope, and matched animals
+  (-26, -88)   129 m from spawn   15 x 11 x 4.2
+  Slides, plates and matched animals, and the only place here that can turn a
+  suspicion into a test.
+  Calls: Find the candidate · Grow it pure · Test it · Ready to hand over
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Gate Lodge  ·  "The book everybody signs"
+  (18, 28)   21 m   9 x 7 x 3.4
+Water Company Office  ·  "Which street is on which main"
+  (14, 16)   26 m   11 x 8 x 3.8
+Mortuary  ·  "Where a cause of death is written down"
+  (30, -76)   118 m   10 x 8 x 3.6
+Parish notices
+  (6, 32)
+Spawn
+  (0, 38)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 900, playerLimit 140, profile 'flat'
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_germ/ — site/plan, fixtures, minors, groups, theme.

@@ -1,0 +1,88 @@
+FALSE MEMORIES (theme: qd_memory) — PLACES AND LOCATIONS
+Research Assistant · Memory and Testimony Unit
+Course: Cognitive psychology — false memories. Grade 9, nine stops, three
+levels
+Grade 9. One mission is called a Level; a stop is "a place".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_memory npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Memory and Testimony Unit, as data.
+
+Twelve rooms rather than the nine the rest of this set uses, and that is the
+point of the place: a memory laboratory is small rooms, because most of what
+it studies is one person on their own with somebody asking them questions.
+Two interview suites with an observation room between them, a study room and
+an event bay open to the corridor at the near end, and a data room in the
+middle where the two halves are compared.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The shape the campaign uses: the study room and the interview suites are down
+one side, the event bay and the data room down the other, so what somebody saw
+and what somebody was later told are collected on opposite sides of a corridor
+and only meet in the data room.
+
+The two bays at the near end are `open: true` — no spine wall, so the corridor
+opens straight into them. A study room a participant is led into through a door
+is a room they can prepare for; the near end of this building is deliberately
+somewhere you are already standing before anything begins.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+STUDY — Study Room
+  Study Room   [STUDY]  side w, z -10 … 2, OPEN to the spine
+  A bay with nothing memorable in it, a card easel, and lists of fifteen words
+  that all point at a sixteenth.
+  Calls: Read the list · Take the test · Count the lures · Ready to hand over
+
+INT — Interview Suites
+  Interview Suite A   [INT1]  side w, z 4 … 12
+  Two identical rooms with a table and two chairs in each, and an interviewer
+  who does not know which wording their participant had.
+  Calls: Ask openly · Ask specifically · Record it · Ready to hand over
+
+EVENT — Event Bay
+  Event Bay   [EVENT]  side e, z -10 … 2, OPEN to the spine
+  One screen, one seat, twelve seconds of a junction, and everybody sees
+  exactly the same thing.
+  Calls: Show the sequence · Assign the groups · Hold the wording back · Ready
+  to hand over
+
+DATA — Data Room
+  Data Room   [DATA]  side e, z 13 … 25
+  Two groups on one bench, a difference between them, and a rule against
+  deciding the comparisons afterwards.
+  Calls: Enter both groups · Take the difference · Say what it supports ·
+  Ready to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Interview Suite B   [INT2]  side w, z 12 … 19
+Waiting Room   [WAIT]  side w, z 21 … 28, OPEN
+Transcript Store   [RECS]  side w, z 28 … 37
+Observation Room   [OBS]  side e, z 4 … 11
+Briefing Room   [BRIEF]  side e, z 27 … 33
+Equipment Store   [STORE]  side e, z 33 … 37
+
+Metrics   corridorHalfWidth 1.8, roomDepth 7, ceilingH 3
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_memory/ — site/plan, fixtures, minors, groups, theme.

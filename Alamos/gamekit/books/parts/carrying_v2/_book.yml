@@ -80,56 +80,65 @@ roster:
   name: "Mara Voss"
   role: "Island Resources Officer; mission authority"
   division: CHAPEL
+  pronouns: "she/her"
   bio: |
-    Mara Voss is Island Resources Officer; mission authority. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Mara Voss is Island Resources Officer; mission authority. Wants a defensible vote in fifteen days. Initially treats complete ledgers as sufficient; learns that shared measurements need independent checks. Says, "What can the island replace?"
 - id: reed
   name: "Tomas Reed"
   role: "Harbour and fishery lead"
-  division: CHAPEL
+  division: HARB
+  pronouns: "he/him"
   bio: |
-    Tomas Reed is Harbour and fishery lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Tomas Reed is Harbour and fishery lead. Wants a second ferry and stable fishing income. Treats landings as stock abundance; accepts effort limits after catch-per-effort falls. Says, "What came over the rail?"
 - id: okafor
   name: "Nkemdi Okafor"
   role: "Waterworks technician"
-  division: CHAPEL
+  division: WATER
+  pronouns: "she/her"
   bio: |
-    Nkemdi Okafor is Waterworks technician. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Nkemdi Okafor is Waterworks technician. Wants protect the aquifer and school supply. Distrusts growth before distinguishing preventable loss from unavoidable demand. Says, "What changed upstream?"
 - id: vale
   name: "Iona Vale"
   role: "Common agronomy lead"
-  division: REEF
+  division: COMMON
+  pronouns: "she/her"
   bio: |
-    Iona Vale is Common agronomy lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Iona Vale is Common agronomy lead. Wants keep farms productive and affordable. Favors familiar fertilizer; adopts IPM and nutrient budgets when runoff evidence connects fields to reef. Says, "What stays fixed?"
 - id: shaw
   name: "Elias Shaw"
   role: "Turbine and diesel mechanic"
-  division: HARB
+  division: POWER
+  pronouns: "he/him"
   bio: |
-    Elias Shaw is Turbine and diesel mechanic. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Elias Shaw is Turbine and diesel mechanic. Wants firm power through winter. Judges sources by nameplate output; accepts capacity factor, storage, and pollution costs. Says, "What runs at dusk?"
 - id: chen
   name: "Mei Chen"
   role: "Tip and environmental-health lead"
-  division: HARB
+  division: TIP
+  pronouns: "she/her"
   bio: |
-    Mei Chen is Tip and environmental-health lead. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Mei Chen is Tip and environmental-health lead. Wants stop leakage without bankrupting services. Focuses on visible waste; follows nitrogen, toxics, and methane through unseen pathways. Says, "Where does it go next?"
 - id: noor
   name: "Rafi Noor"
   role: "Reef ecologist"
-  division: HARB
+  division: REEF
+  pronouns: "he/him"
   bio: |
-    Rafi Noor is Reef ecologist. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Rafi Noor is Reef ecologist. Wants protect nursery habitat and long records. Initially assumes warming explains every reef decline; accepts nutrient and fishing interactions. Says, "Which pattern survives?"
 - id: costa
   name: "Lena Costa"
   role: "School nurse and population recorder"
   division: HARB
+  pronouns: "she/her"
   bio: |
-    Lena Costa is School nurse and population recorder. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Lena Costa is School nurse and population recorder. Wants keep children safe and the school open. Treats head count as demand; learns age structure and visitor-days matter. Says, "Who receives the dose?"
 - id: pell
   name: "Ada Pell"
   role: "Council chair"
-  division: HARB
+  division: CHAPEL
+  pronouns: "she/her"
   bio: |
-    Ada Pell is Council chair. The campaign bible carries the full character note; this line is the stub the importer needs and is the one thing on this page a reader should replace with the bible's own words.
+    Ada Pell is Council chair. Wants conditions residents can understand and enforce. Wants a simple yes/no; accepts a conditional rule with triggers. Says, "Can we write that as a rule?"
 
 glossary:
 # mission 1
@@ -346,17 +355,17 @@ warmups:
       Drive the road once so you know which spur is which before Blessing Okafor, who runs the tip, asks you to
       look at a cell.
   follow:
-    title: Follow Pike round the stocking count
-    why: 'Dan Pike, the common grazing officer, counts stock on the common twice a year and he does not stop walking
-      to explain it. Stay with him: the count is the only evidence behind the stocking limit, and the argument at
+    title: Follow Vale round the stocking count
+    why: 'Iona Vale, the common agronomy lead, counts stock on the common twice a year and she does not stop walking
+      to explain it. Stay with her: the count is the only evidence behind the stocking limit, and the argument at
       the spring meeting is always about how it was taken rather than what it said.'
   hunt:
-    title: Six standpipes, and one of them is the leak
+    title: Seven standpipes, and one of them is the leak
     item:
       name: standpipe
       plural: standpipes
     why: The distribution main is losing about a fifth of what the borehole lifts, and Mairead Sorley, the water
-      engineer, has narrowed it to the six standpipes along the island road. Find all six and read them. A fifth
+      engineer, has narrowed it to the seven standpipes along the island road. Find all seven and read them. A fifth
       of the island's water is a bigger number than anything the ferry argument is about.
   canvass:
     title: Ask the nine graziers one question each

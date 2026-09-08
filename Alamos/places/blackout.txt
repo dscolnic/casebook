@@ -1,0 +1,137 @@
+BLACKOUT (theme: blackout) — PLACES AND LOCATIONS
+System Operator · Calder Interconnection
+Course: Senior-high / first-year electrical engineering — AC power,
+transmission, protection, load
+Grade 12. One mission is called a Day.
+Delivery: The Calder Winter Survival Plan — the board is in OPS. 15 pieces,
+one a day.
+
+Run it:  cd gamekit && THEME=blackout npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — the Calder control centre and the plant around it, as data.
+
+`engine/world/outdoorTown.js` builds everything below; nothing here is
+geometry. The place has to read as a working power system in the first ten
+seconds, and what makes it one is the switchyard: a low sprawl of steel with
+transmission towers walking off the map in two directions. Nothing else in the
+seven games looks anything like it.
+
+Looking down, -Z is north, out along the transmission corridor:
+
+       ▲ ▲ ▲  towers marching north, out of the map        z = -150
+       ==========  switchyard  ==========                  z = -96
+  [ Transmission & Protection ]                            z = -62
+        [ Generation Hall ]      ‖ cooling tower ‖         z = -30
+  [ Metering & Standards ]   [ Load & Forecasting ]        z =   6
+       [ SYSTEM OPERATIONS — the hub ]                     z =  34
+                    ¤ spawn ¤                              z =  56
+            [ Distribution Depot ]                         z =  84
+
+Load-bearing rather than decorative:
+
+  · The spawn at (0, 56) is on the apron with nothing inside ten metres. A prop
+    over the spawn welds the player in place; the scene still renders perfectly.
+  · Every `group` below is a group id in content/groups.js. A group with no
+    building is a call the player cannot reach, and `worldParity` is the only
+    thing that notices.
+  · Operations sits between the spawn and everything else on purpose. It is the
+    area that holds the whole system, and the route to every other call passes
+    its door.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+OPS — System Operations
+  System Operations
+  (0, 34)   22 m from spawn   30 x 16 x 8.2
+  DELIVERY ROOM — the board for The Calder Winter Survival Plan is here.
+  The whole network at once, and the decisions that cannot wait for certainty.
+  Calls: Read the system · Find the constraint · Choose the action · Hand over
+  the shift
+
+DIST — Distribution
+  Distribution Depot
+  (6, 84)   29 m from spawn   28 x 17 x 7.6
+  The last few kilometres, where the network stops being a diagram and becomes
+  a street.
+  Calls: Map the feeder · Balance the phases · Hold the voltage · Restore the
+  customers
+
+LOAD — Load & Forecasting
+  Load & Forecasting
+  (44, 6)   67 m from spawn   20 x 13 x 6.8
+  What people are about to do, and how much of it the system has to be ready
+  for.
+  Calls: Read the curve · Forecast the peak · Price the reserve · Justify the
+  margin
+
+METER — Metering & Standards
+  Metering & Standards
+  (-50, 6)   71 m from spawn   20 x 13 x 6.4
+  Whether the numbers everybody is arguing about are the numbers.
+  Calls: Trace the instrument · Bound the error · Reconcile the records ·
+  Certify the data
+
+GEN — Generation
+  Generation Hall
+  (-34, -30)   92 m from spawn   34 x 20 x 12.5
+  Machines that turn something into torque, and what they can be asked to do
+  next.
+  Calls: Know the plant · Match the load · Hold the frequency · Ready to
+  synchronise
+
+TRANS — Transmission & Protection
+  Transmission & Protection
+  (-22, -62)   120 m from spawn   22 x 14 x 7
+  Getting power a long way, and the relays that decide when to give up on a
+  line.
+  Calls: Trace the path · Rate the line · Set the protection · Prove the
+  coordination
+
+==============================================================================
+2. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Site Gatehouse  ·  "Badge and permit-to-work"
+  (0, 100)   44 m   8 x 7 x 4.2
+Spares & Cable Store  ·  "Where a restoration is actually limited"
+  (40, 84)   49 m   16 x 12 x 6
+Operator Training Room  ·  "The simulator, and last year’s event replayed"
+  (46, 34)   51 m   16 x 12 x 6.2
+System Status
+  (10, 50)
+Spawn
+  (0, 56)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 760, playerLimit 105, profile 'flat'
+Water     centre (0, -210), 620 x 74, level -1.4
+
+==============================================================================
+THE DELIVERY — The Calder Winter Survival Plan
+==============================================================================
+   1. The reserve we can actually count on
+   2. The ranked live problems
+   3. What falling frequency means
+   4. The safe corridor limit
+   5. The customer restoration order
+   6. The instrument cross-check
+   7. How the two corridor circuits share flow
+   8. The fault current and clearing time
+   9. The islanding decision
+  10. The black-start cranking path
+  11. The drifted sensor finding
+  12. The assumptions worth checking
+  13. The dispatch and reserve plan
+  14. The reinforcement decision note
+  15. The signed evidence summary
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/blackout/ — site/plan, fixtures, minors, groups, theme.

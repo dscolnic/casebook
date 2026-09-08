@@ -1,0 +1,78 @@
+THE EXPANDING UNIVERSE (theme: qd_hubble) — PLACES AND LOCATIONS
+Observer · Mountain Observatory
+Course: Astronomy — the expanding universe. Grade 9, nine stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_hubble npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the mountain observatory's working floor, as data.
+
+One corridor, four rooms, and the layout is the argument: the two axes of the
+plot are measured on opposite sides of it, by different people, on different
+nights, and the room where they finally meet is at the far end.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The plate vault is the deepest room on the plan because years of glass in
+numbered drawers is what it holds, and the diagram room is the widest because
+its long wall is one plot.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+PLATES — Plate Vault
+  Plate Vault   [PLATES]  side w, z 4 … 18
+  Years of photographs of the same nebulae, and the stars in them that will
+  not hold still.
+  Calls: Find the variable · Time the cycle · Grade the star · Ready to hand
+  over
+
+DIAGRAM — Diagram Room
+  Diagram Room   [DIAGRAM]  side w, z 28 … 39
+  One plot, two axes measured by different people, and a line somebody has to
+  defend.
+  Calls: Place the points · Fit the slope · Read the units · Ready to hand
+  over
+
+SPEC — Spectrograph Room
+  Spectrograph Room   [SPEC]  side e, z 5 … 18
+  Nights of exposure for one spectrum, and a set of lines that have all moved
+  together.
+  Calls: Expose it · Identify the lines · Measure the shift · Ready to hand
+  over
+
+LADDER — Ladder Desk
+  Ladder Desk   [LADDER]  side e, z 20 … 31
+  Where a brightness becomes a distance, and where every error in the
+  brightness goes.
+  Calls: Calibrate it · Convert it · Price the error · Ready to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Entrance Desk   [PORCH]  side w, z -4 … 2, OPEN
+Common Room   [TEA]  side w, z 20 … 26, OPEN
+Plate Store   [RACK]  side w, z 39 … 43
+Darkroom   [DARK]  side e, z -4 … 3
+Library   [LIB]  side e, z 33 … 43
+
+Metrics   corridorHalfWidth 1.8, roomDepth 8, ceilingH 3.4
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_hubble/ — site/plan, fixtures, minors, groups, theme.

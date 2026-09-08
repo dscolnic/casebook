@@ -1,0 +1,235 @@
+SLACK WATER (theme: slackwater) — PLACES AND LOCATIONS
+Flood Prediction Lead · Sarn Barrage, twelve days to the storm tide
+Course: AP Calculus BC — parametric, polar and vector-valued functions,
+series, second-term integration
+Grade 12. One mission is called a Day.
+Delivery: The Flood Gate Plan — the board is in PRED. 12 pieces, one a day.
+
+Run it:  cd gamekit && THEME=slackwater npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — Sarn Barrage and the Sarn estuary, as data. Outdoor, low, and tidal.
+
+`engine/world/outdoorTown.js` builds all of it. The place is a tidal barrage
+across the neck of an estuary: six gates and a turbine hall on the line of the
+barrage, the offices behind it on the landward side, and a training wall
+running seaward from the eastern abutment with a station at its root.
+
+Looking down, -Z is seaward and away from the player at spawn:
+
+                   ~ the estuary, to the horizon ~          z = -240
+       ¦ the training wall, running seaward ¦                z = -140
+  — — the barrage: six gates across the water — —            z = -12
+                                       [ Wall Station ]      z =   0, x = 170
+       [ Gauge Tower ] [ Sluice Control ] [ Turbine Hall ]   z =   4
+  [ Boat Shed ]  [ Survey Pontoon ]      [ Currents Room ]   z =  16
+       [ Prediction Office ]      [ Mud Laboratory ]         z =  40
+                      ¤ spawn ¤                              z =  70
+
+Three things here are load-bearing rather than decorative:
+
+  · The Wall Station is 224 m from the spawn and everything else is inside
+    80 m, which is what makes `engine/core/orientation.js` call this a
+    two-tier site: the far lap and the vehicles come out on day 4. Move it in
+    and the second lap silently stops being offered.
+  · The water is a channel rather than open sea, because a channel cuts a bed
+    into the terrain and leaves a bank along its landward edge. On a flat
+    profile an `open: true` plane sits *under* the ground and renders as
+    nothing at all. Here the cut edge lands on the barrage line itself, so the
+    gates have water on one face and mud on the other.
+  · The site is deliberately low and wide. Nothing here is taller than the
+    gauge tower, so the silhouette is a horizontal line of gates with one
+    vertical beside it, and the horizon ranks are the far shore rather than
+    hills.
+
+==============================================================================
+1. THE AREAS — 6 of them, one group each
+==============================================================================
+
+PRED — Prediction Office
+  Prediction Office
+  (-26, 40)   40 m from spawn   15 x 10 x 4.2
+  DELIVERY ROOM — the board for The Flood Gate Plan is here.
+  The tide written as a sum, and what is left out of the sum.
+  Calls: Fit the constants · Bound the tail · State the error · Ready to hand
+  over
+  Fixtures (at: targets):
+    board              board  back
+      The constituent board — Eight terms, added in every morning; the two
+      biggest chalked in first.
+    tailwall           rack   left
+      The dropped-tail wall — Twenty-nine amplitudes, pinned up in descending
+      order, that never reach the board.
+    fitdesk            bench  right
+      The fitting desk — Nine years of this station's own record, worked into
+      speeds and phases.
+    noisecolumn        rack   right [until day 9]
+      The residual column — Nine years of leftovers, filed under noise, taped
+      off and never worked.
+    ninthterm          board  left  [from day 9]
+      The ninth term — The shallow-water term, chalked in beside the eight on
+      the day the residuals gave it up.
+
+FLATS — Mud Laboratory
+  Mud Laboratory
+  (30, 42)   41 m from spawn   14 x 9 x 3.8
+  What the estuary keeps and what it flushes, over a tail that never quite
+  ends.
+  Calls: Sample the flats · Take the tail · Bound the exchange · Ready to hand
+  over
+  Fixtures (at: targets):
+    corebench          bench  left
+      The core bench — Fourteen stations' worth of mud, split, dried and
+      weighed.
+    exchangeledger     board  back
+      The exchange ledger — What a tide takes out of the flats, and what the
+      next one gives back.
+
+ROSE — Currents Room
+  Currents Room
+  (20, 20)   54 m from spawn   12 x 9 x 4
+  Speed against bearing, which is a curve in polar form and an area worth
+  having.
+  Calls: Plot the rose · Take the area · Compare the halves · Ready to hand
+  over
+  Fixtures (at: targets):
+    roseplot           bench  left
+      The rose plotter — Speed against bearing, redrawn as a curve with no
+      axes.
+    meterbank          rack   right
+      Meter three — One of four current meters on the barrage face, ten
+      minutes between readings.
+    residualboard      board  back
+      The residual board — Predicted high water minus what each gauge actually
+      read, station by station.
+
+SLUICE — Sluice Control
+  Sluice Control
+  (10, 4)   67 m from spawn   12 x 8 x 4.6
+  Six gates, an impoundment behind them, and a rate that depends on what it
+  has already done.
+  Calls: Set the rate · Solve the fill · Step the model · Ready to hand over
+  Fixtures (at: targets):
+    gatedesk           board  back
+      The gate desk — The head across the gates, read off both faces at once.
+    impoundmentmodel   bench  left
+      The impoundment model — The filling equation, solved for what six gates
+      are doing right now.
+    gatetable          rack   right
+      The gate table — What each gate does, written at the top of every half
+      hour.
+
+TRACK — Survey & Drift
+  Survey Pontoon
+  (-42, 16)   68 m from spawn   13 x 9 x 3.4
+  A float is a path in time, and every question about it is a question about
+  two rates.
+  Calls: Recover the float · Read the track · Measure the length · Ready to
+  hand over
+  Fixtures (at: targets):
+    screen             board  back
+      Float 7's telemetry screen — A fix every ten minutes, since it went out
+      on the ebb.
+    plottable          bench  left
+      The plotting table — Two columns of fixes, fitted into a smooth track.
+
+WALL — Wall Station
+  Wall Station
+  (170, 0)   184 m from spawn   9 x 7 x 3.6
+  The training wall, two hundred metres along the shore, where a wave comes
+  back and comes back again.
+  Calls: Time the return · Sum the chain · Set the limit · Ready to hand over
+  Fixtures (at: targets):
+    wallgauge          board  back
+      The wall-head gauge — The first arrival, and the reading that keeps
+      climbing after it.
+    armourcount        rack   left
+      The armour count — Two hundred and forty units, sized once, never
+      resurveyed.
+
+==============================================================================
+2. ENTERABLE NON-AREAS — a door and a room, no case stand
+==============================================================================
+
+TURBINE — Turbine Hall  ·  "Four sets, on the ebb only"
+  (46, 2)   82 m from spawn   24 x 12 x 8.4
+  Sited calls:
+    generationlog      bench  right
+      The generation log — Every release, its volume and its window — and
+      never the time inside it.
+  Stand line: "The generation report has always assumed the water went out at
+  the middle of the release."
+    Sets available: 4 of 4 (normal)
+    Window, this ebb: 4 h 10 min (normal)
+    Taken last spring tide: 31.4 MWh (high)
+    Lost to an early close: 1 window (alarm)
+
+BOAT — Boat Shed  ·  "The launch, and eleven floats"
+  (-58, 6)   86 m from spawn   11 x 8 x 4.4
+  Sited calls:
+    launchrack         rack   left
+      The float rack — Nine recovered floats, spare drogues, and one cradle
+      empty since float 7 went out.
+  Stand line: "Eleven floats went out of this shed. Nine of them came back."
+    Floats issued: 11 (normal)
+    Recovered: 9 (normal)
+    Still reporting: 1 (float 7) (high)
+    Core stations needing the boat: 2 of 14 (alarm)
+
+MARSH — Marsh Warning Post  ·  "Where the graziers read the call"
+  (-44, 62)   45 m from spawn   8 x 6 x 3.4
+  Sited calls:
+    warningboard       board  back
+      The warning board — One shutter, two states, and ninety holdings that
+      act on whichever is showing.
+  Stand line: "Ninety holdings read the gate call off this board, and none of
+  them read the prediction."
+    Holdings on the marsh: 90 (normal)
+    Ground above the lowest holding: 0.6 m (alarm)
+    Notice the graziers ask for: 6 h (high)
+    Last posted: the twelfth (normal)
+
+==============================================================================
+3. LANDMARKS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Gauge Tower  ·  "Stilling well, outer face"
+  (-12, 4)   67 m   5 x 5 x 13.5
+Tide board
+  (8, 56)
+Spawn
+  (0, 70)   yaw 0. Keep it clear — a prop over the spawn welds the player in place.
+Terrain   size 1200, playerLimit 300, profile 'flat'
+Water     centre (0, -246), 1600 x 464, level -0.9
+
+==============================================================================
+THE DELIVERY — The Flood Gate Plan
+==============================================================================
+   1. What creates the spring tide
+   2. What the real water is doing
+   3. How far the water really travels
+   4. How wrong the tide forecast can be
+   5. How the ebb and flood currents differ
+   6. How the wall amplifies returning waves
+   7. How quickly the basin fills
+   8. What the endless tails add up to
+   9. The missing shallow-water tide
+  10. What the error bounds do not cover
+  11. The last assumptions checked
+  12. The gate order, signed
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· A lesson points at a fixture with `at: <id>` in its book. A lesson pointing
+  at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate;
+  interiorFixtures.js computes position from room.bounds.
+  build: vessel | rack | bench | board.  wall: left | right | back.
+  along: -1 … 1, 0 is the middle.  from:/until: gate one by day.
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/slackwater/ — site/plan, fixtures, minors, groups, theme.

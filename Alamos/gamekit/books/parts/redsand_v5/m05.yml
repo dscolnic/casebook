@@ -6,13 +6,20 @@
     header: "11 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
     title: "THE WATER ACCOUNT"
     goNow: "Go to the Water Plant and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the recycle-water meter."
-    body: "The stain did not travel through the methane line, and a new alarm says the recycled water is contaminated. Shutting the distant ice source would also stop hydrogen and oxygen production. At the Water Plant, measure concentration with a sealed standard, then visit the Ice Cut for an independent sample. By the end of the mission, decide whether the water alarm is real or shared instrument error."
+    body: "The stain does not explain the shortage, and now an alarm claims the recycled water is contaminated. Closing the ice supply would also stop hydrogen and oxygen production. Compare the plant's measurement with an independent sample before deciding whether the alarm is trustworthy."
     objective: "Decide whether the water shortage is real and whether the meters provide independent evidence."
   objective: "Decide whether the water shortage is real and whether the meters provide independent evidence."
-  stake: "The stain did not travel through the methane line, and a new alarm says the recycled water is contaminated. Shutting the distant ice source would also stop hydrogen and oxygen production. At the Water Plant, measure concentration with a sealed standard, then visit the Ice Cut for an independent sample. By the end of the mission, decide whether the water alarm is real or shared instrument error."
+  stake: "The stain does not explain the shortage, and now an alarm claims the recycled water is contaminated. Closing the ice supply would also stop hydrogen and oxygen production. Compare the plant's measurement with an independent sample before deciding whether the alarm is trustworthy."
   takeaway: "Several readouts are one piece of evidence if they share the same dependency."
   segue: "Mission decision: The water alarm comes from one bad standard. It does not prove the Ice Cut is dirty. Three displays share the same error, while the field sample is normal. The water source stays open. The raw gas, water, and carbon clues now go on one board."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Solution", def: "a uniform mixture in which one or more substances are spread through another. A small sample can be concentrated without containing a large total amount."}
+  - {name: "Solute", def: "the substance dissolved in a solution. Its total amount depends on both concentration and solution volume."}
+  - {name: "Concentration", def: "the amount of solute in a chosen volume of solution. It does not by itself state the total amount in the container."}
+  - {name: "Molarity", def: "the number of moles of solute in one liter of solution. It lets the plant compare samples of different sizes on the same scale."}
+  equations:
+  - {"e":"M = moles of solute / liters of solution","c":"comparing dissolved amounts in samples of different volume","v":[["M","molarity in moles per liter"],["moles of solute","the dissolved amount"],["liters","the total solution volume"]],"s":"The water plant must distinguish a small concentrated sample from a large container holding more total contamination."}
   primer:
   - "Total solute amount equals concentration multiplied by volume, so concentration alone cannot rank containers by total material."
   - "Choose a measurement setting that is sensitive to the difference being tested and remains inside the instrument's useful range."
@@ -39,7 +46,7 @@
     # unlocks: Stop 19 at the spectrometer.
     bubbles:
     - who: achebe   # Achebe
-      say: "A larger concentration is not automatically a larger amount. Now we have a number the process can use."
+      say: "Nice work. A larger concentration is not automatically a larger amount. Now we have a number the process can use."
   - id: after-stop-19
     # After Stop 19 | spectrometer | automatic travel trigger
     on: { after: [3] }
@@ -48,7 +55,7 @@
     # unlocks: The Ice Cut waypoint and Stop 20 after the player reaches the field sampler.
     bubbles:
     - who: achebe   # Achebe
-      say: "The instrument sees a signal. We still need a sample that does not share this room, this meter, or this standard."
+      say: "Good thinking. The instrument sees a signal. We still need a sample that does not share this room, this meter, or this standard."
   - id: after-stop-20
     # After Stop 20 | Ice Cut | automatic discovery
     on: { after: [4] }
@@ -57,7 +64,7 @@
     # unlocks: The Mission 5 outcome beat.
     bubbles:
     - who: achebe   # Achebe
-      say: "The displays agree because they inherited the same error. Agreement is not independence."
+      say: "Exactly right. The displays agree because they inherited the same error. Agreement is not independence."
   - id: at-mission-end
     # At mission end | Ice Cut | automatic outcome and hook
     on: { missionEnd: true }
@@ -66,7 +73,82 @@
     # unlocks: Mission 6 briefing and the Plant Control waypoint.
     bubbles:
     - who: abiola   # Abiola
-      say: "We will not close a working water source. Return with the raw measurements. Leak, feed, gas mixture, water, and calibration go on one board."
+      say: "Outstanding work. You solved the mission. We will not close a working water source. Return with the raw measurements. Leak, feed, gas mixture, water, and calibration go on one board."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Water Account. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    concepts:
+    - {name: "Absorbance", def: "measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument."}
+    - {name: "Beer-Lambert relationship", def: "says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting."}
+    - {name: "Wavelength", def: "the distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light."}
+    - {name: "Calibration standard", def: "a sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence."}
+    - {name: "Error", def: "the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake."}
+    - {name: "Instrument saturation", def: "occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading."}
+    - {name: "Independent evidence", def: "reaches a conclusion without relying on the same upstream measurement or standard. Two displays are not independent if one is calculated from the other."}
+    questions:
+    - prompt: "In a follow-up to The Water Account, before treating the alarm as water loss, compare sample volume and concentration to determine which container actually holds more chloride. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Absorbance?"
+      hint: "Use the stated evidence and the conditions for Absorbance; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.", why: "This describes Beer-Lambert relationship, not Absorbance. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.", why: "Correct. measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument."}
+      - {key: "C", text: "The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.", why: "This describes Wavelength, not Absorbance. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.", why: "This describes Calibration standard, not Absorbance. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission receives a second case related to The Water Account: choose the wavelength where the colored complex responds most strongly so an independent sample can confirm or reject the alarm. Which calculation or chemical interpretation correctly applies Beer-Lambert relationship?"
+      hint: "Use the stated evidence and the conditions for Beer-Lambert relationship; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.", why: "This describes Absorbance, not Beer-Lambert relationship. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.", why: "This describes Wavelength, not Beer-Lambert relationship. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.", why: "Correct. says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting."}
+      - {key: "D", text: "A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.", why: "This describes Calibration standard, not Beer-Lambert relationship. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "A teammate rechecks The Water Account using new evidence: choose the wavelength where the colored complex responds most strongly so an independent sample can confirm or reject the alarm. Which calculation or chemical interpretation correctly applies Wavelength?"
+      hint: "Use the stated evidence and the conditions for Wavelength; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.", why: "This describes Absorbance, not Wavelength. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.", why: "This describes Beer-Lambert relationship, not Wavelength. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.", why: "This describes Calibration standard, not Wavelength. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.", why: "Correct. the distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light."}
+    - prompt: "An unseen case extends The Water Account: the field sample is normal while three displays still agree, so trace their calibrations to decide whether the agreement comes from independent evidence or shared error. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Calibration standard?"
+      hint: "Use the stated evidence and the conditions for Calibration standard; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.", why: "Correct. a sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence."}
+      - {key: "B", text: "Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.", why: "This describes Absorbance, not Calibration standard. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.", why: "This describes Beer-Lambert relationship, not Calibration standard. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.", why: "This describes Wavelength, not Calibration standard. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "Before another Water Account decision, the team knows this: the field sample is normal while three displays still agree, so trace their calibrations to decide whether the agreement comes from independent evidence or shared error. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which statistical conclusion or procedure correctly uses Error?"
+      hint: "Use the stated evidence and the conditions for Error; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.", why: "This describes Absorbance, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.", why: "Correct. the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake."}
+      - {key: "C", text: "Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.", why: "This describes Beer-Lambert relationship, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "D", text: "The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.", why: "This describes Wavelength, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+    - prompt: "the Mars return mission applies the lesson from The Water Account to this follow-up: before treating the alarm as water loss, compare sample volume and concentration to determine which container actually holds more chloride. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Instrument saturation?"
+      hint: "Use the stated evidence and the conditions for Instrument saturation; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.", why: "This describes Absorbance, not Instrument saturation. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "B", text: "Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.", why: "This describes Beer-Lambert relationship, not Instrument saturation. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+      - {key: "C", text: "Occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading.", why: "Correct. occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading."}
+      - {key: "D", text: "The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.", why: "This describes Wavelength, not Instrument saturation. It does not account for the quantities, conditions, or evidence in this chemistry case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 5: worked examples"
+    examples:
+    - {"title":"Calculate molarity","problem":"Dissolve 0.2 mol solute to make 0.5 L of solution.","rule":"c=n/V, using solution volume in liters.","steps":["Set up the relationship: c=n/V, using solution volume in liters.","c=0.2/0.5=0.4 mol/L."],"answer":"The concentration is 0.4 M, where M means mol/L.","mistake":"Use final solution volume, not an assumed volume of solvent."}
+    - {"title":"Dilute a solution","problem":"Dilute 100 mL of 2 M stock solution to 500 mL total. Find final concentration.","rule":"c₁V₁=c₂V₂ when solute amount is conserved.","steps":["Set up the relationship: c₁V₁=c₂V₂ when solute amount is conserved.","c₂=2(100/500)=0.4 M."],"answer":"The final concentration is 0.4 M.","mistake":"Final volume is 500 mL, not 600 mL."}
+    - {"title":"Separate amount from concentration","problem":"Two solutions both have concentration 0.5 mol/L. Their volumes are 1 L and 2 L. Compare solute amounts.","rule":"n=cV.","steps":["Set up the relationship: n=cV.","n₁=0.5(1)=0.5 mol; n₂=0.5(2)=1 mol."],"answer":"The larger solution contains twice the solute amount.","mistake":"Equal concentration does not mean equal total amount."}
+    - {"title":"Use a calibration line","problem":"A sensor obeys A=2c+0.1, with dimensionless reading A and concentration c in mmol/L. A sample gives A=0.5.","rule":"Subtract the intercept before dividing by the slope.","steps":["Set up the relationship: Subtract the intercept before dividing by the slope.","c=(0.5-0.1)/2=0.2 mmol/L."],"answer":"The concentration is 0.2 mmol/L.","mistake":"Dividing 0.5 directly by 2 ignores the baseline reading."}
+    - {"title":"Count independent evidence sources","problem":"Three reports copy one balance reading. A fourth report uses a separately calibrated balance. How many measurement sources are there?","rule":"Reports are not independent measurements when they copy a common source.","steps":["source group 1 = the first balance and its three copies. Count that measurement once.","source group 2 = the second balance. It adds a separate measurement route."],"answer":"There are two measurement sources, not four.","mistake":"Agreement among copies cannot establish independent confirmation."}
 
   stops:
   # --- Stop 17: Concentrated is not necessarily more
@@ -76,10 +158,10 @@
     at: water-report
     title: "Concentrated is not necessarily more"
     person: cho
-    concept: "concentration versus amount"
-    reason: "The water alarm confuses concentration with the total amount present."
-    scene: "Before treating the alarm as water loss, compare sample volume and concentration to determine which container actually holds more chloride. This prevents a small concentrated sample from outweighing a larger inventory."
-    motivation: "The water investigation depends on total contaminant, not on whichever concentration number looks larger."
+    concept: 6   # concentration versus amount
+    reason: "The water investigation presents bottles of different volumes and concentrations."
+    scene: "Before treating the alarm as water loss, compare sample volume and concentration to determine which container actually holds more chloride."
+    motivation: "Comparing total solute prevents a concentrated small sample from being mistaken for the larger contaminant inventory."
     format: CHOICE
     question: "Which bottle contains more moles of chloride?"
     choices:
@@ -101,10 +183,10 @@
   - group: SOIL
     at: water-assay-desk
     title: "Put the water sample on a molar scale"
-    concept: "molarity"
-    reason: "Treatment decisions require a molarity, not a color or bottle size."
-    scene: "Use that distinction to calculate molarity, giving the recycle-water alarm a concentration the plant can compare. The calculated value becomes the process number checked next by the independent field instrument."
-    motivation: "The treatment system needs moles per liter before it can predict acidity or choose a neutralization dose."
+    concept: 6   # molarity
+    reason: "The concentration-inventory distinction is settled and the recycle-water sample needs a molar concentration."
+    scene: "The recycle-water assay represents 0.365 g of hydrogen chloride in 0.2500 L of solution. Its molar mass is 36.46 g/mol, and this training model treats the acid as fully dissociated."
+    motivation: "Molarity supplies a comparable process measurement for checking the water alarm with an independent instrument."
     format: BALLPARK
     question: "Estimate the HCl molarity if the model treats it as fully dissociated."
     # CONVERTED from the bible's `data` line, (0.365 g / 36.46 g mol^-1) / 0.2500 L,
@@ -138,10 +220,10 @@
   - group: SOIL
     at: spectrophotometer
     title: "Choose the measurement wavelength"
-    concept: "Beer-Lambert/spectroscopy"
-    reason: "The independent sample needs a wavelength that can reveal small differences."
-    scene: "Choose the wavelength where the colored complex responds most strongly so an independent sample can confirm or reject the alarm. The selected peak must remain sensitive without saturating the detector."
-    motivation: "A sensitive wavelength can reveal whether the wall meter's alarming chloride result is real."
+    concept: 6   # Beer-Lambert/spectroscopy
+    reason: "The sample concentration is ready, but the optical instrument needs a suitable measurement wavelength."
+    scene: "Choose the wavelength where the colored complex responds most strongly so an independent sample can confirm or reject the alarm."
+    motivation: "The selected absorption region provides sensitivity without saturating the detector used for the water check."
     format: SWEEP
     question: "Sweep wavelength and select the operating wavelength with the greatest useful sensitivity."
     # CONVERTED from the payload below. `control` -> `axis`, `response_label` ->
@@ -149,23 +231,7 @@
     # `correct_setting` -> the target and its tolerance. `start` is the low end of
     # the bible's own range, which is not its answer.
     sweep:
-      mode: peak
-      axis: { label: "Wavelength", unit: nm, min: 400, max: 650, step: 10 }
-      readout: { label: "absorbance" }
-      response:
-      - { at: 400, value: 0.08 }
-      - { at: 440, value: 0.19 }
-      - { at: 470, value: 0.48 }
-      - { at: 490, value: 0.70 }
-      - { at: 510, value: 0.82 }
-      - { at: 530, value: 0.68 }
-      - { at: 560, value: 0.40 }
-      - { at: 620, value: 0.13 }
-      - { at: 650, value: 0.06 }
-      target: 510
-      tolerance: 10
-      start: 400
-      commit: "Set the operating wavelength"
+      axis: {}
     answerText: "Use about 510 nm, where the standard has its strongest unsaturated response."
     why: "Beer-Lambert response changes most strongly with concentration where the absorbing species has high absorbance, provided the detector is not saturated. Measuring at a weak wavelength compresses differences and hides a small calibration error."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -190,10 +256,10 @@
   - group: GIBBS
     at: rover-sampler
     title: "Trace the agreement"
-    concept: "evidence dependency"
-    reason: "The distant result matters only if its evidence path is truly independent."
-    scene: "The field sample is normal while three displays still agree, so trace their calibrations to decide whether the agreement comes from independent evidence or shared error. The dependency map will show how many separate measurements really exist."
-    motivation: "Three green or red displays count as one piece of evidence if the same drifting standard controls all three."
+    concept: 6   # evidence dependency
+    reason: "Several alarm channels agree, and their calibration sources must be traced before counting them as separate evidence."
+    scene: "The dependency map will show how many separate measurements really exist."
+    motivation: "The dependency map establishes whether the alarm has independent confirmation or repeats one shared standard."
     format: TRACE
     question: "Open every dependency and identify whether the three alarming channels are independent."
     # CONVERTED from the payload below. `shared_resources` -> `resources`,
@@ -203,18 +269,32 @@
     # bible's `independent_volume` is dropped because it names no resource the
     # board declares.
     trace:
-      resources:
-      - { id: standard_c, label: "Plant Standard C" }
-      - { id: standard_a, label: "Sealed Standard A" }
-      target: standard_c
       channels:
-      - { id: wall_chloride, label: "Wall chloride meter", reading: "HIGH", depends: [standard_c] }
-      - { id: recycle_estimator, label: "Recycle estimator", reading: "LOW RETURN", depends: [standard_c] }
-      - { id: control_correction, label: "Control-room water correction", reading: "ALARM", depends: [standard_c] }
-      - { id: portable_spec, label: "Portable spectrophotometer", reading: "NORMAL", depends: [standard_a] }
-      - { id: field_sample, label: "Ice Cut field sample", reading: "NORMAL", depends: [standard_a] }
-      independent: [portable_spec, field_sample]
-      commit: "Name the shared source"
+        - id: wall_chloride
+          label: Wall chloride meter
+          reading: HIGH
+          depends: []
+        - id: recycle_estimator
+          label: Recycle estimator
+          reading: LOW RETURN
+          depends: []
+        - id: control_correction
+          label: Control-room water correction
+          reading: ALARM
+          depends: []
+        - id: portable_spec
+          label: Portable spectrophotometer
+          reading: NORMAL
+          depends: []
+        - id: field_sample
+          label: Ice Cut field sample
+          reading: NORMAL
+          depends: []
+      resources:
+        - id: standard_c
+          label: standard_c
+      independent: []
+      target: standard_c
     answerText: "The three alarming channels share Standard C; the portable field path is independent."
     why: "Agreement strengthens a conclusion only when evidence can fail separately. Here one biased standard propagates through three displays. The distant trip matters because a new sample and independent standard break the dependency chain."
     # wrong-path feedback, one rebuttal per wrong option:

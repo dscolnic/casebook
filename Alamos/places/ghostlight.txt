@@ -1,0 +1,117 @@
+GHOST LIGHT (theme: ghostlight) — PLACES AND LOCATIONS
+Production Manager · The Ellery Variety Theatre
+Course: AP Precalculus, all four units
+Grade 11. One mission is called a Day; a stop is "a place".
+Delivery: The Ellery Licence File — the board is in FRONT. 15 pieces, one a
+day.
+
+Run it:  cd gamekit && THEME=ghostlight npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+site.js — the Ellery Variety Theatre, as data.
+
+This theme brings its own world (`world:` below) for the reason Mission
+Control does: the engine's interior builder makes a corridor with rooms off
+it, and a corridor with rooms off it is a hospital. A theatre is one enormous
+raked volume looking at a hole in a wall, with the working part of the
+building wrapped round a yard behind it — and the geometry *is* the course.
+AP Precalculus is four families of function, and here each one is a place you
+stand in: the pit is logarithms, the board is polar and matrix work, the fly
+floor is vectors, the house is the geometry of a room built in 1911.
+
+Looking at the house from the back of the stalls:
+
+               ╔═════ stage ══════╗                       z = -34
+               ║   ghost light    ║   fly tower over it
+       ╔═══════╬══ proscenium ════╬═══════╗                z = -19
+       ║  pit  ·  ORCHESTRA PIT & SOUND   ║                z = -15
+       ║        tier 0   seats            ║                z = -10
+       ║        tier 1   seats            ║                z =  -3
+       ║        tier 2   PRODUCTION DESK  ║                z =   4
+       ║        tier 3   LIGHTING BOARD   ║                z =  11
+       ╚══ pass doors ══ balcony over ════╝                z =  20
+
+Each tier is one step higher than the tier in front of it, so the whole rake
+looks down at the stage and the board at the back looks over everybody. The
+steps are the only vertical movement in any of these games.
+
+Behind the house, the working building: a ring corridor round the scene-dock
+yard, with six offices off it. Units are metres. +z runs up the rake, away
+from the stage; +x is house left.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+PIT — Orchestra Pit and Sound
+  Orchestra Pit and Sound   [PIT]  side spine, z -11.6 … -8
+  Waveforms, levels and everything measured in logarithms.
+  Calls: Read the waveform · Add the gains · Set the levels · Ready for the
+  opening
+
+HOUSE — The House
+  The House   [HOUSE]  side spine, z 2.4 … 6
+  Sightlines, seats and the geometry of a room built in 1911.
+  Calls: Survey the seats · Draw the sightlines · Settle the map · Ready for
+  the opening
+
+BOARD — Lighting Board
+  Lighting Board   [BOARD]  side spine, z 9.4 … 13
+  Angles, throws and three channels of colour.
+  Calls: Plot the beams · Work the angles · Balance the colour · Ready for the
+  opening
+
+FRONT — Box Office
+  Box Office   [FRONT]  side w, z 26.5 … 35
+  DELIVERY ROOM — the board for The Ellery Licence File is here.
+  What has sold, what will, and the curve it is following.
+  Calls: Read the sales · Fit a model · Test it · Ready for the opening
+
+SHOP — Scene Shop
+  Scene Shop   [SHOP]  side w, z 35.5 … 44.5
+  Radians, right triangles and things cut to a curve.
+  Calls: Set out the curve · Cut the angles · Check the fit · Ready for the
+  opening
+
+FLY — Fly Floor
+  Fly Floor   [FLY]  side e, z 26.5 … 35
+  Lines, loads and the vectors they pull along.
+  Calls: Weigh the piece · Resolve the lines · Plot the load · Ready for the
+  opening
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Scene Dock   [DOCK]  side w, z 45 … 53.5
+Green Room   [GREEN]  side e, z 35.5 … 44.5
+Wardrobe   [WARDROBE]  side e, z 45 … 53.5
+
+==============================================================================
+THE DELIVERY — The Ellery Licence File
+==============================================================================
+   1. The eleven-year rate
+   2. The two kinds of list
+   3. The lantern angle
+   4. The wave's four numbers
+   5. The fader's arithmetic
+   6. The level and the period
+   7. The room's decay
+   8. The level at the performer
+   9. The grid load plot
+  10. The seat map, to print
+  11. The colour matrix
+  12. The two-rate meeting
+  13. The rig's coordinates
+  14. The last rehearsal's list
+  15. The opening recommendation, signed
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/ghostlight/ — site/plan, fixtures, minors, groups, theme.

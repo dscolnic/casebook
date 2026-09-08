@@ -1,6 +1,6 @@
 # the_trial_v2: the stops that cannot be built yet
 
-**31 of the campaign's stops are held back.** Every one names a
+**0 of the campaign's stops are held back.** Every one names a
 format the game has, and the science in each is right — what is missing is a
 number or a line the board is physically made of. Below is each stop and what
 the build refused it with, grouped by format so one decision fixes many.
@@ -10,275 +10,160 @@ uses. Where a board genuinely cannot carry what is asked — three quantities th
 all have to be predicted, an order that really does branch — **split it into two
 stops** and say so, rather than thinning the science to fit.
 
-## DERIVE — 17 stops
-
-**M2 S2 — Put Hospitals on One Scale** *(What Was Measured)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M3 S1 — Count the Overlap Once** *(The Two-Site Alarm)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M4 S1 — Expected Reports** *(The Opened Envelope)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M4 S2 — Combine Two Streams** *(The Opened Envelope)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M6 S3 — Price the Precision** *(The Amendment Price)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M7 S2 — Build and Read the Line** *(The Missing Outcomes)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M8 S2 — Build the Interval** *(The Cold-Room Rate)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M8 S3 — Test the Benchmark** *(The Cold-Room Rate)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M9 S2 — Estimate the Guessing Difference** *(Could Anyone Tell)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M9 S3 — Pool Only for the Test** *(Could Anyone Tell)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M10 S1 — Test the Adjusted Mean** *(The Smaller Benefit)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M10 S2 — Use the Pairs** *(The Smaller Benefit)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M10 S3 — Keep Groups Independent** *(The Smaller Benefit)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M11 S1 — Predict Sampling Spread** *(Lock the File)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M12 S1 — Fit One Distribution** *(Three Different Tables)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M12 S3 — Test Arm by Event** *(Three Different Tables)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-**M13 S2 — Infer the Slope** *(Too Many Wins)*
-
-- a DERIVE needs a `derive` block — without it the panel renders empty
-- a derivation needs a `start` — the line it begins from
-- a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel can say where it is going without printing where it ends up
-- a derivation of one line is not a derivation
-
-## TRIGGER — 3 stops
-
-**M4 S4 — Price the Errors** *(The Opened Envelope)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-**M13 S4 — Correct Before Seeing** *(Too Many Wins)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-**M14 S4 — Write the Rule** *(Stop or Continue)*
-
-- a TRIGGER needs a `trigger` block — without it the panel renders empty
-- a trigger board is one rule — this one has 0. The lead time, the window and the two failure directions are all in a single stage; a second stage is a second decision and belongs in its own stop
-- trigger scale needs min and max, with max above min
-- a trigger scale needs a `label` — it is the name of the quantity every threshold is set on, and the rows print a bare number without it
-- a trigger needs at least three updates — one update is not a stream
-- the stream is declared rising and its highest reading (-Infinity) is the one it opens on, so no threshold past the opening reading can ever fire
-- the trigger scale tops out at undefined and the stream reaches -Infinity — every threshold fires, so no rule can be written badly
-
-## RESIDUAL — 3 stops
-
-**M7 S3 — Read the Residual** *(The Missing Outcomes)*
-
-- a RESIDUAL needs a `residual` block — without it the panel renders empty
-- a residual needs at least two candidate fits to choose between
-- the residual to accept, "undefined", is not one of the fits
-- the RESIDUAL board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-**M10 S4 — Stress the Adjustment** *(The Smaller Benefit)*
-
-- a RESIDUAL needs a `residual` block — without it the panel renders empty
-- a residual needs at least two candidate fits to choose between
-- the residual to accept, "undefined", is not one of the fits
-- the RESIDUAL board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-**M13 S1 — Pass LINE** *(Too Many Wins)*
-
-- a RESIDUAL needs a `residual` block — without it the panel renders empty
-- a residual needs at least two candidate fits to choose between
-- the residual to accept, "undefined", is not one of the fits
-- the RESIDUAL board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-## TRACE — 2 stops
-
-**M9 S1 — Rebuild the Blind** *(Could Anyone Tell)*
-
-- a TRACE needs a `trace` block — without it the panel renders empty
-- a trace needs at least four channels
-- a trace needs at least one shared resource to name
-- the trace target "undefined" is not one of its resources
-- fewer than two channels depend on the trace target — with only one there is no common mode, and the agreement the stop is about never happens
-- a trace with no independent channel cannot be answered — something has to survive the correction, or the right move is to throw everything away
-
-**M11 S3 — Trace the Agreement** *(Lock the File)*
-
-- a TRACE needs a `trace` block — without it the panel renders empty
-- a trace needs at least four channels
-- a trace needs at least one shared resource to name
-- the trace target "undefined" is not one of its resources
-- fewer than two channels depend on the trace target — with only one there is no common mode, and the agreement the stop is about never happens
-- a trace with no independent channel cannot be answered — something has to survive the correction, or the right move is to throw everything away
-
-## STRESS — 2 stops
-
-**M9 S4 — Say What It Means** *(Could Anyone Tell)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-**M14 S1 — Stress the Boundary** *(Stop or Continue)*
-
-- a STRESS needs a `stress` block — without it the panel renders empty
-- a stress board needs at least three candidates
-- a stress board needs at least two criteria
-- a stress assumption needs min, max, nominal and step
-- the stress nominal is outside its own range
-- the stress robust candidate "undefined" is not one of its candidates
-- no candidate survives the pessimistic end of the range — the stop cannot be answered
-- a stress board needs `optimiseOn` — the criterion the nominal makes look best
-- the STRESS board could not be read — Reduce of empty array with no initial value. Its payload is probably still in the bible's own field names.
-
-## VERIFY — 1 stop
-
-**M2 S3 — Test the Bell** *(What Was Measured)*
-
-- a VERIFY needs a `verify` block — without it the panel renders empty
-- a verify needs a prediction range with min, max and step
-- a verify needs a numeric `truth` — what the measurement will find
-- the verify truth is outside the range the player can predict
-- a verify `passRatio` brackets 1 — [0.5, 2] means "within a factor of two either way"
-- every prediction in the range passes — widen the range or tighten the ratio, or the prediction is not being tested
-- a verify needs a `measurement` with a label — it is the thing the player can skip
-
-## TALLY — 1 stop
-
-**M4 S3 — At Least One Event** *(The Opened Envelope)*
-
-- a tally needs at least two setting pairs
-- a tally needs a numeric `target` and a positive `tolerance`
-- the tally's settings produce 0.000, which is outside the keyed target undefined ±undefined
-- a tally that can be reported at 400 shots a pair is already inside its own tolerance: sigma there is 0.000 and the tolerance is undefined (NaN sigma). Lower `minShots` or tighten `tolerance` — as written the panel decides when there is enough data, not the player
-
-## HOLDOUT — 1 stop
-
-**M11 S2 — Freeze Before Revealing** *(Lock the File)*
-
-- holdout needs axis.min and axis.max, with max greater than min
-- holdout needs at least five authored points in `fit`
-- the HOLDOUT board could not be read — Cannot read properties of undefined (reading 'every'). Its payload is probably still in the bible's own field names.
-
-## CLOUD — 1 stop
-
-**M14 S3 — Predict Power Direction** *(Stop or Continue)*
-
-- a CLOUD needs a `cloud` block — without it the panel renders empty
-- a cloud needs bounds with max above min
-- a cloud needs a numeric centre and a positive spread
-- a cloud `pass` is the fraction that has to finish inside, between 0 and 1
-- a cloud needs at least two actions
-- a cloud with no narrowing action cannot be answered — information is the only thing that reduces a spread
-- re-centring alone reaches NaN% inside, which clears the NaN% needed — the cloud has to come with the dot
-- even with every action applied only NaN% finishes inside — the stop cannot be answered right
-
 ## Not tied to one stop
 
-- group "STAT" has nobody on the roster — its person stops are unreachable
-- group "SITE" has nobody on the roster — its person stops are unreachable
-- group "REG" has nobody on the roster — its person stops are unreachable
+- day 1, walking to wu first: threw Cannot read properties of undefined (reading 'game')
+- day 1, walking to wu second: threw Cannot read properties of undefined (reading 'game')
+- day 5, walking to navarro first: threw Cannot read properties of undefined (reading 'game')
+- day 5, walking to navarro second: threw Cannot read properties of undefined (reading 'game')
+- day 7, walking to navarro first: threw Cannot read properties of undefined (reading 'game')
+- day 7, walking to navarro second: threw Cannot read properties of undefined (reading 'game')
+- day 13, walking to reed second: threw Cannot read properties of undefined (reading 'game')
+- day 13, walking to reed first: threw Cannot read properties of undefined (reading 'game')
+- day 14, walking to reed second: threw Cannot read properties of undefined (reading 'game')
+- theme "the_trial_v2" story: 28 problem(s)
+- Day 1 (What Was Promised): never says what the player decides — no "Today you …" clause
+- Day 1 (What Was Promised): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 2 (What Was Measured): never says what the player decides — no "Today you …" clause
+- Day 3 (The Two-Site Alarm): never says what the player decides — no "Today you …" clause
+- Day 3 (The Two-Site Alarm): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 4 (The Opened Envelope): never says what the player decides — no "Today you …" clause
+- Day 4 (The Opened Envelope): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 5 (The Fast Site): never says what the player decides — no "Today you …" clause
+- Day 5 (The Fast Site): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- Day 6 (The Amendment Price): never says what the player decides — no "Today you …" clause
+- Day 6 (The Amendment Price): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 7 (The Missing Outcomes): never says what the player decides — no "Today you …" clause
+- Day 7 (The Missing Outcomes): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 8 (The Cold-Room Rate): never says what the player decides — no "Today you …" clause
+- Day 8 (The Cold-Room Rate): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 9 (Could Anyone Tell): never says what the player decides — no "Today you …" clause
+- Day 10 (The Smaller Benefit): never says what the player decides — no "Today you …" clause
+- Day 10 (The Smaller Benefit): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 11 (Lock the File): never says what the player decides — no "Today you …" clause
+- Day 11 (Lock the File): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 12 (Three Different Tables): never says what the player decides — no "Today you …" clause
+- Day 12 (Three Different Tables): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 13 (Too Many Wins): never says what the player decides — no "Today you …" clause
+- Day 13 (Too Many Wins): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 14 (Stop or Continue): never says what the player decides — no "Today you …" clause
+- Day 14 (Stop or Continue): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word)
+- Day 15 (The Board Pack): never says what the player decides — no "Today you …" clause
+- Day 15 (The Board Pack): the segue does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", "however", clause-initial "so" or "now", "that leaves" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it
+- day  4: primer names 0 of 2 hard word(s), 2 unexplained  ✗ — sd, ii
+- day  5: primer names 0 of 4 hard word(s), 4 unexplained  ✗ — rng, srs, scope, of
+- day  9: primer names 0 of 3 hard word(s), 2 unexplained  ✗ — se, me
+- day 10: primer names 0 of 3 hard word(s), 2 unexplained  ✗ — sd, se
+- theme "the_trial_v2" jargon: 2 problem(s)
+- 13 hard word(s) are used and never introduced — no glossary entry, no primer, no definition in place: iqr, sd, ii, rng, srs, scope, of, rms, me, se, clt, gof, line
+- 4 day(s) leave two or more terms unexplained and the primer names none of them
+- theme "the_trial_v2": 2 digit(s) standing in for the word "one"
+- ENDP[5] scene: [1 with]  …oduces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probabil…
+- ENDP[5] story: [1 with]  …oduces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probabil…
+- numeralWords: 1 theme(s) with a digit where the word "one" belongs.
+- the_trial_v2: only 0 of 60 scene(s) name somebody (0%) — the cast is introduced in the stakes and then absent from every question
+- not recorded in scenecast-debt.json
+- sceneCast: 1 theme(s) whose scene-cast rate is unrecorded.
+- theme "the_trial_v2": 7 passage(s), 0 authored question(s)
+- 7 bio(s) with no authored question — the engine will lift a sentence instead:
+- stop 1 (day 1) claims "Measurement error, rater drift and inter-rater agreement", which is built out of "Hard endpoints against judged ones, and blinded adjudication" — claimed by no stop
+- stop 2 (day 1) claims "Reporting honestly: what a sentence claims beyond its evidence", which is built out of "Confidence intervals: what a point estimate does not say" — not until day 8
+- stop 2 (day 1) claims "Reporting honestly: what a sentence claims beyond its evidence", which is built out of "p-values, and what significance is not" — not until day 8
+- stop 3 (day 1) claims "Data cleaning, queries and the database lock", which is built out of "Measurement error, rater drift and inter-rater agreement" — the same day
+- stop 3 (day 1) claims "Data cleaning, queries and the database lock", which is built out of "Missing data, and why it matters why it is missing" — not until day 7
+- stop 5 (day 2) claims "Measurement error, rater drift and inter-rater agreement", which is built out of "Hard endpoints against judged ones, and blinded adjudication" — claimed by no stop
+- stop 6 (day 2) claims "Measurement error, rater drift and inter-rater agreement", which is built out of "Hard endpoints against judged ones, and blinded adjudication" — claimed by no stop
+- stop 7 (day 2) claims "Sample size and statistical power", which is built out of "The primary endpoint, named in advance, and everything else" — claimed by no stop
+- stop 8 (day 2) claims "Data cleaning, queries and the database lock", which is built out of "Missing data, and why it matters why it is missing" — not until day 7
+- stop 10 (day 3) claims "Effect measures: relative risk, absolute risk reduction, number needed to treat", which is built out of "The primary endpoint, named in advance, and everything else" — claimed by no stop
+- stop 12 (day 3) claims "Safety monitoring: adverse events, seriousness and expedited reporting", which is built out of "Hard endpoints against judged ones, and blinded adjudication" — claimed by no stop
+- stop 18 (day 5) claims "Block and stratified randomisation: balance in small numbers", which is built out of "Randomisation: what chance assignment buys, and what it cannot buy" — the same day
+- stop 19 (day 5) claims "The recruitment funnel: screened, eligible, consented, entered", which is built out of "Eligibility criteria, and what widening them changes" — claimed by no stop
+- stop 23 (day 6) claims "Sample size and statistical power", which is built out of "The primary endpoint, named in advance, and everything else" — claimed by no stop
+- stop 25 (day 7) claims "Measurement error, rater drift and inter-rater agreement", which is built out of "Hard endpoints against judged ones, and blinded adjudication" — claimed by no stop
+- stop 26 (day 7) claims "Data cleaning, queries and the database lock", which is built out of "Missing data, and why it matters why it is missing" — the same day
+- stop 27 (day 7) claims "Data cleaning, queries and the database lock", which is built out of "Missing data, and why it matters why it is missing" — the same day
+- stop 28 (day 7) claims "Missing data, and why it matters why it is missing", which is built out of "Intention to treat against per-protocol" — claimed by no stop
+- stop 31 (day 8) claims "p-values, and what significance is not", which is built out of "Confidence intervals: what a point estimate does not say" — the same day
+- stop 32 (day 8) claims "Sample size and statistical power", which is built out of "The primary endpoint, named in advance, and everything else" — claimed by no stop
+- stop 41 (day 11) claims "Sample size and statistical power", which is built out of "The primary endpoint, named in advance, and everything else" — claimed by no stop
+- stop 55 (day 14) claims "Sample size and statistical power", which is built out of "The primary endpoint, named in advance, and everything else" — claimed by no stop
+- 22 concept-ordering problem(s).
+- UNNAMED "Seal the Claims" — asks about "Amendments and prespecification: a plan that can be dated" and names it nowhere in the question or the options
+- UNNAMED "Set the Scope" — asks about "Why a comparison needs a control arm at all" and names it nowhere in the question or the options
+- UNNAMED "Size the Confirmation" — asks about "Sample size and statistical power" and names it nowhere in the question or the options
+- UNNAMED "Say What It Means" — asks about "Reporting honestly: what a sentence claims beyond its evidence" and names it nowhere in the question or the options
+- UNNAMED "Test the Adjusted Mean" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "Keep Groups Independent" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "State the Reach" — asks about "Reporting honestly: what a sentence claims beyond its evidence" and names it nowhere in the question or the options
+- UNNAMED "Name the Data" — asks about "Measurement error, rater drift and inter-rater agreement" and names it nowhere in the question or the options
+- UNNAMED "Describe Before Judging" — asks about "Reporting honestly: what a sentence claims beyond its evidence" and names it nowhere in the question or the options
+- UNNAMED "Mark the Extreme" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Which Center Survives" — asks about "Measurement error, rater drift and inter-rater agreement" and names it nowhere in the question or the options
+- UNNAMED "Approve the Procedure" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Expected Reports" — asks about "Event-driven trials, and information fraction as progress" and names it nowhere in the question or the options
+- UNNAMED "Combine Two Streams" — asks about "Event-driven trials, and information fraction as progress" and names it nowhere in the question or the options
+- UNNAMED "At Least One Event" — asks about "Event-driven trials, and information fraction as progress" and names it nowhere in the question or the options
+- UNNAMED "Price the Precision" — asks about "Sample size and statistical power" and names it nowhere in the question or the options
+- UNNAMED "Describe the Relationship" — asks about "Measurement error, rater drift and inter-rater agreement" and names it nowhere in the question or the options
+- UNNAMED "Build and Read the Line" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Read the Residual" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Test the Fast-Site Point" — asks about "Missing data, and why it matters why it is missing" and names it nowhere in the question or the options
+- UNNAMED "Stress the Adjustment" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Predict Sampling Spread" — asks about "Sample size and statistical power" and names it nowhere in the question or the options
+- UNNAMED "Freeze Before Revealing" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Pass LINE" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Infer the Slope" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "Draw an SRS" — asks about "Randomisation: what chance assignment buys, and what it cannot buy" and names it nowhere in the question or the options
+- UNNAMED "Check Before Calculating" — asks about "Confidence intervals: what a point estimate does not say" and names it nowhere in the question or the options
+- UNNAMED "Build the Interval" — asks about "Confidence intervals: what a point estimate does not say" and names it nowhere in the question or the options
+- UNNAMED "Test the Benchmark" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "Estimate the Guessing Difference" — asks about "Confidence intervals: what a point estimate does not say" and names it nowhere in the question or the options
+- UNNAMED "Pool Only for the Test" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "Use the Pairs" — asks about "Confidence intervals: what a point estimate does not say" and names it nowhere in the question or the options
+- UNNAMED "Trace the Agreement" — asks about "External evidence, replication and how a new result is weighed" and names it nowhere in the question or the options
+- UNNAMED "Make the Lock Real" — asks about "Data cleaning, queries and the database lock" and names it nowhere in the question or the options
+- UNNAMED "Name the Design" — asks about "Why a comparison needs a control arm at all" and names it nowhere in the question or the options
+- UNNAMED "Count the Claims" — asks about "Multiplicity: every extra look and every extra slice costs something" and names it nowhere in the question or the options
+- UNNAMED "Write the Rule" — asks about "Interim analysis, alpha spending and stopping boundaries" and names it nowhere in the question or the options
+- UNNAMED "Apply the Trigger" — asks about "Interim analysis, alpha spending and stopping boundaries" and names it nowhere in the question or the options
+- UNNAMED "Sign the Statistical Argument" — asks about "Reporting honestly: what a sentence claims beyond its evidence" and names it nowhere in the question or the options
+- UNNAMED "Put Hospitals on One Scale" — asks about "Measurement error, rater drift and inter-rater agreement" and names it nowhere in the question or the options
+- UNNAMED "Test the Bell" — asks about "Sample size and statistical power" and names it nowhere in the question or the options
+- UNNAMED "Count the Overlap Once" — asks about "Type I and type II error, and what α and β are for" and names it nowhere in the question or the options
+- UNNAMED "Ask Among the Flagged" — asks about "Effect measures: relative risk, absolute risk reduction, number needed to treat" and names it nowhere in the question or the options
+- UNNAMED "Test Independence" — asks about "Why a comparison needs a control arm at all" and names it nowhere in the question or the options
+- UNNAMED "How Long Until the First" — asks about "Event-driven trials, and information fraction as progress" and names it nowhere in the question or the options
+- UNNAMED "Fit One Distribution" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "Test Arm by Event" — asks about "p-values, and what significance is not" and names it nowhere in the question or the options
+- UNNAMED "Compare the Sites" — asks about "Why a comparison needs a control arm at all" and names it nowhere in the question or the options
+- UNNAMED "Correct Before Seeing" — asks about "Multiplicity: every extra look and every extra slice costs something" and names it nowhere in the question or the options
+- UNNAMED "Stress the Boundary" — asks about "Confidence intervals: what a point estimate does not say" and names it nowhere in the question or the options
+- UNREACHED "Eligibility criteria, and what widening them changes" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Amendments and prespecification: a plan that can be dated" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Event-driven trials, and information fraction as progress" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "The monitoring committee and the firewall around it" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Causality assessment, and why reporting does not wait for it" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Unblinding an individual for their own care" — no question in the campaign names it, in the ask or in an option
+- UNREACHED "Data cleaning, queries and the database lock" — no question in the campaign names it, in the ask or in an option
+- the_trial_v2           mean 10.5  worst 13.0  15/16 over grade 6.5
+- the_trial_v2: the greet warm-up is scheduled for day 1 and has no story — give it a title and a why in the book's `warmups` block
+- the_trial_v2: the follow warm-up is scheduled for day 4 and has no story — give it a title and a why in the book's `warmups` block
+- the_trial_v2: the hunt warm-up is scheduled for day 8 and has no story — give it a title and a why in the book's `warmups` block
+- the_trial_v2: the canvass warm-up is scheduled for day 13 and has no story — give it a title and a why in the book's `warmups` block
+- RAND lesson 5 ("Size the Confirmation"): estimate offers no distractor tiles, so every number given belongs in the answer
+- RAND lesson 6 ("Say What It Means"): the robust candidate also wins on evidence_fit at the nominal
+- SAFE lesson 2 ("Draw an SRS"): two choices are the same string — a panel that grades by label cannot tell them apart
+- STAT lesson 7 ("How Long Until the First"): estimate offers no distractor tiles, so every number given belongs in the answer
+- STAT lesson 12 ("Stress the Boundary"): the robust candidate also wins on evidence_fit at the nominal
+- Name the Data: scene reads at grade 14.1, and the theme is written for grade 12
+- Ask Among the Flagged: scene reads at grade 14.1, and the theme is written for grade 12
+- Expected Reports: scene reads at grade 15.0, and the theme is written for grade 12
+- Set the Scope: scene reads at grade 14.6, and the theme is written for grade 12
+- Make the Lock Real: scene reads at grade 15.4, and the theme is written for grade 12
+- Name the Design: scene reads at grade 14.6, and the theme is written for grade 12
+- theme "the_trial_v2" jargon depth: 2 problem(s)
+- Number needed to treat (d1) is defined with Absolute risk reduction, first seen d4
 
 ## What to hand back
 

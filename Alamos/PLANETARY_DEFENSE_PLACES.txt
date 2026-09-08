@@ -1,0 +1,209 @@
+PLANETARY DEFENSE (theme: planetary_defense) — PLACES AND LOCATIONS
+The Cerro Alto range, at night. Astronomy — discovery, astrometry,
+characterisation, radar, impact physics. Grade 12. dayNoun: 'Phase'.
+Campaign Director · International NEO Response.
+
+Sources: themes/planetary_defense/site.js, fixtures.js, minors.js, props.js,
+theme.js, content/groups.js. Coordinates are (x, z) in metres; distance is
+measured from the spawn at (2, 62), on the road below the coordination office.
+
+Run it:  cd gamekit && THEME=planetary_defense npm run dev
+
+THE RULE THAT SHAPES THIS LIST
+  This is a RANGE, not a campus — the one game in the set whose sites are
+  kilometres apart, and the one played in the dark. Both facts come from the
+  same place: an observatory works nights, and its instruments cannot live
+  together. A megawatt planetary radar beside an optical telescope ruins both.
+  A survey dome wants the darkest, highest ground there is. A consequences lab
+  wants to be near the emergency managers it briefs, which means down in the
+  valley with the road and the phones.
+
+  Base camp is walkable and holds two of the six areas, so a phase that stays
+  there is a phase on foot. Everything else is driven — or, from phase 4 when
+  the aircraft is signed out, flown. Every site has a lit pad and a beacon: a
+  landing site you cannot see from the air, at night, is a landing site you fly
+  past.
+
+  The range was twice this size and the sites read as unreachable rather than
+  far — nine minutes of flying to a dome with nothing to look at on the way.
+  Every distance from base camp is now half what it was, with summit radii and
+  heights halved too, so the slopes are the same grade.
+
+FOUR LANDFORMS, 2.5 km ACROSS   (terrain size 2800, playerLimit 1300, basin -96)
+  ALTO    (-725, -620)  r 460  +170 m  sharp    Cerro Alto, NW
+  EAST    ( 590, -510)  r 390  +124 m  sharp    the east summit, NE
+  SADDLE  (   0,    0)  r 360   +84 m           base camp
+  SOUTH   ( 120,  750)  r 420   +34 m           Valle Seco, the valley floor
+
+  Summits must not overlap — heights add — so radii stay inside the gaps: ALTO
+  to SADDLE is 953 m against 460 + 360.
+
+================================================================================
+1. THE SIX AREAS
+================================================================================
+--- BASE CAMP, on the saddle — walkable, two areas ---
+
+OPS — Survey & Response                    Coordination Office
+  (-30, 40)   39 m   24 x 14 x 5.6, facing 0
+  Delivery room: The Defense Review is assembled here, one finding a phase.
+  Calls: turn evidence into action · connect the evidence · verify with an
+  independent check · ready to hand off.
+  Fixtures (at: targets):
+    desk        bench, left  — where every other room's numbers become a decision
+    scopeboard  board, back  — every hour of observing time the campaign has, and
+                               what it still needs to buy
+
+ORBIT — Astrometry & Orbit                 Orbit Determination
+  (34, -46)   113 m   22 x 13 x 5.4, facing 0
+  Calls: constrain the orbit · connect the evidence · verify · hand off.
+  Fixtures:
+    astro-bench    bench, left  — six observatories' positions, waiting to become
+                                  one track
+    fit-board      board, back  — every orbit that still fits the data, drawn together
+    tracking-rack  rack,  right — where the predicted deflection meets what
+                                  actually happened
+
+--- CERRO ALTO, 950 m NW, +170 m — the darkest, highest ground on the range ---
+
+DISC — Discovery & Imaging                 Survey Telescope
+  (-725, -620)   997 m   20 x 20 x 7.0, dome radius 12.5, facing 0
+  Pad: 'alto' at (-696, -650), r 11. There is no road up Cerro Alto, which is
+  why there is an aircraft.
+  NOTE: `peopleHome: { DISC: 'OPS' }` — the survey crew stands at base camp, not
+  on the summit. Their instrument is up there and their shift handover is not,
+  and the only thing a drive to the summit added to a conversation was the drive.
+  Calls: validate the detection · connect the evidence · verify · hand off.
+  Fixtures:
+    pipeline-bench  bench, left  — 40,000 catalogued stars, two satellite trails
+                                   and one bad camera spot to sort from the real point
+    dome-console    board, back  — every detection tonight, plotted against the
+                                   sky it was found in
+
+--- THE EAST SUMMIT, 780 m NE — far enough that neither dome sees the other's lights ---
+
+CHAR — Physical Characterization           Spectroscopy Dome
+  (590, -510)   820 m   16 x 16 x 6.0, dome radius 9.5, facing PI
+  Pad: 'east' at (618, -480), r 11.
+  Calls: measure the body · connect the evidence · verify · hand off.
+  Fixtures:
+    photometry-bench  bench, left  — one brightness curve, and everything that
+                                     could be hiding inside it
+    sizing-board      board, back  — reflected light and thermal glow, plotted
+                                     until they agree on one diameter
+    spectrograph      rack,  right — a dip near 1.4 microns, and whether it
+                                     belongs to the rock
+
+--- THE BASIN, 1.1 km W — flat, and a long way from anything optical ---
+
+RADAR — Radar & Dynamics                   Planetary Radar Control
+  (-995, 390)   1050 m   20 x 12 x 5.0, facing PI/2. The 30 m steerable dish
+  stands over it. The furthest place in the game.
+  Pad: 'basin' at (-965, 419), r 11.
+  Calls: add geometric leverage · connect the evidence · verify · hand off.
+  Fixtures:
+    dish            vessel, left — pointed and holding, while the ridge wind
+                                   tries to walk it off target
+    radar-console   board,  back — delay and Doppler, read straight off the echo
+
+--- VALLE SECO, 1.0 km S — where the people are ---
+
+IMPACT — Entry & Consequences              Entry & Consequences Lab
+  (130, 780)   729 m   22 x 13 x 5.4, facing PI. Down in the valley with the
+  road and the phones, near the emergency managers it briefs.
+  Pad: 'valley' at (160, 805), r 11.
+  Calls: bound the consequence · connect the evidence · verify · hand off.
+  Fixtures:
+    risk-display     board, back  — the whole band of orbits that still fit, and
+                                    how much of it still touches Earth
+    energy-bench     bench, left  — joules on one side, megatons on the other,
+                                    and a size nobody has pinned down yet
+    deflection-desk  bench, right — how hard the spacecraft has to hit, and what
+                                    counts as proof it worked
+
+================================================================================
+2. THE ONE ENTERABLE NON-AREA
+================================================================================
+TOWN — Valle Seco Emergency Office         "The people the numbers are about"
+  (95, 810)   754 m   16 x 11 x 4.6, facing PI. Forty-six metres from the Entry
+  & Consequences Lab — the same corner of the range.
+  Stood modelled, lit and shut from the day the theme shipped: an area is what
+  gets an interior in this engine, and Valle Seco carries no group. `enter:
+  'TOWN'` gives it an interiors key without making it an area — a door, a room,
+  no case stand and no delivery board. Three day-14 stops are asked here
+  (matching action to evidence, the displaced-population estimate, and writing
+  the evacuation thresholds); they still belong to OPS, and the player is sent
+  to Valle Seco to answer them because that is where the office is.
+  Fixtures:
+    evac-desk        bench, left — two counties' worth of people, and a plan that
+                                   costs trust nobody gets back
+    threshold-board  board, back — what happens at each stage, written down
+                                   before the next update can panic anybody into
+                                   changing it
+  Panel (minors.js): population under the corridor 9,000,000 (alarm) ·
+    evacuation lead time needed ~30 days (high) · plans funded 0 of 2 counties
+    (low) · warning time at discovery 11 days (alarm).
+    Stand line: "Stockpiles and plans are cheap to undo. Moving nine million
+    people is neither."
+
+================================================================================
+3. LANDMARKS THAT CARRY THE RANGE, NOT A LESSON
+================================================================================
+CAMPAIGN BRIEFING HALL   (-74, -20)  112 m  22 x 13 x 6.2, facing PI/2, red
+                         accent 0x8a2d22. "Where the board sits."
+TIME AND FREQUENCY       ( 66,  24)   74 m  12 x 9 x 4.2, facing -PI/2.
+  STANDARDS              "Every timestamp on this range."
+PLATE AND DATA ARCHIVE   (-72,  60)   74 m  14 x 10 x 4.6, facing -PI/2. "Every
+                         image the survey has taken." At base camp deliberately,
+                         not up at the telescope — the archive is where people go
+                         to look something up, and putting it on the summit meant
+                         a drive to read a plate.
+NIGHT CREW QUARTERS      (-20, 108)   51 m  18 x 11 x 4.8, facing PI. "Blackout
+                         blinds, and a rule about noise."
+CAMPAIGN STATUS BOARD    (  8,  62)   facing PI. The delivery board.
+SPAWN                    (  2,  62)   yaw 0 — on the road below the coordination
+                         office, looking uphill at the domes. Ten clear metres
+                         around it, and it must stay clear.
+
+FIVE LIT PADS (props.js paints and lights each; the aircraft starts on 'base')
+  base    ( 6, 96)      alto  (-696, -650)   east (618, -480)
+  basin   (-965, 419)   valley (160, 805)    all r 11
+
+ROADS — only where a road makes sense
+  base camp's own loop:  (0, 20) w 9 d 190  and  (-40, 40) w 60 d 7
+  the street through Valle Seco:  (125, 795) w 90 d 8
+  No road up Cerro Alto. That is why there is an aircraft.
+
+================================================================================
+4. AUTHORING AND WORLD NOTES
+================================================================================
+· A lesson points at a fixture with `at: <id>` in books/planetary-defense.yml.
+  A lesson pointing at nothing is answered at the case stand.
+· Fixtures are declared by name and wall, never by coordinate.
+  build: vessel | rack | bench | board. wall: left | right | back.
+  along: -1 … 1, 0 is the middle.
+· travelSpeed: 16 — the phase budget is measured at driving speed, not the
+  helicopter's cruise of 34. The first three phases are driven, and a budget
+  written for the aircraft leaves a driven phase with no time to think in.
+· aircraftFromDay: 4 — before that the machine is on the pad and says so, and
+  the range is crossed in the site truck.
+· mapRadius: 170 — the map draws a window around the player, not the whole
+  range. Drawn whole, base camp (seven buildings inside 200 m) came out a
+  centimetre across and unreadable. Anything outside the window is an arrow on
+  the edge with its distance.
+· NIGHT: written as a nocturnal game and currently overridden to daylight —
+  `look.dayWindow: [8, 20]`, with the night sky, fog and light rig still tuned
+  for [19, 31] and one line away from coming back. `nightSky: 0x05070d` is used
+  only below deep night; it is left in place so restoring the window restores
+  the night sky with it.
+· No real lights anywhere in props.js. Everything that glows is an emissive
+  material — point lights are how a floor went from 118 fps to 20.
+· The shutter is the whole silhouette. A closed dome is a grain silo; an open
+  one with a slot of darker sky and a tube pointing out of it is unmistakably a
+  telescope at two hundred metres in the dark.
+· Wayfinding: high country stands north and west; the south-east falls away to
+  the valley the road climbs from. That is the one bearing where the sky comes
+  down to the horizon — and the direction the survey telescope spends its night
+  pointing.
+· Scrub only low down (band 350–1150 m from origin); the summits are bare rock.
+· Every `group` in site.js must exist in content/groups.js or that area's calls
+  are unreachable. Never place a prop over the spawn.

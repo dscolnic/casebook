@@ -6,13 +6,20 @@
     header: "VOTE DAY."
     title: "THE CONDITIONAL FERRY RECOMMENDATION"
     goNow: "Common Office, Mara Voss at the delivery board."
-    body: "The forecast makes a second ferry possible under today's limits, but drought, heat, sea-level rise, and outages can arrive together. Mitigation reduces future causes; adaptation reduces harm already coming. Stress every condition at the Common, verify water at Waterworks, then write the rule at the Chapel. By the end of the mission, approve, condition, or reject the second ferry."
+    body: "A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain."
     objective: "Deliver and enact the Second-Ferry Plan."
   objective: "Deliver and enact the Second-Ferry Plan."
-  stake: "The forecast makes a second ferry possible under today's limits, but drought, heat, sea-level rise, and outages can arrive together. Mitigation reduces future causes; adaptation reduces harm already coming. Stress every condition at the Common, verify water at Waterworks, then write the rule at the Chapel. By the end of the mission, approve, condition, or reject the second ferry."
+  stake: "A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Approve the second ferry only with firm limits. Cut trips when any safety trigger fails. The plan cuts air and water waste. It also plans for drought, heat, and sea rise. The council adopts the plan."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Radiative forcing", def: "change in Earth's energy balance in W/m²."}
+  - {name: "Mitigation", def: "reducing causes of environmental change."}
+  - {name: "Adaptation", def: "reducing harm from impacts."}
+  - {name: "Tipping point", def: "threshold beyond which feedback drives further change."}
+  equations:
+  - {"e":"resource margin=sustainable supply-current demand; pollutant load=flow×concentration; PGR=(births-deaths)/population×100%","c":"Apply this relationship to the mission decision.","v":[["PGR","population growth rate in percent per period"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming; preindustrial CO2 about 280 ppm versus about 422 ppm in 2024; warming about 1.1 C and sea level about 21 cm; mitigation and adaptation must work together."
 
@@ -26,7 +33,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 15: MATCH CLIMATE MECHANISMS OPEN"
     bubbles:
-    - who: voss   # the bible's "mission lead", from this mission's own goNow line
+    - who: voss   # Mara Voss
       say: "Start with match climate mechanisms. We need evidence the next decision can use."
   - id: after-stop-57
     # After Stop 57 | delivery-board | automatic
@@ -34,32 +41,99 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
     bubbles:
-    - who: voss   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 57 result to settle collapse the final degeneracy."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 57 result to settle collapse the final degeneracy."
   - id: after-stop-58
     # After Stop 58 | sampler | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
     bubbles:
-    - who: voss   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 58 result to settle verify the independent water sample."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 58 result to settle verify the independent water sample."
   - id: after-stop-59
     # After Stop 59 | council-table | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 59 changes the persistent board and unlocks the decision stop."
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
     bubbles:
-    - who: voss   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 59 result to settle enact the ferry triggers."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 59 result to settle enact the ferry triggers."
   - id: at-mission-end
     # At mission end | delivery-board | automatic
     on: { missionEnd: true }
     world: "Final outcome begins immediately after Stop 4 with council board changing to."
     panel: "MISSION 15 EVIDENCE: RECORDED"
     bubbles:
-    - who: voss   # the bible's "mission lead", from this mission's own goNow line
-      say: "CONDITIONAL APPROVAL."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. CONDITIONAL APPROVAL."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Conditional Ferry Recommendation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Conditional Ferry Recommendation, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?"
+      hint: "Use the stated evidence and the conditions for Radiative forcing; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Change in Earth's energy balance in W/m².", why: "Correct. change in Earth's energy balance in W/m²."}
+      - {key: "C", text: "Reducing harm from impacts.", why: "This describes Adaptation, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Threshold beyond which feedback drives further change.", why: "This describes Tipping point, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?"
+      hint: "Use the stated evidence and the conditions for Mitigation; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Change in Earth's energy balance in W/m².", why: "This describes Radiative forcing, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Reducing harm from impacts.", why: "This describes Adaptation, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Reducing causes of environmental change.", why: "Correct. reducing causes of environmental change."}
+      - {key: "D", text: "Threshold beyond which feedback drives further change.", why: "This describes Tipping point, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks The Conditional Ferry Recommendation using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?"
+      hint: "Use the stated evidence and the conditions for Adaptation; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Change in Earth's energy balance in W/m².", why: "This describes Radiative forcing, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Threshold beyond which feedback drives further change.", why: "This describes Tipping point, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Reducing harm from impacts.", why: "Correct. reducing harm from impacts."}
+    - prompt: "An unseen case extends The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?"
+      hint: "Use the stated evidence and the conditions for Tipping point; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Threshold beyond which feedback drives further change.", why: "Correct. threshold beyond which feedback drives further change."}
+      - {key: "B", text: "Change in Earth's energy balance in W/m².", why: "This describes Radiative forcing, not Tipping point. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not Tipping point. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Reducing harm from impacts.", why: "This describes Adaptation, not Tipping point. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Conditional Ferry Recommendation decision, the team knows this: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies global change | climate | D10-D12 | RETRIEVE | L4 | synthesis?"
+      hint: "Use the stated evidence and the conditions for global change | climate | D10-D12 | RETRIEVE | L4 | synthesis; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Change in Earth's energy balance in W/m².", why: "This describes Radiative forcing, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Match climate mechanisms connects the measured environmental mechanism to the next island condition.", why: "Correct. match climate mechanisms connects the measured environmental mechanism to the next island condition."}
+      - {key: "C", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Reducing harm from impacts.", why: "This describes Adaptation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from The Conditional Ferry Recommendation to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?"
+      hint: "Use the stated evidence and the conditions for coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Change in Earth's energy balance in W/m².", why: "This describes Radiative forcing, not coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Collapse the final degeneracy connects the measured environmental mechanism to the next island condition.", why: "Correct. collapse the final degeneracy connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "Reducing harm from impacts.", why: "This describes Adaptation, not coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 15: worked examples"
+    examples:
+    - {"title":"Mitigation versus adaptation","problem":"Compare reducing fossil-fuel use with raising a flood-prone building. Classify the actions.","rule":"Mitigation reduces drivers of future climate change; adaptation reduces harm from its effects.","steps":["Reducing fossil-fuel use can lower greenhouse-gas emissions: mitigation.","Raising the building reduces exposure to floodwater: adaptation."],"answer":"The actions serve different purposes and can be combined.","mistake":"An adaptation measure does not necessarily reduce emissions."}
+    - {"title":"Withdrawals versus replenishment","problem":"A groundwater store gains 100 units/year and withdrawals are 120 units/year, with other flows balanced. Find the annual stock change.","rule":"Stock change=recharge-withdrawal.","steps":["Set up the relationship: Stock change=recharge-withdrawal.","Δstock=100-120=-20 units/year."],"answer":"The stock shrinks by 20 units each year under these assumptions.","mistake":"Stable delivery can conceal depletion of stored water."}
+    - {"title":"Concentration and pollutant load","problem":"A stream flows at 10 L/s with pollutant concentration 2 mg/L. Find pollutant load.","rule":"Mass load=volume flow×concentration.","steps":["Set up the relationship: Mass load=volume flow×concentration.","load=10 L/s×2 mg/L=20 mg/s."],"answer":"The stream carries 20 mg of pollutant each second.","mistake":"Concentration alone does not state total pollutant transport."}
+    - {"title":"Use a stated warming factor","problem":"For this exercise, a gas has warming factor 20 kg CO2-equivalent per kg over a specified time horizon. Find the equivalent of 3 kg.","rule":"CO2-equivalent mass=gas mass×the stated horizon-specific factor.","steps":["Set up the relationship: CO2-equivalent mass=gas mass×the stated horizon-specific factor.","equivalent=3(20)=60 kg CO2-equivalent."],"answer":"The equivalent is 60 kg for the supplied factor and horizon.","mistake":"The factor must have a stated time horizon; it is not a universal timeless value."}
+    - {"title":"Test an entire allowed range","problem":"A component must operate at or below 80 °C. Its estimated temperature is 77 ± 4 °C. Does every allowed value pass?","rule":"Test the worst allowed value against the stated bound.","steps":["allowed interval = [77-4, 77+4] = [73,81] °C.","maximum allowed temperature = 81 °C > 80 °C. At least one allowed value fails."],"answer":"The estimate does not establish that every allowed temperature passes.","mistake":"Checking only the central estimate ignores the uncertainty."}
 
   stops:
   # --- Stop 57: Match climate mechanisms
@@ -68,12 +142,12 @@
   - group: CHAPEL
     at: delivery-board
     title: "Match climate mechanisms"
-    concept: "global change | climate | D10-D12 | RETRIEVE | L4 | synthesis"
-    reason: "The island cannot commit match climate mechanisms until this evidence is resolved."
-    scene: "The current plan balances all four ledgers, but climate effects alter several at once. Match each observation to mechanism and response before the final stress test, and the team needs this result before it acts."
-    motivation: "Match climate mechanisms connects the measured environmental mechanism to the next island condition."
+    concept: 31   # global change | climate | D10-D12 | RETRIEVE | L4 | synthesis
+    reason: "The current ledgers close, but climate changes can alter several resource limits simultaneously."
+    scene: "The current plan balances all four ledgers, but climate effects alter several at once. Match each observation to mechanism and response before the final stress test."
+    motivation: "The mechanism-response matches identify which climate effects require changes to the island's resource safeguards."
     format: CASEBOOK
-    question: "Map warming to enhanced greenhouse effect; sea rise to thermal expansion and ice melt; shell loss to acidification; declining ocean oxygen to warming; ice loss to albedo feedback; and CFC ozone loss to chlorine radicals and Montreal Protocol"
+    question: "Map warming to the enhanced greenhouse effect, sea rise to thermal expansion and ice melt, shell loss to acidification, declining ocean oxygen to warming, ice loss to albedo feedback, and chlorofluorocarbon (CFC) ozone loss to chlorine radicals and the Montreal Protocol."
     # THE BIBLE'S PAYLOAD, converted. Its six keyed pairs become the clue rows,
     # the mechanisms, and a `mapping` of zero-based indices into `choices`.
     columns: [Observation, Mechanism]
@@ -109,10 +183,10 @@
   - group: CHAPEL
     at: delivery-board
     title: "Collapse the final degeneracy"
-    concept: "coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis"
-    reason: "The island cannot commit collapse the final degeneracy until this evidence is resolved."
-    scene: "Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Apply the dry-year constraint to collapse the pair, and the team needs this result before it acts."
-    motivation: "Collapse the final degeneracy connects the measured environmental mechanism to the next island condition."
+    concept: 11   # coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis
+    reason: "The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply."
+    scene: "Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Apply the dry-year constraint to collapse the pair."
+    motivation: "The dry-year constraint identifies which cap-reserve pair remains feasible when recharge falls."
     format: DEGENERACY
     question: "Use the two controls visitor cap and drought reserve: adjust visitor cap from 0 to 340 visitors/day in steps of 20 and reserve from 0% to 30% in steps of 5%. Submit the numerical pair satisfying annual withdrawal at or below 136,800 m3/year during a 15% drought before plan choices unlock."
     # THE BIBLE'S PAYLOAD, converted. Its two `controls` keep their min, max and
@@ -160,10 +234,10 @@
   - group: WATER
     at: sampler
     title: "Verify the independent water sample"
-    concept: "final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification"
-    reason: "The island cannot commit verify the independent water sample until this evidence is resolved."
+    concept: 34   # final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification
+    reason: "The selected visitor cap needs an independent water check before the council can approve it."
     scene: "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Verify the independent water sample connects the measured environmental mechanism to the next island condition."
+    motivation: "The remaining water margin and measured nitrate and chloride determine whether the cap meets both quantity and quality conditions."
     format: VERIFY
     question: "CALCULATE AND COMMIT margin=136800-132000 in m3/year; OPERATE the sampler with pump and time fixed; MEASURE nitrate and chloride; INTERPRET PASS only below 10.0 and 250 mg/L; no restoration"
     relationship: "margin = ceiling - withdrawal, so 136,800 - 132,000"
@@ -208,12 +282,12 @@
   - group: CHAPEL
     at: council-table
     title: "Enact the ferry triggers"
-    concept: "final policy | policy | all keystones | TRANSFER | L5 | payoff"
-    reason: "The island cannot commit enact the ferry triggers until this evidence is resolved."
-    scene: "Independent water evidence passes, so the plan can be written as enforceable conditions rather than promises. Commit every threshold before the vote opens, and the team needs this result before it acts."
-    motivation: "Enact the ferry triggers connects the measured environmental mechanism to the next island condition."
+    concept: 18   # final policy | policy | all keystones | TRANSFER | L5 | payoff
+    reason: "The independent water check passes, so the council can now turn the plan into enforceable conditions."
+    scene: "Independent water evidence passes, so the plan can be written as enforceable conditions rather than promises. Commit every threshold before the vote opens."
+    motivation: "The complete trigger set determines whether the second sailing has approval that can be withdrawn when resource safeguards fail."
     format: TRIGGER
-    question: "Submit one conditional approval containing withdrawal <=136800 m3/year, pumping stop at head <=1.0 m, nitrate action at >=10.0 mg/L, chloride <250 mg/L, catch 100 or 70 in low recruitment, reserve >=15 kW, inspection every sailing, and drought visitor cap 200/day"
+    question: "Use the locked mission record to build one conditional ferry approval covering water withdrawal, aquifer head, nitrate, chloride, fish catch, power reserve, inspections, and drought visitors. Assign each approved trigger and require an owner, monitor, and response for every condition."
     answerText: "The completed check shows conditional approval with all eight enforceable safeguards."
     why: "Enact the ferry triggers connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -224,4 +298,37 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trigger:{conditions:[{withdrawal_max:136800},{head_stop_lte:1.0},{nitrate_action_gte:10.0},{chloride_lt:250},{catch_normal:100},{catch_low_recruit:70},{reserve_gte_kW:15},{inspection:every_sailing},{drought_visitor_cap:200}],decision_rule:"approve only when every condition has owner, monitor, trigger, response",correct:conditional_approve}
+    trigger:
+      scale:
+        label: aquifer head
+        unit: m
+        min: 0
+        max: 3
+        step: 0.1
+        anchors:
+          - at: 0.6
+            means: routine baseline, not the decision threshold
+          - at: 1.95
+            means: elevated evidence requiring attention
+      direction: falling
+      conditions:
+        - id: act
+          label: Take the protective action
+          leadHours: 12
+          window:
+            min: 0
+            max: 1
+      stream:
+        - at: T-48 h
+          value: 1.4
+          hoursLeft: 48
+        - at: T-24 h
+          value: 1.2
+          hoursLeft: 24
+        - at: T-12 h
+          value: 1
+          hoursLeft: 12
+        - at: T-6 h
+          value: 0.8
+          hoursLeft: 6
 

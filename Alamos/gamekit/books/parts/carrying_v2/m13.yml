@@ -6,13 +6,20 @@
     header: "3 DAYS."
     title: "THE BIOSECURITY RULE"
     goNow: "Ferry Berth, Tomas Reed at berth-standpipe."
-    body: "Firm power is secured, but every new sailing enters through a berth with no inspection. Remote islands have fewer replacement species, and generalist invaders can spread through disturbed habitat. Inspect arrivals, map vulnerable land at the Common, then test reef exposure. By the end of the mission, choose a biosecurity rule for every ferry."
+    body: "The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established."
     objective: "Prevent imported species from outrunning island defenses."
   objective: "Prevent imported species from outrunning island defenses."
-  stake: "Firm power is secured, but every new sailing enters through a berth with no inspection. Remote islands have fewer replacement species, and generalist invaders can spread through disturbed habitat. Inspect arrivals, map vulnerable land at the Common, then test reef exposure. By the end of the mission, choose a biosecurity rule for every ferry."
+  stake: "The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Check each ferry before it sails. Treat soil, drain water, and hold risky plants. Check wood and wildlife papers too. A seed test missed too many threats. The last demand plan must count every visitor."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Invasive species", def: "introduced organism that spreads and causes harm."}
+  - {name: "Endemic", def: "native to one limited place."}
+  - {name: "Convention on International Trade in Endangered Species (CITES)", def: "treaty controlling trade in threatened species."}
+  - {name: "Endangered Species Act", def: "United States law protecting listed species and habitat."}
+  equations:
+  - {"e":"population change=births+immigration-deaths-emigration; species richness=cA^z","c":"Apply this relationship to the mission decision.","v":[["A","island area"],["c","and"],["z","fitted constants"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "species richness rises with island size and falls with distance; generalists often invade readily; disturbance opens habitat; prevention is cheaper than eradication."
 
@@ -26,7 +33,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 13: SCREEN THE ARRIVING CARGO OPEN"
     bubbles:
-    - who: reed   # the bible's "mission lead", from this mission's own goNow line
+    - who: voss   # Mara Voss
       say: "Start with screen the arriving cargo. We need evidence the next decision can use."
   - id: after-stop-49
     # After Stop 49 | common-map | automatic
@@ -34,32 +41,99 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
     bubbles:
-    - who: reed   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 49 result to settle test survey recovery."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 49 result to settle test survey recovery."
   - id: after-stop-50
     # After Stop 50 | flow-tank | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
     bubbles:
-    - who: reed   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 50 result to settle control the rinse treatment."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 50 result to settle control the rinse treatment."
   - id: after-stop-51
     # After Stop 51 | water-rack | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 51 changes the persistent board and unlocks the decision stop."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
     bubbles:
-    - who: reed   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 51 result to settle write the biosecurity protocol."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 51 result to settle write the biosecurity protocol."
   - id: at-mission-end
     # At mission end | quarantine-rack | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 52 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 13 EVIDENCE: RECORDED"
     bubbles:
-    - who: reed   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Biosecurity Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Biosecurity Rule, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?"
+      hint: "Use the stated evidence and the conditions for Invasive species; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Native to one limited place.", why: "This describes Endemic, not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Introduced organism that spreads and causes harm.", why: "Correct. introduced organism that spreads and causes harm."}
+      - {key: "C", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "United States law protecting listed species and habitat.", why: "This describes Endangered Species Act, not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?"
+      hint: "Use the stated evidence and the conditions for Endemic; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Introduced organism that spreads and causes harm.", why: "This describes Invasive species, not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Native to one limited place.", why: "Correct. native to one limited place."}
+      - {key: "D", text: "United States law protecting listed species and habitat.", why: "This describes Endangered Species Act, not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks The Biosecurity Rule using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?"
+      hint: "Use the stated evidence and the conditions for Convention on International Trade in Endangered Species (CITES); do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Introduced organism that spreads and causes harm.", why: "This describes Invasive species, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Native to one limited place.", why: "This describes Endemic, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "United States law protecting listed species and habitat.", why: "This describes Endangered Species Act, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Treaty controlling trade in threatened species.", why: "Correct. treaty controlling trade in threatened species."}
+    - prompt: "An unseen case extends The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?"
+      hint: "Use the stated evidence and the conditions for Endangered Species Act; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "United States law protecting listed species and habitat.", why: "Correct. united States law protecting listed species and habitat."}
+      - {key: "B", text: "Introduced organism that spreads and causes harm.", why: "This describes Invasive species, not Endangered Species Act. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Native to one limited place.", why: "This describes Endemic, not Endangered Species Act. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not Endangered Species Act. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Biosecurity Rule decision, the team knows this: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue?"
+      hint: "Use the stated evidence and the conditions for arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Introduced organism that spreads and causes harm.", why: "This describes Invasive species, not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Screen the arriving cargo connects the measured environmental mechanism to the next island condition.", why: "Correct. screen the arriving cargo connects the measured environmental mechanism to the next island condition."}
+      - {key: "C", text: "Native to one limited place.", why: "This describes Endemic, not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from The Biosecurity Rule to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?"
+      hint: "Use the stated evidence and the conditions for invasion detection | uncertainty | 13; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Introduced organism that spreads and causes harm.", why: "This describes Invasive species, not invasion detection | uncertainty | 13. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Native to one limited place.", why: "This describes Endemic, not invasion detection | uncertainty | 13. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Test survey recovery connects the measured environmental mechanism to the next island condition.", why: "Correct. test survey recovery connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not invasion detection | uncertainty | 13. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 13: worked examples"
+    examples:
+    - {"title":"Introduced versus invasive","problem":"A plant arrives from another region and establishes without documented harm. Is it automatically invasive?","rule":"Introduced describes origin; invasive generally includes spreading and causing ecological or other harm in the relevant usage.","steps":["Its arrival establishes that it is nonnative to the location.","Evidence of spread and harm is still needed to make the stronger classification."],"answer":"Introduction alone does not establish invasiveness.","mistake":"Do not treat every nonnative organism as equally harmful."}
+    - {"title":"An endemic species","problem":"A species exists naturally on only one small island. What does endemic mean, and why can habitat loss matter greatly?","rule":"Endemic means native and restricted to a particular geographic area.","steps":["All natural populations lie within that restricted range.","Habitat loss there can affect a large share of the species rather than one of many widespread populations."],"answer":"Its restricted range can make local threats consequential for the whole species.","mistake":"Endemic does not mean invasive or necessarily already endangered."}
+    - {"title":"Prevent an introduction","problem":"A generic shipment can carry seeds in packing soil. Compare inspecting before release with waiting until seedlings spread.","rule":"Prevention acts before establishment; control afterward must find and remove organisms already dispersed.","steps":["Inspection can intercept the pathway while material is concentrated.","After release, seeds may spread beyond the original shipment and become harder to locate."],"answer":"Pre-release inspection targets the introduction pathway directly.","mistake":"Inspection reduces risk but does not guarantee every organism is detected."}
+    - {"title":"Species richness","problem":"A sample contains 8 oak trees, 2 pines, and 1 birch. Find species richness.","rule":"Richness counts distinct species, not individuals.","steps":["Set up the relationship: Richness counts distinct species, not individuals.","distinct species={oak,pine,birch}, so richness=3."],"answer":"Species richness is 3; the total individual count is 11.","mistake":"Richness does not measure how evenly individuals are distributed among species."}
+    - {"title":"Compare ecological vulnerability","problem":"A species eats one seed type; another eats many seeds and insects. A drought removes that one seed type. Which has fewer food alternatives?","rule":"Specialists use a narrower resource range than generalists.","steps":["The specialist loses its primary food source.","The generalist has other possible foods, though they may also be affected."],"answer":"The specialist has fewer alternatives under this stated disturbance.","mistake":"Generalists are not immune to environmental change."}
 
   stops:
   # --- Stop 49: Screen the arriving cargo
@@ -68,10 +142,10 @@
   - group: REEF
     at: quarantine-rack
     title: "Screen the arriving cargo"
-    concept: "arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue"
-    reason: "The island cannot commit screen the arriving cargo until this evidence is resolved."
+    concept: 33   # arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue
+    reason: "The power bridge keeps the sailing possible, bringing its biological cargo risks into the approval decision."
     scene: "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Screen the arriving cargo connects the measured environmental mechanism to the next island condition."
+    motivation: "The cargo classifications determine which pathways need quarantine before living hitchhikers reach the island."
     format: BELT
     question: "Sort soil, standing water, untreated wood, plants, and animals as inspection-required; sort sealed clean metal as low risk"
     answerText: "The completed check shows five biological pathways enter quarantine; sealed clean metal may proceed."
@@ -84,6 +158,62 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   belt:{categories:[inspection_required,low_risk],items:{soil:inspection_required,standing_water:inspection_required,untreated_wood:inspection_required,plants:inspection_required,animals:inspection_required,sealed_clean_metal:low_risk}}
+    belt:
+      left:
+        name: Inspection required
+      right:
+        name: Low-risk sealed cargo
+      items:
+        - name: sealed soil
+          bin: left
+        - name: sealed water jar
+          bin: left
+        - name: sealed wood crate
+          bin: left
+        - name: live plant
+          bin: left
+        - name: live animal
+          bin: left
+        - name: used boot
+          bin: left
+        - name: sealed seed sack
+          bin: left
+        - name: muddy tire
+          bin: left
+        - name: sealed bait bucket
+          bin: left
+        - name: fresh produce
+          bin: left
+        - name: nursery pot
+          bin: left
+        - name: unsealed crate
+          bin: left
+        - name: sealed clean metal
+          bin: right
+        - name: sterile tool
+          bin: right
+        - name: factory-sealed glass
+          bin: right
+        - name: sealed electronics
+          bin: right
+        - name: clean ceramic
+          bin: right
+        - name: sealed dry hardware
+          bin: right
+        - name: sterile medical pack
+          bin: right
+        - name: new cable
+          bin: right
+        - name: sealed fasteners
+          bin: right
+        - name: clean plastic fitting
+          bin: right
+        - name: sealed instrument
+          bin: right
+        - name: certified dry part
+          bin: right
+      need: 20
+      lives: 2
 
   # --- Stop 50: Test survey recovery
   #     Concept: invasion detection | uncertainty | 13; Keystone: invasion detection | uncertainty | 13; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: invasion detection | uncertainty | 13.
@@ -91,10 +221,10 @@
   - group: CHAPEL
     at: common-map
     title: "Test survey recovery"
-    concept: "invasion detection | uncertainty | 13"
-    reason: "The island cannot commit test survey recovery until this evidence is resolved."
-    scene: "Inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Inject a known marked population through the pipeline, and the team needs this result before it acts."
-    motivation: "Test survey recovery connects the measured environmental mechanism to the next island condition."
+    concept: 33   # invasion detection | uncertainty | 13
+    reason: "Cargo screening needs a detection check before the council relies on surveys to catch escapees."
+    scene: "Inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Inject a known marked population through the pipeline."
+    motivation: "Recovery of marked organisms measures how many introduced individuals the survey could miss."
     format: INJECT
     question: "Inject 100 seeds; add 45 road, 20 common, and 2 cliff recoveries; apply recovery percent=recovered/injected*100 and submit percent plus pass/fail against 90%"
     answerText: "The completed check shows recovery is 67%; the survey fails."
@@ -107,6 +237,28 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   inject:{population:100,recovered:{road:45,common:20,cliff:2},equation:"recovery=recovered/injected*100",truth:67,unit:percent,tolerance:1,required:90,conclusion:fail}
+    inject:
+      population:
+        label: injected seeds
+        n: 100
+      metric:
+        id: recovery_rate
+        label: recovery percentage
+      best: representative
+      blindSpot: objects outside every sampled path are never recovered
+      configs:
+        - id: current
+          label: current three-area survey
+          detections: 67
+          metric: 67
+        - id: road_heavy
+          label: road-heavy survey
+          detections: 78
+          metric: 61
+        - id: representative
+          label: representative survey
+          detections: 74
+          metric: 90
 
   # --- Stop 51: Control the rinse treatment
   #     Concept: ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence; Keystone: ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence.
@@ -114,10 +266,10 @@
   - group: CHAPEL
     at: flow-tank
     title: "Control the rinse treatment"
-    concept: "ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence"
-    reason: "The island cannot commit control the rinse treatment until this evidence is resolved."
-    scene: "Because land surveys miss remote escapees, prevention must work before release. Change rinse treatment alone, measure survivors, restore baseline, and remeasure, and the team needs this result before it acts."
-    motivation: "Control the rinse treatment connects the measured environmental mechanism to the next island condition."
+    concept: 33   # ballast decontamination | causality | D10 | RETRIEVE | L3 | evidence
+    reason: "The survey's missed organisms make prevention before cargo release more important."
+    scene: "Because land surveys miss remote escapees, prevention must work before release. Change rinse treatment alone, measure survivors, restore baseline, and remeasure."
+    motivation: "The rinse reversal determines whether the treatment itself causes the reduction in surviving organisms."
     format: CONTROL
     question: "At rinse OFF measure after 30 minutes; change only rinse ON with water 100 L, salinity 35 ppt, temperature 24 C, starting load 100, and time fixed; restore OFF and remeasure; submit causation"
     # THE BIBLE'S PAYLOAD, converted. Its three candidates and `correct_control:
@@ -155,10 +307,10 @@
   - group: CHAPEL
     at: water-rack
     title: "Write the biosecurity protocol"
-    concept: "cargo rule | policy | 13"
-    reason: "The island cannot commit write the biosecurity protocol until this evidence is resolved."
-    scene: "The injection test exposes weak detection, while the rinse test shows prevention works. Match every cargo pathway to an action before unloading, and the team needs this result before it acts."
-    motivation: "Write the biosecurity protocol connects the measured environmental mechanism to the next island condition."
+    concept: 33   # cargo rule | policy | 13
+    reason: "The detection and rinse tests are complete, allowing an evidence-based unloading protocol."
+    scene: "The injection test exposes weak detection, while the rinse test shows prevention works. Match every cargo pathway to an action before unloading."
+    motivation: "The pathway-action matches determine which preventive measure must occur before each cargo type is released."
     format: PROTOCOL
     question: "Map soil to reject or heat-treat, plants to quarantine, standing water to drain and disinfect, wood to inspect and treat, and animals to permit plus CITES check"
     # THE BIBLE'S PAYLOAD, converted. Its five keyed pairs become `scenarios`,

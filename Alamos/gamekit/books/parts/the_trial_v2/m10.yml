@@ -6,13 +6,20 @@
     header: "DAY 10 - BOARD IN 6 DAYS"
     title: "The Smaller Benefit"
     goNow: "Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the matched-record table."
-    body: "Blinding stayed credible, but the fast site's missing outcomes still inflate the recovery headline. t procedures estimate means when population spread is unknown. Compare the adjusted mean, matched records, and two independent groups before taking diagnostics to Statistics. By the end of the mission, decide which treatment-effect estimate belongs in the pack."
+    body: "The fastest hospital's incomplete records made recovery look better than it was. Compare the corrected average recovery time, changes within patients, and differences between treatment groups. Decide how much benefit the evidence now supports and what the board should be told."
     objective: "Produce the bias-adjusted mean estimate."
   objective: "Produce the bias-adjusted mean estimate."
-  stake: "Blinding stayed credible, but the fast site's missing outcomes still inflate the recovery headline. t procedures estimate means when population spread is unknown. Compare the adjusted mean, matched records, and two independent groups before taking diagnostics to Statistics. By the end of the mission, decide which treatment-effect estimate belongs in the pack."
+  stake: "The fastest hospital's incomplete records made recovery look better than it was. Compare the corrected average recovery time, changes within patients, and differences between treatment groups. Decide how much benefit the evidence now supports and what the board should be told."
   takeaway: "Never pool AP two-sample variances."
   segue: "Mission decision: Put the adjusted four-unit treatment effect in the pack. It uses the two groups in the right way. The error check also passes. Paired records support a shorter recovery. The one-group test does not settle the claim."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "t distribution", def: "a bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown."}
+  - {name: "Degrees of freedom", def: "a number controlling the t distribution's shape."}
+  - {name: "Paired data", def: "linked measurements analyzed through within-pair differences."}
+  - {name: "Two-sample data", def: "measurements from two independent groups."}
+  equations:
+  - {"e":"t=(x-bar-mu0)/(s/sqrt n), df=n-1","c":"Testing one population mean.","v":[["x-bar","sample mean"],["mu0","null mean"],["s","sample SD"],["n","sample size"]],"s":"The adjusted mean must be compared with the registered benchmark."}
   primer:
   - "Define the order of subtraction."
   - "Paired t is one-sample t on differences."
@@ -25,7 +32,7 @@
   - id: on-arrival-at-endpoint-adjudication
     # On arrival at Endpoint Adjudication | matched-record-table | automatic
     on: { enter: true, at: ENDP }
-    world: "Arrival: ADJUD entry; matched-record table visible; Amina says, ; - After S1-S2: benchmark dims and paired interval appears; - After S3: adjusted table seals; waypoint TAKE ADJUSTED TABLE TO STAT. - STAT arrival/final: valid residual field remains; old headline dims; binder 10 and outcome unlock."
+    world: "Arrival: ADJUD entry; matched-record table visible; Amina says,; - After S1-S2: benchmark dims and paired interval appears; - After S3: adjusted table seals; waypoint TAKE ADJUSTED TABLE TO STAT. - STAT arrival/final: valid residual field remains; old headline dims; binder 10 and outcome unlock."
     panel: "MISSION 10: TEST THE ADJUSTED MEAN OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
@@ -37,7 +44,7 @@
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Use the Stop 37 result to settle use the pairs."
+      say: "Nice work. Use the Stop 37 result to settle use the pairs."
   - id: after-stop-38
     # After Stop 38 | table-wall | automatic
     on: { after: [2] }
@@ -45,7 +52,7 @@
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Use the Stop 38 result to settle keep groups independent."
+      say: "Good thinking. Use the Stop 38 result to settle keep groups independent."
   - id: after-stop-39
     # After Stop 39 | residual-wall | automatic
     on: { after: [3] }
@@ -53,7 +60,7 @@
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Use the Stop 39 result to settle stress the adjustment."
+      say: "Exactly right. Use the Stop 39 result to settle stress the adjustment."
   - id: at-mission-end
     # At mission end | matched-record-table | automatic
     on: { missionEnd: true }
@@ -61,7 +68,75 @@
     panel: "MISSION 10 EVIDENCE: RECORDED"
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "The mission decision is recorded. Carry it into the next briefing."
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Smaller Benefit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Smaller Benefit, after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "B"
+      figure: {"kind":"line","xLabel":"Standardized estimate","yLabel":"Relative frequency","caption":"A centered sampling distribution with symmetric tails.","series":[{"name":"Distribution","points":[[-3,0.01],[-2,0.06],[-1,0.24],[0,0.4],[1,0.24],[2,0.06],[3,0.01]]}]}
+      options:
+      - {key: "A", text: "The heavier-tailed t model reflects that population SD is estimated rather than known.", why: "This describes one-sample t/conditions, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.", why: "Correct. a bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups."}
+      - {key: "C", text: "Pairing removes between-patient variation and tests the mean change actually experienced.", why: "This describes paired t and CI, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.", why: "This describes two-sample t, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial receives a second case related to The Smaller Benefit: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which statistical conclusion or procedure correctly uses one-sample t/conditions?"
+      hint: "Use the stated evidence and the conditions for one-sample t/conditions; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.", why: "This describes T distribution, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "Pairing removes between-patient variation and tests the mean change actually experienced.", why: "This describes paired t and CI, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "The heavier-tailed t model reflects that population SD is estimated rather than known.", why: "Correct. the heavier-tailed t model reflects that population SD is estimated rather than known."}
+      - {key: "D", text: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.", why: "This describes two-sample t, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "A teammate rechecks The Smaller Benefit using new evidence: the adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Which option correctly applies paired t and CI to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for paired t and CI; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.", why: "This describes T distribution, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The heavier-tailed t model reflects that population SD is estimated rather than known.", why: "This describes one-sample t/conditions, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.", why: "This describes two-sample t, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Pairing removes between-patient variation and tests the mean change actually experienced.", why: "Correct. pairing removes between-patient variation and tests the mean change actually experienced."}
+    - prompt: "An unseen case extends The Smaller Benefit: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which statistical conclusion or procedure correctly uses two-sample t?"
+      hint: "Use the stated evidence and the conditions for two-sample t; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.", why: "Correct. using the right data structure keeps a precise-looking but invalid estimate out of the pack."}
+      - {key: "B", text: "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.", why: "This describes T distribution, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "The heavier-tailed t model reflects that population SD is estimated rather than known.", why: "This describes one-sample t/conditions, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Pairing removes between-patient variation and tests the mean change actually experienced.", why: "This describes paired t and CI, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "Before another Smaller Benefit decision, the team knows this: the three analyses now disagree in strength, so Statistics compares residual fields after distance adjustment. Which option correctly applies adjustment diagnostics to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for adjustment diagnostics; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.", why: "This describes T distribution, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "A smaller well-diagnosed effect is more defensible than a larger biased headline.", why: "Correct. a smaller well-diagnosed effect is more defensible than a larger biased headline."}
+      - {key: "C", text: "The heavier-tailed t model reflects that population SD is estimated rather than known.", why: "This describes one-sample t/conditions, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "D", text: "Pairing removes between-patient variation and tests the mean change actually experienced.", why: "This describes paired t and CI, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case."}
+    - prompt: "the Fenwick trial applies the lesson from The Smaller Benefit to this follow-up: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which option correctly applies Variable to this follow-up case?"
+      hint: "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.", why: "This describes T distribution, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "B", text: "The heavier-tailed t model reflects that population SD is estimated rather than known.", why: "This describes one-sample t/conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+      - {key: "C", text: "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.", why: "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."}
+      - {key: "D", text: "Pairing removes between-patient variation and tests the mean change actually experienced.", why: "This describes paired t and CI, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 10: worked examples"
+    examples:
+    - {"title":"Calculate a one-sample t statistic","problem":"A random sample has n=16, mean 12 and sample SD 4. The null mean is 10. Find t and degrees of freedom.","rule":"t=(x-bar-μ0)/(s/sqrt(n)); df=n-1.","steps":["Set up the relationship: t=(x-bar-μ0)/(s/sqrt(n)); df=n-1.","SE=4/4=1; t=(12-10)/1=2; df=15."],"answer":"The statistic is t=2 with 15 degrees of freedom.","mistake":"Use the sample standard deviation when population spread is unknown."}
+    - {"title":"Analyze paired differences","problem":"Four before-after differences, defined as after minus before, are -2,-1,-3,0 units. Find the mean difference.","rule":"Analyze the differences within matched pairs.","steps":["Set up the relationship: Analyze the differences within matched pairs.","mean difference=(-2-1-3+0)/4=-6/4=-1.5 units."],"answer":"The paired measurements decreased by 1.5 units on average.","mistake":"Do not discard the pairing and treat the eight original measurements as independent."}
+    - {"title":"Compare two independent means","problem":"Independent groups have means 12 and 10, each with sample SD 2 and sample size 4. Find the unpooled SE and t for equal means.","rule":"SE=sqrt(s1²/n1+s2²/n2); t=(mean1-mean2)/SE.","steps":["Set up the relationship: SE=sqrt(s1²/n1+s2²/n2); t=(mean1-mean2)/SE.","SE=sqrt(4/4+4/4)=sqrt(2); t=2/sqrt(2)=sqrt(2)≈1.41."],"answer":"The statistic is about 1.41; inference also requires appropriate design and distribution conditions.","mistake":"Do not add sample standard deviations to get the SE."}
+    - {"title":"Build a confidence interval","problem":"An estimate is 20 units with standard error 2 units. Use a supplied critical value of 2 to construct an interval.","rule":"Interval = estimate ± critical value × standard error.","steps":["Set up the relationship: Interval = estimate ± critical value × standard error.","margin=2(2)=4; interval=[20-4,20+4]=[16,24]."],"answer":"The interval is 16 to 24 units under the stated method.","mistake":"The multiplier acts on standard error, not on the estimate."}
+    - {"title":"Interpret confidence correctly","problem":"A valid 95% confidence procedure produces an interval [40,50] for a population mean. What does 95% describe?","rule":"Confidence is the long-run capture rate of the procedure under its assumptions.","steps":["Imagine repeating the sampling and interval construction many times.","About 95% of those intervals would contain the fixed population mean."],"answer":"This interval estimates the mean as 40 to 50; 95% describes the method.","mistake":"It does not say that 95% of individual observations lie between 40 and 50."}
 
   stops:
   # --- Stop 37: Test the Adjusted Mean
@@ -70,12 +145,12 @@
   - group: RAND
     at: matched-record-table
     title: "Test the Adjusted Mean"
-    concept: "one-sample t/conditions"
-    reason: "The corrected recovery score must be compared with the registered mean benchmark."
+    concept: 26   # one-sample t/conditions
+    reason: "The adjusted outcome needs a benchmark test before the board assigns it a headline."
     scene: "After recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Check independence and shape, then build the one-sample t statistic."
-    motivation: "The heavier-tailed t model reflects that population SD is estimated rather than known."
+    motivation: "The one-sample mean test determines whether the adjusted sample supplies evidence against the registered mean value."
     format: DERIVE
-    question: "t=(72-68)/(10/sqrt25)=2.00, df24; two-sided p=.0568 from supplied calculator. Lines include conditions random/10% and no strong skew."
+    question: "Submit t, degrees of freedom, P-value, and conclusion."
     answerText: "p=.0568>=.05, so fail to reject H0; evidence is not convincing that the adjusted mean differs from 68."
     why: "The heavier-tailed t model reflects that population SD is estimated rather than known."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -86,6 +161,31 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive:{"goal":"one-sample t test","givens":["n=25","xbar=72","s=10","mu0=68"],"lines":[{"id":"L1","expression":"t=(72-68)/(10/sqrt25)=2.00","license":"state governing relationship"},{"id":"L2","expression":"df=24","license":"substitute displayed values"},{"id":"L3","expression":"two-sided p=0.0568","license":"simplify with units"}],"keyed_order":["L1","L2","L3"],"decoys":["use z with known sigma","df=25"],"correct_result":"t=2.00, df=24, p=0.0568; fail to reject","answerText":"The result does not cross alpha 0.05, so fail to reject the null mean."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Test the Adjusted Mean in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: t=(72-68)/(10/sqrt25)=2.00
+            - text: z=(72-68)/(10/sqrt25)=2.00
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: df=24
+            - text: df=25
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: two-sided p=0.0568
+            - text: two-sided p=0.0284
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 38: Use the Pairs
   #     Concept: paired t and CI; Keystone: keystone t/CI; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L3; Story role: reveal.
@@ -93,12 +193,12 @@
   - group: SAFE
     at: matched-record-table
     title: "Use the Pairs"
-    concept: "paired t and CI"
-    reason: "Patients measured before and after treatment must retain their pairing."
+    concept: 25   # paired t and CI
+    reason: "Repeated observations on the same patients require a within-patient comparison."
     scene: "The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Derive the paired significance test and 95% interval."
-    motivation: "Pairing removes between-patient variation and tests the mean change actually experienced."
+    motivation: "The paired test and interval quantify change while preserving the dependence between each patient's two measurements."
     format: DERIVE
-    question: "H0:mud=0; t=-3/(4/sqrt16)=-3, df15, p=.0090; t*=2.131, CI -3 plus/minus2.131=[-5.131,-.869]."
+    question: "Submit t, degrees of freedom, P-value, and interval."
     answerText: "The interval is -5.13 to -0.87 days; because zero is absent, reject H0 and infer a mean decrease."
     why: "Pairing removes between-patient variation and tests the mean change actually experienced."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -109,6 +209,38 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive: {visible_prompt: "H0:mud=0; t=-3/(4/sqrt16)=-3, df15, p=.0090; t*=2.131, CI -3 plus/minus2.131=[-5.131,-.869].", keyed_result: "t-3 tol .01; CI endpoints tol .02.", feedback: "t and interval endpoints in days", answerText: "Use the keyed result and explanation printed below."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Use the Pairs in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: H0:μd=0
+            - text: t=(mean1-mean2)/sqrt(s1^2/16+s2^2/16)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: t=-3/(4/√16)=-3
+            - text: t=−3/4=−0.75
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: df=15 and p=.0090
+            - text: df=16
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: CI=-3±2.131(1)=[-5.131,-.869]
+            - text: CI=−3±2.131(4)
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 39: Keep Groups Independent
   #     Concept: two-sample t; Keystone: keystone t inference; Area: Randomisation & Blinding; Learning role: COMBINE; Difficulty: L4; Story role: decision evidence.
@@ -116,13 +248,13 @@
   - group: RAND
     at: table-wall
     title: "Keep Groups Independent"
-    concept: "two-sample t"
-    reason: "A separate arm comparison cannot reuse the paired formula."
+    concept: 26   # two-sample t
+    reason: "The paired finding does not establish the treatment difference between independent groups."
     scene: "The paired change is clear, while independent groups have n1=30, mean1=72, s1=8 and n2=28, mean2=68, s2=7. Derive the unpooled two-sample t statistic for treatment minus placebo before choosing the headline."
-    motivation: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack."
+    motivation: "The unpooled two-sample statistic assesses the group-mean difference using each group's own variability."
     format: DERIVE
-    question: "SE=sqrt(64/30+49/28)=1.971; t=4/1.971=2.03; df supplied Welch 55.6 or conservative min27; two-sided p about .047."
-    answerText: "The estimated mean difference is 4 score units; Welch t=2.03 with p about .047. Define treatment minus placebo before interpreting sign."
+    question: "Group 1 has n=30, mean 72 hours, and standard deviation 8 hours; group 2 has n=28, mean 68 hours, and standard deviation 7 hours. Calculate the unpooled two-sample t statistic and two-sided P-value."
+    answerText: "The estimated mean difference is 4 score units; Welch t=2.03 with p about.047. Define treatment minus placebo before interpreting sign."
     why: "Using the right data structure keeps a precise-looking but invalid estimate out of the pack."
     # wrong-path feedback, one rebuttal per wrong option:
     #   t and difference in score units
@@ -132,6 +264,45 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   derive: {visible_prompt: "SE=sqrt(64/30+49/28)=1.971; t=4/1.971=2.03; df supplied Welch 55.6 or conservative min27; two-sided p about .047.", keyed_result: "t2.03 tol .02; never pool variances.", feedback: "t and difference in score units", answerText: "Use the keyed result and explanation printed below."}
+    derive:
+      start: Begin with the complete starting relation on the card. Preserve its named left side on every line.
+      goal: Keep Groups Independent in the form and units requested by the prompt
+      steps:
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: SE = Use an unpooled two-sample t procedure for the two independent groups
+            - text: SE = Pool the two sample variances automatically
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: SE=sqrt(8^2/30+7^2/28)=1.971
+            - text: SE=sqrt[(64+49)/(30+28)]
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: t=(72-68)/1.971=2.03
+            - text: t=1.971/4
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: Use Welch df=55.6 (or the conservative df=27)
+            - text: df=30+28=58
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
+        - ask: select the next licensed transformation
+          answer: 0
+          candidates:
+            - text: SE = two-sided p is about 0.047
+            - text: p=P(T>2.03)=0.0235
+              why: "This is the common mistake for this step: it changes a sign, operation, unit, dependency, or governing rule used by the authored correct line."
+              survives: true
 
   # --- Stop 40: Stress the Adjustment
   #     Concept: adjustment diagnostics; Keystone: keystone regression/t inference; Area: Endpoint Adjudication; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -139,12 +310,12 @@
   - group: ENDP
     at: residual-wall
     title: "Stress the Adjustment"
-    concept: "adjustment diagnostics"
-    reason: "The board needs the estimate that survives both data structure and residual checks."
+    concept: 30   # adjustment diagnostics
+    reason: "The analyses differ in apparent strength, so model adequacy must decide which estimate travels forward."
     scene: "The three analyses now disagree in strength, so Statistics compares residual fields after distance adjustment. Choose the adjusted model with random scatter, no fan shape, and no single influential site."
-    motivation: "A smaller well-diagnosed effect is more defensible than a larger biased headline."
+    motivation: "The residual checks determine whether the adjusted treatment estimate is credible despite being smaller than an unadjusted headline."
     format: RESIDUAL
-    question: "Compare residual fields A, B, and C for curvature, unequal spread, and influence. Submit the adjusted model with random scatter and no controlling site."
+    question: "Compare residual fields A, B, and C for curvature, unequal spread, and influence. Submit the adjusted model with random scatter and no controlling site. Use ordered observation coordinates 1–5 on the residual axis."
     answerText: "The completed check shows carry the adjusted 4-unit treatment-minus-placebo estimate with its t uncertainty; it is smaller but diagnostically credible."
     why: "A smaller well-diagnosed effect is more defensible than a larger biased headline."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -155,4 +326,46 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   model A benefit7 RMS1.5 curved; B benefit4 RMS1.8 random/equal spread; C benefit6 RMS1.6 fan/influential; answer B.
+    residual:
+      fits:
+        - id: patterned_low_error
+          label: lower average error but patterned residuals
+          rms: 0.18
+          structured: true
+          residuals:
+            - x: 1
+              y: -0.12
+              value: -0.12
+            - x: 2
+              y: -0.06
+              value: -0.06
+            - x: 3
+              y: 0
+              value: 0
+            - x: 4
+              y: 0.06
+              value: 0.06
+            - x: 5
+              y: 0.12
+              value: 0.12
+        - id: unpatterned_generalising
+          label: slightly higher error with no directional pattern
+          rms: 0.21
+          residuals:
+            - x: 1
+              y: 0.05
+              value: 0.05
+            - x: 2
+              y: -0.04
+              value: -0.04
+            - x: 3
+              y: 0.02
+              value: 0.02
+            - x: 4
+              y: -0.03
+              value: -0.03
+            - x: 5
+              y: 0.01
+              value: 0.01
+      accept: unpatterned_generalising
 

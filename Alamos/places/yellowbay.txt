@@ -1,0 +1,122 @@
+YELLOW BAY (theme: yellowbay) — PLACES AND LOCATIONS
+Semiconductor Process Engineer · Ardley Fab 7 · fifteen days to the proving batch
+Course: AP Chemistry, structure half — atomic structure and PES, Coulombic
+attraction, periodic trends, Lewis and VSEPR, bond enthalpy, the four solids,
+doping, surfaces
+Grade 12. One mission is called a Day.
+Delivery: The Qualification Case — the board is in ATOM. 15 pieces, one a day.
+
+Run it:  cd gamekit && THEME=yellowbay npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the place, as data.
+
+TWO parallel gowned corridors with a glazed link between them, which is what
+a fab floor actually is: process on one side, analysis and offices on the
+other, and one crossing that everybody uses. The engine's interior builder
+makes exactly one corridor with rooms down both sides, so this theme brings
+its own world — `world:` below is read by vite.config.js, which points
+`@world` at it instead of at engine/world/interiorFloor.js.
+
+  themes/yellowbay/world.js   builds each wing with the engine's own
+                              `buildInterior`, then the link between them
+
+The link is the one part of this building nobody forgets: its floor is glass
+over the subfab, so you walk across six hundred metres of gas line, the pumps
+and the abatement stack while you carry a lot from one wing to the other.
+
+Units are metres. +z runs along both wings, +x is across them.
+
+==============================================================================
+1. THE AREAS — 6 rooms carrying a group
+==============================================================================
+
+LITHO — Yellow Bay
+  Yellow Bay   [LITHO]  side w, wing W, z 6 … 22
+  Light with a threshold in it, and a molecular solid that answers to
+  solvents.
+  Calls: Establish what the light can and cannot do · Say what holds the
+  resist together · Choose the solvent by what it resembles · Print a layer
+  that survives the next step
+
+DEP — Deposition Bay
+  Deposition Bay   [DEP]  side w, wing W, z 22 … 38
+  Precursor molecules, the vacuum they arrive through, and the energy it takes
+  to break them.
+  Calls: Establish what is in the chamber before anything grows · Draw the
+  molecule the recipe is built out of · Balance the energy of breaking against
+  making · Grow a film with the composition the drawing claims
+
+WAFER — Wafer Store
+  Wafer Store   [WAFER]  side e, wing W, z -4 … 14
+  What arrives at the door, what its paperwork claims, and what a solid is
+  held together by.
+  Calls: Count what a lot actually contains · Read the certificate for what it
+  has no field for · Name what holds each material together · Release or
+  reject the substrate for the lot
+
+DOPE — Implant Bay
+  Implant Bay   [DOPE]  side w, wing E, z -4 … 14
+  A few atoms in a billion, chosen from one column of the table, and what they
+  do to a lattice.
+  Calls: Turn a purity figure into a count of atoms · Say why one column is
+  not interchangeable with the next · Put the right impurity in on purpose ·
+  Hold a dose distribution inside a specification
+
+WET — Wet Bench
+  Wet Bench   [WET]  side w, wing E, z 14 … 30
+  Surfaces: what the air puts on them, what a bath takes off, and what metal
+  is left behind.
+  Calls: Establish what is on the surface now · Separate the bulk from the top
+  nanometre · Take off what does not belong and nothing else · Fill the metal
+  and hand the wafer on
+
+ATOM — Metrology Bay
+  Metrology Bay   [ATOM]  side e, wing E, z -4 … 12
+  DELIVERY ROOM — the board for The Qualification Case is here.
+  What the electrons say about which atoms are there, and how deep the answer
+  goes.
+  Calls: Establish what each instrument is actually measuring · Read a
+  spectrum as a statement about shells · Separate how much is there from what
+  it is bonded to · Certify a surface somebody else can act on
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Gown Room   [ARRIVE]  side w, wing W, z -4 … 6, OPEN
+Chemical Stores   [STORE]  side e, wing W, z 14 … 24
+Quiet Room   [QUIET]  side e, wing W, z 24 … 38
+Integration Desk   [DESK]  side e, wing E, z 12 … 22, OPEN
+Subfab Stair   [BACK]  side e, wing E, z 22 … 32
+
+Metrics   corridorHalfWidth 2.1, roomDepth 7.6, ceilingH 3.2
+
+==============================================================================
+THE DELIVERY — The Qualification Case
+==============================================================================
+   1. What the silicon certificate proves
+   2. Why Yellow Bay is safe under amber light
+   3. Which measurements can see the failing surface
+   4. What the chamber readings identify
+   5. The first failed-wafer spectrum
+   6. The hidden substrate-type error
+   7. The bonding clue on verified wafers
+   8. The recipe turned into predictions
+   9. The cold-furnace fault
+  10. The rest of the material stack cleared
+  11. The surface queue-time limit
+  12. The implant distribution brought under control
+  13. The rate-limiting step and final process rules
+  14. The corrected recipe predicted and verified
+  15. The qualification release
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/yellowbay/ — site/plan, fixtures, minors, groups, theme.

@@ -15,6 +15,7 @@ import { npcsForEngine } from '../people/registry.js';
 import { tiersFor } from './orientation.js';
 import { openingSols, isOpen } from './access.js';
 import { sitedAt } from '../world/interiorFixtures.js';
+import { siteForStop } from '../world/siting.js';
 
 /**
  * Far places with no lesson in them, which the map keeps out of its own scale.
@@ -325,14 +326,24 @@ export function renderMap(opts = {}){
   const targetGroups = new Set();
   const wantedPeople = [];
   for(const i of open){
+    const stop = mission.stops[i];
+    const lesson = theme.content?.CURRICULUM?.[stop.group]?.[stop.lesson];
+    const sited = siteForStop(theme, stop, lesson);
     if(isPersonStopForIdx(state, i)){
+      // A PERSON STOP SITED ELSEWHERE MARKS THE PLACE, NOT THE PERSON.
+      //
+      // The marker is drawn at the NPC's position, and an NPC stands wherever
+      // the roster put them until a room borrows them — which only happens once
+      // the player is already inside it. So a call the day sited at the intake
+      // drew its face over the Catalyst Bay, whose door mission 2 does not
+      // open: the map sent the player to a sealed building to find somebody who
+      // was not going to be there. The other branch has resolved this since
+      // sited stops existed; this one never asked.
+      if(sited){ targetGroups.add(sited.place); continue; }
       const pid = getPersonIdForStop(state, i);
       const npc = pid ? npcsForEngine().find(n => n.char?.id === pid) : null;
       if(npc) wantedPeople.push(npc);
     } else {
-      const stop = mission.stops[i];
-      const lesson = theme.content?.CURRICULUM?.[stop.group]?.[stop.lesson];
-      const sited = sitedAt(theme, stop.group, lesson);
       targetGroups.add(sited ? sited.place : stop.group);
     }
   }

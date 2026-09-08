@@ -31,38 +31,19 @@ export const CURRICULUM = {
           "start": "a = dv/dt, with a(t) = 1.2·(1 − t/12)",
           "goal": "the speed at t = 12 s and the rope wound by then, in metres",
           "startNote": "metres a second squared, with t in seconds from the start of the ramp; the cage starts from rest",
-          "askRule": true,
-          "rules": [
-            "integration with respect to time",
-            "the constant from the starting value",
-            "evaluation at the two ends",
-            "differentiation",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Get the velocity from the acceleration.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "v(t) = 1.2 − t/12",
-                  "rule": "differentiation",
+                  "note": "differentiation",
                   "why": "Nothing has been integrated. That is the acceleration with its bracket multiplied out, and its units are still metres a second squared."
                 },
                 {
-                  "text": "v(t) = 1.2t − 0.1t²",
-                  "rule": "integration with respect to time",
-                  "why": "The taper has been integrated as though it were 1.2·(1 − t/6). The shape is right and the speed at the end comes out at 0, which reads as a cage that has stopped rather than as an arithmetic slip.",
-                  "survives": true
-                },
-                {
                   "text": "v(t) = 1.2t − 0.05t²",
-                  "rule": "integration with respect to time"
-                },
-                {
-                  "text": "v(t) = 1.2t − 0.05t² + v₀",
-                  "rule": "the constant from the starting value",
-                  "why": "The constant is right to write down and it is zero here, because the cage is at rest at the landing. Carrying it as an unknown leaves the next line unusable."
+                  "note": "integration with respect to time"
                 }
               ]
             },
@@ -72,23 +53,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "v(12) = 14.4 − 7.2 = 7.2 m/s",
-                  "rule": "evaluation at the two ends"
+                  "note": "evaluation at the two ends"
                 },
                 {
                   "text": "v(12) = 1.2 × 12 = 14.4 m/s",
-                  "rule": "evaluation at the two ends",
+                  "note": "evaluation at the two ends",
                   "why": "The taper has been ignored and the peak acceleration applied for the whole ramp. It is exactly twice the truth, and 14.4 metres a second is a believable winding speed for a shaft this deep.",
                   "survives": true
-                },
-                {
-                  "text": "v(12) = 1.2 × 12 − 0.05 × 12 = 13.8 m/s",
-                  "rule": "evaluation at the two ends",
-                  "why": "The second term has not been squared. It is small enough that the answer looks like the first one with a correction applied."
-                },
-                {
-                  "text": "v(12) = 0.6 × 12² = 86.4 m/s",
-                  "rule": "rearrangement",
-                  "why": "That is the distance expression evaluated as though it were the speed. The units are metres, not metres a second."
                 }
               ]
             },
@@ -98,49 +69,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "y(t) = 1.2t² − 0.05t³",
-                  "rule": "integration with respect to time",
+                  "note": "integration with respect to time",
                   "why": "Neither term has picked up the divisor that integration brings: t integrates to t²/2 and t² to t³/3, so both coefficients are too large."
                 },
                 {
                   "text": "y(t) = 0.6t² − t³/60",
-                  "rule": "integration with respect to time"
-                },
-                {
-                  "text": "y(t) = 0.6t² − 0.05t³",
-                  "rule": "integration with respect to time",
-                  "why": "The first term is right and the second has been integrated without dividing by three. It gives 0.0 m at the end of the ramp — a cage that has gone nowhere — and the two terms happen to cancel exactly, which reads like a result.",
-                  "survives": true
-                },
-                {
-                  "text": "y(t) = 1.2 − 0.1t",
-                  "rule": "differentiation",
-                  "why": "That is the velocity differentiated rather than integrated. Going the wrong way twice returns the acceleration."
+                  "note": "integration with respect to time"
                 }
               ]
             },
             {
               "ask": "Evaluate the distance at the end of the ramp.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "y(12) = 86.4 − 28.8 = 57.6 m, and the mean speed check gives 43.2 m",
-                  "rule": "evaluation at the two ends",
+                  "note": "evaluation at the two ends",
                   "why": "The arithmetic is right and the check is wrong, which is worse than the reverse: the mean of a curve that starts at zero and taper-ends at 7.2 is not half of 7.2, so a disagreement here sends somebody back to correct a line that was right.",
                   "survives": true
                 },
                 {
-                  "text": "y(12) = 0.6 × 144 = 86.4 m",
-                  "rule": "evaluation at the two ends",
-                  "why": "Only the first term has been evaluated. The second is nearly a third of the total and is the part the taper contributes."
-                },
-                {
-                  "text": "y(12) = 7.2 × 12 = 86.4 m",
-                  "rule": "rearrangement",
-                  "why": "Final speed times the time, which would be right only if the cage had travelled the whole ramp at the speed it finished at."
-                },
-                {
                   "text": "y(12) = 86.4 − 28.8 = 57.6 m",
-                  "rule": "evaluation at the two ends"
+                  "note": "evaluation at the two ends"
                 }
               ]
             }
@@ -171,26 +121,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Velocity is the slope of the position against time and acceleration is the slope of the velocity, so a winding profile drawn on paper contains both without stating either.",
-          "computed": true
-        },
-        {
-          "e": "v(t) = v₀ + ∫a dt,  y(t) = y₀ + ∫v dt",
-          "c": "getting the motion back from a rate",
-          "v": [
-            [
-              "v₀, y₀",
-              "the velocity and position at the start of the interval"
-            ],
-            [
-              "∫a dt",
-              "the area under the acceleration, in metres a second"
-            ],
-            [
-              "∫v dt",
-              "the area under the velocity, in metres"
-            ]
-          ],
-          "s": "An acceleration that is not constant cannot be put through the constant-acceleration formulas, and integrating it is what replaces them.",
           "computed": true
         }
       ],
@@ -349,14 +279,6 @@ export const CURRICULUM = {
           "start": "P = F·v",
           "goal": "the power supplied at that instant, in megawatts",
           "startNote": "cage 4,000 kg, rope 8.9 kg a metre, 1,182 m hanging, speed 7.2 m/s, no acceleration at this instant",
-          "askRule": true,
-          "rules": [
-            "power as force times speed",
-            "the tension at that position",
-            "substitution of the stated values",
-            "comparison of magnitudes",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Write the tension at that position.",
@@ -364,49 +286,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "T = (4,000 + 8.9 × 1,182) × 9.81 = 142.5 kN",
-                  "rule": "the tension at that position"
+                  "note": "the tension at that position"
                 },
                 {
                   "text": "T = (4,000 + 8.9 × 1,240) × 9.81 = 147.5 kN",
-                  "rule": "the tension at that position",
+                  "note": "the tension at that position",
                   "why": "The rope taken at its full hanging length rather than where the cage is. Three per cent high, and it is the number already written down from day three, which is what makes it the natural thing to reach for.",
                   "survives": true
-                },
-                {
-                  "text": "T = (4,000 + 8.9 × 1,182) × (9.81 + 1.2) = 159.9 kN",
-                  "rule": "the tension at that position",
-                  "why": "The ramp's acceleration applied at an instant where the ramp has tapered to nothing. It is the tension a moment earlier, when the speed was lower."
-                },
-                {
-                  "text": "T = 4,000 × 9.81 = 39.2 kN",
-                  "rule": "the tension at that position",
-                  "why": "The cage without the rope, which is the submission's own error and is a quarter of the answer."
                 }
               ]
             },
             {
               "ask": "Combine it with the speed.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "P = T ÷ v = 19.8 kN·s/m",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "Divided rather than multiplied. The units are not watts and nothing about the result is a rate of doing work."
                 },
                 {
-                  "text": "P = ½T·v² = 3.7 MW",
-                  "rule": "rearrangement",
-                  "why": "A half and a square borrowed from kinetic energy. It has the units of a power times a speed and it produces a number a large winder could plausibly draw.",
-                  "survives": true
-                },
-                {
                   "text": "P = T·v = 142.5 kN × 7.2 m/s",
-                  "rule": "power as force times speed"
-                },
-                {
-                  "text": "P = T·v·t, over the 172 s of the run",
-                  "rule": "power as force times speed",
-                  "why": "Multiplying by the time turns a power back into an energy. This is the work done over the run rather than the rate at any instant."
+                  "note": "power as force times speed"
                 }
               ]
             },
@@ -416,49 +317,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "P = 142,500 × 7.2 = 1.03 kW",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The arithmetic is right and the prefix is out by a thousand. A kilowatt would not lift the cage against friction, let alone up the shaft."
                 },
                 {
                   "text": "P = 142,500 × 7.2 = 1.03 MW",
-                  "rule": "substitution of the stated values"
-                },
-                {
-                  "text": "P = 142.5 × 7.2 = 1,026 W",
-                  "rule": "substitution of the stated values",
-                  "why": "The tension left in kilonewtons and the answer labelled in watts. The digits are the same as the true answer's, which is exactly why nobody re-reads the unit.",
-                  "survives": true
-                },
-                {
-                  "text": "P = 142,500 × 7.2 × 60 = 61.6 MW",
-                  "rule": "rearrangement",
-                  "why": "A conversion to the minute applied to a quantity that is already per second."
+                  "note": "substitution of the stated values"
                 }
               ]
             },
             {
               "ask": "Put that beside the motor's continuous rating of 1.2 MW.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "1.03 MW is 86 per cent of the rating, so the drum's inertia is what limits the cycle",
-                  "rule": "comparison of magnitudes",
+                  "note": "comparison of magnitudes",
                   "why": "Inertia does not appear in this calculation at all. What is close to the rating is the product of tension and speed."
                 },
                 {
-                  "text": "1.03 MW exceeds the rating, so the faster cycle is impossible",
-                  "rule": "comparison of magnitudes",
-                  "why": "It is the conclusion that follows from the 3.7 MW line, and it stops the proposal at a point where nothing is actually wrong.",
-                  "survives": true
-                },
-                {
-                  "text": "1.03 MW is 86 per cent of the rating, and raising the torque is what would exceed it",
-                  "rule": "comparison of magnitudes",
-                  "why": "Torque and power are different limits. The faster cycle raises the speed, which is the factor in this product that the proposal actually changes."
-                },
-                {
                   "text": "1.03 MW is 86 per cent of the rating, and it is the speed that the faster cycle raises",
-                  "rule": "comparison of magnitudes"
+                  "note": "comparison of magnitudes"
                 }
               ]
             }
@@ -572,15 +451,6 @@ export const CURRICULUM = {
           "start": "t_cycle = t_ramp + t_run + t_retard + t_crawl",
           "goal": "the saving against the present cycle, in seconds",
           "startNote": "1,240 m of shaft, ramp 12 s for 57.6 m, full speed 7.2 m/s, retardation to 4.5 m/s at 0.9 m/s², crawl 1.5 s",
-          "askRule": true,
-          "rules": [
-            "integration with respect to time",
-            "a distance divided by a speed",
-            "the sum of the pieces",
-            "substitution of the stated values",
-            "comparison of magnitudes",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Get the time and distance of the retardation ramp.",
@@ -588,49 +458,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "t = 7.2 ÷ 0.9 = 8.0 s, over 28.8 m",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "Retarding all the way to rest rather than to the 4.5 metres a second the cap allows. It is the old profile's ramp, and it is what the present cycle already does.",
                   "survives": true
                 },
                 {
                   "text": "t = (7.2 − 4.5) ÷ 0.9 = 3.0 s, over 17.6 m",
-                  "rule": "substitution of the stated values"
-                },
-                {
-                  "text": "t = (7.2 − 4.5) × 0.9 = 2.4 s, over 14.0 m",
-                  "rule": "rearrangement",
-                  "why": "Multiplied by the retardation rather than divided by it. The units give it away: a speed times an acceleration is not a time."
-                },
-                {
-                  "text": "t = 4.5 ÷ 0.9 = 5.0 s, over 11.3 m",
-                  "rule": "substitution of the stated values",
-                  "why": "The speed it ends at rather than the change in speed. The ramp starts at 7.2 and that is where the arithmetic has to start."
+                  "note": "substitution of the stated values"
                 }
               ]
             },
             {
               "ask": "Work out the full-speed run.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "1,240 ÷ 7.2 = 172.2 s",
-                  "rule": "a distance divided by a speed",
+                  "note": "a distance divided by a speed",
                   "why": "The whole shaft at full speed, with the two ramps counted twice — once as their own time and once inside this. It overstates the cycle by about ten seconds and the error cancels out of the saving, which is what makes it hard to see.",
                   "survives": true
                 },
                 {
-                  "text": "(1,240 − 57.6) ÷ 7.2 = 164.2 s",
-                  "rule": "a distance divided by a speed",
-                  "why": "Only the accelerating ramp's distance has been taken out. The retardation ramp and the crawl use shaft as well."
-                },
-                {
-                  "text": "(1,240 − 57.6 − 17.6) ÷ 4.5 = 259 s, at the capped speed",
-                  "rule": "a distance divided by a speed",
-                  "why": "The run divided by the capped speed rather than by the full speed. The cage runs at 7.2 between the ramps."
-                },
-                {
                   "text": "(1,240 − 57.6 − 17.6 − 6.8) ÷ 7.2 = 160.8 s, the run alone",
-                  "rule": "a distance divided by a speed"
+                  "note": "a distance divided by a speed"
                 }
               ]
             },
@@ -640,49 +490,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "12 + 160.8 + 3.0 + 1.5 = 177.3 s",
-                  "rule": "the sum of the pieces"
+                  "note": "the sum of the pieces"
                 },
                 {
                   "text": "12 + 160.8 + 3.0 = 175.8 s",
-                  "rule": "the sum of the pieces",
+                  "note": "the sum of the pieces",
                   "why": "The crawl has been left out of the total while its distance was taken out of the run, so a second and a half has gone missing from both sides."
-                },
-                {
-                  "text": "12 + 172.2 + 3.0 + 1.5 = 188.7 s",
-                  "rule": "the sum of the pieces",
-                  "why": "The run that double-counts the ramps. It is eleven seconds long and it is wrong in the same direction for the present cycle, so the saving still comes out at seven.",
-                  "survives": true
-                },
-                {
-                  "text": "12 × 160.8 × 3.0 × 1.5 = 8,683 s",
-                  "rule": "rearrangement",
-                  "why": "Multiplied rather than added. Two and a half hours for one wind."
                 }
               ]
             },
             {
               "ask": "Compare with the present cycle of 184.3 s.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "a saving of 12.0 s, which is what was proposed",
-                  "rule": "comparison of magnitudes",
+                  "note": "comparison of magnitudes",
                   "why": "That is the proposal's own figure. It comes from retarding to rest at the old rate and a crawl of nothing, neither of which survived the fortnight."
                 },
                 {
-                  "text": "a saving of 1.5 s, the crawl alone",
-                  "rule": "comparison of magnitudes",
-                  "why": "The ramps contribute as well. Only the retardation cap costs time; the shortened crawl and the shorter retardation ramp both give it back."
-                },
-                {
                   "text": "a saving of 7.0 s",
-                  "rule": "comparison of magnitudes"
-                },
-                {
-                  "text": "a loss of 4.0 s, so the revision is worse than the present cycle",
-                  "rule": "comparison of magnitudes",
-                  "why": "The conclusion that follows from the double-counted run compared against a correctly computed present cycle. Comparing two numbers computed different ways is how a real saving gets thrown away.",
-                  "survives": true
+                  "note": "comparison of magnitudes"
                 }
               ]
             }
@@ -693,28 +521,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cycle time is the sum of the times of the parts of the journey"
-      ],
-      "equations": [
-        {
-          "e": "v(t) = v₀ + ∫a dt,  y(t) = y₀ + ∫v dt",
-          "c": "getting the motion back from a rate",
-          "v": [
-            [
-              "v₀, y₀",
-              "the velocity and position at the start of the interval"
-            ],
-            [
-              "∫a dt",
-              "the area under the acceleration, in metres a second"
-            ],
-            [
-              "∫v dt",
-              "the area under the velocity, in metres"
-            ]
-          ],
-          "s": "An acceleration that is not constant cannot be put through the constant-acceleration formulas, and integrating it is what replaces them.",
-          "computed": true
-        }
       ],
       "concept": {
         "n": 2,
@@ -877,15 +683,6 @@ export const CURRICULUM = {
           "start": "I = ∫r² dm",
           "goal": "the moment of inertia about the axis, in kilogram metres squared",
           "startNote": "m = 18,000 kg between R₁ = 1.9 m and R₂ = 2.1 m, of uniform steel, turning about its axis",
-          "askRule": true,
-          "rules": [
-            "the choice of the mass element",
-            "substitution of the element",
-            "integration with respect to radius",
-            "factorising a difference of powers",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Choose the element of mass.",
@@ -893,50 +690,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "a flat slice of thickness dz along the axis",
-                  "rule": "the choice of the mass element",
+                  "note": "the choice of the mass element",
                   "why": "Every slice contains matter at every radius from the bore to the outside, so the r² inside the integral has no single value on it and cannot be taken out."
                 },
                 {
                   "text": "a thin cylindrical shell of radius r and thickness dr",
-                  "rule": "the choice of the mass element"
-                },
-                {
-                  "text": "a wedge of angle dθ cut through the whole thickness of the wall",
-                  "rule": "the choice of the mass element",
-                  "why": "A perfectly good element and it has the same defect: a wedge spans every radius. The integral in θ then comes out to 2π and looks like progress, while the r² is still inside it.",
-                  "survives": true
-                },
-                {
-                  "text": "the whole wall at its mean radius of 2.0 m",
-                  "rule": "substitution of the element",
-                  "why": "All the mass placed at one radius gives 72,000 — two hundred out of 72,200, which is within a third of a per cent here and is wrong for a reason that matters: it happens to work only because this wall is thin.",
-                  "survives": true
+                  "note": "the choice of the mass element"
                 }
               ]
             },
             {
               "ask": "Write the element's mass in terms of r.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "dm = m·dr/(R₂ − R₁)",
-                  "rule": "substitution of the element",
+                  "note": "substitution of the element",
                   "why": "Mass shared out evenly across the thickness rather than by area. Outer shells hold more steel than inner ones, and this gives 71,900 — close enough to pass, and it is the wrong model of the body.",
                   "survives": true
                 },
                 {
-                  "text": "dm = m·2πr·dr",
-                  "rule": "substitution of the element",
-                  "why": "That is an area rather than a fraction of the mass, so the units come out as kilogram metres squared before the r² is even applied."
-                },
-                {
-                  "text": "dm = m·r·dr/(R₂² − R₁²)",
-                  "rule": "substitution of the element",
-                  "why": "The factor of two from the area of an annulus is missing, so the total mass of all the shells is half the drum."
-                },
-                {
                   "text": "dm = 2m·r·dr/(R₂² − R₁²)",
-                  "rule": "substitution of the element"
+                  "note": "substitution of the element"
                 }
               ]
             },
@@ -946,49 +721,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "I = 2m/(R₂² − R₁²) · [r⁴/4] from R₁ to R₂",
-                  "rule": "integration with respect to radius"
+                  "note": "integration with respect to radius"
                 },
                 {
                   "text": "I = 2m/(R₂² − R₁²) · [r³/3] from R₁ to R₂",
-                  "rule": "integration with respect to radius",
+                  "note": "integration with respect to radius",
                   "why": "The r² and the r from the element have not been combined before integrating, so the cube has been integrated instead of the fourth power. The units give it away and the number, 71,000, does not.",
                   "survives": true
-                },
-                {
-                  "text": "I = 2m/(R₂² − R₁²) · [r⁴] from R₁ to R₂",
-                  "rule": "integration with respect to radius",
-                  "why": "Integrating r³ brings a divisor of four. Without it the answer is four times too large."
-                },
-                {
-                  "text": "I = 2m·[r⁴/4] from R₁ to R₂",
-                  "rule": "rearrangement",
-                  "why": "The normalising denominator has been dropped, which is the part that makes the shells add up to the drum's actual mass."
                 }
               ]
             },
             {
               "ask": "Simplify and put the numbers in.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "I = ½m(R₂² − R₁²) = 9,000 × 0.80 = 7,200 kg·m²",
-                  "rule": "factorising a difference of powers",
+                  "note": "factorising a difference of powers",
                   "why": "A difference where a sum belongs. The factorisation of a difference of fourth powers leaves the sum of the squares, and this answer is a factor of ten small in a way nothing downstream would notice.",
                   "survives": true
                 },
                 {
-                  "text": "I = m(R₁² + R₂²) = 18,000 × 8.02 = 144,000 kg·m²",
-                  "rule": "substitution of the stated values",
-                  "why": "The half has been lost. It comes from the four in the integration against the two in the element."
-                },
-                {
                   "text": "I = ½m(R₁² + R₂²) = 9,000 × 8.02 = 72,200 kg·m²",
-                  "rule": "factorising a difference of powers"
-                },
-                {
-                  "text": "I = ½m·R₂² = 9,000 × 4.41 = 39,700 kg·m²",
-                  "rule": "substitution of the stated values",
-                  "why": "That is a solid cylinder of the same mass and outside radius. It is the answer to a different drum, and it is the figure in the handover file."
+                  "note": "factorising a difference of powers"
                 }
               ]
             }
@@ -1110,14 +865,6 @@ export const CURRICULUM = {
           "start": "τ_motor − T·R = I·α",
           "goal": "the motor torque at the start of the upward wind, in kilonewton metres",
           "startNote": "I = 72,200 kg·m², R = 2.1 m, T = 166 kN, and the cage accelerates at 1.2 m/s²",
-          "askRule": true,
-          "rules": [
-            "the angular second law",
-            "the no-slip relation",
-            "substitution of the stated values",
-            "rearrangement",
-            "comparison of magnitudes"
-          ],
           "steps": [
             {
               "ask": "Get the angular acceleration from the cage's acceleration.",
@@ -1125,49 +872,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "α = a·R = 1.2 × 2.1 = 2.52 rad/s²",
-                  "rule": "the no-slip relation",
+                  "note": "the no-slip relation",
                   "why": "Multiplied where it should divide. The number is plausible for a drum this size, and it inflates the inertia term by a factor of four and a half.",
                   "survives": true
                 },
                 {
                   "text": "α = a/R = 1.2 ÷ 2.1 = 0.571 rad/s²",
-                  "rule": "the no-slip relation"
-                },
-                {
-                  "text": "α = a = 1.2 rad/s²",
-                  "rule": "the no-slip relation",
-                  "why": "A linear acceleration is not an angular one. The units differ by a length, and the radius is what converts between them."
-                },
-                {
-                  "text": "α = v/R = 7.2 ÷ 2.1 = 3.43 rad/s²",
-                  "rule": "the no-slip relation",
-                  "why": "That is the angular velocity at the end of the ramp, not the angular acceleration. Its units are radians a second."
+                  "note": "the no-slip relation"
                 }
               ]
             },
             {
               "ask": "Rearrange for the motor torque.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "τ_motor = I·α − T·R",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "A sign slip that makes the rope help the motor rather than oppose it. It gives a negative torque, and the natural response to a negative answer is to take its size — which is 307, wrong by a quarter and entirely believable.",
                   "survives": true
                 },
                 {
-                  "text": "τ_motor = T·R ÷ I·α",
-                  "rule": "rearrangement",
-                  "why": "A ratio of two torques is a number without units, and the equation being rearranged is a sum."
-                },
-                {
                   "text": "τ_motor = I·α + T·R",
-                  "rule": "rearrangement"
-                },
-                {
-                  "text": "τ_motor = (I + T)·α",
-                  "rule": "rearrangement",
-                  "why": "An inertia and a force cannot be added. They have different units, which is the quickest check available on any line of this working."
+                  "note": "rearrangement"
                 }
               ]
             },
@@ -1177,49 +904,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "τ = 72,200 × 0.571 + 166,000 × 2.1 = 41,200 + 348,600 = 390 kN·m",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 },
                 {
                   "text": "τ = 72,200 × 0.571 + 166,000 = 41,200 + 166,000 = 207 kN·m",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The tension has been used as a torque without its lever arm. It is a little over half the truth and it is still comfortably inside the motor's rating, so the conclusion of the day would be unchanged and wrong.",
                   "survives": true
-                },
-                {
-                  "text": "τ = 72,200 × 2.52 + 166,000 × 2.1 = 182,000 + 348,600 = 531 kN·m",
-                  "rule": "substitution of the stated values",
-                  "why": "The angular acceleration from the multiplied version. This one puts the answer outside the motor's rating and would stop the submission for no reason."
-                },
-                {
-                  "text": "τ = 72,200 + 166,000 × 2.1 = 421 kN·m",
-                  "rule": "substitution of the stated values",
-                  "why": "The inertia has been added without being multiplied by the angular acceleration. A moment of inertia is not a torque."
                 }
               ]
             },
             {
               "ask": "Put that beside the motor's continuous rating of 480 kN·m.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "390 is 81 per cent of the rating, so the ramp cannot be run continuously",
-                  "rule": "comparison of magnitudes",
+                  "note": "comparison of magnitudes",
                   "why": "The rating is the continuous one, so eighty-one per cent of it is inside the machine's normal working. It is the ramp that is short, not the margin."
                 },
                 {
-                  "text": "390 is 81 per cent of the rating, so the drum's inertia is the limiting term",
-                  "rule": "comparison of magnitudes",
-                  "why": "The inertia term is 41 of the 390. What is close to the rating is the rope, and the rope's contribution does not change with how hard the ramp is driven."
-                },
-                {
-                  "text": "390 exceeds the rating, so the proposal fails on torque",
-                  "rule": "comparison of magnitudes",
-                  "why": "It would be the honest conclusion from the 531 line, and it stops the proposal at the wrong point. A wrong reason for the right answer costs the same as a wrong answer once somebody checks it.",
-                  "survives": true
-                },
-                {
                   "text": "390 is 81 per cent of the rating, so the machine has the torque",
-                  "rule": "comparison of magnitudes"
+                  "note": "comparison of magnitudes"
                 }
               ]
             }
@@ -1232,26 +938,6 @@ export const CURRICULUM = {
         "a rope that does not slip ties the cage's acceleration to the drum's angular acceleration"
       ],
       "equations": [
-        {
-          "e": "ΣF = ma",
-          "c": "Newton's second law, on one chosen body",
-          "v": [
-            [
-              "ΣF",
-              "the sum of the forces on the body, in newtons"
-            ],
-            [
-              "m",
-              "the mass of that body, in kilograms"
-            ],
-            [
-              "a",
-              "its acceleration, in metres a second squared"
-            ]
-          ],
-          "s": "The law applies to one body at a time, so the first decision in every problem here is which body has been drawn round.",
-          "computed": true
-        },
         {
           "e": "τ = Iα",
           "c": "the angular form of the second law",
@@ -1445,39 +1131,19 @@ export const CURRICULUM = {
           "start": "E_pads = K_rot + K_trans ± mgh",
           "goal": "the energy the pads absorb in an upward emergency stop, in kilojoules",
           "startNote": "I = 72,200 kg·m², ω = 4.0 rad/s, cage and hanging rope 9,518 kg, v = 8.4 m/s, 3.8 m of travel",
-          "askRule": true,
-          "rules": [
-            "rotational kinetic energy",
-            "kinetic energy of a translating mass",
-            "work done against gravity",
-            "the sign of the gravity term",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Take the drum's rotational energy.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "K_rot = ½ × 72,200 × 4.0 = 144 kJ",
-                  "rule": "rotational kinetic energy",
+                  "note": "rotational kinetic energy",
                   "why": "The angular velocity has not been squared. It is a quarter of the answer and it has the units of a torque rather than an energy."
                 },
                 {
-                  "text": "K_rot = 72,200 × 4.0² = 1,155 kJ",
-                  "rule": "rotational kinetic energy",
-                  "why": "The half is missing. Twice the true figure, and since it makes the total exceed the pads' rating it would produce the right decision from the wrong number.",
-                  "survives": true
-                },
-                {
                   "text": "K_rot = ½ × 72,200 × 4.0² = 578 kJ",
-                  "rule": "rotational kinetic energy"
-                },
-                {
-                  "text": "K_rot = ½ × 18,000 × 8.4² = 635 kJ",
-                  "rule": "kinetic energy of a translating mass",
-                  "why": "The drum's mass and the cage's speed. The drum does not travel anywhere, and its energy is in the rotation."
+                  "note": "rotational kinetic energy"
                 }
               ]
             },
@@ -1487,23 +1153,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "K_trans = ½ × 9,518 × 8.4² = 336 kJ",
-                  "rule": "kinetic energy of a translating mass"
+                  "note": "kinetic energy of a translating mass"
                 },
                 {
                   "text": "K_trans = ½ × 4,000 × 8.4² = 141 kJ",
-                  "rule": "kinetic energy of a translating mass",
+                  "note": "kinetic energy of a translating mass",
                   "why": "The cage without the rope travelling with it. Five and a half tonnes of steel is moving at the same speed as the cage and has to be stopped by the same brake.",
                   "survives": true
-                },
-                {
-                  "text": "K_trans = ½ × 15,036 × 8.4² = 531 kJ",
-                  "rule": "kinetic energy of a translating mass",
-                  "why": "The full rope rather than the hanging length at mid-shaft. That is the figure for the cage at the inset, where the speed would not be 8.4."
-                },
-                {
-                  "text": "K_trans = 9,518 × 8.4 = 80 kJ",
-                  "rule": "rearrangement",
-                  "why": "A momentum reported as an energy. The units are kilogram metres a second."
                 }
               ]
             },
@@ -1513,49 +1169,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "it adds 355 kJ, since the cage is still moving upward",
-                  "rule": "the sign of the gravity term",
+                  "note": "the sign of the gravity term",
                   "why": "The cage is rising, so gravity is doing negative work on it and taking energy out of the system. Adding it gives 1.27 MJ, which is the correct figure for a downward stop and the wrong one here.",
                   "survives": true
                 },
                 {
                   "text": "it removes 355 kJ, since the cage rises 3.8 m while stopping",
-                  "rule": "work done against gravity"
-                },
-                {
-                  "text": "it contributes nothing, since the brake is what stops the cage",
-                  "rule": "the sign of the gravity term",
-                  "why": "Gravity acts throughout the stop whatever else is happening, and 3.8 metres of rise against 93 kilonewtons of weight is not a small term."
-                },
-                {
-                  "text": "it removes 36 kJ, from the cage alone rising 3.8 m",
-                  "rule": "work done against gravity",
-                  "why": "The rope rises with the cage. Only the cage's four tonnes has been counted, and nine and a half are moving."
+                  "note": "work done against gravity"
                 }
               ]
             },
             {
               "ask": "Add them up, and put the total beside the pads' rating.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "578 + 336 + 355 = 1,269 kJ, over twice the rating",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The gravity term added rather than subtracted. It is the right answer to the downward stop, arrived at while answering about an upward one, and it is the number that matters most in this campaign.",
                   "survives": true
                 },
                 {
-                  "text": "336 − 355 = −19 kJ, so the brake does nothing",
-                  "rule": "substitution of the stated values",
-                  "why": "The drum has been left out altogether, which is the largest of the three stores."
-                },
-                {
-                  "text": "578 + 336 = 914 kJ, over the rating",
-                  "rule": "substitution of the stated values",
-                  "why": "Gravity ignored. Over a 3.8 metre rise it is a third of the total and it cannot be dropped on the grounds of being small."
-                },
-                {
                   "text": "578 + 336 − 355 = 558 kJ, inside the rating of 600",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -1566,44 +1202,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a turning body holds energy that has to be taken out of it to stop it"
-      ],
-      "equations": [
-        {
-          "e": "W = ∫F·dx",
-          "c": "work as an accumulation of force over distance",
-          "v": [
-            [
-              "F",
-              "the force in the direction of travel, in newtons"
-            ],
-            [
-              "dx",
-              "an element of the displacement, in metres"
-            ],
-            [
-              "W",
-              "the work done, in joules"
-            ]
-          ],
-          "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it.",
-          "computed": true
-        },
-        {
-          "e": "K_rot = ½Iω²",
-          "c": "the energy stored in something turning",
-          "v": [
-            [
-              "K_rot",
-              "the rotational kinetic energy, in joules"
-            ],
-            [
-              "ω",
-              "the angular velocity, in radians a second"
-            ]
-          ],
-          "s": "A drum at speed holds energy nobody can see, and it all has to be taken out of it by whatever stops the wind.",
-          "computed": true
-        }
       ],
       "concept": {
         "n": 22,
@@ -1776,39 +1374,20 @@ export const CURRICULUM = {
           "start": "ΣF = ma, on the cage and the hanging rope together",
           "goal": "the tension at the drum, in kilonewtons",
           "startNote": "cage and load 4,000 kg, rope 8.9 kg a metre, 1,240 m hanging, accelerating upward at 1.2 m/s²",
-          "askRule": true,
-          "rules": [
-            "the choice of the body",
-            "the second law on that body",
-            "substitution of the hanging mass",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Choose the body and say what mass it has.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "the cage alone, 4,000 kg",
-                  "rule": "the choice of the body",
+                  "note": "the choice of the body",
                   "why": "A legitimate body, and the tension it gives is the tension at the cappel rather than at the drum. It is 44 kN, it is the figure in the submission, and it is a correct answer to a question nobody asked.",
                   "survives": true
                 },
                 {
-                  "text": "the cage and the drum, 22,000 kg",
-                  "rule": "the choice of the body",
-                  "why": "The drum is not hanging from anything. Its bearings carry it, and putting it in the body means accounting for those bearing forces as well."
-                },
-                {
                   "text": "the cage and the hanging rope, 4,000 + 8.9 × 1,240 kg",
-                  "rule": "the choice of the body"
-                },
-                {
-                  "text": "the whole rope and the cage together, 4,000 + 11,000 kg of steel",
-                  "rule": "the choice of the body",
-                  "why": "Nearly the same number and the wrong description: the rope on the drum is supported by the drum and hangs from nothing. Here the two agree to within a kilogram, and at the bank the same line would count eleven tonnes that are lying in coils.",
-                  "survives": true
+                  "note": "the choice of the body"
                 }
               ]
             },
@@ -1818,49 +1397,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "T − Mg = Ma",
-                  "rule": "the second law on that body"
+                  "note": "the second law on that body"
                 },
                 {
                   "text": "T + Mg = Ma",
-                  "rule": "the second law on that body",
+                  "note": "the second law on that body",
                   "why": "Both forces cannot point the same way. The tension pulls up and the weight pulls down, and as written the tension would come out negative."
-                },
-                {
-                  "text": "T − Mg = 0",
-                  "rule": "the second law on that body",
-                  "why": "The static case, which is right while the cage hangs still and is exactly what the submission has done. It loses 18 kN and every word of it is true of a stationary wind.",
-                  "survives": true
-                },
-                {
-                  "text": "T = Ma",
-                  "rule": "rearrangement",
-                  "why": "The weight has gone. This is the equation for the same cage accelerating along a level floor."
                 }
               ]
             },
             {
               "ask": "Substitute the hanging mass.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "M = 4,000 + 8.9 = 4,008.9 kg",
-                  "rule": "substitution of the hanging mass",
+                  "note": "substitution of the hanging mass",
                   "why": "The mass per metre has been added as though it were a mass. It is a rate and has to be multiplied by a length first."
                 },
                 {
-                  "text": "M = 4,000 × 8.9 × 1,240 kg",
-                  "rule": "substitution of the hanging mass",
-                  "why": "Multiplied where it should be added. Forty-four thousand tonnes is heavier than the headframe."
-                },
-                {
-                  "text": "M = 8.9 × 1,240 = 11,036 kg, the rope on its own",
-                  "rule": "substitution of the hanging mass",
-                  "why": "The rope on its own, with the cage left out. It is three quarters of the answer and it makes the tension independent of what is being carried, which is a claim somebody would eventually act on.",
-                  "survives": true
-                },
-                {
                   "text": "M = 4,000 + 8.9 × 1,240 = 15,036 kg",
-                  "rule": "substitution of the hanging mass"
+                  "note": "substitution of the hanging mass"
                 }
               ]
             },
@@ -1870,23 +1427,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "T = 15,036 × 1.2 = 18.0 kN",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "Only the acceleration term. Gravity has been left out of a vertical shaft, and the tension is a tenth of the truth."
                 },
                 {
                   "text": "T = 15,036 × (9.81 + 1.2) = 166 kN",
-                  "rule": "substitution of the stated values"
-                },
-                {
-                  "text": "T = 15,036 × (9.81 − 1.2) = 129 kN",
-                  "rule": "substitution of the stated values",
-                  "why": "The sign of the acceleration. This is the tension while the cage is being retarded at the top of a wind, which is a real quantity on a different part of the cycle — and it is the smallest tension of the journey, quoted as the largest.",
-                  "survives": true
-                },
-                {
-                  "text": "T = 15,036 × 9.81 = 147 kN",
-                  "rule": "substitution of the stated values",
-                  "why": "The static tension with the rope properly included. It is the right answer to the question with the acceleration switched off."
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -2068,39 +1614,20 @@ export const CURRICULUM = {
           "start": "k = E·A/L,  ω = √(k/m)",
           "goal": "the period of the cage on the rope, in seconds",
           "startNote": "E = 120 GPa, A = 1,140 mm², L = 1,240 m, cage and load 4,000 kg",
-          "askRule": true,
-          "rules": [
-            "stiffness from the material",
-            "the frequency of a mass on a spring",
-            "the period from the frequency",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Get the stiffness.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "k = E·A·L = 1.70 × 10¹¹ N/m",
-                  "rule": "stiffness from the material",
+                  "note": "stiffness from the material",
                   "why": "Length multiplying instead of dividing. It makes a twelve-hundred-metre rope a million times stiffer than a short one, and the period that comes out of it is a thousandth of a second — which reads as a rope that does not stretch, which is what everybody already believes.",
                   "survives": true
                 },
                 {
-                  "text": "k = E/A·L = 1.3 × 10¹⁴ N/m",
-                  "rule": "rearrangement",
-                  "why": "Area dividing rather than multiplying. A thinner rope would then be stiffer, which is the opposite of true."
-                },
-                {
                   "text": "k = E·A/L = 1.368 × 10⁸ ÷ 1,240 = 110,000 N/m",
-                  "rule": "stiffness from the material"
-                },
-                {
-                  "text": "k = E·A/L, with A in mm² = 1.10 × 10¹¹ N/m",
-                  "rule": "substitution of the stated values",
-                  "why": "The area left in square millimetres. The expression is right, the arithmetic is right, and the answer is a million times too large because 1,140 mm² is 1.14 × 10⁻³ m².",
-                  "survives": true
+                  "note": "stiffness from the material"
                 }
               ]
             },
@@ -2110,49 +1637,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "ω = √(m/k) = √0.0363 = 0.190 rad/s",
-                  "rule": "the frequency of a mass on a spring",
+                  "note": "the frequency of a mass on a spring",
                   "why": "Inverted. A heavier cage would then bounce faster, and a stiffer rope slower."
                 },
                 {
                   "text": "ω = √(k/m) = √27.58 = 5.25 rad/s",
-                  "rule": "the frequency of a mass on a spring"
-                },
-                {
-                  "text": "ω = k/m = 27.6 rad/s",
-                  "rule": "the frequency of a mass on a spring",
-                  "why": "The root has not been taken. The units are the tell — a stiffness over a mass is a frequency squared — and the number is a believable one for a stiff structure.",
-                  "survives": true
-                },
-                {
-                  "text": "ω = √(k·m) = 21,000 rad/s",
-                  "rule": "rearrangement",
-                  "why": "Multiplied rather than divided. That is not a frequency of anything mechanical."
+                  "note": "the frequency of a mass on a spring"
                 }
               ]
             },
             {
               "ask": "Turn the angular frequency into a period.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "T = ω/2π = 0.836 s",
-                  "rule": "the period from the frequency",
+                  "note": "the period from the frequency",
                   "why": "Inverted, and inside a factor of two of the truth. A period of 0.84 seconds against 1.2 is not a difference anybody catches by looking at it.",
                   "survives": true
                 },
                 {
-                  "text": "T = 1/ω = 0.190 s",
-                  "rule": "the period from the frequency",
-                  "why": "That is the time for one radian rather than for one full cycle. The 2π is what makes it a period."
-                },
-                {
-                  "text": "T = ω = 5.25 s",
-                  "rule": "the period from the frequency",
-                  "why": "An angular frequency in radians a second reported as a time. The units are wrong and the number is in the right region, which is the worst combination."
-                },
-                {
                   "text": "T = 2π/ω = 1.20 s",
-                  "rule": "the period from the frequency"
+                  "note": "the period from the frequency"
                 }
               ]
             },
@@ -2162,23 +1668,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "x = F/k = 147,000 ÷ 110,000 = 1.34 m",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 },
                 {
                   "text": "x = F·k = 147,000 × 110,000 = 1.6 × 10¹⁰ m",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "Multiplied. A stretch of ten billion metres is a check that has done its job by being absurd."
-                },
-                {
-                  "text": "x = k/F = 0.75 m⁻¹",
-                  "rule": "rearrangement",
-                  "why": "Inverted, and the number is a plausible-looking 0.75 in units nobody reads. A stretch is metres and this is per metre.",
-                  "survives": true
-                },
-                {
-                  "text": "x = F/(k·L) = 1.1 mm",
-                  "rule": "substitution of the stated values",
-                  "why": "The length is already inside the stiffness. Dividing by it again gives a strain rather than a stretch, and it is the answer that makes the whole effect invisible."
                 }
               ]
             }
@@ -2508,38 +2003,20 @@ export const CURRICULUM = {
           "start": "W = ∫₀^H F(y)·dy",
           "goal": "the work done against gravity for one wind, in megajoules",
           "startNote": "H = 1,240 m, cage 4,000 kg, rope 8.9 kg a metre; the wind is taken as steady, so no acceleration term",
-          "askRule": true,
-          "rules": [
-            "work as an integral of force",
-            "the force as a function of position",
-            "integration with respect to position",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Write the force as a function of how far the cage has risen.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "F(y) = (m_c + μ·y)·g",
-                  "rule": "the force as a function of position",
+                  "note": "the force as a function of position",
                   "why": "The hanging length has been written as the distance risen rather than the distance remaining. It is the same integral with the ends swapped, so the total comes out identical and the force at every individual point is wrong.",
                   "survives": true
                 },
                 {
-                  "text": "F(y) = (m_c + μ·H)·g",
-                  "rule": "the force as a function of position",
-                  "why": "The whole rope hanging for the whole wind. It is the force at the first instant, held constant, and it overstates the work by fifty-eight per cent."
-                },
-                {
                   "text": "F(y) = (m_c + μ·(H − y))·g",
-                  "rule": "the force as a function of position"
-                },
-                {
-                  "text": "F(y) = m_c·g",
-                  "rule": "the force as a function of position",
-                  "why": "The rope has gone. This is the line the submission carries, and it accounts for forty-two per cent of the work."
+                  "note": "the force as a function of position"
                 }
               ]
             },
@@ -2549,49 +2026,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "W = g·∫₀^H m_c dy + g·μ·∫₀^H (H − y) dy",
-                  "rule": "work as an integral of force"
+                  "note": "work as an integral of force"
                 },
                 {
                   "text": "W = g·∫₀^H m_c dy × g·μ·∫₀^H (H − y) dy",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "A sum inside the integral gives a sum of integrals, not a product. The units of the product are joules squared."
-                },
-                {
-                  "text": "W = g·(m_c + μ)·∫₀^H (H − y) dy",
-                  "rule": "rearrangement",
-                  "why": "A mass and a mass per metre added inside one bracket, then given the rope's own integral. Both terms end up halved and the arithmetic is otherwise faultless.",
-                  "survives": true
-                },
-                {
-                  "text": "W = g·∫₀^H (m_c + μ·(H − y)) dH",
-                  "rule": "work as an integral of force",
-                  "why": "The variable of integration is the position of the cage, not the depth of the shaft. The depth is a fixed number here."
                 }
               ]
             },
             {
               "ask": "Do both integrals.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "W = g·m_c·H + g·μ·H²",
-                  "rule": "integration with respect to position",
+                  "note": "integration with respect to position",
                   "why": "The second integral has not picked up its half. It doubles the rope's contribution and puts the total at 183 megajoules, which is the wrong side of the brake's rated capacity and would stop the proposal.",
                   "survives": true
                 },
                 {
-                  "text": "W = g·m_c·H² /2 + g·μ·H²/2",
-                  "rule": "integration with respect to position",
-                  "why": "The first term's force is constant, so integrating it gives force times distance and no square. As written it has units of joule metres."
-                },
-                {
-                  "text": "W = g·m_c·H + g·μ·H/2",
-                  "rule": "integration with respect to position",
-                  "why": "The rope term has lost a power of the depth. Its units are then a mass times a speed squared over a metre, which is not an energy."
-                },
-                {
                   "text": "W = g·m_c·H + g·μ·H²/2",
-                  "rule": "integration with respect to position"
+                  "note": "integration with respect to position"
                 }
               ]
             },
@@ -2601,23 +2057,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "W = 9.81 × (4,960,000 + 768,800) = 56.2 MJ",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The rope's term has been left without its mass per metre, so 8.9 kilograms a metre has quietly become one. It is half the truth and it is the same order of magnitude, which is all anybody checks.",
                   "survives": true
                 },
                 {
                   "text": "W = 9.81 × (4,960,000 + 6,842,320) = 116 MJ",
-                  "rule": "substitution of the stated values"
-                },
-                {
-                  "text": "W = 9.81 × 4,960,000 = 48.7 MJ",
-                  "rule": "substitution of the stated values",
-                  "why": "The cage's term alone. It is the submission's own figure and it is the thing this derivation exists to replace."
-                },
-                {
-                  "text": "W = 4,960,000 + 6,842,320 = 11.8 MJ",
-                  "rule": "rearrangement",
-                  "why": "Gravity has not been applied at all, so what has been added is a mass times a length rather than an energy."
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -2819,14 +2265,6 @@ export const CURRICULUM = {
           "start": "½mv² = ½kx²",
           "goal": "the extra travel of the cage after the drum has stopped, in metres",
           "startNote": "v = 8.4 m/s at the moment the drum stopped, m = 4,000 kg, k = 110,000 N/m, ω = 5.25 rad/s",
-          "askRule": true,
-          "rules": [
-            "the work–energy theorem",
-            "energy stored in a spring",
-            "rearrangement",
-            "substitution of the stated values",
-            "comparison with the record"
-          ],
           "steps": [
             {
               "ask": "Say what the cage's kinetic energy has to become.",
@@ -2834,49 +2272,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "heat in the brake pads",
-                  "rule": "the work–energy theorem",
+                  "note": "the work–energy theorem",
                   "why": "True of the drum's own energy and not of the cage's. The pads act on the drum, and the cage's energy can only reach them through the rope — which is the step this whole day exists to notice.",
                   "survives": true
                 },
                 {
                   "text": "energy stored in the stretch of the rope",
-                  "rule": "energy stored in a spring"
-                },
-                {
-                  "text": "potential energy, as the cage rises further",
-                  "rule": "the work–energy theorem",
-                  "why": "Some of it does, and over 1.6 metres that is 63 kilojoules against 141 — a correction rather than the mechanism, and it makes the overshoot smaller rather than explaining it."
-                },
-                {
-                  "text": "nothing: the cage stops when the drum stops",
-                  "rule": "the work–energy theorem",
-                  "why": "That is the rigid-body assumption the inquiry made. It requires the rope to be inextensible, and this one stretches 1.3 metres standing still."
+                  "note": "energy stored in a spring"
                 }
               ]
             },
             {
               "ask": "Rearrange for the stretch.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "x = v²·m/k",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "The root has not been taken. It gives 2.56 metres — larger than the measurement, the right order, and it would have every landing margin set 60 per cent too wide.",
                   "survives": true
                 },
                 {
-                  "text": "x = v·√(k/m)",
-                  "rule": "rearrangement",
-                  "why": "Stiffness and mass the wrong way up. A stiffer rope would then give a longer overshoot, which is backwards."
-                },
-                {
                   "text": "x = v·√(m/k)",
-                  "rule": "rearrangement"
-                },
-                {
-                  "text": "x = √(v·m/k)",
-                  "rule": "rearrangement",
-                  "why": "The root has been taken over the whole expression including the speed, so the units inside it are not a length squared."
+                  "note": "rearrangement"
                 }
               ]
             },
@@ -2886,49 +2304,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "x = 8.4 × √(4,000 ÷ 110,000) = 8.4 ÷ 5.25 = 1.60 m",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 },
                 {
                   "text": "x = 8.4 × √(4,000 ÷ 110,000) = 8.4 ÷ 52.5 = 0.16 m",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "A factor of ten lost in the root. Sixteen centimetres is small enough that nobody would ever look for a mechanism, which is what makes it the expensive version of this error.",
                   "survives": true
-                },
-                {
-                  "text": "x = v·ω = 8.4 × 5.25 = 44.1 m",
-                  "rule": "rearrangement",
-                  "why": "Multiplied by the angular frequency rather than divided. Forty-four metres is more than the headframe is tall."
-                },
-                {
-                  "text": "x = 8.4 ÷ 1.20 = 7.0 m",
-                  "rule": "substitution of the stated values",
-                  "why": "Divided by the period rather than by the angular frequency, which drops the 2π."
                 }
               ]
             },
             {
               "ask": "Put that beside what was measured in March.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "1.60 m against 1.6 m measured, so the pads were the cause after all",
-                  "rule": "comparison with the record",
+                  "note": "comparison with the record",
                   "why": "The expression contains no property of the pads. An agreement reached without them is not evidence about them."
                 },
                 {
-                  "text": "1.60 m against 1.6 m measured, so the position recorder was mis-calibrated",
-                  "rule": "comparison with the record",
-                  "why": "The recorder is a tape reel at the inset, checked against the guides afterwards. Doubting the one instrument that saw the effect is how the effect stayed unexplained for eight months."
-                },
-                {
-                  "text": "1.60 m against 1.6 m measured, which is a coincidence and settles nothing",
-                  "rule": "comparison with the record",
-                  "why": "A defensible reflex and wrong here: the prediction was made from the rope's own properties and the recorded speed, with nothing fitted to the outcome, and it lands on the measurement to two figures.",
-                  "survives": true
-                },
-                {
                   "text": "1.60 m against 1.6 m measured, so the overshoot is the rope and not the brake",
-                  "rule": "comparison with the record"
+                  "note": "comparison with the record"
                 }
               ]
             }
@@ -2939,24 +2336,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "all of a body's kinetic energy has to be accounted for by work done on it"
-      ],
-      "equations": [
-        {
-          "e": "ΔK = W_net",
-          "c": "the work–energy theorem",
-          "v": [
-            [
-              "ΔK",
-              "the change in kinetic energy, in joules"
-            ],
-            [
-              "W_net",
-              "the work done by every force acting, in joules"
-            ]
-          ],
-          "s": "The net work on a body is exactly its change in kinetic energy, which is why a stopping distance can be found without ever writing down a time.",
-          "computed": true
-        }
       ],
       "concept": {
         "n": 11,
@@ -3109,14 +2488,6 @@ export const CURRICULUM = {
           "start": "J = ∫F dt = Δp",
           "goal": "the horizontal force on the belt drive, in newtons",
           "startNote": "320 tonnes an hour arriving with no forward speed, onto a belt running at 2.5 m/s",
-          "askRule": true,
-          "rules": [
-            "conversion of the rate",
-            "impulse and momentum",
-            "taking the limit of the interval",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Turn the arrival rate into kilograms a second.",
@@ -3124,49 +2495,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "320 ÷ 60 = 5.33 kg/s",
-                  "rule": "conversion of the rate",
+                  "note": "conversion of the rate",
                   "why": "Tonnes an hour divided by minutes in an hour. It is out by a factor of seventeen and it is a number of a believable size for a small belt.",
                   "survives": true
                 },
                 {
                   "text": "320,000 ÷ 3,600 = 88.9 kg/s",
-                  "rule": "conversion of the rate"
-                },
-                {
-                  "text": "320 × 1,000 × 3,600 = 1.15 × 10⁹ kg/s",
-                  "rule": "conversion of the rate",
-                  "why": "Multiplied by the seconds in an hour instead of divided. A billion kilograms a second is the flow of a large river."
-                },
-                {
-                  "text": "320,000 ÷ 60 = 5,333 kg/s",
-                  "rule": "conversion of the rate",
-                  "why": "Kilograms an hour divided by minutes. Two conversions, each half done."
+                  "note": "conversion of the rate"
                 }
               ]
             },
             {
               "ask": "Write the momentum given to the ore that lands in a short interval.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "Δp = m·v, with m the whole shift's ore",
-                  "rule": "impulse and momentum",
+                  "note": "impulse and momentum",
                   "why": "A shift's worth of momentum delivered in one interval. What is wanted is the ore that arrives during the interval, which is the rate times the interval."
                 },
                 {
-                  "text": "Δp = ½·(dm/dt)·Δt·v²",
-                  "rule": "rearrangement",
-                  "why": "An energy has been written where a momentum belongs — the half and the square are the tell. It gives 278 newtons, close enough to the true answer to be adopted.",
-                  "survives": true
-                },
-                {
                   "text": "Δp = (dm/dt)·Δt·v",
-                  "rule": "impulse and momentum"
-                },
-                {
-                  "text": "Δp = (dm/dt)·v",
-                  "rule": "impulse and momentum",
-                  "why": "That is already a force rather than a momentum. Skipping the interval here means it cannot be cancelled at the next line, which is the step that makes the answer independent of it."
+                  "note": "impulse and momentum"
                 }
               ]
             },
@@ -3176,49 +2526,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "F = (dm/dt)·v, the interval cancelling",
-                  "rule": "taking the limit of the interval"
+                  "note": "taking the limit of the interval"
                 },
                 {
                   "text": "F = (dm/dt)·v·Δt",
-                  "rule": "rearrangement",
+                  "note": "rearrangement",
                   "why": "Multiplied by the interval rather than divided, so the answer depends on a choice that was arbitrary."
-                },
-                {
-                  "text": "F = (dm/dt)·v ÷ 2",
-                  "rule": "taking the limit of the interval",
-                  "why": "A half that belongs to a mean speed. The ore does not accelerate gradually across the interval — each grain is brought to belt speed by the belt it is sitting on — and this halves the answer for a reason that sounds like care.",
-                  "survives": true
-                },
-                {
-                  "text": "F = v·Δt ÷ (dm/dt), the interval divided out the other way",
-                  "rule": "rearrangement",
-                  "why": "Inverted. The units come out as metre seconds squared per kilogram, which is nothing at all."
                 }
               ]
             },
             {
               "ask": "Put the numbers in.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "F = 88.9 × 2.5² = 556 N",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The speed has been squared. That belongs to an energy, and the units here would be watts rather than newtons."
                 },
                 {
-                  "text": "F = 5.33 × 2.5 = 13.3 N",
-                  "rule": "substitution of the stated values",
-                  "why": "The mis-converted rate. Thirteen newtons is the weight of a full kettle, and a drive would not notice it."
-                },
-                {
-                  "text": "F = 88.9 ÷ 2.5 = 35.6 N",
-                  "rule": "rearrangement",
-                  "why": "Divided rather than multiplied. It has the right units by accident, because a rate over a speed is a mass per metre, and that is not what was asked for.",
-                  "survives": true
-                },
-                {
                   "text": "F = 88.9 × 2.5 = 222 N",
-                  "rule": "substitution of the stated values"
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -3405,38 +2733,20 @@ export const CURRICULUM = {
           "start": "g(r) = G·M(r)/r²",
           "goal": "the predicted change in g over the depth of the shaft, in milligals",
           "startNote": "R = 6,371 km, g₀ = 9.812 m/s² at the surface; the inset is 1,240 m below it",
-          "askRule": true,
-          "rules": [
-            "the shell theorem",
-            "the mass inside a radius",
-            "the inverse-square law",
-            "substitution of the stated values",
-            "rearrangement"
-          ],
           "steps": [
             {
               "ask": "Say which mass acts at a radius inside the sphere.",
-              "answer": 3,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "the whole mass of the sphere, wherever you are inside it",
-                  "rule": "the shell theorem",
+                  "note": "the shell theorem",
                   "why": "It gives a gravity that grows as you go down, which is what the measurement does, and it grows by 0.4 milligals rather than 105. Being right about the direction for the wrong reason is the hardest kind of error to find.",
                   "survives": true
                 },
                 {
-                  "text": "the mass of the shells above the radius",
-                  "rule": "the shell theorem",
-                  "why": "Exactly the part that contributes nothing. This would make gravity zero at the surface and largest at the centre."
-                },
-                {
-                  "text": "no mass at all, since the pulls cancel",
-                  "rule": "the shell theorem",
-                  "why": "The cancellation is a property of a shell you are inside, not of a sphere you are on top of. Everything below you still pulls."
-                },
-                {
                   "text": "the mass of the sphere below the radius",
-                  "rule": "the shell theorem"
+                  "note": "the shell theorem"
                 }
               ]
             },
@@ -3446,49 +2756,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "M(r) = ρ·(4/3)πr³",
-                  "rule": "the mass inside a radius"
+                  "note": "the mass inside a radius"
                 },
                 {
                   "text": "M(r) = ρ·4πr²",
-                  "rule": "the mass inside a radius",
+                  "note": "the mass inside a radius",
                   "why": "That is the surface area of the sphere times a density, which has units of kilograms a metre. A mass needs a volume."
-                },
-                {
-                  "text": "M(r) = ρ·(4/3)πR³·(r/R)²",
-                  "rule": "the mass inside a radius",
-                  "why": "A square where a cube belongs, written in a form that looks like a careful scaling. It makes gravity constant everywhere inside the sphere, which is a tidy and completely wrong result.",
-                  "survives": true
-                },
-                {
-                  "text": "M(r) = ρ·πr³",
-                  "rule": "the mass inside a radius",
-                  "why": "The four thirds is missing. It changes nothing about the shape of the answer and everything about its size."
                 }
               ]
             },
             {
               "ask": "Put it into the inverse-square law.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "g(r) = (4/3)πGρ·r², so gravity falls as the square of the radius",
-                  "rule": "the inverse-square law",
+                  "note": "the inverse-square law",
                   "why": "The r² from the denominator has not been cancelled properly: the cube over the square leaves a first power, not another square."
                 },
                 {
-                  "text": "g(r) = (4/3)πGρ/r, so gravity grows towards the centre",
-                  "rule": "rearrangement",
-                  "why": "The powers have been divided the wrong way round. It predicts infinite gravity at the centre of the earth, and it does give a rise with depth — which is what the measurement shows.",
-                  "survives": true
-                },
-                {
                   "text": "g(r) = (4/3)πGρ·r, so gravity is proportional to the radius",
-                  "rule": "the inverse-square law"
-                },
-                {
-                  "text": "g(r) = GρV/r², with V the whole volume",
-                  "rule": "the inverse-square law",
-                  "why": "The whole volume again, which is the mass that was ruled out two lines ago."
+                  "note": "the inverse-square law"
                 }
               ]
             },
@@ -3498,23 +2786,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "Δg = g₀·(d/R)² = 3.7 × 10⁻⁸ m/s², which is nothing at all",
-                  "rule": "substitution of the stated values",
+                  "note": "substitution of the stated values",
                   "why": "The ratio has been squared. It puts the change four thousand times below what a gravimeter can see, and the instrument plainly sees something."
                 },
                 {
                   "text": "Δg = −g₀·d/R = −1.91 × 10⁻³ m/s², a fall of 191 milligals",
-                  "rule": "substitution of the stated values"
-                },
-                {
-                  "text": "Δg = −g₀·R/d = −50,400 m/s²",
-                  "rule": "rearrangement",
-                  "why": "The ratio inverted. It is absurd by five thousand orders of magnitude in the wrong company and looks like a large number in the right one, which is how a value like this reaches a report.",
-                  "survives": true
-                },
-                {
-                  "text": "Δg = −g₀·d/R = −1.91 × 10⁻³ m/s², a fall of 1.91 milligals",
-                  "rule": "substitution of the stated values",
-                  "why": "The arithmetic is right and the unit conversion is out by a hundred. A milligal is 10⁻⁵ metres a second squared, so this change is 191 of them."
+                  "note": "substitution of the stated values"
                 }
               ]
             }
@@ -3550,7 +2827,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Outside a sphere the whole mass acts as though it were at the centre; inside one, the shells above you contribute nothing and only the mass below counts.",
-          "computed": true
+          "demanded": true
         }
       ],
       "takesAsRead": [

@@ -662,7 +662,6 @@ export const CURRICULUM = {
           "start": "L(t) = 60t ÷ (t² + 4)",
           "goal": "the total load between t = 0 and t = 4",
           "startNote": "tonnes an hour, t in hours from the peak",
-          "rules": [],
           "steps": [
             {
               "ask": "Choose a substitution and rewrite the integral.",
@@ -670,23 +669,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "u = t² + 4, du = 2t·dt, so the integral becomes 30·∫du ÷ u",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "u = t² + 4, du = 2t·dt, so the integral becomes 60·∫du ÷ u",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "60t·dt is 30·du, because du already carries the factor of 2. Keeping the 60 doubles the answer, and every line after it integrates and evaluates perfectly.",
                   "survives": true
-                },
-                {
-                  "text": "u = t, du = dt, so the integral becomes ∫60u·du ÷ (u² + 4)",
-                  "rule": "substitution",
-                  "why": "Substituting the variable for itself changes nothing. The integral is exactly as hard as it was before the substitution was made."
-                },
-                {
-                  "text": "u = 2t·dt, so the integral becomes 30·∫du ÷ u",
-                  "rule": "chain",
-                  "why": "A differential is not a substitution for the variable. Setting u equal to du leaves nothing to integrate with respect to."
                 }
               ]
             },
@@ -696,39 +685,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "30·u^(−1), evaluated from u = 4 to u = 20",
-                  "rule": "antiderivative",
+                  "note": "antiderivative",
                   "why": "The antiderivative of one over u is the natural logarithm, not the next power down. An exponent of −1 is the one case the power rule cannot handle."
                 },
                 {
                   "text": "30·ln(u), evaluated from u = 4 to u = 20",
-                  "rule": "limits"
-                },
-                {
-                  "text": "30·ln(u), evaluated from t = 0 to t = 4",
-                  "rule": "limits",
-                  "why": "The limits belong to the old variable and have to be converted with it. Read as t they give 30·(ln 4 − ln 0), whose second term is not a number, and the usual repair is to drop it and report a confident 41.6 tonnes.",
-                  "survives": true
+                  "note": "limits"
                 }
               ]
             },
             {
               "ask": "Evaluate it.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "30·(ln 20 ÷ ln 4) ≈ 64.8 tonnes",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "A difference of logarithms is the logarithm of a quotient, not a quotient of logarithms. The number that comes out is the right order of magnitude, which is what carries it past a sanity check.",
                   "survives": true
                 },
                 {
-                  "text": "30·ln(20 − 4) = 30·ln 16 ≈ 83.2 tonnes",
-                  "rule": "evaluation",
-                  "why": "Subtracting inside the logarithm is a different operation from subtracting two logarithms, and it has no rule behind it."
-                },
-                {
                   "text": "30·(ln 20 − ln 4) = 30·ln 5 ≈ 48.3 tonnes",
-                  "rule": "evaluation"
+                  "note": "evaluation"
                 }
               ]
             }
@@ -885,7 +863,6 @@ export const CURRICULUM = {
           "start": "V(t) = 5t² + 40t",
           "goal": "V'(4), from the definition rather than from a rule",
           "startNote": "storage in thousands of cubic metres, t in hours",
-          "rules": [],
           "steps": [
             {
               "ask": "Write the difference quotient and expand V(t+h).",
@@ -893,23 +870,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "(5t² + 10th + 5h² + 40t + 40h − 5t² − 40t) ÷ h",
-                  "rule": "expansion"
+                  "note": "expansion"
                 },
                 {
                   "text": "(5t² + 10th + 5h² + 40t + 40h − 5t² − 40t) ÷ h²",
-                  "rule": "cancellation",
+                  "note": "cancellation",
                   "why": "A difference quotient divides by the change in the input, which is h. Dividing by h² is the slope of nothing, and the limit it produces does not exist."
-                },
-                {
-                  "text": "(5t² + 5h² + 40t + 40h − 5t² − 40t) ÷ h",
-                  "rule": "expansion",
-                  "why": "(t + h)² is t² + 2th + h², and the dropped cross term 2th is the only part of the expansion that survives the limit. This divides by h cleanly and stays valid all the way down to a derivative of 40, which is wrong at every hour but 1.",
-                  "survives": true
-                },
-                {
-                  "text": "5(t + h)² + 40(t + h) − 5t² − 40t",
-                  "rule": "expansion",
-                  "why": "That is the change in the storage, not a rate. Without the division by h it is measured in cubic metres rather than cubic metres an hour."
                 }
               ]
             },
@@ -919,23 +885,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "10t + 5h + 40, which approaches 10t + 40",
-                  "rule": "limit"
+                  "note": "limit"
                 },
                 {
                   "text": "10t + 5h + 40, which approaches 10t + 45",
-                  "rule": "limit",
+                  "note": "limit",
                   "why": "Sending h to 0 removes the whole term 5h. It does not leave the coefficient 5 standing on its own."
-                },
-                {
-                  "text": "10t + 5h + 40 for every h, so the limit does not exist",
-                  "rule": "limit",
-                  "why": "This is a polynomial in h, and a polynomial has a limit everywhere. Nothing is undefined once the h in the denominator has cancelled."
-                },
-                {
-                  "text": "10t + 5h + 40, and h cannot be set to 0, so the quotient is undefined",
-                  "rule": "cancellation",
-                  "why": "The quotient is undefined at h = 0, which is exactly why a limit is taken instead of a substitution. The observation is correct and applied to the wrong step, and it survives to the bottom of the page as a refusal to finish.",
-                  "survives": true
                 }
               ]
             },
@@ -945,23 +900,18 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "V'(4) = 10 × 4 + 40 = 80 thousand cubic metres an hour",
-                  "rule": "substitution"
+                  "note": "substitution"
                 },
                 {
                   "text": "V'(4) = 10 × 4 + 40 × 4 = 200 thousand cubic metres an hour",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "The 40 is already the derivative of 40t and carries no further t with it. Multiplying it by four differentiates nothing and reports a rate two and a half times the real one, in units that still look right.",
                   "survives": true
-                },
-                {
-                  "text": "V(4) = 5 × 16 + 40 × 4 = 240 thousand cubic metres",
-                  "rule": "substitution",
-                  "why": "That is the storage at four hours rather than the rate at four hours. It answers how much, which is the number the call already has."
                 }
               ]
             }
           ],
-          "hint": "Each line has to follow from the one above it. Name the move as well as the line.",
+          "hint": "Each line has to follow from the one above it.",
           "commit": "Report the rate"
         }
       },
@@ -1243,7 +1193,6 @@ export const CURRICULUM = {
           "start": "h(t) = 214.6 + 0.9t − 0.03t²",
           "goal": "the day h stops rising, classified",
           "startNote": "metres above datum, t in days from Monday",
-          "rules": [],
           "steps": [
             {
               "ask": "Differentiate the level with respect to time.",
@@ -1251,23 +1200,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "h'(t) = 214.6 + 0.9 − 0.06t",
-                  "rule": "constant",
+                  "note": "constant",
                   "why": "The derivative of a constant is 0, so the 214.6 does not survive differentiation. Carried through it swamps everything else on the line."
                 },
                 {
                   "text": "h'(t) = 0.9 − 0.06t",
-                  "rule": "power"
-                },
-                {
-                  "text": "h'(t) = 0.9 − 0.03t",
-                  "rule": "power",
-                  "why": "The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates to −0.06t. Halving it doubles the day the level turns over, and every line after this one stays perfectly consistent with it.",
-                  "survives": true
-                },
-                {
-                  "text": "h'(t) = 0.9t − 0.06t",
-                  "rule": "power",
-                  "why": "The term 0.9t differentiates to 0.9, with no t left. Keeping the t makes the derivative 0 at t = 0 and nowhere else."
+                  "note": "power"
                 }
               ]
             },
@@ -1277,39 +1215,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "0.9 − 0.06t = 0, so t = 0.9 ÷ 0.06 = 15 days",
-                  "rule": "critical point"
+                  "note": "critical point"
                 },
                 {
                   "text": "0.9 − 0.06t = 0, so t = 0.06 ÷ 0.9 ≈ 0.067 days",
-                  "rule": "critical point",
+                  "note": "critical point",
                   "why": "The rearrangement is inverted. It gives a plausible-looking small number in the right units, an hour and a half after Monday midnight, and nothing later in the working contradicts it.",
                   "survives": true
-                },
-                {
-                  "text": "0.9 − 0.06t = 0, so t = 0.9 × 0.06 = 0.054 days",
-                  "rule": "evaluation",
-                  "why": "Solving for t divides by the coefficient in front of it rather than multiplying by it. The units alone rule this out."
                 }
               ]
             },
             {
               "ask": "Classify the critical point.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "h''(t) = +0.06, so the critical point is a minimum",
-                  "rule": "second derivative",
+                  "note": "second derivative",
                   "why": "Differentiating −0.06t gives −0.06. The sign carries through, and getting it wrong turns the highest level of the fortnight into the lowest."
                 },
                 {
-                  "text": "h''(t) = −0.06t, so it is a maximum only on the days after t = 0",
-                  "rule": "second derivative",
-                  "why": "The derivative of −0.06t is the constant −0.06, with no t in it. Carrying the t through makes the classification depend on the day, which it does not, and the conclusion is still right for every day that matters.",
-                  "survives": true
-                },
-                {
                   "text": "h''(t) = −0.06 everywhere, so the critical point is a maximum",
-                  "rule": "second derivative"
+                  "note": "second derivative"
                 }
               ]
             }
@@ -1441,7 +1368,6 @@ export const CURRICULUM = {
           "start": "dh/dt = −k·√h",
           "goal": "h as a function of t",
           "startNote": "h in metres of head; k has units √m/hour so dh/dt has units m/hour",
-          "rules": [],
           "steps": [
             {
               "ask": "Separate the variables.",
@@ -1449,23 +1375,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "h^(−1/2)·dh = −k·dt",
-                  "rule": "separation"
+                  "note": "separation"
                 },
                 {
                   "text": "h^(1/2)·dh = −k·dt",
-                  "rule": "separation",
+                  "note": "separation",
                   "why": "Dividing by √h gives h to the power −1/2, not +1/2. The line separates cleanly and integrates to a law of the right general shape, falling with time, so nothing downstream objects to it.",
                   "survives": true
-                },
-                {
-                  "text": "dh = −k·√h·dt, with the h still on the right",
-                  "rule": "separation",
-                  "why": "Nothing has been separated. An integral with h on both sides cannot be evaluated a side at a time, which is the only reason for doing this step."
-                },
-                {
-                  "text": "h^(−1/2)·dh = −k·h·dt",
-                  "rule": "chain",
-                  "why": "Dividing by √h takes it off the right-hand side altogether. It cannot then reappear there in a different power."
                 }
               ]
             },
@@ -1475,23 +1391,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "√h = −k·t + C",
-                  "rule": "antiderivative",
+                  "note": "antiderivative",
                   "why": "Raising −1/2 by 1 gives +1/2, and dividing by that new exponent multiplies by 2. The missing factor of two halves every drawdown time this produces."
                 },
                 {
                   "text": "2·√h = −k·t + C",
-                  "rule": "antiderivative"
-                },
-                {
-                  "text": "(1/2)·√h = −k·t + C",
-                  "rule": "antiderivative",
-                  "why": "Dividing by the new exponent of 1/2 means multiplying by 2, not halving. The curve has exactly the right shape and every time it predicts is out by a factor of four.",
-                  "survives": true
-                },
-                {
-                  "text": "ln(h) = −k·t + C",
-                  "rule": "antiderivative",
-                  "why": "The logarithm is the antiderivative of h to the power −1, not −1/2. It is the solution to an outlet whose flow is proportional to the head itself."
+                  "note": "antiderivative"
                 }
               ]
             },
@@ -1501,23 +1406,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "h(t) = (√h₀ − k·t/2)²",
-                  "rule": "initial condition"
+                  "note": "initial condition"
                 },
                 {
                   "text": "h(t) = (√h₀ − k·t)²",
-                  "rule": "initial condition",
+                  "note": "initial condition",
                   "why": "The factor of two from the integration divides the kt term when the equation is rearranged. Without it the reservoir empties in half the time, on a curve of exactly the same shape, and nothing but a clock catches it.",
                   "survives": true
-                },
-                {
-                  "text": "h(t) = h₀ − k·t",
-                  "rule": "initial condition",
-                  "why": "That is the solution for a constant drain rate. The square root is there precisely because a falling level drains more slowly than a high one."
-                },
-                {
-                  "text": "h(t) = h₀·e^(−k·t)",
-                  "rule": "initial condition",
-                  "why": "Exponential decay solves the equation where the rate is proportional to h. It never reaches zero, and an outlet on a reservoir does."
                 }
               ]
             }
@@ -1566,23 +1461,6 @@ export const CURRICULUM = {
           ],
           "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
           "computed": true
-        },
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
-          "computed": true,
-          "card": false
         }
       ],
       "concept": {
@@ -1727,31 +1605,19 @@ export const CURRICULUM = {
           "start": "dQ/dt = −k·Q",
           "goal": "Q as a function of t",
           "startNote": "Q in cubic metres a second, k the recession constant, per day",
-          "rules": [],
           "steps": [
             {
               "ask": "Separate the variables and integrate both sides.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "Q^(−1)·dQ = −k·dt, giving Q^0 ÷ 0 = −k·t + C",
-                  "rule": "power",
+                  "note": "power",
                   "why": "The power rule fails at an exponent of −1, because raising it by 1 gives 0 and the division is by nothing. That single exception is why the logarithm exists."
                 },
                 {
-                  "text": "dQ = −k·Q·dt, integrating to Q = −k·Q·t + C",
-                  "rule": "separation",
-                  "why": "Nothing has been separated, so the right-hand side cannot be integrated with respect to t while Q is still sitting in it and moving."
-                },
-                {
                   "text": "Q^(−1)·dQ = −k·dt, giving ln(Q) = −k·t + C",
-                  "rule": "antiderivative"
-                },
-                {
-                  "text": "Q^(−1)·dQ = −k·dt, giving ln(Q) = −k·t² ÷ 2 + C",
-                  "rule": "antiderivative",
-                  "why": "The right-hand side is a constant with respect to t, so it integrates to −kt and not to a square. The line is well formed and describes a recession that collapses far too fast late on, which is exactly where nobody is checking it.",
-                  "survives": true
+                  "note": "antiderivative"
                 }
               ]
             },
@@ -1761,23 +1627,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "Q(t) = Q₀·e^(−k·t)",
-                  "rule": "exponentiation"
+                  "note": "exponentiation"
                 },
                 {
                   "text": "Q(t) = Q₀ − e^(−k·t)",
-                  "rule": "exponentiation",
+                  "note": "exponentiation",
                   "why": "Exponentiating a sum gives a product, not a difference. This one goes negative the moment Q₀ is small, which no river does."
-                },
-                {
-                  "text": "Q(t) = e^(−k·t) + C",
-                  "rule": "initial condition",
-                  "why": "The constant of integration was inside the logarithm, so exponentiating turns it into a multiplying factor rather than an added one. The curve still falls and still fits the first day, and it approaches C instead of zero.",
-                  "survives": true
-                },
-                {
-                  "text": "Q(t) = Q₀·e^(k·t)",
-                  "rule": "exponentiation",
-                  "why": "The minus sign is the whole content of a recession. Without it the river grows without bound in dry weather."
                 }
               ]
             }
@@ -1791,38 +1646,6 @@ export const CURRICULUM = {
         "the antiderivative of one over a quantity is the natural logarithm of it"
       ],
       "equations": [
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "computed": true
-        },
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
-          "computed": true
-        },
         {
           "e": "dQ/dt = −k·Q  ⟹  Q(t) = Q₀·e^(−k·t),  t½ = ln 2 / k",
           "c": "exponential decay, and the halving time that does not depend on where you started",
@@ -1841,8 +1664,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it.",
-          "computed": true,
-          "card": false
+          "computed": true
         }
       ],
       "concept": {
@@ -1881,7 +1703,6 @@ export const CURRICULUM = {
           "start": "S(t) = the integral of N from 0 to t, with N(t) = 40 − 8t",
           "goal": "the day S is greatest, classified",
           "startNote": "net flow in cubic metres a second, t in days from tonight",
-          "rules": [],
           "steps": [
             {
               "ask": "Write the derivative of the accumulation.",
@@ -1889,23 +1710,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "S'(t) = the integral of N from 0 to t",
-                  "rule": "fundamental theorem",
+                  "note": "fundamental theorem",
                   "why": "That is S itself. Differentiating an accumulation removes the integral rather than leaving it in place."
                 },
                 {
                   "text": "S'(t) = N(t) = 40 − 8t",
-                  "rule": "fundamental theorem"
-                },
-                {
-                  "text": "S'(t) = 40t − 4t²",
-                  "rule": "antiderivative",
-                  "why": "That is S, obtained by antidifferentiating N — a correct and useful line, labelled as the wrong one. Used as a derivative it puts the peak at ten days instead of five, and it goes on behaving like a derivative all the way down.",
-                  "survives": true
-                },
-                {
-                  "text": "S'(t) = −8",
-                  "rule": "fundamental theorem",
-                  "why": "That is the derivative of N, which is the second derivative of S. It has been differentiated once too often."
+                  "note": "fundamental theorem"
                 }
               ]
             },
@@ -1915,39 +1725,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "40 − 8t = 0, so t = 5 days",
-                  "rule": "critical point"
+                  "note": "critical point"
                 },
                 {
                   "text": "40 − 8t = 0, so t = 8 ÷ 40 = 0.2 days",
-                  "rule": "critical point",
+                  "note": "critical point",
                   "why": "The rearrangement is inverted. It gives a small number in the right units — just under five hours from now — and nothing further down the page argues with it.",
                   "survives": true
-                },
-                {
-                  "text": "40 − 8t = 0, so t = 320 days",
-                  "rule": "evaluation",
-                  "why": "Solving for t divides by the coefficient in front of it rather than multiplying by it."
                 }
               ]
             },
             {
               "ask": "Classify the turning point.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "S''(t) = 40 − 8t, which is still positive before day 5",
-                  "rule": "second derivative",
+                  "note": "second derivative",
                   "why": "That is the first derivative again. Differentiating it once more is what makes it the second."
                 },
                 {
-                  "text": "S''(t) = +8, so the reservoir is emptiest on day 5",
-                  "rule": "second derivative",
-                  "why": "The derivative of −8t is −8. The sign carries straight through to the classification, and getting it wrong turns the fullest day of the fortnight into the emptiest one.",
-                  "survives": true
-                },
-                {
                   "text": "S''(t) = −8, so the accumulation is at a maximum on day 5",
-                  "rule": "second derivative"
+                  "note": "second derivative"
                 }
               ]
             }
@@ -1961,22 +1760,6 @@ export const CURRICULUM = {
         "a quantity turns over where its derivative crosses zero"
       ],
       "equations": [
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
-          "computed": true
-        },
         {
           "e": "d/dt ∫ₐᵗ f(s)ds = f(t)",
           "c": "the other half of the fundamental theorem",
@@ -2097,7 +1880,6 @@ export const CURRICULUM = {
           "start": "Q = C·L·H^(3/2)",
           "goal": "dQ/dt in terms of dH/dt",
           "startNote": "the spillway rating, with C·L = 21.0",
-          "rules": [],
           "steps": [
             {
               "ask": "Differentiate both sides with respect to time.",
@@ -2105,49 +1887,28 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "dQ/dt = C·L·(3/2)·H^(1/2)·dH/dt",
-                  "rule": "chain"
+                  "note": "chain"
                 },
                 {
                   "text": "dQ/dt = C·L·(3/2)·H^(1/2)",
-                  "rule": "power",
+                  "note": "power",
                   "why": "H depends on t, so differentiating with respect to t carries a factor of dH/dt. Without it this is dQ/dH — a slope, correct about a question nobody asked, and respectable enough to survive the rest of the derivation.",
                   "survives": true
-                },
-                {
-                  "text": "dQ/dt = C·L·(3/2)·H^(3/2)·dH/dt",
-                  "rule": "chain",
-                  "why": "The power rule takes the exponent down by one. Left at 3/2 this is not the derivative of anything."
-                },
-                {
-                  "text": "dQ/dt = C·L·H^(1/2)·dH/dt",
-                  "rule": "chain",
-                  "why": "The 3/2 that comes down in front is part of the power rule, not a constant that can be folded into C·L."
                 }
               ]
             },
             {
               "ask": "Evaluate it, with C·L = 21.0 and H = 2.0 m.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt",
-                  "rule": "power",
+                  "note": "power",
                   "why": "H^(1/2) at 2.0 m is the square root of 2, about 1.41. Using 2.00 evaluates H rather than its square root."
                 },
                 {
-                  "text": "dQ/dt = 21.0 × 1.5 × 1.50 × dH/dt = 47.3·dH/dt",
-                  "rule": "power",
-                  "why": "The 3/2 is already in front as the 1.5. Using it twice applies the power rule twice."
-                },
-                {
                   "text": "dQ/dt = 21.0 × 1.5 × 1.41 × dH/dt = 44.5·dH/dt",
-                  "rule": "power"
-                },
-                {
-                  "text": "dQ/dt = 21.0 × 1.41 × dH/dt = 29.7·dH/dt",
-                  "rule": "power",
-                  "why": "This is the arithmetic of the line whose 3/2 never came down. Nothing about it looks broken, which is exactly why the mistake survives to the bottom of the page.",
-                  "survives": true
+                  "note": "power"
                 }
               ]
             }
@@ -2161,22 +1922,6 @@ export const CURRICULUM = {
         "a quantity that changes because another one changes needs the chain rule"
       ],
       "equations": [
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "computed": true
-        },
         {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
@@ -2211,8 +1956,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
-          "computed": true,
-          "card": false
+          "computed": true
         },
         {
           "e": "Q = C·L·H^(3/2),  dQ/dt = (3/2)·C·L·H^(1/2)·dH/dt",
@@ -2233,6 +1977,23 @@ export const CURRICULUM = {
           ],
           "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line.",
           "computed": true,
+          "card": false
+        },
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "demanded": true,
           "card": false
         },
         {
@@ -2373,7 +2134,6 @@ export const CURRICULUM = {
           "start": "R(t) = 120 + 60t",
           "goal": "the volume delivered between t = 0 and t = 4",
           "startNote": "cubic metres a second, t in hours from 14:00",
-          "rules": [],
           "steps": [
             {
               "ask": "Write an antiderivative of the rate.",
@@ -2381,49 +2141,27 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "F(t) = 120t + 60t²",
-                  "rule": "antiderivative",
+                  "note": "antiderivative",
                   "why": "The antiderivative of 60t raises the exponent to 2 and divides by it. Left undivided this doubles the whole ramp term."
                 },
                 {
                   "text": "F(t) = 120t + 30t² + C",
-                  "rule": "antiderivative"
-                },
-                {
-                  "text": "F(t) = 120 + 30t² + C",
-                  "rule": "antiderivative",
-                  "why": "The constant term 120 antidifferentiates to 120t, not to 120. It looks like a tidy line and it drops 4 hours of base flow — about 1.7 million cubic metres — without changing anything else on the page.",
-                  "survives": true
-                },
-                {
-                  "text": "F(t) = 60",
-                  "rule": "antiderivative",
-                  "why": "That is the derivative of the rate rather than an antiderivative of it. It answers how fast the ramp steepens, which is not a volume."
+                  "note": "antiderivative"
                 }
               ]
             },
             {
               "ask": "Evaluate it between the two ends of the four hours.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "F(4) = 120×4 + 30×16 + C = 960 + C",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "A definite integral is a difference of two values, and the constant cancels in that difference. A volume that still contains an unknown C is not a number."
                 },
                 {
-                  "text": "F(4) − F(0) = 960 − 0 = 960 cubic metres",
-                  "rule": "evaluation",
-                  "why": "The arithmetic is right and the units are not. The rate is per second and t is in hours, so this figure is in cubic-metre-hours per second and is short of the truth by a factor of 3,600.",
-                  "survives": true
-                },
-                {
                   "text": "F(4) − F(0) = 960, then × 3600 = 3.46 million cubic metres",
-                  "rule": "units"
-                },
-                {
-                  "text": "F(4) − F(0) = 960, then ÷ 3600 = 0.267 cubic metres of water",
-                  "rule": "units",
-                  "why": "Converting hours to seconds multiplies the interval, so it multiplies the accumulation. Dividing turns four hours of a major release into a bucketful."
+                  "note": "units"
                 }
               ]
             }
@@ -2491,7 +2229,6 @@ export const CURRICULUM = {
           "start": "dQ/dH = 31.5·H^(1/2)",
           "goal": "the head at which the sensitivity is greatest",
           "startNote": "the sensitivity of discharge to head, over 0.5 m ≤ H ≤ 3.0 m",
-          "rules": [],
           "steps": [
             {
               "ask": "Differentiate the sensitivity and look for a critical point in the range.",
@@ -2499,23 +2236,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "d²Q/dH² = 15.75·H^(−1/2), which is never 0 for H above 0",
-                  "rule": "power"
+                  "note": "power"
                 },
                 {
                   "text": "d²Q/dH² = 15.75·H^(1/2), which is never 0 for H above 0",
-                  "rule": "power",
+                  "note": "power",
                   "why": "The power rule drops the exponent from 1/2 to −1/2. This line reaches the same conclusion by luck, and the luck runs out the moment the exponent is anything else — which is why the reason has to be right as well as the answer.",
                   "survives": true
-                },
-                {
-                  "text": "d²Q/dH² = 31.5·H^(−1/2)",
-                  "rule": "power",
-                  "why": "The exponent 1/2 comes down as a factor as well as dropping by 1. Half the coefficient is missing."
-                },
-                {
-                  "text": "d²Q/dH² is 0 at H = 0, so there is a critical point in the range",
-                  "rule": "critical point",
-                  "why": "H = 0 is outside this interval, which starts at half a metre. A critical point that lies outside the interval is not a candidate for a maximum on it."
                 }
               ]
             },
@@ -2525,18 +2252,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "at H = 3.0 m, the upper endpoint, since the sensitivity only increases",
-                  "rule": "endpoint"
+                  "note": "endpoint"
                 },
                 {
                   "text": "at H = 0.5 m, the lower endpoint, since the second derivative is falling",
-                  "rule": "endpoint",
+                  "note": "endpoint",
                   "why": "The second derivative is positive and shrinking in size. A shrinking positive slope is still a positive slope, so the sensitivity is still climbing all the way to the top of the range.",
                   "survives": true
-                },
-                {
-                  "text": "nowhere, since a quantity with no critical point has no maximum",
-                  "rule": "critical point",
-                  "why": "A continuous quantity on a closed interval always attains a maximum. If it is not at a critical point, it is at an end."
                 }
               ]
             }
@@ -2548,24 +2270,6 @@ export const CURRICULUM = {
       "assumes": [
         "a continuous quantity on a closed interval attains a largest value somewhere on it",
         "a critical point is where the derivative is zero or does not exist"
-      ],
-      "equations": [
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "computed": true
-        }
       ],
       "concept": {
         "n": 13,
@@ -3023,7 +2727,6 @@ export const CURRICULUM = {
           "start": "U² − 0.4·U·h = 200",
           "goal": "dU/dt in terms of dh/dt",
           "startNote": "U in kPa, h in m; 0.4 has units kPa/m so the relation is dimensionally consistent",
-          "rules": [],
           "steps": [
             {
               "ask": "Differentiate both sides with respect to time.",
@@ -3031,23 +2734,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "2U·(dU/dt) − 0.4·((dU/dt)·h + U·(dh/dt)) = 0",
-                  "rule": "product"
+                  "note": "product"
                 },
                 {
                   "text": "2U·(dU/dt) − 0.4·U·(dh/dt) = 0",
-                  "rule": "product",
+                  "note": "product",
                   "why": "The product U·h has two changing factors. Dropping h·dU/dt treats U as constant inside the very relation whose rate you are solving for.",
                   "survives": true
-                },
-                {
-                  "text": "2U − 0.4·(U + h) = 0",
-                  "rule": "differentiation",
-                  "why": "Differentiating with respect to time must produce rates dU/dt and dh/dt; removing both rates changes the kind of quantity on the line."
-                },
-                {
-                  "text": "2U·(dU/dt) − 0.4·((dU/dt)·h + U·(dh/dt)) = 200",
-                  "rule": "constant",
-                  "why": "The derivative of the constant 200 is 0."
                 }
               ]
             },
@@ -3057,18 +2750,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "dU/dt = 0.4·U·(dh/dt) ÷ (2U − 0.4h) = 0.4×20×0.4 ÷ 30 ≈ +0.107 kPa a day",
-                  "rule": "solve"
+                  "note": "solve"
                 },
                 {
                   "text": "dU/dt = −0.4·U·(dh/dt) ÷ (2U − 0.4h) = −0.4×20×0.4 ÷ 30 ≈ −0.107 kPa a day",
-                  "rule": "sign",
+                  "note": "sign",
                   "why": "Moving the U·dh/dt term to the other side makes it positive. Keeping the minus sign reverses the physical trend predicted by this fitted relation.",
                   "survives": true
-                },
-                {
-                  "text": "dU/dt = 0.4·U·(dh/dt) ÷ (2U + 0.4h) = 0.4×20×0.4 ÷ 50 ≈ +0.064 kPa a day",
-                  "rule": "solve",
-                  "why": "The denominator inherits the minus sign in the fitted relation: 2U − 0.4h."
                 }
               ]
             }
@@ -3082,18 +2770,6 @@ export const CURRICULUM = {
         "the coefficient on U·h carries units so every term in the relation has units of pressure squared"
       ],
       "equations": [
-        {
-          "e": "(u·v)′ = u′·v + u·v′",
-          "c": "a product where both factors are moving",
-          "v": [
-            [
-              "u, v",
-              "the two quantities being multiplied, each a function of time"
-            ]
-          ],
-          "s": "A product of two changing quantities has two rates in it, and the rule keeps them apart: one term holds the first factor still, the other holds the second.",
-          "computed": true
-        },
         {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
@@ -3128,8 +2804,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
-          "computed": true,
-          "card": false
+          "computed": true
         }
       ],
       "concept": {
@@ -3277,7 +2952,6 @@ export const CURRICULUM = {
           "start": "the limit as t goes to 0 of (1 − e^(−t/T)) ÷ t",
           "goal": "a number for the initial rate of arrival",
           "startNote": "the arriving fraction of a step release, with T = 4 hours",
-          "rules": [],
           "steps": [
             {
               "ask": "Name the form of the limit before doing anything to it.",
@@ -3285,23 +2959,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "the numerator goes to 0 and the denominator to 0, so the limit is 0",
-                  "rule": "substitution",
+                  "note": "substitution",
                   "why": "A quotient of two things going to zero can approach any value at all, including infinity. Reading it as zero assumes the numerator wins, which is the thing being asked."
                 },
                 {
                   "text": "the numerator goes to 0 and the denominator to 0, so the form is indeterminate",
-                  "rule": "indeterminate form"
-                },
-                {
-                  "text": "the numerator goes to 1 and the denominator to 0, so the limit is infinite",
-                  "rule": "substitution",
-                  "why": "e^(−t/T) goes to 1 at t = 0, so the numerator is 1 − 1 and goes to 0, not to 1. The reading is a term out and produces a confident, wrong, infinite answer that nothing later contradicts.",
-                  "survives": true
-                },
-                {
-                  "text": "the numerator goes to 0 and the denominator to 0, so the limit is 1",
-                  "rule": "substitution",
-                  "why": "Zero over zero is not one. That is the value for a quotient of two identical quantities, which these are not."
+                  "note": "indeterminate form"
                 }
               ]
             },
@@ -3311,23 +2974,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "the limit of ((1/T)·e^(−t/T)) ÷ 1",
-                  "rule": "differentiation"
+                  "note": "differentiation"
                 },
                 {
                   "text": "the limit of (−(1/T)·e^(−t/T)) ÷ 1",
-                  "rule": "differentiation",
+                  "note": "differentiation",
                   "why": "The 1 differentiates to nothing and the minus sign in front of the exponential cancels the minus that the chain rule brings down. Two negatives make the rate positive, and this line reports water leaving instead of arriving.",
                   "survives": true
-                },
-                {
-                  "text": "the derivative of the whole quotient, by the quotient rule",
-                  "rule": "quotient",
-                  "why": "The rule differentiates the top and the bottom separately, and does not differentiate the quotient. What the quotient rule produces here is a correct derivative of an expression nobody asked about."
-                },
-                {
-                  "text": "the limit of (1 − e^(−t/T)) ÷ 1, since the t differentiates to 1",
-                  "rule": "differentiation",
-                  "why": "Only the denominator has been differentiated. Applying the rule to one half of the quotient leaves the original zero on top."
                 }
               ]
             },
@@ -3337,18 +2990,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "1/T = 0.25 per hour",
-                  "rule": "evaluation"
+                  "note": "evaluation"
                 },
                 {
                   "text": "T = 4 per hour",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "The rate is the reciprocal of the time constant. Reported as 4 the arrival is 16 times too fast, in units that read perfectly well on a warning sheet.",
                   "survives": true
-                },
-                {
-                  "text": "0, since the exponential still goes to 0 at t = 0",
-                  "rule": "evaluation",
-                  "why": "e^(−t/T) goes to 1 at t = 0, not to 0. It is e raised to nothing."
                 }
               ]
             }
@@ -3882,7 +3530,6 @@ export const CURRICULUM = {
           "start": "P = 8.6·Q·H",
           "goal": "dP/dt in terms of dQ/dt and dH/dt",
           "startNote": "kilowatts, with Q in m³/s and H in metres",
-          "rules": [],
           "steps": [
             {
               "ask": "Differentiate the product with respect to time.",
@@ -3890,23 +3537,12 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "dP/dt = 8.6·(dQ/dt)·(dH/dt)",
-                  "rule": "product",
+                  "note": "product",
                   "why": "The product rule is a sum of two terms, not a product of two derivatives. This also has the wrong units — kilowatts per second squared."
                 },
                 {
                   "text": "dP/dt = 8.6·((dQ/dt)·H + Q·(dH/dt))",
-                  "rule": "product"
-                },
-                {
-                  "text": "dP/dt = 8.6·(dQ/dt)·H",
-                  "rule": "product",
-                  "why": "This is the product rule with the head held constant, which is the standing assumption in the powerhouse and is false on any day the reservoir is filling. It stays valid arithmetic and reports a rate short by the whole second term.",
-                  "survives": true
-                },
-                {
-                  "text": "dP/dt = 8.6·Q·H·(dQ/dt + dH/dt)",
-                  "rule": "chain",
-                  "why": "That is what the derivative of an exponential in Q and H would look like. A plain product does not reproduce itself when it is differentiated."
+                  "note": "product"
                 }
               ]
             },
@@ -3916,18 +3552,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "dP/dt = 8.6 × (0 × 61 + 46 × 0.000011) ≈ 0.0044 kW/s",
-                  "rule": "constant"
+                  "note": "constant"
                 },
                 {
                   "text": "dP/dt = 8.6 × (0 × 61 + 46 × 0.000011) ≈ 0.0044 kW",
-                  "rule": "constant",
+                  "note": "constant",
                   "why": "The arithmetic is right and the unit is not. A rate of change of power is kilowatts per second, and reported as kilowatts it reads as an output of 4 watts rather than a climb of 16 kilowatts an hour.",
                   "survives": true
-                },
-                {
-                  "text": "dP/dt = 8.6 × 46 × 61 × 0.000011 ≈ 0.27 kW/s",
-                  "rule": "product",
-                  "why": "That multiplies the whole output by the head rate, which is the exponential form again. The second term of the product rule is Q·dH/dt and carries no H."
                 }
               ]
             }
@@ -4301,7 +3932,6 @@ export const CURRICULUM = {
           "start": "Q(t) = 48 + 8t",
           "goal": "the steady flow with the same six-hour total",
           "startNote": "cubic metres a second, t in hours from the start of the release",
-          "rules": [],
           "steps": [
             {
               "ask": "Integrate the schedule over the six hours.",
@@ -4309,23 +3939,13 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "[48t + 4t²] from 0 to 6 = 288 + 144 = 432",
-                  "rule": "antiderivative"
+                  "note": "antiderivative"
                 },
                 {
                   "text": "[48t + 8t²] from 0 to 6 = 288 + 288 = 576",
-                  "rule": "antiderivative",
+                  "note": "antiderivative",
                   "why": "The antiderivative of 8t is 4t², because the exponent rises to 2 and the term is divided by it. Left as 8t² this is a well-formed line that overstates the release by a third and goes on behaving itself to the end.",
                   "survives": true
-                },
-                {
-                  "text": "[48 + 4t²] from 0 to 6 = 144",
-                  "rule": "antiderivative",
-                  "why": "The constant 48 antidifferentiates to 48t. Left as 48 it takes the same value at both ends and cancels, so 6 hours of base flow vanish from the total."
-                },
-                {
-                  "text": "Q(6) − Q(0) = 96 − 48 = 48",
-                  "rule": "evaluation",
-                  "why": "That is the change in the rate across the six hours rather than the accumulation of the rate. It answers how much the release grew, which nobody asked."
                 }
               ]
             },
@@ -4335,39 +3955,29 @@ export const CURRICULUM = {
               "candidates": [
                 {
                   "text": "432 ÷ 6 = 72 cubic metres a second",
-                  "rule": "average"
+                  "note": "average"
                 },
                 {
                   "text": "432 cubic metres a second, since that is what the schedule delivers",
-                  "rule": "evaluation",
+                  "note": "evaluation",
                   "why": "432 is the accumulation in the mixed units the integral produced, not a flow. Published as a release it is six times too large, and nothing about the figure looks wrong on the page.",
                   "survives": true
-                },
-                {
-                  "text": "432 × 6 = 2592 cubic metres a second",
-                  "rule": "average",
-                  "why": "An average divides the accumulation by the interval. Multiplying gives a number with no meaning and a release the spillway could not pass."
                 }
               ]
             },
             {
               "ask": "Say why 72 is also the mean of the two end readings.",
-              "answer": 2,
+              "answer": 1,
               "candidates": [
                 {
                   "text": "because the average value of any rate is the mean of its endpoints",
-                  "rule": "endpoint",
+                  "note": "endpoint",
                   "why": "True for a straight line and false in general. Applied to a curving hydrograph it is out by several per cent in a direction that depends on the curvature, and it is the shortcut that stops anybody integrating again.",
                   "survives": true
                 },
                 {
-                  "text": "because 48 and 96 are both whole multiples of 6",
-                  "rule": "substitution",
-                  "why": "A coincidence of these particular numbers rather than a property of the schedule. Changing the 48 to a 50 leaves the endpoint result exactly as true."
-                },
-                {
                   "text": "because the rate is linear, so its average is the mean of its endpoints",
-                  "rule": "endpoint"
+                  "note": "endpoint"
                 }
               ]
             }
@@ -4379,24 +3989,6 @@ export const CURRICULUM = {
       "assumes": [
         "a definite integral is evaluated as the difference of an antiderivative at the two ends",
         "an average value is an accumulation divided by the length of its interval"
-      ],
-      "equations": [
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
-          "computed": true
-        }
       ],
       "concept": {
         "n": 17,

@@ -6,13 +6,21 @@
     header: "2 DAYS."
     title: "THE POPULATION OUTLOOK"
     goNow: "Island School, Lena Costa at register-desk."
-    body: "Biosecurity now protects each arrival, but the ferry load still depends on who lives here and who visits. Age structure, fertility, mortality, migration, and population momentum shape resident demand differently from visitor-days. Build the forecast at school, test arrivals at the harbour, then map footprint at the Common. By the end of the mission, decide the population load the plan must serve."
+    body: "The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them."
     objective: "Lock the human-demand forecast."
   objective: "Lock the human-demand forecast."
-  stake: "Biosecurity now protects each arrival, but the ferry load still depends on who lives here and who visits. Age structure, fertility, mortality, migration, and population momentum shape resident demand differently from visitor-days. Build the forecast at school, test arrivals at the harbour, then map footprint at the Common. By the end of the mission, decide the population load the plan must serve."
+  stake: "The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: Use a lower visitor cap and a drought reserve. Count crew only once. The plan stays within the water limit. The last vote now needs an independent sample."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Total fertility rate", def: "average births per woman; about 2.1 replaces a population without migration."}
+  - {name: "Population momentum", def: "continued growth from a large reproductive-age group."}
+  - {name: "Demographic transition", def: "shift from high birth/death rates toward low rates."}
+  - {name: "Overshoot", def: "demand beyond available biological capacity."}
+  equations:
+  - {"e":"population growth rate (PGR) = (births-deaths)/population×100%;","c":"Apply this relationship to the mission decision.","v":[["PGR","population growth rate in percent per period"]],"s":"It converts the island evidence into a defensible operating limit."}
+  - {"e":"doubling time=70/growth rate %.","c":"Apply this relationship to the mission decision.","v":[["doubling time","measured in the same time unit used by growth rate"],["growth rate","the percent increase per time period"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "age pyramids show growth, stability, or decline; Malthus contrasted geometric population with arithmetic food growth; developed populations often age with low TFR."
 
@@ -26,7 +34,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 14: READ THE AGE STRUCTURE OPEN"
     bubbles:
-    - who: costa   # the bible's "mission lead", from this mission's own goNow line
+    - who: voss   # Mara Voss
       say: "Start with read the age structure. We need evidence the next decision can use."
   - id: after-stop-53
     # After Stop 53 | register-desk | automatic
@@ -34,32 +42,100 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
     bubbles:
-    - who: costa   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 53 result to settle calculate population growth."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 53 result to settle calculate population growth."
   - id: after-stop-54
     # After Stop 54 | council-table | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
     bubbles:
-    - who: costa   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 54 result to settle close the person-day balance."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 54 result to settle close the person-day balance."
   - id: after-stop-55
     # After Stop 55 | common-map | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 55 changes the persistent board and unlocks the decision stop."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
     bubbles:
-    - who: costa   # the bible's "mission lead", from this mission's own goNow line
-      say: "Use the Stop 55 result to settle stress the human-demand forecast."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 55 result to settle stress the human-demand forecast."
   - id: at-mission-end
     # At mission end | register-desk | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 56 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 14 EVIDENCE: RECORDED"
     bubbles:
-    - who: costa   # the bible's "mission lead", from this mission's own goNow line
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The Population Outlook. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The Population Outlook, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?"
+      hint: "Use the stated evidence and the conditions for Total fertility rate; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "Correct. average births per woman; about 2.1 replaces a population without migration."}
+      - {key: "C", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Demand beyond available biological capacity.", why: "This describes Overshoot, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?"
+      hint: "Use the stated evidence and the conditions for Population momentum; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "This describes Total fertility rate, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Continued growth from a large reproductive-age group.", why: "Correct. continued growth from a large reproductive-age group."}
+      - {key: "D", text: "Demand beyond available biological capacity.", why: "This describes Overshoot, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks The Population Outlook using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "D"
+      figure: {"kind":"line","xLabel":"Transition stage","yLabel":"Rate per 1,000 people","caption":"Birth rates fall after death rates during a demographic transition.","series":[{"name":"Birth rate","points":[[1,40],[2,38],[3,26],[4,14]]},{"name":"Death rate","points":[[1,38],[2,20],[3,12],[4,10]]}]}
+      options:
+      - {key: "A", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "This describes Total fertility rate, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Demand beyond available biological capacity.", why: "This describes Overshoot, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Shift from high birth/death rates toward low rates.", why: "Correct. shift from high birth/death rates toward low rates."}
+    - prompt: "An unseen case extends The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?"
+      hint: "Use the stated evidence and the conditions for Overshoot; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Demand beyond available biological capacity.", why: "Correct. demand beyond available biological capacity."}
+      - {key: "B", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "This describes Total fertility rate, not Overshoot. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not Overshoot. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not Overshoot. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another Population Outlook decision, the team knows this: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies age structure | populations | D8 dose | RETRIEVE | L3 | evidence?"
+      hint: "Use the stated evidence and the conditions for age structure | populations | D8 dose | RETRIEVE | L3 | evidence; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "This describes Total fertility rate, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Read the age structure connects the measured environmental mechanism to the next island condition.", why: "Correct. read the age structure connects the measured environmental mechanism to the next island condition."}
+      - {key: "C", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from The Population Outlook to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?"
+      hint: "Use the stated evidence and the conditions for population growth | populations | 14; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "This describes Total fertility rate, not population growth | populations | 14. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not population growth | populations | 14. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Calculate population growth connects the measured environmental mechanism to the next island condition.", why: "Correct. calculate population growth connects the measured environmental mechanism to the next island condition."}
+      - {key: "D", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not population growth | populations | 14. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 14: worked examples"
+    examples:
+    - {"title":"Population balance","problem":"A population starts at 100, with 20 births, 5 immigrants, 10 deaths and 5 emigrants. Find its ending size.","rule":"N_end=N_start+births+immigration-deaths-emigration.","steps":["Set up the relationship: N_end=N_start+births+immigration-deaths-emigration.","N_end=100+20+5-10-5=110."],"answer":"The population increases by 10 to 110.","mistake":"Immigration adds individuals; emigration removes them."}
+    - {"title":"Percent population growth","problem":"A population of 1000 gains 40 individuals net during a year. Find its annual percent growth.","rule":"Growth percent=net change/starting population×100%.","steps":["Set up the relationship: Growth percent=net change/starting population×100%.","growth=40/1000×100%=4%."],"answer":"The population grew by 4% during the year.","mistake":"Use the starting population as the denominator."}
+    - {"title":"Approximate doubling time","problem":"A population grows at 2% per year. Estimate doubling time with the rule of 70.","rule":"Approximate doubling time=70/(percent annual growth rate).","steps":["Set up the relationship: Approximate doubling time=70/(percent annual growth rate).","doubling time≈70/2=35 years."],"answer":"The estimated doubling time is 35 years at sustained growth.","mistake":"Use 2, not 0.02, in this percent-form rule."}
+    - {"title":"Population momentum","problem":"Fertility falls to replacement level, but many young people are about to enter reproductive ages. Must population stop growing immediately?","rule":"Population change also depends on age structure and the number entering reproductive ages.","steps":["A large young cohort can produce many births even with fewer births per person.","Deaths may remain fewer than births for a time."],"answer":"Population can continue growing through demographic momentum.","mistake":"Replacement fertility does not imply immediate zero population growth."}
+    - {"title":"Combine resident and visitor demand","problem":"There are 100 residents for 10 days and 20 visitors for 5 days, each using 2 resource units per person-day. Find total use.","rule":"Total use=sum of people×days×per-person daily use.","steps":["Set up the relationship: Total use=sum of people×days×per-person daily use.","use=100(10)(2)+20(5)(2)=2000+200=2200 units."],"answer":"Total demand is 2200 units over the specified stays.","mistake":"A visitor count without length of stay does not determine cumulative demand."}
 
   stops:
   # --- Stop 53: Read the age structure
@@ -68,12 +144,13 @@
   - group: REEF
     at: register-desk
     title: "Read the age structure"
-    concept: "age structure | populations | D8 dose | RETRIEVE | L3 | evidence"
-    reason: "The island cannot commit read the age structure until this evidence is resolved."
-    scene: "The biosecurity rule counts arrivals, but permanent demand begins with residents already here. Shape the island age distribution before adding visitors, and the team needs this result before it acts."
-    motivation: "Read the age structure connects the measured environmental mechanism to the next island condition."
-    format: CLOUD
+    concept: 13   # age structure | populations | D8 dose | RETRIEVE | L3 | evidence
+    reason: "The cargo rules cover arrivals, but the demand forecast also needs the resident population's age pattern."
+    scene: "The biosecurity rule counts arrivals, but permanent demand begins with residents already here. Shape the island age distribution before adding visitors."
+    motivation: "The age distribution indicates whether resident demand is associated with a growing, stable, or aging population."
+    format: CHOICE
     question: "Plot age bins 0-14=28, 15-44=62, 45-64=91, and 65+=74 people; submit growing, stable, or declining"
+    figure: {"kind":"bars","xLabel":"Age group","yLabel":"People","caption":"Vellan's population by age group.","bars":[{"name":"Age group 1","value":28},{"name":"Age group 2","value":62},{"name":"Age group 3","value":91},{"name":"Age group 4","value":74}]}
     answerText: "The completed check shows the resident population is top-heavy and declining."
     why: "Read the age structure connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -84,6 +161,16 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   cloud:{bins:[{age:"0-14",count:28},{age:"15-44",count:62},{age:"45-64",count:91},{age:"65+",count:74}],correct:declining,shape:top_heavy}
+    choices:
+      - The resident population is top-heavy and declining
+      - Treat the settings table as the conclusion without reading the pattern.
+      - Claim a cause or trend stronger than the displayed readings support.
+    answer: The resident population is top-heavy and declining
+    rebuttals:
+      - Settings are inputs; the measured cloud or pattern is the evidence.
+      - The observations support the bounded conclusion, not the stronger claim.
+    cloud:
+      bounds: {}
 
   # --- Stop 54: Calculate population growth
   #     Concept: population growth | populations | 14; Keystone: population growth | populations | 14; Area: Reef Station; Learning role: PRACTICE; Difficulty: L3; Story role: population growth | populations | 14.
@@ -91,12 +178,12 @@
   - group: REEF
     at: register-desk
     title: "Calculate population growth"
-    concept: "population growth | populations | 14"
-    reason: "The island cannot commit calculate population growth until this evidence is resolved."
-    scene: "The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70, and the team needs this result before it acts."
-    motivation: "Calculate population growth connects the measured environmental mechanism to the next island condition."
+    concept: 10   # population growth | populations | 14
+    reason: "The age pattern needs confirmation from births and deaths before a growth forecast is used."
+    scene: "The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70."
+    motivation: "Natural population growth determines whether projecting a future doubling is meaningful for the island."
     format: BALLPARK
-    question: "Apply PGR=(births-deaths)/population*100 using 3 births, 6 deaths, and 255 people; submit percent/year and whether doubling time is meaningful"
+    question: "Population growth rate is PGR=(births-deaths)/population*100. Using 3 births, 6 deaths, and 300 people, submit PGR in percent per year and decide whether the Rule of 70 doubling-time estimate, 70 divided by a positive growth rate, applies."
     # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
     # and its `equation` the template; `truth: -1.18` is the target and its
     # `tolerance: 0.02` is already an absolute band on a percentage.
@@ -118,7 +205,7 @@
       units: percent/year
       solution: (3 - 6) ÷ 255 × 100 = -1.18 per cent a year.
       explanation: More deaths than births makes the rate negative, and a negative rate has no doubling time — the island is halving, slowly.
-    answerText: "The completed check shows growth is -1.18%/year; a doubling time is not meaningful."
+    answerText: "The completed check shows growth is -1.0%/year; a doubling time is not meaningful."
     why: "Calculate population growth connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -135,12 +222,12 @@
   - group: CHAPEL
     at: council-table
     title: "Close the person-day balance"
-    concept: "person-days | closed budgets | 14"
-    reason: "The island cannot commit close the person-day balance until this evidence is resolved."
+    concept: 22   # person-days | closed budgets | 14
+    reason: "A declining resident count does not establish July demand once ferry visitors are included."
     scene: "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days, and the team needs this result before it acts, and this result will guide the next safe decision."
-    motivation: "Close the person-day balance connects the measured environmental mechanism to the next island condition."
+    motivation: "Total person-days places residents and short-stay visitors on the same seasonal water-and-waste demand scale."
     format: BALANCE
-    question: "Apply person-days=people*days using 255 residents*31 days, 340 visitors/day*8 current sailing days, and another 2720 visitor-days for the second ferry; submit total"
+    question: "Apply person-days=people*days using 250 residents × 30 days, 300 visitors/day × 8 current sailing days, and another 2,400 visitor-days for the second ferry; submit total"
     relationship: "demand = resident person-days + current-ferry visitor person-days + second-ferry visitor person-days"
     # THE BIBLE'S PAYLOAD, converted. Its `correct: 13345` is the ledger's total
     # and each stream keeps the bible's value; the ferry crew keeps `counts:
@@ -157,7 +244,7 @@
       - { id: crew_already_in_resident_count, label: Ferry crew, value: 248, unit: person-days, countable: false,
           unitNote: "The crew live on the island and are already inside the resident count." }
       commit: Report the demand
-    answerText: "The completed check shows the second-ferry July case is 13,345 person-days."
+    answerText: "The completed check shows the second-ferry July case is 12,300 person-days."
     why: "Close the person-day balance connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -175,13 +262,13 @@
     at: common-map
     title: "Stress the human-demand forecast"
     person: voss
-    concept: "footprint and demand | population and policy | 14"
-    reason: "The island cannot commit stress the human-demand forecast until this evidence is resolved."
-    scene: "The common ledger now includes 13,345 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition, and the team needs this result before it acts."
-    motivation: "Stress the human-demand forecast connects the measured environmental mechanism to the next island condition."
+    concept: 22   # footprint and demand | population and policy | 14
+    reason: "The combined person-day estimate still needs testing against uncertain per-person resource use."
+    scene: "The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition."
+    motivation: "The footprint range determines how the visitor cap must depend on available water and waste capacity."
     format: STRESS
     question: "Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers"
-    answerText: "The completed check shows plan for 13,345 July person-days and condition the cap on water and waste."
+    answerText: "The completed check shows plan for 12,300 July person-days and condition the cap on water and waste."
     why: "Stress the human-demand forecast connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -191,4 +278,40 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   stress:{assumption:footprint_ha_person,range:[1.8,5.0],seasonal_unit:person_days,long_term_unit:age_structure,correct_plan:conditional_visitor_cap}
+    stress:
+      candidates:
+        - id: nominal_only
+          label: Use only the nominal reading
+        - id: common_extreme_mistake
+          label: Use the favorable extreme as if it were guaranteed
+        - id: robust_plan
+          label: Plan for 12,300 July person-days and condition the cap on water and waste
+      criteria:
+        - key: evidence_fit
+          label: fit to the stop evidence
+        - key: safety_margin
+          label: margin at the adverse end
+      scores:
+        nominal_only:
+          evidence_fit: 95
+          safety_margin: 20
+        common_extreme_mistake:
+          evidence_fit: 88
+          safety_margin: 5
+        robust_plan:
+          evidence_fit: 82
+          safety_margin: 92
+      feasible:
+        nominal_only: 3.4
+        common_extreme_mistake: 3.4
+        robust_plan: 1.8
+      assumption:
+        label: ecological footprint
+        unit: ha/person
+        min: 1.8
+        max: 5
+        nominal: 3.4
+        step: 0.2
+      robust: robust_plan
+      optimiseOn: evidence_fit
 

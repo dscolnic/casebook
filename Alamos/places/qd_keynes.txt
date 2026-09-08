@@ -1,0 +1,87 @@
+KEYNES AND THE GREAT DEPRESSION (theme: qd_keynes) — PLACES AND LOCATIONS
+Junior Economist · Economic Advisory Building
+Course: Macroeconomics — Keynes and the Great Depression, 1933. Grade 9, nine
+stops, three levels
+Grade 9. One mission is called a Level; a stop is "a room".
+
+A QUICK DISCOVERY: nine stops on a 3 x 3 spine, played in one sitting. No
+warm-up runs and no second-day model — WARMUP_MIN_DAYS is four, and a schedule
+written for a fortnight of mornings would open two of three cards on a run the
+player did not come for. Every card teaches its method before it asks
+anything.
+
+Run it:  cd gamekit && THEME=qd_keynes npm run dev
+
+------------------------------------------------------------------------------
+WHY THIS PLACE IS THIS PLACE  (from the source file that builds it)
+------------------------------------------------------------------------------
+plan.js — the Economic Advisory Building, as data.
+
+One corridor, four working rooms off it, and the rooms nobody works in that
+make it a building rather than a diagram. The place has a shape the campaign
+uses: the flow room and the model room are down one side, the statistics room
+and the policy desk down the other, so a number crosses the corridor twice
+between being counted and being acted on.
+
+Units are metres. +z runs along the corridor, +x is to the right of it.
+
+The flow room is open to the corridor and it is the largest room on the plan,
+because what is in it is a wall-sized board of the whole economy with the
+arrows drawn on it, and the point of that board is that people stand round it
+arguing rather than sitting at it.
+
+`ceiling: false`. A 1933 government building has plaster and pendant fittings,
+and a suspended tile grid is the loudest anachronism available in a room like
+this.
+
+==============================================================================
+1. THE AREAS — 4 rooms carrying a group
+==============================================================================
+
+FLOW — Flow Room
+  Flow Room   [FLOW]  side w, z 4 … 20, OPEN to the spine
+  A wall-sized board of the whole economy with every arrow on it, and no
+  chairs in front of it.
+  Calls: Trace the shock · Follow the round · Say what moves first · Ready to
+  hand over
+
+MODEL — Model Room
+  Model Room   [MODEL]  side w, z 30 … 41
+  A long table, a slide rule with a cracked cursor, and rounds of spending
+  added up where anybody can check them.
+  Calls: Work the rounds · Sum the series · Show the arithmetic · Ready to
+  hand over
+
+STAT — Statistics Room
+  Statistics Room   [STAT]  side e, z 5 … 18
+  Returns by industry, capacity in use, and every figure counted rather than
+  estimated from the mood.
+  Calls: Read the returns · Measure the slack · Price the leakage · Ready to
+  hand over
+
+DESK — Policy Desk
+  Policy Desk   [DESK]  side e, z 20 … 33
+  Where a number becomes a recommendation, and where the conditions on it are
+  written in before it leaves.
+  Calls: Size the response · Test the assumption · Write the conditions ·
+  Ready to hand over
+
+==============================================================================
+2. ROOMS THAT CARRY THE PLACE, NOT A LESSON
+==============================================================================
+Porter's Room   [PORCH]  side w, z -4 … 2, OPEN
+Common Room   [TEA]  side w, z 22 … 28, OPEN
+Stationery Store   [RACK]  side w, z 41 … 47
+Duplicating Room   [DUP]  side e, z -4 … 3
+Library   [LIB]  side e, z 35 … 47
+
+Metrics   corridorHalfWidth 2, roomDepth 8.6, ceilingH 3.8
+
+==============================================================================
+AUTHORING NOTES
+==============================================================================
+· Every `group` here must exist in content/groups.js or its calls are
+  unreachable; worldParity and reachable are what notice.
+· Never place a prop over the spawn or across the main walking line.
+
+Generated from themes/qd_keynes/ — site/plan, fixtures, minors, groups, theme.

@@ -154,6 +154,24 @@ re-import cannot lose it. Write with this in mind rather than around it:
   out.
 - `figure:` — every format renders one, not just DIAGNOSIS. See
   `engine/core/figures.js` for the shapes (`line`, `peaks`, `bars`, gauges).
+  **A Go deeper review question takes the same field**, drawn between the prompt
+  and the options: `deeper.questions[].figure`. A campaign bible authors it as a
+  fenced JSON block under a `**Figure…:**` label inside the review question, and
+  `tools/bible-deeper.mjs` carries the object through untouched —
+
+  ````
+  **Figure - exact player copy:**
+
+  ```json
+  {"kind":"line","xLabel":"Exchange service","yLabel":"Bank support",
+   "caption":"A bowed production possibilities curve.",
+   "series":[{"name":"PPC","points":[[0,100],[40,90],[80,52],[100,0]]}]}
+  ```
+  ````
+
+  Nothing is drawn unless the book carries one, and a block that is not readable
+  JSON is reported rather than repaired — a half-read chart says something the
+  bible did not.
 
 ---
 

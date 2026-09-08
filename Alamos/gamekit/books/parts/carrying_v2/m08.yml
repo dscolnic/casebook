@@ -6,13 +6,20 @@
     header: "8 DAYS."
     title: "THE SCHOOL-WATER FINDING"
     goNow: "Waterworks, Nkemdi at store-gauges."
-    body: "The main repair restored water quantity, yet the school tap still carries more nitrate than the distribution main. Dose depends on concentration, intake, and body size, so children face the largest burden. Compare network samples, then verify the school tap. By the end of the mission, decide the nitrate source and immediate protection."
+    body: "The main pipe repair restored water supply, but the school tap still has more nitrate pollution than the main water pipe. Compare samples and estimate what children would swallow. Find the source and choose immediate protection while the remaining fault is investigated."
     objective: "Identify the school exposure pathway."
   objective: "Identify the school exposure pathway."
-  stake: "The main repair restored water quantity, yet the school tap still carries more nitrate than the distribution main. Dose depends on concentration, intake, and body size, so children face the largest burden. Compare network samples, then verify the school tap. By the end of the mission, decide the nitrate source and immediate protection."
+  stake: "The main pipe repair restored water supply, but the school tap still has more nitrate pollution than the main water pipe. Compare samples and estimate what children would swallow. Find the source and choose immediate protection while the remaining fault is investigated."
   takeaway: "Record the enforceable environmental condition in the mission log."
   segue: "Mission decision: The garden caused the school nitrate spike. Use safe water when nitrate reaches 10.0 mg/L. Isolation lowers the tap to 6.2 mg/L. New farm and waste rules must stop another pulse."
   # The mission card's own "Primer concepts", printed on the plan card.
+  terms:
+  - {name: "Dose", def: "amount of a substance received per body mass."}
+  - {name: "Threshold response", def: "effect begins above a dose."}
+  - {name: "Bioavailability", def: "fraction absorbed."}
+  - {name: "Median lethal dose (LD50)", def: "dose lethal to half a test population; lower means more toxic."}
+  equations:
+  - {"e":"dose=(concentration×intake volume)/body mass","c":"Apply this relationship to the mission decision.","v":[["dose","pollutant mass per unit body mass"],["concentration","pollutant mass per unit volume"],["intake volume","consumed volume"],["body mass","the exposed person's mass"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "dose-response often forms an S-curve; children can receive larger mass-normalized dose; source location follows spatial patterns."
 
@@ -26,7 +33,7 @@
     world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
     panel: "MISSION 8: PROBE THE NITRATE NETWORK OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
+    - who: voss   # Mara Voss
       say: "Start with probe the nitrate network. We need evidence the next decision can use."
   - id: after-stop-29
     # After Stop 29 | register-desk | automatic
@@ -34,32 +41,100 @@
     world: "First result: The result remains on its equipment panel and."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "Use the Stop 29 result to settle compare child and adult dose."
+    - who: voss   # Mara Voss
+      say: "Nice work. Use the Stop 29 result to settle compare child and adult dose."
   - id: after-stop-30
     # After Stop 30 | school-tap | automatic
     on: { after: [2] }
     world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
     panel: "STOP 30 RECORDED - STOP 31 OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "Use the Stop 30 result to settle verify the garden source."
+    - who: voss   # Mara Voss
+      say: "Good thinking. Use the Stop 30 result to settle verify the garden source."
   - id: after-stop-31
     # After Stop 31 | school-tap | automatic
     on: { after: [3] }
     world: "Synthesis: Stop 31 changes the persistent board and unlocks the decision stop."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "Use the Stop 31 result to settle set the school action level."
+    - who: voss   # Mara Voss
+      say: "Exactly right. Use the Stop 31 result to settle set the school action level."
   - id: at-mission-end
     # At mission end | store-gauges | automatic
     on: { missionEnd: true }
     world: "Decision and hook: Stop 32 applies the world change, triggers the outcome, and names the next mission problem."
     panel: "MISSION 8 EVIDENCE: RECORDED"
     bubbles:
-    - who: mission-lead   # Mission lead
-      say: "The mission decision is recorded. Carry it into the next briefing."
+    - who: voss   # Mara Voss
+      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+
+  # The optional review, offered when the mission is finished and graded
+  # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
+  deeper:
+    intro: "You completed The School-Water Finding. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    questions:
+    - prompt: "In a follow-up to The School-Water Finding, because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies Dose?"
+      hint: "Use the stated evidence and the conditions for Dose; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Effect begins above a dose.", why: "This describes Threshold response, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Amount of a substance received per body mass.", why: "Correct. amount of a substance received per body mass."}
+      - {key: "C", text: "Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.", why: "This describes Bioavailability, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Probe the nitrate network connects the measured environmental mechanism to the next island condition.", why: "This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council receives a second case related to The School-Water Finding: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which interpretation of the displayed evidence correctly uses the mission concept?"
+      hint: "Read the axes, units, direction, and any threshold before comparing the choices."
+      answer: "C"
+      figure: {"kind":"line","xLabel":"Ordered measurement","yLabel":"Decision quantity","caption":"Measurements approach and then cross the action threshold.","series":[{"name":"Measured","points":[[1,42],[2,48],[3,55],[4,63],[5,71]]}],"limit":{"at":60,"label":"Action threshold"}}
+      options:
+      - {key: "A", text: "Amount of a substance received per body mass.", why: "This describes Dose, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.", why: "This describes Bioavailability, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Effect begins above a dose.", why: "Correct. effect begins above a dose."}
+      - {key: "D", text: "Probe the nitrate network connects the measured environmental mechanism to the next island condition.", why: "This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "A teammate rechecks The School-Water Finding using new evidence: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies Bioavailability?"
+      hint: "Use the stated evidence and the conditions for Bioavailability; do not choose an option merely because it names a familiar term."
+      answer: "D"
+      options:
+      - {key: "A", text: "Amount of a substance received per body mass.", why: "This describes Dose, not Bioavailability. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Effect begins above a dose.", why: "This describes Threshold response, not Bioavailability. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Probe the nitrate network connects the measured environmental mechanism to the next island condition.", why: "This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Bioavailability. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.", why: "Correct. fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic."}
+    - prompt: "An unseen case extends The School-Water Finding: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence?"
+      hint: "Use the stated evidence and the conditions for nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence; do not choose an option merely because it names a familiar term."
+      answer: "A"
+      options:
+      - {key: "A", text: "Probe the nitrate network connects the measured environmental mechanism to the next island condition.", why: "Correct. probe the nitrate network connects the measured environmental mechanism to the next island condition."}
+      - {key: "B", text: "Amount of a substance received per body mass.", why: "This describes Dose, not nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: "Effect begins above a dose.", why: "This describes Threshold response, not nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.", why: "This describes Bioavailability, not nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "Before another School-Water Finding decision, the team knows this: because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies dose | pollution | 8?"
+      hint: "Use the stated evidence and the conditions for dose | pollution | 8; do not choose an option merely because it names a familiar term."
+      answer: "B"
+      options:
+      - {key: "A", text: "Amount of a substance received per body mass.", why: "This describes Dose, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Compare child and adult dose connects the measured environmental mechanism to the next island condition.", why: "Correct. compare child and adult dose connects the measured environmental mechanism to the next island condition."}
+      - {key: "C", text: "Effect begins above a dose.", why: "This describes Threshold response, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "D", text: "Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.", why: "This describes Bioavailability, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+    - prompt: "the island council applies the lesson from The School-Water Finding to this follow-up: the dose comparison makes the school tap urgent, while the branch location narrows the source. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies source timing | causality | D3 | RETRIEVE | L4 | twist?"
+      hint: "Use the stated evidence and the conditions for source timing | causality | D3 | RETRIEVE | L4 | twist; do not choose an option merely because it names a familiar term."
+      answer: "C"
+      options:
+      - {key: "A", text: "Amount of a substance received per body mass.", why: "This describes Dose, not source timing | causality | D3 | RETRIEVE | L4 | twist. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "B", text: "Effect begins above a dose.", why: "This describes Threshold response, not source timing | causality | D3 | RETRIEVE | L4 | twist. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+      - {key: "C", text: ", measure, interpret, and restore normal flow.", why: "Correct. , measure, interpret, and restore normal flow"}
+      - {key: "D", text: "Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.", why: "This describes Bioavailability, not source timing | causality | D3 | RETRIEVE | L4 | twist. It does not account for the quantities, conditions, or evidence in this environmental science case."}
+
+  # The five worked examples the mission card offers behind a button.
+  # GENERATED by tools/bible-examples.mjs from the campaign bible. Reference,
+  # never graded — see the panel in engine/core/worked.js.
+  worked:
+    label: "Worked examples"
+    title: "Mission 8: worked examples"
+    examples:
+    - {"title":"Body-mass-normalized dose","problem":"Water contains 2 mg/L of a substance. A 20 kg child drinks 1 L. Find intake per kilogram.","rule":"Dose=concentration×intake volume/body mass.","steps":["Set up the relationship: Dose=concentration×intake volume/body mass.","dose=(2 mg/L)(1 L)/(20 kg)=0.1 mg/kg."],"answer":"The intake is 0.1 mg per kg for this drinking event.","mistake":"Dose is not the same quantity as water concentration."}
+    - {"title":"Same water, different dose","problem":"Two people each ingest 2 mg of a substance. Their body masses are 20 and 80 kg. Compare dose per kilogram.","rule":"Dose=ingested mass/body mass.","steps":["Set up the relationship: Dose=ingested mass/body mass.","first dose=2/20=0.10 mg/kg; second=2/80=0.025 mg/kg."],"answer":"The smaller person receives four times the body-mass-normalized dose.","mistake":"Equal ingested amounts do not imply equal doses per kilogram."}
+    - {"title":"Total versus available contaminant","problem":"Two soils have equal total metal content, but in one soil the metal is tightly bound in an insoluble mineral. Can exposure differ?","rule":"Bioavailability describes the fraction that organisms can absorb under the relevant conditions.","steps":["Equal total mass does not imply equal dissolved or absorbable mass.","The tightly bound form may be less available, depending on chemistry and organisms."],"answer":"Actual exposure can differ despite equal total content.","mistake":"A total-concentration measurement alone may not settle biological uptake."}
+    - {"title":"Read an inclusive threshold","problem":"A fictional laboratory rule permits a sample concentration at or below 5 mg/L. A sample measures exactly 5 mg/L. Classify it under that rule.","rule":"At or below means concentration ≤ limit.","steps":["comparison = 5 ≤ 5, which is true. Equality is included.","classification = passes this concentration rule. No claim about other requirements follows."],"answer":"This measurement passes the stated inclusive threshold.","mistake":"Replacing ≤ with < would wrongly exclude equality."}
+    - {"title":"Concentration and pollutant load","problem":"A stream flows at 10 L/s with pollutant concentration 2 mg/L. Find pollutant load.","rule":"Mass load=volume flow×concentration.","steps":["Set up the relationship: Mass load=volume flow×concentration.","load=10 L/s×2 mg/L=20 mg/s."],"answer":"The stream carries 20 mg of pollutant each second.","mistake":"Concentration alone does not state total pollutant transport."}
 
   stops:
   # --- Stop 29: Probe the nitrate network
@@ -68,10 +143,10 @@
   - group: WATER
     at: store-gauges
     title: "Probe the nitrate network"
-    concept: "nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence"
-    reason: "The island cannot commit probe the nitrate network until this evidence is resolved."
-    scene: "The repaired main removes quantity loss but not the nitrate gradient. Probe the source, junction, school branch, harbour branch, and school tap to locate the first increase, and the team needs this result before it acts."
-    motivation: "Probe the nitrate network connects the measured environmental mechanism to the next island condition."
+    concept: 28   # nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence
+    reason: "Repairing the main restores water quantity but leaves the school nitrate warning unresolved."
+    scene: "The repaired main removes quantity loss but not the nitrate gradient. Probe the source, junction, school branch, harbour branch, and school tap to locate the first increase."
+    motivation: "The first concentration increase localizes the contamination source instead of blaming the whole water supply."
     format: PROBE
     question: "Probe all five stations, compare each station reading with its own expected 6.0-6.5 mg/L range and displayed load at 2.0 L/min, and submit the first break plus source conclusion"
     # THE BIBLE'S PAYLOAD, converted. Each station's `reading`, `flow` and `load`
@@ -111,10 +186,10 @@
   - group: TIP
     at: register-desk
     title: "Compare child and adult dose"
-    concept: "dose | pollution | 8"
-    reason: "The island cannot commit compare child and adult dose until this evidence is resolved."
-    scene: "Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult, and the team needs this result before it acts."
-    motivation: "Compare child and adult dose connects the measured environmental mechanism to the next island condition."
+    concept: 29   # dose | pollution | 8
+    reason: "The school-branch finding makes body-size differences relevant to the exposure decision."
+    scene: "Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult."
+    motivation: "Dose per kilogram determines whether the same water concentration exposes children more heavily than adults."
     format: BALLPARK
     question: "Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day"
     # THE BIBLE'S PAYLOAD, converted. Its `equation` and both `cases` supply the
@@ -159,10 +234,10 @@
   - group: CHAPEL
     at: school-tap
     title: "Verify the garden source"
-    concept: "source timing | causality | D3 | RETRIEVE | L4 | twist"
-    reason: "The island cannot commit verify the garden source until this evidence is resolved."
-    scene: "The dose comparison makes the school tap urgent, while the branch location narrows the source. Predict dilution, isolate the garden connection, measure, interpret, and restore normal flow, and the team needs this result before it acts."
-    motivation: ", measure, interpret, and restore normal flow"
+    concept: 27   # source timing | causality | D3 | RETRIEVE | L4 | twist
+    reason: "The child-dose result makes the suspected garden connection urgent to test."
+    scene: "The dose comparison makes the school tap urgent, while the branch location narrows the source. Predict dilution, isolate the garden connection, measure, interpret, and restore normal flow."
+    motivation: "The isolation measurement determines whether the local connection accounts for nitrate beyond the predicted mixed-water concentration."
     format: VERIFY
     question: "CALCULATE AND COMMIT the equal-volume mix of 11.2 and 6.0 mg/L; OPERATE by closing only the garden valve; MEASURE nitrate; INTERPRET the source; restore the valve and remeasure baseline"
     answerText: "The completed check shows prediction is 8.6 mg/L; isolation measures 6.2 mg/L and identifies the local garden input."
@@ -175,6 +250,17 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   verify:{required_sequence:[calculate_commit,operate,measure,interpret],operate_unlocked_when:prediction_committed,prediction:{equation:"Cmix=(C1V1+C2V2)/(V1+V2)",inputs:{C1:11.2,C2:6.0,V1:1.0,V2:1.0},units:{C:"mg/L",V:L},truth:8.6,tolerance:0.1},operate:{changed:garden_valve,setting:closed,fixed:[pump_state,sampling_time,tap_flow]},measure:{nitrate:{value:6.2,unit:"mg/L"}},interpret:{correct:local_garden_input},restore:{required:true,setting:open,remeasured_baseline:{value:11.2,unit:"mg/L"}}}
+    verify:
+      prediction:
+        min: 4.3
+        max: 12.9
+        step: 0.86
+      truth: 8.6
+      passRatio:
+        - 0.95
+        - 1.05
+      measurement:
+        label: independent measured value
 
   # --- Stop 32: Set the school action level
   #     Concept: public-health action | policy | 8; Keystone: public-health action | policy | 8; Area: Chapel Council Room; Learning role: PRACTICE; Difficulty: L3; Story role: public-health action | policy | 8.
@@ -182,10 +268,10 @@
   - group: CHAPEL
     at: school-tap
     title: "Set the school action level"
-    concept: "public-health action | policy | 8"
-    reason: "The island cannot commit set the school action level until this evidence is resolved."
-    scene: "The controlled isolation identifies the garden connection, but children need a rule before repairs finish. Commit an inclusive action level before new samples appear, and the team needs this result before it acts."
-    motivation: ", but children need a rule before repairs finish. Commit an inclusive action level before new samples appear"
+    concept: 29   # public-health action | policy | 8
+    reason: "The garden input is identified, but school water needs an enforceable rule while repairs proceed."
+    scene: "The controlled isolation identifies the garden connection, but children need a rule before repairs finish. Commit an inclusive action level before new samples appear."
+    motivation: "The inclusive nitrate threshold determines which new samples require protective action at the school tap."
     format: TRIGGER
     question: "Set replacement water when nitrate is greater than or equal to 10.0 mg/L; apply it to 11.2, 9.8, and 10.0 mg/L"
     answerText: "The completed check shows act at 11.2 and 10.0 mg/L; do not act at 9.8 mg/L."
@@ -198,4 +284,37 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   trigger:{rule:"replacement water when nitrate>=threshold",threshold:10.0,unit:"mg/L",scale:[0,15],anchors:[6,8,10,12],updates:[11.2,9.8,10.0],correct_actions:[act,no_act,act]}
+    trigger:
+      scale:
+        label: nitrate concentration
+        unit: mg/L
+        min: 0
+        max: 15
+        step: 0.1
+        anchors:
+          - at: 3
+            means: routine baseline, not the decision threshold
+          - at: 9.75
+            means: elevated evidence requiring attention
+      direction: rising
+      conditions:
+        - id: act
+          label: Take the protective action
+          leadHours: 12
+          window:
+            min: 10
+            max: 15
+      stream:
+        - at: T-48 h
+          value: 8
+          hoursLeft: 48
+        - at: T-24 h
+          value: 9.8
+          hoursLeft: 24
+        - at: T-12 h
+          value: 10
+          hoursLeft: 12
+        - at: T-6 h
+          value: 11.2
+          hoursLeft: 6
 
