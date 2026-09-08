@@ -8,7 +8,7 @@ export const ROSTER = [
     "name": "Ruth Bell",
     "role": "cage operator",
     "division": "BANK",
-    "color": "#4f7fa8",
+    "color": "#2f6f9f",
     "bio": "<p>Ruth Bell is cage operator. Wants keep the shift moving without another landing overrun. The drum record has usually been a sufficient proxy for cage motion. The independent cage record makes her require two motion histories. Says, \"Which part is still moving?\"</p>"
   },
   {
@@ -16,7 +16,7 @@ export const ROSTER = [
     "name": "Ewan Price",
     "role": "winding engineer",
     "division": "WIND",
-    "color": "#c2703f",
+    "color": "#7a5aa8",
     "bio": "<p>Ewan Price is winding engineer. Wants keep a usable winding service rather than shut the mine indefinitely. The old inertia drawing and a good empty test initially look adequate. He accepts a slower tested range instead of the largest motor-feasible speed. Says, \"What else must this shaft turn?\"</p>"
   },
   {
@@ -24,7 +24,7 @@ export const ROSTER = [
     "name": "Mara Shaw",
     "role": "rope technician",
     "division": "ROPE",
-    "color": "#8a8f4a",
+    "color": "#c2704a",
     "bio": "<p>Mara Shaw is rope technician. Wants protect sound rope from replacement while identifying real motion limits. A passed mean-pull test can distract from rapidly changing stretch. She makes rope length and residual state explicit in each accepted profile. Says, \"What length was hanging?\"</p>"
   },
   {
@@ -32,7 +32,7 @@ export const ROSTER = [
     "name": "Ada Kerr",
     "role": "mine safety engineer",
     "division": "CAGE",
-    "color": "#6f6a86",
+    "color": "#3f8d6e",
     "bio": "<p>Ada Kerr is mine safety engineer. Wants explain March and protect the people who ride the cage. An empty success initially seems close to full acceptance. She narrows the approved test scope after the warm-pad contradiction. Says, \"What did this test actually prove?\"</p>"
   },
   {
@@ -40,7 +40,7 @@ export const ROSTER = [
     "name": "Ivo Reed",
     "role": "conveyor foreman",
     "division": "TIP",
-    "color": "#8a5f3f",
+    "color": "#8a7a3f",
     "bio": "<p>Ivo Reed is conveyor foreman. Wants restore steady ore delivery without breaking the bin again. Standing belt mass has been his familiar overload measure. He separates stored load, arrival rate and impact duration. Says, \"How much arrives each second?\"</p>"
   },
   {
@@ -48,7 +48,7 @@ export const ROSTER = [
     "name": "Nia Cole",
     "role": "survey engineer",
     "division": "GRAV",
-    "color": "#3f8f7a",
+    "color": "#4f6f8f",
     "bio": "<p>Nia Cole is survey engineer. Wants maintain a defensible survey tied to reference readings. A tidy spherical model can be easier to discuss than messy local evidence. She records local measurements separately from ideal depth predictions. Says, \"What did the reference do?\"</p>"
   }
 ];

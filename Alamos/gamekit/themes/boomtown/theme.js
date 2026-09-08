@@ -69,6 +69,12 @@ export default {
     + 'they are asked to trust.',
   ],
 
+  // NO WARM-UP RUNS. A run before mission 1 is a tutorial wedged between the
+  // opening card and the first thing the campaign says, and the later ones cost
+  // a morning each on a campaign whose bible never asked for them. A campaign
+  // that wants them authors them and sets this true. See engine/core/warmups.js.
+  warmupRuns: false,
+
   content: {
     CURRICULUM, BALLPARK_CALCS, JARGON,
     MISSIONS: MISSION_DEFS,

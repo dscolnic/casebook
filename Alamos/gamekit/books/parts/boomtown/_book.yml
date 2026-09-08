@@ -1220,26 +1220,3 @@ interiors:
 
 # --------------------------------------------------------------- the warm-ups
 
-warmups:
-  greet:
-    title: The mesa is full of people who cannot tell you what they do
-    why: Meet the people in each division so you know who can help when the work begins.
-  trial-near:
-    title: Walk the mesa before you are trusted with an errand on it
-    why: Visit the main buildings now so you can cross the mesa quickly when an urgent job starts.
-  follow:
-    title: Keep up with the commanding general
-    why: Keep up with the commanding general so you can see which parts of the lab need help.
-  hunt:
-    title: Five detectors signed out, and the log accounts for three
-    item: {name: detector, plural: detectors}
-    why: Find the two missing detectors so every later count can be tied to the right instrument.
-  canvass:
-    title: Who is worried about the same thing you are
-    why: Ask each division about the problem so you know whether anyone has already solved part of it.
-  evade:
-    title: The security officer with questions about your notebook
-    why: Avoid the security officer until the laboratory director can explain why your notebook was in the wrong building.
-  tag:
-    title: Catch the theory chief before the Tuesday meeting
-    why: Reach the theory chief before his meeting so your team uses the corrected number this afternoon.

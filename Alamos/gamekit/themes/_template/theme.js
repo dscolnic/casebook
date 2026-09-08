@@ -43,6 +43,14 @@ export default {
   // is measured from here, not from wherever the player is standing.
   start: site.spawn,
 
+  // NO WARM-UP RUNS. A run before mission 1 is a tutorial wedged between the
+  // opening card and the first thing the campaign says, and the ones on days 4,
+  // 8 and 13 cost a morning each. The schedule is generated and its cards fall
+  // back to the engine's own words, so a campaign that never asked for runs
+  // still opens on one and it reads as filler. Write the book's `warmups:`
+  // block and set this true if this campaign wants them.
+  warmupRuns: false,
+
   content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
   people: {

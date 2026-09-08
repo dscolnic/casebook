@@ -1200,41 +1200,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "trial-near": {
-    "title": "Walk the yard before the inspection",
-    "why": "Five buildings, a headframe and a conveyor, and the rope crosses the yard at head height between two of them."
-  },
-  "trial-far": {
-    "title": "The bench track, and the hut at the end of it",
-    "why": "The gravity station is three hundred metres out along the bench and the track is peat for the last hundred. Take it once before you need to, because the day Dr. Lena Sokol, the geophysicist, has the shaft for two hours you will be walking it with an instrument that must not be jarred."
-  },
-  "greet": {
-    "title": "Twelve people, and two of them have been arguing for two years",
-    "why": "This shaft runs on an argument between Delia Marchetti, the winding engineer, and Samuel Otieno, the chief rope examiner, and you will be carrying numbers between them all fortnight. Get round the whole crew first, because half of what is not in the submission is in somebody's notebook."
-  },
-  "follow": {
-    "title": "The rope inspection route, walked by the man who splices it",
-    "why": "Kit Nowak, the rope splicer, walks the rope from the drum to the sheave to the cappel on the same route every week, and the route is not written down anywhere. Stay with him along it. Where he stops is where the rope is watched, and the forty metres that have been cut off it in two years were all cut at one of those stops."
-  },
-  "hunt": {
-    "title": "Six guide clamps, and the sheet accounts for four",
-    "item": {
-      "name": "guide clamp",
-      "plural": "guide clamps"
-    },
-    "why": "The cage runs on steel guides held by clamps, and two of the clamps replaced after March are not where the sheet says they are. A clamp nobody can find is either doing nothing or holding a guide out of line, and a guide out of line is what turns a bounce into a jam."
-  },
-  "canvass": {
-    "title": "Who else felt the March stop",
-    "why": "Eleven men were underground when the brake went on in March and the only record is a drum trace and a position tape. Ask round the crew and the fitters until enough accounts agree on what the cage did afterwards, because two instruments and no witnesses is not an account of an incident."
-  },
-  "evade": {
-    "title": "The maker's man who wants to fit new pads today",
-    "why": "He has driven three hours with a set of pads and wants them on before the inspection, which would replace the one piece of physical evidence from March. The argument belongs to Iona Craig, the brake fitter, not to you. Keep clear of him and get your round done rather than spending the afternoon at the brake house."
-  },
-  "tag": {
-    "title": "Catch Sokol before she goes down the shaft",
-    "why": "Dr. Lena Sokol, the geophysicist, has two hours in the shaft on Thursday and she leaves the bench at seven. The elevation of the inset station comes off an eighteen-year-old shaft measurement, and once she is below ground nobody can hand her anything, so the level book has to reach her on the surface."
-  }
-};
+export const WARMUPS = {};

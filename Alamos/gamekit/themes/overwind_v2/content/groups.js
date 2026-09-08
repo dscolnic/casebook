@@ -7,36 +7,36 @@ export const GROUPS = [
     "id": "BANK",
     "code": "BANK",
     "name": "The Bank",
-    "color": "#4f7fa8",
-    "difficulty": 3,
+    "color": "#2f6f9f",
+    "difficulty": 2,
     "type": "protocol",
-    "desc": "The top landing, and the profile every wind is driven to.",
+    "desc": "Source position (-9, -4); canonical named owner Ruth Bell, cage operator.",
     "defaultLeader": "bell",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read the profile",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read the profile"
+        "brief": "Open the room"
       },
       {
-        "name": "Differentiate it",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Differentiate it"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Integrate it back",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Integrate it back"
+        "brief": "Settle the question"
       },
       {
-        "name": "Ready to hand over",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Ready to hand over"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -48,36 +48,36 @@ export const GROUPS = [
     "id": "WIND",
     "code": "WIND",
     "name": "Winder House",
-    "color": "#c2703f",
+    "color": "#7a5aa8",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "A drum, a motor and a brake, and everything that turns with them.",
+    "desc": "Source position (-30, 6); canonical named owner Ewan Price, winding engineer.",
     "defaultLeader": "price",
     "budget": 70,
     "milestones": [
       {
-        "name": "Weigh the drum",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Weigh the drum"
+        "brief": "Open the room"
       },
       {
-        "name": "Take the inertia",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Take the inertia"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Find the torque",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Find the torque"
+        "brief": "Settle the question"
       },
       {
-        "name": "Ready to hand over",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Ready to hand over"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -89,36 +89,36 @@ export const GROUPS = [
     "id": "ROPE",
     "code": "ROPE",
     "name": "Rope Shop",
-    "color": "#8a8f4a",
-    "difficulty": 3,
+    "color": "#c2704a",
+    "difficulty": 4,
     "type": "protocol",
-    "desc": "Twelve hundred metres of steel that weighs more than what it carries.",
+    "desc": "Source position (-34, 34); canonical named owner Mara Shaw, rope technician.",
     "defaultLeader": "shaw",
     "budget": 70,
     "milestones": [
       {
-        "name": "Measure the rope",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Measure the rope"
+        "brief": "Open the room"
       },
       {
-        "name": "Take the tension",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Take the tension"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Find its period",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Find its period"
+        "brief": "Settle the question"
       },
       {
-        "name": "Ready to hand over",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Ready to hand over"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -130,36 +130,36 @@ export const GROUPS = [
     "id": "CAGE",
     "code": "CAGE",
     "name": "Shaft and Brake House",
-    "color": "#6f6a86",
-    "difficulty": 3,
+    "color": "#3f8d6e",
+    "difficulty": 2,
     "type": "protocol",
-    "desc": "What the cage does, what stops it, and where the energy goes.",
+    "desc": "Source position (20, -4); canonical named owner Ada Kerr, mine safety engineer.",
     "defaultLeader": "kerr",
     "budget": 70,
     "milestones": [
       {
-        "name": "Draw the body",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Draw the body"
+        "brief": "Open the room"
       },
       {
-        "name": "Do the work",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Do the work"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Absorb the energy",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Absorb the energy"
+        "brief": "Settle the question"
       },
       {
-        "name": "Ready to hand over",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Ready to hand over"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -171,36 +171,36 @@ export const GROUPS = [
     "id": "TIP",
     "code": "TIP",
     "name": "Tip and Conveyor",
-    "color": "#8a5f3f",
+    "color": "#8a7a3f",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Ore in a stream rather than in a lump, and the force a stream makes.",
+    "desc": "Source position (34, -30); canonical named owner Ivo Reed, conveyor foreman.",
     "defaultLeader": "reed",
     "budget": 70,
     "milestones": [
       {
-        "name": "Weigh the stream",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Weigh the stream"
+        "brief": "Open the room"
       },
       {
-        "name": "Take the impulse",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Take the impulse"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Close the ledger",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Close the ledger"
+        "brief": "Settle the question"
       },
       {
-        "name": "Ready to hand over",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Ready to hand over"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -212,36 +212,36 @@ export const GROUPS = [
     "id": "GRAV",
     "code": "GRAV",
     "name": "Gravity Station",
-    "color": "#3f8f7a",
-    "difficulty": 3,
+    "color": "#4f6f8f",
+    "difficulty": 4,
     "type": "protocol",
-    "desc": "Three hundred metres out on the bench, where g is measured rather than assumed.",
+    "desc": "Source position (-70, -290); canonical named owner Nia Cole, survey engineer.",
     "defaultLeader": "cole",
     "budget": 70,
     "milestones": [
       {
-        "name": "Level the meter",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Level the meter"
+        "brief": "Open the room"
       },
       {
-        "name": "Read the drift",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Read the drift"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Take the difference",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Take the difference"
+        "brief": "Settle the question"
       },
       {
-        "name": "Ready to hand over",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Ready to hand over"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [

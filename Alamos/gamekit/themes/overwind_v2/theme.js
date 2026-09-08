@@ -55,6 +55,12 @@ export default {
   // is measured from here, not from wherever the player is standing.
   start: site.spawn,
 
+  // NO WARM-UP RUNS. A run before mission 1 is a tutorial wedged between the
+  // opening card and the first thing the campaign says, and the later ones cost
+  // a morning each on a campaign whose bible never asked for them. A campaign
+  // that wants them authors them and sets this true. See engine/core/warmups.js.
+  warmupRuns: false,
+
   content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
   people: {

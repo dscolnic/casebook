@@ -66,6 +66,17 @@ THEME=<name> npm run dev
 — because from here on, when a check goes red, the thing you just wrote is what
 broke it. That baseline is the whole point of scaffolding.
 
+**No warm-up runs, unless the campaign asks for one.** A new theme declares
+`warmupRuns: false`, and a campaign built on another game's place must not
+inherit that game's — `build-head.mjs` carries the interiors and the place copy
+across and deliberately leaves `warmups:` behind. A run before mission 1 is a
+tutorial wedged between the opening card and the first thing the campaign says;
+the ones on days 4, 8 and 13 cost a morning each. Four campaigns opened on a
+lap round somebody else's site, greeting a cast they did not have, because the
+schedule is generated and the cards fall back to the engine's own words when
+the book authors none — so it looks deliberate and reads as filler. A campaign
+that wants runs writes the `warmups:` block and sets `warmupRuns: true`.
+
 ## 3. Write the book
 
 A game is one YAML file. `tools/BOOK_TEMPLATE.md` is the format;

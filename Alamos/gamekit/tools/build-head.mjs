@@ -60,7 +60,14 @@ const blockOf = (key) => {
   const next = /\n[a-z][A-Za-z]*:/.exec(rest);
   return '\n' + (next ? rest.slice(0, next.index + 1) : rest).trimEnd() + '\n';
 };
-const after = ['interiors', 'warmups', 'copy'].map(blockOf).filter(Boolean).join('');
+// AND NOT THE WARM-UP RUNS. They looked like the place — a lap round the site,
+// a greeting round the cast — but a run is a piece of the CAMPAIGN: it costs a
+// morning, it is scheduled against the campaign's own days, and its cards are
+// written about the campaign's own people. Carried across, every campaign built
+// on somebody else's place opened on a run its bible never asked for, with a
+// story about a cast it does not have. A campaign that wants runs authors them;
+// see `warmupRuns` in engine/core/warmups.js.
+const after = ['interiors', 'copy'].map(blockOf).filter(Boolean).join('');
 
 // The glossary, whole, out of the bible.
 const gloss = execFileSync(process.execPath,
