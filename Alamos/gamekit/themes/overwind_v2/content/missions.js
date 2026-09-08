@@ -4,7 +4,7 @@
 
 export const MISSIONS = [
   {
-    "title": "# Mission 1 — THE CAGE THAT KEPT GOING",
+    "title": "THE CAGE THAT KEPT GOING",
     "objective": "Can the proposed start be used for passenger trips?",
     "briefing": "",
     "stake": "The March stop left the lift beyond its landing, and faster trips are now proposed. The lift carries people in a steel cage pulled by a rope. At the Bank, compare the planned motion with a small test before anyone rides. By the end of the mission, decide whether the proposed start can be used for passenger trips.",
@@ -63,7 +63,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "For y=3t² metres, differentiate to obtain v=6t metres per second; at t=2 seconds, v=12 metres per second.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For v=5t metres per second from t=0 to 3 seconds, integrate: Δy=[5t²/2]₀³=22.5 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A cart starts at 2 metres per second with acceleration 3 metres per second squared for 2 seconds; v=2+3×2=8 metres per second.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A ball leaves a table horizontally at 3 metres per second from height 5 metres with g=10 metres per second squared; t=√(2h/g)=1 second and range=3 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A platform moves east at 4 metres per second and a walker moves east at 1 metre per second relative to it; ground velocity is 4+1=5 metres per second.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "A correct motion calculation can still fail a safety limit. ---",
     "card": {
@@ -106,7 +132,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 2 — STEEL OUTSIDE THE AXIS",
+    "title": "STEEL OUTSIDE THE AXIS",
     "objective": "Which drum inertia belongs in the winding model?",
     "briefing": "",
     "stake": "The fast start is held, but the machine record may also be wrong. Steel farther from the turning shaft makes a drum harder to speed up. At the Winder House, inspect its shape and compare the turning resistance in the records. By the end of the mission, decide which drum model belongs in the plan.",
@@ -161,7 +187,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A 6 kilogram hoop of radius 0.5 metres has I=MR²=6×0.25=1.5 kilogram metres squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A uniform 8 kilogram disk of radius 1 metre has I=MR²/2=4 kilogram metres squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For a 3 kilogram object with Icm=2 kilogram metres squared, shifting the parallel axis by 2 metres gives I=2+3×4=14 kilogram metres squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A wheel of radius 0.25 metres rolls without slipping at 2 metres per second; ω=v/R=8 radians per second.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A uniform rod of mass 12 kilograms and length 2 metres has Icm=ML²/12=4 kilogram metres squared; about an end it has I=ML²/3=16 kilogram metres squared.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Where mass sits matters when a body turns. ---",
     "card": {
@@ -204,7 +256,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 3 — THE ROPE IS A LOAD",
+    "title": "THE ROPE IS A LOAD",
     "objective": "Does the proposed one-unit acceleration pass the rope pull limit?",
     "briefing": "",
     "stake": "The drum model is fixed, but the rope adds its own weight. The upper rope must pull both the cage and all the steel hanging below it. At the Rope Shop, weigh a sample and test the predicted pull before approving a loaded rise. By the end of the mission, decide whether the proposed acceleration passes the rope limit.",
@@ -263,7 +315,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A 2 kilogram mass accelerates upward at 3 metres per second squared with g=10; T−20=6 gives T=26 newtons.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A rope has mass 18 kilograms over 6 metres; λ=18/6=3 kilograms per metre.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 5 kilogram block rests on a 30 degree incline with g=10; the downslope weight is 50 sin30°=25 newtons and the normal force is 50 cos30°≈43.3 newtons.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For the incline block, μs=0.8 gives maximum static friction 0.8×43.3≈34.6 newtons; actual friction is 25 newtons, so the block can remain at rest.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "Two masses 3 and 1 kilograms hang from an ideal light pulley with g=10; a=(3−1)10/(3+1)=5 metres per second squared and T=3(10−5)=15 newtons.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "A hanging rope is part of the load. ---",
     "card": {
@@ -306,7 +384,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 4 — ONE MOTOR, TWO JOBS",
+    "title": "ONE MOTOR, TWO JOBS",
     "objective": "Which starting acceleration can the motor supply?",
     "briefing": "",
     "stake": "The rope can take the slower rise, but the motor has two jobs. It must pull the hanging load and make the drum turn faster. At the Winder House, combine those demands before restoring the start control. By the end of the mission, decide which starting acceleration the motor can supply.",
@@ -365,7 +443,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A tangential 7 newton force at radius 2 metres gives torque 14 newton metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A force of 10 newtons at radius 3 metres and angle 30 degrees gives τ=30 sin30°=15 newton metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A rotor with I=5 kilogram metres squared under net torque 20 newton metres has α=20/5=4 radians per second squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A wheel starts from rest with α=2 radians per second squared for 3 seconds; ω=6 radians per second and angle turned is 9 radians.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A horizontal beam 4 metres long carries a 60 newton central load; torque balance about the left support gives 4Fright=60×2, so each support supplies 30 newtons.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The motor must supply load torque and acceleration torque. ---",
     "card": {
@@ -408,7 +512,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 5 — ENOUGH ENERGY IS NOT ENOUGH",
+    "title": "ENOUGH ENERGY IS NOT ENOUGH",
     "objective": "Does the lift energy budget clear the emergency stop?",
     "briefing": "",
     "stake": "The motor can start the load, but a full lift still needs enough energy. Work adds up the force applied over each part of a journey. At the brake house and Winder House, total the lift and stored motion before a trial. By the end of the mission, decide whether that energy budget also clears an emergency stop.",
@@ -471,7 +575,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A constant 12 newton force moves an object 3 metres along the force; W=12×3=36 joules.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For F=4x newtons from x=0 to 2 metres, W=∫4x dx=[2x²]₀²=8 joules.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 3 kilogram block rises 2 metres with g=10; gravitational potential energy increases by 3×10×2=60 joules.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For U=5x² joules, F=−dU/dx=−10x newtons; x=0 is a stable minimum because displacement produces a restoring force.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A rotor with I=6 kilogram metres squared at ω=3 radians per second stores K=6×9/2=27 joules.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Enough energy does not establish a safe stop. ---",
     "card": {
@@ -514,7 +644,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 6 — THE STREAM HITS BACK",
+    "title": "THE STREAM HITS BACK",
     "objective": "Which feed change protects the conveyor and bin?",
     "briefing": "",
     "stake": "The lift has enough energy, but the feed belt keeps stopping under small loads. A moving stream can push hard even when little material sits on the belt. At the Tip and brake house, compare steady flow with sudden impacts. By the end of the mission, choose the feed change that protects the belt and bin.",
@@ -569,7 +699,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A 2 kilogram cart changes speed from 1 to 4 metres per second; Δp=2(4−1)=6 kilogram metres per second.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 15 newton force acts for 0.2 seconds; impulse is 15×0.2=3 newton seconds.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A triangular force pulse peaks at 40 newtons over 0.5 seconds; impulse is half the rectangle, 10 newton seconds.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 2 kilogram cart at 3 metres per second sticks to a stationary 1 kilogram cart; common speed is 6/3=2 metres per second and kinetic energy falls from 9 to 6 joules.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "Two equal-mass carts collide elastically in one dimension, one initially at 4 metres per second and the other stationary; momentum and kinetic energy conservation give speeds 0 and 4 metres per second.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Changing momentum over a longer time can reduce force. ---",
     "card": {
@@ -612,7 +768,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 7 — WHAT DEPTH CAN CHANGE",
+    "title": "WHAT DEPTH CAN CHANGE",
     "objective": "Can the local gravity correction explain the March overrun?",
     "briefing": "",
     "stake": "The feed fix works, but two gravity readings in the lift file disagree. A meter can drift with time even when the ground has not changed. At the Gravity Station and Rope Shop, separate that drift from the effect of depth. By the end of the mission, decide whether gravity can explain the March overrun.",
@@ -671,7 +827,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "For a spherical body with GM=200 in compatible units, gravity at radius 10 is 200/100=2 acceleration units.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "In a uniform sphere at radius R/2, enclosed mass is M/8; dividing by radius squared gives local gravity half the surface value.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A repeated reference reads 9.80 then 9.83 metres per second squared; a simultaneous field reading of 9.78 is corrected by subtracting 0.03 to give 9.75.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 50 kilogram mass at g=9.6 metres per second squared weighs 480 newtons; using g=10 gives 500 newtons, 20 newtons too high.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A small-angle pendulum of length 1 metre with g=π² metres per second squared has period 2π√(1/π²)=2 seconds.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "An ideal depth model is different from a measured gravity value. ---",
     "card": {
@@ -714,7 +896,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 8 — POWER ARRIVES TOO LATE",
+    "title": "POWER ARRIVES TOO LATE",
     "objective": "Which cruise speed fits the motor power limit?",
     "briefing": "",
     "stake": "The weight table remains conservative, but the motor cannot deliver energy at any rate. Power measures how quickly a machine does work. At the Winder House and Tip, compare the loaded lift with a smaller drive under steady motion. By the end of the mission, decide which cruise speed fits the motor power limit.",
@@ -781,7 +963,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A 30 newton force moves its point of application at 2 metres per second; power is 60 watts.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A motor delivers 80 joules in 4 seconds; average useful power is 20 watts.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A motor supplies 40 watts with efficiency 0.8; its input is 40/0.8=50 watts.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A shaft turns at 5 radians per second under torque 8 newton metres; power is 8×5=40 watts.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A constant upward force of 100 newtons lifts at 0.5 metres per second for 6 seconds; power is 50 watts and work is 300 joules.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Power limits how fast usable energy can be delivered. ---",
     "card": {
@@ -824,7 +1032,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 9 — THE ROPE HAS ITS OWN CLOCK",
+    "title": "THE ROPE HAS ITS OWN CLOCK",
     "objective": "Can a drum stop time alone predict when the cage stops?",
     "briefing": "",
     "stake": "The power limit is met, but the cage can still move after its support stops. A stretched rope can release stored energy and pull a load back toward rest. At the Rope Shop and Bank, compare stretch and bounce measurements. By the end of the mission, decide whether drum stop time alone predicts when the cage stops.",
@@ -887,7 +1095,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A spring with k=20 newtons per metre stretched 0.3 metres exerts a restoring force of magnitude 6 newtons.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 2 kilogram oscillator with k=8 newtons per metre has ω=√4=2 radians per second and period π seconds.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For x=0.4 cos(3t) metres, v=−1.2 sin(3t) metres per second and a=−3.6 cos(3t) metres per second squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "Two springs with stiffness 12 and 6 newtons per metre in parallel have k=18; in series 1/k=1/12+1/6 gives k=4 newtons per metre.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A hanging spring mass of 1 kilogram with k=50 newtons per metre and g=10 stretches 0.2 metres at equilibrium; small motion about that position has ω=√50 radians per second.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "A fixed support can hold a load that is still moving. ---",
     "card": {
@@ -930,7 +1164,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 10 — MARCH, SECOND BY SECOND",
+    "title": "MARCH, SECOND BY SECOND",
     "objective": "What caused the cage to overrun its March landing?",
     "briefing": "",
     "stake": "The cage has its own bounce period, and the sealed March tape can now be tested. A load can keep moving while a rope changes stretch around its resting length. At the brake house and Rope Shop, reconstruct the motion from the recorded stop. By the end of the mission, decide what caused the cage to overrun its landing.",
@@ -985,7 +1219,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "An oscillator starts at x0=0 with v0=3 metres per second and ω=2 radians per second; amplitude is v0/ω=1.5 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "An oscillator has x0=0.3 metres, v0=0.8 metres per second and ω=2; A=√(0.3²+0.4²)=0.5 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For ω=4 radians per second and positive initial velocity at equilibrium, the first maximum occurs at t=π/(2ω)=π/8 seconds.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 10 newton per metre spring with amplitude 0.2 metres stores total energy kA²/2=0.2 joules; at equilibrium that energy is kinetic.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "For a damped oscillator with envelope A(t)=0.6 exp(−0.1t) metres, after 10 seconds the envelope is 0.6/e≈0.221 metres; damping reduces successive peaks.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Initial motion and restoring force can explain a delayed overrun. ---",
     "card": {
@@ -1028,7 +1288,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 11 — THE TEST THAT PASSED",
+    "title": "THE TEST THAT PASSED",
     "objective": "Does the empty test authorize the faster passenger profile?",
     "briefing": "",
     "stake": "March is explained, and the empty cage now stops within the marked space. Warm brake pads and a heavier load can still change the stopping distance. At the brake house, Bank and Winder House, check the limits before anyone rides. By the end of the mission, decide whether the empty test authorizes the faster passenger profile.",
@@ -1087,7 +1347,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A cart at 6 metres per second brakes with deceleration 3 metres per second squared; distance is 36/(2×3)=6 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "If speed doubles while deceleration stays fixed, braking distance grows by a factor of four because it depends on speed squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A 4 kilogram block slides on a level surface with μk=0.2 and g=10; friction is 8 newtons and deceleration is 2 metres per second squared.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A rotor with I=4 kilogram metres squared slows from 5 radians per second to rest in 2 seconds; angular impulse is −20 kilogram metres squared per second and mean torque is −10 newton metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A rolling solid cylinder has I=MR²/2, so total motion energy is 3Mv²/4; for M=2 kilograms and v=2 metres per second it is 6 joules, exceeding the translational 4 joules.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "A test approves only the conditions it actually covers. ---",
     "card": {
@@ -1130,7 +1416,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 12 — FORTY-ONE TALLIES",
+    "title": "FORTY-ONE TALLIES",
     "objective": "Which complete profile can be signed for the defined operating range?",
     "briefing": "",
     "stake": "The slower candidate fits the worst stopping case, and the last test is ready. A safe plan must satisfy every limit at once for the loads it actually covers. At the Bank, Rope Shop and Winder House, check the final record before opening passenger access. By the end of the mission, choose the complete profile that can be signed.",
@@ -1156,7 +1442,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "",
+          "problem": "A plan uses 70 newtons against an 80 newton limit and 30 watts against a 25 watt limit; it fails overall because every constraint must pass.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A test predicts 1.2 metres with tolerance 0.1 metres; a reading of 1.25 metres passes since the absolute difference is 0.05 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "An excursion bound is v²+v metres with v in metres per second; an allowance of 6 metres permits v=2 but rejects v=3 because the results are 6 and 12 metres.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "A machine delivers 24 joules in 3 seconds at constant rate; power is 8 watts, so a 10 watt limit passes even though the energy and power numbers have different units.",
+          "steps": []
+        },
+        {
+          "title": "",
+          "problem": "An oscillator with ω=3 radians per second and initial speed 0.6 metres per second at equilibrium has amplitude 0.2 metres; halving speed halves amplitude while reducing kinetic energy to one quarter.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "A signed profile must keep every constraint and its tested range. ---",
     "card": {

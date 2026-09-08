@@ -376,7 +376,7 @@ missions:
 # ============================================================ MISSION 1
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 1 — THE CAGE THAT KEPT GOING"
+- title: "THE CAGE THAT KEPT GOING"
   card:
     header: "DAY 1 OF 12 — INSPECTION IN 12 DAYS"
     title: "THE CAGE THAT KEPT GOING"
@@ -632,7 +632,7 @@ missions:
 # ============================================================ MISSION 2
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 2 — STEEL OUTSIDE THE AXIS"
+- title: "STEEL OUTSIDE THE AXIS"
   card:
     header: "DAY 2 OF 12 — INSPECTION IN 11 DAYS"
     title: "STEEL OUTSIDE THE AXIS"
@@ -914,7 +914,7 @@ missions:
 # ============================================================ MISSION 3
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 3 — THE ROPE IS A LOAD"
+- title: "THE ROPE IS A LOAD"
   card:
     header: "DAY 3 OF 12 — INSPECTION IN 10 DAYS"
     title: "THE ROPE IS A LOAD"
@@ -1169,7 +1169,7 @@ missions:
 # ============================================================ MISSION 4
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 4 — ONE MOTOR, TWO JOBS"
+- title: "ONE MOTOR, TWO JOBS"
   card:
     header: "DAY 4 OF 12 — INSPECTION IN 9 DAYS"
     title: "ONE MOTOR, TWO JOBS"
@@ -1430,7 +1430,7 @@ missions:
 # ============================================================ MISSION 5
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 5 — ENOUGH ENERGY IS NOT ENOUGH"
+- title: "ENOUGH ENERGY IS NOT ENOUGH"
   card:
     header: "DAY 5 OF 12 — INSPECTION IN 8 DAYS"
     title: "ENOUGH ENERGY IS NOT ENOUGH"
@@ -1697,7 +1697,7 @@ missions:
 # ============================================================ MISSION 6
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 6 — THE STREAM HITS BACK"
+- title: "THE STREAM HITS BACK"
   card:
     header: "DAY 6 OF 12 — INSPECTION IN 7 DAYS"
     title: "THE STREAM HITS BACK"
@@ -1980,7 +1980,7 @@ missions:
 # ============================================================ MISSION 7
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 7 — WHAT DEPTH CAN CHANGE"
+- title: "WHAT DEPTH CAN CHANGE"
   card:
     header: "DAY 7 OF 12 — INSPECTION IN 6 DAYS"
     title: "WHAT DEPTH CAN CHANGE"
@@ -2256,7 +2256,7 @@ missions:
 # ============================================================ MISSION 8
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 8 — POWER ARRIVES TOO LATE"
+- title: "POWER ARRIVES TOO LATE"
   card:
     header: "DAY 8 OF 12 — INSPECTION IN 5 DAYS"
     title: "POWER ARRIVES TOO LATE"
@@ -2517,7 +2517,7 @@ missions:
 # ============================================================ MISSION 9
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 9 — THE ROPE HAS ITS OWN CLOCK"
+- title: "THE ROPE HAS ITS OWN CLOCK"
   card:
     header: "DAY 9 OF 12 — INSPECTION IN 4 DAYS"
     title: "THE ROPE HAS ITS OWN CLOCK"
@@ -2773,7 +2773,7 @@ missions:
 # ============================================================ MISSION 10
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 10 — MARCH, SECOND BY SECOND"
+- title: "MARCH, SECOND BY SECOND"
   card:
     header: "DAY 10 OF 12 — INSPECTION IN 3 DAYS"
     title: "MARCH, SECOND BY SECOND"
@@ -3060,7 +3060,7 @@ missions:
 # ============================================================ MISSION 11
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 11 — THE TEST THAT PASSED"
+- title: "THE TEST THAT PASSED"
   card:
     header: "DAY 11 OF 12 — INSPECTION IN 2 DAYS"
     title: "THE TEST THAT PASSED"
@@ -3350,7 +3350,7 @@ missions:
 # ============================================================ MISSION 12
 # Lifted from ../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 12 — FORTY-ONE TALLIES"
+- title: "FORTY-ONE TALLIES"
   card:
     header: "DAY 12 OF 12 — INSPECTION IN 1 DAYS"
     title: "FORTY-ONE TALLIES"

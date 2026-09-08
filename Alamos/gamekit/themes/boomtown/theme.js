@@ -19,6 +19,7 @@ import { GROUPS as GROUP_DEFS } from './content/groups.js';
 import { ROSTER as HISTORIC_CHARACTERS, LEADERS, AVATARS } from './content/roster.js';
 import { DIAGNOSIS_PACKS } from './content/shared.js';
 import { INTERIORS } from './interiors.js';
+import metrics from './metrics.js';
 import { FIXTURES } from './fixtures.js';
 import { site } from './site.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
@@ -74,6 +75,22 @@ export default {
   // a morning each on a campaign whose bible never asked for them. A campaign
   // that wants them authors them and sets this true. See engine/core/warmups.js.
   warmupRuns: false,
+
+  // ------------------------------------------------- THE FOUR BARS
+  //
+  // Generated from §2 of the campaign bible by tools/bible-metrics.mjs: the
+  // four bars with their starting values and lock missions, the recovery
+  // formula, the bank cap, and each mission's target time, story event and
+  // automatic change. Wiring it is what puts them on the screen — the file is
+  // written either way, and a theme that does not import it scores nothing.
+  metrics,
+  // The bars are the score, so there is no funding round and no day countdown
+  // beside them: two clocks on one screen is two clocks to choose between.
+  economy: false,
+  // The bible unlocks each stop from the one before ("Unlocks: Stop 3"), and
+  // its beat script is keyed to the stop number that closed. See STOPS_IN_ORDER
+  // in engine/core/constants.js.
+  stopOrder: 'sequential',
 
   content: {
     CURRICULUM, BALLPARK_CALCS, JARGON,

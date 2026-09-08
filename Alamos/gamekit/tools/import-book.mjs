@@ -1065,9 +1065,21 @@ missions.forEach((m, mi) => {
       ? { worked: {
           label: String(m.worked.label ?? 'Worked examples'),
           title: String(m.worked.title ?? 'Worked examples'),
+          // A WORKED EXAMPLE IS A PROBLEM AND WHATEVER ELSE IT CARRIES.
+          //
+          // Requiring an `answer` or `steps` as well is right for the five-part
+          // shape most bibles write — problem, rule, steps, answer, mistake —
+          // and wrong for the one-paragraph shape Whiteout and Overwind write,
+          // where the working IS the paragraph: "With int a = 7; int b = 2;,
+          // Java evaluates a / b as 3. The .5 is discarded because both operands
+          // are integers." Filtered out, 135 examples across two campaigns were
+          // read from the bible, written into the book, carried through
+          // assembly and then dropped here — so the mission card offered no
+          // button at all and nothing anywhere said why. `engine/core/worked.js`
+          // prints a one-part example as itself rather than under a "Problem"
+          // heading it does not have.
           examples: m.worked.examples
-            .filter(x => String(x?.problem ?? '').trim()
-              && (String(x?.answer ?? '').trim() || (x?.steps ?? []).length))
+            .filter(x => String(x?.problem ?? '').trim())
             .map(x => ({
               title: String(x.title ?? ''), problem: String(x.problem),
               ...(x.rule ? { rule: String(x.rule) } : {}),

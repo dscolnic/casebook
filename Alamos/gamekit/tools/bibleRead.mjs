@@ -1117,7 +1117,12 @@ export function readBible(file){
     const wk = worthKnowing(body);
     return {
       n: +head.match(/Mission (\d+)/)[1],
-      title: clean(head.replace(/^# Mission \d+\s*-\s*/, '')),
+      // A DASH IS A DASH. Written `# Mission 1 - THE CAGE`, the prefix comes off
+      // and the title is the name; written with an em dash, which four bibles
+      // do, nothing matched and the whole heading became the title — so every
+      // plan card in those campaigns read "Day 1 — # Mission 1 — THE CAGE THAT
+      // KEPT GOING", with the day counted twice and a stray hash on it.
+      title: clean(head.replace(/^#\s*Mission\s*\d+\s*[-–—:]\s*/i, '').replace(/^#\s*/, '')),
       card: {
         header: field('Header', body),
         title: field('Card title', body),

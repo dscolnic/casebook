@@ -4,7 +4,7 @@
 
 export const MISSIONS = [
   {
-    "title": "# Mission 1 — THE HEAT THAT ISN'T GONE",
+    "title": "THE HEAT THAT ISN'T GONE",
     "objective": "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly.",
     "briefing": "",
     "stake": "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong.",
@@ -46,7 +46,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Integer division",
+          "problem": "With int a = 7; int b = 2;, Java evaluates a / b as 3. The .5 is discarded because both operands are integers.",
+          "steps": []
+        },
+        {
+          "title": "Cast before division",
+          "problem": "(double) 7 / 2 becomes 7.0 / 2, so the result is 3.5. Casting after 7 / 2 would only turn the already-truncated 3 into 3.0.",
+          "steps": []
+        },
+        {
+          "title": "Percentage",
+          "problem": "If 45 items out of 60 are complete, 100.0 * 45 / 60 = 75.0. Using 45 / 60 * 100 with integers gives 0 instead.",
+          "steps": []
+        },
+        {
+          "title": "Assignment",
+          "problem": "int x = 4; x = x + 3; leaves x equal to 7. Java evaluates the right side using the old value, then stores the result.",
+          "steps": []
+        },
+        {
+          "title": "Boolean comparison",
+          "problem": "If double p = 75.0;, then p < 70.0 is false and p >= 70.0 is true.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The generator is healthy; integer arithmetic is collapsing 83/100 to zero and falsely creating the heat emergency. ---",
     "card": {
@@ -89,7 +115,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 2 — THE ALARM THAT CALLS TWICE",
+    "title": "THE ALARM THAT CALLS TWICE",
     "objective": "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire.",
     "briefing": "",
     "stake": "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code.",
@@ -106,7 +132,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "One branch with if/else",
+          "problem": "If x = 12, if (x > 10) A(); else B(); runs only A().",
+          "steps": []
+        },
+        {
+          "title": "Two independent ifs",
+          "problem": "If x = 12, if (x > 10) A(); if (x > 5) B(); runs both methods because the tests are separate.",
+          "steps": []
+        },
+        {
+          "title": "Compound AND",
+          "problem": "With x = 8, x > 5 && x < 10 is true because both comparisons are true.",
+          "steps": []
+        },
+        {
+          "title": "Compound OR",
+          "problem": "With x = 3, x < 0 || x == 3 is true because at least one comparison is true.",
+          "steps": []
+        },
+        {
+          "title": "De Morgan check",
+          "problem": "!(a && b) is equivalent to !a || !b; negating a conjunction changes both the operator and each condition.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The sensor is not duplicated; two independent if statements can both fire, and an exclusive branch structure removes the double command. ---",
     "card": {
@@ -149,7 +201,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 3 — THE ROVER THAT NEVER ARRIVES",
+    "title": "THE ROVER THAT NEVER ARRIVES",
     "objective": "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state.",
     "briefing": "",
     "stake": "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate.",
@@ -166,7 +218,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Counted for loop",
+          "problem": "for (int i=0; i<4; i++) runs with i = 0,1,2,3 and stops when i becomes 4.",
+          "steps": []
+        },
+        {
+          "title": "Terminating while",
+          "problem": "int n=3; while(n>0){n--;} visits 3,2,1 and finishes with n = 0.",
+          "steps": []
+        },
+        {
+          "title": "Infinite loop",
+          "problem": "int n=3; while(n>0){System.out.println(n);} never changes n, so its condition never becomes false.",
+          "steps": []
+        },
+        {
+          "title": "Accumulator",
+          "problem": "Starting sum=0, adding 2,4,6 in a loop produces sum = 12.",
+          "steps": []
+        },
+        {
+          "title": "Search flag",
+          "problem": "Loop through a list and set found = true when an item equals the target; once found, the Boolean records the result.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Rover Three is mechanically healthy; its loop never advances the route index, so the stopping condition can never become true. ---",
     "card": {
@@ -209,7 +287,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 4 — THE QUIET TEST",
+    "title": "THE QUIET TEST",
     "objective": "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility.",
     "briefing": "",
     "stake": "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem.",
@@ -226,7 +304,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Known-output test",
+          "problem": "If square(4) is supposed to return 16, an output of 8 proves the implementation is wrong.",
+          "steps": []
+        },
+        {
+          "title": "Boundary test",
+          "problem": "For a method accepting values from 0 through 100 inclusive, test 0, 100, and at least one ordinary interior value.",
+          "steps": []
+        },
+        {
+          "title": "Empty case",
+          "problem": "A method that finds a maximum needs a defined empty-list behavior because there is no first element from which to initialize max.",
+          "steps": []
+        },
+        {
+          "title": "Small-section debugging",
+          "problem": "If a total is wrong, test the parsing method and the summing method separately before changing both.",
+          "steps": []
+        },
+        {
+          "title": "Method contract",
+          "problem": "If countPositive([2,-1,0,5]) promises the number of positive entries, the correct result is 2.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The failures should be investigated together; all three reproduce through the same legacy utility layer while independent hardware controls stay quiet. ---",
     "card": {
@@ -269,7 +373,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 5 — ONE NAME, TWO OBJECTS",
+    "title": "ONE NAME, TWO OBJECTS",
     "objective": "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state.",
     "briefing": "",
     "stake": "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object.",
@@ -286,7 +390,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Constructor initialization",
+          "problem": "new Point(3,4) stores x=3 and y=4 when the constructor uses this.x=x; this.y=y;.",
+          "steps": []
+        },
+        {
+          "title": "Two objects",
+          "problem": "Point a = new Point(1,2); Point b = new Point(1,2); creates two different objects even though their field values match.",
+          "steps": []
+        },
+        {
+          "title": "Aliasing",
+          "problem": "Point b = a; makes a and b refer to the same object. Changing b.x changes the object seen through a too.",
+          "steps": []
+        },
+        {
+          "title": "Instance method",
+          "problem": "If counter.add(3) changes one object from 5 to 8, another independent counter object is unchanged.",
+          "steps": []
+        },
+        {
+          "title": "Reference parameter",
+          "problem": "Passing an object reference to a method allows the method to mutate that object through its fields or mutating methods.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The patch is modifying simulator object C17, not live controller P02; the live reference path must be corrected before the method call can matter. ---",
     "card": {
@@ -329,7 +459,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 6 — THE MESSAGE WITH THE WRONG MINUTE",
+    "title": "THE MESSAGE WITH THE WRONG MINUTE",
     "objective": "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly.",
     "briefing": "",
     "stake": "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong.",
@@ -350,7 +480,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "String length",
+          "problem": "\"hello\".length() is 5.",
+          "steps": []
+        },
+        {
+          "title": "Substring bounds",
+          "problem": "\"abcdef\".substring(2,5) returns \"cde\" because index 2 is included and index 5 is excluded.",
+          "steps": []
+        },
+        {
+          "title": "Character position",
+          "problem": "\"JAVA\".indexOf(\"V\") returns 2 because Java String indexes start at 0.",
+          "steps": []
+        },
+        {
+          "title": "Equality",
+          "problem": "\"cat\".equals(word) tests String contents; == tests whether two references point to the same object.",
+          "steps": []
+        },
+        {
+          "title": "API contract",
+          "problem": "If a library method documents an exclusive end index, follow that contract directly rather than guessing from visible character count.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The network is on time; the parser cuts the timestamp one character early, turning 08:07 into 08:0 on two displays. ---",
     "card": {
@@ -393,7 +549,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 7 — THE ARRAY WITH A HOLE",
+    "title": "THE ARRAY WITH A HOLE",
     "objective": "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element.",
     "briefing": "",
     "stake": "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed.",
@@ -414,7 +570,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Array indexes",
+          "problem": "int[] a = {4,7,9}; has legal indexes 0,1,2; a[3] is out of bounds.",
+          "steps": []
+        },
+        {
+          "title": "Same-index pairing",
+          "problem": "If names[i] and scores[i] describe the same student, changing one side to i+1 misaligns the data.",
+          "steps": []
+        },
+        {
+          "title": "Full traversal",
+          "problem": "for(int i=0;i<a.length;i++) visits every legal element exactly once.",
+          "steps": []
+        },
+        {
+          "title": "Maximum",
+          "problem": "For {3,8,5}, initialize max=3, compare 8 to get max=8, then compare 5 and keep 8.",
+          "steps": []
+        },
+        {
+          "title": "Filter count",
+          "problem": "For {2,-1,4,0}, a loop that increments only when x>0 returns 2.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Room 7 is safe; the controller maps Room 6 and Room 7 to the wrong indexes, producing a false 4.1°C emergency. ---",
     "card": {
@@ -457,7 +639,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 8 — THE LOG THAT SKIPS EVERY SECOND LINE",
+    "title": "THE LOG THAT SKIPS EVERY SECOND LINE",
     "objective": "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records.",
     "briefing": "",
     "stake": "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup.",
@@ -474,7 +656,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "ArrayList removal shifts indexes",
+          "problem": "From [A,B,C,D], removing index 1 leaves [A,C,D]; C immediately becomes index 1.",
+          "steps": []
+        },
+        {
+          "title": "Forward-removal trap",
+          "problem": "Removing adjacent matching items while incrementing forward can skip the item that shifts into the removed index.",
+          "steps": []
+        },
+        {
+          "title": "Backward removal",
+          "problem": "Starting at the final index and moving downward lets you remove elements without changing any lower index still unvisited.",
+          "steps": []
+        },
+        {
+          "title": "set versus add",
+          "problem": "list.set(1,\"X\") replaces index 1; list.add(1,\"X\") inserts a new item and shifts later items right.",
+          "steps": []
+        },
+        {
+          "title": "Regression test",
+          "problem": "If a bug involved adjacent removable items, keep an adjacent-match test so a future change cannot silently reintroduce the skip.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The records were written; forward ArrayList removal skips shifted resolved entries, leaving an alternating survivor pattern. ---",
     "card": {
@@ -517,7 +725,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 9 — THE MAP THAT LIES BY ONE COLUMN",
+    "title": "THE MAP THAT LIES BY ONE COLUMN",
     "objective": "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes.",
     "briefing": "",
     "stake": "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates.",
@@ -534,7 +742,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "2D access",
+          "problem": "In int[][] grid = {{1,2},{3,4}}, grid[0][1] is 2 and grid[1][0] is 3.",
+          "steps": []
+        },
+        {
+          "title": "Row-major traversal",
+          "problem": "An outer row loop and inner column loop visit (0,0),(0,1),(1,0),(1,1) in a 2×2 grid.",
+          "steps": []
+        },
+        {
+          "title": "Transpose mistake",
+          "problem": "Reading source[row][col] but writing dest[col][row] swaps off-diagonal positions.",
+          "steps": []
+        },
+        {
+          "title": "Row sum",
+          "problem": "For row {2,5,3}, start at 0 and add each element to obtain 10.",
+          "steps": []
+        },
+        {
+          "title": "Bounds",
+          "problem": "A 3×4 array has row indexes 0..2 and column indexes 0..3.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The field survey is correct; one write uses [column][row], transposing the crevasse into the neighboring cell. ---",
     "card": {
@@ -577,7 +811,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 10 — THE FAST ANSWER",
+    "title": "THE FAST ANSWER",
     "objective": "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window.",
     "briefing": "",
     "stake": "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes.",
@@ -607,7 +841,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Linear search",
+          "problem": "Searching 8 unsorted items may require all 8 checks in the worst case.",
+          "steps": []
+        },
+        {
+          "title": "Binary-search prerequisite",
+          "problem": "Binary search needs sorted data because each comparison decides which whole half can be discarded.",
+          "steps": []
+        },
+        {
+          "title": "Binary midpoint",
+          "problem": "With low=0 and high=7, integer midpoint (low+high)/2 is 3.",
+          "steps": []
+        },
+        {
+          "title": "Halving work",
+          "problem": "A sorted list of 1024 items needs about 10 binary-search comparisons because 2^10 = 1024.",
+          "steps": []
+        },
+        {
+          "title": "Update rule",
+          "problem": "If a[mid] < target, set low = mid + 1; if a[mid] > target, set high = mid - 1.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Binary search is required; the sorted table lets the code cut the remaining range in half and reach 122.3 MHz in three midpoint checks. ---",
     "card": {
@@ -650,7 +910,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 11 — THE CLASS THAT REMEMBERS TOO MUCH",
+    "title": "THE CLASS THAT REMEMBERS TOO MUCH",
     "objective": "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level.",
     "briefing": "",
     "stake": "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state.",
@@ -667,7 +927,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Instance fields",
+          "problem": "If two Counter objects each have int value, changing one object does not change the other object.",
+          "steps": []
+        },
+        {
+          "title": "Static fields",
+          "problem": "If value is static, all Counter objects share that one class-level variable.",
+          "steps": []
+        },
+        {
+          "title": "this",
+          "problem": "In this.value = value;, this.value is the receiving object field and value is the parameter.",
+          "steps": []
+        },
+        {
+          "title": "Static method",
+          "problem": "A static method can be called with the class name and does not require a particular object instance.",
+          "steps": []
+        },
+        {
+          "title": "Scope",
+          "problem": "A local variable declared inside a method exists only during that call and is not persistent object state.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The controllers share one static warning field; changing H04 overwrites the value later read from P02 even though the objects are physically separate. ---",
     "card": {
@@ -710,7 +996,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 12 — THE SORTED QUEUE",
+    "title": "THE SORTED QUEUE",
     "objective": "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII.",
     "briefing": "",
     "stake": "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust.",
@@ -727,7 +1013,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Selection sort",
+          "problem": "In [4,2,3], find the smallest item 2 and swap it into index 0 to get [2,4,3]; repeat on the remaining suffix.",
+          "steps": []
+        },
+        {
+          "title": "Insertion sort",
+          "problem": "To insert 3 into [1,4,7], shift 7 and 4 right, then place 3 after 1 to get [1,3,4,7].",
+          "steps": []
+        },
+        {
+          "title": "Stable tie rule",
+          "problem": "Using > rather than >= when shifting preserves the existing order of items with equal keys.",
+          "steps": []
+        },
+        {
+          "title": "Budget arithmetic",
+          "problem": "If four records each cost 2 seconds to send, total time is 4 × 2 = 8 seconds.",
+          "steps": []
+        },
+        {
+          "title": "Privacy minimization",
+          "problem": "If a task only needs a count, sending names too adds personally identifying data without improving the calculation.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Send runway, weather, power endurance, and medical count in stable priority order; omit names, birthdates, and the full debug dump. ---",
     "card": {
@@ -770,7 +1082,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 13 — THE CALL THAT CALLS ITSELF",
+    "title": "THE CALL THAT CALLS ITSELF",
     "objective": "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay.",
     "briefing": "",
     "stake": "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely.",
@@ -787,7 +1099,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Base case",
+          "problem": "fact(0)=1 stops factorial recursion; without a base case, recursive calls continue indefinitely.",
+          "steps": []
+        },
+        {
+          "title": "Countdown recursion",
+          "problem": "f(3) calling f(2), then f(1), then f(0) moves toward termination because the argument decreases.",
+          "steps": []
+        },
+        {
+          "title": "Trace return values",
+          "problem": "If sum(n)=n+sum(n-1) and sum(0)=0, then sum(3)=3+2+1+0=6.",
+          "steps": []
+        },
+        {
+          "title": "Recursive binary search",
+          "problem": "Each call keeps only the left or right half and uses a smaller interval until the target is found or the interval is empty.",
+          "steps": []
+        },
+        {
+          "title": "Progress test",
+          "problem": "A recursive call must move its arguments toward the base case; f(n+1) cannot reach a base case at n==0 when starting positive.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The repaired recursion terminates at build(0) and returns exactly four safe waypoints, so Rover Three can deploy the backup relay. ---",
     "card": {
@@ -830,7 +1168,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 14 — ALL GREEN",
+    "title": "ALL GREEN",
     "objective": "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure.",
     "briefing": "",
     "stake": "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable.",
@@ -851,7 +1189,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Training versus unseen test",
+          "problem": "A rule that fits the examples used to build it can still fail on new examples, so keep some cases hidden until the rule is frozen.",
+          "steps": []
+        },
+        {
+          "title": "Edge-case generalization",
+          "problem": "If a list algorithm passes isolated removable items, also test adjacent removable items because index shifts create a different case.",
+          "steps": []
+        },
+        {
+          "title": "Residual pattern",
+          "problem": "Errors +2,+2,-2,-2 average to zero but are structured; a small mean error does not prove a good model.",
+          "steps": []
+        },
+        {
+          "title": "Stress test",
+          "problem": "Vary one assumption across a reasonable range and reject a method if it fails anywhere in the range that matters.",
+          "steps": []
+        },
+        {
+          "title": "Quiet control",
+          "problem": "A normal independent check can rule out explanations just as strongly as an abnormal reading can support one.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "The live station is stable now, but ALL GREEN is false assurance because forward rollback fails unseen adjacent-record cases. ---",
     "card": {
@@ -894,7 +1258,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "# Mission 15 — WHITEOUT",
+    "title": "WHITEOUT",
     "objective": "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade.",
     "briefing": "",
     "stake": "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade.",
@@ -915,7 +1279,33 @@ export const MISSIONS = [
     "worked": {
       "label": "Worked examples",
       "title": "Worked examples",
-      "examples": []
+      "examples": [
+        {
+          "title": "Canary test",
+          "problem": "Apply a change to one controlled case first, compare predicted and observed output, then expand only if they agree.",
+          "steps": []
+        },
+        {
+          "title": "Backward ArrayList cleanup",
+          "problem": "Traversing from size()-1 down to 0 avoids skipping elements when removal shifts later indexes.",
+          "steps": []
+        },
+        {
+          "title": "Independent path",
+          "problem": "Two outputs that depend on the same resource are not redundant; a useful backup must avoid that shared dependency.",
+          "steps": []
+        },
+        {
+          "title": "Mixed-concept trace",
+          "problem": "For a sorted ArrayList, first make mutation safe, then choose a search method only after the final list order is known.",
+          "steps": []
+        },
+        {
+          "title": "Staged deployment",
+          "problem": "Prediction → limited operation → measurement → interpretation is safer than changing every instance before checking the first one.",
+          "steps": []
+        }
+      ]
     },
     "takeaway": "Use a staged canary release with backward rollback, independent rover communications, and five committed checks before expanding to the remaining controllers. ---",
     "card": {

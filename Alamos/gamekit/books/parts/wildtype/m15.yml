@@ -1,7 +1,7 @@
 # ============================================================ MISSION 15
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 15 — WHAT GOES HOME"
+- title: "WHAT GOES HOME"
   card:
     header: "DAY 15 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "WHAT GOES HOME"

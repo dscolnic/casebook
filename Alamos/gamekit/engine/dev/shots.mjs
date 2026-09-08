@@ -467,6 +467,58 @@ try{
     }
   }
 
+  // ---- the plan card, which is the first thing a player reads each day
+  //
+  //   npm run shots overwind_v2 -- --plan
+  //
+  // Same argument as the card shot below: the four bars, the primer box and the
+  // worked-examples button are all things a campaign can have and silently not
+  // have — a metrics.js nothing imports, a `worked:` block the importer drops —
+  // and none of them is visible in a world shot.
+  if(has('plan')){
+    const shown = await cdp.eval(`(async () => {
+      // THROUGH EVERY CARD IN FRONT OF IT. The opening card, then a "Before you
+      // start" card naming the four bars, and only then the day's plan with the
+      // primer box on it. One click reached the second and photographed it as
+      // though it were the plan — which is how a missing button on the plan
+      // card looks exactly like a plan card with no button.
+      for(let i = 0; i < 6; i++){
+        if(document.querySelector('.planPrimer, #planWorked')) break;
+        let clicked = false;
+        for(const b of document.querySelectorAll('button')){
+          const t = (b.textContent || '').toLowerCase().trim();
+          if(/^(continue|ready to save the day|take the response)$/.test(t)){ b.click(); clicked = true; break; }
+        }
+        if(!clicked) break;
+        await new Promise(r => setTimeout(r, 450));
+      }
+      const card = document.querySelector('#planOverlay, #overlay');
+      if(!card) return 'no plan card';
+      card.style.removeProperty('display');
+      const keep = new Set();
+      for(let el = card; el && el !== document.body; el = el.parentElement) keep.add(el);
+      const hide = (parent) => {
+        for(const el of parent.children){
+          if(el === card || el.id === 'canvas') continue;
+          if(keep.has(el)){ hide(el); continue; }
+          el.style.display = 'none';
+        }
+      };
+      hide(document.body);
+      const bars = document.querySelectorAll('.metricBar, .barRow, [data-bar]').length;
+      return 'ok:' + (document.querySelector('#planWorked') ? 'worked button' : 'NO worked button')
+        + ', ' + bars + ' bar row(s)';
+    })()`);
+    if(!String(shown).startsWith('ok')){ console.log(`  plan: ${shown}`); }
+    else {
+      await wait(400);
+      const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
+      writeFileSync(resolve(outDir, 'plan-card.png'), Buffer.from(shot.data, 'base64'));
+      written.push({ name: 'plan card', file: 'plan-card.png', note: String(shown).slice(3) });
+      console.log(`  plan: 1 shot — ${String(shown).slice(3)}`);
+    }
+  }
+
   // ---- a question card, for the campaigns whose panels carry something new
   //
   //   npm run shots whiteout -- --card POWER:0

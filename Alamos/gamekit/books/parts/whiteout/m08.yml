@@ -1,7 +1,7 @@
 # ============================================================ MISSION 8
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 8 — THE LOG THAT SKIPS EVERY SECOND LINE"
+- title: "THE LOG THAT SKIPS EVERY SECOND LINE"
   card:
     header: "RESCUE WINDOW — ABOUT 22 HOURS REMAIN"
     title: "THE LOG THAT SKIPS EVERY SECOND LINE"

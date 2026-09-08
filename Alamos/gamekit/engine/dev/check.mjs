@@ -86,6 +86,11 @@ for(const theme of wanted){
                      // to open, and the door's collider is flagged so the crowd and
                      // the reachability fill still walk through it.
                      'doors.mjs',
+                     // A file the theme ships and its manifest never imports: a
+                     // metrics.js nothing reads is a campaign scored on nothing,
+                     // and worked examples the importer drops are a mission card
+                     // with no button. Both look exactly like having none.
+                     'wiring.mjs',
                      // Does the manifest name a sound, a weather and a room style the
                      // engine has? All three fail silent — a misspelt bed is a quiet
                      // site, a misspelt style is a laboratory — so the names are

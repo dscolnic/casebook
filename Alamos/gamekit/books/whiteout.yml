@@ -360,7 +360,7 @@ missions:
 # ============================================================ MISSION 1
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 1 — THE HEAT THAT ISN'T GONE"
+- title: "THE HEAT THAT ISN'T GONE"
   card:
     header: "RESCUE WINDOW — ABOUT 36 HOURS REMAIN"
     title: "THE HEAT THAT ISN'T GONE"
@@ -594,7 +594,7 @@ missions:
 # ============================================================ MISSION 2
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 2 — THE ALARM THAT CALLS TWICE"
+- title: "THE ALARM THAT CALLS TWICE"
   card:
     header: "RESCUE WINDOW — ABOUT 34 HOURS REMAIN"
     title: "THE ALARM THAT CALLS TWICE"
@@ -851,7 +851,7 @@ missions:
 # ============================================================ MISSION 3
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 3 — THE ROVER THAT NEVER ARRIVES"
+- title: "THE ROVER THAT NEVER ARRIVES"
   card:
     header: "RESCUE WINDOW — ABOUT 32 HOURS REMAIN"
     title: "THE ROVER THAT NEVER ARRIVES"
@@ -1076,7 +1076,7 @@ missions:
 # ============================================================ MISSION 4
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 4 — THE QUIET TEST"
+- title: "THE QUIET TEST"
   card:
     header: "RESCUE WINDOW — ABOUT 30 HOURS REMAIN"
     title: "THE QUIET TEST"
@@ -1360,7 +1360,7 @@ missions:
 # ============================================================ MISSION 5
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 5 — ONE NAME, TWO OBJECTS"
+- title: "ONE NAME, TWO OBJECTS"
   card:
     header: "RESCUE WINDOW — ABOUT 28 HOURS REMAIN"
     title: "ONE NAME, TWO OBJECTS"
@@ -1621,7 +1621,7 @@ missions:
 # ============================================================ MISSION 6
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 6 — THE MESSAGE WITH THE WRONG MINUTE"
+- title: "THE MESSAGE WITH THE WRONG MINUTE"
   card:
     header: "RESCUE WINDOW — ABOUT 26 HOURS REMAIN"
     title: "THE MESSAGE WITH THE WRONG MINUTE"
@@ -1883,7 +1883,7 @@ missions:
 # ============================================================ MISSION 7
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 7 — THE ARRAY WITH A HOLE"
+- title: "THE ARRAY WITH A HOLE"
   card:
     header: "RESCUE WINDOW — ABOUT 24 HOURS REMAIN"
     title: "THE ARRAY WITH A HOLE"
@@ -2124,7 +2124,7 @@ missions:
 # ============================================================ MISSION 8
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 8 — THE LOG THAT SKIPS EVERY SECOND LINE"
+- title: "THE LOG THAT SKIPS EVERY SECOND LINE"
   card:
     header: "RESCUE WINDOW — ABOUT 22 HOURS REMAIN"
     title: "THE LOG THAT SKIPS EVERY SECOND LINE"
@@ -2363,7 +2363,7 @@ missions:
 # ============================================================ MISSION 9
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 9 — THE MAP THAT LIES BY ONE COLUMN"
+- title: "THE MAP THAT LIES BY ONE COLUMN"
   card:
     header: "RESCUE WINDOW — ABOUT 20 HOURS REMAIN"
     title: "THE MAP THAT LIES BY ONE COLUMN"
@@ -2637,7 +2637,7 @@ missions:
 # ============================================================ MISSION 10
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 10 — THE FAST ANSWER"
+- title: "THE FAST ANSWER"
   card:
     header: "RESCUE WINDOW — ABOUT 18 HOURS REMAIN"
     title: "THE FAST ANSWER"
@@ -2878,7 +2878,7 @@ missions:
 # ============================================================ MISSION 11
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 11 — THE CLASS THAT REMEMBERS TOO MUCH"
+- title: "THE CLASS THAT REMEMBERS TOO MUCH"
   card:
     header: "RESCUE WINDOW — ABOUT 16 HOURS REMAIN"
     title: "THE CLASS THAT REMEMBERS TOO MUCH"
@@ -3134,7 +3134,7 @@ missions:
 # ============================================================ MISSION 12
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 12 — THE SORTED QUEUE"
+- title: "THE SORTED QUEUE"
   card:
     header: "RESCUE WINDOW — ABOUT 14 HOURS REMAIN"
     title: "THE SORTED QUEUE"
@@ -3396,7 +3396,7 @@ missions:
 # ============================================================ MISSION 13
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 13 — THE CALL THAT CALLS ITSELF"
+- title: "THE CALL THAT CALLS ITSELF"
   card:
     header: "RESCUE WINDOW — ABOUT 12 HOURS REMAIN"
     title: "THE CALL THAT CALLS ITSELF"
@@ -3629,7 +3629,7 @@ missions:
 # ============================================================ MISSION 14
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 14 — ALL GREEN"
+- title: "ALL GREEN"
   card:
     header: "RESCUE WINDOW — ABOUT 10 HOURS REMAIN"
     title: "ALL GREEN"
@@ -4004,7 +4004,7 @@ missions:
 # ============================================================ MISSION 15
 # Lifted from ../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.10_HAND_BACK_3.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 15 — WHITEOUT"
+- title: "WHITEOUT"
   card:
     header: "RESCUE WINDOW — ABOUT 8 HOURS REMAIN"
     title: "WHITEOUT"
