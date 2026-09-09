@@ -20,9 +20,34 @@ if(!file || !theme){ console.error('usage: node tools/fix-speakers.mjs <bible.md
 
 const bible = readBible(file);
 const LABEL = /^(text|panel|hud|state|unlocks|waypoint|presentation|world-state|player-control)$/i;
+// THE IDS ARE THE HEAD'S, NOT THE BIBLE'S. `bible.cast` carries the ids the
+// reader slugged from the bible's own headings — `eli-voss` for `### Eli Voss -
+// NOTES counter operations lead` — while the book's roster in `_book.yml` keeps
+// the surname ids the stop placements and the engine use (`voss`). Resolving a
+// bubble against the bible's cast returned the slug it started with and called it
+// resolved; the importer then refused every beat in Changeover as spoken by
+// nobody. So the roster the ids come from is the head's, and the bible's cast is
+// the fallback for a name the head does not carry.
+const headRoster = (() => {
+  try{
+    const head = readFileSync(resolve('books/parts', theme, '_book.yml'), 'utf8').split('\n');
+    const a = head.findIndex(l => /^roster:\s*$/.test(l));
+    if(a < 0) return [];
+    const out = [];
+    for(let i = a + 1; i < head.length && !/^[a-zA-Z_]+:\s*$/.test(head[i]); i++){
+      const id = head[i].match(/^- id:\s*([\w-]+)/);
+      if(id) out.push({ id: id[1], name: '' });
+      const nm = head[i].match(/^  name:\s*"?([^"]+?)"?\s*$/);
+      if(nm && out.length) out[out.length - 1].name = nm[1];
+    }
+    return out.filter(c => c.name);
+  }catch{ return []; }
+})();
+const cast = [...headRoster, ...bible.cast.filter(c => !headRoster.some(h => h.name.toLowerCase() === String(c.name).toLowerCase()))];
+
 const idFor = (slug) => {
   const n = String(slug).replace(/-/g, ' ').toLowerCase();
-  const hit = bible.cast.find(c => {
+  const hit = cast.find(c => {
     const full = c.name.toLowerCase();
     return full === n || full.includes(n) || n.includes(full) || n.split(/\s+/).includes(c.id);
   });

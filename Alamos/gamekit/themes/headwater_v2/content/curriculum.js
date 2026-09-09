@@ -3319,7 +3319,8 @@ export const CURRICULUM = {
             "min": -0.35,
             "max": -0.25,
             "nominal": -0.3,
-            "step": 0.01
+            "step": 0.01,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",

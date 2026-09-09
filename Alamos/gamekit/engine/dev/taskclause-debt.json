@@ -1,5 +1,5 @@
 {
-  "_comment": "Missions whose stake does not say what the player decides in the \"Today you …\" shape (checkStory.mjs). A campaign written in the imperative says it in words the rule's regex cannot see. Same ratchet as the other debt files here.",
+  "_comment": "Missions whose stake does not say what the player decides in the \"Today you \u2026\" shape (checkStory.mjs). A campaign written in the imperative says it in words the rule's regex cannot see. Same ratchet as the other debt files here.",
   "themes": {
     "bring_them_home": [
       "Shift 1 (The Failure)",
@@ -82,11 +82,6 @@
       "Stage 5 (A Test Before Morning)",
       "Stage 7 (When Defense Becomes Damage)",
       "Stage 10 (A Variant Rises)"
-    ],
-    "redsand_v5": [
-      "Shift 1 (The Shortfall)",
-      "Shift 2 (The Feedstock Problem)",
-      "Shift 3 (Pressure Does Not Lie. Or Does It?)"
     ],
     "yellowbay": [
       "Day 1 (Is the silicon itself wrong?)",

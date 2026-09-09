@@ -1,17 +1,18 @@
 # ============================================================ MISSION 10
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Temporary Tradeoff"
   card:
-    header: "6 DAYS"
+    header: "MISSION 10 - 6 DAYS UNTIL CHANGEOVER."
     title: "The Temporary Tradeoff"
     goNow: "Go to RATE and meet Mara Venn at the Phillips wall."
-    body: "A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy."
+    body: "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy."
     objective: "Separate a short-run shock from long-run inflation policy."
   objective: "Separate a short-run shock from long-run inflation policy."
-  stake: "A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy."
+  stake: "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not tighten policy for a short price shock. New data support the supply-shock model. Slow money growth points to about 2% long-run inflation. Use set rules, not fear. Wage contracts will adjust later."
+  segue: "But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-rate
     # On arrival at RATE | policy-wall | automatic
     on: { enter: true, at: RATE }
-    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate a short-run shock from long-run inflation policy. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "The long money-growth strip lies beneath today's fuel alert."
     panel: "Separate a short-run shock from long-run inflation policy."
+    # unlocks: Unlock Stop 37 at policy-wall in RATE.
     bubbles:
     - who: venn   # Mara Venn
       say: "Start with move or shift. We need evidence the next decision can use."
   - id: after-stop-37
     # After Stop 37 | gap-calculator | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Mara Venn says,, and Stop 38 unlocks."
+    world: "At policy-wall, the dated accepted-result slip for Stop 37 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    # unlocks: Unlock Stop 38 at gap-calculator in Rate Room.
     bubbles:
     - who: venn   # Mara Venn
       say: "Nice work. The supply shock shifts SRPC right."
   - id: after-stop-38
     # After Stop 38 | price-history-board | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in RATE → PRICES only if the route requires travel, then."
+    world: "At gap-calculator, the dated accepted-result slip for Stop 38 reads: \"The quantity equation gives estimated long-run inflation of 2%.\". The slip remains in that fixture's evidence holder."
     panel: "RATE → PRICES"
+    # unlocks: Unlock Stop 39 at price-history-board in Statistics Floor.
     bubbles:
     - who: venn   # Mara Venn
       say: "Good thinking. Estimated long-run inflation is 2%, far below the temporary 5.88% basket print."
   - id: after-stop-39
     # After Stop 39 | forecast-table | automatic
     on: { after: [3] }
-    world: "Preserve this result on the PRICES decision fixture; The character asks for the promised mission decision, and Stop 40 unlocks."
+    world: "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    # unlocks: Unlock Stop 40 at forecast-table in RATE.
     bubbles:
     - who: venn   # Mara Venn
       say: "Exactly right. The temporary-supply model predicts the holdout; persistent monetary inflation does not."
   - id: at-mission-end
     # At mission end | policy-wall | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At price-history-board, Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record. The dated prop remains here on later visits."
     panel: "MISSION 10 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: venn   # Mara Venn
-      say: "Outstanding work. You solved the mission. Do not justify permanent tightening from this temporary print; commit a reversible trigger."
+    - who: saye   # Lina Saye
+      say: "A sharp rise today does not draw the whole future line. But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help."
 
   terms:
   - {name: "Short-run Phillips curve (SRPC)", def: "short-run inverse inflation-unemployment relation."}
@@ -150,7 +156,11 @@
     format: CHOICE
     question: "Select exactly one change from the four distinct choices below."
     figure: {"kind":"line","xLabel":"Quantity of RATE","yLabel":"Crowns per RATE","caption":"A change in foreign demand shifts the currency-demand curve.","series":[{"name":"Demand before","points":[[20,7],[40,5.5],[60,4],[80,2.5]]},{"name":"Demand after","points":[[35,7],[55,5.5],[75,4],[95,2.5]]}]}
-    choices: []
+    choices:
+    - "Move upward along the existing SRPC."
+    - "Move downward along the existing SRPC."
+    - "Shift the SRPC right."
+    - "Shift the LRPC left."
     answer: "Shift the SRPC right."
     answerText: "\"The supply shock shifts SRPC right.\""
     why: "Adverse supply shifts SRPC right; AD changes move along it."
@@ -355,4 +365,3 @@
         step: 0.2
       robust: robust_plan
       optimiseOn: evidence_fit
-

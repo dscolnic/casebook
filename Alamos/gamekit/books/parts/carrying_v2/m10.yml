@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Reef Evidence"
   card:
-    header: "6 DAYS."
+    header: "MISSION 10 - 6 DAYS UNTIL THE VOTE."
     title: "THE REEF EVIDENCE"
     goNow: "Reef Station, Rafi Noor at water-rack."
-    body: "The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce."
+    body: "6 days until the vote. Nursery tiles lie beside two jars from the same warm week. Today you decide which pressures the reef plan must cut."
     objective: "Separate and combine reef stressors."
   objective: "Separate and combine reef stressors."
-  stake: "The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce."
+  stake: "6 days until the vote. Nursery tiles lie beside two jars from the same warm week. Today you decide which pressures the reef plan must cut."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Cut runoff, warm water, air waste, and fishing at the same time. Cap catch at 70 fish in poor years. Heat alone did not harm the reef. The plan must protect the full habitat."
+  segue: "Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Dissolved oxygen", def: "oxygen gas available in water."}
@@ -30,50 +30,55 @@
   - id: on-arrival-at-waterworks
     # On arrival at Waterworks | sampler | automatic
     on: { enter: true, at: WATER }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "Nursery tiles lie beside two jars from the same warm week."
     panel: "MISSION 10: READ THE PATTERNED RESIDUALS OPEN"
+    # unlocks: Unlock Stop 37 at sampler in Waterworks.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with read the patterned residuals. We need evidence the next decision can use."
   - id: after-stop-37
     # After Stop 37 | flow-tank | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At sampler, the dated accepted-result slip for Stop 37 reads: \"Heat plus nitrate survives; the heat-only errors track nitrate pulses\". The slip remains in that fixture's evidence holder."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    # unlocks: Unlock Stop 38 at flow-tank in Reef Station.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 37 result to settle control heat and nutrients."
+    - who: noor   # Rafi Noor
+      say: "That check holds. The residual pattern suggests a nutrient effect that must be separated from heat experimentally."
   - id: after-stop-38
     # After Stop 38 | transect-bench | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At flow-tank, the dated accepted-result slip for Stop 38 reads: \"The combined treatment yields 3.1 mg/L oxygen and 30% cover, showing heat and nutrients interact\". The slip remains in that fixture's evidence holder."
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    # unlocks: Unlock Stop 39 at transect-bench in Reef Station.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 38 result to settle map acidification damage."
+    - who: noor   # Rafi Noor
+      say: "That check holds. The tank results leave shell loss outside the bloom needing an additional explanation."
   - id: after-stop-39
     # After Stop 39 | council-table | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 39 changes the persistent board and unlocks the decision stop."
+    world: "At transect-bench, the dated accepted-result slip for Stop 39 reads: \"Falling pH accompanies falling calcifier cover; acidification explains the shell loss\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    # unlocks: Unlock Stop 40 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 39 result to settle stress the catch ceiling."
+    - who: noor   # Rafi Noor
+      say: "That check holds. The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
   - id: at-mission-end
     # At mission end | sampler | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 40 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At transect-bench, Rafi Noor pins the poor-year card marked CATCH CAP: 70 FISH above the nursery tiles. The dated prop remains here on later visits."
     panel: "MISSION 10 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: noor   # Rafi Noor
+      say: "I blamed the heat. The other columns would not let me stop there. Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Reef Evidence. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Two Stresses, One Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Reef Evidence, the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?"
+    - prompt: "In a follow-up to Two Stresses, One Reef, the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?"
       hint: "Use the stated evidence and the conditions for Dissolved oxygen; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -81,7 +86,7 @@
       - {key: "B", text: "Oxygen gas available in water.", why: "Correct. oxygen gas available in water."}
       - {key: "C", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Water with too little oxygen for most animals.", why: "This describes Dead zone, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Reef Evidence: the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?"
+    - prompt: "the island council receives a second case related to Two Stresses, One Reef: the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?"
       hint: "Use the stated evidence and the conditions for Thermal pollution; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -89,7 +94,7 @@
       - {key: "B", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Warming that lowers oxygen solubility.", why: "Correct. warming that lowers oxygen solubility."}
       - {key: "D", text: "Water with too little oxygen for most animals.", why: "This describes Dead zone, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Reef Evidence using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?"
+    - prompt: "A teammate rechecks Two Stresses, One Reef using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?"
       hint: "Use the stated evidence and the conditions for Ocean acidification; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -97,7 +102,7 @@
       - {key: "B", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Water with too little oxygen for most animals.", why: "This describes Dead zone, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Falling seawater pH as carbon dioxide enters water.", why: "Correct. falling seawater pH as carbon dioxide enters water."}
-    - prompt: "An unseen case extends The Reef Evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?"
+    - prompt: "An unseen case extends Two Stresses, One Reef: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?"
       hint: "Use the stated evidence and the conditions for Dead zone; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -113,7 +118,7 @@
       - {key: "B", text: "Read the patterned residuals connects the measured environmental mechanism to the next island condition.", why: "Correct. read the patterned residuals connects the measured environmental mechanism to the next island condition."}
       - {key: "C", text: "Warming that lowers oxygen solubility.", why: "This describes Thermal pollution, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Falling seawater pH as carbon dioxide enters water.", why: "This describes Ocean acidification, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Reef Evidence to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?"
+    - prompt: "the island council applies the lesson from Two Stresses, One Reef to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?"
       hint: "Use the stated evidence and the conditions for factorial stressors | causality | D9 | COMBINE | L4 | reveal; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -284,7 +289,7 @@
     person: voss
     concept: 19   # sustainable plan | population limits | D5 | TRANSFER | L5 | decision
     reason: "The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
-    scene: "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment."
     motivation: "The low-recruitment comparison determines which catch limit remains below replacement in a bad year."
     format: STRESS
     question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"

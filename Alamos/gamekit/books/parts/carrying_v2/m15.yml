@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Conditional Ferry Recommendation"
   card:
-    header: "VOTE DAY."
+    header: "MISSION 15 - 1 DAY UNTIL THE VOTE."
     title: "THE CONDITIONAL FERRY RECOMMENDATION"
     goNow: "Common Office, Mara Voss at the delivery board."
-    body: "A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain."
+    body: "1 day until the vote. The council seal waits beside the still-blank sailing permit. Today you decide whether the second ferry has earned approval."
     objective: "Deliver and enact the Second-Ferry Plan."
   objective: "Deliver and enact the Second-Ferry Plan."
-  stake: "A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain."
+  stake: "1 day until the vote. The council seal waits beside the still-blank sailing permit. Today you decide whether the second ferry has earned approval."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Approve the second ferry only with firm limits. Cut trips when any safety trigger fails. The plan cuts air and water waste. It also plans for drought, heat, and sea rise. The council adopts the plan."
+  segue: "Therefore Tomas must sail to the posted limits; a failed trigger closes the second service again."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Radiative forcing", def: "change in Earth's energy balance in W/m²."}
@@ -30,50 +30,55 @@
   - id: on-arrival-at-common-office
     # On arrival at Common Office | delivery-board | automatic
     on: { enter: true, at: COMMON }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "The council seal waits beside the still-blank sailing permit."
     panel: "MISSION 15: MATCH CLIMATE MECHANISMS OPEN"
+    # unlocks: Unlock Stop 57 at delivery-board in Common Office.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with match climate mechanisms. We need evidence the next decision can use."
   - id: after-stop-57
     # After Stop 57 | delivery-board | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At delivery-board, the dated accepted-result slip for Stop 57 reads: \"All six climate mechanisms and responses are correctly linked\". The slip remains in that fixture's evidence holder."
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    # unlocks: Unlock Stop 58 at delivery-board in Common Office.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 57 result to settle collapse the final degeneracy."
+    - who: pell   # Ada Pell
+      say: "That check holds. The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply."
   - id: after-stop-58
     # After Stop 58 | sampler | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"Submit (200 visitors/day, 20% reserve)\". The slip remains in that fixture's evidence holder."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    # unlocks: Unlock Stop 59 at sampler in Waterworks.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 58 result to settle verify the independent water sample."
+    - who: pell   # Ada Pell
+      say: "That check holds. The selected visitor cap needs an independent water check before the council can approve it."
   - id: after-stop-59
     # After Stop 59 | council-table | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 59 changes the persistent board and unlocks the decision stop."
+    world: "At sampler, the dated accepted-result slip for Stop 59 reads: \"Margin 4800 m3/year, nitrate 6.4 mg/L, chloride 118 mg/L: PASS\". The slip remains in that fixture's evidence holder."
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    # unlocks: Unlock Stop 60 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 59 result to settle enact the ferry triggers."
+    - who: pell   # Ada Pell
+      say: "That check holds. The independent water check passes, so the council can now turn the plan into enforceable conditions."
   - id: at-mission-end
     # At mission end | delivery-board | automatic
     on: { missionEnd: true }
-    world: "Final outcome begins immediately after Stop 4 with council board changing to."
+    world: "At condition-board, Ada Pell pins the signed conditional ferry plan to the condition board. The final scene follows the completion gate below."
     panel: "MISSION 15 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. CONDITIONAL APPROVAL."
+    - who: pell   # Ada Pell
+      say: "You made room for the ferry without taking the island out of the plan. Therefore Tomas must sail to the posted limits; a failed trigger closes the second service again."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Conditional Ferry Recommendation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Second Berth. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Conditional Ferry Recommendation, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?"
+    - prompt: "In a follow-up to The Second Berth, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?"
       hint: "Use the stated evidence and the conditions for Radiative forcing; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -81,7 +86,7 @@
       - {key: "B", text: "Change in Earth's energy balance in W/m².", why: "Correct. change in Earth's energy balance in W/m²."}
       - {key: "C", text: "Reducing harm from impacts.", why: "This describes Adaptation, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Threshold beyond which feedback drives further change.", why: "This describes Tipping point, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?"
+    - prompt: "the island council receives a second case related to The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?"
       hint: "Use the stated evidence and the conditions for Mitigation; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -89,7 +94,7 @@
       - {key: "B", text: "Reducing harm from impacts.", why: "This describes Adaptation, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Reducing causes of environmental change.", why: "Correct. reducing causes of environmental change."}
       - {key: "D", text: "Threshold beyond which feedback drives further change.", why: "This describes Tipping point, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Conditional Ferry Recommendation using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?"
+    - prompt: "A teammate rechecks The Second Berth using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?"
       hint: "Use the stated evidence and the conditions for Adaptation; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -97,7 +102,7 @@
       - {key: "B", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Threshold beyond which feedback drives further change.", why: "This describes Tipping point, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Reducing harm from impacts.", why: "Correct. reducing harm from impacts."}
-    - prompt: "An unseen case extends The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?"
+    - prompt: "An unseen case extends The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?"
       hint: "Use the stated evidence and the conditions for Tipping point; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -113,7 +118,7 @@
       - {key: "B", text: "Match climate mechanisms connects the measured environmental mechanism to the next island condition.", why: "Correct. match climate mechanisms connects the measured environmental mechanism to the next island condition."}
       - {key: "C", text: "Reducing causes of environmental change.", why: "This describes Mitigation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Reducing harm from impacts.", why: "This describes Adaptation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Conditional Ferry Recommendation to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?"
+    - prompt: "the island council applies the lesson from The Second Berth to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?"
       hint: "Use the stated evidence and the conditions for coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -236,7 +241,7 @@
     title: "Verify the independent water sample"
     concept: 34   # final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification
     reason: "The selected visitor cap needs an independent water check before the council can approve it."
-    scene: "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample."
     motivation: "The remaining water margin and measured nitrate and chloride determine whether the cap meets both quantity and quality conditions."
     format: VERIFY
     question: "CALCULATE AND COMMIT margin=136800-132000 in m3/year; OPERATE the sampler with pump and time fixed; MEASURE nitrate and chloride; INTERPRET PASS only below 10.0 and 250 mg/L; no restoration"

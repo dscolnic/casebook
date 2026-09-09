@@ -6,7 +6,7 @@ AP Environmental Science Campaign Implementation Bible
 
 **15 missions | 60 graded stops | Vellan Island | Implementation-ready**
 
-**REVISION 2.0 - MARS-FORMAT MISSION CHAPTERS AND CANONICAL ACTION PAYLOADS**
+**REVISION - HANDBACK 1: SCENES, PERSISTENT WORLD, AND WALKABLE ENDINGS**
 
 ## AP Environmental Science Campaign Implementation Bible
 
@@ -41,7 +41,7 @@ The Vellan Island council must decide in fifteen days whether a second ferry can
 
 ### Opening sequence - exact player copy
 
-Vellan Island must decide whether to add a second ferry before the council votes in fifteen days. You will use environmental science to weigh how more crossings could keep the school open while every visitor also uses scarce water, power, food, and waste space. If the plan exceeds the island's limits, wells turn salty, the reef fails, and families must leave. Island Resources Officer Mara Voss hands you the evidence ledger and says, “The school, the reef, and every family on this island must share one future: find the limits that keep them all here, then build the plan the council can defend.”
+You are the island planning lead, which means you test what a second ferry would cost the people who live here. At Vellan Island, you will use environmental science to make the call. The council votes in fifteen days. More sailings could keep the school open. Too much demand could ruin the wells and reef.
 
 ### Four campaign metrics and victory
 
@@ -140,6 +140,25 @@ Days 1-4 use one local place each. Days 5-10 use exactly two places, with eviden
 ---
 
 
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `quay-walk` | Quay Walk | Ropes lie beside an unfinished second berth. | After Stop 48, a fenced berth frame appears; after the final approval it is complete, while a hold leaves the frame fenced. |
+| `school-porch` | School Porch | Small boots dry below a closed water hatch. | After Stop 32, tested drinking water returns and the cups leave their box. |
+| `net-shed` | Net Shed | Longer trip hours are chalked beside the same catch weights. | After Stop 20, a dated effort-limit card stays beside the mended nets. |
+
+### Persistent prop and scene contract
+
+The second-berth ramp and ferry arrival are scene components of `condition-board`. The adopted plan controls them; merely reaching the quay cannot trigger arrival.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+A second berth frame is installed after accepted_stop_48, with no boarding access. Final branch uses the existing eight safeguards and the independent Stop 59 pass. A failed or missing safeguard produces HOLD SECOND SERVICE, not a passing graded answer. The single ferry continues; the second berth remains fenced. Once the evidence is repaired, the existing completion path may resume. Hold card: “The second berth stays fenced. Tomas takes the one ferry out under the old limit. The school tap is safe, and the council keeps the next sailing off the books until the checks pass.”
+
 ## 4. Character bible
 
 | Name | Pronouns | Working role | Wants | Blind spot and arc | Verbal habit |
@@ -219,18 +238,52 @@ Use normal playable view, `nearby_character_bubble` for local speakers, `radio_b
 |14|Forecast includes residents, ages, visitors, and momentum; plan appears ready.|Two children leaving signals demographic decline, while visitor-days drive seasonal load.| 
 |15|**Twist 3:** climate stress test erases the thin water margin; only conditional service passes.|Drought, heat, sea-level rise, and outage occur together; final rule uses triggers, mitigation, adaptation.
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `landings-book` | Tomas Reed clips the rejected-catch slip inside the landings book. | At `rain-bench`, the roof gauge ticks while a hand-kept rain book lies open beneath it. |
+| 2 | `accepted_stop_8` | `rain-bench` | Nkemdi Okafor pins the withdrawal card marked 136,800 CUBIC METRES PER YEAR above the rain book. | At `nitrogen-bench`, a torn feed sack spills beside a tray of bare roots. |
+| 3 | `accepted_stop_12` | `nitrogen-bench` | Iona Vale ties a SURPLUS NITROGEN tag to the fertilizer sack. | At `store-gauges`, the well needle sits below yesterday's chalk mark. |
+| 4 | `accepted_stop_16` | `store-gauges` | Nkemdi Okafor marks the gauge with STOP PUMPING AT 1.0 M OR BELOW. | At `landings-book`, wet gloves weigh down a page full of longer boat shifts. |
+| 5 | `accepted_stop_20` | `landings-book` | Tomas Reed draws a red catch-limit line across the landings page. | At `fee-desk`, a fresh permit stamp rests on top of an unpaid patrol rota. |
+| 6 | `accepted_stop_24` | `fee-desk` | Tomas Reed stamps the permit stack CAP AND CHECK REQUIRED. | At `leachate-bench`, a brown jar leaves a ring beside a clean pipe sample. |
+| 7 | `accepted_stop_28` | `leachate-bench` | Mei Chen sets the leak jar in a tray marked LINER REPAIR REQUIRED. | At `school-tap`, empty cups stand behind a DO NOT DRINK card. |
+| 8 | `accepted_stop_32` | `school-tap` | Lena Costa removes the DO NOT DRINK card from the isolated school tap. | At `common-map`, a runoff jar sits on the field map beside the school route. |
+| 9 | `accepted_stop_36` | `common-map` | Iona Vale pins the source-control plan across the runoff route. | At `transect-bench`, nursery tiles lie beside two jars from the same warm week. |
+| 10 | `accepted_stop_40` | `transect-bench` | Rafi Noor pins the poor-year card marked CATCH CAP: 70 FISH above the nursery tiles. | At `turbine-plate`, the turbine's big rating plate shines above a much smaller meter reading. |
+| 11 | `accepted_stop_44` | `turbine-plate` | Elias Shaw rivets a 31% ANNUAL CAPACITY FACTOR plate below the rated output. | At `load-board`, the gearbox crate holds a delivery slip with its date crossed out. |
+| 12 | `accepted_stop_48` | `load-board` | Elias Shaw pins the 180 KW ESSENTIAL-LOAD PLAN to the load board. | At `quarantine-rack`, a seed clings to the mud under a cargo crate. |
+| 13 | `accepted_stop_52` | `quarantine-rack` | Tomas Reed hangs a CHECK BEFORE SAILING tag on the cargo release hook. | At `register-desk`, the same crew name appears on two tally sheets. |
+| 14 | `accepted_stop_56` | `register-desk` | Lena Costa clips the corrected visitor tally beneath the drought-reserve card. | At `condition-board`, the council seal waits beside the still-blank sailing permit. |
+| 15 | `accepted_stop_60` | `condition-board` | Ada Pell pins the signed conditional ferry plan to the condition board. | At `condition-board`, the signed operating conditions remain beside the final status. |
+
 ## 8. Mission content contract
 
 Every mission below includes exact briefing copy, a mission-card glossary/primer/equation block, story summary, five-beat implementation script, location plan, character direction, explicit concepts, four fully specified stops, an outcome, a metric screen, and a quick review. Glossary entries use compact `Term: definition` lines. Equation entries omit `Also called` and `Concept`. No later mission is summarized or delegated to an appendix.
 
-# Mission 1 - What the Island Depends On
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The second ferry rounds the headland and ties up at the completed berth.
+
+**The next sixty seconds:** 0–15 seconds: the quay bell sounds once and Tomas walks to the cargo check. 15–40 seconds: the player can walk to the quay rail as the ferry ties up. 40–60 seconds: the ramp lowers after its inspection; the player sees the limit board before the ending card.
+
+**Ending card - exact player copy:** The second ferry ties up beside the posted limits. Tomas checks the cargo before the ramp drops. Beyond the quay, cups dry by the school tap and the reef boats leave under their catch cap. Vellan has room for another sailing, with rules to keep it home.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+# Mission 1 - The Catch That Vanished
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 15 DAYS TO THE FERRY VOTE  
+**Header:** MISSION 1 - 15 DAYS UNTIL THE VOTE.
 **Card title:** Nothing Leaves the Ledger  
 **Go now:** Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book.  
-**Card body:** A warning about water from a school tap arrives while Vellan debates adding another ferry. More sailings could bring more people, supplies, and waste. Use environmental science to trace the island's resources and decide what the ferry plan must count before anyone calls it sustainable.
+**Card body:** 15 days until the vote. A damp catch slip sticks out of the closed sales book. Today you decide which flows belong in the island count.
 **Objective:** Build the dependency ledger that defines the investigation.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -324,7 +377,9 @@ Tomas is reconciling paper and electronic landings while Mara blocks an early fe
 
 **Beat 1 - On arrival at Harbour Office | `landings-book` | automatic**
 
-**World state:** The draw the boundary fixture wakes and the mission evidence opens.
+**Trigger:** mission_1_arrival.
+
+**World state:** A damp catch slip sticks out of the closed sales book.
 
 **Panel/HUD text:** MISSION 1: DRAW THE BOUNDARY OPEN
 
@@ -334,27 +389,33 @@ Tomas is reconciling paper and electronic landings while Mara blocks an early fe
 
 **Beat 2 - After Stop 1 | `landings-book` | automatic**
 
-**World state:** After Stop 1: Keep the new evidence visible and.
+**Trigger:** accepted_stop_1.
+
+**World state:** At `landings-book`, the dated accepted-result slip for Stop 1 reads: "C. Count the whole island, aquifer, coast, reef, atmosphere exchanges, imports, and exports.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 1 RECORDED - STOP 2 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Nice work. Use the Stop 1 result to settle match the cycles."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The expanded island boundary leaves four material pathways needing identification."
 
 **Unlocks/waypoint:** Unlock Stop 2 at `landings-book` in Harbour Office.
 
 **Beat 3 - After Stop 2 | `fee-desk` | automatic**
 
-**World state:** After Stop 2: a five-ledger wall diagram lights.
+**Trigger:** accepted_stop_2.
+
+**World state:** At `landings-book`, the dated accepted-result slip for Stop 2 reads: "Carbon, nitrogen, phosphorus, water in that order; nitrogen fixation and phosphorus weathering are important limiting steps.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 2 RECORDED - STOP 3 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Good thinking. Use the Stop 2 result to settle separate matter from energy."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The material pathways are mapped, but the grazing plan still risks counting energy as a recyclable resource."
 
 **Unlocks/waypoint:** Unlock Stop 3 at `fee-desk` in Harbour Office.
 
 **Beat 4 - After Stop 3 | `landings-book` | automatic**
 
-**World state:** The separate matter from energy result remains visible while the find the shared omission fixture lights.
+**Trigger:** accepted_stop_3.
+
+**World state:** At `fee-desk`, the dated accepted-result slip for Stop 3 reads: "Sunlight and heat flow; carbon dioxide, nitrate, phosphate, and water cycle.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 3 RECORDED - STOP 4 OPEN
 
@@ -364,13 +425,23 @@ Tomas is reconciling paper and electronic landings while Mara blocks an early fe
 
 **Beat 5 - At mission end | `landings-book` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_4.
+
+**World state:** At `landings-book`, Tomas Reed clips the rejected-catch slip inside the landings book. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 1 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Reed: "Outstanding work. You solved the mission. Now we know what every later number must connect to."
+**Dialogue bubbles -** Tomas Reed: "That catch never reached the till. It still came out of the sea. But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m01
+
+**Home:** `landings-book`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. A damp catch slip sticks out of the closed sales book.
+**After — exact action:** Tomas Reed clips the rejected-catch slip inside the landings book.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `rain-bench`, the roof gauge ticks while a hand-kept rain book lies open beneath it.
+**Segue - exact player copy:** But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats.
 
 ## Location plan
 
@@ -396,6 +467,10 @@ Carbon cycles through photosynthesis, respiration, decomposition, and combustion
 **Question card story setup - exact player copy:** The electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. Choose the boundary that captures every resource the second sailing can change.
 
 **Question card story-science connection - exact player copy:** The boundary determines whether ferry approval accounts for groundwater, coastal ecosystems, waste, and imported supplies as well as sales.
+
+**Fixture source record - exact player copy:** The electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. Choose the boundary that captures every resource the second sailing can change.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Select the one boundary that captures every resource and receiving system the second ferry can change. Submit one selection.
 
@@ -435,6 +510,10 @@ Carbon cycles through photosynthesis, respiration, decomposition, and combustion
 
 **Question card story-science connection - exact player copy:** The cycle matches tell investigators where each material can enter, accumulate, and leave the island ledger.
 
+**Fixture source record - exact player copy:** With the boundary fixed, four unlabeled flow cards remain in the paper book. Match each pathway to the cycle it represents so later investigators follow matter rather than labels.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Draw one line from each pathway to its cycle, then submit the complete mapping.
 
 **Complete format-specific interaction block:** `scenarios={photosynthesis-respiration-combustion; N2-fixation-nitrification-denitrification; rock-weathering-biota-sediment; evaporation-precipitation-runoff}; choices={carbon,nitrogen,phosphorus,water}; mapping={1:carbon,2:nitrogen,3:phosphorus,4:water}`.
@@ -462,6 +541,10 @@ Carbon cycles through photosynthesis, respiration, decomposition, and combustion
 **Question card story setup - exact player copy:** Because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort each item as matter that cycles or energy that flows and disperses as heat.
 
 **Question card story-science connection - exact player copy:** Separating energy flow from matter cycling prevents the food budget from reusing energy already dispersed as heat.
+
+**Fixture source record - exact player copy:** Because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort each item as matter that cycles or energy that flows and disperses as heat.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Sort sunlight, heat, carbon dioxide, nitrate, phosphate, and water. Submit the binary classification before the belt reaches the end.
 
@@ -577,6 +660,10 @@ belt:
 
 **Question card story-science connection - exact player copy:** The record dependencies determine whether matching totals confirm the catch or merely repeat the same omission.
 
+**Fixture source record - exact player copy:** The cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Trace their upstream records and test whether agreement proves that all catch was counted.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Open all four channels, identify the shared upstream record, and submit one conclusion about independence.
 
 **Complete format-specific interaction block:** `trace:{channels:[{id:"sales_screen",label:"sales screen",dependency:"electronic sale ledger",target_dependent:true},{id:"tax_total",label:"tax total",dependency:"electronic sale ledger",target_dependent:true},{id:"paper_landed",label:"paper landing book",dependency:"paper book",independent:true},{id:"returned_catch",label:"returned-catch record",dependency:"paper book",independent:true}],shared_upstream:"electronic sale ledger",correct_conclusion:"sales and tax agree but are not independent",answerText:"Sales and tax totals share one source; the two paper channels expose catch the shared electronic ledger omitted."}`
@@ -621,11 +708,12 @@ trace:
 
 ## Mission outcome
 
-Mission decision: Count water, food, energy, materials, waste, people. And habitat in one linked island system. Matching records do not count twice when they share a source. The council opens the full resource review. Tomorrow, the first closed budget is freshwater.
+Mission decision: Count water, food, energy, materials, waste, people, and habitat in one linked island system. Matching records do not count twice when they share a source. The council opens the full resource review. Tomorrow, the first closed budget is freshwater.
 
+**Segue - exact player copy:** But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: Count water, food, energy, materials, waste, people. Vellan Island has a stronger plan for its people and ecosystems.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Reed clips the rejected-catch slip inside the landings book. But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats.
 
 **Story event - exact player copy:** The council opens one linked review of the island's water, food, energy, materials, waste, population, and habitat.
 
@@ -635,7 +723,7 @@ Mission decision: Count water, food, energy, materials, waste, people. And habit
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What the Island Depends On. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Catch That Vanished. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -643,7 +731,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to What the Island Depends On, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?
+**Prompt - exact player copy:** In a follow-up to The Catch That Vanished, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?
 
 **Options - exact player copy:**
 
@@ -664,7 +752,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes energy flow versus matter cycling, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to What the Island Depends On: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?
+**Prompt - exact player copy:** the island council receives a second case related to The Catch That Vanished: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?
 
 **Options - exact player copy:**
 
@@ -685,7 +773,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes energy flow versus matter cycling, not system boundary. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks What the Island Depends On using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?
+**Prompt - exact player copy:** A teammate rechecks The Catch That Vanished using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?
 
 **Options - exact player copy:**
 
@@ -706,7 +794,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. matter changes form but remains in its cycle; feedback identifies the first mismatched process.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends What the Island Depends On: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?
+**Prompt - exact player copy:** An unseen case extends The Catch That Vanished: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?
 
 **Options - exact player copy:**
 
@@ -727,7 +815,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes carbon/nitrogen/phosphorus/water cycles, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 5
 
-**Prompt - exact player copy:** Before another What the Island Depends On decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?
+**Prompt - exact player copy:** Before another The Catch That Vanished decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?
 
 **Options - exact player copy:**
 
@@ -748,7 +836,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes carbon/nitrogen/phosphorus/water cycles, not dependent evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from What the Island Depends On to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?
+**Prompt - exact player copy:** the island council applies the lesson from The Catch That Vanished to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?
 
 **Options - exact player copy:**
 
@@ -775,14 +863,14 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 2 - The Groundwater Recharge Estimate
+# Mission 2 - The Dry-Year Line
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 14 DAYS TO THE FERRY VOTE  
+**Header:** MISSION 2 - 14 DAYS UNTIL THE VOTE.
 **Card title:** Water That Comes Back  
 **Go now:** Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the rain bench.  
-**Card body:** Vellan's wells depend on rain soaking into the ground, but much of that rain runs away or returns to the air. Calculate how much replenishes the underground water supply during dry years. Decide how much the island can withdraw each year without exhausting it.
+**Card body:** 14 days until the vote. The roof gauge ticks while a hand-kept rain book lies open beneath it. Today you decide how much well water the island can take.
 **Objective:** Set a reproducible groundwater recharge estimate.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -873,7 +961,9 @@ Nkemdi compares fourteen rain years while the automatic gauge under-reads in win
 
 **Beat 1 - On arrival at Waterworks | `rain-bench` | automatic**
 
-**World state:** Nkemdi compares fourteen rain years while the automatic gauge under-reads in wind.
+**Trigger:** mission_2_arrival.
+
+**World state:** The roof gauge ticks while a hand-kept rain book lies open beneath it.
 
 **Panel/HUD text:** MISSION 2: ROUTE ONE YEAR OF RAIN OPEN
 
@@ -883,43 +973,59 @@ Nkemdi compares fourteen rain years while the automatic gauge under-reads in win
 
 **Beat 2 - After Stop 5 | `rain-bench` | automatic**
 
-**World state:** After Stop 1: Keep the new evidence visible and.
+**Trigger:** accepted_stop_5.
+
+**World state:** At `rain-bench`, the dated accepted-result slip for Stop 5 reads: "900-510-210-30=150 mm/yr recharge.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 5 RECORDED - STOP 6 OPEN
 
-**Dialogue bubbles -** Nkemdi Okafor: "Nice work. Use the Stop 5 result to settle convert depth to volume."
+**Dialogue bubbles -** Nkemdi Okafor: "That check holds. The rainfall balance is complete, but the council needs recharge as a usable water volume."
 
 **Unlocks/waypoint:** Unlock Stop 6 at `rain-bench` in Waterworks.
 
 **Beat 3 - After Stop 6 | `store-gauges` | automatic**
 
-**World state:** After Stop 2: Update the persistent panel and  or the evidence-led waypoint.
+**Trigger:** accepted_stop_6.
+
+**World state:** At `rain-bench`, the dated accepted-result slip for Stop 6 reads: "150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 6 RECORDED - STOP 7 OPEN
 
-**Dialogue bubbles -** Nkemdi Okafor: "Good thinking. Use the Stop 6 result to settle freeze the estimate."
+**Dialogue bubbles -** Nkemdi Okafor: "That check holds. The average recharge estimate must face dry years before it becomes a drinking-water allowance."
 
 **Unlocks/waypoint:** Unlock Stop 7 at `store-gauges` in Waterworks.
 
 **Beat 4 - After Stop 7 | `store-gauges` | automatic**
 
-**World state:** After Stop 3: Show the combined result and unlock the decision stop.
+**Trigger:** accepted_stop_7.
+
+**World state:** At `store-gauges`, the dated accepted-result slip for Stop 7 reads: "Use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 7 RECORDED - STOP 8 OPEN
 
-**Dialogue bubbles -** Nkemdi Okafor: "Exactly right. Use the Stop 7 result to settle set the ceiling."
+**Dialogue bubbles -** Nkemdi Okafor: "That check holds. The dry-year test leaves measurement bias as an unresolved risk in the withdrawal allowance."
 
 **Unlocks/waypoint:** Unlock Stop 8 at `store-gauges` in Waterworks.
 
 **Beat 5 - At mission end | `rain-bench` | automatic**
 
-**World state:** Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue.
+**Trigger:** accepted_stop_8.
+
+**World state:** At `rain-bench`, Nkemdi Okafor pins the withdrawal card marked 136,800 CUBIC METRES PER YEAR above the rain book. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 2 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nkemdi Okafor: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Nkemdi Okafor: "The dry year gets a vote too. But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m02
+
+**Home:** `rain-bench`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. The roof gauge ticks while a hand-kept rain book lies open beneath it.
+**After — exact action:** Nkemdi Okafor pins the withdrawal card marked 136,800 CUBIC METRES PER YEAR above the rain book.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `nitrogen-bench`, a torn feed sack spills beside a tray of bare roots.
+**Segue - exact player copy:** But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget.
 
 ## Location plan
 
@@ -945,6 +1051,10 @@ Precipitation is divided among evapotranspiration, runoff, soil storage, and gro
 **Question card story setup - exact player copy:** The island ledger now has a water page, but its four destination rows are blank. Close the annual depth balance before converting any part of the rainfall into groundwater.
 
 **Question card story-science connection - exact player copy:** Annual recharge depth establishes the rainfall remaining to replenish groundwater after surface losses and storage changes.
+
+**Fixture source record - exact player copy:** The island ledger now has a water page, but its four destination rows are blank. Close the annual depth balance before converting any part of the rainfall into groundwater.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Using precipitation 900 mm/yr, evapotranspiration 510 mm/yr, runoff 210 mm/yr, and soil-storage increase 30 mm/yr, select every stream that counts and submit recharge in mm/yr.
 
@@ -974,6 +1084,10 @@ Precipitation is divided among evapotranspiration, runoff, soil storage, and gro
 
 **Question card story-science connection - exact player copy:** Recharge depth over the mapped aquifer area sets the annual groundwater supply available for withdrawal planning.
 
+**Fixture source record - exact player copy:** With recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Convert the depth across the mapped recharge zone without counting paved harbour land.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Assemble and submit annual recharge volume using 150 mm/yr, 0.001 m/mm, and 1.20 km² of recharge area with 1,000,000 m²/km². Answer in m³/yr.
 
 **Complete format-specific interaction block:** `estimate.labels=[depth,mm_to_m,area,km2_to_m2]; values=[150,0.001,1.20,1000000]; slots=4; formula=product; correct=180000; target=180000; tolerance=0.02`.
@@ -1001,6 +1115,10 @@ Precipitation is divided among evapotranspiration, runoff, soil storage, and gro
 **Question card story setup - exact player copy:** The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe.
 
 **Question card story-science connection - exact player copy:** The held-out years determine whether the planning rule includes restrictions when replenishment falls below demand.
+
+**Fixture source record - exact player copy:** The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Fit either mean recharge, 20th-percentile recharge, or wet-year recharge to years 1-10; click FREEZE; reveal years 11-14; submit the rule that keeps withdrawal below recharge in at least three of four years.
 
@@ -1065,6 +1183,10 @@ holdout:
 
 **Question card story-science connection - exact player copy:** The bias-adjusted recharge ceiling determines how much water the council can promise without using the optimistic end of the range.
 
+**Fixture source record - exact player copy:** Because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Stress the estimate across the hand-gauge range and choose a ceiling the council can defend.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge.
 
 **Complete format-specific interaction block:** `stress.assumption=rain_bias; range=[-0.05,0.05]; base=144000; candidates=[136800,144000,151200,180000]; correct=136800; rule="ceiling <= minimum credible recharge"`.
@@ -1123,11 +1245,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: Use 136,800 cubic metres per year as the planning withdrawal ceiling. It includes runoff, plant use, storage, dry years. And gauge bias. The ferry still appears possible. But chloride has begun rising before the summer visitor peak.
+Mission decision: Use 136,800 cubic metres per year as the planning withdrawal ceiling. It includes runoff, plant use, storage, dry years, and gauge bias. The ferry still appears possible. But chloride has begun rising before the summer visitor peak.
 
+**Segue - exact player copy:** But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: Use 136,800 cubic metres per year as the planning withdrawal ceiling. The council can act without sacrificing the island's future.
+**Happy ending card - exact player copy:** Your checks made the difference. Nkemdi Okafor pins the withdrawal card marked 136,800 CUBIC METRES PER YEAR above the rain book. But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget.
 
 **Story event - exact player copy:** The council adopts 136,800 cubic metres per year as the planning ceiling for groundwater withdrawal.
 
@@ -1137,7 +1260,7 @@ Mission decision: Use 136,800 cubic metres per year as the planning withdrawal c
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Groundwater Recharge Estimate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Dry-Year Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -1145,7 +1268,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Groundwater Recharge Estimate, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?
+**Prompt - exact player copy:** In a follow-up to The Dry-Year Line, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?
 
 **Options - exact player copy:**
 
@@ -1166,7 +1289,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes model validation, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Groundwater Recharge Estimate: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?
+**Prompt - exact player copy:** the island council receives a second case related to The Dry-Year Line: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?
 
 **Options - exact player copy:**
 
@@ -1187,7 +1310,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes model validation, not water budget. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Groundwater Recharge Estimate using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?
+**Prompt - exact player copy:** A teammate rechecks The Dry-Year Line using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?
 
 **Options - exact player copy:**
 
@@ -1208,7 +1331,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. one metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Groundwater Recharge Estimate: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?
+**Prompt - exact player copy:** An unseen case extends The Dry-Year Line: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?
 
 **Options - exact player copy:**
 
@@ -1250,7 +1373,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes unit conversion, not uncertainty margin. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Groundwater Recharge Estimate to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?
+**Prompt - exact player copy:** the island council applies the lesson from The Dry-Year Line to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?
 
 **Options - exact player copy:**
 
@@ -1277,14 +1400,14 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 3 - The Ecological Limits
+# Mission 3 - The Sack and the Reef
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 13 DAYS TO THE FERRY VOTE  
+**Header:** MISSION 3 - 13 DAYS UNTIL THE VOTE.
 **Card title:** What Keeps Growing  
 **Go now:** Go to the Common Office and meet Iona Vale, common agronomy lead, at the common map.  
-**Card body:** Enough drinking water does not guarantee enough food or healthy land for more visitors. Plants, animals, and farms also depend on energy, nutrients, and space. Compare those limits and decide what the ferry plan must protect beyond the island's water supply.
+**Card body:** 13 days until the vote. A torn feed sack spills beside a tray of bare roots. Today you decide whether more feed can lift the island's food limit.
 **Objective:** Add ecological limits to the ferry plan.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1377,7 +1500,9 @@ Iona is defending fertilizer imports while bare patches spread near sheds. **Sci
 
 **Beat 1 - On arrival at Common Office | `common-map` | automatic**
 
-**World state:** Iona is defending fertilizer imports while bare patches spread near sheds.
+**Trigger:** mission_3_arrival.
+
+**World state:** A torn feed sack spills beside a tray of bare roots.
 
 **Panel/HUD text:** MISSION 3: COUNT USABLE PLANT ENERGY OPEN
 
@@ -1387,43 +1512,59 @@ Iona is defending fertilizer imports while bare patches spread near sheds. **Sci
 
 **Beat 2 - After Stop 9 | `soil-bench` | automatic**
 
-**World state:** After Stop 1: Keep the new evidence visible and.
+**Trigger:** accepted_stop_9.
+
+**World state:** At `common-map`, the dated accepted-result slip for Stop 9 reads: "NPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 9 RECORDED - STOP 10 OPEN
 
-**Dialogue bubbles -** Iona Vale: "Nice work. Use the Stop 9 result to settle read recovery and habitat."
+**Dialogue bubbles -** Iona Vale: "That check holds. The grazing limit needs to account for land that is still recovering from fire."
 
 **Unlocks/waypoint:** Unlock Stop 10 at `soil-bench` in the Common Office.
 
 **Beat 3 - After Stop 10 | `common-map` | automatic**
 
-**World state:** After Stop 2: Update the persistent panel and  or the evidence-led waypoint.
+**Trigger:** accepted_stop_10.
+
+**World state:** At `soil-bench`, the dated accepted-result slip for Stop 10 reads: "The burned soil follows secondary succession and can recover in roughly 10-50 years; bare rock primary succession often takes 100+ years.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 10 RECORDED - STOP 11 OPEN
 
-**Dialogue bubbles -** Iona Vale: "Good thinking. Use the Stop 10 result to settle classify vulnerability."
+**Dialogue bubbles -** Iona Vale: "That check holds. The recovery map shows that habitat damage will not affect every island species equally."
 
 **Unlocks/waypoint:** Unlock Stop 11 at `common-map` in Common Office.
 
 **Beat 4 - After Stop 11 | `nitrogen-bench` | automatic**
 
-**World state:** After Stop 3: Show the combined result and unlock the decision stop.
+**Trigger:** accepted_stop_11.
+
+**World state:** At `common-map`, the dated accepted-result slip for Stop 11 reads: "Protect the petrel first; monitor the seal; routine watch for the generalists.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 11 RECORDED - STOP 12 OPEN
 
-**Dialogue bubbles -** Iona Vale: "Exactly right. Use the Stop 11 result to settle test the fertilizer claim."
+**Dialogue bubbles -** Iona Vale: "That check holds. Fertilizer is proposed to raise production despite the island's newly established ecological limits."
 
 **Unlocks/waypoint:** Unlock Stop 12 at `nitrogen-bench` in Common Office.
 
 **Beat 5 - At mission end | `common-map` | automatic**
 
-**World state:** Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue.
+**Trigger:** accepted_stop_12.
+
+**World state:** At `nitrogen-bench`, Iona Vale ties a SURPLUS NITROGEN tag to the fertilizer sack. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 3 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Iona Vale: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Iona Vale: "I paid for that feed. I would rather lose a sack than a field. But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m03
+
+**Home:** `nitrogen-bench`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. A torn feed sack spills beside a tray of bare roots.
+**After — exact action:** Iona Vale ties a SURPLUS NITROGEN tag to the fertilizer sack.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `store-gauges`, the well needle sits below yesterday's chalk mark.
+**Segue - exact player copy:** But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan.
 
 ## Location plan
 
@@ -1449,6 +1590,10 @@ GPP is all captured plant energy; NPP is what remains after respiration. About 1
 **Question card story setup - exact player copy:** The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals.
 
 **Question card story-science connection - exact player copy:** Net plant production and transfer to herbivores set the energy available for stocking the common.
+
+**Fixture source record - exact player copy:** The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** First calculate NPP from GPP 18,000 kJ/m²/yr and plant respiration 8,000 kJ/m²/yr. Then apply 10% transfer and submit herbivore production in kJ/m²/yr.
 
@@ -1477,6 +1622,10 @@ GPP is all captured plant energy; NPP is what remains after respiration. About 1
 **Question card story setup - exact player copy:** With grazing energy capped, Iona points to a burned field where soil remains. Order its recovery path, then compare its timescale with the separately displayed bare-rock reference, before the council changes the ferry plan affecting the island's limited resources.
 
 **Question card story-science connection - exact player copy:** The succession pathway distinguishes soil-supported recovery from bare-rock recovery when the council evaluates future habitat availability.
+
+**Fixture source record - exact player copy:** With grazing energy capped, Iona points to a burned field where soil remains. Order its recovery path, then compare its timescale with the separately displayed bare-rock reference, before the council changes the ferry plan affecting the island's limited resources.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Order the four burned-field recovery cards from disturbance through later community, then submit why this secondary-succession path is faster than the displayed bare-rock reference.
 
@@ -1530,6 +1679,10 @@ sequence:
 
 **Question card story-science connection - exact player copy:** Species specialization and breeding vulnerability determine which populations need protection before ferry expansion.
 
+**Fixture source record - exact player copy:** Because damaged soils recover at different rates, species using them also face different risk. Sort a broad-diet generalist and a narrow-habitat specialist for monitoring, protection, or routine watch.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Assign island rat, cliff-nesting petrel, fast-growing grass, and slow-breeding seal to `routine`, `monitor`, or `protect first`; submit one complete triage.
 
 **Complete format-specific interaction block:** `choices={rat:routine,grass:routine,petrel:protect_first,seal:monitor}; answer=petrel; why="specialist on small remote island"; rebuttals={rat:"generalist",grass:"rapid recovery",seal:"K-selected but broader marine range"}`.
@@ -1558,6 +1711,10 @@ sequence:
 
 **Question card story-science connection - exact player copy:** The yield gain and nitrate increase determine whether extra fertilizer solves a food constraint by creating a water-quality problem.
 
+**Fixture source record - exact player copy:** The energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Test equal plots to see whether added nitrogen raises crop yield without creating a larger nitrate loss.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Change only nitrogen from 0 to 50 kg/ha; keep crop, soil, plot area, water 20 mm, and seven-day timing fixed. Measure yield and runoff nitrate, restore nitrogen to 0, repeat the measurement, then submit one conclusion.
 
 **Complete format-specific interaction block:** `control:{candidates:[{id:"nitrogen",label:"nitrogen application"},{id:"water",label:"irrigation"},{id:"crop",label:"crop type"}],correct_control:"nitrogen",baseline:{N:0,yield:4.0,nitrate:1.0},response:{N:50,yield:4.6,nitrate:8.0},units:{N:"kg/ha",yield:"t/ha",nitrate:"mg/L"},noise_band:{yield:0.1,nitrate:0.3},fixed:["crop","soil","plot area","water 20 mm","seven-day timing"],measure_when:"after seven days",restore:{required:true,N:0,remeasure:true},correct_conclusion:"small yield gain with large nitrate loss",answerText:"Changing only nitrogen raises yield slightly but increases runoff nitrate far beyond noise; restoration returns the baseline."}`
@@ -1576,9 +1733,10 @@ sequence:
 
 Mission decision: Limit ferry growth to what farms and wild systems can support. Food loss, slow growth, and habitat all set the limit. More fertilizer will not remove those limits. Salt in the well is still rising.
 
+**Segue - exact player copy:** But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: Limit ferry growth to what farms and wild systems can support. Your evidence gives the community a fairer and safer path forward.
+**Happy ending card - exact player copy:** Your checks made the difference. Iona Vale ties a SURPLUS NITROGEN tag to the fertilizer sack. But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan.
 
 **Story event - exact player copy:** The ferry plan is capped at the level the island's farms, food supply, and habitats can support.
 
@@ -1588,7 +1746,7 @@ Mission decision: Limit ferry growth to what farms and wild systems can support.
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Ecological Limits. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Sack and the Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -1596,7 +1754,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Ecological Limits, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?
+**Prompt - exact player copy:** In a follow-up to The Sack and the Reef, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?
 
 **Options - exact player copy:**
 
@@ -1617,7 +1775,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes succession, biomes, aquatic zones, not Net primary productivity (NPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Ecological Limits: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?
+**Prompt - exact player copy:** the island council receives a second case related to The Sack and the Reef: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?
 
 **Options - exact player copy:**
 
@@ -1638,7 +1796,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes succession, biomes, aquatic zones, not Gross primary productivity (GPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Ecological Limits using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?
+**Prompt - exact player copy:** A teammate rechecks The Sack and the Reef using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?
 
 **Options - exact player copy:**
 
@@ -1659,7 +1817,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. plants use part of GPP, and most remaining energy is lost as heat between levels.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Ecological Limits: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?
+**Prompt - exact player copy:** An unseen case extends The Sack and the Reef: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?
 
 **Options - exact player copy:**
 
@@ -1739,7 +1897,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes GPP/NPP and 10% law, not generalist/specialist, island biogeography, life history preview. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Ecological Limits to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?
+**Prompt - exact player copy:** the island council applies the lesson from The Sack and the Reef to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?
 
 **Options - exact player copy:**
 
@@ -1766,14 +1924,14 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 4 - The Aquifer Warning
+# Mission 4 - Salt Before Summer
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 12 DAYS TO THE FERRY VOTE  
+**Header:** MISSION 4 - 12 DAYS UNTIL THE VOTE.
 **Card title:** Salt Before Summer  
 **Go now:** Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the store gauges.  
-**Card body:** Salt appeared in a well before the busiest visitor season. Heavy pumping may have drawn seawater into the underground freshwater supply. Compare the rocks, water levels, and timing of the salt increase, then decide what caused the warning and when pumping should be restricted.
+**Card body:** 12 days until the vote. The well needle sits below yesterday's chalk mark. Today you decide when pumping must stop.
 **Objective:** Diagnose the salt pathway and set an aquifer warning.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1861,7 +2019,9 @@ Nkemdi lays out aquifer cores beside synchronized logs. **Science:** soil format
 
 **Beat 1 - On arrival at Waterworks | `rain-bench` | automatic**
 
-**World state:** Arrival: Nkemdi sets the aquifer core beside the synchronized well log; Continue.
+**Trigger:** mission_4_arrival.
+
+**World state:** The well needle sits below yesterday's chalk mark.
 
 **Panel/HUD text:** MISSION 4: READ THE GROUND OPEN
 
@@ -1871,43 +2031,59 @@ Nkemdi lays out aquifer cores beside synchronized logs. **Science:** soil format
 
 **Beat 2 - After Stop 13 | `store-gauges` | automatic**
 
-**World state:** After Stop 13: The O-A-E-B-C-R core labels remain visible and the well probe unlocks.
+**Trigger:** accepted_stop_13.
+
+**World state:** At `rain-bench`, the dated accepted-result slip for Stop 13 reads: "The six mappings establish a sandy, permeable coastal path above a clay-rich storage layer.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 13 RECORDED - STOP 14 OPEN
 
-**Dialogue bubbles -** Nkemdi Okafor: "Nice work. Use the Stop 13 result to settle probe the salt front."
+**Dialogue bubbles -** Nkemdi Okafor: "That check holds. The permeable coastal layer needs a well-by-well check before the chloride warning is diagnosed."
 
 **Unlocks/waypoint:** Unlock Stop 14 at `store-gauges` in Waterworks.
 
 **Beat 3 - After Stop 14 | `store-gauges` | automatic**
 
-**World state:** After Stop 14: W3-W5 receive persistent `SALT FRONT` tags and the combined diagnostic panel unlocks.
+**Trigger:** accepted_stop_14.
+
+**World state:** At `store-gauges`, the dated accepted-result slip for Stop 14 reads: "The break begins at W3; chloride rises toward shore while nitrate stays near 4 mg/L and freshwater head falls.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** SALT FRONT
 
-**Dialogue bubbles -** Nkemdi Okafor: "Good thinking. Use the Stop 14 result to settle diagnose the early warning."
+**Dialogue bubbles -** Nkemdi Okafor: "That check holds. The well survey has located the salt front but has not yet explained why it advanced."
 
 **Unlocks/waypoint:** Unlock Stop 15 at `store-gauges` in Waterworks.
 
 **Beat 4 - After Stop 15 | `store-gauges` | automatic**
 
-**World state:** After Stop 15: The pump control flashes beside the falling-head record and unlocks the trigger.
+**Trigger:** accepted_stop_15.
+
+**World state:** At `store-gauges`, the dated accepted-result slip for Stop 15 reads: "Continuous pumping under low recharge lowered freshwater head and pulled seawater inland.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 15 RECORDED - STOP 16 OPEN
 
-**Dialogue bubbles -** Nkemdi Okafor: "Exactly right. Use the Stop 15 result to settle write the aquifer trigger."
+**Dialogue bubbles -** Nkemdi Okafor: "That check holds. The drawdown diagnosis requires an action rule before the next well update arrives."
 
 **Unlocks/waypoint:** Unlock Stop 16 at `store-gauges` in Waterworks.
 
 **Beat 5 - At mission end | `rain-bench` | automatic**
 
-**World state:** Outcome and hook: The pump stops on the third update, the 1.0 m plaque remains, and the landings record becomes the next waypoint; Required bubbles pause until Continue.
+**Trigger:** accepted_stop_16.
+
+**World state:** At `store-gauges`, Nkemdi Okafor marks the gauge with STOP PUMPING AT 1.0 M OR BELOW. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 4 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nkemdi Okafor: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Nkemdi Okafor: "The pump can keep running long after the well stops being fresh. Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m04
+
+**Home:** `store-gauges`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. The well needle sits below yesterday's chalk mark.
+**After — exact action:** Nkemdi Okafor marks the gauge with STOP PUMPING AT 1.0 M OR BELOW.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `landings-book`, wet gloves weigh down a page full of longer boat shifts.
+**Segue - exact player copy:** Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder.
 
 ## Location plan
 
@@ -1934,6 +2110,10 @@ Porosity measures available pore space, while permeability measures whether thos
 **Question card story setup - exact player copy:** The nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Match each core feature to the soil process or texture that controls infiltration and storage.
 
 **Question card story-science connection - exact player copy:** The soil-core matches identify layers that transmit pollution quickly and layers that store water beneath the island.
+
+**Fixture source record - exact player copy:** The nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Match each core feature to the soil process or texture that controls infiltration and storage.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Match frost-split rock, rusted mineral, coarse sand, dense clay, pale E horizon, and enriched B horizon to physical weathering, chemical weathering, fast drainage, slow drainage, leaching, and accumulation.
 
@@ -1962,6 +2142,10 @@ Porosity measures available pore space, while permeability measures whether thos
 **Question card story setup - exact player copy:** With the permeable coastal layer identified, take depth readings from inland to shore. Locate where chloride rises while nitrate remains quiet, then name the broken groundwater pattern.
 
 **Question card story-science connection - exact player copy:** The first chloride break and freshwater-head pattern locate the salt front without confusing it with nitrate contamination.
+
+**Fixture source record - exact player copy:** With the permeable coastal layer identified, take depth readings from inland to shore. Locate where chloride rises while nitrate remains quiet, then name the broken groundwater pattern.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Probe W1-W5 in order. At every station compare observed chloride with that station's expected 40-55 mg/L freshwater range, compare observed nitrate with that station's expected 3.5-4.5 mg/L background range, and read freshwater head; submit the first chloride break and either `seawater intrusion` or `farm runoff`.
 
@@ -2002,6 +2186,10 @@ probe:
 **Question card story setup - exact player copy:** The probe found a coastal salt front before the tourist peak. Combine that pattern with pumping, rainfall, and nitrate records to reject explanations that fit only one alarm.
 
 **Question card story-science connection - exact player copy:** The combined pumping, recharge, and chemistry evidence determines which cause the aquifer protection plan must address.
+
+**Fixture source record - exact player copy:** The probe found a coastal salt front before the tourist peak. Combine that pattern with pumping, rainfall, and nitrate records to reject explanations that fit only one alarm.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Select the single cause that fits every panel zone.
 
@@ -2087,6 +2275,10 @@ probe:
 
 **Question card story-science connection - exact player copy:** The freshwater-head threshold determines when pumping must stop to prevent further seawater intrusion.
 
+**Fixture source record - exact player copy:** Because drawdown explains the salt front, the warning must act before drinking water fails. Write the threshold now, then test it against new well updates without moving the line.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Set an inclusive stop-pumping rule on freshwater head from 0.0 to 3.0 m; objective is prevent chloride above 250 mg/L, and campaign evidence shows risk begins at head <=1.0 m. Commit 1.0 m, reveal updates, then submit `STOP` when the threshold is met.
 
 **Complete format-specific interaction block:** `trigger.rule="stop pumping when head <= threshold"; scale=[0,3]; anchors=[0.5,0.9,1.5,2.0]; objective="chloride <=250 mg/L"; direction=lower_is_worse; consequence_limit=250; correct_threshold=1.0; updates=[1.4,1.1,1.0,0.8]`.
@@ -2141,9 +2333,10 @@ trigger:
 
 Mission decision: The well is salty because pumping lowered fresh water pressure. Seawater then moved into the aquifer. Stop pumping at 1.0 metre or less. Next, test if steady fish catch hides loss.
 
+**Segue - exact player copy:** Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: The well is salty because pumping lowered fresh water pressure. The island's water, wildlife, and families are better protected.
+**Happy ending card - exact player copy:** Your checks made the difference. Nkemdi Okafor marks the gauge with STOP PUMPING AT 1.0 M OR BELOW. Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder.
 
 **Story event - exact player copy:** The island stops pumping when the freshwater level reaches 1.0 metre and seawater intrusion threatens the well.
 
@@ -2153,7 +2346,7 @@ Mission decision: The well is salty because pumping lowered fresh water pressure
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Aquifer Warning. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Salt Before Summer. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -2161,7 +2354,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Aquifer Warning, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?
+**Prompt - exact player copy:** In a follow-up to Salt Before Summer, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?
 
 **Options - exact player copy:**
 
@@ -2182,7 +2375,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes coupled groundwater evidence, not Porosity. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Aquifer Warning: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?
+**Prompt - exact player copy:** the island council receives a second case related to Salt Before Summer: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?
 
 **Options - exact player copy:**
 
@@ -2203,7 +2396,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes coupled groundwater evidence, not soil horizons/weathering/texture. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Aquifer Warning using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** A teammate rechecks Salt Before Summer using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -2263,7 +2456,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Aquifer Warning: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?
+**Prompt - exact player copy:** An unseen case extends Salt Before Summer: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?
 
 **Options - exact player copy:**
 
@@ -2348,7 +2541,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes aquifer profile, not environmental thresholds. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Aquifer Warning to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?
+**Prompt - exact player copy:** the island council applies the lesson from Salt Before Summer to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?
 
 **Options - exact player copy:**
 
@@ -2375,17 +2568,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 5 - The Fishery Ceiling
+# Mission 5 - The Same Catch, Twice the Work
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 11 DAYS TO THE VOTE.
+**Header:** MISSION 5 - 11 DAYS UNTIL THE VOTE.
 
 **Card title:** THE FISHERY CEILING
 
 **Go now:** Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book.
 
-**Card body:** Fishing boats still bring back fish, but crews are working longer for each tonne they catch. Steady catches may hide a shrinking fish population. Compare the population and habitat evidence, then set a catch limit that keeps fishing possible in future years.
+**Card body:** 11 days until the vote. Wet gloves weigh down a page full of longer boat shifts. Today you decide how much catch the reef can replace.
 
 **Objective:** Set a sustainable and enforceable fishery ceiling.
 
@@ -2502,7 +2695,9 @@ At Harbour, paper effort data reveal falling catch per boat-hour; that result un
 
 **Beat 1 - On arrival at Harbour Office | `landings-book` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_5_arrival.
+
+**World state:** Wet gloves weigh down a page full of longer boat shifts.
 
 **Panel/HUD text:** MISSION 5: MEASURE CATCH PER UNIT EFFORT OPEN
 
@@ -2512,43 +2707,59 @@ At Harbour, paper effort data reveal falling catch per boat-hour; that result un
 
 **Beat 2 - After Stop 17 | `transect-bench` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_17.
+
+**World state:** At `landings-book`, the dated accepted-result slip for Stop 17 reads: "200 and 120 kg/boat-h; decline=(200-120)/200=40%". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 17 RECORDED - STOP 18 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Nice work. Use the Stop 17 result to settle read the survivorship curves."
+**Dialogue bubbles -** Tomas Reed: "That check holds. Declining catch efficiency makes species recovery expectations important to the fishing limit."
 
 **Unlocks/waypoint:** Unlock Stop 18 at `transect-bench` in Reef Station.
 
 **Beat 3 - After Stop 18 | `flow-tank` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_18.
+
+**World state:** At `transect-bench`, the dated accepted-result slip for Stop 18 reads: "fish Type III, seal Type I. Feedback distinguishes constant Type II". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 18 RECORDED - STOP 19 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Good thinking. Use the Stop 18 result to settle verify logistic recovery."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The survivorship comparison leaves the nursery's actual replacement rate to be tested."
 
 **Unlocks/waypoint:** Unlock Stop 19 at `flow-tank` in Reef Station.
 
 **Beat 4 - After Stop 19 | `transect-bench` | automatic**
 
-**World state:** Synthesis: Stop 19 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_19.
+
+**World state:** At `flow-tank`, the dated accepted-result slip for Stop 19 reads: "0.50(600)(0.40)=120 fish/yr; 150 exceeds replacement. Feedback shows missing density term". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 19 RECORDED - STOP 20 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Exactly right. Use the Stop 19 result to settle fund an enforceable ceiling."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The measured replacement rate needs an enforceable fishing plan rather than a numerical promise alone."
 
 **Unlocks/waypoint:** Unlock Stop 20 at `transect-bench` in Reef Station.
 
 **Beat 5 - At mission end | `landings-book` | automatic**
 
-**World state:** Decision and hook: Stop 20 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_20.
+
+**World state:** At `landings-book`, Tomas Reed draws a red catch-limit line across the landings page. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 5 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Reed: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Reed: "The same haul took us longer. I kept calling that a good week. But Ada will not sign a limit no one can check; the fees and patrols need owners."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m05
+
+**Home:** `landings-book`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. Wet gloves weigh down a page full of longer boat shifts.
+**After — exact action:** Tomas Reed draws a red catch-limit line across the landings page.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `fee-desk`, a fresh permit stamp rests on top of an unpaid patrol rota.
+**Segue - exact player copy:** But Ada will not sign a limit no one can check; the fees and patrols need owners.
 
 ## Location plan
 
@@ -2575,6 +2786,10 @@ Exponential growth assumes no limit; logistic growth slows near K. Type I surviv
 **Question card story setup - exact player copy:** The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock.
 
 **Question card story-science connection - exact player copy:** Catch per boat-hour distinguishes stable extraction from the growing effort required to obtain it.
+
+**Fixture source record - exact player copy:** The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** “Using 960 t/4,800 boat-h in Year 1 and 960 t/8,000 boat-h in Year 5, submit both rates in kg/boat-h and the percent decline.”
 
@@ -2603,6 +2818,10 @@ Exponential growth assumes no limit; logistic growth slows near K. Type I surviv
 **Question card story setup - exact player copy:** Because catch efficiency fell 40%, landings no longer measure stock health. Plot juvenile survival for a Type III fish and compare it with a slow-breeding seal before assigning recovery expectations.
 
 **Question card story-science connection - exact player copy:** The survivorship curves distinguish early juvenile losses from late-life mortality when planning fish and seal protection.
+
+**Fixture source record - exact player copy:** Because catch efficiency fell 40%, landings no longer measure stock health. Plot juvenile survival for a Type III fish and compare it with a slow-breeding seal before assigning recovery expectations.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** “Place the fish survival cloud through [1000,180,90,55,40] survivors by age and the seal through [100,96,90,70,0]; submit Type III for fish and Type I for seal.”
 
@@ -2739,6 +2958,10 @@ choice:
 
 **Question card story-science connection - exact player copy:** Density-limited annual growth determines whether the proposed catch removes fish faster than the current stock replaces them.
 
+**Fixture source record - exact player copy:** With nursery mortality identified, a constant exponential forecast is too optimistic near the habitat limit. Predict one-year growth under the displayed logistic rule, then compare it with the tank cohort.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** “CALCULATE AND COMMIT: use ΔN=rN(1-N/K), r=0.50/yr, N=600 fish, K=1,000 fish; submit ΔN in fish/yr. OPERATE: run one year with food and temperature fixed. MEASURE: final N. INTERPRET: submit whether a 150-fish catch is sustainable. No restoration required.”
 
 **Complete format-specific interaction block:** `verify:{required_sequence:[calculate_and_commit,operate,measure,interpret],prediction:{equation:"ΔN=rN(1-N/K)",inputs:{r:0.50,N:600,K:1000},units:{r:"per year",N:"fish",K:"fish"},submit:{quantity:"population change",unit:"fish/year",truth:120,tolerance:2}},equipment_locked_until_prediction_commit:true,operation:{action:"run one year",fixed:["food","temperature"]},measurements:{final_population:718,unit:"fish",tolerance:5},restore:{required:false,reason:"the annual simulation changes no physical setting"},correct_conclusion:"a 150-fish catch is not sustainable",answerText:"Logistic growth predicts 120 fish/year, so removing 150 exceeds replacement; the measured final population agrees within tolerance."}`
@@ -2766,6 +2989,10 @@ choice:
 **Question card story setup - exact player copy:** The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement.
 
 **Question card story-science connection - exact player copy:** The allocation determines whether catch limits, effort checks, habitat protection, and data collection support the same sustainable ceiling.
+
+**Fixture source record - exact player copy:** The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** “Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.”
 
@@ -2813,9 +3040,10 @@ allocate_patch:
 
 Mission decision: Cap the catch below measured growth. Fund tags, patrols, and a new stock check. The rule protects the nursery. Now the waste ledger shows leaks into water and air.
 
+**Segue - exact player copy:** But Ada will not sign a limit no one can check; the fees and patrols need owners.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: Cap the catch below measured growth. The ferry decision is now grounded in what Vellan can actually sustain.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Reed draws a red catch-limit line across the landings page. But Ada will not sign a limit no one can check; the fees and patrols need owners.
 
 **Story event - exact player copy:** The harbour posts a catch limit below measured fish-population growth.
 
@@ -2827,7 +3055,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Fishery Ceiling. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Same Catch, Twice the Work. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -2835,7 +3063,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Fishery Ceiling, the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Generalist?
+**Prompt - exact player copy:** In a follow-up to The Same Catch, Twice the Work, the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Generalist?
 
 **Options - exact player copy:**
 
@@ -2856,7 +3084,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Carrying capacity, not Generalist. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Fishery Ceiling: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Specialist?
+**Prompt - exact player copy:** the island council receives a second case related to The Same Catch, Twice the Work: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Specialist?
 
 **Options - exact player copy:**
 
@@ -2877,7 +3105,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Carrying capacity, not Specialist. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Fishery Ceiling using new evidence: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies K-selected?
+**Prompt - exact player copy:** A teammate rechecks The Same Catch, Twice the Work using new evidence: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies K-selected?
 
 **Options - exact player copy:**
 
@@ -2898,7 +3126,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. few young, long lives, stable populations.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Fishery Ceiling: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Carrying capacity?
+**Prompt - exact player copy:** An unseen case extends The Same Catch, Twice the Work: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Carrying capacity?
 
 **Options - exact player copy:**
 
@@ -2940,7 +3168,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes K-selected, not catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Fishery Ceiling to this follow-up: because catch efficiency fell 40%, landings no longer measure stock health. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence?
+**Prompt - exact player copy:** the island council applies the lesson from The Same Catch, Twice the Work to this follow-up: because catch efficiency fell 40%, landings no longer measure stock health. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence?
 
 **Options - exact player copy:**
 
@@ -2965,17 +3193,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 6 - The Enforcement Plan
+# Mission 6 - Who Checks the Limit?
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 10 DAYS.
+**Header:** MISSION 6 - 10 DAYS UNTIL THE VOTE.
 
 **Card title:** THE ENFORCEMENT PLAN
 
 **Go now:** Harbour Office, Tomas Reed at `fee-desk`.
 
-**Card body:** The catch limit cannot work if boats bring fish ashore without reporting them. Compare inspections, fees, and rules for sharing the island's resources. Choose a plan people can follow and officials can enforce without unfairly placing all the costs on one group.
+**Card body:** 10 days until the vote. A fresh permit stamp rests on top of an unpaid patrol rota. Today you decide how the island will enforce its limits.
 
 **Objective:** Turn ecological ceilings into fair rules.
 
@@ -3074,7 +3302,9 @@ Harbour evidence tests landing controls, unlocking Common where land practices c
 
 **Beat 1 - On arrival at Chapel Council Room | `council-table` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_6_arrival.
+
+**World state:** A fresh permit stamp rests on top of an unpaid patrol rota.
 
 **Panel/HUD text:** MISSION 6: AUDIT THE LANDING CLAIM OPEN
 
@@ -3084,43 +3314,59 @@ Harbour evidence tests landing controls, unlocking Common where land practices c
 
 **Beat 2 - After Stop 21 | `council-table` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_21.
+
+**World state:** At `council-table`, the dated accepted-result slip for Stop 21 reads: "nursery-zone origin is unbacked; hold catch". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 21 RECORDED - STOP 22 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 21 result to settle buy compliance evidence."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The held landing reveals an origin-checking gap that the monitoring budget must close."
 
 **Unlocks/waypoint:** Unlock Stop 22 at `council-table` in Chapel Council Room.
 
 **Beat 3 - After Stop 22 | `common-map` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_22.
+
+**World state:** At `council-table`, the dated accepted-result slip for Stop 22 reads: "tags+checks=35". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 22 RECORDED - STOP 23 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 22 result to settle match land-use practices."
+**Dialogue bubbles -** Tomas Reed: "That check holds. Harbour enforcement is addressed, but the common's land practices can still undermine water and soil limits."
 
 **Unlocks/waypoint:** Unlock Stop 23 at `common-map` in Common Office.
 
 **Beat 4 - After Stop 23 | `common-map` | automatic**
 
-**World state:** Synthesis: Stop 23 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_23.
+
+**World state:** At `common-map`, the dated accepted-result slip for Stop 23 reads: "Erosion maps to selective harvest and reforestation; runoff to permeable pavement and rain gardens; irrigation loss to drip irrigation; pests to IPM; and the forestry claim to FSC certification.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 23 RECORDED - STOP 24 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 23 result to settle fund the commons package."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The matched land practices need a funded package before the common can implement them."
 
 **Unlocks/waypoint:** Unlock Stop 24 at `common-map` in Common Office.
 
 **Beat 5 - At mission end | `council-table` | automatic**
 
-**World state:** Decision and hook: Stop 24 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_24.
+
+**World state:** At `fee-desk`, Tomas Reed stamps the permit stack CAP AND CHECK REQUIRED. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 6 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Reed: "A fee buys the patrol. It does not buy permission to break the cap. But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m06
+
+**Home:** `fee-desk`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. A fresh permit stamp rests on top of an unpaid patrol rota.
+**After — exact action:** Tomas Reed stamps the permit stack CAP AND CHECK REQUIRED.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `leachate-bench`, a brown jar leaves a ring beside a clean pipe sample.
+**Segue - exact player copy:** But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak.
 
 ## Location plan
 
@@ -3147,6 +3393,10 @@ regulation and property rights can limit access; developed lifestyles often use 
 **Question card story setup - exact player copy:** The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag.
 
 **Question card story-science connection - exact player copy:** The verified landing records determine whether this catch can receive a legal tag under the nursery restriction.
+
+**Fixture source record - exact player copy:** The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** verify at most 3 of 5 claims and reject any critical unbacked claim
 
@@ -3189,6 +3439,10 @@ attest:
 
 **Question card story-science connection - exact player copy:** The purchased evidence must reveal both total extraction and nursery violations within the available credits.
 
+**Fixture source record - exact player copy:** Because the catch cannot prove where it was taken, the council has forty monitoring credits. Buy records that can reveal both total extraction and nursery violations.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** choose within 40: electronic tags 20 required, random dock checks 15 required, poster 8, fisher survey 12, larger sign 10
 
 **Complete format-specific interaction block:** `value:{budget:40,options:[{id:"landing_tags",axis:"total extraction",cost:20,required:true},{id:"dock_checks",axis:"identity and mass verification",cost:15,required:true},{id:"nursery_camera",axis:"nursery-zone location",cost:20,required:false},{id:"public_ad",axis:"awareness",cost:10,required:false},{id:"seller_survey",axis:"self-reported behavior",cost:15,required:false}],total_available_cost:80,correct_purchase:["landing_tags","dock_checks"],answerText:"Buy tags and dock checks for 35 credits; they can change enforcement by testing total catch and compliance."}`
@@ -3216,6 +3470,10 @@ attest:
 **Question card story setup - exact player copy:** The harbour plan now measures use and checks violations. At the common, match each land problem to a practice that reduces its mechanism rather than moving it elsewhere.
 
 **Question card story-science connection - exact player copy:** Matching each practice to its mechanism determines whether the land plan reduces erosion, runoff, irrigation loss, or pest damage.
+
+**Fixture source record - exact player copy:** The harbour plan now measures use and checks violations. At the common, match each land problem to a practice that reduces its mechanism rather than moving it elsewhere.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Submit the complete mapping: erosion, runoff, irrigation loss, pests, and a forestry claim must each receive one practice.
 
@@ -3245,6 +3503,10 @@ attest:
 
 **Question card story-science connection - exact player copy:** The allocation determines whether soil, irrigation, pest, buffer, and crop-monitoring needs are covered together.
 
+**Fixture source record - exact player copy:** With practices matched to mechanisms, the common needs a 100-point package. Balance crop yield, soil health, runoff, and enforcement while rejecting a single-method cure.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Allocate exactly 100 points among soil testing 20, drip irrigation 25, integrated pest management (IPM) 25, buffer strips 20, blanket pesticide 30, and genetically modified organism (GMO) monitoring 10. Submit one workable allocation.
 
 **Complete format-specific interaction block:** `sciencetank:{pool:100,proposals:[{id:soil_testing,cost:20},{id:drip_irrigation,cost:25},{id:IPM,cost:25},{id:buffer_strips,cost:20},{id:blanket_pesticide,cost:30},{id:GMO_monitoring,cost:10}],recommended:{soil_testing:20,drip_irrigation:25,IPM:25,buffer_strips:20,GMO_monitoring:10},evidence:[crop_yield,soil_health,nitrate_runoff,pesticide_resistance],truth_total:100}`
@@ -3263,9 +3525,10 @@ attest:
 
 Mission decision: Use measured caps, random checks, restoration, and targeted fees. Payment alone does not prove compliance. The rule can be enforced. But water and methane still leave by unpriced paths.
 
+**Segue - exact player copy:** But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: Use measured caps, random checks, restoration, and targeted fees. Vellan Island has a stronger plan for its people and ecosystems.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Reed stamps the permit stack CAP AND CHECK REQUIRED. But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak.
 
 **Story event - exact player copy:** Random inspections and targeted fees put the shared-resource limits into force.
 
@@ -3277,7 +3540,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Enforcement Plan. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Who Checks the Limit?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -3285,7 +3548,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Enforcement Plan, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?
+**Prompt - exact player copy:** In a follow-up to Who Checks the Limit?, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?
 
 **Options - exact player copy:**
 
@@ -3306,7 +3569,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Integrated pest management (IPM), not Tragedy of the commons. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Enforcement Plan: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?
+**Prompt - exact player copy:** the island council receives a second case related to Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?
 
 **Options - exact player copy:**
 
@@ -3327,7 +3590,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Integrated pest management (IPM), not Sustainable yield. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Enforcement Plan using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?
+**Prompt - exact player copy:** A teammate rechecks Who Checks the Limit? using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?
 
 **Options - exact player copy:**
 
@@ -3348,7 +3611,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. productive land and water needed to support consumption and waste.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Enforcement Plan: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?
+**Prompt - exact player copy:** An unseen case extends Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?
 
 **Options - exact player copy:**
 
@@ -3390,7 +3653,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Ecological footprint, not compliance records | evidence | D5 | PRACTICE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Enforcement Plan to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?
+**Prompt - exact player copy:** the island council applies the lesson from Who Checks the Limit? to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?
 
 **Options - exact player copy:**
 
@@ -3415,17 +3678,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 7 - The Hidden Losses
+# Mission 7 - The Wet Trail
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 9 DAYS.
+**Header:** MISSION 7 - 9 DAYS UNTIL THE VOTE.
 
 **Card title:** THE HIDDEN LOSSES
 
 **Go now:** Tip and Sorting Yard, Mei Chen at `leachate-bench`.
 
-**Card body:** Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste.
+**Card body:** 9 days until the vote. A brown jar leaves a ring beside a clean pipe sample. Today you decide which hidden losses need repair.
 
 **Objective:** Find and rank hidden water and waste losses.
 
@@ -3524,7 +3787,9 @@ Tip trace unlocks Waterworks test. Mei initially watches visible waste; Nkemdi s
 
 **Beat 1 - On arrival at Tip and Sorting Yard | `leachate-bench` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_7_arrival.
+
+**World state:** A brown jar leaves a ring beside a clean pipe sample.
 
 **Panel/HUD text:** MISSION 7: TRACE THE HIDDEN EXPORTS OPEN
 
@@ -3534,43 +3799,59 @@ Tip trace unlocks Waterworks test. Mei initially watches visible waste; Nkemdi s
 
 **Beat 2 - After Stop 25 | `leachate-bench` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_25.
+
+**World state:** At `leachate-bench`, the dated accepted-result slip for Stop 25 reads: "The uncapped cell affects both air and water". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 25 RECORDED - STOP 26 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 25 result to settle build the treatment chain."
+**Dialogue bubbles -** Mei Chen: "That check holds. The identified leachate pathway requires a treatment sequence before discharge is permitted."
 
 **Unlocks/waypoint:** Unlock Stop 26 at `leachate-bench` in Tip and Sorting Yard.
 
 **Beat 3 - After Stop 26 | `pipe-balance` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_26.
+
+**World state:** At `leachate-bench`, the dated accepted-result slip for Stop 26 reads: "The five treatment stages are placed in causal order and dilution is rejected". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 26 RECORDED - STOP 27 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 26 result to settle close the water balance."
+**Dialogue bubbles -** Mei Chen: "That check holds. The contamination pathway is understood, but the waterworks still cannot account for its delivered volume."
 
 **Unlocks/waypoint:** Unlock Stop 27 at `pipe-balance` in Waterworks.
 
 **Beat 4 - After Stop 27 | `council-table` | automatic**
 
-**World state:** Synthesis: Stop 27 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_27.
+
+**World state:** At `pipe-balance`, the dated accepted-result slip for Stop 27 reads: "The unmetered loss is 50 m3/day". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 27 RECORDED - STOP 28 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 27 result to settle choose the repair priority."
+**Dialogue bubbles -** Mei Chen: "That check holds. The missing distribution water and the leachate pathway now compete for the same repair budget."
 
 **Unlocks/waypoint:** Unlock Stop 28 at `council-table` in Chapel Council Room.
 
 **Beat 5 - At mission end | `leachate-bench` | automatic**
 
-**World state:** Decision and hook: Stop 28 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_28.
+
+**World state:** At `leachate-bench`, Mei Chen sets the leak jar in a tray marked LINER REPAIR REQUIRED. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 7 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Mei Chen: "We found the missing water. Now find out what reached the cups. But Lena's school sample carries nitrate; the children need a traced source, not another guess."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m07
+
+**Home:** `leachate-bench`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. A brown jar leaves a ring beside a clean pipe sample.
+**After — exact action:** Mei Chen sets the leak jar in a tray marked LINER REPAIR REQUIRED.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `school-tap`, empty cups stand behind a DO NOT DRINK card.
+**Segue - exact player copy:** But Lena's school sample carries nitrate; the children need a traced source, not another guess.
 
 ## Location plan
 
@@ -3597,6 +3878,10 @@ landfills generate methane and carbon dioxide; leachate can reach groundwater; p
 **Question card story setup - exact player copy:** The waste ledger counts material delivered to the uncapped cell, but rain, leachate, methane, carbon dioxide, and collected solids follow different paths. Trace their shared sources and identify which pathway can carry dissolved pollution toward groundwater.
 
 **Question card story-science connection - exact player copy:** The waste pathways identify which exports affect air and which can carry dissolved contamination toward groundwater.
+
+**Fixture source record - exact player copy:** The waste ledger counts material delivered to the uncapped cell, but rain, leachate, methane, carbon dioxide, and collected solids follow different paths. Trace their shared sources and identify which pathway can carry dissolved pollution toward groundwater.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Open five channels; identify the waste cell as the shared source and rain as independent; submit the groundwater-dependent leachate pathway
 
@@ -3654,6 +3939,10 @@ trace:
 **Question card story setup - exact player copy:** Because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the wastewater path from solids removal through nutrient polishing before discharge.
 
 **Question card story-science connection - exact player copy:** The treatment order determines whether solids and nutrients are removed rather than merely diluted downstream.
+
+**Fixture source record - exact player copy:** Because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the wastewater path from solids removal through nutrient polishing before discharge.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Arrange the displayed wastewater-treatment cards from raw inflow to safe discharge. Exclude the card that only dilutes untreated water without removing contaminant load.
 
@@ -3714,6 +4003,10 @@ chain:
 
 **Question card story-science connection - exact player copy:** The unmetered water loss quantifies how much supply disappears before reaching billed taps.
 
+**Fixture source record - exact player copy:** The tip pathway is real, but Waterworks reports a larger daily loss. Close the distribution ledger to calculate water that never reaches a billed tap.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Use unmetered loss=plant output-households-businesses-ferry-tank increase with 410, 285, 55, 12, and 8 m3/day; submit one loss in m3/day
 
 **Complete format-specific interaction block:** `balance:{streams:[{id:"plant_output",direction:"in",value:410,unit:"m3/day",counts:true},{id:"households",direction:"out",value:285,unit:"m3/day",counts:true},{id:"businesses",direction:"out",value:55,unit:"m3/day",counts:true},{id:"ferry",direction:"out",value:12,unit:"m3/day",counts:true},{id:"tank_increase",direction:"storage",value:8,unit:"m3/day",counts:true},{id:"duplicate_billing_display",direction:"none",value:55,unit:"m3/day",counts:false,reason:"duplicate of the business meter"}],equation:"loss=plant-households-businesses-ferry-tank increase",correct:50,tolerance:1,answerText:"Unbilled loss is 50 m3/day; the duplicate billing display is not a second physical stream."}`
@@ -3741,6 +4034,10 @@ chain:
 **Question card story setup - exact player copy:** The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control.
 
 **Question card story-science connection - exact player copy:** The selected repairs determine whether immediate quantity loss is addressed without abandoning aquifer contamination control.
+
+**Fixture source record - exact player copy:** The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits
 
@@ -3789,9 +4086,10 @@ value:
 
 Mission decision: Repair the liner and treatment chain. Count the 50 cubic metres lost each day. The leak is real. Next, trace where school nitrate enters the system.
 
+**Segue - exact player copy:** But Lena's school sample carries nitrate; the children need a traced source, not another guess.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: Repair the liner and treatment chain. The council can act without sacrificing the island's future.
+**Happy ending card - exact player copy:** Your checks made the difference. Mei Chen sets the leak jar in a tray marked LINER REPAIR REQUIRED. But Lena's school sample carries nitrate; the children need a traced source, not another guess.
 
 **Story event - exact player copy:** Crews repair the landfill liner and the leaking water-treatment chain.
 
@@ -3803,7 +4101,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Hidden Losses. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Wet Trail. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Additional concepts kept out of the required mission card
 
@@ -3811,7 +4109,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Hidden Losses, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?
+**Prompt - exact player copy:** In a follow-up to The Wet Trail, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?
 
 **Options - exact player copy:**
 
@@ -3832,7 +4130,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Nonpoint source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Hidden Losses: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?
+**Prompt - exact player copy:** the island council receives a second case related to The Wet Trail: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?
 
 **Options - exact player copy:**
 
@@ -3853,7 +4151,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Nonpoint source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Hidden Losses using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?
+**Prompt - exact player copy:** A teammate rechecks The Wet Trail using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?
 
 **Options - exact player copy:**
 
@@ -3874,7 +4172,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: Correct. one identifiable outlet.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Hidden Losses: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?
+**Prompt - exact player copy:** An unseen case extends The Wet Trail: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?
 
 **Options - exact player copy:**
 
@@ -3916,7 +4214,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Point source, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Hidden Losses to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?
+**Prompt - exact player copy:** the island council applies the lesson from The Wet Trail to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?
 
 **Options - exact player copy:**
 
@@ -3941,17 +4239,17 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 8 - The School-Water Finding
+# Mission 8 - The Cups Stay Empty
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 8 DAYS.
+**Header:** MISSION 8 - 8 DAYS UNTIL THE VOTE.
 
 **Card title:** THE SCHOOL-WATER FINDING
 
 **Go now:** Waterworks, Nkemdi at `store-gauges`.
 
-**Card body:** The main pipe repair restored water supply, but the school tap still has more nitrate pollution than the main water pipe. Compare samples and estimate what children would swallow. Find the source and choose immediate protection while the remaining fault is investigated.
+**Card body:** 8 days until the vote. Empty cups stand behind a DO NOT DRINK card. Today you decide what will make the school tap safe.
 
 **Objective:** Identify the school exposure pathway.
 
@@ -4048,7 +4346,9 @@ Evidence at the first location unlocks the next causally necessary location; the
 
 **Beat 1 - On arrival at Waterworks | `store-gauges` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_8_arrival.
+
+**World state:** Empty cups stand behind a DO NOT DRINK card.
 
 **Panel/HUD text:** MISSION 8: PROBE THE NITRATE NETWORK OPEN
 
@@ -4058,43 +4358,59 @@ Evidence at the first location unlocks the next causally necessary location; the
 
 **Beat 2 - After Stop 29 | `register-desk` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_29.
+
+**World state:** At `store-gauges`, the dated accepted-result slip for Stop 29 reads: "The first break is the school branch; the source is local". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 29 RECORDED - STOP 30 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 29 result to settle compare child and adult dose."
+**Dialogue bubbles -** Lena Costa: "That check holds. The school-branch finding makes body-size differences relevant to the exposure decision."
 
 **Unlocks/waypoint:** Unlock Stop 30 at `register-desk` in Island School.
 
 **Beat 3 - After Stop 30 | `school-tap` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_30.
+
+**World state:** At `register-desk`, the dated accepted-result slip for Stop 30 reads: "Child dose is 0.56 and adult dose 0.32 mg/kg/day; the child dose is 75% higher". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 30 RECORDED - STOP 31 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 30 result to settle verify the garden source."
+**Dialogue bubbles -** Lena Costa: "That check holds. The child-dose result makes the suspected garden connection urgent to test."
 
 **Unlocks/waypoint:** Unlock Stop 31 at `school-tap` in Island School.
 
 **Beat 4 - After Stop 31 | `school-tap` | automatic**
 
-**World state:** Synthesis: Stop 31 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_31.
+
+**World state:** At `school-tap`, the dated accepted-result slip for Stop 31 reads: "Prediction is 8.6 mg/L; isolation measures 6.2 mg/L and identifies the local garden input". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 31 RECORDED - STOP 32 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 31 result to settle set the school action level."
+**Dialogue bubbles -** Lena Costa: "That check holds. The garden input is identified, but school water needs an enforceable rule while repairs proceed."
 
 **Unlocks/waypoint:** Unlock Stop 32 at `school-tap` in Island School.
 
 **Beat 5 - At mission end | `store-gauges` | automatic**
 
-**World state:** Decision and hook: Stop 32 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_32.
+
+**World state:** At `school-tap`, Lena Costa removes the DO NOT DRINK card from the isolated school tap. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 8 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Lena Costa: "The new test says 6.2. I can fill these cups again. But Iona's next rain could wash more feed downhill; the source rules must change before it falls."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m08
+
+**Home:** `school-tap`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. Empty cups stand behind a DO NOT DRINK card.
+**After — exact action:** Lena Costa removes the DO NOT DRINK card from the isolated school tap.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `common-map`, a runoff jar sits on the field map beside the school route.
+**Segue - exact player copy:** But Iona's next rain could wash more feed downhill; the source rules must change before it falls.
 
 ## Location plan
 
@@ -4121,6 +4437,10 @@ dose-response often forms an S-curve; children can receive larger mass-normalize
 **Question card story setup - exact player copy:** The repaired main removes quantity loss but not the nitrate gradient. Probe the source, junction, school branch, harbour branch, and school tap to locate the first increase.
 
 **Question card story-science connection - exact player copy:** The first concentration increase localizes the contamination source instead of blaming the whole water supply.
+
+**Fixture source record - exact player copy:** The repaired main removes quantity loss but not the nitrate gradient. Probe the source, junction, school branch, harbour branch, and school tap to locate the first increase.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Probe all five stations, compare each station reading with its own expected 6.0-6.5 mg/L range and displayed load at 2.0 L/min, and submit the first break plus source conclusion
 
@@ -4150,6 +4470,10 @@ dose-response often forms an S-curve; children can receive larger mass-normalize
 
 **Question card story-science connection - exact player copy:** Dose per kilogram determines whether the same water concentration exposes children more heavily than adults.
 
+**Fixture source record - exact player copy:** Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day
 
 **Complete format-specific interaction block:** `estimate:{equation:"dose=C*intake/mass",cases:{child:{C:11.2,intake:1.0,mass:20},adult:{C:11.2,intake:2.0,mass:70}},unit:"mg/kg/day",truth:[0.56,0.32],tolerance:0.01}`
@@ -4177,6 +4501,10 @@ dose-response often forms an S-curve; children can receive larger mass-normalize
 **Question card story setup - exact player copy:** The dose comparison makes the school tap urgent, while the branch location narrows the source. Predict dilution, isolate the garden connection, measure, interpret, and restore normal flow.
 
 **Question card story-science connection - exact player copy:** The isolation measurement determines whether the local connection accounts for nitrate beyond the predicted mixed-water concentration.
+
+**Fixture source record - exact player copy:** The dose comparison makes the school tap urgent, while the branch location narrows the source. Predict dilution, isolate the garden connection, measure, interpret, and restore normal flow.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** CALCULATE AND COMMIT the equal-volume mix of 11.2 and 6.0 mg/L; OPERATE by closing only the garden valve; MEASURE nitrate; INTERPRET the source; restore the valve and remeasure baseline
 
@@ -4216,6 +4544,10 @@ verify:
 **Question card story setup - exact player copy:** The controlled isolation identifies the garden connection, but children need a rule before repairs finish. Commit an inclusive action level before new samples appear.
 
 **Question card story-science connection - exact player copy:** The inclusive nitrate threshold determines which new samples require protective action at the school tap.
+
+**Fixture source record - exact player copy:** The controlled isolation identifies the garden connection, but children need a rule before repairs finish. Commit an inclusive action level before new samples appear.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Set replacement water when nitrate is greater than or equal to 10.0 mg/L; apply it to 11.2, 9.8, and 10.0 mg/L
 
@@ -4271,9 +4603,10 @@ trigger:
 
 Mission decision: The garden caused the school nitrate spike. Use safe water when nitrate reaches 10.0 mg/L. Isolation lowers the tap to 6.2 mg/L. New farm and waste rules must stop another pulse.
 
+**Segue - exact player copy:** But Iona's next rain could wash more feed downhill; the source rules must change before it falls.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: The garden caused the school nitrate spike. Your evidence gives the community a fairer and safer path forward.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Costa removes the DO NOT DRINK card from the isolated school tap. But Iona's next rain could wash more feed downhill; the source rules must change before it falls.
 
 **Story event - exact player copy:** The school closes the contaminated garden tap while the local nitrate source is repaired.
 
@@ -4285,7 +4618,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The School-Water Finding. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Cups Stay Empty. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -4293,7 +4626,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The School-Water Finding, because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies Dose?
+**Prompt - exact player copy:** In a follow-up to The Cups Stay Empty, because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies Dose?
 
 **Options - exact player copy:**
 
@@ -4314,7 +4647,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The School-Water Finding: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** the island council receives a second case related to The Cups Stay Empty: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -4378,7 +4711,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The School-Water Finding using new evidence: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies Bioavailability?
+**Prompt - exact player copy:** A teammate rechecks The Cups Stay Empty using new evidence: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies Bioavailability?
 
 **Options - exact player copy:**
 
@@ -4399,7 +4732,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The School-Water Finding: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence?
+**Prompt - exact player copy:** An unseen case extends The Cups Stay Empty: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence?
 
 **Options - exact player copy:**
 
@@ -4441,7 +4774,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Bioavailability, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The School-Water Finding to this follow-up: the dose comparison makes the school tap urgent, while the branch location narrows the source. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies source timing | causality | D3 | RETRIEVE | L4 | twist?
+**Prompt - exact player copy:** the island council applies the lesson from The Cups Stay Empty to this follow-up: the dose comparison makes the school tap urgent, while the branch location narrows the source. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies source timing | causality | D3 | RETRIEVE | L4 | twist?
 
 **Options - exact player copy:**
 
@@ -4466,17 +4799,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 9 - Waste and Land-Use Controls
+# Mission 9 - Before the Next Rain
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 7 DAYS.
+**Header:** MISSION 9 - 7 DAYS UNTIL THE VOTE.
 
 **Card title:** WASTE AND LAND-USE CONTROLS
 
 **Go now:** Tip, Mei at `weighbridge`.
 
-**Card body:** The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food.
+**Card body:** 7 days until the vote. A runoff jar sits on the field map beside the school route. Today you decide where to stop waste before it reaches water.
 
 **Objective:** Cut pollution at source.
 
@@ -4575,7 +4908,9 @@ Tip classification unlocks Common source controls. Mei and Iona accept shared re
 
 **Beat 1 - On arrival at Tip and Sorting Yard | `weighbridge` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_9_arrival.
+
+**World state:** A runoff jar sits on the field map beside the school route.
 
 **Panel/HUD text:** MISSION 9: SORT THE MIXED WASTE OPEN
 
@@ -4585,43 +4920,59 @@ Tip classification unlocks Common source controls. Mei and Iona accept shared re
 
 **Beat 2 - After Stop 33 | `tip-lab-bench` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_33.
+
+**World state:** At `weighbridge`, the dated accepted-result slip for Stop 33 reads: "All five loads are separated by persistence and biological effect". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 33 RECORDED - STOP 34 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 33 result to settle map source and fate."
+**Dialogue bubbles -** Iona Vale: "That check holds. The sorted waste needs a source-and-fate map before controls are chosen."
 
 **Unlocks/waypoint:** Unlock Stop 34 at `tip-lab-bench` in Tip and Sorting Yard.
 
 **Beat 3 - After Stop 34 | `council-table` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_34.
+
+**World state:** At `tip-lab-bench`, the dated accepted-result slip for Stop 34 reads: "All four pollutants are linked to the pathway their control must intercept". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 34 RECORDED - STOP 35 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 34 result to settle control the compost process."
+**Dialogue bubbles -** Iona Vale: "That check holds. The source map makes compost a possible fertilizer substitute whose operating conditions need testing."
 
 **Unlocks/waypoint:** Unlock Stop 35 at `council-table` in Chapel Council Room.
 
 **Beat 4 - After Stop 35 | `council-table` | automatic**
 
-**World state:** Synthesis: Stop 35 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_35.
+
+**World state:** At `council-table`, the dated accepted-result slip for Stop 35 reads: "Greater aeration raises temperature from 38 C to 58 C and lowers odor from 8 to 2, supporting aerobic decomposition". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 35 RECORDED - STOP 36 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 35 result to settle fund source controls."
+**Dialogue bubbles -** Iona Vale: "That check holds. The compost test and source map now provide evidence for allocating prevention effort."
 
 **Unlocks/waypoint:** Unlock Stop 36 at `council-table` in Chapel Council Room.
 
 **Beat 5 - At mission end | `weighbridge` | automatic**
 
-**World state:** Decision and hook: Stop 36 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_36.
+
+**World state:** At `common-map`, Iona Vale pins the source-control plan across the runoff route. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 9 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Iona Vale: "The ditch crosses our fence. So does our responsibility. But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m09
+
+**Home:** `common-map`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. A runoff jar sits on the field map beside the school route.
+**After — exact action:** Iona Vale pins the source-control plan across the runoff route.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `transect-bench`, nursery tiles lie beside two jars from the same warm week.
+**Segue - exact player copy:** But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case.
 
 ## Location plan
 
@@ -4648,6 +4999,10 @@ heavy metals damage nerves/kidneys; endocrine disruptors impair development; mic
 **Question card story setup - exact player copy:** The school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort each arrival by its pollutant class before treatment begins.
 
 **Question card story-science connection - exact player copy:** Pollutant classification determines which arriving materials require separate handling before treatment.
+
+**Fixture source record - exact player copy:** The school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort each arrival by its pollutant class before treatment begins.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Classify fertilizer, a lead battery, a PCB transformer, hormone medicines, and plastic fragments
 
@@ -4722,9 +5077,13 @@ belt:
 
 **Stop reason - exact player copy:** The sorted waste needs a source-and-fate map before controls are chosen.
 
-**Question card story setup - exact player copy:** With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment.
 
 **Question card story-science connection - exact player copy:** Each pollutant's pathway identifies where its control must intercept transport or exposure.
+
+**Fixture source record - exact player copy:** With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Map pipe discharge, field runoff, landfill leachate, and fish mercury to point source, nonpoint source, groundwater pathway, and biomagnification
 
@@ -4754,6 +5113,10 @@ belt:
 
 **Question card story-science connection - exact player copy:** Temperature and odor responses determine whether aeration supports the decomposition process needed for usable compost.
 
+**Fixture source record - exact player copy:** The pathway map favors prevention, and compost could replace imported fertilizer if its process is stable. Change aeration alone, measure, restore baseline, and repeat.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Measure at 1 exchange/hour after 24 hours; change only aeration to 3 exchanges/hour with moisture 55%, feed mix 1:1, mass 500 kg, and time fixed; restore 1 and remeasure; submit the causal conclusion
 
 **Complete format-specific interaction block:** `control:{candidates:[{id:"aeration",label:"aeration rate"},{id:"moisture",label:"moisture"},{id:"feed_mix",label:"feed mix"}],correct_control:"aeration",baseline:{aeration:1,temperature_C:38,odor_index:8},response:{aeration:3,temperature_C:58,odor_index:2},noise_band:{temperature_C:1,odor_index:0.5},fixed:["moisture 55%","feed mix 1:1","mass 500 kg","24 h timing"],measure_when:"after 24 hours",restore:{required:true,aeration:1,remeasure_after_hours:24},correct_conclusion:"aeration improves aerobic decomposition",answerText:"Higher aeration raises compost temperature and lowers odor beyond noise; restoration confirms aeration caused the response."}`
@@ -4781,6 +5144,10 @@ belt:
 **Question card story setup - exact player copy:** The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources.
 
 **Question card story-science connection - exact player copy:** The funded controls determine which confirmed pollutant sources the island will intercept before another exposure occurs.
+
+**Fixture source record - exact player copy:** The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20.
 
@@ -4828,9 +5195,10 @@ allocate_patch:
 
 Mission decision: Line the waste cell and cut sewage nutrients. Use drip lines, IPM, and rain gardens. These steps stop waste near its source. The reef still loses oxygen in warm, nitrate-rich weeks.
 
+**Segue - exact player copy:** But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: Line the waste cell and cut sewage nutrients. The island's water, wildlife, and families are better protected.
+**Happy ending card - exact player copy:** Your checks made the difference. Iona Vale pins the source-control plan across the runoff route. But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case.
 
 **Story event - exact player copy:** The island lines the waste cell and cuts sewage nutrients entering the bay.
 
@@ -4842,7 +5210,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Waste and Land-Use Controls. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Before the Next Rain. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -4850,7 +5218,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Waste and Land-Use Controls, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?
+**Prompt - exact player copy:** In a follow-up to Before the Next Rain, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?
 
 **Options - exact player copy:**
 
@@ -4871,7 +5239,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Eutrophication, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?
+**Prompt - exact player copy:** the island council receives a second case related to Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?
 
 **Options - exact player copy:**
 
@@ -4892,7 +5260,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Eutrophication, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Waste and Land-Use Controls using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?
+**Prompt - exact player copy:** A teammate rechecks Before the Next Rain using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?
 
 **Options - exact player copy:**
 
@@ -4913,7 +5281,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?
+**Prompt - exact player copy:** An unseen case extends Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?
 
 **Options - exact player copy:**
 
@@ -4934,7 +5302,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Persistent organic pollutant, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Waste and Land-Use Controls decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?
+**Prompt - exact player copy:** Before another Before the Next Rain decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?
 
 **Options - exact player copy:**
 
@@ -4955,7 +5323,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Persistent organic pollutant, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from Waste and Land-Use Controls to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?
+**Prompt - exact player copy:** the island council applies the lesson from Before the Next Rain to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?
 
 **Options - exact player copy:**
 
@@ -4980,17 +5348,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 10 - The Reef Evidence
+# Mission 10 - Two Stresses, One Reef
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 6 DAYS.
+**Header:** MISSION 10 - 6 DAYS UNTIL THE VOTE.
 
 **Card title:** THE REEF EVIDENCE
 
 **Go now:** Reef Station, Rafi Noor at `water-rack`.
 
-**Card body:** The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce.
+**Card body:** 6 days until the vote. Nursery tiles lie beside two jars from the same warm week. Today you decide which pressures the reef plan must cut.
 
 **Objective:** Separate and combine reef stressors.
 
@@ -5089,7 +5457,9 @@ Reef time series yields predictions; Harbour landings provide independent biolog
 
 **Beat 1 - On arrival at Waterworks | `sampler` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_10_arrival.
+
+**World state:** Nursery tiles lie beside two jars from the same warm week.
 
 **Panel/HUD text:** MISSION 10: READ THE PATTERNED RESIDUALS OPEN
 
@@ -5099,43 +5469,59 @@ Reef time series yields predictions; Harbour landings provide independent biolog
 
 **Beat 2 - After Stop 37 | `flow-tank` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_37.
+
+**World state:** At `sampler`, the dated accepted-result slip for Stop 37 reads: "Heat plus nitrate survives; the heat-only errors track nitrate pulses". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 37 RECORDED - STOP 38 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 37 result to settle control heat and nutrients."
+**Dialogue bubbles -** Rafi Noor: "That check holds. The residual pattern suggests a nutrient effect that must be separated from heat experimentally."
 
 **Unlocks/waypoint:** Unlock Stop 38 at `flow-tank` in Reef Station.
 
 **Beat 3 - After Stop 38 | `transect-bench` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_38.
+
+**World state:** At `flow-tank`, the dated accepted-result slip for Stop 38 reads: "The combined treatment yields 3.1 mg/L oxygen and 30% cover, showing heat and nutrients interact". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 38 RECORDED - STOP 39 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 38 result to settle map acidification damage."
+**Dialogue bubbles -** Rafi Noor: "That check holds. The tank results leave shell loss outside the bloom needing an additional explanation."
 
 **Unlocks/waypoint:** Unlock Stop 39 at `transect-bench` in Reef Station.
 
 **Beat 4 - After Stop 39 | `council-table` | automatic**
 
-**World state:** Synthesis: Stop 39 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_39.
+
+**World state:** At `transect-bench`, the dated accepted-result slip for Stop 39 reads: "Falling pH accompanies falling calcifier cover; acidification explains the shell loss". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 39 RECORDED - STOP 40 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 39 result to settle stress the catch ceiling."
+**Dialogue bubbles -** Rafi Noor: "That check holds. The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
 
 **Unlocks/waypoint:** Unlock Stop 40 at `council-table` in Chapel Council Room.
 
 **Beat 5 - At mission end | `sampler` | automatic**
 
-**World state:** Decision and hook: Stop 40 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_40.
+
+**World state:** At `transect-bench`, Rafi Noor pins the poor-year card marked CATCH CAP: 70 FISH above the nursery tiles. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 10 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Rafi Noor: "I blamed the heat. The other columns would not let me stop there. Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m10
+
+**Home:** `transect-bench`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. Nursery tiles lie beside two jars from the same warm week.
+**After — exact action:** Rafi Noor pins the poor-year card marked CATCH CAP: 70 FISH above the nursery tiles.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `turbine-plate`, the turbine's big rating plate shines above a much smaller meter reading.
+**Segue - exact player copy:** Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk.
 
 ## Location plan
 
@@ -5162,6 +5548,10 @@ photic shallow water supports algae; eutrophication proceeds nutrients->bloom->d
 **Question card story setup - exact player copy:** The new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Compare residual patterns to test whether its errors grow after nitrate pulses.
 
 **Question card story-science connection - exact player copy:** Residuals following nitrate pulses determine whether the oxygen forecast needs nutrient loading as well as temperature.
+
+**Fixture source record - exact player copy:** The new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Compare residual patterns to test whether its errors grow after nitrate pulses.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Compare heat-only residuals [0,0,-2,-2] with heat-plus-nitrate residuals [0.2,-0.1,0.1,-0.2] and submit the model without a patterned error Use ordered observation coordinates 1–5 on the residual axis.
 
@@ -5226,6 +5616,10 @@ residual:
 
 **Question card story-science connection - exact player copy:** The treatment comparisons determine whether heat and nitrate jointly worsen oxygen and reef cover beyond either factor alone.
 
+**Fixture source record - exact player copy:** Because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Keep all other tank conditions fixed and restore the baseline after every treatment.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Measure the baseline at 24 C and 1 mg/L nitrate. Change temperature only to 28 C, change nitrate only to 8 mg/L, then change both while light, flow, fragment size, salinity 35 ppt, and six-week timing remain fixed; measure oxygen and coral cover after each run, restore baseline and remeasure, then submit the interaction conclusion.
 
 **Complete format-specific interaction block:** `control:{candidates:[{id:"temperature",label:"temperature"},{id:"nitrate",label:"nitrate concentration"},{id:"salinity",label:"salinity"}],selected_controls:["temperature","nitrate"],baseline:{temperature_C:24,nitrate_mgL:1,DO_mgL:7.5,cover_pct:80},responses:[{temperature_C:28,nitrate_mgL:1,DO_mgL:6.3,cover_pct:70},{temperature_C:24,nitrate_mgL:8,DO_mgL:5.8,cover_pct:62},{temperature_C:28,nitrate_mgL:8,DO_mgL:3.1,cover_pct:30}],noise_band:{DO_mgL:0.2,cover_pct:2},fixed:["light","flow","fragment size","salinity 35 ppt","six-week timing"],measure_when:"after six weeks",restore:{required:true,temperature_C:24,nitrate_mgL:1,DO_mgL:7.5,cover_pct:80,remeasure:true},correct_conclusion:"heat and nutrients interact",answerText:"Heat and nitrate together depress oxygen and coral cover more than either treatment alone, and restoration returns the baseline."}`
@@ -5287,6 +5681,10 @@ control:
 **Question card story setup - exact player copy:** The tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. Place pH and calcifier-cover distributions across the reef zones.
 
 **Question card story-science connection - exact player copy:** The pH and calcifier-cover pattern determines whether acidification must be included in reef protection.
+
+**Fixture source record - exact player copy:** The tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. Place pH and calcifier-cover distributions across the reef zones.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Fit pH [8.15,8.05,7.95] and cover [70,55,35] across littoral, pelagic, and benthic observations; submit acidification as the mechanism
 
@@ -5355,9 +5753,13 @@ choice:
 
 **Stop reason - exact player copy:** The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment.
 
-**Question card story setup - exact player copy:** The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment.
 
 **Question card story-science connection - exact player copy:** The low-recruitment comparison determines which catch limit remains below replacement in a bad year.
+
+**Fixture source record - exact player copy:** The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement
 
@@ -5419,9 +5821,10 @@ stress:
 
 Mission decision: Cut runoff, warm water, air waste, and fishing at the same time. Cap catch at 70 fish in poor years. Heat alone did not harm the reef. The plan must protect the full habitat.
 
+**Segue - exact player copy:** Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: Cut runoff, warm water, air waste, and fishing at the same time. The ferry decision is now grounded in what Vellan can actually sustain.
+**Happy ending card - exact player copy:** Your checks made the difference. Rafi Noor pins the poor-year card marked CATCH CAP: 70 FISH above the nursery tiles. Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk.
 
 **Story event - exact player copy:** The ferry conditions now limit nutrient runoff, warm discharge, air pollution, and fishing pressure together.
 
@@ -5433,7 +5836,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Reef Evidence. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Two Stresses, One Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -5441,7 +5844,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Reef Evidence, the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?
+**Prompt - exact player copy:** In a follow-up to Two Stresses, One Reef, the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?
 
 **Options - exact player copy:**
 
@@ -5462,7 +5865,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Dead zone, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Reef Evidence: the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?
+**Prompt - exact player copy:** the island council receives a second case related to Two Stresses, One Reef: the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?
 
 **Options - exact player copy:**
 
@@ -5483,7 +5886,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Dead zone, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Reef Evidence using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?
+**Prompt - exact player copy:** A teammate rechecks Two Stresses, One Reef using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?
 
 **Options - exact player copy:**
 
@@ -5504,7 +5907,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. falling seawater pH as carbon dioxide enters water.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Reef Evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?
+**Prompt - exact player copy:** An unseen case extends Two Stresses, One Reef: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?
 
 **Options - exact player copy:**
 
@@ -5546,7 +5949,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Ocean acidification, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Reef Evidence to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?
+**Prompt - exact player copy:** the island council applies the lesson from Two Stresses, One Reef to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?
 
 **Options - exact player copy:**
 
@@ -5571,17 +5974,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 11 - Energy and Emissions Ledger
+# Mission 11 - After Dusk
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 5 DAYS.
+**Header:** MISSION 11 - 5 DAYS UNTIL THE VOTE.
 
 **Card title:** ENERGY AND EMISSIONS LEDGER
 
 **Go now:** Turbine Yard, Elias Shaw at `meter-board`.
 
-**Card body:** The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice.
+**Card body:** 5 days until the vote. The turbine's big rating plate shines above a much smaller meter reading. Today you decide which power mix keeps a reserve.
 
 **Objective:** Close the useful-energy and pollution ledger.
 
@@ -5697,7 +6100,9 @@ Turbine output and demand unlock Tip fuel/waste records; pollutant totals unlock
 
 **Beat 1 - On arrival at Turbine Yard | `meter-board` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_11_arrival.
+
+**World state:** The turbine's big rating plate shines above a much smaller meter reading.
 
 **Panel/HUD text:** MISSION 11: CLOSE THE PEAK-POWER LEDGER OPEN
 
@@ -5707,43 +6112,59 @@ Turbine output and demand unlock Tip fuel/waste records; pollutant totals unlock
 
 **Beat 2 - After Stop 41 | `turbine-plate` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_41.
+
+**World state:** At `meter-board`, the dated accepted-result slip for Stop 41 reads: "The reserve is 15 kW". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 41 RECORDED - STOP 42 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 41 result to settle calculate capacity factor."
+**Dialogue bubbles -** Elias Shaw: "That check holds. The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
 
 **Unlocks/waypoint:** Unlock Stop 42 at `turbine-plate` in Turbine Yard.
 
 **Beat 3 - After Stop 42 | `tip-lab-bench` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_42.
+
+**World state:** At `turbine-plate`, the dated accepted-result slip for Stop 42 reads: "Capacity factor is 31.1%". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 42 RECORDED - STOP 43 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 42 result to settle match pollutants and controls."
+**Dialogue bubbles -** Elias Shaw: "That check holds. The wind-performance result leaves backup generation necessary and its pollution needing controls."
 
 **Unlocks/waypoint:** Unlock Stop 43 at `tip-lab-bench` in Tip and Sorting Yard.
 
 **Beat 4 - After Stop 43 | `delivery-board` | automatic**
 
-**World state:** Synthesis: Stop 43 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_43.
+
+**World state:** At `tip-lab-bench`, the dated accepted-result slip for Stop 43 reads: "All five pollutant chains are matched". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 43 RECORDED - STOP 44 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 43 result to settle fund the energy portfolio."
+**Dialogue bubbles -** Elias Shaw: "That check holds. The council now has both measured wind performance and backup pollution costs to fund together."
 
 **Unlocks/waypoint:** Unlock Stop 44 at `delivery-board` in Common Office.
 
 **Beat 5 - At mission end | `meter-board` | automatic**
 
-**World state:** Decision and hook: Stop 44 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_44.
+
+**World state:** At `turbine-plate`, Elias Shaw rivets a 31% ANNUAL CAPACITY FACTOR plate below the rated output. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 11 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Elias Shaw: "The big number is what it can do. This one is what it did. But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m11
+
+**Home:** `turbine-plate`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. The turbine's big rating plate shines above a much smaller meter reading.
+**After — exact action:** Elias Shaw rivets a 31% ANNUAL CAPACITY FACTOR plate below the rated output.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `load-board`, the gearbox crate holds a delivery slip with its date crossed out.
+**Segue - exact player copy:** But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives.
 
 ## Location plan
 
@@ -5771,6 +6192,10 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 **Question card story-science connection - exact player copy:** The peak-power balance determines how much firm reserve remains after protected loads are supplied.
 
+**Fixture source record - exact player copy:** The reef conditions add new electric loads, while essential evening demand must remain firm. Close the peak ledger before selecting any generator or storage plan.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Using 310 kW supply and simultaneous loads of 160, 55, 20, 15, and 45 kW, apply reserve=supply-loads and submit one reserve in kW
 
 **Complete format-specific interaction block:** `balance:{streams:[{id:"available_supply",direction:"in",value:310,unit:"kW",counts:true},{id:"homes",direction:"out",value:160,unit:"kW",counts:true},{id:"water",direction:"out",value:55,unit:"kW",counts:true},{id:"school",direction:"out",value:20,unit:"kW",counts:true},{id:"tip",direction:"out",value:15,unit:"kW",counts:true},{id:"ferry",direction:"out",value:45,unit:"kW",counts:true},{id:"nameplate_capacity",direction:"none",value:400,unit:"kW",counts:false,reason:"not available supply during the outage"}],equation:"reserve=available supply-sum active loads",correct:15,tolerance:1,answerText:"The active-load reserve is 15 kW; unavailable nameplate capacity does not count."}`
@@ -5795,9 +6220,13 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 **Stop reason - exact player copy:** The small evening reserve makes the turbine's nameplate claim insufficient for supply planning.
 
-**Question card story setup - exact player copy:** The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance.
 
 **Question card story-science connection - exact player copy:** Annual capacity factor distinguishes rated turbine power from the energy the island actually receives over a year.
+
+**Fixture source record - exact player copy:** The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent
 
@@ -5827,6 +6256,10 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 **Question card story-science connection - exact player copy:** The source-effect-control matches determine which safeguards belong with each backup fuel in the energy plan.
 
+**Fixture source record - exact player copy:** Because nameplate power overstates wind supply, backup fuels remain in the plan. Match each pollutant to its source, effect, and control.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Match CO, SO2, NOx, PM, and ground-level ozone to their printed mechanisms and controls
 
 **Complete format-specific interaction block:** `casebook:{mapping:{CO:[incomplete_combustion,reduced_blood_oxygen,catalytic_converter],SO2:[coal,acid_rain,scrubber],NOx:[combustion,photochemical_smog,catalyst],PM:[dust_and_combustion,cardiorespiratory_harm,electrostatic_precipitator],ground_ozone:[photochemistry,respiratory_harm,precursor_control]}}`
@@ -5851,9 +6284,13 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 **Stop reason - exact player copy:** The council now has both measured wind performance and backup pollution costs to fund together.
 
-**Question card story setup - exact player copy:** Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls.
 
 **Question card story-science connection - exact player copy:** The energy portfolio determines whether firm supply and pollutant controls survive the same planning budget.
+
+**Fixture source record - exact player copy:** Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35
 
@@ -5873,9 +6310,10 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 Mission decision: Use repaired wind, storage, and less power. Keep a clean backup for short gaps. This mix saves the 15-kilowatt reserve. A methane leak now puts that reserve at risk.
 
+**Segue - exact player copy:** But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: Use repaired wind, storage, and less power. Vellan Island has a stronger plan for its people and ecosystems.
+**Happy ending card - exact player copy:** Your checks made the difference. Elias Shaw rivets a 31% ANNUAL CAPACITY FACTOR plate below the rated output. But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives.
 
 **Story event - exact player copy:** The power plan shifts to repaired wind, storage, and lower demand.
 
@@ -5887,7 +6325,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Energy and Emissions Ledger. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed After Dusk. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Additional concepts kept out of the required mission card
 
@@ -5895,7 +6333,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Energy and Emissions Ledger, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?
+**Prompt - exact player copy:** In a follow-up to After Dusk, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?
 
 **Options - exact player copy:**
 
@@ -5916,7 +6354,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Primary pollutant, not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to Energy and Emissions Ledger: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?
+**Prompt - exact player copy:** the island council receives a second case related to After Dusk: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?
 
 **Options - exact player copy:**
 
@@ -5937,7 +6375,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Primary pollutant, not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Energy and Emissions Ledger using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?
+**Prompt - exact player copy:** A teammate rechecks After Dusk using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?
 
 **Options - exact player copy:**
 
@@ -5958,7 +6396,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: Correct. energy returned divided by energy invested.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Energy and Emissions Ledger: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?
+**Prompt - exact player copy:** An unseen case extends After Dusk: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?
 
 **Options - exact player copy:**
 
@@ -5979,7 +6417,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Energy return on investment (EROI), not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Energy and Emissions Ledger decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?
+**Prompt - exact player copy:** Before another After Dusk decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?
 
 **Options - exact player copy:**
 
@@ -6000,7 +6438,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - D: This describes Energy return on investment (EROI), not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from Energy and Emissions Ledger to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** the island council applies the lesson from After Dusk to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -6047,17 +6485,17 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 12 - The Leak and Turbine Case
+# Mission 12 - The Crate Is Late
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 4 DAYS.
+**Header:** MISSION 12 - 4 DAYS UNTIL THE VOTE.
 
 **Card title:** THE LEAK AND TURBINE CASE
 
 **Go now:** Turbine Yard, Elias Shaw at `gearbox-crate`.
 
-**Card body:** The wind turbine needs eleven weeks of repairs, leaving a gap in the ferry's power supply. Gas captured from the landfill could help, but escaping methane adds pollution. Verify the repair time and gas supply, then choose reliable temporary power with defensible emissions.
+**Card body:** 4 days until the vote. The gearbox crate holds a delivery slip with its date crossed out. Today you decide how to keep key services powered while parts are late.
 
 **Objective:** Lock a feasible low-emission power bridge.
 
@@ -6157,7 +6595,9 @@ Turbine feasibility unlocks Tip gas measurement; confirmed capture unlocks Water
 
 **Beat 1 - On arrival at Chapel Council Room | `council-table` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_12_arrival.
+
+**World state:** The gearbox crate holds a delivery slip with its date crossed out.
 
 **Panel/HUD text:** MISSION 12: AUDIT THE GEARBOX SCHEDULE OPEN
 
@@ -6167,43 +6607,59 @@ Turbine feasibility unlocks Tip gas measurement; confirmed capture unlocks Water
 
 **Beat 2 - After Stop 45 | `gas-rack` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_45.
+
+**World state:** At `council-table`, the dated accepted-result slip for Stop 45 reads: "Wind is not firm power before the vote". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 45 RECORDED - STOP 46 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 45 result to settle verify methane capture."
+**Dialogue bubbles -** Elias Shaw: "That check holds. The unavailable wind supply makes captured landfill gas a possible temporary power source."
 
 **Unlocks/waypoint:** Unlock Stop 46 at `gas-rack` in Tip and Sorting Yard.
 
 **Beat 3 - After Stop 46 | `tip-lab-bench` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_46.
+
+**World state:** At `gas-rack`, the dated accepted-result slip for Stop 46 reads: "Prediction 176 m3/day; measurements 170 m3/day and 18% leakage pass". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 46 RECORDED - STOP 47 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 46 result to settle diagnose the engine-room alarm."
+**Dialogue bubbles -** Elias Shaw: "That check holds. Passing methane capture does not explain the backup engine room's continuing alarm."
 
 **Unlocks/waypoint:** Unlock Stop 47 at `tip-lab-bench` in Tip and Sorting Yard.
 
 **Beat 4 - After Stop 47 | `load-board` | automatic**
 
-**World state:** Synthesis: Stop 47 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_47.
+
+**World state:** At `tip-lab-bench`, the dated accepted-result slip for Stop 47 reads: "Incomplete combustion plus the stuck damper caused the CO alarm". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 47 RECORDED - STOP 48 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 47 result to settle allocate firm power."
+**Dialogue bubbles -** Elias Shaw: "That check holds. The exhaust repair makes the backup source usable, but protected loads must fit its limited output."
 
 **Unlocks/waypoint:** Unlock Stop 48 at `load-board` in Waterworks.
 
 **Beat 5 - At mission end | `council-table` | automatic**
 
-**World state:** Decision and hook: Stop 48 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_48.
+
+**World state:** At `load-board`, Elias Shaw pins the 180 KW ESSENTIAL-LOAD PLAN to the load board. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 12 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Elias Shaw: "The crate is late. The school lights do not get to be late. But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m12
+
+**Home:** `load-board`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. The gearbox crate holds a delivery slip with its date crossed out.
+**After — exact action:** Elias Shaw pins the 180 KW ESSENTIAL-LOAD PLAN to the load board.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `quarantine-rack`, a seed clings to the mud under a cargo crate.
+**Segue - exact player copy:** But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford.
 
 ## Location plan
 
@@ -6230,6 +6686,10 @@ CH4 GWP about 28-36 over 100 years and lasts about 12 years; CO2 GWP 1 but lasts
 **Question card story setup - exact player copy:** The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power.
 
 **Question card story-science connection - exact player copy:** The schedule evidence determines whether repaired wind can count as firm supply before the ferry vote.
+
+**Fixture source record - exact player copy:** The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Verify at most three claims among order date, shipment status, fitting crew, and completion by vote; reject the critical unbacked completion claim
 
@@ -6272,6 +6732,10 @@ attest:
 
 **Question card story-science connection - exact player copy:** Measured methane recovery and leakage determine whether the collector can support the proposed bridge supply.
 
+**Fixture source record - exact player copy:** Because wind cannot return before the vote, captured landfill gas may bridge the gap. Predict recoverable methane, operate the collector, measure capture and leakage, interpret, and restore.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** CALCULATE AND COMMIT: Use V_CH4=(400 m3/day)(0.55)(0.80), where V_CH4 is captured methane volume per day, and submit V_CH4 in m3 CH4/day. OPERATE at 60% vacuum with waste mass, moisture, and time fixed. MEASURE capture and leakage. INTERPRET against limits, then restore baseline.
 
 **Complete format-specific interaction block:** `verify:{required_sequence:[calculate_commit,operate,measure,interpret],operate_unlocked_when:prediction_committed,prediction:{equation:"recoverable=gas_volume*methane_fraction*collection_efficiency",inputs:{gas_volume:400,methane_fraction:0.55,collection_efficiency:0.80},unit:"m3 CH4/day",truth:176,tolerance:17.6},operate:{control:collector_vacuum,setting_pct:60,fixed:[waste_mass,moisture,elapsed_time]},measure:{captured_m3_day:170,leaked_pct:18},interpret:{correct:accept,criteria:["capture within 10% of 176","leakage <=20%"]},restore:{required:true,setting:baseline,remeasure:true}}`
@@ -6296,9 +6760,13 @@ attest:
 
 **Stop reason - exact player copy:** Passing methane capture does not explain the backup engine room's continuing alarm.
 
-**Question card story setup - exact player copy:** The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings.
 
 **Question card story-science connection - exact player copy:** The gas and ventilation diagnosis determines which combustion and exhaust faults must be repaired before operation.
+
+**Fixture source record - exact player copy:** The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Choose among outdoor inversion, carbon monoxide from incomplete combustion, radon, and photochemical ozone using high CO, normal oxygen and NOx, no daylight, and a stuck exhaust damper
 
@@ -6324,9 +6792,13 @@ attest:
 
 **Stop reason - exact player copy:** The exhaust repair makes the backup source usable, but protected loads must fit its limited output.
 
-**Question card story setup - exact player copy:** Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services.
 
 **Question card story-science connection - exact player copy:** The power allocation determines whether every essential service can be supplied without exceeding the firm generation available.
+
+**Fixture source record - exact player copy:** Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25
 
@@ -6374,9 +6846,10 @@ allocate_patch:
 
 Mission decision: Use stored gas, fixed pipes, key loads, and cells until the wind gear arrives. The 180-kilowatt plan keeps water, school, homes, and food safe. Backup power is ready.
 
+**Segue - exact player copy:** But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: Use stored gas, fixed pipes, key loads, and cells until the wind gear arrives. The council can act without sacrificing the island's future.
+**Happy ending card - exact player copy:** Your checks made the difference. Elias Shaw pins the 180 KW ESSENTIAL-LOAD PLAN to the load board. But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford.
 
 **Story event - exact player copy:** Captured landfill gas and repaired pipes keep essential services powered until the turbine returns.
 
@@ -6388,7 +6861,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Leak and Turbine Case. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Crate Is Late. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -6396,7 +6869,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Leak and Turbine Case, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?
+**Prompt - exact player copy:** In a follow-up to The Crate Is Late, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?
 
 **Options - exact player copy:**
 
@@ -6417,7 +6890,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Base load, not Greenhouse gas. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Leak and Turbine Case: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?
+**Prompt - exact player copy:** the island council receives a second case related to The Crate Is Late: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?
 
 **Options - exact player copy:**
 
@@ -6438,7 +6911,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Base load, not Global warming potential. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Leak and Turbine Case using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?
+**Prompt - exact player copy:** A teammate rechecks The Crate Is Late using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?
 
 **Options - exact player copy:**
 
@@ -6459,7 +6932,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. time for half a radioactive sample to decay.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Leak and Turbine Case: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?
+**Prompt - exact player copy:** An unseen case extends The Crate Is Late: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?
 
 **Options - exact player copy:**
 
@@ -6501,7 +6974,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Half-life, not feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Leak and Turbine Case to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?
+**Prompt - exact player copy:** the island council applies the lesson from The Crate Is Late to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?
 
 **Options - exact player copy:**
 
@@ -6526,17 +6999,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 13 - The Biosecurity Rule
+# Mission 13 - What Came Ashore
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 3 DAYS.
+**Header:** MISSION 13 - 3 DAYS UNTIL THE VOTE.
 
 **Card title:** THE BIOSECURITY RULE
 
 **Go now:** Ferry Berth, Tomas Reed at `berth-standpipe`.
 
-**Card body:** The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established.
+**Card body:** 3 days until the vote. A seed clings to the mud under a cargo crate. Today you decide which ferry loads must be held or cleaned.
 
 **Objective:** Prevent imported species from outrunning island defenses.
 
@@ -6635,7 +7108,9 @@ Berth inspection identifies propagules; Common disturbance map predicts establis
 
 **Beat 1 - On arrival at Ferry Berth | `quarantine-rack` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_13_arrival.
+
+**World state:** A seed clings to the mud under a cargo crate.
 
 **Panel/HUD text:** MISSION 13: SCREEN THE ARRIVING CARGO OPEN
 
@@ -6645,43 +7120,59 @@ Berth inspection identifies propagules; Common disturbance map predicts establis
 
 **Beat 2 - After Stop 49 | `common-map` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_49.
+
+**World state:** At `quarantine-rack`, the dated accepted-result slip for Stop 49 reads: "Five biological pathways enter quarantine; sealed clean metal may proceed". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 49 RECORDED - STOP 50 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 49 result to settle test survey recovery."
+**Dialogue bubbles -** Tomas Reed: "That check holds. Cargo screening needs a detection check before the council relies on surveys to catch escapees."
 
 **Unlocks/waypoint:** Unlock Stop 50 at `common-map` in Common Office.
 
 **Beat 3 - After Stop 50 | `flow-tank` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_50.
+
+**World state:** At `common-map`, the dated accepted-result slip for Stop 50 reads: "Recovery is 67%; the survey fails". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 50 RECORDED - STOP 51 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 50 result to settle control the rinse treatment."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The survey's missed organisms make prevention before cargo release more important."
 
 **Unlocks/waypoint:** Unlock Stop 51 at `flow-tank` in Reef Station.
 
 **Beat 4 - After Stop 51 | `water-rack` | automatic**
 
-**World state:** Synthesis: Stop 51 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_51.
+
+**World state:** At `flow-tank`, the dated accepted-result slip for Stop 51 reads: "Survivors fall from 100 to 2 only when rinse is on; rinsing caused the reduction". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 51 RECORDED - STOP 52 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 51 result to settle write the biosecurity protocol."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The detection and rinse tests are complete, allowing an evidence-based unloading protocol."
 
 **Unlocks/waypoint:** Unlock Stop 52 at `water-rack` in Reef Station.
 
 **Beat 5 - At mission end | `quarantine-rack` | automatic**
 
-**World state:** Decision and hook: Stop 52 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_52.
+
+**World state:** At `quarantine-rack`, Tomas Reed hangs a CHECK BEFORE SAILING tag on the cargo release hook. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 13 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Reed: "If this costs a sailing, put my name on the delay. But Lena's visitor register counts some crew twice; the final water plan needs real person-days."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m13
+
+**Home:** `quarantine-rack`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. A seed clings to the mud under a cargo crate.
+**After — exact action:** Tomas Reed hangs a CHECK BEFORE SAILING tag on the cargo release hook.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `register-desk`, the same crew name appears on two tally sheets.
+**Segue - exact player copy:** But Lena's visitor register counts some crew twice; the final water plan needs real person-days.
 
 ## Location plan
 
@@ -6705,9 +7196,13 @@ species richness rises with island size and falls with distance; generalists oft
 
 **Stop reason - exact player copy:** The power bridge keeps the sailing possible, bringing its biological cargo risks into the approval decision.
 
-**Question card story setup - exact player copy:** The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading.
 
 **Question card story-science connection - exact player copy:** The cargo classifications determine which pathways need quarantine before living hitchhikers reach the island.
+
+**Fixture source record - exact player copy:** The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Sort soil, standing water, untreated wood, plants, and animals as inspection-required; sort sealed clean metal as low risk
 
@@ -6788,6 +7283,10 @@ belt:
 
 **Question card story-science connection - exact player copy:** Recovery of marked organisms measures how many introduced individuals the survey could miss.
 
+**Fixture source record - exact player copy:** Inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Inject a known marked population through the pipeline.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Inject 100 seeds; add 45 road, 20 common, and 2 cliff recoveries; apply recovery percent=recovered/injected*100 and submit percent plus pass/fail against 90%
 
 **Complete format-specific interaction block:** `inject:{population:100,recovered:{road:45,common:20,cliff:2},equation:"recovery=recovered/injected*100",truth:67,unit:percent,tolerance:1,required:90,conclusion:fail}`
@@ -6845,6 +7344,10 @@ inject:
 
 **Question card story-science connection - exact player copy:** The rinse reversal determines whether the treatment itself causes the reduction in surviving organisms.
 
+**Fixture source record - exact player copy:** Because land surveys miss remote escapees, prevention must work before release. Change rinse treatment alone, measure survivors, restore baseline, and remeasure.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** At rinse OFF measure after 30 minutes; change only rinse ON with water 100 L, salinity 35 ppt, temperature 24 C, starting load 100, and time fixed; restore OFF and remeasure; submit causation
 
 **Complete format-specific interaction block:** `control:{candidates:[{id:"rinse",label:"rinse treatment"},{id:"salinity",label:"salinity"},{id:"temperature",label:"temperature"}],correct_control:"rinse",baseline:{setting:"OFF",survivors:100},response:{setting:"ON",survivors:2},noise_band:{survivors:3},fixed:["water 100 L","salinity 35 ppt","temperature 24 C","starting load 100","30-minute timing"],measure_when:"after 30 minutes",restore:{required:true,setting:"OFF",survivors:100,remeasure:true},correct_conclusion:"rinsing caused the reduction",answerText:"Turning on only the rinse reduces survivors from 100 to 2, far beyond noise, and restoration returns the baseline."}`
@@ -6873,6 +7376,10 @@ inject:
 
 **Question card story-science connection - exact player copy:** The pathway-action matches determine which preventive measure must occur before each cargo type is released.
 
+**Fixture source record - exact player copy:** The injection test exposes weak detection, while the rinse test shows prevention works. Match every cargo pathway to an action before unloading.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Map soil to reject or heat-treat, plants to quarantine, standing water to drain and disinfect, wood to inspect and treat, and animals to permit plus CITES check
 
 **Complete format-specific interaction block:** `protocol:{mapping:{soil:reject_or_heat_treat,plants:quarantine,standing_water:drain_and_disinfect,untreated_wood:inspect_and_treat,animals:permit_and_CITES_check}}`
@@ -6891,9 +7398,10 @@ inject:
 
 Mission decision: Check each ferry before it sails. Treat soil, drain water, and hold risky plants. Check wood and wildlife papers too. A seed test missed too many threats. The last demand plan must count every visitor.
 
+**Segue - exact player copy:** But Lena's visitor register counts some crew twice; the final water plan needs real person-days.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: Check each ferry before it sails. Your evidence gives the community a fairer and safer path forward.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Reed hangs a CHECK BEFORE SAILING tag on the cargo release hook. But Lena's visitor register counts some crew twice; the final water plan needs real person-days.
 
 **Story event - exact player copy:** A cargo inspection and rinse rule now applies before every ferry sailing.
 
@@ -6905,7 +7413,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Biosecurity Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed What Came Ashore. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -6913,7 +7421,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Biosecurity Rule, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?
+**Prompt - exact player copy:** In a follow-up to What Came Ashore, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?
 
 **Options - exact player copy:**
 
@@ -6934,7 +7442,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Endangered Species Act, not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?
+**Prompt - exact player copy:** the island council receives a second case related to What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?
 
 **Options - exact player copy:**
 
@@ -6955,7 +7463,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Endangered Species Act, not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Biosecurity Rule using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?
+**Prompt - exact player copy:** A teammate rechecks What Came Ashore using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?
 
 **Options - exact player copy:**
 
@@ -6976,7 +7484,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. treaty controlling trade in threatened species.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?
+**Prompt - exact player copy:** An unseen case extends What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?
 
 **Options - exact player copy:**
 
@@ -7018,7 +7526,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Convention on International Trade in Endangered Species (CITES), not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Biosecurity Rule to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?
+**Prompt - exact player copy:** the island council applies the lesson from What Came Ashore to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?
 
 **Options - exact player copy:**
 
@@ -7043,17 +7551,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 14 - The Population Outlook
+# Mission 14 - Seats Are Not People
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 2 DAYS.
+**Header:** MISSION 14 - 2 DAYS UNTIL THE VOTE.
 
 **Card title:** THE POPULATION OUTLOOK
 
 **Go now:** Island School, Lena Costa at `register-desk`.
 
-**Card body:** The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them.
+**Card body:** 2 days until the vote. The same crew name appears on two tally sheets. Today you decide how many visitor-days the water plan can bear.
 
 **Objective:** Lock the human-demand forecast.
 
@@ -7160,7 +7668,9 @@ School age data unlock Harbour visitor counts; combined person-days unlock Commo
 
 **Beat 1 - On arrival at Island School | `register-desk` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_14_arrival.
+
+**World state:** The same crew name appears on two tally sheets.
 
 **Panel/HUD text:** MISSION 14: READ THE AGE STRUCTURE OPEN
 
@@ -7170,43 +7680,59 @@ School age data unlock Harbour visitor counts; combined person-days unlock Commo
 
 **Beat 2 - After Stop 53 | `register-desk` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_53.
+
+**World state:** At `register-desk`, the dated accepted-result slip for Stop 53 reads: "The resident population is top-heavy and declining". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 53 RECORDED - STOP 54 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 53 result to settle calculate population growth."
+**Dialogue bubbles -** Lena Costa: "That check holds. The age pattern needs confirmation from births and deaths before a growth forecast is used."
 
 **Unlocks/waypoint:** Unlock Stop 54 at `register-desk` in Island School.
 
 **Beat 3 - After Stop 54 | `council-table` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_54.
+
+**World state:** At `register-desk`, the dated accepted-result slip for Stop 54 reads: "Growth is -1.0%/year; a doubling time is not meaningful". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 54 RECORDED - STOP 55 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 54 result to settle close the person-day balance."
+**Dialogue bubbles -** Lena Costa: "That check holds. A declining resident count does not establish July demand once ferry visitors are included."
 
 **Unlocks/waypoint:** Unlock Stop 55 at `council-table` in Chapel Council Room.
 
 **Beat 4 - After Stop 55 | `common-map` | automatic**
 
-**World state:** Synthesis: Stop 55 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_55.
+
+**World state:** At `council-table`, the dated accepted-result slip for Stop 55 reads: "The second-ferry July case is 12,300 person-days". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 55 RECORDED - STOP 56 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 55 result to settle stress the human-demand forecast."
+**Dialogue bubbles -** Lena Costa: "That check holds. The combined person-day estimate still needs testing against uncertain per-person resource use."
 
 **Unlocks/waypoint:** Unlock Stop 56 at `common-map` in Common Office.
 
 **Beat 5 - At mission end | `register-desk` | automatic**
 
-**World state:** Decision and hook: Stop 56 applies the world change, triggers the outcome, and names the next mission problem.
+**Trigger:** accepted_stop_56.
+
+**World state:** At `register-desk`, Lena Costa clips the corrected visitor tally beneath the drought-reserve card. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 14 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Lena Costa: "A seat is not a resident. A crew member is not two people. But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m14
+
+**Home:** `register-desk`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. The same crew name appears on two tally sheets.
+**After — exact action:** Lena Costa clips the corrected visitor tally beneath the drought-reserve card.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `condition-board`, the council seal waits beside the still-blank sailing permit.
+**Segue - exact player copy:** But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source.
 
 ## Location plan
 
@@ -7233,6 +7759,10 @@ age pyramids show growth, stability, or decline; Malthus contrasted geometric po
 **Question card story setup - exact player copy:** The biosecurity rule counts arrivals, but permanent demand begins with residents already here. Shape the island age distribution before adding visitors.
 
 **Question card story-science connection - exact player copy:** The age distribution indicates whether resident demand is associated with a growing, stable, or aging population.
+
+**Fixture source record - exact player copy:** The biosecurity rule counts arrivals, but permanent demand begins with residents already here. Shape the island age distribution before adding visitors.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Plot age bins 0-14=28, 15-44=62, 45-64=91, and 65+=74 people; submit growing, stable, or declining
 
@@ -7335,6 +7865,10 @@ choice:
 
 **Question card story-science connection - exact player copy:** Natural population growth determines whether projecting a future doubling is meaningful for the island.
 
+**Fixture source record - exact player copy:** The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Population growth rate is PGR=(births-deaths)/population*100. Using 3 births, 6 deaths, and 300 people, submit PGR in percent per year and decide whether the Rule of 70 doubling-time estimate, 70 divided by a positive growth rate, applies.
 
 **Complete format-specific interaction block:** `estimate:{equation:"(3-6)/300*100",inputs:{births:3,deaths:6,population:300},truth:-1.0,unit:"percent/year",tolerance:0.1,interpretation:"halving, not doubling"}`
@@ -7359,9 +7893,13 @@ choice:
 
 **Stop reason - exact player copy:** A declining resident count does not establish July demand once ferry visitors are included.
 
-**Question card story setup - exact player copy:** Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days.
 
 **Question card story-science connection - exact player copy:** Total person-days places residents and short-stay visitors on the same seasonal water-and-waste demand scale.
+
+**Fixture source record - exact player copy:** Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Apply person-days=people*days using 250 residents × 30 days, 300 visitors/day × 8 current sailing days, and another 2,400 visitor-days for the second ferry; submit total
 
@@ -7390,6 +7928,10 @@ choice:
 **Question card story setup - exact player copy:** The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition.
 
 **Question card story-science connection - exact player copy:** The footprint range determines how the visitor cap must depend on available water and waste capacity.
+
+**Fixture source record - exact player copy:** The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers
 
@@ -7451,9 +7993,10 @@ stress:
 
 Mission decision: Use a lower visitor cap and a drought reserve. Count crew only once. The plan stays within the water limit. The last vote now needs an independent sample.
 
+**Segue - exact player copy:** But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: Use a lower visitor cap and a drought reserve. The island's water, wildlife, and families are better protected.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Costa clips the corrected visitor tally beneath the drought-reserve card. But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source.
 
 **Story event - exact player copy:** The council lowers the visitor cap and reserves freshwater for drought.
 
@@ -7465,7 +8008,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Population Outlook. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Seats Are Not People. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -7473,7 +8016,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Population Outlook, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?
+**Prompt - exact player copy:** In a follow-up to Seats Are Not People, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?
 
 **Options - exact player copy:**
 
@@ -7494,7 +8037,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Overshoot, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?
+**Prompt - exact player copy:** the island council receives a second case related to Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?
 
 **Options - exact player copy:**
 
@@ -7515,7 +8058,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Overshoot, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Population Outlook using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** A teammate rechecks Seats Are Not People using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -7592,7 +8135,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. shift from high birth/death rates toward low rates.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?
+**Prompt - exact player copy:** An unseen case extends Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?
 
 **Options - exact player copy:**
 
@@ -7634,7 +8177,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Demographic transition, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Population Outlook to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?
+**Prompt - exact player copy:** the island council applies the lesson from Seats Are Not People to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?
 
 **Options - exact player copy:**
 
@@ -7659,17 +8202,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - Re-use the governing equation or causal comparison with units.
 - **Mission takeaway:** Record the enforceable environmental condition in the mission log.
 
-# Mission 15 - The Conditional Ferry Recommendation
+# Mission 15 - The Second Berth
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** VOTE DAY.
+**Header:** MISSION 15 - 1 DAY UNTIL THE VOTE.
 
 **Card title:** THE CONDITIONAL FERRY RECOMMENDATION
 
 **Go now:** Common Office, Mara Voss at the delivery board.
 
-**Card body:** A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain.
+**Card body:** 1 day until the vote. The council seal waits beside the still-blank sailing permit. Today you decide whether the second ferry has earned approval.
 
 **Objective:** Deliver and enact the Second-Ferry Plan.
 
@@ -7768,7 +8311,9 @@ Common stress test sends exact minimum water condition to Waterworks; passing in
 
 **Beat 1 - On arrival at Common Office | `delivery-board` | automatic**
 
-**World state:** Arrival: The named specialist identifies the immediate obstruction; Continue.
+**Trigger:** mission_15_arrival.
+
+**World state:** The council seal waits beside the still-blank sailing permit.
 
 **Panel/HUD text:** MISSION 15: MATCH CLIMATE MECHANISMS OPEN
 
@@ -7778,43 +8323,59 @@ Common stress test sends exact minimum water condition to Waterworks; passing in
 
 **Beat 2 - After Stop 57 | `delivery-board` | automatic**
 
-**World state:** First result: The result remains on its equipment panel and.
+**Trigger:** accepted_stop_57.
+
+**World state:** At `delivery-board`, the dated accepted-result slip for Stop 57 reads: "All six climate mechanisms and responses are correctly linked". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 57 RECORDED - STOP 58 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 57 result to settle collapse the final degeneracy."
+**Dialogue bubbles -** Ada Pell: "That check holds. The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply."
 
 **Unlocks/waypoint:** Unlock Stop 58 at `delivery-board` in Common Office.
 
 **Beat 3 - After Stop 58 | `sampler` | automatic**
 
-**World state:** Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.
+**Trigger:** accepted_stop_58.
+
+**World state:** At `delivery-board`, the dated accepted-result slip for Stop 58 reads: "Submit (200 visitors/day, 20% reserve)". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 58 RECORDED - STOP 59 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 58 result to settle verify the independent water sample."
+**Dialogue bubbles -** Ada Pell: "That check holds. The selected visitor cap needs an independent water check before the council can approve it."
 
 **Unlocks/waypoint:** Unlock Stop 59 at `sampler` in Waterworks.
 
 **Beat 4 - After Stop 59 | `council-table` | automatic**
 
-**World state:** Synthesis: Stop 59 changes the persistent board and unlocks the decision stop.
+**Trigger:** accepted_stop_59.
+
+**World state:** At `sampler`, the dated accepted-result slip for Stop 59 reads: "Margin 4800 m3/year, nitrate 6.4 mg/L, chloride 118 mg/L: PASS". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 59 RECORDED - STOP 60 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 59 result to settle enact the ferry triggers."
+**Dialogue bubbles -** Ada Pell: "That check holds. The independent water check passes, so the council can now turn the plan into enforceable conditions."
 
 **Unlocks/waypoint:** Unlock Stop 60 at `council-table` in Chapel Council Room.
 
 **Beat 5 - At mission end | `delivery-board` | automatic**
 
-**World state:** Final outcome begins immediately after Stop 4 with council board changing to.
+**Trigger:** accepted_stop_60.
+
+**World state:** At `condition-board`, Ada Pell pins the signed conditional ferry plan to the condition board. The final scene follows the completion gate below.
 
 **Panel/HUD text:** MISSION 15 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. CONDITIONAL APPROVAL."
+**Dialogue bubbles -** Ada Pell: "You made room for the ferry without taking the island out of the plan. Therefore Tomas must sail to the posted limits; a failed trigger closes the second service again."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — carrying-m15
+
+**Home:** `condition-board`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. The council seal waits beside the still-blank sailing permit.
+**After — exact action:** Ada Pell pins the signed conditional ferry plan to the condition board.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `condition-board`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore Tomas must sail to the posted limits; a failed trigger closes the second service again.
 
 ## Location plan
 
@@ -7841,6 +8402,10 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 **Question card story setup - exact player copy:** The current plan balances all four ledgers, but climate effects alter several at once. Match each observation to mechanism and response before the final stress test.
 
 **Question card story-science connection - exact player copy:** The mechanism-response matches identify which climate effects require changes to the island's resource safeguards.
+
+**Fixture source record - exact player copy:** The current plan balances all four ledgers, but climate effects alter several at once. Match each observation to mechanism and response before the final stress test.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Map warming to the enhanced greenhouse effect, sea rise to thermal expansion and ice melt, shell loss to acidification, declining ocean oxygen to warming, ice loss to albedo feedback, and chlorofluorocarbon (CFC) ozone loss to chlorine radicals and the Montreal Protocol.
 
@@ -7870,6 +8435,10 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 
 **Question card story-science connection - exact player copy:** The dry-year constraint identifies which cap-reserve pair remains feasible when recharge falls.
 
+**Fixture source record - exact player copy:** Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today’s water total. Apply the dry-year constraint to collapse the pair.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+
 **Question card prompt - exact player copy:** Use the two controls `visitor cap` and `drought reserve`: adjust visitor cap from 0 to 340 visitors/day in steps of 20 and reserve from 0% to 30% in steps of 5%. Submit the numerical pair satisfying annual withdrawal at or below 136,800 m3/year during a 15% drought before plan choices unlock.
 
 **Complete format-specific interaction block:** `degeneracy:{controls:[{id:visitor_cap,label:"visitors/day",min:0,max:340,step:20},{id:drought_reserve,label:"reserve percent",min:0,max:30,step:5}],locus_today:[[120,30],[160,25],[200,20],[240,15],[280,10],[320,5]],locus_drought:[[160,25],[200,20],[240,15]],constraint:"annual withdrawal <=136800 m3/year during 15% drought",truth:[200,20],tolerance:[10,2.5],required_submission:"numerical pair before plan unlock"}`
@@ -7894,9 +8463,13 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 
 **Stop reason - exact player copy:** The selected visitor cap needs an independent water check before the council can approve it.
 
-**Question card story setup - exact player copy:** The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample, and the team needs this result before it acts, and this result will guide the next safe decision.
+**Question card story setup - exact player copy:** The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample.
 
 **Question card story-science connection - exact player copy:** The remaining water margin and measured nitrate and chloride determine whether the cap meets both quantity and quality conditions.
+
+**Fixture source record - exact player copy:** The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** CALCULATE AND COMMIT margin=136800-132000 in m3/year; OPERATE the sampler with pump and time fixed; MEASURE nitrate and chloride; INTERPRET PASS only below 10.0 and 250 mg/L; no restoration
 
@@ -7925,6 +8498,10 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 **Question card story setup - exact player copy:** Independent water evidence passes, so the plan can be written as enforceable conditions rather than promises. Commit every threshold before the vote opens.
 
 **Question card story-science connection - exact player copy:** The complete trigger set determines whether the second sailing has approval that can be withdrawn when resource safeguards fail.
+
+**Fixture source record - exact player copy:** Independent water evidence passes, so the plan can be written as enforceable conditions rather than promises. Commit every threshold before the vote opens.
+
+**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
 **Question card prompt - exact player copy:** Use the locked mission record to build one conditional ferry approval covering water withdrawal, aquifer head, nitrate, chloride, fish catch, power reserve, inspections, and drought visitors. Assign each approved trigger and require an owner, monitor, and response for every condition.
 
@@ -7978,11 +8555,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Approve the second ferry only with firm limits. Cut trips when any safety trigger fails. The plan cuts air and water waste. It also plans for drought, heat, and sea rise. The council adopts the plan.
+Mission decision: Whether the second ferry has earned approval. Apply the existing final evidence and metric gates before the world payoff below.
 
+The second ferry ties up beside the posted limits. Tomas checks the cargo before the ramp drops. Beyond the quay, cups dry by the school tap and the reef boats leave under their catch cap. Vellan has room for another sailing, with rules to keep it home.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Approve the second ferry only with firm limits. The ferry decision is now grounded in what Vellan can actually sustain.
+**Happy ending card - exact player copy:** The second ferry ties up beside the posted limits. Tomas checks the cargo before the ramp drops. Beyond the quay, cups dry by the school tap and the reef boats leave under their catch cap. Vellan has room for another sailing, with rules to keep it home.
 
 **Story event - exact player copy:** The council approves the second ferry only while every environmental limit remains satisfied.
 
@@ -7994,7 +8572,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Conditional Ferry Recommendation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Second Berth. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -8002,7 +8580,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Conditional Ferry Recommendation, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?
+**Prompt - exact player copy:** In a follow-up to The Second Berth, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?
 
 **Options - exact player copy:**
 
@@ -8023,7 +8601,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Tipping point, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?
+**Prompt - exact player copy:** the island council receives a second case related to The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?
 
 **Options - exact player copy:**
 
@@ -8044,7 +8622,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Tipping point, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Conditional Ferry Recommendation using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?
+**Prompt - exact player copy:** A teammate rechecks The Second Berth using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?
 
 **Options - exact player copy:**
 
@@ -8065,7 +8643,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. reducing harm from impacts.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?
+**Prompt - exact player copy:** An unseen case extends The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?
 
 **Options - exact player copy:**
 
@@ -8107,7 +8685,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Adaptation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case.
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Conditional Ferry Recommendation to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today’s water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?
+**Prompt - exact player copy:** the island council applies the lesson from The Second Berth to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today’s water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?
 
 **Options - exact player copy:**
 
@@ -8320,7 +8898,7 @@ Each outcome begins with the promised mission decision, applies the named metric
 ```yaml
 mission:
   id: mission_01
-  title: "What the Island Depends On"
+  title: "The Catch That Vanished"
   briefing:
     header: "15 DAYS TO THE FERRY VOTE"
     card_title: "Nothing Leaves the Ledger"

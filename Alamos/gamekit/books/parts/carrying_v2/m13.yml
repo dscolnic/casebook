@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Biosecurity Rule"
   card:
-    header: "3 DAYS."
+    header: "MISSION 13 - 3 DAYS UNTIL THE VOTE."
     title: "THE BIOSECURITY RULE"
     goNow: "Ferry Berth, Tomas Reed at berth-standpipe."
-    body: "The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established."
+    body: "3 days until the vote. A seed clings to the mud under a cargo crate. Today you decide which ferry loads must be held or cleaned."
     objective: "Prevent imported species from outrunning island defenses."
   objective: "Prevent imported species from outrunning island defenses."
-  stake: "The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established."
+  stake: "3 days until the vote. A seed clings to the mud under a cargo crate. Today you decide which ferry loads must be held or cleaned."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Check each ferry before it sails. Treat soil, drain water, and hold risky plants. Check wood and wildlife papers too. A seed test missed too many threats. The last demand plan must count every visitor."
+  segue: "But Lena's visitor register counts some crew twice; the final water plan needs real person-days."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Invasive species", def: "introduced organism that spreads and causes harm."}
@@ -30,50 +30,55 @@
   - id: on-arrival-at-ferry-berth
     # On arrival at Ferry Berth | quarantine-rack | automatic
     on: { enter: true, at: BERTH }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "A seed clings to the mud under a cargo crate."
     panel: "MISSION 13: SCREEN THE ARRIVING CARGO OPEN"
+    # unlocks: Unlock Stop 49 at quarantine-rack in Ferry Berth.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with screen the arriving cargo. We need evidence the next decision can use."
   - id: after-stop-49
     # After Stop 49 | common-map | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At quarantine-rack, the dated accepted-result slip for Stop 49 reads: \"Five biological pathways enter quarantine; sealed clean metal may proceed\". The slip remains in that fixture's evidence holder."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    # unlocks: Unlock Stop 50 at common-map in Common Office.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 49 result to settle test survey recovery."
+    - who: reed   # Tomas Reed
+      say: "That check holds. Cargo screening needs a detection check before the council relies on surveys to catch escapees."
   - id: after-stop-50
     # After Stop 50 | flow-tank | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At common-map, the dated accepted-result slip for Stop 50 reads: \"Recovery is 67%; the survey fails\". The slip remains in that fixture's evidence holder."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    # unlocks: Unlock Stop 51 at flow-tank in Reef Station.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 50 result to settle control the rinse treatment."
+    - who: reed   # Tomas Reed
+      say: "That check holds. The survey's missed organisms make prevention before cargo release more important."
   - id: after-stop-51
     # After Stop 51 | water-rack | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 51 changes the persistent board and unlocks the decision stop."
+    world: "At flow-tank, the dated accepted-result slip for Stop 51 reads: \"Survivors fall from 100 to 2 only when rinse is on; rinsing caused the reduction\". The slip remains in that fixture's evidence holder."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    # unlocks: Unlock Stop 52 at water-rack in Reef Station.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 51 result to settle write the biosecurity protocol."
+    - who: reed   # Tomas Reed
+      say: "That check holds. The detection and rinse tests are complete, allowing an evidence-based unloading protocol."
   - id: at-mission-end
     # At mission end | quarantine-rack | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 52 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At quarantine-rack, Tomas Reed hangs a CHECK BEFORE SAILING tag on the cargo release hook. The dated prop remains here on later visits."
     panel: "MISSION 13 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: reed   # Tomas Reed
+      say: "If this costs a sailing, put my name on the delay. But Lena's visitor register counts some crew twice; the final water plan needs real person-days."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Biosecurity Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed What Came Ashore. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Biosecurity Rule, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?"
+    - prompt: "In a follow-up to What Came Ashore, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?"
       hint: "Use the stated evidence and the conditions for Invasive species; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -81,7 +86,7 @@
       - {key: "B", text: "Introduced organism that spreads and causes harm.", why: "Correct. introduced organism that spreads and causes harm."}
       - {key: "C", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "United States law protecting listed species and habitat.", why: "This describes Endangered Species Act, not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?"
+    - prompt: "the island council receives a second case related to What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?"
       hint: "Use the stated evidence and the conditions for Endemic; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -89,7 +94,7 @@
       - {key: "B", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Native to one limited place.", why: "Correct. native to one limited place."}
       - {key: "D", text: "United States law protecting listed species and habitat.", why: "This describes Endangered Species Act, not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Biosecurity Rule using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?"
+    - prompt: "A teammate rechecks What Came Ashore using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?"
       hint: "Use the stated evidence and the conditions for Convention on International Trade in Endangered Species (CITES); do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -97,7 +102,7 @@
       - {key: "B", text: "Native to one limited place.", why: "This describes Endemic, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "United States law protecting listed species and habitat.", why: "This describes Endangered Species Act, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Treaty controlling trade in threatened species.", why: "Correct. treaty controlling trade in threatened species."}
-    - prompt: "An unseen case extends The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?"
+    - prompt: "An unseen case extends What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?"
       hint: "Use the stated evidence and the conditions for Endangered Species Act; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -113,7 +118,7 @@
       - {key: "B", text: "Screen the arriving cargo connects the measured environmental mechanism to the next island condition.", why: "Correct. screen the arriving cargo connects the measured environmental mechanism to the next island condition."}
       - {key: "C", text: "Native to one limited place.", why: "This describes Endemic, not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Treaty controlling trade in threatened species.", why: "This describes Convention on International Trade in Endangered Species (CITES), not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Biosecurity Rule to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?"
+    - prompt: "the island council applies the lesson from What Came Ashore to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?"
       hint: "Use the stated evidence and the conditions for invasion detection | uncertainty | 13; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -144,7 +149,7 @@
     title: "Screen the arriving cargo"
     concept: 33   # arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue
     reason: "The power bridge keeps the sailing possible, bringing its biological cargo risks into the approval decision."
-    scene: "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading."
     motivation: "The cargo classifications determine which pathways need quarantine before living hitchhikers reach the island."
     format: BELT
     question: "Sort soil, standing water, untreated wood, plants, and animals as inspection-required; sort sealed clean metal as low risk"

@@ -1,17 +1,18 @@
 # ============================================================ MISSION 11
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Too Late By Itself"
   card:
-    header: "5 DAYS"
+    header: "MISSION 11 - 5 DAYS UNTIL CHANGEOVER."
     title: "Too Late by Itself"
     goNow: "Go to COUNTER and meet Eli Voss at the wage notices."
-    body: "The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed."
+    body: "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time."
     objective: "Compare market adjustment with a temporary policy bridge."
   objective: "Compare market adjustment with a temporary policy bridge."
-  stake: "The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed."
+  stake: "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Self-correction is too slow. Use automatic stabilizers and a short bridge for capital and training. End the plan when its trigger is met. Bank ledgers now show that 4.15 works only when reserves arrive on time."
+  segue: "But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-exchange-counter
     # On arrival at Exchange Counter | queue-board | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Compare market adjustment with a temporary policy bridge. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A wage contract's six-week date extends past changeover day."
     panel: "Compare market adjustment with a temporary policy bridge."
+    # unlocks: Unlock Stop 41 at queue-board in Exchange Counter.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with adjustment order. We need evidence the next decision can use."
   - id: after-stop-41
     # After Stop 41 | ad-as-wall | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Eli Voss says,, and Stop 42 unlocks."
+    world: "At queue-board, the dated accepted-result slip for Stop 41 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    # unlocks: Unlock Stop 42 at ad-as-wall in Statistics Floor.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. Self-correction returns Y to Yf, but wage adjustment starts after launch."
   - id: after-stop-42
     # After Stop 42 | forecast-table | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in COUNTER → PRICES → RATE only if the route requires travel, then."
+    world: "At ad-as-wall, the dated accepted-result slip for Stop 42 reads: \"−7b ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "COUNTER → PRICES → RATE"
+    # unlocks: Unlock Stop 43 at forecast-table in Rate Room.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. Automatic stabilizers shrink the loss from 10 to 7 billion."
   - id: after-stop-43
     # After Stop 43 | allocation-slate | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 44 unlocks."
+    world: "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    # unlocks: Unlock Stop 44 at allocation-slate in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. Fund clearing, training, port repair, and reserve."
   - id: at-mission-end
     # At mission end | queue-board | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At threshold-rail, Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail. The dated prop remains here on later visits."
     panel: "MISSION 11 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. Use a temporary bridge with a sunset review; self-correction alone is too slow."
+    - who: dane   # Rhea Dane
+      say: "Then write the end of the bridge before its first payment. But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due."
 
   terms:
   - {name: "Self-correction", def: "wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium."}
@@ -156,8 +162,12 @@
     # mark one of them — so the "mark which step misses the deadline" half of this
     # stop is not carried. Left to the bible rather than invented.
     cards:
-      - "[unemployment high,wage growth slows,input costs fall,SRAS right,Y returns Yf]; order:same; deadline_step:wage reset."
-    order: []
+    - "unemployment high"
+    - "wage growth slows"
+    - "input costs fall"
+    - "SRAS right"
+    - "Y returns Yf"
+    order: [0, 1, 2, 3, 4]
 
   # --- Stop 42: Stabilizer response
   #     Concept: automatic stabilizers; Keystone: fiscal/AD; Area: Rate Room; Learning role: RETRIEVE; Difficulty: L3; Story role: calculation.
@@ -283,30 +293,9 @@
     # by its `axis`, so that phrase carries as the label too. 50+30+80+0 = 160, the
     # bible's own `total_available_cost`, against 80; the two decisive ones cost 80.
     value:
-      budget:
-        amount: 80
-        unit: ""
-      decision: ""
+      budget: { amount: 80 }
       options:
-        - id: temporary_bridge
-          label: ""
-          cost: 50
-          axis: short-run demand support
-          reveals: ""
-        - id: sunset_review
-          label: ""
-          cost: 30
-          axis: automatic exit discipline
-          reveals: ""
-        - id: permanent_stimulus
-          label: ""
-          cost: 80
-          axis: permanent demand expansion
-          reveals: ""
-        - id: wait
-          label: ""
-          cost: 0
-          axis: no immediate support
-          reveals: ""
-      commit: Commit the decision
-
+      - { id: temporary_bridge, label: "short-run demand support", axis: "short-run demand support", cost: 50, decisive: true }
+      - { id: sunset_review, label: "automatic exit discipline", axis: "automatic exit discipline", cost: 30, decisive: true }
+      - { id: permanent_stimulus, label: "permanent demand expansion", axis: "permanent demand expansion", cost: 80 }
+      - { id: wait, label: "no immediate support", axis: "no immediate support", cost: 0 }

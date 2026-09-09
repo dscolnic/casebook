@@ -1,17 +1,18 @@
 # ============================================================ MISSION 7
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Heat"
   card:
-    header: "9 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 7 - 9 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "HEAT"
     goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the coolant panel."
-    body: "Much of the missing methane was never made because too little hydrogen reached the reactor. Someone also lowered the temperature just before production slowed. Reconstruct the heat transfers and event times to decide whether that change caused trouble or followed an earlier cooling failure."
+    body: "9 work shifts remain before launch. A heat strip ends above its limit beside a folded override sheet. Today you decide whether the cooling loss came before the setting change."
     objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
   objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
-  stake: "Much of the missing methane was never made because too little hydrogen reached the reactor. Someone also lowered the temperature just before production slowed. Reconstruct the heat transfers and event times to decide whether that change caused trouble or followed an earlier cooling failure."
+  stake: "9 work shifts remain before launch. A heat strip ends above its limit beside a folded override sheet. Today you decide whether the cooling loss came before the setting change."
   takeaway: "Timing matters: radiator loss before the override changes the story of motive."
-  segue: "Mission decision: The cooling system grew weak before the reactor setting fell. The heat count leaves 2.7 MJ in the plant. That heat can form a hot spot. The lower setting then cut heat and fuel output. The next test asks if that change caused the fast drop in production."
+  segue: "But Ingrid can still show the rate fell after the override; Herrera must let her test the change itself."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Heat", def: "energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one."}
@@ -33,7 +34,7 @@
   - id: on-arrival-at-reactor-hall
     # On arrival at Reactor Hall | automatic | 
     on: { enter: true, at: EQUIL }
-    world: "The reactor rate is low, the old temperature setting is marked RESTORE, and the cooling-demand trace rises with methane output."
+    world: "A heat strip ends above its limit beside a folded override sheet."
     panel: "MISSION 7 - HEAT"
     # unlocks: Stop 25 at the reactor coolant panel; Stop 26 unlocks immediately after Stop 25.
     bubbles:
@@ -42,7 +43,7 @@
   - id: after-stops-25-and-26
     # After Stops 25 and 26 | reactor coolant panel | automatic response
     on: { after: [1, 2] }
-    world: "The reaction receives an EXOTHERMIC label and the calculated coolant load appears beneath it."
+    world: "At skid, the dated accepted-result slip for Stop 25 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "RESULT RECORDED"
     # unlocks: The radiator-side travel beat.
     bubbles:
@@ -51,7 +52,7 @@
   - id: after-stop-26
     # After Stop 26 | reactor coolant panel | automatic travel authorization
     on: { after: [2] }
-    world: "A process diagram highlights warming, melting, and further-warming stages in sequence, then posts the delayed temperature-pulse arrival; Its predicted arrival does not match the radiator log."
+    world: "At reactor-calculation-bench, the dated accepted-result slip for Stop 26 reads: \"11,400 kJ or 11.4 MJ; tolerance ±2%.\". The slip remains in that fixture's evidence holder."
     panel: "MOVE TO COLD END."
     # unlocks: The Cold End waypoint and Stop 27; Stop 28 unlocks immediately after Stop 27.
     bubbles:
@@ -60,7 +61,7 @@
   - id: after-stops-27-and-28
     # After Stops 27 and 28 | Cold End | automatic discovery
     on: { after: [3, 4] }
-    world: "Dust-obstructed radiator panels appear beside a positive UNREMOVED HEAT term; The timeline places cooling loss before the manual override."
+    world: "At heat-model-board, the dated accepted-result slip for Stop 27 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "RADIATOR PERFORMANCE FELL FIRST / REACTOR SET POINT FELL SECOND."
     # unlocks: The Mission 7 outcome beat.
     bubbles:
@@ -69,16 +70,12 @@
   - id: at-mission-end
     # At mission end | Cold End | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Sundqvist places CAUSED PRODUCTION LOSS beneath the override while Herrera places PREVENTED HIGHER TEMPERATURE beside it."
+    world: "At phase-radiator, Dr. Tomás Herrera clips the 2.7 MJ RETAINED heat ledger to the radiator board. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - PLANT CONTROL RATE BOARD."
     # unlocks: Mission 8 briefing and the Plant Control waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. A cautious change can still be the reason we missed production."
-    - who: herrera   # Herrera
-      say: "Then test both claims."
-    - who: abiola   # Abiola
-      say: "We will. Controlled data, not timing alone."
+    - who: herrera   # Dr. Tomás Herrera
+      say: "I should have shown you this before I touched the setting. But Ingrid can still show the rate fell after the override; Herrera must let her test the change itself."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -261,37 +258,15 @@
     # becomes the hidden stream, named from the bible's own correct action —
     # "Assign 2.7 MJ to accumulated hot-spot/structure load".
     balance:
-      target:
-        label: Heat released by reactor
-        value: 16.5
-        unit: MJ
+      total: { amount: 16.5, unit: MJ, label: "Heat released by reactor" }
+      tolerance: 0.05
       streams:
-        - id: coolant
-          label: Removed by coolant
-          value: 11.4
-          unit: MJ
-          count: true
-        - id: bed_storage
-          label: Stored in metal bed
-          value: 1.6
-          unit: MJ
-          count: true
-        - id: product_gas
-          label: Carried by product gas
-          value: 0.8
-          unit: MJ
-          count: true
-        - id: dashboard_power
-          label: Electrical drive power
-          value: 0.9
-          unit: MJ
-          count: false
-      closure:
-        accounted: 13.8
-        residual: 2.7
-        unit: MJ
-        tolerance: 0.05
-      correct_action: Assign 2.7 MJ to accumulated hot-spot/structure load.
+      - { id: coolant, label: "Removed by coolant", value: 11.4, unit: MJ }
+      - { id: bed_storage, label: "Stored in metal bed", value: 1.6, unit: MJ }
+      - { id: product_gas, label: "Carried by product gas", value: 0.8, unit: MJ }
+      - { id: dashboard_power, label: "Electrical drive power", value: 0.9, unit: MJ, countable: false }
+      - { id: hot_spot, label: "Accumulated hot-spot / structure load", value: 2.7, unit: MJ, hidden: true }
+      commit: "Report the unremoved energy"
     answerText: "The ledger leaves 2.7 MJ accumulating as a hot-spot or structure load."
     why: "Energy generated must be removed, carried away, stored, or accumulated elsewhere. 16.5 - 11.4 - 1.6 - 0.8 = 2.7 MJ. The radiator degradation appears before Herrera's override; lowering the set point reduced heat generation after removal capacity fell."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -310,4 +285,3 @@
     #       - {id: dashboard_power, label: "Electrical drive power", value: 0.9, unit: MJ, count: false}
     #     closure: {accounted: 13.8, residual: 2.7, unit: MJ, tolerance: 0.05}
     #     correct_action: "Assign 2.7 MJ to accumulated hot-spot/structure load."
-

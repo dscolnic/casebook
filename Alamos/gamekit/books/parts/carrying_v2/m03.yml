@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Ecological Limits"
   card:
-    header: "13 DAYS TO THE FERRY VOTE"
+    header: "MISSION 3 - 13 DAYS UNTIL THE VOTE."
     title: "What Keeps Growing"
     goNow: "Go to the Common Office and meet Iona Vale, common agronomy lead, at the common map."
-    body: "Enough drinking water does not guarantee enough food or healthy land for more visitors. Plants, animals, and farms also depend on energy, nutrients, and space. Compare those limits and decide what the ferry plan must protect beyond the island's water supply."
+    body: "13 days until the vote. A torn feed sack spills beside a tray of bare roots. Today you decide whether more feed can lift the island's food limit."
     objective: "Add ecological limits to the ferry plan."
   objective: "Add ecological limits to the ferry plan."
-  stake: "Enough drinking water does not guarantee enough food or healthy land for more visitors. Plants, animals, and farms also depend on energy, nutrients, and space. Compare those limits and decide what the ferry plan must protect beyond the island's water supply."
+  stake: "13 days until the vote. A torn feed sack spills beside a tray of bare roots. Today you decide whether more feed can lift the island's food limit."
   takeaway: "Soil makes secondary succession faster than primary succession. ---"
-  segue: "Mission decision: Limit ferry growth to what farms and wild systems can support. Food loss, slow growth, and habitat all set the limit. More fertilizer will not remove those limits. Salt in the well is still rising."
+  segue: "But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Net primary productivity (NPP)", def: "plant energy stored after plants use some energy for respiration."}
@@ -33,50 +33,55 @@
   - id: on-arrival-at-common-office
     # On arrival at Common Office | common-map | automatic
     on: { enter: true, at: COMMON }
-    world: "Iona is defending fertilizer imports while bare patches spread near sheds."
+    world: "A torn feed sack spills beside a tray of bare roots."
     panel: "MISSION 3: COUNT USABLE PLANT ENERGY OPEN"
+    # unlocks: Unlock Stop 9 at common-map in Common Office.
     bubbles:
     - who: vale   # Iona Vale
       say: "Start with count usable plant energy. We need evidence the next decision can use."
   - id: after-stop-9
     # After Stop 9 | soil-bench | automatic
     on: { after: [1] }
-    world: "After Stop 1: Keep the new evidence visible and."
+    world: "At common-map, the dated accepted-result slip for Stop 9 reads: \"NPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    # unlocks: Unlock Stop 10 at soil-bench in the Common Office.
     bubbles:
     - who: vale   # Iona Vale
-      say: "Nice work. Use the Stop 9 result to settle read recovery and habitat."
+      say: "That check holds. The grazing limit needs to account for land that is still recovering from fire."
   - id: after-stop-10
     # After Stop 10 | common-map | automatic
     on: { after: [2] }
-    world: "After Stop 2: Update the persistent panel and or the evidence-led waypoint."
+    world: "At soil-bench, the dated accepted-result slip for Stop 10 reads: \"The burned soil follows secondary succession and can recover in roughly 10-50 years; bare rock primary succession often takes 100+ years.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    # unlocks: Unlock Stop 11 at common-map in Common Office.
     bubbles:
     - who: vale   # Iona Vale
-      say: "Good thinking. Use the Stop 10 result to settle classify vulnerability."
+      say: "That check holds. The recovery map shows that habitat damage will not affect every island species equally."
   - id: after-stop-11
     # After Stop 11 | nitrogen-bench | automatic
     on: { after: [3] }
-    world: "After Stop 3: Show the combined result and unlock the decision stop."
+    world: "At common-map, the dated accepted-result slip for Stop 11 reads: \"Protect the petrel first; monitor the seal; routine watch for the generalists.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    # unlocks: Unlock Stop 12 at nitrogen-bench in Common Office.
     bubbles:
     - who: vale   # Iona Vale
-      say: "Exactly right. Use the Stop 11 result to settle test the fertilizer claim."
+      say: "That check holds. Fertilizer is proposed to raise production despite the island's newly established ecological limits."
   - id: at-mission-end
     # At mission end | common-map | automatic
     on: { missionEnd: true }
-    world: "Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue."
+    world: "At nitrogen-bench, Iona Vale ties a SURPLUS NITROGEN tag to the fertilizer sack. The dated prop remains here on later visits."
     panel: "MISSION 3 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: vale   # Iona Vale
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "I paid for that feed. I would rather lose a sack than a field. But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Ecological Limits. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Sack and the Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Ecological Limits, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?"
+    - prompt: "In a follow-up to The Sack and the Reef, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?"
       hint: "Use the stated evidence and the conditions for Net primary productivity (NPP); do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -84,7 +89,7 @@
       - {key: "B", text: "Plant energy stored after plants use some energy for respiration.", why: "Correct. plant energy stored after plants use some energy for respiration."}
       - {key: "C", text: "Plants use part of GPP, and most remaining energy is lost as heat between levels.", why: "This describes GPP/NPP and 10% law, not Net primary productivity (NPP). It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.", why: "This describes succession, biomes, aquatic zones, not Net primary productivity (NPP). It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Ecological Limits: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?"
+    - prompt: "the island council receives a second case related to The Sack and the Reef: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?"
       hint: "Use the stated evidence and the conditions for Gross primary productivity (GPP); do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -92,7 +97,7 @@
       - {key: "B", text: "Plants use part of GPP, and most remaining energy is lost as heat between levels.", why: "This describes GPP/NPP and 10% law, not Gross primary productivity (GPP). It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.", why: "Correct. all solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses."}
       - {key: "D", text: "Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.", why: "This describes succession, biomes, aquatic zones, not Gross primary productivity (GPP). It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Ecological Limits using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?"
+    - prompt: "A teammate rechecks The Sack and the Reef using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?"
       hint: "Use the stated evidence and the conditions for GPP/NPP and 10% law; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -100,7 +105,7 @@
       - {key: "B", text: "All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.", why: "This describes Gross primary productivity (GPP), not GPP/NPP and 10% law. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.", why: "This describes succession, biomes, aquatic zones, not GPP/NPP and 10% law. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Plants use part of GPP, and most remaining energy is lost as heat between levels.", why: "Correct. plants use part of GPP, and most remaining energy is lost as heat between levels."}
-    - prompt: "An unseen case extends The Ecological Limits: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?"
+    - prompt: "An unseen case extends The Sack and the Reef: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?"
       hint: "Use the stated evidence and the conditions for succession, biomes, aquatic zones; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -117,7 +122,7 @@
       - {key: "B", text: "Narrow niches and isolation limit recolonization; feedback contrasts niche breadth.", why: "Correct. narrow niches and isolation limit recolonization; feedback contrasts niche breadth."}
       - {key: "C", text: "All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.", why: "This describes Gross primary productivity (GPP), not generalist/specialist, island biogeography, life history preview. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Plants use part of GPP, and most remaining energy is lost as heat between levels.", why: "This describes GPP/NPP and 10% law, not generalist/specialist, island biogeography, life history preview. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Ecological Limits to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?"
+    - prompt: "the island council applies the lesson from The Sack and the Reef to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?"
       hint: "Use the stated evidence and the conditions for limiting nutrients and controlled experiment; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:

@@ -1,17 +1,18 @@
 # ============================================================ MISSION 11
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Lock the File"
   card:
-    header: "DAY 11 - BOARD IN 5 DAYS"
+    header: "MISSION 11 - 5 DAYS UNTIL THE BOARD MEETS."
     title: "Lock the File"
     goNow: "Go to Data Management and meet Mara Voss, trial director, at the extraction console."
-    body: "Three reports contain different tables, and the board needs one reliable final dataset. Trace each report back to its patient records and check why the numbers differ. Decide which version can be finalized without carrying a copied error into the treatment decision."
+    body: "5 days until the board meets. Three matching reports sit outside a cabinet beside an independent file hash. Today you decide which data run is safe to lock."
     objective: "Validate and lock one analysis file."
   objective: "Validate and lock one analysis file."
-  stake: "Three reports contain different tables, and the board needs one reliable final dataset. Trace each report back to its patient records and check why the numbers differ. Decide which version can be finalized without carrying a copied error into the treatment decision."
+  stake: "5 days until the board meets. Three matching reports sit outside a cabinet beside an independent file hash. Today you decide which data run is safe to lock."
   takeaway: "Validate on held-out data."
-  segue: "Mission decision: Lock the fresh data run, not the three copied reports. Its tests, holdout, file mark, and access log all pass. Trial data are now secure. The last table holds three different problems."
+  segue: "But Amina's last tables ask three different questions; one test will not answer them all."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Central Limit Theorem", def: "for large n, the sampling distribution of a sample mean is approximately Normal."}
@@ -31,43 +32,48 @@
   - id: on-arrival-at-data-management
     # On arrival at Data Management | sampling-board | automatic
     on: { enter: true, at: DATA }
-    world: "Arrival: DATA entry; three identical reports visible; Mara says,; - After S1-S2: holdout hash prints; waypoint CARRY HOLDOUT HASH TO STAT. - STAT arrival/after S3: shared dependency lines appear; waypoint TAKE INDEPENDENT HASH TO TRIAL MASTER FILE. - ARCHIVE final: four attestations pass; archive becomes READ ONLY / LOCKED; binder 11 and outcome unlock."
+    world: "Three matching reports sit outside a cabinet beside an independent file hash."
     panel: "MISSION 11: PREDICT SAMPLING SPREAD OPEN"
+    # unlocks: Unlock Stop 41 at sampling-board in Data Management.
     bubbles:
     - who: voss   # Mara Voss
       say: "Matching is not enough. Show me independence"
   - id: after-stop-41
     # After Stop 41 | holdout-safe | automatic
     on: { after: [1] }
-    world: "The predict sampling spread result remains visible while the freeze before revealing fixture lights."
+    world: "At sampling-board, the dated accepted-result slip for Stop 41 reads: \"x-bar is approximately Normal with mean 70 and SD 2. Larger n narrows spread, not center. Use SE when sigma is estimated by s.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    # unlocks: Unlock Stop 42 at holdout-safe in Data Management.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 41 result to settle freeze before revealing."
+    - who: wu   # Lena Wu
+      say: "That check holds. The expected extraction spread allows a fair test of cleaning rules on untouched records."
   - id: after-stop-42
     # After Stop 42 | extraction-map | automatic
     on: { after: [2] }
-    world: "The freeze before revealing result remains visible while the trace the agreement fixture lights."
+    world: "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"Freeze B before reveal; it stays within expected error on unseen records.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    # unlocks: Unlock Stop 43 at extraction-map in Statistics & Analysis.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 42 result to settle trace the agreement."
+    - who: wu   # Lena Wu
+      say: "That check holds. The independent holdout hash needs comparison with reports that agree suspiciously exactly."
   - id: after-stop-43
     # After Stop 43 | archive-seal | automatic
     on: { after: [3] }
-    world: "The trace the agreement result remains visible while the make the lock real fixture lights."
+    world: "At extraction-map, the dated accepted-result slip for Stop 43 reads: \"The three matching reports are not independent confirmations; use the source rerun and held-out hash.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    # unlocks: Unlock Stop 44 at archive-seal in Trial Master File.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 43 result to settle make the lock real."
+    - who: wu   # Lena Wu
+      say: "That check holds. The independent rerun passes, but the final data lock still needs enforceable controls."
   - id: at-mission-end
     # At mission end | sampling-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At evidence-locker, Lena Wu closes the evidence cabinet with its dated lock seal. The dated prop remains here on later visits."
     panel: "MISSION 11 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: wu   # Lena Wu
+      say: "The door closes on a checked run, not a vote among copies. But Amina's last tables ask three different questions; one test will not answer them all."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -331,40 +337,19 @@
     # `signedBy` is DERIVED too: the bible marks every claim `signed:true` without
     # naming a signer, and this stop is asked by Mara Voss at the archive seal.
     attest:
-      verification_limit: 4
+      checks: 4
       claims:
-        - id: source_hash
-          label: source hash
-          signed: true
-          backed: true
-          critical: true
-        - id: timestamp
-          label: signed timestamp
-          signed: true
-          backed: true
-          critical: true
-        - id: analysis_plan
-          label: frozen analysis plan
-          signed: true
-          backed: true
-          critical: true
-        - id: readonly
-          label: read-only archive permission
-          signed: true
-          backed: true
-          critical: true
-        - id: copied_reports
-          label: three copied reports are independent
-          signed: true
-          backed: false
-          critical: true
-      correct_verified:
-        - source_hash
-        - timestamp
-        - analysis_plan
-        - readonly
-      critical_unbacked: copied_reports
-      answerText: Verify the four independent lock records and reject copied-report agreement as independent support.
+      - { id: source_hash, label: "source hash", critical: true, backed: true,
+          signedBy: "Mara Voss", evidence: "Hash recomputed from the archive and matched." }
+      - { id: timestamp, label: "signed timestamp", critical: true, backed: true,
+          signedBy: "Mara Voss", evidence: "Signed timestamp present on the lock record." }
+      - { id: analysis_plan, label: "frozen analysis plan", critical: true, backed: true,
+          signedBy: "Mara Voss", evidence: "Analysis plan frozen, with the freeze recorded." }
+      - { id: readonly, label: "read-only archive permission", critical: true, backed: true,
+          signedBy: "Mara Voss", evidence: "Archive permission confirmed read-only." }
+      - { id: copied_reports, label: "three copied reports are independent", critical: true,
+          signedBy: "Mara Voss", evidence: "Not backed: all three reports run off the same nightly extraction, so their agreement is not independent support." }
+      commit: "Seal the file"
     answerText: "The completed check shows lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence."
     why: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -375,4 +360,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   attest:{verification_limit:4,claims:[{id:"source_hash",label:"source hash",signed:true,backed:true,critical:true},{id:"timestamp",label:"signed timestamp",signed:true,backed:true,critical:true},{id:"analysis_plan",label:"frozen analysis plan",signed:true,backed:true,critical:true},{id:"readonly",label:"read-only archive permission",signed:true,backed:true,critical:true},{id:"copied_reports",label:"three copied reports are independent",signed:true,backed:false,critical:true}],correct_verified:["source_hash","timestamp","analysis_plan","readonly"],critical_unbacked:"copied_reports",answerText:"Verify the four independent lock records and reject copied-report agreement as independent support."}
-

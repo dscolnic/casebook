@@ -1,17 +1,18 @@
 # ============================================================ MISSION 10
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Saboteur"
   card:
-    header: "6 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 10 - 6 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE SABOTEUR"
     goNow: "Go to the Sabatier Reactor and meet Commander Laila Abiola, the mission commander, at the sealed model display."
-    body: "The catalyst is contaminated near the inlet, and restoring the old temperature still looks like the quickest way to make fuel. Test that plan against measurements kept separate from the model's construction. Decide whether the earlier temperature reduction created the danger or prevented something worse."
+    body: "6 work shifts remain before launch. The sealed old run waits beneath Ingrid's blame model. Today you decide whether the old setting was safe."
     objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
   objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
-  stake: "The catalyst is contaminated near the inlet, and restoring the old temperature still looks like the quickest way to make fuel. Test that plan against measurements kept separate from the model's construction. Decide whether the earlier temperature reduction created the danger or prevented something worse."
+  stake: "6 work shifts remain before launch. The sealed old run waits beneath Ingrid's blame model. Today you decide whether the old setting was safe."
   takeaway: "A fair character reversal keeps the action true and changes its scientifically supported meaning."
-  segue: "Mission decision: The override stopped a heat runaway. The hidden run breaks the blame model. Its errors miss the same danger each time, and sensor error can push the old point past the limit. The old setting will not return. The plant needs a slower, safer way to make fuel."
+  segue: "Therefore Ingrid and Herrera must build a safer yield plan together; the launch clock has not stopped for their argument."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Model", def: "a simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting."}
@@ -30,7 +31,7 @@
   - id: on-arrival-at-reactor-hall
     # On arrival at Reactor Hall | automatic | 
     on: { enter: true, at: EQUIL }
-    world: "A case board reads HERRERA OVERRIDE -\\> PRODUCTION COLLAPSE; One dataset remains sealed beneath NOT USED IN FIT."
+    world: "The sealed old run waits beneath Ingrid's blame model."
     panel: "MISSION 10 - THE SABOTEUR"
     # unlocks: Stop 37 at the holdout-model display; Stop 38 unlocks immediately after Stop 37.
     bubbles:
@@ -39,7 +40,7 @@
   - id: after-stops-37-and-38
     # After Stops 37 and 38 | model display | automatic reversal
     on: { after: [1, 2] }
-    world: "The accusation model fails on the hidden run, with residual arrows pointing the same direction during the hottest inlet periods."
+    world: "At analyser, the dated accepted-result slip for Stop 37 reads: \"Freeze and choose model B after holdout; model A fails unseen safety behavior.\". The slip remains in that fixture's evidence holder."
     panel: "MODEL MISSES DANGER AT THE SAFETY BOUNDARY."
     # unlocks: Stop 39 at the uncertainty panel.
     bubbles:
@@ -48,7 +49,7 @@
   - id: after-stop-39
     # After Stop 39 | uncertainty control | automatic safety decision
     on: { after: [3] }
-    world: "A +/-5% sensor-bias slider pushes the old operating point across the red heat limit while the lower-temperature point retains margin."
+    world: "At residual-field, the dated accepted-result slip for Stop 38 reads: \"Model B.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 40: WHAT DID HERRERA KNOW, AND WHEN?"
     # unlocks: The Plant Control waypoint and Stop 40.
     bubbles:
@@ -57,7 +58,7 @@
   - id: after-stop-40
     # After Stop 40 | Plant Control chronology wall | automatic Twist 2
     on: { after: [4] }
-    world: "The player locks the order RADIATOR LOSS -\\> INLET HOT SPOT -\\> OVERRIDE -\\> PURGE -\\> PRODUCTION FALL."
+    world: "At reactor-console, the dated accepted-result slip for Stop 39 reads: \"No. If the sensor reads 2% low, actual peak is about 624 K, already above limit; at -5% actual is about 644 K. The lower point remains below limit across the range.\". The slip remains in that fixture's evidence holder."
     panel: "OVERRIDE WAS A SAFETY RESPONSE."
     # unlocks: The Mission 10 outcome beat.
     bubbles:
@@ -68,12 +69,12 @@
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
-    world: "SABOTAGE is removed from Herrera's profile; SAFETY INTERVENTION and FAILED COMMUNICATION replace it; The production clock continues counting down."
+    world: "At analyser, Commander Laila Abiola pins the OVERRIDE PREVENTED RUNAWAY finding beside the revealed run. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - REACTOR -\\> COLD END -\\> PLANT CONTROL."
     # unlocks: Mission 11 briefing and the Sabatier Reactor waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. The safe setting will not make methane fast enough."
+    - who: abiola   # Commander Laila Abiola
+      say: "You were right to lower it. You were wrong to leave us guessing. Therefore Ingrid and Herrera must build a safer yield plan together; the launch clock has not stopped for their argument."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -249,7 +250,34 @@
     # trap is the bible's own: model_a has the lower RMS and the structured
     # underprediction, and model_b is the one to accept.
     residual:
-      fits: []
+      fits:
+      - id: model_a
+        label: "Set-point-only"
+        rms: 2.1
+        structured: true
+        residuals:
+        - { x: 1, y: 0, value: -2 }
+        - { x: 2, y: 0, value: 1 }
+        - { x: 3, y: 0, value: 0 }
+        - { x: 4, y: 0, value: 2 }
+        - { x: 5, y: 0, value: -1 }
+        - { x: 1, y: 1, value: 12 }
+        - { x: 2, y: 1, value: 15 }
+        - { x: 3, y: 1, value: 14 }
+      - id: model_b
+        label: "Cooling plus spatial hot spot"
+        rms: 2.8
+        residuals:
+        - { x: 1, y: 0, value: -4 }
+        - { x: 2, y: 0, value: 2 }
+        - { x: 3, y: 0, value: -1 }
+        - { x: 4, y: 0, value: 3 }
+        - { x: 5, y: 0, value: 0 }
+        - { x: 1, y: 1, value: 3 }
+        - { x: 2, y: 1, value: -2 }
+        - { x: 3, y: 1, value: 4 }
+      accept: model_b
+      commit: "Accept this fit"
     question: "Choose the model whose residual field is defensible for safety."
     answerText: "Choose Model B because its residuals are unpatterned near the safety boundary."
     why: "Model A's lower overall RMS is purchased by systematic underprediction exactly where a safety limit matters. Residual structure means missing physics, not random noise. Model B is slightly less precise overall and far more valid in the dangerous regime."
@@ -388,4 +416,3 @@
     #     - {id: protection, label: "Protective consequence"}
     #     - {id: cost, label: "Cost of the intervention"}
     #   mapping: {radiator_loss: cause, inlet_rise: hidden_hotspot, override: intervention, purge: protection, production: cost}
-

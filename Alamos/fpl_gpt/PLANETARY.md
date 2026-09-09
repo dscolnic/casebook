@@ -6,7 +6,7 @@ Planetary Defense + Introductory Astronomy Campaign Implementation Bible
 
 **15 missions | 60 graded stops | Cerro Alto Range | Implementation-ready**
 
-**REVISION 2.4 - EXPLICIT AREAS, FIXTURES, CALLS, TRIGGERS, AND FEEDBACK**
+**REVISION - HANDBACK 1: SCENES, PERSISTENT WORLD, AND WALKABLE ENDINGS**
 
 ## AP-Level Planetary Defense and Introductory Astronomy Campaign Implementation Bible
 
@@ -57,7 +57,7 @@ Implementation is linear at the evidence level. Wrong answers teach, retry, and 
 
 ### Opening sequence - no movie required, maximum five sentences
 
-> You are at the Cerro Alto planetary-defense range, where six teams must determine whether a newly found asteroid will strike Earth. It may arrive in eleven days, and the current path places nine million people under a warning that is too broad to act on. Your job is to use astronomy to turn telescope images, radar echoes, and impact models into one defensible response. Director Mira Chen closes the launch binder and says, “Nine million people are waiting for an answer they can act on: find the true path, prove it, and give them the warning that brings them home safe.”
+You are the asteroid response lead, which means you turn sky measurements into a warning people can use. At Cerro Alto, you will use astronomy to make the call. Eleven days remain for fifteen work shifts. A new object may hit Earth. The broad path covers nine million people, but it is too wide for a local order.
 
 **Delivery:** Show the four sentences together on one full-screen card over the normal Coordination Office view. Continue dismisses the card once, reveals the four-bar HUD at its starting values, and activates the Mission 1 briefing icon. Do not advance the sentences individually.
 
@@ -200,6 +200,25 @@ Major twist plants and payoffs:
 
 ---
 
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `ridge-terrace` | Ridge Terrace | The town lights lie far below the dark domes. | After Stop 48, the town tests its warning links; after Stop 60, a targeted transport convoy departs while most town lights stay steady. |
+| `night-kitchen` | Night Kitchen | Cold cups sit beside an untouched meal and a dawn clock. | After Stop 44, the closed Aegis binder rests by Arjun’s cup; after Stop 52, one radio falls quiet before the second echo arrives. |
+| `dome-catwalk` | Dome Catwalk | A slit of sky cuts across the closed telescope shutter. | Radar tracking slews during the authorized M7 and M14 windows; the last optical shutter opens for the committed M15 observation. |
+
+### Persistent prop and scene contract
+
+The network acknowledgement lamps are scene components of `delivery-desk`. Convoy departure requires the signed targeted order; a general warning alone cannot dispatch it.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+Extend delivery-desk with the warning-network wall display as one existing-fixture component, not a new graded stop. The asteroid is a measured dot on image and plot displays, never an invented naked-eye spectacle. The M2, M8, M13, and M14 plots preserve the full allowed paths, labeled probabilities, main-body stand-down, and distinct fragment track. At M12, show the outside headline ASTEROID WARNING ISSUED beside the full qualified official notice; the missing qualification is visibly attributable to the outside report. The final order is for 180,000 people under the independently checked narrow fragment corridor; acknowledgement proves receipt, not that every person is already safe. Keep the 91% fragment result and less-than-two-day warning as authored.
+
 ## 4. Canonical character roster
 
 | Name | Pronouns | Working role | Wants | Blind spot | Verbal habit | Arc |
@@ -283,6 +302,27 @@ All negative changes are named story events: expended observing windows, a publi
 
 ---
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `scopeboard` | Lena Ortiz pins the REAL MOVING OBJECT strip beneath the four images. | At `fit-board`, a long cloud of possible paths brushes the Earth marker. |
+| 2 | `accepted_stop_8` | `fit-board` | Malik Rowan pins the 3.2% IMPACT PATHS strip beside the full orbit cloud. | At `threshold-board`, the probability strip crosses the posted warning line. |
+| 3 | `accepted_stop_12` | `threshold-board` | Mira Chen clips the 8.0% / LIMITS INCLUDED notice into the dispatch sleeve. | At `scope-schedule`, a dawn line cuts through the remaining telescope blocks. |
+| 4 | `accepted_stop_16` | `scope-schedule` | Mira Chen pins the combined optical, radar, and thermal schedule to the board. | At `pipeline-bench`, injected test dots sit beside recovered points and one trailed image. |
+| 5 | `accepted_stop_20` | `pipeline-bench` | Lena Ortiz stamps the new packet ACCEPT WITH LOCAL ERROR TERM. | At `sizing-board`, a small bright-body card lies under two crossing size curves. |
+| 6 | `accepted_stop_24` | `sizing-board` | Sanaa Vale moves the 106 M card into the ASSUMPTIONS sleeve. | At `tracking-clock`, the main echo shines beside a faint shoulder in the untouched strip. |
+| 7 | `accepted_stop_28` | `tracking-clock` | Tomás Ibarra clips the corrected main-echo time beside the preserved raw packet. | At `fit-board`, the orbit cloud contracts while Earth stays inside it. |
+| 8 | `accepted_stop_32` | `fit-board` | Malik Rowan pins the 63% IMPACT / 37% MISS strip beside the narrowed cloud. | At `risk-display`, ocean, desert, and coast strips overlap under the same path band. |
+| 9 | `accepted_stop_36` | `risk-display` | Jordan Hale pins the PLAN WHOLE BAND / NO LOCAL ORDER YET card to the risk map. | At `photometry-bench`, two repeating peaks sit beside the old radar shoulder. |
+| 10 | `accepted_stop_40` | `photometry-bench` | Sanaa Vale clips the TWO LOBES / NO DETACHED FRAGMENT YET finding to the light curve. | At `deflection-desk`, a launch binder lies open beside a tiny available-impulse bar. |
+| 11 | `accepted_stop_44` | `deflection-desk` | Arjun Sen closes the Aegis launch binder beneath INSUFFICIENT IMPULSE. | At `threshold-board`, a news alert outside drops the qualifying sentence from the notice. |
+| 12 | `accepted_stop_48` | `threshold-board` | Jordan Hale pins the signed staged-response rules above the incoming-news strip. | At `scopeboard`, the corrected primary path runs over deep ocean beside the old land band. |
+| 13 | `accepted_stop_52` | `scopeboard` | Mira Chen pins the PRIMARY BODY: LAND STAND-DOWN card to the plot. | At `echo-archive`, a new red echo separates from the green primary track. |
+| 14 | `accepted_stop_56` | `echo-archive` | Tomás Ibarra clips the SEPARATE FRAGMENT: 32 M record beside the preserved shoulder. | At `delivery-desk`, the green primary track stays beside a narrow red fragment corridor. |
+| 15 | `accepted_stop_60` | `delivery-desk` | Mira Chen presses the verified-warning release key. | At `delivery-desk`, the signed operating conditions remain beside the final status. |
+
 ## 8. Format mix and placement audit
 
 The 60 stops use supported formats. No format exceeds one third of the campaign. Decision formats are placed with people, calculation formats at rooms/boards/benches, and operated formats at the equipment they control.
@@ -320,17 +360,30 @@ STACK is not used because the supplied question-type guide marks it suspended. W
 
 ---
 
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The warning-network wall fills with verified delivery acknowledgements.
+
+**The next sixty seconds:** 0–15 seconds: Jordan’s issued order gains acknowledgements from the transport desk, shelter desk, and local radio. 15–40 seconds: the player walks to the ridge terrace and sees marked buses leave for the affected corridor. 40–60 seconds: the primary stand-down and separate fragment alert remain side by side while the dish tracks; the ending card appears without claiming the impact has already passed.
+
+**Ending card - exact player copy:** The network wall fills with acknowledgements. Below the ridge, the first marked buses leave for the narrow warning zone. Most town lights stay steady. The main-body stand-down remains green, and the dish keeps tracking the smaller fragment.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
 # Mission 1 - The Moving Point
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 11 DAYS
+**Header:** MISSION 1 - 264 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE MOVING POINT
 
 **Go now:** Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the scopeboard.
 
-**Card body:** A telescope has photographed a faint dot moving against the stars. It could be an asteroid, a satellite, or an image defect. Use planetary science to check the six pictures and decide whether this possible asteroid deserves more observing time before it disappears from view.
+**Card body:** 264 hours to the predicted encounter. Four star fields lie on the board with one displaced dot. Today you decide whether the moving point earns more telescope time.
 
 **Objective:** Decide whether the moving point is a credible asteroid detection.
 
@@ -438,9 +491,11 @@ Mission 1 teaches the campaign's governing distinction: observations are not the
 
 **Beat 1 - On arrival at Coordination Office | automatic**
 
+**Trigger:** mission_1_arrival.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Lena Ortiz, survey and discovery lead, drags a satellite trail away from the candidate and says, “Show me the pixels before anyone shows me a probability.” Timer pauses; Continue unlocks Stop 1.
+**World state:** Four star fields lie on the board with one displaced dot.
 
 **Panel/HUD text:** THE MOVING POINT / MISSION ACTIVE
 
@@ -450,9 +505,11 @@ Mission 1 teaches the campaign's governing distinction: observations are not the
 
 **Beat 2 - After Stop 1 | automatic**
 
+**Trigger:** accepted_stop_1.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The scopeboard labels four frames CONSISTENT MOTION and one frame CONTAMINATED, NOT DISCARDED.
+**World state:** At `scopeboard`, the dated accepted-result slip for Stop 1 reads: "Smooth motion in four frames against fixed stars.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE MOVING POINT / FIRST RESULT LOGGED
 
@@ -462,9 +519,11 @@ Mission 1 teaches the campaign's governing distinction: observations are not the
 
 **Beat 3 - After Stop 2 | automatic**
 
+**Trigger:** accepted_stop_2.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The pipeline path lights from calibrated image to linked tracklet; the plate archive drawer opens.
+**World state:** At `archive-bench`, the dated accepted-result slip for Stop 2 reads: "Calibration → detection → linking → catalog/artifact comparison → alert.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE MOVING POINT / EVIDENCE HANDOFF READY
 
@@ -474,9 +533,11 @@ Mission 1 teaches the campaign's governing distinction: observations are not the
 
 **Beat 4 - After Stop 3 | automatic**
 
+**Trigger:** accepted_stop_3.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The detector map marks the hot pixel elsewhere; the 0.7 s timestamp offset receives a yellow CHECK tag.
+**World state:** At `review-desk`, the dated accepted-result slip for Stop 3 reads: "Candidate→moving source; line→satellite; fixed point→hot pixel; stars→good registration.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE MOVING POINT / DECISION EVIDENCE READY
 
@@ -486,15 +547,25 @@ Mission 1 teaches the campaign's governing distinction: observations are not the
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_4.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Mira Chen, International NEO Response Director, moves the alert from AUTOMATED to HUMAN-VERIFIED and opens the Orbit Determination call.
+**World state:** At `scopeboard`, Lena Ortiz pins the REAL MOVING OBJECT strip beneath the four images. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE MOVING POINT / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Lena Ortiz: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Lena Ortiz: "There it is. That is all we know yet. Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination."
 
 **Unlocks:** Mission 1 outcome, metric screen, concept review, and Mission 2 briefing.
+
+### Physical aftermath — planetary-m01
+
+**Home:** `scopeboard`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. Four star fields lie on the board with one displaced dot.
+**After — exact action:** Lena Ortiz pins the REAL MOVING OBJECT strip beneath the four images.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `fit-board`, a long cloud of possible paths brushes the Earth marker.
+**Segue - exact player copy:** Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination.
 
 ## Location plan
 
@@ -698,13 +769,12 @@ attest:
 
 ## Mission outcome
 
-Mission decision: Spend follow-up time on the alert. Four clean images show one point moving while the stars stay fixed. The range accepts a real object but does not yet claim an impact or a size. The orbit team now has to learn where it is going.
+Mission decision: Spend follow-up time on the alert. Four clean images show one point moving while the stars stay fixed. The range accepts a real object but does not yet claim an impact or a size. The orbit team now has to learn where it is going. Pre-card character beat: Lena Ortiz, survey and discovery lead, says, “Real point, unverified clock, no story added.” Mira sends the six positions to Orbit Determination.
 
-**Pre-card character beat:** Lena Ortiz, survey and discovery lead, says, “Real point, unverified clock, no story added.” Mira sends the six positions to Orbit Determination.
-
+**Segue - exact player copy:** Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: Spend follow-up time on the alert. The response team can protect threatened communities with better information.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Ortiz pins the REAL MOVING OBJECT strip beneath the four images. Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination.
 
 **Header:** MISSION 1 COMPLETE
 
@@ -875,13 +945,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 10 DAYS, 18 HOURS
+**Header:** MISSION 2 - 252 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** SIX POINTS ARE NOT AN ORBIT
 
 **Go now:** Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the astro-bench.
 
-**Card body:** The moving dot is real, but six sky positions still allow many possible paths through space. Compare paths that fit the measurements and check whether any reach Earth. Decide whether asteroid 2026 PDC needs continuous monitoring as a possible impact threat.
+**Card body:** 252 hours to the predicted encounter. A long cloud of possible paths brushes the Earth marker. Today you decide whether the object belongs on Earth's watch list.
 
 **Objective:** Determine whether the allowed orbit family includes a credible Earth encounter.
 
@@ -997,9 +1067,11 @@ This mission moves from detection to dynamics. It explicitly teaches why several
 
 **Beat 1 - On arrival at Orbit Determination Center | automatic**
 
+**Trigger:** mission_2_arrival.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Malik Rowan, orbit-determination lead, draws six dots and a fan of curves through them: “Every line fits the picture. Gravity decides which lines survive.”
+**World state:** A long cloud of possible paths brushes the Earth marker.
 
 **Panel/HUD text:** SIX POINTS ARE NOT AN ORBIT / MISSION ACTIVE
 
@@ -1009,9 +1081,11 @@ This mission moves from detection to dynamics. It explicitly teaches why several
 
 **Beat 2 - After Stop 5 | automatic**
 
+**Trigger:** accepted_stop_5.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The fit-board displays ANGULAR RATE 92 ± 5 ARCSEC/HOUR.
+**World state:** At `astro-bench`, the dated accepted-result slip for Stop 5 reads: "92.5 arcsec/hour; accept 83-102 arcsec/hour.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** SIX POINTS ARE NOT AN ORBIT / FIRST RESULT LOGGED
 
@@ -1021,9 +1095,11 @@ This mission moves from detection to dynamics. It explicitly teaches why several
 
 **Beat 3 - After Stop 6 | automatic**
 
+**Trigger:** accepted_stop_6.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The orbit fan contracts from 1,800 admissible paths to 240.
+**World state:** At `astro-bench`, the dated accepted-result slip for Stop 6 reads: "Use both sight lines, surveyed baseline, and station-position correction; range 0.071-0.089 AU.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** SIX POINTS ARE NOT AN ORBIT / EVIDENCE HANDOFF READY
 
@@ -1033,9 +1109,11 @@ This mission moves from detection to dynamics. It explicitly teaches why several
 
 **Beat 4 - After Stop 7 | automatic**
 
+**Trigger:** accepted_stop_7.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The lowest-RMS solution turns red for PATTERNED RESIDUALS; the random-residual solution stays.
+**World state:** At `fit-board`, the dated accepted-result slip for Stop 7 reads: "Model B.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** SIX POINTS ARE NOT AN ORBIT / DECISION EVIDENCE READY
 
@@ -1045,15 +1123,25 @@ This mission moves from detection to dynamics. It explicitly teaches why several
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_8.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Earth appears on the propagated encounter plane; the board reads CURRENT IMPACT PROBABILITY 3.2% - MODEL DEPENDENT.
+**World state:** At `fit-board`, Malik Rowan pins the 3.2% IMPACT PATHS strip beside the full orbit cloud. The dated prop remains here on later visits.
 
 **Panel/HUD text:** SIX POINTS ARE NOT AN ORBIT / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Malik Rowan: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Malik Rowan: "The best line misses. The other allowed lines still count. But Mira's next packet may narrow that cloud onto Earth; a best-fit miss cannot cancel the watch."
 
 **Unlocks:** Mission 2 outcome, metric screen, concept review, and Mission 3 briefing.
+
+### Physical aftermath — planetary-m02
+
+**Home:** `fit-board`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. A long cloud of possible paths brushes the Earth marker.
+**After — exact action:** Malik Rowan pins the 3.2% IMPACT PATHS strip beside the full orbit cloud.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `threshold-board`, the probability strip crosses the posted warning line.
+**Segue - exact player copy:** But Mira's next packet may narrow that cloud onto Earth; a best-fit miss cannot cancel the watch.
 
 ## Location plan
 
@@ -1300,13 +1388,12 @@ choice:
 
 ## Mission outcome
 
-Mission decision: Keep 2026 PDC on the Earth watch list. The best path misses Earth. Yet 3.2% of the allowed paths hit it. The team needs more data before it can act.
+Mission decision: Keep 2026 PDC on the Earth watch list. The best path misses Earth. Yet 3.2% of the allowed paths hit it. The team needs more data before it can act. Pre-card character beat: Malik Rowan, orbit-determination lead, circles Earth inside the long orbit cloud and says, “Not a prediction. Not dismissible.”
 
-**Pre-card character beat:** Malik Rowan, orbit-determination lead, circles Earth inside the long orbit cloud and says, “Not a prediction. Not dismissible.”
-
+**Segue - exact player copy:** But Mira's next packet may narrow that cloud onto Earth; a best-fit miss cannot cancel the watch.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: Keep 2026 PDC on the Earth watch list. Cerro Alto now has a clearer path through the uncertainty.
+**Happy ending card - exact player copy:** Your checks made the difference. Malik Rowan pins the 3.2% IMPACT PATHS strip beside the full orbit cloud. But Mira's next packet may narrow that cloud onto Earth; a best-fit miss cannot cancel the watch.
 
 **Header:** MISSION 2 COMPLETE
 
@@ -1528,13 +1615,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 10 DAYS, 12 HOURS
+**Header:** MISSION 3 - 240 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE PROBABILITY GOES UP
 
 **Go now:** Go to the Coordination Office and meet Mira Chen, International NEO Response Director, at the delivery desk.
 
-**Card body:** New measurements have raised concern that the asteroid could hit Earth. A more precise path does not always mean a safer one. Check the revised probability and its assumptions, then decide whether the evidence meets the agreed rule for notifying other countries.
+**Card body:** 240 hours remain to the close pass. The impact chance has crossed the warning line. Today you decide whether to send an early alert.
 
 **Objective:** Decide whether the current evidence crosses the notification threshold.
 
@@ -1640,9 +1727,11 @@ This mission makes correct science produce bad news. It teaches probability evol
 
 **Beat 1 - On arrival at Coordination Office | automatic**
 
+**Trigger:** mission_3_arrival.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Mira Chen, International NEO Response Director, has two drafts open: WAIT FOR CERTAINTY and CONDITIONAL NOTICE. “We will not hide behind either.”
+**World state:** The probability strip crosses the posted warning line.
 
 **Panel/HUD text:** THE PROBABILITY GOES UP / MISSION ACTIVE
 
@@ -1652,9 +1741,11 @@ This mission makes correct science produce bad news. It teaches probability evol
 
 **Beat 2 - After Stop 9 | automatic**
 
+**Trigger:** accepted_stop_9.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The public and technical scales separate on the scopeboard.
+**World state:** At `delivery-desk`, the dated accepted-result slip for Stop 9 reads: "The model-based 8.0% statement.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE PROBABILITY GOES UP / FIRST RESULT LOGGED
 
@@ -1664,9 +1755,11 @@ This mission makes correct science produce bad news. It teaches probability evol
 
 **Beat 3 - After Stop 10 | automatic**
 
+**Trigger:** accepted_stop_10.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The cloud contracts; IMPACT PROBABILITY changes from 3.2% to 8.0% with the label CURRENT MODEL.
+**World state:** At `scopeboard`, the dated accepted-result slip for Stop 10 reads: "3.2% old; 8.0% new.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE PROBABILITY GOES UP / EVIDENCE HANDOFF READY
 
@@ -1676,9 +1769,11 @@ This mission makes correct science produce bad news. It teaches probability evol
 
 **Beat 4 - After Stop 11 | automatic**
 
+**Trigger:** accepted_stop_11.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The 8.0% value survives reasonable reweighting between 6.7% and 9.4%.
+**World state:** At `delivery-desk`, the dated accepted-result slip for Stop 11 reads: "Yes; minimum 6.7% remains above 1%.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE PROBABILITY GOES UP / DECISION EVIDENCE READY
 
@@ -1688,15 +1783,25 @@ This mission makes correct science produce bad news. It teaches probability evol
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_12.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The warning network receives the prewritten notice; outside news alerts appear on the wall display without the qualifying sentence.
+**World state:** At `threshold-board`, Mira Chen clips the 8.0% / LIMITS INCLUDED notice into the dispatch sleeve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE PROBABILITY GOES UP / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Mira Chen: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Mira Chen: "Send the number with the sentence that limits it. But Evelyn needs a sharper path before towns can act; Mira must buy useful observations in the last dark window."
 
 **Unlocks:** Mission 3 outcome, metric screen, concept review, and Mission 4 briefing.
+
+### Physical aftermath — planetary-m03
+
+**Home:** `threshold-board`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. The probability strip crosses the posted warning line.
+**After — exact action:** Mira Chen clips the 8.0% / LIMITS INCLUDED notice into the dispatch sleeve.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `scope-schedule`, a dawn line cuts through the remaining telescope blocks.
+**Segue - exact player copy:** But Evelyn needs a sharper path before towns can act; Mira must buy useful observations in the last dark window.
 
 ## Location plan
 
@@ -1976,13 +2081,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Send a warning now, but state its limits. The 8.0% result stays above the 1% line in each test. The notice gives the date, size range, and doubt. The next update must earn trust with better data.
+Mission decision: Send a warning now, but state its limits. The 8.0% result stays above the 1% line in each test. The notice gives the date, size range, and doubt. The next update must earn trust with better data. Pre-card character beat: Mira Chen, International NEO Response Director, sends the notice. Evelyn Park says by radio, “Now give people the condition, not just the number.”
 
-**Pre-card character beat:** Mira Chen, International NEO Response Director, sends the notice. Evelyn Park says by radio, “Now give people the condition, not just the number.”
-
+**Segue - exact player copy:** But Evelyn needs a sharper path before towns can act; Mira must buy useful observations in the last dark window.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: Send a warning now, but state its limits. Your result gives decision makers time to act without sounding a false alarm.
+**Happy ending card - exact player copy:** Your checks made the difference. Mira Chen clips the 8.0% / LIMITS INCLUDED notice into the dispatch sleeve. But Evelyn needs a sharper path before towns can act; Mira must buy useful observations in the last dark window.
 
 **Header:** MISSION 3 COMPLETE
 
@@ -2153,13 +2257,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 10 DAYS
+**Header:** MISSION 4 - 216 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE LAST DARK WINDOW
 
 **Go now:** Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the fit-board.
 
-**Card body:** The asteroid will soon disappear into the Sun's glare, and the remaining possible paths include both hits and misses. Compare what pictures, radar, and heat measurements could reveal tonight. Spend the remaining observing time on the measurements most likely to change the response decision.
+**Card body:** 216 hours to the predicted encounter. A dawn line cuts through the remaining telescope blocks. Today you decide which observations are worth the last dark hours.
 
 **Objective:** Fund the observing plan most likely to change the impact decision.
 
@@ -2259,9 +2363,11 @@ Mission 4 teaches resource allocation, cadence, solar elongation, and value of i
 
 **Beat 1 - On arrival at Orbit Determination Center | automatic**
 
+**Trigger:** mission_4_arrival.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Malik Rowan, orbit-determination lead, points to a daylight gap on the fit-board: “More points tonight or one point later - those are not the same.”
+**World state:** A dawn line cuts through the remaining telescope blocks.
 
 **Panel/HUD text:** THE LAST DARK WINDOW / MISSION ACTIVE
 
@@ -2271,9 +2377,11 @@ Mission 4 teaches resource allocation, cadence, solar elongation, and value of i
 
 **Beat 2 - After Stop 13 | automatic**
 
+**Trigger:** accepted_stop_13.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Low-value repeated exposures dim; later-baseline optical, radar, and thermal options remain bright.
+**World state:** At `fit-board`, the dated accepted-result slip for Stop 13 reads: "Late optical + radar + thermal = 90 credits.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE LAST DARK WINDOW / FIRST RESULT LOGGED
 
@@ -2283,9 +2391,11 @@ Mission 4 teaches resource allocation, cadence, solar elongation, and value of i
 
 **Beat 3 - After Stop 14 | automatic**
 
+**Trigger:** accepted_stop_14.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The chosen schedule appears on the scopeboard with protected handoff blocks.
+**World state:** At `scope-schedule`, the dated accepted-result slip for Stop 14 reads: "Validate/early optical → radar → thermal → dawn optical → refit.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE LAST DARK WINDOW / EVIDENCE HANDOFF READY
 
@@ -2295,9 +2405,11 @@ Mission 4 teaches resource allocation, cadence, solar elongation, and value of i
 
 **Beat 4 - After Stop 15 | automatic**
 
+**Trigger:** accepted_stop_15.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The error budget predicts orbit-width reduction from 17,000 km to 4,600 km.
+**World state:** At `fit-board`, the dated accepted-result slip for Stop 15 reads: "Radar plus dawn; 4,600 km forecast width.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE LAST DARK WINDOW / DECISION EVIDENCE READY
 
@@ -2307,15 +2419,25 @@ Mission 4 teaches resource allocation, cadence, solar elongation, and value of i
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_16.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Mira authorizes the plan; the aircraft changes from HELD to SIGNED OUT FOR PHASE 5.
+**World state:** At `scope-schedule`, Mira Chen pins the combined optical, radar, and thermal schedule to the board. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE LAST DARK WINDOW / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Malik Rowan: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Mira Chen: "We have hours to spend. Spend them on a different view. But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer."
 
 **Unlocks:** Mission 4 outcome, metric screen, concept review, and Mission 5 briefing.
+
+### Physical aftermath — planetary-m04
+
+**Home:** `scope-schedule`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. A dawn line cuts through the remaining telescope blocks.
+**After — exact action:** Mira Chen pins the combined optical, radar, and thermal schedule to the board.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `pipeline-bench`, injected test dots sit beside recovered points and one trailed image.
+**Segue - exact player copy:** But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer.
 
 ## Location plan
 
@@ -2528,13 +2650,12 @@ scienceTank:
 
 ## Mission outcome
 
-Mission decision: Use the last dark window for dawn images, radar, and heat data. These tests may cut the path width to about 4,600 km. The range will guard the handoff. The summit system must pass its checks first.
+Mission decision: Use the last dark window for dawn images, radar, and heat data. These tests may cut the path width to about 4,600 km. The range will guard the handoff. The summit system must pass its checks first. Pre-card character beat: Mira Chen signs the aircraft release. Malik says, “We are buying a longer lever, not a taller stack of images.”
 
-**Pre-card character beat:** Mira Chen signs the aircraft release. Malik says, “We are buying a longer lever, not a taller stack of images.”
-
+**Segue - exact player copy:** But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: Use the last dark window for dawn images, radar, and heat data. The people beneath the risk corridor are safer because the evidence is sharper.
+**Happy ending card - exact player copy:** Your checks made the difference. Mira Chen pins the combined optical, radar, and thermal schedule to the board. But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer.
 
 **Header:** MISSION 4 COMPLETE
 
@@ -2705,13 +2826,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 9 DAYS, 18 HOURS
+**Header:** MISSION 5 - 192 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE SUMMIT TEST
 
 **Go now:** Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the pipeline-bench link.
 
-**Card body:** A satellite trail and missed faint objects could have affected the discovery pictures. Test the telescope software using artificial objects whose positions are known. Decide whether the new measurements are reliable enough to guide the asteroid's predicted path and the public warning.
+**Card body:** 192 hours remain to the close pass. Test dots sit beside real sky points and one blurred trail. Today you decide which new points the team can use.
 
 **Objective:** Validate the survey pipeline and certify the new optical positions.
 
@@ -2817,9 +2938,11 @@ This mission introduces injection, sweep, control, and verification as distinct 
 
 **Beat 1 - On arrival at Coordination Office | automatic**
 
+**Trigger:** mission_5_arrival.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Lena Ortiz, survey and discovery lead, loads a synthetic-source set: “If we know what went in, we can count what came back.”
+**World state:** Injected test dots sit beside recovered points and one trailed image.
 
 **Panel/HUD text:** THE SUMMIT TEST / MISSION ACTIVE
 
@@ -2829,9 +2952,11 @@ This mission introduces injection, sweep, control, and verification as distinct 
 
 **Beat 2 - After Stop 17 | automatic**
 
+**Trigger:** accepted_stop_17.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The recovery map shows one localized gap. Waypoint: FLY TO CERRO ALTO - TEST THE CAMERA WHERE THE GAP OCCURS.
+**World state:** At `pipeline-link`, the dated accepted-result slip for Stop 17 reads: "Trail/faint bin: 27/50 = 54%; localized loss.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE SUMMIT TEST / FIRST RESULT LOGGED
 
@@ -2841,9 +2966,11 @@ This mission introduces injection, sweep, control, and verification as distinct 
 
 **Beat 3 - After Stop 18 | automatic**
 
+**Trigger:** accepted_stop_18.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Dome shutter opens; the pipeline-bench displays the same image region.
+**World state:** At `dome-console`, the dated accepted-result slip for Stop 18 reads: "45 s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE SUMMIT TEST / EVIDENCE HANDOFF READY
 
@@ -2853,9 +2980,11 @@ This mission introduces injection, sweep, control, and verification as distinct 
 
 **Beat 4 - After Stop 19 | automatic**
 
+**Trigger:** accepted_stop_19.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Exposure setting locks; the bad-column mask shifts off and back on without moving the candidate.
+**World state:** At `pipeline-bench`, the dated accepted-result slip for Stop 19 reads: "Mask shift; response 0.03 px, below noise; returns to 2048.61 px.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE SUMMIT TEST / DECISION EVIDENCE READY
 
@@ -2865,15 +2994,25 @@ This mission introduces injection, sweep, control, and verification as distinct 
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_20.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** A new point appears 0.31 arcsec from the independent prediction; the astrometry packet receives CERTIFIED WITH LOCAL SYSTEMATIC.
+**World state:** At `pipeline-bench`, Lena Ortiz stamps the new packet ACCEPT WITH LOCAL ERROR TERM. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE SUMMIT TEST / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Lena Ortiz: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Lena Ortiz: "Use the frames. Keep the penalty. But Sanaa's same frames show odd brightness; the object's size must face heat data as well as light."
 
 **Unlocks:** Mission 5 outcome, metric screen, concept review, and Mission 6 briefing.
+
+### Physical aftermath — planetary-m05
+
+**Home:** `pipeline-bench`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. Injected test dots sit beside recovered points and one trailed image.
+**After — exact action:** Lena Ortiz stamps the new packet ACCEPT WITH LOCAL ERROR TERM.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `sizing-board`, a small bright-body card lies under two crossing size curves.
+**Segue - exact player copy:** But Sanaa's same frames show odd brightness; the object's size must face heat data as well as light.
 
 ## Location plan
 
@@ -3106,13 +3245,12 @@ verify:
 
 ## Mission outcome
 
-Mission decision: Add the new sky points to the impact model. Keep the local error term. Three tests support the result. The same frames show odd light, so the dome must test the body's size.
+Mission decision: Add the new sky points to the impact model. Keep the local error term. Three tests support the result. The same frames show odd light, so the dome must test the body's size. Pre-card character beat: Lena Ortiz, survey and discovery lead, stamps the packet and adds, “Keep the trail penalty. Clean enough is not the same as perfect.”
 
-**Pre-card character beat:** Lena Ortiz, survey and discovery lead, stamps the packet and adds, “Keep the trail penalty. Clean enough is not the same as perfect.”
-
+**Segue - exact player copy:** But Sanaa's same frames show odd brightness; the object's size must face heat data as well as light.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: Add the new sky points to the impact model. The planetary-defense plan now rests on a result the whole network can trust.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Ortiz stamps the new packet ACCEPT WITH LOCAL ERROR TERM. But Sanaa's same frames show odd brightness; the object's size must face heat data as well as light.
 
 **Header:** MISSION 5 COMPLETE
 
@@ -3283,13 +3421,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 9 DAYS, 10 HOURS
+**Header:** MISSION 6 - 168 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE DARKER ANSWER
 
 **Go now:** Go to the Survey Telescope and meet Sanaa Vale, physical-characterization lead, by radio at the dome-console.
 
-**Card body:** A bright asteroid could be small and reflective or large and dark, with very different consequences if it hits. Compare reflected sunlight with the heat the asteroid gives off. Decide what size range the emergency team must prepare for.
+**Card body:** 168 hours to the predicted encounter. A small bright-body card lies under two crossing size curves. Today you decide how large the dark object could be.
 
 **Objective:** Break the brightness-size degeneracy and adopt a defensible diameter range.
 
@@ -3405,9 +3543,11 @@ Mission 6 delivers Twist 1 through a fair scientific degeneracy. It teaches H, a
 
 **Beat 1 - On arrival at Survey Telescope | automatic**
 
+**Trigger:** mission_6_arrival.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Sanaa Vale, physical-characterization lead, appears by radio: “The brightness is measured. The diameter is still an assumption.”
+**World state:** A small bright-body card lies under two crossing size curves.
 
 **Panel/HUD text:** THE DARKER ANSWER / MISSION ACTIVE
 
@@ -3417,9 +3557,11 @@ Mission 6 delivers Twist 1 through a fair scientific degeneracy. It teaches H, a
 
 **Beat 2 - After Stop 21 | automatic**
 
+**Trigger:** accepted_stop_21.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The 106 m estimate receives ASSUMES pv = 0.25. Waypoint: FLY TO EAST SUMMIT - MEASURE HEAT, NOT JUST REFLECTION.
+**World state:** At `dome-console`, the dated accepted-result slip for Stop 21 reads: "0.106 km = 106 m; accept 98-114 m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE DARKER ANSWER / FIRST RESULT LOGGED
 
@@ -3429,9 +3571,11 @@ Mission 6 delivers Twist 1 through a fair scientific degeneracy. It teaches H, a
 
 **Beat 3 - After Stop 22 | automatic**
 
+**Trigger:** accepted_stop_22.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** The sizing-board shows reflected-light and thermal curves crossing at one region.
+**World state:** At `sizing-board`, the dated accepted-result slip for Stop 22 reads: "D = 260 m, pv = 0.041; diameter range 230-290 m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE DARKER ANSWER / EVIDENCE HANDOFF READY
 
@@ -3441,9 +3585,11 @@ Mission 6 delivers Twist 1 through a fair scientific degeneracy. It teaches H, a
 
 **Beat 4 - After Stop 23 | automatic**
 
+**Trigger:** accepted_stop_23.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Diameter range locks at 230-290 m; the albedo marker falls to 0.041.
+**World state:** At `spectrograph`, the dated accepted-result slip for Stop 23 reads: "285 K.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE DARKER ANSWER / DECISION EVIDENCE READY
 
@@ -3453,15 +3599,25 @@ Mission 6 delivers Twist 1 through a fair scientific degeneracy. It teaches H, a
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_24.
+
 **Player control:** Pause local interaction while bubbles are open; Continue restores control.
 
-**World state:** Consequence class changes from LOCAL to REGIONAL; the unequal light-curve peaks remain tagged STRUCTURE UNRESOLVED.
+**World state:** At `sizing-board`, Sanaa Vale moves the 106 M card into the ASSUMPTIONS sleeve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE DARKER ANSWER / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Sanaa Vale: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Sanaa Vale: "A dark surface can hide a large body in plain sight. Therefore Tomás must aim the radar at a 230 to 290 metre body; the next warning cannot keep the smaller size."
 
 **Unlocks:** Mission 6 outcome, metric screen, concept review, and Mission 7 briefing.
+
+### Physical aftermath — planetary-m06
+
+**Home:** `sizing-board`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. A small bright-body card lies under two crossing size curves.
+**After — exact action:** Sanaa Vale moves the 106 M card into the ASSUMPTIONS sleeve.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `tracking-clock`, the main echo shines beside a faint shoulder in the untouched strip.
+**Segue - exact player copy:** Therefore Tomás must aim the radar at a 230 to 290 metre body; the next warning cannot keep the smaller size.
 
 ## Location plan
 
@@ -3664,13 +3820,12 @@ diagnosis:
 
 ## Mission outcome
 
-Mission decision: Plan for a dark body that is 230–290 m wide. Its heat shows that it is larger than first thought. Its light may point to two lobes. Radar must test its shape and path.
+Mission decision: Plan for a dark body that is 230–290 m wide. Its heat shows that it is larger than first thought. Its light may point to two lobes. Radar must test its shape and path. Pre-card character beat: Sanaa Vale, physical-characterization lead, moves the 106 m card into ASSUMPTIONS. Evelyn Park says by radio, “Then the warning must change before the next headline changes it for us.”
 
-**Pre-card character beat:** Sanaa Vale, physical-characterization lead, moves the 106 m card into ASSUMPTIONS. Evelyn Park says by radio, “Then the warning must change before the next headline changes it for us.”
-
+**Segue - exact player copy:** Therefore Tomás must aim the radar at a 230 to 290 metre body; the next warning cannot keep the smaller size.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: Plan for a dark body that is 230–290 m wide. The response team can protect threatened communities with better information.
+**Happy ending card - exact player copy:** Your checks made the difference. Sanaa Vale moves the 106 M card into the ASSUMPTIONS sleeve. Therefore Tomás must aim the radar at a 230 to 290 metre body; the next warning cannot keep the smaller size.
 
 **Header:** MISSION 6 COMPLETE
 
@@ -3896,13 +4051,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 8 DAYS
+**Header:** MISSION 7 - 144 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE ECHO CLOCK
 
 **Go now:** Go to the Coordination Office and meet Mira Chen at the scopeboard before traveling to the Bistatic Radar Range.
 
-**Card body:** Radar sends a signal toward the asteroid and measures its return to find distance and motion. Tonight's echo is faint, and a clock error could put the asteroid in the wrong place. Check the timing and deliver a measurement the team can trust.
+**Card body:** 144 hours to the predicted encounter. The main echo shines beside a faint shoulder in the untouched strip. Today you decide which radar echo has a trusted clock.
 
 **Objective:** Deliver one independently timed radar constraint the orbit team can safely use.
 
@@ -4018,9 +4173,11 @@ Coordinated Universal Time (UTC): the shared time standard used to compare obser
 
 **Beat 1 - On arrival at Coordination Office | automatic**
 
+**Trigger:** mission_7_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** At OPS, Mira refuses to transmit an untraced timestamp.
+**World state:** The main echo shines beside a faint shoulder in the untouched strip.
 
 **Panel/HUD text:** THE ECHO CLOCK / MISSION ACTIVE
 
@@ -4030,9 +4187,11 @@ Coordinated Universal Time (UTC): the shared time standard used to compare obser
 
 **Beat 2 - After Stop 25 | automatic**
 
+**Trigger:** accepted_stop_25.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** The aircraft carries the player to RADAR while Tomás explains the narrow observing window.
+**World state:** At `scopeboard`, the dated accepted-result slip for Stop 25 reads: "Flag the archive server and subtract 0.7 s from archived receipt times.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ECHO CLOCK / FIRST RESULT LOGGED
 
@@ -4042,9 +4201,11 @@ Coordinated Universal Time (UTC): the shared time standard used to compare obser
 
 **Beat 3 - After Stop 26 | automatic**
 
+**Trigger:** accepted_stop_26.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** A corrected echo lands exactly where one surviving orbit family predicts.
+**World state:** At `tracking-clock`, the dated accepted-result slip for Stop 26 reads: "Preserve -> compare -> record -> calibrate -> integrate -> release.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ECHO CLOCK / EVIDENCE HANDOFF READY
 
@@ -4054,9 +4215,11 @@ Coordinated Universal Time (UTC): the shared time standard used to compare obser
 
 **Beat 4 - After Stop 27 | automatic**
 
+**Trigger:** accepted_stop_27.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** A weaker shoulder appears beside the main return; Tomás preserves it without naming it.
+**World state:** At `radar-console`, the dated accepted-result slip for Stop 27 reads: "12,000 km range; object is approaching along the line of sight.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ECHO CLOCK / DECISION EVIDENCE READY
 
@@ -4066,15 +4229,25 @@ Coordinated Universal Time (UTC): the shared time standard used to compare obser
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_28.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `tracking-clock`, Tomás Ibarra clips the corrected main-echo time beside the preserved raw packet. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE ECHO CLOCK / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Tomás Ibarra: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Tomás Ibarra: "Fix the clock. Keep the shoulder. But Malik must refit the orbit with that range; the faint shoulder stays in its own unresolved lane."
 
 **Unlocks:** Mission 7 outcome, metric screen, concept review, and Mission 8 briefing.
+
+### Physical aftermath — planetary-m07
+
+**Home:** `tracking-clock`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. The main echo shines beside a faint shoulder in the untouched strip.
+**After — exact action:** Tomás Ibarra clips the corrected main-echo time beside the preserved raw packet.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `fit-board`, the orbit cloud contracts while Earth stays inside it.
+**Segue - exact player copy:** But Malik must refit the orbit with that range; the faint shoulder stays in its own unresolved lane.
 
 ## Location plan
 
@@ -4352,13 +4525,12 @@ holdout:
 
 ## Mission outcome
 
-Mission decision: Accept the fixed main radar echo as a new range and speed check. Keep the weak shoulder marked as unknown. The orbit can now shrink without hiding that clue.
+Mission decision: Accept the fixed main radar echo as a new range and speed check. Keep the weak shoulder marked as unknown. The orbit can now shrink without hiding that clue. Pre-card character beat: Tomás sends Malik the traced radar packet and keeps the weak shoulder in a separate evidence lane.
 
-**Pre-card character beat:** Tomás sends Malik the traced radar packet and keeps the weak shoulder in a separate evidence lane.
-
+**Segue - exact player copy:** But Malik must refit the orbit with that range; the faint shoulder stays in its own unresolved lane.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: Accept the fixed main radar echo as a new range and speed check. Cerro Alto now has a clearer path through the uncertainty.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomás Ibarra clips the corrected main-echo time beside the preserved raw packet. But Malik must refit the orbit with that range; the faint shoulder stays in its own unresolved lane.
 
 **Header:** MISSION 7 COMPLETE
 
@@ -4610,13 +4782,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 7 DAYS, 12 HOURS
+**Header:** MISSION 8 - 120 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE ORBIT NARROWS
 
 **Go now:** Go to the Radar Range and meet Tomás Ibarra at the radar console, then carry the traced packet to Orbit Determination.
 
-**Card body:** Pictures show where the asteroid appears in the sky; radar adds its distance and motion toward or away from Earth. Combine the independent measurements without counting the same evidence twice. Update the impact probability and state what remains uncertain.
+**Card body:** 120 hours to the predicted encounter. The orbit cloud contracts while Earth stays inside it. Today you decide what the narrower orbit lets the team claim.
 
 **Objective:** Combine optical and radar evidence into a revised impact probability without double-counting shared errors.
 
@@ -4722,9 +4894,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 1 - On arrival at Bistatic Radar Range | automatic**
 
+**Trigger:** mission_8_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Tomás transfers only products with complete provenance.
+**World state:** The orbit cloud contracts while Earth stays inside it.
 
 **Panel/HUD text:** THE ORBIT NARROWS / MISSION ACTIVE
 
@@ -4734,9 +4908,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 2 - After Stop 29 | automatic**
 
+**Trigger:** accepted_stop_29.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Malik balances optical and radar weights.
+**World state:** At `radar-console`, the dated accepted-result slip for Stop 29 reads: "Mark A-products as correlated; preserve B-range as independent.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ORBIT NARROWS / FIRST RESULT LOGGED
 
@@ -4746,9 +4922,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 3 - After Stop 30 | automatic**
 
+**Trigger:** accepted_stop_30.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** The b-plane cloud contracts across Earth's disk.
+**World state:** At `fit-board`, the dated accepted-result slip for Stop 30 reads: "Weight by uncertainty while grouping correlated radar products.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ORBIT NARROWS / EVIDENCE HANDOFF READY
 
@@ -4758,9 +4936,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 4 - After Stop 31 | automatic**
 
+**Trigger:** accepted_stop_31.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Mira asks for the strongest defensible sentence, not the largest number.
+**World state:** At `astro-bench`, the dated accepted-result slip for Stop 31 reads: "Impact is the leading case at 63%, with a material 37% miss set.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ORBIT NARROWS / DECISION EVIDENCE READY
 
@@ -4770,15 +4950,25 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_32.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `fit-board`, Malik Rowan pins the 63% IMPACT / 37% MISS strip beside the narrowed cloud. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE ORBIT NARROWS / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Malik Rowan: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Malik Rowan: "Do not erase the miss paths to make this sound urgent. Therefore Jordan must plan for the whole land band; 63% does not name a town."
 
 **Unlocks:** Mission 8 outcome, metric screen, concept review, and Mission 9 briefing.
+
+### Physical aftermath — planetary-m08
+
+**Home:** `fit-board`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. The orbit cloud contracts while Earth stays inside it.
+**After — exact action:** Malik Rowan pins the 63% IMPACT / 37% MISS strip beside the narrowed cloud.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `risk-display`, ocean, desert, and coast strips overlap under the same path band.
+**Segue - exact player copy:** Therefore Jordan must plan for the whole land band; 63% does not name a town.
 
 ## Location plan
 
@@ -5145,13 +5335,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: Report a 63% chance of impact. Treat impact as the lead case for plans. Keep the miss paths and the wide land band in view.
+Mission decision: Report a 63% chance of impact. Treat impact as the lead case for plans. Keep the miss paths and the wide land band in view. Pre-card character beat: Malik circles the 37% miss set before handing Mira the update. “Those paths are still evidence,” he says.
 
-**Pre-card character beat:** Malik circles the 37% miss set before handing Mira the update. “Those paths are still evidence,” he says.
-
+**Segue - exact player copy:** Therefore Jordan must plan for the whole land band; 63% does not name a town.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: Report a 63% chance of impact. Your result gives decision makers time to act without sounding a false alarm.
+**Happy ending card - exact player copy:** Your checks made the difference. Malik Rowan pins the 63% IMPACT / 37% MISS strip beside the narrowed cloud. Therefore Jordan must plan for the whole land band; 63% does not name a town.
 
 **Header:** MISSION 8 COMPLETE
 
@@ -5320,13 +5509,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 6 DAYS
+**Header:** MISSION 9 - 108 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** WHERE IT LANDS
 
 **Go now:** Go to Orbit Determination and meet Malik Rowan at the astro-bench, then carry the corridor to the Entry and Consequences Lab.
 
-**Card body:** The possible impact locations now form a long strip across Earth. A strike over ocean, desert, or a city would need different preparations. Estimate the impact energy and damage area, then decide where protective planning is warranted without pretending the exact location is known.
+**Card body:** 108 hours remain to the close pass. The path still spans sea, coast, and dry land. Today you decide which places need plans before a local order.
 
 **Objective:** Define where protective planning is justified without drawing a false impact bullseye.
 
@@ -5446,9 +5635,11 @@ Trinitrotoluene equivalent (TNT equivalent): a comparison unit for released ener
 
 **Beat 1 - On arrival at Orbit Determination Center | automatic**
 
+**Trigger:** mission_9_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Malik transfers a corridor, not a point.
+**World state:** Ocean, desert, and coast strips overlap under the same path band.
 
 **Panel/HUD text:** WHERE IT LANDS / MISSION ACTIVE
 
@@ -5458,9 +5649,11 @@ Trinitrotoluene equivalent (TNT equivalent): a comparison unit for released ener
 
 **Beat 2 - After Stop 33 | automatic**
 
+**Trigger:** accepted_stop_33.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Evelyn forces a rough energy calculation before simulation.
+**World state:** At `astro-bench`, the dated accepted-result slip for Stop 33 reads: "About (1.66\times10^{10}) kg, (3.0\times10^{18}) J, or 715 megatons TNT.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** WHERE IT LANDS / FIRST RESULT LOGGED
 
@@ -5470,9 +5663,11 @@ Trinitrotoluene equivalent (TNT equivalent): a comparison unit for released ener
 
 **Beat 3 - After Stop 34 | automatic**
 
+**Trigger:** accepted_stop_34.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Outcome maps diverge over ocean and land.
+**World state:** At `energy-bench`, the dated accepted-result slip for Stop 34 reads: "Correct causal order; material strength or internal structure controls breakup behavior.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** WHERE IT LANDS / EVIDENCE HANDOFF READY
 
@@ -5482,9 +5677,11 @@ Trinitrotoluene equivalent (TNT equivalent): a comparison unit for released ener
 
 **Beat 4 - After Stop 35 | automatic**
 
+**Trigger:** accepted_stop_35.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Jordan asks what observation can shrink the population under warning.
+**World state:** At `risk-display`, the dated accepted-result slip for Stop 35 reads: "Distinguish physical effects and exposed populations by segment.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** WHERE IT LANDS / DECISION EVIDENCE READY
 
@@ -5494,15 +5691,25 @@ Trinitrotoluene equivalent (TNT equivalent): a comparison unit for released ener
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_36.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `risk-display`, Jordan Hale pins the PLAN WHOLE BAND / NO LOCAL ORDER YET card to the risk map. The dated prop remains here on later visits.
 
 **Panel/HUD text:** WHERE IT LANDS / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Evelyn Park: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Jordan Hale: "Give me places to prepare. Do not invent a place it will hit. But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here."
 
 **Unlocks:** Mission 9 outcome, metric screen, concept review, and Mission 10 briefing.
+
+### Physical aftermath — planetary-m09
+
+**Home:** `risk-display`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. Ocean, desert, and coast strips overlap under the same path band.
+**After — exact action:** Jordan Hale pins the PLAN WHOLE BAND / NO LOCAL ORDER YET card to the risk map.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `photometry-bench`, two repeating peaks sit beside the old radar shoulder.
+**Segue - exact player copy:** But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here.
 
 ## Location plan
 
@@ -5749,13 +5956,12 @@ value:
 
 ## Mission outcome
 
-Mission decision: Start plans for the full path band. Do not order local action yet. New timing data must first split the ocean, desert, and coast cases.
+Mission decision: Start plans for the full path band. Do not order local action yet. New timing data must first split the ocean, desert, and coast cases. Pre-card character beat: Jordan studies the conditional map and says, “A corridor is not a city list. Not yet.”
 
-**Pre-card character beat:** Jordan studies the conditional map and says, “A corridor is not a city list. Not yet.”
-
+**Segue - exact player copy:** But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: Start plans for the full path band. The people beneath the risk corridor are safer because the evidence is sharper.
+**Happy ending card - exact player copy:** Your checks made the difference. Jordan Hale pins the PLAN WHOLE BAND / NO LOCAL ORDER YET card to the risk map. But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here.
 
 **Header:** MISSION 9 COMPLETE
 
@@ -5924,13 +6130,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 5 DAYS
+**Header:** MISSION 10 - 96 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** ONE OBJECT, TWO MOTIONS
 
 **Go now:** Go to the Spectroscopy Dome and meet Sanaa Vale at the photometry bench, then compare her result with radar.
 
-**Card body:** Both telescope and radar measurements disagree with the prediction for a simple, single-body asteroid. Compare possible shapes and the pattern of those disagreements. Decide whether the object is one compact body or two weakly joined parts that could behave differently.
+**Card body:** 96 hours to the predicted encounter. Two repeating peaks sit beside the old radar shoulder. Today you decide what the light curve proves about the body's shape.
 
 **Objective:** Decide whether the asteroid is one compact body or a weak two-lobed system.
 
@@ -6036,9 +6242,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 1 - On arrival at Spectroscopy Dome | automatic**
 
+**Trigger:** mission_10_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Sanaa overlays the unequal brightness peaks from Mission 6.
+**World state:** Two repeating peaks sit beside the old radar shoulder.
 
 **Panel/HUD text:** ONE OBJECT, TWO MOTIONS / MISSION ACTIVE
 
@@ -6048,9 +6256,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 2 - After Stop 37 | automatic**
 
+**Trigger:** accepted_stop_37.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** A single ellipsoid fits the period but leaves alternating residuals.
+**World state:** At `photometry-bench`, the dated accepted-result slip for Stop 37 reads: "Reject pure random noise; test a more complex body model.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** ONE OBJECT, TWO MOTIONS / FIRST RESULT LOGGED
 
@@ -6060,9 +6270,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 3 - After Stop 38 | automatic**
 
+**Trigger:** accepted_stop_38.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Radar frames show two delay concentrations moving together.
+**World state:** At `sizing-board`, the dated accepted-result slip for Stop 38 reads: "q = 1.65 and A = 1.00; SHAPE-DOMINATED.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** ONE OBJECT, TWO MOTIONS / EVIDENCE HANDOFF READY
 
@@ -6072,9 +6284,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 4 - After Stop 39 | automatic**
 
+**Trigger:** accepted_stop_39.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** The team names the minimum shared explanation: a weak contact binary.
+**World state:** At `radar-console`, the dated accepted-result slip for Stop 39 reads: "Classify the shoulder as physical secondary structure associated with the target.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** ONE OBJECT, TWO MOTIONS / DECISION EVIDENCE READY
 
@@ -6084,15 +6298,25 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_40.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `photometry-bench`, Sanaa Vale clips the TWO LOBES / NO DETACHED FRAGMENT YET finding to the light curve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** ONE OBJECT, TWO MOTIONS / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Sanaa Vale: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Sanaa Vale: "Two lobes is a finding. A loose piece is still a question. But Arjun still wants the Aegis craft to act; its available push must beat the required miss distance."
 
 **Unlocks:** Mission 10 outcome, metric screen, concept review, and Mission 11 briefing.
+
+### Physical aftermath — planetary-m10
+
+**Home:** `photometry-bench`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. Two repeating peaks sit beside the old radar shoulder.
+**After — exact action:** Sanaa Vale clips the TWO LOBES / NO DETACHED FRAGMENT YET finding to the light curve.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `deflection-desk`, a launch binder lies open beside a tiny available-impulse bar.
+**Segue - exact player copy:** But Arjun still wants the Aegis craft to act; its available push must beat the required miss distance.
 
 ## Location plan
 
@@ -6385,13 +6609,12 @@ answer: contact_binary
 
 ## Mission outcome
 
-Mission decision: Treat 2026 PDC as a weak two-lobed body. Add checks for loose parts. Do not claim that a part has split off yet.
+Mission decision: Treat 2026 PDC as a weak two-lobed body. Add checks for loose parts. Do not claim that a part has split off yet. Pre-card character beat: Sanaa points to the old weak shoulder. “It was never noise,” she says. Tomás answers, “It still is not a fragment.”
 
-**Pre-card character beat:** Sanaa points to the old weak shoulder. “It was never noise,” she says. Tomás answers, “It still is not a fragment.”
-
+**Segue - exact player copy:** But Arjun still wants the Aegis craft to act; its available push must beat the required miss distance.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: Treat 2026 PDC as a weak two-lobed body. The planetary-defense plan now rests on a result the whole network can trust.
+**Happy ending card - exact player copy:** Your checks made the difference. Sanaa Vale clips the TWO LOBES / NO DETACHED FRAGMENT YET finding to the light curve. But Arjun still wants the Aegis craft to act; its available push must beat the required miss distance.
 
 **Header:** MISSION 10 COMPLETE
 
@@ -6753,13 +6976,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 4 DAYS
+**Header:** MISSION 11 - 84 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** ONE PUSH
 
 **Go now:** Go to the Spectroscopy Dome for the mass estimate, continue to the Consequences Lab, and deliver the feasibility result to Mira Chen at Coordination.
 
-**Card body:** A spacecraft collision might push the asteroid off course, but very little time remains for that push to make a difference. Calculate the needed change and compare it with what a spacecraft could deliver. Decide whether to attempt a push or concentrate on protecting people.
+**Card body:** 84 hours remain to the close pass. The ready craft can give only a small push. Today you decide if that push can change the path enough.
 
 **Objective:** Decide whether space deflection is physically credible with the remaining warning time.
 
@@ -6879,9 +7102,11 @@ Momentum enhancement: extra impulse from impact ejecta, represented by the facto
 
 **Beat 1 - On arrival at Spectroscopy Dome | automatic**
 
+**Trigger:** mission_11_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Sanaa supplies the dark-body mass range.
+**World state:** A launch binder lies open beside a tiny available-impulse bar.
 
 **Panel/HUD text:** THE ONE PUSH / MISSION ACTIVE
 
@@ -6891,9 +7116,11 @@ Momentum enhancement: extra impulse from impact ejecta, represented by the facto
 
 **Beat 2 - After Stop 41 | automatic**
 
+**Trigger:** accepted_stop_41.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Evelyn defines a generous required displacement and remaining time.
+**World state:** At `sizing-board`, the dated accepted-result slip for Stop 41 reads: "Roughly (1.1\times10^{10}) to (2.2\times10^{10}) kg.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ONE PUSH / FIRST RESULT LOGGED
 
@@ -6903,9 +7130,11 @@ Momentum enhancement: extra impulse from impact ejecta, represented by the facto
 
 **Beat 3 - After Stop 42 | automatic**
 
+**Trigger:** accepted_stop_42.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Arjun offers the strongest launch-ready impactor in the fiction.
+**World state:** At `deflection-desk`, the dated accepted-result slip for Stop 42 reads: "About 9.3 m/s and (1.5\times10^{11}) N·s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ONE PUSH / EVIDENCE HANDOFF READY
 
@@ -6915,9 +7144,11 @@ Momentum enhancement: extra impulse from impact ejecta, represented by the facto
 
 **Beat 4 - After Stop 43 | automatic**
 
+**Trigger:** accepted_stop_43.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Mira asks for a go/no-go based on orders of magnitude.
+**World state:** At `deflection-desk`, the dated accepted-result slip for Stop 43 reads: "Infeasible by more than three orders of magnitude, even before navigation and launch delays.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE ONE PUSH / DECISION EVIDENCE READY
 
@@ -6927,15 +7158,25 @@ Momentum enhancement: extra impulse from impact ejecta, represented by the facto
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_44.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `deflection-desk`, Arjun Sen closes the Aegis launch binder beneath INSUFFICIENT IMPULSE. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE ONE PUSH / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Arjun Sen: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Arjun Sen: "I wanted that mission. These numbers do not permit it. Therefore Jordan gets the remaining work budget for warnings and protection; no launch will buy back these days."
 
 **Unlocks:** Mission 11 outcome, metric screen, concept review, and Mission 12 briefing.
+
+### Physical aftermath — planetary-m11
+
+**Home:** `deflection-desk`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. A launch binder lies open beside a tiny available-impulse bar.
+**After — exact action:** Arjun Sen closes the Aegis launch binder beneath INSUFFICIENT IMPULSE.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `threshold-board`, a news alert outside drops the qualifying sentence from the notice.
+**Segue - exact player copy:** Therefore Jordan gets the remaining work budget for warnings and protection; no launch will buy back these days.
 
 ## Location plan
 
@@ -7038,6 +7279,10 @@ estimate:
 **Question card story setup - exact player copy:** Grant the defender eight days of useful lead time and require 6,400 kilometers of accumulated displacement. Derive the velocity change and nominal impulse, treating the straight-line estimate as deliberately optimistic.
 
 **Question card story-science connection - exact player copy:** The optimistic displacement and impulse requirement provides a lower-demand benchmark for evaluating the proposed defender.
+
+**Fixture source panel - exact player copy:** Grant the defender eight days of useful lead time and require 6,400 kilometers of accumulated displacement. Derive the velocity change and nominal impulse, treating the straight-line estimate as deliberately optimistic. Displacement d = 6400 km = 6.4e6 m Lead time t = 8 days; 1 day = 86400 s Adopted asteroid mass m = 1.66e10 kg Delta v = d/t; J = m Delta v
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit Δv in metres per second and J in newton-seconds.
 
@@ -7244,13 +7489,12 @@ value:
 
 ## Mission outcome
 
-Mission decision: Do not try to push the body now. The best ready craft falls short by more than 3,300 times. Move all spare work to path checks and harm reduction.
+Mission decision: Do not try to push the body now. The best ready craft falls short by more than 3,300 times. Move all spare work to path checks and harm reduction. Pre-card character beat: Arjun closes the launch window himself. “With years, this is a mission,” he says. “With days, it is theater.”
 
-**Pre-card character beat:** Arjun closes the launch window himself. “With years, this is a mission,” he says. “With days, it is theater.”
-
+**Segue - exact player copy:** Therefore Jordan gets the remaining work budget for warnings and protection; no launch will buy back these days.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: Do not try to push the body now. The response team can protect threatened communities with better information.
+**Happy ending card - exact player copy:** Your checks made the difference. Arjun Sen closes the Aegis launch binder beneath INSUFFICIENT IMPULSE. Therefore Jordan gets the remaining work budget for warnings and protection; no launch will buy back these days.
 
 **Header:** MISSION 11 COMPLETE
 
@@ -7419,13 +7663,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 3 DAYS
+**Header:** MISSION 12 - 72 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE LINE WE PROMISE
 
 **Go now:** Go to the Consequences Lab, carry the response envelope to the Town Emergency Office, and publish the final rules from Coordination.
 
-**Card body:** Evacuations and other emergency actions cost time and resources, but waiting too long can cost lives. Agree on which evidence should trigger each protective step before the next forecast arrives. Allocate the available resources and rehearse a plan that treats threatened communities consistently.
+**Card body:** 72 hours to the predicted encounter. A news alert outside drops the qualifying sentence from the notice. Today you decide which rules will start or end local action.
 
 **Objective:** Approve a staged response plan before the next orbit result is known.
 
@@ -7531,9 +7775,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 1 - On arrival at Entry & Consequences Lab | automatic**
 
+**Trigger:** mission_12_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Evelyn presents conditional consequence envelopes.
+**World state:** A news alert outside drops the qualifying sentence from the notice.
 
 **Panel/HUD text:** THE LINE WE PROMISE / MISSION ACTIVE
 
@@ -7543,9 +7789,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 2 - After Stop 45 | automatic**
 
+**Trigger:** accepted_stop_45.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Jordan exposes the thirty-day evacuation lead versus eleven-day discovery warning.
+**World state:** At `risk-display`, the dated accepted-result slip for Stop 45 reads: "Correct four trigger-action matches.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE LINE WE PROMISE / FIRST RESULT LOGGED
 
@@ -7555,9 +7803,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 3 - After Stop 46 | automatic**
 
+**Trigger:** accepted_stop_46.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** The player assigns staged actions to escalating evidence.
+**World state:** At `evac-desk`, the dated accepted-result slip for Stop 46 reads: "Stage targeted capacity and retain a reserve; do not order corridor-wide evacuation.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE LINE WE PROMISE / EVIDENCE HANDOFF READY
 
@@ -7567,9 +7817,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 4 - After Stop 47 | automatic**
 
+**Trigger:** accepted_stop_47.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Mira publishes the rule before the next orbit update.
+**World state:** At `threshold-board`, the dated accepted-result slip for Stop 47 reads: "Complete the seven-step protocol with verification before authorization.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE LINE WE PROMISE / DECISION EVIDENCE READY
 
@@ -7579,15 +7831,25 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_48.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `threshold-board`, Jordan Hale pins the signed staged-response rules above the incoming-news strip. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE LINE WE PROMISE / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Jordan Hale: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Jordan Hale: "The headline changed our words. It does not get to change our rule. But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives."
 
 **Unlocks:** Mission 12 outcome, metric screen, concept review, and Mission 13 briefing.
+
+### Physical aftermath — planetary-m12
+
+**Home:** `threshold-board`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. A news alert outside drops the qualifying sentence from the notice.
+**After — exact action:** Jordan Hale pins the signed staged-response rules above the incoming-news strip.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `scopeboard`, the corrected primary path runs over deep ocean beside the old land band.
+**Segue - exact player copy:** But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives.
 
 ## Location plan
 
@@ -7889,13 +8151,12 @@ attest:
 
 ## Mission outcome
 
-Mission decision: Approve the staged plan. Start with broad steps that can be undone. Use strong orders only for a narrow, checked danger zone. Stand down places that the full path rules out.
+Mission decision: Approve the staged plan. Start with broad steps that can be undone. Use strong orders only for a narrow, checked danger zone. Stand down places that the full path rules out. Pre-card character beat: Jordan initials the threshold board before Mira opens the next orbit packet. “Now the map cannot move our principles,” they say.
 
-**Pre-card character beat:** Jordan initials the threshold board before Mira opens the next orbit packet. “Now the map cannot move our principles,” they say.
-
+**Segue - exact player copy:** But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: Approve the staged plan. Cerro Alto now has a clearer path through the uncertainty.
+**Happy ending card - exact player copy:** Your checks made the difference. Jordan Hale pins the signed staged-response rules above the incoming-news strip. But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives.
 
 **Header:** MISSION 12 COMPLETE
 
@@ -8107,13 +8368,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 2 DAYS
+**Header:** MISSION 13 - 60 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THROUGH THE KEYHOLE
 
 **Go now:** Go to Orbit Determination, verify the final primary-body prediction at Radar, and deliver the result to Coordination.
 
-**Card body:** The final pictures and an independent radar observation can test whether the main asteroid will cross inhabited land. Check for a shared clock error and test the prediction against a withheld measurement. Decide whether to increase protection or tell the threatened communities they are clear.
+**Card body:** 60 hours to the predicted encounter. The corrected primary path runs over deep ocean beside the old land band. Today you decide whether the main-body land alert can end.
 
 **Objective:** Escalate the primary-body response or defensibly stand down the populated land corridor.
 
@@ -8221,9 +8482,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 1 - On arrival at Orbit Determination Center | automatic**
 
+**Trigger:** mission_13_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** A reference-star control identifies a common offset in the last optical batch.
+**World state:** The corrected primary path runs over deep ocean beside the old land band.
 
 **Panel/HUD text:** THROUGH THE KEYHOLE / MISSION ACTIVE
 
@@ -8233,9 +8496,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 2 - After Stop 49 | automatic**
 
+**Trigger:** accepted_stop_49.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Corrected residuals center near zero without becoming unrealistically perfect.
+**World state:** At `tracking-rack`, the dated accepted-result slip for Stop 49 reads: "Apply −0.36 arcsec; corrected reference residual = 0.00 arcsec and asteroid residual = +0.02 arcsec; restore raw view; conclude SHARED BIAS.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THROUGH THE KEYHOLE / FIRST RESULT LOGGED
 
@@ -8245,9 +8510,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 3 - After Stop 50 | automatic**
 
+**Trigger:** accepted_stop_50.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** A separately clocked radar holdout lands inside the ocean solution.
+**World state:** At `fit-board`, the dated accepted-result slip for Stop 50 reads: "Accept the fit and preserve correction provenance.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THROUGH THE KEYHOLE / EVIDENCE HANDOFF READY
 
@@ -8257,9 +8524,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 4 - After Stop 51 | automatic**
 
+**Trigger:** accepted_stop_51.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Jordan stands down the nine-million-person land corridor under the published rule.
+**World state:** At `astro-bench`, the dated accepted-result slip for Stop 51 reads: "Stand down land evacuation and retain ocean/coastal monitoring.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THROUGH THE KEYHOLE / DECISION EVIDENCE READY
 
@@ -8269,15 +8538,25 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_52.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `scopeboard`, Mira Chen pins the PRIMARY BODY: LAND STAND-DOWN card to the plot. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THROUGH THE KEYHOLE / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Malik Rowan: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Mira Chen: "Nine million people can stand down. Keep the coast watch on. But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo."
 
 **Unlocks:** Mission 13 outcome, metric screen, concept review, and Mission 14 briefing.
+
+### Physical aftermath — planetary-m13
+
+**Home:** `scopeboard`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. The corrected primary path runs over deep ocean beside the old land band.
+**After — exact action:** Mira Chen pins the PRIMARY BODY: LAND STAND-DOWN card to the plot.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `echo-archive`, a new red echo separates from the green primary track.
+**Segue - exact player copy:** But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo.
 
 ## Location plan
 
@@ -8585,13 +8864,12 @@ holdout:
 
 ## Mission outcome
 
-Mission decision: End the land alert for the main body. Fixed sky data and a separate radar test put its full path over deep ocean. Keep a fair watch on the coast.
+Mission decision: End the land alert for the main body. Fixed sky data and a separate radar test put its full path over deep ocean. Keep a fair watch on the coast. Pre-card character beat: Jordan cancels mass-movement staging for nine million people while keeping coastal monitoring active. For one quiet minute, the operations floor believes the hardest decision is over.
 
-**Pre-card character beat:** Jordan cancels mass-movement staging for nine million people while keeping coastal monitoring active. For one quiet minute, the operations floor believes the hardest decision is over.
-
+**Segue - exact player copy:** But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: End the land alert for the main body. Your result gives decision makers time to act without sounding a false alarm.
+**Happy ending card - exact player copy:** Your checks made the difference. Mira Chen pins the PRIMARY BODY: LAND STAND-DOWN card to the plot. But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo.
 
 **Header:** MISSION 13 COMPLETE
 
@@ -8760,13 +9038,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: 1 DAY
+**Header:** MISSION 14 - 36 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE SECOND ECHO
 
 **Go now:** Go to Coordination for the anomaly review, inspect the second return at Radar, and open any new orbit track at Orbit Determination.
 
-**Card body:** The main asteroid is headed toward deep ocean, but a faint second radar echo does not fit its path. It might be an instrument error or a separate fragment. Compare independent observations and decide whether the apparent all-clear has missed another danger.
+**Card body:** 36 hours to the predicted encounter. A new red echo separates from the green primary track. Today you decide whether the second echo needs its own track.
 
 **Objective:** Decide whether the apparent all-clear hides a separate damaging fragment.
 
@@ -8874,9 +9152,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 1 - On arrival at Coordination Office | automatic**
 
+**Trigger:** mission_14_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Mira orders one final anomaly review before demobilization.
+**World state:** A new red echo separates from the green primary track.
 
 **Panel/HUD text:** THE SECOND ECHO / MISSION ACTIVE
 
@@ -8886,9 +9166,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 2 - After Stop 53 | automatic**
 
+**Trigger:** accepted_stop_53.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Tomás verifies the main echo and measures a separating secondary.
+**World state:** At `scopeboard`, the dated accepted-result slip for Stop 53 reads: "Keep the primary ocean solution.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE SECOND ECHO / FIRST RESULT LOGGED
 
@@ -8898,9 +9180,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 3 - After Stop 54 | automatic**
 
+**Trigger:** accepted_stop_54.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Lena reports an uncataloged optical point at the secondary ephemeris.
+**World state:** At `radar-console`, the dated accepted-result slip for Stop 54 reads: "Candidate separated body, pending independent evidence.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE SECOND ECHO / EVIDENCE HANDOFF READY
 
@@ -8910,9 +9194,11 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 4 - After Stop 55 | automatic**
 
+**Trigger:** accepted_stop_55.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Malik opens a distinct fragment track: approximately 32 meters.
+**World state:** At `echo-archive`, the dated accepted-result slip for Stop 55 reads: "Accept independent confirmation.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE SECOND ECHO / DECISION EVIDENCE READY
 
@@ -8922,15 +9208,25 @@ No new equation is introduced; this mission retrieves equations and evidence rul
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_56.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `echo-archive`, Tomás Ibarra clips the SEPARATE FRAGMENT: 32 M record beside the preserved shoulder. The dated prop remains here on later visits.
 
 **Panel/HUD text:** THE SECOND ECHO / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Tomás Ibarra: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Tomás Ibarra: "We kept the weak echo. Now it has a path. Therefore Lena must use the last observation on the fragment; less than two days remain for a narrow warning."
 
 **Unlocks:** Mission 14 outcome, metric screen, concept review, and Mission 15 briefing.
+
+### Physical aftermath — planetary-m14
+
+**Home:** `echo-archive`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. A new red echo separates from the green primary track.
+**After — exact action:** Tomás Ibarra clips the SEPARATE FRAGMENT: 32 M record beside the preserved shoulder.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `delivery-desk`, the green primary track stays beside a narrow red fragment corridor.
+**Segue - exact player copy:** Therefore Lena must use the last observation on the fragment; less than two days remain for a narrow warning.
 
 ## Location plan
 
@@ -9208,13 +9504,12 @@ required_action: urgent_recovery_plus_reversible_staging
 
 ## Mission outcome
 
-Mission decision: Keep the main-body land stand-down. Open a new track for the separate 32 m piece. Start urgent search work and staged plans for it.
+Mission decision: Keep the main-body land stand-down. Open a new track for the separate 32 m piece. Start urgent search work and staged plans for it. Pre-card character beat: The primary all-clear stays green as a second red track appears. Mira says, “We were right about the large body. Now be right about the smaller one.”
 
-**Pre-card character beat:** The primary all-clear stays green as a second red track appears. Mira says, “We were right about the large body. Now be right about the smaller one.”
-
+**Segue - exact player copy:** Therefore Lena must use the last observation on the fragment; less than two days remain for a narrow warning.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: Keep the main-body land stand-down. The people beneath the risk corridor are safer because the evidence is sharper.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomás Ibarra clips the SEPARATE FRAGMENT: 32 M record beside the preserved shoulder. Therefore Lena must use the last observation on the fragment; less than two days remain for a narrow warning.
 
 **Header:** MISSION 14 COMPLETE
 
@@ -9383,13 +9678,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** IMPACT WINDOW: LESS THAN 12 HOURS
+**Header:** MISSION 15 - 24 HOURS TO THE PREDICTED ENCOUNTER.
 
 **Card title:** THE HONEST WARNING
 
 **Go now:** Go to the Survey Telescope for the final recovery, carry the positions to Orbit Determination, and execute the response from the Town Emergency Office.
 
-**Card body:** The smaller fragment could pass over land, and little warning time remains. Use the final observation to refine its path and estimate the possible harm. Apply the response rules you already agreed on, then issue the warning and carry out the necessary protection.
+**Card body:** 24 hours remain to the close pass. The large body stays clear of land. A small piece has its own red path. Today you decide which urgent warning to send.
 
 **Objective:** Issue the final warning and execute a proportionate protective response.
 
@@ -9503,9 +9798,11 @@ All-clear: a stand-down claim tied to one specific hazard track.
 
 **Beat 1 - On arrival at Survey Telescope | automatic**
 
+**Trigger:** mission_15_arrival.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Lena recovers the fragment in the last dark window.
+**World state:** The green primary track stays beside a narrow red fragment corridor.
 
 **Panel/HUD text:** THE HONEST WARNING / MISSION ACTIVE
 
@@ -9515,9 +9812,11 @@ All-clear: a stand-down claim tied to one specific hazard track.
 
 **Beat 2 - After Stop 57 | automatic**
 
+**Trigger:** accepted_stop_57.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Malik builds a narrow populated land corridor.
+**World state:** At `pipeline-bench`, the dated accepted-result slip for Stop 57 reads: "Sign the verified recovery.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE HONEST WARNING / FIRST RESULT LOGGED
 
@@ -9527,9 +9826,11 @@ All-clear: a stand-down claim tied to one specific hazard track.
 
 **Beat 3 - After Stop 58 | automatic**
 
+**Trigger:** accepted_stop_58.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Evelyn bounds the event near 0.7–2 megatons TNT.
+**World state:** At `astro-bench`, the dated accepted-result slip for Stop 58 reads: "Every targeted-order criterion is crossed.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE HONEST WARNING / EVIDENCE HANDOFF READY
 
@@ -9539,9 +9840,11 @@ All-clear: a stand-down claim tied to one specific hazard track.
 
 **Beat 4 - After Stop 59 | automatic**
 
+**Trigger:** accepted_stop_59.
+
 **Player control:** Pause local interaction while bubbles or required panels are open; Continue restores control.
 
-**World state:** Jordan applies the published threshold to protect 180,000 people.
+**World state:** At `threshold-board`, the dated accepted-result slip for Stop 59 reads: "Issue the targeted, accessible, updateable order.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** THE HONEST WARNING / DECISION EVIDENCE READY
 
@@ -9551,15 +9854,25 @@ All-clear: a stand-down claim tied to one specific hazard track.
 
 **Beat 5 - At mission end | automatic**
 
+**Trigger:** accepted_stop_60.
+
 **Player control:** Pause for the outcome bubbles, then restore control for the metric screen.
 
-**World state:** The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.
+**World state:** At `delivery-desk`, Mira Chen presses the verified-warning release key. The final scene follows the completion gate below.
 
 **Panel/HUD text:** THE HONEST WARNING / MISSION DECISION LOGGED
 
-**Dialogue bubbles -** Mira Chen: “Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift.”
+**Dialogue bubbles -** Mira Chen: "You gave people a warning they can use, and kept its limits intact. Therefore Jordan sends transport to the 180,000-person corridor while the main-body stand-down remains in force."
 
 **Unlocks:** Mission 15 outcome, final metric screen, concept review, and campaign epilogue.
+
+### Physical aftermath — planetary-m15
+
+**Home:** `delivery-desk`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. The green primary track stays beside a narrow red fragment corridor.
+**After — exact action:** Mira Chen presses the verified-warning release key.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `delivery-desk`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore Jordan sends transport to the 180,000-person corridor while the main-body stand-down remains in force.
 
 ## Location plan
 
@@ -9843,15 +10156,12 @@ allocate:
 
 ## Mission outcome and epilogue - no further quiz
 
-Mission decision: Send and carry out the narrow safety order for 180,000 people. Keep the main-body land stand-down. Watch both objects until each outcome is known.
+Mission decision: Which urgent warning the final evidence supports. Apply the existing final evidence and metric gates before the world payoff below.
 
-**Pre-card character beat:** Jordan watches the final transport clear the vulnerable zone. Lena keeps the telescope on the fragment; Tomás keeps the ocean track; nobody calls uncertainty failure.
-
-**Closing scene:** The fragment airbursts over an evacuated industrial edge; windows fail and structures are damaged, but the staged corridor avoids a mass-casualty event. Offshore, the primary enters the ocean inside its verified envelope while coastal systems track measured wave effects. Mira removes the first broad map. “Planetary defense is not promising that nothing reaches Earth,” she says. “It is finding the honest action while time still exists.”
-
+The network wall fills with acknowledgements. Below the ridge, the first marked buses leave for the narrow warning zone. Most town lights stay steady. The main-body stand-down remains green, and the dish keeps tracking the smaller fragment.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Send and carry out the narrow safety order for 180,000 people. The planetary-defense plan now rests on a result the whole network can trust.
+**Happy ending card - exact player copy:** The network wall fills with acknowledgements. Below the ridge, the first marked buses leave for the narrow warning zone. Most town lights stay steady. The main-body stand-down remains green, and the dish keeps tracking the smaller fragment.
 
 **Header:** MISSION 15 COMPLETE
 

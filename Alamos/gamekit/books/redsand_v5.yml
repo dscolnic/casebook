@@ -299,19 +299,20 @@ missions:
 # 15 mission fragment(s), assembled by tools/assemble-book.mjs from
 # redsand_v5/ — edit the fragments, not this file.
 # ============================================================ MISSION 1
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Shortfall"
   card:
-    header: "15 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 1 - 15 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE SHORTFALL"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the carbon ledger."
-    body: "The Mars crew does not have enough methane fuel to get home. They suspect a leak, but shutting the wrong valves would waste time and stop useful production. Use chemistry to compare samples and track the carbon, then decide whether a large leak explains the shortage."
+    body: "15 work shifts remain before launch. The fuel gauge glows above a tray of unused valve spanners. Today you decide whether a methane leak explains the missing fuel."
     objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
   objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
-  stake: "The Mars crew does not have enough methane fuel to get home. They suspect a leak, but shutting the wrong valves would waste time and stop useful production. Use chemistry to compare samples and track the carbon, then decide whether a large leak explains the shortage."
+  stake: "15 work shifts remain before launch. The fuel gauge glows above a tray of unused valve spanners. Today you decide whether a methane leak explains the missing fuel."
   takeaway: "A nearly closed carbon ledger weakens a large methane-leak explanation; it does not identify the real cause."
-  segue: "Mission decision: A large methane leak cannot explain the fuel gap. The new count finds 99.8% of the carbon. Work on random valves stops. The plant still needs fuel. The next test asks if the air intake brings in enough carbon dioxide."
+  segue: "But Ingrid's next shift still lacks methane; the intake must prove it supplies enough carbon before another valve is blamed."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Particle", def: "one counted piece of matter. In this mission, a particle may be an atom, a molecule, or an ion."}
@@ -333,7 +334,7 @@ missions:
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "The four-bar HUD opens at METHANE 82%, OXYGEN 88%, POWER 72%, and INTEGRITY 70%; Two technicians reach for different valve controls; Abiola steps between them and locks both panels."
+    world: "The fuel gauge glows above a tray of unused valve spanners."
     panel: "MISSION 1 - THE SHORTFALL"
     # unlocks: Stop 1 at the sample tray.
     bubbles:
@@ -342,7 +343,7 @@ missions:
   - id: after-stop-1
     # After Stop 1 | sample tray | automatic correct-answer response
     on: { after: [1] }
-    world: "The four sample labels separate into ATOM, MOLECULE, and ION columns."
+    world: "At sample-tray, the dated accepted-result slip for Stop 1 reads: \"Choice 1.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 2: HOW MUCH METHANE IS MISSING?"
     # unlocks: Stop 2 at the conversion board; Stop 3 unlocks immediately after Stop 2.
     bubbles:
@@ -351,7 +352,7 @@ missions:
   - id: after-stops-2-and-3
     # After Stops 2 and 3 | conversion board | automatic transition
     on: { after: [2, 3] }
-    world: "The scale reading, moles, and molecule count connect with a continuous illuminated unit path."
+    world: "At conversion-board, the dated accepted-result slip for Stop 2 reads: \"6.01 x 10^28 CH4 molecules; target 6.0 x 10^28, tolerance ±6%.\". The slip remains in that fixture's evidence holder."
     panel: "MASS -\\> MOLES -\\> MOLECULES."
     # unlocks: Stop 4 at the carbon ledger.
     bubbles:
@@ -360,7 +361,7 @@ missions:
   - id: after-stop-4
     # After Stop 4 | carbon ledger | automatic discovery
     on: { after: [4] }
-    world: "The carbon streams close to within 0.2%; The red leak warning changes to amber, but the methane shortfall remains red."
+    world: "At conversion-board, the dated accepted-result slip for Stop 3 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "CARBON ACCOUNTED FOR: 99.8% / METHANE TARGET: NOT MET."
     # unlocks: The Mission 1 outcome beat.
     bubbles:
@@ -369,14 +370,12 @@ missions:
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Sundqvist's static portrait appears in the radio-bubble HUD while the Atmosphere Intake waypoint pulses on the map."
+    world: "At ledger, Commander Laila Abiola clips the CARBON ACCOUNTED FOR: 99.8% sheet into the carbon ledger. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - ATMOSPHERE INTAKE."
     # unlocks: Mission 2 briefing and the Atmosphere Intake waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. Then the Martian air may never be reaching the reactor in the first place."
-    - who: abiola   # Abiola
-      say: "Do not increase compressor power. The Propellant Lead will test that claim first."
+    - who: abiola   # Commander Laila Abiola
+      say: "Put the spanners down. Follow what entered the plant. But Ingrid's next shift still lacks methane; the intake must prove it supplies enough carbon before another valve is blamed."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -591,19 +590,20 @@ missions:
     #     closure: {value: 99.8, unit: "kmol C", residual: 0.2, tolerance: 0.1}
     #     correct_action: "Count the three carbon-bearing streams; exclude water and the schedule gap."
 # ============================================================ MISSION 2
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Feedstock Problem"
   card:
-    header: "14 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 2 - 14 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE FEEDSTOCK PROBLEM"
     goNow: "Go to the Atmosphere Intake and meet Ingrid Sundqvist, the production and catalyst lead, at the compressor log desk."
-    body: "The carbon records make a large leak unlikely, but the plant still produces too little fuel. It makes methane from carbon dioxide collected from the air and hydrogen recovered from water. Calculate what each supply can produce and decide which one needs attention first."
+    body: "14 work shifts remain before launch. Frost rims the compressor glass beside the next shift's fuel target. Today you decide whether to push the air intake or test the hydrogen line."
     objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
   objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
-  stake: "The carbon records make a large leak unlikely, but the plant still produces too little fuel. It makes methane from carbon dioxide collected from the air and hydrogen recovered from water. Calculate what each supply can produce and decide which one needs attention first."
+  stake: "14 work shifts remain before launch. Frost rims the compressor glass beside the next shift's fuel target. Today you decide whether to push the air intake or test the hydrogen line."
   takeaway: "Scarce diagnostic material creates a real trade-off between learning and output."
-  segue: "Mission decision: Do not push the air intake. Test the hydrogen line instead. The captured carbon dioxide could make 2405 kg of methane, more than this shift needs. Hydrogen runs out first. A test pulse now moves toward the Hydrogen Store."
+  segue: "Therefore Herrera must trace hydrogen through the store; Ingrid cannot make fuel from surplus carbon alone."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Reactant", def: "a starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor."}
@@ -625,7 +625,7 @@ missions:
   - id: on-arrival-at-atmosphere-intake
     # On arrival at Atmosphere Intake | automatic | 
     on: { enter: true, at: INTAKE }
-    world: "Ice coats the intake housing while the compressor shakes the platform; Sundqvist points to the full-shift capture log."
+    world: "Frost rims the compressor glass beside the next shift's fuel target."
     panel: "MISSION 2 - THE FEEDSTOCK PROBLEM"
     # unlocks: Stop 5 at the compressor log desk.
     bubbles:
@@ -634,7 +634,7 @@ missions:
   - id: after-stop-5
     # After Stop 5 | compressor log desk | automatic transition
     on: { after: [1] }
-    world: "The conversion cards lock into one unit-cancelling chain."
+    world: "At intake-calculation-board, the dated accepted-result slip for Stop 5 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "CO2 MASS -\\> CO2 MOLES -\\> CH4 MOLES -\\> CH4 MASS."
     # unlocks: Stop 6 at the intake control panel.
     bubbles:
@@ -643,7 +643,7 @@ missions:
   - id: after-stop-6
     # After Stop 6 | intake control panel | automatic reversal
     on: { after: [2] }
-    world: "The proposed compressor-overdrive control becomes unavailable."
+    world: "At compressor-log-desk, the dated accepted-result slip for Stop 6 reads: \"2405 kg CH4 (2.41 x 10^3 kg to three significant figures); tolerance +/-3%.\". The slip remains in that fixture's evidence holder."
     panel: "THEORETICAL CH4: 2405 kg / REQUIRED CH4: 2000 kg / CO2 SUPPLY: SUFFICIENT."
     # unlocks: Stop 7 at the dual-feed display.
     bubbles:
@@ -655,7 +655,7 @@ missions:
   - id: after-stop-7
     # After Stop 7 | dual-feed display | automatic
     on: { after: [3] }
-    world: "A second feed display opens and highlights the hydrogen line."
+    world: "At compressors, the dated accepted-result slip for Stop 7 reads: \"Choice 1.\". The slip remains in that fixture's evidence holder."
     panel: "HYDROGEN IS LIMITING METHANE PRODUCTION."
     # unlocks: Stop 8 at the hydrogen-allocation manifold.
     bubbles:
@@ -666,14 +666,12 @@ missions:
   - id: at-mission-end
     # At mission end | Atmosphere Intake | automatic outcome and hook
     on: { missionEnd: true }
-    world: "The player allocation appears as three illuminated pipes: PRODUCTION, DIAGNOSTIC, and RESTART RESERVE; A blue diagnostic pulse leaves the intake display and travels toward the Hydrogen Store."
+    world: "At compressor-log-desk, Ingrid Sundqvist pins the CO2 CAPACITY: 2405 KG METHANE card above the intake log. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - HYDROGEN STORE."
     # unlocks: Mission 3 briefing and the Hydrogen Store waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. The intake stays at normal power. Your test gets one pulse. Restart reserve remains protected."
-    - who: abiola   # Abiola
-      say: "Follow that pulse. Find where the hydrogen stops being usable."
+    - who: sundqvist   # Ingrid Sundqvist
+      say: "The air did its job. Something else ran out first. Therefore Herrera must trace hydrogen through the store; Ingrid cannot make fuel from surplus carbon alone."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -894,19 +892,20 @@ missions:
     #     correct: {production: 56, tracer: 8, restart: 16, purge: 0}
     #     pass_rule: "tracer >= 8 and restart >= 16 and total <= 80"
 # ============================================================ MISSION 3
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Pressure Does Not Lie. Or Does It?"
   card:
-    header: "13 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 3 - 13 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "PRESSURE DOES NOT TELL THE WHOLE TRUTH"
     goNow: "Go to the Hydrogen Store and meet Dr. Tomás Herrera, the reactor and safety engineer, beside the storage gauge."
-    body: "The plant may be short of hydrogen even though its pressure gauge looks normal. Another gas could be keeping the pressure high. Measure the total gas, sample the pipes, and test a warmed sample to decide whether hydrogen escaped or was replaced before reaching the reactor."
+    body: "Thirteen shifts remain before launch. The pressure holds, but the gas sample has changed. Today you decide if the hydrogen line leaks or holds a second gas."
     objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
   objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
-  stake: "The plant may be short of hydrogen even though its pressure gauge looks normal. Another gas could be keeping the pressure high. Measure the total gas, sample the pipes, and test a warmed sample to decide whether hydrogen escaped or was replaced before reaching the reactor."
+  stake: "Thirteen shifts remain before launch. The pressure holds, but the gas sample has changed. Today you decide if the hydrogen line leaks or holds a second gas."
   takeaway: "A model must survive every relevant measurement, not only the one it predicts correctly."
-  segue: "Mission decision: Another gas mixes into the line before the reactor. The plant is not just losing hydrogen. Nitrogen keeps total pressure high as the share from hydrogen falls. The change starts after the regulator. The blue stain near a methane valve is the next clue to test."
+  segue: "But Cho finds blue stain beside a methane valve; its route must be tested before it becomes a second leak story."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Pressure", def: "force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside."}
@@ -929,7 +928,7 @@ missions:
   - id: on-arrival-at-hydrogen-store
     # On arrival at Hydrogen Store | automatic | 
     on: { enter: true, at: HSTORE }
-    world: "A large gauge holds near its green mark while the reactor-delivery bar flashes LOW."
+    world: "The pressure needle holds steady while a sample vial changes its label."
     panel: "MISSION 3 - PRESSURE DOES NOT LIE. OR DOES IT?"
     # unlocks: Stop 9 at the tank calculation rail; Stop 10 unlocks immediately after Stop 9.
     bubbles:
@@ -938,7 +937,7 @@ missions:
   - id: after-stops-9-and-10
     # After Stops 9 and 10 | tank calculation rail | automatic response
     on: { after: [1, 2] }
-    world: "On the equipment panel, hydrogen particle icons move faster than nitrogen particle icons at equal temperature; the total-mole estimate appears beside the pressure gauge."
+    world: "At store-scales, the dated accepted-result slip for Stop 9 reads: \"Choice 1.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 11: SAMPLE THE BRANCHES"
     # unlocks: Stop 11 at the four sampling ports.
     bubbles:
@@ -947,7 +946,7 @@ missions:
   - id: after-stop-11
     # After Stop 11 | four sampling ports | automatic discovery
     on: { after: [3] }
-    world: "The tank and regulator remain hydrogen-rich, but the reactor branch turns yellow as nitrogen mole fraction rises."
+    world: "At hydrogen-calculation-desk, the dated accepted-result slip for Stop 10 reads: \"400 mol total gas; target 400, tolerance ±2%.\". The slip remains in that fixture's evidence holder."
     panel: "TOTAL PRESSURE: NORMAL / H2 PARTIAL PRESSURE: LOW / N2 DETECTED AFTER PURGE TIE-IN."
     # unlocks: Stop 12 at the heated test branch.
     bubbles:
@@ -956,7 +955,7 @@ missions:
   - id: after-stop-12
     # After Stop 12 | heated test branch | automatic contradiction
     on: { after: [4] }
-    world: "Measured pressure follows the warming prediction, but the composition panel shows new nitrogen that a simple leak cannot create."
+    world: "At gas-sampling-ports, the dated accepted-result slip for Stop 11 reads: \"The reactor branch is abnormal; at 19.5 atm its H2 partial pressure is only 0.68 x 19.5 = 13.3 atm.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 3 outcome beat.
     bubbles:
@@ -965,14 +964,12 @@ missions:
   - id: at-mission-end
     # At mission end | Hydrogen Store | automatic outcome and hook
     on: { missionEnd: true }
-    world: "The purge tie-in is tagged for investigation; Sundqvist sends an image of blue residue beside a methane valve."
+    world: "At gas-sampling-ports, Dr. Tomás Herrera hangs a NITROGEN AFTER REGULATOR tag on the reactor-branch port. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - CATALYST BAY."
     # unlocks: Mission 4 briefing and the Catalyst Bay waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. Maintenance found this on the methane side. If the systems crossed, the residue may show where."
-    - who: herrera   # Herrera
-      say: "Only if that substance could travel the path you claim."
+    - who: herrera   # Dr. Tomás Herrera
+      say: "Pressure counts every gas in the tube. But Cho finds blue stain beside a methane valve; its route must be tested before it becomes a second leak story."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -1247,19 +1244,20 @@ missions:
     #     required_sequence: [commit_prediction, warm_branch, measure_pressure, measure_composition]
     #     truth: "Pressure model passes; pure-hydrogen leak model fails on unchanged nitrogen-rich composition."
 # ============================================================ MISSION 4
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What Can Travel Where?"
   card:
-    header: "12 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 4 - 12 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "WHAT CAN TRAVEL WHERE?"
     goNow: "Go to Catalyst Bay and meet Mei-Ling Cho, the water and cryogenics engineer, beside the covered blue stain."
-    body: "A blue stain beside a methane valve looks suspicious, but could that liquid actually have travelled through the gas pipe? Compare the substances' molecular properties and test how they separate at different temperatures. Decide whether the stain identifies a real route for the missing fuel."
+    body: "12 work shifts remain before launch. A blue swab rests beside a clear dry-line cartridge. Today you decide whether the blue stain could travel down the methane line."
     objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
   objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
-  stake: "A blue stain beside a methane valve looks suspicious, but could that liquid actually have travelled through the gas pipe? Compare the substances' molecular properties and test how they separate at different temperatures. Decide whether the stain identifies a real route for the missing fuel."
+  stake: "12 work shifts remain before launch. A blue swab rests beside a clear dry-line cartridge. Today you decide whether the blue stain could travel down the methane line."
   takeaway: "A substance's physical properties can rule out a proposed evidence path."
-  segue: "Mission decision: The blue stain did not move through the dry methane line. Water and glycol would stay or turn to liquid far upstream. Methane would pass. The stain came from local repair work, not a leak. A new water alarm now needs a test."
+  segue: "But Achebe's water alarm now points at the Ice Cut; three matching displays must face one fresh sample."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Valence electron", def: "an electron in an atom's outer occupied region. These electrons are the ones most directly involved in chemical bonds."}
@@ -1278,7 +1276,7 @@ missions:
   - id: on-arrival-at-catalyst-bay
     # On arrival at Catalyst Bay | automatic | 
     on: { enter: true, at: KINET }
-    world: "The player approaches a blue stain sealed beneath a clear cover beside a dry-gas valve; Cho places a residue vial next to four molecular models."
+    world: "A blue swab rests beside a clear dry-line cartridge."
     panel: "MISSION 4 - WHAT CAN TRAVEL WHERE?"
     # unlocks: Stop 13 at the molecular-model bench; Stop 14 unlocks immediately after Stop 13.
     bubbles:
@@ -1287,7 +1285,7 @@ missions:
   - id: after-stops-13-and-14
     # After Stops 13 and 14 | molecular-model bench | automatic transition
     on: { after: [1, 2] }
-    world: "The valid methane structure rotates into a tetrahedron, and the bond-dipole arrows cancel."
+    world: "At charge-bench, the dated accepted-result slip for Stop 13 reads: \"Four single bonds, no carbon lone pairs.\". The slip remains in that fixture's evidence holder."
     panel: "STRUCTURE -\\> GEOMETRY -\\> BOND DIPOLES -\\> MOLECULAR POLARITY."
     # unlocks: Stop 15 at the property-card rack.
     bubbles:
@@ -1296,7 +1294,7 @@ missions:
   - id: after-stop-15
     # After Stop 15 | property-card rack | automatic response
     on: { after: [3] }
-    world: "Methane enters the NONPOLAR / WEAK DISPERSION lane; water and glycol enter the POLAR / STRONG ATTRACTION lane."
+    world: "At molecular-model-rail, the dated accepted-result slip for Stop 14 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 16: CAN THE BLUE RESIDUE RIDE THE GAS STREAM?"
     # unlocks: Stop 16 at the separation cartridge.
     bubbles:
@@ -1305,7 +1303,7 @@ missions:
   - id: after-stop-16
     # After Stop 16 | separation cartridge | automatic reversal
     on: { after: [4] }
-    world: "Methane passes through while water and glycol remain or condense far upstream; The path diagram stamps IMPOSSIBLE UNDER RECORDED CONDITIONS."
+    world: "At model-rail-desk, the dated accepted-result slip for Stop 15 reads: \"Mapping as listed.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 4 outcome beat.
     bubbles:
@@ -1314,12 +1312,12 @@ missions:
   - id: at-mission-end
     # At mission end | Catalyst Bay | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Cho seals the vial as MAINTENANCE FLUID - UNRELATED PATH; Abiola calls as a water-balance alarm opens on the wall."
+    world: "At separation-cartridge, Mei-Ling Cho sets the retained blue residue in a LOCAL MAINTENANCE tray. The dated prop remains here on later visits."
     panel: "LOCAL INVESTIGATION COMPLETE / NEXT DESTINATION - WATER PLANT."
     # unlocks: Mission 5 briefing and the Water Plant waypoint.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. Carbon is accounted for. The residue cannot follow the proposed route. Now the water numbers are failing too. We widen the investigation."
+    - who: cho   # Mei-Ling Cho
+      say: "It could not have made that journey dry. But Achebe's water alarm now points at the Ice Cut; three matching displays must face one fresh sample."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -1606,19 +1604,20 @@ missions:
             - at: 330
               value: 0.04
 # ============================================================ MISSION 5
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Water Account"
   card:
-    header: "11 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 5 - 11 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE WATER ACCOUNT"
     goNow: "Go to the Water Plant and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the recycle-water meter."
-    body: "The stain does not explain the shortage, and now an alarm claims the recycled water is contaminated. Closing the ice supply would also stop hydrogen and oxygen production. Compare the plant's measurement with an independent sample before deciding whether the alarm is trustworthy."
+    body: "11 work shifts remain before launch. A sealed field vial stands apart from three matching screen printouts. Today you decide whether the water source is bad or the standard is wrong."
     objective: "Decide whether the water shortage is real and whether the meters provide independent evidence."
   objective: "Decide whether the water shortage is real and whether the meters provide independent evidence."
-  stake: "The stain does not explain the shortage, and now an alarm claims the recycled water is contaminated. Closing the ice supply would also stop hydrogen and oxygen production. Compare the plant's measurement with an independent sample before deciding whether the alarm is trustworthy."
+  stake: "11 work shifts remain before launch. A sealed field vial stands apart from three matching screen printouts. Today you decide whether the water source is bad or the standard is wrong."
   takeaway: "Several readouts are one piece of evidence if they share the same dependency."
-  segue: "Mission decision: The water alarm comes from one bad standard. It does not prove the Ice Cut is dirty. Three displays share the same error, while the field sample is normal. The water source stays open. The raw gas, water, and carbon clues now go on one board."
+  segue: "Therefore Abiola must join the raw clues before the next repair; the dashboard has lost its three-vote majority."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Solution", def: "a uniform mixture in which one or more substances are spread through another. A small sample can be concentrated without containing a large total amount."}
@@ -1639,7 +1638,7 @@ missions:
   - id: on-arrival-at-water-plant
     # On arrival at Water Plant | automatic | 
     on: { enter: true, at: SOIL }
-    world: "A recycle-water display flashes CHLORIDE HIGH while a second panel reports WATER RETURN LOW; Achebe sets a sealed reference standard beside the wall meter."
+    world: "A sealed field vial stands apart from three matching screen printouts."
     panel: "MISSION 5 - THE WATER ACCOUNT"
     # unlocks: Stop 17 at the wet-chemistry bench; Stop 18 unlocks immediately after Stop 17.
     bubbles:
@@ -1648,7 +1647,7 @@ missions:
   - id: after-stops-17-and-18
     # After Stops 17 and 18 | wet-chemistry bench | automatic response
     on: { after: [1, 2] }
-    world: "The interface replaces the label MORE CHLORIDE with two separate labels: CONCENTRATION and TOTAL MOLES; The recycle sample molarity populates the treatment model."
+    world: "At water-report, the dated accepted-result slip for Stop 17 reads: \"Bottle B.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 19: CHOOSE THE MEASUREMENT WAVELENGTH"
     # unlocks: Stop 19 at the spectrometer.
     bubbles:
@@ -1657,7 +1656,7 @@ missions:
   - id: after-stop-19
     # After Stop 19 | spectrometer | automatic travel trigger
     on: { after: [3] }
-    world: "The selected wavelength locks and the plant sample reads high against Standard C; Achebe places a clean field vial in a rover case."
+    world: "At water-assay-desk, the dated accepted-result slip for Stop 18 reads: \"0.0400 M; tolerance ±3%.\". The slip remains in that fixture's evidence holder."
     panel: "DISTANT VERIFICATION AUTHORIZED - ICE CUT."
     # unlocks: The Ice Cut waypoint and Stop 20 after the player reaches the field sampler.
     bubbles:
@@ -1666,7 +1665,7 @@ missions:
   - id: after-stop-20
     # After Stop 20 | Ice Cut | automatic discovery
     on: { after: [4] }
-    world: "The raw brine and field blank test normal; A dependency map then draws three alarming plant readouts back to the same Standard C."
+    world: "At spectrophotometer, the dated accepted-result slip for Stop 19 reads: \"Select about 510 nm.\". The slip remains in that fixture's evidence holder."
     panel: "THREE READOUTS / ONE CALIBRATION SOURCE."
     # unlocks: The Mission 5 outcome beat.
     bubbles:
@@ -1675,12 +1674,12 @@ missions:
   - id: at-mission-end
     # At mission end | Ice Cut | automatic outcome and hook
     on: { missionEnd: true }
-    world: "The Ice Cut shutdown order disappears, while three dashboard channels receive a SHARED CALIBRATION warning."
+    world: "At water-report, Rosalind Achebe clips the SHARED BAD STANDARD finding beside the normal field result. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - PLANT CONTROL REVIEW."
     # unlocks: Mission 6 briefing and the Plant Control waypoint.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. We will not close a working water source. Return with the raw measurements. Leak, feed, gas mixture, water, and calibration go on one board."
+    - who: achebe   # Rosalind Achebe
+      say: "One vial. Its own standard. That is why we brought it. Therefore Abiola must join the raw clues before the next repair; the dashboard has lost its three-vote majority."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -1927,19 +1926,20 @@ missions:
     #     truth: {dependent_channels: [wall_chloride, recycle_estimator, control_correction], independent_channels: [portable_spec, field_sample]}
     #     correct: "Three alarms are one dependent evidence path; the portable field path is independent."
 # ============================================================ MISSION 6
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Leak That Was Not"
   card:
-    header: "10 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 6 - 10 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE LEAK THAT WAS NOT"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the evidence board."
-    body: "The carbon is accounted for, nitrogen has appeared in the hydrogen pipe, and three water alarms rely on the same calibration sample. Find an explanation that fits all the evidence. Check the material totals and decide whether to end the leak search and repair hydrogen delivery."
+    body: "10 work shifts remain before launch. Gas labels, water totals, and carbon slips cover the bare evidence board. Today you decide which fault explains the fuel shortfall."
     objective: "Choose one cause that fits every clue and prove it with complete atom balances."
   objective: "Choose one cause that fits every clue and prove it with complete atom balances."
-  stake: "The carbon is accounted for, nitrogen has appeared in the hydrogen pipe, and three water alarms rely on the same calibration sample. Find an explanation that fits all the evidence. Check the material totals and decide whether to end the leak search and repair hydrogen delivery."
+  stake: "10 work shifts remain before launch. Gas labels, water totals, and carbon slips cover the bare evidence board. Today you decide which fault explains the fuel shortfall."
   takeaway: "A scientific twist is fair when old clues remain true but acquire a better meaning."
-  segue: "Mission decision: End the methane-leak search. Repair the hydrogen line. One fault explains the carbon count, added nitrogen, low water, normal pressure, and false stain clue. Most of the missing fuel was never made. A signed heat-setting change now raises a new question."
+  segue: "But Ingrid finds Herrera's signed temperature change; repaired feed does not explain why the reactor was turned down."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Diagnosis", def: "the proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms."}
@@ -1958,7 +1958,7 @@ missions:
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "Abiola removes the dashboard summary and replaces it with raw carbon flow, gas composition, water production, pressure, and residue evidence."
+    world: "Gas labels, water totals, and carbon slips cover the bare evidence board."
     panel: "MISSION 6 - THE LEAK THAT WAS NOT"
     # unlocks: Stop 21 at the evidence board; Stop 22 unlocks immediately after Stop 21.
     bubbles:
@@ -1967,7 +1967,7 @@ missions:
   - id: after-stops-21-and-22
     # After Stops 21 and 22 | evidence board | automatic diagnosis
     on: { after: [1, 2] }
-    world: "HYDROGEN DELIVERY DEFICIENCY remains highlighted while the other explanations fail one or more observations, even as the intake calibration slider moves."
+    world: "At evidence-board, the dated accepted-result slip for Stop 21 reads: \"C.\". The slip remains in that fixture's evidence holder."
     panel: "RESULT RECORDED"
     # unlocks: The prediction-lock travel beat.
     bubbles:
@@ -1976,7 +1976,7 @@ missions:
   - id: after-stop-22
     # After Stop 22 | evidence board | automatic travel authorization
     on: { after: [2] }
-    world: "The evidence board predicts low methane fraction, nitrogen present, and no large missing-carbon term."
+    world: "At evidence-board, the dated accepted-result slip for Stop 22 reads: \"Hydrogen delivery deficiency remains viable. Even the largest plausible carbon residual is far below the 18% schedule shortfall required by a large methane leak.\". The slip remains in that fixture's evidence holder."
     panel: "PREDICTION LOCKED - VERIFY AT TANK FARM."
     # unlocks: The Tank Farm waypoint and Stop 23; Stop 24 unlocks immediately after Stop 23.
     bubbles:
@@ -1985,7 +1985,7 @@ missions:
   - id: after-stops-23-and-24
     # After Stops 23 and 24 | Tank Farm | automatic Twist 1
     on: { after: [3, 4] }
-    world: "The carbon, hydrogen, and oxygen ledgers close; Earlier clues flip to their supported meanings one by one."
+    world: "At farm-gauges, the dated accepted-result slip for Stop 23 reads: \"Inputs: C 100, H 640, O 200 mol atoms. Outputs: C 80+20=100; H 80x4 +160x2=640; O 20x2 +160=200. H2 is limiting because only 320 mol is supplied, supporting 80 mol CH4.\". The slip remains in that fixture's evidence holder."
     panel: "NO MAJOR METHANE LEAK / LOW H2 PARTIAL PRESSURE REDUCED PRODUCTION."
     # unlocks: The Mission 6 outcome beat.
     bubbles:
@@ -1994,16 +1994,12 @@ missions:
   - id: at-mission-end
     # At mission end | Tank Farm | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Relief is interrupted when Herrera opens the first hydrogen-delivery drop and a signed temperature override appears immediately before it."
+    world: "At evidence-board, Commander Laila Abiola pins the HYDROGEN-LINE REPAIR order across the linked raw records. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - SABATIER REACTOR -\\> COLD END."
     # unlocks: Mission 7 briefing and the Sabatier Reactor waypoint.
     bubbles:
-    - who: herrera   # Herrera
-      say: "Outstanding work. You solved the mission. Those are my credentials."
-    - who: sundqvist   # Sundqvist
-      say: "Then your change may have caused the collapse."
-    - who: abiola   # Abiola
-      say: "We follow the heat before we accuse the engineer."
+    - who: abiola   # Commander Laila Abiola
+      say: "Most of the fuel did not escape. We never made it. But Ingrid finds Herrera's signed temperature change; repaired feed does not explain why the reactor was turned down."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -2322,19 +2318,20 @@ missions:
     #     - {id: common_mode, label: "Shared calibration, not independent confirmation"}
     #   mapping: {carbon: unreacted_co2, pressure: mixed_pressure, residue: local_fluid, water: low_reaction, meters: common_mode}
 # ============================================================ MISSION 7
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Heat"
   card:
-    header: "9 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 7 - 9 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "HEAT"
     goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the coolant panel."
-    body: "Much of the missing methane was never made because too little hydrogen reached the reactor. Someone also lowered the temperature just before production slowed. Reconstruct the heat transfers and event times to decide whether that change caused trouble or followed an earlier cooling failure."
+    body: "9 work shifts remain before launch. A heat strip ends above its limit beside a folded override sheet. Today you decide whether the cooling loss came before the setting change."
     objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
   objective: "Reconstruct the heat flow and determine why the reactor temperature was lowered."
-  stake: "Much of the missing methane was never made because too little hydrogen reached the reactor. Someone also lowered the temperature just before production slowed. Reconstruct the heat transfers and event times to decide whether that change caused trouble or followed an earlier cooling failure."
+  stake: "9 work shifts remain before launch. A heat strip ends above its limit beside a folded override sheet. Today you decide whether the cooling loss came before the setting change."
   takeaway: "Timing matters: radiator loss before the override changes the story of motive."
-  segue: "Mission decision: The cooling system grew weak before the reactor setting fell. The heat count leaves 2.7 MJ in the plant. That heat can form a hot spot. The lower setting then cut heat and fuel output. The next test asks if that change caused the fast drop in production."
+  segue: "But Ingrid can still show the rate fell after the override; Herrera must let her test the change itself."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Heat", def: "energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one."}
@@ -2356,7 +2353,7 @@ missions:
   - id: on-arrival-at-reactor-hall
     # On arrival at Reactor Hall | automatic | 
     on: { enter: true, at: EQUIL }
-    world: "The reactor rate is low, the old temperature setting is marked RESTORE, and the cooling-demand trace rises with methane output."
+    world: "A heat strip ends above its limit beside a folded override sheet."
     panel: "MISSION 7 - HEAT"
     # unlocks: Stop 25 at the reactor coolant panel; Stop 26 unlocks immediately after Stop 25.
     bubbles:
@@ -2365,7 +2362,7 @@ missions:
   - id: after-stops-25-and-26
     # After Stops 25 and 26 | reactor coolant panel | automatic response
     on: { after: [1, 2] }
-    world: "The reaction receives an EXOTHERMIC label and the calculated coolant load appears beneath it."
+    world: "At skid, the dated accepted-result slip for Stop 25 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "RESULT RECORDED"
     # unlocks: The radiator-side travel beat.
     bubbles:
@@ -2374,7 +2371,7 @@ missions:
   - id: after-stop-26
     # After Stop 26 | reactor coolant panel | automatic travel authorization
     on: { after: [2] }
-    world: "A process diagram highlights warming, melting, and further-warming stages in sequence, then posts the delayed temperature-pulse arrival; Its predicted arrival does not match the radiator log."
+    world: "At reactor-calculation-bench, the dated accepted-result slip for Stop 26 reads: \"11,400 kJ or 11.4 MJ; tolerance ±2%.\". The slip remains in that fixture's evidence holder."
     panel: "MOVE TO COLD END."
     # unlocks: The Cold End waypoint and Stop 27; Stop 28 unlocks immediately after Stop 27.
     bubbles:
@@ -2383,7 +2380,7 @@ missions:
   - id: after-stops-27-and-28
     # After Stops 27 and 28 | Cold End | automatic discovery
     on: { after: [3, 4] }
-    world: "Dust-obstructed radiator panels appear beside a positive UNREMOVED HEAT term; The timeline places cooling loss before the manual override."
+    world: "At heat-model-board, the dated accepted-result slip for Stop 27 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "RADIATOR PERFORMANCE FELL FIRST / REACTOR SET POINT FELL SECOND."
     # unlocks: The Mission 7 outcome beat.
     bubbles:
@@ -2392,16 +2389,12 @@ missions:
   - id: at-mission-end
     # At mission end | Cold End | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Sundqvist places CAUSED PRODUCTION LOSS beneath the override while Herrera places PREVENTED HIGHER TEMPERATURE beside it."
+    world: "At phase-radiator, Dr. Tomás Herrera clips the 2.7 MJ RETAINED heat ledger to the radiator board. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - PLANT CONTROL RATE BOARD."
     # unlocks: Mission 8 briefing and the Plant Control waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. A cautious change can still be the reason we missed production."
-    - who: herrera   # Herrera
-      say: "Then test both claims."
-    - who: abiola   # Abiola
-      say: "We will. Controlled data, not timing alone."
+    - who: herrera   # Dr. Tomás Herrera
+      say: "I should have shown you this before I touched the setting. But Ingrid can still show the rate fell after the override; Herrera must let her test the change itself."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -2612,19 +2605,20 @@ missions:
     #     closure: {accounted: 13.8, residual: 2.7, unit: MJ, tolerance: 0.05}
     #     correct_action: "Assign 2.7 MJ to accumulated hot-spot/structure load."
 # ============================================================ MISSION 8
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Override"
   card:
-    header: "8 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 8 - 8 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE OVERRIDE"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the initial-rate board."
-    body: "Cooling weakened before the temperature was lowered, but the lower setting did slow fuel production. Test how the reaction responds to a controlled temperature change and check the operating records. Decide who changed the setting and what effect the action actually had."
+    body: "8 work shifts remain before launch. Herrera's name appears on a sheet no one has put back in its folder. Today you decide what the signed setting change actually caused."
     objective: "Measure the effect of the temperature change and verify who made the override."
   objective: "Measure the effect of the temperature change and verify who made the override."
-  stake: "Cooling weakened before the temperature was lowered, but the lower setting did slow fuel production. Test how the reaction responds to a controlled temperature change and check the operating records. Decide who changed the setting and what effect the action actually had."
+  stake: "8 work shifts remain before launch. Herrera's name appears on a sheet no one has put back in its folder. Today you decide what the signed setting change actually caused."
   takeaway: "Verification may require separate evidence for identity, timing, and physical condition."
-  segue: "Mission decision: The signed change caused the fast rate drop. Its purpose is still not known. One test lowers and restores the rate while all other controls stay fixed. Separate records prove who made the change and when. The catalyst bed must be mapped before the old setting can return."
+  segue: "But Cho's bed sample carries halide; the damaged catalyst must be mapped before the old setting can return."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Reaction rate", def: "measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much."}
@@ -2646,7 +2640,7 @@ missions:
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "Three initial-rate trials appear beside Herrera's signed override."
+    world: "Herrera's name appears on a sheet no one has put back in its folder."
     panel: "MISSION 8 - THE OVERRIDE"
     # unlocks: Stop 29 at the rate board; Stop 30 unlocks immediately after Stop 29.
     bubbles:
@@ -2655,7 +2649,7 @@ missions:
   - id: after-stops-29-and-30
     # After Stops 29 and 30 | rate board | automatic response
     on: { after: [1, 2] }
-    world: "The rate law locks as rate = k\\[CO2\\]\\[H2\\]^2 and k displays as 0.300 M^-2 s^-1."
+    world: "At rate-board, the dated accepted-result slip for Stop 29 reads: \"First order in CO2 and second order in H2.\". The slip remains in that fixture's evidence holder."
     panel: "CONTROLLED REVERSAL AUTHORIZED."
     # unlocks: The Sabatier Reactor waypoint and Stop 31.
     bubbles:
@@ -2664,7 +2658,7 @@ missions:
   - id: after-stop-31
     # After Stop 31 | Sabatier Reactor | automatic causal result
     on: { after: [3] }
-    world: "Lower temperature reduces rate; restoring temperature restores the immediate rate response while feed, pressure, and flow remain fixed."
+    world: "At rate-board, the dated accepted-result slip for Stop 30 reads: \"0.300 M^-2 s^-1; tolerance +/-2%.\". The slip remains in that fixture's evidence holder."
     panel: "TEMPERATURE CHANGE CAUSES RATE CHANGE / RESPONSE REVERSIBLE."
     # unlocks: Stop 32 at the verification panel.
     bubbles:
@@ -2673,7 +2667,7 @@ missions:
   - id: after-stop-32
     # After Stop 32 | verification panel | automatic character beat
     on: { after: [4] }
-    world: "Badge record, controller log, and independent temperature sensor align; the handwritten note remains unverified."
+    world: "At skid, the dated accepted-result slip for Stop 31 reads: \"Lower temperature alone, observe rate fall, restore temperature, observe rate return.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 8 outcome beat.
     bubbles:
@@ -2684,14 +2678,12 @@ missions:
   - id: at-mission-end
     # At mission end | Reactor Hall | automatic outcome and hook
     on: { missionEnd: true }
-    world: "A single average-temperature number splits into INLET, MIDDLE, and OUTLET blanks."
+    world: "At verification-panel, Ingrid Sundqvist pins the RATE DROP VERIFIED / MOTIVE UNRESOLVED strip beside the signature. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - CATALYST BAY."
     # unlocks: Mission 9 briefing and the Catalyst Bay waypoint.
     bubbles:
-    - who: herrera   # Herrera
-      say: "Outstanding work. You solved the mission. A catalyst bed does not have one temperature. An average can hide the point that destroys it."
-    - who: sundqvist   # Sundqvist
-      say: "Then we probe from front to back before restart."
+    - who: sundqvist   # Ingrid Sundqvist
+      say: "I can prove it slowed us. That is not the same as proving why. But Cho's bed sample carries halide; the damaged catalyst must be mapped before the old setting can return."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -2923,19 +2915,20 @@ missions:
     #     recommended_checks: [command, physical_change, presence]
     #     correct: "Action and time verified; sabotage motive remains unbacked."
 # ============================================================ MISSION 9
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Catalyst Bed"
   card:
-    header: "7 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 9 - 7 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE CATALYST BED"
     goNow: "Go to Catalyst Bay and meet Dr. Tomás Herrera, the reactor and safety engineer, at the bed-sampling rail."
-    body: "The reactor's catalyst, the material that speeds its reaction, is no longer working properly. Damage near the inlet could be hidden by a normal average temperature. Test samples along the reactor and decide whether contamination, missing feed, or overheating explains the loss of activity."
+    body: "7 work shifts remain before launch. An inlet sample lies beside a much cleaner outlet sample. Today you decide which part of the catalyst bed needs replacement."
     objective: "Locate the catalyst-bed failure and distinguish damage, reactant shortage, and overheating."
   objective: "Locate the catalyst-bed failure and distinguish damage, reactant shortage, and overheating."
-  stake: "The reactor's catalyst, the material that speeds its reaction, is no longer working properly. Damage near the inlet could be hidden by a normal average temperature. Test samples along the reactor and decide whether contamination, missing feed, or overheating explains the loss of activity."
+  stake: "7 work shifts remain before launch. An inlet sample lies beside a much cleaner outlet sample. Today you decide which part of the catalyst bed needs replacement."
   takeaway: "A correct immediate diagnosis can still leave a deeper causal or safety problem."
-  segue: "Mission decision: Halide damaged the catalyst most at the inlet. The surface test finds blocked nickel sites. Part of the bed must be replaced. Yet that damage does not explain the old 612 K hot spot. One hidden heat record will test whether the old setting was safe."
+  segue: "But Herrera's old 612 K record is hotter than this damage explains; the hidden run must decide if his override saved the plant."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Catalyst", def: "speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition."}
@@ -2954,7 +2947,7 @@ missions:
   - id: on-arrival-at-catalyst-bay
     # On arrival at Catalyst Bay | automatic | 
     on: { enter: true, at: KINET }
-    world: "The average reactor temperature glows green while unsampled inlet and outlet ports pulse gray."
+    world: "An inlet sample lies beside a much cleaner outlet sample."
     panel: "MISSION 9 - THE CATALYST BED"
     # unlocks: Stop 33 at the mechanism console; Stop 34 unlocks immediately after Stop 33.
     bubbles:
@@ -2963,7 +2956,7 @@ missions:
   - id: after-stops-33-and-34
     # After Stops 33 and 34 | mechanism console | automatic response
     on: { after: [1, 2] }
-    world: "The catalyst is shown being consumed and regenerated through the mechanism; equilibrium and enthalpy indicators remain unchanged."
+    world: "At charge-bench, the dated accepted-result slip for Stop 33 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 35: SAMPLE THE BED FROM INLET TO OUTLET"
     # unlocks: Stop 35 at the bed sampling rail.
     bubbles:
@@ -2972,7 +2965,7 @@ missions:
   - id: after-stop-35
     # After Stop 35 | bed sampling rail | automatic spatial discovery
     on: { after: [3] }
-    world: "Inlet temperature and halide signal spike while conversion falls first at the front of the bed."
+    world: "At bed-log, the dated accepted-result slip for Stop 34 reads: \"Order as listed; Ni surface sites are catalyst, surface species are intermediates, slow conversion is rate-determining.\". The slip remains in that fixture's evidence holder."
     panel: "FAILURE IS NOT UNIFORM / INLET-FIRST DAMAGE."
     # unlocks: The Assay Lab waypoint and Stop 36.
     bubbles:
@@ -2981,7 +2974,7 @@ missions:
   - id: after-stop-36
     # After Stop 36 | Assay Lab | automatic diagnosis
     on: { after: [4] }
-    world: "The independent surface assay confirms halide contamination; A separate historic inlet reading of 612 K appears beside the result."
+    world: "At bed-ports, the dated accepted-result slip for Stop 35 reads: \"Inlet end: high temperature and halide exposure with depressed local activity; pattern is nonuniform.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 9 outcome beat.
     bubbles:
@@ -2990,16 +2983,12 @@ missions:
   - id: at-mission-end
     # At mission end | Assay Lab | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Sundqvist marks REPLACE CATALYST; Herrera marks EXPLAIN HIDDEN HOT SPOT; Abiola starts a final model review timer."
+    world: "At bed, Mei-Ling Cho places the damaged inlet cartridge in the HALIDE DAMAGE tray. The dated prop remains here on later visits."
     panel: "NEXT TEST - HOLDOUT THERMAL RUN."
     # unlocks: Mission 10 briefing and the Sabatier Reactor waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. We found the failure. Restore the old point after replacement."
-    - who: herrera   # Herrera
-      say: "Only if your model predicts the run you never showed."
-    - who: abiola   # Abiola
-      say: "Freeze the model. Reveal the hidden data."
+    - who: cho   # Mei-Ling Cho
+      say: "Replace what failed. Do not ask the new bed to survive an unsafe setting. But Herrera's old 612 K record is hotter than this damage explains; the hidden run must decide if his override saved the plant."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -3256,19 +3245,20 @@ missions:
     #     - {id: low_pressure, label: "Equilibrium pressure too low", mechanism: "Contradicted by normal controlled pressure."}
     #   answer: halide
 # ============================================================ MISSION 10
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Saboteur"
   card:
-    header: "6 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 10 - 6 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE SABOTEUR"
     goNow: "Go to the Sabatier Reactor and meet Commander Laila Abiola, the mission commander, at the sealed model display."
-    body: "The catalyst is contaminated near the inlet, and restoring the old temperature still looks like the quickest way to make fuel. Test that plan against measurements kept separate from the model's construction. Decide whether the earlier temperature reduction created the danger or prevented something worse."
+    body: "6 work shifts remain before launch. The sealed old run waits beneath Ingrid's blame model. Today you decide whether the old setting was safe."
     objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
   objective: "Test the accusation against unseen evidence and reconstruct Herrera's reason for the override."
-  stake: "The catalyst is contaminated near the inlet, and restoring the old temperature still looks like the quickest way to make fuel. Test that plan against measurements kept separate from the model's construction. Decide whether the earlier temperature reduction created the danger or prevented something worse."
+  stake: "6 work shifts remain before launch. The sealed old run waits beneath Ingrid's blame model. Today you decide whether the old setting was safe."
   takeaway: "A fair character reversal keeps the action true and changes its scientifically supported meaning."
-  segue: "Mission decision: The override stopped a heat runaway. The hidden run breaks the blame model. Its errors miss the same danger each time, and sensor error can push the old point past the limit. The old setting will not return. The plant needs a slower, safer way to make fuel."
+  segue: "Therefore Ingrid and Herrera must build a safer yield plan together; the launch clock has not stopped for their argument."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Model", def: "a simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting."}
@@ -3287,7 +3277,7 @@ missions:
   - id: on-arrival-at-reactor-hall
     # On arrival at Reactor Hall | automatic | 
     on: { enter: true, at: EQUIL }
-    world: "A case board reads HERRERA OVERRIDE -\\> PRODUCTION COLLAPSE; One dataset remains sealed beneath NOT USED IN FIT."
+    world: "The sealed old run waits beneath Ingrid's blame model."
     panel: "MISSION 10 - THE SABOTEUR"
     # unlocks: Stop 37 at the holdout-model display; Stop 38 unlocks immediately after Stop 37.
     bubbles:
@@ -3296,7 +3286,7 @@ missions:
   - id: after-stops-37-and-38
     # After Stops 37 and 38 | model display | automatic reversal
     on: { after: [1, 2] }
-    world: "The accusation model fails on the hidden run, with residual arrows pointing the same direction during the hottest inlet periods."
+    world: "At analyser, the dated accepted-result slip for Stop 37 reads: \"Freeze and choose model B after holdout; model A fails unseen safety behavior.\". The slip remains in that fixture's evidence holder."
     panel: "MODEL MISSES DANGER AT THE SAFETY BOUNDARY."
     # unlocks: Stop 39 at the uncertainty panel.
     bubbles:
@@ -3305,7 +3295,7 @@ missions:
   - id: after-stop-39
     # After Stop 39 | uncertainty control | automatic safety decision
     on: { after: [3] }
-    world: "A +/-5% sensor-bias slider pushes the old operating point across the red heat limit while the lower-temperature point retains margin."
+    world: "At residual-field, the dated accepted-result slip for Stop 38 reads: \"Model B.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 40: WHAT DID HERRERA KNOW, AND WHEN?"
     # unlocks: The Plant Control waypoint and Stop 40.
     bubbles:
@@ -3314,7 +3304,7 @@ missions:
   - id: after-stop-40
     # After Stop 40 | Plant Control chronology wall | automatic Twist 2
     on: { after: [4] }
-    world: "The player locks the order RADIATOR LOSS -\\> INLET HOT SPOT -\\> OVERRIDE -\\> PURGE -\\> PRODUCTION FALL."
+    world: "At reactor-console, the dated accepted-result slip for Stop 39 reads: \"No. If the sensor reads 2% low, actual peak is about 624 K, already above limit; at -5% actual is about 644 K. The lower point remains below limit across the range.\". The slip remains in that fixture's evidence holder."
     panel: "OVERRIDE WAS A SAFETY RESPONSE."
     # unlocks: The Mission 10 outcome beat.
     bubbles:
@@ -3325,12 +3315,12 @@ missions:
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
-    world: "SABOTAGE is removed from Herrera's profile; SAFETY INTERVENTION and FAILED COMMUNICATION replace it; The production clock continues counting down."
+    world: "At analyser, Commander Laila Abiola pins the OVERRIDE PREVENTED RUNAWAY finding beside the revealed run. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - REACTOR -\\> COLD END -\\> PLANT CONTROL."
     # unlocks: Mission 11 briefing and the Sabatier Reactor waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. The safe setting will not make methane fast enough."
+    - who: abiola   # Commander Laila Abiola
+      say: "You were right to lower it. You were wrong to leave us guessing. Therefore Ingrid and Herrera must build a safer yield plan together; the launch clock has not stopped for their argument."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -3673,19 +3663,20 @@ missions:
     #     - {id: cost, label: "Cost of the intervention"}
     #   mapping: {radiator_loss: cause, inlet_rise: hidden_hotspot, override: intervention, purge: protection, production: cost}
 # ============================================================ MISSION 11
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Fast Is Not the Same as More"
   card:
-    header: "5 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 11 - 5 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "FAST IS NOT THE SAME AS MORE"
     goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the equilibrium board."
-    body: "Lowering the temperature prevented dangerous overheating, but the crew still needs more methane. A faster reaction does not always produce more usable fuel in the end. Compare temperature, pressure, and water removal to choose a production plan that stays within the reactor's heat limit."
+    body: "5 work shifts remain before launch. Two trials rise at the same early speed and end at different yields. Today you decide which safe setting makes more methane in the end."
     objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
   objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
-  stake: "Lowering the temperature prevented dangerous overheating, but the crew still needs more methane. A faster reaction does not always produce more usable fuel in the end. Compare temperature, pressure, and water removal to choose a production plan that stays within the reactor's heat limit."
+  stake: "5 work shifts remain before launch. Two trials rise at the same early speed and end at different yields. Today you decide which safe setting makes more methane in the end."
   takeaway: "Kinetics sets speed; equilibrium sets the composition approached."
-  segue: "Mission decision: Use lower heat, higher pressure, and water removal. This plan keeps a safe heat margin and raises the final methane share. Two plans with the same early speed did not make the same final amount. The next test asks if the water and hydrogen loop can feed this plan."
+  segue: "But Demir's water return is short; better yield means little if the next shift cannot make hydrogen."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Equilibrium constant", def: "compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes."}
@@ -3707,7 +3698,7 @@ missions:
   - id: on-arrival-at-reactor-hall
     # On arrival at Reactor Hall | automatic | 
     on: { enter: true, at: EQUIL }
-    world: "The safe operating point sits below the thermal limit but behind the methane schedule."
+    world: "Two trials rise at the same early speed and end at different yields."
     panel: "MISSION 11 - FAST IS NOT THE SAME AS MORE"
     # unlocks: Stop 41 at the equilibrium board; Stop 42 unlocks immediately after Stop 41.
     bubbles:
@@ -3716,7 +3707,7 @@ missions:
   - id: after-stops-41-and-42
     # After Stops 41 and 42 | equilibrium board | automatic response
     on: { after: [1, 2] }
-    world: "The equilibrium expression and completed ICE table reveal the methane-yield ceiling at the current condition."
+    world: "At equil-stub, the dated accepted-result slip for Stop 41 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 43: PUSH THE BALANCE ON PURPOSE"
     # unlocks: The Cold End waypoint and Stop 43.
     bubbles:
@@ -3725,7 +3716,7 @@ missions:
   - id: after-stop-43
     # After Stop 43 | Cold End | automatic experiment
     on: { after: [3] }
-    world: "Cho removes product water at fixed temperature; methane conversion rises, then returns when the baseline is restored."
+    world: "At ice-board, the dated accepted-result slip for Stop 42 reads: \"Change -0.50 CO2, -2.00 H2, +0.50 CH4, +1.00 H2O; equilibrium 1.00, 1.00, 0.50, 1.00 M. Kc=(0.50)(1.00)^2/\\[(1.00)(1.00)^4\\] = 0.50.\". The slip remains in that fixture's evidence holder."
     panel: "PRODUCT REMOVAL INCREASES CH4 YIELD WITHOUT RAISING TEMPERATURE."
     # unlocks: The Plant Control waypoint and Stop 44.
     bubbles:
@@ -3734,7 +3725,7 @@ missions:
   - id: after-stop-44
     # After Stop 44 | Plant Control | automatic integrated decision
     on: { after: [4] }
-    world: "Two equal-rate plans appear; Thermal margin and equilibrium yield eliminate the hotter plan."
+    world: "At coldline-tap, the dated accepted-result slip for Stop 43 reads: \"Remove product water (preferred) or compress within limit; demonstration expects water removal and reversal.\". The slip remains in that fixture's evidence holder."
     panel: "VALIDATED PLAN - LOWER TEMPERATURE / HIGHER PRESSURE / PRODUCT WATER REMOVAL."
     # unlocks: The Mission 11 outcome beat.
     bubbles:
@@ -3743,14 +3734,12 @@ missions:
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Herrera and Sundqvist sign the same operating card; Demir overlays the power required for compression, cooling, and separation."
+    world: "At operating-point-board, Ingrid Sundqvist pins the LOWER TEMPERATURE / HIGHER PRESSURE / WATER REMOVAL plan to the board. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - ICE CUT -\\> WATER PLANT -\\> ELECTROLYSIS HALL."
     # unlocks: Mission 12 briefing and the Ice Cut waypoint.
     bubbles:
-    - who: demir   # Demir
-      say: "Outstanding work. You solved the mission. This plan can make the fuel. It also spends power in three places, and its hydrogen still comes from recycled water."
-    - who: abiola   # Abiola
-      say: "Then we stop treating the plant like separate rooms."
+    - who: sundqvist   # Ingrid Sundqvist
+      say: "We were racing the first minute. We need the last kilogram. But Demir's water return is short; better yield means little if the next shift cannot make hydrogen."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -4037,19 +4026,20 @@ missions:
     #     truth_pair: {temperature_K: 550, pressure_bar: 12}
     #     correct: "Choose the lower-temperature, higher-pressure point and keep product-water removal."
 # ============================================================ MISSION 12
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Loop"
   card:
-    header: "4 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 12 - 4 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE LOOP"
     goNow: "Go to the Ice Cut and meet Mei-Ling Cho, the water and cryogenics engineer, beside the raw-brine sampler."
-    body: "The safer reactor plan depends on recycled water returning to equipment that splits it into hydrogen and oxygen using electricity. Less water is returning than expected. Follow it through treatment and production, then find the missing return and calculate the hydrogen lost next shift."
+    body: "4 work shifts remain before launch. An 80 kmol gap sits in the water-return column. Today you decide where the missing hydrogen budget went."
     objective: "Find the failed recycling step and restore the whole-plant hydrogen balance."
   objective: "Find the failed recycling step and restore the whole-plant hydrogen balance."
-  stake: "The safer reactor plan depends on recycled water returning to equipment that splits it into hydrogen and oxygen using electricity. Less water is returning than expected. Follow it through treatment and production, then find the missing return and calculate the hydrogen lost next shift."
+  stake: "4 work shifts remain before launch. An 80 kmol gap sits in the water-return column. Today you decide where the missing hydrogen budget went."
   takeaway: "System boundaries and storage timing can create apparent missing material."
-  segue: "Mission decision: The next shift is short because 80 kmol of water did not return to the power cell. The full-plant hydrogen count now closes. Water treatment fixes the return line. The plant can make both gases again. It still needs enough power for every key load."
+  segue: "But Abiola's final production shift shares power with heat and air; Demir must protect those loads before startup."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Electrolysis", def: "uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen."}
@@ -4072,7 +4062,7 @@ missions:
   - id: on-arrival-at-ice-cut
     # On arrival at Ice Cut | automatic | 
     on: { enter: true, at: CUT }
-    world: "The player stands beside the raw-brine intake while a whole-plant map leaves the recycle return line dark."
+    world: "An 80 kmol gap sits in the water-return column."
     panel: "MISSION 12 - THE LOOP"
     # unlocks: Stop 45 at the Ice Cut loop board.
     bubbles:
@@ -4081,7 +4071,7 @@ missions:
   - id: after-stop-45
     # After Stop 45 | Ice Cut chain board | automatic response
     on: { after: [1] }
-    world: "The material chain locks, and ELECTROLYSIS receives an EXTERNAL ENERGY marker."
+    world: "At process-map, the dated accepted-result slip for Stop 45 reads: \"Correct order; electrolysis is the driven link.\". The slip remains in that fixture's evidence holder."
     panel: "MOVE TO WATER PLANT."
     # unlocks: The Water Plant waypoint and Stop 46; Stop 47 unlocks immediately after Stop 46.
     bubbles:
@@ -4090,7 +4080,7 @@ missions:
   - id: after-stops-46-and-47
     # After Stops 46 and 47 | Water Plant | automatic treatment verification
     on: { after: [2, 3] }
-    world: "The selected treatments remove particles and harmful dissolved ions; the commanded neutralization dose lands inside the predicted pH band."
+    world: "At columns, the dated accepted-result slip for Stop 46 reads: \"Map suspended regolith to the particle filter, dissolved ions to ion exchange, excess acid to measured base neutralization, and useful dissolved CO2 to retention.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 48: CLOSE HYDROGEN OVER THE WHOLE PLANT"
     # unlocks: The Electrolysis Hall waypoint and Stop 48.
     bubbles:
@@ -4099,7 +4089,7 @@ missions:
   - id: after-stop-48
     # After Stop 48 | Electrolysis Hall | automatic deeper reveal
     on: { after: [4] }
-    world: "The whole-plant ledger exposes water held or lost before the next shift, making the following hydrogen run short."
+    world: "At brinetank, the dated accepted-result slip for Stop 47 reads: \"initial H+ 0.00100 mol; OH- 0.000900 mol; excess H+ 0.000100 mol; total volume 0.1900 L; \\[H+\\]=5.26e-4 M; pH=3.28. Measured pH 3.30.\". The slip remains in that fixture's evidence holder."
     panel: "HYDROGEN DID NOT DISAPPEAR / RECYCLE WATER FAILED TO RETURN ON TIME."
     # unlocks: The Mission 12 outcome beat.
     bubbles:
@@ -4108,14 +4098,12 @@ missions:
   - id: at-mission-end
     # At mission end | Electrolysis Hall | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Cho reroutes recovered product water into the verified treatment-return line; Hydrogen and oxygen projections rise, then a dust-front warning drops available solar power."
+    world: "At stack-accounting-panel, Yusuf Demir clips the WATER RETURN: 80 KMOL RECOVERED entry into the stack ledger. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - SOLAR ARRAY -\\> BATTERY GALLERY -\\> ELECTROLYSIS HALL."
     # unlocks: Mission 13 briefing and the Solar Array waypoint.
     bubbles:
-    - who: cho   # Cho
-      say: "Outstanding work. You solved the mission. The loop can close now."
-    - who: demir   # Demir
-      say: "If we can afford to run it. The dust front just cut the power budget."
+    - who: demir   # Yusuf Demir
+      say: "The water came back. Now we have to pay to split it. But Abiola's final production shift shares power with heat and air; Demir must protect those loads before startup."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -4395,19 +4383,20 @@ missions:
     #     next_shift: {planned_h2: 480, actual_h2: 400, missing_return_water: 80, water_to_h2_ratio: "1:1 molar"}
     #     correct_action: "Close the current ledger, then identify an 80 kmol next-shift H2 deficit from missing return water."
 # ============================================================ MISSION 13
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Power"
   card:
-    header: "3 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 13 - 3 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "POWER"
     goNow: "Go to the Solar Array and meet Yusuf Demir, the power and life-support officer, at the live power board."
-    body: "A dust front has reduced solar power just as fuel recovery needs more electricity. The crew's living quarters, cooling, water treatment, and hydrogen equipment all share the supply. Calculate possible gas production and divide the available power without sacrificing the crew's essential systems."
+    body: "3 work shifts remain before launch. The habitat breaker tags sit beside a climbing tank gauge. Today you decide how much power the fuel cells may use."
     objective: "Turn the available electricity into launch gases while protecting every critical system."
   objective: "Turn the available electricity into launch gases while protecting every critical system."
-  stake: "A dust front has reduced solar power just as fuel recovery needs more electricity. The crew's living quarters, cooling, water treatment, and hydrogen equipment all share the supply. Calculate possible gas production and divide the available power without sacrificing the crew's essential systems."
+  stake: "3 work shifts remain before launch. The habitat breaker tags sit beside a climbing tank gauge. Today you decide how much power the fuel cells may use."
   takeaway: "A power allocation is scientific when every funded load protects a named consequence."
-  segue: "Mission decision: Run the power cell only while the habitat, cooling, cleanup, and cold tanks stay safe. The plan turns the available charge into hydrogen and finishes the oxygen goal. Both amount bars now read full. The launch clock starts. A new vial now tests what full really means."
+  segue: "But Achebe carries a fresh Batch C vial toward the lab; full tanks have not yet earned the word ready."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Electron", def: "a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge."}
@@ -4417,7 +4406,7 @@ missions:
   equations:
   - {"e":"Q = It","c":"finding the total electric charge delivered during a timed run","v":[["Q","charge in coulombs"],["I","current in amperes"],["t","time in seconds"]],"s":"The dust-limited array gives the crew current and time, but the recovery plan needs a predicted amount of hydrogen and oxygen."}
   - {"e":"Faraday's law calculation, moles of electrons = Q / F","c":"converting electric charge into chemical amount","v":[["Q","charge in coulombs"],["F","96,485 coulombs per mole of electrons"]],"s":"Electron amount is the bridge between the power board and the number of gas molecules the plant can make."}
-  - {"e":"actual product = theoretical product x current efficiency","c":"correcting ideal gas production for practical electrical losses","v":[["actual product","the usable amount made; theoretical product follows electron stoichiometry; current efficiency is written as a decimal fraction"]],"s":"The launch plan must budget for the cell the crew actually has rather than a perfect 100-percent cell."}
+  - {"e":"actual product = theoretical product x current efficiency","c":"correcting ideal gas production for practical electrical losses","v":[["actual","product is the usable amount made"],["theoretical","product follows electron stoichiometry"],["current","efficiency is written as a decimal fraction"]],"s":"The launch plan must budget for the cell the crew actually has rather than a perfect 100-percent cell."}
   primer:
   - "Reduction occurs at the cathode and oxidation occurs at the anode in both driven and spontaneous cells."
   - "Electrons travel through the outside circuit; ions move through the liquid to keep charge balanced."
@@ -4430,7 +4419,7 @@ missions:
   - id: on-arrival-at-array-shed
     # On arrival at Array Shed | automatic | 
     on: { enter: true, at: ARRAY }
-    world: "Red dust moves across the panels and the available-power bar falls in real time."
+    world: "The habitat breaker tags sit beside a climbing tank gauge."
     panel: "MISSION 13 - POWER"
     # unlocks: Stop 49 at the live power meter; Stop 50 unlocks immediately after Stop 49.
     bubbles:
@@ -4439,7 +4428,7 @@ missions:
   - id: after-stops-49-and-50
     # After Stops 49 and 50 | array power-routing display | automatic response
     on: { after: [1, 2] }
-    world: "Electron flow and ion motion complete the electrolyzer circuit; hydrogen and oxygen outlets illuminate on opposite sides."
+    world: "At array-controller, the dated accepted-result slip for Stop 49 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "MOVE TO BATTERY GALLERY."
     # unlocks: The Battery Gallery travel beat.
     bubbles:
@@ -4448,7 +4437,7 @@ missions:
   - id: on-arrival-at-battery-bank
     # On arrival at Battery Bank | automatic constraint reveal | 
     on: { enter: true, at: BATT }
-    world: "HABITAT MINIMUM, COOLING MINIMUM, and EMERGENCY RESERVE lock as protected loads."
+    world: "At cell-stacks, the dated accepted-result slip for Stop 50 reads: \"Cyclic order as listed, with note that the processes occur continuously rather than one molecule at a time.\". The slip remains in that fixture's evidence holder."
     panel: "AVAILABLE FOR RECOVERY OPERATIONS - UPDATED."
     # unlocks: The Battery Gallery waypoint, followed by the Electrolysis Hall waypoint and Stops 51-52.
     bubbles:
@@ -4457,7 +4446,7 @@ missions:
   - id: after-stops-51-and-52
     # After Stops 51 and 52 | Electrolysis Hall | automatic decision
     on: { after: [3, 4] }
-    world: "The calculated hydrogen amount populates the production forecast; The accepted allocation powers electrolysis, cooling, purification, refrigeration, habitat, and reserve without crossing any minimum."
+    world: "At stack-sheet, the dated accepted-result slip for Stop 51 reads: \"2.77 kg; tolerance ±3%.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 13 outcome beat.
     bubbles:
@@ -4466,12 +4455,12 @@ missions:
   - id: at-mission-end
     # At mission end | Electrolysis Hall | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Electrolyzer stacks start; Hydrogen and oxygen climb; the reactor holds its validated operating point; At dawn, both main indicators switch to FULL and the ascent checklist begins; Achebe waits beside the final console with a sealed vial and an active speech icon."
+    world: "At loadboard, Yusuf Demir pins the protected-load schedule beneath the full amount readings. The dated prop remains here on later visits."
     panel: "LAUNCH HOLD - INDEPENDENT ASSAY DISAGREES."
     # unlocks: Mission 14 briefing and the Tank Farm waypoint.
     bubbles:
-    - who: achebe   # Achebe
-      say: "Outstanding work. You solved the mission. Stop the countdown. Batch C does not match the green quality channel."
+    - who: demir   # Yusuf Demir
+      say: "Both amounts are full. Leave room for the test to say no. But Achebe carries a fresh Batch C vial toward the lab; full tanks have not yet earned the word ready."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -4740,19 +4729,20 @@ missions:
     #     correct: [habitat, cooling, purification, electrolysis, refrigeration]
     #     pass_rule: "All required questions answered and total cost <=600 kWh."
 # ============================================================ MISSION 14
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "FULL"
   card:
-    header: "2 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 14 - 2 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "FULL"
     goNow: "Go to the Tank Farm and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the newest sample vial."
-    body: "The fuel displays read full and launch preparations have begun, but a separate sample may contain the wrong gas mixture. Check how each display gets its information and test the sample independently. Decide whether the fuel is safe to use or must be isolated and cleaned."
+    body: "2 work shifts remain before launch. A fresh vial stands beneath a gauge that still says FULL. Today you decide whether full Batch C is fit for flight."
     objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
   objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
-  stake: "The fuel displays read full and launch preparations have begun, but a separate sample may contain the wrong gas mixture. Check how each display gets its information and test the sample independently. Decide whether the fuel is safe to use or must be isolated and cleaned."
+  stake: "2 work shifts remain before launch. A fresh vial stands beneath a gauge that still says FULL. Today you decide whether full Batch C is fit for flight."
   takeaway: "\"Enough\" and \"safe to use\" are separate scientific claims."
-  segue: "Mission decision: Stop the launch clock and hold Batch C. Its mass and pressure pass, but the new test finds too little methane and too much carbon dioxide and water. The batch fails the rule set before the test. One shift remains to make clean fuel without bringing back the heat risk."
+  segue: "Therefore Abiola has one shift to clean the fuel and replace the loss; the old hot setting remains forbidden."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Specification", def: "a measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit."}
@@ -4771,7 +4761,7 @@ missions:
   - id: on-arrival-at-tank-farm
     # On arrival at Tank Farm | automatic | 
     on: { enter: true, at: TANKS }
-    world: "Giant METHANE FULL and OXYGEN FULL indicators dominate the tank wall while Batch C is outlined in amber."
+    world: "A fresh vial stands beneath a gauge that still says FULL."
     panel: "MISSION 14 - FULL"
     # unlocks: Stop 53 at the Tank Farm dependency view.
     bubbles:
@@ -4780,7 +4770,7 @@ missions:
   - id: after-stop-53
     # After Stop 53 | Tank Farm dependency view | automatic discovery
     on: { after: [1] }
-    world: "Estimated mass, online composition, control-room quality, and READY trace back to shared Standard C; the independent vial remains separate; The READY light changes from green to amber."
+    world: "At farm-gauges, the dated accepted-result slip for Stop 53 reads: \"Pressure is independently real, but mass and quality are partly model-derived; two green quality channels share Standard C. The vial is the only independent composition check.\". The slip remains in that fixture's evidence holder."
     panel: "RESULT RECORDED"
     # unlocks: The Assay Lab waypoint and Stops 54-55.
     bubbles:
@@ -4789,7 +4779,7 @@ missions:
   - id: after-stops-54-and-55
     # After Stops 54 and 55 | Assay Lab | automatic Twist 3
     on: { after: [2, 3] }
-    world: "The frozen certification model fails on unseen Batch C; Composition appears as 91.6% methane, 8.0% carbon dioxide, and 0.40% water."
+    world: "At spec-bench, the dated accepted-result slip for Stop 54 reads: \"Model fails; quarantine Batch C.\". The slip remains in that fixture's evidence holder."
     panel: "AMOUNT AT TARGET / COMPOSITION OUT OF SPECIFICATION."
     # unlocks: The Ascent Pad office waypoint and Stop 56.
     bubbles:
@@ -4798,7 +4788,7 @@ missions:
   - id: after-stop-56
     # After Stop 56 | Pad Office | automatic crisis result
     on: { after: [4] }
-    world: "The player commits methane, carbon-dioxide, water, pressure, and abort limits before two blind resamples are revealed; Both confirm Batch C fails composition."
+    world: "At assay-review-board, the dated accepted-result slip for Stop 55 reads: \"Purification breakthrough hidden by shared Standard C bias is the only diagnosis that fits the full panel.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 14 outcome beat.
     bubbles:
@@ -4809,12 +4799,12 @@ missions:
   - id: at-mission-end
     # At mission end | Pad Office | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Abiola deletes FULL from the readiness display and replaces it with AMOUNT and SPECIFICATION; AMOUNT turns green; SPECIFICATION stays red; Four recovery plans appear with one shift remaining."
+    world: "At assay-review-board, Rosalind Achebe hangs a BATCH C: HOLD tag over the loading release. The dated prop remains here on later visits."
     panel: "FINAL MISSION - GO / NO-GO."
     # unlocks: Mission 15 briefing and the Plant Control waypoint.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. One shift. Enough total propellant. Not enough certified methane. Bring me the plan that gets us home without asking the rocket to trust a lie."
+    - who: achebe   # Rosalind Achebe
+      say: "The gauge tells the truth about mass. It cannot tell us what that mass is. Therefore Abiola has one shift to clean the fuel and replace the loss; the old hot setting remains forbidden."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -5150,19 +5140,20 @@ missions:
           value: 98.1
           hoursLeft: 6
 # ============================================================ MISSION 15
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "GO / NO-GO"
   card:
-    header: "1 SHIFT UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 15 - 1 WORK SHIFT REMAINS BEFORE LAUNCH."
     title: "GO / NO-GO"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the final recovery board."
-    body: "The suspect fuel batch is isolated, and only one shift remains before the crew's launch opportunity closes. Choose the measurement that can settle its quality, compare recovery plans, and fund the necessary work. Recommend launch only if the fuel, oxygen, power, and safety checks all pass."
+    body: "1 work shift remains before launch. The crew's bags wait behind the dark pad door. Today you decide whether the crew can launch."
     objective: "Authorize launch only if all four campaign metrics and every chemistry threshold pass."
   objective: "Authorize launch only if all four campaign metrics and every chemistry threshold pass."
-  stake: "The suspect fuel batch is isolated, and only one shift remains before the crew's launch opportunity closes. Choose the measurement that can settle its quality, compare recovery plans, and fund the necessary work. Recommend launch only if the fuel, oxygen, power, and safety checks all pass."
+  stake: "1 work shift remains before launch. The crew's bags wait behind the dark pad door. Today you decide whether the crew can launch."
   takeaway: "GO means every precommitted requirement passes - not that one reassuring gauge is green."
-  segue: "Mission decision: GO after Batch C is cleaned and the power cell makes up the lost hydrogen. Keep the reactor at the safe point. Launch only after two separate tests pass. All four bars and every set limit now pass. The crew leaves Mars, and no new quiz begins."
+  segue: "Therefore Demir keeps the protected loads on through boarding; GO must hold through the last check."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Certified methane", def: "methane whose amount and composition have passed the fixed flight rules through independent testing. Gross tank mass does not count as certified methane by itself."}
@@ -5182,7 +5173,7 @@ missions:
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "The final board shows one shift remaining and four recovery plans; Each plan has time, power, thermal, amount, and composition consequences."
+    world: "The crew's bags wait behind the dark pad door."
     panel: "MISSION 15 - GO / NO-GO"
     # unlocks: Stop 57 at the final decision board.
     bubbles:
@@ -5191,7 +5182,7 @@ missions:
   - id: after-stop-57
     # After Stop 57 | decision board to Tank Farm | automatic evidence choice
     on: { after: [1] }
-    world: "The selected independent contaminant measurement receives the final sampling slot; duplicate mass and pressure readings gray out."
+    world: "At final-recovery-board, the dated accepted-result slip for Stop 57 reads: \"Independent Batch C contaminant assay.\". The slip remains in that fixture's evidence holder."
     panel: "FINAL SAMPLE AUTHORIZED - BATCH C INDEPENDENT ASSAY."
     # unlocks: The Tank Farm waypoint and Stop 58.
     bubbles:
@@ -5200,7 +5191,7 @@ missions:
   - id: after-stop-58
     # After Stop 58 | Tank Farm | automatic plan elimination
     on: { after: [2] }
-    world: "Certified methane, not total tank mass, is applied to both surviving plans; The non-reprocessing plan falls below the usable-fuel requirement."
+    world: "At tank-calculation-station, the dated accepted-result slip for Stop 58 reads: \"D. Plan B meets gross mass but not usable certified methane; it cannot erase contaminants. Plan D reprocesses Batch C while validated production replaces small losses.\". The slip remains in that fixture's evidence holder."
     panel: "ONLY REPROCESS-BATCH-C PLAN SATISFIES AMOUNT + COMPOSITION + HARDWARE LIMITS."
     # unlocks: Stop 59 at the integrated control board.
     bubbles:
@@ -5209,7 +5200,7 @@ missions:
   - id: after-stop-59
     # After Stop 59 | integrated control board | automatic resource commitment
     on: { after: [3] }
-    world: "One hundred decision points lock across reprocessing, electrolysis, reactor production, independent verification, and safety margin; Every required causal link turns green."
+    world: "At recovery-allocation-board, the dated accepted-result slip for Stop 59 reads: \"35 reprocessing, 25 independent verification, 15 electrolysis, 10 validated reactor, and 15 safety/habitat; total 100. Accept variants with at least 60 points across reprocessing + verification and no points to cosmetic recalibration, provided safety gets at least 10.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 60: COMMANDER'S RECOMMENDATION"
     # unlocks: The Ascent Pad waypoint and Stop 60.
     bubbles:
@@ -5222,14 +5213,12 @@ missions:
   - id: after-stop-60
     # After Stop 60 | Pad Office | automatic final result
     on: { after: [4] }
-    world: "The final panel shows independent composition, amount, pressure, reactor thermal margin, habitat reserve, and oxygen all passing; after the accepted recommendation the timer stops and the Mission 15 metric screen opens, and AUTHORIZE LAUNCH appears only when all four bars reach 100%."
+    world: "At certification-console, Commander Laila Abiola turns the final launch decision key. The final scene follows the completion gate below."
     panel: "FINAL GO / NO-GO - ALL BINDING CONDITIONS PASS"
     # unlocks: The epilogue beat; all graded interaction is complete.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. Commander needs your recommendation. What do we do?"
-    - who: abiola   # Abiola
-      say: "All four systems are ready. Authorize launch."
+    - who: abiola   # Commander Laila Abiola
+      say: "You brought us to the pad with fuel we can trust. Therefore Demir keeps the protected loads on through boarding; GO must hold through the last check."
   - id: at-mission-end
     # At mission end | Ascent Pad | automatic epilogue
     on: { missionEnd: true }

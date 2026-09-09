@@ -1,17 +1,18 @@
 # ============================================================ MISSION 14
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Stop or Continue"
   card:
-    header: "DAY 14 - BOARD TOMORROW"
+    header: "MISSION 14 - 2 DAYS UNTIL THE BOARD MEETS."
     title: "Stop or Continue"
     goNow: "Go to Statistics and meet Tomas Reed, trial statistician, at the uncertainty console."
-    body: "The treatment still appears helpful, but later health problems could be serious enough to stop the trial. Test how uncertainty changes the balance between benefit and harm. Decide whether one more round of patient follow-up is justified, and set its safety rule first."
+    body: "2 days until the board meets. The benefit sheet passes while the harm band still touches the stop mark. Today you decide whether a bounded follow-up is justified."
     objective: "Choose between stopping now and one bounded follow-up."
   objective: "Choose between stopping now and one bounded follow-up."
-  stake: "The treatment still appears helpful, but later health problems could be serious enough to stop the trial. Test how uncertainty changes the balance between benefit and harm. Decide whether one more round of patient follow-up is justified, and set its safety rule first."
+  stake: "2 days until the board meets. The benefit sheet passes while the harm band still touches the stop mark. Today you decide whether a bounded follow-up is justified."
   takeaway: "Buy evidence that can change the decision."
-  segue: "Mission decision: Allow one small follow-up group under the safety rule. The benefit data support more study. The harm range blocks a full restart. Only source calls and a separate kit check can change that choice."
+  segue: "But Mara cannot carry an open harm question into tomorrow's board; source calls and a separate kit check must finish first."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Practical significance", def: "whether an effect is large enough to matter in context."}
@@ -29,43 +30,48 @@
   - id: on-arrival-at-statistics
     # On arrival at Statistics | uncertainty-console | automatic
     on: { enter: true, at: STAT }
-    world: "Arrival: STAT entry; harm interval crosses the line; Tomas says,; - After S1: unconditional continuation darkens; waypoint TAKE LIVE UNCERTAINTY TO REGISTRY. - REG after S2: source calls and kit audit funded; waypoint CARRY EVIDENCE ORDER TO BOARD. - BOARD after S3/final: cloud narrows; trigger and 120-patient cap lock; binder 14 and outcome unlock."
+    world: "The benefit sheet passes while the harm band still touches the stop mark."
     panel: "MISSION 14: STRESS THE BOUNDARY OPEN"
+    # unlocks: Unlock Stop 53 at uncertainty-console in Statistics.
     bubbles:
     - who: reed   # Tomas Reed
       say: "The center is not the whole interval"
   - id: after-stop-53
     # After Stop 53 | evidence-budget-desk | automatic
     on: { after: [1] }
-    world: "The stress the boundary result remains visible while the buy decision-changing evidence fixture lights."
+    world: "At uncertainty-console, the dated accepted-result slip for Stop 53 reads: \"The data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    # unlocks: Unlock Stop 54 at evidence-budget-desk in Statistics.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Nice work. Use the Stop 53 result to settle buy decision-changing evidence."
+    - who: berg   # Jonas Berg
+      say: "That check holds. The live decision now turns on unresolved harm rather than settled efficacy or file integrity."
   - id: after-stop-54
     # After Stop 54 | board-simulator | automatic
     on: { after: [2] }
-    world: "The buy decision-changing evidence result remains visible while the predict power direction fixture lights."
+    world: "At evidence-budget-desk, the dated accepted-result slip for Stop 54 reads: \"Fund source calls and the independent kit audit; they address the live harm boundary.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    # unlocks: Unlock Stop 55 at board-simulator in Monitoring Board Room.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Good thinking. Use the Stop 54 result to settle predict power direction."
+    - who: berg   # Jonas Berg
+      say: "That check holds. The funded follow-up changes sample size while leaving the test's effect target and threshold fixed."
   - id: after-stop-55
     # After Stop 55 | trigger-rail | automatic
     on: { after: [3] }
-    world: "The predict power direction result remains visible while the write the rule fixture lights."
+    world: "At board-simulator, the dated accepted-result slip for Stop 55 reads: \"Increasing n narrows standard error and increases power; it does not move the expected center.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    # unlocks: Unlock Stop 56 at trigger-rail in Monitoring Board Room.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Exactly right. Use the Stop 55 result to settle write the rule."
+    - who: berg   # Jonas Berg
+      say: "That check holds. More evidence could help, but the board must limit patient exposure while waiting for it."
   - id: at-mission-end
     # At mission end | uncertainty-console | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At trigger-rail, Jonas Berg clips the bounded follow-up order onto the prewritten trigger rail. The dated prop remains here on later visits."
     panel: "MISSION 14 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: berg   # Jonas Berg
+      say: "One bounded step. No quiet return to full speed. But Mara cannot carry an open harm question into tomorrow's board; source calls and a separate kit check must finish first."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -219,37 +225,14 @@
     # audit"). That is a rename, not new copy. The payload supplies no `reveals`
     # line for any option, so none is written; the importer warns and imports.
     value:
-      budget:
-        amount: 60
-        unit: ""
-      decision: ""
+      budget: { amount: 60, unit: "staff-hours" }
       options:
-        - id: source_calls
-          label: ""
-          cost: 30
-          axis: late-event outcome verification
-          reveals: ""
-        - id: kit_audit
-          label: ""
-          cost: 20
-          axis: independent exposure verification
-          reveals: ""
-        - id: efficacy_rerun
-          label: ""
-          cost: 25
-          axis: settled efficacy estimate
-          reveals: ""
-        - id: staff_survey
-          label: ""
-          cost: 15
-          axis: workflow opinion
-          reveals: ""
-        - id: biomarker
-          label: ""
-          cost: 25
-          axis: new exploratory mechanism
-          reveals: ""
-      commit: Commit the decision
+      - { id: source_calls, label: "Source calls", axis: "late-event outcome verification", cost: 30, decisive: true }
+      - { id: kit_audit, label: "Independent kit audit", axis: "independent exposure verification", cost: 20, decisive: true }
+      - { id: efficacy_rerun, label: "Efficacy rerun", axis: "settled efficacy estimate", cost: 25 }
+      - { id: staff_survey, label: "Staff survey", axis: "workflow opinion", cost: 15 }
+      - { id: biomarker, label: "Biomarker", axis: "new exploratory mechanism", cost: 25 }
+      commit: "Order the evidence"
     answerText: "The completed check shows fund source calls and the independent kit audit; they address the live harm boundary."
     why: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -352,4 +335,3 @@
         - at: T-6 h
           value: 0.015
           hoursLeft: 6
-

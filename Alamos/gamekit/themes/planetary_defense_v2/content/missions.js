@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Moving Point",
     "objective": "Decide whether the moving point is a credible asteroid detection.",
     "briefing": "",
-    "stake": "A telescope has photographed a faint dot moving against the stars. It could be an asteroid, a satellite, or an image defect. Use planetary science to check the six pictures and decide whether this possible asteroid deserves more observing time before it disappears from view.",
+    "stake": "264 hours to the predicted encounter. Four star fields lie on the board with one displaced dot. Today you decide whether the moving point earns more telescope time.",
     "primer": [
       "Stars define a nearly fixed background over a few minutes.",
       "A real nearby object should move smoothly across several calibrated images.",
@@ -275,10 +275,10 @@ export const MISSIONS = [
     },
     "takeaway": "Verify the moving object before inferring its orbit, size, or danger. ---",
     "card": {
-      "header": "IMPACT WINDOW: 11 DAYS",
+      "header": "MISSION 1 - 264 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE MOVING POINT",
       "goNow": "Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the scopeboard.",
-      "body": "A telescope has photographed a faint dot moving against the stars. It could be an asteroid, a satellite, or an image defect. Use planetary science to check the six pictures and decide whether this possible asteroid deserves more observing time before it disappears from view.",
+      "body": "264 hours to the predicted encounter. Four star fields lie on the board with one displaced dot. Today you decide whether the moving point earns more telescope time.",
       "objective": "Decide whether the moving point is a credible asteroid detection."
     },
     "beats": [
@@ -288,7 +288,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPS"
         },
-        "world": "Lena Ortiz, survey and discovery lead, drags a satellite trail away from the candidate and says, \"Show me the pixels before anyone shows me a probability.\" Timer pauses; Continue unlocks Stop 1.",
+        "world": "Four star fields lie on the board with one displaced dot.",
         "stage": {
           "wall": [
             {
@@ -312,7 +312,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The scopeboard labels four frames CONSISTENT MOTION and one frame CONTAMINATED, NOT DISCARDED.",
+        "world": "At scopeboard, the dated accepted-result slip for Stop 1 reads: \"Smooth motion in four frames against fixed stars.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -336,7 +336,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The pipeline path lights from calibrated image to linked tracklet; the plate archive drawer opens.",
+        "world": "At archive-bench, the dated accepted-result slip for Stop 2 reads: \"Calibration → detection → linking → catalog/artifact comparison → alert.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -360,7 +360,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The detector map marks the hot pixel elsewhere; the 0.7 s timestamp offset receives a yellow CHECK tag.",
+        "world": "At review-desk, the dated accepted-result slip for Stop 3 reads: \"Candidate→moving source; line→satellite; fixed point→hot pixel; stars→good registration.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -382,7 +382,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mira Chen, International NEO Response Director, moves the alert from AUTOMATED to HUMAN-VERIFIED and opens the Orbit Determination call.",
+        "world": "At scopeboard, Lena Ortiz pins the REAL MOVING OBJECT strip beneath the four images. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -395,12 +395,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "There it is. That is all we know yet. Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Spend follow-up time on the alert. Four clean images show one point moving while the stars stay fixed. The range accepts a real object but does not yet claim an impact or a size. The orbit team now has to learn where it is going.",
+    "segue": "Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination.",
     "stops": [
       {
         "group": "DISC",
@@ -442,7 +442,7 @@ export const MISSIONS = [
     "title": "Six Points Are Not an Orbit",
     "objective": "Determine whether the allowed orbit family includes a credible Earth encounter.",
     "briefing": "",
-    "stake": "The moving dot is real, but six sky positions still allow many possible paths through space. Compare paths that fit the measurements and check whether any reach Earth. Decide whether asteroid 2026 PDC needs continuous monitoring as a possible impact threat.",
+    "stake": "252 hours to the predicted encounter. A long cloud of possible paths brushes the Earth marker. Today you decide whether the object belongs on Earth's watch list.",
     "primer": [
       "A sky direction does not directly give distance.",
       "A short observing arc can fit many different three-dimensional orbits.",
@@ -770,10 +770,10 @@ export const MISSIONS = [
     },
     "takeaway": "A nominal miss is not zero risk when uncertainty still reaches Earth. ---",
     "card": {
-      "header": "IMPACT WINDOW: 10 DAYS, 18 HOURS",
+      "header": "MISSION 2 - 252 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "SIX POINTS ARE NOT AN ORBIT",
       "goNow": "Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the astro-bench.",
-      "body": "The moving dot is real, but six sky positions still allow many possible paths through space. Compare paths that fit the measurements and check whether any reach Earth. Decide whether asteroid 2026 PDC needs continuous monitoring as a possible impact threat.",
+      "body": "252 hours to the predicted encounter. A long cloud of possible paths brushes the Earth marker. Today you decide whether the object belongs on Earth's watch list.",
       "objective": "Determine whether the allowed orbit family includes a credible Earth encounter."
     },
     "beats": [
@@ -783,7 +783,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "ORBIT"
         },
-        "world": "Malik Rowan, orbit-determination lead, draws six dots and a fan of curves through them: \"Every line fits the picture. Gravity decides which lines survive.\"",
+        "world": "A long cloud of possible paths brushes the Earth marker.",
         "stage": {
           "wall": [
             {
@@ -807,7 +807,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The fit-board displays ANGULAR RATE 92 ± 5 ARCSEC/HOUR.",
+        "world": "At astro-bench, the dated accepted-result slip for Stop 5 reads: \"92.5 arcsec/hour; accept 83-102 arcsec/hour.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -831,7 +831,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The orbit fan contracts from 1,800 admissible paths to 240.",
+        "world": "At astro-bench, the dated accepted-result slip for Stop 6 reads: \"Use both sight lines, surveyed baseline, and station-position correction; range 0.071-0.089 AU.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -855,7 +855,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The lowest-RMS solution turns red for PATTERNED RESIDUALS; the random-residual solution stays.",
+        "world": "At fit-board, the dated accepted-result slip for Stop 7 reads: \"Model B.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -877,7 +877,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Earth appears on the propagated encounter plane; the board reads CURRENT IMPACT PROBABILITY 3.2% - MODEL DEPENDENT.",
+        "world": "At fit-board, Malik Rowan pins the 3.2% IMPACT PATHS strip beside the full orbit cloud. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -890,12 +890,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "rowan",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "The best line misses. The other allowed lines still count. But Mira's next packet may narrow that cloud onto Earth; a best-fit miss cannot cancel the watch."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Keep 2026 PDC on the Earth watch list. The best path misses Earth. Yet 3.2% of the allowed paths hit it. The team needs more data before it can act.",
+    "segue": "But Mira's next packet may narrow that cloud onto Earth; a best-fit miss cannot cancel the watch.",
     "stops": [
       {
         "group": "ORBIT",
@@ -931,7 +931,7 @@ export const MISSIONS = [
     "title": "The Probability Goes Up",
     "objective": "Decide whether the current evidence crosses the notification threshold.",
     "briefing": "",
-    "stake": "New measurements have raised concern that the asteroid could hit Earth. A more precise path does not always mean a safer one. Check the revised probability and its assumptions, then decide whether the evidence meets the agreed rule for notifying other countries.",
+    "stake": "240 hours remain to the close pass. The impact chance has crossed the warning line. Today you decide whether to send an early alert.",
     "primer": [
       "Shrinking uncertainty can concentrate probability onto Earth before later data remove it.",
       "A notification threshold starts coordination; it does not declare that impact is likely.",
@@ -1199,10 +1199,10 @@ export const MISSIONS = [
     },
     "takeaway": "Notify when the evidence crosses the rule, and communicate the condition as carefully as the number. ---",
     "card": {
-      "header": "IMPACT WINDOW: 10 DAYS, 12 HOURS",
+      "header": "MISSION 3 - 240 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE PROBABILITY GOES UP",
       "goNow": "Go to the Coordination Office and meet Mira Chen, International NEO Response Director, at the delivery desk.",
-      "body": "New measurements have raised concern that the asteroid could hit Earth. A more precise path does not always mean a safer one. Check the revised probability and its assumptions, then decide whether the evidence meets the agreed rule for notifying other countries.",
+      "body": "240 hours remain to the close pass. The impact chance has crossed the warning line. Today you decide whether to send an early alert.",
       "objective": "Decide whether the current evidence crosses the notification threshold."
     },
     "beats": [
@@ -1212,7 +1212,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPS"
         },
-        "world": "Mira Chen, International NEO Response Director, has two drafts open: WAIT FOR CERTAINTY and CONDITIONAL NOTICE. \"We will not hide behind either.\"",
+        "world": "The probability strip crosses the posted warning line.",
         "stage": {
           "wall": [
             {
@@ -1236,7 +1236,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The public and technical scales separate on the scopeboard.",
+        "world": "At delivery-desk, the dated accepted-result slip for Stop 9 reads: \"The model-based 8.0% statement.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1260,7 +1260,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The cloud contracts; IMPACT PROBABILITY changes from 3.2% to 8.0% with the label CURRENT MODEL.",
+        "world": "At scopeboard, the dated accepted-result slip for Stop 10 reads: \"3.2% old; 8.0% new.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1284,7 +1284,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The 8.0% value survives reasonable reweighting between 6.7% and 9.4%.",
+        "world": "At delivery-desk, the dated accepted-result slip for Stop 11 reads: \"Yes; minimum 6.7% remains above 1%.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1306,7 +1306,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The warning network receives the prewritten notice; outside news alerts appear on the wall display without the qualifying sentence.",
+        "world": "At threshold-board, Mira Chen clips the 8.0% / LIMITS INCLUDED notice into the dispatch sleeve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1319,12 +1319,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "Send the number with the sentence that limits it. But Evelyn needs a sharper path before towns can act; Mira must buy useful observations in the last dark window."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Send a warning now, but state its limits. The 8.0% result stays above the 1% line in each test. The notice gives the date, size range, and doubt. The next update must earn trust with better data.",
+    "segue": "But Evelyn needs a sharper path before towns can act; Mira must buy useful observations in the last dark window.",
     "stops": [
       {
         "group": "ORBIT",
@@ -1364,7 +1364,7 @@ export const MISSIONS = [
     "title": "The Last Dark Window",
     "objective": "Fund the observing plan most likely to change the impact decision.",
     "briefing": "",
-    "stake": "The asteroid will soon disappear into the Sun's glare, and the remaining possible paths include both hits and misses. Compare what pictures, radar, and heat measurements could reveal tonight. Spend the remaining observing time on the measurements most likely to change the response decision.",
+    "stake": "216 hours to the predicted encounter. A dawn line cuts through the remaining telescope blocks. Today you decide which observations are worth the last dark hours.",
     "primer": [
       "A longer time baseline often adds more orbital leverage than many same-night points.",
       "Radar can add range and radial velocity; thermal infrared can constrain size.",
@@ -1615,10 +1615,10 @@ export const MISSIONS = [
     },
     "takeaway": "Spend scarce observing time on complementary evidence, not repeated volume. ---",
     "card": {
-      "header": "IMPACT WINDOW: 10 DAYS",
+      "header": "MISSION 4 - 216 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE LAST DARK WINDOW",
       "goNow": "Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the fit-board.",
-      "body": "The asteroid will soon disappear into the Sun's glare, and the remaining possible paths include both hits and misses. Compare what pictures, radar, and heat measurements could reveal tonight. Spend the remaining observing time on the measurements most likely to change the response decision.",
+      "body": "216 hours to the predicted encounter. A dawn line cuts through the remaining telescope blocks. Today you decide which observations are worth the last dark hours.",
       "objective": "Fund the observing plan most likely to change the impact decision."
     },
     "beats": [
@@ -1628,7 +1628,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "ORBIT"
         },
-        "world": "Malik Rowan, orbit-determination lead, points to a daylight gap on the fit-board: \"More points tonight or one point later - those are not the same.\"",
+        "world": "A dawn line cuts through the remaining telescope blocks.",
         "stage": {
           "wall": [
             {
@@ -1652,7 +1652,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Low-value repeated exposures dim; later-baseline optical, radar, and thermal options remain bright.",
+        "world": "At fit-board, the dated accepted-result slip for Stop 13 reads: \"Late optical + radar + thermal = 90 credits.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1676,7 +1676,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The chosen schedule appears on the scopeboard with protected handoff blocks.",
+        "world": "At scope-schedule, the dated accepted-result slip for Stop 14 reads: \"Validate/early optical → radar → thermal → dawn optical → refit.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1700,7 +1700,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The error budget predicts orbit-width reduction from 17,000 km to 4,600 km.",
+        "world": "At fit-board, the dated accepted-result slip for Stop 15 reads: \"Radar plus dawn; 4,600 km forecast width.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1722,7 +1722,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mira authorizes the plan; the aircraft changes from HELD to SIGNED OUT FOR PHASE 5.",
+        "world": "At scope-schedule, Mira Chen pins the combined optical, radar, and thermal schedule to the board. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1734,13 +1734,13 @@ export const MISSIONS = [
         "panel": "THE LAST DARK WINDOW / MISSION DECISION LOGGED",
         "bubbles": [
           {
-            "who": "rowan",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "who": "chen",
+            "say": "We have hours to spend. Spend them on a different view. But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the last dark window for dawn images, radar, and heat data. These tests may cut the path width to about 4,600 km. The range will guard the handoff. The summit system must pass its checks first.",
+    "segue": "But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer.",
     "stops": [
       {
         "group": "ORBIT",
@@ -1780,7 +1780,7 @@ export const MISSIONS = [
     "title": "The Summit Test",
     "objective": "Validate the survey pipeline and certify the new optical positions.",
     "briefing": "",
-    "stake": "A satellite trail and missed faint objects could have affected the discovery pictures. Test the telescope software using artificial objects whose positions are known. Decide whether the new measurements are reliable enough to guide the asteroid's predicted path and the public warning.",
+    "stake": "192 hours remain to the close pass. Test dots sit beside real sky points and one blurred trail. Today you decide which new points the team can use.",
     "primer": [
       "A pipeline can miss faint objects without inventing false motion.",
       "Controls should change one variable and then reverse it.",
@@ -2044,10 +2044,10 @@ export const MISSIONS = [
     },
     "takeaway": "Validate both the pipeline and the position before adding precision to an impact orbit. ---",
     "card": {
-      "header": "IMPACT WINDOW: 9 DAYS, 18 HOURS",
+      "header": "MISSION 5 - 192 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE SUMMIT TEST",
       "goNow": "Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the pipeline-bench link.",
-      "body": "A satellite trail and missed faint objects could have affected the discovery pictures. Test the telescope software using artificial objects whose positions are known. Decide whether the new measurements are reliable enough to guide the asteroid's predicted path and the public warning.",
+      "body": "192 hours remain to the close pass. Test dots sit beside real sky points and one blurred trail. Today you decide which new points the team can use.",
       "objective": "Validate the survey pipeline and certify the new optical positions."
     },
     "beats": [
@@ -2057,7 +2057,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPS"
         },
-        "world": "Lena Ortiz, survey and discovery lead, loads a synthetic-source set: \"If we know what went in, we can count what came back.\"",
+        "world": "Injected test dots sit beside recovered points and one trailed image.",
         "stage": {
           "wall": [
             {
@@ -2081,7 +2081,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The recovery map shows one localized gap. Waypoint: FLY TO CERRO ALTO - TEST THE CAMERA WHERE THE GAP OCCURS.",
+        "world": "At pipeline-link, the dated accepted-result slip for Stop 17 reads: \"Trail/faint bin: 27/50 = 54%; localized loss.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2105,7 +2105,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Dome shutter opens; the pipeline-bench displays the same image region.",
+        "world": "At dome-console, the dated accepted-result slip for Stop 18 reads: \"45 s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2129,7 +2129,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Exposure setting locks; the bad-column mask shifts off and back on without moving the candidate.",
+        "world": "At pipeline-bench, the dated accepted-result slip for Stop 19 reads: \"Mask shift; response 0.03 px, below noise; returns to 2048.61 px.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2151,7 +2151,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "A new point appears 0.31 arcsec from the independent prediction; the astrometry packet receives CERTIFIED WITH LOCAL SYSTEMATIC.",
+        "world": "At pipeline-bench, Lena Ortiz stamps the new packet ACCEPT WITH LOCAL ERROR TERM. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2164,12 +2164,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "Use the frames. Keep the penalty. But Sanaa's same frames show odd brightness; the object's size must face heat data as well as light."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Add the new sky points to the impact model. Keep the local error term. Three tests support the result. The same frames show odd light, so the dome must test the body's size.",
+    "segue": "But Sanaa's same frames show odd brightness; the object's size must face heat data as well as light.",
     "stops": [
       {
         "group": "DISC",
@@ -2205,7 +2205,7 @@ export const MISSIONS = [
     "title": "The Darker Answer",
     "objective": "Break the brightness-size degeneracy and adopt a defensible diameter range.",
     "briefing": "",
-    "stake": "A bright asteroid could be small and reflective or large and dark, with very different consequences if it hits. Compare reflected sunlight with the heat the asteroid gives off. Decide what size range the emergency team must prepare for.",
+    "stake": "168 hours to the predicted encounter. A small bright-body card lies under two crossing size curves. Today you decide how large the dark object could be.",
     "primer": [
       "The same visible brightness can come from a small bright surface or a large dark surface.",
       "Thermal emission depends strongly on size and temperature.",
@@ -2545,10 +2545,10 @@ export const MISSIONS = [
     },
     "takeaway": "Break a degeneracy with evidence that depends on the unknowns in a different way. ---",
     "card": {
-      "header": "IMPACT WINDOW: 9 DAYS, 10 HOURS",
+      "header": "MISSION 6 - 168 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE DARKER ANSWER",
       "goNow": "Go to the Survey Telescope and meet Sanaa Vale, physical-characterization lead, by radio at the dome-console.",
-      "body": "A bright asteroid could be small and reflective or large and dark, with very different consequences if it hits. Compare reflected sunlight with the heat the asteroid gives off. Decide what size range the emergency team must prepare for.",
+      "body": "168 hours to the predicted encounter. A small bright-body card lies under two crossing size curves. Today you decide how large the dark object could be.",
       "objective": "Break the brightness-size degeneracy and adopt a defensible diameter range."
     },
     "beats": [
@@ -2558,7 +2558,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "DISC"
         },
-        "world": "Sanaa Vale, physical-characterization lead, appears by radio: \"The brightness is measured. The diameter is still an assumption.\"",
+        "world": "A small bright-body card lies under two crossing size curves.",
         "stage": {
           "wall": [
             {
@@ -2582,7 +2582,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The 106 m estimate receives ASSUMES pv = 0.25. Waypoint: FLY TO EAST SUMMIT - MEASURE HEAT, NOT JUST REFLECTION.",
+        "world": "At dome-console, the dated accepted-result slip for Stop 21 reads: \"0.106 km = 106 m; accept 98-114 m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2606,7 +2606,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The sizing-board shows reflected-light and thermal curves crossing at one region.",
+        "world": "At sizing-board, the dated accepted-result slip for Stop 22 reads: \"D = 260 m, pv = 0.041; diameter range 230-290 m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2630,7 +2630,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Diameter range locks at 230-290 m; the albedo marker falls to 0.041.",
+        "world": "At spectrograph, the dated accepted-result slip for Stop 23 reads: \"285 K.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2652,7 +2652,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Consequence class changes from LOCAL to REGIONAL; the unequal light-curve peaks remain tagged STRUCTURE UNRESOLVED.",
+        "world": "At sizing-board, Sanaa Vale moves the 106 M card into the ASSUMPTIONS sleeve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2665,12 +2665,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "vale",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "A dark surface can hide a large body in plain sight. Therefore Tomás must aim the radar at a 230 to 290 metre body; the next warning cannot keep the smaller size."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Plan for a dark body that is 230–290 m wide. Its heat shows that it is larger than first thought. Its light may point to two lobes. Radar must test its shape and path.",
+    "segue": "Therefore Tomás must aim the radar at a 230 to 290 metre body; the next warning cannot keep the smaller size.",
     "stops": [
       {
         "group": "CHAR",
@@ -2706,7 +2706,7 @@ export const MISSIONS = [
     "title": "The Echo Clock",
     "objective": "Deliver one independently timed radar constraint the orbit team can safely use.",
     "briefing": "",
-    "stake": "Radar sends a signal toward the asteroid and measures its return to find distance and motion. Tonight's echo is faint, and a clock error could put the asteroid in the wrong place. Check the timing and deliver a measurement the team can trust.",
+    "stake": "144 hours to the predicted encounter. The main echo shines beside a faint shoulder in the untouched strip. Today you decide which radar echo has a trusted clock.",
     "primer": [
       "Radar delay measures distance while Doppler measures line-of-sight motion.",
       "A shared clock error shifts many measurements together and cannot be averaged away.",
@@ -3057,10 +3057,10 @@ export const MISSIONS = [
     },
     "takeaway": "Correct the clock, freeze the prediction, and keep unexplained structure alive. ---",
     "card": {
-      "header": "IMPACT WINDOW: 8 DAYS",
+      "header": "MISSION 7 - 144 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE ECHO CLOCK",
       "goNow": "Go to the Coordination Office and meet Mira Chen at the scopeboard before traveling to the Bistatic Radar Range.",
-      "body": "Radar sends a signal toward the asteroid and measures its return to find distance and motion. Tonight's echo is faint, and a clock error could put the asteroid in the wrong place. Check the timing and deliver a measurement the team can trust.",
+      "body": "144 hours to the predicted encounter. The main echo shines beside a faint shoulder in the untouched strip. Today you decide which radar echo has a trusted clock.",
       "objective": "Deliver one independently timed radar constraint the orbit team can safely use."
     },
     "beats": [
@@ -3070,7 +3070,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPS"
         },
-        "world": "At OPS, Mira refuses to transmit an untraced timestamp.",
+        "world": "The main echo shines beside a faint shoulder in the untouched strip.",
         "stage": {
           "wall": [
             {
@@ -3094,7 +3094,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The aircraft carries the player to RADAR while Tomás explains the narrow observing window.",
+        "world": "At scopeboard, the dated accepted-result slip for Stop 25 reads: \"Flag the archive server and subtract 0.7 s from archived receipt times.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3118,7 +3118,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "A corrected echo lands exactly where one surviving orbit family predicts.",
+        "world": "At tracking-clock, the dated accepted-result slip for Stop 26 reads: \"Preserve -> compare -> record -> calibrate -> integrate -> release.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3142,7 +3142,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "A weaker shoulder appears beside the main return; Tomás preserves it without naming it.",
+        "world": "At radar-console, the dated accepted-result slip for Stop 27 reads: \"12,000 km range; object is approaching along the line of sight.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3164,7 +3164,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At tracking-clock, Tomás Ibarra clips the corrected main-echo time beside the preserved raw packet. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3177,12 +3177,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ibarra",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "Fix the clock. Keep the shoulder. But Malik must refit the orbit with that range; the faint shoulder stays in its own unresolved lane."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Accept the fixed main radar echo as a new range and speed check. Keep the weak shoulder marked as unknown. The orbit can now shrink without hiding that clue.",
+    "segue": "But Malik must refit the orbit with that range; the faint shoulder stays in its own unresolved lane.",
     "stops": [
       {
         "group": "RADAR",
@@ -3218,7 +3218,7 @@ export const MISSIONS = [
     "title": "The Orbit Narrows",
     "objective": "Combine optical and radar evidence into a revised impact probability without double-counting shared errors.",
     "briefing": "",
-    "stake": "Pictures show where the asteroid appears in the sky; radar adds its distance and motion toward or away from Earth. Combine the independent measurements without counting the same evidence twice. Update the impact probability and state what remains uncertain.",
+    "stake": "120 hours to the predicted encounter. The orbit cloud contracts while Earth stays inside it. Today you decide what the narrower orbit lets the team claim.",
     "primer": [
       "Optical angles and radar range constrain different parts of an orbit.",
       "Measurement weight depends on uncertainty and covariance, not the number of rows.",
@@ -3473,10 +3473,10 @@ export const MISSIONS = [
     },
     "takeaway": "Stronger evidence narrows uncertainty without abolishing it. ---",
     "card": {
-      "header": "IMPACT WINDOW: 7 DAYS, 12 HOURS",
+      "header": "MISSION 8 - 120 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE ORBIT NARROWS",
       "goNow": "Go to the Radar Range and meet Tomás Ibarra at the radar console, then carry the traced packet to Orbit Determination.",
-      "body": "Pictures show where the asteroid appears in the sky; radar adds its distance and motion toward or away from Earth. Combine the independent measurements without counting the same evidence twice. Update the impact probability and state what remains uncertain.",
+      "body": "120 hours to the predicted encounter. The orbit cloud contracts while Earth stays inside it. Today you decide what the narrower orbit lets the team claim.",
       "objective": "Combine optical and radar evidence into a revised impact probability without double-counting shared errors."
     },
     "beats": [
@@ -3486,7 +3486,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "RADAR"
         },
-        "world": "Tomás transfers only products with complete provenance.",
+        "world": "The orbit cloud contracts while Earth stays inside it.",
         "stage": {
           "wall": [
             {
@@ -3510,7 +3510,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Malik balances optical and radar weights.",
+        "world": "At radar-console, the dated accepted-result slip for Stop 29 reads: \"Mark A-products as correlated; preserve B-range as independent.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3534,7 +3534,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The b-plane cloud contracts across Earth's disk.",
+        "world": "At fit-board, the dated accepted-result slip for Stop 30 reads: \"Weight by uncertainty while grouping correlated radar products.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3558,7 +3558,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Mira asks for the strongest defensible sentence, not the largest number.",
+        "world": "At astro-bench, the dated accepted-result slip for Stop 31 reads: \"Impact is the leading case at 63%, with a material 37% miss set.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3580,7 +3580,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At fit-board, Malik Rowan pins the 63% IMPACT / 37% MISS strip beside the narrowed cloud. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3593,12 +3593,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "rowan",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "Do not erase the miss paths to make this sound urgent. Therefore Jordan must plan for the whole land band; 63% does not name a town."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Report a 63% chance of impact. Treat impact as the lead case for plans. Keep the miss paths and the wide land band in view.",
+    "segue": "Therefore Jordan must plan for the whole land band; 63% does not name a town.",
     "stops": [
       {
         "group": "ORBIT",
@@ -3636,7 +3636,7 @@ export const MISSIONS = [
     "title": "Where It Lands",
     "objective": "Define where protective planning is justified without drawing a false impact bullseye.",
     "briefing": "",
-    "stake": "The possible impact locations now form a long strip across Earth. A strike over ocean, desert, or a city would need different preparations. Estimate the impact energy and damage area, then decide where protective planning is warranted without pretending the exact location is known.",
+    "stake": "108 hours remain to the close pass. The path still spans sea, coast, and dry land. Today you decide which places need plans before a local order.",
     "primer": [
       "Diameter, density, and speed set the approximate energy scale.",
       "The same energy produces different consequences over ocean, desert, and a populated coast.",
@@ -3931,10 +3931,10 @@ export const MISSIONS = [
     },
     "takeaway": "Estimate the scale, preserve the corridor, and buy the observation that changes action. ---",
     "card": {
-      "header": "IMPACT WINDOW: 6 DAYS",
+      "header": "MISSION 9 - 108 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "WHERE IT LANDS",
       "goNow": "Go to Orbit Determination and meet Malik Rowan at the astro-bench, then carry the corridor to the Entry and Consequences Lab.",
-      "body": "The possible impact locations now form a long strip across Earth. A strike over ocean, desert, or a city would need different preparations. Estimate the impact energy and damage area, then decide where protective planning is warranted without pretending the exact location is known.",
+      "body": "108 hours remain to the close pass. The path still spans sea, coast, and dry land. Today you decide which places need plans before a local order.",
       "objective": "Define where protective planning is justified without drawing a false impact bullseye."
     },
     "beats": [
@@ -3944,7 +3944,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "ORBIT"
         },
-        "world": "Malik transfers a corridor, not a point.",
+        "world": "Ocean, desert, and coast strips overlap under the same path band.",
         "stage": {
           "wall": [
             {
@@ -3968,7 +3968,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Evelyn forces a rough energy calculation before simulation.",
+        "world": "At astro-bench, the dated accepted-result slip for Stop 33 reads: \"About (1.66\\times10^{10}) kg, (3.0\\times10^{18}) J, or 715 megatons TNT.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3992,7 +3992,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Outcome maps diverge over ocean and land.",
+        "world": "At energy-bench, the dated accepted-result slip for Stop 34 reads: \"Correct causal order; material strength or internal structure controls breakup behavior.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4016,7 +4016,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Jordan asks what observation can shrink the population under warning.",
+        "world": "At risk-display, the dated accepted-result slip for Stop 35 reads: \"Distinguish physical effects and exposed populations by segment.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4038,7 +4038,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At risk-display, Jordan Hale pins the PLAN WHOLE BAND / NO LOCAL ORDER YET card to the risk map. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4050,13 +4050,13 @@ export const MISSIONS = [
         "panel": "WHERE IT LANDS / MISSION DECISION LOGGED",
         "bubbles": [
           {
-            "who": "park",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "who": "hale",
+            "say": "Give me places to prepare. Do not invent a place it will hit. But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Start plans for the full path band. Do not order local action yet. New timing data must first split the ocean, desert, and coast cases.",
+    "segue": "But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here.",
     "stops": [
       {
         "group": "IMPACT",
@@ -4094,7 +4094,7 @@ export const MISSIONS = [
     "title": "One Object, Two Motions",
     "objective": "Decide whether the asteroid is one compact body or a weak two-lobed system.",
     "briefing": "",
-    "stake": "Both telescope and radar measurements disagree with the prediction for a simple, single-body asteroid. Compare possible shapes and the pattern of those disagreements. Decide whether the object is one compact body or two weakly joined parts that could behave differently.",
+    "stake": "96 hours to the predicted encounter. Two repeating peaks sit beside the old radar shoulder. Today you decide what the light curve proves about the body's shape.",
     "primer": [
       "Residuals repeating at the same rotational phase suggest missing structure.",
       "Different shapes and surface patterns can produce similar light curves.",
@@ -4518,10 +4518,10 @@ export const MISSIONS = [
     },
     "takeaway": "When independent residuals agree, revise the model - and no further. ---",
     "card": {
-      "header": "IMPACT WINDOW: 5 DAYS",
+      "header": "MISSION 10 - 96 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "ONE OBJECT, TWO MOTIONS",
       "goNow": "Go to the Spectroscopy Dome and meet Sanaa Vale at the photometry bench, then compare her result with radar.",
-      "body": "Both telescope and radar measurements disagree with the prediction for a simple, single-body asteroid. Compare possible shapes and the pattern of those disagreements. Decide whether the object is one compact body or two weakly joined parts that could behave differently.",
+      "body": "96 hours to the predicted encounter. Two repeating peaks sit beside the old radar shoulder. Today you decide what the light curve proves about the body's shape.",
       "objective": "Decide whether the asteroid is one compact body or a weak two-lobed system."
     },
     "beats": [
@@ -4531,7 +4531,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CHAR"
         },
-        "world": "Sanaa overlays the unequal brightness peaks from Mission 6.",
+        "world": "Two repeating peaks sit beside the old radar shoulder.",
         "stage": {
           "wall": [
             {
@@ -4555,7 +4555,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "A single ellipsoid fits the period but leaves alternating residuals.",
+        "world": "At photometry-bench, the dated accepted-result slip for Stop 37 reads: \"Reject pure random noise; test a more complex body model.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4579,7 +4579,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Radar frames show two delay concentrations moving together.",
+        "world": "At sizing-board, the dated accepted-result slip for Stop 38 reads: \"q = 1.65 and A = 1.00; SHAPE-DOMINATED.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4603,7 +4603,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The team names the minimum shared explanation: a weak contact binary.",
+        "world": "At radar-console, the dated accepted-result slip for Stop 39 reads: \"Classify the shoulder as physical secondary structure associated with the target.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4625,7 +4625,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At photometry-bench, Sanaa Vale clips the TWO LOBES / NO DETACHED FRAGMENT YET finding to the light curve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4638,12 +4638,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "vale",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "Two lobes is a finding. A loose piece is still a question. But Arjun still wants the Aegis craft to act; its available push must beat the required miss distance."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Treat 2026 PDC as a weak two-lobed body. Add checks for loose parts. Do not claim that a part has split off yet.",
+    "segue": "But Arjun still wants the Aegis craft to act; its available push must beat the required miss distance.",
     "stops": [
       {
         "group": "CHAR",
@@ -4679,7 +4679,7 @@ export const MISSIONS = [
     "title": "One Push",
     "objective": "Decide whether space deflection is physically credible with the remaining warning time.",
     "briefing": "",
-    "stake": "A spacecraft collision might push the asteroid off course, but very little time remains for that push to make a difference. Calculate the needed change and compare it with what a spacecraft could deliver. Decide whether to attempt a push or concentrate on protecting people.",
+    "stake": "84 hours remain to the close pass. The ready craft can give only a small push. Today you decide if that push can change the path enough.",
     "primer": [
       "A small velocity change becomes useful only if time remains for separation to grow.",
       "Short warning time greatly increases the velocity change required.",
@@ -4978,10 +4978,10 @@ export const MISSIONS = [
     },
     "takeaway": "The scientifically brave answer can be no. ---",
     "card": {
-      "header": "IMPACT WINDOW: 4 DAYS",
+      "header": "MISSION 11 - 84 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "ONE PUSH",
       "goNow": "Go to the Spectroscopy Dome for the mass estimate, continue to the Consequences Lab, and deliver the feasibility result to Mira Chen at Coordination.",
-      "body": "A spacecraft collision might push the asteroid off course, but very little time remains for that push to make a difference. Calculate the needed change and compare it with what a spacecraft could deliver. Decide whether to attempt a push or concentrate on protecting people.",
+      "body": "84 hours remain to the close pass. The ready craft can give only a small push. Today you decide if that push can change the path enough.",
       "objective": "Decide whether space deflection is physically credible with the remaining warning time."
     },
     "beats": [
@@ -4991,7 +4991,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CHAR"
         },
-        "world": "Sanaa supplies the dark-body mass range.",
+        "world": "A launch binder lies open beside a tiny available-impulse bar.",
         "stage": {
           "wall": [
             {
@@ -5015,7 +5015,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Evelyn defines a generous required displacement and remaining time.",
+        "world": "At sizing-board, the dated accepted-result slip for Stop 41 reads: \"Roughly (1.1\\times10^{10}) to (2.2\\times10^{10}) kg.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5039,7 +5039,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Arjun offers the strongest launch-ready impactor in the fiction.",
+        "world": "At deflection-desk, the dated accepted-result slip for Stop 42 reads: \"About 9.3 m/s and (1.5\\times10^{11}) N·s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5063,7 +5063,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Mira asks for a go/no-go based on orders of magnitude.",
+        "world": "At deflection-desk, the dated accepted-result slip for Stop 43 reads: \"Infeasible by more than three orders of magnitude, even before navigation and launch delays.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5085,7 +5085,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At deflection-desk, Arjun Sen closes the Aegis launch binder beneath INSUFFICIENT IMPULSE. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5098,12 +5098,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "sen",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "I wanted that mission. These numbers do not permit it. Therefore Jordan gets the remaining work budget for warnings and protection; no launch will buy back these days."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Do not try to push the body now. The best ready craft falls short by more than 3,300 times. Move all spare work to path checks and harm reduction.",
+    "segue": "Therefore Jordan gets the remaining work budget for warnings and protection; no launch will buy back these days.",
     "stops": [
       {
         "group": "CHAR",
@@ -5143,7 +5143,7 @@ export const MISSIONS = [
     "title": "The Line We Promise",
     "objective": "Approve a staged response plan before the next orbit result is known.",
     "briefing": "",
-    "stake": "Evacuations and other emergency actions cost time and resources, but waiting too long can cost lives. Agree on which evidence should trigger each protective step before the next forecast arrives. Allocate the available resources and rehearse a plan that treats threatened communities consistently.",
+    "stake": "72 hours to the predicted encounter. A news alert outside drops the qualifying sentence from the notice. Today you decide which rules will start or end local action.",
     "primer": [
       "Reversible preparation can begin under broader uncertainty than disruptive evacuation.",
       "Action rules should include likelihood, consequence, time, exposure, and verification.",
@@ -5435,10 +5435,10 @@ export const MISSIONS = [
     },
     "takeaway": "Decide the rule before the result tests your courage. ---",
     "card": {
-      "header": "IMPACT WINDOW: 3 DAYS",
+      "header": "MISSION 12 - 72 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE LINE WE PROMISE",
       "goNow": "Go to the Consequences Lab, carry the response envelope to the Town Emergency Office, and publish the final rules from Coordination.",
-      "body": "Evacuations and other emergency actions cost time and resources, but waiting too long can cost lives. Agree on which evidence should trigger each protective step before the next forecast arrives. Allocate the available resources and rehearse a plan that treats threatened communities consistently.",
+      "body": "72 hours to the predicted encounter. A news alert outside drops the qualifying sentence from the notice. Today you decide which rules will start or end local action.",
       "objective": "Approve a staged response plan before the next orbit result is known."
     },
     "beats": [
@@ -5448,7 +5448,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "IMPACT"
         },
-        "world": "Evelyn presents conditional consequence envelopes.",
+        "world": "A news alert outside drops the qualifying sentence from the notice.",
         "stage": {
           "wall": [
             {
@@ -5472,7 +5472,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Jordan exposes the thirty-day evacuation lead versus eleven-day discovery warning.",
+        "world": "At risk-display, the dated accepted-result slip for Stop 45 reads: \"Correct four trigger-action matches.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5496,7 +5496,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The player assigns staged actions to escalating evidence.",
+        "world": "At evac-desk, the dated accepted-result slip for Stop 46 reads: \"Stage targeted capacity and retain a reserve; do not order corridor-wide evacuation.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5520,7 +5520,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Mira publishes the rule before the next orbit update.",
+        "world": "At threshold-board, the dated accepted-result slip for Stop 47 reads: \"Complete the seven-step protocol with verification before authorization.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5542,7 +5542,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At threshold-board, Jordan Hale pins the signed staged-response rules above the incoming-news strip. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5555,12 +5555,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "hale",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "The headline changed our words. It does not get to change our rule. But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Approve the staged plan. Start with broad steps that can be undone. Use strong orders only for a narrow, checked danger zone. Stand down places that the full path rules out.",
+    "segue": "But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives.",
     "stops": [
       {
         "group": "TOWN",
@@ -5598,7 +5598,7 @@ export const MISSIONS = [
     "title": "Through the Keyhole",
     "objective": "Escalate the primary-body response or defensibly stand down the populated land corridor.",
     "briefing": "",
-    "stake": "The final pictures and an independent radar observation can test whether the main asteroid will cross inhabited land. Check for a shared clock error and test the prediction against a withheld measurement. Decide whether to increase protection or tell the threatened communities they are clear.",
+    "stake": "60 hours to the predicted encounter. The corrected primary path runs over deep ocean beside the old land band. Today you decide whether the main-body land alert can end.",
     "primer": [
       "A reference star can reveal a shift caused by the optical pipeline.",
       "A justified correction removes structure but leaves realistic scatter.",
@@ -5853,10 +5853,10 @@ export const MISSIONS = [
     },
     "takeaway": "A defensible stand-down is a planetary-defense success. ---",
     "card": {
-      "header": "IMPACT WINDOW: 2 DAYS",
+      "header": "MISSION 13 - 60 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THROUGH THE KEYHOLE",
       "goNow": "Go to Orbit Determination, verify the final primary-body prediction at Radar, and deliver the result to Coordination.",
-      "body": "The final pictures and an independent radar observation can test whether the main asteroid will cross inhabited land. Check for a shared clock error and test the prediction against a withheld measurement. Decide whether to increase protection or tell the threatened communities they are clear.",
+      "body": "60 hours to the predicted encounter. The corrected primary path runs over deep ocean beside the old land band. Today you decide whether the main-body land alert can end.",
       "objective": "Escalate the primary-body response or defensibly stand down the populated land corridor."
     },
     "beats": [
@@ -5866,7 +5866,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "ORBIT"
         },
-        "world": "A reference-star control identifies a common offset in the last optical batch.",
+        "world": "The corrected primary path runs over deep ocean beside the old land band.",
         "stage": {
           "wall": [
             {
@@ -5890,7 +5890,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Corrected residuals center near zero without becoming unrealistically perfect.",
+        "world": "At tracking-rack, the dated accepted-result slip for Stop 49 reads: \"Apply −0.36 arcsec; corrected reference residual = 0.00 arcsec and asteroid residual = +0.02 arcsec; restore raw view; conclude SHARED BIAS.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5914,7 +5914,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "A separately clocked radar holdout lands inside the ocean solution.",
+        "world": "At fit-board, the dated accepted-result slip for Stop 50 reads: \"Accept the fit and preserve correction provenance.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5938,7 +5938,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Jordan stands down the nine-million-person land corridor under the published rule.",
+        "world": "At astro-bench, the dated accepted-result slip for Stop 51 reads: \"Stand down land evacuation and retain ocean/coastal monitoring.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5960,7 +5960,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At scopeboard, Mira Chen pins the PRIMARY BODY: LAND STAND-DOWN card to the plot. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5972,13 +5972,13 @@ export const MISSIONS = [
         "panel": "THROUGH THE KEYHOLE / MISSION DECISION LOGGED",
         "bubbles": [
           {
-            "who": "rowan",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "who": "chen",
+            "say": "Nine million people can stand down. Keep the coast watch on. But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo."
           }
         ]
       }
     ],
-    "segue": "Mission decision: End the land alert for the main body. Fixed sky data and a separate radar test put its full path over deep ocean. Keep a fair watch on the coast.",
+    "segue": "But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo.",
     "stops": [
       {
         "group": "ORBIT",
@@ -6014,7 +6014,7 @@ export const MISSIONS = [
     "title": "The Second Echo",
     "objective": "Decide whether the apparent all-clear hides a separate damaging fragment.",
     "briefing": "",
-    "stake": "The main asteroid is headed toward deep ocean, but a faint second radar echo does not fit its path. It might be an instrument error or a separate fragment. Compare independent observations and decide whether the apparent all-clear has missed another danger.",
+    "stake": "36 hours to the predicted encounter. A new red echo separates from the green primary track. Today you decide whether the second echo needs its own track.",
     "primer": [
       "A new object can exist without invalidating the verified primary orbit.",
       "Independent relative motion distinguishes separation from a connected rotating lobe.",
@@ -6269,10 +6269,10 @@ export const MISSIONS = [
     },
     "takeaway": "Preserve the anomaly long enough for it to become evidence. ---",
     "card": {
-      "header": "IMPACT WINDOW: 1 DAY",
+      "header": "MISSION 14 - 36 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE SECOND ECHO",
       "goNow": "Go to Coordination for the anomaly review, inspect the second return at Radar, and open any new orbit track at Orbit Determination.",
-      "body": "The main asteroid is headed toward deep ocean, but a faint second radar echo does not fit its path. It might be an instrument error or a separate fragment. Compare independent observations and decide whether the apparent all-clear has missed another danger.",
+      "body": "36 hours to the predicted encounter. A new red echo separates from the green primary track. Today you decide whether the second echo needs its own track.",
       "objective": "Decide whether the apparent all-clear hides a separate damaging fragment."
     },
     "beats": [
@@ -6282,7 +6282,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPS"
         },
-        "world": "Mira orders one final anomaly review before demobilization.",
+        "world": "A new red echo separates from the green primary track.",
         "stage": {
           "wall": [
             {
@@ -6306,7 +6306,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Tomás verifies the main echo and measures a separating secondary.",
+        "world": "At scopeboard, the dated accepted-result slip for Stop 53 reads: \"Keep the primary ocean solution.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6330,7 +6330,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Lena reports an uncataloged optical point at the secondary ephemeris.",
+        "world": "At radar-console, the dated accepted-result slip for Stop 54 reads: \"Candidate separated body, pending independent evidence.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6354,7 +6354,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Malik opens a distinct fragment track: approximately 32 meters.",
+        "world": "At echo-archive, the dated accepted-result slip for Stop 55 reads: \"Accept independent confirmation.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6376,7 +6376,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At echo-archive, Tomás Ibarra clips the SEPARATE FRAGMENT: 32 M record beside the preserved shoulder. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6389,12 +6389,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ibarra",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "We kept the weak echo. Now it has a path. Therefore Lena must use the last observation on the fragment; less than two days remain for a narrow warning."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Keep the main-body land stand-down. Open a new track for the separate 32 m piece. Start urgent search work and staged plans for it.",
+    "segue": "Therefore Lena must use the last observation on the fragment; less than two days remain for a narrow warning.",
     "stops": [
       {
         "group": "ORBIT",
@@ -6430,7 +6430,7 @@ export const MISSIONS = [
     "title": "The Honest Warning",
     "objective": "Issue the final warning and execute a proportionate protective response.",
     "briefing": "",
-    "stake": "The smaller fragment could pass over land, and little warning time remains. Use the final observation to refine its path and estimate the possible harm. Apply the response rules you already agreed on, then issue the warning and carry out the necessary protection.",
+    "stake": "24 hours remain to the close pass. The large body stays clear of land. A small piece has its own red path. Today you decide which urgent warning to send.",
     "primer": [
       "A 32-meter object can be locally devastating without being globally catastrophic.",
       "Risk decisions combine probability, consequence, warning time, and exposure.",
@@ -6714,10 +6714,10 @@ export const MISSIONS = [
     },
     "takeaway": "Planetary defense is a chain of evidence, decisions, and proportionate action - not a single heroic technology. ---",
     "card": {
-      "header": "IMPACT WINDOW: LESS THAN 12 HOURS",
+      "header": "MISSION 15 - 24 HOURS TO THE PREDICTED ENCOUNTER.",
       "title": "THE HONEST WARNING",
       "goNow": "Go to the Survey Telescope for the final recovery, carry the positions to Orbit Determination, and execute the response from the Town Emergency Office.",
-      "body": "The smaller fragment could pass over land, and little warning time remains. Use the final observation to refine its path and estimate the possible harm. Apply the response rules you already agreed on, then issue the warning and carry out the necessary protection.",
+      "body": "24 hours remain to the close pass. The large body stays clear of land. A small piece has its own red path. Today you decide which urgent warning to send.",
       "objective": "Issue the final warning and execute a proportionate protective response."
     },
     "beats": [
@@ -6727,7 +6727,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "DISC"
         },
-        "world": "Lena recovers the fragment in the last dark window.",
+        "world": "The green primary track stays beside a narrow red fragment corridor.",
         "stage": {
           "wall": [
             {
@@ -6751,7 +6751,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Malik builds a narrow populated land corridor.",
+        "world": "At pipeline-bench, the dated accepted-result slip for Stop 57 reads: \"Sign the verified recovery.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6775,7 +6775,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evelyn bounds the event near 0.7–2 megatons TNT.",
+        "world": "At astro-bench, the dated accepted-result slip for Stop 58 reads: \"Every targeted-order criterion is crossed.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6799,7 +6799,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Jordan applies the published threshold to protect 180,000 people.",
+        "world": "At threshold-board, the dated accepted-result slip for Stop 59 reads: \"Issue the targeted, accessible, updateable order.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6821,7 +6821,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map.",
+        "world": "At delivery-desk, Mira Chen presses the verified-warning release key. The final scene follows the completion gate below.",
         "stage": {
           "wall": [
             {
@@ -6834,12 +6834,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+            "say": "You gave people a warning they can use, and kept its limits intact. Therefore Jordan sends transport to the 180,000-person corridor while the main-body stand-down remains in force."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Send and carry out the narrow safety order for 180,000 people. Keep the main-body land stand-down. Watch both objects until each outcome is known.",
+    "segue": "Therefore Jordan sends transport to the 180,000-person corridor while the main-body stand-down remains in force.",
     "stops": [
       {
         "group": "DISC",

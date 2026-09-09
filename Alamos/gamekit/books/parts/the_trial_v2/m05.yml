@@ -1,17 +1,18 @@
 # ============================================================ MISSION 5
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Fast Site"
   card:
-    header: "DAY 5 - BOARD IN 11 DAYS"
+    header: "MISSION 5 - 11 DAYS UNTIL THE BOARD MEETS."
     title: "The Fast Site"
     goNow: "Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the enrollment wall."
-    body: "Most early results came from the hospital that recruited patients fastest. Its patients may differ from the people treated elsewhere. Inspect who was included and who was missed, then decide whether this hospital's result can speak for the wider patient population."
+    body: "Eleven days remain before the board meets. The fast site sent its lead doctor and a list of missed roads. Today you decide whose results the site can speak for."
     objective: "Audit the fast site's patient sample."
   objective: "Audit the fast site's patient sample."
-  stake: "Most early results came from the hospital that recruited patients fastest. Its patients may differ from the people treated elsewhere. Inspect who was included and who was missed, then decide whether this hospital's result can speak for the wider patient population."
+  stake: "Eleven days remain before the board meets. The fast site sent its lead doctor and a list of missed roads. Today you decide whose results the site can speak for."
   takeaway: "Random assignment and random sampling justify different claims."
-  segue: "Mission decision: Do not apply the fast site result to all patients. Random assignment still supports cause within the trial. Rural patients were missed before sampling. Fixing that gap will take more people and more time."
+  segue: "Therefore Priya must price an amendment that reaches rural patients; the missed names cost screens and staff time."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Sampling frame", def: "the list or process from which a sample is selected."}
@@ -32,43 +33,48 @@
   - id: on-arrival-at-the-monitors-room
     # On arrival at the Monitors' Room | monitor-desk | automatic
     on: { enter: true, at: SITE }
-    world: "Arrival: SITE entry; nearby bubble; fast enrollment dashboard visible; Eli says,; - After S1-S2: sample and stratification committed; roster prints; waypoint TAKE THE AUDIT ROSTER TO DATA MANAGEMENT; unlock travel. - DATA arrival/after S3: probe reveals FRAME GAP; panel text and icon persist; - Final: scope decision; dashboard changes to NARROW SAMPLE; Eli concedes; binder 5 and outcome unlock."
+    world: "A visiting investigator grips a travel roster beneath the site's green totals."
     panel: "MISSION 5: DRAW AN SRS OPEN"
+    # unlocks: Unlock Stop 17 at monitor-desk in the Monitors' Room.
     bubbles:
     - who: navarro   # Eli Navarro
       say: "This site clears every deadline"
   - id: after-stop-17
     # After Stop 17 | enrollment-wall | automatic
     on: { after: [1] }
-    world: "The draw an srs result remains visible while the preserve every region fixture lights."
+    world: "At monitor-desk, the dated accepted-result slip for Stop 17 reads: \"Record the seed, generate three-digit numbers, ignore repeats and 241-999, and stop after 12 unique charts.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    # unlocks: Unlock Stop 18 at enrollment-wall in Monitors' Room.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Nice work. Use the Stop 17 result to settle preserve every region."
+      say: "That check holds. The chart-sampling procedure does not guarantee enough rural patients for a useful access audit."
   - id: after-stop-18
     # After Stop 18 | roster-wall | automatic
     on: { after: [2] }
-    world: "The preserve every region result remains visible while the find who never entered fixture lights."
+    world: "At enrollment-wall, the dated accepted-result slip for Stop 18 reads: \"Stratify by residence, then take an SRS within each stratum.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 18 RECORDED - STOP 19 OPEN"
+    # unlocks: Unlock Stop 19 at roster-wall in Data Management.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Good thinking. Use the Stop 18 result to settle find who never entered."
+      say: "That check holds. The stratified plan reveals that some rural patients disappear before sampling even begins."
   - id: after-stop-19
     # After Stop 19 | extraction-console | automatic
     on: { after: [3] }
-    world: "The find who never entered result remains visible while the set the scope fixture lights."
+    world: "At roster-wall, the dated accepted-result slip for Stop 19 reads: \"Twenty-eight eligible rural patients never entered the frame, so this is undercoverage; later losses include nonresponse. Leading questions would instead create response bias.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    # unlocks: Unlock Stop 20 at extraction-console in Data Management.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Exactly right. Use the Stop 19 result to settle set the scope."
+      say: "That check holds. The enrollment audit changes how broadly the trial's treatment comparison can be interpreted."
   - id: at-mission-end
     # At mission end | monitor-desk | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At site-comparison-board, Eli Navarro pins the NARROW SAMPLE finding beside the fast-site card. The dated prop remains here on later visits."
     panel: "MISSION 5 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The speed was real. So were the people we missed. Therefore Priya must price an amendment that reaches rural patients; the missed names cost screens and staff time."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -157,23 +163,18 @@
     # again" responses read alike because the bible wrote them alike.
     columns: [Situation, Response]
     scenarios:
-      - label 240 charts
-      - generate a three-digit number
-      - number repeats
-      - number is 241-999
-      - 12 unique valid labels recorded
+    - "label 240 charts"
+    - "generate a three-digit number"
+    - "number repeats"
+    - "number is 241-999"
+    - "12 unique valid labels recorded"
     choices:
-      - assign unique labels 001-240
-      - use the recorded RNG seed
-      - ignore and draw again
-      - ignore and draw again
-      - stop sampling
-    mapping:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
+    - "assign unique labels 001-240"
+    - "use the recorded RNG seed"
+    - "ignore and draw again"
+    - "ignore and draw again"
+    - "stop sampling"
+    mapping: [0, 1, 2, 3, 4]
     answerText: "The completed check shows record the seed, generate three-digit numbers, ignore repeats and 241-999, and stop after 12 unique charts."
     why: "A chance mechanism prevents staff from selecting only easy or complete charts."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -229,36 +230,23 @@
     # expected as bare numbers with a separate `unit: patients`, so each is
     # written here as the quantity it is — the engine prints these strings.
     probe:
-      load: Rural-patient roster, expected flow from the eligibility audit
+      chainLabel: "Roster station"
+      commit: "Name the station where the count first breaks"
+      minReadings: 4
+      target: frame
       stations:
-        - id: eligible
-          label: Eligible list
-          reading: 120
-          expected: 120
-          comparison: matches
-          unit: patients
-        - id: frame
-          label: Sampling frame
-          reading: 92
-          expected: 120
-          comparison: 28 missing before sampling
-          unit: patients
-        - id: contacted
-          label: Contacted sample
-          reading: 80
-          expected: 92
-          comparison: 12 sampled patients not reached
-          unit: patients
-        - id: response
-          label: Completed response
-          reading: 74
-          expected: 80
-          comparison: 6 contacted patients did not answer
-          unit: patients
-      ordered: true
-      first_break: frame
-      correct_conclusion: 28-person undercoverage before sampling; later losses are nonresponse
-      submission: station, numerical gap, and bias classification
+      - { id: eligible, label: "Eligible list", reading: "120 patients",
+          expected: "120 patients on the eligibility audit",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+      - { id: frame, label: "Sampling frame", reading: "92 patients",
+          expected: "120 patients on the eligibility audit",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+      - { id: contacted, label: "Contacted sample", reading: "80 patients",
+          expected: "92 patients in the sampling frame",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
+      - { id: response, label: "Completed response", reading: "74 patients",
+          expected: "80 patients contacted",
+          load: "Rural-patient roster, expected flow from the eligibility audit" }
     answerText: "The completed check shows twenty-eight eligible rural patients never entered the frame, so this is undercoverage; later losses include nonresponse. Leading questions would instead create response bias."
     why: "Different bias mechanisms require different repairs and support different claims."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -289,7 +277,11 @@
     # engine's amber status, which is what the bible's "warning" is.
     # DERIVED: `zone`, the display each reading comes off — each is the bible's
     # own name for that reading.
-    readings: []
+    readings:
+    - { zone: "Random assignment", label: "Inside the trial", value: "pass", status: normal }
+    - { zone: "Population random sample", label: "Selection from the population", value: "none", status: low }
+    - { zone: "Rural undercoverage", label: "Eligible patients never in the frame", value: "28 patients", status: alarm }
+    - { zone: "Treatment concealment", label: "Assignment path", value: "intact", status: normal }
     # The four candidates are the bible's own choice list, in its order and its
     # words: "cause+all patients; association only; cause for trial-like patients
     # with limited generalization; generalize no cause", answer the third.
@@ -309,4 +301,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   readings random assignment alarm-pass, no population random sample warning, rural undercoverage alarm, treatment concealment quiet. Choices: cause+all patients; association only; cause for trial-like patients with limited generalization; generalize no cause. Answer third.
-

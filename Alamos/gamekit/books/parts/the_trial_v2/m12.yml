@@ -1,17 +1,18 @@
 # ============================================================ MISSION 12
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Three Different Tables"
   card:
-    header: "DAY 12 - BOARD IN 4 DAYS"
+    header: "MISSION 12 - 4 DAYS UNTIL THE BOARD MEETS."
     title: "Three Different Tables"
     goNow: "Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the categorical-table wall."
-    body: "The final records show differences among patient outcomes, treatment groups, and hospitals. These may have different explanations. Compare the observed patient counts with the counts each proposed explanation predicts, then decide whether one cause really accounts for all three patterns."
+    body: "4 days until the board meets. Three trays hold three different kinds of record pairing. Today you decide which test belongs to each table."
     objective: "Separate the categorical findings."
   objective: "Separate the categorical findings."
-  stake: "The final records show differences among patient outcomes, treatment groups, and hospitals. These may have different explanations. Compare the observed patient counts with the counts each proposed explanation predicts, then decide whether one cause really accounts for all three patterns."
+  stake: "4 days until the board meets. Three trays hold three different kinds of record pairing. Today you decide which test belongs to each table."
   takeaway: "Test name follows the study design."
-  segue: "Mission decision: Do not force one cause onto all three tables. Event grades match the planned mix. Treatment arm and hospital do not. The study design calls for different tests. New side studies now compete for one error budget."
+  segue: "But Tomas has ten secondary claims asking to share one error budget; several small values may be too many chances."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Goodness-of-fit test", def: "compares one categorical variable with a claimed distribution."}
@@ -32,43 +33,48 @@
   - id: on-arrival-at-endpoint-adjudication
     # On arrival at Endpoint Adjudication | table-wall | automatic
     on: { enter: true, at: ENDP }
-    world: "Arrival: ADJUD entry; categorical wall shows grade counts; Amina says,; - After S1: GOF label locks; waypoint TAKE ARM/EVENT TABLE TO SITE OPERATIONS. - SITE after S2: design label INDEPENDENCE appears; waypoint CARRY VERIFIED TABLES TO BOARD. - BOARD after S3/final: association and site-difference labels appear; binder 12 and outcome unlock."
+    world: "Three trays hold three different kinds of record pairing."
     panel: "MISSION 12: FIT ONE DISTRIBUTION OPEN"
+    # unlocks: Unlock Stop 45 at table-wall in Endpoint Adjudication.
     bubbles:
     - who: okafor   # Amina Okafor
       say: "First ask what this one distribution should look like"
   - id: after-stop-45
     # After Stop 45 | enrollment-wall | automatic
     on: { after: [1] }
-    world: "The fit one distribution result remains visible while the name the design fixture lights."
+    world: "At table-wall, the dated accepted-result slip for Stop 45 reads: \"5,df2,p.082; fail reject at.05.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    # unlocks: Unlock Stop 46 at enrollment-wall in Monitors' Room.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Nice work. Use the Stop 45 result to settle name the design."
+      say: "That check holds. The next categorical analysis must distinguish one joint sample from independently sampled hospitals."
   - id: after-stop-46
     # After Stop 46 | event-console | automatic
     on: { after: [2] }
-    world: "The name the design result remains visible while the test arm by event fixture lights."
+    world: "At enrollment-wall, the dated accepted-result slip for Stop 46 reads: \"Use independence for arm by event in one sample; homogeneity for comparing response distributions across site samples.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    # unlocks: Unlock Stop 47 at event-console in Monitoring Board Room.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Good thinking. Use the Stop 46 result to settle test arm by event."
+      say: "That check holds. The design check allows treatment arm and event status to be tested within the trial sample."
   - id: after-stop-47
     # After Stop 47 | board-console | automatic
     on: { after: [3] }
-    world: "The test arm by event result remains visible while the compare the sites fixture lights."
+    world: "At event-console, the dated accepted-result slip for Stop 47 reads: \"4.815 tol.01; reject independence.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    # unlocks: Unlock Stop 48 at board-console in Monitoring Board Room.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Exactly right. Use the Stop 47 result to settle compare the sites."
+      say: "That check holds. The board now has three categorical results that must remain distinct in the report."
   - id: at-mission-end
     # At mission end | table-wall | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At matched-record-table, Amina Okafor places the three labeled test folders in separate trays. The dated prop remains here on later visits."
     panel: "MISSION 12 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "Keep the rows with the people they came from. But Tomas has ten secondary claims asking to share one error budget; several small values may be too many chances."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -209,9 +215,15 @@
     # The three pairs are the payload's own, split at its arrows and kept word for
     # word. The payload abbreviates the third test "GOF"; spelled here as the
     # stop's own prompt spells it, "chi-square goodness-of-fit".
-    scenarios: []
-    choices: []
-    mapping: []
+    scenarios:
+    - "one sample/two variables"
+    - "multiple site samples/one response"
+    - "one variable versus fixed distribution"
+    choices:
+    - "independence"
+    - "homogeneity"
+    - "chi-square goodness-of-fit"
+    mapping: [0, 1, 2]
     answerText: "The completed check shows use independence for arm by event in one sample; homogeneity for comparing response distributions across site samples."
     why: "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -296,7 +308,11 @@
     # DERIVED, not the bible's: `zone` and `label`. The engine groups readings by
     # zone and needs three, so each reading's zone is its own subject as the
     # payload names it, and `label` says only which kind of number is on the row.
-    readings: []
+    readings:
+    - { zone: "GOF", label: "p-value", value: "0.082", status: normal }
+    - { zone: "arm independence", label: "p-value", value: "0.028", status: alarm }
+    - { zone: "site homogeneity", label: "p-value", value: "0.0053", status: alarm }
+    - { zone: "cold exposure", label: "pattern", value: "concentrated", status: alarm }
     choices:
     - "one universal counting error"
     - "grade mix consistent but arm/site distributions differ"
@@ -313,4 +329,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   readings GOF p.082 quiet, arm independence p.028 alarm, site homogeneity p.0053 alarm, cold exposure concentrated alarm. Choices one universal counting error; grade mix consistent but arm/site distributions differ; no issue; GOF proves equal sites. Answer second.
-

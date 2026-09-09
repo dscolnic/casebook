@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Write the Stop Rule",
     "objective": "Commit a numerical field threshold and a disagreement rule before launch data appear.",
     "briefing": "",
-    "stake": "An electrical pulse damaged a remote test station even though its safety lights showed green. Today's launch is paused. Use physics to compare the sensors and decide what evidence the crew must demand before another test can put people or equipment at risk.",
+    "stake": "15 days until the last storm window closes. One crew-clear lamp disagrees with the others beneath the red hold bar. Today you decide which two checks permit a shot.",
     "primer": [
       "Field arrows point away from positive charge and toward negative charge.",
       "Add components with signs; do not add vector magnitudes blindly.",
@@ -353,10 +353,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "15 DAYS TO FINAL STORM WINDOW",
+      "header": "MISSION 1 - 15 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "Write the Stop Rule",
       "goNow": "Go to Launch Control and meet Dr. Lena Ortiz, station director, at the launch board.",
-      "body": "An electrical pulse damaged a remote test station even though its safety lights showed green. Today's launch is paused. Use physics to compare the sensors and decide what evidence the crew must demand before another test can put people or equipment at risk.",
+      "body": "15 days until the last storm window closes. One crew-clear lamp disagrees with the others beneath the red hold bar. Today you decide which two checks permit a shot.",
       "objective": "Commit a numerical field threshold and a disagreement rule before launch data appear."
     },
     "beats": [
@@ -366,7 +366,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SHOT"
         },
-        "world": "The fix the signs fixture wakes and the mission evidence opens.",
+        "world": "One crew-clear lamp disagrees with the others beneath the red hold bar.",
         "stage": {
           "wall": [
             {
@@ -390,7 +390,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The fix the signs result remains visible while the derive the net field fixture lights.",
+        "world": "At radar-desk, the dated accepted-result slip for Stop 1 reads: \"Mapping above, exact labels.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -403,7 +403,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Nice work. Use the Stop 1 result to settle derive the net field."
+            "say": "That check holds. The normalized readings need an independent layer-model prediction before they can support a launch criterion."
           }
         ]
       },
@@ -414,7 +414,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "(2) S2 complete, board update: SIGNED FIELD = VECTOR SUM.",
+        "world": "At launch-board, the dated accepted-result slip for Stop 2 reads: \"-4.5 kV/m, exact line/rule pairs.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -427,7 +427,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Good thinking. Use the Stop 2 result to settle bound the disagreement."
+            "say": "That check holds. The layer prediction is ready, but calibration uncertainty could still explain the difference between channels."
           }
         ]
       },
@@ -438,7 +438,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The bound the disagreement result remains visible while the commit the criterion fixture lights.",
+        "world": "At launch-board, the dated accepted-result slip for Stop 3 reads: \"Single-field model survives; observed pair spread 0.20 kV/m ≤ 0.50 kV/m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -460,7 +460,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "(4) S4 complete, launch cover remains closed and criterion appears on board; Outcome walk: player places report piece 1 in SHOT; metric screen unlocks.",
+        "world": "At launch-board, Dr. Lena Ortiz clips the FIELD AND CHANNEL-SPREAD LIMITS card above the launch key. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -473,12 +473,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "A deadline does not get its own launch key. But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use both limits for every shot. Launch only when the field is at or below 5.0 kV/m in size. And the channel spread is at or below 0.50 kV/m. The present cell passes. The close agreement still needs an independence check.",
+    "segue": "But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them.",
     "stops": [
       {
         "group": "COUPLE",
@@ -516,7 +516,7 @@ export const MISSIONS = [
     "title": "Bound the Layer Charge",
     "objective": "Infer the effective layer charge from the mill array.",
     "briefing": "",
-    "stake": "The sensors show a strong electrical influence from the storm above the range. Work out how much charge in the cloud could produce those readings. Decide whether the storm explanation fits before the team uses it to design another test.",
+    "stake": "14 days until the last storm window closes. Rain beads on a cloud-layer sketch beside the mill readings. Today you decide what charge the measured field can support.",
     "primer": [
       "Only charge enclosed by a closed surface contributes to net flux.",
       "Parallel field contributes zero through a surface; perpendicular field contributes most.",
@@ -856,10 +856,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "14 DAYS TO FINAL STORM WINDOW",
+      "header": "MISSION 2 - 14 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "Bound the Layer Charge",
       "goNow": "Go to the Field Station and meet Ravi Sen, field scientist, at the mill bench.",
-      "body": "The sensors show a strong electrical influence from the storm above the range. Work out how much charge in the cloud could produce those readings. Decide whether the storm explanation fits before the team uses it to design another test.",
+      "body": "14 days until the last storm window closes. Rain beads on a cloud-layer sketch beside the mill readings. Today you decide what charge the measured field can support.",
       "objective": "Infer the effective layer charge from the mill array."
     },
     "beats": [
@@ -869,7 +869,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "FIELD"
         },
-        "world": "The derive the sheet field fixture wakes and the mission evidence opens.",
+        "world": "Rain beads on a cloud-layer sketch beside the mill readings.",
         "stage": {
           "wall": [
             {
@@ -893,7 +893,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The derive the sheet field result remains visible while the sort the flux faces fixture lights.",
+        "world": "At mill-array, the dated accepted-result slip for Stop 5 reads: \"exact symbolic result.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -906,7 +906,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ravi",
-            "say": "Nice work. Use the Stop 5 result to settle sort the flux faces."
+            "say": "That check holds. Ravi needs to confirm that the charge-layer calculation counts flux through the correct surfaces."
           }
         ]
       },
@@ -917,7 +917,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Stop 2 lights the contributing pillbox faces,.",
+        "world": "At mill-bench, the dated accepted-result slip for Stop 6 reads: \"as mapped.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -930,7 +930,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ravi",
-            "say": "Good thinking. Use the Stop 6 result to settle derive the effective charge density."
+            "say": "That check holds. The isolated-sheet calculation must now account for the conducting ground beneath the storm."
           }
         ]
       },
@@ -941,7 +941,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Stop 3 posts σ=-7.97×10^-8 C/m², and.",
+        "world": "At mill-array, the dated accepted-result slip for Stop 7 reads: \"-7.97×10^-8 C/m², tolerance ±0.04×10^-8.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -954,7 +954,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ravi",
-            "say": "Exactly right. Use the Stop 7 result to settle test spatial consistency."
+            "say": "That check holds. The inferred charge density needs a spatial check before the crew accepts a uniform storm layer."
           }
         ]
       },
@@ -963,7 +963,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Stop 4 overlays all four mills and activates report piece 2.",
+        "world": "At storm-profile-board, Ravi Sen pins the bounded charge-layer sketch beneath the measured field strip. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -976,12 +976,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ravi",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "Put a bound on the sky before we put a story in it. Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the field map to mark the mast tip. The strongest field is near the close contours. The cabinet blocks the static field. Next, test the storm model.",
+    "segue": "Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage.",
     "stops": [
       {
         "group": "FIELD",
@@ -1017,7 +1017,7 @@ export const MISSIONS = [
     "title": "From Field to Voltage",
     "objective": "Derive and validate the cloud-ground voltage.",
     "briefing": "",
-    "stake": "The electrical reading near the ground does not tell the crew how much energy a charge could gain between cloud and ground. Combine measurements from different heights. Estimate that voltage difference so the team can judge how the storm could damage the station.",
+    "stake": "13 days until the last storm window closes. A voltage sketch lies beside three shunt leads and an empty fourth hook. Today you decide what voltage the field implies.",
     "deeper": {
       "intro": "You completed From Field to Voltage. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -1318,10 +1318,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "13 DAYS TO FINAL STORM WINDOW",
+      "header": "MISSION 3 - 13 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "From Field to Voltage",
       "goNow": "Go to the Field Station and meet Ravi Sen, field scientist, at the mill array.",
-      "body": "The electrical reading near the ground does not tell the crew how much energy a charge could gain between cloud and ground. Combine measurements from different heights. Estimate that voltage difference so the team can judge how the storm could damage the station.",
+      "body": "13 days until the last storm window closes. A voltage sketch lies beside three shunt leads and an empty fourth hook. Today you decide what voltage the field implies.",
       "objective": "Derive and validate the cloud-ground voltage."
     },
     "beats": [
@@ -1331,7 +1331,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "FIELD"
         },
-        "world": "Arrival at FIELD unlocks the voltage board.",
+        "world": "A voltage sketch lies beside three shunt leads and an empty fourth hook.",
         "stage": {
           "wall": [
             {
@@ -1355,7 +1355,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The derive voltage from uniform field result remains visible while the read the equipotentials fixture lights.",
+        "world": "At mill-array, the dated accepted-result slip for Stop 9 reads: \"+3.60×10^8 V=+360 MV, tolerance ±2 MV.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1367,8 +1367,8 @@ export const MISSIONS = [
         "panel": "STOP 9 RECORDED - STOP 10 OPEN",
         "bubbles": [
           {
-            "who": "ravi",
-            "say": "Nice work. Use the Stop 9 result to settle read the equipotentials."
+            "who": "tate",
+            "say": "That check holds. The voltage estimate needs a geometric check before it is used to interpret the mast environment."
           }
         ]
       },
@@ -1379,7 +1379,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Stop 2 overlays equipotential contours,.",
+        "world": "At mill-array, the dated accepted-result slip for Stop 10 reads: \"A.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1391,8 +1391,8 @@ export const MISSIONS = [
         "panel": "STOP 10 RECORDED - STOP 11 OPEN",
         "bubbles": [
           {
-            "who": "ravi",
-            "say": "Good thinking. Use the Stop 10 result to settle derive a sampled-profile estimate."
+            "who": "tate",
+            "say": "That check holds. The uniform-field voltage now needs comparison with the balloon's independently sampled altitude profile."
           }
         ]
       },
@@ -1403,7 +1403,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Stop 3 animates the balloon-profile strips and records the independent 250 MV estimate, and.",
+        "world": "At mill-bench, the dated accepted-result slip for Stop 11 reads: \"+250 MV, 30.6% lower, tolerances ±2 MV, ±0.5%.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1415,8 +1415,8 @@ export const MISSIONS = [
         "panel": "250 MV",
         "bubbles": [
           {
-            "who": "ravi",
-            "say": "Exactly right. Use the Stop 11 result to settle choose the report value."
+            "who": "tate",
+            "say": "That check holds. The two voltage estimates disagree enough that the report must carry altitude uncertainty explicitly."
           }
         ]
       },
@@ -1425,7 +1425,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Stop 4 writes the bounded 250–378 MV interval onto report piece 3.",
+        "world": "At shunt-rack, Marcus Tate clips the 250 TO 378 MV model card to the shunt rack. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1437,13 +1437,13 @@ export const MISSIONS = [
         "panel": "250–378 MV",
         "bubbles": [
           {
-            "who": "ravi",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "tate",
+            "say": "That is a large voltage. It still needs a path. But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use 250–378 MV for the cloud-ground potential. Field direction makes the cloud positive relative to ground in this model. The voltage is large enough to matter. But it still does not explain why damage appeared only at the trailer.",
+    "segue": "But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card.",
     "stops": [
       {
         "group": "MAST",
@@ -1481,9 +1481,9 @@ export const MISSIONS = [
   },
   {
     "title": "The Point on the Skyline",
-    "objective": "Separate local mast-tip breakdown from the remote failure.",
+    "objective": "Separate local mast-tip breakdown from the remote failure. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong.",
+    "stake": "12 days until the last storm window closes. The copper tip model catches light beside a trailer damage photo. Today you decide whether the mast tip explains the remote damage.",
     "deeper": {
       "intro": "You completed The Point on the Skyline. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -1750,11 +1750,11 @@ export const MISSIONS = [
     },
     "takeaway": "Tip enhancement did not by itself cause the outstation loss. ---",
     "card": {
-      "header": "12 DAYS TO FINAL STORM WINDOW",
+      "header": "MISSION 4 - 12 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "The Point on the Skyline",
       "goNow": "Go to Mast Base and meet Marcus Tate, mast engineer, at the mast desk.",
-      "body": "The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong.",
-      "objective": "Separate local mast-tip breakdown from the remote failure."
+      "body": "12 days until the last storm window closes. The copper tip model catches light beside a trailer damage photo. Today you decide whether the mast tip explains the remote damage.",
+      "objective": "Separate local mast-tip breakdown from the remote failure. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -1763,7 +1763,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "MAST"
         },
-        "world": "| trigger | location | presentation | world_state | exact dialogue/panel copy | unlocks | |---|---|---|---|---|---| | briefing accepted | MAST/mast-desk | nearby_character_bubble | corona icon pulses at tip; cabinet normal | | M4S1 | | S2 correct | MAST/mast-desk | equipment_panel_update | tip label 50× BODY FIELD | The enhancement is local to the sharp tip. | M4S3 | | S3 correct | MAST/cabinet | persistent_world_change | closed cabinet reads 0.00 kV/m - SHIELDED | A closed conductor cancels the static interior field. | M4S4 | | S4 correct | MAST/cabinet | nearby_character_bubble | trailer photo gains | outcome | | outcome closes | MAST/mast-desk | system_banner | report piece 4 fixed in SHOT board remotely | TIP EFFECT LOCAL - SEARCH FOR A PATH | metric screen, M5 |.",
+        "world": "The copper tip model catches light beside a trailer damage photo.",
         "stage": {
           "wall": [
             {
@@ -1787,7 +1787,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The conductor boundary result remains visible while the derive tip enhancement fixture lights.",
+        "world": "At mast-desk, the dated accepted-result slip for Stop 13 reads: \"A conductor at equilibrium has E=0 inside; outside E is normal. Mobile charge moves until tangential/interior fields vanish.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1800,7 +1800,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "tate",
-            "say": "Nice work. Use the Stop 13 result to settle derive tip enhancement."
+            "say": "That check holds. The conductor boundary check leaves the mast's sharp tip as a possible field-concentration site."
           }
         ]
       },
@@ -1811,7 +1811,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The derive tip enhancement result remains visible while the verify static shielding fixture lights.",
+        "world": "At mast-desk, the dated accepted-result slip for Stop 14 reads: \"50 exact.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1824,7 +1824,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "tate",
-            "say": "Good thinking. Use the Stop 14 result to settle verify static shielding."
+            "say": "That check holds. Tip enhancement does not establish whether the nearby equipment cabinet shields its interior."
           }
         ]
       },
@@ -1835,7 +1835,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The verify static shielding result remains visible while the diagnose the remote path fixture lights.",
+        "world": "At cabinet, the dated accepted-result slip for Stop 15 reads: \"Closed reading 0.00 kV/m confirms static shielding. Surface charge cancels interior E.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1848,7 +1848,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "tate",
-            "say": "Exactly right. Use the Stop 15 result to settle diagnose the remote path."
+            "say": "That check holds. The shielding result makes the damaged cable card harder to explain as direct static-field exposure."
           }
         ]
       },
@@ -1857,7 +1857,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At mast-desk, Marcus Tate pins the TIP EFFECT INCOMPLETE finding beside the mast drawing. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1870,12 +1870,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "tate",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "The tip chose the strike point. It did not choose that card. Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Tip enhancement did not by itself cause the outstation loss. It explains why the mast launches a discharge. But the trailer evidence requires a conducted or induced path. The search now moves from voltage to stored charge. **Metric:** target 18:00.",
+    "segue": "Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case.",
     "stops": [
       {
         "group": "MAST",
@@ -1911,9 +1911,9 @@ export const MISSIONS = [
   },
   {
     "title": "The Sky as a Capacitor",
-    "objective": "Build a bounded cloud-ground capacitance and charge model.",
+    "objective": "Build a bounded cloud-ground capacitance and charge model. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it.",
+    "stake": "11 days until the last storm window closes. Twelve numbered stages stand behind the rail below a cloud sketch. Today you decide what the bank can model about the storm.",
     "deeper": {
       "intro": "You completed The Sky as a Capacitor. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -2196,11 +2196,11 @@ export const MISSIONS = [
     },
     "takeaway": "Use the twelve-stage Marx bank only as an electrical analog, matched in voltage, charge,. ---",
     "card": {
-      "header": "11 DAYS TO FINAL STORM WINDOW;",
+      "header": "MISSION 5 - 11 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "The Sky as a Capacitor",
       "goNow": "Field Station, Ravi Sen at mill array.",
-      "body": "The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it.",
-      "objective": "Build a bounded cloud-ground capacitance and charge model."
+      "body": "11 days until the last storm window closes. Twelve numbered stages stand behind the rail below a cloud sketch. Today you decide what the bank can model about the storm.",
+      "objective": "Build a bounded cloud-ground capacitance and charge model. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -2209,7 +2209,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "FIELD"
         },
-        "world": "| trigger | location | presentation | world_state | exact copy | unlocks | |---|---|---|---|---|---| | accepted | FIELD/mill-array | nearby_character_bubble | cloud footprint overlay visible | | S1 | | S2 correct | FIELD/mill-array | waypoint_notification | truth pair pinned | Take A = 2.0×10^8 m² and κ = 1.00 to Impulse Hall. | BANK travel/S3 | | enter BANK | BANK/hall-board | nearby_character_bubble | earthing stick on | | S3 | | S4 correct | BANK/bank-stages | equipment_panel_update | selected evidence labels appear | MATCH: VOLTAGE • CHARGE • TIMING; GEOMETRY NOT MATCHED | outcome | | outcome closes | BANK/hall-board | system_banner | report piece 5 appears | CLOUD MODEL BOUNDED | metric/M6 |.",
+        "world": "Twelve numbered stages stand behind the rail below a cloud sketch.",
         "stage": {
           "wall": [
             {
@@ -2233,7 +2233,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The derive cloud-ground capacitance result remains visible while the break the area-dielectric degeneracy fixture lights.",
+        "world": "At mill-array, the dated accepted-result slip for Stop 17 reads: \"C=ε₀A/d=44.3 nF. Gauss plus V=Ed cancels Q.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2245,8 +2245,8 @@ export const MISSIONS = [
         "panel": "STOP 17 RECORDED - STOP 18 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 17 result to settle break the area-dielectric degeneracy."
+            "who": "strand",
+            "say": "That check holds. The capacitance alone leaves multiple combinations of cloud area and dielectric factor possible."
           }
         ]
       },
@@ -2257,7 +2257,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The break the area-dielectric degeneracy result remains visible while the derive marx topology fixture lights.",
+        "world": "At storm-profile-board, the dated accepted-result slip for Stop 18 reads: \"truth. State waypoint BANK.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2269,8 +2269,8 @@ export const MISSIONS = [
         "panel": "STOP 18 RECORDED - STOP 19 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 18 result to settle derive marx topology."
+            "who": "strand",
+            "say": "That check holds. The storm estimate is ready for comparison with the bank's actual charging and discharge connections."
           }
         ]
       },
@@ -2281,7 +2281,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The derive marx topology result remains visible while the buy model evidence fixture lights.",
+        "world": "At hall-board, the dated accepted-result slip for Stop 19 reads: \"tolerances.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2293,8 +2293,8 @@ export const MISSIONS = [
         "panel": "STOP 19 RECORDED - STOP 20 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 19 result to settle buy model evidence."
+            "who": "strand",
+            "say": "That check holds. The bank topology is known, but the shot model still lacks measurements needed for a defensible comparison."
           }
         ]
       },
@@ -2303,7 +2303,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At hall-board, Elise Strand clips the ELECTRICAL MODEL ONLY card to the bank diagram. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2315,13 +2315,13 @@ export const MISSIONS = [
         "panel": "MISSION 5 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "strand",
+            "say": "We can match an electrical pulse. We cannot build a cloud indoors. But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the twelve-stage Marx bank only as an electrical model. Match voltage, charge, and timing. The storm capacitance is about 44.3 nF. The bank does not copy cloud shape. Next, calculate staged energy.",
+    "segue": "But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change.",
     "stops": [
       {
         "group": "BANK",
@@ -2357,9 +2357,9 @@ export const MISSIONS = [
   },
   {
     "title": "Count the Bank's Energy",
-    "objective": "Bound bank energy and authorize or reject the test.",
+    "objective": "Bound bank energy and authorize or reject the test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The pulse generator can imitate the storm, but its wiring changes before it fires. A wrong connection could change how much energy it releases. Check both wiring arrangements and their timing, then decide whether the crew can safely run a lower-energy test.",
+    "stake": "10 days until the last storm window closes. The earthing stick rests on the bank while the stage lamps stay dark. Today you decide whether the reduced-energy bank test can run.",
     "deeper": {
       "intro": "You completed Count the Bank's Energy. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -2649,11 +2649,11 @@ export const MISSIONS = [
     },
     "takeaway": "Authorize one reduced-energy firing at the 8 mm first-gap setting. ---",
     "card": {
-      "header": "10 DAYS;",
+      "header": "MISSION 6 - 10 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "Count the Bank's Energy",
       "goNow": "Impulse Hall, Elise Strand at bank stages.",
-      "body": "The pulse generator can imitate the storm, but its wiring changes before it fires. A wrong connection could change how much energy it releases. Check both wiring arrangements and their timing, then decide whether the crew can safely run a lower-energy test.",
-      "objective": "Bound bank energy and authorize or reject the test."
+      "body": "10 days until the last storm window closes. The earthing stick rests on the bank while the stage lamps stay dark. Today you decide whether the reduced-energy bank test can run.",
+      "objective": "Bound bank energy and authorize or reject the test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -2662,7 +2662,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BANK"
         },
-        "world": "accepted BANK/bubble/earthing stick on/→S1; S2 correct/panel/gap 8 tagged/8 mm: rise 115 ns; breakdown 56 kV.→S3; S3 correct/panel/shield zone text/39.8 J/m³ AT FICTIONAL WET-AIR LIMIT→S4; S4 correct/nearby bubble/earth stick remains until authorization/→SHOT waypoint; enter SHOT/record update/piece6/STAGE 7: LATE FIRING FLAG→outcome.",
+        "world": "The earthing stick rests on the bank while the stage lamps stay dark.",
         "stage": {
           "wall": [
             {
@@ -2686,7 +2686,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The derive stored bank energy result remains visible while the sweep gap timing fixture lights.",
+        "world": "At hall-board, the dated accepted-result slip for Stop 21 reads: \"Twelve stages store 1.50 kJ. Integrating V dq gives ½CV² per stage.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2698,8 +2698,8 @@ export const MISSIONS = [
         "panel": "STOP 21 RECORDED - STOP 22 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 21 result to settle sweep gap timing."
+            "who": "strand",
+            "say": "That check holds. The energy budget is fixed, leaving gap spacing as the next control on discharge timing."
           }
         ]
       },
@@ -2710,7 +2710,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The sweep gap timing result remains visible while the derive electric energy density fixture lights.",
+        "world": "At gap-row, the dated accepted-result slip for Stop 22 reads: \"Choose 8 mm. It is the inspected setting meeting rise-time and breakdown bounds.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2722,8 +2722,8 @@ export const MISSIONS = [
         "panel": "STOP 22 RECORDED - STOP 23 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 22 result to settle derive electric energy density."
+            "who": "strand",
+            "say": "That check holds. The selected gap still needs a local field-energy check for the shield review."
           }
         ]
       },
@@ -2734,7 +2734,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The derive electric energy density result remains visible while the authorize the reduced shot fixture lights.",
+        "world": "At hall-board, the dated accepted-result slip for Stop 23 reads: \"u_E=39.84 J/m³. Energy density scales with field squared.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2746,8 +2746,8 @@ export const MISSIONS = [
         "panel": "STOP 23 RECORDED - STOP 24 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 23 result to settle authorize the reduced shot."
+            "who": "strand",
+            "say": "That check holds. Passing energy and timing calculations does not yet establish that the physical hall is ready."
           }
         ]
       },
@@ -2756,7 +2756,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At gap-row, Elise Strand pins the 1.50 KJ TEST RECORD beside the first-gap scale. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2768,13 +2768,13 @@ export const MISSIONS = [
         "panel": "MISSION 6 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "strand",
+            "say": "The bank answered. Stage seven answered late. But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Authorize one reduced-energy firing at the 8 mm first-gap setting. The bank stores 1.50 kJ. And the selected front protects the test sensors. The timing log shows stage 7 fires late, so the pulse may not be as uniform as the total energy suggests. Metric target 22:00.",
+    "segue": "But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse.",
     "stops": [
       {
         "group": "BANK",
@@ -2810,9 +2810,9 @@ export const MISSIONS = [
   },
   {
     "title": "Four Screens, One Wire",
-    "objective": "Test whether the four mill channels are independent.",
+    "objective": "Test whether the four mill channels are independent. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust.",
+    "stake": "Nine days remain in the storm window. Four screen traces meet at one wire. Today you decide which checks are truly separate.",
     "deeper": {
       "intro": "You completed Four Screens, One Wire. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -3134,11 +3134,11 @@ export const MISSIONS = [
     },
     "takeaway": "Remove the four-mill agreement as independent evidence. ---",
     "card": {
-      "header": "9 DAYS;",
+      "header": "MISSION 7 - 9 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "Four Screens, One Wire",
       "goNow": "Field Station, Noor Haddad at mill array.",
-      "body": "All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust.",
-      "objective": "Test whether the four mill channels are independent."
+      "body": "Nine days remain in the storm window. Four screen traces meet at one wire. Today you decide which checks are truly separate.",
+      "objective": "Test whether the four mill channels are independent. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -3147,7 +3147,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "FIELD"
         },
-        "world": "accepted FIELD/bubble/four traces aligned/→S1; S1 correct/waypoint/trace dependency lights to SHOT/ALL FOUR MILLS → SHOT GROUND REFERENCE→travel; enter SHOT/bubble/hidden branch icon/The trunk is short by 3.0 mA.→S2; S3 correct/panel/jump disappears then returns/ISOLATE: 0.03; RESTORE: 0.80 kV/m→S4; S4 correct/world/report pieces 1-3 marked SHARED REFERENCE - NOT INDEPENDENT/Evidence removed; layer model retained.→outcome.",
+        "world": "Four matching screen traces meet at one exposed reference wire.",
         "stage": {
           "wall": [
             {
@@ -3171,7 +3171,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The trace the shared reference result remains visible while the derive the missing branch current fixture lights.",
+        "world": "At mill-array, the dated accepted-result slip for Stop 25 reads: \"All four mills share SHOT ground; they are not independent.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3183,8 +3183,8 @@ export const MISSIONS = [
         "panel": "STOP 25 RECORDED - STOP 26 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 25 result to settle derive the missing branch current."
+            "who": "noor",
+            "say": "That check holds. The shared-reference finding requires the crew to account for current leaving the channel-return node."
           }
         ]
       },
@@ -3195,7 +3195,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The derive the missing branch current result remains visible while the isolate reference c fixture lights.",
+        "world": "At radar-desk, the dated accepted-result slip for Stop 26 reads: \"Missing current is 3.0 mA outward. KCL conserves charge.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3207,8 +3207,8 @@ export const MISSIONS = [
         "panel": "STOP 26 RECORDED - STOP 27 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 26 result to settle isolate reference c."
+            "who": "noor",
+            "say": "That check holds. The current balance points to a hidden return path, but its effect on channel C remains untested."
           }
         ]
       },
@@ -3219,7 +3219,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The isolate reference c result remains visible while the quantify common-mode error fixture lights.",
+        "world": "At radar-desk, the dated accepted-result slip for Stop 27 reads: \"Isolation removes and restoration returns the jump. That reversal establishes reference causation.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3231,8 +3231,8 @@ export const MISSIONS = [
         "panel": "STOP 27 RECORDED - STOP 28 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 27 result to settle quantify common-mode error."
+            "who": "noor",
+            "say": "That check holds. The isolation reversal identifies a cause whose size must now be checked against the recorded voltage."
           }
         ]
       },
@@ -3241,7 +3241,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At reference-panel, Noor Haddad ties a SHARED REFERENCE tag around the common feed. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3253,13 +3253,13 @@ export const MISSIONS = [
         "panel": "MISSION 7 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "noor",
+            "say": "Four screens. One wire. We had been counting the screens. But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The mills share one ground reference. The battery logger is separate. Isolating channel C removes the jump. The archive now points to the buried loop.",
+    "segue": "But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it.",
     "stops": [
       {
         "group": "COUPLE",
@@ -3293,9 +3293,9 @@ export const MISSIONS = [
   },
   {
     "title": "A Field Without Contact",
-    "objective": "Determine whether strike current can influence the trailer cable without direct contact.",
+    "objective": "Determine whether strike current can influence the trailer cable without direct contact. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible.",
+    "stake": "Eight days remain in the storm window. A burned card sits beside a cable with no scar. Today you decide if a field could cause harm without touch.",
     "deeper": {
       "intro": "You completed A Field Without Contact. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -3601,11 +3601,11 @@ export const MISSIONS = [
     },
     "takeaway": "No-contact coupling is physically plausible. ---",
     "card": {
-      "header": "8 DAYS;",
+      "header": "MISSION 8 - 8 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "A Field Without Contact",
       "goNow": "Mast Base, Marcus Tate at shunt rack.",
-      "body": "A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible.",
-      "objective": "Determine whether strike current can influence the trailer cable without direct contact."
+      "body": "Eight days remain in the storm window. A burned card sits beside a cable with no scar. Today you decide if a field could cause harm without touch.",
+      "objective": "Determine whether strike current can influence the trailer cable without direct contact. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -3614,7 +3614,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "MAST"
         },
-        "world": "accepted MAST/bubble/shunts pulse/→S1; S2 correct/waypoint/field rings extend/Predicted B at 2.0 m: 3.00 mT; Inspect the outstation route.→COUPLE; enter COUPLE/panel/no arc tag/SHELL QUIET • CARD DAMAGED→S3; S3 correct/panel/helix displayed/MAGNETIC FORCE CHANGES DIRECTION, NOT SPEED→S4; S4 correct/radio/loop highlighted/No contact required; changing flux remains.→outcome.",
+        "world": "A burned card lies under glass beside an unmarked cable jacket.",
         "stage": {
           "wall": [
             {
@@ -3638,7 +3638,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The match magnetic rules result remains visible while the derive the down-conductor field fixture lights.",
+        "world": "At shunt-rack, the dated accepted-result slip for Stop 29 reads: \"Right-hand mappings and four source formulas are complete. Geometry fixes directions.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3650,8 +3650,8 @@ export const MISSIONS = [
         "panel": "STOP 29 RECORDED - STOP 30 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 29 result to settle derive the down-conductor field."
+            "who": "owen",
+            "say": "That check holds. The mast-current model needs a field prediction at the nearby equipment before damage mechanisms are compared."
           }
         ]
       },
@@ -3662,7 +3662,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The derive the down-conductor field result remains visible while the track a charged particle fixture lights.",
+        "world": "At mast-desk, the dated accepted-result slip for Stop 30 reads: \"B=μ₀I/(2πr)=3.00 mT. Circular symmetry makes B constant on the path.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3674,8 +3674,8 @@ export const MISSIONS = [
         "panel": "STOP 30 RECORDED - STOP 31 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 30 result to settle track a charged particle."
+            "who": "owen",
+            "say": "That check holds. The predicted magnetic field must be translated into particle motion before it is blamed for equipment damage."
           }
         ]
       },
@@ -3686,7 +3686,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The track a charged particle result remains visible while the diagnose noncontact damage fixture lights.",
+        "world": "At cable-bay, the dated accepted-result slip for Stop 31 reads: \"r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3698,8 +3698,8 @@ export const MISSIONS = [
         "panel": "STOP 31 RECORDED - STOP 32 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 31 result to settle diagnose noncontact damage."
+            "who": "owen",
+            "say": "That check holds. The particle check leaves the cable-card damage and reversed voltage needing a common explanation."
           }
         ]
       },
@@ -3708,7 +3708,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At trailer-cards, Owen Park bags the failed card with a NO CONTACT REQUIRED evidence label. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3720,13 +3720,13 @@ export const MISSIONS = [
         "panel": "MISSION 8 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "owen",
+            "say": "The jacket is clean. The card is not. Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size."
           }
         ]
       }
     ],
-    "segue": "Mission decision: No-contact coupling is physically plausible. A 30 kA mast current makes about 3.0 mT at the nearby route. And the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign. And size.",
+    "segue": "Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size.",
     "stops": [
       {
         "group": "COUPLE",
@@ -3760,9 +3760,9 @@ export const MISSIONS = [
   },
   {
     "title": "The Buried Loop",
-    "objective": "Predict the induced pulse from measured geometry and current rise.",
+    "objective": "Predict the induced pulse from measured geometry and current rise. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board.",
+    "stake": "7 days until the last storm window closes. A trench plan lies under a ruler laid along the hidden cable turn. Today you decide whether the buried loop predicts the old pulse.",
     "deeper": {
       "intro": "You completed The Buried Loop. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -4056,11 +4056,11 @@ export const MISSIONS = [
     },
     "takeaway": "The buried loop predicts the failed card. ---",
     "card": {
-      "header": "7 DAYS;",
+      "header": "MISSION 9 - 7 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "The Buried Loop",
       "goNow": "Earthing Compound, Marcus Tate at earth trench.",
-      "body": "The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board.",
-      "objective": "Predict the induced pulse from measured geometry and current rise."
+      "body": "7 days until the last storm window closes. A trench plan lies under a ruler laid along the hidden cable turn. Today you decide whether the buried loop predicts the old pulse.",
+      "objective": "Predict the induced pulse from measured geometry and current rise. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -4069,7 +4069,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "EARTH"
         },
-        "world": "accepted EARTH/bubble/trench open/→S1; S2 correct/waypoint/polarity arrow locked/PREDICTION: NEGATIVE DURING CURRENT RISE; TAKE IT TO OUTSTATION.→travel; enter COUPLE/panel/archive locked/Commit magnitude before archive unlock.→S3; S3 correct/panel/archive reveals -1.06 kV/PREDICTED -1.10 kV • MEASURED -1.06 kV→S4; S4 correct/world/second lead appears in trench photo/Model passes; current path remains incomplete.→outcome.",
+        "world": "A trench plan lies under a ruler laid along the hidden cable turn.",
         "stage": {
           "wall": [
             {
@@ -4093,7 +4093,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The derive the buried-loop emf result remains visible while the match induction sources fixture lights.",
+        "world": "At loop-bench, the dated accepted-result slip for Stop 33 reads: \"ε=-(μ₀ℓ/2π)ln(b/a)dI/dt. Integrate the 1/r field over loop width.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4105,8 +4105,8 @@ export const MISSIONS = [
         "panel": "STOP 33 RECORDED - STOP 34 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 33 result to settle match induction sources."
+            "who": "saira",
+            "say": "That check holds. The loop prediction needs its polarity checked against changes in the mast current."
           }
         ]
       },
@@ -4117,7 +4117,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The match induction sources result remains visible while the calculate the archived emf fixture lights.",
+        "world": "At loop-bench, the dated accepted-result slip for Stop 34 reads: \"Rising opposes, steady gives zero, falling reverses; BLv, -A dB/dt, and rotating-loop form match.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4129,8 +4129,8 @@ export const MISSIONS = [
         "panel": "STOP 34 RECORDED - STOP 35 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 34 result to settle calculate the archived emf."
+            "who": "saira",
+            "say": "That check holds. The symbolic loop model is ready to be tested using the archived event's measured geometry and current rise."
           }
         ]
       },
@@ -4141,7 +4141,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The calculate the archived emf result remains visible while the verify the loop model fixture lights.",
+        "world": "At cable-bay, the dated accepted-result slip for Stop 35 reads: \"Prediction is -1.10 kV. Visible substitution reproduces it.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4153,8 +4153,8 @@ export const MISSIONS = [
         "panel": "STOP 35 RECORDED - STOP 36 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 35 result to settle verify the loop model."
+            "who": "saira",
+            "say": "That check holds. The archived pulse cannot confirm the model unless it also fits the uncertainty in loop geometry."
           }
         ]
       },
@@ -4163,7 +4163,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At loop-bench, Saira Malik pins the -1.10 KV PREDICTED / -1.06 KV ARCHIVED strip to the loop plan. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4175,13 +4175,13 @@ export const MISSIONS = [
         "panel": "MISSION 9 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "saira",
+            "say": "Close enough to pursue. Not enough to stop digging. But Tate finds another bonded lead across the trench; the current still has a path missing from the plan."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The buried loop predicts the failed card. Its pulse is near -1.10 kV, close to the archived -1.06 kV peak. The trench reveals another bonded lead. The current path is still incomplete.",
+    "segue": "But Tate finds another bonded lead across the trench; the current still has a path missing from the plan.",
     "stops": [
       {
         "group": "COUPLE",
@@ -4215,9 +4215,9 @@ export const MISSIONS = [
   },
   {
     "title": "A Good Bond at the Wrong Speed",
-    "objective": "Predict the bond's transient voltage and judge its certificate.",
+    "objective": "Predict the bond's transient voltage and judge its certificate. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims.",
+    "stake": "6 days until the last storm window closes. The April certificate hangs beside a new sharp voltage trace. Today you decide whether a slow bond test clears a fast pulse.",
     "deeper": {
       "intro": "You completed A Good Bond at the Wrong Speed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -4531,11 +4531,11 @@ export const MISSIONS = [
     },
     "takeaway": "The bonding lead is not certified for lightning timescales. ---",
     "card": {
-      "header": "6 DAYS;",
+      "header": "MISSION 10 - 6 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "A Good Bond at the Wrong Speed",
       "goNow": "Impulse Hall, Elise Strand at gap row.",
-      "body": "The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims.",
-      "objective": "Predict the bond's transient voltage and judge its certificate."
+      "body": "6 days until the last storm window closes. The April certificate hangs beside a new sharp voltage trace. Today you decide whether a slow bond test clears a fast pulse.",
+      "objective": "Predict the bond's transient voltage and judge its certificate. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -4544,7 +4544,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BANK"
         },
-        "world": "accepted BANK/bubble/stage7 amber text/→S1; S2 correct/waypoint/acceptable delay tag/DELAY ≤ 50 ns; TAKE dI/dt TO TRENCH→EARTH; enter EARTH/panel/certificate visible/APRIL: 0.42 Ω DC→S3; S4 correct/world/certificate relabeled/VALID FOR STEADY CURRENT ONLY→outcome; outcome/radio/conduit bond pulses/A second path must be measured.→M11.",
+        "world": "The April certificate hangs beside a new sharp voltage trace.",
         "stage": {
           "wall": [
             {
@@ -4568,7 +4568,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The derive inductance result remains visible while the sweep stage-7 delay fixture lights.",
+        "world": "At hall-board, the dated accepted-result slip for Stop 37 reads: \"L=μ₀N²A/ℓ. Ampere field plus N flux linkages gives the result.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4580,8 +4580,8 @@ export const MISSIONS = [
         "panel": "STOP 37 RECORDED - STOP 38 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 37 result to settle sweep stage-7 delay."
+            "who": "saira",
+            "say": "That check holds. The coil model is established, but a late bank stage could change both pulse slope and ringing."
           }
         ]
       },
@@ -4592,7 +4592,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The sweep stage-7 delay result remains visible while the derive bond voltage fixture lights.",
+        "world": "At gap-row, the dated accepted-result slip for Stop 38 reads: \"Delay must be ≤50 ns. Greater delay lowers derivative but raises ringing beyond the joint rule.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4604,8 +4604,8 @@ export const MISSIONS = [
         "panel": "STOP 38 RECORDED - STOP 39 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 38 result to settle derive bond voltage."
+            "who": "saira",
+            "say": "That check holds. The timing check leaves the bond's voltage under a fast pulse to be quantified."
           }
         ]
       },
@@ -4616,7 +4616,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The derive bond voltage result remains visible while the scope the april certificate fixture lights.",
+        "world": "At conduit-bond, the dated accepted-result slip for Stop 39 reads: \"VR=4.2 kV; VL=0.600 kV. Resistance and inductance are separate voltage terms.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4628,8 +4628,8 @@ export const MISSIONS = [
         "panel": "STOP 39 RECORDED - STOP 40 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 39 result to settle scope the april certificate."
+            "who": "saira",
+            "say": "That check holds. The calculated pulse voltages exceed what the April resistance certificate was designed to describe."
           }
         ]
       },
@@ -4638,7 +4638,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At earth-cert, Saira Malik stamps the April certificate STEADY TEST ONLY. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4650,13 +4650,13 @@ export const MISSIONS = [
         "panel": "MISSION 10 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "saira",
+            "say": "April's test was sound. Its promise was too large. Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Do not certify the bond lead for lightning. Its low-rate test is sound. A fast pulse adds voltage from the lead itself. Gap timing changes that voltage. Next, measure every current path.",
+    "segue": "Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast.",
     "stops": [
       {
         "group": "COUPLE",
@@ -4690,9 +4690,9 @@ export const MISSIONS = [
   },
   {
     "title": "The Missing Third",
-    "objective": "Identify and quantify every current path.",
+    "objective": "Identify and quantify every current path. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings.",
+    "stake": "5 days until the last storm window closes. Two current totals leave a red gap on the strike ledger. Today you decide where the missing strike current went.",
     "deeper": {
       "intro": "You completed The Missing Third. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -4994,11 +4994,11 @@ export const MISSIONS = [
     },
     "takeaway": "About one third of the week-five strike current flowed through the bonded instrument conduit. ---",
     "card": {
-      "header": "5 DAYS;",
+      "header": "MISSION 11 - 5 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "The Missing Third",
       "goNow": "Mast Base, Marcus Tate at shunt rack.",
-      "body": "More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings.",
-      "objective": "Identify and quantify every current path."
+      "body": "5 days until the last storm window closes. Two current totals leave a red gap on the strike ledger. Today you decide where the missing strike current went.",
+      "objective": "Identify and quantify every current path. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -5007,7 +5007,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "MAST"
         },
-        "world": "accepted MAST/bubble/clamp and shunts side-by-side/→S1; S2 correct/waypoint/conduit label 10 kA PREDICTED/Inspect its earth bond.→EARTH; S3 correct/waypoint/test link restored/ISOLATION REMOVES MISSING CURRENT; TAKE RESULT TO RECORDS.→SHOT; S4 correct/panel/week-five records aligned/ONE THIRD VIA CONDUIT→outcome; outcome/world/conduit locked/tagged/UNSAFE PATH ISOLATED→metric.",
+        "world": "Two current totals leave a red gap on the strike ledger.",
         "stage": {
           "wall": [
             {
@@ -5031,7 +5031,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The close the strike-current ledger result remains visible while the derive field and wire force fixture lights.",
+        "world": "At shunt-rack, the dated accepted-result slip for Stop 41 reads: \"The unlisted branch carries 10 kA. A closed ledger enforces current conservation.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5043,8 +5043,8 @@ export const MISSIONS = [
         "panel": "STOP 41 RECORDED - STOP 42 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 41 result to settle derive field and wire force."
+            "who": "tate",
+            "say": "That check holds. The missing-current estimate needs a magnetic and mechanical prediction along the suspected conduit."
           }
         ]
       },
@@ -5055,7 +5055,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The derive field and wire force result remains visible while the isolate conduit current fixture lights.",
+        "world": "At cable-bay, the dated accepted-result slip for Stop 42 reads: \"B=1.00 mT; F/L=50 N/m; same-direction currents attract.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5067,8 +5067,8 @@ export const MISSIONS = [
         "panel": "STOP 42 RECORDED - STOP 43 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 42 result to settle isolate conduit current."
+            "who": "tate",
+            "say": "That check holds. The conduit prediction must be tested by changing its approved link without changing the bank pulse."
           }
         ]
       },
@@ -5079,7 +5079,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The isolate conduit current result remains visible while the verify the historical path fixture lights.",
+        "world": "At conduit-bond, the dated accepted-result slip for Stop 43 reads: \"Open removes the 10 kA difference; restore returns it.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5091,8 +5091,8 @@ export const MISSIONS = [
         "panel": "STOP 43 RECORDED - STOP 44 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 43 result to settle verify the historical path."
+            "who": "tate",
+            "say": "That check holds. A successful present-day conduit test does not automatically establish the path during the historical event."
           }
         ]
       },
@@ -5101,7 +5101,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At strike-ledger, Marcus Tate pins the CONDUIT: ABOUT ONE THIRD record into the missing branch. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5113,13 +5113,13 @@ export const MISSIONS = [
         "panel": "MISSION 11 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "tate",
+            "say": "That was my conduit. Put it in the report. But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first."
           }
         ]
       }
     ],
-    "segue": "Mission decision: About one third of the strike used the bonded conduit. Current totals, field tests, and timing all agree. Mark the conduit unsafe for now. Test a new route before the next shot.",
+    "segue": "But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first.",
     "stops": [
       {
         "group": "SCREEN",
@@ -5155,9 +5155,9 @@ export const MISSIONS = [
   },
   {
     "title": "Predict, Then Fire",
-    "objective": "Verify the reroute with a committed quantitative prediction.",
+    "objective": "Verify the reroute with a committed quantitative prediction. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test.",
+    "stake": "Four days remain in the storm window. A sealed forecast sits beside the small-test trace. Today you decide if the fixed route earns a full-shot test.",
     "deeper": {
       "intro": "You completed Predict, Then Fire. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -5424,11 +5424,11 @@ export const MISSIONS = [
     },
     "takeaway": "The reroute is safe for a full shot under the stated tolerance. ---",
     "card": {
-      "header": "4 DAYS;",
+      "header": "MISSION 12 - 4 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "Predict, Then Fire",
       "goNow": "Impulse Hall, Elise Strand at bank stages.",
-      "body": "A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test.",
-      "objective": "Verify the reroute with a committed quantitative prediction."
+      "body": "Four days remain in the storm window. A sealed forecast sits beside the small-test trace. Today you decide if the fixed route earns a full-shot test.",
+      "objective": "Verify the reroute with a committed quantitative prediction. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -5437,7 +5437,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BANK"
         },
-        "world": "accepted BANK/bubble/charge controls locked/→S1; S2 correct/panel/prediction seal 90 V/PREDICTION LOCKED→MAST; enter MAST/fixture/shot control enabled/25.0 kV STAGES • 8 mm GAP • REROUTE FIXED→S3; S3 complete/waypoint/measurements logged/Take 92 V to the trench tolerance board.→EARTH/S4; S4 correct/world/reroute tag green+PASS text/WORST CASE 224 V < 250 V→outcome.",
+        "world": "A sealed prediction sits beside the reduced-test recorder.",
         "stage": {
           "wall": [
             {
@@ -5461,7 +5461,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The calculate reduced energy result remains visible while the predict reroute voltage fixture lights.",
+        "world": "At bank-stages, the dated accepted-result slip for Stop 45 reads: \"Reduced bank energy is 375 J. Halving V quarters U.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5474,7 +5474,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Nice work. Use the Stop 45 result to settle predict reroute voltage."
+            "say": "That check holds. The reduced-shot plan needs a new voltage prediction for the rerouted cable geometry."
           }
         ]
       },
@@ -5485,7 +5485,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The predict reroute voltage result remains visible while the fire the reduced test fixture lights.",
+        "world": "At hall-board, the dated accepted-result slip for Stop 46 reads: \"180 V at full derivative; 90 V at reduced derivative.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5498,7 +5498,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Good thinking. Use the Stop 46 result to settle fire the reduced test."
+            "say": "That check holds. The reroute prediction is committed, so the crew can now collect an independent reduced-shot measurement."
           }
         ]
       },
@@ -5509,7 +5509,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The fire the reduced test result remains visible while the stress worst-case coupling fixture lights.",
+        "world": "At shunt-rack, the dated accepted-result slip for Stop 47 reads: \"Measured 92 V passes the committed 80–100 V band.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5522,7 +5522,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Exactly right. Use the Stop 47 result to settle stress worst-case coupling."
+            "say": "That check holds. The reduced-shot success must still survive the stronger pulse and uncertain coupling of a full shot."
           }
         ]
       },
@@ -5531,7 +5531,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At record-desk, Dr. Lena Ortiz clips the 90 V PREDICTED / 92 V MEASURED strip into the report. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5544,12 +5544,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "The route earned a test. It has not earned blind trust. But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The reroute is safe for a full shot under the stated tolerance. The reduced test measured 92 V against a 90 V prediction. And the worst allowed full-shot case is 224 V, below 250 V. The remaining question is whether the recorders can see the fastest pulse. Metric target 25:00.",
+    "segue": "But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it.",
     "stops": [
       {
         "group": "COUPLE",
@@ -5585,9 +5585,9 @@ export const MISSIONS = [
   },
   {
     "title": "The Missing Microsecond",
-    "objective": "Choose recorders fast enough for the relevant transient.",
+    "objective": "Choose recorders fast enough for the relevant transient. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The rerouted cable passes, but the recorder may be too slow to catch the brief voltage peak. Compare how quickly the sensors respond and how often the recorder samples them. Decide which instruments can reliably judge the final test.",
+    "stake": "3 days until the last storm window closes. A narrow peak stands above a slow trace that barely moves. Today you decide which recorders can see the fastest pulse.",
     "deeper": {
       "intro": "You completed The Missing Microsecond. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -5966,11 +5966,11 @@ export const MISSIONS = [
     },
     "takeaway": "Only the fast isolated channels can certify the final shot. ---",
     "card": {
-      "header": "3 DAYS;",
+      "header": "MISSION 13 - 3 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "The Missing Microsecond",
       "goNow": "Screened Room, Noor Haddad at record budget board.",
-      "body": "The rerouted cable passes, but the recorder may be too slow to catch the brief voltage peak. Compare how quickly the sensors respond and how often the recorder samples them. Decide which instruments can reliably judge the final test.",
-      "objective": "Choose recorders fast enough for the relevant transient."
+      "body": "3 days until the last storm window closes. A narrow peak stands above a slow trace that barely moves. Today you decide which recorders can see the fastest pulse.",
+      "objective": "Choose recorders fast enough for the relevant transient. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -5979,7 +5979,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SCREEN"
         },
-        "world": "accepted SCREEN/bubble/three traces/→S1; S2 correct/panel/63.2% label/ONE τ CAPTURES ONLY 63.2%→S3; S3 correct/waypoint/channel slot moves/FAST ISOLATED CHANNEL FUNDED; VERIFY RECORD AT SHOT.→SHOT; record checked/waypoint/ringing trace/Compare this transient with April's DC certificate.→EARTH/S4; S4 correct/world/certificate relabeled/DC ONLY • TRANSIENT NOT CERTIFIED→outcome.",
+        "world": "A narrow peak stands above a slow trace that barely moves.",
         "stage": {
           "wall": [
             {
@@ -6003,7 +6003,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The find the fast recorder result remains visible while the derive rc response fixture lights.",
+        "world": "At record-budget, the dated accepted-result slip for Stop 49 reads: \"The fast isolated channel alone has structureless pulse residuals.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6015,8 +6015,8 @@ export const MISSIONS = [
         "panel": "STOP 49 RECORDED - STOP 50 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 49 result to settle derive rc response."
+            "who": "noor",
+            "say": "That check holds. The slow channel's smooth trace needs a response-time calculation before its peak reading is trusted."
           }
         ]
       },
@@ -6027,7 +6027,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The derive rc response result remains visible while the buy the recorder upgrade fixture lights.",
+        "world": "At recorder-rack, the dated accepted-result slip for Stop 50 reads: \"63.2% at τ; 99.33% at 5τ. Exponential response quantifies under-read.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6039,8 +6039,8 @@ export const MISSIONS = [
         "panel": "STOP 50 RECORDED - STOP 51 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 50 result to settle buy the recorder upgrade."
+            "who": "noor",
+            "say": "That check holds. The recorder response identifies a timing weakness that the remaining upgrade budget must address."
           }
         ]
       },
@@ -6051,7 +6051,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The buy the recorder upgrade result remains visible while the diagnose frequency response fixture lights.",
+        "world": "At record-desk, the dated accepted-result slip for Stop 51 reads: \"Buy faster sampling; dominant uncertainty falls 18% to 4%.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6063,8 +6063,8 @@ export const MISSIONS = [
         "panel": "STOP 51 RECORDED - STOP 52 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 51 result to settle diagnose frequency response."
+            "who": "noor",
+            "say": "That check holds. The upgraded waveform shows ringing that the April steady-current test never measured."
           }
         ]
       },
@@ -6073,7 +6073,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At recorder-rack, Noor Haddad ties a FINAL SHOT: FAST INDEPENDENT CHANNELS tag to the recorder rack. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6085,13 +6085,13 @@ export const MISSIONS = [
         "panel": "MISSION 13 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "noor",
+            "say": "A calm screen can mean a slow screen. Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use only the fast, separate channels for the final shot. A slow channel misses much of the peak. The old test still works for steady current. It does not prove safety during lightning.",
+    "segue": "Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station.",
     "stops": [
       {
         "group": "COUPLE",
@@ -6125,9 +6125,9 @@ export const MISSIONS = [
   },
   {
     "title": "The Shot That Almost Closed the Case",
-    "objective": "Run the integrated full-shot coupling test.",
+    "objective": "Run the integrated full-shot coupling test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions.",
+    "stake": "2 days until the last storm window closes. A fresh strike trace ends at 188 V beside a second strip marked 310 V. Today you decide whether the full shot cleared every card.",
     "deeper": {
       "intro": "You completed The Shot That Almost Closed the Case. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -6402,11 +6402,11 @@ export const MISSIONS = [
     },
     "takeaway": "The station reproduced. ---",
     "card": {
-      "header": "2 DAYS;",
+      "header": "MISSION 14 - 2 DAYS UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "The Shot That Almost Closed the Case",
       "goNow": "Launch Control, Dr. Lena Ortiz at launch board.",
-      "body": "The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions.",
-      "objective": "Run the integrated full-shot coupling test."
+      "body": "2 days until the last storm window closes. A fresh strike trace ends at 188 V beside a second strip marked 310 V. Today you decide whether the full shot cleared every card.",
+      "objective": "Run the integrated full-shot coupling test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -6415,7 +6415,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SHOT"
         },
-        "world": "accepted SHOT/bubble/blank rule fields/→S1; S2 correct/panel/Poynting arrow up/ENERGY FLOW: 1.59×10^7 W/m² UP→S3; S3 pass/waypoint/main probe PASS/Main reroute passes; Inspect every rack position.→COUPLE/S4; S4 correct/world/card E red+text/CARD E 310 V - LIMIT 250 V→outcome; outcome/radio/local loop highlighted/Main path repaired; local loop remains.→metric.",
+        "world": "A fresh strike trace ends at 188 V beside a second strip marked 310 V.",
         "stage": {
           "wall": [
             {
@@ -6439,7 +6439,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The freeze final thresholds result remains visible while the derive energy flow fixture lights.",
+        "world": "At launch-board, the dated accepted-result slip for Stop 53 reads: \"All four inclusive thresholds are frozen before data.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6451,8 +6451,8 @@ export const MISSIONS = [
         "panel": "STOP 53 RECORDED - STOP 54 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Nice work. Use the Stop 53 result to settle derive energy flow."
+            "who": "owen",
+            "say": "That check holds. The final shot also needs a prediction of where electromagnetic energy crosses the probe location."
           }
         ]
       },
@@ -6463,7 +6463,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The derive energy flow result remains visible while the fire the full shot fixture lights.",
+        "world": "At radar-desk, the dated accepted-result slip for Stop 54 reads: \"S=1.59×10^7 W/m² upward. East×north is up.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6475,8 +6475,8 @@ export const MISSIONS = [
         "panel": "STOP 54 RECORDED - STOP 55 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Good thinking. Use the Stop 54 result to settle fire the full shot."
+            "who": "owen",
+            "say": "That check holds. The incoming field passes the frozen criterion, allowing the full reroute test to proceed."
           }
         ]
       },
@@ -6487,7 +6487,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The fire the full shot result remains visible while the probe the rack fixture lights.",
+        "world": "At shunt-rack, the dated accepted-result slip for Stop 55 reads: \"Main reroute passes: 188 V, 0.40 kA conduit, thresholds met.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6499,8 +6499,8 @@ export const MISSIONS = [
         "panel": "STOP 55 RECORDED - STOP 56 OPEN",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Exactly right. Use the Stop 55 result to settle probe the rack."
+            "who": "owen",
+            "say": "That check holds. A passing main trailer probe cannot exclude a dangerous local peak elsewhere in the card rack."
           }
         ]
       },
@@ -6509,7 +6509,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At trailer-cards, Owen Park bags card E beneath a RACK LOOP: REPAIR REQUIRED label. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6521,13 +6521,13 @@ export const MISSIONS = [
         "panel": "MISSION 14 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "owen",
+            "say": "We fixed the long route. This short one still reaches me. But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The station reproduced. And removed the main cable failure, but it has not removed every hazard. The reroute holds the main probe to 188 V, while card E reaches 310 V because its rack wiring forms a smaller hidden loop. One repair remains before the report can be signed. Metric target 27:00.",
+    "segue": "But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass.",
     "stops": [
       {
         "group": "COUPLE",
@@ -6561,9 +6561,9 @@ export const MISSIONS = [
   },
   {
     "title": "Sign the Ground Truth",
-    "objective": "Repair the local loop, execute the final rule, and sign or reject certification.",
+    "objective": "Repair the local loop, execute the final rule, and sign or reject certification. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->",
     "briefing": "",
-    "stake": "The main cable repair works, but a small wire loop on circuit board E still exceeds its voltage limit. Choose a repair and check it before the final witnessed test. Decide whether the complete station, including that last vulnerable board, is safe to certify.",
+    "stake": "1 day until the last storm window closes. The repaired card rack waits beside the blank last report page. Today you decide whether the complete station earns its certificate.",
     "deeper": {
       "intro": "You completed Sign the Ground Truth. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -6795,11 +6795,11 @@ export const MISSIONS = [
     },
     "takeaway": "Certify Station 12. ---",
     "card": {
-      "header": "FINAL STORM WINDOW TODAY;",
+      "header": "MISSION 15 - 1 DAY UNTIL THE LAST STORM WINDOW CLOSES.",
       "title": "Sign the Ground Truth",
       "goNow": "Launch Control, Dr. Lena Ortiz at record desk.",
-      "body": "The main cable repair works, but a small wire loop on circuit board E still exceeds its voltage limit. Choose a repair and check it before the final witnessed test. Decide whether the complete station, including that last vulnerable board, is safe to certify.",
-      "objective": "Repair the local loop, execute the final rule, and sign or reject certification."
+      "body": "1 day until the last storm window closes. The repaired card rack waits beside the blank last report page. Today you decide whether the complete station earns its certificate.",
+      "objective": "Repair the local loop, execute the final rule, and sign or reject certification. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
     },
     "beats": [
       {
@@ -6808,7 +6808,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COUPLE"
         },
-        "world": "accepted SHOT/bubble/100-point board/→S1; S1 correct/waypoint/plan pinned/TWIST PAIR • ISOLATE RECORD • VERIFY TIMING • PROTECT INSPECTION→BANK/S2; S2 correct/waypoint/dry checks PASS/Dry source and law map pass; Repair card E.→COUPLE/S3; S3 correct/world/pair permanently twisted/TEMP 72 V • RESTORE 305 V • REPAIR 74 V→S4; S4 correct/nearby bubbles then banner/report signed/ALL LIMITS PASS • INDEPENDENT RECORDS COMPLETE→outcome/victory.",
+        "world": "The repaired card rack waits beside the blank last report page.",
         "stage": {
           "wall": [
             {
@@ -6832,7 +6832,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The fund the final repair result remains visible while the map the final laws fixture lights.",
+        "world": "At repair-board, the dated accepted-result slip for Stop 57 reads: \"Fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6845,7 +6845,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Nice work. Use the Stop 57 result to settle map the final laws."
+            "say": "That check holds. The repair plan is funded, but each final claim still needs the correct physical relationship behind it."
           }
         ]
       },
@@ -6856,7 +6856,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The map the final laws result remains visible while the reverse the loop geometry fixture lights.",
+        "world": "At bank-stages, the dated accepted-result slip for Stop 58 reads: \"All twelve law mappings are correct. Each equation has a defined physical job.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6869,7 +6869,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Good thinking. Use the Stop 58 result to settle reverse the loop geometry."
+            "say": "That check holds. The proposed loop reduction needs a reversible test before the crew fastens the repair permanently."
           }
         ]
       },
@@ -6880,7 +6880,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The reverse the loop geometry result remains visible while the certify station 12 fixture lights.",
+        "world": "At cable-bay, the dated accepted-result slip for Stop 59 reads: \"Twisting causes 310→72 V; reversal gives 305 V; final repair gives 74 V.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6893,7 +6893,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Exactly right. Use the Stop 59 result to settle certify station 12."
+            "say": "That check holds. The repaired card's final reading is available, but station-wide certification still requires every safeguard to agree."
           }
         ]
       },
@@ -6902,7 +6902,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At record-desk, Dr. Lena Ortiz clips the witnessed final-shot record into the season report. The final scene follows the completion gate below.",
         "stage": {
           "wall": [
             {
@@ -6915,12 +6915,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "ortiz",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "You found the path we missed, then proved it was gone. Therefore Noor leaves the fast recorders running for the next crew; the report closes with the limits still posted."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Certify Station 12. The loop repair keeps card E below 250 volts. Every rule set before the shot now passes. Separate records confirm the result. The report names the bad path and the fix.",
+    "segue": "Therefore Noor leaves the fast recorders running for the next crew; the report closes with the limits still posted.",
     "stops": [
       {
         "group": "COUPLE",

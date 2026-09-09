@@ -1,17 +1,18 @@
 # ============================================================ MISSION 1
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What Counts"
   card:
-    header: "15 DAYS TO CHANGEOVER"
+    header: "MISSION 1 - 15 DAYS UNTIL CHANGEOVER."
     title: "What Counts"
     goNow: "Go to COUNTER and meet Eli Voss, counter operations lead, at the queue board."
-    body: "People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude."
+    body: "15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves."
     objective: "Separate useful economic measures from alarming but incomplete signals."
   objective: "Separate useful economic measures from alarming but incomplete signals."
-  stake: "People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude."
+  stake: "15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use the national count, not the loudest queue. Real output is 700 billion RATE. Prices rose 2.5%. The board now needs the production gap."
+  segue: "But Idris finds trades that do not belong in the output total; the headline must wait for his ledger."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Scarcity", def: "limited resources cannot satisfy every want, so every choice gives up an alternative."}
@@ -29,43 +30,48 @@
   - id: on-arrival-at-exchange-counter
     # On arrival at Exchange Counter | queue-board | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate useful economic measures from alarming but incomplete signals. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A queue bends past a shop window with fresh price stickers."
     panel: "Separate useful economic measures from alarming but incomplete signals."
+    # unlocks: Unlock Stop 1 at queue-board in Exchange Counter.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with signal or statistic. We need evidence the next decision can use."
   - id: after-stop-1
     # After Stop 1 | allocation-slate | automatic
     on: { after: [1] }
-    world: "The signal or statistic result remains visible while the counter tradeoff fixture lights."
+    world: "At queue-board, the dated accepted-result slip for Stop 1 reads: \"C. \"Count the nationwide transactions, date them, and state coverage.\"\". The slip remains in that fixture's evidence holder."
     panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    # unlocks: Unlock Stop 2 at allocation-slate in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. Count the nationwide transactions, date them, and state coverage."
   - id: after-stop-2
     # After Stop 2 | queue-board | automatic
     on: { after: [2] }
-    world: "The counter tradeoff result remains visible while the why did the street price rise? fixture lights."
+    world: "At allocation-slate, the dated accepted-result slip for Stop 2 reads: \"40 calls total, or 1 call per extra exchange. tolerance:0.\". The slip remains in that fixture's evidence holder."
     panel: "COUNTER"
+    # unlocks: Unlock Stop 3 at queue-board in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. Forty extra exchanges cost forty bank calls: one call per exchange."
   - id: after-stop-3
     # After Stop 3 | wage-notice-rail | automatic
     on: { after: [3] }
-    world: "The why did the street price rise? result remains visible while the page one standard fixture lights."
+    world: "At queue-board, the dated accepted-result slip for Stop 3 reads: \"Supply shifted left.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    # unlocks: Unlock Stop 4 at wage-notice-rail in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
-      say: "Exactly right. Use the Stop 3 result to settle page one standard."
+      say: "That check holds. The street diagnosis is ready, but the first official record still contains an unsupported shortage claim."
   - id: at-mission-end
     # At mission end | queue-board | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | COUNTER | automatic World state and dialogue: Feedback: A conclusion is not backed because it sounds urgent; State: Page 1 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At queue-board, Eli Voss clips the dated national figures beside the queue tally. The dated prop remains here on later visits."
     panel: "MISSION 1 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. We can shorten the line, but I will stop calling it a national shortage."
+      say: "I can count the line. I cannot call it the whole country. But Idris finds trades that do not belong in the output total; the headline must wait for his ledger."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -157,7 +163,10 @@
     format: CHOICE
     question: "Select one submitted conclusion from the four distinct choices below."
     choices:
-      - "[{id:A,label:\"Queue length\"},{id:B,label:\"Loudest complaint\"},{id:C,label:\"Nationwide transaction count with date and coverage\"},{id:D,label:\"One vendor's price\"}]; answer:C; rebuttals:{A:\"A line can reflect staffing rather than national scarcity.\",B:\"Complaint volume does not measure national prevalence.\",D:\"One vendor price is not a national price index.\"}"
+    - "Queue length."
+    - "Loudest complaint."
+    - "Nationwide transaction count with date and coverage."
+    - "One vendor's price."
     answer: "Nationwide transaction count with date and coverage."
     answerText: "The completed check shows c. \"Count the nationwide transactions, date them, and state coverage.\"."
     why: "Aggregates require defined populations and timing."
@@ -249,7 +258,11 @@
     # and `answer` is the keyed one written out. No reading carries a `status`,
     # which is what leaves income and delivery quiet.
     headline: "Price up, quantity down"
-    readings: []
+    readings:
+    - { zone: "price", value: "+6%" }
+    - { zone: "quantity", value: "−9%" }
+    - { zone: "income", value: "unchanged" }
+    - { zone: "delivery", value: "late" }
     choices:
     - "demand rises: P↑ Q↑"
     - "supply falls: P↑ Q↓"
@@ -301,4 +314,3 @@
           evidence: no independent check supports the extension; it must be held
           critical: true
       checks: 3
-

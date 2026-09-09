@@ -8,17 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Ashfell Dam must lower its reservoir before a three-day storm reaches the valley. You "
-    +   "will use calculus to decide how water should leave through turbines and spillway gates; "
-    +   "too much at once floods the towns below, while too little leaves the dam carrying the "
-    +   "storm. Fifteen work shifts remain, and failure could force an uncontrolled release "
-    +   "through homes and a school. Mara Vale, dam operations chief, hands you the release board "
-    +   "and says, “Families below this dam are trusting us to hold back a storm without sending "
-    +   "it through their homes: read the water correctly, control the release, and bring the "
-    +   "valley through safely.”",
+  "You are the dam release lead, which means you decide how much water can leave without "
+    +   "flooding the town. At Ashfell Dam, you will use calculus to make the call. Fifteen work "
+    +   "shifts remain before the rain. The lake needs room for a storm. The people below need "
+    +   "time to get clear of each release.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Complete the staged "
-    +   "release. The storm plan is sharper because you followed how the water actually changes.",
+  "From the crest, the spillway runs white below the gates. The lake line falls along the "
+    +   "checked curve. Four warning lamps stay green above the valley map. The town still has "
+    +   "its roads, and the dam has room for the rain.",
 ];

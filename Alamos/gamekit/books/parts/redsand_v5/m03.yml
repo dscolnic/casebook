@@ -1,17 +1,18 @@
 # ============================================================ MISSION 3
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Pressure Does Not Lie. Or Does It?"
   card:
-    header: "13 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 3 - 13 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "PRESSURE DOES NOT TELL THE WHOLE TRUTH"
     goNow: "Go to the Hydrogen Store and meet Dr. Tomás Herrera, the reactor and safety engineer, beside the storage gauge."
-    body: "The plant may be short of hydrogen even though its pressure gauge looks normal. Another gas could be keeping the pressure high. Measure the total gas, sample the pipes, and test a warmed sample to decide whether hydrogen escaped or was replaced before reaching the reactor."
+    body: "Thirteen shifts remain before launch. The pressure holds, but the gas sample has changed. Today you decide if the hydrogen line leaks or holds a second gas."
     objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
   objective: "Find where usable hydrogen is lost even though the main pressure gauge looks normal."
-  stake: "The plant may be short of hydrogen even though its pressure gauge looks normal. Another gas could be keeping the pressure high. Measure the total gas, sample the pipes, and test a warmed sample to decide whether hydrogen escaped or was replaced before reaching the reactor."
+  stake: "Thirteen shifts remain before launch. The pressure holds, but the gas sample has changed. Today you decide if the hydrogen line leaks or holds a second gas."
   takeaway: "A model must survive every relevant measurement, not only the one it predicts correctly."
-  segue: "Mission decision: Another gas mixes into the line before the reactor. The plant is not just losing hydrogen. Nitrogen keeps total pressure high as the share from hydrogen falls. The change starts after the regulator. The blue stain near a methane valve is the next clue to test."
+  segue: "But Cho finds blue stain beside a methane valve; its route must be tested before it becomes a second leak story."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Pressure", def: "force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside."}
@@ -34,7 +35,7 @@
   - id: on-arrival-at-hydrogen-store
     # On arrival at Hydrogen Store | automatic | 
     on: { enter: true, at: HSTORE }
-    world: "A large gauge holds near its green mark while the reactor-delivery bar flashes LOW."
+    world: "The pressure needle holds steady while a sample vial changes its label."
     panel: "MISSION 3 - PRESSURE DOES NOT LIE. OR DOES IT?"
     # unlocks: Stop 9 at the tank calculation rail; Stop 10 unlocks immediately after Stop 9.
     bubbles:
@@ -43,7 +44,7 @@
   - id: after-stops-9-and-10
     # After Stops 9 and 10 | tank calculation rail | automatic response
     on: { after: [1, 2] }
-    world: "On the equipment panel, hydrogen particle icons move faster than nitrogen particle icons at equal temperature; the total-mole estimate appears beside the pressure gauge."
+    world: "At store-scales, the dated accepted-result slip for Stop 9 reads: \"Choice 1.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 11: SAMPLE THE BRANCHES"
     # unlocks: Stop 11 at the four sampling ports.
     bubbles:
@@ -52,7 +53,7 @@
   - id: after-stop-11
     # After Stop 11 | four sampling ports | automatic discovery
     on: { after: [3] }
-    world: "The tank and regulator remain hydrogen-rich, but the reactor branch turns yellow as nitrogen mole fraction rises."
+    world: "At hydrogen-calculation-desk, the dated accepted-result slip for Stop 10 reads: \"400 mol total gas; target 400, tolerance ±2%.\". The slip remains in that fixture's evidence holder."
     panel: "TOTAL PRESSURE: NORMAL / H2 PARTIAL PRESSURE: LOW / N2 DETECTED AFTER PURGE TIE-IN."
     # unlocks: Stop 12 at the heated test branch.
     bubbles:
@@ -61,7 +62,7 @@
   - id: after-stop-12
     # After Stop 12 | heated test branch | automatic contradiction
     on: { after: [4] }
-    world: "Measured pressure follows the warming prediction, but the composition panel shows new nitrogen that a simple leak cannot create."
+    world: "At gas-sampling-ports, the dated accepted-result slip for Stop 11 reads: \"The reactor branch is abnormal; at 19.5 atm its H2 partial pressure is only 0.68 x 19.5 = 13.3 atm.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 3 outcome beat.
     bubbles:
@@ -70,14 +71,12 @@
   - id: at-mission-end
     # At mission end | Hydrogen Store | automatic outcome and hook
     on: { missionEnd: true }
-    world: "The purge tie-in is tagged for investigation; Sundqvist sends an image of blue residue beside a methane valve."
+    world: "At gas-sampling-ports, Dr. Tomás Herrera hangs a NITROGEN AFTER REGULATOR tag on the reactor-branch port. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - CATALYST BAY."
     # unlocks: Mission 4 briefing and the Catalyst Bay waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. Maintenance found this on the methane side. If the systems crossed, the residue may show where."
-    - who: herrera   # Herrera
-      say: "Only if that substance could travel the path you claim."
+    - who: herrera   # Dr. Tomás Herrera
+      say: "Pressure counts every gas in the tube. But Cho finds blue stain beside a methane valve; its route must be tested before it becomes a second leak story."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -232,31 +231,31 @@
     # CONVERTED from the payload below — a rename only. The bible's four stations,
     # readings, `expected` lines and `load` notes are carried across unchanged.
     probe:
-      chainLabel: Sampling port
-      stations:
-        - id: tank
-          label: Tank headspace
-          reading: 20.0 atm; 96% H2; 3% N2; 1% other
-          expected: "Hydrogen-rich storage gas near the tank baseline: about 95-96% H2 and no large N2 fraction"
-          load: Matches the storage baseline
-        - id: regulator
-          label: Regulator outlet
-          reading: 19.7 atm; 95% H2; 4% N2; 1% other
-          expected: Composition should remain close to the tank headspace through a healthy regulator
-          load: Still within the expected hydrogen-rich pattern
-        - id: transfer_line
-          label: Transfer line upstream of purge tie-in
-          reading: 19.6 atm; 95% H2; 4% N2; 1% other
-          expected: Hydrogen composition should still match the regulator before the purge connection
-          load: Still normal immediately before the purge tie-in
-        - id: reactor_branch
-          label: Reactor branch
-          reading: 19.5 atm; 68% H2; 31% N2; 1% other; H2 partial pressure 13.3 atm
-          expected: Hydrogen should remain near the regulator composition; a simple pressure drop should not create a 31% N2 fraction
-          load: First major composition break; nitrogen replaces hydrogen while total pressure stays nearly normal
-      target: reactor_branch
+      chainLabel: "Sampling port"
+      commit: "Name the first abnormal port"
       minReadings: 4
-      commit: Name the first abnormal port
+      target: reactor_branch
+      stations:
+      - id: tank
+        label: "Tank headspace"
+        reading: "20.0 atm; 96% H2; 3% N2; 1% other"
+        expected: "Hydrogen-rich storage gas near the tank baseline: about 95-96% H2 and no large N2 fraction"
+        load: "Matches the storage baseline"
+      - id: regulator
+        label: "Regulator outlet"
+        reading: "19.7 atm; 95% H2; 4% N2; 1% other"
+        expected: "Composition should remain close to the tank headspace through a healthy regulator"
+        load: "Still within the expected hydrogen-rich pattern"
+      - id: transfer_line
+        label: "Transfer line upstream of purge tie-in"
+        reading: "19.6 atm; 95% H2; 4% N2; 1% other"
+        expected: "Hydrogen composition should still match the regulator before the purge connection"
+        load: "Still normal immediately before the purge tie-in"
+      - id: reactor_branch
+        label: "Reactor branch"
+        reading: "19.5 atm; 68% H2; 31% N2; 1% other; H2 partial pressure 13.3 atm"
+        expected: "Hydrogen should remain near the regulator composition; a simple pressure drop should not create a 31% N2 fraction"
+        load: "First major composition break; nitrogen replaces hydrogen while total pressure stays nearly normal"
     answerText: "The reactor branch first fails; hydrogen partial pressure there is about 13.3 atm."
     why: "Total pressure is the sum of component pressures. The branch gauge stays high because nitrogen contributes pressure. The desired H2 partial pressure has fallen even though the needle barely moves. Sampling every station localizes the change between regulator outlet and reactor branch."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -315,27 +314,19 @@
     # The dial range itself is the implementation's; the bible states a point.
     verify:
       prediction:
-        min: NaN
-        max: NaN
-        step: NaN
+        label: "Pressure at 330 K"
         unit: atm
-      action:
-        id: warm_branch
-        label: Warm sealed branch
-        from_K: 300
-        to_K: 330
+        min: 18.0
+        max: 24.0
+        step: 0.05
+      truth: 21.4
+      passRatio: [0.97, 1.03]
+      intervention:
+        label: "Warm sealed branch, 300 K to 330 K"
+        note: "Sealed, fixed volume, no reaction assumed."
+        outcome: "Warmed and held. Logger settled."
       measurement:
-        label: the measurement
-        cost: 1
-      required_sequence:
-        - commit_prediction
-        - warm_branch
-        - measure_pressure
-        - measure_composition
-      truth: NaN
-      passRatio:
-        - 0.9
-        - 1.1
+        label: "Branch pressure and composition after warming"
     answerText: "Pressure follows the gas-law prediction, but nitrogen in the mixture defeats the simple-leak explanation."
     why: "Warming a sealed gas tests whether the total particle count behaves normally. It does, so the gauge and volume are credible. Composition is a separate measurement. A leak can lower particle count, but it does not by itself explain nitrogen appearing downstream of a 95% H2 regulator outlet."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -359,4 +350,3 @@
     #       composition: {h2_percent: 68, n2_percent: 31, other_percent: 1}
     #     required_sequence: [commit_prediction, warm_branch, measure_pressure, measure_composition]
     #     truth: "Pressure model passes; pure-hydrogen leak model fails on unchanged nitrogen-rich composition."
-

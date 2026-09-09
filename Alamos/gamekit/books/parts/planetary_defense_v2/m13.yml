@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Through the Keyhole"
   card:
-    header: "IMPACT WINDOW: 2 DAYS"
+    header: "MISSION 13 - 60 HOURS TO THE PREDICTED ENCOUNTER."
     title: "THROUGH THE KEYHOLE"
     goNow: "Go to Orbit Determination, verify the final primary-body prediction at Radar, and deliver the result to Coordination."
-    body: "The final pictures and an independent radar observation can test whether the main asteroid will cross inhabited land. Check for a shared clock error and test the prediction against a withheld measurement. Decide whether to increase protection or tell the threatened communities they are clear."
+    body: "60 hours to the predicted encounter. The corrected primary path runs over deep ocean beside the old land band. Today you decide whether the main-body land alert can end."
     objective: "Escalate the primary-body response or defensibly stand down the populated land corridor."
   objective: "Escalate the primary-body response or defensibly stand down the populated land corridor."
-  stake: "The final pictures and an independent radar observation can test whether the main asteroid will cross inhabited land. Check for a shared clock error and test the prediction against a withheld measurement. Decide whether to increase protection or tell the threatened communities they are clear."
+  stake: "60 hours to the predicted encounter. The corrected primary path runs over deep ocean beside the old land band. Today you decide whether the main-body land alert can end."
   takeaway: "A defensible stand-down is a planetary-defense success. ---"
-  segue: "Mission decision: End the land alert for the main body. Fixed sky data and a separate radar test put its full path over deep ocean. Keep a fair watch on the coast."
+  segue: "But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Control", def: "a known reference used to reveal measurement bias."}
@@ -30,7 +30,7 @@
   - id: on-arrival-at-orbit-determination-center
     # On arrival at Orbit Determination Center | automatic | 
     on: { enter: true, at: ORBIT }
-    world: "A reference-star control identifies a common offset in the last optical batch."
+    world: "The corrected primary path runs over deep ocean beside the old land band."
     panel: "THROUGH THE KEYHOLE / MISSION ACTIVE"
     # unlocks: Stop 49.
     bubbles:
@@ -39,7 +39,7 @@
   - id: after-stop-49
     # After Stop 49 | automatic | 
     on: { after: [1] }
-    world: "Corrected residuals center near zero without becoming unrealistically perfect."
+    world: "At tracking-rack, the dated accepted-result slip for Stop 49 reads: \"Apply −0.36 arcsec; corrected reference residual = 0.00 arcsec and asteroid residual = +0.02 arcsec; restore raw view; conclude SHARED BIAS.\". The slip remains in that fixture's evidence holder."
     panel: "THROUGH THE KEYHOLE / FIRST RESULT LOGGED"
     # unlocks: Stop 50.
     bubbles:
@@ -48,7 +48,7 @@
   - id: after-stop-50
     # After Stop 50 | automatic | 
     on: { after: [2] }
-    world: "A separately clocked radar holdout lands inside the ocean solution."
+    world: "At fit-board, the dated accepted-result slip for Stop 50 reads: \"Accept the fit and preserve correction provenance.\". The slip remains in that fixture's evidence holder."
     panel: "THROUGH THE KEYHOLE / EVIDENCE HANDOFF READY"
     # unlocks: Stop 51.
     bubbles:
@@ -57,7 +57,7 @@
   - id: after-stop-51
     # After Stop 51 | automatic | 
     on: { after: [3] }
-    world: "Jordan stands down the nine-million-person land corridor under the published rule."
+    world: "At astro-bench, the dated accepted-result slip for Stop 51 reads: \"Stand down land evacuation and retain ocean/coastal monitoring.\". The slip remains in that fixture's evidence holder."
     panel: "THROUGH THE KEYHOLE / DECISION EVIDENCE READY"
     # unlocks: The Bistatic Radar Range waypoint and Stop 52.
     bubbles:
@@ -66,12 +66,12 @@
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
-    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    world: "At scopeboard, Mira Chen pins the PRIMARY BODY: LAND STAND-DOWN card to the plot. The dated prop remains here on later visits."
     panel: "THROUGH THE KEYHOLE / MISSION DECISION LOGGED"
     # unlocks: Mission 13 outcome, metric screen, concept review, and Mission 14 briefing.
     bubbles:
-    - who: rowan   # Malik Rowan
-      say: "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+    - who: chen   # Mira Chen
+      say: "Nine million people can stand down. Keep the coast watch on. But Tomás's repeated radar shoulder now has its own motion; the quiet minute ends with a second echo."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

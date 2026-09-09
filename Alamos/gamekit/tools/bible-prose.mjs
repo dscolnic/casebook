@@ -93,7 +93,7 @@ for(const theme of themes){
       ['  ', 'objective', bm.card?.objective],
       ['  ', 'stake', bm.card?.body],
       ['  ', 'takeaway', mtake && String(mtake).replace(/^\*\*Mission takeaway:?\*\*\s*/i, '')],
-      ['  ', 'segue', bm.outcome],
+      ['  ', 'segue', bm.segue ?? bm.outcome],
     ];
     const stopAt = lines.findIndex(l => STOP.test(l));
     for(const [pad, key, said] of head){

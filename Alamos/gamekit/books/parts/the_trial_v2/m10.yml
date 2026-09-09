@@ -1,17 +1,18 @@
 # ============================================================ MISSION 10
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Smaller Benefit"
   card:
-    header: "DAY 10 - BOARD IN 6 DAYS"
+    header: "MISSION 10 - 6 DAYS UNTIL THE BOARD MEETS."
     title: "The Smaller Benefit"
     goNow: "Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the matched-record table."
-    body: "The fastest hospital's incomplete records made recovery look better than it was. Compare the corrected average recovery time, changes within patients, and differences between treatment groups. Decide how much benefit the evidence now supports and what the board should be told."
+    body: "6 days until the board meets. The old large benefit is still chalked above the new paired records. Today you decide which treatment effect belongs in the board pack."
     objective: "Produce the bias-adjusted mean estimate."
   objective: "Produce the bias-adjusted mean estimate."
-  stake: "The fastest hospital's incomplete records made recovery look better than it was. Compare the corrected average recovery time, changes within patients, and differences between treatment groups. Decide how much benefit the evidence now supports and what the board should be told."
+  stake: "6 days until the board meets. The old large benefit is still chalked above the new paired records. Today you decide which treatment effect belongs in the board pack."
   takeaway: "Never pool AP two-sample variances."
-  segue: "Mission decision: Put the adjusted four-unit treatment effect in the pack. It uses the two groups in the right way. The error check also passes. Paired records support a shorter recovery. The one-group test does not settle the claim."
+  segue: "Therefore Mara must lock the checked data before the board pack spreads; three copied reports could repeat one error."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "t distribution", def: "a bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown."}
@@ -32,43 +33,48 @@
   - id: on-arrival-at-endpoint-adjudication
     # On arrival at Endpoint Adjudication | matched-record-table | automatic
     on: { enter: true, at: ENDP }
-    world: "Arrival: ADJUD entry; matched-record table visible; Amina says,; - After S1-S2: benchmark dims and paired interval appears; - After S3: adjusted table seals; waypoint TAKE ADJUSTED TABLE TO STAT. - STAT arrival/final: valid residual field remains; old headline dims; binder 10 and outcome unlock."
+    world: "The old large benefit is still chalked above the new paired records."
     panel: "MISSION 10: TEST THE ADJUSTED MEAN OPEN"
+    # unlocks: Unlock Stop 37 at matched-record-table in Endpoint Adjudication.
     bubbles:
     - who: okafor   # Amina Okafor
       say: "Keep pairs together and separate arms apart"
   - id: after-stop-37
     # After Stop 37 | matched-record-table | automatic
     on: { after: [1] }
-    world: "The test the adjusted mean result remains visible while the use the pairs fixture lights."
+    world: "At matched-record-table, the dated accepted-result slip for Stop 37 reads: \"t2.00 tol.01; df24; p.0568 tol.002; fail reject at.05.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    # unlocks: Unlock Stop 38 at matched-record-table in Endpoint Adjudication.
     bubbles:
-    - who: okafor   # Amina Okafor
-      say: "Nice work. Use the Stop 37 result to settle use the pairs."
+    - who: reed   # Tomas Reed
+      say: "That check holds. Repeated observations on the same patients require a within-patient comparison."
   - id: after-stop-38
     # After Stop 38 | table-wall | automatic
     on: { after: [2] }
-    world: "The use the pairs result remains visible while the keep groups independent fixture lights."
+    world: "At matched-record-table, the dated accepted-result slip for Stop 38 reads: \"t-3 tol.01; CI endpoints tol.02.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    # unlocks: Unlock Stop 39 at table-wall in Endpoint Adjudication.
     bubbles:
-    - who: okafor   # Amina Okafor
-      say: "Good thinking. Use the Stop 38 result to settle keep groups independent."
+    - who: reed   # Tomas Reed
+      say: "That check holds. The paired finding does not establish the treatment difference between independent groups."
   - id: after-stop-39
     # After Stop 39 | residual-wall | automatic
     on: { after: [3] }
-    world: "The keep groups independent result remains visible while the stress the adjustment fixture lights."
+    world: "At table-wall, the dated accepted-result slip for Stop 39 reads: \"t2.03 tol.02; never pool variances.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    # unlocks: Unlock Stop 40 at residual-wall in Statistics & Analysis.
     bubbles:
-    - who: okafor   # Amina Okafor
-      say: "Exactly right. Use the Stop 39 result to settle stress the adjustment."
+    - who: reed   # Tomas Reed
+      say: "That check holds. The analyses differ in apparent strength, so model adequacy must decide which estimate travels forward."
   - id: at-mission-end
     # At mission end | matched-record-table | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At analysis-board, Tomas Reed redraws the benefit line at FOUR UNITS. The dated prop remains here on later visits."
     panel: "MISSION 10 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: okafor   # Amina Okafor
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: reed   # Tomas Reed
+      say: "It is smaller. It is the number I can defend. Therefore Mara must lock the checked data before the board pack spreads; three copied reports could repeat one error."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -368,4 +374,3 @@
               y: 0.01
               value: 0.01
       accept: unpatterned_generalising
-

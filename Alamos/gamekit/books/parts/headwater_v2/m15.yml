@@ -1,17 +1,18 @@
 # ============================================================ MISSION 15
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Corrected Release Rules, Signed"
   card:
-    header: "FINAL SHIFT - STORM EDGE ON THE RIDGE"
+    header: "MISSION 15 - 1 WORK SHIFT REMAINS BEFORE THE STORM."
     title: "Open, Hold, Verify"
     goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall."
-    body: "The dam, warning system, and machinery are ready, but a small change in water depth can now cause a large change in flow through the gates. Bring together your earlier calculations. Carry out the release in stages, checking that each one stays within the agreed safety limits."
+    body: "1 work shift remains before the storm. The gate order lies beside four acknowledged warning slips. Today you decide whether to carry out the final staged release."
     objective: "Commit, execute, and verify the safe release."
   objective: "Commit, execute, and verify the safe release."
-  stake: "The dam, warning system, and machinery are ready, but a small change in water depth can now cause a large change in flow through the gates. Bring together your earlier calculations. Carry out the release in stages, checking that each one stays within the agreed safety limits."
+  stake: "1 work shift remains before the storm. The gate order lies beside four acknowledged warning slips. Today you decide whether to carry out the final staged release."
   takeaway: "Differential equations predict changing systems from rules and initial data. ---"
-  segue: "Mission decision: Complete the staged release. The forecast, water ledger, gate response, wall readings, machine work. And warning times all pass their signed limits. The reservoir reaches storm room before the crest. Ashfell holds the rain without sending an unsafe surge downstream."
+  segue: "Therefore Elise keeps the warning watch as the level falls; the storm still has to pass through the valley."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-catchment-inflow-desk
     # On arrival at Catchment & Inflow Desk | gauge-wall | automatic
     on: { enter: true, at: INFLOW }
-    world: "Arrival Location: INFLOW."
+    world: "The gate order lies beside four acknowledged warning slips."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 57 at gauge-wall in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
       say: "Start with rebuild the release bound. We need evidence the next decision can use."
   - id: after-stop-57
     # After Stop 57 | water-ledger | automatic
     on: { after: [1] }
-    world: "Travel1 Location: INFLOW->STORE."
+    world: "At gauge-wall, the dated accepted-result slip for Stop 57 reads: \".18 m/h, passes.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    # unlocks: Unlock Stop 58 at water-ledger in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Nice work. Use the Stop 57 result to settle close the final water ledger."
+    - who: vale   # Mara Vale
+      say: "That check holds. The updated forecast and verified releases are ready to be combined into the final storage balance."
   - id: after-stop-58
     # After Stop 58 | staging-console | automatic
     on: { after: [2] }
-    world: "Travel2 Location: STORE->GATES."
+    world: "At water-ledger, the dated accepted-result slip for Stop 58 reads: \"14+3.6+1.68-17.28-2=0; exact.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    # unlocks: Unlock Stop 59 at staging-console in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Good thinking. Use the Stop 58 result to settle predict and operate the staged release."
+    - who: vale   # Mara Vale
+      say: "That check holds. The water ledger closes on paper, but the staged gate response must agree during operation."
   - id: after-stop-59
     # After Stop 59 | staging-console | automatic
     on: { after: [3] }
-    world: "After 15.3 Location: GATES."
+    world: "At staging-console, the dated accepted-result slip for Stop 59 reads: \"Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    # unlocks: Unlock Stop 60 at staging-console in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Exactly right. Use the Stop 59 result to settle diagnose the final run."
+    - who: vale   # Mara Vale
+      say: "That check holds. The final gate stage and independent dam readings are available for the completion decision."
   - id: at-mission-end
     # At mission end | gauge-wall | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At trigger-board, Mara Vale unlatches the crest access gate. The final scene follows the completion gate below."
     panel: "MISSION 15 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: vale   # Mara Vale
+      say: "You gave every stage a reason to stop. Now we can let it run. Therefore Elise keeps the warning watch as the level falls; the storm still has to pass through the valley."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -286,22 +292,296 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   diagnosis:{headline:"final release",readings:[{zone:"discharge",value:"prediction +0.02"},{zone:"storage",value:"resurvey residual +0.01"},{zone:"uplift",value:"5.7 < 8"},{zone:"warning",value:"294 >= 280 min"},{zone:"work",value:"724 <= 750 J"}],choices:[{label:"complete staged release",mechanism:"all independent limits pass"},{label:"abort for wall danger",mechanism:"contradicted by uplift"},{label:"return to old curve",mechanism:"contradicted by resurvey"},{label:"open fully",mechanism:"unverified work and arrival"}],answer:"complete staged release"}
-    headline: final release
+    headline: "final release"
     readings:
-      - zone: discharge
-        value: prediction +0.02
-      - zone: storage
-        value: resurvey residual +0.01
-      - zone: uplift
-        value: 5.7 < 8
-      - zone: warning
-        value: 294 >= 280 min
-      - zone: work
-        value: 724 <= 750 J
+    - {zone: "discharge", value: "prediction +0.02"}
+    - {zone: "storage", value: "resurvey residual +0.01"}
+    - {zone: "uplift", value: "5.7 < 8"}
+    - {zone: "warning", value: "294 >= 280 min"}
+    - {zone: "work", value: "724 <= 750 J"}
     choices:
-      - complete staged release
-      - abort for wall danger
-      - return to old curve
-      - open fully
-    answer: complete staged release
+    - {label: "complete staged release", mechanism: "all independent limits pass"}
+    - {label: "abort for wall danger", mechanism: "contradicted by uplift"}
+    - {label: "return to old curve", mechanism: "contradicted by resurvey"}
+    - {label: "open fully", mechanism: "unverified work and arrival"}
+    answer: "complete staged release"
 
+copy:
+  INFLOW: <p>The inflow desk. 11 rain gauges, 4 river gauges, and the standing question of how much of what 
+    fell has arrived yet.</p>
+  STORE: <p>The storage board. Level on one wall, volume on the other, and the curve that turns one into the 
+    other pinned between them.</p>
+  GATES: <p>The gate chamber, over the spillway. 2 hoists, a winch log going back to 1974, and a great deal of
+    noise when the gate is running.</p>
+  STRUCT: <p>The seepage and uplift bay, cut into the rock at the foundation. 9 weirs, 12 uplift gauges, and 
+    40 years of plots.</p>
+  POWER: <p>The powerhouse at the toe. Two machines, and a chief who knows to the cubic metre what each of 
+    them is passing.</p>
+  SAFE: <p>The downstream warning desk. A map of the reach with arrival times on it, and a list of people who 
+    answer the phone.</p>
+  TAILRACE: <p>The tailrace deck. Everything the machines have finished with comes out here, and the noise is 
+    why nobody lingers.</p>
+  SWITCH: <p>The switch room. What the machines make leaves the site through this wall.</p>
+  GAUGE: <p>The river gauge hut. The only measurement on site of what actually reached the river.</p>
+  PLANT: <p>The workshop. Spares for two machines, five gates and a hoist that predates everybody here.</p>
+  SUMP: <p>The drainage sump. Everything that seeps through the wall arrives here and is measured on the 
+    way.</p>
+  CORE: <p>The core store. Rock taken out of the foundation when the dam was built, on shelves, labelled by 
+    depth.</p>
+  INSTR: <p>The instrument room. Where a gauge that disagrees with its neighbours gets taken apart.</p>
+  GROUT: <p>The grout curtain access. A row of holes into rock nobody has seen, and the record of what was 
+    pumped into them.</p>
+  REST: <p>The crew room. A kettle, a rota and the only chairs in the gallery.</p>
+  CONTROL: <p>The control room. Level, inflow, gate positions and machine output on one wall, and the log 
+    everything ends up in.</p>
+  ARCHIVE: <p>Records and rating curves. Every survey the dam has ever been given, with the year it was 
+    made.</p>
+  BRIEF: <p>The briefing room. Where the morning call happens and where the liaison committee sits.</p>
+  MET: <p>The met office link. A forecast arrives here as rainfall over a region and leaves as inflow over a 
+    catchment.</p>
+  HOIST: <p>The hoist deck. Motors, brakes and a hand-winding handle nobody has needed since 1998.</p>
+  CREST: <p>The crest walk. Reservoir on 1 side, 100 metres of air on the other, and a handrail between 
+    them.</p>
+  INTAKE: <p>The intake tower head. Where water leaves the reservoir for the machines, drawn from whichever 
+    depth is cleanest.</p>
+  SPILL: <p>The spillway deck. When the gates are running this is the loudest place on the dam by a long 
+    way.</p>
+  LOOKOUT: <p>The reservoir lookout. The whole pool from one window, which is the only place the level is a 
+    thing you can see.</p>
+
+# ---------------------------------------------------------------------------
+# Review variants. No mission stop points at these: from the third day on the
+# engine hands out a callback, and it only has one to hand out where the oldest
+# taught lesson carries a "— Review" of its own title. Each of these is the
+# same named move on a different case — a falling gauge, a tape with holes in
+# it, four shifts instead of one, a corner instead of a jump — so what is being
+# retrieved is the rule rather than the paragraph it was first read in.
+lessons:
+- group: INFLOW
+  task: Get a signed rate out of two falling readings
+  title: The slope between two readings — Review
+  at: gauge-wall
+  concept: Limits, one-sided limits, and where a limit fails to exist
+  place: Catchment & Inflow Desk
+  scene: >
+    June Sato, the forecast liaison, has the Braith tributary gauge beside the Ashfell one —
+    62 cubic metres a second at noon, 47 at 3. She is drafting the recession note and wants
+    the rate of fall stated, not the two readings quoted.
+  guide: >-
+    Five tiles and only three of them are ends of an interval. The order the 2
+    readings are subtracted in decides the sign, and the sign is most of what
+    this number reports. A sum of the readings has thrown the difference away,
+    and the clock hour is a label rather than a length. Subtract the wrong way
+    round and the note tells a committee the river is climbing.
+  background:
+  - >-
+    Where the direction lives. The magnitude of a slope survives being subtracted backwards; the sign
+    does not. Later minus earlier, over later minus earlier, is the only arrangement that puts the
+    river's direction into the answer. It is the arrangement worth doing by habit rather than by
+    thought.
+  - >-
+    What a falling limb does to a straight-line carry. A recession bends: the fall is quickest just
+    after the crest and slackens for days afterwards. An average slope taken across the steep part and
+    projected forward therefore empties the reservoir faster on paper than the river will empty it. That
+    is the opposite of the error the rising limb produces.
+  assumes:
+  - an average rate of change is the change in a quantity divided by the change in time
+  - subtracting the earlier reading from the later one is what makes a rate signed
+  takeaway: A slope carries a direction, and the order the two readings are subtracted in is the only place 
+    that direction lives.
+  format: BALLPARK
+  question: Estimate the average rate of change of the Braith gauge across those 3 hours.
+  why: >
+    The slope of the line through 2 points does not care which way the river is going. Taking the later
+    reading first puts the direction into the sign. A negative average rate is a fall of about 5 cubic
+    metres a second every hour. Reverse the subtraction and the arithmetic still works and the units
+    still read correctly, so nothing on the sheet objects. A recession also bends, so the fall slackens
+    and this slope carried forward overstates how quickly the tributary empties.
+  estimate:
+    prompt: >
+      The Braith gauge read 62 cubic metres a second at 12:00 and 47 at 15:00. An average rate
+      of change is the change in the quantity divided by the change in the time.
+    question: Choose the later reading, the earlier reading and the length of the interval.
+    labels:
+    - 47  (the reading at 3, cubic metres a second)
+    - 62  (the reading at noon, cubic metres a second)
+    - 3  (hours between the two readings)
+    - 109  (the two readings added together)
+    - 15  (the hour the later reading was taken)
+    values: [47, 62, 3, 109, 15]
+    slots: 3
+    template: '({0} − {1}) ÷ {2}'
+    formula: (a-b)/c
+    correct: [0, 1, 2]
+    target: -5
+    tolerance: 0.6
+    units: cubic metres a second per hour
+    solution: (47 − 62) ÷ 3 = −5 cubic metres a second per hour.
+    explanation: >
+      About 5 cubic metres a second an hour, downward. Carried forward 6 hours that is another
+      30 off the gauge, which no recession has ever managed — the fall slackens as the
+      tributary drains, and the straight-line carry is the pessimistic end of it.
+    givens:
+    - 62 m³/s at 12:00, 47 m³/s at 15:00
+    - Three hours between the readings
+    relationship: >
+      Average rate of change = (Q(t₂) − Q(t₁)) ÷ (t₂ − t₁), which is the slope of the line
+      through the two points on the hydrograph, sign included.
+  answerText: About 5 cubic metres a second per hour downward, so a rate of −5 across the three hours.
+
+- group: INFLOW
+  task: Say what an uneven tape costs the trapezoid rule
+  title: Adding up a curve nobody wrote down — Review
+  concept: Riemann sums, left and right endpoints, and the trapezoid rule
+  place: Catchment & Inflow Desk
+  scene: >
+    Ayo Ekundayo, the catchment hydrologist, has 5 readings off the overnight tape, and the
+    recorder skipped twice. Two of the gaps are 90 minutes and 2 are half an hour. Sato has
+    already totalled the column with the half-ends rule.
+  guide: >-
+    The 4 answers disagree about what the half-ends form actually is. Is it a weighting of readings? Or
+    a shortcut that quietly assumed something about the clock? Ask what a single trapezium is made of
+    before arguing about weights. Getting this wrong does not shift the total slightly. It multiplies
+    most of the night by a width the tape never had.
+  background:
+  - >-
+    What the half-ends form is a shortcut for. Add the 4 trapezia of a 5-reading tape and collect the
+    terms. Every interior reading turns up in two of them and every end reading in one. That is where the
+    halves come from. That collection is only legal when the widths are equal, because it is the common
+    width that was factored out.
+  - >-
+    Why the fix is cheap. Nothing about a trapezium needs its neighbours to match it.
+    Average the pair, multiply by the gap that separates that pair, and add the 4
+    results. It is more arithmetic than the shortcut and exactly as exact, which is
+    why an uneven tape is an inconvenience rather than a lost measurement.
+  assumes:
+  - the area under a flow-against-time curve is a volume
+  - a trapezium's area is the average of its 2 parallel sides times its width
+  takeaway: The half-ends form is an arithmetic shortcut that assumed equal spacing, and the trapezia are what
+    survive when the spacing goes.
+  format: CHOICE
+  question: What is wrong with Sato's total, and what does it take to put right?
+  choices:
+  - Each pair has to be averaged and multiplied by its own gap, not by one common width
+  - Nothing is wrong, because averaging each adjacent pair already accounts for the gap between them
+  - No area can be recovered from these readings until the tape is re-read at a fixed interval
+  - The half-ends weighting is the fault, so every reading on the tape should count at full weight
+  answer: Each pair has to be averaged and multiplied by its own gap, not by one common width
+  why: >
+    The trapezoid rule is a sum of trapezia, and the half-ends form is what that sum collapses to
+    when every width is the same. Take the widths apart and the shortcut is gone. Each adjacent
+    pair is averaged and multiplied by the gap that separates it, and 5 readings give 4 areas to
+    add. The uneven tape costs the arithmetic and nothing else. A 90-minute gap totalled as if it
+    were half an hour reports a third of the water that arrived across it.
+  rebuttals:
+  - Averaging a pair says nothing about how far apart the pair was taken, and that gap is the width of the 
+    trapezium.
+  - Unequal spacing costs the shortcut and not the measurement; 4 trapezia of 4 different widths still add up.
+  - The half weight on each end is right in both forms, because an end reading borders 1 interval and an 
+    interior reading borders 2.
+
+- group: STRUCT
+  task: Say what each shift does to the two totals
+  title: Which end of the interval you believed — Review
+  at: weir-bench
+  concept: Riemann sums, left and right endpoints, and the trapezoid rule
+  place: Seepage & Uplift Bay
+  scene: >
+    Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board.
+    The same 2 totals stand against each: one built on opening readings, one on closing. No shift
+    behaved like the one before it.
+  guide: >-
+    Four shifts and 4 verdicts, one each. What settles every pairing is the
+    direction the seepage moved rather than how large the readings were. Take the 2
+    shifts that only go one way first, and the pair left over separates on whether
+    the record turns. A total nobody can rank is worth less than 2 that bracket the
+    answer between them.
+  background:
+  - >-
+    Why the direction is the whole of it. A rectangle one hour wide and as tall as the
+    opening reading sits under the curve on a rising hour and over it on a falling
+    one. The closing-reading rectangle does the reverse. Nothing else about the
+    readings enters, which is why a shift can be ranked before its numbers are read.
+  - >-
+    What a bracket is worth. Two totals that are known to sit either side of the truth are a statement
+    with a width. The width is a measurement of how coarse the hourly tape is. One total that is nearly
+    right and cannot be placed is not, which is the argument for keeping both rather than picking the
+    better-looking one.
+  assumes:
+  - a rate multiplied by an interval accumulates exactly only where the rate holds still
+  - a sum of rectangles approximates the area under a curve
+  takeaway: For monotone data, endpoint sums give known upper and lower bounds; once the record turns, neither
+    endpoint sum is guaranteed to be a bound.
+  format: PROTOCOL
+  question: Match each shift's record to what the two totals do.
+  columns: [What the shift did, What the totals do]
+  scenarios:
+  - Seepage climbed from the first hour of the shift to the last.
+  - Seepage fell all shift as the gallery drained.
+  - Seepage rose to a peak at 4 o'clock and then fell.
+  - Seepage held at the same reading every hour.
+  choices:
+  - The opening total is short and the closing total long, so the truth lies between them.
+  - The opening total is long and the closing total short, and the truth is still between them.
+  - Neither endpoint total is guaranteed to bound the truth once the record changes direction.
+  - The 2 totals come out equal, and each of them is the accumulation exactly.
+  mapping: [0, 1, 2, 3]
+  why: >-
+    On a rising interval, a left-endpoint rectangle lies below the curve and a right-endpoint one above; on a falling
+    interval the ordering reverses. That guarantees a bracket only while the function stays monotone across the
+    whole interval. If the record rises and then falls, errors from different subintervals can cancel or reinforce,
+    so neither total is guaranteed to sit on a particular side of the true integral without more information. A
+    flat shift remains exact.
+
+- group: SAFE
+  task: Say whether a corner in the trace has a rate
+  title: The instant the gate moved — Review
+  concept: Continuity, and what a jump costs you
+  place: Downstream Warning Desk
+  scene: >
+    Nadine Baptiste, the downstream warning officer, has Thursday's tailrace trace. Gate 2 was
+    wound open across 4 minutes and then stopped dead. The discharge climbs the whole way and
+    holds after. She wants the instant the winding stopped read off it.
+  guide: >-
+    The 4 answers mix 2 separate questions together: whether the trace breaks, and
+    whether it has a slope. Settle the break first, from the readings either side of
+    that instant. Then ask the slope question again from the left and from the right,
+    as a second question with its own answer. Calling a corner a break sends a fault
+    report about a gauge that is working.
+  background:
+  - >-
+    Two limits, not one. The limit of the discharge across an instant asks what value
+    the trace approaches; the limit of the difference quotient asks what slope it
+    approaches. They are separately capable of existing, and a corner is exactly the
+    case where the first one does and the second one does not.
+  - >-
+    Why a corner is physically plausible. A gate can finish moving over a finite interval and then hold position,
+    so the discharge trace can remain continuous while its slope changes abruptly in an idealized model. A truly
+    instantaneous jump in measured discharge would instead make you question telemetry or the plotting model before
+    claiming the water itself jumped.
+  takesAsRead:
+  - Limits, one-sided limits, and where a limit fails to exist
+  assumes:
+  - a limit describes what a quantity approaches from one side
+  - a derivative is a limit of the difference quotient taken across the instant
+  takeaway: Continuity is a promise about the value and never about the slope, and a corner is where the 
+    difference between the two shows.
+  format: CHOICE
+  question: What is true of the discharge at the instant the winding stopped?
+  choices:
+  - The trace is continuous there, and still has no rate of change at that instant
+  - The trace has a rate of change there, and it is the average of the two slopes
+  - The trace is discontinuous there, since the slope changes without warning
+  - The trace has a rate of change there, because the discharge itself never jumps
+  answer: The trace is continuous there, and still has no rate of change at that instant
+  why: >
+    Nothing jumps here. Both one-sided limits of the discharge are the same number. So the trace is
+    continuous at that instant, and a value can be read straight off it. The derivative is a different
+    limit, of the difference quotient, taken across the instant. It has 2 answers. One is a steep climb
+    approaching from the left. The other is a flat line approaching from the right. Two one-sided slopes
+    that disagree leave the 2-sided one undefined. Continuity buys the value and it never buys the rate.
+  rebuttals:
+  - Two one-sided slopes do not average into a derivative. A limit either exists or it does not.
+  - A corner is not a break. The discharge has 1 value there and the trace runs unbroken through it.
+  - Continuity guarantees the value and says nothing about the slope, which is a second limit and a harder 
+    one.

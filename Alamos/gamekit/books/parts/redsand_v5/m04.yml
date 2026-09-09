@@ -1,17 +1,18 @@
 # ============================================================ MISSION 4
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What Can Travel Where?"
   card:
-    header: "12 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 4 - 12 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "WHAT CAN TRAVEL WHERE?"
     goNow: "Go to Catalyst Bay and meet Mei-Ling Cho, the water and cryogenics engineer, beside the covered blue stain."
-    body: "A blue stain beside a methane valve looks suspicious, but could that liquid actually have travelled through the gas pipe? Compare the substances' molecular properties and test how they separate at different temperatures. Decide whether the stain identifies a real route for the missing fuel."
+    body: "12 work shifts remain before launch. A blue swab rests beside a clear dry-line cartridge. Today you decide whether the blue stain could travel down the methane line."
     objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
   objective: "Determine whether the blue residue could have traveled through the suspected methane-leak path."
-  stake: "A blue stain beside a methane valve looks suspicious, but could that liquid actually have travelled through the gas pipe? Compare the substances' molecular properties and test how they separate at different temperatures. Decide whether the stain identifies a real route for the missing fuel."
+  stake: "12 work shifts remain before launch. A blue swab rests beside a clear dry-line cartridge. Today you decide whether the blue stain could travel down the methane line."
   takeaway: "A substance's physical properties can rule out a proposed evidence path."
-  segue: "Mission decision: The blue stain did not move through the dry methane line. Water and glycol would stay or turn to liquid far upstream. Methane would pass. The stain came from local repair work, not a leak. A new water alarm now needs a test."
+  segue: "But Achebe's water alarm now points at the Ice Cut; three matching displays must face one fresh sample."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Valence electron", def: "an electron in an atom's outer occupied region. These electrons are the ones most directly involved in chemical bonds."}
@@ -30,7 +31,7 @@
   - id: on-arrival-at-catalyst-bay
     # On arrival at Catalyst Bay | automatic | 
     on: { enter: true, at: KINET }
-    world: "The player approaches a blue stain sealed beneath a clear cover beside a dry-gas valve; Cho places a residue vial next to four molecular models."
+    world: "A blue swab rests beside a clear dry-line cartridge."
     panel: "MISSION 4 - WHAT CAN TRAVEL WHERE?"
     # unlocks: Stop 13 at the molecular-model bench; Stop 14 unlocks immediately after Stop 13.
     bubbles:
@@ -39,7 +40,7 @@
   - id: after-stops-13-and-14
     # After Stops 13 and 14 | molecular-model bench | automatic transition
     on: { after: [1, 2] }
-    world: "The valid methane structure rotates into a tetrahedron, and the bond-dipole arrows cancel."
+    world: "At charge-bench, the dated accepted-result slip for Stop 13 reads: \"Four single bonds, no carbon lone pairs.\". The slip remains in that fixture's evidence holder."
     panel: "STRUCTURE -\\> GEOMETRY -\\> BOND DIPOLES -\\> MOLECULAR POLARITY."
     # unlocks: Stop 15 at the property-card rack.
     bubbles:
@@ -48,7 +49,7 @@
   - id: after-stop-15
     # After Stop 15 | property-card rack | automatic response
     on: { after: [3] }
-    world: "Methane enters the NONPOLAR / WEAK DISPERSION lane; water and glycol enter the POLAR / STRONG ATTRACTION lane."
+    world: "At molecular-model-rail, the dated accepted-result slip for Stop 14 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 16: CAN THE BLUE RESIDUE RIDE THE GAS STREAM?"
     # unlocks: Stop 16 at the separation cartridge.
     bubbles:
@@ -57,7 +58,7 @@
   - id: after-stop-16
     # After Stop 16 | separation cartridge | automatic reversal
     on: { after: [4] }
-    world: "Methane passes through while water and glycol remain or condense far upstream; The path diagram stamps IMPOSSIBLE UNDER RECORDED CONDITIONS."
+    world: "At model-rail-desk, the dated accepted-result slip for Stop 15 reads: \"Mapping as listed.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 4 outcome beat.
     bubbles:
@@ -66,12 +67,12 @@
   - id: at-mission-end
     # At mission end | Catalyst Bay | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Cho seals the vial as MAINTENANCE FLUID - UNRELATED PATH; Abiola calls as a water-balance alarm opens on the wall."
+    world: "At separation-cartridge, Mei-Ling Cho sets the retained blue residue in a LOCAL MAINTENANCE tray. The dated prop remains here on later visits."
     panel: "LOCAL INVESTIGATION COMPLETE / NEXT DESTINATION - WATER PLANT."
     # unlocks: Mission 5 briefing and the Water Plant waypoint.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. Carbon is accounted for. The residue cannot follow the proposed route. Now the water numbers are failing too. We widen the investigation."
+    - who: cho   # Mei-Ling Cho
+      say: "It could not have made that journey dry. But Achebe's water alarm now points at the Ice Cut; three matching displays must face one fresh sample."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -220,20 +221,16 @@
     # columns matched by position: the bible's `scenarios` become the situations,
     # its `choices` the responses, and its keyed `mapping` the permutation.
     scenarios:
-      - CH4
-      - CO2
-      - H2O
-      - NH3
+    - "CH4"
+    - "CO2"
+    - "H2O"
+    - "NH3"
     choices:
-      - tetrahedral / nonpolar / London dispersion
-      - linear / nonpolar overall / London dispersion
-      - bent / polar / hydrogen bonding
-      - trigonal pyramidal / polar / hydrogen bonding
-    mapping:
-      - 0
-      - 1
-      - 2
-      - 3
+    - "tetrahedral / nonpolar / London dispersion"
+    - "linear / nonpolar overall / London dispersion"
+    - "bent / polar / hydrogen bonding"
+    - "trigonal pyramidal / polar / hydrogen bonding"
+    mapping: [0, 1, 2, 3]
     answerText: "Match CH4 and CO2 to nonpolar/London behavior, and H2O and NH3 to polar/hydrogen-bonding behavior."
     why: "Symmetric CH4 and CO2 cancel bond dipoles and rely on London dispersion between molecules. Bent water and pyramidal ammonia remain polar, and their H-O or H-N bonds allow hydrogen bonding. London forces still exist in all substances; \"dominant\" names the most consequential one present."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -361,4 +358,3 @@
               value: 0.02
             - at: 330
               value: 0.04
-

@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "A Good Bond at the Wrong Speed"
   card:
-    header: "6 DAYS;"
+    header: "MISSION 10 - 6 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "A Good Bond at the Wrong Speed"
     goNow: "Impulse Hall, Elise Strand at gap row."
-    body: "The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims."
-    objective: "Predict the bond's transient voltage and judge its certificate."
-  objective: "Predict the bond's transient voltage and judge its certificate."
-  stake: "The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims."
+    body: "6 days until the last storm window closes. The April certificate hangs beside a new sharp voltage trace. Today you decide whether a slow bond test clears a fast pulse."
+    objective: "Predict the bond's transient voltage and judge its certificate. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Predict the bond's transient voltage and judge its certificate. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "6 days until the last storm window closes. The April certificate hangs beside a new sharp voltage trace. Today you decide whether a slow bond test clears a fast pulse."
   takeaway: "The bonding lead is not certified for lightning timescales. ---"
-  segue: "Mission decision: Do not certify the bond lead for lightning. Its low-rate test is sound. A fast pulse adds voltage from the lead itself. Gap timing changes that voltage. Next, measure every current path."
+  segue: "Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-impulse-hall
     # On arrival at Impulse Hall | hall-board | automatic
     on: { enter: true, at: BANK }
-    world: "accepted BANK/bubble/stage7 amber text/→S1; S2 correct/waypoint/acceptable delay tag/DELAY ≤ 50 ns; TAKE dI/dt TO TRENCH→EARTH; enter EARTH/panel/certificate visible/APRIL: 0.42 Ω DC→S3; S4 correct/world/certificate relabeled/VALID FOR STEADY CURRENT ONLY→outcome; outcome/radio/conduit bond pulses/A second path must be measured.→M11."
+    world: "The April certificate hangs beside a new sharp voltage trace."
     panel: "Elise Strand, impulse engineer: \"Same energy, different front. Watch the derivative.\""
+    # unlocks: Unlock Stop 37 at hall-board in Impulse Hall.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Same energy, different front. Watch the derivative."
   - id: after-stop-37
     # After Stop 37 | gap-row | automatic
     on: { after: [1] }
-    world: "The derive inductance result remains visible while the sweep stage-7 delay fixture lights."
+    world: "At hall-board, the dated accepted-result slip for Stop 37 reads: \"L=μ₀N²A/ℓ. Ampere field plus N flux linkages gives the result.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    # unlocks: Unlock Stop 38 at gap-row in Impulse Hall.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 37 result to settle sweep stage-7 delay."
+    - who: saira   # Saira Malik
+      say: "That check holds. The coil model is established, but a late bank stage could change both pulse slope and ringing."
   - id: after-stop-38
     # After Stop 38 | conduit-bond | automatic
     on: { after: [2] }
-    world: "The sweep stage-7 delay result remains visible while the derive bond voltage fixture lights."
+    world: "At gap-row, the dated accepted-result slip for Stop 38 reads: \"Delay must be ≤50 ns. Greater delay lowers derivative but raises ringing beyond the joint rule.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    # unlocks: Unlock Stop 39 at conduit-bond in Earthing Trench.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 38 result to settle derive bond voltage."
+    - who: saira   # Saira Malik
+      say: "That check holds. The timing check leaves the bond's voltage under a fast pulse to be quantified."
   - id: after-stop-39
     # After Stop 39 | earth-cert | automatic
     on: { after: [3] }
-    world: "The derive bond voltage result remains visible while the scope the april certificate fixture lights."
+    world: "At conduit-bond, the dated accepted-result slip for Stop 39 reads: \"VR=4.2 kV; VL=0.600 kV. Resistance and inductance are separate voltage terms.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    # unlocks: Unlock Stop 40 at earth-cert in Earthing Trench.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 39 result to settle scope the april certificate."
+    - who: saira   # Saira Malik
+      say: "That check holds. The calculated pulse voltages exceed what the April resistance certificate was designed to describe."
   - id: at-mission-end
     # At mission end | hall-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At earth-cert, Saira Malik stamps the April certificate STEADY TEST ONLY. The dated prop remains here on later visits."
     panel: "MISSION 10 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: saira   # Saira Malik
+      say: "April's test was sound. Its promise was too large. Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast."
 
   terms:
   - {name: "Inductance", def: "flux linkage per current and opposition to current change."}

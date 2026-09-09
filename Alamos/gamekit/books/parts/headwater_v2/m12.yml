@@ -1,17 +1,18 @@
 # ============================================================ MISSION 12
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Decay Constant, Scored"
   card:
-    header: "4 SHIFTS UNTIL THE STORM"
+    header: "MISSION 12 - 4 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "What the Steel Can Do"
     goNow: "Go to Powerhouse and meet Nia Chen, power dispatcher, at the crated runner."
-    body: "The smaller reservoir leaves less room for error, and one turbine wheel is unavailable. Calculate the space inside the remaining water passages and the energy needed to move water and open gates. Choose a release schedule the working machinery can actually carry out."
+    body: "4 work shifts remain before the storm. A runner crate blocks one of the two machine bays. Today you decide which machines can repeat the release."
     objective: "Fit the corrected release inside machine and hoist limits."
   objective: "Fit the corrected release inside machine and hoist limits."
-  stake: "The smaller reservoir leaves less room for error, and one turbine wheel is unavailable. Calculate the space inside the remaining water passages and the energy needed to move water and open gates. Choose a release schedule the working machinery can actually carry out."
+  stake: "4 work shifts remain before the storm. A runner crate blocks one of the two machine bays. Today you decide which machines can repeat the release."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Use one runner and move each gate in stages. The blocked runner no longer counts. Each gate move stays below 750 joules. The storage test still passes. Now test if measurement error can change the result."
+  segue: "But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-powerhouse
     # On arrival at Powerhouse | runner-crate | automatic
     on: { enter: true, at: POWER }
-    world: "The compute the missing runner volume fixture wakes and the mission evidence opens."
+    world: "A runner crate blocks one of the two machine bays."
     panel: "MISSION 12: COMPUTE THE MISSING RUNNER VOLUME OPEN"
+    # unlocks: Unlock Stop 45 at runner-crate in Powerhouse.
     bubbles:
     - who: chen   # Nia Chen
       say: "Start with compute the missing runner volume. We need evidence the next decision can use."
   - id: after-stop-45
     # After Stop 45 | runner-crate | automatic
     on: { after: [1] }
-    world: "Travel1 Location: POWER->GATES."
+    world: "At runner-crate, the dated accepted-result slip for Stop 45 reads: \"23.038 m^3, tolerance .01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    # unlocks: Unlock Stop 46 at runner-crate in Powerhouse.
     bubbles:
     - who: chen   # Nia Chen
-      say: "Nice work. Use the Stop 45 result to settle compare the shell setup."
+      say: "That check holds. The passage calculation needs a second geometry check with the correct axis and integration bounds."
   - id: after-stop-46
     # After Stop 46 | work-meter | automatic
     on: { after: [2] }
-    world: "After 12.3 Location: GATES."
+    world: "At runner-crate, the dated accepted-result slip for Stop 46 reads: \"2pi integral_0^3 x(3-x)dx=9pi m^3.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    # unlocks: Unlock Stop 47 at work-meter in Powerhouse.
     bubbles:
     - who: chen   # Nia Chen
-      say: "Good thinking. Use the Stop 46 result to settle measure hoist work."
+      say: "That check holds. The alternative release route needs a hoist-work test before it can replace the runner."
   - id: after-stop-47
     # After Stop 47 | dispatch-console | automatic
     on: { after: [3] }
-    world: "Travel2 Location: GATES->STORE."
+    world: "At work-meter, the dated accepted-result slip for Stop 47 reads: \".5*8000*.09+1200*.3=720 J; pass.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    # unlocks: Unlock Stop 48 at dispatch-console in Powerhouse.
     bubbles:
     - who: chen   # Nia Chen
-      say: "Exactly right. Use the Stop 47 result to settle choose feasible schedule."
+      say: "That check holds. One successful stroke does not establish a repeatable schedule with sufficient storage clearance and warning time."
   - id: at-mission-end
     # At mission end | runner-crate | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At machine-board, Nia Chen hangs a RUNNER UNAVAILABLE card over the blocked machine slot. The dated prop remains here on later visits."
     panel: "MISSION 12 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: chen   # Nia Chen
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "One runner. Real work. No power from the crate. But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain."
 
   terms:
   - {name: "Disk", def: "circular cross-section with no hole."}
@@ -66,9 +72,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Decay Constant, Scored. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Runner in the Crate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Decay Constant, Scored, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?"
+    - prompt: "In a follow-up to The Runner in the Crate, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Disk; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -76,7 +82,7 @@
       - {key: "B", text: "Circular cross-section with no hole.", why: "Correct. circular cross-section with no hole."}
       - {key: "C", text: "Thin cylindrical layer.", why: "This describes Shell, not Disk. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Accumulated force through distance.", why: "This describes Work, not Disk. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Decay Constant, Scored: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?"
+    - prompt: "Ashfell Dam receives a second case related to The Runner in the Crate: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?"
       hint: "Use the stated evidence and the conditions for Washer; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -84,7 +90,7 @@
       - {key: "B", text: "Thin cylindrical layer.", why: "This describes Shell, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Circular cross-section with an inner hole.", why: "Correct. circular cross-section with an inner hole."}
       - {key: "D", text: "Accumulated force through distance.", why: "This describes Work, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Decay Constant, Scored using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?"
+    - prompt: "A teammate rechecks The Runner in the Crate using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?"
       hint: "Use the stated evidence and the conditions for Shell; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -92,7 +98,7 @@
       - {key: "B", text: "Circular cross-section with an inner hole.", why: "This describes Washer, not Shell. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Accumulated force through distance.", why: "This describes Work, not Shell. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Thin cylindrical layer.", why: "Correct. thin cylindrical layer."}
-    - prompt: "An unseen case extends The Decay Constant, Scored: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?"
+    - prompt: "An unseen case extends The Runner in the Crate: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Work; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -108,7 +114,7 @@
       - {key: "B", text: "Runner passage volume is 22pi/3 = 23.038 m^3. Passage volume quantifies the turbine capacity the revised schedule has lost.", why: "Correct. runner passage volume is 22pi/3 = 23.038 m^3. Passage volume quantifies the turbine capacity the revised schedule has lost."}
       - {key: "C", text: "Circular cross-section with an inner hole.", why: "This describes Washer, not disk/washer volume. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Thin cylindrical layer.", why: "This describes Shell, not disk/washer volume. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Decay Constant, Scored to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?"
+    - prompt: "Ashfell Dam applies the lesson from The Runner in the Crate to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?"
       hint: "Use the stated evidence and the conditions for shell versus washer; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -201,7 +207,11 @@
     motivation: "The shell-or-washer setup determines whether the rotated region's volume matches the physical passage being assessed."
     format: CHOICE
     question: "Select exactly one of four integral setups and submit its complete expression in cubic-metre units."
-    choices: []
+    choices:
+    - "$2\\pi\\int_0^3 x(3-x)\\,dx=9\\pi$ m^3."
+    - "$\\pi\\int_0^3 x^2(3-x)\\,dx$ m^3."
+    - "$2\\pi\\int_0^3 (3-x)\\,dx$ m^3."
+    - "$2\\pi\\int_0^3 x(3-x)^2\\,dx$ m^3."
     answer: "$2\\pi\\int_0^3 x(3-x)\\,dx=9\\pi$ m^3."
     answerText: "The completed check shows 2pi integral_0^3 x(3-x)dx=9pi m^3."
     why: "2pi integral_0^3 x(3-x)dx=9pi m^3. The correct slice orientation prevents a costly geometry error."
@@ -306,4 +316,3 @@
           axis: revenue
           reveals: ""
       commit: Commit the decision
-

@@ -1,17 +1,18 @@
 # ============================================================ MISSION 4
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Jobs Behind The Number"
   card:
-    header: "12 DAYS TO CHANGEOVER"
+    header: "MISSION 4 - 12 DAYS UNTIL CHANGEOVER."
     title: "Jobs Behind the Number"
     goNow: "Go to COUNTER and meet Eli Voss, counter operations lead, at the labor board."
-    body: "Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning."
+    body: "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action."
     objective: "Diagnose labor-market weakness without losing excluded workers."
   objective: "Diagnose labor-market weakness without losing excluded workers."
-  stake: "Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning."
+  stake: "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Treat the job data as a recession warning. The output gap is 34.8 billion. Job loss backs the need to act. The energy shock explains much of the price rise. Now test the new spending plan."
+  segue: "Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-counter
     # On arrival at COUNTER | wage-notice-rail | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Diagnose labor-market weakness without losing excluded workers. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A job notice curls over an empty search card."
     panel: "Diagnose labor-market weakness without losing excluded workers."
+    # unlocks: Unlock Stop 13 at wage-notice-rail in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with rebuild the denominator. We need evidence the next decision can use."
   - id: after-stop-13
     # After Stop 13 | queue-board | automatic
     on: { after: [1] }
-    world: "The rebuild the denominator result remains visible while the name the causes fixture lights."
+    world: "At wage-notice-rail, the dated accepted-result slip for Stop 13 reads: \"LF 10.0m and 8.0%, ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    # unlocks: Unlock Stop 14 at queue-board in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. The labor force is 10.0 million and unemployment is 8.0%; 0.5 million discouraged workers remain outside."
   - id: after-stop-14
     # After Stop 14 | allocation-slate | automatic
     on: { after: [2] }
-    world: "The name the causes result remains visible while the place the output gap fixture lights."
+    world: "At queue-board, the dated accepted-result slip for Stop 14 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "COUNTER"
+    # unlocks: Unlock Stop 15 at allocation-slate in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. Frictional and structural form the natural rate; recession layoffs are cyclical."
   - id: after-stop-15
     # After Stop 15 | wage-notice-rail | automatic
     on: { after: [3] }
-    world: "The place the output gap result remains visible while the transition or warning fixture lights."
+    world: "At allocation-slate, the dated accepted-result slip for Stop 15 reads: \"−34.8 billion, recessionary, ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    # unlocks: Unlock Stop 16 at wage-notice-rail in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. Halvern has a 34.8-billion recessionary gap."
   - id: at-mission-end
     # At mission end | wage-notice-rail | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | COUNTER | automatic State: Page 4 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At wage-notice-rail, Eli Voss clips the participation warning to the wage rail. The dated prop remains here on later visits."
     panel: "MISSION 4 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. The line is not only a changeover line. Some people have stopped looking for work."
+      say: "That blank card is a person the rate stopped counting. Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs."
 
   terms:
   - {name: "Labor force", def: "employed people plus unemployed people actively seeking work."}
@@ -193,7 +199,10 @@
     format: CHOICE
     question: "Select one submitted conclusion from the four distinct choices below."
     choices:
-      - "[{id:A,label:\"All three types are natural\"},{id:B,label:\"Frictional and structural are natural; demand layoffs are cyclical\"},{id:C,label:\"Structural unemployment is cyclical\"},{id:D,label:\"Full employment means zero unemployment\"}]; answer:B; rebuttals:{A:\"Layoffs caused by weak aggregate demand are cyclical, not natural.\",C:\"A skill mismatch is structural unemployment, which belongs to the natural rate.\",D:\"Frictional and structural unemployment remain even at full employment.\"}"
+    - "All three types are natural."
+    - "Frictional and structural unemployment are natural; layoffs from falling demand are cyclical."
+    - "Structural unemployment is cyclical."
+    - "Full employment means zero unemployment."
     answer: "Frictional and structural unemployment are natural; layoffs from falling demand are cyclical."
     answerText: "Frictional and structural form the natural rate; recession layoffs are cyclical."
     why: "Only cyclical unemployment signals output below its demand-supported potential."
@@ -283,16 +292,15 @@
     # quantity — "gap −34.8" into gap and −34.8 — and the one carrying no quantity
     # keeps its whole phrase as the zone. Candidates are graded by label, so each
     # one's `mechanism` is its label and "mixed" is written out as its own.
-    headline: Prices up, output below capacity
+    headline: "Prices up, output below capacity"
     readings:
-      - {}
-      - {}
-      - {}
-      - {}
+    - { zone: "gap", value: "−34.8" }
+    - { zone: "cyclical layoffs", value: "" }
+    - { zone: "discouraged", value: "+0.5m" }
+    - { zone: "energy import", value: "+18%" }
     choices:
-      - ""
-      - ""
-      - ""
-      - ""
+    - "natural churn only"
+    - "Y>Yf"
+    - "recessionary gap plus adverse supply pressure"
+    - "PL falling"
     answer: "recessionary gap plus adverse supply pressure"
-

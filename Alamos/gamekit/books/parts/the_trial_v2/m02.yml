@@ -1,17 +1,18 @@
 # ============================================================ MISSION 2
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What Was Measured"
   card:
-    header: "DAY 2 - BOARD IN 14 DAYS"
+    header: "MISSION 2 - 14 DAYS UNTIL THE BOARD MEETS."
     title: "What Was Measured"
     goNow: "Go to the Adjudication Room and meet Amina Okafor, endpoint adjudication lead, at the outcome viewer."
-    body: "Two patients took unusually long to recover, and their records could change how helpful the treatment appears. Compare recovery times across patients and hospitals. Decide how to summarize the results fairly without hiding unusual cases or letting them tell the whole story."
+    body: "Fourteen days remain before the board meets. Two flagged files sit apart from the rest. Today you decide how to describe the time patients took to get well."
     objective: "Approve a defensible recovery-time procedure."
   objective: "Approve a defensible recovery-time procedure."
-  stake: "Two patients took unusually long to recover, and their records could change how helpful the treatment appears. Compare recovery times across patients and hospitals. Decide how to summarize the results fairly without hiding unusual cases or letting them tell the whole story."
+  stake: "Fourteen days remain before the board meets. Two flagged files sit apart from the rest. Today you decide how to describe the time patients took to get well."
   takeaway: "Check a Normal model before using its tail areas."
-  segue: "Mission decision: Use the median and IQR for the uneven recovery times. Check flagged records instead of deleting them. The Normal model misses the long tail. The method now fits most patients. Two hospitals still have safety alerts."
+  segue: "But Jonas still has alerts from hospitals 12 and 19; a fair summary cannot settle the safety cluster."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Resistant statistic", def: "a summary changed little by extreme values."}
@@ -32,43 +33,48 @@
   - id: on-arrival-at-the-adjudication-room
     # On arrival at the Adjudication Room | outcome-viewer | automatic
     on: { enter: true, at: ENDP }
-    world: "Arrival: trigger room entry; location ADJUD; nearby bubble; outcome viewer shows two flagged scans; dialogue shown above; - After S1: trigger correct commit; equipment update; player control restored; panel shows MEAN 8 / MEDIAN 5; - After S2-S3: trigger measurement; persistent state; z tags and LIMITED FIT text appear; - Final/outcome: trigger S4; character bubble then placard change; binder slot 2 fills; unlock metric screen."
+    world: "Two flagged patient packets sit apart from the ordinary files."
     panel: "MISSION 2: WHICH CENTER SURVIVES OPEN"
+    # unlocks: Unlock Stop 5 at outcome-viewer in the Adjudication Room.
     bubbles:
     - who: okafor   # Amina Okafor
       say: "Start with which center survives. We need evidence the next decision can use."
   - id: after-stop-5
     # After Stop 5 | adjudication-desk | automatic
     on: { after: [1] }
-    world: "The which center survives result remains visible while the put hospitals on one scale fixture lights."
+    world: "At outcome-viewer, the dated accepted-result slip for Stop 5 reads: \"Mean = 40/5 = 8 days; median = 5 days. The high value pulls the mean above the median, matching right skew.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    # unlocks: Unlock Stop 6 at adjudication-desk in the Adjudication Room.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Nice work. Use the Stop 5 result to settle put hospitals on one scale."
+      say: "That check holds. Raw delay hours cannot fairly compare hospitals with different usual processing times."
   - id: after-stop-6
     # After Stop 6 | outcome-viewer | automatic
     on: { after: [2] }
-    world: "The put hospitals on one scale result remains visible while the test the bell fixture lights."
+    world: "At adjudication-desk, the dated accepted-result slip for Stop 6 reads: \"z=2 exactly, tolerance 0.01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 6 RECORDED - STOP 7 OPEN"
+    # unlocks: Unlock Stop 7 at outcome-viewer in the Adjudication Room.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Good thinking. Use the Stop 6 result to settle test the bell."
+      say: "That check holds. The standardized delay assumes a distribution whose adequacy must now be tested."
   - id: after-stop-7
     # After Stop 7 | outcome-viewer | automatic
     on: { after: [3] }
-    world: "The test the bell result remains visible while the approve the procedure fixture lights."
+    world: "At outcome-viewer, the dated accepted-result slip for Stop 7 reads: \"Prediction 95%; observed coverage 88%; conclusion inadequate Normal fit; prediction tolerance 1 percentage point.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    # unlocks: Unlock Stop 8 at outcome-viewer in the Adjudication Room.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Exactly right. Use the Stop 7 result to settle approve the procedure."
+      say: "That check holds. The center and coverage checks now need to become one defensible reporting procedure."
   - id: at-mission-end
     # At mission end | outcome-viewer | automatic
     on: { missionEnd: true }
-    world: "One location, ADJUD, because only its source images can distinguish rare verified outcomes from entry errors."
+    world: "At adjudication-desk, Amina Okafor clips the MEDIAN AND MIDDLE-HALF SPREAD summary to the verified records. The dated prop remains here on later visits."
     panel: "MISSION 2 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: okafor   # Amina Okafor
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "An odd record gets checked. It does not get thrown away. But Jonas still has alerts from hospitals 12 and 19; a fair summary cannot settle the safety cluster."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -289,7 +295,12 @@
     # bible's. DERIVED: `zone`, which the engine uses to group a reading with the
     # display it comes off — each one here is the bible's own name for that
     # reading, so no display is named that the bible did not name.
-    readings: []
+    readings:
+    - { zone: "Histogram", label: "Shape", value: "right-skewed", status: alarm }
+    - { zone: "Mean", label: "Center of the sample", value: "8 days", status: normal }
+    - { zone: "Median", label: "Center of the sample", value: "5 days", status: normal }
+    - { zone: "IQR fence", label: "Records flagged", value: "20 days", status: alarm }
+    - { zone: "Normal coverage", label: "Inside two SD", value: "88 percent", status: alarm }
     # The four candidates are the bible's own choice list, kept in its order and
     # its words: "mean/SD delete extremes; median/IQR retain-and-review; range
     # only; category average", answer median/IQR retain-and-review.
@@ -309,4 +320,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   headline RECOVERY SUMMARY; readings: histogram right-skew alarm, mean 8 quiet, median 5 quiet, IQR fence flags 20 alarm, normal coverage 88% alarm. Choices with mechanisms: mean/SD delete extremes; median/IQR retain-and-review; range only; category average. Answer median/IQR retain-and-review.
-

@@ -1,5 +1,5 @@
 {
-  "_comment": "Closing-card segues that do not yet pass the rule 10/11 drama gate (checkStory.mjs): the segue does not turn (no complication and no forced consequence, in any wording — turnRule.mjs, not the literal words But/Therefore), nothing concrete is at risk, or it echoes the next stake or this day's own takeaway. A day not listed here fails immediately if it regresses; a day listed here that now passes fails too, naming the line to delete. Shrinks as the three-pass brief (THREE_PASS_BRIEF.md) reaches each campaign.",
+  "_comment": "Closing-card segues that do not yet pass the rule 10/11 drama gate (checkStory.mjs): the segue does not turn (no complication and no forced consequence, in any wording \u2014 turnRule.mjs, not the literal words But/Therefore), nothing concrete is at risk, or it echoes the next stake or this day's own takeaway. A day not listed here fails immediately if it regresses; a day listed here that now passes fails too, naming the line to delete. Shrinks as the three-pass brief (THREE_PASS_BRIEF.md) reaches each campaign.",
   "themes": {
     "planetary_defense": [
       "Phase 1 (The Discovery Image)",
@@ -85,10 +85,6 @@
       "Day 13 (Freeze the process)",
       "Day 14 (The dress rehearsal)",
       "Day 15 (The batch that decides the plant)"
-    ],
-    "redsand_v5": [
-      "Shift 1 (The Shortfall)",
-      "Shift 3 (Pressure Does Not Lie. Or Does It?)"
     ]
   }
 }

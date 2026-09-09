@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Four Screens, One Wire"
   card:
-    header: "9 DAYS;"
+    header: "MISSION 7 - 9 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "Four Screens, One Wire"
     goNow: "Field Station, Noor Haddad at mill array."
-    body: "All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust."
-    objective: "Test whether the four mill channels are independent."
-  objective: "Test whether the four mill channels are independent."
-  stake: "All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust."
+    body: "Nine days remain in the storm window. Four screen traces meet at one wire. Today you decide which checks are truly separate."
+    objective: "Test whether the four mill channels are independent. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Test whether the four mill channels are independent. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "Nine days remain in the storm window. Four screen traces meet at one wire. Today you decide which checks are truly separate."
   takeaway: "Remove the four-mill agreement as independent evidence. ---"
-  segue: "Mission decision: The mills share one ground reference. The battery logger is separate. Isolating channel C removes the jump. The archive now points to the buried loop."
+  segue: "But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-field-station
     # On arrival at Field Station | mill-array | automatic
     on: { enter: true, at: FIELD }
-    world: "accepted FIELD/bubble/four traces aligned/→S1; S1 correct/waypoint/trace dependency lights to SHOT/ALL FOUR MILLS → SHOT GROUND REFERENCE→travel; enter SHOT/bubble/hidden branch icon/The trunk is short by 3.0 mA.→S2; S3 correct/panel/jump disappears then returns/ISOLATE: 0.03; RESTORE: 0.80 kV/m→S4; S4 correct/world/report pieces 1-3 marked SHARED REFERENCE - NOT INDEPENDENT/Evidence removed; layer model retained.→outcome."
+    world: "Four matching screen traces meet at one exposed reference wire."
     panel: "Noor Haddad, data and safety analyst: \"Independent of what?\""
+    # unlocks: Unlock Stop 25 at mill-array in Field Station.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Independent of what?"
   - id: after-stop-25
     # After Stop 25 | radar-desk | automatic
     on: { after: [1] }
-    world: "The trace the shared reference result remains visible while the derive the missing branch current fixture lights."
+    world: "At mill-array, the dated accepted-result slip for Stop 25 reads: \"All four mills share SHOT ground; they are not independent.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    # unlocks: Unlock Stop 26 at radar-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 25 result to settle derive the missing branch current."
+    - who: noor   # Noor Haddad
+      say: "That check holds. The shared-reference finding requires the crew to account for current leaving the channel-return node."
   - id: after-stop-26
     # After Stop 26 | radar-desk | automatic
     on: { after: [2] }
-    world: "The derive the missing branch current result remains visible while the isolate reference c fixture lights."
+    world: "At radar-desk, the dated accepted-result slip for Stop 26 reads: \"Missing current is 3.0 mA outward. KCL conserves charge.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    # unlocks: Unlock Stop 27 at radar-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 26 result to settle isolate reference c."
+    - who: noor   # Noor Haddad
+      say: "That check holds. The current balance points to a hidden return path, but its effect on channel C remains untested."
   - id: after-stop-27
     # After Stop 27 | record-desk | automatic
     on: { after: [3] }
-    world: "The isolate reference c result remains visible while the quantify common-mode error fixture lights."
+    world: "At radar-desk, the dated accepted-result slip for Stop 27 reads: \"Isolation removes and restoration returns the jump. That reversal establishes reference causation.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    # unlocks: Unlock Stop 28 at record-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 27 result to settle quantify common-mode error."
+    - who: noor   # Noor Haddad
+      say: "That check holds. The isolation reversal identifies a cause whose size must now be checked against the recorded voltage."
   - id: at-mission-end
     # At mission end | mill-array | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At reference-panel, Noor Haddad ties a SHARED REFERENCE tag around the common feed. The dated prop remains here on later visits."
     panel: "MISSION 7 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: noor   # Noor Haddad
+      say: "Four screens. One wire. We had been counting the screens. But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it."
 
   terms:
   - {name: "Current", def: "rate of charge flow."}

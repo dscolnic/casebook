@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "A Field Without Contact"
   card:
-    header: "8 DAYS;"
+    header: "MISSION 8 - 8 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "A Field Without Contact"
     goNow: "Mast Base, Marcus Tate at shunt rack."
-    body: "A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible."
-    objective: "Determine whether strike current can influence the trailer cable without direct contact."
-  objective: "Determine whether strike current can influence the trailer cable without direct contact."
-  stake: "A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible."
+    body: "Eight days remain in the storm window. A burned card sits beside a cable with no scar. Today you decide if a field could cause harm without touch."
+    objective: "Determine whether strike current can influence the trailer cable without direct contact. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Determine whether strike current can influence the trailer cable without direct contact. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "Eight days remain in the storm window. A burned card sits beside a cable with no scar. Today you decide if a field could cause harm without touch."
   takeaway: "No-contact coupling is physically plausible. ---"
-  segue: "Mission decision: No-contact coupling is physically plausible. A 30 kA mast current makes about 3.0 mT at the nearby route. And the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign. And size."
+  segue: "Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-mast-base
     # On arrival at Mast Base | shunt-rack | automatic
     on: { enter: true, at: MAST }
-    world: "accepted MAST/bubble/shunts pulse/→S1; S2 correct/waypoint/field rings extend/Predicted B at 2.0 m: 3.00 mT; Inspect the outstation route.→COUPLE; enter COUPLE/panel/no arc tag/SHELL QUIET • CARD DAMAGED→S3; S3 correct/panel/helix displayed/MAGNETIC FORCE CHANGES DIRECTION, NOT SPEED→S4; S4 correct/radio/loop highlighted/No contact required; changing flux remains.→outcome."
+    world: "A burned card lies under glass beside an unmarked cable jacket."
     panel: "Marcus Tate, mast engineer: \"If a field reached the route, its direction must match the wiring.\""
+    # unlocks: Unlock Stop 29 at shunt-rack in Mast Base.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "If a field reached the route, its direction must match the wiring."
   - id: after-stop-29
     # After Stop 29 | mast-desk | automatic
     on: { after: [1] }
-    world: "The match magnetic rules result remains visible while the derive the down-conductor field fixture lights."
+    world: "At shunt-rack, the dated accepted-result slip for Stop 29 reads: \"Right-hand mappings and four source formulas are complete. Geometry fixes directions.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    # unlocks: Unlock Stop 30 at mast-desk in Mast Base.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 29 result to settle derive the down-conductor field."
+    - who: owen   # Owen Park
+      say: "That check holds. The mast-current model needs a field prediction at the nearby equipment before damage mechanisms are compared."
   - id: after-stop-30
     # After Stop 30 | cable-bay | automatic
     on: { after: [2] }
-    world: "The derive the down-conductor field result remains visible while the track a charged particle fixture lights."
+    world: "At mast-desk, the dated accepted-result slip for Stop 30 reads: \"B=μ₀I/(2πr)=3.00 mT. Circular symmetry makes B constant on the path.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    # unlocks: Unlock Stop 31 at cable-bay in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 30 result to settle track a charged particle."
+    - who: owen   # Owen Park
+      say: "That check holds. The predicted magnetic field must be translated into particle motion before it is blamed for equipment damage."
   - id: after-stop-31
     # After Stop 31 | trailer-cards | automatic
     on: { after: [3] }
-    world: "The track a charged particle result remains visible while the diagnose noncontact damage fixture lights."
+    world: "At cable-bay, the dated accepted-result slip for Stop 31 reads: \"r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    # unlocks: Unlock Stop 32 at trailer-cards in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 31 result to settle diagnose noncontact damage."
+    - who: owen   # Owen Park
+      say: "That check holds. The particle check leaves the cable-card damage and reversed voltage needing a common explanation."
   - id: at-mission-end
     # At mission end | shunt-rack | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At trailer-cards, Owen Park bags the failed card with a NO CONTACT REQUIRED evidence label. The dated prop remains here on later visits."
     panel: "MISSION 8 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: owen   # Owen Park
+      say: "The jacket is clean. The card is not. Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size."
 
   terms:
   - {name: "Magnetic field", def: "field that deflects moving charge and currents."}

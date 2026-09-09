@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Name on the Certificate"
   card:
-    header: "COUNTY INSPECTION TOMORROW"
+    header: "MISSION 15 - 1 DAY UNTIL THE PARK REVIEW."
     title: "THE NAME ON THE CERTIFICATE"
     goNow: "Go to the Reopening Board and meet Maya Hart, the park operations lead, beside the seven blank ride decisions."
-    body: "The coaster lacks its required safety margin, while six other rides have specific conditions for operation. Check every inspection, setting, and limit against the evidence. Spend the remaining work budget where it matters, then sign which rides can reopen and which must remain closed."
+    body: "1 day until the park review. Families wait beyond a gate with seven unsigned ride rows. Today you decide which rides can reopen and which must stay shut."
     objective: "Sign seven defensible ride decisions and the shared operating plan."
   objective: "Sign seven defensible ride decisions and the shared operating plan."
-  stake: "The coaster lacks its required safety margin, while six other rides have specific conditions for operation. Check every inspection, setting, and limit against the evidence. Spend the remaining work budget where it matters, then sign which rides can reopen and which must remain closed."
+  stake: "1 day until the park review. Families wait beyond a gate with seven unsigned ride rows. Today you decide which rides can reopen and which must stay shut."
   takeaway: "Good physics supports both approval and refusal by stating exactly what the evidence proves."
-  segue: "Mission decision: Open the Carousel, Bumper Cars, and Drop Tower. Open the Pirate Ship, Ferris Wheel, and Log Flume only with their written limits. Keep the coaster shut because its real loop fails the margin test. The park has seven sound choices. Hart signs the safety form."
+  segue: "Therefore the six cleared sections can run within their cards while the coaster keeps its closure; Hart's signature names both."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Binding condition", def: "Binding condition is a requirement that must pass for a decision to remain valid."}
@@ -30,7 +30,7 @@
   - id: on-arrival-at-reopening-board
     # On arrival at Reopening Board | automatic | 
     on: { enter: true, at: REOPENIN }
-    world: "Seven blank rows and the full Casebook appear."
+    world: "Families wait beyond a gate with seven unsigned ride rows."
     panel: "STOP 57 READY"
     # unlocks: Stop 57.
     bubbles:
@@ -39,7 +39,7 @@
   - id: after-stop-57
     # After Stop 57 | automatic | 
     on: { after: [1] }
-    world: "Every clue receives one evidence label."
+    world: "At reopening-board, the dated accepted-result slip for Stop 57 reads: \"Submit one evidence label for every clue; preserve observations and replace unsupported interpretations.\". The slip remains in that fixture's evidence holder."
     panel: "CASEBOOK UPDATED"
     # unlocks: No new stop; preserve the current mission state.
     bubbles:
@@ -48,7 +48,7 @@
   - id: on-arrival-at-brennan-s-workshop
     # On arrival at Brennan's Workshop | automatic | 
     on: { enter: true, at: WORKSHOP }
-    world: "The seven proposed decisions survive or fail their uncertainty ranges."
+    world: "At uncertainty-board, the dated accepted-result slip for Stop 58 reads: \"Choice 2 - three open, three conditional, Coaster closed across uncertainty.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 59 READY"
     # unlocks: Stop 59.
     bubbles:
@@ -57,7 +57,7 @@
   - id: after-stop-59
     # After Stop 59 | automatic | 
     on: { after: [3] }
-    world: "The funded inspection confirms arm nine within the fictional acceptance condition; no work is wasted on the failed coaster geometry."
+    world: "At work-allocation-board, the dated accepted-result slip for Stop 59 reads: \"Submit allocation {arm inspection:30, independent verification:25, operating cards:20, protected reserve:25, other:0}.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 60 READY"
     # unlocks: Stop 60.
     bubbles:
@@ -66,12 +66,12 @@
   - id: after-stop-60
     # After Stop 60 | automatic | 
     on: { after: [4] }
-    world: "The player attests seven decisions."
+    world: "At certificate-table, Maya Hart turns the front-gate key. The final scene follows the completion gate below."
     panel: "SIGN CERTIFICATE"
     # unlocks: No new stop; preserve the current mission state.
     bubbles:
     - who: hart   # Maya Hart
-      say: "Outstanding work. You solved the mission. This evidence changes what we test next, not more than that."
+      say: "You gave this park a future we can sign our names to. Therefore the six cleared sections can run within their cards while the coaster keeps its closure; Hart's signature names both."
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }

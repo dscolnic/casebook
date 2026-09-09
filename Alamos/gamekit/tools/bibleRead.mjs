@@ -1143,6 +1143,15 @@ export function readBible(file){
       // heading asks for.
       worked: workedIn(body),
       stops: stopsIn(body),
+      // THE SEGUE, WHERE THE BIBLE WRITES ONE. The handback-1 revisions of the
+      // eight older bibles close every mission's Physical aftermath with
+      // `**Segue - exact player copy:** But …` — the But-or-Therefore line the
+      // story gate asks for. Read it as its own field; `bible-prose` prefers it
+      // to the outcome paragraph it used to print in that slot.
+      segue: (() => {
+        const l = body.find(x => /^\*\*Segue\s*[—–-]\s*exact player copy:?\*\*/i.test(x));
+        return l ? l.replace(/^\*\*[^*]*\*\*\s*/, '').trim() : null;
+      })(),
       outcome: (() => {
         const a = body.findIndex(l => /^#{2,3} (?:[A-Z]+\d*\.\s*)?Mission outcome/.test(l));
         if(a < 0) return null;

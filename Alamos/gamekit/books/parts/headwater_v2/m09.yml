@@ -1,17 +1,18 @@
 # ============================================================ MISSION 9
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Seepage Ledger Rule"
   card:
-    header: "7 SHIFTS UNTIL THE STORM"
+    header: "MISSION 9 - 7 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "The Silent Heads"
     goNow: "Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the uplift wall."
-    body: "Two pressure gauges beneath the dam have stopped reporting just as the water load is changing. Use the remaining measurements to estimate the missing pressure changes. Decide whether the crew can continue controlled releases without putting the dam wall at risk."
+    body: "7 work shifts remain before the storm. Two blank gauge faces sit beside a live independent trace. Today you decide whether the quiet gauges mean wall trouble."
     objective: "Reconstruct uplift pressure and authorize or stop testing."
   objective: "Reconstruct uplift pressure and authorize or stop testing."
-  stake: "Two pressure gauges beneath the dam have stopped reporting just as the water load is changing. Use the remaining measurements to estimate the missing pressure changes. Decide whether the crew can continue controlled releases without putting the dam wall at risk."
+  stake: "7 work shifts remain before the storm. Two blank gauge faces sit beside a live independent trace. Today you decide whether the quiet gauges mean wall trouble."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Continue controlled release tests. Euler estimates agree with independent live readings. And the two silent gauges share one failed cable. The crew replaces that cable. And bounds the uplift load."
+  segue: "But the weir still carries extra flow; Arun needs its time trend before he clears the wall."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-seepage-uplift-bay
     # On arrival at Seepage & Uplift Bay | uplift-wall | automatic
     on: { enter: true, at: STRUCT }
-    world: "Arrival Location: STRUCT."
+    world: "Two blank gauge faces sit beside a live independent trace."
     panel: "STRUCT"
+    # unlocks: Unlock Stop 33 at uplift-wall in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
       say: "Start with read the pressure field. We need evidence the next decision can use."
   - id: after-stop-33
     # After Stop 33 | uplift-wall | automatic
     on: { after: [1] }
-    world: "After 9.2 Location: STRUCT."
+    world: "At uplift-wall, the dated accepted-result slip for Stop 33 reads: \"toward 8; equilibrium P=8.\". The slip remains in that fixture's evidence holder."
     panel: "STRUCT"
+    # unlocks: Unlock Stop 34 at uplift-wall in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Nice work. Use the Stop 33 result to settle step through the gap."
+      say: "That check holds. The pressure model must bridge the gap between the last live reading and the next measurement."
   - id: after-stop-34
     # After Stop 34 | transect-rack | automatic
     on: { after: [2] }
-    world: "Travel Location: STRUCT->GATES."
+    world: "At uplift-wall, the dated accepted-result slip for Stop 34 reads: \"5.44, tolerance .001.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    # unlocks: Unlock Stop 35 at transect-rack in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Good thinking. Use the Stop 34 result to settle test step-size sensitivity."
+      say: "That check holds. The coarse pressure estimate needs a numerical-sensitivity check before it supports a load decision."
   - id: after-stop-35
     # After Stop 35 | uplift-wall | automatic
     on: { after: [3] }
-    world: "The test step-size sensitivity result remains visible while the diagnose silence fixture lights."
+    world: "At transect-rack, the dated accepted-result slip for Stop 35 reads: \"as stated.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    # unlocks: Unlock Stop 36 at uplift-wall in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Exactly right. Use the Stop 35 result to settle diagnose silence."
+      say: "That check holds. Agreement with the model cannot explain why two pressure channels remain silent."
   - id: at-mission-end
     # At mission end | uplift-wall | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At uplift-wall, Arun Mehta ties a FAILED SHARED CABLE tag around the removed cable. The dated prop remains here on later visits."
     panel: "MISSION 9 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "Two silent faces. One cable. That is not two votes. But the weir still carries extra flow; Arun needs its time trend before he clears the wall."
 
   terms:
   - {name: "Slope field", def: "short segments showing a differential equation's slope at many points."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Seepage Ledger Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Two Silent Gauges. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Seepage Ledger Rule, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?"
+    - prompt: "In a follow-up to Two Silent Gauges, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?"
       hint: "Use the stated evidence and the conditions for Slope field; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -75,7 +81,7 @@
       - {key: "B", text: "Short segments showing a differential equation's slope at many points.", why: "Correct. short segments showing a differential equation's slope at many points."}
       - {key: "C", text: "Repeated tangent-line steps.", why: "This describes Euler's method, not Slope field. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.", why: "This describes slope fields/equilibrium, not Slope field. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Seepage Ledger Rule: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?"
+    - prompt: "Ashfell Dam receives a second case related to Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Equilibrium solution; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -83,7 +89,7 @@
       - {key: "B", text: "Repeated tangent-line steps.", why: "This describes Euler's method, not Equilibrium solution. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "A constant solution where slope is zero.", why: "Correct. a constant solution where slope is zero."}
       - {key: "D", text: "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.", why: "This describes slope fields/equilibrium, not Equilibrium solution. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Seepage Ledger Rule using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?"
+    - prompt: "A teammate rechecks Two Silent Gauges using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?"
       hint: "Use the stated evidence and the conditions for Euler's method; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -91,7 +97,7 @@
       - {key: "B", text: "A constant solution where slope is zero.", why: "This describes Equilibrium solution, not Euler's method. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.", why: "This describes slope fields/equilibrium, not Euler's method. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Repeated tangent-line steps.", why: "Correct. repeated tangent-line steps."}
-    - prompt: "An unseen case extends The Seepage Ledger Rule: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?"
+    - prompt: "An unseen case extends Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?"
       hint: "Use the stated evidence and the conditions for slope fields/equilibrium; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +113,7 @@
       - {key: "B", text: "Euler gives P(1.0)=5.44. A stepwise prediction can be compared with independent seepage evidence.", why: "Correct. euler gives P(1.0)=5.44. A stepwise prediction can be compared with independent seepage evidence."}
       - {key: "C", text: "A constant solution where slope is zero.", why: "This describes Equilibrium solution, not Euler method. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Repeated tangent-line steps.", why: "This describes Euler's method, not Euler method. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Seepage Ledger Rule to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?"
+    - prompt: "Ashfell Dam applies the lesson from Two Silent Gauges to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?"
       hint: "Use the stated evidence and the conditions for Euler error/control; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -249,13 +255,14 @@
     #   control:{candidates:[{id:"step"},{id:"initial"},{id:"equation"}],correct_control:"step",baseline:.5,response:.25,noise_band:.005,measurements:[5.44,5.3756,5.44],restore:true,correct_conclusion:"smaller step lowers estimate by .0644; result remains near 5.4"}
     control:
       variables:
-        - id: step
-        - id: initial
-        - id: equation
+      - {id: step, label: "step"}
+      - {id: initial, label: "initial"}
+      - {id: equation, label: "equation"}
       truth: step
-      baseline: 0.5
-      response: 0.25
+      baseline: 5.44
+      response: -0.0644
       noise: 0.005
+      moral: "smaller step lowers estimate by .0644; result remains near 5.4"
 
   # --- Stop 36: Diagnose silence
   #     Concept: dependency/independent evidence; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -312,4 +319,3 @@
         - weir
         - uplift_3
       target: junction_cable_J4
-

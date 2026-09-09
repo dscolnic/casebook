@@ -1,17 +1,18 @@
 # ============================================================ MISSION 13
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Three-Before-Nine Order"
   card:
-    header: "3 SHIFTS UNTIL THE STORM"
+    header: "MISSION 13 - 3 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Carry the Error Honestly"
     goNow: "Go to Storage & Level Board and meet Mara Vale, operations chief, at the level desk."
-    body: "The revised release schedule looks safe, but every water-height and flow measurement has some error. Test how those errors change the predicted result and whether several sensors share one fault. Decide whether the crew has enough reliable evidence to approve the schedule."
+    body: "3 work shifts remain before the storm. The new survey and old fit lie on separate hooks. Today you decide whether the corrected plan has enough margin."
     objective: "Certify the model across supported measurement error."
   objective: "Certify the model across supported measurement error."
-  stake: "The revised release schedule looks safe, but every water-height and flow measurement has some error. Test how those errors change the predicted result and whether several sensors share one fault. Decide whether the crew has enough reliable evidence to approve the schedule."
+  stake: "3 work shifts remain before the storm. The new survey and old fit lie on separate hooks. Today you decide whether the corrected plan has enough margin."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Sign the new release rules. Volume error stays below the safety margin. Model errors show no pattern. A separate survey breaks the last tie. Now test each valley warning line."
+  segue: "But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-storage-level-board
     # On arrival at Storage & Level Board | level-desk | automatic
     on: { enter: true, at: STORE }
-    world: "The linearize level error fixture wakes and the mission evidence opens."
+    world: "The new survey and old fit lie on separate hooks."
     panel: "MISSION 13: LINEARIZE LEVEL ERROR OPEN"
+    # unlocks: Unlock Stop 49 at level-desk in Storage & Level Board.
     bubbles:
     - who: vale   # Mara Vale
       say: "Start with linearize level error. We need evidence the next decision can use."
   - id: after-stop-49
     # After Stop 49 | storage-board | automatic
     on: { after: [1] }
-    world: "After 13.2 Location: STORE."
+    world: "At level-desk, the dated accepted-result slip for Stop 49 reads: \"+-0.030 million m^3; margin survives.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    # unlocks: Unlock Stop 50 at storage-board in Storage & Level Board.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Nice work. Use the Stop 49 result to settle refuse the lowest rms."
+    - who: okoro   # Imani Okoro
+      say: "That check holds. Acceptable gauge uncertainty leaves the accumulation method itself to be checked against independent totals."
   - id: after-stop-50
     # After Stop 50 | control-bench | automatic
     on: { after: [2] }
-    world: "Travel1 Location: STORE->STRUCT."
+    world: "At storage-board, the dated accepted-result slip for Stop 50 reads: \"trapezoid.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    # unlocks: Unlock Stop 51 at control-bench in Storage & Level Board.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Good thinking. Use the Stop 50 result to settle break the two-control degeneracy."
+    - who: okoro   # Imani Okoro
+      say: "That check holds. The accumulation check leaves offset and scale errors that can imitate each other in the level system."
   - id: after-stop-51
     # After Stop 51 | storage-board | automatic
     on: { after: [3] }
-    world: "Travel2 Location: STRUCT->INFLOW."
+    world: "At control-bench, the dated accepted-result slip for Stop 51 reads: \"(-.01 m,1.02).\". The slip remains in that fixture's evidence holder."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    # unlocks: Unlock Stop 52 at storage-board in Storage & Level Board.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Exactly right. Use the Stop 51 result to settle diagnose the signed rules."
+    - who: okoro   # Imani Okoro
+      say: "That check holds. The separated calibration errors allow the crew to reconcile the earlier findings into one release-rule set."
   - id: at-mission-end
     # At mission end | level-desk | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At residual-plot, Imani Okoro pins the independent clearance beside the corrected residual plot. The dated prop remains here on later visits."
     panel: "INFLOW"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: okoro   # Imani Okoro
+      say: "This time the check did not learn from our model. But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning."
 
   terms:
   - {name: "Linearization", def: "tangent-line estimate of a nearby output."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Three-Before-Nine Order. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Margin That Survives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Three-Before-Nine Order, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?"
+    - prompt: "In a follow-up to The Margin That Survives, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?"
       hint: "Use the stated evidence and the conditions for Linearization; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -75,7 +81,7 @@
       - {key: "B", text: "Tangent-line estimate of a nearby output.", why: "Correct. tangent-line estimate of a nearby output."}
       - {key: "C", text: "Two parameter choices fitting the same evidence.", why: "This describes Degeneracy, not Linearization. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.", why: "This describes linear approximation/error budget, not Linearization. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Three-Before-Nine Order: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?"
+    - prompt: "Ashfell Dam receives a second case related to The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?"
       hint: "Use the stated evidence and the conditions for Propagated error; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -83,7 +89,7 @@
       - {key: "B", text: "Two parameter choices fitting the same evidence.", why: "This describes Degeneracy, not Propagated error. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Output uncertainty caused by input uncertainty.", why: "Correct. output uncertainty caused by input uncertainty."}
       - {key: "D", text: "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.", why: "This describes linear approximation/error budget, not Propagated error. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Three-Before-Nine Order using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?"
+    - prompt: "A teammate rechecks The Margin That Survives using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Degeneracy; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -91,7 +97,7 @@
       - {key: "B", text: "Output uncertainty caused by input uncertainty.", why: "This describes Propagated error, not Degeneracy. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.", why: "This describes linear approximation/error budget, not Degeneracy. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Two parameter choices fitting the same evidence.", why: "Correct. two parameter choices fitting the same evidence."}
-    - prompt: "An unseen case extends The Three-Before-Nine Order: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?"
+    - prompt: "An unseen case extends The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?"
       hint: "Use the stated evidence and the conditions for linear approximation/error budget; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +113,7 @@
       - {key: "B", text: "Small alternating residuals survive holdout; left/right directional errors track changing curve. A repeated sign would push every release decision in the same unsafe direction.", why: "Correct. small alternating residuals survive holdout; left/right directional errors track changing curve. A repeated sign would push every release decision in the same unsafe direction."}
       - {key: "C", text: "Output uncertainty caused by input uncertainty.", why: "This describes Propagated error, not approximation error/sum accuracy. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Two parameter choices fitting the same evidence.", why: "This describes Degeneracy, not approximation error/sum accuracy. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Three-Before-Nine Order to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?"
+    - prompt: "Ashfell Dam applies the lesson from The Margin That Survives to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?"
       hint: "Use the stated evidence and the conditions for sensitivity/systematics; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -280,19 +286,24 @@
     #   degeneracy:{controls:[{id:"b",label:"level offset",min:-.05,max:.05,step:.01},{id:"s",label:"storage scale",min:.90,max:1.10,step:.01}],tolerance:.011,first_locus:[[-.05,1.10],[-.03,1.06],[-.01,1.02],[.01,.98],[.03,.94],[.05,.90]],second_locus:[[-.02,.98],[-.01,1.00],[0,1.02],[.01,1.04]],physical_constraint:"independent uplift geometry requires b=-.01 m",truth_pair:[-.01,1.02],correct_plan:"use resurvey correction"}
     degeneracy:
       controls:
-        - id: b
-          label: level offset
-          min: -0.05
-          max: 0.05
-          step: 0.01
-        - id: s
-          label: storage scale
-          min: 0.9
-          max: 1.1
-          step: 0.01
-      truth:
-        a: -0.01
-        b: 1.02
+      - {id: b, label: "level offset", min: -0.05, max: 0.05, step: 0.01}
+      - {id: s, label: "storage scale", min: 0.90, max: 1.10, step: 0.01}
+      locus:
+      - {a: -0.05, b: 1.10}
+      - {a: -0.03, b: 1.06}
+      - {a: -0.01, b: 1.02}
+      - {a: 0.01, b: 0.98}
+      - {a: 0.03, b: 0.94}
+      - {a: 0.05, b: 0.90}
+      second:
+        label: "independent uplift geometry requires b=-.01 m"
+        locus:
+        - {a: -0.02, b: 0.98}
+        - {a: -0.01, b: 1.00}
+        - {a: 0.00, b: 1.02}
+        - {a: 0.01, b: 1.04}
+      truth: {a: -0.01, b: 1.02}
+      tolerance: {a: 0.011, b: 0.011}
 
   # --- Stop 52: Diagnose the signed rules
   #     Concept: cumulative calculus validity; Keystone: all keystones; Area: Forecast Archive; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -316,22 +327,16 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   diagnosis:{headline:"corrected release rules",readings:[{zone:"level",value:"continuous after one removable repair"},{zone:"inflow",value:"Forecast B passes holdout"},{zone:"storage",value:"resurvey pair (-.01,1.02)"},{zone:"wall",value:"decay below limit"},{zone:"gate",value:"reversal pass"}],choices:[{label:"B forecast + resurvey + staged gate",mechanism:"fits all"},{label:"A forecast + old sheet",mechanism:"misses crest and silt"},{label:"B + old sheet",mechanism:"wrong capacity"},{label:"B + resurvey + full gate",mechanism:"breaks warning/work limits"}],answer:"B forecast + resurvey + staged gate"}
-    headline: corrected release rules
+    headline: "corrected release rules"
     readings:
-      - zone: level
-        value: continuous after one removable repair
-      - zone: inflow
-        value: Forecast B passes holdout
-      - zone: storage
-        value: resurvey pair (-.01,1.02)
-      - zone: wall
-        value: decay below limit
-      - zone: gate
-        value: reversal pass
+    - {zone: "level", value: "continuous after one removable repair"}
+    - {zone: "inflow", value: "Forecast B passes holdout"}
+    - {zone: "storage", value: "resurvey pair (-.01,1.02)"}
+    - {zone: "wall", value: "decay below limit"}
+    - {zone: "gate", value: "reversal pass"}
     choices:
-      - B forecast + resurvey + staged gate
-      - A forecast + old sheet
-      - B + old sheet
-      - B + resurvey + full gate
-    answer: B forecast + resurvey + staged gate
-
+    - {label: "B forecast + resurvey + staged gate", mechanism: "fits all"}
+    - {label: "A forecast + old sheet", mechanism: "misses crest and silt"}
+    - {label: "B + old sheet", mechanism: "wrong capacity"}
+    - {label: "B + resurvey + full gate", mechanism: "breaks warning/work limits"}
+    answer: "B forecast + resurvey + staged gate"

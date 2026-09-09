@@ -1,17 +1,18 @@
 # ============================================================ MISSION 11
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Fast Is Not the Same as More"
   card:
-    header: "5 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 11 - 5 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "FAST IS NOT THE SAME AS MORE"
     goNow: "Go to the Sabatier Reactor and meet Dr. Tomás Herrera, the reactor and safety engineer, at the equilibrium board."
-    body: "Lowering the temperature prevented dangerous overheating, but the crew still needs more methane. A faster reaction does not always produce more usable fuel in the end. Compare temperature, pressure, and water removal to choose a production plan that stays within the reactor's heat limit."
+    body: "5 work shifts remain before launch. Two trials rise at the same early speed and end at different yields. Today you decide which safe setting makes more methane in the end."
     objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
   objective: "Choose reactor conditions that satisfy production speed, final methane yield, and thermal safety."
-  stake: "Lowering the temperature prevented dangerous overheating, but the crew still needs more methane. A faster reaction does not always produce more usable fuel in the end. Compare temperature, pressure, and water removal to choose a production plan that stays within the reactor's heat limit."
+  stake: "5 work shifts remain before launch. Two trials rise at the same early speed and end at different yields. Today you decide which safe setting makes more methane in the end."
   takeaway: "Kinetics sets speed; equilibrium sets the composition approached."
-  segue: "Mission decision: Use lower heat, higher pressure, and water removal. This plan keeps a safe heat margin and raises the final methane share. Two plans with the same early speed did not make the same final amount. The next test asks if the water and hydrogen loop can feed this plan."
+  segue: "But Demir's water return is short; better yield means little if the next shift cannot make hydrogen."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Equilibrium constant", def: "compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes."}
@@ -33,7 +34,7 @@
   - id: on-arrival-at-reactor-hall
     # On arrival at Reactor Hall | automatic | 
     on: { enter: true, at: EQUIL }
-    world: "The safe operating point sits below the thermal limit but behind the methane schedule."
+    world: "Two trials rise at the same early speed and end at different yields."
     panel: "MISSION 11 - FAST IS NOT THE SAME AS MORE"
     # unlocks: Stop 41 at the equilibrium board; Stop 42 unlocks immediately after Stop 41.
     bubbles:
@@ -42,7 +43,7 @@
   - id: after-stops-41-and-42
     # After Stops 41 and 42 | equilibrium board | automatic response
     on: { after: [1, 2] }
-    world: "The equilibrium expression and completed ICE table reveal the methane-yield ceiling at the current condition."
+    world: "At equil-stub, the dated accepted-result slip for Stop 41 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 43: PUSH THE BALANCE ON PURPOSE"
     # unlocks: The Cold End waypoint and Stop 43.
     bubbles:
@@ -51,7 +52,7 @@
   - id: after-stop-43
     # After Stop 43 | Cold End | automatic experiment
     on: { after: [3] }
-    world: "Cho removes product water at fixed temperature; methane conversion rises, then returns when the baseline is restored."
+    world: "At ice-board, the dated accepted-result slip for Stop 42 reads: \"Change -0.50 CO2, -2.00 H2, +0.50 CH4, +1.00 H2O; equilibrium 1.00, 1.00, 0.50, 1.00 M. Kc=(0.50)(1.00)^2/\\[(1.00)(1.00)^4\\] = 0.50.\". The slip remains in that fixture's evidence holder."
     panel: "PRODUCT REMOVAL INCREASES CH4 YIELD WITHOUT RAISING TEMPERATURE."
     # unlocks: The Plant Control waypoint and Stop 44.
     bubbles:
@@ -60,7 +61,7 @@
   - id: after-stop-44
     # After Stop 44 | Plant Control | automatic integrated decision
     on: { after: [4] }
-    world: "Two equal-rate plans appear; Thermal margin and equilibrium yield eliminate the hotter plan."
+    world: "At coldline-tap, the dated accepted-result slip for Stop 43 reads: \"Remove product water (preferred) or compress within limit; demonstration expects water removal and reversal.\". The slip remains in that fixture's evidence holder."
     panel: "VALIDATED PLAN - LOWER TEMPERATURE / HIGHER PRESSURE / PRODUCT WATER REMOVAL."
     # unlocks: The Mission 11 outcome beat.
     bubbles:
@@ -69,14 +70,12 @@
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Herrera and Sundqvist sign the same operating card; Demir overlays the power required for compression, cooling, and separation."
+    world: "At operating-point-board, Ingrid Sundqvist pins the LOWER TEMPERATURE / HIGHER PRESSURE / WATER REMOVAL plan to the board. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - ICE CUT -\\> WATER PLANT -\\> ELECTROLYSIS HALL."
     # unlocks: Mission 12 briefing and the Ice Cut waypoint.
     bubbles:
-    - who: demir   # Demir
-      say: "Outstanding work. You solved the mission. This plan can make the fuel. It also spends power in three places, and its hydrogen still comes from recycled water."
-    - who: abiola   # Abiola
-      say: "Then we stop treating the plant like separate rooms."
+    - who: sundqvist   # Ingrid Sundqvist
+      say: "We were racing the first minute. We need the last kilogram. But Demir's water return is short; better yield means little if the next shift cannot make hydrogen."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -268,15 +267,18 @@
     # signed change in the reading: `response` is 68 - 60, `noise` the bible's
     # noise band, `truth` its `correct`.
     control:
+      observable: { label: "Methane conversion", unit: percent }
       variables:
-        - id: water_removal
-          label: Remove product water
-        - id: inert_n2
-          label: Add inert N2 at fixed volume
-        - id: pressure_bar
-          label: Compress mixture
-      held:
-        - ""
+      - { id: water_removal, label: "Remove product water" }
+      - { id: inert_n2, label: "Add inert N2 at fixed volume" }
+      - { id: pressure_bar, label: "Compress mixture" }
+      held: ["Temperature", "Feed composition"]
+      truth: water_removal
+      baseline: 60
+      response: 8
+      noise: 1
+      run: "Run the measurement"
+      commit: "Name the change"
     question: "Use a controlled change to increase methane yield without raising temperature, then reverse it."
     answerText: "Remove product water at fixed temperature, measure the higher conversion, then restore the baseline."
     why: "Removing a product lowers Q below K, so the reaction moves forward until Q=K again. The equilibrium constant at fixed temperature does not change. An inert gas at fixed volume raises total pressure but not component partial pressures."
@@ -315,41 +317,26 @@
     # controls, and its `physics` line is the second measurement's hint.
     degeneracy:
       controls:
-        - id: temperature_K
-          label: Temperature
-          min: 545
-          max: 575
-          step: 5
-        - id: pressure_bar
-          label: Pressure
-          min: 8
-          max: 13
-          step: 1
-      truth:
-        a: 550
-        b: 12
+      - { id: temperature_K, label: "Temperature", min: 545, max: 575, step: 5, unit: K }
+      - { id: pressure_bar, label: "Pressure", min: 8, max: 13, step: 1, unit: bar }
+      observable: { label: "Equal immediate rate index" }
       locus:
-        - a: 575
-          b: 8
-        - a: 570
-          b: 9
-        - a: 565
-          b: 10
-        - a: 558
-          b: 11
-        - a: 550
-          b: 12
+      - { a: 575, b: 8 }
+      - { a: 570, b: 9 }
+      - { a: 565, b: 10 }
+      - { a: 558, b: 11 }
+      - { a: 550, b: 12 }
       second:
-        label: Equilibrium methane fraction >=70% and inlet peak <600 K
+        label: "Equilibrium methane fraction >=70% and inlet peak <600 K"
+        apply: "Apply the second measurement"
         locus:
-          - a: 550
-            b: 12
-          - a: 550
-            b: 13
-          - a: 545
-            b: 13
-      observable:
-        label: Equal immediate rate index
+        - { a: 550, b: 12 }
+        - { a: 550, b: 13 }
+        - { a: 545, b: 13 }
+      truth: { a: 550, b: 12 }
+      tolerance: { a: 2, b: 2 }
+      hint: "Exothermic equilibrium, gas-mole compression, and thermal margin"
+      commit: "Report the operating point"
     question: "Add the physical constraints that separate the equal-rate plans."
     answerText: "Use 550 K and 12 bar with water removal; it alone meets rate, equilibrium-yield, and heat limits."
     why: "Equal immediate rates do not imply equal final composition or safety. The extra physics collapses the degeneracy."
@@ -374,4 +361,3 @@
     #       points: [[550,12],[550,13],[545,13]]
     #     truth_pair: {temperature_K: 550, pressure_bar: 12}
     #     correct: "Choose the lower-temperature, higher-pressure point and keep product-water removal."
-

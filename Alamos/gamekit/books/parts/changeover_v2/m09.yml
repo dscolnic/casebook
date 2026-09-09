@@ -1,17 +1,18 @@
 # ============================================================ MISSION 9
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Two Accounts"
   card:
-    header: "7 DAYS"
+    header: "MISSION 9 - 7 DAYS UNTIL CHANGEOVER."
     title: "Two Accounts"
     goNow: "Go to TRADE and meet Nia Corren, open-economy analyst, at the payment wires."
-    body: "Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect."
+    body: "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds."
     objective: "Connect balance of payments, exchange rates, and net exports."
   objective: "Connect balance of payments, exchange rates, and net exports."
-  stake: "Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect."
+  stake: "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not call the cash inflow pure good news. It pays for the trade gap and lifts RATE. A stronger RATE cuts net exports. Export orders are now down. The output plan must change."
+  segue: "But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-open-economy-floor
     # On arrival at Open-Economy Floor | trade-ledger | automatic
     on: { enter: true, at: OPENEC }
-    world: "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Connect balance of payments, exchange rates, and net exports. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A payment lamp lights while an export order is crossed out."
     panel: "Connect balance of payments, exchange rates, and net exports."
+    # unlocks: Unlock Stop 33 at trade-ledger in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Start with close payments. We need evidence the next decision can use."
   - id: after-stop-33
     # After Stop 33 | forex-console | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Nia Corren says,, and Stop 34 unlocks."
+    world: "At trade-ledger, the dated accepted-result slip for Stop 33 reads: \"The current account is -17 billion and the financial account is +17 billion, so the simplified balance closes at zero.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    # unlocks: Unlock Stop 34 at forex-console in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Nice work. Current account −17 and financial account +17 billion close at zero."
   - id: after-stop-34
     # After Stop 34 | forex-console | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate RATE, then."
+    world: "At forex-console, the dated accepted-result slip for Stop 34 reads: \"Foreign bond demand raises demand for RATE, RATE appreciates, exports fall, imports rise, and net exports fall.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    # unlocks: Unlock Stop 35 at forex-console in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Good thinking. Foreign bond demand → demand for RATE shifts right → RATE appreciates → exports fall and imports rise → net exports fall."
   - id: after-stop-35
     # After Stop 35 | shipment-board | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 36 unlocks."
+    world: "At forex-console, the dated accepted-result slip for Stop 35 reads: \"Raising the quote from 1.00 to 1.10 lowers exports from 90 to 84 billion and raises imports from 108 to 112 billion; restoring 1.00 restores the baseline.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    # unlocks: Unlock Stop 36 at shipment-board in TRADE.
     bubbles:
     - who: corren   # Nia Corren
       say: "Exactly right. At fixed conditions, appreciation lowers exports and raises imports; restoration recovers baseline."
   - id: at-mission-end
     # At mission end | trade-ledger | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At payment-wires, Nia Corren pins the paired financing and export-cost entries beside the payment wires. The dated prop remains here on later visits."
     panel: "MISSION 9 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: corren   # Nia Corren
-      say: "Outstanding work. You solved the mission. The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand."
+      say: "Both wires belong in the story. But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens."
 
   terms:
   - {name: "Appreciation", def: "a currency buys more foreign currency."}
@@ -159,36 +165,14 @@
     # what takes it to zero.
     relationship: "CA = NX + NFI + transfers, and CA + FA = 0"
     balance:
-      streams:
-        - id: net_exports
-          value: -18
-          unit: billion
-          count: true
-        - id: net_foreign_income
-          value: 2
-          unit: billion
-          count: true
-        - id: net_transfers
-          value: -1
-          unit: billion
-          count: true
-        - id: foreign_asset_purchases
-          value: 17
-          unit: billion
-          count: true
-        - id: domestic_stock_trade
-          value: 6
-          unit: billion
-          count: false
-      equations:
-        - CA=NX+NFI+transfers
-        - CA+FA=0
-      correct:
-        CA: -17
-        FA: 17
-        total: 0
+      total: { amount: 0, unit: "billion", label: "Simplified balance of payments" }
       tolerance: 0.1
-      submission: numeric CA and FA pair in billions
+      streams:
+      - { id: net_exports, label: "net exports", value: -18 }
+      - { id: net_foreign_income, label: "net foreign income", value: 2 }
+      - { id: net_transfers, label: "net transfers", value: -1 }
+      - { id: foreign_asset_purchases, label: "foreign asset purchases", value: 17, hidden: true }
+      - { id: domestic_stock_trade, label: "domestic stock trade", value: 6, countable: false }
 
   # --- Stop 34: Clear forex
   #     Concept: currency demand; Keystone: forex; Area: Open-Economy Floor; Learning role: PRACTICE; Difficulty: L3; Story role: consequence.
@@ -296,16 +280,17 @@
     # `net_exports` stream to the billion. At 1.10 it is 84 − 112 = −28, so the
     # signed response is −10 billion. No number here is not the bible's.
     control:
+      observable: { label: "Net exports", unit: "billion" }
       variables:
-        - id: exchange_quote
-        - id: tariff
-        - id: foreign_income
-      held:
-        - domestic income
-        - foreign income
-        - tariffs
-        - shipping capacity
+      - { id: exchange_quote, label: "exchange quote, 1.00 to 1.10 foreign units per RATE" }
+      - { id: tariff, label: "tariff, 0% to 5%" }
+      - { id: foreign_income, label: "foreign income, index 100 to 105" }
+      truth: exchange_quote
+      held: ["domestic income", "foreign income", "tariffs", "shipping capacity"]
+      baseline: -18
+      response: -10
       noise: 0.01
+      moral: "Appreciation lowers net exports."
 
   # --- Stop 36: Good news
   #     Concept: capital flows; Keystone: forex/BOP; Area: Open-Economy Floor; Learning role: TRANSFER; Difficulty: L4; Story role: decision.
@@ -321,7 +306,10 @@
     format: CHOICE
     question: "Select exactly one statement from the four distinct choices below."
     choices:
-      - "[{id:A,label:\"The inflow is entirely beneficial\"},{id:B,label:\"The inflow is entirely harmful\"},{id:C,label:\"The inflow finances the deficit, but appreciation lowers net exports\"},{id:D,label:\"The two international accounts need not sum to zero\"}]; answer:C; rebuttals:{A:\"Appreciation reduces exports and raises imports, so the inflow has a cost.\",B:\"The financial surplus finances the current-account deficit, so the inflow has a benefit.\",D:\"In the simplified AP model, current and financial accounts sum to zero.\"}."
+    - "The inflow is entirely beneficial."
+    - "The inflow is entirely harmful."
+    - "The inflow finances the deficit, but appreciation lowers net exports."
+    - "The two international accounts need not sum to zero."
     answer: "The inflow finances the deficit, but appreciation lowers net exports."
     answerText: "\"The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand.\""
     why: "Financial confidence can strengthen the currency while weakening aggregate demand through NX."
@@ -337,4 +325,3 @@
     - "Appreciation reduces exports and raises imports, so the inflow has a cost."
     - "The financial surplus finances the current-account deficit, so the inflow has a benefit."
     - "In the simplified AP model, current and financial accounts sum to zero."
-

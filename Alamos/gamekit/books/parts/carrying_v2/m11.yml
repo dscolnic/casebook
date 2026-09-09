@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Energy and Emissions Ledger"
   card:
-    header: "5 DAYS."
+    header: "MISSION 11 - 5 DAYS UNTIL THE VOTE."
     title: "ENERGY AND EMISSIONS LEDGER"
     goNow: "Turbine Yard, Elias Shaw at meter-board."
-    body: "The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice."
+    body: "5 days until the vote. The turbine's big rating plate shines above a much smaller meter reading. Today you decide which power mix keeps a reserve."
     objective: "Close the useful-energy and pollution ledger."
   objective: "Close the useful-energy and pollution ledger."
-  stake: "The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice."
+  stake: "5 days until the vote. The turbine's big rating plate shines above a much smaller meter reading. Today you decide which power mix keeps a reserve."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Use repaired wind, storage, and less power. Keep a clean backup for short gaps. This mix saves the 15-kilowatt reserve. A methane leak now puts that reserve at risk."
+  segue: "But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Capacity factor", def: "actual energy divided by maximum possible energy."}
@@ -20,7 +20,7 @@
   - {name: "Secondary pollutant", def: "formed in air."}
   equations:
   - {"e":"capacity factor=actual kWh/(rated kW×8760 h);","c":"Apply this relationship to the mission decision.","v":[["8760 h","the number of hours in a standard year"]],"s":"It converts the island evidence into a defensible operating limit."}
-  - {"e":"efficiency=useful output/input;","c":"Apply this relationship to the mission decision.","v":[["efficiency","a decimal or percent; useful output and total input are measured in the same energy unit"]],"s":"It converts the island evidence into a defensible operating limit."}
+  - {"e":"efficiency=useful output/input;","c":"Apply this relationship to the mission decision.","v":[["efficiency","is a decimal or percent"],["useful","output and total input are measured in the same energy unit"]],"s":"It converts the island evidence into a defensible operating limit."}
   - {"e":"EROI=energy returned/energy invested.","c":"Apply this relationship to the mission decision.","v":[["EROI","energy return on investment"]],"s":"It converts the island evidence into a defensible operating limit."}
   primer:
   - "coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is low-carbon with costly long-lived waste; renewables are low-carbon but need land, storage, or backup."
@@ -33,52 +33,57 @@
   - id: on-arrival-at-turbine-yard
     # On arrival at Turbine Yard | meter-board | automatic
     on: { enter: true, at: POWER }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "The turbine's big rating plate shines above a much smaller meter reading."
     panel: "MISSION 11: CLOSE THE PEAK-POWER LEDGER OPEN"
+    # unlocks: Unlock Stop 41 at meter-board in Turbine Yard.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with close the peak-power ledger. We need evidence the next decision can use."
   - id: after-stop-41
     # After Stop 41 | turbine-plate | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At meter-board, the dated accepted-result slip for Stop 41 reads: \"The reserve is 15 kW\". The slip remains in that fixture's evidence holder."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    # unlocks: Unlock Stop 42 at turbine-plate in Turbine Yard.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 41 result to settle calculate capacity factor."
+    - who: shaw   # Elias Shaw
+      say: "That check holds. The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
   - id: after-stop-42
     # After Stop 42 | tip-lab-bench | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At turbine-plate, the dated accepted-result slip for Stop 42 reads: \"Capacity factor is 31.1%\". The slip remains in that fixture's evidence holder."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    # unlocks: Unlock Stop 43 at tip-lab-bench in Tip and Sorting Yard.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 42 result to settle match pollutants and controls."
+    - who: shaw   # Elias Shaw
+      say: "That check holds. The wind-performance result leaves backup generation necessary and its pollution needing controls."
   - id: after-stop-43
     # After Stop 43 | delivery-board | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 43 changes the persistent board and unlocks the decision stop."
+    world: "At tip-lab-bench, the dated accepted-result slip for Stop 43 reads: \"All five pollutant chains are matched\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    # unlocks: Unlock Stop 44 at delivery-board in Common Office.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 43 result to settle fund the energy portfolio."
+    - who: shaw   # Elias Shaw
+      say: "That check holds. The council now has both measured wind performance and backup pollution costs to fund together."
   - id: at-mission-end
     # At mission end | meter-board | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 44 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At turbine-plate, Elias Shaw rivets a 31% ANNUAL CAPACITY FACTOR plate below the rated output. The dated prop remains here on later visits."
     panel: "MISSION 11 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: shaw   # Elias Shaw
+      say: "The big number is what it can do. This one is what it did. But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed Energy and Emissions Ledger. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed After Dusk. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     concepts:
     - {name: "Thermal inversion", def: "warm air trapping cooler polluted air below."}
     questions:
-    - prompt: "In a follow-up to Energy and Emissions Ledger, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?"
+    - prompt: "In a follow-up to After Dusk, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?"
       hint: "Use the stated evidence and the conditions for Thermal inversion; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -86,7 +91,7 @@
       - {key: "B", text: "Warm air trapping cooler polluted air below.", why: "Correct. warm air trapping cooler polluted air below."}
       - {key: "C", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Emitted directly.", why: "This describes Primary pollutant, not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to Energy and Emissions Ledger: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?"
+    - prompt: "the island council receives a second case related to After Dusk: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?"
       hint: "Use the stated evidence and the conditions for Capacity factor; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -94,7 +99,7 @@
       - {key: "B", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Actual energy divided by maximum possible energy.", why: "Correct. actual energy divided by maximum possible energy."}
       - {key: "D", text: "Emitted directly.", why: "This describes Primary pollutant, not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks Energy and Emissions Ledger using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?"
+    - prompt: "A teammate rechecks After Dusk using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?"
       hint: "Use the stated evidence and the conditions for Energy return on investment (EROI); do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -102,7 +107,7 @@
       - {key: "B", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Emitted directly.", why: "This describes Primary pollutant, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Energy returned divided by energy invested.", why: "Correct. energy returned divided by energy invested."}
-    - prompt: "An unseen case extends Energy and Emissions Ledger: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?"
+    - prompt: "An unseen case extends After Dusk: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?"
       hint: "Use the stated evidence and the conditions for Primary pollutant; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -110,7 +115,7 @@
       - {key: "B", text: "Warm air trapping cooler polluted air below.", why: "This describes Thermal inversion, not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "Before another Energy and Emissions Ledger decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?"
+    - prompt: "Before another After Dusk decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?"
       hint: "Use the stated evidence and the conditions for Secondary pollutant; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -118,7 +123,7 @@
       - {key: "B", text: "Formed in air.", why: "Correct. formed in air."}
       - {key: "C", text: "Actual energy divided by maximum possible energy.", why: "This describes Capacity factor, not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Energy returned divided by energy invested.", why: "This describes Energy return on investment (EROI), not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from Energy and Emissions Ledger to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "the island council applies the lesson from After Dusk to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "C"
       figure: {"kind":"bars","xLabel":"Plan","yLabel":"Daily energy demand (MWh)","caption":"Efficiency lowers the island's daily energy demand.","bars":[{"name":"Current plan","value":100},{"name":"Efficiency plan","value":76}]}
@@ -193,7 +198,7 @@
     title: "Calculate capacity factor"
     concept: 26   # capacity factor | energy | 11
     reason: "The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
-    scene: "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance."
     motivation: "Annual capacity factor distinguishes rated turbine power from the energy the island actually receives over a year."
     format: BALLPARK
     question: "Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent"
@@ -278,7 +283,7 @@
     person: voss
     concept: 23   # energy portfolio | energy and policy | 11
     reason: "The council now has both measured wind performance and backup pollution costs to fund together."
-    scene: "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls."
     motivation: "The energy portfolio determines whether firm supply and pollutant controls survive the same planning budget."
     format: SCIENCETANK
     question: "Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35"

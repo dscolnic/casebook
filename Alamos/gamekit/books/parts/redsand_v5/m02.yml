@@ -1,17 +1,18 @@
 # ============================================================ MISSION 2
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Feedstock Problem"
   card:
-    header: "14 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 2 - 14 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE FEEDSTOCK PROBLEM"
     goNow: "Go to the Atmosphere Intake and meet Ingrid Sundqvist, the production and catalyst lead, at the compressor log desk."
-    body: "The carbon records make a large leak unlikely, but the plant still produces too little fuel. It makes methane from carbon dioxide collected from the air and hydrogen recovered from water. Calculate what each supply can produce and decide which one needs attention first."
+    body: "14 work shifts remain before launch. Frost rims the compressor glass beside the next shift's fuel target. Today you decide whether to push the air intake or test the hydrogen line."
     objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
   objective: "Determine which ingredient runs out first and whether the carbon-dioxide intake needs repair."
-  stake: "The carbon records make a large leak unlikely, but the plant still produces too little fuel. It makes methane from carbon dioxide collected from the air and hydrogen recovered from water. Calculate what each supply can produce and decide which one needs attention first."
+  stake: "14 work shifts remain before launch. Frost rims the compressor glass beside the next shift's fuel target. Today you decide whether to push the air intake or test the hydrogen line."
   takeaway: "Scarce diagnostic material creates a real trade-off between learning and output."
-  segue: "Mission decision: Do not push the air intake. Test the hydrogen line instead. The captured carbon dioxide could make 2405 kg of methane, more than this shift needs. Hydrogen runs out first. A test pulse now moves toward the Hydrogen Store."
+  segue: "Therefore Herrera must trace hydrogen through the store; Ingrid cannot make fuel from surplus carbon alone."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Reactant", def: "a starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor."}
@@ -33,7 +34,7 @@
   - id: on-arrival-at-atmosphere-intake
     # On arrival at Atmosphere Intake | automatic | 
     on: { enter: true, at: INTAKE }
-    world: "Ice coats the intake housing while the compressor shakes the platform; Sundqvist points to the full-shift capture log."
+    world: "Frost rims the compressor glass beside the next shift's fuel target."
     panel: "MISSION 2 - THE FEEDSTOCK PROBLEM"
     # unlocks: Stop 5 at the compressor log desk.
     bubbles:
@@ -42,7 +43,7 @@
   - id: after-stop-5
     # After Stop 5 | compressor log desk | automatic transition
     on: { after: [1] }
-    world: "The conversion cards lock into one unit-cancelling chain."
+    world: "At intake-calculation-board, the dated accepted-result slip for Stop 5 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "CO2 MASS -\\> CO2 MOLES -\\> CH4 MOLES -\\> CH4 MASS."
     # unlocks: Stop 6 at the intake control panel.
     bubbles:
@@ -51,7 +52,7 @@
   - id: after-stop-6
     # After Stop 6 | intake control panel | automatic reversal
     on: { after: [2] }
-    world: "The proposed compressor-overdrive control becomes unavailable."
+    world: "At compressor-log-desk, the dated accepted-result slip for Stop 6 reads: \"2405 kg CH4 (2.41 x 10^3 kg to three significant figures); tolerance +/-3%.\". The slip remains in that fixture's evidence holder."
     panel: "THEORETICAL CH4: 2405 kg / REQUIRED CH4: 2000 kg / CO2 SUPPLY: SUFFICIENT."
     # unlocks: Stop 7 at the dual-feed display.
     bubbles:
@@ -63,7 +64,7 @@
   - id: after-stop-7
     # After Stop 7 | dual-feed display | automatic
     on: { after: [3] }
-    world: "A second feed display opens and highlights the hydrogen line."
+    world: "At compressors, the dated accepted-result slip for Stop 7 reads: \"Choice 1.\". The slip remains in that fixture's evidence holder."
     panel: "HYDROGEN IS LIMITING METHANE PRODUCTION."
     # unlocks: Stop 8 at the hydrogen-allocation manifold.
     bubbles:
@@ -74,14 +75,12 @@
   - id: at-mission-end
     # At mission end | Atmosphere Intake | automatic outcome and hook
     on: { missionEnd: true }
-    world: "The player allocation appears as three illuminated pipes: PRODUCTION, DIAGNOSTIC, and RESTART RESERVE; A blue diagnostic pulse leaves the intake display and travels toward the Hydrogen Store."
+    world: "At compressor-log-desk, Ingrid Sundqvist pins the CO2 CAPACITY: 2405 KG METHANE card above the intake log. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - HYDROGEN STORE."
     # unlocks: Mission 3 briefing and the Hydrogen Store waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. The intake stays at normal power. Your test gets one pulse. Restart reserve remains protected."
-    - who: abiola   # Abiola
-      say: "Follow that pulse. Find where the hydrogen stops being usable."
+    - who: sundqvist   # Ingrid Sundqvist
+      say: "The air did its job. Something else ran out first. Therefore Herrera must trace hydrogen through the store; Ingrid cannot make fuel from surplus carbon alone."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -266,31 +265,17 @@
     # buy. NOT `protected:`: the bible gives the reserve a minimum of 0 and a pass
     # rule of restart >= 16, so preserving it has to be the player's choice.
     allocate:
-      pool:
-        amount: 80
-        unit: kmol H2
+      pool: { amount: 80, unit: "kmol H2", mode: scalar }
       items:
-        - id: production
-          label: Interim methane production
-        - id: tracer
-          label: Diagnostic tracer pulse
-        - id: restart
-          label: Reactor restart reserve
-        - id: purge
-          label: Purge-line protection
+      - { id: production, label: "Interim methane production", cost: 56 }
+      - { id: tracer, label: "Diagnostic tracer pulse", cost: 8 }
+      - { id: restart, label: "Reactor restart reserve", cost: 16 }
+      - { id: purge, label: "Purge-line protection", cost: 8 }
       answers:
-        - requires:
-            - "[object Object]"
-          required: true
-        - requires:
-            - "[object Object]"
-          required: true
-        - requires:
-            - "[object Object]"
-          required: false
-        - requires:
-            - "[object Object]"
-          required: false
+      - { question: "Where does hydrogen stop being usable?", requires: [tracer], required: true }
+      - { question: "Can the reactor restart safely?", requires: [restart], required: true }
+      - { question: "Can this shift still make some methane?", requires: [production] }
+      - { question: "Can the diagnostic line be purged safely?", requires: [purge] }
     answerText: "Choose at least 8 kmol for the tracer and 16 kmol for restart; 56/8/16 is the recommended split."
     why: "No allocation creates hydrogen. The scientific choice is whether a small diagnostic spend is worth the production it displaces. Eight kilomoles gives the meter a resolvable pulse; sixteen preserves a restart. The remaining 56 kmol supports only 14 kmol CH4, a visible cost that makes the evidence meaningful."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -315,4 +300,3 @@
     #       - {id: protect_line, label: "Can the diagnostic line be purged safely?", required: false, needs: {purge: 4}}
     #     correct: {production: 56, tracer: 8, restart: 16, purge: 0}
     #     pass_rule: "tracer >= 8 and restart >= 16 and total <= 80"
-

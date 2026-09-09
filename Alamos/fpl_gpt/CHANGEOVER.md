@@ -6,7 +6,7 @@ AP Macroeconomics Campaign Implementation Bible
 
 **15 missions | 60 graded stops | Halvern | Implementation-ready**
 
-**REVISION 10.2 - COMPACT GLOSSARY, BUILDABLE PANELS, AND ACTION-CLARITY VALIDATION**
+**REVISION - HANDBACK 1: SCENES, PERSISTENT WORLD, AND WALKABLE ENDINGS**
 
 ## AP Macroeconomics Campaign Implementation Bible
 
@@ -48,7 +48,7 @@ The story is linear at the evidence level. Wrong answers teach, retry, and permi
 
 ### Opening sequence - no movie required, maximum five sentences
 
-Kesteven House holds Halvern's Currency Board, four floors above the crowds waiting to exchange old crowns for the new RATE. In fifteen days, you must use macroeconomics to switch shops, banks, wages, and foreign payments without cutting what families can buy. If the conversion or interest policy is wrong, prices may jump, jobs may vanish, or banks may run short of cash. Board Chair Mara Venn hands you the empty Rate Book and says, “Fifteen days from now, every family in Halvern must wake to wages, savings, prices, and payments they can trust: build the changeover that gets them there.”
+You are the changeover analyst, which means you check the rules that turn old crowns into new money. At Kesteven House, you will use macroeconomics to make the call. The new currency starts in fifteen days. Families need wages that buy food. Shops and banks need payments that clear.
 
 **Delivery:** Show all four sentences together on one full-screen text card over the normal Kesteven House view. Continue reveals the four-bar HUD and Mission 1 briefing.
 
@@ -139,6 +139,25 @@ Every `Area:` value below is the exact name of a place marked `yes`. A stop may 
 ### Location escalation
 
 Missions 1–4 use one meaningful room; Missions 5–10 use two linked rooms; Missions 11–15 use three linked rooms. A destination unlocks only when the prior evidence makes it necessary.
+
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `street-balcony` | Street Balcony | Shop windows carry hurried price stickers. | After Stop 12, price notices show both measures; after Stop 60, the shops display new-currency prices with the official conversion. |
+| `clerks-break-room` | Clerks’ Break Room | Tea goes cold beside a chalked shift rota. | After Stop 44, temporary cover fills the gaps; after Stop 60, the opening team returns its night-shift mugs. |
+| `cash-loading-bay` | Cash Loading Bay | Empty cages wait for sealed old-note bundles. | After Stop 28, old notes fill tagged cages; after Stop 60, the cages move out as new notes reach the trays. |
+
+### Persistent prop and scene contract
+
+The exchange shutters are scene components of `conversion-desk`. Street price signs and note-cage movement follow its final opening event.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+Keep the conversion orientation and units exactly as taught in Stop 48; never imply that the policy interest rate is the conversion ratio. Post 3.25% POLICY RATE beside 4.15 CONVERSION and copy the signed Stop 60 conditions to the policy wall. Mission 14 first-week cover and Mission 15 first-week cases are forecasts or rehearsals before opening, not evidence from a week that has already happened. Queue changes are crowd staging, not national economic measurements: one rope lane at M1, two at M4, an assisted-service lane at M11, and an orderly moving queue at M15.
 
 ## 4. Character bible
 
@@ -247,6 +266,27 @@ GDP/real output: introduce M2; retrieve M4; combine M6/M10; transfer M15. Inflat
 
 **Objective observation:** Wage reset follows conversion by weeks. **Initial meaning:** Self-correction is sufficient. **True meaning:** Long-run adjustment misses the five-day deadline. **Concept:** sticky wages and policy lag.
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `queue-board` | Eli Voss clips the dated national figures beside the queue tally. | At `output-ledger`, a stock-sale slip sits in the same tray as factory orders. |
+| 2 | `accepted_stop_8` | `output-ledger` | Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION. | At `price-history-board`, an old basket sits beside a family's crossed-out shopping list. |
+| 3 | `accepted_stop_12` | `price-history-board` | Lina Saye pins the companion price measure beside the unchanged historical series. | At `wage-notice-rail`, a job notice curls over an empty search card. |
+| 4 | `accepted_stop_16` | `wage-notice-rail` | Eli Voss clips the participation warning to the wage rail. | At `policy-wall`, an unsigned spending order sits under a press deadline. |
+| 5 | `accepted_stop_20` | `policy-wall` | Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall. | At `ad-as-wall`, two red pins pull the wall's price and output tracks apart. |
+| 6 | `accepted_stop_24` | `ad-as-wall` | Rhea Dane pins the separate demand and supply responses to the model wall. | At `conversion-trays`, old-crown bundles fill a tray beside deposit receipts. |
+| 7 | `accepted_stop_28` | `conversion-trays` | Eli Voss seals the counted old-note bundle with its deposit receipt. | At `bond-panel`, a loan quote waits beside the expected-price sheet. |
+| 8 | `accepted_stop_32` | `bond-panel` | Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail. | At `payment-wires`, a payment lamp lights while an export order is crossed out. |
+| 9 | `accepted_stop_36` | `payment-wires` | Nia Corren pins the paired financing and export-cost entries beside the payment wires. | At `price-history-board`, the long money-growth strip lies beneath today's fuel alert. |
+| 10 | `accepted_stop_40` | `price-history-board` | Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record. | At `threshold-rail`, a wage contract's six-week date extends past changeover day. |
+| 11 | `accepted_stop_44` | `threshold-rail` | Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail. | At `reserve-clock`, the reserve hands approach the payment mark from different sides. |
+| 12 | `accepted_stop_48` | `reserve-clock` | Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock. | At `policy-wall`, loan refusals and lost export orders share the spending folder. |
+| 13 | `accepted_stop_52` | `policy-wall` | Rhea Dane replaces the full bridge order with the smaller temporary plan. | At `threshold-rail`, a fuel bulletin lands beside a completed conversion test. |
+| 14 | `accepted_stop_56` | `threshold-rail` | Mara Venn pins the first-week cover card beside the emergency triggers. | At `conversion-desk`, new notes wait under a cloth behind the closed counter. |
+| 15 | `accepted_stop_60` | `conversion-desk` | Mara Venn turns the counter-opening key. | At `conversion-desk`, the signed operating conditions remain beside the final status. |
+
 ## 8. Mission content contract
 
 Every mission below supplies a briefing promise, compact glossary, primer, equations, designer summary, implementable beat script, route, character beat, concepts, four globally numbered stops, outcome, metric settlement, and review. A mission outcome begins with “Mission decision:” and directly answers sentence four of its briefing. Later missions retrieve earlier tools rather than repeat isolated definitions.
@@ -256,17 +296,30 @@ Every mission below supplies a briefing promise, compact glossary, primer, equat
 Glossary entries use compact `Term: definition` lines. Equation entries contain equation, purpose, symbols, and campaign reason without “Also called” or “Concept” lines. PROBE, CHOICE, VERIFY, CONTROL, DEGENERACY, and all numerical formats must pass the action-clarity and payload audit in Section 12 before handoff. This campaign intentionally uses no PROBE or DEGENERACY stops; it does not relabel another interaction to evade those requirements.
 
 
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The exchange-counter shutters rise for the first public conversion.
+
+**The next sixty seconds:** 0–15 seconds: the shutters rise and sealed old-note cages roll toward the loading bay. 15–40 seconds: the player walks to the existing conversion desk as Eli uncovers the new-note trays. 40–60 seconds: the first exchange uses the verified 4.15 orientation from Stop 48; the street signs change in view.
+
+**Ending card - exact player copy:** The first customer slides old crowns across the counter. Eli counts out the new notes. Outside, the shop boards turn to the new currency. The signed rate and its review rules stay on the wall as the next person steps forward.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
 # Mission 1 - What Counts
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 15 DAYS TO CHANGEOVER
+**Header:** MISSION 1 - 15 DAYS UNTIL CHANGEOVER.
 
 **Card title:** What Counts
 
 **Go now:** Go to COUNTER and meet Eli Voss, counter operations lead, at the queue board.
 
-**Card body:** People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude.
+**Card body:** 15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves.
 
 **Objective:** Separate useful economic measures from alarming but incomplete signals.
 
@@ -359,7 +412,9 @@ Eli is rationing counter windows while Lina's first price marks appear outside. 
 
 **Beat 1 - On arrival at Exchange Counter | `queue-board` | automatic**
 
-**World state:** Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Separate useful economic measures from alarming but incomplete signals.` Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_1_arrival.
+
+**World state:** A queue bends past a shop window with fresh price stickers.
 
 **Panel/HUD text:** Separate useful economic measures from alarming but incomplete signals.
 
@@ -369,7 +424,9 @@ Eli is rationing counter windows while Lina's first price marks appear outside. 
 
 **Beat 2 - After Stop 1 | `allocation-slate` | automatic**
 
-**World state:** The signal or statistic result remains visible while the counter tradeoff fixture lights.
+**Trigger:** accepted_stop_1.
+
+**World state:** At `queue-board`, the dated accepted-result slip for Stop 1 reads: "C. “Count the nationwide transactions, date them, and state coverage.”". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 1 RECORDED - STOP 2 OPEN
 
@@ -379,7 +436,9 @@ Eli is rationing counter windows while Lina's first price marks appear outside. 
 
 **Beat 3 - After Stop 2 | `queue-board` | automatic**
 
-**World state:** The counter tradeoff result remains visible while the why did the street price rise? fixture lights.
+**Trigger:** accepted_stop_2.
+
+**World state:** At `allocation-slate`, the dated accepted-result slip for Stop 2 reads: "40 calls total, or 1 call per extra exchange. tolerance:0.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** COUNTER
 
@@ -389,23 +448,35 @@ Eli is rationing counter windows while Lina's first price marks appear outside. 
 
 **Beat 4 - After Stop 3 | `wage-notice-rail` | automatic**
 
-**World state:** The why did the street price rise? result remains visible while the page one standard fixture lights.
+**Trigger:** accepted_stop_3.
+
+**World state:** At `queue-board`, the dated accepted-result slip for Stop 3 reads: "Supply shifted left.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 3 RECORDED - STOP 4 OPEN
 
-**Dialogue bubbles -** Eli Voss: "Exactly right. Use the Stop 3 result to settle page one standard."
+**Dialogue bubbles -** Eli Voss: "That check holds. The street diagnosis is ready, but the first official record still contains an unsupported shortage claim."
 
 **Unlocks/waypoint:** Unlock Stop 4 at `wage-notice-rail` in COUNTER.
 
 **Beat 5 - At mission end | `queue-board` | automatic**
 
-**World state:** Mission outcome and hook | COUNTER | automatic World state and dialogue:   Feedback: A conclusion is not backed because it sounds urgent; State: Page 1 signed; Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_4.
+
+**World state:** At `queue-board`, Eli Voss clips the dated national figures beside the queue tally. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 1 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Voss: "Outstanding work. You solved the mission. We can shorten the line, but I will stop calling it a national shortage."
+**Dialogue bubbles -** Eli Voss: "I can count the line. I cannot call it the whole country. But Idris finds trades that do not belong in the output total; the headline must wait for his ledger."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m01
+
+**Home:** `queue-board`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. A queue bends past a shop window with fresh price stickers.
+**After — exact action:** Eli Voss clips the dated national figures beside the queue tally.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `output-ledger`, a stock-sale slip sits in the same tray as factory orders.
+**Segue - exact player copy:** But Idris finds trades that do not belong in the output total; the headline must wait for his ledger.
 
 ## Location plan
 
@@ -478,6 +549,10 @@ Eli is rationing counter windows while Lina's first price marks appear outside. 
 **Question card story setup - exact player copy:** With the evidence standard set, Eli can move four clerks from bank calls to exchange windows. Build the opportunity-cost statement before changing the roster, so the board records both added service and the lost alternative.
 
 **Question card story-science connection - exact player copy:** The opportunity cost tells the board how many bank calls it gives up for each additional exchange.
+
+**Fixture source panel - exact player copy:** With the evidence standard set, Eli can move four clerks from bank calls to exchange windows. Build the opportunity-cost statement before changing the roster, so the board records both added service and the lost alternative. Baseline output is 120 exchanges and 80 bank calls per hour; after transfer it is 160 and 40.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the opportunity cost of 40 extra exchanges.
 
@@ -676,9 +751,10 @@ attest:
 
 Mission decision: Use the national count, not the loudest queue. Real output is 700 billion RATE. Prices rose 2.5%. The board now needs the production gap.
 
+**Segue - exact player copy:** But Idris finds trades that do not belong in the output total; the headline must wait for his ledger.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: Use the national count, not the loudest queue. Halvern's families are closer to a currency changeover they can trust.
+**Happy ending card - exact player copy:** Your checks made the difference. Eli Voss clips the dated national figures beside the queue tally. But Idris finds trades that do not belong in the output total; the headline must wait for his ledger.
 
 **Header:** MISSION 1 COMPLETE
 
@@ -1094,13 +1170,13 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 14 DAYS TO CHANGEOVER
+**Header:** MISSION 2 - 14 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Growth on Paper
 
 **Go now:** Go to PRICES and meet Idris Pell, national accounts chief, at the output ledger.
 
-**Card body:** A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish.
+**Card body:** 14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed.
 
 **Objective:** Build GDP correctly and separate nominal growth from real growth.
 
@@ -1207,7 +1283,9 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 
 **Beat 1 - On arrival at PRICES | `output-ledger` | automatic**
 
-**World state:** Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Build GDP correctly and separate nominal growth from real growth.` Idris Pell points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_2_arrival.
+
+**World state:** A stock-sale slip sits in the same tray as factory orders.
 
 **Panel/HUD text:** Build GDP correctly and separate nominal growth from real growth.
 
@@ -1217,7 +1295,9 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 
 **Beat 2 - After Stop 5 | `calculating-desk` | automatic**
 
-**World state:** The classify the ledger result remains visible while the close the output identity fixture lights.
+**Trigger:** accepted_stop_5.
+
+**World state:** At `output-ledger`, the dated accepted-result slip for Stop 5 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 5 RECORDED - STOP 6 OPEN
 
@@ -1227,7 +1307,9 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 
 **Beat 3 - After Stop 6 | `price-history-board` | automatic**
 
-**World state:** The close the output identity result remains visible while the remove the price effect fixture lights.
+**Trigger:** accepted_stop_6.
+
+**World state:** At `calculating-desk`, the dated accepted-result slip for Stop 6 reads: "740 billion crowns, ±0.5.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** PRICES
 
@@ -1237,7 +1319,9 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 
 **Beat 4 - After Stop 7 | `output-ledger` | automatic**
 
-**World state:** The remove the price effect result remains visible while the publish the output line fixture lights.
+**Trigger:** accepted_stop_7.
+
+**World state:** At `price-history-board`, the dated accepted-result slip for Stop 7 reads: "685.2, ±0.2.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 7 RECORDED - STOP 8 OPEN
 
@@ -1247,13 +1331,23 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 
 **Beat 5 - At mission end | `output-ledger` | automatic**
 
-**World state:** Mission outcome and hook | PRICES | automatic World state and dialogue:   State: Page 2 signed; Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_8.
+
+**World state:** At `output-ledger`, Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 2 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Idris Pell: "Outstanding work. You solved the mission. The report was not false. Its growth claim was."
+**Dialogue bubbles -** Idris Pell: "The sum was right. Some of the rows were wrong. But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m02
+
+**Home:** `output-ledger`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. A stock-sale slip sits in the same tray as factory orders.
+**After — exact action:** Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `price-history-board`, an old basket sits beside a family's crossed-out shopping list.
+**Segue - exact player copy:** But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives.
 
 ## Location plan
 
@@ -1309,6 +1403,10 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 **Question card story setup - exact player copy:** With excluded rows removed, the ledger shows C = 480, I = 120, G = 160, exports = 90, and imports = 110 billion crowns. Build the identity and close the total in the Rate Book.
 
 **Question card story-science connection - exact player copy:** The expenditure total establishes the nominal output figure used in the conversion plan.
+
+**Fixture source panel - exact player copy:** With excluded rows removed, the ledger shows C = 480, I = 120, G = 160, exports = 90, and imports = 110 billion crowns. Build the identity and close the total in the Rate Book.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit nominal GDP in billion crowns using `GDP=C+I+G+(X−M)`.
 
@@ -1370,6 +1468,10 @@ derive:
 **Question card story setup - exact player copy:** Because nominal GDP is 740 billion crowns, the headline looks strong; the deflator is 108.0. Rearrange the recorded deflator relationship and calculate real GDP before the board calls the rise economic growth.
 
 **Question card story-science connection - exact player copy:** Real output removes the price-level effect so the board can assess production rather than inflation alone.
+
+**Fixture source panel - exact player copy:** Because nominal GDP is 740 billion crowns, the headline looks strong; the deflator is 108.0. Rearrange the recorded deflator relationship and calculate real GDP before the board calls the rise economic growth.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit real GDP in billion base-year crowns.
 
@@ -1450,9 +1552,10 @@ derive:
 
 Mission decision: Publish real GDP of 685.2 billion base-year crowns with the nominal total shown only as context. Prices caused much of the apparent growth. The board corrects the headline. The next question is whether the street price jump is broad or built into the basket.
 
+**Segue - exact player copy:** But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: Publish real GDP of 685.2 billion base-year crowns with the nominal total shown only as context. The Currency Board can now protect buying power with a sounder decision.
+**Happy ending card - exact player copy:** Your checks made the difference. Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION. But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives.
 
 **Header:** MISSION 2 COMPLETE
 
@@ -1662,13 +1765,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 13 DAYS TO CHANGEOVER
+**Header:** MISSION 3 - 13 DAYS UNTIL CHANGEOVER.
 
 **Card title:** The Basket
 
 **Go now:** Go to PRICES and meet Lina Saye, price statistics lead, at the basket table.
 
-**Card body:** The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision.
+**Card body:** 13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets.
 
 **Objective:** Test whether the fixed basket represents current household costs.
 
@@ -1773,7 +1876,9 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 
 **Beat 1 - On arrival at PRICES | `basket-table` | automatic**
 
-**World state:** Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Test whether the fixed basket represents current household costs.` Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_3_arrival.
+
+**World state:** An old basket sits beside a family's crossed-out shopping list.
 
 **Panel/HUD text:** Test whether the fixed basket represents current household costs.
 
@@ -1783,7 +1888,9 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 
 **Beat 2 - After Stop 9 | `price-history-board` | automatic**
 
-**World state:** The price the fixed basket result remains visible while the calculate the printed inflation fixture lights.
+**Trigger:** accepted_stop_9.
+
+**World state:** At `basket-table`, the dated accepted-result slip for Stop 9 reads: "108 ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 9 RECORDED - STOP 10 OPEN
 
@@ -1793,7 +1900,9 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 
 **Beat 3 - After Stop 10 | `basket-table` | automatic**
 
-**World state:** The calculate the printed inflation result remains visible while the does the basket represent families? fixture lights.
+**Trigger:** accepted_stop_10.
+
+**World state:** At `price-history-board`, the dated accepted-result slip for Stop 10 reads: "5.88%, ±0.05.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** 108−100
 
@@ -1803,7 +1912,9 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 
 **Beat 4 - After Stop 11 | `basket-table` | automatic**
 
-**World state:** The does the basket represent families? result remains visible while the keep history and repair representation fixture lights.
+**Trigger:** accepted_stop_11.
+
+**World state:** At `basket-table`, the dated accepted-result slip for Stop 11 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 11 RECORDED - STOP 12 OPEN
 
@@ -1813,13 +1924,23 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 
 **Beat 5 - At mission end | `basket-table` | automatic**
 
-**World state:** Mission outcome and hook | PRICES | automatic World state and dialogue:   State: Page 3 signed; port-energy clue logged; Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_12.
+
+**World state:** At `price-history-board`, Lina Saye pins the companion price measure beside the unchanged historical series. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 3 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Lina Saye: "Outstanding work. You solved the mission. The arithmetic stays. The claim gets narrower."
+**Dialogue bubbles -** Lina Saye: "Keep the old line. Put the change where people can see it. But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m03
+
+**Home:** `price-history-board`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. An old basket sits beside a family's crossed-out shopping list.
+**After — exact action:** Lina Saye pins the companion price measure beside the unchanged historical series.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `wage-notice-rail`, a job notice curls over an empty search card.
+**Segue - exact player copy:** But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away.
 
 ## Location plan
 
@@ -1847,6 +1968,10 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 **Question card story setup - exact player copy:** The base basket cost 200 crowns; the identical quantities now cost 216 crowns after shops apply conversion labels. Build the CPI calculation first, so any later criticism begins from the official method rather than suspicion.
 
 **Question card story-science connection - exact player copy:** The consumer price index measures the price change for fixed quantities before the board debates representation.
+
+**Fixture source panel - exact player copy:** The base basket cost 200 crowns; the identical quantities now cost 216 crowns after shops apply conversion labels. Build the CPI calculation first, so any later criticism begins from the official method rather than suspicion.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the index, no unit.
 
@@ -1908,6 +2033,10 @@ derive:
 **Question card story setup - exact player copy:** With the new CPI fixed at 108 and last year's CPI at 102, calculate the percentage change the public bulletin will show. The board must know the exact headline before testing whether it represents households.
 
 **Question card story-science connection - exact player copy:** The inflation rate establishes the official price-change headline that the household review will test.
+
+**Fixture source panel - exact player copy:** With the new CPI fixed at 108 and last year's CPI at 102, calculate the percentage change the public bulletin will show. The board must know the exact headline before testing whether it represents households.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the percentage.
 
@@ -2056,11 +2185,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: The gap is 34.8 billion RATE. Job data show weak demand. The fuel shock raised prices. Next, test how spending moves through the economy.
+Mission decision: Preserve the historical fixed-basket price series and publish the representative companion measure with its changed weights disclosed. The price gap is concentrated in energy-heavy purchases; a street sticker is not the national price index.
 
+**Segue - exact player copy:** But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: The gap is 34.8 billion RATE. Shops, banks, and workers have a safer path through the changeover.
+**Happy ending card - exact player copy:** Your checks made the difference. Lina Saye pins the companion price measure beside the unchanged historical series. But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away.
 
 **Header:** MISSION 3 COMPLETE
 
@@ -2231,13 +2361,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 12 DAYS TO CHANGEOVER
+**Header:** MISSION 4 - 12 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Jobs Behind the Number
 
 **Go now:** Go to COUNTER and meet Eli Voss, counter operations lead, at the labor board.
 
-**Card body:** Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning.
+**Card body:** 12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action.
 
 **Objective:** Diagnose labor-market weakness without losing excluded workers.
 
@@ -2332,7 +2462,9 @@ COUNTER only. S1 rebuilds labor force, S2 classifies causes, S3 computes gap, S4
 
 **Beat 1 - On arrival at COUNTER | `wage-notice-rail` | automatic**
 
-**World state:** Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Diagnose labor-market weakness without losing excluded workers.` Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_4_arrival.
+
+**World state:** A job notice curls over an empty search card.
 
 **Panel/HUD text:** Diagnose labor-market weakness without losing excluded workers.
 
@@ -2342,7 +2474,9 @@ COUNTER only. S1 rebuilds labor force, S2 classifies causes, S3 computes gap, S4
 
 **Beat 2 - After Stop 13 | `queue-board` | automatic**
 
-**World state:** The rebuild the denominator result remains visible while the name the causes fixture lights.
+**Trigger:** accepted_stop_13.
+
+**World state:** At `wage-notice-rail`, the dated accepted-result slip for Stop 13 reads: "LF 10.0m and 8.0%, ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 13 RECORDED - STOP 14 OPEN
 
@@ -2352,7 +2486,9 @@ COUNTER only. S1 rebuilds labor force, S2 classifies causes, S3 computes gap, S4
 
 **Beat 3 - After Stop 14 | `allocation-slate` | automatic**
 
-**World state:** The name the causes result remains visible while the place the output gap fixture lights.
+**Trigger:** accepted_stop_14.
+
+**World state:** At `queue-board`, the dated accepted-result slip for Stop 14 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** COUNTER
 
@@ -2362,7 +2498,9 @@ COUNTER only. S1 rebuilds labor force, S2 classifies causes, S3 computes gap, S4
 
 **Beat 4 - After Stop 15 | `wage-notice-rail` | automatic**
 
-**World state:** The place the output gap result remains visible while the transition or warning fixture lights.
+**Trigger:** accepted_stop_15.
+
+**World state:** At `allocation-slate`, the dated accepted-result slip for Stop 15 reads: "−34.8 billion, recessionary, ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 15 RECORDED - STOP 16 OPEN
 
@@ -2372,13 +2510,23 @@ COUNTER only. S1 rebuilds labor force, S2 classifies causes, S3 computes gap, S4
 
 **Beat 5 - At mission end | `wage-notice-rail` | automatic**
 
-**World state:** Mission outcome and hook | COUNTER | automatic   State: Page 4 signed; Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_16.
+
+**World state:** At `wage-notice-rail`, Eli Voss clips the participation warning to the wage rail. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 4 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Voss: "Outstanding work. You solved the mission. The line is not only a changeover line. Some people have stopped looking for work."
+**Dialogue bubbles -** Eli Voss: "That blank card is a person the rate stopped counting. Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m04
+
+**Home:** `wage-notice-rail`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. A job notice curls over an empty search card.
+**After — exact action:** Eli Voss clips the participation warning to the wage rail.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `policy-wall`, an unsigned spending order sits under a press deadline.
+**Segue - exact player copy:** Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs.
 
 ## Location plan
 
@@ -2406,6 +2554,10 @@ COUNTER only. S1 rebuilds labor force, S2 classifies causes, S3 computes gap, S4
 **Question card story setup - exact player copy:** Halvern has 9.2 million employed people, 0.8 million active job seekers, and 0.5 million discouraged workers. Build the labor force and unemployment rate before comparing this month with the prior report.
 
 **Question card story-science connection - exact player copy:** The labor-force denominator determines the official unemployment rate and makes the excluded group visible.
+
+**Fixture source panel - exact player copy:** Halvern has 9.2 million employed people, 0.8 million active job seekers, and 0.5 million discouraged workers. Build the labor force and unemployment rate before comparing this month with the prior report.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit unemployment rate using active seekers only.
 
@@ -2511,6 +2663,10 @@ derive:
 
 **Question card story-science connection - exact player copy:** The signed output gap measures the shortfall from potential production used to size a response.
 
+**Fixture source panel - exact player copy:** Because layoffs are cyclical, compare actual real GDP of 685.2 billion with full-employment output of 720.0 billion base-year crowns. Calculate the signed gap and label its type before policy staff move upstairs.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit billion crowns and label.
 
 **Complete format-specific interaction block:** `derive:{left_side:"gap",lines:["gap=685.2−720.0","gap=−34.8 billion","gap classification=recessionary because gap<0"],licenses:["definition","arithmetic","Y<Yf rule"],correct_order:[1,2,3]}`
@@ -2590,9 +2746,10 @@ derive:
 
 Mission decision: Treat the job data as a recession warning. The output gap is 34.8 billion. Job loss backs the need to act. The energy shock explains much of the price rise. Now test the new spending plan.
 
+**Segue - exact player copy:** Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: Treat the job data as a recession warning. Your reasoning keeps one bad assumption from becoming national policy.
+**Happy ending card - exact player copy:** Your checks made the difference. Eli Voss clips the participation warning to the wage rail. Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs.
 
 **Header:** MISSION 4 COMPLETE
 
@@ -2763,13 +2920,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 11 DAYS TO CHANGEOVER
+**Header:** MISSION 5 - 11 DAYS UNTIL CHANGEOVER.
 
 **Card title:** The First Round
 
 **Go now:** Go to PRICES and meet Rhea Dane, finance minister, at the spending board.
 
-**Card body:** Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall.
+**Card body:** 11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap.
 
 **Objective:** Calculate the spending and tax changes that target the measured gap.
 
@@ -2860,7 +3017,9 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 
 **Beat 1 - On arrival at PRICES | `calculating-desk` | automatic**
 
-**World state:** Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Calculate the spending and tax changes that target the measured gap.` Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_5_arrival.
+
+**World state:** An unsigned spending order sits under a press deadline.
 
 **Panel/HUD text:** Calculate the spending and tax changes that target the measured gap.
 
@@ -2870,7 +3029,9 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 
 **Beat 2 - After Stop 17 | `calculating-desk` | automatic**
 
-**World state:** The split the next crown result remains visible while the build both multipliers fixture lights.
+**Trigger:** accepted_stop_17.
+
+**World state:** At `calculating-desk`, the dated accepted-result slip for Stop 17 reads: "0.25.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 17 RECORDED - STOP 18 OPEN
 
@@ -2880,7 +3041,9 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 
 **Beat 3 - After Stop 18 | `calculating-desk` | automatic**
 
-**World state:** The build both multipliers result remains visible while the size the alternatives fixture lights.
+**Trigger:** accepted_stop_18.
+
+**World state:** At `calculating-desk`, the dated accepted-result slip for Stop 18 reads: "(4,−3).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** PRICES → RATE
 
@@ -2890,7 +3053,9 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 
 **Beat 4 - After Stop 19 | `policy-wall` | automatic**
 
-**World state:** The size the alternatives result remains visible while the choose the first-round plan fixture lights.
+**Trigger:** accepted_stop_19.
+
+**World state:** At `calculating-desk`, the dated accepted-result slip for Stop 19 reads: "(8.7,11.6) billion, ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 19 RECORDED - STOP 20 OPEN
 
@@ -2900,13 +3065,23 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 
 **Beat 5 - At mission end | `calculating-desk` | automatic**
 
-**World state:** Mission outcome and hook | RATE | automatic World state and dialogue:   State: Page 5 signed; Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_20.
+
+**World state:** At `policy-wall`, Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 5 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Rhea Dane: "Outstanding work. You solved the mission. You gave me a larger number and a slower announcement. Now prove the second test matters."
+**Dialogue bubbles -** Rhea Dane: "I can fund demand. I cannot vote more fuel into the tank. But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m05
+
+**Home:** `policy-wall`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. An unsigned spending order sits under a press deadline.
+**After — exact action:** Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `ad-as-wall`, two red pins pull the wall's price and output tracks apart.
+**Segue - exact player copy:** But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order.
 
 ## Location plan
 
@@ -2934,6 +3109,10 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 **Question card story setup - exact player copy:** Households spend 0.75 crown from each additional crown of disposable income and save the rest. Build the identity that fixes MPS, then show why each later spending round is three quarters of the prior round.
 
 **Question card story-science connection - exact player copy:** The saving share determines how much of each extra income round does not return as consumption.
+
+**Fixture source panel - exact player copy:** Households spend 0.75 crown from each additional crown of disposable income and save the rest. Build the identity that fixes MPS, then show why each later spending round is three quarters of the prior round.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit MPS.
 
@@ -2996,6 +3175,10 @@ derive:
 
 **Question card story-science connection - exact player copy:** The two multipliers distinguish the size and direction of spending changes caused by each fiscal instrument.
 
+**Fixture source panel - exact player copy:** With MPS fixed at 0.25 and MPC at 0.75, derive the spending and tax multipliers side by side. The signs must show why higher taxes contract demand while purchases add directly. Start with k_G=1/MPS for the government-spending multiplier and k_T=-MPC/MPS for the tax multiplier.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit the ordered pair (spending multiplier, tax multiplier).
 
 **Complete format-specific interaction block:** `derive:{left_side:"multiplier",lines:["kG=1/0.25=4","kT=−0.75/0.25=−3","pair=(4,−3)"],licenses:["spending formula","tax formula","ordered pair"],correct_order:[1,2,3]}`
@@ -3056,6 +3239,10 @@ derive:
 **Question card story setup - exact player copy:** Because the recessionary gap is 34.8 billion and the spending multiplier is 4, calculate the government-purchase increase that closes it. Also calculate the tax cut using multiplier −3, reporting a positive cut size.
 
 **Question card story-science connection - exact player copy:** The purchase increase and tax-cut size let the board compare two ways to close the same modeled gap.
+
+**Fixture source panel - exact player copy:** Because the recessionary gap is 34.8 billion and the spending multiplier is 4, calculate the government-purchase increase that closes it. Also calculate the tax cut using multiplier −3, reporting a positive cut size. Start with gap=k_GΔG for a purchase change and gap=k_TΔT for a tax change, where the gap is 34.8 billion crowns, k_G=4, and k_T=-3.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the purchase increase and positive tax-cut size in billion crowns.
 
@@ -3134,11 +3321,12 @@ derive:
 
 ## Mission outcome
 
-Mission decision: Prepare an 8.7-billion purchase increase. And keep the supply-shock review. With a multiplier of 4, that package closes the 34.8-billion demand gap. It does not by itself fix rising input costs. The board must now place both forces on one model.
+Mission decision: Prepare an 8.7-billion purchase increase, and keep the supply-shock review. With a multiplier of 4, that package closes the 34.8-billion demand gap. It does not by itself fix rising input costs. The board must now place both forces on one model.
 
+**Segue - exact player copy:** But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: Prepare an 8.7-billion purchase increase. Halvern can move forward with clearer prices and fewer risks for ordinary families.
+**Happy ending card - exact player copy:** Your checks made the difference. Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall. But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order.
 
 **Header:** MISSION 5 COMPLETE
 
@@ -3309,13 +3497,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 10 DAYS
+**Header:** MISSION 6 - 10 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Two Shifts
 
 **Go now:** Go to PRICES and meet Lina Saye, price statistics lead, at the AD-AS wall.
 
-**Card body:** The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response.
+**Card body:** 10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel.
 
 **Objective:** Separate weak demand from cost-push inflation.
 
@@ -3408,7 +3596,9 @@ Route PRICES→RATE: S1–S2 at AD-AS wall; the confirmed supply shock unlocks R
 
 **Beat 1 - On arrival at PRICES | `ad-as-wall` | automatic**
 
-**World state:** Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Separate weak demand from cost-push inflation.` Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_6_arrival.
+
+**World state:** Two red pins pull the wall's price and output tracks apart.
 
 **Panel/HUD text:** Separate weak demand from cost-push inflation.
 
@@ -3418,7 +3608,9 @@ Route PRICES→RATE: S1–S2 at AD-AS wall; the confirmed supply shock unlocks R
 
 **Beat 2 - After Stop 21 | `ad-as-wall` | automatic**
 
-**World state:** Keep this labeled result visible; Lina Saye says,, and Stop 22 unlocks.
+**Trigger:** accepted_stop_21.
+
+**World state:** At `ad-as-wall`, the dated accepted-result slip for Stop 21 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 21 RECORDED - STOP 22 OPEN
 
@@ -3428,7 +3620,9 @@ Route PRICES→RATE: S1–S2 at AD-AS wall; the confirmed supply shock unlocks R
 
 **Beat 3 - After Stop 22 | `gap-calculator` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `PRICES → RATE` only if the route requires travel, then.
+**Trigger:** accepted_stop_22.
+
+**World state:** At `ad-as-wall`, the dated accepted-result slip for Stop 22 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** PRICES → RATE
 
@@ -3438,7 +3632,9 @@ Route PRICES→RATE: S1–S2 at AD-AS wall; the confirmed supply shock unlocks R
 
 **Beat 4 - After Stop 23 | `ad-as-wall` | automatic**
 
-**World state:** Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 24 unlocks.
+**Trigger:** accepted_stop_23.
+
+**World state:** At `gap-calculator`, the dated accepted-result slip for Stop 23 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 23 RECORDED - STOP 24 OPEN
 
@@ -3448,13 +3644,23 @@ Route PRICES→RATE: S1–S2 at AD-AS wall; the confirmed supply shock unlocks R
 
 **Beat 5 - At mission end | `ad-as-wall` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_24.
+
+**World state:** At `ad-as-wall`, Rhea Dane pins the separate demand and supply responses to the model wall. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 6 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Lina Saye: "Outstanding work. You solved the mission. Use fiscal policy to close the demand gap, not to promise lower supply-driven prices."
+**Dialogue bubbles -** Rhea Dane: "One lever cannot undo both shifts. But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m06
+
+**Home:** `ad-as-wall`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. Two red pins pull the wall's price and output tracks apart.
+**After — exact action:** Rhea Dane pins the separate demand and supply responses to the model wall.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `conversion-trays`, old-crown bundles fill a tray beside deposit receipts.
+**Segue - exact player copy:** But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went.
 
 ## Location plan
 
@@ -3771,9 +3977,10 @@ stress:
 
 Mission decision: Aim policy at the weak demand gap. Treat the energy shock on its own. More spending can raise output and prices. It cannot fix a fuel supply shock. The claim of broad price abuse does not hold.
 
+**Segue - exact player copy:** But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: Aim policy at the weak demand gap. Halvern's families are closer to a currency changeover they can trust.
+**Happy ending card - exact player copy:** Your checks made the difference. Rhea Dane pins the separate demand and supply responses to the model wall. But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went.
 
 **Header:** MISSION 6 COMPLETE
 
@@ -4200,13 +4407,13 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 9 DAYS
+**Header:** MISSION 7 - 9 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Money That Moved
 
 **Go now:** Go to NOTES and meet Tomas Arendt, bank supervision lead, at the note scale.
 
-**Card body:** Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently.
+**Card body:** Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply.
 
 **Objective:** Trace old cash into deposits and lending capacity.
 
@@ -4297,7 +4504,9 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 
 **Beat 1 - On arrival at Note Hall | `note-scale` | automatic**
 
-**World state:** Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Trace old cash into deposits and lending capacity.` Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_7_arrival.
+
+**World state:** Old-crown bundles fill a tray beside deposit receipts.
 
 **Panel/HUD text:** Trace old cash into deposits and lending capacity.
 
@@ -4307,7 +4516,9 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 
 **Beat 2 - After Stop 25 | `custody-desk` | automatic**
 
-**World state:** Keep this labeled result visible; Tomas Arendt says,, and Stop 26 unlocks.
+**Trigger:** accepted_stop_25.
+
+**World state:** At `note-scale`, the dated accepted-result slip for Stop 25 reads: "(300,500), ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 25 RECORDED - STOP 26 OPEN
 
@@ -4317,7 +4528,9 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 
 **Beat 3 - After Stop 26 | `balance-sheet-desk` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `NOTES → BANKS` only if the route requires travel, then.
+**Trigger:** accepted_stop_26.
+
+**World state:** At `custody-desk`, the dated accepted-result slip for Stop 26 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** NOTES → BANKS
 
@@ -4327,7 +4540,9 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 
 **Beat 4 - After Stop 27 | `money-market-console` | automatic**
 
-**World state:** Preserve this result on the BANKS decision fixture; The character asks for the promised mission decision, and Stop 28 unlocks.
+**Trigger:** accepted_stop_27.
+
+**World state:** At `balance-sheet-desk`, the dated accepted-result slip for Stop 27 reads: "(10b,8b,10,80b), ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 27 RECORDED - STOP 28 OPEN
 
@@ -4337,13 +4552,23 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 
 **Beat 5 - At mission end | `note-scale` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_28.
+
+**World state:** At `conversion-trays`, Eli Voss seals the counted old-note bundle with its deposit receipt. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 7 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Arendt: "Outstanding work. You solved the mission. The returns show migration from cash into deposits, not a money-stock contraction."
+**Dialogue bubbles -** Eli Voss: "The notes came here. Their owners still have deposits. Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m07
+
+**Home:** `conversion-trays`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. Old-crown bundles fill a tray beside deposit receipts.
+**After — exact action:** Eli Voss seals the counted old-note bundle with its deposit receipt.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `bond-panel`, a loan quote waits beside the expected-price sheet.
+**Segue - exact player copy:** Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay.
 
 ## Location plan
 
@@ -4371,6 +4596,10 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 **Question card story setup - exact player copy:** Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding.
 
 **Question card story-science connection - exact player copy:** The two money totals distinguish spendable balances from the broader stock that includes savings instruments.
+
+**Fixture source panel - exact player copy:** Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding. currency=80 checking deposits=220 savings=140 small time deposits=60
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the narrow money total M1 and the broader money total M2 in billions.
 
@@ -4483,6 +4712,10 @@ trace:
 
 **Question card story-science connection - exact player copy:** Required and excess reserves determine the simplified maximum deposit expansion, not a promise of actual lending.
 
+**Fixture source panel - exact player copy:** Because 100 billion in deposits reached the banks, total reserves are 18 billion and the required reserve ratio is 10%. Derive required reserves, excess reserves, multiplier, and maximum system creation. deposits=100 billion actual reserves=18 billion reserve ratio=0.10
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit required reserves, excess reserves, the multiplier, and maximum new money.
 
 **Complete format-specific interaction block:** `derive:{left_side:"R","goal":"required reserves, excess reserves, multiplier, and maximum new money","givens":["deposits=100 billion","actual reserves=18 billion","reserve ratio=0.10"],"lines":[{"id":"L1","expression":"required reserves=100×0.10=10 billion","license":"state governing relationship"},{"id":"L2","expression":"excess reserves=18-10=8 billion","license":"substitute displayed values"},{"id":"L3","expression":"simple multiplier=1/0.10=10","license":"simplify with units"},{"id":"L4","expression":"maximum new money=8×10=80 billion","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["maximum new money=8 billion","multiplier=0.10"],"correct_result":"(10 billion,8 billion,10,80 billion)","answerText":"Required reserves are 10 billion, excess reserves 8 billion, the multiplier 10, and the theoretical maximum new money 80 billion."}`
@@ -4568,9 +4801,10 @@ derive:
 
 Mission decision: Returned notes moved into bank deposits. They did not vanish from the money supply. Banks still have spare reserves. Payments remain sound. The board must now set the real cost of loans.
 
+**Segue - exact player copy:** Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: Returned notes moved into bank deposits. The Currency Board can now protect buying power with a sounder decision.
+**Happy ending card - exact player copy:** Your checks made the difference. Eli Voss seals the counted old-note bundle with its deposit receipt. Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay.
 
 **Header:** MISSION 7 COMPLETE
 
@@ -4741,13 +4975,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 8 DAYS
+**Header:** MISSION 8 - 8 DAYS UNTIL CHANGEOVER.
 
 **Card title:** The Rate People Feel
 
 **Go now:** Go to BANKS and meet Tomas Arendt at the bond-and-money panel.
 
-**Card body:** Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now.
+**Card body:** 8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak.
 
 **Objective:** Distinguish nominal and real rates before tightening.
 
@@ -4838,7 +5072,9 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 
 **Beat 1 - On arrival at BANKS | `money-market-console` | automatic**
 
-**World state:** Arrival | BANKS | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Distinguish nominal and real rates before tightening.` Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_8_arrival.
+
+**World state:** A loan quote waits beside the expected-price sheet.
 
 **Panel/HUD text:** Distinguish nominal and real rates before tightening.
 
@@ -4848,7 +5084,9 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 
 **Beat 2 - After Stop 29 | `balance-sheet-desk` | automatic**
 
-**World state:** Keep this labeled result visible; Tomas Arendt says,, and Stop 30 unlocks.
+**Trigger:** accepted_stop_29.
+
+**World state:** At `money-market-console`, the dated accepted-result slip for Stop 29 reads: "A 30-billion money surplus causes bond buying, raises bond prices, and lowers the nominal rate from 5% to 4%.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 29 RECORDED - STOP 30 OPEN
 
@@ -4858,7 +5096,9 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 
 **Beat 3 - After Stop 30 | `policy-wall` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `BANKS → RATE` only if the route requires travel, then.
+**Trigger:** accepted_stop_30.
+
+**World state:** At `balance-sheet-desk`, the dated accepted-result slip for Stop 30 reads: "1.5%, +0.5 pp.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** BANKS → RATE
 
@@ -4868,7 +5108,9 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 
 **Beat 4 - After Stop 31 | `bond-panel` | automatic**
 
-**World state:** Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 32 unlocks.
+**Trigger:** accepted_stop_31.
+
+**World state:** At `policy-wall`, the dated accepted-result slip for Stop 31 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 31 RECORDED - STOP 32 OPEN
 
@@ -4878,13 +5120,23 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 
 **Beat 5 - At mission end | `money-market-console` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_32.
+
+**World state:** At `bond-panel`, Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 8 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Arendt: "Outstanding work. You solved the mission. Do not raise now; the hike tightens real borrowing conditions in every tested case."
+**Dialogue bubbles -** Tomas Arendt: "A high rate is not the same as a strong household. But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m08
+
+**Home:** `bond-panel`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. A loan quote waits beside the expected-price sheet.
+**After — exact action:** Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `payment-wires`, a payment lamp lights while an export order is crossed out.
+**Segue - exact player copy:** But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters.
 
 ## Location plan
 
@@ -4940,6 +5192,10 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 **Question card story setup - exact player copy:** With equilibrium nominal interest at 4.0% and expected inflation at 2.5%, rearrange Fisher's equation and calculate the real rate. Compare it with last month's 1.0% real rate.
 
 **Question card story-science connection - exact player copy:** The real interest rate shows whether borrowing became more restrictive despite the nominal headline.
+
+**Fixture source panel - exact player copy:** With equilibrium nominal interest at 4.0% and expected inflation at 2.5%, rearrange Fisher's equation and calculate the real rate. Compare it with last month's 1.0% real rate. nominal rate=4.0% expected inflation=2.5% last real rate=1.0%
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit today's real rate and its change in percentage points.
 
@@ -5088,11 +5344,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: Do not raise rates now. The real rate is already 1.5%. And a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk.
+Mission decision: Do not raise rates now. The real rate is already 1.5%, and a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk.
 
+**Segue - exact player copy:** But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: Do not raise rates now. Shops, banks, and workers have a safer path through the changeover.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail. But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters.
 
 **Header:** MISSION 8 COMPLETE
 
@@ -5359,13 +5616,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 7 DAYS
+**Header:** MISSION 9 - 7 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Two Accounts
 
 **Go now:** Go to TRADE and meet Nia Corren, open-economy analyst, at the payment wires.
 
-**Card body:** Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect.
+**Card body:** 7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds.
 
 **Objective:** Connect balance of payments, exchange rates, and net exports.
 
@@ -5456,7 +5713,9 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 
 **Beat 1 - On arrival at Open-Economy Floor | `trade-ledger` | automatic**
 
-**World state:** Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Connect balance of payments, exchange rates, and net exports.` Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_9_arrival.
+
+**World state:** A payment lamp lights while an export order is crossed out.
 
 **Panel/HUD text:** Connect balance of payments, exchange rates, and net exports.
 
@@ -5466,7 +5725,9 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 
 **Beat 2 - After Stop 33 | `forex-console` | automatic**
 
-**World state:** Keep this labeled result visible; Nia Corren says,, and Stop 34 unlocks.
+**Trigger:** accepted_stop_33.
+
+**World state:** At `trade-ledger`, the dated accepted-result slip for Stop 33 reads: "The current account is -17 billion and the financial account is +17 billion, so the simplified balance closes at zero.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 33 RECORDED - STOP 34 OPEN
 
@@ -5476,7 +5737,9 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 
 **Beat 3 - After Stop 34 | `forex-console` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate RATE, then.
+**Trigger:** accepted_stop_34.
+
+**World state:** At `forex-console`, the dated accepted-result slip for Stop 34 reads: "Foreign bond demand raises demand for RATE, RATE appreciates, exports fall, imports rise, and net exports fall.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 34 RECORDED - STOP 35 OPEN
 
@@ -5486,7 +5749,9 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 
 **Beat 4 - After Stop 35 | `shipment-board` | automatic**
 
-**World state:** Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 36 unlocks.
+**Trigger:** accepted_stop_35.
+
+**World state:** At `forex-console`, the dated accepted-result slip for Stop 35 reads: "Raising the quote from 1.00 to 1.10 lowers exports from 90 to 84 billion and raises imports from 108 to 112 billion; restoring 1.00 restores the baseline.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 35 RECORDED - STOP 36 OPEN
 
@@ -5496,13 +5761,23 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 
 **Beat 5 - At mission end | `trade-ledger` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_36.
+
+**World state:** At `payment-wires`, Nia Corren pins the paired financing and export-cost entries beside the payment wires. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 9 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nia Corren: "Outstanding work. You solved the mission. The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand."
+**Dialogue bubbles -** Nia Corren: "Both wires belong in the story. But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m09
+
+**Home:** `payment-wires`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. A payment lamp lights while an export order is crossed out.
+**After — exact action:** Nia Corren pins the paired financing and export-cost entries beside the payment wires.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `price-history-board`, the long money-growth strip lies beneath today's fuel alert.
+**Segue - exact player copy:** But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens.
 
 ## Location plan
 
@@ -5558,6 +5833,10 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 **Question card story setup - exact player copy:** With a 17-billion capital inflow, foreigners must acquire RATE to buy Halvern bonds. Build the direction chain from asset demand to the currency's value and net exports in the Rate Book.
 
 **Question card story-science connection - exact player copy:** The foreign-exchange chain links bond demand to currency appreciation and the direction of net exports.
+
+**Fixture source panel - exact player copy:** With a 17-billion capital inflow, foreigners must acquire RATE to buy Halvern bonds. Build the direction chain from asset demand to the currency's value and net exports in the Rate Book.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Complete the transmission chain and submit the predicted directions of the exchange rate and net exports.
 
@@ -5705,9 +5984,10 @@ derive:
 
 Mission decision: Do not call the cash inflow pure good news. It pays for the trade gap and lifts RATE. A stronger RATE cuts net exports. Export orders are now down. The output plan must change.
 
+**Segue - exact player copy:** But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: Do not call the cash inflow pure good news. Your reasoning keeps one bad assumption from becoming national policy.
+**Happy ending card - exact player copy:** Your checks made the difference. Nia Corren pins the paired financing and export-cost entries beside the payment wires. But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens.
 
 **Header:** MISSION 9 COMPLETE
 
@@ -5917,13 +6197,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 6 DAYS
+**Header:** MISSION 10 - 6 DAYS UNTIL CHANGEOVER.
 
 **Card title:** The Temporary Tradeoff
 
 **Go now:** Go to RATE and meet Mara Venn at the Phillips wall.
 
-**Card body:** A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy.
+**Card body:** 6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy.
 
 **Objective:** Separate a short-run shock from long-run inflation policy.
 
@@ -6022,7 +6302,9 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 
 **Beat 1 - On arrival at RATE | `policy-wall` | automatic**
 
-**World state:** Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Separate a short-run shock from long-run inflation policy.` Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_10_arrival.
+
+**World state:** The long money-growth strip lies beneath today's fuel alert.
 
 **Panel/HUD text:** Separate a short-run shock from long-run inflation policy.
 
@@ -6032,7 +6314,9 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 
 **Beat 2 - After Stop 37 | `gap-calculator` | automatic**
 
-**World state:** Keep this labeled result visible; Mara Venn says,, and Stop 38 unlocks.
+**Trigger:** accepted_stop_37.
+
+**World state:** At `policy-wall`, the dated accepted-result slip for Stop 37 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 37 RECORDED - STOP 38 OPEN
 
@@ -6042,7 +6326,9 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 
 **Beat 3 - After Stop 38 | `price-history-board` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `RATE → PRICES` only if the route requires travel, then.
+**Trigger:** accepted_stop_38.
+
+**World state:** At `gap-calculator`, the dated accepted-result slip for Stop 38 reads: "The quantity equation gives estimated long-run inflation of 2%.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** RATE → PRICES
 
@@ -6052,7 +6338,9 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 
 **Beat 4 - After Stop 39 | `forecast-table` | automatic**
 
-**World state:** Preserve this result on the PRICES decision fixture; The character asks for the promised mission decision, and Stop 40 unlocks.
+**Trigger:** accepted_stop_39.
+
+**World state:** At `price-history-board`, the dated accepted-result slip for Stop 39 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 39 RECORDED - STOP 40 OPEN
 
@@ -6062,13 +6350,23 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 
 **Beat 5 - At mission end | `policy-wall` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_40.
+
+**World state:** At `price-history-board`, Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 10 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Venn: "Outstanding work. You solved the mission. Do not justify permanent tightening from this temporary print; commit a reversible trigger."
+**Dialogue bubbles -** Lina Saye: "A sharp rise today does not draw the whole future line. But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m10
+
+**Home:** `price-history-board`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. The long money-growth strip lies beneath today's fuel alert.
+**After — exact action:** Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `threshold-rail`, a wage contract's six-week date extends past changeover day.
+**Segue - exact player copy:** But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help.
 
 ## Location plan
 
@@ -6195,6 +6493,10 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 **Question card story setup - exact player copy:** Money grows 3%, velocity is constant, and real output grows 1% at full employment. Use the growth-rate form of quantity theory to estimate long-run inflation clearly for the next board decision.
 
 **Question card story-science connection - exact player copy:** The quantity-theory estimate relates money and real-output growth to the inflation rate the board should expect.
+
+**Fixture source panel - exact player copy:** Money grows 3%, velocity is constant, and real output grows 1% at full employment. Use the growth-rate form of quantity theory to estimate long-run inflation clearly for the next board decision.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the long-run inflation estimate.
 
@@ -6391,9 +6693,10 @@ stress:
 
 Mission decision: Do not tighten policy for a short price shock. New data support the supply-shock model. Slow money growth points to about 2% long-run inflation. Use set rules, not fear. Wage contracts will adjust later.
 
+**Segue - exact player copy:** But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: Do not tighten policy for a short price shock. Halvern can move forward with clearer prices and fewer risks for ordinary families.
+**Happy ending card - exact player copy:** Your checks made the difference. Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record. But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help.
 
 **Header:** MISSION 10 COMPLETE
 
@@ -6669,13 +6972,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 5 DAYS
+**Header:** MISSION 11 - 5 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Too Late by Itself
 
 **Go now:** Go to COUNTER and meet Eli Voss at the wage notices.
 
-**Card body:** The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed.
+**Card body:** Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time.
 
 **Objective:** Compare market adjustment with a temporary policy bridge.
 
@@ -6766,7 +7069,9 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 
 **Beat 1 - On arrival at Exchange Counter | `queue-board` | automatic**
 
-**World state:** Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Compare market adjustment with a temporary policy bridge.` Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_11_arrival.
+
+**World state:** A wage contract's six-week date extends past changeover day.
 
 **Panel/HUD text:** Compare market adjustment with a temporary policy bridge.
 
@@ -6776,7 +7081,9 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 
 **Beat 2 - After Stop 41 | `ad-as-wall` | automatic**
 
-**World state:** Keep this labeled result visible; Eli Voss says,, and Stop 42 unlocks.
+**Trigger:** accepted_stop_41.
+
+**World state:** At `queue-board`, the dated accepted-result slip for Stop 41 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 41 RECORDED - STOP 42 OPEN
 
@@ -6786,7 +7093,9 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 
 **Beat 3 - After Stop 42 | `forecast-table` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `COUNTER → PRICES → RATE` only if the route requires travel, then.
+**Trigger:** accepted_stop_42.
+
+**World state:** At `ad-as-wall`, the dated accepted-result slip for Stop 42 reads: "−7b ±0.1.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** COUNTER → PRICES → RATE
 
@@ -6796,7 +7105,9 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 
 **Beat 4 - After Stop 43 | `allocation-slate` | automatic**
 
-**World state:** Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 44 unlocks.
+**Trigger:** accepted_stop_43.
+
+**World state:** At `forecast-table`, the dated accepted-result slip for Stop 43 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 43 RECORDED - STOP 44 OPEN
 
@@ -6806,13 +7117,23 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 
 **Beat 5 - At mission end | `queue-board` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_44.
+
+**World state:** At `threshold-rail`, Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 11 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Voss: "Outstanding work. You solved the mission. Use a temporary bridge with a sunset review; self-correction alone is too slow."
+**Dialogue bubbles -** Rhea Dane: "Then write the end of the bridge before its first payment. But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m11
+
+**Home:** `threshold-rail`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. A wage contract's six-week date extends past changeover day.
+**After — exact action:** Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `reserve-clock`, the reserve hands approach the payment mark from different sides.
+**Segue - exact player copy:** But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due.
 
 ## Location plan
 
@@ -6868,6 +7189,10 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 **Question card story setup - exact player copy:** Because self-correction is late, disposable income falls 10 billion, but taxes fall 2 billion and transfers rise 1 billion automatically. Calculate the net income loss before induced consumption for the board.
 
 **Question card story-science connection - exact player copy:** The remaining income loss measures the shock households face before further consumption effects.
+
+**Fixture source panel - exact player copy:** Because self-correction is late, disposable income falls 10 billion, but taxes fall 2 billion and transfers rise 1 billion automatically. Calculate the net income loss before induced consumption for the board. initial shock=-10 billion tax stabilizer=+2 billion transfer stabilizer=+1 billion
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the net change in disposable income before induced consumption.
 
@@ -6998,9 +7323,10 @@ allocate_patch:
 
 Mission decision: Self-correction is too slow. Use automatic stabilizers and a short bridge for capital and training. End the plan when its trigger is met. Bank ledgers now show that 4.15 works only when reserves arrive on time.
 
+**Segue - exact player copy:** But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: Self-correction is too slow. Halvern's families are closer to a currency changeover they can trust.
+**Happy ending card - exact player copy:** Your checks made the difference. Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail. But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due.
 
 **Header:** MISSION 11 COMPLETE
 
@@ -7171,13 +7497,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 4 DAYS
+**Header:** MISSION 12 - 4 DAYS UNTIL CHANGEOVER.
 
 **Card title:** 4.15 on the Clock
 
 **Go now:** Go to NOTES and meet Eli Voss at the conversion trays.
 
-**Card body:** The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments.
+**Card body:** Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time.
 
 **Objective:** Certify the conversion ratio with cash, bank, and foreign-market evidence.
 
@@ -7266,7 +7592,9 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 
 **Beat 1 - On arrival at Note Hall | `conversion-trays` | automatic**
 
-**World state:** Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Certify the conversion ratio with cash, bank, and foreign-market evidence.` Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_12_arrival.
+
+**World state:** The reserve hands approach the payment mark from different sides.
 
 **Panel/HUD text:** Certify the conversion ratio with cash, bank, and foreign-market evidence.
 
@@ -7276,7 +7604,9 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 
 **Beat 2 - After Stop 45 | `reserve-clock` | automatic**
 
-**World state:** Keep this labeled result visible; Eli Voss says,, and Stop 46 unlocks.
+**Trigger:** accepted_stop_45.
+
+**World state:** At `conversion-trays`, the dated accepted-result slip for Stop 45 reads: "10,000 ±0.01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 45 RECORDED - STOP 46 OPEN
 
@@ -7286,7 +7616,9 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 
 **Beat 3 - After Stop 46 | `payment-wires` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `NOTES → BANKS → TRADE` only if the route requires travel, then.
+**Trigger:** accepted_stop_46.
+
+**World state:** At `reserve-clock`, the dated accepted-result slip for Stop 46 reads: "The bank needs 1,000 RATE and has exactly 1,000 RATE at minute 6, so the inclusive rule permits clearing then.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** NOTES → BANKS → TRADE
 
@@ -7296,7 +7628,9 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 
 **Beat 4 - After Stop 47 | `custody-desk` | automatic**
 
-**World state:** Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 48 unlocks.
+**Trigger:** accepted_stop_47.
+
+**World state:** At `payment-wires`, the dated accepted-result slip for Stop 47 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 47 RECORDED - STOP 48 OPEN
 
@@ -7306,13 +7640,23 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 
 **Beat 5 - At mission end | `conversion-trays` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_48.
+
+**World state:** At `reserve-clock`, Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 12 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Voss: "Outstanding work. You solved the mission. Approve 4.15 after replacing every 4.00 shortcut."
+**Dialogue bubbles -** Tomas Arendt: "The ratio passes only if the money arrives when the tray opens. But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m12
+
+**Home:** `reserve-clock`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. The reserve hands approach the payment mark from different sides.
+**After — exact action:** Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `policy-wall`, loan refusals and lost export orders share the spending folder.
+**Segue - exact player copy:** But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice.
 
 ## Location plan
 
@@ -7340,6 +7684,10 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 **Question card story setup - exact player copy:** A tray contains 41,500 old crowns, and the legal ratio is 4.15 crowns per RATE. Calculate the new balance before the notes can leave custody in the Rate Book.
 
 **Question card story-science connection - exact player copy:** The converted balance prevents the custody transfer from changing the tray's lawful value.
+
+**Fixture source panel - exact player copy:** A tray contains 41,500 old crowns, and the legal ratio is 4.15 crowns per RATE. Calculate the new balance before the notes can leave custody in the Rate Book. old balance=41,500 crowns conversion=4.15 crowns per RATE
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the new account balance in RATE.
 
@@ -7511,9 +7859,10 @@ attest:
 
 Mission decision: Use the 4.15 exchange rate. Exact tray math, reserve timing, and customs data agree. The full test now works. Yet new state debt is pushing real rates up.
 
+**Segue - exact player copy:** But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: Use the 4.15 exchange rate. The Currency Board can now protect buying power with a sounder decision.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock. But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice.
 
 **Header:** MISSION 12 COMPLETE
 
@@ -7684,13 +8033,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 3 DAYS
+**Header:** MISSION 13 - 3 DAYS UNTIL CHANGEOVER.
 
 **Card title:** Crowded Out Twice
 
 **Go now:** Go to RATE and meet Rhea Dane at the loanable-funds board.
 
-**Card body:** The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it.
+**Card body:** 3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear.
 
 **Objective:** Measure domestic and foreign crowding out.
 
@@ -7779,7 +8128,9 @@ RATE→BANKS→TRADE. Loanable-funds shift sends player to private loan denials,
 
 **Beat 1 - On arrival at Rate Room | `policy-wall` | automatic**
 
-**World state:** Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Measure domestic and foreign crowding out.` Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_13_arrival.
+
+**World state:** Loan refusals and lost export orders share the spending folder.
 
 **Panel/HUD text:** Measure domestic and foreign crowding out.
 
@@ -7789,7 +8140,9 @@ RATE→BANKS→TRADE. Loanable-funds shift sends player to private loan denials,
 
 **Beat 2 - After Stop 49 | `money-market-console` | automatic**
 
-**World state:** Keep this labeled result visible; Rhea Dane says,, and Stop 50 unlocks.
+**Trigger:** accepted_stop_49.
+
+**World state:** At `policy-wall`, the dated accepted-result slip for Stop 49 reads: "Adding 8.7 billion of borrowing raises the real rate by 0.6 percentage point and cuts private investment by 6 billion; restoration recovers the baseline.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 49 RECORDED - STOP 50 OPEN
 
@@ -7799,7 +8152,9 @@ RATE→BANKS→TRADE. Loanable-funds shift sends player to private loan denials,
 
 **Beat 3 - After Stop 50 | `payment-wires` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate TRADE, then.
+**Trigger:** accepted_stop_50.
+
+**World state:** At `money-market-console`, the dated accepted-result slip for Stop 50 reads: "A deficit raises loan demand and the real rate, crowds out private investment, slows capital growth, and reduces long-run growth.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 50 RECORDED - STOP 51 OPEN
 
@@ -7809,7 +8164,9 @@ RATE→BANKS→TRADE. Loanable-funds shift sends player to private loan denials,
 
 **Beat 4 - After Stop 51 | `signing-desk` | automatic**
 
-**World state:** Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 52 unlocks.
+**Trigger:** accepted_stop_51.
+
+**World state:** At `payment-wires`, the dated accepted-result slip for Stop 51 reads: "Fiscal expansion raises real rates, draws in capital, appreciates RATE, lowers net exports, and offsets part of the aggregate-demand gain.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 51 RECORDED - STOP 52 OPEN
 
@@ -7819,13 +8176,23 @@ RATE→BANKS→TRADE. Loanable-funds shift sends player to private loan denials,
 
 **Beat 5 - At mission end | `policy-wall` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_52.
+
+**World state:** At `policy-wall`, Rhea Dane replaces the full bridge order with the smaller temporary plan. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 13 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Rhea Dane: "Outstanding work. You solved the mission. Keep the narrower bridge with training and port repair; reject the full debt plan."
+**Dialogue bubbles -** Rhea Dane: "That smaller order hurts to sign. The larger one would hurt twice. But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m13
+
+**Home:** `policy-wall`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. Loan refusals and lost export orders share the spending folder.
+**After — exact action:** Rhea Dane replaces the full bridge order with the smaller temporary plan.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `threshold-rail`, a fuel bulletin lands beside a completed conversion test.
+**Segue - exact player copy:** But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover.
 
 ## Location plan
 
@@ -7881,6 +8248,10 @@ RATE→BANKS→TRADE. Loanable-funds shift sends player to private loan denials,
 **Question card story setup - exact player copy:** With private investment down 6 billion, build the domestic crowding-out chain from deficit to slower capital accumulation. Do not substitute nominal money-market rates for the measured real rate for the board.
 
 **Question card story-science connection - exact player copy:** The domestic chain connects crowding out to slower capital accumulation rather than confusing it with nominal money-market rates.
+
+**Fixture source panel - exact player copy:** With private investment down 6 billion, build the domestic crowding-out chain from deficit to slower capital accumulation. Do not substitute nominal money-market rates for the measured real rate for the board.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Complete the domestic transmission chain and submit its implications for private investment and long-run growth.
 
@@ -7960,6 +8331,10 @@ derive:
 **Question card story setup - exact player copy:** Because Halvern's real rate rises, foreign capital enters, demand for RATE rises, and the currency appreciates. Complete the chain through net exports and AD clearly in the Rate Book for review.
 
 **Question card story-science connection - exact player copy:** The foreign chain shows how appreciation and weaker net exports reduce part of the demand gain.
+
+**Fixture source panel - exact player copy:** Because Halvern's real rate rises, foreign capital enters, demand for RATE rises, and the currency appreciates. Complete the chain through net exports and AD clearly in the Rate Book for review.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Complete the international transmission chain and submit how it changes the initial aggregate-demand effect.
 
@@ -8064,9 +8439,10 @@ derive:
 
 Mission decision: Replace the full bridge with a smaller short-term plan. The full deficit raises real rates. It cuts private investment and net exports. The new plan protects both people and future growth.
 
+**Segue - exact player copy:** But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: Replace the full bridge with a smaller short-term plan. Shops, banks, and workers have a safer path through the changeover.
+**Happy ending card - exact player copy:** Your checks made the difference. Rhea Dane replaces the full bridge order with the smaller temporary plan. But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover.
 
 **Header:** MISSION 13 COMPLETE
 
@@ -8280,13 +8656,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 2 DAYS
+**Header:** MISSION 14 - 2 DAYS UNTIL CHANGEOVER.
 
 **Card title:** First-Week Cover
 
 **Go now:** Go to TRADE and meet Nia Corren at the port wire.
 
-**Card body:** An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week.
+**Card body:** Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help.
 
 **Objective:** Protect launch without confusing a supply shock with a broken currency.
 
@@ -8377,7 +8753,9 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Beat 1 - On arrival at Open-Economy Floor | `trade-ledger` | automatic**
 
-**World state:** Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Protect launch without confusing a supply shock with a broken currency.` Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_14_arrival.
+
+**World state:** A fuel bulletin lands beside a completed conversion test.
 
 **Panel/HUD text:** Protect launch without confusing a supply shock with a broken currency.
 
@@ -8387,7 +8765,9 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Beat 2 - After Stop 53 | `price-history-board` | automatic**
 
-**World state:** Keep this labeled result visible; Nia Corren says,, and Stop 54 unlocks.
+**Trigger:** accepted_stop_53.
+
+**World state:** At `trade-ledger`, the dated accepted-result slip for Stop 53 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 53 RECORDED - STOP 54 OPEN
 
@@ -8397,7 +8777,9 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Beat 3 - After Stop 54 | `forecast-table` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `TRADE → PRICES → RATE` only if the route requires travel, then.
+**Trigger:** accepted_stop_54.
+
+**World state:** At `price-history-board`, the dated accepted-result slip for Stop 54 reads: "The direct CPI effect is 2.4 percentage points; returning fuel to baseline returns the direct effect to zero.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** TRADE → PRICES → RATE
 
@@ -8407,7 +8789,9 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Beat 4 - After Stop 55 | `threshold-rail` | automatic**
 
-**World state:** Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 56 unlocks.
+**Trigger:** accepted_stop_55.
+
+**World state:** At `forecast-table`, the dated accepted-result slip for Stop 55 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 55 RECORDED - STOP 56 OPEN
 
@@ -8417,13 +8801,23 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Beat 5 - At mission end | `trade-ledger` | automatic**
 
-**World state:** Mission outcome and hook |   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_56.
+
+**World state:** At `threshold-rail`, Mara Venn pins the first-week cover card beside the emergency triggers. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 14 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nia Corren: "Outstanding work. You solved the mission. Proceed with cover; buy bonds only at the joint output/payment trigger and stop at the CPI limit."
+**Dialogue bubbles -** Mara Venn: "Keep the date. Keep the promise to review the cost. Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m14
+
+**Home:** `threshold-rail`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. A fuel bulletin lands beside a completed conversion test.
+**After — exact action:** Mara Venn pins the first-week cover card beside the emergency triggers.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `conversion-desk`, new notes wait under a cloth behind the closed counter.
+**Segue - exact player copy:** Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment.
 
 ## Location plan
 
@@ -8632,9 +9026,10 @@ trigger:
 
 Mission decision: Do not delay conversion. add temporary first-week cover. The fuel shock is real. But the 4.15 ratio and payments remain sound. The board posts joint action.
 
+**Segue - exact player copy:** Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: Do not delay conversion. Your reasoning keeps one bad assumption from becoming national policy.
+**Happy ending card - exact player copy:** Your checks made the difference. Mara Venn pins the first-week cover card beside the emergency triggers. Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment.
 
 **Header:** MISSION 14 COMPLETE
 
@@ -8956,13 +9351,13 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** CHANGEOVER TOMORROW
+**Header:** MISSION 15 - 1 DAY UNTIL CHANGEOVER.
 
 **Card title:** Sign with Conditions
 
 **Go now:** Go to COUNTER and meet Eli Voss at the live queue board.
 
-**Card body:** The first week's results are in, and the board must set the interest rate that households and businesses will face. Check production, prices, bank cash reserves, and foreign payments against your agreed rules. Sign the final rate decision and the conditions that would require it to change.
+**Card body:** One day remains. New notes wait under a cloth at the shut counter. Today you decide whether to open with the signed rules.
 
 **Objective:** Make the final integrated, reversible macroeconomic decision.
 
@@ -9049,7 +9444,9 @@ COUNTER→BANKS→RATE. S1 reads household case, S2 certifies reserves and rates
 
 **Beat 1 - On arrival at Exchange Counter | `live-economy-panel` | automatic**
 
-**World state:** Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays `Make the final integrated, reversible macroeconomic decision.` Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result.
+**Trigger:** mission_15_arrival.
+
+**World state:** New notes wait under a cloth behind the closed counter.
 
 **Panel/HUD text:** Make the final integrated, reversible macroeconomic decision.
 
@@ -9059,7 +9456,9 @@ COUNTER→BANKS→RATE. S1 reads household case, S2 certifies reserves and rates
 
 **Beat 2 - After Stop 57 | `reserve-clock` | automatic**
 
-**World state:** Keep this labeled result visible; Mara Venn says,, and Stop 58 unlocks.
+**Trigger:** accepted_stop_57.
+
+**World state:** At `live-economy-panel`, the dated accepted-result slip for Stop 57 reads: "−38b; no trigger.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 57 RECORDED - STOP 58 OPEN
 
@@ -9069,7 +9468,9 @@ COUNTER→BANKS→RATE. S1 reads household case, S2 certifies reserves and rates
 
 **Beat 3 - After Stop 58 | `threshold-rail` | automatic**
 
-**World state:** Copy the result to the Rate Book; Activate the next named room in `RATE → BANKS → COUNTER` only if the route requires travel, then.
+**Trigger:** accepted_stop_58.
+
+**World state:** At `reserve-clock`, the dated accepted-result slip for Stop 58 reads: "(1.00%,2b).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** RATE → BANKS → COUNTER
 
@@ -9079,7 +9480,9 @@ COUNTER→BANKS→RATE. S1 reads household case, S2 certifies reserves and rates
 
 **Beat 4 - After Stop 59 | `conversion-desk` | automatic**
 
-**World state:** Preserve this result on the COUNTER decision fixture; The character asks for the promised mission decision, and Stop 60 unlocks.
+**Trigger:** accepted_stop_59.
+
+**World state:** At `threshold-rail`, the dated accepted-result slip for Stop 59 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 59 RECORDED - STOP 60 OPEN
 
@@ -9089,13 +9492,23 @@ COUNTER→BANKS→RATE. S1 reads household case, S2 certifies reserves and rates
 
 **Beat 5 - At mission end | `live-economy-panel` | automatic**
 
-**World state:** Mission outcome and hook | COUNTER | automatic   Stop the timer and keep the next unresolved consequence visible.
+**Trigger:** accepted_stop_60.
+
+**World state:** At `conversion-desk`, Mara Venn turns the counter-opening key. The final scene follows the completion gate below.
 
 **Panel/HUD text:** MISSION 15 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Voss: "Outstanding work. You solved the mission. The rate is not a promise that nothing will change. It is a promise that we know when we will."
+**Dialogue bubbles -** Mara Venn: "You gave us conditions we can live by after the cameras leave. Therefore Eli can make the first exchange at 4.15 while the signed 3.25% policy rate and reversal rules stay on the wall."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — changeover-m15
+
+**Home:** `conversion-desk`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. New notes wait under a cloth behind the closed counter.
+**After — exact action:** Mara Venn turns the counter-opening key.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `conversion-desk`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore Eli can make the first exchange at 4.15 while the signed 3.25% policy rate and reversal rules stay on the wall.
 
 ## Location plan
 
@@ -9186,6 +9599,10 @@ estimate:
 **Question card story setup - exact player copy:** Expected inflation is 2.25%, the proposed nominal rate is 3.25%, deposits are 120 billion, reserves are 14 billion, and rr is 10%. Derive real rate and excess reserves.
 
 **Question card story-science connection - exact player copy:** The rate-reserve pair tests the policy stance and bank liquidity using today's actual inputs.
+
+**Fixture source panel - exact player copy:** Expected inflation is 2.25%, the proposed nominal rate is 3.25%, deposits are 120 billion, reserves are 14 billion, and rr is 10%. Derive real rate and excess reserves. nominal rate=3.25% expected inflation=2.25% deposits=120 billion reserve ratio=10% actual reserves=14 billion
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the real rate and excess reserves.
 
@@ -9360,11 +9777,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Sign a 3.25% policy rate. And the 4.15 conversion with the posted conditions. The real rate is 1.00%, reserves stay positive. And neither emergency trigger has fired. Shops replace the last shortcut labels.
+Mission decision: Whether to open exchange with the signed conditions. Apply the existing final evidence and metric gates before the world payoff below.
 
+The first customer slides old crowns across the counter. Eli counts out the new notes. Outside, the shop boards turn to the new currency. The signed rate and its review rules stay on the wall as the next person steps forward.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Sign a 3.25% policy rate. Halvern can move forward with clearer prices and fewer risks for ordinary families.
+**Happy ending card - exact player copy:** The first customer slides old crowns across the counter. Eli counts out the new notes. Outside, the shop boards turn to the new currency. The signed rate and its review rules stay on the wall as the next person steps forward.
 
 **Header:** MISSION 15 COMPLETE
 

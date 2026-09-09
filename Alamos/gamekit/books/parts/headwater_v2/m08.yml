@@ -1,17 +1,18 @@
 # ============================================================ MISSION 8
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Just-Clears Release"
   card:
-    header: "8 SHIFTS UNTIL THE STORM"
+    header: "MISSION 8 - 8 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Make Room Without Making a Flood"
     goNow: "Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board."
-    body: "The reservoir needs another 5.28 million cubic metres of room, but releasing that water too quickly could flood communities below. Compare how much water different gate and turbine schedules send downstream. Choose a schedule that makes enough room without exceeding the downstream safety limits."
+    body: "8 work shifts remain before the storm. The hoist rests at its baseline mark above a dry spillway. Today you decide which release mix clears enough water."
     objective: "Select a release schedule meeting storage and downstream limits."
   objective: "Select a release schedule meeting storage and downstream limits."
-  stake: "The reservoir needs another 5.28 million cubic metres of room, but releasing that water too quickly could flood communities below. Compare how much water different gate and turbine schedules send downstream. Choose a schedule that makes enough room without exceeding the downstream safety limits."
+  stake: "8 work shifts remain before the storm. The hoist rests at its baseline mark above a dry spillway. Today you decide which release mix clears enough water."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Use the mixed turbine-and-gate plan. Turbines clear 3.60 million m^3. And the gate clears the remaining 1.68 million m^3 with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head."
+  segue: "But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-powerhouse
     # On arrival at Powerhouse | machine-board | automatic
     on: { enter: true, at: POWER }
-    world: "The substitute the head term fixture wakes and the mission evidence opens."
+    world: "The hoist rests at its baseline mark above a dry spillway."
     panel: "MISSION 8: SUBSTITUTE THE HEAD TERM OPEN"
+    # unlocks: Unlock Stop 29 at machine-board in Powerhouse.
     bubbles:
     - who: chen   # Nia Chen
       say: "Start with substitute the head term. We need evidence the next decision can use."
   - id: after-stop-29
     # After Stop 29 | machine-board | automatic
     on: { after: [1] }
-    world: "After 8.2 Location: POWER."
+    world: "At machine-board, the dated accepted-result slip for Stop 29 reads: \"4133.333, tolerance .01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    # unlocks: Unlock Stop 30 at machine-board in Powerhouse.
     bubbles:
-    - who: chen   # Nia Chen
-      say: "Nice work. Use the Stop 29 result to settle verify turbine volume."
+    - who: wilkes   # Tomas Wilkes
+      say: "That check holds. The turbine-volume prediction is ready for comparison with the dispatch simulation."
   - id: after-stop-30
     # After Stop 30 | machine-board | automatic
     on: { after: [2] }
-    world: "Travel Location: POWER->SAFE."
+    world: "At machine-board, the dated accepted-result slip for Stop 30 reads: \"3.600 million m^3; pass.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    # unlocks: Unlock Stop 31 at machine-board in Powerhouse.
     bubbles:
-    - who: chen   # Nia Chen
-      say: "Good thinking. Use the Stop 30 result to settle total the signed surge."
+    - who: wilkes   # Tomas Wilkes
+      say: "That check holds. The remaining drawdown must be checked against a downstream flow that changes sign."
   - id: after-stop-31
     # After Stop 31 | dispatch-console | automatic
     on: { after: [3] }
-    world: "The total the signed surge result remains visible while the allocate the just-clears plan fixture lights."
+    world: "At machine-board, the dated accepted-result slip for Stop 31 reads: \"26.667,63.333, tolerance .01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    # unlocks: Unlock Stop 32 at dispatch-console in Powerhouse.
     bubbles:
-    - who: chen   # Nia Chen
-      say: "Exactly right. Use the Stop 31 result to settle allocate the just-clears plan."
+    - who: wilkes   # Tomas Wilkes
+      say: "That check holds. The verified turbine contribution leaves a specific release deficit and supporting tasks to fund."
   - id: at-mission-end
     # At mission end | machine-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At hoist-stand, Tomas Wilkes turns the hoist to the signed test notch. The dated prop remains here on later visits."
     panel: "MISSION 8 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: chen   # Nia Chen
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: wilkes   # Tomas Wilkes
+      say: "The gate has a share now. So does the warning crew. But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall."
 
   terms:
   - {name: "Substitution", def: "replacing a repeated inner expression with one variable."}
@@ -329,4 +335,3 @@
           requires:
             - reserve
           required: false
-

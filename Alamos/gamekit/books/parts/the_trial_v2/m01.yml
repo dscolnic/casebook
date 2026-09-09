@@ -1,17 +1,18 @@
 # ============================================================ MISSION 1
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What Was Promised"
   card:
-    header: "DAY 1 - BOARD IN 15 DAYS"
+    header: "MISSION 1 - 15 DAYS UNTIL THE BOARD MEETS."
     title: "What Was Promised"
     goNow: "Go to Regulatory & Registry and meet Lena Wu, regulatory and registry lead, at the commitment terminal."
-    body: "Two hospitals have reported possible harm from the treatment. Before judging it, use statistics to check what the researchers promised to measure before seeing any results. Identify the patient information and claims that belong in the report for the board deciding whether the trial continues."
+    body: "15 days until the board meets. An empty board binder sits below the dated registry pages. Today you decide which claims were promised before the trial."
     objective: "Recover the trial's pre-specified claims."
   objective: "Recover the trial's pre-specified claims."
-  stake: "Two hospitals have reported possible harm from the treatment. Before judging it, use statistics to check what the researchers promised to measure before seeing any results. Identify the patient information and claims that belong in the report for the board deciding whether the trial continues."
+  stake: "15 days until the board meets. An empty board binder sits below the dated registry pages. Today you decide which claims were promised before the trial."
   takeaway: "Median and IQR resist extreme values."
-  segue: "Mission decision: Put the three timed claims in the board pack. Mark the two-site pattern as a clue, not proof. The log shows when each claim was made. Two odd recovery records now need a full check."
+  segue: "But Amina finds two odd recovery records; the board needs to know whether the numbers describe real patients."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Variable", def: "a characteristic recorded for each patient."}
@@ -34,43 +35,48 @@
   - id: on-arrival-at-regulatory-registry
     # On arrival at Regulatory & Registry | commitment-terminal | automatic
     on: { enter: true, at: REG }
-    world: "Arrival | REG | nearby bubble: Terminal reads REGISTRATION LOCK: 14 MONTHS BEFORE FIRST PATIENT."
+    world: "An empty board binder sits below the dated registry pages."
     panel: "MISSION 1: NAME THE DATA OPEN"
+    # unlocks: Unlock Stop 1 at commitment-terminal in Regulatory & Registry.
     bubbles:
     - who: wu   # Lena Wu
       say: "The alert matters. First separate what was promised from what was noticed."
   - id: after-stop-1
     # After Stop 1 | records-wall | automatic
     on: { after: [1] }
-    world: "The name the data result remains visible while the describe before judging fixture lights."
+    world: "At commitment-terminal, the dated accepted-result slip for Stop 1 reads: \"Improved/not improved is categorical, so compare counts or proportions with a bar chart.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    # unlocks: Unlock Stop 2 at records-wall in Regulatory & Registry.
     bubbles:
     - who: wu   # Lena Wu
-      say: "Nice work. Use the Stop 1 result to settle describe before judging."
+      say: "That check holds. The first recovery-time display needs an honest description before the team selects a summary statistic."
   - id: after-stop-2
     # After Stop 2 | evidence-desk | automatic
     on: { after: [2] }
-    world: "After S1-S2 | REG | panel update."
+    world: "At records-wall, the dated accepted-result slip for Stop 2 reads: \"Describe shape, outliers, center, and spread, using recovery days and treatment arms in every statement.\". The slip remains in that fixture's evidence holder."
     panel: "VARIABLES CLASSIFIED - DISPLAY CHECK PASSED"
+    # unlocks: Unlock Stop 3 at evidence-desk in Regulatory & Registry.
     bubbles:
     - who: wu   # Lena Wu
       say: "Good thinking. Now describe what the display actually shows."
   - id: after-stop-3
     # After Stop 3 | claim-ledger | automatic
     on: { after: [3] }
-    world: "After S3 | REG | persistent world change: the primary-outcome tab illuminates with text and document icon."
+    world: "At evidence-desk, the dated accepted-result slip for Stop 3 reads: \"IQR = 8 days; upper fence = 18 + 1.5(8) = 30 days. Since 34 > 30, flag it and keep it pending review.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    # unlocks: Unlock Stop 4 at claim-ledger in Regulatory & Registry.
     bubbles:
     - who: wu   # Lena Wu
-      say: "Exactly right. Use the Stop 3 result to settle seal the claims."
+      say: "That check holds. The descriptive review is ready, but the board must separate registered claims from later discoveries."
   - id: at-mission-end
     # At mission end | commitment-terminal | automatic
     on: { missionEnd: true }
-    world: "Binder slot 1 fills; outcome unlocks."
+    world: "At records-wall, Lena Wu clips the three registered claims to the first binder sleeve. The dated prop remains here on later visits."
     panel: "MISSION 1 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: wu   # Lena Wu
-      say: "Outstanding work. You solved the mission. The safety pattern enters as monitoring evidence, not a pre-specified efficacy claim."
+      say: "The date stays beside the promise. But Amina finds two odd recovery records; the board needs to know whether the numbers describe real patients."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -156,7 +162,11 @@
     format: CHOICE
     question: "Primary outcome: improved by day 30, yes or no. Submit one selection: categorical with bar chart; categorical with histogram; quantitative with bar chart; quantitative with boxplot."
     figure: {"kind":"bars","xLabel":"Day-30 outcome","yLabel":"Patients","caption":"Counts of improved and not-improved patients.","bars":[{"name":"Improved","value":68},{"name":"Not improved","value":32}]}
-    choices: []
+    choices:
+    - "Categorical variable with a bar chart."
+    - "Categorical variable with a histogram."
+    - "Quantitative variable with a bar chart."
+    - "Quantitative variable with a boxplot."
     answer: "Categorical variable with a bar chart."
     answerText: "The completed check shows improved/not improved is categorical, so compare counts or proportions with a bar chart."
     why: "Treating category labels as quantities could create a meaningless average and mislead the board."
@@ -179,15 +189,11 @@
     question: "The recovery-days histogram is unimodal and right-skewed, with two unusually long recoveries. Put the four description cards in the order that keeps the summary honest."
     # The four cards and their order are the prompt's own list, kept word for word.
     cards:
-      - Describe the distribution's shape in the patient context.
-      - Identify unusual recovery times and keep them pending source review.
-      - Report a resistant center in recovery days.
-      - Report a resistant spread in recovery days.
-    order:
-      - 0
-      - 1
-      - 2
-      - 3
+    - "shape in context"
+    - "unusual values"
+    - "center in context"
+    - "spread in context"
+    order: [0, 1, 2, 3]
     answerText: "The completed check shows describe shape, outliers, center, and spread, using recovery days and treatment arms in every statement."
     why: "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -257,35 +263,19 @@
     # registry timestamp (the terminal reads REGISTRATION LOCK: 14 MONTHS BEFORE
     # FIRST PATIENT), so each line reports that claim's timestamp and nothing else.
     attest:
-      verification_limit: 3
+      checks: 3
       claims:
-        - id: primary_30d
-          label: primary 30-day improvement
-          backed: true
-          critical: true
-        - id: serious_event
-          label: serious-event rate
-          backed: true
-          critical: true
-        - id: recovery_mean
-          label: recovery-time mean
-          backed: true
-          critical: false
-        - id: site_interaction
-          label: two-site treatment interaction
-          backed: false
-          critical: true
-        - id: lab_marker
-          label: exploratory lab marker
-          backed: false
-          critical: false
-      required_checks:
-        - primary_30d
-        - serious_event
-        - recovery_mean
-      critical_unbacked: site_interaction
-      correct_conclusion: label the interaction exploratory
-      answerText: Verify the three backed claims and label the critical, unbacked site interaction exploratory.
+      - { id: primary_30d, label: "primary 30-day improvement", critical: true, backed: true,
+          signedBy: "Lena Wu", evidence: "Registry timestamp 14 months before the first patient." }
+      - { id: serious_event, label: "serious-event rate", critical: true, backed: true,
+          signedBy: "Lena Wu", evidence: "Registry timestamp 14 months before the first patient." }
+      - { id: recovery_mean, label: "recovery-time mean", backed: true,
+          signedBy: "Lena Wu", evidence: "Registry timestamp 14 months before the first patient." }
+      - { id: site_interaction, label: "two-site treatment interaction", critical: true,
+          signedBy: "Lena Wu", evidence: "No registry timestamp; the claim was written after the two-site pattern appeared." }
+      - { id: lab_marker, label: "exploratory lab marker",
+          signedBy: "Lena Wu", evidence: "No registry timestamp; the marker was added to the pack later." }
+      commit: "Seal the claim list"
     answerText: "Keep the three timestamped claims as pre-specified and report the two-site pattern transparently as exploratory monitoring evidence."
     why: "A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -296,4 +286,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   attest:{verification_limit:3,claims:[{id:"primary_30d",label:"primary 30-day improvement",backed:true,critical:true},{id:"serious_event",label:"serious-event rate",backed:true,critical:true},{id:"recovery_mean",label:"recovery-time mean",backed:true,critical:false},{id:"site_interaction",label:"two-site treatment interaction",backed:false,critical:true},{id:"lab_marker",label:"exploratory lab marker",backed:false,critical:false}],required_checks:["primary_30d","serious_event","recovery_mean"],critical_unbacked:"site_interaction",correct_conclusion:"label the interaction exploratory",answerText:"Verify the three backed claims and label the critical, unbacked site interaction exploratory."}
-

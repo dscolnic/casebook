@@ -1,17 +1,18 @@
 # ============================================================ MISSION 14
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Lead-Time Rule"
   card:
-    header: "2 SHIFTS UNTIL THE STORM"
+    header: "MISSION 14 - 2 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Four Dark Sirens"
     goNow: "Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the siren repeater panel."
-    body: "The dam and machinery checks pass, but four downstream communities did not receive the test alarm. Water cannot be released safely while those warnings fail. Choose which faults to repair first and estimate the delay, then decide whether every community will receive enough warning."
+    body: "2 work shifts remain before the storm. Two acknowledgement boxes are empty beside a running clock. Today you decide which warning repairs must come first."
     objective: "Repair and certify the warning chain."
   objective: "Repair and certify the warning chain."
-  stake: "The dam and machinery checks pass, but four downstream communities did not receive the test alarm. Water cannot be released safely while those warnings fail. Choose which faults to repair first and estimate the delay, then decide whether every community will receive enough warning."
+  stake: "2 work shifts remain before the storm. Two acknowledgement boxes are empty beside a running clock. Today you decide which warning repairs must come first."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Every reach below the dam is ready. The repair order restores all four lines. It leaves 15 minutes before the warning deadline. The final release must still save enough power for the last gate move."
+  segue: "Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-downstream-warning-desk
     # On arrival at Downstream Warning Desk | arrival-map | automatic
     on: { enter: true, at: SAFE }
-    world: "The find the repair optimum fixture wakes and the mission evidence opens."
+    world: "Two acknowledgement boxes are empty beside a running clock."
     panel: "MISSION 14: FIND THE REPAIR OPTIMUM OPEN"
+    # unlocks: Unlock Stop 53 at arrival-map in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
       say: "Start with find the repair optimum. We need evidence the next decision can use."
   - id: after-stop-53
     # After Stop 53 | settlement-circuits | automatic
     on: { after: [1] }
-    world: "After 14.2 Location: SAFE."
+    world: "At arrival-map, the dated accepted-result slip for Stop 53 reads: \"x=6 at endpoint; P(6)=52, versus P(0)=-8.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    # unlocks: Unlock Stop 54 at settlement-circuits in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Nice work. Use the Stop 53 result to settle order settlements by consequence."
+      say: "That check holds. The crew allocation is fixed, leaving downstream repair order to be chosen by consequence."
   - id: after-stop-54
     # After Stop 54 | arrival-map | automatic
     on: { after: [2] }
-    world: "Travel1 Location: SAFE->INFLOW."
+    world: "At settlement-circuits, the dated accepted-result slip for Stop 54 reads: \"Road and School.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    # unlocks: Unlock Stop 55 at arrival-map in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Good thinking. Use the Stop 54 result to settle update the delayed forecast."
+      say: "That check holds. The repairs delay release, so the reservoir forecast must be advanced to the new starting time."
   - id: after-stop-55
     # After Stop 55 | radio-desk | automatic
     on: { after: [3] }
-    world: "Travel2 Location: INFLOW->GATES."
+    world: "At arrival-map, the dated accepted-result slip for Stop 55 reads: \"4.36 m.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    # unlocks: Unlock Stop 56 at radio-desk in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Exactly right. Use the Stop 55 result to settle commit repaired warning trigger."
+      say: "That check holds. The repair schedule and delayed release time are ready for a warning-readiness commitment."
   - id: at-mission-end
     # At mission end | arrival-map | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At warning-list, Elise Baptiste ticks the fourth warning acknowledgement box. The dated prop remains here on later visits."
     panel: "MISSION 14 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "Four voices back. We can finally act on the plan. Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline."
 
   terms:
   - {name: "Constraint", def: "a requirement a solution must satisfy."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Lead-Time Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Four Voices Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Lead-Time Rule, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?"
+    - prompt: "In a follow-up to Four Voices Back, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Constraint; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -75,7 +81,7 @@
       - {key: "B", text: "A requirement a solution must satisfy.", why: "Correct. a requirement a solution must satisfy."}
       - {key: "C", text: "A choice satisfying every constraint.", why: "This describes Feasible point, not Constraint. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.", why: "This describes optimization/marginal value, not Constraint. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Lead-Time Rule: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?"
+    - prompt: "Ashfell Dam receives a second case related to Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Objective function; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -83,7 +89,7 @@
       - {key: "B", text: "A choice satisfying every constraint.", why: "This describes Feasible point, not Objective function. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "The quantity optimized.", why: "Correct. the quantity optimized."}
       - {key: "D", text: "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.", why: "This describes optimization/marginal value, not Objective function. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Lead-Time Rule using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?"
+    - prompt: "A teammate rechecks Four Voices Back using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Feasible point; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -91,7 +97,7 @@
       - {key: "B", text: "The quantity optimized.", why: "This describes Objective function, not Feasible point. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.", why: "This describes optimization/marginal value, not Feasible point. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "A choice satisfying every constraint.", why: "Correct. a choice satisfying every constraint."}
-    - prompt: "An unseen case extends The Lead-Time Rule: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?"
+    - prompt: "An unseen case extends Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?"
       hint: "Use the stated evidence and the conditions for optimization/marginal value; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +113,7 @@
       - {key: "B", text: "Road and School. Earliest binding deadlines determine a safe schedule.", why: "Correct. road and School. Earliest binding deadlines determine a safe schedule."}
       - {key: "C", text: "The quantity optimized.", why: "This describes Objective function, not constrained decision/extrema. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "A choice satisfying every constraint.", why: "This describes Feasible point, not constrained decision/extrema. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Lead-Time Rule to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?"
+    - prompt: "Ashfell Dam applies the lesson from Four Voices Back to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?"
       hint: "Use the stated evidence and the conditions for Euler/logistic delay; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -309,4 +315,3 @@
         - at: T-6 h
           value: 30
           hoursLeft: 6
-

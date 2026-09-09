@@ -1,17 +1,18 @@
 # ============================================================ MISSION 4
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Two-Day Cost Note"
   card:
-    header: "12 SHIFTS UNTIL THE STORM"
+    header: "MISSION 4 - 12 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Water in Motion"
     goNow: "Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the arrival map."
-    body: "Opening the dam's gates sends water toward settlements downstream. The crew needs to know how soon it will arrive and how high it will rise. Calculate the water's motion and changing depth, then decide how much warning residents need before a release begins."
+    body: "12 work shifts remain before the storm. A school pin sits just downstream of a road crossing. Today you decide how much warning the village needs."
     objective: "Set a warning time that covers the first dangerous arrival."
   objective: "Set a warning time that covers the first dangerous arrival."
-  stake: "Opening the dam's gates sends water toward settlements downstream. The crew needs to know how soon it will arrive and how high it will rise. Calculate the water's motion and changing depth, then decide how much warning residents need before a release begins."
+  stake: "12 work shifts remain before the storm. A school pin sits just downstream of a road crossing. Today you decide how much warning the village needs."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Use a minimum warning lead of 280 minutes. It includes travel to the village. And the road's rise time. The warning rule is now tied to motion, not an average. The two-day release plan still needs a true peak test."
+  segue: "But Mara's two-day plan still hides a possible peak; an average cannot clear the release."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-downstream-warning-desk
     # On arrival at Downstream Warning Desk | arrival-map | automatic
     on: { enter: true, at: SAFE }
-    world: "The differentiate the flood front fixture wakes and the mission evidence opens."
+    world: "A school pin sits just downstream of a road crossing."
     panel: "MISSION 4: DIFFERENTIATE THE FLOOD FRONT OPEN"
+    # unlocks: Unlock Stop 13 at arrival-map in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
       say: "Start with differentiate the flood front. We need evidence the next decision can use."
   - id: after-stop-13
     # After Stop 13 | arrival-map | automatic
     on: { after: [1] }
-    world: "After 4.2 Location: SAFE."
+    world: "At arrival-map, the dated accepted-result slip for Stop 13 reads: \"exact.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    # unlocks: Unlock Stop 14 at arrival-map in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Nice work. Use the Stop 13 result to settle distance is not displacement."
+      say: "That check holds. The front's turning times mean net displacement may understate how far water has traveled."
   - id: after-stop-14
     # After Stop 14 | arrival-map | automatic
     on: { after: [2] }
-    world: "After 4.3 Location: SAFE."
+    world: "At arrival-map, the dated accepted-result slip for Stop 14 reads: \"distance 11 km, displacement 9 km.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 14 RECORDED - STOP 15 OPEN"
+    # unlocks: Unlock Stop 15 at arrival-map in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Good thinking. Use the Stop 14 result to settle relate depth and reach volume."
+      say: "That check holds. The route calculation leaves the downstream water-height rise to be estimated."
   - id: after-stop-15
     # After Stop 15 | radio-desk | automatic
     on: { after: [3] }
-    world: "The relate depth and reach volume result remains visible while the commit the warning fixture lights."
+    world: "At arrival-map, the dated accepted-result slip for Stop 15 reads: \".025 m/min, tolerance .0001.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    # unlocks: Unlock Stop 16 at radio-desk in Downstream Warning Desk.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Exactly right. Use the Stop 15 result to settle commit the warning."
+      say: "That check holds. The arrival and road-closure estimates are ready to become a dispatch deadline."
   - id: at-mission-end
     # At mission end | arrival-map | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At arrival-map, Elise Baptiste pins the MINIMUM LEAD: 280 MINUTES card beside the village pin. The dated prop remains here on later visits."
     panel: "MISSION 4 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: baptiste   # Elise Baptiste
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "A call that comes after the water is not a warning. But Mara's two-day plan still hides a possible peak; an average cannot clear the release."
 
   terms:
   - {name: "Position", def: "location along a route."}
@@ -66,11 +72,11 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Two-Day Cost Note. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Before the Water Arrives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     concepts:
     - {name: "Speed", def: "absolute value of velocity."}
     questions:
-    - prompt: "In a follow-up to The Two-Day Cost Note, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?"
+    - prompt: "In a follow-up to Before the Water Arrives, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Speed; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -78,7 +84,7 @@
       - {key: "B", text: "Absolute value of velocity.", why: "Correct. absolute value of velocity."}
       - {key: "C", text: "Signed change of position per time.", why: "This describes Velocity, not Speed. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Final position minus initial position.", why: "This describes Displacement, not Speed. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Two-Day Cost Note: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "Ashfell Dam receives a second case related to Before the Water Arrives: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "C"
       figure: {"kind":"line","xLabel":"Time (s)","yLabel":"Position (m)","caption":"Ride position increases with a changing slope.","series":[{"name":"Position","points":[[0,0],[1,2],[2,8],[3,18],[4,32]]}]}
@@ -87,7 +93,7 @@
       - {key: "B", text: "Signed change of position per time.", why: "This describes Velocity, not Position. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Location along a route.", why: "Correct. location along a route."}
       - {key: "D", text: "Final position minus initial position.", why: "This describes Displacement, not Position. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Two-Day Cost Note using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "A teammate rechecks Before the Water Arrives using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "D"
       figure: {"kind":"line","xLabel":"Time (s)","yLabel":"Velocity (m/s)","caption":"Ride velocity changes over the test interval.","series":[{"name":"Velocity","points":[[0,0],[1,4],[2,8],[3,8],[4,4]]}]}
@@ -96,7 +102,7 @@
       - {key: "B", text: "Location along a route.", why: "This describes Position, not Velocity. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Final position minus initial position.", why: "This describes Displacement, not Velocity. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Signed change of position per time.", why: "Correct. signed change of position per time."}
-    - prompt: "An unseen case extends The Two-Day Cost Note: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?"
+    - prompt: "An unseen case extends Before the Water Arrives: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Displacement; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -112,7 +118,7 @@
       - {key: "B", text: "All travel counted positively.", why: "Correct. all travel counted positively."}
       - {key: "C", text: "Location along a route.", why: "This describes Position, not Total distance. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Signed change of position per time.", why: "This describes Velocity, not Total distance. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Two-Day Cost Note to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?"
+    - prompt: "Ashfell Dam applies the lesson from Before the Water Arrives to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?"
       hint: "Use the stated evidence and the conditions for motion derivatives; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -215,14 +221,11 @@
     # model conversion. Do not paste it in as it stands.
     #   cards:["solve v=0: t=1,2","evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9","sum |5-0|+|4-5|+|9-4|","compute x(3)-x(0)"],order:["solve v=0: t=1,2","evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9","sum |5-0|+|4-5|+|9-4|","compute x(3)-x(0)"]
     cards:
-      - "solve v=0: t=1,2"
-      - evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9
-      - sum |5-0|+|4-5|+|9-4|
-      - "compute x(3)-x(0)\"],order:[\"solve v=0: t=1,2"
-      - evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9
-      - sum |5-0|+|4-5|+|9-4|
-      - compute x(3)-x(0)
-    order: []
+    - "solve v=0: t=1,2"
+    - "evaluate x(0)=0,x(1)=5,x(2)=4,x(3)=9"
+    - "sum |5-0|+|4-5|+|9-4|"
+    - "compute x(3)-x(0)"
+    order: [0, 1, 2, 3]
 
   # --- Stop 15: Relate depth and reach volume
   #     Concept: related rates; Keystone: Motion/rates; Area: Powerhouse; Learning role: INTRODUCE; Difficulty: L4; Story role: obstacle.
@@ -324,4 +327,3 @@
         - at: T-6 h
           value: 260
           hoursLeft: 6
-

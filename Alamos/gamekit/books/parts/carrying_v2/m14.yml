@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Population Outlook"
   card:
-    header: "2 DAYS."
+    header: "MISSION 14 - 2 DAYS UNTIL THE VOTE."
     title: "THE POPULATION OUTLOOK"
     goNow: "Island School, Lena Costa at register-desk."
-    body: "The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them."
+    body: "2 days until the vote. The same crew name appears on two tally sheets. Today you decide how many visitor-days the water plan can bear."
     objective: "Lock the human-demand forecast."
   objective: "Lock the human-demand forecast."
-  stake: "The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them."
+  stake: "2 days until the vote. The same crew name appears on two tally sheets. Today you decide how many visitor-days the water plan can bear."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Use a lower visitor cap and a drought reserve. Count crew only once. The plan stays within the water limit. The last vote now needs an independent sample."
+  segue: "But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Total fertility rate", def: "average births per woman; about 2.1 replaces a population without migration."}
@@ -31,50 +31,55 @@
   - id: on-arrival-at-island-school
     # On arrival at Island School | register-desk | automatic
     on: { enter: true, at: SCHOOL }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "The same crew name appears on two tally sheets."
     panel: "MISSION 14: READ THE AGE STRUCTURE OPEN"
+    # unlocks: Unlock Stop 53 at register-desk in Island School.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with read the age structure. We need evidence the next decision can use."
   - id: after-stop-53
     # After Stop 53 | register-desk | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At register-desk, the dated accepted-result slip for Stop 53 reads: \"The resident population is top-heavy and declining\". The slip remains in that fixture's evidence holder."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    # unlocks: Unlock Stop 54 at register-desk in Island School.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 53 result to settle calculate population growth."
+    - who: costa   # Lena Costa
+      say: "That check holds. The age pattern needs confirmation from births and deaths before a growth forecast is used."
   - id: after-stop-54
     # After Stop 54 | council-table | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At register-desk, the dated accepted-result slip for Stop 54 reads: \"Growth is -1.0%/year; a doubling time is not meaningful\". The slip remains in that fixture's evidence holder."
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    # unlocks: Unlock Stop 55 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 54 result to settle close the person-day balance."
+    - who: costa   # Lena Costa
+      say: "That check holds. A declining resident count does not establish July demand once ferry visitors are included."
   - id: after-stop-55
     # After Stop 55 | common-map | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 55 changes the persistent board and unlocks the decision stop."
+    world: "At council-table, the dated accepted-result slip for Stop 55 reads: \"The second-ferry July case is 12,300 person-days\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    # unlocks: Unlock Stop 56 at common-map in Common Office.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 55 result to settle stress the human-demand forecast."
+    - who: costa   # Lena Costa
+      say: "That check holds. The combined person-day estimate still needs testing against uncertain per-person resource use."
   - id: at-mission-end
     # At mission end | register-desk | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 56 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At register-desk, Lena Costa clips the corrected visitor tally beneath the drought-reserve card. The dated prop remains here on later visits."
     panel: "MISSION 14 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: costa   # Lena Costa
+      say: "A seat is not a resident. A crew member is not two people. But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Population Outlook. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Seats Are Not People. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Population Outlook, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?"
+    - prompt: "In a follow-up to Seats Are Not People, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?"
       hint: "Use the stated evidence and the conditions for Total fertility rate; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -82,7 +87,7 @@
       - {key: "B", text: "Average births per woman; about 2.1 replaces a population without migration.", why: "Correct. average births per woman; about 2.1 replaces a population without migration."}
       - {key: "C", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Demand beyond available biological capacity.", why: "This describes Overshoot, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?"
+    - prompt: "the island council receives a second case related to Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?"
       hint: "Use the stated evidence and the conditions for Population momentum; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -90,7 +95,7 @@
       - {key: "B", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Continued growth from a large reproductive-age group.", why: "Correct. continued growth from a large reproductive-age group."}
       - {key: "D", text: "Demand beyond available biological capacity.", why: "This describes Overshoot, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Population Outlook using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "A teammate rechecks Seats Are Not People using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "D"
       figure: {"kind":"line","xLabel":"Transition stage","yLabel":"Rate per 1,000 people","caption":"Birth rates fall after death rates during a demographic transition.","series":[{"name":"Birth rate","points":[[1,40],[2,38],[3,26],[4,14]]},{"name":"Death rate","points":[[1,38],[2,20],[3,12],[4,10]]}]}
@@ -99,7 +104,7 @@
       - {key: "B", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Demand beyond available biological capacity.", why: "This describes Overshoot, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Shift from high birth/death rates toward low rates.", why: "Correct. shift from high birth/death rates toward low rates."}
-    - prompt: "An unseen case extends The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?"
+    - prompt: "An unseen case extends Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?"
       hint: "Use the stated evidence and the conditions for Overshoot; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -115,7 +120,7 @@
       - {key: "B", text: "Read the age structure connects the measured environmental mechanism to the next island condition.", why: "Correct. read the age structure connects the measured environmental mechanism to the next island condition."}
       - {key: "C", text: "Continued growth from a large reproductive-age group.", why: "This describes Population momentum, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Shift from high birth/death rates toward low rates.", why: "This describes Demographic transition, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Population Outlook to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?"
+    - prompt: "the island council applies the lesson from Seats Are Not People to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?"
       hint: "Use the stated evidence and the conditions for population growth | populations | 14; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -224,7 +229,7 @@
     title: "Close the person-day balance"
     concept: 22   # person-days | closed budgets | 14
     reason: "A declining resident count does not establish July demand once ferry visitors are included."
-    scene: "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days."
     motivation: "Total person-days places residents and short-stay visitors on the same seasonal water-and-waste demand scale."
     format: BALANCE
     question: "Apply person-days=people*days using 250 residents × 30 days, 300 visitors/day × 8 current sailing days, and another 2,400 visitor-days for the second ferry; submit total"

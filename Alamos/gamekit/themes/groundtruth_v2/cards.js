@@ -8,16 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Station 12 uses electricity-and-magnetism physics to make lightning on purpose so crews "
-    +   "can learn how to survive it. One week-five shot disabled the remote outstation, and the "
-    +   "season report must explain why before the final storm window closes in fifteen days. If "
-    +   "the cause remains unknown, the station loses its operating certificate and future crews "
-    +   "work without trusted warning data. Director Lena Ortiz hands you the report board and "
-    +   "says, “The next crew will stand beneath a storm believing this station can protect them: "
-    +   "find the true path of the strike, prove every repair, and make that trust deserved.”",
+  "You are the station test lead, which means you trace what burned a remote circuit during "
+    +   "a lightning shot. At Station 12, you will use electricity and magnetism to make the "
+    +   "call. The last storm window closes in fifteen days. The next crew needs a station it can "
+    +   "trust. A clean screen is no use if it missed the dangerous pulse.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Certify Station 12. "
-    +   "The next launch decision rests on measured physics, not a frightening guess.",
+  "Thunder reaches the gallery after the flash. The final shot trace stays inside the "
+    +   "posted limits. Ortiz clips the last page into the report, with the old burned-card photo "
+    +   "beside it. The next crew has a tested station and a record of what once went wrong.",
 ];

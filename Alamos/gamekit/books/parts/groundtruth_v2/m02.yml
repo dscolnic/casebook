@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Bound the Layer Charge"
   card:
-    header: "14 DAYS TO FINAL STORM WINDOW"
+    header: "MISSION 2 - 14 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "Bound the Layer Charge"
     goNow: "Go to the Field Station and meet Ravi Sen, field scientist, at the mill bench."
-    body: "The sensors show a strong electrical influence from the storm above the range. Work out how much charge in the cloud could produce those readings. Decide whether the storm explanation fits before the team uses it to design another test."
+    body: "14 days until the last storm window closes. Rain beads on a cloud-layer sketch beside the mill readings. Today you decide what charge the measured field can support."
     objective: "Infer the effective layer charge from the mill array."
   objective: "Infer the effective layer charge from the mill array."
-  stake: "The sensors show a strong electrical influence from the storm above the range. Work out how much charge in the cloud could produce those readings. Decide whether the storm explanation fits before the team uses it to design another test."
+  stake: "14 days until the last storm window closes. Rain beads on a cloud-layer sketch beside the mill readings. Today you decide what charge the measured field can support."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use the field map to mark the mast tip. The strongest field is near the close contours. The cabinet blocks the static field. Next, test the storm model."
+  segue: "Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Electric flux", def: "the signed amount of electric field passing through a surface."}
@@ -32,43 +32,48 @@
   - id: on-arrival-at-field-station
     # On arrival at Field Station | mill-array | automatic
     on: { enter: true, at: FIELD }
-    world: "The derive the sheet field fixture wakes and the mission evidence opens."
+    world: "Rain beads on a cloud-layer sketch beside the mill readings."
     panel: "MISSION 2: DERIVE THE SHEET FIELD OPEN"
+    # unlocks: Unlock Stop 5 at mill-array in Field Station.
     bubbles:
     - who: ravi   # Ravi Sen
       say: "The mill tells us field; Gauss lets us ask what charge could make it."
   - id: after-stop-5
     # After Stop 5 | mill-bench | automatic
     on: { after: [1] }
-    world: "The derive the sheet field result remains visible while the sort the flux faces fixture lights."
+    world: "At mill-array, the dated accepted-result slip for Stop 5 reads: \"exact symbolic result.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    # unlocks: Unlock Stop 6 at mill-bench in Field Station.
     bubbles:
     - who: ravi   # Ravi Sen
-      say: "Nice work. Use the Stop 5 result to settle sort the flux faces."
+      say: "That check holds. Ravi needs to confirm that the charge-layer calculation counts flux through the correct surfaces."
   - id: after-stop-6
     # After Stop 6 | mill-array | automatic
     on: { after: [2] }
-    world: "Stop 2 lights the contributing pillbox faces,."
+    world: "At mill-bench, the dated accepted-result slip for Stop 6 reads: \"as mapped.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 6 RECORDED - STOP 7 OPEN"
+    # unlocks: Unlock Stop 7 at mill-array in Field Station.
     bubbles:
     - who: ravi   # Ravi Sen
-      say: "Good thinking. Use the Stop 6 result to settle derive the effective charge density."
+      say: "That check holds. The isolated-sheet calculation must now account for the conducting ground beneath the storm."
   - id: after-stop-7
     # After Stop 7 | mill-array | automatic
     on: { after: [3] }
-    world: "Stop 3 posts σ=-7.97×10^-8 C/m², and."
+    world: "At mill-array, the dated accepted-result slip for Stop 7 reads: \"-7.97×10^-8 C/m², tolerance ±0.04×10^-8.\". The slip remains in that fixture's evidence holder."
     panel: "σ=-7.97×10^-8 C/m²"
+    # unlocks: Unlock Stop 8 at mill-array in Field Station.
     bubbles:
     - who: ravi   # Ravi Sen
-      say: "Exactly right. Use the Stop 7 result to settle test spatial consistency."
+      say: "That check holds. The inferred charge density needs a spatial check before the crew accepts a uniform storm layer."
   - id: at-mission-end
     # At mission end | mill-array | automatic
     on: { missionEnd: true }
-    world: "Stop 4 overlays all four mills and activates report piece 2."
+    world: "At storm-profile-board, Ravi Sen pins the bounded charge-layer sketch beneath the measured field strip. The dated prop remains here on later visits."
     panel: "MISSION 2 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: ravi   # Ravi Sen
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "Put a bound on the sky before we put a story in it. Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

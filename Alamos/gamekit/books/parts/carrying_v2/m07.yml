@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Hidden Losses"
   card:
-    header: "9 DAYS."
+    header: "MISSION 7 - 9 DAYS UNTIL THE VOTE."
     title: "THE HIDDEN LOSSES"
     goNow: "Tip and Sorting Yard, Mei Chen at leachate-bench."
-    body: "Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste."
+    body: "9 days until the vote. A brown jar leaves a ring beside a clean pipe sample. Today you decide which hidden losses need repair."
     objective: "Find and rank hidden water and waste losses."
   objective: "Find and rank hidden water and waste losses."
-  stake: "Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste."
+  stake: "9 days until the vote. A brown jar leaves a ring beside a clean pipe sample. Today you decide which hidden losses need repair."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Repair the liner and treatment chain. Count the 50 cubic metres lost each day. The leak is real. Next, trace where school nitrate enters the system."
+  segue: "But Lena's school sample carries nitrate; the children need a traced source, not another guess."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Leachate", def: "polluted liquid draining through waste."}
@@ -30,52 +30,57 @@
   - id: on-arrival-at-tip-and-sorting-yard
     # On arrival at Tip and Sorting Yard | leachate-bench | automatic
     on: { enter: true, at: TIP }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "A brown jar leaves a ring beside a clean pipe sample."
     panel: "MISSION 7: TRACE THE HIDDEN EXPORTS OPEN"
+    # unlocks: Unlock Stop 25 at leachate-bench in Tip and Sorting Yard.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with trace the hidden exports. We need evidence the next decision can use."
   - id: after-stop-25
     # After Stop 25 | leachate-bench | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At leachate-bench, the dated accepted-result slip for Stop 25 reads: \"The uncapped cell affects both air and water\". The slip remains in that fixture's evidence holder."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    # unlocks: Unlock Stop 26 at leachate-bench in Tip and Sorting Yard.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 25 result to settle build the treatment chain."
+    - who: chen   # Mei Chen
+      say: "That check holds. The identified leachate pathway requires a treatment sequence before discharge is permitted."
   - id: after-stop-26
     # After Stop 26 | pipe-balance | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At leachate-bench, the dated accepted-result slip for Stop 26 reads: \"The five treatment stages are placed in causal order and dilution is rejected\". The slip remains in that fixture's evidence holder."
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    # unlocks: Unlock Stop 27 at pipe-balance in Waterworks.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 26 result to settle close the water balance."
+    - who: chen   # Mei Chen
+      say: "That check holds. The contamination pathway is understood, but the waterworks still cannot account for its delivered volume."
   - id: after-stop-27
     # After Stop 27 | council-table | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 27 changes the persistent board and unlocks the decision stop."
+    world: "At pipe-balance, the dated accepted-result slip for Stop 27 reads: \"The unmetered loss is 50 m3/day\". The slip remains in that fixture's evidence holder."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    # unlocks: Unlock Stop 28 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 27 result to settle choose the repair priority."
+    - who: chen   # Mei Chen
+      say: "That check holds. The missing distribution water and the leachate pathway now compete for the same repair budget."
   - id: at-mission-end
     # At mission end | leachate-bench | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 28 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At leachate-bench, Mei Chen sets the leak jar in a tray marked LINER REPAIR REQUIRED. The dated prop remains here on later visits."
     panel: "MISSION 7 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: chen   # Mei Chen
+      say: "We found the missing water. Now find out what reached the cups. But Lena's school sample carries nitrate; the children need a traced source, not another guess."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Hidden Losses. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Wet Trail. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     concepts:
     - {name: "Anaerobic", def: "without oxygen."}
     questions:
-    - prompt: "In a follow-up to The Hidden Losses, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?"
+    - prompt: "In a follow-up to The Wet Trail, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?"
       hint: "Use the stated evidence and the conditions for Anaerobic; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -83,7 +88,7 @@
       - {key: "B", text: "Without oxygen.", why: "Correct. without oxygen."}
       - {key: "C", text: "One identifiable outlet.", why: "This describes Point source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Diffuse runoff.", why: "This describes Nonpoint source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Hidden Losses: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?"
+    - prompt: "the island council receives a second case related to The Wet Trail: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?"
       hint: "Use the stated evidence and the conditions for Leachate; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -91,7 +96,7 @@
       - {key: "B", text: "One identifiable outlet.", why: "This describes Point source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Polluted liquid draining through waste.", why: "Correct. polluted liquid draining through waste."}
       - {key: "D", text: "Diffuse runoff.", why: "This describes Nonpoint source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Hidden Losses using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?"
+    - prompt: "A teammate rechecks The Wet Trail using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?"
       hint: "Use the stated evidence and the conditions for Point source; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -99,7 +104,7 @@
       - {key: "B", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Diffuse runoff.", why: "This describes Nonpoint source, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "One identifiable outlet.", why: "Correct. one identifiable outlet."}
-    - prompt: "An unseen case extends The Hidden Losses: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?"
+    - prompt: "An unseen case extends The Wet Trail: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?"
       hint: "Use the stated evidence and the conditions for Nonpoint source; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -115,7 +120,7 @@
       - {key: "B", text: "Primary settling, secondary bacterial breakdown, tertiary nutrient removal.", why: "Correct. primary settling, secondary bacterial breakdown, tertiary nutrient removal."}
       - {key: "C", text: "Polluted liquid draining through waste.", why: "This describes Leachate, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "One identifiable outlet.", why: "This describes Point source, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Hidden Losses to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?"
+    - prompt: "the island council applies the lesson from The Wet Trail to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?"
       hint: "Use the stated evidence and the conditions for landfill pathways | pollution | D1 | RETRIEVE | L3 | clue; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:

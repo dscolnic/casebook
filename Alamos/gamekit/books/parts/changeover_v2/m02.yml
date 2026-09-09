@@ -1,17 +1,18 @@
 # ============================================================ MISSION 2
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Growth On Paper"
   card:
-    header: "14 DAYS TO CHANGEOVER"
+    header: "MISSION 2 - 14 DAYS UNTIL CHANGEOVER."
     title: "Growth on Paper"
     goNow: "Go to PRICES and meet Idris Pell, national accounts chief, at the output ledger."
-    body: "A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish."
+    body: "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed."
     objective: "Build GDP correctly and separate nominal growth from real growth."
   objective: "Build GDP correctly and separate nominal growth from real growth."
-  stake: "A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish."
+  stake: "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Publish real GDP of 685.2 billion base-year crowns with the nominal total shown only as context. Prices caused much of the apparent growth. The board corrects the headline. The next question is whether the street price jump is broad or built into the basket."
+  segue: "But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-prices
     # On arrival at PRICES | output-ledger | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Build GDP correctly and separate nominal growth from real growth. Idris Pell points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A stock-sale slip sits in the same tray as factory orders."
     panel: "Build GDP correctly and separate nominal growth from real growth."
+    # unlocks: Unlock Stop 5 at output-ledger in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Start with classify the ledger. We need evidence the next decision can use."
   - id: after-stop-5
     # After Stop 5 | calculating-desk | automatic
     on: { after: [1] }
-    world: "The classify the ledger result remains visible while the close the output identity fixture lights."
+    world: "At output-ledger, the dated accepted-result slip for Stop 5 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    # unlocks: Unlock Stop 6 at calculating-desk in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Nice work. Only purchases of current final output enter GDP; transfers and asset trades do not."
   - id: after-stop-6
     # After Stop 6 | price-history-board | automatic
     on: { after: [2] }
-    world: "The close the output identity result remains visible while the remove the price effect fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 6 reads: \"740 billion crowns, ±0.5.\". The slip remains in that fixture's evidence holder."
     panel: "PRICES"
+    # unlocks: Unlock Stop 7 at price-history-board in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Good thinking. Nominal GDP is 740 billion crowns."
   - id: after-stop-7
     # After Stop 7 | output-ledger | automatic
     on: { after: [3] }
-    world: "The remove the price effect result remains visible while the publish the output line fixture lights."
+    world: "At price-history-board, the dated accepted-result slip for Stop 7 reads: \"685.2, ±0.2.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    # unlocks: Unlock Stop 8 at output-ledger in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Exactly right. Real GDP is about 685.2 billion base-year crowns."
   - id: at-mission-end
     # At mission end | output-ledger | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 2 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At output-ledger, Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION. The dated prop remains here on later visits."
     panel: "MISSION 2 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: pell   # Idris Pell
-      say: "Outstanding work. You solved the mission. The report was not false. Its growth claim was."
+      say: "The sum was right. Some of the rows were wrong. But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives."
 
   terms:
   - {name: "Gross domestic product (GDP)", def: "the market value of final goods and services produced inside a country during a stated period."}
@@ -159,9 +165,22 @@
     # and the bible's mapping is already the identity permutation. Underscores in
     # the bible's own ids are opened out into spaces; no word is otherwise changed.
     scenarios:
-      - "[groceries,machine,teacher_salary,exports,imports,welfare,stock];choices:[C,I,G,NX_plus,NX_minus,excluded_transfer,excluded_asset];mapping:{groceries:C,machine:I,teacher_salary:G,exports:NX_plus,imports:NX_minus,welfare:excluded_transfer,stock:excluded_asset}"
-    choices: []
-    mapping: []
+    - "groceries"
+    - "machine"
+    - "teacher salary"
+    - "exports"
+    - "imports"
+    - "welfare"
+    - "stock"
+    choices:
+    - "C"
+    - "I"
+    - "G"
+    - "NX plus"
+    - "NX minus"
+    - "excluded transfer"
+    - "excluded asset"
+    mapping: [0, 1, 2, 3, 4, 5, 6]
 
   # --- Stop 6: Close the output identity
   #     Concept: expenditure GDP; Keystone: GDP; Area: Statistics Floor; Learning role: PRACTICE; Difficulty: L2; Story role: calculation.
@@ -287,31 +306,13 @@
     #     close, and imports are the term that subtracts: 480+120+160+90 = 850
     #     against a total of 740, so the row that has to be found is the −110.
     balance:
+      total: { amount: 740, unit: "billion RATE", label: "Nominal GDP" }
+      tolerance: 0.1
       streams:
-        - id: C
-          value: 480
-          count: true
-        - id: I
-          value: 120
-          count: true
-        - id: G
-          value: 160
-          count: true
-        - id: X
-          value: 90
-          count: true
-        - id: M
-          value: -110
-          count: true
-        - id: transfers
-          value: 35
-          count: false
-        - id: stocks
-          value: 22
-          count: false
-      closure: 740
-      adjustment:
-        deflator: 108
-        real: 685.19
-      correct_conclusion: publish_real_with_nominal_context
-
+      - { id: C, label: "C", value: 480 }
+      - { id: I, label: "I", value: 120 }
+      - { id: G, label: "G", value: 160 }
+      - { id: X, label: "X", value: 90 }
+      - { id: M, label: "M", value: -110, hidden: true }
+      - { id: transfers, label: "transfers", value: 35, countable: false }
+      - { id: stocks, label: "stocks", value: 22, countable: false }

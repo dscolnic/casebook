@@ -1,17 +1,18 @@
 # ============================================================ MISSION 7
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Money That Moved"
   card:
-    header: "9 DAYS"
+    header: "MISSION 7 - 9 DAYS UNTIL CHANGEOVER."
     title: "Money That Moved"
     goNow: "Go to NOTES and meet Tomas Arendt, bank supervision lead, at the note scale."
-    body: "Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently."
+    body: "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply."
     objective: "Trace old cash into deposits and lending capacity."
   objective: "Trace old cash into deposits and lending capacity."
-  stake: "Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently."
+  stake: "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Returned notes moved into bank deposits. They did not vanish from the money supply. Banks still have spare reserves. Payments remain sound. The board must now set the real cost of loans."
+  segue: "Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-note-hall
     # On arrival at Note Hall | note-scale | automatic
     on: { enter: true, at: NOTES }
-    world: "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Trace old cash into deposits and lending capacity. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "Old-crown bundles fill a tray beside deposit receipts."
     panel: "Trace old cash into deposits and lending capacity."
+    # unlocks: Unlock Stop 25 at note-scale in Note Hall.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Start with count m1 and m2. We need evidence the next decision can use."
   - id: after-stop-25
     # After Stop 25 | custody-desk | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Tomas Arendt says,, and Stop 26 unlocks."
+    world: "At note-scale, the dated accepted-result slip for Stop 25 reads: \"(300,500), ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    # unlocks: Unlock Stop 26 at custody-desk in Note Hall.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Nice work. M1 is 300 and M2 is 500 billion crowns."
   - id: after-stop-26
     # After Stop 26 | balance-sheet-desk | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS only if the route requires travel, then."
+    world: "At custody-desk, the dated accepted-result slip for Stop 26 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "NOTES → BANKS"
+    # unlocks: Unlock Stop 27 at balance-sheet-desk in Bank Supervision.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Good thinking. Most returned cash migrated into deposits; payment failures did not rise."
   - id: after-stop-27
     # After Stop 27 | money-market-console | automatic
     on: { after: [3] }
-    world: "Preserve this result on the BANKS decision fixture; The character asks for the promised mission decision, and Stop 28 unlocks."
+    world: "At balance-sheet-desk, the dated accepted-result slip for Stop 27 reads: \"(10b,8b,10,80b), ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    # unlocks: Unlock Stop 28 at money-market-console in Bank Supervision.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Exactly right. Required reserves are 10, excess 8, multiplier 10, and maximum new money 80 billion."
   - id: at-mission-end
     # At mission end | note-scale | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At conversion-trays, Eli Voss seals the counted old-note bundle with its deposit receipt. The dated prop remains here on later visits."
     panel: "MISSION 7 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: arendt   # Tomas Arendt
-      say: "Outstanding work. You solved the mission. The returns show migration from cash into deposits, not a money-stock contraction."
+    - who: voss   # Eli Voss
+      say: "The notes came here. Their owners still have deposits. Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay."
 
   terms:
   - {name: "Narrow money (M1)", def: "cash plus checking deposits."}
@@ -315,6 +321,4 @@
     - "money-stock contraction"
     - "bank run"
     - "hyperinflation"
-    answer: migration; alternatives:[contraction,run,hyperinflation].
-    readings: []
-
+    answer: "cash-to-deposit migration"

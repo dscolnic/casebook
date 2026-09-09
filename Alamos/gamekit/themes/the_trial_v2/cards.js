@@ -8,16 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Fenwick Coordinating Centre is using statistics in CLARION-3 to learn whether a new "
-    +   "treatment helps patients without causing unacceptable harm. In 15 days, the independent "
-    +   "monitoring board must decide whether the trial continues, changes, or stops. A weak pack "
-    +   "could expose more patients to harm or bury a useful treatment. Director Mara Voss hands "
-    +   "you the empty board binder. She says, \"Patients need you to distinguish benefit from "
-    +   "danger and give this board evidence it can trust.\"",
+  "You are the trial evidence lead, which means you check what the patient records let the "
+    +   "board claim. At Fenwick, you will use statistics to make the call. The trial board meets "
+    +   "in fifteen days. A rushed choice could expose patients to harm. A bad stop could bury a "
+    +   "useful treatment.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Continue with "
-    +   "safeguards. That careful conclusion keeps the trial fair, safe, and scientifically "
-    +   "useful.",
+  "The pack lies open before the board. The decision reads CONTINUE WITH SAFEGUARDS. Site "
+    +   "12 shows its cleared follow-up; site 19 stays paused for its release checks. Down the "
+    +   "hall, staff begin the next calls under the rule the board has signed.",
 ];

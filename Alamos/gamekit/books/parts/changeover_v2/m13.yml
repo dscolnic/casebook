@@ -1,17 +1,18 @@
 # ============================================================ MISSION 13
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Crowded Out Twice"
   card:
-    header: "3 DAYS"
+    header: "MISSION 13 - 3 DAYS UNTIL CHANGEOVER."
     title: "Crowded Out Twice"
     goNow: "Go to RATE and meet Rhea Dane at the loanable-funds board."
-    body: "The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it."
+    body: "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear."
     objective: "Measure domestic and foreign crowding out."
   objective: "Measure domestic and foreign crowding out."
-  stake: "The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it."
+  stake: "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Replace the full bridge with a smaller short-term plan. The full deficit raises real rates. It cuts private investment and net exports. The new plan protects both people and future growth."
+  segue: "But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-rate-room
     # On arrival at Rate Room | policy-wall | automatic
     on: { enter: true, at: RATE }
-    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Measure domestic and foreign crowding out. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "Loan refusals and lost export orders share the spending folder."
     panel: "Measure domestic and foreign crowding out."
+    # unlocks: Unlock Stop 49 at policy-wall in Rate Room.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Start with real-rate market. We need evidence the next decision can use."
   - id: after-stop-49
     # After Stop 49 | money-market-console | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Rhea Dane says,, and Stop 50 unlocks."
+    world: "At policy-wall, the dated accepted-result slip for Stop 49 reads: \"Adding 8.7 billion of borrowing raises the real rate by 0.6 percentage point and cuts private investment by 6 billion; restoration recovers the baseline.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    # unlocks: Unlock Stop 50 at money-market-console in Bank Supervision.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Nice work. Borrowing raises real i 0.6 point and reduces I 6 billion."
   - id: after-stop-50
     # After Stop 50 | payment-wires | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate TRADE, then."
+    world: "At money-market-console, the dated accepted-result slip for Stop 50 reads: \"A deficit raises loan demand and the real rate, crowds out private investment, slows capital growth, and reduces long-run growth.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    # unlocks: Unlock Stop 51 at payment-wires in Open-Economy Floor.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Good thinking. Deficit → loanable-funds demand right → real interest rises → private investment falls → capital accumulation slows → long-run growth slows."
   - id: after-stop-51
     # After Stop 51 | signing-desk | automatic
     on: { after: [3] }
-    world: "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 52 unlocks."
+    world: "At payment-wires, the dated accepted-result slip for Stop 51 reads: \"Fiscal expansion raises real rates, draws in capital, appreciates RATE, lowers net exports, and offsets part of the aggregate-demand gain.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    # unlocks: Unlock Stop 52 at signing-desk in RATE.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Exactly right. Fiscal expansion → real interest rises → capital inflow → demand for RATE right → appreciation → net exports fall → aggregate-demand offset."
   - id: at-mission-end
     # At mission end | policy-wall | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At policy-wall, Rhea Dane replaces the full bridge order with the smaller temporary plan. The dated prop remains here on later visits."
     panel: "MISSION 13 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: dane   # Rhea Dane
-      say: "Outstanding work. You solved the mission. Keep the narrower bridge with training and port repair; reject the full debt plan."
+      say: "That smaller order hurts to sign. The larger one would hurt twice. But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover."
 
   terms:
   - {name: "Budget deficit", def: "government spending above tax revenue."}
@@ -160,13 +166,17 @@
     # The private-investment half of the bible's reading, 120 → 114 billion, has no
     # second slot on this panel and is not carried.
     control:
+      observable: { label: "Real interest rate", unit: "percent" }
       variables:
-        - id: government_borrowing
-        - id: national_saving
-        - id: money_supply
-      held:
-        - national saving
-        - central-bank money supply
+      - { id: government_borrowing, label: "government borrowing, 0 to 8.7 billion" }
+      - { id: national_saving, label: "national saving, hold or reduce" }
+      - { id: money_supply, label: "money supply, hold or increase" }
+      truth: government_borrowing
+      held: ["national saving", "central-bank money supply"]
+      baseline: 1.5
+      response: 0.6
+      noise: 0.05
+      moral: "Government borrowing raises the real rate and crowds out investment."
 
   # --- Stop 50: Domestic chain
   #     Concept: crowding out; Keystone: fiscal/growth; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L4; Story role: L4.
@@ -340,35 +350,10 @@
     # the bible's own `total_available_cost`, against 100; the three decisive ones
     # cost exactly 100.
     value:
-      budget:
-        amount: 100
-        unit: ""
-      decision: ""
+      budget: { amount: 100 }
       options:
-        - id: narrow_bridge
-          label: ""
-          cost: 45
-          axis: temporary demand support
-          reveals: ""
-        - id: training
-          label: ""
-          cost: 25
-          axis: worker matching
-          reveals: ""
-        - id: port
-          label: ""
-          cost: 30
-          axis: supply capacity
-          reveals: ""
-        - id: full_bridge
-          label: ""
-          cost: 80
-          axis: large fiscal expansion
-          reveals: ""
-        - id: publicity
-          label: ""
-          cost: 20
-          axis: communications
-          reveals: ""
-      commit: Commit the decision
-
+      - { id: narrow_bridge, label: "temporary demand support", axis: "temporary demand support", cost: 45, decisive: true }
+      - { id: training, label: "worker matching", axis: "worker matching", cost: 25, decisive: true }
+      - { id: port, label: "supply capacity", axis: "supply capacity", cost: 30, decisive: true }
+      - { id: full_bridge, label: "large fiscal expansion", axis: "large fiscal expansion", cost: 80 }
+      - { id: publicity, label: "communications", axis: "communications", cost: 20 }

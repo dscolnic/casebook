@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Groundwater Recharge Estimate"
   card:
-    header: "14 DAYS TO THE FERRY VOTE"
+    header: "MISSION 2 - 14 DAYS UNTIL THE VOTE."
     title: "Water That Comes Back"
     goNow: "Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the rain bench."
-    body: "Vellan's wells depend on rain soaking into the ground, but much of that rain runs away or returns to the air. Calculate how much replenishes the underground water supply during dry years. Decide how much the island can withdraw each year without exhausting it."
+    body: "14 days until the vote. The roof gauge ticks while a hand-kept rain book lies open beneath it. Today you decide how much well water the island can take."
     objective: "Set a reproducible groundwater recharge estimate."
   objective: "Set a reproducible groundwater recharge estimate."
-  stake: "Vellan's wells depend on rain soaking into the ground, but much of that rain runs away or returns to the air. Calculate how much replenishes the underground water supply during dry years. Decide how much the island can withdraw each year without exhausting it."
+  stake: "14 days until the vote. The roof gauge ticks while a hand-kept rain book lies open beneath it. Today you decide how much well water the island can take."
   takeaway: "Withheld data tests whether a planning rule generalizes. ---"
-  segue: "Mission decision: Use 136,800 cubic metres per year as the planning withdrawal ceiling. It includes runoff, plant use, storage, dry years. And gauge bias. The ferry still appears possible. But chloride has begun rising before the summer visitor peak."
+  segue: "But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Infiltration", def: "water entering soil."}
@@ -32,50 +32,55 @@
   - id: on-arrival-at-waterworks
     # On arrival at Waterworks | rain-bench | automatic
     on: { enter: true, at: WATER }
-    world: "Nkemdi compares fourteen rain years while the automatic gauge under-reads in wind."
+    world: "The roof gauge ticks while a hand-kept rain book lies open beneath it."
     panel: "MISSION 2: ROUTE ONE YEAR OF RAIN OPEN"
+    # unlocks: Unlock Stop 5 at rain-bench in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
       say: "Start with route one year of rain. We need evidence the next decision can use."
   - id: after-stop-5
     # After Stop 5 | rain-bench | automatic
     on: { after: [1] }
-    world: "After Stop 1: Keep the new evidence visible and."
+    world: "At rain-bench, the dated accepted-result slip for Stop 5 reads: \"900-510-210-30=150 mm/yr recharge.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    # unlocks: Unlock Stop 6 at rain-bench in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Nice work. Use the Stop 5 result to settle convert depth to volume."
+      say: "That check holds. The rainfall balance is complete, but the council needs recharge as a usable water volume."
   - id: after-stop-6
     # After Stop 6 | store-gauges | automatic
     on: { after: [2] }
-    world: "After Stop 2: Update the persistent panel and or the evidence-led waypoint."
+    world: "At rain-bench, the dated accepted-result slip for Stop 6 reads: \"150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 6 RECORDED - STOP 7 OPEN"
+    # unlocks: Unlock Stop 7 at store-gauges in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Good thinking. Use the Stop 6 result to settle freeze the estimate."
+      say: "That check holds. The average recharge estimate must face dry years before it becomes a drinking-water allowance."
   - id: after-stop-7
     # After Stop 7 | store-gauges | automatic
     on: { after: [3] }
-    world: "After Stop 3: Show the combined result and unlock the decision stop."
+    world: "At store-gauges, the dated accepted-result slip for Stop 7 reads: \"Use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    # unlocks: Unlock Stop 8 at store-gauges in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Exactly right. Use the Stop 7 result to settle set the ceiling."
+      say: "That check holds. The dry-year test leaves measurement bias as an unresolved risk in the withdrawal allowance."
   - id: at-mission-end
     # At mission end | rain-bench | automatic
     on: { missionEnd: true }
-    world: "Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue."
+    world: "At rain-bench, Nkemdi Okafor pins the withdrawal card marked 136,800 CUBIC METRES PER YEAR above the rain book. The dated prop remains here on later visits."
     panel: "MISSION 2 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The dry year gets a vote too. But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Groundwater Recharge Estimate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Dry-Year Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Groundwater Recharge Estimate, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?"
+    - prompt: "In a follow-up to The Dry-Year Line, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?"
       hint: "Use the stated evidence and the conditions for Infiltration; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -83,7 +88,7 @@
       - {key: "B", text: "Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.", why: "Correct. water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie."}
       - {key: "C", text: "One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.", why: "This describes unit conversion, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Holdout years test generalization; wet or mean rules overfit favorable conditions.", why: "This describes model validation, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Groundwater Recharge Estimate: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?"
+    - prompt: "the island council receives a second case related to The Dry-Year Line: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?"
       hint: "Use the stated evidence and the conditions for water budget; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -91,7 +96,7 @@
       - {key: "B", text: "One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.", why: "This describes unit conversion, not water budget. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "The full input must be conserved; feedback displays the unclosed remainder.", why: "Correct. the full input must be conserved; feedback displays the unclosed remainder."}
       - {key: "D", text: "Holdout years test generalization; wet or mean rules overfit favorable conditions.", why: "This describes model validation, not water budget. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Groundwater Recharge Estimate using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?"
+    - prompt: "A teammate rechecks The Dry-Year Line using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?"
       hint: "Use the stated evidence and the conditions for unit conversion; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -99,7 +104,7 @@
       - {key: "B", text: "The full input must be conserved; feedback displays the unclosed remainder.", why: "This describes water budget, not unit conversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Holdout years test generalization; wet or mean rules overfit favorable conditions.", why: "This describes model validation, not unit conversion. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.", why: "Correct. one metre spread over one square metre is one cubic metre; unit tiles remain visible on retry."}
-    - prompt: "An unseen case extends The Groundwater Recharge Estimate: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?"
+    - prompt: "An unseen case extends The Dry-Year Line: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?"
       hint: "Use the stated evidence and the conditions for model validation; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -115,7 +120,7 @@
       - {key: "B", text: "Negative bias lowers credible recharge; feedback shows which candidates fail at -5%.", why: "Correct. negative bias lowers credible recharge; feedback shows which candidates fail at -5%."}
       - {key: "C", text: "The full input must be conserved; feedback displays the unclosed remainder.", why: "This describes water budget, not uncertainty margin. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.", why: "This describes unit conversion, not uncertainty margin. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Groundwater Recharge Estimate to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?"
+    - prompt: "the island council applies the lesson from The Dry-Year Line to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?"
       hint: "Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:

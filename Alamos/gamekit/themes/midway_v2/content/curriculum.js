@@ -935,7 +935,8 @@ export const CURRICULUM = {
             "min": 4,
             "max": 12,
             "nominal": 8,
-            "step": 1
+            "step": 1,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",
@@ -1834,7 +1835,8 @@ export const CURRICULUM = {
             "min": 0,
             "max": 8,
             "nominal": 4,
-            "step": 1
+            "step": 1,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",
@@ -5514,7 +5516,8 @@ export const CURRICULUM = {
             "min": 0.6,
             "max": 0.64,
             "nominal": 0.62,
-            "step": 0.01
+            "step": 0.01,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",

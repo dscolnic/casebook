@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Missing Third"
   card:
-    header: "5 DAYS;"
+    header: "MISSION 11 - 5 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "The Missing Third"
     goNow: "Mast Base, Marcus Tate at shunt rack."
-    body: "More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings."
-    objective: "Identify and quantify every current path."
-  objective: "Identify and quantify every current path."
-  stake: "More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings."
+    body: "5 days until the last storm window closes. Two current totals leave a red gap on the strike ledger. Today you decide where the missing strike current went."
+    objective: "Identify and quantify every current path. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Identify and quantify every current path. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "5 days until the last storm window closes. Two current totals leave a red gap on the strike ledger. Today you decide where the missing strike current went."
   takeaway: "About one third of the week-five strike current flowed through the bonded instrument conduit. ---"
-  segue: "Mission decision: About one third of the strike used the bonded conduit. Current totals, field tests, and timing all agree. Mark the conduit unsafe for now. Test a new route before the next shot."
+  segue: "But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-mast-base
     # On arrival at Mast Base | shunt-rack | automatic
     on: { enter: true, at: MAST }
-    world: "accepted MAST/bubble/clamp and shunts side-by-side/→S1; S2 correct/waypoint/conduit label 10 kA PREDICTED/Inspect its earth bond.→EARTH; S3 correct/waypoint/test link restored/ISOLATION REMOVES MISSING CURRENT; TAKE RESULT TO RECORDS.→SHOT; S4 correct/panel/week-five records aligned/ONE THIRD VIA CONDUIT→outcome; outcome/world/conduit locked/tagged/UNSAFE PATH ISOLATED→metric."
+    world: "Two current totals leave a red gap on the strike ledger."
     panel: "Marcus Tate, mast engineer: \"Thirty entered. Twenty is named. Find the path.\""
+    # unlocks: Unlock Stop 41 at shunt-rack in Mast Base.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Thirty entered. Twenty is named. Find the path."
   - id: after-stop-41
     # After Stop 41 | cable-bay | automatic
     on: { after: [1] }
-    world: "The close the strike-current ledger result remains visible while the derive field and wire force fixture lights."
+    world: "At shunt-rack, the dated accepted-result slip for Stop 41 reads: \"The unlisted branch carries 10 kA. A closed ledger enforces current conservation.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    # unlocks: Unlock Stop 42 at cable-bay in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 41 result to settle derive field and wire force."
+    - who: tate   # Marcus Tate
+      say: "That check holds. The missing-current estimate needs a magnetic and mechanical prediction along the suspected conduit."
   - id: after-stop-42
     # After Stop 42 | conduit-bond | automatic
     on: { after: [2] }
-    world: "The derive field and wire force result remains visible while the isolate conduit current fixture lights."
+    world: "At cable-bay, the dated accepted-result slip for Stop 42 reads: \"B=1.00 mT; F/L=50 N/m; same-direction currents attract.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    # unlocks: Unlock Stop 43 at conduit-bond in Earthing Trench.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 42 result to settle isolate conduit current."
+    - who: tate   # Marcus Tate
+      say: "That check holds. The conduit prediction must be tested by changing its approved link without changing the bank pulse."
   - id: after-stop-43
     # After Stop 43 | record-desk | automatic
     on: { after: [3] }
-    world: "The isolate conduit current result remains visible while the verify the historical path fixture lights."
+    world: "At conduit-bond, the dated accepted-result slip for Stop 43 reads: \"Open removes the 10 kA difference; restore returns it.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    # unlocks: Unlock Stop 44 at record-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 43 result to settle verify the historical path."
+    - who: tate   # Marcus Tate
+      say: "That check holds. A successful present-day conduit test does not automatically establish the path during the historical event."
   - id: at-mission-end
     # At mission end | shunt-rack | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At strike-ledger, Marcus Tate pins the CONDUIT: ABOUT ONE THIRD record into the missing branch. The dated prop remains here on later visits."
     panel: "MISSION 11 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: tate   # Marcus Tate
+      say: "That was my conduit. Put it in the report. But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first."
 
   terms:
   - {name: "Current density", def: "current per cross-sectional area."}

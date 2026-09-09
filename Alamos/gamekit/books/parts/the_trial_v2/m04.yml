@@ -1,17 +1,18 @@
 # ============================================================ MISSION 4
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Opened Envelope"
   card:
-    header: "DAY 4 - BOARD IN 12 DAYS"
+    header: "MISSION 4 - 12 DAYS UNTIL THE BOARD MEETS."
     title: "The Opened Envelope"
     goNow: "Go to Statistics & Analysis and meet Tomas Reed, trial statistician, at the interim-analysis board."
-    body: "Someone examined treatment results before the scheduled review. Checking repeatedly can make an ordinary chance result look like a discovery. Calculate how the early look changes the risk of a false conclusion, then set rules for judging the later results fairly."
+    body: "Twelve days remain before the board meets. A torn results envelope lies beside its date stamp. Today you decide how to count that early look."
     objective: "Account for the unplanned interim analysis."
   objective: "Account for the unplanned interim analysis."
-  stake: "Someone examined treatment results before the scheduled review. Checking repeatedly can make an ordinary chance result look like a discovery. Calculate how the early look changes the risk of a false conclusion, then set rules for judging the later results fairly."
+  stake: "Twelve days remain before the board meets. A torn results envelope lies beside its date stamp. Today you decide how to count that early look."
   takeaway: "At least one equals one minus none."
-  segue: "Mission decision: Count the unplanned look. And use the stricter prewritten threshold for later tests. The opened analysis changed the false-alarm risk. Its p-value does not cross the new line. The analyst who opened it worked with data from the fastest hospital."
+  segue: "But Eli's fastest hospital supplied that analysis; its proud recruitment figures now need a source check."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Random variable", def: "a numerical outcome determined by chance."}
@@ -35,43 +36,48 @@
   - id: on-arrival-at-statistics-analysis
     # On arrival at Statistics & Analysis | analysis-board | automatic
     on: { enter: true, at: STAT }
-    world: "Arrival: trigger STAT entry; nearby bubble; folder timestamp visible; Tomas says,; - After S1-S2: correct commits; equipment update; workload reads 0.35 and total SD 5; player control restored; - After S3: simulation complete; persistent counter shows 55.8% AT LEAST ONE; - Final: threshold committed; report stamped DISCLOSED; binder 4 fills; outcome and screen unlock."
+    world: "A torn envelope lies beside the unplanned analysis timestamp."
     panel: "MISSION 4: EXPECTED REPORTS OPEN"
+    # unlocks: Unlock Stop 13 at analysis-board in Statistics & Analysis.
     bubbles:
     - who: reed   # Tomas Reed
       say: "An urgent look still counts as a look"
   - id: after-stop-13
     # After Stop 13 | analysis-board | automatic
     on: { after: [1] }
-    world: "The expected reports result remains visible while the combine two streams fixture lights."
+    world: "At analysis-board, the dated accepted-result slip for Stop 13 reads: \"0.35 reports per site-day, tolerance 0.001.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    # unlocks: Unlock Stop 14 at analysis-board in Statistics & Analysis.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Nice work. Use the Stop 13 result to settle combine two streams."
+      say: "That check holds. The expected workload must now include uncertainty from both incoming reporting streams."
   - id: after-stop-14
     # After Stop 14 | simulation-console | automatic
     on: { after: [2] }
-    world: "The combine two streams result remains visible while the at least one event fixture lights."
+    world: "At analysis-board, the dated accepted-result slip for Stop 14 reads: \"Mean 18 reports and standard deviation 5 reports.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 14 RECORDED - STOP 15 OPEN"
+    # unlocks: Unlock Stop 15 at simulation-console in Statistics & Analysis.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Good thinking. Use the Stop 14 result to settle at least one event."
+      say: "That check holds. The queue estimate leaves the board asking whether another event during review would be surprising."
   - id: after-stop-15
     # After Stop 15 | uncertainty-console | automatic
     on: { after: [3] }
-    world: "The at least one event result remains visible while the price the errors fixture lights."
+    world: "At simulation-console, the dated accepted-result slip for Stop 15 reads: \"1-(1-0.20)^2 = 1-0.64 = 0.36, or 36%.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    # unlocks: Unlock Stop 16 at uncertainty-console in Statistics & Analysis.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Exactly right. Use the Stop 15 result to settle price the errors."
+      say: "That check holds. The next hidden update needs a decision threshold fixed before its significance is known."
   - id: at-mission-end
     # At mission end | analysis-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At analysis-board, Tomas Reed seals the opened analysis envelope with a signed DISCLOSED strip. The dated prop remains here on later visits."
     panel: "MISSION 4 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "I cannot put the first look back. I can stop hiding it. But Eli's fastest hospital supplied that analysis; its proud recruitment figures now need a source check."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -325,4 +331,3 @@
         - at: T-6 h
           value: 5
           hoursLeft: 6
-

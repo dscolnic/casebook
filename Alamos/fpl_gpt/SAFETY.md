@@ -70,7 +70,7 @@ Implementation remains linear at the evidence level. Wrong answers teach, permit
 
 ### Opening sequence - exact player copy, five sentences
 
-Corbin Park has been closed since a full-park test ended with three rides stopping past their marked positions. In fifteen days, county inspectors return and the park either earns a new safety certificate or loses the season. You are the ride engineer responsible for using physics to rebuild the missing proof behind every operating limit. Maya Hart, the park operations lead, hands you the keys and says, “Every family at that gate is trusting us with someone they love: prove which rides are safe, set the limits that protect them, and give Corbin Park a future.”
+You are the ride engineer, which means you prove which rides can carry people again. At Corbin Park, you will use physics to make the call. The inspectors return in fifteen days. The park has been shut since the October test. Families need proof behind each ride limit.
 
 **Delivery:** Show all four sentences together over the normal midway view at spawn. One Continue dismisses the card, reveals the four-bar HUD, and activates Mission 1. Do not run `TRIAL`, `GREET`, or another map tour before the first real investigation.
 
@@ -199,6 +199,25 @@ The whole site is walkable, but doors create progression. The Workshop opens in 
 | 11-15 | 3 | The route joins systems and evidence |
 
 Because the entire midway is crossed in about ninety seconds and has no true far tier, “distance” is not used as an artificial lock. Evidence and enterable doors control progression.
+
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `ticket-court` | Ticket Court | Shut ticket windows face a row of stacked queue rails. | After Stop 52, the rails form the approved opening route; after Stop 60, the public gate opens. |
+| `staff-room` | Staff Room | Seasonal staff uniforms hang in covers beside an old group photo. | After Stop 32, Hart’s card gets its verified explanation; after Stop 60, staff collect uniforms for the cleared rides. |
+| `midway-walk` | Midway Walk | Dark ride signs face the silent coaster track. | Milestone cards gain status lamps as tests pass; final opening brings music and moving cleared rides while the coaster stays dark. |
+
+### Persistent prop and scene contract
+
+The public-gate latch is a scene component of `certificate-table`; it opens only under the final completion gate. The barricade around arm nine is the visible scene component of `arm-nine-file`.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Ship, Ferris Wheel, and Log Flume open only within their final signed limits and shared schedule. Keep coaster CLOSED. Arm nine’s barrier stays through Mission 9; its outside inspection occurs only after Stop 59 funds it and returns PASS WITH OPERATING ENVELOPE. Remove the barrier then, not after Mission 9. The handback’s earlier removal would contradict the graded inspection requirement. Ride lights before final victory mark test status, not permission for public boarding.
 
 ## 4. Character bible
 
@@ -347,23 +366,57 @@ Difficulty moves from L1-L2 in Missions 1-4, through L2-L4 in Missions 5-10, to 
 | M12 -> M15 | A witnessed drop test records 5.4 g below the 6.0 g limit | The whole tower is certified | Only the tested configuration, sensor, and procedure are certified | Attestation |
 | M14 -> M15 | The crown radius is 7.4 m, not 5.6 m | A small drawing error | The required top speed rises enough to erase the fictional 1.0 m/s margin | Circular dynamics and energy |
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `brake-drum` | Maya Hart clips the predicted and measured stop strip to the brake drum. | At `arm-trestles`, a load bag rests on the trestles beside an old October photograph. |
+| 2 | `accepted_stop_8` | `arm-trestles` | Ruth Brennan pins the LOAD REMOVED: ZERO RETURNED record beside the support model. | At `chain-rig`, the chair chain hangs beside a tilted platform mark. |
+| 3 | `accepted_stop_12` | `chain-rig` | Tunde Idowu clips the RUN 4.00 M/S / STOP 4.20 M/S card to the chain rig. | At `floor-console`, a dry-floor test mark stops before three copied speed strips. |
+| 4 | `accepted_stop_16` | `floor-console` | Linh Chen pins the DRY-FLOOR RESULT ONLY strip beside the floor console. | At `configuration-desk`, eleven notebooks lie open without one complete test sequence. |
+| 5 | `accepted_stop_20` | `configuration-desk` | Ana Silva clips the EMPTY TEST ONLY procedure into the configuration folder. | At `workshop-diagnosis-board`, a sealed controller crate sits under an October report. |
+| 6 | `accepted_stop_24` | `workshop-diagnosis-board` | Tunde Idowu pins the INSTALLED AFTER OCTOBER date strip beside the crate record. | At `casebook-table`, a worn operator card lies beneath the padded-stop force trace. |
+| 7 | `accepted_stop_28` | `casebook-table` | Maya Hart places the recovered October card in the evidence sleeve. | At `timing-trace`, the drive ticks line up with the ship's free swing marks. |
+| 8 | `accepted_stop_32` | `timing-trace` | Ruth Brennan pins the FORBIDDEN DRIVE BAND: 5.70 TO 6.30 S card to the trace. | At `arm-nine-file`, a barricade stays around arm nine beneath a chalked inspection mark. |
+| 9 | `accepted_stop_36` | `arm-nine-file` | Maya Hart clips the EXTERNAL INSPECTION REQUIRED card to the arm-nine sleeve. | At `profile-drawing`, a taped-over track drawing rests beside the independent axle sensor. |
+| 10 | `accepted_stop_40` | `profile-drawing` | Priya Nair pins the EMPTY TEST ONLY card over the passenger release line. | At `pump-curve`, the flume header pulses beside the shared motor plate. |
+| 11 | `accepted_stop_44` | `pump-curve` | Mateo Ruiz clips the 0.45 CUBIC METRES PER SECOND / 44.1 KW card to the pump curve. | At `witness-sheet`, two test dummies sit beside the signed parts list. |
+| 12 | `accepted_stop_48` | `witness-sheet` | Linh Chen pins the TESTED CONFIGURATIONS ONLY clearance to the witness sheet. | At `motor-plate`, three start requests hang under one 55 kW plate. |
+| 13 | `accepted_stop_52` | `motor-plate` | Maya Hart pins the joint operating schedule beneath the motor plate. | At `crown-tape`, the crown tape lies across a drawing whose curve no longer matches. |
+| 14 | `accepted_stop_56` | `crown-tape` | Priya Nair hangs a CLOSED: 9.40 M/S AVAILABLE / 9.52 M/S REQUIRED tag on the coaster release. | At `certificate-table`, families wait beyond a gate with seven unsigned ride rows. |
+| 15 | `accepted_stop_60` | `certificate-table` | Maya Hart turns the front-gate key. | At `certificate-table`, the signed operating conditions remain beside the final status. |
+
 ## 8. Mission content contract
 
 Every mission below supplies an exact briefing, primer, story event, beat script, route, character conflict, concepts, four stops, outcome, metric screen, and quick review. Every stop supplies a why-now reason, a two-sentence setup, story-science connection, player-facing prompt with action order and submission type, answer, mechanism, wrong-path feedback, state change, and the structured content required by its format. Numerical cards display all required inputs, constants, equations, units, and requested answer units before submission.
 
 The repository importer and schema remain the final authority for field spelling. Do not replace an operated or diagnostic interaction with generic choices if a block needs remapping.
 
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The public front gate opens onto the cleared midway.
+
+**The next sixty seconds:** 0–15 seconds: the gate opens and midway music begins. 15–40 seconds: the player walks past the turning Carousel, Ferris Wheel, and Pirate Ship, each running its signed configuration. 40–60 seconds: the six cleared sections show operating cards and the dark coaster carries its closure reason in the same view.
+
+**Ending card - exact player copy:** The wheel turns above the lit midway. The ship swings within its posted timing rule, and the carousel music starts. Beyond the crowd, the coaster gate stays shut beneath its measured closure card. Corbin Park is open, with every promise on the certificate still visible.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
 # Mission 1 - Three Clocks
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 15 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 1 - 15 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** THREE CLOCKS
 
 **Go now:** Go to the Ferris Wheel machine room and meet Maya Hart, the park operations lead, at the hub schedule.
 
-**Card body:** Three amusement-park rides reportedly stopped beyond their expected marks during an October test. Did their brakes fail, or were the records wrong? Use physics to check the Ferris Wheel's motion and test its brake before deciding whether the park has one shared brake problem.
+**Card body:** 15 days until the park review. Three old traces lie beside a drum with one fresh stop mark. Today you decide whether the wheel brake explains all three bad stops.
 
 **Objective:** Decide whether matching stop records prove one common brake failure.
 
@@ -485,7 +538,9 @@ Hart prevents an unapproved powered retest. The player reconstructs the Ferris W
 
 **Beat 1 - On arrival at Ferris Wheel machine room | automatic**
 
-**World state:** Hart removes the arming key.
+**Trigger:** mission_1_arrival.
+
+**World state:** Three old traces lie beside a drum with one fresh stop mark.
 
 **Panel/HUD text:** `STOP 1 READY`
 
@@ -495,7 +550,9 @@ Hart prevents an unapproved powered retest. The player reconstructs the Ferris W
 
 **Beat 2 - After Stop 1 | automatic**
 
-**World state:** The selected graph points illuminate.
+**Trigger:** accepted_stop_1.
+
+**World state:** At `hub-schedule`, the dated accepted-result slip for Stop 1 reads: "Interval 0.0-3.0 s; a ≈ -0.50 m/s²; no reversal.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 2 READY`
 
@@ -505,7 +562,9 @@ Hart prevents an unapproved powered retest. The player reconstructs the Ferris W
 
 **Beat 3 - After Stops 2 and 3 | automatic**
 
-**World state:** A predicted stop trace appears beside the historical trace.
+**Trigger:** accepted_stop_2.
+
+**World state:** At `machine-room-board`, the dated accepted-result slip for Stop 2 reads: "Submit 1.4 m/s; accept 1.32-1.48 m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `PREDICTED STOP: 2.25 m`
 
@@ -515,7 +574,9 @@ Hart prevents an unapproved powered retest. The player reconstructs the Ferris W
 
 **Beat 4 - After Stop 4 | automatic**
 
-**World state:** The live test ends at 2.26 m.
+**Trigger:** accepted_stop_3.
+
+**World state:** At `hub-board`, the dated accepted-result slip for Stop 3 reads: "Order velocity → stop time → displacement → comparison; t=3.00 s, Δx=2.25 m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -525,15 +586,25 @@ Hart prevents an unapproved powered retest. The player reconstructs the Ferris W
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** The shared speed-wheel bracket receives a yellow evidence tag.
+**Trigger:** accepted_stop_4.
+
+**World state:** At `brake-drum`, Maya Hart clips the predicted and measured stop strip to the brake drum. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `NEXT: LOAD PATH AT THE PIRATE SHIP`
 
-**Dialogue bubbles -** Maya Hart: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Maya Hart: "That mark clears this test. It does not clear the park. But Chen finds the same test kit named on all three records; the park still needs the force checks."
 
 **Unlocks:** Mission 2.
 
 **Waypoint:** Activate Pirate Ship console.
+
+### Physical aftermath — safety-m01
+
+**Home:** `brake-drum`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. Three old traces lie beside a drum with one fresh stop mark.
+**After — exact action:** Maya Hart clips the predicted and measured stop strip to the brake drum.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `arm-trestles`, a load bag rests on the trestles beside an old October photograph.
+**Segue - exact player copy:** But Chen finds the same test kit named on all three records; the park still needs the force checks.
 
 ## Location plan
 
@@ -636,6 +707,10 @@ estimate:
 **Question card story setup - exact player copy:** Use the model starting speed and measured acceleration to derive the stopping time and distance. The result becomes the value the live brake test must meet without adjusting the target afterward.
 
 **Question card story-science connection - exact player copy:** Stopping time and distance give the crew a fixed target against which to judge the live brake.
+
+**Fixture source panel - exact player copy:** Use the model starting speed and measured acceleration to derive the stopping time and distance. The result becomes the value the live brake test must meet without adjusting the target afterward. Given v0 = 1.50 m/s, a = -0.50 m/s^2, and v = 0 m/s, use v = v0 + at and Delta x = v0t + 0.5at^2.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered derivation plus stopping time in `s` and stopping distance in `m`.
 
@@ -746,9 +821,10 @@ verify:
 
 Mission decision: The three records do not prove one brake fault. The Ferris Wheel stops at the predicted mark. Its brake still needs load and wind checks. The team must trace the shared test gear.
 
+**Segue - exact player copy:** But Chen finds the same test kit named on all three records; the park still needs the force checks.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: The three records do not prove one brake fault. The park can protect visitors without condemning a ride on bad evidence.
+**Happy ending card - exact player copy:** Your checks made the difference. Maya Hart clips the predicted and measured stop strip to the brake drum. But Chen finds the same test kit named on all three records; the park still needs the force checks.
 
 **Header:** MISSION 1 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 07:00`  
@@ -1063,13 +1139,13 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 14 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 2 - 14 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** WHAT PUSHES BACK
 
 **Go now:** Go to the Pirate Ship console and meet Luka Kovač, the mechanical lead, beside the seat frame.
 
-**Card body:** The Ferris Wheel's brake passed, so the crew turns to the swinging pirate ship. Its supports must safely carry the ship and riders before it moves. Work out the forces and test the loaded frame, then decide whether a weak support explains the old incident.
+**Card body:** 14 days until the park review. A load bag rests on the trestles beside an old October photograph. Today you decide whether the ship support fits the measured load.
 
 **Objective:** Decide whether the pirate ship's supports fail under the required static load.
 
@@ -1175,7 +1251,9 @@ Kovač favors worn support hardware as the cause. The player builds a correct sy
 
 **Beat 1 - On arrival at Pirate Ship console | automatic**
 
-**World state:** Kovač checks the unloaded frame.
+**Trigger:** mission_2_arrival.
+
+**World state:** A load bag rests on the trestles beside an old October photograph.
 
 **Panel/HUD text:** `STOP 5 READY`
 
@@ -1185,7 +1263,9 @@ Kovač favors worn support hardware as the cause. The player builds a correct sy
 
 **Beat 2 - After Stop 5 | automatic**
 
-**World state:** A boundary appears around ship plus riders.
+**Trigger:** accepted_stop_5.
+
+**World state:** At `seat-frame`, the dated accepted-result slip for Stop 5 reads: "Choice 1 - ship plus all riders.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `SYSTEM CHOSEN`
 
@@ -1195,7 +1275,9 @@ Kovač favors worn support hardware as the cause. The player builds a correct sy
 
 **Beat 3 - After Stops 6 and 7 | automatic**
 
-**World state:** Both support arrows illuminate at 79.4 kN.
+**Trigger:** accepted_stop_6.
+
+**World state:** At `arm-trestles`, the dated accepted-result slip for Stop 6 reads: "Order: isolate system → external forces → axis → component equation.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 8 READY`
 
@@ -1205,7 +1287,9 @@ Kovač favors worn support hardware as the cause. The player builds a correct sy
 
 **Beat 4 - After Stop 8 | automatic**
 
-**World state:** The loaded frame remains level and lateral gauges stay quiet.
+**Trigger:** accepted_stop_7.
+
+**World state:** At `ship-console-board`, the dated accepted-result slip for Stop 7 reads: "Total 162 kN; left support 81 kN; right support 81 kN.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -1215,15 +1299,25 @@ Kovač favors worn support hardware as the cause. The player builds a correct sy
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** The Carousel Drive House waypoint activates.
+**Trigger:** accepted_stop_8.
+
+**World state:** At `arm-trestles`, Ruth Brennan pins the LOAD REMOVED: ZERO RETURNED record beside the support model. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `NEXT QUESTION: WHAT FORCE MAKES A RIDE TURN?`
 
-**Dialogue bubbles -** Luka Kovač: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Ruth Brennan: "The frame came back. Keep that fact separate from the October story. Therefore Idowu must test the turning ride next; a support that holds weight still has to turn it safely."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Carousel Drive House.
+
+### Physical aftermath — safety-m02
+
+**Home:** `arm-trestles`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. A load bag rests on the trestles beside an old October photograph.
+**After — exact action:** Ruth Brennan pins the LOAD REMOVED: ZERO RETURNED record beside the support model.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `chain-rig`, the chair chain hangs beside a tilted platform mark.
+**Segue - exact player copy:** Therefore Idowu must test the turning ride next; a support that holds weight still has to turn it safely.
 
 ## Location plan
 
@@ -1426,9 +1520,10 @@ answer: static_pass
 
 Mission decision: A weak support did not cause the October stop. The loaded frame holds the expected weight. It returns to zero after the load is gone. The next test will study the force that turns a ride.
 
+**Segue - exact player copy:** Therefore Idowu must test the turning ride next; a support that holds weight still has to turn it safely.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: A weak support did not cause the October stop. The inspection team now knows what is safe and what still needs testing.
+**Happy ending card - exact player copy:** Your checks made the difference. Ruth Brennan pins the LOAD REMOVED: ZERO RETURNED record beside the support model. Therefore Idowu must test the turning ride next; a support that holds weight still has to turn it safely.
 
 **Header:** MISSION 2 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 07:30`  
@@ -1588,13 +1683,13 @@ Mission decision: A weak support did not cause the October stop. The loaded fram
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 13 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 3 - 13 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** TURNING INWARD
 
 **Go now:** Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, at the hanging-chair rig.
 
-**Card body:** The pirate ship can carry its load, but moving rides still need checking. The carousel's hanging chairs swing farther outward as speed increases. Compare speed, turning radius, and support forces, then set a shutdown rule that keeps the chairs within their safe angle.
+**Card body:** 13 days until the park review. The chair chain hangs beside a tilted platform mark. Today you decide which carousel speed stays inside the angle limit.
 
 **Objective:** Set and test a safe carousel speed from the required inward force.
 
@@ -1700,7 +1795,9 @@ The player derives the inward acceleration, holds the chair inside its fictional
 
 **Beat 1 - On arrival at Carousel Drive House | automatic**
 
-**World state:** Idowu keeps the replacement-controller crate closed.
+**Trigger:** mission_3_arrival.
+
+**World state:** The chair chain hangs beside a tilted platform mark.
 
 **Panel/HUD text:** `STOP 9 READY`
 
@@ -1710,7 +1807,9 @@ The player derives the inward acceleration, holds the chair inside its fictional
 
 **Beat 2 - After Stop 9 | automatic**
 
-**World state:** Inward arrows appear around the carousel.
+**Trigger:** accepted_stop_9.
+
+**World state:** At `chain-rig`, the dated accepted-result slip for Stop 9 reads: "Order: radial acceleration → force balance → tangent relation; ac=v²/r inward.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 10 READY`
 
@@ -1720,7 +1819,9 @@ The player derives the inward acceleration, holds the chair inside its fictional
 
 **Beat 3 - After Stops 10 and 11 | automatic**
 
-**World state:** The leveled platform removes the asymmetric chair angles.
+**Trigger:** accepted_stop_10.
+
+**World state:** At `drive-panel`, the dated accepted-result slip for Stop 10 reads: "Maximum 4.22 m/s; submit operator setting 4.20 m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 12 READY`
 
@@ -1730,7 +1831,9 @@ The player derives the inward acceleration, holds the chair inside its fictional
 
 **Beat 4 - After Stop 12 | automatic**
 
-**World state:** The 4.20 m/s shutdown rule prints before the live value of 4.00 m/s appears.
+**Trigger:** accepted_stop_11.
+
+**World state:** At `platform-jacks`, the dated accepted-result slip for Stop 11 reads: "Select level/unlevel control; response changes 2.4° → 0.1° → 2.4°.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -1740,15 +1843,25 @@ The player derives the inward acceleration, holds the chair inside its fictional
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** The controller replacement line on the service sheet flashes `NO INSTALLATION SIGN-OFF`.
+**Trigger:** accepted_stop_12.
+
+**World state:** At `chain-rig`, Tunde Idowu clips the RUN 4.00 M/S / STOP 4.20 M/S card to the chain rig. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `NO INSTALLATION SIGN-OFF`
 
-**Dialogue bubbles -** Tunde Idowu: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Tunde Idowu: "Level first. Then speed. Then sign. But Silva cannot find an install date for the new controller; the next evidence trail runs through the bumper stop and workshop."
 
 **Unlocks:** Mission 4.
 
 **Waypoint:** Activate Bumper Car Pavilion.
+
+### Physical aftermath — safety-m03
+
+**Home:** `chain-rig`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. The chair chain hangs beside a tilted platform mark.
+**After — exact action:** Tunde Idowu clips the RUN 4.00 M/S / STOP 4.20 M/S card to the chain rig.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `floor-console`, a dry-floor test mark stops before three copied speed strips.
+**Segue - exact player copy:** But Silva cannot find an install date for the new controller; the next evidence trail runs through the bumper stop and workshop.
 
 ## Location plan
 
@@ -1775,6 +1888,10 @@ Velocity changes when direction changes. A chair moving around the carousel ther
 **Question card story setup - exact player copy:** The chair travels at steady speed, but its velocity arrow turns continuously around the platform. Build the relation that converts that direction change into the inward acceleration used by the force model.
 
 **Question card story-science connection - exact player copy:** The inward acceleration establishes the force needed to hold the chair on its circular path.
+
+**Fixture source panel - exact player copy:** The chair travels at steady speed, but its velocity arrow turns continuously around the platform. Build the relation that converts that direction change into the inward acceleration used by the force model. Starting from Delta v / v = Delta s / r and Delta s = v Delta t
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit one ordered symbolic derivation ending with the magnitude and direction of centripetal acceleration.
 
@@ -2040,9 +2157,10 @@ trigger:
 
 Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 20 degrees. The platform is now level, and the stop rule is 4.20 m/s. The replacement controller has no signed install record.
 
+**Segue - exact player copy:** But Silva cannot find an install date for the new controller; the next evidence trail runs through the bumper stop and workshop.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: The Carousel may run at 4.00 m/s. Your test gives the park a safer and fairer decision.
+**Happy ending card - exact player copy:** Your checks made the difference. Tunde Idowu clips the RUN 4.00 M/S / STOP 4.20 M/S card to the chain rig. But Silva cannot find an install date for the new controller; the next evidence trail runs through the bumper stop and workshop.
 
 **Header:** MISSION 3 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 08:00`  
@@ -2322,13 +2440,13 @@ Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 12 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 4 - 12 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** WHERE THE ENERGY WENT
 
 **Go now:** Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the car on stands.
 
-**Card body:** The carousel passes, but an October bumper car reportedly travelled too far after braking. A faster car has more energy for the floor and brakes to remove. Calculate the expected stopping distance and test it, then decide whether floor friction explains the report.
+**Card body:** 12 days until the park review. A dry-floor test mark stops before three copied speed strips. Today you decide whether floor friction explains the bumper stop.
 
 **Objective:** Determine whether the bumper-car overrun came from inadequate floor friction.
 
@@ -2434,7 +2552,9 @@ The player quantifies the speed-squared risk, closes the friction ledger, and pr
 
 **Beat 1 - On arrival at Bumper Car Pavilion | automatic**
 
-**World state:** Chen points to the two accelerometers.
+**Trigger:** mission_4_arrival.
+
+**World state:** A dry-floor test mark stops before three copied speed strips.
 
 **Panel/HUD text:** `STOP 13 READY`
 
@@ -2444,7 +2564,9 @@ The player quantifies the speed-squared risk, closes the friction ledger, and pr
 
 **Beat 2 - After Stops 13 and 14 | automatic**
 
-**World state:** The energy ledger closes at 1.92 kJ.
+**Trigger:** accepted_stop_13.
+
+**World state:** At `car-on-stands`, the dated accepted-result slip for Stop 13 reads: "Submit 4 as the energy multiplier.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 15 READY`
 
@@ -2454,7 +2576,9 @@ The player quantifies the speed-squared risk, closes the friction ledger, and pr
 
 **Beat 3 - After Stop 15 | automatic**
 
-**World state:** The car stops at 2.06 m.
+**Trigger:** accepted_stop_14.
+
+**World state:** At `pavilion-board`, the dated accepted-result slip for Stop 14 reads: "K=1920 J; fk=960 N; d=2.0 m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 16 READY`
 
@@ -2464,7 +2588,9 @@ The player quantifies the speed-squared risk, closes the friction ledger, and pr
 
 **Beat 4 - After Stop 16 | automatic**
 
-**World state:** Independent accelerometers are booked; duplicate speed-wheel time is canceled.
+**Trigger:** accepted_stop_15.
+
+**World state:** At `floor-console`, the dated accepted-result slip for Stop 15 reads: "Commit 2.0 m; measure 2.06 m; difference 0.06 m ≤ 0.08 m; local pass.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -2474,15 +2600,25 @@ The player quantifies the speed-squared risk, closes the friction ledger, and pr
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** The Workshop door receives an `OPENS TOMORROW` marker.
+**Trigger:** accepted_stop_16.
+
+**World state:** At `floor-console`, Linh Chen pins the DRY-FLOOR RESULT ONLY strip beside the floor console. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `OPENS TOMORROW`
 
-**Dialogue bubbles -** Linh Chen: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Linh Chen: "This floor explains this stop. Keep the other cases open. Therefore Silva opens the Workshop tomorrow; the tower cannot borrow a missing procedure from this bumper test."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Brennan's Workshop.
+
+### Physical aftermath — safety-m04
+
+**Home:** `floor-console`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. A dry-floor test mark stops before three copied speed strips.
+**After — exact action:** Linh Chen pins the DRY-FLOOR RESULT ONLY strip beside the floor console.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `configuration-desk`, eleven notebooks lie open without one complete test sequence.
+**Segue - exact player copy:** Therefore Silva opens the Workshop tomorrow; the tower cannot borrow a missing procedure from this bumper test.
 
 ## Location plan
 
@@ -2674,9 +2810,10 @@ value:
 
 Mission decision: Dry-floor friction explains the Bumper Car stop. It does not explain the other ride records. New sensors will replace another shared speed-wheel test. The Workshop opens next so the team can rebuild the Drop Tower test.
 
+**Segue - exact player copy:** Therefore Silva opens the Workshop tomorrow; the tower cannot borrow a missing procedure from this bumper test.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: Dry-floor friction explains the Bumper Car stop. Visitors are better protected because you separated the real hazard from the noise.
+**Happy ending card - exact player copy:** Your checks made the difference. Linh Chen pins the DRY-FLOOR RESULT ONLY strip beside the floor console. Therefore Silva opens the Workshop tomorrow; the tower cannot borrow a missing procedure from this bumper test.
 
 **Header:** MISSION 4 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 08:00`  
@@ -2835,13 +2972,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 11 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 5 - 11 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** THE MISSING PROCEDURE
 
 **Go now:** Go to the Workshop and meet Ruth Brennan, the former chief engineer, at the eleven notebooks.
 
-**Card body:** The bumper-car result fits the prediction, but the drop tower lacks a complete test procedure. Write the checks, expected speed, and conditions for stopping the test before anything is released. Decide whether the crew is ready to run one limited test safely.
+**Card body:** Eleven days remain before review. Eleven books lie open, but none has a full test plan. Today you decide if one empty tower test may run.
 
 **Objective:** Reconstruct and attest a safe limited drop-tower test.
 
@@ -2947,7 +3084,9 @@ The Workshop opens as a meaningful evidence location. The player reconstructs th
 
 **Beat 1 - On arrival at Brennan's Workshop | automatic**
 
-**World state:** Brennan orders eleven notebooks by date.
+**Trigger:** mission_5_arrival.
+
+**World state:** Eleven notebooks lie open without one complete test sequence.
 
 **Panel/HUD text:** `STOP 17 READY`
 
@@ -2957,7 +3096,9 @@ The Workshop opens as a meaningful evidence location. The player reconstructs th
 
 **Beat 2 - After Stop 17 | automatic**
 
-**World state:** The signed procedure prints.
+**Trigger:** accepted_stop_17.
+
+**World state:** At `bench-notebooks`, the dated accepted-result slip for Stop 17 reads: "Order: identity → brake check → posted prediction → clear-zone release → disarm/inspect.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -2969,7 +3110,9 @@ The Workshop opens as a meaningful evidence location. The player reconstructs th
 
 **Beat 3 - On arrival at Drop Tower Control | automatic**
 
-**World state:** Chen connects the named sensor and shows the 36 m release mark.
+**Trigger:** accepted_stop_18.
+
+**World state:** At `drop-log`, the dated accepted-result slip for Stop 18 reads: "Submit 26.6 m/s; accept 26.3-26.9 m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 18-19 READY`
 
@@ -2979,7 +3122,9 @@ The Workshop opens as a meaningful evidence location. The player reconstructs th
 
 **Beat 4 - After Stop 19 | automatic**
 
-**World state:** The low-energy brake sweep remains inside its response band.
+**Trigger:** accepted_stop_19.
+
+**World state:** At `brake-desk`, the dated accepted-result slip for Stop 19 reads: "Select monotonic response with no dead band; limited unmanned test may proceed.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 20 READY`
 
@@ -2989,13 +3134,23 @@ The Workshop opens as a meaningful evidence location. The player reconstructs th
 
 **Beat 5 - After Stop 20 | automatic**
 
-**World state:** The arming key turns to `LIMITED UNMANNED TEST`.
+**Trigger:** accepted_stop_20.
+
+**World state:** At `configuration-desk`, Ana Silva clips the EMPTY TEST ONLY procedure into the configuration folder. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `LIMITED UNMANNED TEST`
 
-**Dialogue bubbles -** Rosa Brennan: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Ana Silva: "Now another crew could repeat what we did. But Idowu's replacement crate is still sealed; the October controller claim needs a date check before the next test."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
+
+### Physical aftermath — safety-m05
+
+**Home:** `configuration-desk`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. Eleven notebooks lie open without one complete test sequence.
+**After — exact action:** Ana Silva clips the EMPTY TEST ONLY procedure into the configuration folder.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `workshop-diagnosis-board`, a sealed controller crate sits under an October report.
+**Segue - exact player copy:** But Idowu's replacement crate is still sealed; the October controller claim needs a date check before the next test.
 
 ## Location plan
 
@@ -3056,6 +3211,10 @@ mapping: ["Abort before arming", "Abort before release", "Authorize unmanned rel
 **Question card story setup - exact player copy:** The test mass falls 36.0 m from rest before entering the brake stack. Derive its entry speed so Chen can set the sensor range and the abort threshold before release.
 
 **Question card story-science connection - exact player copy:** The predicted brake-entry speed sets the measurement range and helps define the abort condition.
+
+**Fixture source panel - exact player copy:** The test mass falls 36.0 m from rest before entering the brake stack. Derive its entry speed so Chen can set the sensor range and the abort threshold before release. Given v0 = 0 m/s, downward acceleration a = 9.80 m/s^2, and downward displacement Delta x = 36.0 m, use v^2 = v0^2 + 2a Delta x.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered derivation and one entry-speed number in `m/s`.
 
@@ -3241,9 +3400,10 @@ attest:
 
 Mission decision: One tower test may run with no riders. The speed mark, sensor, brake sweep, and clear zone all pass. Riders are not yet allowed. The team will now check the controller record and shared test tools.
 
+**Segue - exact player copy:** But Idowu's replacement crate is still sealed; the October controller claim needs a date check before the next test.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: One tower test may run with no riders. The certificate is stronger because every claim now matches the physics.
+**Happy ending card - exact player copy:** Your checks made the difference. Ana Silva clips the EMPTY TEST ONLY procedure into the configuration folder. But Idowu's replacement crate is still sealed; the October controller claim needs a date check before the next test.
 
 **Header:** MISSION 5 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 09:00`  
@@ -3441,13 +3601,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 10 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 6 - 10 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** ONE SOURCE, THREE READINGS
 
 **Go now:** Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, beside the replacement-controller crate.
 
-**Card body:** Three old speed reports agree suspiciously closely. Separate displays can repeat one faulty measuring tool. Inspect the unopened replacement controller and trace where each old reading came from, then decide whether that controller could have caused the reported ride problems.
+**Card body:** Ten days remain before review. A new control box is still in its sealed crate. Today you decide if it or the shared test kit explains the bad records.
 
 **Objective:** Trace the agreeing records and test the common-controller explanation.
 
@@ -3548,7 +3708,9 @@ Idowu proves the replacement controller is sealed, powered off, and logged as ne
 
 **Beat 1 - On arrival at Carousel Drive House | automatic**
 
-**World state:** Idowu shows the intact crate seal.
+**Trigger:** mission_6_arrival.
+
+**World state:** A sealed controller crate sits under an October report.
 
 **Panel/HUD text:** `STOP 21-22 READY`
 
@@ -3558,7 +3720,9 @@ Idowu proves the replacement controller is sealed, powered off, and logged as ne
 
 **Beat 2 - After Stop 22 | automatic**
 
-**World state:** The replacement controller is tagged `NOT INSTALLED`.
+**Trigger:** accepted_stop_21.
+
+**World state:** At `controller-crate`, the dated accepted-result slip for Stop 21 reads: "Choice 1 - command the sealed crate; observed ride response 0.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `NOT INSTALLED`
 
@@ -3570,7 +3734,9 @@ Idowu proves the replacement controller is sealed, powered off, and logged as ne
 
 **Beat 3 - On arrival at Brennan's Workshop | automatic**
 
-**World state:** The speed wheel, three springs, bracket, and master clock appear on the bench.
+**Trigger:** accepted_stop_22.
+
+**World state:** At `controller-record`, the dated accepted-result slip for Stop 22 reads: "Submit evidence set [serial, delivered-after-event, never-powered].". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 23 READY`
 
@@ -3580,7 +3746,9 @@ Idowu proves the replacement controller is sealed, powered off, and logged as ne
 
 **Beat 4 - After Stop 23 | automatic**
 
-**World state:** Three display lines merge into one upstream node; the independent accelerometer stays separate.
+**Trigger:** accepted_stop_23.
+
+**World state:** At `bench-notebooks`, the dated accepted-result slip for Stop 23 reads: "Shared dependency portable_speed_kit; independent channel seat_floor_accelerometers.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 24 READY`
 
@@ -3590,13 +3758,23 @@ Idowu proves the replacement controller is sealed, powered off, and logged as ne
 
 **Beat 5 - After Stop 24 | automatic**
 
-**World state:** The common-controller card moves to `REJECTED`; the shared-calibration card moves to `SUPPORTED`.
+**Trigger:** accepted_stop_24.
+
+**World state:** At `workshop-diagnosis-board`, Tunde Idowu pins the INSTALLED AFTER OCTOBER date strip beside the crate record. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `REJECTED`
 
-**Dialogue bubbles -** Tunde Idowu: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Tunde Idowu: "The crate was not there. The old test kit was. But Hart's missing card has surfaced; Chen must test what her manual stop did to the rider load."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
+
+### Physical aftermath — safety-m06
+
+**Home:** `workshop-diagnosis-board`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. A sealed controller crate sits under an October report.
+**After — exact action:** Tunde Idowu pins the INSTALLED AFTER OCTOBER date strip beside the crate record.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `casebook-table`, a worn operator card lies beneath the padded-stop force trace.
+**Segue - exact player copy:** But Hart's missing card has surfaced; Chen must test what her manual stop did to the rider load.
 
 ## Location plan
 
@@ -3792,9 +3970,10 @@ answer: shared_cal
 
 Mission decision: The new controller did not cause the October event. It came later and is still sealed. The three speed reports all used one test kit. Each ride now needs a test that does not use that kit.
 
+**Segue - exact player copy:** But Hart's missing card has surfaced; Chen must test what her manual stop did to the rider load.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: The new controller did not cause the October event. The park can protect visitors without condemning a ride on bad evidence.
+**Happy ending card - exact player copy:** Your checks made the difference. Tunde Idowu pins the INSTALLED AFTER OCTOBER date strip beside the crate record. But Hart's missing card has surfaced; Chen must test what her manual stop did to the rider load.
 
 **Header:** MISSION 6 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 09:00`  
@@ -3954,13 +4133,13 @@ Mission decision: The new controller did not cause the October event. It came la
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 9 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 7 - 9 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** THE CARD IN HART'S HAND
 
 **Go now:** Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig.
 
-**Card body:** The old speed measurements are unreliable, so the bumper cars need an independent collision test. Calculate their motion after impact and the forces on a test rider. Compare the results with Hart's interrupted operating sequence to decide whether her action increased the danger.
+**Card body:** 9 days until the park review. A worn operator card lies beneath the padded-stop force trace. Today you decide what the padded stop proves about Hart's action.
 
 **Objective:** Use independent collision data to judge the effect of Hart's interruption.
 
@@ -4080,7 +4259,9 @@ Independent acceleration and timing replace the shared speed kit. The player pre
 
 **Beat 1 - On arrival at Bumper Car Pavilion | automatic**
 
-**World state:** Chen taps the seat and floor sensors.
+**Trigger:** mission_7_arrival.
+
+**World state:** A worn operator card lies beneath the padded-stop force trace.
 
 **Panel/HUD text:** `STOP 25-27 READY`
 
@@ -4090,7 +4271,9 @@ Independent acceleration and timing replace the shared speed kit. The player pre
 
 **Beat 2 - After Stop 27 | automatic**
 
-**World state:** The independent force trace posts `BELOW TEST LIMIT`.
+**Trigger:** accepted_stop_25.
+
+**World state:** At `car-on-stands`, the dated accepted-result slip for Stop 25 reads: "Submit +440 kg·m/s (right).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `BELOW TEST LIMIT`
 
@@ -4102,7 +4285,9 @@ Independent acceleration and timing replace the shared speed kit. The player pre
 
 **Beat 3 - On arrival at Brennan's Workshop | automatic**
 
-**World state:** Hart places the card on the bench.
+**Trigger:** accepted_stop_26.
+
+**World state:** At `pavilion-board`, the dated accepted-result slip for Stop 26 reads: "Submit +0.88 m/s (right).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 28 READY`
 
@@ -4112,7 +4297,9 @@ Independent acceleration and timing replace the shared speed kit. The player pre
 
 **Beat 4 - After Stop 28 | automatic**
 
-**World state:** The interruption card is filed under `ACTION VERIFIED / EFFECT NOT HARMFUL HERE`.
+**Trigger:** accepted_stop_27.
+
+**World state:** At `dummy-rig`, the dated accepted-result slip for Stop 27 reads: "Commit 280 N; measure 291 N; both support a value below 350 N.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `ACTION VERIFIED / EFFECT NOT HARMFUL HERE`
 
@@ -4122,15 +4309,25 @@ Independent acceleration and timing replace the shared speed kit. The player pre
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** Pirate Ship timing trace unlocks for Mission 8.
+**Trigger:** accepted_stop_28.
+
+**World state:** At `casebook-table`, Maya Hart places the recovered October card in the evidence sleeve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 7 COMPLETE`
 
-**Dialogue bubbles -** Linh Chen: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Maya Hart: "I stopped it. Now we can show what that stop did. But Brennan's ship trace still sits near six seconds; it may explain why Hart stopped the test."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Pirate Ship console.
+
+### Physical aftermath — safety-m07
+
+**Home:** `casebook-table`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. A worn operator card lies beneath the padded-stop force trace.
+**After — exact action:** Maya Hart places the recovered October card in the evidence sleeve.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `timing-trace`, the drive ticks line up with the ship's free swing marks.
+**Segue - exact player copy:** But Brennan's ship trace still sits near six seconds; it may explain why Hart stopped the test.
 
 ## Location plan
 
@@ -4187,6 +4384,10 @@ estimate: {labels: ["Rightward momentum", "Leftward momentum"], values: [960,-52
 **Question card story setup - exact player copy:** Use signed momentum to derive their shared velocity immediately after collision.
 
 **Question card story-science connection - exact player copy:** The joined velocity supplies the motion change needed for the restraint-force calculation.
+
+**Fixture source panel - exact player copy:** Use signed momentum to derive their shared velocity immediately after collision. Given m1 = 240 kg, v1 = +4.0 m/s, m2 = 260 kg, and v2 = -2.0 m/s, use m1v1 + m2v2 = (m1 + m2)vf.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered derivation and one signed common-velocity number in `m/s` with direction.
 
@@ -4317,9 +4518,10 @@ mapping: ["Hart acted during the test", "The sequence was interrupted", "The tes
 
 Mission decision: Hart did not raise the crash risk in the Bumper Car test. The long padded stop kept the mean force below the game limit. Her stop is real, but the card gives no reason. The Pirate Ship timing trace may show what she stopped.
 
+**Segue - exact player copy:** But Brennan's ship trace still sits near six seconds; it may explain why Hart stopped the test.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: Hart did not raise the crash risk in the Bumper Car test. The inspection team now knows what is safe and what still needs testing.
+**Happy ending card - exact player copy:** Your checks made the difference. Maya Hart places the recovered October card in the evidence sleeve. But Brennan's ship trace still sits near six seconds; it may explain why Hart stopped the test.
 
 **Header:** MISSION 7 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 09:00`  
@@ -4478,13 +4680,13 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 8 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 8 - 8 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** SIX SECONDS
 
 **Go now:** Go to the Pirate Ship console and meet Tunde Idowu, the controls engineer, at the timing trace.
 
-**Card body:** Hart's interruption did not make the bumper-car collision more harmful, but its effect on the pirate ship is still unclear. Repeated pushes near the ship's natural swinging rhythm can make its motion grow. Test that timing and decide whether Hart caused the danger or interrupted it.
+**Card body:** 8 days until the park review. The drive ticks line up with the ship's free swing marks. Today you decide whether the drive timing made the swings grow.
 
 **Objective:** Determine the physical effect of Hart's pirate-ship override.
 
@@ -4590,7 +4792,9 @@ The player measures a 6.15 s free period, derives the pendulum relation and mass
 
 **Beat 1 - On arrival at Pirate Ship console | automatic**
 
-**World state:** The 6.15 s and 5.85 s traces appear together.
+**Trigger:** mission_8_arrival.
+
+**World state:** The drive ticks line up with the ship's free swing marks.
 
 **Panel/HUD text:** `STOP 29-31 READY`
 
@@ -4600,7 +4804,9 @@ The player measures a 6.15 s free period, derives the pendulum relation and mass
 
 **Beat 2 - After Stop 31 | automatic**
 
-**World state:** Low-power amplitude rises near the programmed interval.
+**Trigger:** accepted_stop_29.
+
+**World state:** At `timing-trace`, the dated accepted-result slip for Stop 29 reads: "Submit 6.15 s; accept 6.10-6.20 s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 32 READY`
 
@@ -4610,7 +4816,9 @@ The player measures a 6.15 s free period, derives the pendulum relation and mass
 
 **Beat 3 - After Stop 32 | automatic**
 
-**World state:** Hart's card moves from `POSSIBLE CAUSE` to `PROTECTIVE OVERRIDE`.
+**Trigger:** accepted_stop_30.
+
+**World state:** At `ship-console-board`, the dated accepted-result slip for Stop 30 reads: "Order model → substitute → solve → interpret; L≈9.39 m; mass cancels.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `POSSIBLE CAUSE`
 
@@ -4620,9 +4828,11 @@ The player measures a 6.15 s free period, derives the pendulum relation and mass
 
 **Beat 4 - After Stop 32 | automatic**
 
+**Trigger:** accepted_stop_31.
+
 **Beat ID:** `after-stop-32-holdout`
 
-**World state:** Pirate Ship lights turn on; its control panel remains locked pending a new forbidden timing band.
+**World state:** At `drive-console`, the dated accepted-result slip for Stop 31 reads: "Choice 1 - change drive interval only, measure amplitude, restore and remeasure.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -4632,15 +4842,25 @@ The player measures a 6.15 s free period, derives the pendulum relation and mass
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** Arm-nine file appears at the Ferris Wheel.
+**Trigger:** accepted_stop_32.
+
+**World state:** At `timing-trace`, Ruth Brennan pins the FORBIDDEN DRIVE BAND: 5.70 TO 6.30 S card to the trace. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 8 COMPLETE`
 
-**Dialogue bubbles -** Tunde Idowu: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Ruth Brennan: "We had called it the usual rhythm. It was feeding the swing. Therefore Hart can clear the October accusation, but the mark on arm nine still needs an outside inspection."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Ferris Wheel machine room.
+
+### Physical aftermath — safety-m08
+
+**Home:** `timing-trace`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. The drive ticks line up with the ship's free swing marks.
+**After — exact action:** Ruth Brennan pins the FORBIDDEN DRIVE BAND: 5.70 TO 6.30 S card to the trace.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `arm-nine-file`, a barricade stays around arm nine beneath a chalked inspection mark.
+**Segue - exact player copy:** Therefore Hart can clear the October accusation, but the mark on arm nine still needs an outside inspection.
 
 ## Location plan
 
@@ -4705,6 +4925,10 @@ sweep:
 **Question card story setup - exact player copy:** Derive the small-angle relationship and identify which quantities cancel from the prediction.
 
 **Question card story-science connection - exact player copy:** The period relationship distinguishes effective pendulum length from load mass when explaining the ship's rhythm.
+
+**Fixture source panel - exact player copy:** Derive the small-angle relationship and identify which quantities cancel from the prediction. Given G = 6.67 x 10^-11 N m^2/kg^2, M_E = 5.97 x 10^24 kg, R_E = 6.37 x 10^6 m, and measured T = 6.15 s, use g = GM_E/R_E^2 and the small-angle torque model.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered symbolic derivation of `T = 2pi sqrt(L/g)`, one effective-length number in `m`, and a conclusion about mass dependence.
 
@@ -4874,9 +5098,10 @@ answer: prevented
 
 Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to its free period, so each swing grew. The Bumper Car force stayed below its limit. The card now shows a safety act, not harm.
 
+**Segue - exact player copy:** Therefore Hart can clear the October accusation, but the mark on arm nine still needs an outside inspection.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: Hart stopped a larger risk. Your test gives the park a safer and fairer decision.
+**Happy ending card - exact player copy:** Your checks made the difference. Ruth Brennan pins the FORBIDDEN DRIVE BAND: 5.70 TO 6.30 S card to the trace. Therefore Hart can clear the October accusation, but the mark on arm nine still needs an outside inspection.
 
 **Header:** MISSION 8 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 09:30`  
@@ -5036,13 +5261,13 @@ Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 7 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 9 - 7 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** ARM NINE
 
 **Go now:** Go to the Ferris Wheel machine room and meet Luka Kovač, the mechanical lead, beside the arm-nine file.
 
-**Card body:** Hart stopped the growing swing, but a mark on one Ferris Wheel support arm still needs investigation. Uneven loads and wind can turn the wheel or strain its supports. Calculate those effects and decide whether the wheel can run with restrictions or must stay closed.
+**Card body:** 7 days until the park review. A barricade stays around arm nine beneath a chalked inspection mark. Today you decide which wheel limits still need an outside check.
 
 **Objective:** Set a defensible load-and-wind envelope for the Ferris Wheel.
 
@@ -5148,7 +5373,9 @@ The player balances loading, derives rotational response, stresses wind assumpti
 
 **Beat 1 - On arrival at Ferris Wheel machine room | automatic**
 
-**World state:** Kovač measures the indication instead of covering it.
+**Trigger:** mission_9_arrival.
+
+**World state:** A barricade stays around arm nine beneath a chalked inspection mark.
 
 **Panel/HUD text:** `STOP 33-34 READY`
 
@@ -5158,7 +5385,9 @@ The player balances loading, derives rotational response, stresses wind assumpti
 
 **Beat 2 - After Stop 34 | automatic**
 
-**World state:** Chen asks for the historical wind cases beside Brennan's load records.
+**Trigger:** accepted_stop_33.
+
+**World state:** At `hub-schedule`, the dated accepted-result slip for Stop 33 reads: "Submit -1.4 kN·m; accept within fictional ±2.0 kN·m tolerance.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 35 READY`
 
@@ -5168,7 +5397,9 @@ The player balances loading, derives rotational response, stresses wind assumpti
 
 **Beat 3 - After Stop 35 | automatic**
 
-**World state:** Wind cases above the proposed envelope darken.
+**Trigger:** accepted_stop_34.
+
+**World state:** At `machine-room-board`, the dated accepted-result slip for Stop 34 reads: "Order torque → angular deceleration → stop time → stop angle; Δθ∝Iω₀²/τb.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 36 READY`
 
@@ -5178,7 +5409,9 @@ The player balances loading, derives rotational response, stresses wind assumpti
 
 **Beat 4 - After Stop 36 | automatic**
 
-**World state:** Wind and loading limits print; the crane barricade remains around arm nine.
+**Trigger:** accepted_stop_35.
+
+**World state:** At `bench-notebooks`, the dated accepted-result slip for Stop 35 reads: "Choice 2 - 8.0 m/s wind cap plus balanced loading and arm-nine inspection.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -5188,15 +5421,25 @@ The player balances loading, derives rotational response, stresses wind assumpti
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** Coaster profile drawing becomes active.
+**Trigger:** accepted_stop_36.
+
+**World state:** At `arm-nine-file`, Maya Hart clips the EXTERNAL INSPECTION REQUIRED card to the arm-nine sleeve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 9 COMPLETE`
 
-**Dialogue bubbles -** Luka Kovač: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Maya Hart: "Leave the barrier. A load model cannot inspect that mark. But Nair's coaster drawing has never faced the actual loop; one unresolved ride cannot borrow another's clearance."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Coaster Station.
+
+### Physical aftermath — safety-m09
+
+**Home:** `arm-nine-file`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. A barricade stays around arm nine beneath a chalked inspection mark.
+**After — exact action:** Maya Hart clips the EXTERNAL INSPECTION REQUIRED card to the arm-nine sleeve.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `profile-drawing`, a taped-over track drawing rests beside the independent axle sensor.
+**Segue - exact player copy:** But Nair's coaster drawing has never faced the actual loop; one unresolved ride cannot borrow another's clearance.
 
 ## Location plan
 
@@ -5296,6 +5539,10 @@ estimate:
 **Question card story setup - exact player copy:** The wheel is balanced, but balance does not predict how quickly it stops. Derive the relationship between brake torque, rotational inertia, angular deceleration, and the wheel's total predicted stopping angle.
 
 **Question card story-science connection - exact player copy:** The torque and inertia relationship shows how much rotation remains after braking starts.
+
+**Fixture source panel - exact player copy:** The wheel is balanced, but balance does not predict how quickly it stops. Derive the relationship between brake torque, rotational inertia, angular deceleration, and the wheel's total predicted stopping angle. Using F_brake = kx, tau = rF_brake, tau = Ialpha, and 0 = omega0^2 + 2alpha Delta theta
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit one ordered symbolic derivation for positive stopping angle and a conclusion stating how `I`, `omega0`, and brake torque change that angle.
 
@@ -5534,9 +5781,10 @@ trigger:
 
 Mission decision: The Ferris Wheel may run only after an outside check of arm nine. Its load must stay balanced, and wind must stay below 8.0 m/s. The model sets these limits but cannot clear the arm mark. The coaster is next.
 
+**Segue - exact player copy:** But Nair's coaster drawing has never faced the actual loop; one unresolved ride cannot borrow another's clearance.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: The Ferris Wheel may run only after an outside check of arm nine. Visitors are better protected because you separated the real hazard from the noise.
+**Happy ending card - exact player copy:** Your checks made the difference. Maya Hart clips the EXTERNAL INSPECTION REQUIRED card to the arm-nine sleeve. But Nair's coaster drawing has never faced the actual loop; one unresolved ride cannot borrow another's clearance.
 
 **Header:** MISSION 9 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 10:00`  
@@ -5695,13 +5943,13 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 6 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 10 - 6 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** THE LOOP ON PAPER
 
 **Go now:** Go to the Coaster Station and meet Luka Kovač, the mechanical lead, at the 1974 profile drawing.
 
-**Card body:** The roller coaster's approval rests on an old track drawing. At the top of its loop, the train needs enough speed to stay in contact with the rails. Compare the predicted speed, energy losses, and lift power before authorizing a measured test run.
+**Card body:** Six days remain before review. An old track drawing lies beside a new speed gauge. Today you decide if one empty run can test the coaster model.
 
 **Objective:** Decide whether existing evidence supports a limited coaster measurement run.
 
@@ -5807,7 +6055,9 @@ The player estimates ideal speed from the 26 m lift to the 20 m crown, derives t
 
 **Beat 1 - On arrival at Coaster Station | automatic**
 
-**World state:** Kovač pins the 1974 profile beside the train.
+**Trigger:** mission_10_arrival.
+
+**World state:** A taped-over track drawing rests beside the independent axle sensor.
 
 **Panel/HUD text:** `STOP 37-39 READY`
 
@@ -5817,7 +6067,9 @@ The player estimates ideal speed from the 26 m lift to the 20 m crown, derives t
 
 **Beat 2 - After Stop 39 | automatic**
 
-**World state:** Alternating residuals implicate the portable wheel bracket.
+**Trigger:** accepted_stop_37.
+
+**World state:** At `profile-drawing`, the dated accepted-result slip for Stop 37 reads: "Submit 10.84 m/s; accept 10.70-10.98 m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -5829,7 +6081,9 @@ The player estimates ideal speed from the 26 m lift to the 20 m crown, derives t
 
 **Beat 3 - On arrival at Shared Plant Room | automatic**
 
-**World state:** The door opens and the 55 kW motor plate illuminates.
+**Trigger:** accepted_stop_38.
+
+**World state:** At `station-board`, the dated accepted-result slip for Stop 38 reads: "Contact minimum 7.41 m/s; campaign-margin setting 8.41 m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 40 READY`
 
@@ -5839,7 +6093,9 @@ The player estimates ideal speed from the 26 m lift to the 20 m crown, derives t
 
 **Beat 4 - After Stop 40 | automatic**
 
-**World state:** A limited empty-train run is authorized; passenger operation remains locked.
+**Trigger:** accepted_stop_39.
+
+**World state:** At `station-wheel`, the dated accepted-result slip for Stop 39 reads: "Select independent axle encoder; reject portable-wheel mean-only comparison.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -5849,15 +6105,25 @@ The player estimates ideal speed from the 26 m lift to the 20 m crown, derives t
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** The Flume header gauge begins diverging from its delivery record.
+**Trigger:** accepted_stop_40.
+
+**World state:** At `profile-drawing`, Priya Nair pins the EMPTY TEST ONLY card over the passenger release line. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 10 COMPLETE`
 
-**Dialogue bubbles -** Luka Kovač: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Priya Nair: "No riders while the curve is still paper. But Ruiz's flume needs nearly the same shared power; the lift test cannot own the whole plant."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Flume Pumphouse.
+
+### Physical aftermath — safety-m10
+
+**Home:** `profile-drawing`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. A taped-over track drawing rests beside the independent axle sensor.
+**After — exact action:** Priya Nair pins the EMPTY TEST ONLY card over the passenger release line.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `pump-curve`, the flume header pulses beside the shared motor plate.
+**Segue - exact player copy:** But Ruiz's flume needs nearly the same shared power; the lift test cannot own the whole plant.
 
 ## Location plan
 
@@ -5914,6 +6180,10 @@ estimate: {labels: ["2g", "Height drop"], values: [19.6,6.0], slots: [factor,hei
 **Question card story setup - exact player copy:** Derive the limiting speed where the rail's supporting normal force just reaches zero.
 
 **Question card story-science connection - exact player copy:** The contact minimum and added campaign margin establish the required crown speed for this loop model.
+
+**Fixture source panel - exact player copy:** Derive the limiting speed where the rail's supporting normal force just reaches zero. Given drawing radius r = 5.6 m, g = 9.80 m/s^2, and Corbin Park's fictional required margin 1.00 m/s, use mg + N = mv^2/r with N = 0 at minimum contact.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered derivation, contact-minimum speed in `m/s`, and required-with-margin speed in `m/s`.
 
@@ -6106,9 +6376,10 @@ answer: limited
 
 Mission decision: One empty coaster run may test the old plan. The axle sensor will replace the portable wheel. The lift just fits the 55 kW plate. Riders are not cleared because the track shape has not been checked.
 
+**Segue - exact player copy:** But Ruiz's flume needs nearly the same shared power; the lift test cannot own the whole plant.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: One empty coaster run may test the old plan. The certificate is stronger because every claim now matches the physics.
+**Happy ending card - exact player copy:** Your checks made the difference. Priya Nair pins the EMPTY TEST ONLY card over the passenger release line. But Ruiz's flume needs nearly the same shared power; the lift test cannot own the whole plant.
 
 **Header:** MISSION 10 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 10:00`  
@@ -6318,13 +6589,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 5 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 11 - 5 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** WATER HAS A BUDGET
 
 **Go now:** Go to the Flume Pumphouse and meet Linh Chen, the instrumentation and test lead, at the header gauge.
 
-**Card body:** The water ride is delivering less water than its gauge predicts. Follow the water from intake to outlet and compare pressure, flow, and pump power. Use the arcade water cannon as a separate speed check, then decide what operating schedule the supply can support.
+**Card body:** 5 days until the park review. The flume header pulses beside the shared motor plate. Today you decide whether the flume fits its water and power budget.
 
 **Objective:** Set a verified flume flow and power schedule.
 
@@ -6435,7 +6706,9 @@ The player locates the header divergence, derives the flow relation, allocates p
 
 **Beat 1 - On arrival at Flume Pumphouse | automatic**
 
-**World state:** Header and delivery indicators disagree.
+**Trigger:** mission_11_arrival.
+
+**World state:** The flume header pulses beside the shared motor plate.
 
 **Panel/HUD text:** `STOP 41-42 READY`
 
@@ -6445,7 +6718,9 @@ The player locates the header divergence, derives the flow relation, allocates p
 
 **Beat 2 - After Stop 42 | automatic**
 
-**World state:** The required duty point posts.
+**Trigger:** accepted_stop_41.
+
+**World state:** At `header-gauge`, the dated accepted-result slip for Stop 41 reads: "Select first divergence station downstream_of_gate_valve.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -6457,7 +6732,9 @@ The player locates the header divergence, derives the flow relation, allocates p
 
 **Beat 3 - After Stop 43 | automatic**
 
-**World state:** A schedule reserves 44.1 kW and forbids overlap with the coaster lift.
+**Trigger:** accepted_stop_42.
+
+**World state:** At `pumphouse-board`, the dated accepted-result slip for Stop 42 reads: "Submit 44.1 kW; accept 43.5-44.7 kW.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -6469,7 +6746,9 @@ The player locates the header divergence, derives the flow relation, allocates p
 
 **Beat 4 - On arrival at Arcade Test Stall | automatic**
 
-**World state:** The door opens; the stall cannon becomes an independent speed check.
+**Trigger:** accepted_stop_43.
+
+**World state:** At `motor-plate`, the dated accepted-result slip for Stop 43 reads: "Allocation {flume:44.1 kW, shutdown:5.0 kW, logging:3.0 kW, coaster:0 kW}.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 44 READY`
 
@@ -6479,13 +6758,23 @@ The player locates the header divergence, derives the flow relation, allocates p
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** Flume water begins circulating at restricted test flow; pump curve becomes visible.
+**Trigger:** accepted_stop_44.
+
+**World state:** At `pump-curve`, Mateo Ruiz clips the 0.45 CUBIC METRES PER SECOND / 44.1 KW card to the pump curve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 11 COMPLETE`
 
-**Dialogue bubbles -** Linh Chen: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Mateo Ruiz: "The water fits. The shared power still needs a schedule. Therefore Chen must clear the rider-load tests while the lift stays off; the 55 kW supply cannot serve both demands."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
+
+### Physical aftermath — safety-m11
+
+**Home:** `pump-curve`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. The flume header pulses beside the shared motor plate.
+**After — exact action:** Mateo Ruiz clips the 0.45 CUBIC METRES PER SECOND / 44.1 KW card to the pump curve.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `witness-sheet`, two test dummies sit beside the signed parts list.
+**Segue - exact player copy:** Therefore Chen must clear the rider-load tests while the lift stays off; the 55 kW supply cannot serve both demands.
 
 ## Location plan
 
@@ -6556,6 +6845,10 @@ probe:
 **Question card story setup - exact player copy:** The cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Derive the volume-flow relationship and electrical input power required by that full planned operating duty.
 
 **Question card story-science connection - exact player copy:** Required pump power tells the crew how much shared plant capacity the flume test needs.
+
+**Fixture source panel - exact player copy:** The cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Derive the volume-flow relationship and electrical input power required by that full planned operating duty. Given flow Q = 0.45 m^3/s, head H = 7.0 m, water density rho = 1000 kg/m^3, g = 9.80 m/s^2, and efficiency eta = 0.70, use P_useful = rho gQH and P_input = P_useful/eta.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered derivation and one pump-input-power number in `kW`.
 
@@ -6729,9 +7022,10 @@ lob:
 
 Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate is clear. It cannot share power with the coaster lift test. Stop power must stay safe. The water arc backs the flow result.
 
+**Segue - exact player copy:** Therefore Chen must clear the rider-load tests while the lift stays off; the 55 kW supply cannot serve both demands.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate is clear. The park can protect visitors without condemning a ride on bad evidence.
+**Happy ending card - exact player copy:** Your checks made the difference. Mateo Ruiz clips the 0.45 CUBIC METRES PER SECOND / 44.1 KW card to the pump curve. Therefore Chen must clear the rider-load tests while the lift stays off; the 55 kW supply cannot serve both demands.
 
 **Header:** MISSION 11 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 10:30`  
@@ -6890,13 +7184,13 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 4 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 12 - 4 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** THE FORCE A RIDER FEELS
 
 **Go now:** Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig.
 
-**Card body:** The water ride's supply is checked, but the bumper cars and drop tower still need final rider-force decisions. Compare how much each test dummy's motion changes and how quickly it stops. Decide whether the exact tested masses, restraints, and settings meet their force limits.
+**Card body:** 4 days until the park review. Two test dummies sit beside the signed parts list. Today you decide which tested setups meet the rider-load limits.
 
 **Objective:** Verify the bumper-car and drop-tower rider-force limits.
 
@@ -7006,7 +7300,9 @@ The player retrieves collision momentum, builds a causal chain from motion to ri
 
 **Beat 1 - On arrival at Bumper Car Pavilion | automatic**
 
-**World state:** Chen displays both average and peak force.
+**Trigger:** mission_12_arrival.
+
+**World state:** Two test dummies sit beside the signed parts list.
 
 **Panel/HUD text:** `STOP 45 READY`
 
@@ -7016,7 +7312,9 @@ The player retrieves collision momentum, builds a causal chain from motion to ri
 
 **Beat 2 - After Stop 45 | automatic**
 
-**World state:** The momentum result is sent to Drop Tower Control.
+**Trigger:** accepted_stop_45.
+
+**World state:** At `dummy-rig`, the dated accepted-result slip for Stop 45 reads: "Submit 61.6 kg·m/s; accept 60.4-62.8 kg·m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -7028,7 +7326,9 @@ The player retrieves collision momentum, builds a causal chain from motion to ri
 
 **Beat 3 - After Stop 47 | automatic**
 
-**World state:** The 5.4 load-factor result survives uncertainty below 6.0.
+**Trigger:** accepted_stop_46.
+
+**World state:** At `brake-desk`, the dated accepted-result slip for Stop 46 reads: "Order motion evidence → momentum/kinematics → restraint force.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -7040,7 +7340,9 @@ The player retrieves collision momentum, builds a causal chain from motion to ri
 
 **Beat 4 - After Stop 48 | automatic**
 
-**World state:** Both configurations receive green test tags; restrictions remain printed beside them.
+**Trigger:** accepted_stop_47.
+
+**World state:** At `witness-sheet`, the dated accepted-result slip for Stop 47 reads: "Choice 1 - exact tested configuration remains below 6.0 over uncertainty.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -7050,15 +7352,25 @@ The player retrieves collision momentum, builds a causal chain from motion to ri
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** The three rotating rides request a shared opening schedule.
+**Trigger:** accepted_stop_48.
+
+**World state:** At `witness-sheet`, Linh Chen pins the TESTED CONFIGURATIONS ONLY clearance to the witness sheet. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 12 COMPLETE`
 
-**Dialogue bubbles -** Linh Chen: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Linh Chen: "These parts. These loads. These steps. That is what passed. But Hart has three moving rides asking for one reserve; separate passes do not make a park schedule."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
 
 **Waypoint:** Activate Carousel Drive House.
+
+### Physical aftermath — safety-m12
+
+**Home:** `witness-sheet`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. Two test dummies sit beside the signed parts list.
+**After — exact action:** Linh Chen pins the TESTED CONFIGURATIONS ONLY clearance to the witness sheet.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `motor-plate`, three start requests hang under one 55 kW plate.
+**Segue - exact player copy:** But Hart has three moving rides asking for one reserve; separate passes do not make a park schedule.
 
 ## Location plan
 
@@ -7331,9 +7643,10 @@ attest:
 
 Mission decision: Both tested ride setups meet the game force limits. The padded Bumper Car passes. The Drop Tower stays below 6.0 times weight across its test range. Only the tested loads, parts, sensors, and steps are cleared.
 
+**Segue - exact player copy:** But Hart has three moving rides asking for one reserve; separate passes do not make a park schedule.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: Both tested ride setups meet the game force limits. The inspection team now knows what is safe and what still needs testing.
+**Happy ending card - exact player copy:** Your checks made the difference. Linh Chen pins the TESTED CONFIGURATIONS ONLY clearance to the witness sheet. But Hart has three moving rides asking for one reserve; separate passes do not make a park schedule.
 
 **Header:** MISSION 12 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 11:00`  
@@ -7574,13 +7887,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 3 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 13 - 3 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** ONE PARK, NOT SEVEN MACHINES
 
 **Go now:** Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, at the drive panel.
 
-**Card body:** The individual ride tests pass, but the Carousel, Pirate Ship, and Ferris Wheel share power and staff. Running them together could break limits that each meets alone. Combine their requirements and choose operating settings and a schedule that remain safe together.
+**Card body:** 3 days until the park review. Three start requests hang under one 55 kW plate. Today you decide how the rides share power and stop reserve.
 
 **Objective:** Write one compatible operating plan for the three rotating rides.
 
@@ -7681,7 +7994,9 @@ The player collapses an ambiguous speed/timing choice, derives rotational stoppi
 
 **Beat 1 - On arrival at Carousel Drive House | automatic**
 
-**World state:** Idowu shows two settings that fit chair angle alone.
+**Trigger:** mission_13_arrival.
+
+**World state:** Three start requests hang under one 55 kW plate.
 
 **Panel/HUD text:** `STOP 49 READY`
 
@@ -7693,7 +8008,9 @@ The player collapses an ambiguous speed/timing choice, derives rotational stoppi
 
 **Beat 2 - After Stop 49 | automatic**
 
-**World state:** The forbidden 5.70-6.30 s band appears; move to the Wheel after the timing plan is fixed.
+**Trigger:** accepted_stop_49.
+
+**World state:** At `joint-setting-board`, the dated accepted-result slip for Stop 49 reads: "Submit numerical pair (5.0 m, 4.0 m/s).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 50 READY`
 
@@ -7705,7 +8022,9 @@ The player collapses an ambiguous speed/timing choice, derives rotational stoppi
 
 **Beat 3 - After Stop 50 | automatic**
 
-**World state:** Rotational stopping demand posts beside the wind envelope.
+**Trigger:** accepted_stop_50.
+
+**World state:** At `machine-room-board`, the dated accepted-result slip for Stop 50 reads: "Order mass distribution → rotational inertia → angular momentum/energy → brake demand.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 51 READY`
 
@@ -7715,7 +8034,9 @@ The player collapses an ambiguous speed/timing choice, derives rotational stoppi
 
 **Beat 4 - After Stop 51 | automatic**
 
-**World state:** Shared capacity is allocated with shutdown reserve protected.
+**Trigger:** accepted_stop_51.
+
+**World state:** At `wheel-case-stand`, the dated accepted-result slip for Stop 51 reads: "Allocation: run Carousel and Pirate Ship; reserve Ferris Wheel for next block; protect shutdown reserve.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 52 READY`
 
@@ -7725,13 +8046,23 @@ The player collapses an ambiguous speed/timing choice, derives rotational stoppi
 
 **Beat 5 - At mission end | automatic**
 
-**World state:** Three operating cards print and the corresponding midway lights switch on.
+**Trigger:** accepted_stop_52.
+
+**World state:** At `motor-plate`, Maya Hart pins the joint operating schedule beneath the motor plate. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 13 COMPLETE`
 
-**Dialogue bubbles -** Tunde Idowu: “Outstanding work. You solved the mission. Record exactly what this mission proved before we move on.”
+**Dialogue bubbles -** Maya Hart: "The reserve belongs to the stop before it belongs to a start. But Nair's new crown tape gives a different radius; the coaster's final margin must face the track itself."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
+
+### Physical aftermath — safety-m13
+
+**Home:** `motor-plate`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. Three start requests hang under one 55 kW plate.
+**After — exact action:** Maya Hart pins the joint operating schedule beneath the motor plate.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `crown-tape`, the crown tape lies across a drawing whose curve no longer matches.
+**Segue - exact player copy:** But Nair's new crown tape gives a different radius; the coaster's final margin must face the track itself.
 
 ## Location plan
 
@@ -7799,6 +8130,10 @@ degeneracy:
 **Question card story setup - exact player copy:** The wheel's balanced test load increases rotational inertia without changing its operating angular speed. Derive how angular momentum, stored energy, and required stopping work scale with that outward mass distribution.
 
 **Question card story-science connection - exact player copy:** Increased rotational inertia changes angular momentum and stopping work even at the same angular speed.
+
+**Fixture source panel - exact player copy:** The wheel's balanced test load increases rotational inertia without changing its operating angular speed. Derive how angular momentum, stored energy, and required stopping work scale with that outward mass distribution. Using I = sum mr^2, L = Iomega, K_rot = 0.5Iomega^2, and tau_brake Delta theta = K_rot
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit one ordered symbolic derivation and one conclusion stating how moving mass outward changes stopping demand at fixed `omega`.
 
@@ -7989,9 +8324,10 @@ trigger:
 
 Mission decision: The three rides need one shared work plan. Carousel speed stays below 4.20 m/s. Pirate Ship drive time stays outside 5.70 to 6.30 s. The wheel needs its check, wind below 8.0 m/s, and saved stop power.
 
+**Segue - exact player copy:** But Nair's new crown tape gives a different radius; the coaster's final margin must face the track itself.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: The three rides need one shared work plan. Your test gives the park a safer and fairer decision.
+**Happy ending card - exact player copy:** Your checks made the difference. Maya Hart pins the joint operating schedule beneath the motor plate. But Nair's new crown tape gives a different radius; the coaster's final margin must face the track itself.
 
 **Header:** MISSION 13 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 11:00`  
@@ -8150,13 +8486,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 2 DAYS UNTIL COUNTY INSPECTION
+**Header:** MISSION 14 - 2 DAYS UNTIL THE PARK REVIEW.
 
 **Card title:** THE WRONG RADIUS
 
 **Go now:** Go to the Coaster Station and meet Linh Chen, the instrumentation and test lead, at the profile drawing.
 
-**Card body:** The coaster calculation predicts enough speed, but it still relies on a drawing rather than the newly measured track. Record the prediction before revealing that measurement. Recalculate if necessary and decide whether the real loop leaves enough safety margin for the train.
+**Card body:** 2 days until the park review. The crown tape lies across a drawing whose curve no longer matches. Today you decide whether the real coaster loop has enough margin.
 
 **Objective:** Test the coaster model against the physically measured loop radius.
 
@@ -8254,7 +8590,9 @@ The player freezes the drawing-based model before the crown tape appears. The ac
 
 **Beat 1 - On arrival at Coaster Station | automatic**
 
-**World state:** Chen covers the crown tape.
+**Trigger:** mission_14_arrival.
+
+**World state:** The crown tape lies across a drawing whose curve no longer matches.
 
 **Panel/HUD text:** `STOP 53 READY`
 
@@ -8264,7 +8602,9 @@ The player freezes the drawing-based model before the crown tape appears. The ac
 
 **Beat 2 - After Stop 53 | automatic**
 
-**World state:** The 8.41 m/s requirement freezes.
+**Trigger:** accepted_stop_53.
+
+**World state:** At `profile-drawing`, the dated accepted-result slip for Stop 53 reads: "Commit requirement 8.41 m/s and provisional pass before radius unlock; reveal 7.4 m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `7.4 m`
 
@@ -8276,7 +8616,9 @@ The player freezes the drawing-based model before the crown tape appears. The ac
 
 **Beat 3 - On arrival at Drop Tower Control | automatic**
 
-**World state:** Its direct geometry residuals remain unpatterned, establishing a comparison.
+**Trigger:** accepted_stop_54.
+
+**World state:** At `crown-tape`, the dated accepted-result slip for Stop 54 reads: "Real contact minimum 8.52 m/s; margin requirement 9.52 m/s; measured 9.40 m/s; fail by 0.12 m/s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 55 READY`
 
@@ -8288,7 +8630,9 @@ The player freezes the drawing-based model before the crown tape appears. The ac
 
 **Beat 4 - On arrival at Flume Pumphouse | automatic**
 
-**World state:** Direct depth and flow measurements also hold.
+**Trigger:** accepted_stop_55.
+
+**World state:** At `witness-sheet`, the dated accepted-result slip for Stop 55 reads: "Select Coaster: constant geometry residual +1.8 m; Tower and Flume unpatterned.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 56 READY`
 
@@ -8298,13 +8642,23 @@ The player freezes the drawing-based model before the crown tape appears. The ac
 
 **Beat 5 - After Stop 56 | automatic**
 
-**World state:** Coaster certificate light turns red while the other six remain lit.
+**Trigger:** accepted_stop_56.
+
+**World state:** At `crown-tape`, Priya Nair hangs a CLOSED: 9.40 M/S AVAILABLE / 9.52 M/S REQUIRED tag on the coaster release. The dated prop remains here on later visits.
 
 **Panel/HUD text:** `MISSION 14 COMPLETE`
 
-**Dialogue bubbles -** Luka Kovač: “Outstanding work. You solved the mission. The equations did not fail. We measured the wrong ride on paper.”
+**Dialogue bubbles -** Priya Nair: "The calculation survived. The old drawing did not. Therefore Hart must sign tomorrow's opening with one ride dark; a full park is not worth a false certificate."
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
+
+### Physical aftermath — safety-m14
+
+**Home:** `crown-tape`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. The crown tape lies across a drawing whose curve no longer matches.
+**After — exact action:** Priya Nair hangs a CLOSED: 9.40 M/S AVAILABLE / 9.52 M/S REQUIRED tag on the coaster release.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `certificate-table`, families wait beyond a gate with seven unsigned ride rows.
+**Segue - exact player copy:** Therefore Hart must sign tomorrow's opening with one ride dark; a full park is not worth a false certificate.
 
 ## Location plan
 
@@ -8400,6 +8754,10 @@ holdout:
 **Question card story setup - exact player copy:** The physical crown radius is 7.4 m, not 5.6 m. Rebuild the contact minimum and add Corbin Park's fictional 1.0 m/s safety margin before comparing the new independent measured speed.
 
 **Question card story-science connection - exact player copy:** The revised speed margin determines whether the independently measured train speed is sufficient for the real loop.
+
+**Fixture source panel - exact player copy:** The physical crown radius is 7.4 m, not 5.6 m. Rebuild the contact minimum and add Corbin Park's fictional 1.0 m/s safety margin before comparing the new independent measured speed. Given physical radius r = 7.4 m, g = 9.80 m/s^2, required margin 1.00 m/s, and measured crown speed 9.40 m/s, use v_min = sqrt(gr) and v_required = v_min + margin.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit an ordered derivation, both required speeds in `m/s`, a pass/fail conclusion, and the signed margin difference in `m/s`.
 
@@ -8588,9 +8946,10 @@ answer: geometry
 
 Mission decision: The coaster does not have enough loop margin. Its measured speed is 9.40 m/s, but the real loop needs 9.52 m/s. The math was right for the old plan. The plan used the wrong track shape, so the coaster stays shut.
 
+**Segue - exact player copy:** Therefore Hart must sign tomorrow's opening with one ride dark; a full park is not worth a false certificate.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: The coaster does not have enough loop margin. Visitors are better protected because you separated the real hazard from the noise.
+**Happy ending card - exact player copy:** Your checks made the difference. Priya Nair hangs a CLOSED: 9.40 M/S AVAILABLE / 9.52 M/S REQUIRED tag on the coaster release. Therefore Hart must sign tomorrow's opening with one ride dark; a full park is not worth a false certificate.
 
 **Header:** MISSION 14 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 11:00`  
@@ -8801,13 +9160,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** COUNTY INSPECTION TOMORROW
+**Header:** MISSION 15 - 1 DAY UNTIL THE PARK REVIEW.
 
 **Card title:** THE NAME ON THE CERTIFICATE
 
 **Go now:** Go to the Reopening Board and meet Maya Hart, the park operations lead, beside the seven blank ride decisions.
 
-**Card body:** The coaster lacks its required safety margin, while six other rides have specific conditions for operation. Check every inspection, setting, and limit against the evidence. Spend the remaining work budget where it matters, then sign which rides can reopen and which must remain closed.
+**Card body:** 1 day until the park review. Families wait beyond a gate with seven unsigned ride rows. Today you decide which rides can reopen and which must stay shut.
 
 **Objective:** Sign seven defensible ride decisions and the shared operating plan.
 
@@ -8905,7 +9264,9 @@ The player reconciles every major clue, stresses the proposed decisions, allocat
 
 **Beat 1 - On arrival at Reopening Board | automatic**
 
-**World state:** Seven blank rows and the full Casebook appear.
+**Trigger:** mission_15_arrival.
+
+**World state:** Families wait beyond a gate with seven unsigned ride rows.
 
 **Panel/HUD text:** `STOP 57 READY`
 
@@ -8915,7 +9276,9 @@ The player reconciles every major clue, stresses the proposed decisions, allocat
 
 **Beat 2 - After Stop 57 | automatic**
 
-**World state:** Every clue receives one evidence label.
+**Trigger:** accepted_stop_57.
+
+**World state:** At `reopening-board`, the dated accepted-result slip for Stop 57 reads: "Submit one evidence label for every clue; preserve observations and replace unsupported interpretations.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `CASEBOOK UPDATED`
 
@@ -8927,7 +9290,9 @@ The player reconciles every major clue, stresses the proposed decisions, allocat
 
 **Beat 3 - On arrival at Brennan's Workshop | automatic**
 
-**World state:** The seven proposed decisions survive or fail their uncertainty ranges.
+**Trigger:** accepted_stop_58.
+
+**World state:** At `uncertainty-board`, the dated accepted-result slip for Stop 58 reads: "Choice 2 - three open, three conditional, Coaster closed across uncertainty.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 59 READY`
 
@@ -8937,7 +9302,9 @@ The player reconciles every major clue, stresses the proposed decisions, allocat
 
 **Beat 4 - After Stop 59 | automatic**
 
-**World state:** The funded inspection confirms arm nine within the fictional acceptance condition; no work is wasted on the failed coaster geometry.
+**Trigger:** accepted_stop_59.
+
+**World state:** At `work-allocation-board`, the dated accepted-result slip for Stop 59 reads: "Submit allocation {arm inspection:30, independent verification:25, operating cards:20, protected reserve:25, other:0}.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** `STOP 60 READY`
 
@@ -8949,11 +9316,13 @@ The player reconciles every major clue, stresses the proposed decisions, allocat
 
 **Beat 5 - After Stop 60 | automatic**
 
-**World state:** The player attests seven decisions.
+**Trigger:** accepted_stop_60.
+
+**World state:** At `certificate-table`, Maya Hart turns the front-gate key. The final scene follows the completion gate below.
 
 **Panel/HUD text:** `SIGN CERTIFICATE`
 
-**Dialogue bubbles -** Maya Hart: “Outstanding work. You solved the mission. This evidence changes what we test next, not more than that.”
+**Dialogue bubbles -** Maya Hart: "You gave this park a future we can sign our names to. Therefore the six cleared sections can run within their cards while the coaster keeps its closure; Hart's signature names both."
 
 **Unlocks:** No new stop; preserve the current mission state.
 
@@ -8966,6 +9335,14 @@ The player reconciles every major clue, stresses the proposed decisions, allocat
 **Dialogue bubbles -** Maya Hart: “We did not prove the park was safe. We proved exactly what can run.”
 
 **Unlocks:** Close the mission and preserve its Casebook evidence.
+
+### Physical aftermath — safety-m15
+
+**Home:** `certificate-table`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. Families wait beyond a gate with seven unsigned ride rows.
+**After — exact action:** Maya Hart turns the front-gate key.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `certificate-table`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore the six cleared sections can run within their cards while the coaster keeps its closure; Hart's signature names both.
 
 ## Location plan
 
@@ -9208,7 +9585,7 @@ attest:
 
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Open the Carousel, Bumper Cars, and Drop Tower. The certificate is stronger because every claim now matches the physics.
+**Happy ending card - exact player copy:** The wheel turns above the lit midway. The ship swings within its posted timing rule, and the carousel music starts. Beyond the crowd, the coaster gate stays shut beneath its measured closure card. Corbin Park is open, with every promise on the certificate still visible.
 
 **Header:** MISSION 15 COMPLETE  
 **Timer:** `TIME {elapsed} / TARGET 12:00`  
@@ -9222,8 +9599,9 @@ attest:
 
 ## Mission outcome and epilogue - no further quiz
 
-Mission decision: Open the Carousel, Bumper Cars, and Drop Tower. Open the Pirate Ship, Ferris Wheel, and Log Flume only with their written limits. Keep the coaster shut because its real loop fails the margin test. The park has seven sound choices. Hart signs the safety form.
+Mission decision: Which rides can reopen and which must stay shut. Apply the existing final evidence and metric gates before the world payoff below.
 
+The wheel turns above the lit midway. The ship swings within its posted timing rule, and the carousel music starts. Beyond the crowd, the coaster gate stays shut beneath its measured closure card. Corbin Park is open, with every promise on the certificate still visible.
 ## Optional secondary brief and six-question review
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.

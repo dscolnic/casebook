@@ -7,18 +7,18 @@ export const MISSIONS = [
     "title": "What the Island Depends On",
     "objective": "Build the dependency ledger that defines the investigation.",
     "briefing": "",
-    "stake": "A warning about water from a school tap arrives while Vellan debates adding another ferry. More sailings could bring more people, supplies, and waste. Use environmental science to trace the island's resources and decide what the ferry plan must count before anyone calls it sustainable.",
+    "stake": "15 days until the vote. A damp catch slip sticks out of the closed sales book. Today you decide which flows belong in the island count.",
     "primer": [
       "Matter cycles through stores; energy flows and is mostly lost as heat.",
       "A boundary decides which inputs and outputs belong in a budget.",
       "Agreement among records is weak evidence if they share one missing source."
     ],
     "deeper": {
-      "intro": "You completed What the Island Depends On. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Catch That Vanished. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to What the Island Depends On, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?",
+          "prompt": "In a follow-up to The Catch That Vanished, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?",
           "hint": "Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -45,7 +45,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to What the Island Depends On: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?",
+          "prompt": "the island council receives a second case related to The Catch That Vanished: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?",
           "hint": "Use the stated evidence and the conditions for system boundary; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -72,7 +72,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks What the Island Depends On using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?",
+          "prompt": "A teammate rechecks The Catch That Vanished using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?",
           "hint": "Use the stated evidence and the conditions for carbon/nitrogen/phosphorus/water cycles; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -99,7 +99,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends What the Island Depends On: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?",
+          "prompt": "An unseen case extends The Catch That Vanished: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?",
           "hint": "Use the stated evidence and the conditions for energy flow versus matter cycling; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -126,7 +126,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Before another What the Island Depends On decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?",
+          "prompt": "Before another The Catch That Vanished decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?",
           "hint": "Use the stated evidence and the conditions for dependent evidence; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -153,7 +153,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from What the Island Depends On to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?",
+          "prompt": "the island council applies the lesson from The Catch That Vanished to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?",
           "hint": "Use the stated evidence and the conditions for Infiltration; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -275,10 +275,10 @@ export const MISSIONS = [
     },
     "takeaway": "Independent evidence must not share the same hidden source. ---",
     "card": {
-      "header": "15 DAYS TO THE FERRY VOTE",
+      "header": "MISSION 1 - 15 DAYS UNTIL THE VOTE.",
       "title": "Nothing Leaves the Ledger",
       "goNow": "Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book.",
-      "body": "A warning about water from a school tap arrives while Vellan debates adding another ferry. More sailings could bring more people, supplies, and waste. Use environmental science to trace the island's resources and decide what the ferry plan must count before anyone calls it sustainable.",
+      "body": "15 days until the vote. A damp catch slip sticks out of the closed sales book. Today you decide which flows belong in the island count.",
       "objective": "Build the dependency ledger that defines the investigation."
     },
     "beats": [
@@ -288,7 +288,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "HARB"
         },
-        "world": "The draw the boundary fixture wakes and the mission evidence opens.",
+        "world": "A damp catch slip sticks out of the closed sales book.",
         "stage": {
           "wall": [
             {
@@ -312,7 +312,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After Stop 1: Keep the new evidence visible and.",
+        "world": "At landings-book, the dated accepted-result slip for Stop 1 reads: \"C. Count the whole island, aquifer, coast, reef, atmosphere exchanges, imports, and exports.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -325,7 +325,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Nice work. Use the Stop 1 result to settle match the cycles."
+            "say": "That check holds. The expanded island boundary leaves four material pathways needing identification."
           }
         ]
       },
@@ -336,7 +336,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After Stop 2: a five-ledger wall diagram lights.",
+        "world": "At landings-book, the dated accepted-result slip for Stop 2 reads: \"Carbon, nitrogen, phosphorus, water in that order; nitrogen fixation and phosphorus weathering are important limiting steps.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -349,7 +349,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Good thinking. Use the Stop 2 result to settle separate matter from energy."
+            "say": "That check holds. The material pathways are mapped, but the grazing plan still risks counting energy as a recyclable resource."
           }
         ]
       },
@@ -360,7 +360,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The separate matter from energy result remains visible while the find the shared omission fixture lights.",
+        "world": "At fee-desk, the dated accepted-result slip for Stop 3 reads: \"Sunlight and heat flow; carbon dioxide, nitrate, phosphate, and water cycle.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -382,7 +382,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At landings-book, Tomas Reed clips the rejected-catch slip inside the landings book. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -395,12 +395,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Outstanding work. You solved the mission. Now we know what every later number must connect to."
+            "say": "That catch never reached the till. It still came out of the sea. But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Count water, food, energy, materials, waste, people. And habitat in one linked island system. Matching records do not count twice when they share a source. The council opens the full resource review. Tomorrow, the first closed budget is freshwater.",
+    "segue": "But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats.",
     "stops": [
       {
         "group": "CHAPEL",
@@ -438,18 +438,18 @@ export const MISSIONS = [
     "title": "The Groundwater Recharge Estimate",
     "objective": "Set a reproducible groundwater recharge estimate.",
     "briefing": "",
-    "stake": "Vellan's wells depend on rain soaking into the ground, but much of that rain runs away or returns to the air. Calculate how much replenishes the underground water supply during dry years. Decide how much the island can withdraw each year without exhausting it.",
+    "stake": "14 days until the vote. The roof gauge ticks while a hand-kept rain book lies open beneath it. Today you decide how much well water the island can take.",
     "primer": [
       "A watershed routes precipitation toward runoff, storage, plants, or groundwater.",
       "Averages can hide drought years that control safe withdrawal.",
       "Preserve units through area, depth, and volume calculations."
     ],
     "deeper": {
-      "intro": "You completed The Groundwater Recharge Estimate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Dry-Year Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Groundwater Recharge Estimate, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?",
+          "prompt": "In a follow-up to The Dry-Year Line, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?",
           "hint": "Use the stated evidence and the conditions for Infiltration; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -476,7 +476,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Groundwater Recharge Estimate: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?",
+          "prompt": "the island council receives a second case related to The Dry-Year Line: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?",
           "hint": "Use the stated evidence and the conditions for water budget; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -503,7 +503,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Groundwater Recharge Estimate using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?",
+          "prompt": "A teammate rechecks The Dry-Year Line using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?",
           "hint": "Use the stated evidence and the conditions for unit conversion; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -530,7 +530,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Groundwater Recharge Estimate: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?",
+          "prompt": "An unseen case extends The Dry-Year Line: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?",
           "hint": "Use the stated evidence and the conditions for model validation; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -584,7 +584,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Groundwater Recharge Estimate to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?",
+          "prompt": "the island council applies the lesson from The Dry-Year Line to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?",
           "hint": "Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -718,10 +718,10 @@ export const MISSIONS = [
     },
     "takeaway": "Withheld data tests whether a planning rule generalizes. ---",
     "card": {
-      "header": "14 DAYS TO THE FERRY VOTE",
+      "header": "MISSION 2 - 14 DAYS UNTIL THE VOTE.",
       "title": "Water That Comes Back",
       "goNow": "Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the rain bench.",
-      "body": "Vellan's wells depend on rain soaking into the ground, but much of that rain runs away or returns to the air. Calculate how much replenishes the underground water supply during dry years. Decide how much the island can withdraw each year without exhausting it.",
+      "body": "14 days until the vote. The roof gauge ticks while a hand-kept rain book lies open beneath it. Today you decide how much well water the island can take.",
       "objective": "Set a reproducible groundwater recharge estimate."
     },
     "beats": [
@@ -731,7 +731,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WATER"
         },
-        "world": "Nkemdi compares fourteen rain years while the automatic gauge under-reads in wind.",
+        "world": "The roof gauge ticks while a hand-kept rain book lies open beneath it.",
         "stage": {
           "wall": [
             {
@@ -755,7 +755,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After Stop 1: Keep the new evidence visible and.",
+        "world": "At rain-bench, the dated accepted-result slip for Stop 5 reads: \"900-510-210-30=150 mm/yr recharge.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -768,7 +768,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Nice work. Use the Stop 5 result to settle convert depth to volume."
+            "say": "That check holds. The rainfall balance is complete, but the council needs recharge as a usable water volume."
           }
         ]
       },
@@ -779,7 +779,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After Stop 2: Update the persistent panel and or the evidence-led waypoint.",
+        "world": "At rain-bench, the dated accepted-result slip for Stop 6 reads: \"150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -792,7 +792,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Good thinking. Use the Stop 6 result to settle freeze the estimate."
+            "say": "That check holds. The average recharge estimate must face dry years before it becomes a drinking-water allowance."
           }
         ]
       },
@@ -803,7 +803,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "After Stop 3: Show the combined result and unlock the decision stop.",
+        "world": "At store-gauges, the dated accepted-result slip for Stop 7 reads: \"Use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -816,7 +816,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Exactly right. Use the Stop 7 result to settle set the ceiling."
+            "say": "That check holds. The dry-year test leaves measurement bias as an unresolved risk in the withdrawal allowance."
           }
         ]
       },
@@ -825,7 +825,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue.",
+        "world": "At rain-bench, Nkemdi Okafor pins the withdrawal card marked 136,800 CUBIC METRES PER YEAR above the rain book. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -838,12 +838,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "The dry year gets a vote too. But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use 136,800 cubic metres per year as the planning withdrawal ceiling. It includes runoff, plant use, storage, dry years. And gauge bias. The ferry still appears possible. But chloride has begun rising before the summer visitor peak.",
+    "segue": "But Iona's farm plan spends water the ferry also needs; her field map must fit the same budget.",
     "stops": [
       {
         "group": "WATER",
@@ -881,18 +881,18 @@ export const MISSIONS = [
     "title": "The Ecological Limits",
     "objective": "Add ecological limits to the ferry plan.",
     "briefing": "",
-    "stake": "Enough drinking water does not guarantee enough food or healthy land for more visitors. Plants, animals, and farms also depend on energy, nutrients, and space. Compare those limits and decide what the ferry plan must protect beyond the island's water supply.",
+    "stake": "13 days until the vote. A torn feed sack spills beside a tray of bare roots. Today you decide whether more feed can lift the island's food limit.",
     "primer": [
       "Only about 10% of energy becomes biomass at the next trophic level.",
       "Primary succession begins without soil; secondary succession begins with soil.",
       "Larger, nearer islands usually support more species."
     ],
     "deeper": {
-      "intro": "You completed The Ecological Limits. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Sack and the Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Ecological Limits, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?",
+          "prompt": "In a follow-up to The Sack and the Reef, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?",
           "hint": "Use the stated evidence and the conditions for Net primary productivity (NPP); do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -919,7 +919,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Ecological Limits: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?",
+          "prompt": "the island council receives a second case related to The Sack and the Reef: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?",
           "hint": "Use the stated evidence and the conditions for Gross primary productivity (GPP); do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -946,7 +946,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Ecological Limits using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?",
+          "prompt": "A teammate rechecks The Sack and the Reef using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?",
           "hint": "Use the stated evidence and the conditions for GPP/NPP and 10% law; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -973,7 +973,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Ecological Limits: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?",
+          "prompt": "An unseen case extends The Sack and the Reef: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?",
           "hint": "Use the stated evidence and the conditions for succession, biomes, aquatic zones; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -1059,7 +1059,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Ecological Limits to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?",
+          "prompt": "the island council applies the lesson from The Sack and the Reef to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?",
           "hint": "Use the stated evidence and the conditions for limiting nutrients and controlled experiment; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1189,10 +1189,10 @@ export const MISSIONS = [
     },
     "takeaway": "Soil makes secondary succession faster than primary succession. ---",
     "card": {
-      "header": "13 DAYS TO THE FERRY VOTE",
+      "header": "MISSION 3 - 13 DAYS UNTIL THE VOTE.",
       "title": "What Keeps Growing",
       "goNow": "Go to the Common Office and meet Iona Vale, common agronomy lead, at the common map.",
-      "body": "Enough drinking water does not guarantee enough food or healthy land for more visitors. Plants, animals, and farms also depend on energy, nutrients, and space. Compare those limits and decide what the ferry plan must protect beyond the island's water supply.",
+      "body": "13 days until the vote. A torn feed sack spills beside a tray of bare roots. Today you decide whether more feed can lift the island's food limit.",
       "objective": "Add ecological limits to the ferry plan."
     },
     "beats": [
@@ -1202,7 +1202,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COMMON"
         },
-        "world": "Iona is defending fertilizer imports while bare patches spread near sheds.",
+        "world": "A torn feed sack spills beside a tray of bare roots.",
         "stage": {
           "wall": [
             {
@@ -1226,7 +1226,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After Stop 1: Keep the new evidence visible and.",
+        "world": "At common-map, the dated accepted-result slip for Stop 9 reads: \"NPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1239,7 +1239,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "vale",
-            "say": "Nice work. Use the Stop 9 result to settle read recovery and habitat."
+            "say": "That check holds. The grazing limit needs to account for land that is still recovering from fire."
           }
         ]
       },
@@ -1250,7 +1250,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After Stop 2: Update the persistent panel and or the evidence-led waypoint.",
+        "world": "At soil-bench, the dated accepted-result slip for Stop 10 reads: \"The burned soil follows secondary succession and can recover in roughly 10-50 years; bare rock primary succession often takes 100+ years.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1263,7 +1263,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "vale",
-            "say": "Good thinking. Use the Stop 10 result to settle classify vulnerability."
+            "say": "That check holds. The recovery map shows that habitat damage will not affect every island species equally."
           }
         ]
       },
@@ -1274,7 +1274,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "After Stop 3: Show the combined result and unlock the decision stop.",
+        "world": "At common-map, the dated accepted-result slip for Stop 11 reads: \"Protect the petrel first; monitor the seal; routine watch for the generalists.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1287,7 +1287,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "vale",
-            "say": "Exactly right. Use the Stop 11 result to settle test the fertilizer claim."
+            "say": "That check holds. Fertilizer is proposed to raise production despite the island's newly established ecological limits."
           }
         ]
       },
@@ -1296,7 +1296,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Outcome and hook: Apply the committed decision, show its world consequence, and name the next destination; Required bubbles pause until Continue.",
+        "world": "At nitrogen-bench, Iona Vale ties a SURPLUS NITROGEN tag to the fertilizer sack. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1309,12 +1309,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "vale",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "I paid for that feed. I would rather lose a sack than a field. But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Limit ferry growth to what farms and wild systems can support. Food loss, slow growth, and habitat all set the limit. More fertilizer will not remove those limits. Salt in the well is still rising.",
+    "segue": "But Nkemdi's salt needle is still climbing before the summer rush; the well cannot wait for the farm plan.",
     "stops": [
       {
         "group": "POWER",
@@ -1352,18 +1352,18 @@ export const MISSIONS = [
     "title": "The Aquifer Warning",
     "objective": "Diagnose the salt pathway and set an aquifer warning.",
     "briefing": "",
-    "stake": "Salt appeared in a well before the busiest visitor season. Heavy pumping may have drawn seawater into the underground freshwater supply. Compare the rocks, water levels, and timing of the salt increase, then decide what caused the warning and when pumping should be restricted.",
+    "stake": "12 days until the vote. The well needle sits below yesterday's chalk mark. Today you decide when pumping must stop.",
     "primer": [
       "Sand drains rapidly; clay drains slowly and often holds nutrients.",
       "Physical weathering changes size; chemical weathering changes composition.",
       "O-A-E-B-C-R runs from surface organic matter to bedrock; E is leached and B accumulates material."
     ],
     "deeper": {
-      "intro": "You completed The Aquifer Warning. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Salt Before Summer. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Aquifer Warning, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?",
+          "prompt": "In a follow-up to Salt Before Summer, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?",
           "hint": "Use the stated evidence and the conditions for Porosity; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -1390,7 +1390,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Aquifer Warning: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?",
+          "prompt": "the island council receives a second case related to Salt Before Summer: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?",
           "hint": "Use the stated evidence and the conditions for soil horizons/weathering/texture; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1417,7 +1417,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Aquifer Warning using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "A teammate rechecks Salt Before Summer using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "D",
           "figure": {
@@ -1477,7 +1477,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Aquifer Warning: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?",
+          "prompt": "An unseen case extends Salt Before Summer: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?",
           "hint": "Use the stated evidence and the conditions for coupled groundwater evidence; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -1568,7 +1568,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Aquifer Warning to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?",
+          "prompt": "the island council applies the lesson from Salt Before Summer to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?",
           "hint": "Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1677,10 +1677,10 @@ export const MISSIONS = [
     },
     "takeaway": "Thresholds should be committed before new evidence arrives. ---",
     "card": {
-      "header": "12 DAYS TO THE FERRY VOTE",
+      "header": "MISSION 4 - 12 DAYS UNTIL THE VOTE.",
       "title": "Salt Before Summer",
       "goNow": "Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the store gauges.",
-      "body": "Salt appeared in a well before the busiest visitor season. Heavy pumping may have drawn seawater into the underground freshwater supply. Compare the rocks, water levels, and timing of the salt increase, then decide what caused the warning and when pumping should be restricted.",
+      "body": "12 days until the vote. The well needle sits below yesterday's chalk mark. Today you decide when pumping must stop.",
       "objective": "Diagnose the salt pathway and set an aquifer warning."
     },
     "beats": [
@@ -1690,7 +1690,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WATER"
         },
-        "world": "Arrival: Nkemdi sets the aquifer core beside the synchronized well log; Continue.",
+        "world": "The well needle sits below yesterday's chalk mark.",
         "stage": {
           "wall": [
             {
@@ -1714,7 +1714,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After Stop 13: The O-A-E-B-C-R core labels remain visible and the well probe unlocks.",
+        "world": "At rain-bench, the dated accepted-result slip for Stop 13 reads: \"The six mappings establish a sandy, permeable coastal path above a clay-rich storage layer.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1727,7 +1727,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Nice work. Use the Stop 13 result to settle probe the salt front."
+            "say": "That check holds. The permeable coastal layer needs a well-by-well check before the chloride warning is diagnosed."
           }
         ]
       },
@@ -1738,7 +1738,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After Stop 14: W3-W5 receive persistent SALT FRONT tags and the combined diagnostic panel unlocks.",
+        "world": "At store-gauges, the dated accepted-result slip for Stop 14 reads: \"The break begins at W3; chloride rises toward shore while nitrate stays near 4 mg/L and freshwater head falls.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1751,7 +1751,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Good thinking. Use the Stop 14 result to settle diagnose the early warning."
+            "say": "That check holds. The well survey has located the salt front but has not yet explained why it advanced."
           }
         ]
       },
@@ -1762,7 +1762,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "After Stop 15: The pump control flashes beside the falling-head record and unlocks the trigger.",
+        "world": "At store-gauges, the dated accepted-result slip for Stop 15 reads: \"Continuous pumping under low recharge lowered freshwater head and pulled seawater inland.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1775,7 +1775,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Exactly right. Use the Stop 15 result to settle write the aquifer trigger."
+            "say": "That check holds. The drawdown diagnosis requires an action rule before the next well update arrives."
           }
         ]
       },
@@ -1784,7 +1784,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Outcome and hook: The pump stops on the third update, the 1.0 m plaque remains, and the landings record becomes the next waypoint; Required bubbles pause until Continue.",
+        "world": "At store-gauges, Nkemdi Okafor marks the gauge with STOP PUMPING AT 1.0 M OR BELOW. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1797,12 +1797,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okafor",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "The pump can keep running long after the well stops being fresh. Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The well is salty because pumping lowered fresh water pressure. Seawater then moved into the aquifer. Stop pumping at 1.0 metre or less. Next, test if steady fish catch hides loss.",
+    "segue": "Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder.",
     "stops": [
       {
         "group": "WATER",
@@ -1838,18 +1838,18 @@ export const MISSIONS = [
     "title": "The Fishery Ceiling",
     "objective": "Set a sustainable and enforceable fishery ceiling.",
     "briefing": "",
-    "stake": "Fishing boats still bring back fish, but crews are working longer for each tonne they catch. Steady catches may hide a shrinking fish population. Compare the population and habitat evidence, then set a catch limit that keeps fishing possible in future years.",
+    "stake": "11 days until the vote. Wet gloves weigh down a page full of longer boat shifts. Today you decide how much catch the reef can replace.",
     "primer": [
       "Exponential growth assumes no limit; logistic growth slows near K.",
       "Type I survivorship has low early death, Type II constant death, Type III high early death.",
       "Density-dependent limits include disease and competition; weather and disasters are density-independent."
     ],
     "deeper": {
-      "intro": "You completed The Fishery Ceiling. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Same Catch, Twice the Work. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Fishery Ceiling, the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Generalist?",
+          "prompt": "In a follow-up to The Same Catch, Twice the Work, the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Generalist?",
           "hint": "Use the stated evidence and the conditions for Generalist; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -1876,7 +1876,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Fishery Ceiling: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Specialist?",
+          "prompt": "the island council receives a second case related to The Same Catch, Twice the Work: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Specialist?",
           "hint": "Use the stated evidence and the conditions for Specialist; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1903,7 +1903,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Fishery Ceiling using new evidence: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies K-selected?",
+          "prompt": "A teammate rechecks The Same Catch, Twice the Work using new evidence: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies K-selected?",
           "hint": "Use the stated evidence and the conditions for K-selected; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -1930,7 +1930,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Fishery Ceiling: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Carrying capacity?",
+          "prompt": "An unseen case extends The Same Catch, Twice the Work: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Carrying capacity?",
           "hint": "Use the stated evidence and the conditions for Carrying capacity; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -1984,7 +1984,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Fishery Ceiling to this follow-up: because catch efficiency fell 40%, landings no longer measure stock health. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence?",
+          "prompt": "the island council applies the lesson from The Same Catch, Twice the Work to this follow-up: because catch efficiency fell 40%, landings no longer measure stock health. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence?",
           "hint": "Use the stated evidence and the conditions for survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -2164,10 +2164,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "11 DAYS TO THE VOTE.",
+      "header": "MISSION 5 - 11 DAYS UNTIL THE VOTE.",
       "title": "THE FISHERY CEILING",
       "goNow": "Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book.",
-      "body": "Fishing boats still bring back fish, but crews are working longer for each tonne they catch. Steady catches may hide a shrinking fish population. Compare the population and habitat evidence, then set a catch limit that keeps fishing possible in future years.",
+      "body": "11 days until the vote. Wet gloves weigh down a page full of longer boat shifts. Today you decide how much catch the reef can replace.",
       "objective": "Set a sustainable and enforceable fishery ceiling."
     },
     "beats": [
@@ -2177,7 +2177,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "HARB"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "Wet gloves weigh down a page full of longer boat shifts.",
         "stage": {
           "wall": [
             {
@@ -2201,7 +2201,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At landings-book, the dated accepted-result slip for Stop 17 reads: \"200 and 120 kg/boat-h; decline=(200-120)/200=40%\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2214,7 +2214,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Nice work. Use the Stop 17 result to settle read the survivorship curves."
+            "say": "That check holds. Declining catch efficiency makes species recovery expectations important to the fishing limit."
           }
         ]
       },
@@ -2225,7 +2225,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At transect-bench, the dated accepted-result slip for Stop 18 reads: \"fish Type III, seal Type I. Feedback distinguishes constant Type II\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2238,7 +2238,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Good thinking. Use the Stop 18 result to settle verify logistic recovery."
+            "say": "That check holds. The survivorship comparison leaves the nursery's actual replacement rate to be tested."
           }
         ]
       },
@@ -2249,7 +2249,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 19 changes the persistent board and unlocks the decision stop.",
+        "world": "At flow-tank, the dated accepted-result slip for Stop 19 reads: \"0.50(600)(0.40)=120 fish/yr; 150 exceeds replacement. Feedback shows missing density term\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2262,7 +2262,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Exactly right. Use the Stop 19 result to settle fund an enforceable ceiling."
+            "say": "That check holds. The measured replacement rate needs an enforceable fishing plan rather than a numerical promise alone."
           }
         ]
       },
@@ -2271,7 +2271,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 20 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At landings-book, Tomas Reed draws a red catch-limit line across the landings page. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2284,12 +2284,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "reed",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "The same haul took us longer. I kept calling that a good week. But Ada will not sign a limit no one can check; the fees and patrols need owners."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Cap the catch below measured growth. Fund tags, patrols, and a new stock check. The rule protects the nursery. Now the waste ledger shows leaks into water and air.",
+    "segue": "But Ada will not sign a limit no one can check; the fees and patrols need owners.",
     "stops": [
       {
         "group": "REEF",
@@ -2325,16 +2325,16 @@ export const MISSIONS = [
     "title": "The Enforcement Plan",
     "objective": "Turn ecological ceilings into fair rules.",
     "briefing": "",
-    "stake": "The catch limit cannot work if boats bring fish ashore without reporting them. Compare inspections, fees, and rules for sharing the island's resources. Choose a plan people can follow and officials can enforce without unfairly placing all the costs on one group.",
+    "stake": "10 days until the vote. A fresh permit stamp rests on top of an unpaid patrol rota. Today you decide how the island will enforce its limits.",
     "primer": [
       "regulation and property rights can limit access; developed lifestyles often use 4-5 ha/person versus about 1.8 available globally; practices need mechanism-based justification."
     ],
     "deeper": {
-      "intro": "You completed The Enforcement Plan. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Who Checks the Limit?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Enforcement Plan, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?",
+          "prompt": "In a follow-up to Who Checks the Limit?, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?",
           "hint": "Use the stated evidence and the conditions for Tragedy of the commons; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -2361,7 +2361,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Enforcement Plan: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?",
+          "prompt": "the island council receives a second case related to Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?",
           "hint": "Use the stated evidence and the conditions for Sustainable yield; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -2388,7 +2388,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Enforcement Plan using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?",
+          "prompt": "A teammate rechecks Who Checks the Limit? using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?",
           "hint": "Use the stated evidence and the conditions for Ecological footprint; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -2415,7 +2415,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Enforcement Plan: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?",
+          "prompt": "An unseen case extends Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?",
           "hint": "Use the stated evidence and the conditions for Integrated pest management (IPM); do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -2469,7 +2469,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Enforcement Plan to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?",
+          "prompt": "the island council applies the lesson from Who Checks the Limit? to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?",
           "hint": "Use the stated evidence and the conditions for monitoring design | policy | 6.1 | COMBINE | L5 | decision; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -2599,10 +2599,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "10 DAYS.",
+      "header": "MISSION 6 - 10 DAYS UNTIL THE VOTE.",
       "title": "THE ENFORCEMENT PLAN",
       "goNow": "Harbour Office, Tomas Reed at fee-desk.",
-      "body": "The catch limit cannot work if boats bring fish ashore without reporting them. Compare inspections, fees, and rules for sharing the island's resources. Choose a plan people can follow and officials can enforce without unfairly placing all the costs on one group.",
+      "body": "10 days until the vote. A fresh permit stamp rests on top of an unpaid patrol rota. Today you decide how the island will enforce its limits.",
       "objective": "Turn ecological ceilings into fair rules."
     },
     "beats": [
@@ -2612,7 +2612,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CHAPEL"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "A fresh permit stamp rests on top of an unpaid patrol rota.",
         "stage": {
           "wall": [
             {
@@ -2636,7 +2636,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At council-table, the dated accepted-result slip for Stop 21 reads: \"nursery-zone origin is unbacked; hold catch\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2648,8 +2648,8 @@ export const MISSIONS = [
         "panel": "STOP 21 RECORDED - STOP 22 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 21 result to settle buy compliance evidence."
+            "who": "reed",
+            "say": "That check holds. The held landing reveals an origin-checking gap that the monitoring budget must close."
           }
         ]
       },
@@ -2660,7 +2660,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+checks=35\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2672,8 +2672,8 @@ export const MISSIONS = [
         "panel": "STOP 22 RECORDED - STOP 23 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 22 result to settle match land-use practices."
+            "who": "reed",
+            "say": "That check holds. Harbour enforcement is addressed, but the common's land practices can still undermine water and soil limits."
           }
         ]
       },
@@ -2684,7 +2684,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 23 changes the persistent board and unlocks the decision stop.",
+        "world": "At common-map, the dated accepted-result slip for Stop 23 reads: \"Erosion maps to selective harvest and reforestation; runoff to permeable pavement and rain gardens; irrigation loss to drip irrigation; pests to IPM; and the forestry claim to FSC certification.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2696,8 +2696,8 @@ export const MISSIONS = [
         "panel": "STOP 23 RECORDED - STOP 24 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 23 result to settle fund the commons package."
+            "who": "reed",
+            "say": "That check holds. The matched land practices need a funded package before the common can implement them."
           }
         ]
       },
@@ -2706,7 +2706,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 24 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At fee-desk, Tomas Reed stamps the permit stack CAP AND CHECK REQUIRED. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2718,13 +2718,13 @@ export const MISSIONS = [
         "panel": "MISSION 6 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "reed",
+            "say": "A fee buys the patrol. It does not buy permission to break the cap. But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use measured caps, random checks, restoration, and targeted fees. Payment alone does not prove compliance. The rule can be enforced. But water and methane still leave by unpriced paths.",
+    "segue": "But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak.",
     "stops": [
       {
         "group": "CHAPEL",
@@ -2766,12 +2766,12 @@ export const MISSIONS = [
     "title": "The Hidden Losses",
     "objective": "Find and rank hidden water and waste losses.",
     "briefing": "",
-    "stake": "Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste.",
+    "stake": "9 days until the vote. A brown jar leaves a ring beside a clean pipe sample. Today you decide which hidden losses need repair.",
     "primer": [
       "landfills generate methane and carbon dioxide; leachate can reach groundwater; prevention often costs less than treating exposure."
     ],
     "deeper": {
-      "intro": "You completed The Hidden Losses. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Wet Trail. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [
         {
           "name": "Anaerobic",
@@ -2780,7 +2780,7 @@ export const MISSIONS = [
       ],
       "questions": [
         {
-          "prompt": "In a follow-up to The Hidden Losses, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?",
+          "prompt": "In a follow-up to The Wet Trail, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?",
           "hint": "Use the stated evidence and the conditions for Anaerobic; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -2807,7 +2807,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Hidden Losses: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?",
+          "prompt": "the island council receives a second case related to The Wet Trail: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?",
           "hint": "Use the stated evidence and the conditions for Leachate; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -2834,7 +2834,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Hidden Losses using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?",
+          "prompt": "A teammate rechecks The Wet Trail using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?",
           "hint": "Use the stated evidence and the conditions for Point source; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -2861,7 +2861,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Hidden Losses: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?",
+          "prompt": "An unseen case extends The Wet Trail: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?",
           "hint": "Use the stated evidence and the conditions for Nonpoint source; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -2915,7 +2915,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Hidden Losses to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?",
+          "prompt": "the island council applies the lesson from The Wet Trail to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?",
           "hint": "Use the stated evidence and the conditions for landfill pathways | pollution | D1 | RETRIEVE | L3 | clue; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3045,10 +3045,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "9 DAYS.",
+      "header": "MISSION 7 - 9 DAYS UNTIL THE VOTE.",
       "title": "THE HIDDEN LOSSES",
       "goNow": "Tip and Sorting Yard, Mei Chen at leachate-bench.",
-      "body": "Broken pipes lose treated water before it reaches homes, while the landfill releases polluted drainage and methane gas. Follow those hidden losses and compare their effects. Decide which repair should come first to protect the island's water and reduce waste.",
+      "body": "9 days until the vote. A brown jar leaves a ring beside a clean pipe sample. Today you decide which hidden losses need repair.",
       "objective": "Find and rank hidden water and waste losses."
     },
     "beats": [
@@ -3058,7 +3058,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "TIP"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "A brown jar leaves a ring beside a clean pipe sample.",
         "stage": {
           "wall": [
             {
@@ -3082,7 +3082,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At leachate-bench, the dated accepted-result slip for Stop 25 reads: \"The uncapped cell affects both air and water\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3094,8 +3094,8 @@ export const MISSIONS = [
         "panel": "STOP 25 RECORDED - STOP 26 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 25 result to settle build the treatment chain."
+            "who": "chen",
+            "say": "That check holds. The identified leachate pathway requires a treatment sequence before discharge is permitted."
           }
         ]
       },
@@ -3106,7 +3106,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At leachate-bench, the dated accepted-result slip for Stop 26 reads: \"The five treatment stages are placed in causal order and dilution is rejected\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3118,8 +3118,8 @@ export const MISSIONS = [
         "panel": "STOP 26 RECORDED - STOP 27 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 26 result to settle close the water balance."
+            "who": "chen",
+            "say": "That check holds. The contamination pathway is understood, but the waterworks still cannot account for its delivered volume."
           }
         ]
       },
@@ -3130,7 +3130,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 27 changes the persistent board and unlocks the decision stop.",
+        "world": "At pipe-balance, the dated accepted-result slip for Stop 27 reads: \"The unmetered loss is 50 m3/day\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3142,8 +3142,8 @@ export const MISSIONS = [
         "panel": "STOP 27 RECORDED - STOP 28 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 27 result to settle choose the repair priority."
+            "who": "chen",
+            "say": "That check holds. The missing distribution water and the leachate pathway now compete for the same repair budget."
           }
         ]
       },
@@ -3152,7 +3152,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 28 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At leachate-bench, Mei Chen sets the leak jar in a tray marked LINER REPAIR REQUIRED. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3164,13 +3164,13 @@ export const MISSIONS = [
         "panel": "MISSION 7 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "chen",
+            "say": "We found the missing water. Now find out what reached the cups. But Lena's school sample carries nitrate; the children need a traced source, not another guess."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Repair the liner and treatment chain. Count the 50 cubic metres lost each day. The leak is real. Next, trace where school nitrate enters the system.",
+    "segue": "But Lena's school sample carries nitrate; the children need a traced source, not another guess.",
     "stops": [
       {
         "group": "TIP",
@@ -3208,16 +3208,16 @@ export const MISSIONS = [
     "title": "The School-Water Finding",
     "objective": "Identify the school exposure pathway.",
     "briefing": "",
-    "stake": "The main pipe repair restored water supply, but the school tap still has more nitrate pollution than the main water pipe. Compare samples and estimate what children would swallow. Find the source and choose immediate protection while the remaining fault is investigated.",
+    "stake": "8 days until the vote. Empty cups stand behind a DO NOT DRINK card. Today you decide what will make the school tap safe.",
     "primer": [
       "dose-response often forms an S-curve; children can receive larger mass-normalized dose; source location follows spatial patterns."
     ],
     "deeper": {
-      "intro": "You completed The School-Water Finding. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Cups Stay Empty. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The School-Water Finding, because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies Dose?",
+          "prompt": "In a follow-up to The Cups Stay Empty, because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies Dose?",
           "hint": "Use the stated evidence and the conditions for Dose; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -3244,7 +3244,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The School-Water Finding: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "the island council receives a second case related to The Cups Stay Empty: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "C",
           "figure": {
@@ -3308,7 +3308,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The School-Water Finding using new evidence: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies Bioavailability?",
+          "prompt": "A teammate rechecks The Cups Stay Empty using new evidence: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies Bioavailability?",
           "hint": "Use the stated evidence and the conditions for Bioavailability; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -3335,7 +3335,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The School-Water Finding: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence?",
+          "prompt": "An unseen case extends The Cups Stay Empty: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence?",
           "hint": "Use the stated evidence and the conditions for nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -3389,7 +3389,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The School-Water Finding to this follow-up: the dose comparison makes the school tap urgent, while the branch location narrows the source. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies source timing | causality | D3 | RETRIEVE | L4 | twist?",
+          "prompt": "the island council applies the lesson from The Cups Stay Empty to this follow-up: the dose comparison makes the school tap urgent, while the branch location narrows the source. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies source timing | causality | D3 | RETRIEVE | L4 | twist?",
           "hint": "Use the stated evidence and the conditions for source timing | causality | D3 | RETRIEVE | L4 | twist; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3523,10 +3523,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "8 DAYS.",
+      "header": "MISSION 8 - 8 DAYS UNTIL THE VOTE.",
       "title": "THE SCHOOL-WATER FINDING",
       "goNow": "Waterworks, Nkemdi at store-gauges.",
-      "body": "The main pipe repair restored water supply, but the school tap still has more nitrate pollution than the main water pipe. Compare samples and estimate what children would swallow. Find the source and choose immediate protection while the remaining fault is investigated.",
+      "body": "8 days until the vote. Empty cups stand behind a DO NOT DRINK card. Today you decide what will make the school tap safe.",
       "objective": "Identify the school exposure pathway."
     },
     "beats": [
@@ -3536,7 +3536,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WATER"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "Empty cups stand behind a DO NOT DRINK card.",
         "stage": {
           "wall": [
             {
@@ -3560,7 +3560,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At store-gauges, the dated accepted-result slip for Stop 29 reads: \"The first break is the school branch; the source is local\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3572,8 +3572,8 @@ export const MISSIONS = [
         "panel": "STOP 29 RECORDED - STOP 30 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 29 result to settle compare child and adult dose."
+            "who": "costa",
+            "say": "That check holds. The school-branch finding makes body-size differences relevant to the exposure decision."
           }
         ]
       },
@@ -3584,7 +3584,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At register-desk, the dated accepted-result slip for Stop 30 reads: \"Child dose is 0.56 and adult dose 0.32 mg/kg/day; the child dose is 75% higher\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3596,8 +3596,8 @@ export const MISSIONS = [
         "panel": "STOP 30 RECORDED - STOP 31 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 30 result to settle verify the garden source."
+            "who": "costa",
+            "say": "That check holds. The child-dose result makes the suspected garden connection urgent to test."
           }
         ]
       },
@@ -3608,7 +3608,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 31 changes the persistent board and unlocks the decision stop.",
+        "world": "At school-tap, the dated accepted-result slip for Stop 31 reads: \"Prediction is 8.6 mg/L; isolation measures 6.2 mg/L and identifies the local garden input\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3620,8 +3620,8 @@ export const MISSIONS = [
         "panel": "STOP 31 RECORDED - STOP 32 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 31 result to settle set the school action level."
+            "who": "costa",
+            "say": "That check holds. The garden input is identified, but school water needs an enforceable rule while repairs proceed."
           }
         ]
       },
@@ -3630,7 +3630,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 32 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At school-tap, Lena Costa removes the DO NOT DRINK card from the isolated school tap. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3642,13 +3642,13 @@ export const MISSIONS = [
         "panel": "MISSION 8 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "costa",
+            "say": "The new test says 6.2. I can fill these cups again. But Iona's next rain could wash more feed downhill; the source rules must change before it falls."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The garden caused the school nitrate spike. Use safe water when nitrate reaches 10.0 mg/L. Isolation lowers the tap to 6.2 mg/L. New farm and waste rules must stop another pulse.",
+    "segue": "But Iona's next rain could wash more feed downhill; the source rules must change before it falls.",
     "stops": [
       {
         "group": "WATER",
@@ -3684,16 +3684,16 @@ export const MISSIONS = [
     "title": "Waste and Land-Use Controls",
     "objective": "Cut pollution at source.",
     "briefing": "",
-    "stake": "The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food.",
+    "stake": "7 days until the vote. A runoff jar sits on the field map beside the school route. Today you decide where to stop waste before it reaches water.",
     "primer": [
       "heavy metals damage nerves/kidneys; endocrine disruptors impair development; microplastic effects remain uncertain; mining can cause acid drainage; clearcutting increases erosion."
     ],
     "deeper": {
-      "intro": "You completed Waste and Land-Use Controls. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Before the Next Rain. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Waste and Land-Use Controls, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?",
+          "prompt": "In a follow-up to Before the Next Rain, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?",
           "hint": "Use the stated evidence and the conditions for Bioaccumulation; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -3720,7 +3720,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?",
+          "prompt": "the island council receives a second case related to Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?",
           "hint": "Use the stated evidence and the conditions for Biomagnification; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3747,7 +3747,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks Waste and Land-Use Controls using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?",
+          "prompt": "A teammate rechecks Before the Next Rain using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?",
           "hint": "Use the stated evidence and the conditions for Persistent organic pollutant; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -3774,7 +3774,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?",
+          "prompt": "An unseen case extends Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?",
           "hint": "Use the stated evidence and the conditions for Eutrophication; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -3801,7 +3801,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Before another Waste and Land-Use Controls decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?",
+          "prompt": "Before another Before the Next Rain decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?",
           "hint": "Use the stated evidence and the conditions for pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -3828,7 +3828,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from Waste and Land-Use Controls to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?",
+          "prompt": "the island council applies the lesson from Before the Next Rain to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?",
           "hint": "Use the stated evidence and the conditions for point and nonpoint fate | pollution | 9; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3962,10 +3962,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "7 DAYS.",
+      "header": "MISSION 9 - 7 DAYS UNTIL THE VOTE.",
       "title": "WASTE AND LAND-USE CONTROLS",
       "goNow": "Tip, Mei at weighbridge.",
-      "body": "The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food.",
+      "body": "7 days until the vote. A runoff jar sits on the field map beside the school route. Today you decide where to stop waste before it reaches water.",
       "objective": "Cut pollution at source."
     },
     "beats": [
@@ -3975,7 +3975,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "TIP"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "A runoff jar sits on the field map beside the school route.",
         "stage": {
           "wall": [
             {
@@ -3999,7 +3999,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At weighbridge, the dated accepted-result slip for Stop 33 reads: \"All five loads are separated by persistence and biological effect\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4011,8 +4011,8 @@ export const MISSIONS = [
         "panel": "STOP 33 RECORDED - STOP 34 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 33 result to settle map source and fate."
+            "who": "vale",
+            "say": "That check holds. The sorted waste needs a source-and-fate map before controls are chosen."
           }
         ]
       },
@@ -4023,7 +4023,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At tip-lab-bench, the dated accepted-result slip for Stop 34 reads: \"All four pollutants are linked to the pathway their control must intercept\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4035,8 +4035,8 @@ export const MISSIONS = [
         "panel": "STOP 34 RECORDED - STOP 35 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 34 result to settle control the compost process."
+            "who": "vale",
+            "say": "That check holds. The source map makes compost a possible fertilizer substitute whose operating conditions need testing."
           }
         ]
       },
@@ -4047,7 +4047,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 35 changes the persistent board and unlocks the decision stop.",
+        "world": "At council-table, the dated accepted-result slip for Stop 35 reads: \"Greater aeration raises temperature from 38 C to 58 C and lowers odor from 8 to 2, supporting aerobic decomposition\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4059,8 +4059,8 @@ export const MISSIONS = [
         "panel": "STOP 35 RECORDED - STOP 36 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 35 result to settle fund source controls."
+            "who": "vale",
+            "say": "That check holds. The compost test and source map now provide evidence for allocating prevention effort."
           }
         ]
       },
@@ -4069,7 +4069,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 36 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At common-map, Iona Vale pins the source-control plan across the runoff route. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4081,13 +4081,13 @@ export const MISSIONS = [
         "panel": "MISSION 9 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "vale",
+            "say": "The ditch crosses our fence. So does our responsibility. But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Line the waste cell and cut sewage nutrients. Use drip lines, IPM, and rain gardens. These steps stop waste near its source. The reef still loses oxygen in warm, nitrate-rich weeks.",
+    "segue": "But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case.",
     "stops": [
       {
         "group": "TIP",
@@ -4123,16 +4123,16 @@ export const MISSIONS = [
     "title": "The Reef Evidence",
     "objective": "Separate and combine reef stressors.",
     "briefing": "",
-    "stake": "The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce.",
+    "stake": "6 days until the vote. Nursery tiles lie beside two jars from the same warm week. Today you decide which pressures the reef plan must cut.",
     "primer": [
       "photic shallow water supports algae; eutrophication proceeds nutrients->bloom->decay->anoxia; acidification harms calcium-carbonate shells."
     ],
     "deeper": {
-      "intro": "You completed The Reef Evidence. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Two Stresses, One Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Reef Evidence, the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?",
+          "prompt": "In a follow-up to Two Stresses, One Reef, the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?",
           "hint": "Use the stated evidence and the conditions for Dissolved oxygen; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -4159,7 +4159,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Reef Evidence: the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?",
+          "prompt": "the island council receives a second case related to Two Stresses, One Reef: the new controls target nutrients, but Rafi's heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?",
           "hint": "Use the stated evidence and the conditions for Thermal pollution; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4186,7 +4186,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Reef Evidence using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?",
+          "prompt": "A teammate rechecks Two Stresses, One Reef using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?",
           "hint": "Use the stated evidence and the conditions for Ocean acidification; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -4213,7 +4213,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Reef Evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?",
+          "prompt": "An unseen case extends Two Stresses, One Reef: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?",
           "hint": "Use the stated evidence and the conditions for Dead zone; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -4267,7 +4267,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Reef Evidence to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?",
+          "prompt": "the island council applies the lesson from Two Stresses, One Reef to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?",
           "hint": "Use the stated evidence and the conditions for factorial stressors | causality | D9 | COMBINE | L4 | reveal; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4401,10 +4401,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "6 DAYS.",
+      "header": "MISSION 10 - 6 DAYS UNTIL THE VOTE.",
       "title": "THE REEF EVIDENCE",
       "goNow": "Reef Station, Rafi Noor at water-rack.",
-      "body": "The reef has less oxygen during warm weeks when extra nutrients wash into the bay. Heat and decaying algae can both leave marine life short of oxygen. Test their separate and combined effects, then decide which pressures the ferry agreement must reduce.",
+      "body": "6 days until the vote. Nursery tiles lie beside two jars from the same warm week. Today you decide which pressures the reef plan must cut.",
       "objective": "Separate and combine reef stressors."
     },
     "beats": [
@@ -4414,7 +4414,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WATER"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "Nursery tiles lie beside two jars from the same warm week.",
         "stage": {
           "wall": [
             {
@@ -4438,7 +4438,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At sampler, the dated accepted-result slip for Stop 37 reads: \"Heat plus nitrate survives; the heat-only errors track nitrate pulses\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4450,8 +4450,8 @@ export const MISSIONS = [
         "panel": "STOP 37 RECORDED - STOP 38 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 37 result to settle control heat and nutrients."
+            "who": "noor",
+            "say": "That check holds. The residual pattern suggests a nutrient effect that must be separated from heat experimentally."
           }
         ]
       },
@@ -4462,7 +4462,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At flow-tank, the dated accepted-result slip for Stop 38 reads: \"The combined treatment yields 3.1 mg/L oxygen and 30% cover, showing heat and nutrients interact\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4474,8 +4474,8 @@ export const MISSIONS = [
         "panel": "STOP 38 RECORDED - STOP 39 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 38 result to settle map acidification damage."
+            "who": "noor",
+            "say": "That check holds. The tank results leave shell loss outside the bloom needing an additional explanation."
           }
         ]
       },
@@ -4486,7 +4486,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 39 changes the persistent board and unlocks the decision stop.",
+        "world": "At transect-bench, the dated accepted-result slip for Stop 39 reads: \"Falling pH accompanies falling calcifier cover; acidification explains the shell loss\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4498,8 +4498,8 @@ export const MISSIONS = [
         "panel": "STOP 39 RECORDED - STOP 40 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 39 result to settle stress the catch ceiling."
+            "who": "noor",
+            "say": "That check holds. The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
           }
         ]
       },
@@ -4508,7 +4508,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 40 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At transect-bench, Rafi Noor pins the poor-year card marked CATCH CAP: 70 FISH above the nursery tiles. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4520,13 +4520,13 @@ export const MISSIONS = [
         "panel": "MISSION 10 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "noor",
+            "say": "I blamed the heat. The other columns would not let me stop there. Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Cut runoff, warm water, air waste, and fishing at the same time. Cap catch at 70 fish in poor years. Heat alone did not harm the reef. The plan must protect the full habitat.",
+    "segue": "Therefore Elias must price the power for the whole plan; reef pumps and safe water still need current after dusk.",
     "stops": [
       {
         "group": "CHAPEL",
@@ -4564,13 +4564,13 @@ export const MISSIONS = [
     "title": "Energy and Emissions Ledger",
     "objective": "Close the useful-energy and pollution ledger.",
     "briefing": "",
-    "stake": "The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice.",
+    "stake": "5 days until the vote. The turbine's big rating plate shines above a much smaller meter reading. Today you decide which power mix keeps a reserve.",
     "primer": [
       "coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is low-carbon with costly long-lived waste; renewables are low-carbon but need land, storage, or backup.",
       "Weather is short-term; climate is a 30+ year average."
     ],
     "deeper": {
-      "intro": "You completed Energy and Emissions Ledger. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed After Dusk. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [
         {
           "name": "Thermal inversion",
@@ -4579,7 +4579,7 @@ export const MISSIONS = [
       ],
       "questions": [
         {
-          "prompt": "In a follow-up to Energy and Emissions Ledger, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?",
+          "prompt": "In a follow-up to After Dusk, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?",
           "hint": "Use the stated evidence and the conditions for Thermal inversion; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -4606,7 +4606,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to Energy and Emissions Ledger: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?",
+          "prompt": "the island council receives a second case related to After Dusk: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?",
           "hint": "Use the stated evidence and the conditions for Capacity factor; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4633,7 +4633,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks Energy and Emissions Ledger using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?",
+          "prompt": "A teammate rechecks After Dusk using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?",
           "hint": "Use the stated evidence and the conditions for Energy return on investment (EROI); do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -4660,7 +4660,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends Energy and Emissions Ledger: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?",
+          "prompt": "An unseen case extends After Dusk: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?",
           "hint": "Use the stated evidence and the conditions for Primary pollutant; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -4687,7 +4687,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Before another Energy and Emissions Ledger decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?",
+          "prompt": "Before another After Dusk decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?",
           "hint": "Use the stated evidence and the conditions for Secondary pollutant; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -4714,7 +4714,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from Energy and Emissions Ledger to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "the island council applies the lesson from After Dusk to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "C",
           "figure": {
@@ -4794,7 +4794,11 @@ export const MISSIONS = [
         "v": [
           [
             "efficiency",
-            "a decimal or percent; useful output and total input are measured in the same energy unit"
+            "is a decimal or percent"
+          ],
+          [
+            "useful",
+            "output and total input are measured in the same energy unit"
           ]
         ],
         "s": "It converts the island evidence into a defensible operating limit."
@@ -4874,10 +4878,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "5 DAYS.",
+      "header": "MISSION 11 - 5 DAYS UNTIL THE VOTE.",
       "title": "ENERGY AND EMISSIONS LEDGER",
       "goNow": "Turbine Yard, Elias Shaw at meter-board.",
-      "body": "The new ferry needs dependable power, but a generator's maximum rating does not show how much energy it supplies through the year. Compare actual electricity needs, fuel pollution, and control costs. Choose an energy plan the island can support in practice.",
+      "body": "5 days until the vote. The turbine's big rating plate shines above a much smaller meter reading. Today you decide which power mix keeps a reserve.",
       "objective": "Close the useful-energy and pollution ledger."
     },
     "beats": [
@@ -4887,7 +4891,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "POWER"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "The turbine's big rating plate shines above a much smaller meter reading.",
         "stage": {
           "wall": [
             {
@@ -4911,7 +4915,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At meter-board, the dated accepted-result slip for Stop 41 reads: \"The reserve is 15 kW\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4923,8 +4927,8 @@ export const MISSIONS = [
         "panel": "STOP 41 RECORDED - STOP 42 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 41 result to settle calculate capacity factor."
+            "who": "shaw",
+            "say": "That check holds. The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
           }
         ]
       },
@@ -4935,7 +4939,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At turbine-plate, the dated accepted-result slip for Stop 42 reads: \"Capacity factor is 31.1%\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4947,8 +4951,8 @@ export const MISSIONS = [
         "panel": "STOP 42 RECORDED - STOP 43 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 42 result to settle match pollutants and controls."
+            "who": "shaw",
+            "say": "That check holds. The wind-performance result leaves backup generation necessary and its pollution needing controls."
           }
         ]
       },
@@ -4959,7 +4963,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 43 changes the persistent board and unlocks the decision stop.",
+        "world": "At tip-lab-bench, the dated accepted-result slip for Stop 43 reads: \"All five pollutant chains are matched\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4971,8 +4975,8 @@ export const MISSIONS = [
         "panel": "STOP 43 RECORDED - STOP 44 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 43 result to settle fund the energy portfolio."
+            "who": "shaw",
+            "say": "That check holds. The council now has both measured wind performance and backup pollution costs to fund together."
           }
         ]
       },
@@ -4981,7 +4985,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 44 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At turbine-plate, Elias Shaw rivets a 31% ANNUAL CAPACITY FACTOR plate below the rated output. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4993,13 +4997,13 @@ export const MISSIONS = [
         "panel": "MISSION 11 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "shaw",
+            "say": "The big number is what it can do. This one is what it did. But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use repaired wind, storage, and less power. Keep a clean backup for short gaps. This mix saves the 15-kilowatt reserve. A methane leak now puts that reserve at risk.",
+    "segue": "But Mei's gas alarm threatens the backup; the missing methane must be caught before the wind gear arrives.",
     "stops": [
       {
         "group": "POWER",
@@ -5037,17 +5041,17 @@ export const MISSIONS = [
     "title": "The Leak and Turbine Case",
     "objective": "Lock a feasible low-emission power bridge.",
     "briefing": "",
-    "stake": "The wind turbine needs eleven weeks of repairs, leaving a gap in the ferry's power supply. Gas captured from the landfill could help, but escaping methane adds pollution. Verify the repair time and gas supply, then choose reliable temporary power with defensible emissions.",
+    "stake": "4 days until the vote. The gearbox crate holds a delivery slip with its date crossed out. Today you decide how to keep key services powered while parts are late.",
     "primer": [
       "CH4 GWP about 28-36 over 100 years and lasts about 12 years; CO2 GWP 1 but lasts centuries to millennia; N2O GWP 265-310 and lasts 121 years.",
       "Nuclear fission releases heat; U-235 half-life 704 million years, Cs-137 30 years, I-131 8 days."
     ],
     "deeper": {
-      "intro": "You completed The Leak and Turbine Case. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Crate Is Late. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Leak and Turbine Case, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?",
+          "prompt": "In a follow-up to The Crate Is Late, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?",
           "hint": "Use the stated evidence and the conditions for Greenhouse gas; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -5074,7 +5078,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Leak and Turbine Case: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?",
+          "prompt": "the island council receives a second case related to The Crate Is Late: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?",
           "hint": "Use the stated evidence and the conditions for Global warming potential; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5101,7 +5105,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Leak and Turbine Case using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?",
+          "prompt": "A teammate rechecks The Crate Is Late using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?",
           "hint": "Use the stated evidence and the conditions for Half-life; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -5128,7 +5132,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Leak and Turbine Case: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?",
+          "prompt": "An unseen case extends The Crate Is Late: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?",
           "hint": "Use the stated evidence and the conditions for Base load; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -5182,7 +5186,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Leak and Turbine Case to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?",
+          "prompt": "the island council applies the lesson from The Crate Is Late to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?",
           "hint": "Use the stated evidence and the conditions for methane capture | causality | D7 | RETRIEVE | L4 | evidence; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5312,10 +5316,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "4 DAYS.",
+      "header": "MISSION 12 - 4 DAYS UNTIL THE VOTE.",
       "title": "THE LEAK AND TURBINE CASE",
       "goNow": "Turbine Yard, Elias Shaw at gearbox-crate.",
-      "body": "The wind turbine needs eleven weeks of repairs, leaving a gap in the ferry's power supply. Gas captured from the landfill could help, but escaping methane adds pollution. Verify the repair time and gas supply, then choose reliable temporary power with defensible emissions.",
+      "body": "4 days until the vote. The gearbox crate holds a delivery slip with its date crossed out. Today you decide how to keep key services powered while parts are late.",
       "objective": "Lock a feasible low-emission power bridge."
     },
     "beats": [
@@ -5325,7 +5329,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CHAPEL"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "The gearbox crate holds a delivery slip with its date crossed out.",
         "stage": {
           "wall": [
             {
@@ -5349,7 +5353,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At council-table, the dated accepted-result slip for Stop 45 reads: \"Wind is not firm power before the vote\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5361,8 +5365,8 @@ export const MISSIONS = [
         "panel": "STOP 45 RECORDED - STOP 46 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 45 result to settle verify methane capture."
+            "who": "shaw",
+            "say": "That check holds. The unavailable wind supply makes captured landfill gas a possible temporary power source."
           }
         ]
       },
@@ -5373,7 +5377,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At gas-rack, the dated accepted-result slip for Stop 46 reads: \"Prediction 176 m3/day; measurements 170 m3/day and 18% leakage pass\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5385,8 +5389,8 @@ export const MISSIONS = [
         "panel": "STOP 46 RECORDED - STOP 47 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 46 result to settle diagnose the engine-room alarm."
+            "who": "shaw",
+            "say": "That check holds. Passing methane capture does not explain the backup engine room's continuing alarm."
           }
         ]
       },
@@ -5397,7 +5401,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 47 changes the persistent board and unlocks the decision stop.",
+        "world": "At tip-lab-bench, the dated accepted-result slip for Stop 47 reads: \"Incomplete combustion plus the stuck damper caused the CO alarm\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5409,8 +5413,8 @@ export const MISSIONS = [
         "panel": "STOP 47 RECORDED - STOP 48 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 47 result to settle allocate firm power."
+            "who": "shaw",
+            "say": "That check holds. The exhaust repair makes the backup source usable, but protected loads must fit its limited output."
           }
         ]
       },
@@ -5419,7 +5423,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 48 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At load-board, Elias Shaw pins the 180 KW ESSENTIAL-LOAD PLAN to the load board. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5431,13 +5435,13 @@ export const MISSIONS = [
         "panel": "MISSION 12 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "shaw",
+            "say": "The crate is late. The school lights do not get to be late. But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use stored gas, fixed pipes, key loads, and cells until the wind gear arrives. The 180-kilowatt plan keeps water, school, homes, and food safe. Backup power is ready.",
+    "segue": "But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford.",
     "stops": [
       {
         "group": "CHAPEL",
@@ -5475,16 +5479,16 @@ export const MISSIONS = [
     "title": "The Biosecurity Rule",
     "objective": "Prevent imported species from outrunning island defenses.",
     "briefing": "",
-    "stake": "The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established.",
+    "stake": "3 days until the vote. A seed clings to the mud under a cargo crate. Today you decide which ferry loads must be held or cleaned.",
     "primer": [
       "species richness rises with island size and falls with distance; generalists often invade readily; disturbance opens habitat; prevention is cheaper than eradication."
     ],
     "deeper": {
-      "intro": "You completed The Biosecurity Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed What Came Ashore. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Biosecurity Rule, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?",
+          "prompt": "In a follow-up to What Came Ashore, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?",
           "hint": "Use the stated evidence and the conditions for Invasive species; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -5511,7 +5515,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?",
+          "prompt": "the island council receives a second case related to What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?",
           "hint": "Use the stated evidence and the conditions for Endemic; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5538,7 +5542,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Biosecurity Rule using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?",
+          "prompt": "A teammate rechecks What Came Ashore using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?",
           "hint": "Use the stated evidence and the conditions for Convention on International Trade in Endangered Species (CITES); do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -5565,7 +5569,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Biosecurity Rule: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?",
+          "prompt": "An unseen case extends What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?",
           "hint": "Use the stated evidence and the conditions for Endangered Species Act; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -5619,7 +5623,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Biosecurity Rule to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?",
+          "prompt": "the island council applies the lesson from What Came Ashore to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?",
           "hint": "Use the stated evidence and the conditions for invasion detection | uncertainty | 13; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5749,10 +5753,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "3 DAYS.",
+      "header": "MISSION 13 - 3 DAYS UNTIL THE VOTE.",
       "title": "THE BIOSECURITY RULE",
       "goNow": "Ferry Berth, Tomas Reed at berth-standpipe.",
-      "body": "The power plan is ready, but arriving ferries could carry organisms that spread and harm island wildlife. Inspect likely routes from the boats to land and reef. Choose checks that prevent harmful new species from arriving or becoming established.",
+      "body": "3 days until the vote. A seed clings to the mud under a cargo crate. Today you decide which ferry loads must be held or cleaned.",
       "objective": "Prevent imported species from outrunning island defenses."
     },
     "beats": [
@@ -5762,7 +5766,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BERTH"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "A seed clings to the mud under a cargo crate.",
         "stage": {
           "wall": [
             {
@@ -5786,7 +5790,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At quarantine-rack, the dated accepted-result slip for Stop 49 reads: \"Five biological pathways enter quarantine; sealed clean metal may proceed\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5798,8 +5802,8 @@ export const MISSIONS = [
         "panel": "STOP 49 RECORDED - STOP 50 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 49 result to settle test survey recovery."
+            "who": "reed",
+            "say": "That check holds. Cargo screening needs a detection check before the council relies on surveys to catch escapees."
           }
         ]
       },
@@ -5810,7 +5814,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At common-map, the dated accepted-result slip for Stop 50 reads: \"Recovery is 67%; the survey fails\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5822,8 +5826,8 @@ export const MISSIONS = [
         "panel": "STOP 50 RECORDED - STOP 51 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 50 result to settle control the rinse treatment."
+            "who": "reed",
+            "say": "That check holds. The survey's missed organisms make prevention before cargo release more important."
           }
         ]
       },
@@ -5834,7 +5838,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 51 changes the persistent board and unlocks the decision stop.",
+        "world": "At flow-tank, the dated accepted-result slip for Stop 51 reads: \"Survivors fall from 100 to 2 only when rinse is on; rinsing caused the reduction\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5846,8 +5850,8 @@ export const MISSIONS = [
         "panel": "STOP 51 RECORDED - STOP 52 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 51 result to settle write the biosecurity protocol."
+            "who": "reed",
+            "say": "That check holds. The detection and rinse tests are complete, allowing an evidence-based unloading protocol."
           }
         ]
       },
@@ -5856,7 +5860,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 52 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At quarantine-rack, Tomas Reed hangs a CHECK BEFORE SAILING tag on the cargo release hook. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5868,13 +5872,13 @@ export const MISSIONS = [
         "panel": "MISSION 13 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "reed",
+            "say": "If this costs a sailing, put my name on the delay. But Lena's visitor register counts some crew twice; the final water plan needs real person-days."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Check each ferry before it sails. Treat soil, drain water, and hold risky plants. Check wood and wildlife papers too. A seed test missed too many threats. The last demand plan must count every visitor.",
+    "segue": "But Lena's visitor register counts some crew twice; the final water plan needs real person-days.",
     "stops": [
       {
         "group": "REEF",
@@ -5910,16 +5914,16 @@ export const MISSIONS = [
     "title": "The Population Outlook",
     "objective": "Lock the human-demand forecast.",
     "briefing": "",
-    "stake": "The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them.",
+    "stake": "2 days until the vote. The same crew name appears on two tally sheets. Today you decide how many visitor-days the water plan can bear.",
     "primer": [
       "age pyramids show growth, stability, or decline; Malthus contrasted geometric population with arithmetic food growth; developed populations often age with low TFR."
     ],
     "deeper": {
-      "intro": "You completed The Population Outlook. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Seats Are Not People. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Population Outlook, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?",
+          "prompt": "In a follow-up to Seats Are Not People, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?",
           "hint": "Use the stated evidence and the conditions for Total fertility rate; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -5946,7 +5950,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?",
+          "prompt": "the island council receives a second case related to Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?",
           "hint": "Use the stated evidence and the conditions for Population momentum; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5973,7 +5977,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Population Outlook using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "A teammate rechecks Seats Are Not People using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "D",
           "figure": {
@@ -6050,7 +6054,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Population Outlook: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?",
+          "prompt": "An unseen case extends Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?",
           "hint": "Use the stated evidence and the conditions for Overshoot; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -6104,7 +6108,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Population Outlook to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?",
+          "prompt": "the island council applies the lesson from Seats Are Not People to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?",
           "hint": "Use the stated evidence and the conditions for population growth | populations | 14; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -6241,10 +6245,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "2 DAYS.",
+      "header": "MISSION 14 - 2 DAYS UNTIL THE VOTE.",
       "title": "THE POPULATION OUTLOOK",
       "goNow": "Island School, Lena Costa at register-desk.",
-      "body": "The ferry's resource needs depend on both permanent residents and short-term visitors. Their numbers can change in different ways. Forecast population and visitor growth, then estimate how much water, food, and other resources the island will need to serve them.",
+      "body": "2 days until the vote. The same crew name appears on two tally sheets. Today you decide how many visitor-days the water plan can bear.",
       "objective": "Lock the human-demand forecast."
     },
     "beats": [
@@ -6254,7 +6258,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SCHOOL"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "The same crew name appears on two tally sheets.",
         "stage": {
           "wall": [
             {
@@ -6278,7 +6282,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At register-desk, the dated accepted-result slip for Stop 53 reads: \"The resident population is top-heavy and declining\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6290,8 +6294,8 @@ export const MISSIONS = [
         "panel": "STOP 53 RECORDED - STOP 54 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 53 result to settle calculate population growth."
+            "who": "costa",
+            "say": "That check holds. The age pattern needs confirmation from births and deaths before a growth forecast is used."
           }
         ]
       },
@@ -6302,7 +6306,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At register-desk, the dated accepted-result slip for Stop 54 reads: \"Growth is -1.0%/year; a doubling time is not meaningful\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6314,8 +6318,8 @@ export const MISSIONS = [
         "panel": "STOP 54 RECORDED - STOP 55 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 54 result to settle close the person-day balance."
+            "who": "costa",
+            "say": "That check holds. A declining resident count does not establish July demand once ferry visitors are included."
           }
         ]
       },
@@ -6326,7 +6330,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 55 changes the persistent board and unlocks the decision stop.",
+        "world": "At council-table, the dated accepted-result slip for Stop 55 reads: \"The second-ferry July case is 12,300 person-days\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6338,8 +6342,8 @@ export const MISSIONS = [
         "panel": "STOP 55 RECORDED - STOP 56 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 55 result to settle stress the human-demand forecast."
+            "who": "costa",
+            "say": "That check holds. The combined person-day estimate still needs testing against uncertain per-person resource use."
           }
         ]
       },
@@ -6348,7 +6352,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Decision and hook: Stop 56 applies the world change, triggers the outcome, and names the next mission problem.",
+        "world": "At register-desk, Lena Costa clips the corrected visitor tally beneath the drought-reserve card. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6360,13 +6364,13 @@ export const MISSIONS = [
         "panel": "MISSION 14 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "costa",
+            "say": "A seat is not a resident. A crew member is not two people. But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use a lower visitor cap and a drought reserve. Count crew only once. The plan stays within the water limit. The last vote now needs an independent sample.",
+    "segue": "But Ada needs a fresh water sample before tomorrow's vote; the old copies share a source.",
     "stops": [
       {
         "group": "REEF",
@@ -6404,16 +6408,16 @@ export const MISSIONS = [
     "title": "The Conditional Ferry Recommendation",
     "objective": "Deliver and enact the Second-Ferry Plan.",
     "briefing": "",
-    "stake": "A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain.",
+    "stake": "1 day until the vote. The council seal waits beside the still-blank sailing permit. Today you decide whether the second ferry has earned approval.",
     "primer": [
       "greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming; preindustrial CO2 about 280 ppm versus about 422 ppm in 2024; warming about 1.1 C and sea level about 21 cm; mitigation and adaptation must work together."
     ],
     "deeper": {
-      "intro": "You completed The Conditional Ferry Recommendation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Second Berth. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Conditional Ferry Recommendation, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?",
+          "prompt": "In a follow-up to The Second Berth, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?",
           "hint": "Use the stated evidence and the conditions for Radiative forcing; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -6440,7 +6444,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council receives a second case related to The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?",
+          "prompt": "the island council receives a second case related to The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?",
           "hint": "Use the stated evidence and the conditions for Mitigation; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -6467,7 +6471,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Conditional Ferry Recommendation using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?",
+          "prompt": "A teammate rechecks The Second Berth using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?",
           "hint": "Use the stated evidence and the conditions for Adaptation; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -6494,7 +6498,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Conditional Ferry Recommendation: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?",
+          "prompt": "An unseen case extends The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?",
           "hint": "Use the stated evidence and the conditions for Tipping point; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -6548,7 +6552,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "the island council applies the lesson from The Conditional Ferry Recommendation to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?",
+          "prompt": "the island council applies the lesson from The Second Berth to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?",
           "hint": "Use the stated evidence and the conditions for coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -6670,10 +6674,10 @@ export const MISSIONS = [
     },
     "takeaway": "Record the enforceable environmental condition in the mission log.",
     "card": {
-      "header": "VOTE DAY.",
+      "header": "MISSION 15 - 1 DAY UNTIL THE VOTE.",
       "title": "THE CONDITIONAL FERRY RECOMMENDATION",
       "goNow": "Common Office, Mara Voss at the delivery board.",
-      "body": "A second ferry looks possible today, but drought, extreme heat, rising seas, and power failures could occur together. Test whether the plan still protects water, wildlife, and residents when conditions worsen. Approve it, attach enforceable conditions, or reject it based on what the island can sustain.",
+      "body": "1 day until the vote. The council seal waits beside the still-blank sailing permit. Today you decide whether the second ferry has earned approval.",
       "objective": "Deliver and enact the Second-Ferry Plan."
     },
     "beats": [
@@ -6683,7 +6687,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COMMON"
         },
-        "world": "Arrival: The named specialist identifies the immediate obstruction; Continue.",
+        "world": "The council seal waits beside the still-blank sailing permit.",
         "stage": {
           "wall": [
             {
@@ -6707,7 +6711,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "First result: The result remains on its equipment panel and.",
+        "world": "At delivery-board, the dated accepted-result slip for Stop 57 reads: \"All six climate mechanisms and responses are correctly linked\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6719,8 +6723,8 @@ export const MISSIONS = [
         "panel": "STOP 57 RECORDED - STOP 58 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Nice work. Use the Stop 57 result to settle collapse the final degeneracy."
+            "who": "pell",
+            "say": "That check holds. The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply."
           }
         ]
       },
@@ -6731,7 +6735,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer.",
+        "world": "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"Submit (200 visitors/day, 20% reserve)\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6743,8 +6747,8 @@ export const MISSIONS = [
         "panel": "STOP 58 RECORDED - STOP 59 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Good thinking. Use the Stop 58 result to settle verify the independent water sample."
+            "who": "pell",
+            "say": "That check holds. The selected visitor cap needs an independent water check before the council can approve it."
           }
         ]
       },
@@ -6755,7 +6759,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Synthesis: Stop 59 changes the persistent board and unlocks the decision stop.",
+        "world": "At sampler, the dated accepted-result slip for Stop 59 reads: \"Margin 4800 m3/year, nitrate 6.4 mg/L, chloride 118 mg/L: PASS\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6767,8 +6771,8 @@ export const MISSIONS = [
         "panel": "STOP 59 RECORDED - STOP 60 OPEN",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Exactly right. Use the Stop 59 result to settle enact the ferry triggers."
+            "who": "pell",
+            "say": "That check holds. The independent water check passes, so the council can now turn the plan into enforceable conditions."
           }
         ]
       },
@@ -6777,7 +6781,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Final outcome begins immediately after Stop 4 with council board changing to.",
+        "world": "At condition-board, Ada Pell pins the signed conditional ferry plan to the condition board. The final scene follows the completion gate below.",
         "stage": {
           "wall": [
             {
@@ -6789,13 +6793,13 @@ export const MISSIONS = [
         "panel": "MISSION 15 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. CONDITIONAL APPROVAL."
+            "who": "pell",
+            "say": "You made room for the ferry without taking the island out of the plan. Therefore Tomas must sail to the posted limits; a failed trigger closes the second service again."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Approve the second ferry only with firm limits. Cut trips when any safety trigger fails. The plan cuts air and water waste. It also plans for drought, heat, and sea rise. The council adopts the plan.",
+    "segue": "Therefore Tomas must sail to the posted limits; a failed trigger closes the second service again.",
     "stops": [
       {
         "group": "CHAPEL",

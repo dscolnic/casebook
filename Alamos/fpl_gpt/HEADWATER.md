@@ -55,7 +55,7 @@ This bible specifies canonical interaction blocks at the field level described i
 
 ### Opening sequence - no movie required, maximum five sentences
 
-Ashfell Dam must lower its reservoir before a three-day storm reaches the valley. You will use calculus to decide how water should leave through turbines and spillway gates; too much at once floods the towns below, while too little leaves the dam carrying the storm. Fifteen work shifts remain, and failure could force an uncontrolled release through homes and a school. Mara Vale, dam operations chief, hands you the release board and says, “Families below this dam are trusting us to hold back a storm without sending it through their homes: read the water correctly, control the release, and bring the valley through safely.”
+You are the dam release lead, which means you decide how much water can leave without flooding the town. At Ashfell Dam, you will use calculus to make the call. Fifteen work shifts remain before the rain. The lake needs room for a storm. The people below need time to get clear of each release.
 
 **HUD revealed after Continue:** Safe Storage 42% | Downstream Readiness 48% | Operating Reserve 62% | Dam Integrity 72%.
 
@@ -164,6 +164,25 @@ Every `Area:` value below is the exact name of a place marked `yes`. A stop may 
 ### Location escalation
 
 Missions 1-4 use one meaningful location, Missions 5-10 use two, and Missions 11-15 use three. Every move follows evidence and reaches a fixture, record, control, or authority unavailable at the previous place.
+
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `crest-walk` | Crest Walk | Old flood marks run down the wall beside the reservoir. | After each mission the current water line follows the latest measured storage state; after Stop 59 the spillway runs, and after Stop 60 the signed drawdown remains visible. |
+| `valley-lookout` | Valley Lookout | A school roof and one low road sit below the dam. | After Stop 16, the warning route is posted; after Stop 56, all four acknowledgement lamps are lit. |
+| `shift-kitchen` | Shift Kitchen | A kettle sits among unused lunch tins and wet coats. | After Stop 24 the night-watch rota fills; after Stop 60, coats come off the pegs as the relief crew arrives. |
+
+### Persistent prop and scene contract
+
+The crest access latch is a scene component controlled by `trigger-board`; it is not a release valve. Its opening never changes the tested gate settings.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+Water movement begins during the graded Stop 59 staged operation, never before prediction commitment. Stop 60 confirms completion and opens the crest walk; do not run the gates a second time for the ending. Gate order, 20-minute hold, 750 J work limit, 280-minute warning lead, and uplift limit stay in their existing interaction. Reservoir level is driven by the signed inflow-minus-outflow ledger, not an invented monotonic rise or an animation-only numerical series. Before drawdown the water climbs with the forecast; during verified releases it falls. Dates on optional examples are not the storm clock.
 
 ## 4. Character bible
 
@@ -295,6 +314,27 @@ Every contextual calculation carries units. All claims about extrema, inflection
 
 ---
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `level-desk` | Imani Okoro circles the repaired point marked 4.20 M on the trace. | At `storage-board`, the next tick on the level chart runs above the ruler. |
+| 2 | `accepted_stop_8` | `storage-board` | Mara Vale pins the rate-alarm card beside the water curve. | At `discharge-board`, fresh grease marks stop short of an old notch on the hoist scale. |
+| 3 | `accepted_stop_12` | `discharge-board` | Tomas Wilkes clips the verified calibration strip to the discharge board. | At `arrival-map`, a school pin sits just downstream of a road crossing. |
+| 4 | `accepted_stop_16` | `arrival-map` | Elise Baptiste pins the MINIMUM LEAD: 280 MINUTES card beside the village pin. | At `storage-board`, two endpoint marks sit on opposite sides of a red line. |
+| 5 | `accepted_stop_20` | `storage-board` | Mara Vale draws the MUST CROSS 4.6 M bracket between the endpoint marks. | At `forecast-drawer`, a sealed high-ground trace rests under the old forecast. |
+| 6 | `accepted_stop_24` | `forecast-drawer` | Imani Okoro files the failed forecast under MISSED LATER CREST. | At `water-ledger`, the storm total fills a strip longer than the storage allowance. |
+| 7 | `accepted_stop_28` | `water-ledger` | Leila Hassan pins the DRAW DOWN 5.28 MILLION CUBIC METRES card to the ledger. | At `hoist-stand`, the hoist rests at its baseline mark above a dry spillway. |
+| 8 | `accepted_stop_32` | `hoist-stand` | Tomas Wilkes turns the hoist to the signed test notch. | At `uplift-wall`, two blank gauge faces sit beside a live independent trace. |
+| 9 | `accepted_stop_36` | `uplift-wall` | Arun Mehta ties a FAILED SHARED CABLE tag around the removed cable. | At `weir-bench`, drops strike the weir bucket at a slowing pace. |
+| 10 | `accepted_stop_40` | `weir-bench` | Arun Mehta clips the BELOW 5.0 LITRES PER MINUTE clearance to the weir notebook. | At `holdout-drawer`, a fresh sonar roll crowds the old 2003 drawing. |
+| 11 | `accepted_stop_44` | `holdout-drawer` | Imani Okoro opens the sealed independent survey drawer. | At `machine-board`, a runner crate blocks one of the two machine bays. |
+| 12 | `accepted_stop_48` | `machine-board` | Nia Chen hangs a RUNNER UNAVAILABLE card over the blocked machine slot. | At `residual-plot`, the new survey and old fit lie on separate hooks. |
+| 13 | `accepted_stop_52` | `residual-plot` | Imani Okoro pins the independent clearance beside the corrected residual plot. | At `warning-list`, two acknowledgement boxes are empty beside a running clock. |
+| 14 | `accepted_stop_56` | `warning-list` | Elise Baptiste ticks the fourth warning acknowledgement box. | At `trigger-board`, the gate order lies beside four acknowledged warning slips. |
+| 15 | `accepted_stop_60` | `trigger-board` | Mara Vale unlatches the crest access gate. | At `trigger-board`, the signed operating conditions remain beside the final status. |
+
 ## 8. Mission content contract
 
 Every mission below supplies a briefing promise, compact glossary, primer, equations, story event, route, character beat, concepts, four exact stops, an outcome that answers the promise, a metric screen, and a quick review. Every stop contains a reason, two-sentence story setup, story-science connection, visible prompt, complete canonical payload, keyed truth, answer text, mechanism explanation or actionable feedback, and state output.
@@ -311,17 +351,30 @@ Define every technical term before the player must use it. Implement the exact m
 
 The dependency graph, keystone matrix, cheat-sheet coverage matrix, and fifteen-mission spine above are authoritative. Each keystone is introduced, retrieved after an intervening mission, and used in a later combination, transfer, or finale payoff.
 
-# Mission 1 - The Rate-Limit Rule
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The crest access gate opens onto the continuing signed release.
+
+**The next sixty seconds:** 0–15 seconds: the crest access latch opens while the already-running release continues. 15–40 seconds: the player walks to the crest rail and sees the spillway and falling level. 40–60 seconds: all four acknowledged warning circuits stay visible; the ending card appears from this view.
+
+**Ending card - exact player copy:** From the crest, the spillway runs white below the gates. The lake line falls along the checked curve. Four warning lamps stay green above the valley map. The town still has its roads, and the dam has room for the rain.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+# Mission 1 - The Broken Trace
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 15 SHIFTS UNTIL THE STORM
+**Header:** MISSION 1 - 15 WORK SHIFTS REMAIN BEFORE THE STORM.
 
 **Card title:** Did the Water Really Rise?
 
 **Go now:** Go to Storage & Level Board and meet Mara Vale, operations chief, at the desk showing reservoir water levels.
 
-**Card body:** Yesterday's record shows the water behind the dam suddenly jumping higher, then dropping back. Did the water really change, or is one measurement wrong? Use calculus to check the readings and decide whether the crew can trust the forecast before letting water flow toward the towns below.
+**Card body:** 15 work shifts remain before the storm. One ink dot sits high above the rest of the water trace. Today you decide whether the odd water reading can be fixed.
 
 **Objective:** Decide whether the water-height forecast can be trusted.
 
@@ -424,7 +477,9 @@ Introduce rigorous nearby behavior and make the first correct answer preserve ba
 
 **Beat 1 - On arrival at Storage & Level Board | `storage-board` | automatic**
 
-**World state:** The cancel the false zero fixture wakes and the mission evidence opens.
+**Trigger:** mission_1_arrival.
+
+**World state:** One ink dot sits high above the rest of the water trace.
 
 **Panel/HUD text:** MISSION 1: CANCEL THE FALSE ZERO OPEN
 
@@ -434,43 +489,59 @@ Introduce rigorous nearby behavior and make the first correct answer preserve ba
 
 **Beat 2 - After Stop 1 | `level-desk` | automatic**
 
-**World state:** After 1.2 Location: STORE.
+**Trigger:** accepted_stop_1.
+
+**World state:** At `storage-board`, the dated accepted-result slip for Stop 1 reads: "12 cm, exact.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 1 RECORDED - STOP 2 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Nice work. Use the Stop 1 result to settle rationalize the float transform."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The height-limit check leaves a second possible fault in the float sensor's conversion rule."
 
 **Unlocks/waypoint:** Unlock Stop 2 at `level-desk` in Storage & Level Board.
 
 **Beat 3 - After Stop 2 | `storage-board` | automatic**
 
-**World state:** After 1.3 Location: STORE.
+**Trigger:** accepted_stop_2.
+
+**World state:** At `level-desk`, the dated accepted-result slip for Stop 2 reads: "0.125, tolerance 0.0005.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 2 RECORDED - STOP 3 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Good thinking. Use the Stop 2 result to classify the rival forecast's asymptotes."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The sensor checks are not enough to establish that the rival rainfall forecast behaves sensibly."
 
 **Unlocks/waypoint:** Unlock Stop 3 at `storage-board` in Storage & Level Board.
 
 **Beat 4 - After Stop 3 | `storage-board` | automatic**
 
-**World state:** The forecast-break classification remains visible while the certify continuity fixture lights.
+**Trigger:** accepted_stop_3.
+
+**World state:** At `storage-board`, the dated accepted-result slip for Stop 3 reads: "vertical asymptotes at t=-2 and t=2; horizontal asymptote R=3 mm/h.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 3 RECORDED - STOP 4 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Exactly right. Use the Stop 3 result to settle certify continuity."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The crew has enough nearby evidence to decide whether the logged spike requires abandoning the local forecast."
 
 **Unlocks/waypoint:** Unlock Stop 4 at `storage-board` in Storage & Level Board.
 
 **Beat 5 - At mission end | `storage-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_4.
+
+**World state:** At `level-desk`, Imani Okoro circles the repaired point marked 4.20 M on the trace. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 1 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Vale: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Imani Okoro: "The bad dot is gone. The rising water is real. But Mara sees the line still climb on both sides; the next alarm must watch how fast it rises."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m01
+
+**Home:** `level-desk`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. One ink dot sits high above the rest of the water trace.
+**After — exact action:** Imani Okoro circles the repaired point marked 4.20 M on the trace.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `storage-board`, the next tick on the level chart runs above the ruler.
+**Segue - exact player copy:** But Mara sees the line still climb on both sides; the next alarm must watch how fast it rises.
 
 ## Location plan
 
@@ -497,6 +568,10 @@ rational and radical limits, rational-function asymptotes, two-sided limits, con
 **Question card story setup - exact player copy:** The water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. The logger predicts reservoir height with H(t)=(t^2-36)/(t-6), where t is minutes and H is centimetres. Because H(6) is undefined, find L=lim_(t->6)H(t), the height approached near minute 6, and compare it with the spike.
 
 **Question card story-science connection - exact player copy:** The nearby height limit determines whether the formula supports the isolated spike or instead approaches a different height.
+
+**Fixture source panel - exact player copy:** The water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. The logger predicts reservoir height with H(t)=(t^2-36)/(t-6), where t is minutes and H is centimetres. Because H(6) is undefined, find L=lim_(t->6)H(t), the height approached near minute 6, and compare it with the spike.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit L in centimetres.
 
@@ -553,6 +628,10 @@ derive:
 
 **Question card story-science connection - exact player copy:** The small-motion gain determines whether the float transform has a finite response despite its undefined displayed value at zero.
 
+**Fixture source panel - exact player copy:** With the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. The float sensor uses A(h)=[sqrt(16+h)-4]/h for its level-change gain after displacement h. Because A(0) gives 0/0, find L=lim_(h->0)A(h), the gain approached during tiny float motions.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit the unitless gain.
 
 **Complete format-specific interaction block:** `derive: {left_side:"L",goal:"local gain",givens:["L = lim_(h->0) [sqrt(16+h)-4]/h"],lines:[{expressions:["L = lim_(h->0) {([sqrt(16+h)-4][sqrt(16+h)+4])/[h(sqrt(16+h)+4)]}","L = lim_(h->0) {([sqrt(16+h)-4][sqrt(16+h)-4])/[h(sqrt(16+h)-4)]}"],correct:"L = lim_(h->0) {([sqrt(16+h)-4][sqrt(16+h)+4])/[h(sqrt(16+h)+4)]}",rules:["multiply by the conjugate over itself","multiply by h over itself"],correct_rule:"multiply by the conjugate over itself"},{expressions:["L = lim_(h->0) 1/[sqrt(16+h)+4]","L = lim_(h->0) h/[sqrt(16+h)+4]"],correct:"L = lim_(h->0) 1/[sqrt(16+h)+4]",rules:["difference of squares and cancel h","cancel before forming the difference of squares"],correct_rule:"difference of squares and cancel h"},{expressions:["L = 1/[sqrt(16+0)+4] = 1/8","L = 1/4"],correct:"L = 1/[sqrt(16+0)+4] = 1/8",rules:["substitute h=0","drop the second term in the denominator"],correct_rule:"substitute h=0"}],answerText:"The local gain is 1/8."}`
@@ -607,6 +686,10 @@ derive:
 **Question card story setup - exact player copy:** A rival forecast gives rainfall rate R(t)=(3t^2+1)/(t^2-4) in millimetres per hour after t hours. Find where R grows without bound and what rate it approaches far from the current forecast window.
 
 **Question card story-science connection - exact player copy:** The forecast's asymptotes identify times where its predictions fail and the rate implied far beyond the fitted window.
+
+**Fixture source panel - exact player copy:** A rival forecast gives rainfall rate R(t)=(3t^2+1)/(t^2-4) in millimetres per hour after t hours. Find where R grows without bound and what rate it approaches far from the current forecast window. D(t)=t^2-4
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit both classifications.
 
@@ -675,11 +758,12 @@ derive:
 
 ## Mission outcome
 
-Mission decision: Use the repaired local forecast. Both sides approach `4.20 m`, so the lone high point is a fixable hole. The crew restores that point. And keeps the surrounding rise. The rise is smooth,.
+Mission decision: Use the repaired local forecast. Both sides approach 4.20 m, so the lone high point is a fixable hole. The crew restores that point, and keeps the surrounding rise. The rise is smooth.
 
+**Segue - exact player copy:** But Mara sees the line still climb on both sides; the next alarm must watch how fast it rises.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: Use the repaired local forecast. Ashfell has more protection from the storm.
+**Happy ending card - exact player copy:** Your checks made the difference. Imani Okoro circles the repaired point marked 4.20 M on the trace. But Mara sees the line still climb on both sides; the next alarm must watch how fast it rises.
 
 **Header:** MISSION 1 COMPLETE  
 **Timer:** TIME `{elapsed}` / TARGET `16:00`  
@@ -695,7 +779,7 @@ Mission decision: Use the repaired local forecast. Both sides approach `4.20 m`,
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Rate-Limit Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Broken Trace. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -703,7 +787,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Rate-Limit Rule, the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. What does the limit represent in this situation?
+**Prompt - exact player copy:** In a follow-up to The Broken Trace, the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. What does the limit represent in this situation?
 
 **Options - exact player copy:**
 
@@ -724,7 +808,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes radical limit, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Rate-Limit Rule: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which condition or conclusion correctly determines continuity here?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Broken Trace: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which condition or conclusion correctly determines continuity here?
 
 **Options - exact player copy:**
 
@@ -745,7 +829,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes radical limit, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Rate-Limit Rule using new evidence: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which option correctly carries out the required rational limit reasoning?
+**Prompt - exact player copy:** A teammate rechecks The Broken Trace using new evidence: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which option correctly carries out the required rational limit reasoning?
 
 **Options - exact player copy:**
 
@@ -766,7 +850,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. factor, cancel for t != 6, then substitute.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Rate-Limit Rule: with the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. Which option correctly carries out the required radical limit reasoning?
+**Prompt - exact player copy:** An unseen case extends The Broken Trace: with the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. Which option correctly carries out the required radical limit reasoning?
 
 **Options - exact player copy:**
 
@@ -808,7 +892,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Solving t^2=9 requires both square roots, so t=-3 is also a vertical asymptote. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Rate-Limit Rule to this follow-up: the left and right traces now both approach 4.20 m, while the logger stores 4.68 m at 09:06. Which condition or conclusion correctly determines continuity here?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Broken Trace to this follow-up: the left and right traces now both approach 4.20 m, while the logger stores 4.68 m at 09:06. Which condition or conclusion correctly determines continuity here?
 
 **Options - exact player copy:**
 
@@ -835,14 +919,14 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 2 - The Rising-Fast Rule
+# Mission 2 - Faster Than the Line
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 14 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 2 - 14 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Faster Than the Gauge  
 **Go now:** Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the trace bench.  
-**Card body:** The water behind the dam is still below the alarm line, but it is rising faster. Waiting for the old alarm could leave the crew too little time to act. Calculate how quickly the water is rising and choose an earlier warning.
+**Card body:** 14 work shifts remain before the storm. The next tick on the level chart runs above the ruler. Today you decide when a faster rise needs an alarm.
 **Objective:** Set a defensible reservoir-rise alarm.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -950,7 +1034,9 @@ Make derivative definition, rules, and linearization one causal warning chain.
 
 **Beat 1 - On arrival at Catchment & Inflow Desk | `trace-bench` | automatic**
 
-**World state:** Arrival Location: INFLOW.
+**Trigger:** mission_2_arrival.
+
+**World state:** The next tick on the level chart runs above the ruler.
 
 **Panel/HUD text:** INFLOW
 
@@ -960,43 +1046,59 @@ Make derivative definition, rules, and linearization one causal warning chain.
 
 **Beat 2 - After Stop 5 | `gauge-wall` | automatic**
 
-**World state:** After 2.1 Location: INFLOW.
+**Trigger:** accepted_stop_5.
+
+**World state:** At `trace-bench`, the dated accepted-result slip for Stop 5 reads: "0.12 m/h, tolerance 0.001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Imani Okoro: "Nice work. Use the Stop 5 result to settle differentiate the forecast signal."
+**Dialogue bubbles -** Mara Vale: "That check holds. The reservoir rise rate is known, but the incoming storm flow may itself be accelerating."
 
 **Unlocks/waypoint:** Unlock Stop 6 at `gauge-wall` in Catchment & Inflow Desk.
 
 **Beat 3 - After Stop 6 | `trace-bench` | automatic**
 
-**World state:** After 2.2 Location: INFLOW.
+**Trigger:** accepted_stop_6.
+
+**World state:** At `gauge-wall`, the dated accepted-result slip for Stop 6 reads: "89.509 (m^3/s)/h, tolerance 0.01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Imani Okoro: "Good thinking. Use the Stop 6 result to settle protect the net-rise calculation."
+**Dialogue bubbles -** Mara Vale: "That check holds. The changing inflow must now be combined with discharge without mixing rates and stored amounts."
 
 **Unlocks/waypoint:** Unlock Stop 7 at `trace-bench` in Catchment & Inflow Desk.
 
 **Beat 4 - After Stop 7 | `gauge-wall` | automatic**
 
-**World state:** The protect the net-rise calculation result remains visible while the set the tangent alarm fixture lights.
+**Trigger:** accepted_stop_7.
+
+**World state:** At `trace-bench`, the dated accepted-result slip for Stop 7 reads: "exact pair.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Imani Okoro: "Exactly right. Use the Stop 7 result to settle set the tangent alarm."
+**Dialogue bubbles -** Mara Vale: "That check holds. The verified height and rise rate are ready to support a near-term alarm commitment."
 
 **Unlocks/waypoint:** Unlock Stop 8 at `gauge-wall` in Catchment & Inflow Desk.
 
 **Beat 5 - At mission end | `trace-bench` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_8.
+
+**World state:** At `storage-board`, Mara Vale pins the rate-alarm card beside the water curve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Imani Okoro: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Mara Vale: "We bought time by watching the slope. Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m02
+
+**Home:** `storage-board`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. The next tick on the level chart runs above the ruler.
+**After — exact action:** Mara Vale pins the rate-alarm card beside the water curve.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `discharge-board`, fresh grease marks stop short of an old notch on the hoist scale.
+**Segue - exact player copy:** Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough.
 
 ## Location plan
 
@@ -1023,6 +1125,10 @@ derivative limit, power/product/quotient/trig/exp rules, tangent line, linear ap
 **Question card story setup - exact player copy:** The level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Build the difference quotient at t=2 to expose how fast the level is changing now.
 
 **Question card story-science connection - exact player copy:** The instantaneous height derivative establishes the current rise rate needed for the next short-term warning prediction.
+
+**Fixture source panel - exact player copy:** The level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Build the difference quotient at t=2 to expose how fast the level is changing now. t=2 h
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit a rate in metres per hour.
 
@@ -1084,6 +1190,10 @@ derive:
 
 **Question card story-science connection - exact player copy:** The inflow derivative determines how quickly the arriving water rate is changing at the forecast hour.
 
+**Fixture source panel - exact player copy:** The forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Differentiate every term so the panel can show whether inflow itself is rising at hour 2. I(t)=120+8t^3+20sin t+15e^(0.1t)
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit cubic metres per second per hour.
 
 **Complete format-specific interaction block:** `derive:{left_side:"I'(2)",goal:"I'(2)",givens:["I(t)=120+8t^3+20sin t+15e^(0.1t)"],lines:[{expressions:["I'(t) = 24t^2+20cos t+1.5e^(0.1t)","I'(2) = 8t^2-20sin t+15e^(0.1t)"],correct:"I'(t) = 24t^2+20cos t+1.5e^(0.1t)",rules:["sum, power, trig, exponential chain rules","product rule only"],correct_rule:"sum, power, trig, exponential chain rules"},{expressions:["I'(2) = 24(2)^2+20cos(2)+1.5e^(0.2) = 89.509 (m^3/s)/h","I'(2) = 96.000"],correct:"I'(2) = 24(2)^2+20cos(2)+1.5e^(0.2) = 89.509 (m^3/s)/h",rules:["substitute t=2 radians","drop non-polynomial terms"],correct_rule:"substitute t=2 radians"}],answerText:"I'(2)=89.509 (m^3/s)/h, so inflow is rising quickly."}`
@@ -1133,6 +1243,10 @@ derive:
 **Question card story setup - exact player copy:** Derive both rates before combining them into net storage change.
 
 **Question card story-science connection - exact player copy:** The two differentiated terms establish the net storage-change rate that governs whether the reservoir is gaining water.
+
+**Fixture source panel - exact player copy:** Derive both rates before combining them into net storage change. J=cI Q=P/H
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the ordered expression pair.
 
@@ -1236,11 +1350,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Set the new rate alarm at the tangent prediction. The next reading is above `4.230 m`, so the reservoir is rising faster than the current local trend. The crew starts an early watch. A gate chart must now turn level change into release change.
+Mission decision: Set the new rate alarm at the tangent prediction. The next reading is above 4.230 m, so the reservoir is rising faster than the current local trend. The crew starts an early watch. A gate chart must now turn level change into release change.
 
+**Segue - exact player copy:** Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: Set the new rate alarm at the tangent prediction. The dam crew can now act with a calculation it trusts.
+**Happy ending card - exact player copy:** Your checks made the difference. Mara Vale pins the rate-alarm card beside the water curve. Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough.
 
 **Story event - exact player copy:** The early rate alarm activates before the reservoir crosses the old height warning.
 
@@ -1250,7 +1365,7 @@ TARGET `17:00`; automatic `OPERATING RESERVE +3`; canonical QA enter `53/52/62/7
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Rising-Fast Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Faster Than the Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -1258,7 +1373,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Rising-Fast Rule, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?
+**Prompt - exact player copy:** In a follow-up to Faster Than the Line, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?
 
 **Options - exact player copy:**
 
@@ -1279,7 +1394,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes power/trig/exp/chain, not Derivative. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Rising-Fast Rule: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to Faster Than the Line: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -1300,7 +1415,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes power/trig/exp/chain, not Tangent line. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Rising-Fast Rule using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?
+**Prompt - exact player copy:** A teammate rechecks Faster Than the Line using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?
 
 **Options - exact player copy:**
 
@@ -1321,7 +1436,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. limit of secant slopes.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Rising-Fast Rule: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?
+**Prompt - exact player copy:** An unseen case extends Faster Than the Line: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?
 
 **Options - exact player copy:**
 
@@ -1363,7 +1478,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes derivative definition, not product/quotient rules. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Rising-Fast Rule to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from Faster Than the Line to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -1390,14 +1505,14 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 3 - The Inflow Accumulation
+# Mission 3 - The Gate That Comes Back
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 13 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 3 - 13 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** One Motion, Three Changes  
 **Go now:** Go to Gate House and meet Tomas Wilkes, gate mechanic, at the discharge board.  
-**Card body:** The crew needs to lower the water behind the dam, but opening a gate wider does not always release water at the same rate. Work out how water depth and gate position affect the flow. Choose a safe way to test the gate's controls.
+**Card body:** 13 work shifts remain before the storm. Fresh grease marks stop short of an old notch on the hoist scale. Today you decide which gate setting can be tested and restored.
 **Objective:** Map and certify the gate's changing response.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1505,7 +1620,9 @@ Teach chain, implicit, second implicit, and inverse differentiation as linked me
 
 **Beat 1 - On arrival at Gate House | `discharge-board` | automatic**
 
-**World state:** The differentiate nested discharge fixture wakes and the mission evidence opens.
+**Trigger:** mission_3_arrival.
+
+**World state:** Fresh grease marks stop short of an old notch on the hoist scale.
 
 **Panel/HUD text:** MISSION 3: DIFFERENTIATE NESTED DISCHARGE OPEN
 
@@ -1515,43 +1632,59 @@ Teach chain, implicit, second implicit, and inverse differentiation as linked me
 
 **Beat 2 - After Stop 9 | `discharge-board` | automatic**
 
-**World state:** After 3.1 Location: GATES.
+**Trigger:** accepted_stop_9.
+
+**World state:** At `discharge-board`, the dated accepted-result slip for Stop 9 reads: "exact.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 9 RECORDED - STOP 10 OPEN
 
-**Dialogue bubbles -** Tomas Wilkes: "Nice work. Use the Stop 9 result to settle link opening and head."
+**Dialogue bubbles -** Tomas Wilkes: "That check holds. The discharge response must account for the mechanical linkage between gate opening and water head."
 
 **Unlocks/waypoint:** Unlock Stop 10 at `discharge-board` in Gate House.
 
 **Beat 3 - After Stop 10 | `hoist-stand` | automatic**
 
-**World state:** After 3.3 Location: GATES.
+**Trigger:** accepted_stop_10.
+
+**World state:** At `discharge-board`, the dated accepted-result slip for Stop 10 reads: "-0.6667, tolerance .001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 10 RECORDED - STOP 11 OPEN
 
-**Dialogue bubbles -** Tomas Wilkes: "Good thinking. Use the Stop 10 result to settle find linkage curvature."
+**Dialogue bubbles -** Tomas Wilkes: "That check holds. The linkage's current slope is known, but its change may narrow the safe range of gate motion."
 
 **Unlocks/waypoint:** Unlock Stop 11 at `hoist-stand` in Gate House.
 
 **Beat 4 - After Stop 11 | `hoist-stand` | automatic**
 
-**World state:** The find linkage curvature result remains visible while the reverse the flow calibration fixture lights.
+**Trigger:** accepted_stop_11.
+
+**World state:** At `hoist-stand`, the dated accepted-result slip for Stop 11 reads: "-0.49383, tolerance .001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 11 RECORDED - STOP 12 OPEN
 
-**Dialogue bubbles -** Tomas Wilkes: "Exactly right. Use the Stop 11 result to settle reverse the flow calibration."
+**Dialogue bubbles -** Tomas Wilkes: "That check holds. The linkage analysis is ready for an independent test of the flow-command calibration."
 
 **Unlocks/waypoint:** Unlock Stop 12 at `hoist-stand` in Gate House.
 
 **Beat 5 - At mission end | `discharge-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_12.
+
+**World state:** At `discharge-board`, Tomas Wilkes clips the verified calibration strip to the discharge board. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 3 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Wilkes: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Wilkes: "It came back to the same mark. Now we can use the curve. But Elise needs to know when that water reaches the village; the gate result is only half a warning."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m03
+
+**Home:** `discharge-board`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. Fresh grease marks stop short of an old notch on the hoist scale.
+**After — exact action:** Tomas Wilkes clips the verified calibration strip to the discharge board.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `arrival-map`, a school pin sits just downstream of a road crossing.
+**Segue - exact player copy:** But Elise needs to know when that water reaches the village; the gate result is only half a warning.
 
 ## Location plan
 
@@ -1578,6 +1711,10 @@ chain rule, implicit first/second derivatives, inverse derivative, arctan/expone
 **Question card story setup - exact player copy:** Gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Differentiate the three nested layers so a small head change has a predicted flow response.
 
 **Question card story-science connection - exact player copy:** The discharge derivative determines how sensitively flow responds to reservoir head at the gate.
+
+**Fixture source panel - exact player copy:** Gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Differentiate the three nested layers so a small head change has a predicted flow response. Q=40e^(0.3sqrt h)
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit dQ/dh in (m^3/s)/m.
 
@@ -1628,6 +1765,10 @@ derive:
 **Question card story setup - exact player copy:** Linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Differentiate implicitly to find how opening changes with head at o=2 and h=1.
 
 **Question card story-science connection - exact player copy:** The implicit slope determines whether the linked opening grows or shrinks as head changes near the test point.
+
+**Fixture source panel - exact player copy:** Linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Differentiate implicitly to find how opening changes with head at o=2 and h=1. o=2,h=1
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit its value at (h,o)=(1,2) in metres of opening per metre of head.
 
@@ -1683,6 +1824,10 @@ derive:
 **Question card story setup - exact player copy:** The linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Differentiate the first derivative relation again and substitute the known do/dh=-2/3.
 
 **Question card story-science connection - exact player copy:** The second derivative measures linkage curvature, which affects how far the local opening sensitivity can be trusted.
+
+**Fixture source panel - exact player copy:** The linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Differentiate the first derivative relation again and substitute the known do/dh=-2/3. (2o+0.5h)o'+0.5o+2h=0 o'=-2/3 At this point, opening o=2 m and head h=1 m; the linkage is o²+0.5oh+h²=9 m².
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit its value at (h,o)=(1,2).
 
@@ -1766,11 +1911,12 @@ verify:
 
 ## Mission outcome
 
-Mission decision: Use the staged calibration path. The chain, linkage. And inverse tests agree, and the gate returns to baseline. The crew can predict discharge without forcing the hoist. Now it must learn how that water moves downstream.
+Mission decision: Use the staged calibration path. The chain, linkage, and inverse tests agree, and the gate returns to baseline. The crew can predict discharge without forcing the hoist. Now it must learn how that water moves downstream.
 
+**Segue - exact player copy:** But Elise needs to know when that water reaches the village; the gate result is only half a warning.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: Use the staged calibration path. Your result keeps the reservoir plan both useful and safe.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Wilkes clips the verified calibration strip to the discharge board. But Elise needs to know when that water reaches the village; the gate result is only half a warning.
 
 **Story event - exact player copy:** The crew completes the staged gate calibration without forcing the hoist.
 
@@ -1780,7 +1926,7 @@ TARGET `18:00`; auto `DAM INTEGRITY +3`; canonical enter `60/57/65/72` -> `60/57
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Inflow Accumulation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Gate That Comes Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -1788,7 +1934,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Inflow Accumulation, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?
+**Prompt - exact player copy:** In a follow-up to The Gate That Comes Back, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -1809,7 +1955,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes chain/exp/log, not Chain rule. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Inflow Accumulation: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Gate That Comes Back: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -1830,7 +1976,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes chain/exp/log, not Implicit relation. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Inflow Accumulation using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?
+**Prompt - exact player copy:** A teammate rechecks The Gate That Comes Back using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -1851,7 +1997,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. a function that reverses another function.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Inflow Accumulation: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends The Gate That Comes Back: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -1893,7 +2039,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Inverse function, not implicit differentiation. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Inflow Accumulation to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Gate That Comes Back to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?
 
 **Options - exact player copy:**
 
@@ -1919,13 +2065,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 4 - The Two-Day Cost Note
+# Mission 4 - Before the Water Arrives
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 12 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 4 - 12 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Water in Motion  
 **Go now:** Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the arrival map.  
-**Card body:** Opening the dam's gates sends water toward settlements downstream. The crew needs to know how soon it will arrive and how high it will rise. Calculate the water's motion and changing depth, then decide how much warning residents need before a release begins.
+**Card body:** 12 work shifts remain before the storm. A school pin sits just downstream of a road crossing. Today you decide how much warning the village needs.
 **Objective:** Set a warning time that covers the first dangerous arrival.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -2034,7 +2180,9 @@ Join kinematics, distance, and related rates in one human consequence.
 
 **Beat 1 - On arrival at Downstream Warning Desk | `arrival-map` | automatic**
 
-**World state:** The differentiate the flood front fixture wakes and the mission evidence opens.
+**Trigger:** mission_4_arrival.
+
+**World state:** A school pin sits just downstream of a road crossing.
 
 **Panel/HUD text:** MISSION 4: DIFFERENTIATE THE FLOOD FRONT OPEN
 
@@ -2044,43 +2192,59 @@ Join kinematics, distance, and related rates in one human consequence.
 
 **Beat 2 - After Stop 13 | `arrival-map` | automatic**
 
-**World state:** After 4.2 Location: SAFE.
+**Trigger:** accepted_stop_13.
+
+**World state:** At `arrival-map`, the dated accepted-result slip for Stop 13 reads: "exact.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 13 RECORDED - STOP 14 OPEN
 
-**Dialogue bubbles -** Elise Baptiste: "Nice work. Use the Stop 13 result to settle distance is not displacement."
+**Dialogue bubbles -** Elise Baptiste: "That check holds. The front's turning times mean net displacement may understate how far water has traveled."
 
 **Unlocks/waypoint:** Unlock Stop 14 at `arrival-map` in Downstream Warning Desk.
 
 **Beat 3 - After Stop 14 | `arrival-map` | automatic**
 
-**World state:** After 4.3 Location: SAFE.
+**Trigger:** accepted_stop_14.
+
+**World state:** At `arrival-map`, the dated accepted-result slip for Stop 14 reads: "distance 11 km, displacement 9 km.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 14 RECORDED - STOP 15 OPEN
 
-**Dialogue bubbles -** Elise Baptiste: "Good thinking. Use the Stop 14 result to settle relate depth and reach volume."
+**Dialogue bubbles -** Elise Baptiste: "That check holds. The route calculation leaves the downstream water-height rise to be estimated."
 
 **Unlocks/waypoint:** Unlock Stop 15 at `arrival-map` in Downstream Warning Desk.
 
 **Beat 4 - After Stop 15 | `radio-desk` | automatic**
 
-**World state:** The relate depth and reach volume result remains visible while the commit the warning fixture lights.
+**Trigger:** accepted_stop_15.
+
+**World state:** At `arrival-map`, the dated accepted-result slip for Stop 15 reads: ".025 m/min, tolerance .0001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 15 RECORDED - STOP 16 OPEN
 
-**Dialogue bubbles -** Elise Baptiste: "Exactly right. Use the Stop 15 result to settle commit the warning."
+**Dialogue bubbles -** Elise Baptiste: "That check holds. The arrival and road-closure estimates are ready to become a dispatch deadline."
 
 **Unlocks/waypoint:** Unlock Stop 16 at `radio-desk` in Downstream Warning Desk.
 
 **Beat 5 - At mission end | `arrival-map` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_16.
+
+**World state:** At `arrival-map`, Elise Baptiste pins the MINIMUM LEAD: 280 MINUTES card beside the village pin. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 4 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Elise Baptiste: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Elise Baptiste: "A call that comes after the water is not a warning. But Mara's two-day plan still hides a possible peak; an average cannot clear the release."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m04
+
+**Home:** `arrival-map`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. A school pin sits just downstream of a road crossing.
+**After — exact action:** Elise Baptiste pins the MINIMUM LEAD: 280 MINUTES card beside the village pin.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `storage-board`, two endpoint marks sit on opposite sides of a red line.
+**Segue - exact player copy:** But Mara's two-day plan still hides a possible peak; an average cannot clear the release.
 
 ## Location plan
 
@@ -2107,6 +2271,10 @@ position/velocity/acceleration, speeding signs, stops, distance/displacement, re
 **Question card story setup - exact player copy:** The front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Differentiate twice and classify its motion at t=2 h before using the map's average time.
 
 **Question card story-science connection - exact player copy:** Velocity and acceleration distinguish the front's changing motion from the average speed shown on the route map.
+
+**Fixture source panel - exact player copy:** The front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Differentiate twice and classify its motion at t=2 h before using the map's average time. x=2t^3-9t^2+12t
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit v(2), a(2), their units, and the motion classification.
 
@@ -2190,6 +2358,10 @@ derive:
 **Question card story setup - exact player copy:** Because route distance alone misses water height, model the first reach as V(h)=12000h^2 cubic metres. At h=1.5 m, inflow is 900 m^3/min; differentiate the constraint to find dh/dt.
 
 **Question card story-science connection - exact player copy:** The volume-height relationship converts incoming flow into the local depth-rise rate relevant to downstream flooding.
+
+**Fixture source panel - exact player copy:** Because route distance alone misses water height, model the first reach as V(h)=12000h^2 cubic metres. At h=1.5 m, inflow is 900 m^3/min; differentiate the constraint to find dh/dt. V=12000h^2 m^3 dV/dt=900 m^3/min
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit dh/dt in metres per minute.
 
@@ -2293,11 +2465,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Use a minimum warning lead of `280 minutes`. It includes travel to the village. And the road's rise time. The warning rule is now tied to motion, not an average. The two-day release plan still needs a true peak test.
+Mission decision: Use a minimum warning lead of 280 minutes. It includes travel to the village, and the road's rise time. The warning rule is now tied to motion, not an average. The two-day release plan still needs a true peak test.
 
+**Segue - exact player copy:** But Mara's two-day plan still hides a possible peak; an average cannot clear the release.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: Use a minimum warning lead of 280 minutes. People downstream have a stronger margin of safety tonight.
+**Happy ending card - exact player copy:** Your checks made the difference. Elise Baptiste pins the MINIMUM LEAD: 280 MINUTES card beside the village pin. But Mara's two-day plan still hides a possible peak; an average cannot clear the release.
 
 **Story event - exact player copy:** Every downstream settlement receives at least 280 minutes of warning.
 
@@ -2307,7 +2480,7 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Two-Day Cost Note. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Before the Water Arrives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Additional concepts kept out of the required mission card
 
@@ -2315,7 +2488,7 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Two-Day Cost Note, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?
+**Prompt - exact player copy:** In a follow-up to Before the Water Arrives, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -2336,7 +2509,7 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 - D: This describes Displacement, not Speed. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Two-Day Cost Note: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to Before the Water Arrives: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -2396,7 +2569,7 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 - D: This describes Displacement, not Position. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Two-Day Cost Note using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** A teammate rechecks Before the Water Arrives using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -2456,7 +2629,7 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 - D: Correct. signed change of position per time.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Two-Day Cost Note: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends Before the Water Arrives: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -2498,7 +2671,7 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 - D: This describes Velocity, not Total distance. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Two-Day Cost Note to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from Before the Water Arrives to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?
 
 **Options - exact player copy:**
 
@@ -2524,13 +2697,13 @@ TARGET `17:00`; auto `DOWNSTREAM +4`; canonical enter `64/57/68/80` -> `64/61/68
 
 ---
 
-# Mission 5 - The Last-Half-Metre Relation
+# Mission 5 - The Crossing We Can Prove
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 11 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 5 - 11 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** The Peak Between Readings  
 **Go now:** Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board.  
-**Card body:** The old two-day plan checks water levels at the start and finish, but trouble could develop between those times. Find when the forecast reaches its highest and lowest values. Decide whether the plan can produce power while keeping enough room behind the dam.
+**Card body:** 11 work shifts remain before the storm. Two endpoint marks sit on opposite sides of a red line. Today you decide whether the level must cross the danger mark.
 **Objective:** Accept or reject the average-based release plan.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -2642,7 +2815,9 @@ Make extrema and theorem hypotheses change operations.
 
 **Beat 1 - On arrival at Powerhouse | `machine-board` | automatic**
 
-**World state:** The find critical turbine demand fixture wakes and the mission evidence opens.
+**Trigger:** mission_5_arrival.
+
+**World state:** Two endpoint marks sit on opposite sides of a red line.
 
 **Panel/HUD text:** MISSION 5: FIND CRITICAL TURBINE DEMAND OPEN
 
@@ -2652,43 +2827,59 @@ Make extrema and theorem hypotheses change operations.
 
 **Beat 2 - After Stop 17 | `machine-board` | automatic**
 
-**World state:** After 5.2 Location: POWER.
+**Trigger:** accepted_stop_17.
+
+**World state:** At `machine-board`, the dated accepted-result slip for Stop 17 reads: "1,3 h.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 17 RECORDED - STOP 18 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Nice work. Use the Stop 17 result to settle test the absolute peak."
+**Dialogue bubbles -** Mara Vale: "That check holds. The interior demand checks are ready to be compared with the schedule endpoints."
 
 **Unlocks/waypoint:** Unlock Stop 18 at `machine-board` in Powerhouse.
 
 **Beat 3 - After Stop 18 | `dispatch-console` | automatic**
 
-**World state:** Travel Location: POWER->STORE.
+**Trigger:** accepted_stop_18.
+
+**World state:** At `machine-board`, the dated accepted-result slip for Stop 18 reads: "40 MW at 5 h, unsafe; local max at 1 h is 24 MW.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 18 RECORDED - STOP 19 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Good thinking. Use the Stop 18 result to settle optimize storage against value."
+**Dialogue bubbles -** Mara Vale: "That check holds. The unsafe power peak forces the crew to reconsider how much release buys useful storage margin."
 
 **Unlocks/waypoint:** Unlock Stop 19 at `dispatch-console` in Powerhouse.
 
 **Beat 4 - After Stop 19 | `machine-board` | automatic**
 
-**World state:** The optimize storage against value result remains visible while the prove an intermediate crossing fixture lights.
+**Trigger:** accepted_stop_19.
+
+**World state:** At `dispatch-console`, the dated accepted-result slip for Stop 19 reads: "causal; marginal gain .08/20=.004 million m^3 per (m^3/s).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 19 RECORDED - STOP 20 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Exactly right. Use the Stop 19 result to settle prove an intermediate crossing."
+**Dialogue bubbles -** Mara Vale: "That check holds. The revised release plan still needs to establish whether reservoir height crosses the warning level."
 
 **Unlocks/waypoint:** Unlock Stop 20 at `machine-board` in Powerhouse.
 
 **Beat 5 - At mission end | `machine-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_20.
+
+**World state:** At `storage-board`, Mara Vale draws the MUST CROSS 4.6 M bracket between the endpoint marks. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 5 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nia Chen: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Mara Vale: "It must cross. That does not tell us the hour. But Imani cannot say when the crest arrives from that proof; the forecast must face data it has not seen."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m05
+
+**Home:** `storage-board`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. Two endpoint marks sit on opposite sides of a red line.
+**After — exact action:** Mara Vale draws the MUST CROSS 4.6 M bracket between the endpoint marks.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `forecast-drawer`, a sealed high-ground trace rests under the old forecast.
+**Segue - exact player copy:** But Imani cannot say when the crest arrives from that proof; the forecast must face data it has not seen.
 
 ## Location plan
 
@@ -2715,6 +2906,10 @@ critical points, first/second tests, absolute extrema, EVT, IVT/MVT, marginal ch
 **Question card story setup - exact player copy:** Turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Differentiate and solve for interior critical times before comparing the plan's endpoints and average.
 
 **Question card story-science connection - exact player copy:** The critical times identify interior demand peaks and troughs that an endpoint-only check would miss.
+
+**Fixture source panel - exact player copy:** Turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Differentiate and solve for interior critical times before comparing the plan's endpoints and average. D=t^3-6t^2+9t+20
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit all critical times in hours.
 
@@ -2886,9 +3081,10 @@ estimate:
 
 Mission decision: Use the safer release setting. The level must cross 4.6 metres. The theorem proves a crossing, not its exact time. Next, total the storm inflow.
 
+**Segue - exact player copy:** But Imani cannot say when the crest arrives from that proof; the forecast must face data it has not seen.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: Use the safer release setting. The storm plan is sharper because you followed how the water actually changes.
+**Happy ending card - exact player copy:** Your checks made the difference. Mara Vale draws the MUST CROSS 4.6 M bracket between the endpoint marks. But Imani cannot say when the crest arrives from that proof; the forecast must face data it has not seen.
 
 **Story event - exact player copy:** The control room replaces the average-based release plan with the safer setting.
 
@@ -2898,7 +3094,7 @@ TARGET `18:00`; auto `SAFE STORAGE +4`; canonical enter `69/68/68/80` -> `73/68/
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Last-Half-Metre Relation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Crossing We Can Prove. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -2906,7 +3102,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Last-Half-Metre Relation, turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies Critical point to this follow-up case?
+**Prompt - exact player copy:** In a follow-up to The Crossing We Can Prove, turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies Critical point to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -2927,7 +3123,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes critical points, not Critical point. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Last-Half-Metre Relation: with critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. Which option correctly applies Absolute maximum to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Crossing We Can Prove: with critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. Which option correctly applies Absolute maximum to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -2948,7 +3144,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes critical points, not Absolute maximum. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Last-Half-Metre Relation using new evidence: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Marginal value to this follow-up case?
+**Prompt - exact player copy:** A teammate rechecks The Crossing We Can Prove using new evidence: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Marginal value to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -2969,7 +3165,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. the derivative of a total with respect to one more unit.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Last-Half-Metre Relation: turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies critical points to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends The Crossing We Can Prove: turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies critical points to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -3011,7 +3207,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Marginal value, not EVT/first-second derivative tests. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Last-Half-Metre Relation to this follow-up: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies optimization/marginal value to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Crossing We Can Prove to this follow-up: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies optimization/marginal value to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -3037,13 +3233,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 6 - The Peak Test
+# Mission 6 - The Crest We Missed
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 10 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 6 - 10 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Beyond the Old Horizon  
 **Go now:** Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the high-ground gauge.  
-**Card body:** A rain gauge has found rainfall the weather radar missed, and two forecasts now disagree about the flood. Check how each forecast begins and compare its predictions with measurements. Choose which forecast the crew should use when lowering the reservoir before the storm.
+**Card body:** 10 work shifts remain before the storm. A sealed high-ground trace rests under the old forecast. Today you decide which forecast earns use for the storm.
 **Objective:** Select the forecast that survives unseen data.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -3152,7 +3348,9 @@ Teach full curve behavior and honest validation while delivering Twist 1.
 
 **Beat 1 - On arrival at Catchment & Inflow Desk | `trace-bench` | automatic**
 
-**World state:** Arrival Location: INFLOW.
+**Trigger:** mission_6_arrival.
+
+**World state:** A sealed high-ground trace rests under the old forecast.
 
 **Panel/HUD text:** INFLOW
 
@@ -3162,43 +3360,59 @@ Teach full curve behavior and honest validation while delivering Twist 1.
 
 **Beat 2 - After Stop 21 | `high-ground-gauge` | automatic**
 
-**World state:** After 6.2 Location: INFLOW.
+**Trigger:** accepted_stop_21.
+
+**World state:** At `trace-bench`, the dated accepted-result slip for Stop 21 reads: "L=0.020 m/h.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Imani Okoro: "Nice work. Use the Stop 21 result to settle read inverse-shaped saturation."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The failed rational forecast needs comparison with a bounded alternative across the full forecast window."
 
 **Unlocks/waypoint:** Unlock Stop 22 at `high-ground-gauge` in Catchment & Inflow Desk.
 
 **Beat 3 - After Stop 22 | `forecast-drawer` | automatic**
 
-**World state:** Travel Location: INFLOW->ARCHIVE.
+**Trigger:** accepted_stop_22.
+
+**World state:** At `high-ground-gauge`, the dated accepted-result slip for Stop 22 reads: "t=4, 36.850 mm/h, tolerance .01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 22 RECORDED - STOP 23 OPEN
 
-**Dialogue bubbles -** Imani Okoro: "Good thinking. Use the Stop 22 result to settle freeze before revealing the crest."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The alternative forecasts must be frozen before the archived crest is revealed."
 
 **Unlocks/waypoint:** Unlock Stop 23 at `forecast-drawer` in Catchment & Inflow Desk.
 
 **Beat 4 - After Stop 23 | `gauge-wall` | automatic**
 
-**World state:** The freeze before revealing the crest result remains visible while the diagnose the full curve fixture lights.
+**Trigger:** accepted_stop_23.
+
+**World state:** At `forecast-drawer`, the dated accepted-result slip for Stop 23 reads: "B.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** ARCHIVE
 
-**Dialogue bubbles -** Imani Okoro: "Exactly right. Use the Stop 23 result to settle diagnose the full curve."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The holdout result favors one forecast, but the crew still needs to understand the other's failure."
 
 **Unlocks/waypoint:** Unlock Stop 24 at `gauge-wall` in Catchment & Inflow Desk.
 
 **Beat 5 - At mission end | `trace-bench` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_24.
+
+**World state:** At `forecast-drawer`, Imani Okoro files the failed forecast under MISSED LATER CREST. The dated prop remains here on later visits.
 
 **Panel/HUD text:** ARCHIVE
 
-**Dialogue bubbles -** Imani Okoro: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Imani Okoro: "I wanted a shifted clock. The mountain sent more water. Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m06
+
+**Home:** `forecast-drawer`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. A sealed high-ground trace rests under the old forecast.
+**After — exact action:** Imani Okoro files the failed forecast under MISSED LATER CREST.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `water-ledger`, the storm total fills a strip longer than the storage allowance.
+**Segue - exact player copy:** Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time.
 
 ## Location plan
 
@@ -3477,11 +3691,12 @@ residual:
 
 ## Mission outcome
 
-Mission decision: Use Forecast B. It stays finite, predicts a later crest. And survives unseen high-ground data. The old model missed the peak rather than suffering a constant bias. More water is coming, so the crew must total the full storm volume.
+Mission decision: Use Forecast B. It stays finite, predicts a later crest, and survives unseen high-ground data. The old model missed the peak rather than suffering a constant bias. More water is coming, so the crew must total the full storm volume.
 
+**Segue - exact player copy:** Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: Use Forecast B. Ashfell has more protection from the storm.
+**Happy ending card - exact player copy:** Your checks made the difference. Imani Okoro files the failed forecast under MISSED LATER CREST. Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time.
 
 **Story event - exact player copy:** Forecast B becomes the official storm forecast and raises the required drawdown.
 
@@ -3491,7 +3706,7 @@ TARGET `19:00`; automatic `SAFE STORAGE -8 | OPERATING RESERVE -3`; canonical en
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Peak Test. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Crest We Missed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -3499,7 +3714,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Peak Test, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?
+**Prompt - exact player copy:** In a follow-up to The Crest We Missed, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?
 
 **Figure - exact player copy:**
 
@@ -3567,7 +3782,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes asymptotes/L'Hopital, not Asymptote. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Peak Test: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?
 
 **Figure - exact player copy:**
 
@@ -3639,7 +3854,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes asymptotes/L'Hopital, not Residual. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Peak Test using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?
+**Prompt - exact player copy:** A teammate rechecks The Crest We Missed using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?
 
 **Figure - exact player copy:**
 
@@ -3712,7 +3927,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. observations hidden until a model is frozen.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Peak Test: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -3801,7 +4016,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Holdout data, not arctan derivative/asymptote. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Peak Test to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Crest We Missed to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -3879,13 +4094,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 7 - The Wall's Carrying Limit
+# Mission 7 - Room for the Storm
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 9 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 7 - 9 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Count Every Cubic Metre  
 **Go now:** Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall.  
-**Card body:** The crew knows how fast floodwater may arrive, but not yet how much water will arrive altogether. Add up the predicted inflow over the storm. Decide how much water must leave the reservoir beforehand so the dam has room to hold the flood.
+**Card body:** 9 work shifts remain before the storm. The storm total fills a strip longer than the storage allowance. Today you decide how much room to clear before rain.
 **Objective:** Calculate storm inflow and required empty storage.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -4006,7 +4221,9 @@ Move from rate samples to Riemann sums, antiderivatives, and both FTC parts.
 
 **Beat 1 - On arrival at Catchment & Inflow Desk | `gauge-wall` | automatic**
 
-**World state:** Arrival Location: INFLOW.
+**Trigger:** mission_7_arrival.
+
+**World state:** The storm total fills a strip longer than the storage allowance.
 
 **Panel/HUD text:** INFLOW
 
@@ -4016,43 +4233,59 @@ Move from rate samples to Riemann sums, antiderivatives, and both FTC parts.
 
 **Beat 2 - After Stop 25 | `trace-bench` | automatic**
 
-**World state:** After 7.2 Location: INFLOW.
+**Trigger:** accepted_stop_25.
+
+**World state:** At `gauge-wall`, the dated accepted-result slip for Stop 25 reads: "L=12.6, R=16.2, T=14.4 million m^3.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Imani Okoro: "Nice work. Use the Stop 25 result to settle build exact accumulation."
+**Dialogue bubbles -** Leila Hassan: "That check holds. The numerical storm-volume estimate needs an exact check using the fitted inflow function."
 
 **Unlocks/waypoint:** Unlock Stop 26 at `trace-bench` in Catchment & Inflow Desk.
 
 **Beat 3 - After Stop 26 | `trace-bench` | automatic**
 
-**World state:** Travel Location: INFLOW->STORE.
+**Trigger:** accepted_stop_26.
+
+**World state:** At `trace-bench`, the dated accepted-result slip for Stop 26 reads: "17,280,000 m^3, tolerance 1000.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 26 RECORDED - STOP 27 OPEN
 
-**Dialogue bubbles -** Imani Okoro: "Good thinking. Use the Stop 26 result to settle verify ftc part 2."
+**Dialogue bubbles -** Leila Hassan: "That check holds. The total-volume check must be reconciled with the live accumulator's changing display."
 
 **Unlocks/waypoint:** Unlock Stop 27 at `trace-bench` in Catchment & Inflow Desk.
 
 **Beat 4 - After Stop 27 | `water-ledger` | automatic**
 
-**World state:** The verify ftc part 2 result remains visible while the separate signed change from physical volume fixture lights.
+**Trigger:** accepted_stop_27.
+
+**World state:** At `trace-bench`, the dated accepted-result slip for Stop 27 reads: "210; pass.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 27 RECORDED - STOP 28 OPEN
 
-**Dialogue bubbles -** Imani Okoro: "Exactly right. Use the Stop 27 result to settle separate signed change from physical volume."
+**Dialogue bubbles -** Leila Hassan: "That check holds. The storm volume is established, allowing the crew to compare it with available empty storage."
 
 **Unlocks/waypoint:** Unlock Stop 28 at `water-ledger` in Catchment & Inflow Desk.
 
 **Beat 5 - At mission end | `gauge-wall` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_28.
+
+**World state:** At `water-ledger`, Leila Hassan pins the DRAW DOWN 5.28 MILLION CUBIC METRES card to the ledger. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 7 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Imani Okoro: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Leila Hassan: "Now the empty space has a number. But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m07
+
+**Home:** `water-ledger`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. The storm total fills a strip longer than the storage allowance.
+**After — exact action:** Leila Hassan pins the DRAW DOWN 5.28 MILLION CUBIC METRES card to the ledger.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `hoist-stand`, the hoist rests at its baseline mark above a dry spillway.
+**Segue - exact player copy:** But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley.
 
 ## Location plan
 
@@ -4140,6 +4373,10 @@ estimate:
 **Question card story setup - exact player copy:** Use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Build its antiderivative and evaluate the definite integral, converting hours to seconds, to check the sampled estimate near 17 million m3.
 
 **Question card story-science connection - exact player copy:** The definite integral converts the changing inflow rate into total water the reservoir must accommodate.
+
+**Fixture source panel - exact player copy:** Use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Build its antiderivative and evaluate the definite integral, converting hours to seconds, to check the sampled estimate near 17 million m3. I=120+10t-(5/24)t^2 3600 s/h
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit cubic metres.
 
@@ -4261,11 +4498,12 @@ verify:
 
 ## Mission outcome
 
-Mission decision: Draw down `5.28 million m^3` before the storm. The integral gives `17.28 million m^3` of inflow. And the plan also keeps `2.00 million m^3` of campaign safety room. The next task is finding a release mix that clears this volume without flooding the valley.
+Mission decision: Draw down 5.28 million m^3 before the storm. The integral gives 17.28 million m^3 of inflow, and the plan also keeps 2.00 million m^3 of campaign safety room. The next task is finding a release mix that clears this volume without flooding the valley.
 
+**Segue - exact player copy:** But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: Draw down 5.28 million m^3 before the storm. The dam crew can now act with a calculation it trusts.
+**Happy ending card - exact player copy:** Your checks made the difference. Leila Hassan pins the DRAW DOWN 5.28 MILLION CUBIC METRES card to the ledger. But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley.
 
 **Story event - exact player copy:** The storage board posts a 5.28-million-cubic-metre drawdown target.
 
@@ -4275,7 +4513,7 @@ TARGET `19:00`; auto `SAFE STORAGE +8`; canonical enter `77/68/72/85` -> `85/68/
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Wall's Carrying Limit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Room for the Storm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -4283,7 +4521,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Wall's Carrying Limit, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?
+**Prompt - exact player copy:** In a follow-up to Room for the Storm, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?
 
 **Options - exact player copy:**
 
@@ -4304,7 +4542,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes L/R/trapezoid sums, not Antiderivative. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Wall's Carrying Limit: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to Room for the Storm: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?
 
 **Options - exact player copy:**
 
@@ -4325,7 +4563,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes L/R/trapezoid sums, not Riemann sum. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Wall's Carrying Limit using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?
+**Prompt - exact player copy:** A teammate rechecks Room for the Storm using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?
 
 **Options - exact player copy:**
 
@@ -4346,7 +4584,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. signed accumulation across bounds.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Wall's Carrying Limit: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends Room for the Storm: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -4388,7 +4626,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Definite integral, not antiderivatives/linearity/FTC/Riemann limit. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Wall's Carrying Limit to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from Room for the Storm to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?
 
 **Options - exact player copy:**
 
@@ -4417,10 +4655,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 8 - The Just-Clears Release
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 8 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 8 - 8 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Make Room Without Making a Flood  
 **Go now:** Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board.  
-**Card body:** The reservoir needs another 5.28 million cubic metres of room, but releasing that water too quickly could flood communities below. Compare how much water different gate and turbine schedules send downstream. Choose a schedule that makes enough room without exceeding the downstream safety limits.
+**Card body:** 8 work shifts remain before the storm. The hoist rests at its baseline mark above a dry spillway. Today you decide which release mix clears enough water.
 **Objective:** Select a release schedule meeting storage and downstream limits.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -4517,7 +4755,9 @@ Use substitution and absolute accumulation to build a multi-constraint plan.
 
 **Beat 1 - On arrival at Powerhouse | `machine-board` | automatic**
 
-**World state:** The substitute the head term fixture wakes and the mission evidence opens.
+**Trigger:** mission_8_arrival.
+
+**World state:** The hoist rests at its baseline mark above a dry spillway.
 
 **Panel/HUD text:** MISSION 8: SUBSTITUTE THE HEAD TERM OPEN
 
@@ -4527,43 +4767,59 @@ Use substitution and absolute accumulation to build a multi-constraint plan.
 
 **Beat 2 - After Stop 29 | `machine-board` | automatic**
 
-**World state:** After 8.2 Location: POWER.
+**Trigger:** accepted_stop_29.
+
+**World state:** At `machine-board`, the dated accepted-result slip for Stop 29 reads: "4133.333, tolerance .01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 29 RECORDED - STOP 30 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Nice work. Use the Stop 29 result to settle verify turbine volume."
+**Dialogue bubbles -** Tomas Wilkes: "That check holds. The turbine-volume prediction is ready for comparison with the dispatch simulation."
 
 **Unlocks/waypoint:** Unlock Stop 30 at `machine-board` in Powerhouse.
 
 **Beat 3 - After Stop 30 | `machine-board` | automatic**
 
-**World state:** Travel Location: POWER->SAFE.
+**Trigger:** accepted_stop_30.
+
+**World state:** At `machine-board`, the dated accepted-result slip for Stop 30 reads: "3.600 million m^3; pass.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 30 RECORDED - STOP 31 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Good thinking. Use the Stop 30 result to settle total the signed surge."
+**Dialogue bubbles -** Tomas Wilkes: "That check holds. The remaining drawdown must be checked against a downstream flow that changes sign."
 
 **Unlocks/waypoint:** Unlock Stop 31 at `machine-board` in Powerhouse.
 
 **Beat 4 - After Stop 31 | `dispatch-console` | automatic**
 
-**World state:** The total the signed surge result remains visible while the allocate the just-clears plan fixture lights.
+**Trigger:** accepted_stop_31.
+
+**World state:** At `machine-board`, the dated accepted-result slip for Stop 31 reads: "26.667,63.333, tolerance .01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 31 RECORDED - STOP 32 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Exactly right. Use the Stop 31 result to settle allocate the just-clears plan."
+**Dialogue bubbles -** Tomas Wilkes: "That check holds. The verified turbine contribution leaves a specific release deficit and supporting tasks to fund."
 
 **Unlocks/waypoint:** Unlock Stop 32 at `dispatch-console` in Powerhouse.
 
 **Beat 5 - At mission end | `machine-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_32.
+
+**World state:** At `hoist-stand`, Tomas Wilkes turns the hoist to the signed test notch. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 8 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nia Chen: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Wilkes: "The gate has a share now. So does the warning crew. But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m08
+
+**Home:** `hoist-stand`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. The hoist rests at its baseline mark above a dry spillway.
+**After — exact action:** Tomas Wilkes turns the hoist to the signed test notch.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `uplift-wall`, two blank gauge faces sit beside a live independent trace.
+**Segue - exact player copy:** But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall.
 
 ## Location plan
 
@@ -4590,6 +4846,10 @@ u-substitution, bounds conversion, signed versus total area, constrained allocat
 **Question card story setup - exact player copy:** Turbine flow is Q(t)=200t(1+t^2)^2 m3/s for 0<=t<=2 h in a scaled test. Substitute u=1+t^2 and derive the exact accumulated value before unit conversion.
 
 **Question card story-science connection - exact player copy:** The substituted integral measures accumulated discharge from the changing turbine-flow model.
+
+**Fixture source panel - exact player copy:** Turbine flow is Q(t)=200t(1+t^2)^2 m3/s for 0<=t<=2 h in a scaled test. Substitute u=1+t^2 and derive the exact accumulated value before unit conversion. du=2t dt
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the exact scaled value.
 
@@ -4684,6 +4944,10 @@ verify:
 **Question card story setup - exact player copy:** With a 1.68 million m^3 deficit, downstream excess flow is E(t)=30t-10t^2 m^3/s for 0<=t<=4 h. Find its zero, then separate signed net change from total water movement.
 
 **Question card story-science connection - exact player copy:** Signed accumulation and total water movement distinguish net added volume from movement that reverses during the interval.
+
+**Fixture source panel - exact player copy:** With a 1.68 million m^3 deficit, downstream excess flow is E(t)=30t-10t^2 m^3/s for 0<=t<=4 h. Find its zero, then separate signed net change from total water movement. E=10t(3-t)
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit both in (m^3/s)*h.
 
@@ -4784,11 +5048,12 @@ allocate_patch:
 
 ## Mission outcome
 
-Mission decision: Use the mixed turbine-and-gate plan. Turbines clear `3.60 million m^3`. And the gate clears the remaining `1.68 million m^3` with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head.
+Mission decision: Use the mixed turbine-and-gate plan. Turbines clear 3.60 million m^3, and the gate clears the remaining 1.68 million m^3 with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head.
 
+**Segue - exact player copy:** But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: Use the mixed turbine-and-gate plan. Your result keeps the reservoir plan both useful and safe.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Wilkes turns the hoist to the signed test notch. But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall.
 
 **Story event - exact player copy:** The combined turbine-and-gate schedule creates the required storage while preserving downstream warnings.
 
@@ -4984,13 +5249,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 9 - The Seepage Ledger Rule
+# Mission 9 - Two Silent Gauges
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 7 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 9 - 7 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** The Silent Heads  
 **Go now:** Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the uplift wall.  
-**Card body:** Two pressure gauges beneath the dam have stopped reporting just as the water load is changing. Use the remaining measurements to estimate the missing pressure changes. Decide whether the crew can continue controlled releases without putting the dam wall at risk.
+**Card body:** 7 work shifts remain before the storm. Two blank gauge faces sit beside a live independent trace. Today you decide whether the quiet gauges mean wall trouble.
 **Objective:** Reconstruct uplift pressure and authorize or stop testing.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -5089,7 +5354,9 @@ Teach slope fields, Euler steps, numerical control, and evidence independence.
 
 **Beat 1 - On arrival at Seepage & Uplift Bay | `uplift-wall` | automatic**
 
-**World state:** Arrival Location: STRUCT.
+**Trigger:** mission_9_arrival.
+
+**World state:** Two blank gauge faces sit beside a live independent trace.
 
 **Panel/HUD text:** STRUCT
 
@@ -5099,43 +5366,59 @@ Teach slope fields, Euler steps, numerical control, and evidence independence.
 
 **Beat 2 - After Stop 33 | `uplift-wall` | automatic**
 
-**World state:** After 9.2 Location: STRUCT.
+**Trigger:** accepted_stop_33.
+
+**World state:** At `uplift-wall`, the dated accepted-result slip for Stop 33 reads: "toward 8; equilibrium P=8.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STRUCT
 
-**Dialogue bubbles -** Arun Mehta: "Nice work. Use the Stop 33 result to settle step through the gap."
+**Dialogue bubbles -** Arun Mehta: "That check holds. The pressure model must bridge the gap between the last live reading and the next measurement."
 
 **Unlocks/waypoint:** Unlock Stop 34 at `uplift-wall` in Seepage & Uplift Bay.
 
 **Beat 3 - After Stop 34 | `transect-rack` | automatic**
 
-**World state:** Travel Location: STRUCT->GATES.
+**Trigger:** accepted_stop_34.
+
+**World state:** At `uplift-wall`, the dated accepted-result slip for Stop 34 reads: "5.44, tolerance .001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 34 RECORDED - STOP 35 OPEN
 
-**Dialogue bubbles -** Arun Mehta: "Good thinking. Use the Stop 34 result to settle test step-size sensitivity."
+**Dialogue bubbles -** Arun Mehta: "That check holds. The coarse pressure estimate needs a numerical-sensitivity check before it supports a load decision."
 
 **Unlocks/waypoint:** Unlock Stop 35 at `transect-rack` in Seepage & Uplift Bay.
 
 **Beat 4 - After Stop 35 | `uplift-wall` | automatic**
 
-**World state:** The test step-size sensitivity result remains visible while the diagnose silence fixture lights.
+**Trigger:** accepted_stop_35.
+
+**World state:** At `transect-rack`, the dated accepted-result slip for Stop 35 reads: "as stated.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 35 RECORDED - STOP 36 OPEN
 
-**Dialogue bubbles -** Arun Mehta: "Exactly right. Use the Stop 35 result to settle diagnose silence."
+**Dialogue bubbles -** Arun Mehta: "That check holds. Agreement with the model cannot explain why two pressure channels remain silent."
 
 **Unlocks/waypoint:** Unlock Stop 36 at `uplift-wall` in Seepage & Uplift Bay.
 
 **Beat 5 - At mission end | `uplift-wall` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_36.
+
+**World state:** At `uplift-wall`, Arun Mehta ties a FAILED SHARED CABLE tag around the removed cable. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 9 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Arun Mehta: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Arun Mehta: "Two silent faces. One cable. That is not two votes. But the weir still carries extra flow; Arun needs its time trend before he clears the wall."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m09
+
+**Home:** `uplift-wall`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. Two blank gauge faces sit beside a live independent trace.
+**After — exact action:** Arun Mehta ties a FAILED SHARED CABLE tag around the removed cable.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `weir-bench`, drops strike the weir bucket at a slowing pace.
+**Segue - exact player copy:** But the weir still carries extra flow; Arun needs its time trend before he clears the wall.
 
 ## Location plan
 
@@ -5220,6 +5503,10 @@ probe:
 **Question card story setup - exact player copy:** The last live value is P(0)=4.0, and dP/dh=0.4(8-P). Use Euler steps of 0.5 m twice to estimate P(1.0) before the next safe decision.
 
 **Question card story-science connection - exact player copy:** The Euler estimate predicts pressure at the missing height so the crew can assess the monitoring gap.
+
+**Fixture source panel - exact player copy:** The last live value is P(0)=4.0, and dP/dh=0.4(8-P). Use Euler steps of 0.5 m twice to estimate P(1.0) before the next safe decision. P0=4 f=0.4(8-P) Delta h=.5
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit P(1.0).
 
@@ -5343,11 +5630,12 @@ trace:
 
 ## Mission outcome
 
-Mission decision: Continue controlled release tests. Euler estimates agree with independent live readings. And the two silent gauges share one failed cable. The crew replaces that cable. And bounds the uplift load.
+Mission decision: Continue controlled release tests. Euler estimates agree with independent live readings, and the two silent gauges share one failed cable. The crew replaces that cable, and bounds the uplift load.
 
+**Segue - exact player copy:** But the weir still carries extra flow; Arun needs its time trend before he clears the wall.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: Continue controlled release tests. People downstream have a stronger margin of safety tonight.
+**Happy ending card - exact player copy:** Your checks made the difference. Arun Mehta ties a FAILED SHARED CABLE tag around the removed cable. But the weir still carries extra flow; Arun needs its time trend before he clears the wall.
 
 **Story event - exact player copy:** The reconstructed pressure path matches the live gauges, so controlled release testing continues.
 
@@ -5357,7 +5645,7 @@ TARGET `18:00`; auto `INTEGRITY +6 | RESERVE -3`; canonical `92/86/76/85` -> `92
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Seepage Ledger Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Two Silent Gauges. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -5365,7 +5653,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Seepage Ledger Rule, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?
+**Prompt - exact player copy:** In a follow-up to Two Silent Gauges, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?
 
 **Options - exact player copy:**
 
@@ -5386,7 +5674,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes slope fields/equilibrium, not Slope field. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Seepage Ledger Rule: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -5407,7 +5695,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes slope fields/equilibrium, not Equilibrium solution. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Seepage Ledger Rule using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?
+**Prompt - exact player copy:** A teammate rechecks Two Silent Gauges using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?
 
 **Options - exact player copy:**
 
@@ -5428,7 +5716,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. repeated tangent-line steps.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Seepage Ledger Rule: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?
+**Prompt - exact player copy:** An unseen case extends Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?
 
 **Options - exact player copy:**
 
@@ -5470,7 +5758,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Euler's method, not Euler method. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Seepage Ledger Rule to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from Two Silent Gauges to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?
 
 **Options - exact player copy:**
 
@@ -5496,13 +5784,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 10 - The Error Carried Into Volume
+# Mission 10 - The Flow That Eases
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 6 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 10 - 6 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Settle or Grow  
 **Go now:** Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the weir bench.  
-**Card body:** A broken cable explains the silent gauges, but water leaking through the dam still needs watching. Compare predictions of how that seepage changes under continued pressure. Decide how much water the reservoir can safely hold without the leakage becoming dangerous.
+**Card body:** 6 work shifts remain before the storm. Drops strike the weir bucket at a slowing pace. Today you decide whether seepage stays inside its limit.
 **Objective:** Select the seepage model and approve or reject the load limit.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -5609,7 +5897,9 @@ Distinguish standard differential models through equilibrium and mechanism.
 
 **Beat 1 - On arrival at Seepage & Uplift Bay | `weir-bench` | automatic**
 
-**World state:** Arrival Location: STRUCT.
+**Trigger:** mission_10_arrival.
+
+**World state:** Drops strike the weir bucket at a slowing pace.
 
 **Panel/HUD text:** STRUCT
 
@@ -5619,43 +5909,59 @@ Distinguish standard differential models through equilibrium and mechanism.
 
 **Beat 2 - After Stop 37 | `weir-bench` | automatic**
 
-**World state:** After 10.2 Location: STRUCT.
+**Trigger:** accepted_stop_37.
+
+**World state:** At `weir-bench`, the dated accepted-result slip for Stop 37 reads: "3.614, tolerance .005.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STRUCT
 
-**Dialogue bubbles -** Arun Mehta: "Nice work. Use the Stop 37 result to settle select the model."
+**Dialogue bubbles -** Arun Mehta: "That check holds. The seepage prediction has a measured time series available for an independent model check."
 
 **Unlocks/waypoint:** Unlock Stop 38 at `weir-bench` in Seepage & Uplift Bay.
 
 **Beat 3 - After Stop 38 | `drain-console` | automatic**
 
-**World state:** Travel Location: STRUCT->STORE.
+**Trigger:** accepted_stop_38.
+
+**World state:** At `weir-bench`, the dated accepted-result slip for Stop 38 reads: "decay.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 38 RECORDED - STOP 39 OPEN
 
-**Dialogue bubbles -** Arun Mehta: "Good thinking. Use the Stop 38 result to settle transfer to cooling."
+**Dialogue bubbles -** Arun Mehta: "That check holds. The decay model needs comparison with a process whose limiting value is not zero."
 
 **Unlocks/waypoint:** Unlock Stop 39 at `drain-console` in Seepage & Uplift Bay.
 
 **Beat 4 - After Stop 39 | `uplift-wall` | automatic**
 
-**World state:** The transfer to cooling result remains visible while the approve the carrying limit fixture lights.
+**Trigger:** accepted_stop_39.
+
+**World state:** At `drain-console`, the dated accepted-result slip for Stop 39 reads: "ambient sets limit.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 39 RECORDED - STOP 40 OPEN
 
-**Dialogue bubbles -** Arun Mehta: "Exactly right. Use the Stop 39 result to settle approve the carrying limit."
+**Dialogue bubbles -** Arun Mehta: "That check holds. The observed seepage decay still carries rate uncertainty that could change load approval."
 
 **Unlocks/waypoint:** Unlock Stop 40 at `uplift-wall` in Seepage & Uplift Bay.
 
 **Beat 5 - At mission end | `weir-bench` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_40.
+
+**World state:** At `weir-bench`, Arun Mehta clips the BELOW 5.0 LITRES PER MINUTE clearance to the weir notebook. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 10 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Arun Mehta: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Arun Mehta: "The flow is easing. The empty space still needs proof. But Imani's new lake survey has less space than the old chart; the release plan may be short again."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m10
+
+**Home:** `weir-bench`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. Drops strike the weir bucket at a slowing pace.
+**After — exact action:** Arun Mehta clips the BELOW 5.0 LITRES PER MINUTE clearance to the weir notebook.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `holdout-drawer`, a fresh sonar roll crowds the old 2003 drawing.
+**Segue - exact player copy:** But Imani's new lake survey has less space than the old chart; the release plan may be short again.
 
 ## Location plan
 
@@ -5682,6 +5988,10 @@ separation, `ln|y|`, initial condition, exponential/logistic/Newton models, equi
 **Question card story setup - exact player copy:** Excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Separate variables, integrate, and use the initial condition to predict the excess after 4 h.
 
 **Question card story-science connection - exact player copy:** The initial-value solution predicts whether seepage should decay enough before the next load review.
+
+**Fixture source panel - exact player copy:** Excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Separate variables, integrate, and use the initial condition to predict the excess after 4 h. S'=-.30S
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit S(4) in litres per minute.
 
@@ -5859,9 +6169,10 @@ stress:
 
 Mission decision: Approve the wall seepage limit. The extra flow falls with time. It stays below 5.0 litres per minute in every sound case. The wall check passes. A new lake survey now tests the storage chart.
 
+**Segue - exact player copy:** But Imani's new lake survey has less space than the old chart; the release plan may be short again.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: Approve the wall seepage limit. The storm plan is sharper because you followed how the water actually changes.
+**Happy ending card - exact player copy:** Your checks made the difference. Arun Mehta clips the BELOW 5.0 LITRES PER MINUTE clearance to the weir notebook. But Imani's new lake survey has less space than the old chart; the release plan may be short again.
 
 **Story event - exact player copy:** The seepage forecast stays below the structural limit and clears the wall hold.
 
@@ -5871,7 +6182,7 @@ TARGET `18:00`; auto `INTEGRITY +5` clamped at 100; canonical `92/86/76/100`, aw
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Error Carried Into Volume. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Flow That Eases. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -5879,7 +6190,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Error Carried Into Volume, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?
+**Prompt - exact player copy:** In a follow-up to The Flow That Eases, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -5900,7 +6211,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes separation/initial condition, not Differential equation. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Error Carried Into Volume: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -5921,7 +6232,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes separation/initial condition, not Initial condition. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Error Carried Into Volume using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?
+**Prompt - exact player copy:** A teammate rechecks The Flow That Eases using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -5942,7 +6253,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. limiting level in a logistic model.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Error Carried Into Volume: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -5984,7 +6295,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Carrying capacity, not exponential/logistic/Newton models. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Error Carried Into Volume to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Flow That Eases to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -6010,13 +6321,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 11 - The Quiet-Day Check
+# Mission 11 - The Lake Lost Its Room
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 5 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 11 - 5 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** The Reservoir Is Smaller  
 **Go now:** Go to Storage & Level Board and meet Mara Vale, operations chief, at the resurveyed curve.  
-**Card body:** New measurements show that the reservoir holds less water at a given height than the old chart claims. That could leave less room for the storm than the crew expects. Calculate the missing capacity and decide whether the official chart must be replaced.
+**Card body:** 5 work shifts remain before the storm. A fresh sonar roll crowds the old 2003 drawing. Today you decide which lake storage curve to use.
 **Objective:** Certify the old or resurveyed stage-storage curve.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -6135,7 +6446,9 @@ Deliver Twist 2 through area, average value, attestation, and related rates.
 
 **Beat 1 - On arrival at Storage & Level Board | `storage-board` | automatic**
 
-**World state:** The integrate lost capacity fixture wakes and the mission evidence opens.
+**Trigger:** mission_11_arrival.
+
+**World state:** A fresh sonar roll crowds the old 2003 drawing.
 
 **Panel/HUD text:** MISSION 11: INTEGRATE LOST CAPACITY OPEN
 
@@ -6145,43 +6458,59 @@ Deliver Twist 2 through area, average value, attestation, and related rates.
 
 **Beat 2 - After Stop 41 | `level-desk` | automatic**
 
-**World state:** After 11.2 Location: STORE.
+**Trigger:** accepted_stop_41.
+
+**World state:** At `storage-board`, the dated accepted-result slip for Stop 41 reads: "7.5 million m^3, tolerance .01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 41 RECORDED - STOP 42 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Nice work. Use the Stop 41 result to settle compute average loss."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The lost-capacity result needs a per-metre summary without erasing changes along the curve."
 
 **Unlocks/waypoint:** Unlock Stop 42 at `level-desk` in Storage & Level Board.
 
 **Beat 3 - After Stop 42 | `survey-rack` | automatic**
 
-**World state:** Travel1 Location: STORE->STRUCT.
+**Trigger:** accepted_stop_42.
+
+**World state:** At `level-desk`, the dated accepted-result slip for Stop 42 reads: "2.5 million m^3/m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 42 RECORDED - STOP 43 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Good thinking. Use the Stop 42 result to settle verify independent transects."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The storage discrepancy needs independent survey support before the old curve is replaced."
 
 **Unlocks/waypoint:** Unlock Stop 43 at `survey-rack` in Storage & Level Board.
 
 **Beat 4 - After Stop 43 | `level-desk` | automatic**
 
-**World state:** Travel2 Location: STRUCT->GATES.
+**Trigger:** accepted_stop_43.
+
+**World state:** At `survey-rack`, the dated accepted-result slip for Stop 43 reads: "three backed records.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 43 RECORDED - STOP 44 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Exactly right. Use the Stop 43 result to settle convert volume loss to level rate."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The supported capacity revision must also predict the level change observed during release."
 
 **Unlocks/waypoint:** Unlock Stop 44 at `level-desk` in Storage & Level Board.
 
 **Beat 5 - At mission end | `storage-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_44.
+
+**World state:** At `holdout-drawer`, Imani Okoro opens the sealed independent survey drawer. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 11 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Vale: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Imani Okoro: "I kept the old chart because we knew it. That was not enough. Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m11
+
+**Home:** `holdout-drawer`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. A fresh sonar roll crowds the old 2003 drawing.
+**After — exact action:** Imani Okoro opens the sealed independent survey drawer.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `machine-board`, a runner crate blocks one of the two machine bays.
+**Segue - exact player copy:** Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise.
 
 ## Location plan
 
@@ -6208,6 +6537,10 @@ area between curves, crossings, average value, independent records, related-rate
 **Question card story setup - exact player copy:** Old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Integrate the positive gap across the operating interval.
 
 **Question card story-science connection - exact player copy:** The integrated gap between storage-density curves measures total capacity lost across the operating heights.
+
+**Fixture source panel - exact player copy:** Old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Integrate the positive gap across the operating interval. d=6-h
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit million cubic metres.
 
@@ -6374,9 +6707,10 @@ verify:
 
 Mission decision: Replace the 2003 storage curve. New surveys show 7.5 million cubic metres of lost space. The new rate also matches the level drop. The old plan claimed too much room. Rebuild the release plan.
 
+**Segue - exact player copy:** Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: Replace the 2003 storage curve. Ashfell has more protection from the storm.
+**Happy ending card - exact player copy:** Your checks made the difference. Imani Okoro opens the sealed independent survey drawer. Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise.
 
 **Story event - exact player copy:** The corrected storage curve replaces the outdated 2003 chart in the control room.
 
@@ -6386,7 +6720,7 @@ TARGET `19:00`; auto `STORAGE -10 | INTEGRITY -4`; canonical `100/86/80/100` -> 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Quiet-Day Check. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Lake Lost Its Room. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -6394,7 +6728,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Quiet-Day Check, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** In a follow-up to The Lake Lost Its Room, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -6479,7 +6813,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes area between curves/crossings, not Area between curves. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Quiet-Day Check: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Lake Lost Its Room: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -6500,7 +6834,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes area between curves/crossings, not Average value. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Quiet-Day Check using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?
+**Prompt - exact player copy:** A teammate rechecks The Lake Lost Its Room using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?
 
 **Options - exact player copy:**
 
@@ -6521,7 +6855,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. cross-sectional disk with a hole.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Quiet-Day Check: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Prompt - exact player copy:** An unseen case extends The Lake Lost Its Room: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?
 
 **Figure - exact player copy:**
 
@@ -6627,7 +6961,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Washer, not average value/splitting. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Quiet-Day Check to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Lake Lost Its Room to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -6653,13 +6987,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 12 - The Decay Constant, Scored
+# Mission 12 - The Runner in the Crate
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 4 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 12 - 4 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** What the Steel Can Do  
 **Go now:** Go to Powerhouse and meet Nia Chen, power dispatcher, at the crated runner.  
-**Card body:** The smaller reservoir leaves less room for error, and one turbine wheel is unavailable. Calculate the space inside the remaining water passages and the energy needed to move water and open gates. Choose a release schedule the working machinery can actually carry out.
+**Card body:** 4 work shifts remain before the storm. A runner crate blocks one of the two machine bays. Today you decide which machines can repeat the release.
 **Objective:** Fit the corrected release inside machine and hoist limits.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -6768,7 +7102,9 @@ Make volume methods and work integrals decide a physical schedule.
 
 **Beat 1 - On arrival at Powerhouse | `runner-crate` | automatic**
 
-**World state:** The compute the missing runner volume fixture wakes and the mission evidence opens.
+**Trigger:** mission_12_arrival.
+
+**World state:** A runner crate blocks one of the two machine bays.
 
 **Panel/HUD text:** MISSION 12: COMPUTE THE MISSING RUNNER VOLUME OPEN
 
@@ -6778,43 +7114,59 @@ Make volume methods and work integrals decide a physical schedule.
 
 **Beat 2 - After Stop 45 | `runner-crate` | automatic**
 
-**World state:** Travel1 Location: POWER->GATES.
+**Trigger:** accepted_stop_45.
+
+**World state:** At `runner-crate`, the dated accepted-result slip for Stop 45 reads: "23.038 m^3, tolerance .01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 45 RECORDED - STOP 46 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Nice work. Use the Stop 45 result to settle compare the shell setup."
+**Dialogue bubbles -** Nia Chen: "That check holds. The passage calculation needs a second geometry check with the correct axis and integration bounds."
 
 **Unlocks/waypoint:** Unlock Stop 46 at `runner-crate` in Powerhouse.
 
 **Beat 3 - After Stop 46 | `work-meter` | automatic**
 
-**World state:** After 12.3 Location: GATES.
+**Trigger:** accepted_stop_46.
+
+**World state:** At `runner-crate`, the dated accepted-result slip for Stop 46 reads: "2pi integral_0^3 x(3-x)dx=9pi m^3.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 46 RECORDED - STOP 47 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Good thinking. Use the Stop 46 result to settle measure hoist work."
+**Dialogue bubbles -** Nia Chen: "That check holds. The alternative release route needs a hoist-work test before it can replace the runner."
 
 **Unlocks/waypoint:** Unlock Stop 47 at `work-meter` in Powerhouse.
 
 **Beat 4 - After Stop 47 | `dispatch-console` | automatic**
 
-**World state:** Travel2 Location: GATES->STORE.
+**Trigger:** accepted_stop_47.
+
+**World state:** At `work-meter`, the dated accepted-result slip for Stop 47 reads: ".5*8000*.09+1200*.3=720 J; pass.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 47 RECORDED - STOP 48 OPEN
 
-**Dialogue bubbles -** Nia Chen: "Exactly right. Use the Stop 47 result to settle choose feasible schedule."
+**Dialogue bubbles -** Nia Chen: "That check holds. One successful stroke does not establish a repeatable schedule with sufficient storage clearance and warning time."
 
 **Unlocks/waypoint:** Unlock Stop 48 at `dispatch-console` in Powerhouse.
 
 **Beat 5 - At mission end | `runner-crate` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_48.
+
+**World state:** At `machine-board`, Nia Chen hangs a RUNNER UNAVAILABLE card over the blocked machine slot. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 12 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Nia Chen: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Nia Chen: "One runner. Real work. No power from the crate. But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m12
+
+**Home:** `machine-board`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. A runner crate blocks one of the two machine bays.
+**After — exact action:** Nia Chen hangs a RUNNER UNAVAILABLE card over the blocked machine slot.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `residual-plot`, the new survey and old fit lie on separate hooks.
+**Segue - exact player copy:** But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain.
 
 ## Location plan
 
@@ -6841,6 +7193,10 @@ disk/washer, shell setup, work as force integral, Hooke force, evidence value.
 **Question card story setup - exact player copy:** The runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Use washers to compute its water volume.
 
 **Question card story-science connection - exact player copy:** The washer integral determines the water volume inside the runner passage after its hollow center is excluded.
+
+**Fixture source panel - exact player copy:** The runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Use washers to compute its water volume. R=2 r=x/2
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit cubic metres.
 
@@ -7021,9 +7377,10 @@ value:
 
 Mission decision: Use one runner and move each gate in stages. The blocked runner no longer counts. Each gate move stays below 750 joules. The storage test still passes. Now test if measurement error can change the result.
 
+**Segue - exact player copy:** But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: Use one runner and move each gate in stages. The dam crew can now act with a calculation it trusts.
+**Happy ending card - exact player copy:** Your checks made the difference. Nia Chen hangs a RUNNER UNAVAILABLE card over the blocked machine slot. But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain.
 
 **Story event - exact player copy:** One turbine runner and staged gate movements complete the release within mechanical limits.
 
@@ -7033,7 +7390,7 @@ TARGET `19:00`; auto `RESERVE +7`; canonical `100/86/80/98` -> `100/86/87/98`, a
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Decay Constant, Scored. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Runner in the Crate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -7041,7 +7398,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Decay Constant, Scored, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?
+**Prompt - exact player copy:** In a follow-up to The Runner in the Crate, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -7062,7 +7419,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Work, not Disk. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Decay Constant, Scored: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Runner in the Crate: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?
 
 **Options - exact player copy:**
 
@@ -7083,7 +7440,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Work, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Decay Constant, Scored using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?
+**Prompt - exact player copy:** A teammate rechecks The Runner in the Crate using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?
 
 **Options - exact player copy:**
 
@@ -7104,7 +7461,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. thin cylindrical layer.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Decay Constant, Scored: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends The Runner in the Crate: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -7146,7 +7503,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Shell, not disk/washer volume. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Decay Constant, Scored to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Runner in the Crate to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?
 
 **Options - exact player copy:**
 
@@ -7172,13 +7529,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 13 - The Three-Before-Nine Order
+# Mission 13 - The Margin That Survives
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 3 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 13 - 3 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Carry the Error Honestly  
 **Go now:** Go to Storage & Level Board and meet Mara Vale, operations chief, at the level desk.  
-**Card body:** The revised release schedule looks safe, but every water-height and flow measurement has some error. Test how those errors change the predicted result and whether several sensors share one fault. Decide whether the crew has enough reliable evidence to approve the schedule.
+**Card body:** 3 work shifts remain before the storm. The new survey and old fit lie on separate hooks. Today you decide whether the corrected plan has enough margin.
 **Objective:** Certify the model across supported measurement error.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -7277,7 +7634,9 @@ Teach uncertainty as structured sensitivity rather than vague caution.
 
 **Beat 1 - On arrival at Storage & Level Board | `level-desk` | automatic**
 
-**World state:** The linearize level error fixture wakes and the mission evidence opens.
+**Trigger:** mission_13_arrival.
+
+**World state:** The new survey and old fit lie on separate hooks.
 
 **Panel/HUD text:** MISSION 13: LINEARIZE LEVEL ERROR OPEN
 
@@ -7287,43 +7646,59 @@ Teach uncertainty as structured sensitivity rather than vague caution.
 
 **Beat 2 - After Stop 49 | `storage-board` | automatic**
 
-**World state:** After 13.2 Location: STORE.
+**Trigger:** accepted_stop_49.
+
+**World state:** At `level-desk`, the dated accepted-result slip for Stop 49 reads: "+-0.030 million m^3; margin survives.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 49 RECORDED - STOP 50 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Nice work. Use the Stop 49 result to settle refuse the lowest rms."
+**Dialogue bubbles -** Imani Okoro: "That check holds. Acceptable gauge uncertainty leaves the accumulation method itself to be checked against independent totals."
 
 **Unlocks/waypoint:** Unlock Stop 50 at `storage-board` in Storage & Level Board.
 
 **Beat 3 - After Stop 50 | `control-bench` | automatic**
 
-**World state:** Travel1 Location: STORE->STRUCT.
+**Trigger:** accepted_stop_50.
+
+**World state:** At `storage-board`, the dated accepted-result slip for Stop 50 reads: "trapezoid.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 50 RECORDED - STOP 51 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Good thinking. Use the Stop 50 result to settle break the two-control degeneracy."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The accumulation check leaves offset and scale errors that can imitate each other in the level system."
 
 **Unlocks/waypoint:** Unlock Stop 51 at `control-bench` in Storage & Level Board.
 
 **Beat 4 - After Stop 51 | `storage-board` | automatic**
 
-**World state:** Travel2 Location: STRUCT->INFLOW.
+**Trigger:** accepted_stop_51.
+
+**World state:** At `control-bench`, the dated accepted-result slip for Stop 51 reads: "(-.01 m,1.02).". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 51 RECORDED - STOP 52 OPEN
 
-**Dialogue bubbles -** Mara Vale: "Exactly right. Use the Stop 51 result to settle diagnose the signed rules."
+**Dialogue bubbles -** Imani Okoro: "That check holds. The separated calibration errors allow the crew to reconcile the earlier findings into one release-rule set."
 
 **Unlocks/waypoint:** Unlock Stop 52 at `storage-board` in Storage & Level Board.
 
 **Beat 5 - At mission end | `level-desk` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_52.
+
+**World state:** At `residual-plot`, Imani Okoro pins the independent clearance beside the corrected residual plot. The dated prop remains here on later visits.
 
 **Panel/HUD text:** INFLOW
 
-**Dialogue bubbles -** Mara Vale: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Imani Okoro: "This time the check did not learn from our model. But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m13
+
+**Home:** `residual-plot`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. The new survey and old fit lie on separate hooks.
+**After — exact action:** Imani Okoro pins the independent clearance beside the corrected residual plot.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `warning-list`, two acknowledgement boxes are empty beside a running clock.
+**Segue - exact player copy:** But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning.
 
 ## Location plan
 
@@ -7520,9 +7895,10 @@ residual:
 
 Mission decision: Sign the new release rules. Volume error stays below the safety margin. Model errors show no pattern. A separate survey breaks the last tie. Now test each valley warning line.
 
+**Segue - exact player copy:** But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: Sign the new release rules. Your result keeps the reservoir plan both useful and safe.
+**Happy ending card - exact player copy:** Your checks made the difference. Imani Okoro pins the independent clearance beside the corrected residual plot. But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning.
 
 **Story event - exact player copy:** The chief engineer signs the corrected release rules after every uncertainty check passes.
 
@@ -7532,7 +7908,7 @@ TARGET `20:00`; auto `INTEGRITY +12` clamped and lock at 100; canonical `100/96/
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Three-Before-Nine Order. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed The Margin That Survives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -7540,7 +7916,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Three-Before-Nine Order, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?
+**Prompt - exact player copy:** In a follow-up to The Margin That Survives, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?
 
 **Options - exact player copy:**
 
@@ -7561,7 +7937,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes linear approximation/error budget, not Linearization. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Three-Before-Nine Order: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?
 
 **Options - exact player copy:**
 
@@ -7582,7 +7958,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes linear approximation/error budget, not Propagated error. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Three-Before-Nine Order using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?
+**Prompt - exact player copy:** A teammate rechecks The Margin That Survives using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -7603,7 +7979,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. two parameter choices fitting the same evidence.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Three-Before-Nine Order: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?
+**Prompt - exact player copy:** An unseen case extends The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?
 
 **Options - exact player copy:**
 
@@ -7645,7 +8021,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Degeneracy, not approximation error/sum accuracy. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Three-Before-Nine Order to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Margin That Survives to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -7671,13 +8047,13 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ---
 
-# Mission 14 - The Lead-Time Rule
+# Mission 14 - Four Voices Back
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 2 SHIFTS UNTIL THE STORM  
+**Header:** MISSION 14 - 2 WORK SHIFTS REMAIN BEFORE THE STORM.
 **Card title:** Four Dark Sirens  
 **Go now:** Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the siren repeater panel.  
-**Card body:** The dam and machinery checks pass, but four downstream communities did not receive the test alarm. Water cannot be released safely while those warnings fail. Choose which faults to repair first and estimate the delay, then decide whether every community will receive enough warning.
+**Card body:** 2 work shifts remain before the storm. Two acknowledgement boxes are empty beside a running clock. Today you decide which warning repairs must come first.
 **Objective:** Repair and certify the warning chain.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -7776,7 +8152,9 @@ Require calculus to repair a human readiness constraint before final release.
 
 **Beat 1 - On arrival at Downstream Warning Desk | `arrival-map` | automatic**
 
-**World state:** The find the repair optimum fixture wakes and the mission evidence opens.
+**Trigger:** mission_14_arrival.
+
+**World state:** Two acknowledgement boxes are empty beside a running clock.
 
 **Panel/HUD text:** MISSION 14: FIND THE REPAIR OPTIMUM OPEN
 
@@ -7786,43 +8164,59 @@ Require calculus to repair a human readiness constraint before final release.
 
 **Beat 2 - After Stop 53 | `settlement-circuits` | automatic**
 
-**World state:** After 14.2 Location: SAFE.
+**Trigger:** accepted_stop_53.
+
+**World state:** At `arrival-map`, the dated accepted-result slip for Stop 53 reads: "x=6 at endpoint; P(6)=52, versus P(0)=-8.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 53 RECORDED - STOP 54 OPEN
 
-**Dialogue bubbles -** Elise Baptiste: "Nice work. Use the Stop 53 result to settle order settlements by consequence."
+**Dialogue bubbles -** Elise Baptiste: "That check holds. The crew allocation is fixed, leaving downstream repair order to be chosen by consequence."
 
 **Unlocks/waypoint:** Unlock Stop 54 at `settlement-circuits` in Downstream Warning Desk.
 
 **Beat 3 - After Stop 54 | `arrival-map` | automatic**
 
-**World state:** Travel1 Location: SAFE->INFLOW.
+**Trigger:** accepted_stop_54.
+
+**World state:** At `settlement-circuits`, the dated accepted-result slip for Stop 54 reads: "Road and School.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 54 RECORDED - STOP 55 OPEN
 
-**Dialogue bubbles -** Elise Baptiste: "Good thinking. Use the Stop 54 result to settle update the delayed forecast."
+**Dialogue bubbles -** Elise Baptiste: "That check holds. The repairs delay release, so the reservoir forecast must be advanced to the new starting time."
 
 **Unlocks/waypoint:** Unlock Stop 55 at `arrival-map` in Downstream Warning Desk.
 
 **Beat 4 - After Stop 55 | `radio-desk` | automatic**
 
-**World state:** Travel2 Location: INFLOW->GATES.
+**Trigger:** accepted_stop_55.
+
+**World state:** At `arrival-map`, the dated accepted-result slip for Stop 55 reads: "4.36 m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 55 RECORDED - STOP 56 OPEN
 
-**Dialogue bubbles -** Elise Baptiste: "Exactly right. Use the Stop 55 result to settle commit repaired warning trigger."
+**Dialogue bubbles -** Elise Baptiste: "That check holds. The repair schedule and delayed release time are ready for a warning-readiness commitment."
 
 **Unlocks/waypoint:** Unlock Stop 56 at `radio-desk` in Downstream Warning Desk.
 
 **Beat 5 - At mission end | `arrival-map` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_56.
+
+**World state:** At `warning-list`, Elise Baptiste ticks the fourth warning acknowledgement box. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 14 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Elise Baptiste: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Elise Baptiste: "Four voices back. We can finally act on the plan. Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m14
+
+**Home:** `warning-list`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. Two acknowledgement boxes are empty beside a running clock.
+**After — exact action:** Elise Baptiste ticks the fourth warning acknowledgement box.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `trigger-board`, the gate order lies beside four acknowledged warning slips.
+**Segue - exact player copy:** Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline.
 
 ## Location plan
 
@@ -8053,9 +8447,10 @@ trigger:
 
 Mission decision: Every reach below the dam is ready. The repair order restores all four lines. It leaves 15 minutes before the warning deadline. The final release must still save enough power for the last gate move.
 
+**Segue - exact player copy:** Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: Every reach below the dam is ready. People downstream have a stronger margin of safety tonight.
+**Happy ending card - exact player copy:** Your checks made the difference. Elise Baptiste ticks the fourth warning acknowledgement box. Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline.
 
 **Story event - exact player copy:** Repair crews restore all four settlement warning circuits before the release begins.
 
@@ -8065,7 +8460,7 @@ TARGET `18:00`; auto `DOWNSTREAM +10` then visible failure `-8`, repair returns 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Lead-Time Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** You completed Four Voices Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
 
 ### Review focus
 
@@ -8073,7 +8468,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Lead-Time Rule, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?
+**Prompt - exact player copy:** In a follow-up to Four Voices Back, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -8094,7 +8489,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes optimization/marginal value, not Constraint. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 2
 
-**Prompt - exact player copy:** Ashfell Dam receives a second case related to The Lead-Time Rule: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?
+**Prompt - exact player copy:** Ashfell Dam receives a second case related to Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -8115,7 +8510,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes optimization/marginal value, not Objective function. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Lead-Time Rule using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?
+**Prompt - exact player copy:** A teammate rechecks Four Voices Back using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -8136,7 +8531,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: Correct. a choice satisfying every constraint.
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Lead-Time Rule: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?
+**Prompt - exact player copy:** An unseen case extends Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?
 
 **Options - exact player copy:**
 
@@ -8178,7 +8573,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - D: This describes Feasible point, not constrained decision/extrema. It does not account for the quantities, conditions, or evidence in this calculus case.
 ### Review question 6
 
-**Prompt - exact player copy:** Ashfell Dam applies the lesson from The Lead-Time Rule to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?
+**Prompt - exact player copy:** Ashfell Dam applies the lesson from Four Voices Back to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?
 
 **Options - exact player copy:**
 
@@ -8207,10 +8602,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 15 - The Corrected Release Rules, Signed
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** FINAL SHIFT - STORM EDGE ON THE RIDGE  
+**Header:** MISSION 15 - 1 WORK SHIFT REMAINS BEFORE THE STORM.
 **Card title:** Open, Hold, Verify  
 **Go now:** Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall.  
-**Card body:** The dam, warning system, and machinery are ready, but a small change in water depth can now cause a large change in flow through the gates. Bring together your earlier calculations. Carry out the release in stages, checking that each one stays within the agreed safety limits.
+**Card body:** 1 work shift remains before the storm. The gate order lies beside four acknowledged warning slips. Today you decide whether to carry out the final staged release.
 **Objective:** Commit, execute, and verify the safe release.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -8302,7 +8697,9 @@ Use the full course in transfer; introduce nothing and end with consequence, not
 
 **Beat 1 - On arrival at Catchment & Inflow Desk | `gauge-wall` | automatic**
 
-**World state:** Arrival Location: INFLOW.
+**Trigger:** mission_15_arrival.
+
+**World state:** The gate order lies beside four acknowledged warning slips.
 
 **Panel/HUD text:** INFLOW
 
@@ -8312,43 +8709,59 @@ Use the full course in transfer; introduce nothing and end with consequence, not
 
 **Beat 2 - After Stop 57 | `water-ledger` | automatic**
 
-**World state:** Travel1 Location: INFLOW->STORE.
+**Trigger:** accepted_stop_57.
+
+**World state:** At `gauge-wall`, the dated accepted-result slip for Stop 57 reads: ".18 m/h, passes.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 57 RECORDED - STOP 58 OPEN
 
-**Dialogue bubbles -** Imani Okoro: "Nice work. Use the Stop 57 result to settle close the final water ledger."
+**Dialogue bubbles -** Mara Vale: "That check holds. The updated forecast and verified releases are ready to be combined into the final storage balance."
 
 **Unlocks/waypoint:** Unlock Stop 58 at `water-ledger` in Catchment & Inflow Desk.
 
 **Beat 3 - After Stop 58 | `staging-console` | automatic**
 
-**World state:** Travel2 Location: STORE->GATES.
+**Trigger:** accepted_stop_58.
+
+**World state:** At `water-ledger`, the dated accepted-result slip for Stop 58 reads: "14+3.6+1.68-17.28-2=0; exact.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 58 RECORDED - STOP 59 OPEN
 
-**Dialogue bubbles -** Imani Okoro: "Good thinking. Use the Stop 58 result to settle predict and operate the staged release."
+**Dialogue bubbles -** Mara Vale: "That check holds. The water ledger closes on paper, but the staged gate response must agree during operation."
 
 **Unlocks/waypoint:** Unlock Stop 59 at `staging-console` in Catchment & Inflow Desk.
 
 **Beat 4 - After Stop 59 | `staging-console` | automatic**
 
-**World state:** After 15.3 Location: GATES.
+**Trigger:** accepted_stop_59.
+
+**World state:** At `staging-console`, the dated accepted-result slip for Stop 59 reads: "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 59 RECORDED - STOP 60 OPEN
 
-**Dialogue bubbles -** Imani Okoro: "Exactly right. Use the Stop 59 result to settle diagnose the final run."
+**Dialogue bubbles -** Mara Vale: "That check holds. The final gate stage and independent dam readings are available for the completion decision."
 
 **Unlocks/waypoint:** Unlock Stop 60 at `staging-console` in Catchment & Inflow Desk.
 
 **Beat 5 - At mission end | `gauge-wall` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_60.
+
+**World state:** At `trigger-board`, Mara Vale unlatches the crest access gate. The final scene follows the completion gate below.
 
 **Panel/HUD text:** MISSION 15 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Imani Okoro: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Mara Vale: "You gave every stage a reason to stop. Now we can let it run. Therefore Elise keeps the warning watch as the level falls; the storm still has to pass through the valley."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — headwater-m15
+
+**Home:** `trigger-board`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. The gate order lies beside four acknowledged warning slips.
+**After — exact action:** Mara Vale unlatches the crest access gate.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `trigger-board`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore Elise keeps the warning watch as the level falls; the storm still has to pass through the valley.
 
 ## Location plan
 
@@ -8375,6 +8788,10 @@ MVT hypotheses, derivative bounds, signed balance, chain linearization, related 
 **Question card story setup - exact player copy:** Forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. Derive the average slope and test whether 0.15<=H'(t)<=0.21 m/h is consistent with MVT.
 
 **Question card story-science connection - exact player copy:** The Mean Value Theorem tests whether the endpoint height change is compatible with the proposed derivative bounds.
+
+**Fixture source panel - exact player copy:** Forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. Derive the average slope and test whether 0.15<=H'(t)<=0.21 m/h is consistent with MVT.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit whether the derivative bound is consistent with the observed endpoint change.
 
@@ -8550,11 +8967,12 @@ verify:
 
 ## Mission outcome and epilogue - no further quiz
 
-Mission decision: Complete the staged release. The forecast, water ledger, gate response, wall readings, machine work. And warning times all pass their signed limits. The reservoir reaches storm room before the crest. Ashfell holds the rain without sending an unsafe surge downstream.
+Mission decision: Whether to carry out the final staged release. Apply the existing final evidence and metric gates before the world payoff below.
 
+From the crest, the spillway runs white below the gates. The lake line falls along the checked curve. Four warning lamps stay green above the valley map. The town still has its roads, and the dam has room for the rain.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Complete the staged release. The storm plan is sharper because you followed how the water actually changes.
+**Happy ending card - exact player copy:** From the crest, the spillway runs white below the gates. The lake line falls along the checked curve. Four warning lamps stay green above the valley map. The town still has its roads, and the dam has room for the rain.
 
 **Header:** CAMPAIGN COMPLETE - ASHFELL RELEASE RULES SIGNED  
 **Timer:** TIME `{elapsed}` / TARGET `22:00`  
@@ -8759,7 +9177,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 # 9. Mission-at-a-glance production map
 
-### Mission 1 - The Rate-Limit Rule
+### Mission 1 - The Broken Trace
 
 **Main event:** One impossible stored point is removed only after three independent limit checks; the surrounding acceleration remains.
 
@@ -8771,7 +9189,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Use the repaired local forecast. Both sides approach `4.20 m`, so the lone high point is a fixable hole. The crew restores that point and keeps the surrounding rise. The rise is smooth, but it is getting steeper.
 
-### Mission 2 - The Rising-Fast Rule
+### Mission 2 - Faster Than the Line
 
 **Main event:** The player replaces a height-only alarm with a derivative-and-tangent trigger.
 
@@ -8783,7 +9201,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Set the new rate alarm at the tangent prediction. The next reading is above `4.230 m`, so the reservoir is rising faster than the current local trend. The crew starts an early watch. A gate chart must now turn level change into release change.
 
-### Mission 3 - The Inflow Accumulation
+### Mission 3 - The Gate That Comes Back
 
 **Main event:** Three linked derivative views produce and physically verify a reversible gate calibration.
 
@@ -8795,7 +9213,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Use the staged calibration path. The chain, linkage, and inverse tests agree, and the gate returns to baseline. The crew can predict discharge without forcing the hoist. Now it must learn how that water moves downstream.
 
-### Mission 4 - The Two-Day Cost Note
+### Mission 4 - Before the Water Arrives
 
 **Main event:** Motion and depth rates convert a release into the first public warning rule.
 
@@ -8807,7 +9225,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Use a minimum warning lead of `280 minutes`. It includes travel to the village and the road's rise time. The warning rule is now tied to motion, not an average. The two-day release plan still needs a true peak test.
 
-### Mission 5 - The Last-Half-Metre Relation
+### Mission 5 - The Crossing We Can Prove
 
 **Main event:** An endpoint overload defeats the average-based plan; a controlled storage test finds a feasible alternative.
 
@@ -8819,7 +9237,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Reject the old two-day plan. Its endpoint demand reaches `40 MW`, above the `24 MW` unit limit, even though one interior peak only touches the limit. A lower-power release can add storage room. The forecast itself must now face the high-ground gauge.
 
-### Mission 6 - The Peak Test
+### Mission 6 - The Crest We Missed
 
 **Main event:** Physical asymptotes reject one model; frozen holdout testing reveals a missed later crest.
 
@@ -8831,7 +9249,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Use Forecast B. It stays finite, predicts a later crest, and survives unseen high-ground data. The old model missed the peak rather than suffering a constant bias. More water is coming, so the crew must total the full storm volume.
 
-### Mission 7 - The Wall's Carrying Limit
+### Mission 7 - Room for the Storm
 
 **Main event:** Discrete and exact accumulation convert the larger crest into a drawdown target.
 
@@ -8855,7 +9273,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Use the mixed turbine-and-gate plan. Turbines clear `3.60 million m^3`, and the gate clears the remaining `1.68 million m^3` with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head.
 
-### Mission 9 - The Seepage Ledger Rule
+### Mission 9 - Two Silent Gauges
 
 **Main event:** Euler reconstruction and independent channels show that two silent heads share a failed cable.
 
@@ -8867,7 +9285,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Continue controlled release tests. Euler estimates agree with independent live readings, and the two silent gauges share one failed cable. The crew replaces that cable and bounds the uplift load. It must next decide whether seepage settles or keeps growing.
 
-### Mission 10 - The Error Carried Into Volume
+### Mission 10 - The Flow That Eases
 
 **Main event:** A separable exponential model predicts bounded seepage and survives worst-case stress.
 
@@ -8879,7 +9297,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Approve the wall's carrying limit. Excess seepage follows bounded exponential decay and remains below `5.0 L/min` across the supported uncertainty. The structural hold clears. A new reservoir survey now challenges how much water each level truly represents.
 
-### Mission 11 - The Quiet-Day Check
+### Mission 11 - The Lake Lost Its Room
 
 **Main event:** Area between surveys quantifies silt loss; independent transects and a level-rate test replace the old curve.
 
@@ -8891,7 +9309,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Replace the 2003 storage curve. Independent transects show `7.5 million m^3` of lost capacity, and the corrected derivative predicts the measured level fall. The old plan overstated safety room. The crew must rebuild its release around the gate and turbine work still available.
 
-### Mission 12 - The Decay Constant, Scored
+### Mission 12 - The Runner in the Crate
 
 **Main event:** Rotational volume removes unavailable turbine capacity; a work test bounds repeatable gate motion.
 
@@ -8903,7 +9321,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Use the one-runner, staged-gate schedule. Washer volume removes the unavailable runner from capacity, and the work integral keeps each gate stroke below `750 J`. The corrected storage simulation still clears the target. The remaining question is whether measurement error could overturn that result.
 
-### Mission 13 - The Three-Before-Nine Order
+### Mission 13 - The Margin That Survives
 
 **Main event:** Propagated error, residual pattern, and an independent constraint certify the corrected model.
 
@@ -8915,7 +9333,7 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Ending change:** Sign the corrected release rules. Propagated volume error stays below the margin, residuals remain unpatterned, and independent uplift geometry breaks the last parameter tie. Dam Integrity is now locked. The valley warning system must pass before the release can start.
 
-### Mission 14 - The Lead-Time Rule
+### Mission 14 - Four Voices Back
 
 **Main event:** Failed sirens turn apparent victory into an optimization and delayed-forecast problem, then all circuits pass.
 

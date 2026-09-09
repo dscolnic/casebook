@@ -1,17 +1,18 @@
 # ============================================================ MISSION 2
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Rising-Fast Rule"
   card:
-    header: "14 SHIFTS UNTIL THE STORM"
+    header: "MISSION 2 - 14 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Faster Than the Gauge"
     goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the trace bench."
-    body: "The water behind the dam is still below the alarm line, but it is rising faster. Waiting for the old alarm could leave the crew too little time to act. Calculate how quickly the water is rising and choose an earlier warning."
+    body: "14 work shifts remain before the storm. The next tick on the level chart runs above the ruler. Today you decide when a faster rise needs an alarm."
     objective: "Set a defensible reservoir-rise alarm."
   objective: "Set a defensible reservoir-rise alarm."
-  stake: "The water behind the dam is still below the alarm line, but it is rising faster. Waiting for the old alarm could leave the crew too little time to act. Calculate how quickly the water is rising and choose an earlier warning."
+  stake: "14 work shifts remain before the storm. The next tick on the level chart runs above the ruler. Today you decide when a faster rise needs an alarm."
   takeaway: "Linear approximation uses a value and local slope. ---"
-  segue: "Mission decision: Set the new rate alarm at the tangent prediction. The next reading is above 4.230 m, so the reservoir is rising faster than the current local trend. The crew starts an early watch. A gate chart must now turn level change into release change."
+  segue: "Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Derivative", def: "instantaneous output change per unit input change."}
@@ -31,50 +32,55 @@
   - id: on-arrival-at-catchment-inflow-desk
     # On arrival at Catchment & Inflow Desk | trace-bench | automatic
     on: { enter: true, at: INFLOW }
-    world: "Arrival Location: INFLOW."
+    world: "The next tick on the level chart runs above the ruler."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 5 at trace-bench in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
       say: "Start with build the instantaneous rise. We need evidence the next decision can use."
   - id: after-stop-5
     # After Stop 5 | gauge-wall | automatic
     on: { after: [1] }
-    world: "After 2.1 Location: INFLOW."
+    world: "At trace-bench, the dated accepted-result slip for Stop 5 reads: \"0.12 m/h, tolerance 0.001.\". The slip remains in that fixture's evidence holder."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 6 at gauge-wall in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Nice work. Use the Stop 5 result to settle differentiate the forecast signal."
+    - who: vale   # Mara Vale
+      say: "That check holds. The reservoir rise rate is known, but the incoming storm flow may itself be accelerating."
   - id: after-stop-6
     # After Stop 6 | trace-bench | automatic
     on: { after: [2] }
-    world: "After 2.2 Location: INFLOW."
+    world: "At gauge-wall, the dated accepted-result slip for Stop 6 reads: \"89.509 (m^3/s)/h, tolerance 0.01.\". The slip remains in that fixture's evidence holder."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 7 at trace-bench in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Good thinking. Use the Stop 6 result to settle protect the net-rise calculation."
+    - who: vale   # Mara Vale
+      say: "That check holds. The changing inflow must now be combined with discharge without mixing rates and stored amounts."
   - id: after-stop-7
     # After Stop 7 | gauge-wall | automatic
     on: { after: [3] }
-    world: "The protect the net-rise calculation result remains visible while the set the tangent alarm fixture lights."
+    world: "At trace-bench, the dated accepted-result slip for Stop 7 reads: \"exact pair.\". The slip remains in that fixture's evidence holder."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 8 at gauge-wall in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Exactly right. Use the Stop 7 result to settle set the tangent alarm."
+    - who: vale   # Mara Vale
+      say: "That check holds. The verified height and rise rate are ready to support a near-term alarm commitment."
   - id: at-mission-end
     # At mission end | trace-bench | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At storage-board, Mara Vale pins the rate-alarm card beside the water curve. The dated prop remains here on later visits."
     panel: "INFLOW"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: vale   # Mara Vale
+      say: "We bought time by watching the slope. Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Rising-Fast Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Faster Than the Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Rising-Fast Rule, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?"
+    - prompt: "In a follow-up to Faster Than the Line, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?"
       hint: "Use the stated evidence and the conditions for Derivative; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -82,7 +88,7 @@
       - {key: "B", text: "Instantaneous output change per unit input change.", why: "Correct. instantaneous output change per unit input change."}
       - {key: "C", text: "Limit of secant slopes.", why: "This describes derivative definition, not Derivative. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "96+20cos2+1.5e^.2=89.509.", why: "This describes power/trig/exp/chain, not Derivative. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Rising-Fast Rule: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?"
+    - prompt: "Ashfell Dam receives a second case related to Faster Than the Line: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Tangent line; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -90,7 +96,7 @@
       - {key: "B", text: "Limit of secant slopes.", why: "This describes derivative definition, not Tangent line. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "A line matching a curve's value and slope at one point.", why: "Correct. a line matching a curve's value and slope at one point."}
       - {key: "D", text: "96+20cos2+1.5e^.2=89.509.", why: "This describes power/trig/exp/chain, not Tangent line. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Rising-Fast Rule using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?"
+    - prompt: "A teammate rechecks Faster Than the Line using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?"
       hint: "Use the stated evidence and the conditions for derivative definition; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -98,7 +104,7 @@
       - {key: "B", text: "A line matching a curve's value and slope at one point.", why: "This describes Tangent line, not derivative definition. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "96+20cos2+1.5e^.2=89.509.", why: "This describes power/trig/exp/chain, not derivative definition. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Limit of secant slopes.", why: "Correct. limit of secant slopes."}
-    - prompt: "An unseen case extends The Rising-Fast Rule: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?"
+    - prompt: "An unseen case extends Faster Than the Line: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?"
       hint: "Use the stated evidence and the conditions for power/trig/exp/chain; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -114,7 +120,7 @@
       - {key: "B", text: "Both changing factors contribute.", why: "Correct. both changing factors contribute."}
       - {key: "C", text: "A line matching a curve's value and slope at one point.", why: "This describes Tangent line, not product/quotient rules. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Limit of secant slopes.", why: "This describes derivative definition, not product/quotient rules. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Rising-Fast Rule to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?"
+    - prompt: "Ashfell Dam applies the lesson from Faster Than the Line to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?"
       hint: "Use the stated evidence and the conditions for tangent line/linear approximation; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -345,4 +351,3 @@
         - at: T-6 h
           value: 4.26
           hoursLeft: 6
-

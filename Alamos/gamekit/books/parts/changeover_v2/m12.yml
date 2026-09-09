@@ -1,17 +1,18 @@
 # ============================================================ MISSION 12
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "4.15 On The Clock"
   card:
-    header: "4 DAYS"
+    header: "MISSION 12 - 4 DAYS UNTIL CHANGEOVER."
     title: "4.15 on the Clock"
     goNow: "Go to NOTES and meet Eli Voss at the conversion trays."
-    body: "The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments."
+    body: "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time."
     objective: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
   objective: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
-  stake: "The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments."
+  stake: "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use the 4.15 exchange rate. Exact tray math, reserve timing, and customs data agree. The full test now works. Yet new state debt is pushing real rates up."
+  segue: "But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-note-hall
     # On arrival at Note Hall | conversion-trays | automatic
     on: { enter: true, at: NOTES }
-    world: "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Certify the conversion ratio with cash, bank, and foreign-market evidence. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "The reserve hands approach the payment mark from different sides."
     panel: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
+    # unlocks: Unlock Stop 45 at conversion-trays in Note Hall.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with convert the tray. We need evidence the next decision can use."
   - id: after-stop-45
     # After Stop 45 | reserve-clock | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Eli Voss says,, and Stop 46 unlocks."
+    world: "At conversion-trays, the dated accepted-result slip for Stop 45 reads: \"10,000 ±0.01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    # unlocks: Unlock Stop 46 at reserve-clock in Bank Supervision.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. The tray becomes 10,000 RATE."
   - id: after-stop-46
     # After Stop 46 | payment-wires | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS → TRADE only if the route requires travel, then."
+    world: "At reserve-clock, the dated accepted-result slip for Stop 46 reads: \"The bank needs 1,000 RATE and has exactly 1,000 RATE at minute 6, so the inclusive rule permits clearing then.\". The slip remains in that fixture's evidence holder."
     panel: "NOTES → BANKS → TRADE"
+    # unlocks: Unlock Stop 47 at payment-wires in Open-Economy Floor.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. The reserve arrives exactly at the inclusive 1,000-RATE requirement."
   - id: after-stop-47
     # After Stop 47 | custody-desk | automatic
     on: { after: [3] }
-    world: "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 48 unlocks."
+    world: "At payment-wires, the dated accepted-result slip for Stop 47 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    # unlocks: Unlock Stop 48 at custody-desk in NOTES.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. Three channels share the 4.00 shortcut; independent customs supports 4.15."
   - id: at-mission-end
     # At mission end | conversion-trays | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At reserve-clock, Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock. The dated prop remains here on later visits."
     panel: "MISSION 12 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. Approve 4.15 after replacing every 4.00 shortcut."
+    - who: arendt   # Tomas Arendt
+      say: "The ratio passes only if the money arrives when the tray opens. But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice."
 
   terms:
   - {name: "Conversion ratio", def: "old currency units exchanged for one new unit."}
@@ -203,20 +209,21 @@
     relationship: "required reserves = deposit × reserve ratio, so 10,000 RATE × 0.10"
     verify:
       prediction:
-        min: NaN
-        max: NaN
-        step: NaN
-      lock: clock stays locked until 1,000 RATE is committed
-      action: advance clock to minute 6
+        label: "Required reserve on the converted deposit"
+        unit: "RATE"
+        min: 0
+        max: 10000
+        step: 10
+      truth: 1000
+      passRatio: [0.99999, 1.00001]
+      intervention:
+        label: "Advance clock to minute 6"
+        note: "The clock stays locked until 1,000 RATE is committed."
       measurement:
-        label: the measurement
-        cost: 1
-      decision_rule: clear if reserves are at least the requirement
-      correct_conclusion: clear at minute 6
-      truth: NaN
-      passRatio:
-        - 0.9
-        - 1.1
+        label: "Reserves on the clock at minute 6"
+        note: "Clear if reserves are at least the requirement."
+      moral: "Clear at minute 6."
+      commit: "Report the required reserve"
 
   # --- Stop 47: Foreign echo
   #     Concept: conversion/forex; Keystone: open economy; Area: Open-Economy Floor; Learning role: RETRIEVE; Difficulty: L4; Story role: L4.
@@ -315,4 +322,3 @@
           evidence: no independent check supports the extension; it must be held
           critical: true
       checks: 3
-

@@ -266,7 +266,8 @@ export const CURRICULUM = {
             "min": -5,
             "max": 5,
             "nominal": 0,
-            "step": 1
+            "step": 1,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",
@@ -1274,10 +1275,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Diagnose the engine-room alarm",
-      "scene": "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings.",
       "place": "",
       "at": "tip-lab-bench",
-      "story": "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Diagnose the engine-room alarm",
@@ -1509,10 +1510,10 @@ export const CURRICULUM = {
     {
       "day": 23,
       "title": "Close the person-day balance",
-      "scene": "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days.",
       "place": "",
       "at": "council-table",
-      "story": "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "Residents are declining, but ferry visitors can still raise seasonal demand. Convert everyone into person-days.",
       "game": {
         "type": "BALANCE",
         "title": "Close the person-day balance",
@@ -2369,10 +2370,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Verify the independent water sample",
-      "scene": "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample.",
       "place": "",
       "at": "sampler",
-      "story": "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample.",
       "game": {
         "type": "VERIFY",
         "title": "Verify the independent water sample",
@@ -2951,10 +2952,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Map source and fate",
-      "scene": "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment.",
       "place": "",
       "at": "tip-lab-bench",
-      "story": "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment.",
       "game": {
         "type": "CASEBOOK",
         "title": "Map source and fate",
@@ -3407,10 +3408,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Calculate capacity factor",
-      "scene": "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance.",
       "place": "",
       "at": "turbine-plate",
-      "story": "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance.",
       "game": {
         "type": "BALLPARK",
         "title": "Calculate capacity factor",
@@ -3436,10 +3437,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Fund the energy portfolio",
-      "scene": "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls.",
       "place": "",
       "at": "delivery-board",
-      "story": "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Fund the energy portfolio",
@@ -3497,10 +3498,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Allocate firm power",
-      "scene": "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services.",
       "place": "",
       "at": "load-board",
-      "story": "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services.",
       "game": {
         "type": "ALLOCATE",
         "title": "Allocate firm power",
@@ -3825,10 +3826,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Stress the catch ceiling",
-      "scene": "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment.",
       "place": "",
       "at": "council-table",
-      "story": "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment.",
       "game": {
         "type": "STRESS",
         "title": "Stress the catch ceiling",
@@ -3890,7 +3891,8 @@ export const CURRICULUM = {
             "min": 80,
             "max": 130,
             "nominal": 105,
-            "step": 10
+            "step": 10,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",
@@ -3909,10 +3911,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Screen the arriving cargo",
-      "scene": "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "scene": "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading.",
       "place": "",
       "at": "quarantine-rack",
-      "story": "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading, and the team needs this result before it acts, and this result will guide the next safe decision.",
+      "story": "The power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort each arrival before unloading.",
       "game": {
         "type": "BELT",
         "title": "Screen the arriving cargo",
@@ -4196,7 +4198,8 @@ export const CURRICULUM = {
             "min": 1.8,
             "max": 5,
             "nominal": 3.4,
-            "step": 0.2
+            "step": 0.2,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",

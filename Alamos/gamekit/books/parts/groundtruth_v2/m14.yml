@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Shot That Almost Closed the Case"
   card:
-    header: "2 DAYS;"
+    header: "MISSION 14 - 2 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "The Shot That Almost Closed the Case"
     goNow: "Launch Control, Dr. Lena Ortiz at launch board."
-    body: "The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions."
-    objective: "Run the integrated full-shot coupling test."
-  objective: "Run the integrated full-shot coupling test."
-  stake: "The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions."
+    body: "2 days until the last storm window closes. A fresh strike trace ends at 188 V beside a second strip marked 310 V. Today you decide whether the full shot cleared every card."
+    objective: "Run the integrated full-shot coupling test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Run the integrated full-shot coupling test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "2 days until the last storm window closes. A fresh strike trace ends at 188 V beside a second strip marked 310 V. Today you decide whether the full shot cleared every card."
   takeaway: "The station reproduced. ---"
-  segue: "Mission decision: The station reproduced. And removed the main cable failure, but it has not removed every hazard. The reroute holds the main probe to 188 V, while card E reaches 310 V because its rack wiring forms a smaller hidden loop. One repair remains before the report can be signed. Metric target 27:00."
+  segue: "But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-launch-control
     # On arrival at Launch Control | launch-board | automatic
     on: { enter: true, at: SHOT }
-    world: "accepted SHOT/bubble/blank rule fields/→S1; S2 correct/panel/Poynting arrow up/ENERGY FLOW: 1.59×10^7 W/m² UP→S3; S3 pass/waypoint/main probe PASS/Main reroute passes; Inspect every rack position.→COUPLE/S4; S4 correct/world/card E red+text/CARD E 310 V - LIMIT 250 V→outcome; outcome/radio/local loop highlighted/Main path repaired; local loop remains.→metric."
+    world: "A fresh strike trace ends at 188 V beside a second strip marked 310 V."
     panel: "Dr. Lena Ortiz, station director: \"Write every stop condition before the cell arrives.\""
+    # unlocks: Unlock Stop 53 at launch-board in Launch Control.
     bubbles:
     - who: ortiz   # Lena Ortiz
       say: "Write every stop condition before the cell arrives."
   - id: after-stop-53
     # After Stop 53 | radar-desk | automatic
     on: { after: [1] }
-    world: "The freeze final thresholds result remains visible while the derive energy flow fixture lights."
+    world: "At launch-board, the dated accepted-result slip for Stop 53 reads: \"All four inclusive thresholds are frozen before data.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    # unlocks: Unlock Stop 54 at radar-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 53 result to settle derive energy flow."
+    - who: owen   # Owen Park
+      say: "That check holds. The final shot also needs a prediction of where electromagnetic energy crosses the probe location."
   - id: after-stop-54
     # After Stop 54 | shunt-rack | automatic
     on: { after: [2] }
-    world: "The derive energy flow result remains visible while the fire the full shot fixture lights."
+    world: "At radar-desk, the dated accepted-result slip for Stop 54 reads: \"S=1.59×10^7 W/m² upward. East×north is up.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 54 RECORDED - STOP 55 OPEN"
+    # unlocks: Unlock Stop 55 at shunt-rack in Mast Base.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 54 result to settle fire the full shot."
+    - who: owen   # Owen Park
+      say: "That check holds. The incoming field passes the frozen criterion, allowing the full reroute test to proceed."
   - id: after-stop-55
     # After Stop 55 | probe-rack | automatic
     on: { after: [3] }
-    world: "The fire the full shot result remains visible while the probe the rack fixture lights."
+    world: "At shunt-rack, the dated accepted-result slip for Stop 55 reads: \"Main reroute passes: 188 V, 0.40 kA conduit, thresholds met.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    # unlocks: Unlock Stop 56 at probe-rack in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 55 result to settle probe the rack."
+    - who: owen   # Owen Park
+      say: "That check holds. A passing main trailer probe cannot exclude a dangerous local peak elsewhere in the card rack."
   - id: at-mission-end
     # At mission end | launch-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At trailer-cards, Owen Park bags card E beneath a RACK LOOP: REPAIR REQUIRED label. The dated prop remains here on later visits."
     panel: "MISSION 14 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: owen   # Owen Park
+      say: "We fixed the long route. This short one still reaches me. But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass."
 
   terms:
   - {name: "Poynting vector", def: "electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux."}

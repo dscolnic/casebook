@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Line We Promise"
   card:
-    header: "IMPACT WINDOW: 3 DAYS"
+    header: "MISSION 12 - 72 HOURS TO THE PREDICTED ENCOUNTER."
     title: "THE LINE WE PROMISE"
     goNow: "Go to the Consequences Lab, carry the response envelope to the Town Emergency Office, and publish the final rules from Coordination."
-    body: "Evacuations and other emergency actions cost time and resources, but waiting too long can cost lives. Agree on which evidence should trigger each protective step before the next forecast arrives. Allocate the available resources and rehearse a plan that treats threatened communities consistently."
+    body: "72 hours to the predicted encounter. A news alert outside drops the qualifying sentence from the notice. Today you decide which rules will start or end local action."
     objective: "Approve a staged response plan before the next orbit result is known."
   objective: "Approve a staged response plan before the next orbit result is known."
-  stake: "Evacuations and other emergency actions cost time and resources, but waiting too long can cost lives. Agree on which evidence should trigger each protective step before the next forecast arrives. Allocate the available resources and rehearse a plan that treats threatened communities consistently."
+  stake: "72 hours to the predicted encounter. A news alert outside drops the qualifying sentence from the notice. Today you decide which rules will start or end local action."
   takeaway: "Decide the rule before the result tests your courage. ---"
-  segue: "Mission decision: Approve the staged plan. Start with broad steps that can be undone. Use strong orders only for a narrow, checked danger zone. Stand down places that the full path rules out."
+  segue: "But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Threshold", def: "a measurable evidence level that triggers an action."}
@@ -30,7 +30,7 @@
   - id: on-arrival-at-entry-consequences-lab
     # On arrival at Entry & Consequences Lab | automatic | 
     on: { enter: true, at: IMPACT }
-    world: "Evelyn presents conditional consequence envelopes."
+    world: "A news alert outside drops the qualifying sentence from the notice."
     panel: "THE LINE WE PROMISE / MISSION ACTIVE"
     # unlocks: Stop 45.
     bubbles:
@@ -39,7 +39,7 @@
   - id: after-stop-45
     # After Stop 45 | automatic | 
     on: { after: [1] }
-    world: "Jordan exposes the thirty-day evacuation lead versus eleven-day discovery warning."
+    world: "At risk-display, the dated accepted-result slip for Stop 45 reads: \"Correct four trigger-action matches.\". The slip remains in that fixture's evidence holder."
     panel: "THE LINE WE PROMISE / FIRST RESULT LOGGED"
     # unlocks: The Emergency Management Office waypoint and Stop 46.
     bubbles:
@@ -48,7 +48,7 @@
   - id: after-stop-46
     # After Stop 46 | automatic | 
     on: { after: [2] }
-    world: "The player assigns staged actions to escalating evidence."
+    world: "At evac-desk, the dated accepted-result slip for Stop 46 reads: \"Stage targeted capacity and retain a reserve; do not order corridor-wide evacuation.\". The slip remains in that fixture's evidence holder."
     panel: "THE LINE WE PROMISE / EVIDENCE HANDOFF READY"
     # unlocks: Stop 47.
     bubbles:
@@ -57,7 +57,7 @@
   - id: after-stop-47
     # After Stop 47 | automatic | 
     on: { after: [3] }
-    world: "Mira publishes the rule before the next orbit update."
+    world: "At threshold-board, the dated accepted-result slip for Stop 47 reads: \"Complete the seven-step protocol with verification before authorization.\". The slip remains in that fixture's evidence holder."
     panel: "THE LINE WE PROMISE / DECISION EVIDENCE READY"
     # unlocks: The Coordination Office waypoint and Stop 48.
     bubbles:
@@ -66,12 +66,12 @@
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
-    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    world: "At threshold-board, Jordan Hale pins the signed staged-response rules above the incoming-news strip. The dated prop remains here on later visits."
     panel: "THE LINE WE PROMISE / MISSION DECISION LOGGED"
     # unlocks: Mission 12 outcome, metric screen, concept review, and Mission 13 briefing.
     bubbles:
     - who: hale   # Jordan Hale
-      say: "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+      say: "The headline changed our words. It does not get to change our rule. But Malik's next orbit packet could move the corridor; Jordan's rules must stand before the new map arrives."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

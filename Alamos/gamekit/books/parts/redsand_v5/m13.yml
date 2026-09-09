@@ -1,17 +1,18 @@
 # ============================================================ MISSION 13
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Power"
   card:
-    header: "3 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 13 - 3 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "POWER"
     goNow: "Go to the Solar Array and meet Yusuf Demir, the power and life-support officer, at the live power board."
-    body: "A dust front has reduced solar power just as fuel recovery needs more electricity. The crew's living quarters, cooling, water treatment, and hydrogen equipment all share the supply. Calculate possible gas production and divide the available power without sacrificing the crew's essential systems."
+    body: "3 work shifts remain before launch. The habitat breaker tags sit beside a climbing tank gauge. Today you decide how much power the fuel cells may use."
     objective: "Turn the available electricity into launch gases while protecting every critical system."
   objective: "Turn the available electricity into launch gases while protecting every critical system."
-  stake: "A dust front has reduced solar power just as fuel recovery needs more electricity. The crew's living quarters, cooling, water treatment, and hydrogen equipment all share the supply. Calculate possible gas production and divide the available power without sacrificing the crew's essential systems."
+  stake: "3 work shifts remain before launch. The habitat breaker tags sit beside a climbing tank gauge. Today you decide how much power the fuel cells may use."
   takeaway: "A power allocation is scientific when every funded load protects a named consequence."
-  segue: "Mission decision: Run the power cell only while the habitat, cooling, cleanup, and cold tanks stay safe. The plan turns the available charge into hydrogen and finishes the oxygen goal. Both amount bars now read full. The launch clock starts. A new vial now tests what full really means."
+  segue: "But Achebe carries a fresh Batch C vial toward the lab; full tanks have not yet earned the word ready."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Electron", def: "a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge."}
@@ -21,7 +22,7 @@
   equations:
   - {"e":"Q = It","c":"finding the total electric charge delivered during a timed run","v":[["Q","charge in coulombs"],["I","current in amperes"],["t","time in seconds"]],"s":"The dust-limited array gives the crew current and time, but the recovery plan needs a predicted amount of hydrogen and oxygen."}
   - {"e":"Faraday's law calculation, moles of electrons = Q / F","c":"converting electric charge into chemical amount","v":[["Q","charge in coulombs"],["F","96,485 coulombs per mole of electrons"]],"s":"Electron amount is the bridge between the power board and the number of gas molecules the plant can make."}
-  - {"e":"actual product = theoretical product x current efficiency","c":"correcting ideal gas production for practical electrical losses","v":[["actual product","the usable amount made; theoretical product follows electron stoichiometry; current efficiency is written as a decimal fraction"]],"s":"The launch plan must budget for the cell the crew actually has rather than a perfect 100-percent cell."}
+  - {"e":"actual product = theoretical product x current efficiency","c":"correcting ideal gas production for practical electrical losses","v":[["actual","product is the usable amount made"],["theoretical","product follows electron stoichiometry"],["current","efficiency is written as a decimal fraction"]],"s":"The launch plan must budget for the cell the crew actually has rather than a perfect 100-percent cell."}
   primer:
   - "Reduction occurs at the cathode and oxidation occurs at the anode in both driven and spontaneous cells."
   - "Electrons travel through the outside circuit; ions move through the liquid to keep charge balanced."
@@ -34,7 +35,7 @@
   - id: on-arrival-at-array-shed
     # On arrival at Array Shed | automatic | 
     on: { enter: true, at: ARRAY }
-    world: "Red dust moves across the panels and the available-power bar falls in real time."
+    world: "The habitat breaker tags sit beside a climbing tank gauge."
     panel: "MISSION 13 - POWER"
     # unlocks: Stop 49 at the live power meter; Stop 50 unlocks immediately after Stop 49.
     bubbles:
@@ -43,7 +44,7 @@
   - id: after-stops-49-and-50
     # After Stops 49 and 50 | array power-routing display | automatic response
     on: { after: [1, 2] }
-    world: "Electron flow and ion motion complete the electrolyzer circuit; hydrogen and oxygen outlets illuminate on opposite sides."
+    world: "At array-controller, the dated accepted-result slip for Stop 49 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "MOVE TO BATTERY GALLERY."
     # unlocks: The Battery Gallery travel beat.
     bubbles:
@@ -52,7 +53,7 @@
   - id: on-arrival-at-battery-bank
     # On arrival at Battery Bank | automatic constraint reveal | 
     on: { enter: true, at: BATT }
-    world: "HABITAT MINIMUM, COOLING MINIMUM, and EMERGENCY RESERVE lock as protected loads."
+    world: "At cell-stacks, the dated accepted-result slip for Stop 50 reads: \"Cyclic order as listed, with note that the processes occur continuously rather than one molecule at a time.\". The slip remains in that fixture's evidence holder."
     panel: "AVAILABLE FOR RECOVERY OPERATIONS - UPDATED."
     # unlocks: The Battery Gallery waypoint, followed by the Electrolysis Hall waypoint and Stops 51-52.
     bubbles:
@@ -61,7 +62,7 @@
   - id: after-stops-51-and-52
     # After Stops 51 and 52 | Electrolysis Hall | automatic decision
     on: { after: [3, 4] }
-    world: "The calculated hydrogen amount populates the production forecast; The accepted allocation powers electrolysis, cooling, purification, refrigeration, habitat, and reserve without crossing any minimum."
+    world: "At stack-sheet, the dated accepted-result slip for Stop 51 reads: \"2.77 kg; tolerance ±3%.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 13 outcome beat.
     bubbles:
@@ -70,12 +71,12 @@
   - id: at-mission-end
     # At mission end | Electrolysis Hall | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Electrolyzer stacks start; Hydrogen and oxygen climb; the reactor holds its validated operating point; At dawn, both main indicators switch to FULL and the ascent checklist begins; Achebe waits beside the final console with a sealed vial and an active speech icon."
+    world: "At loadboard, Yusuf Demir pins the protected-load schedule beneath the full amount readings. The dated prop remains here on later visits."
     panel: "LAUNCH HOLD - INDEPENDENT ASSAY DISAGREES."
     # unlocks: Mission 14 briefing and the Tank Farm waypoint.
     bubbles:
-    - who: achebe   # Achebe
-      say: "Outstanding work. You solved the mission. Stop the countdown. Batch C does not match the green quality channel."
+    - who: demir   # Yusuf Demir
+      say: "Both amounts are full. Leave room for the test to say no. But Achebe carries a fresh Batch C vial toward the lab; full tanks have not yet earned the word ready."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -343,4 +344,3 @@
     #       - {id: replace_h2, label: "Will electrolysis replace required hydrogen?", required: true, needs: [electrolysis]}
     #     correct: [habitat, cooling, purification, electrolysis, refrigeration]
     #     pass_rule: "All required questions answered and total cost <=600 kWh."
-

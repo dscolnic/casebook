@@ -1,17 +1,18 @@
 # ============================================================ MISSION 6
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Leak That Was Not"
   card:
-    header: "10 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 6 - 10 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE LEAK THAT WAS NOT"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the evidence board."
-    body: "The carbon is accounted for, nitrogen has appeared in the hydrogen pipe, and three water alarms rely on the same calibration sample. Find an explanation that fits all the evidence. Check the material totals and decide whether to end the leak search and repair hydrogen delivery."
+    body: "10 work shifts remain before launch. Gas labels, water totals, and carbon slips cover the bare evidence board. Today you decide which fault explains the fuel shortfall."
     objective: "Choose one cause that fits every clue and prove it with complete atom balances."
   objective: "Choose one cause that fits every clue and prove it with complete atom balances."
-  stake: "The carbon is accounted for, nitrogen has appeared in the hydrogen pipe, and three water alarms rely on the same calibration sample. Find an explanation that fits all the evidence. Check the material totals and decide whether to end the leak search and repair hydrogen delivery."
+  stake: "10 work shifts remain before launch. Gas labels, water totals, and carbon slips cover the bare evidence board. Today you decide which fault explains the fuel shortfall."
   takeaway: "A scientific twist is fair when old clues remain true but acquire a better meaning."
-  segue: "Mission decision: End the methane-leak search. Repair the hydrogen line. One fault explains the carbon count, added nitrogen, low water, normal pressure, and false stain clue. Most of the missing fuel was never made. A signed heat-setting change now raises a new question."
+  segue: "But Ingrid finds Herrera's signed temperature change; repaired feed does not explain why the reactor was turned down."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Diagnosis", def: "the proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms."}
@@ -30,7 +31,7 @@
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "Abiola removes the dashboard summary and replaces it with raw carbon flow, gas composition, water production, pressure, and residue evidence."
+    world: "Gas labels, water totals, and carbon slips cover the bare evidence board."
     panel: "MISSION 6 - THE LEAK THAT WAS NOT"
     # unlocks: Stop 21 at the evidence board; Stop 22 unlocks immediately after Stop 21.
     bubbles:
@@ -39,7 +40,7 @@
   - id: after-stops-21-and-22
     # After Stops 21 and 22 | evidence board | automatic diagnosis
     on: { after: [1, 2] }
-    world: "HYDROGEN DELIVERY DEFICIENCY remains highlighted while the other explanations fail one or more observations, even as the intake calibration slider moves."
+    world: "At evidence-board, the dated accepted-result slip for Stop 21 reads: \"C.\". The slip remains in that fixture's evidence holder."
     panel: "RESULT RECORDED"
     # unlocks: The prediction-lock travel beat.
     bubbles:
@@ -48,7 +49,7 @@
   - id: after-stop-22
     # After Stop 22 | evidence board | automatic travel authorization
     on: { after: [2] }
-    world: "The evidence board predicts low methane fraction, nitrogen present, and no large missing-carbon term."
+    world: "At evidence-board, the dated accepted-result slip for Stop 22 reads: \"Hydrogen delivery deficiency remains viable. Even the largest plausible carbon residual is far below the 18% schedule shortfall required by a large methane leak.\". The slip remains in that fixture's evidence holder."
     panel: "PREDICTION LOCKED - VERIFY AT TANK FARM."
     # unlocks: The Tank Farm waypoint and Stop 23; Stop 24 unlocks immediately after Stop 23.
     bubbles:
@@ -57,7 +58,7 @@
   - id: after-stops-23-and-24
     # After Stops 23 and 24 | Tank Farm | automatic Twist 1
     on: { after: [3, 4] }
-    world: "The carbon, hydrogen, and oxygen ledgers close; Earlier clues flip to their supported meanings one by one."
+    world: "At farm-gauges, the dated accepted-result slip for Stop 23 reads: \"Inputs: C 100, H 640, O 200 mol atoms. Outputs: C 80+20=100; H 80x4 +160x2=640; O 20x2 +160=200. H2 is limiting because only 320 mol is supplied, supporting 80 mol CH4.\". The slip remains in that fixture's evidence holder."
     panel: "NO MAJOR METHANE LEAK / LOW H2 PARTIAL PRESSURE REDUCED PRODUCTION."
     # unlocks: The Mission 6 outcome beat.
     bubbles:
@@ -66,16 +67,12 @@
   - id: at-mission-end
     # At mission end | Tank Farm | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Relief is interrupted when Herrera opens the first hydrogen-delivery drop and a signed temperature override appears immediately before it."
+    world: "At evidence-board, Commander Laila Abiola pins the HYDROGEN-LINE REPAIR order across the linked raw records. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - SABATIER REACTOR -\\> COLD END."
     # unlocks: Mission 7 briefing and the Sabatier Reactor waypoint.
     bubbles:
-    - who: herrera   # Herrera
-      say: "Outstanding work. You solved the mission. Those are my credentials."
-    - who: sundqvist   # Sundqvist
-      say: "Then your change may have caused the collapse."
-    - who: abiola   # Abiola
-      say: "We follow the heat before we accuse the engineer."
+    - who: abiola   # Commander Laila Abiola
+      say: "Most of the fuel did not escape. We never made it. But Ingrid finds Herrera's signed temperature change; repaired feed does not explain why the reactor was turned down."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -164,32 +161,20 @@
     # `status: normal` — the quiet readings are what rule the other causes out —
     # and the keyed `answer` becomes the candidate's label, because the panel
     # grades by label.
-    headline: ONE CAUSE MUST FIT THE ALARMS AND THE QUIET READINGS
+    headline: "ONE CAUSE MUST FIT THE ALARMS AND THE QUIET READINGS"
     readings:
-      - zone: carbon_ledger
-        label: Carbon residual
-        value: 0.2%
-      - zone: intake
-        label: Theoretical methane from CO2
-        value: 2405 kg
-      - zone: hydrogen_branch
-        label: Hydrogen / nitrogen
-        value: 68% / 31%
-      - zone: water
-        label: Water coproduct
-        value: below Sabatier prediction
-      - zone: tank
-        label: Total pressure
-        value: normal
-      - zone: residue
-        label: Blue fluid
-        value: local maintenance fluid
+    - {zone: carbon_ledger, label: "Carbon residual", value: "0.2%", status: normal}
+    - {zone: intake, label: "Theoretical methane from CO2", value: "2405 kg", status: normal}
+    - {zone: hydrogen_branch, label: "Hydrogen / nitrogen", value: "68% / 31%", status: alarm}
+    - {zone: water, label: "Water coproduct", value: "below Sabatier prediction", status: alarm}
+    - {zone: tank, label: "Total pressure", value: "normal", status: normal}
+    - {zone: residue, label: "Blue fluid", value: "local maintenance fluid", status: normal}
     choices:
-      - Large methane leak downstream
-      - Insufficient atmospheric CO2
-      - Hydrogen delivery deficiency before reactor
-      - Completely dead methane sensor
-    answer: Hydrogen delivery deficiency before reactor
+    - {id: methane_leak, label: "Large methane leak downstream", mechanism: "Would create a large missing-carbon residual."}
+    - {id: low_co2, label: "Insufficient atmospheric CO2", mechanism: "Contradicted by theoretical intake capacity."}
+    - {id: low_h2, label: "Hydrogen delivery deficiency before reactor", mechanism: "Explains dilution, low methane and water, closed carbon, and normal total pressure."}
+    - {id: dead_sensor, label: "Completely dead methane sensor", mechanism: "Cannot explain hydrogen composition or low water."}
+    answer: "Hydrogen delivery deficiency before reactor"
     answerText: "Hydrogen delivery deficiency before the reactor is the only cause that fits every reading."
     why: "Nitrogen dilution and reduced H2 partial pressure make H2 limiting, so less CH4 and less coproduct water form. Carbon remains mostly as unreacted/recycled CO2, closing the ledger. Other gases can maintain pressure."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -405,4 +390,3 @@
     #     - {id: low_reaction, label: "Too little H2 reacted"}
     #     - {id: common_mode, label: "Shared calibration, not independent confirmation"}
     #   mapping: {carbon: unreacted_co2, pressure: mixed_pressure, residue: local_fluid, water: low_reaction, meters: common_mode}
-

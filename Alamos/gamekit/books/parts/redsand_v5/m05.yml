@@ -1,17 +1,18 @@
 # ============================================================ MISSION 5
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Water Account"
   card:
-    header: "11 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 5 - 11 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE WATER ACCOUNT"
     goNow: "Go to the Water Plant and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the recycle-water meter."
-    body: "The stain does not explain the shortage, and now an alarm claims the recycled water is contaminated. Closing the ice supply would also stop hydrogen and oxygen production. Compare the plant's measurement with an independent sample before deciding whether the alarm is trustworthy."
+    body: "11 work shifts remain before launch. A sealed field vial stands apart from three matching screen printouts. Today you decide whether the water source is bad or the standard is wrong."
     objective: "Decide whether the water shortage is real and whether the meters provide independent evidence."
   objective: "Decide whether the water shortage is real and whether the meters provide independent evidence."
-  stake: "The stain does not explain the shortage, and now an alarm claims the recycled water is contaminated. Closing the ice supply would also stop hydrogen and oxygen production. Compare the plant's measurement with an independent sample before deciding whether the alarm is trustworthy."
+  stake: "11 work shifts remain before launch. A sealed field vial stands apart from three matching screen printouts. Today you decide whether the water source is bad or the standard is wrong."
   takeaway: "Several readouts are one piece of evidence if they share the same dependency."
-  segue: "Mission decision: The water alarm comes from one bad standard. It does not prove the Ice Cut is dirty. Three displays share the same error, while the field sample is normal. The water source stays open. The raw gas, water, and carbon clues now go on one board."
+  segue: "Therefore Abiola must join the raw clues before the next repair; the dashboard has lost its three-vote majority."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Solution", def: "a uniform mixture in which one or more substances are spread through another. A small sample can be concentrated without containing a large total amount."}
@@ -32,7 +33,7 @@
   - id: on-arrival-at-water-plant
     # On arrival at Water Plant | automatic | 
     on: { enter: true, at: SOIL }
-    world: "A recycle-water display flashes CHLORIDE HIGH while a second panel reports WATER RETURN LOW; Achebe sets a sealed reference standard beside the wall meter."
+    world: "A sealed field vial stands apart from three matching screen printouts."
     panel: "MISSION 5 - THE WATER ACCOUNT"
     # unlocks: Stop 17 at the wet-chemistry bench; Stop 18 unlocks immediately after Stop 17.
     bubbles:
@@ -41,7 +42,7 @@
   - id: after-stops-17-and-18
     # After Stops 17 and 18 | wet-chemistry bench | automatic response
     on: { after: [1, 2] }
-    world: "The interface replaces the label MORE CHLORIDE with two separate labels: CONCENTRATION and TOTAL MOLES; The recycle sample molarity populates the treatment model."
+    world: "At water-report, the dated accepted-result slip for Stop 17 reads: \"Bottle B.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 19: CHOOSE THE MEASUREMENT WAVELENGTH"
     # unlocks: Stop 19 at the spectrometer.
     bubbles:
@@ -50,7 +51,7 @@
   - id: after-stop-19
     # After Stop 19 | spectrometer | automatic travel trigger
     on: { after: [3] }
-    world: "The selected wavelength locks and the plant sample reads high against Standard C; Achebe places a clean field vial in a rover case."
+    world: "At water-assay-desk, the dated accepted-result slip for Stop 18 reads: \"0.0400 M; tolerance ±3%.\". The slip remains in that fixture's evidence holder."
     panel: "DISTANT VERIFICATION AUTHORIZED - ICE CUT."
     # unlocks: The Ice Cut waypoint and Stop 20 after the player reaches the field sampler.
     bubbles:
@@ -59,7 +60,7 @@
   - id: after-stop-20
     # After Stop 20 | Ice Cut | automatic discovery
     on: { after: [4] }
-    world: "The raw brine and field blank test normal; A dependency map then draws three alarming plant readouts back to the same Standard C."
+    world: "At spectrophotometer, the dated accepted-result slip for Stop 19 reads: \"Select about 510 nm.\". The slip remains in that fixture's evidence holder."
     panel: "THREE READOUTS / ONE CALIBRATION SOURCE."
     # unlocks: The Mission 5 outcome beat.
     bubbles:
@@ -68,12 +69,12 @@
   - id: at-mission-end
     # At mission end | Ice Cut | automatic outcome and hook
     on: { missionEnd: true }
-    world: "The Ice Cut shutdown order disappears, while three dashboard channels receive a SHARED CALIBRATION warning."
+    world: "At water-report, Rosalind Achebe clips the SHARED BAD STANDARD finding beside the normal field result. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - PLANT CONTROL REVIEW."
     # unlocks: Mission 6 briefing and the Plant Control waypoint.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. We will not close a working water source. Return with the raw measurements. Leak, feed, gas mixture, water, and calibration go on one board."
+    - who: achebe   # Rosalind Achebe
+      say: "One vial. Its own standard. That is why we brought it. Therefore Abiola must join the raw clues before the next repair; the dashboard has lost its three-vote majority."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -231,7 +232,23 @@
     # `correct_setting` -> the target and its tolerance. `start` is the low end of
     # the bible's own range, which is not its answer.
     sweep:
-      axis: {}
+      mode: peak
+      axis: { label: "Wavelength", unit: nm, min: 400, max: 650, step: 10 }
+      readout: { label: "absorbance" }
+      response:
+      - { at: 400, value: 0.08 }
+      - { at: 440, value: 0.19 }
+      - { at: 470, value: 0.48 }
+      - { at: 490, value: 0.70 }
+      - { at: 510, value: 0.82 }
+      - { at: 530, value: 0.68 }
+      - { at: 560, value: 0.40 }
+      - { at: 620, value: 0.13 }
+      - { at: 650, value: 0.06 }
+      target: 510
+      tolerance: 10
+      start: 400
+      commit: "Set the operating wavelength"
     answerText: "Use about 510 nm, where the standard has its strongest unsaturated response."
     why: "Beer-Lambert response changes most strongly with concentration where the absorbing species has high absorbance, provided the detector is not saturated. Measuring at a weak wavelength compresses differences and hides a small calibration error."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -269,32 +286,18 @@
     # bible's `independent_volume` is dropped because it names no resource the
     # board declares.
     trace:
-      channels:
-        - id: wall_chloride
-          label: Wall chloride meter
-          reading: HIGH
-          depends: []
-        - id: recycle_estimator
-          label: Recycle estimator
-          reading: LOW RETURN
-          depends: []
-        - id: control_correction
-          label: Control-room water correction
-          reading: ALARM
-          depends: []
-        - id: portable_spec
-          label: Portable spectrophotometer
-          reading: NORMAL
-          depends: []
-        - id: field_sample
-          label: Ice Cut field sample
-          reading: NORMAL
-          depends: []
       resources:
-        - id: standard_c
-          label: standard_c
-      independent: []
+      - { id: standard_c, label: "Plant Standard C" }
+      - { id: standard_a, label: "Sealed Standard A" }
       target: standard_c
+      channels:
+      - { id: wall_chloride, label: "Wall chloride meter", reading: "HIGH", depends: [standard_c] }
+      - { id: recycle_estimator, label: "Recycle estimator", reading: "LOW RETURN", depends: [standard_c] }
+      - { id: control_correction, label: "Control-room water correction", reading: "ALARM", depends: [standard_c] }
+      - { id: portable_spec, label: "Portable spectrophotometer", reading: "NORMAL", depends: [standard_a] }
+      - { id: field_sample, label: "Ice Cut field sample", reading: "NORMAL", depends: [standard_a] }
+      independent: [portable_spec, field_sample]
+      commit: "Name the shared source"
     answerText: "The three alarming channels share Standard C; the portable field path is independent."
     why: "Agreement strengthens a conclusion only when evidence can fail separately. Here one biased standard propagates through three displays. The distant trip matters because a new sample and independent standard break the dependency chain."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -317,4 +320,3 @@
     #       - {id: field_sample, label: "Ice Cut field sample", reading: "NORMAL", depends_on: [independent_volume, standard_a]}
     #     truth: {dependent_channels: [wall_chloride, recycle_estimator, control_correction], independent_channels: [portable_spec, field_sample]}
     #     correct: "Three alarms are one dependent evidence path; the portable field path is independent."
-

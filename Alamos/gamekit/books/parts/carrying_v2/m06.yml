@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Enforcement Plan"
   card:
-    header: "10 DAYS."
+    header: "MISSION 6 - 10 DAYS UNTIL THE VOTE."
     title: "THE ENFORCEMENT PLAN"
     goNow: "Harbour Office, Tomas Reed at fee-desk."
-    body: "The catch limit cannot work if boats bring fish ashore without reporting them. Compare inspections, fees, and rules for sharing the island's resources. Choose a plan people can follow and officials can enforce without unfairly placing all the costs on one group."
+    body: "10 days until the vote. A fresh permit stamp rests on top of an unpaid patrol rota. Today you decide how the island will enforce its limits."
     objective: "Turn ecological ceilings into fair rules."
   objective: "Turn ecological ceilings into fair rules."
-  stake: "The catch limit cannot work if boats bring fish ashore without reporting them. Compare inspections, fees, and rules for sharing the island's resources. Choose a plan people can follow and officials can enforce without unfairly placing all the costs on one group."
+  stake: "10 days until the vote. A fresh permit stamp rests on top of an unpaid patrol rota. Today you decide how the island will enforce its limits."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Use measured caps, random checks, restoration, and targeted fees. Payment alone does not prove compliance. The rule can be enforced. But water and methane still leave by unpriced paths."
+  segue: "But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Tragedy of the commons", def: "overuse of a shared resource."}
@@ -30,50 +30,55 @@
   - id: on-arrival-at-chapel-council-room
     # On arrival at Chapel Council Room | council-table | automatic
     on: { enter: true, at: CHAPEL }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "A fresh permit stamp rests on top of an unpaid patrol rota."
     panel: "MISSION 6: AUDIT THE LANDING CLAIM OPEN"
+    # unlocks: Unlock Stop 21 at council-table in Chapel Council Room.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with audit the landing claim. We need evidence the next decision can use."
   - id: after-stop-21
     # After Stop 21 | council-table | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At council-table, the dated accepted-result slip for Stop 21 reads: \"nursery-zone origin is unbacked; hold catch\". The slip remains in that fixture's evidence holder."
     panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    # unlocks: Unlock Stop 22 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 21 result to settle buy compliance evidence."
+    - who: reed   # Tomas Reed
+      say: "That check holds. The held landing reveals an origin-checking gap that the monitoring budget must close."
   - id: after-stop-22
     # After Stop 22 | common-map | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+checks=35\". The slip remains in that fixture's evidence holder."
     panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    # unlocks: Unlock Stop 23 at common-map in Common Office.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 22 result to settle match land-use practices."
+    - who: reed   # Tomas Reed
+      say: "That check holds. Harbour enforcement is addressed, but the common's land practices can still undermine water and soil limits."
   - id: after-stop-23
     # After Stop 23 | common-map | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 23 changes the persistent board and unlocks the decision stop."
+    world: "At common-map, the dated accepted-result slip for Stop 23 reads: \"Erosion maps to selective harvest and reforestation; runoff to permeable pavement and rain gardens; irrigation loss to drip irrigation; pests to IPM; and the forestry claim to FSC certification.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    # unlocks: Unlock Stop 24 at common-map in Common Office.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 23 result to settle fund the commons package."
+    - who: reed   # Tomas Reed
+      say: "That check holds. The matched land practices need a funded package before the common can implement them."
   - id: at-mission-end
     # At mission end | council-table | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 24 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At fee-desk, Tomas Reed stamps the permit stack CAP AND CHECK REQUIRED. The dated prop remains here on later visits."
     panel: "MISSION 6 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: reed   # Tomas Reed
+      say: "A fee buys the patrol. It does not buy permission to break the cap. But Mei has found a wet trail behind the waste yard; paid fees have not stopped the leak."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Enforcement Plan. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Who Checks the Limit?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Enforcement Plan, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?"
+    - prompt: "In a follow-up to Who Checks the Limit?, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?"
       hint: "Use the stated evidence and the conditions for Tragedy of the commons; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -81,7 +86,7 @@
       - {key: "B", text: "Overuse of a shared resource.", why: "Correct. overuse of a shared resource."}
       - {key: "C", text: "Productive land and water needed to support consumption and waste.", why: "This describes Ecological footprint, not Tragedy of the commons. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Pest control combining monitoring, prevention, and limited targeted treatment.", why: "This describes Integrated pest management (IPM), not Tragedy of the commons. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Enforcement Plan: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?"
+    - prompt: "the island council receives a second case related to Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?"
       hint: "Use the stated evidence and the conditions for Sustainable yield; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -89,7 +94,7 @@
       - {key: "B", text: "Productive land and water needed to support consumption and waste.", why: "This describes Ecological footprint, not Sustainable yield. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Harvest that does not reduce future supply.", why: "Correct. harvest that does not reduce future supply."}
       - {key: "D", text: "Pest control combining monitoring, prevention, and limited targeted treatment.", why: "This describes Integrated pest management (IPM), not Sustainable yield. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Enforcement Plan using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?"
+    - prompt: "A teammate rechecks Who Checks the Limit? using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?"
       hint: "Use the stated evidence and the conditions for Ecological footprint; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -97,7 +102,7 @@
       - {key: "B", text: "Harvest that does not reduce future supply.", why: "This describes Sustainable yield, not Ecological footprint. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Pest control combining monitoring, prevention, and limited targeted treatment.", why: "This describes Integrated pest management (IPM), not Ecological footprint. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Productive land and water needed to support consumption and waste.", why: "Correct. productive land and water needed to support consumption and waste."}
-    - prompt: "An unseen case extends The Enforcement Plan: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?"
+    - prompt: "An unseen case extends Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?"
       hint: "Use the stated evidence and the conditions for Integrated pest management (IPM); do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -113,7 +118,7 @@
       - {key: "B", text: "A receipt proves payment, not ecological compliance.", why: "Correct. a receipt proves payment, not ecological compliance"}
       - {key: "C", text: "Harvest that does not reduce future supply.", why: "This describes Sustainable yield, not compliance records | evidence | D5 | PRACTICE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Productive land and water needed to support consumption and waste.", why: "This describes Ecological footprint, not compliance records | evidence | D5 | PRACTICE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Enforcement Plan to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?"
+    - prompt: "the island council applies the lesson from Who Checks the Limit? to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?"
       hint: "Use the stated evidence and the conditions for monitoring design | policy | 6.1 | COMBINE | L5 | decision; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:

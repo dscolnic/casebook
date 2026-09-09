@@ -1,17 +1,18 @@
 # ============================================================ MISSION 11
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Quiet-Day Check"
   card:
-    header: "5 SHIFTS UNTIL THE STORM"
+    header: "MISSION 11 - 5 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "The Reservoir Is Smaller"
     goNow: "Go to Storage & Level Board and meet Mara Vale, operations chief, at the resurveyed curve."
-    body: "New measurements show that the reservoir holds less water at a given height than the old chart claims. That could leave less room for the storm than the crew expects. Calculate the missing capacity and decide whether the official chart must be replaced."
+    body: "5 work shifts remain before the storm. A fresh sonar roll crowds the old 2003 drawing. Today you decide which lake storage curve to use."
     objective: "Certify the old or resurveyed stage-storage curve."
   objective: "Certify the old or resurveyed stage-storage curve."
-  stake: "New measurements show that the reservoir holds less water at a given height than the old chart claims. That could leave less room for the storm than the crew expects. Calculate the missing capacity and decide whether the official chart must be replaced."
+  stake: "5 work shifts remain before the storm. A fresh sonar roll crowds the old 2003 drawing. Today you decide which lake storage curve to use."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Replace the 2003 storage curve. New surveys show 7.5 million cubic metres of lost space. The new rate also matches the level drop. The old plan claimed too much room. Rebuild the release plan."
+  segue: "Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-storage-level-board
     # On arrival at Storage & Level Board | storage-board | automatic
     on: { enter: true, at: STORE }
-    world: "The integrate lost capacity fixture wakes and the mission evidence opens."
+    world: "A fresh sonar roll crowds the old 2003 drawing."
     panel: "MISSION 11: INTEGRATE LOST CAPACITY OPEN"
+    # unlocks: Unlock Stop 41 at storage-board in Storage & Level Board.
     bubbles:
     - who: vale   # Mara Vale
       say: "Start with integrate lost capacity. We need evidence the next decision can use."
   - id: after-stop-41
     # After Stop 41 | level-desk | automatic
     on: { after: [1] }
-    world: "After 11.2 Location: STORE."
+    world: "At storage-board, the dated accepted-result slip for Stop 41 reads: \"7.5 million m^3, tolerance .01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    # unlocks: Unlock Stop 42 at level-desk in Storage & Level Board.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Nice work. Use the Stop 41 result to settle compute average loss."
+    - who: okoro   # Imani Okoro
+      say: "That check holds. The lost-capacity result needs a per-metre summary without erasing changes along the curve."
   - id: after-stop-42
     # After Stop 42 | survey-rack | automatic
     on: { after: [2] }
-    world: "Travel1 Location: STORE->STRUCT."
+    world: "At level-desk, the dated accepted-result slip for Stop 42 reads: \"2.5 million m^3/m.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
+    # unlocks: Unlock Stop 43 at survey-rack in Storage & Level Board.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Good thinking. Use the Stop 42 result to settle verify independent transects."
+    - who: okoro   # Imani Okoro
+      say: "That check holds. The storage discrepancy needs independent survey support before the old curve is replaced."
   - id: after-stop-43
     # After Stop 43 | level-desk | automatic
     on: { after: [3] }
-    world: "Travel2 Location: STRUCT->GATES."
+    world: "At survey-rack, the dated accepted-result slip for Stop 43 reads: \"three backed records.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    # unlocks: Unlock Stop 44 at level-desk in Storage & Level Board.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Exactly right. Use the Stop 43 result to settle convert volume loss to level rate."
+    - who: okoro   # Imani Okoro
+      say: "That check holds. The supported capacity revision must also predict the level change observed during release."
   - id: at-mission-end
     # At mission end | storage-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At holdout-drawer, Imani Okoro opens the sealed independent survey drawer. The dated prop remains here on later visits."
     panel: "MISSION 11 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: vale   # Mara Vale
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: okoro   # Imani Okoro
+      say: "I kept the old chart because we knew it. That was not enough. Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise."
 
   terms:
   - {name: "Area between curves", def: "integral of top minus bottom, split at crossings."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Quiet-Day Check. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Lake Lost Its Room. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Quiet-Day Check, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "In a follow-up to The Lake Lost Its Room, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "B"
       figure: {"kind":"line","xLabel":"Time (h)","yLabel":"Flow rate (m3/s)","caption":"Inflow and release cross before separating again.","series":[{"name":"Inflow","points":[[0,20],[1,28],[2,34],[3,30],[4,22]]},{"name":"Release","points":[[0,25],[1,26],[2,28],[3,30],[4,32]]}]}
@@ -76,7 +82,7 @@
       - {key: "B", text: "Integral of top minus bottom, split at crossings.", why: "Correct. integral of top minus bottom, split at crossings."}
       - {key: "C", text: "Cross-sectional disk with a hole.", why: "This describes Washer, not Area between curves. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.", why: "This describes area between curves/crossings, not Area between curves. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Quiet-Day Check: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?"
+    - prompt: "Ashfell Dam receives a second case related to The Lake Lost Its Room: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Average value; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -84,7 +90,7 @@
       - {key: "B", text: "Cross-sectional disk with a hole.", why: "This describes Washer, not Average value. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Constant height with the same accumulated area.", why: "Correct. constant height with the same accumulated area."}
       - {key: "D", text: "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.", why: "This describes area between curves/crossings, not Average value. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Quiet-Day Check using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?"
+    - prompt: "A teammate rechecks The Lake Lost Its Room using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?"
       hint: "Use the stated evidence and the conditions for Washer; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -92,7 +98,7 @@
       - {key: "B", text: "Constant height with the same accumulated area.", why: "This describes Average value, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.", why: "This describes area between curves/crossings, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Cross-sectional disk with a hole.", why: "Correct. cross-sectional disk with a hole."}
-    - prompt: "An unseen case extends The Quiet-Day Check: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "An unseen case extends The Lake Lost Its Room: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "A"
       figure: {"kind":"line","xLabel":"Time (h)","yLabel":"Flow rate (m3/s)","caption":"Inflow and release cross before separating again.","series":[{"name":"Inflow","points":[[0,20],[1,28],[2,34],[3,30],[4,22]]},{"name":"Release","points":[[0,25],[1,26],[2,28],[3,30],[4,32]]}]}
@@ -109,7 +115,7 @@
       - {key: "B", text: "Average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity.", why: "Correct. average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity."}
       - {key: "C", text: "Constant height with the same accumulated area.", why: "This describes Average value, not average value/splitting. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Cross-sectional disk with a hole.", why: "This describes Washer, not average value/splitting. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Quiet-Day Check to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?"
+    - prompt: "Ashfell Dam applies the lesson from The Lake Lost Its Room to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?"
       hint: "Use the stated evidence and the conditions for evidence independence; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -300,4 +306,3 @@
         - 1.05
       measurement:
         label: independent measured value
-

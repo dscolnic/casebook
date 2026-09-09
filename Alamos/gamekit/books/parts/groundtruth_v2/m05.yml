@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Sky as a Capacitor"
   card:
-    header: "11 DAYS TO FINAL STORM WINDOW;"
+    header: "MISSION 5 - 11 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "The Sky as a Capacitor"
     goNow: "Field Station, Ravi Sen at mill array."
-    body: "The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it."
-    objective: "Build a bounded cloud-ground capacitance and charge model."
-  objective: "Build a bounded cloud-ground capacitance and charge model."
-  stake: "The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it."
+    body: "11 days until the last storm window closes. Twelve numbered stages stand behind the rail below a cloud sketch. Today you decide what the bank can model about the storm."
+    objective: "Build a bounded cloud-ground capacitance and charge model. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Build a bounded cloud-ground capacitance and charge model. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "11 days until the last storm window closes. Twelve numbered stages stand behind the rail below a cloud sketch. Today you decide what the bank can model about the storm."
   takeaway: "Use the twelve-stage Marx bank only as an electrical analog, matched in voltage, charge,. ---"
-  segue: "Mission decision: Use the twelve-stage Marx bank only as an electrical model. Match voltage, charge, and timing. The storm capacitance is about 44.3 nF. The bank does not copy cloud shape. Next, calculate staged energy."
+  segue: "But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-field-station
     # On arrival at Field Station | mill-array | automatic
     on: { enter: true, at: FIELD }
-    world: "| trigger | location | presentation | world_state | exact copy | unlocks | |---|---|---|---|---|---| | accepted | FIELD/mill-array | nearby_character_bubble | cloud footprint overlay visible | | S1 | | S2 correct | FIELD/mill-array | waypoint_notification | truth pair pinned | Take A = 2.0×10^8 m² and κ = 1.00 to Impulse Hall. | BANK travel/S3 | | enter BANK | BANK/hall-board | nearby_character_bubble | earthing stick on | | S3 | | S4 correct | BANK/bank-stages | equipment_panel_update | selected evidence labels appear | MATCH: VOLTAGE • CHARGE • TIMING; GEOMETRY NOT MATCHED | outcome | | outcome closes | BANK/hall-board | system_banner | report piece 5 appears | CLOUD MODEL BOUNDED | metric/M6 |."
+    world: "Twelve numbered stages stand behind the rail below a cloud sketch."
     panel: "Ravi Sen, field scientist: \"Use geometry first. Voltage comes only after we know what can store charge.\""
+    # unlocks: Unlock Stop 17 at mill-array in Field Station.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Use geometry first. Voltage comes only after we know what can store charge."
   - id: after-stop-17
     # After Stop 17 | storm-profile-board | automatic
     on: { after: [1] }
-    world: "The derive cloud-ground capacitance result remains visible while the break the area-dielectric degeneracy fixture lights."
+    world: "At mill-array, the dated accepted-result slip for Stop 17 reads: \"C=ε₀A/d=44.3 nF. Gauss plus V=Ed cancels Q.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    # unlocks: Unlock Stop 18 at storm-profile-board in Field Station.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 17 result to settle break the area-dielectric degeneracy."
+    - who: strand   # Elise Strand
+      say: "That check holds. The capacitance alone leaves multiple combinations of cloud area and dielectric factor possible."
   - id: after-stop-18
     # After Stop 18 | hall-board | automatic
     on: { after: [2] }
-    world: "The break the area-dielectric degeneracy result remains visible while the derive marx topology fixture lights."
+    world: "At storm-profile-board, the dated accepted-result slip for Stop 18 reads: \"truth. State waypoint BANK.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 18 RECORDED - STOP 19 OPEN"
+    # unlocks: Unlock Stop 19 at hall-board in Impulse Hall.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 18 result to settle derive marx topology."
+    - who: strand   # Elise Strand
+      say: "That check holds. The storm estimate is ready for comparison with the bank's actual charging and discharge connections."
   - id: after-stop-19
     # After Stop 19 | trailer-cards | automatic
     on: { after: [3] }
-    world: "The derive marx topology result remains visible while the buy model evidence fixture lights."
+    world: "At hall-board, the dated accepted-result slip for Stop 19 reads: \"tolerances.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    # unlocks: Unlock Stop 20 at trailer-cards in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 19 result to settle buy model evidence."
+    - who: strand   # Elise Strand
+      say: "That check holds. The bank topology is known, but the shot model still lacks measurements needed for a defensible comparison."
   - id: at-mission-end
     # At mission end | mill-array | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At hall-board, Elise Strand clips the ELECTRICAL MODEL ONLY card to the bank diagram. The dated prop remains here on later visits."
     panel: "MISSION 5 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: strand   # Elise Strand
+      say: "We can match an electrical pulse. We cannot build a cloud indoors. But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change."
 
   terms:
   - {name: "Capacitance", def: "stored charge per voltage."}

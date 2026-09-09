@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Waste and Land-Use Controls"
   card:
-    header: "7 DAYS."
+    header: "MISSION 9 - 7 DAYS UNTIL THE VOTE."
     title: "WASTE AND LAND-USE CONTROLS"
     goNow: "Tip, Mei at weighbridge."
-    body: "The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food."
+    body: "7 days until the vote. A runoff jar sits on the field map beside the school route. Today you decide where to stop waste before it reaches water."
     objective: "Cut pollution at source."
   objective: "Cut pollution at source."
-  stake: "The school-water problem came from a nearby pollution source. Farms and the landfill can release similar substances through different routes. Identify those routes and choose practical controls that keep pollution out of the water while allowing the island to keep producing food."
+  stake: "7 days until the vote. A runoff jar sits on the field map beside the school route. Today you decide where to stop waste before it reaches water."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Line the waste cell and cut sewage nutrients. Use drip lines, IPM, and rain gardens. These steps stop waste near its source. The reef still loses oxygen in warm, nitrate-rich weeks."
+  segue: "But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Bioaccumulation", def: "pollutant buildup within one organism."}
@@ -30,50 +30,55 @@
   - id: on-arrival-at-tip-and-sorting-yard
     # On arrival at Tip and Sorting Yard | weighbridge | automatic
     on: { enter: true, at: TIP }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "A runoff jar sits on the field map beside the school route."
     panel: "MISSION 9: SORT THE MIXED WASTE OPEN"
+    # unlocks: Unlock Stop 33 at weighbridge in Tip and Sorting Yard.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with sort the mixed waste. We need evidence the next decision can use."
   - id: after-stop-33
     # After Stop 33 | tip-lab-bench | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At weighbridge, the dated accepted-result slip for Stop 33 reads: \"All five loads are separated by persistence and biological effect\". The slip remains in that fixture's evidence holder."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    # unlocks: Unlock Stop 34 at tip-lab-bench in Tip and Sorting Yard.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 33 result to settle map source and fate."
+    - who: vale   # Iona Vale
+      say: "That check holds. The sorted waste needs a source-and-fate map before controls are chosen."
   - id: after-stop-34
     # After Stop 34 | council-table | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At tip-lab-bench, the dated accepted-result slip for Stop 34 reads: \"All four pollutants are linked to the pathway their control must intercept\". The slip remains in that fixture's evidence holder."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    # unlocks: Unlock Stop 35 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 34 result to settle control the compost process."
+    - who: vale   # Iona Vale
+      say: "That check holds. The source map makes compost a possible fertilizer substitute whose operating conditions need testing."
   - id: after-stop-35
     # After Stop 35 | council-table | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 35 changes the persistent board and unlocks the decision stop."
+    world: "At council-table, the dated accepted-result slip for Stop 35 reads: \"Greater aeration raises temperature from 38 C to 58 C and lowers odor from 8 to 2, supporting aerobic decomposition\". The slip remains in that fixture's evidence holder."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    # unlocks: Unlock Stop 36 at council-table in Chapel Council Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 35 result to settle fund source controls."
+    - who: vale   # Iona Vale
+      say: "That check holds. The compost test and source map now provide evidence for allocating prevention effort."
   - id: at-mission-end
     # At mission end | weighbridge | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 36 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At common-map, Iona Vale pins the source-control plan across the runoff route. The dated prop remains here on later visits."
     panel: "MISSION 9 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: vale   # Iona Vale
+      say: "The ditch crosses our fence. So does our responsibility. But Rafi's warm-week reef records still lose oxygen; clean-looking water alone will not settle that case."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed Waste and Land-Use Controls. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Before the Next Rain. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to Waste and Land-Use Controls, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?"
+    - prompt: "In a follow-up to Before the Next Rain, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?"
       hint: "Use the stated evidence and the conditions for Bioaccumulation; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -81,7 +86,7 @@
       - {key: "B", text: "Pollutant buildup within one organism.", why: "Correct. pollutant buildup within one organism."}
       - {key: "C", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "This describes Eutrophication, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?"
+    - prompt: "the island council receives a second case related to Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?"
       hint: "Use the stated evidence and the conditions for Biomagnification; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -89,7 +94,7 @@
       - {key: "B", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Rising concentration at higher trophic levels.", why: "Correct. rising concentration at higher trophic levels."}
       - {key: "D", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "This describes Eutrophication, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks Waste and Land-Use Controls using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?"
+    - prompt: "A teammate rechecks Before the Next Rain using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?"
       hint: "Use the stated evidence and the conditions for Persistent organic pollutant; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -97,7 +102,7 @@
       - {key: "B", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Nutrient enrichment leading to algae and oxygen loss.", why: "This describes Eutrophication, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "Correct. long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB)."}
-    - prompt: "An unseen case extends Waste and Land-Use Controls: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?"
+    - prompt: "An unseen case extends Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?"
       hint: "Use the stated evidence and the conditions for Eutrophication; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -105,7 +110,7 @@
       - {key: "B", text: "Pollutant buildup within one organism.", why: "This describes Bioaccumulation, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "Before another Waste and Land-Use Controls decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?"
+    - prompt: "Before another Before the Next Rain decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?"
       hint: "Use the stated evidence and the conditions for pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -113,7 +118,7 @@
       - {key: "B", text: "Sort the mixed waste connects the measured environmental mechanism to the next island condition.", why: "Correct. sort the mixed waste connects the measured environmental mechanism to the next island condition."}
       - {key: "C", text: "Rising concentration at higher trophic levels.", why: "This describes Biomagnification, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).", why: "This describes Persistent organic pollutant, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from Waste and Land-Use Controls to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?"
+    - prompt: "the island council applies the lesson from Before the Next Rain to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?"
       hint: "Use the stated evidence and the conditions for point and nonpoint fate | pollution | 9; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -223,7 +228,7 @@
     title: "Map source and fate"
     concept: 27   # point and nonpoint fate | pollution | 9
     reason: "The sorted waste needs a source-and-fate map before controls are chosen."
-    scene: "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "With hazards classified, their locations reveal different controls. Match each source or fate pattern before selecting treatment."
     motivation: "Each pollutant's pathway identifies where its control must intercept transport or exposure."
     format: CASEBOOK
     question: "Map pipe discharge, field runoff, landfill leachate, and fish mercury to point source, nonpoint source, groundwater pathway, and biomagnification"

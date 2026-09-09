@@ -367,19 +367,20 @@ missions:
 # 15 mission fragment(s), assembled by tools/assemble-book.mjs from
 # changeover_v2/ — edit the fragments, not this file.
 # ============================================================ MISSION 1
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What Counts"
   card:
-    header: "15 DAYS TO CHANGEOVER"
+    header: "MISSION 1 - 15 DAYS UNTIL CHANGEOVER."
     title: "What Counts"
     goNow: "Go to COUNTER and meet Eli Voss, counter operations lead, at the queue board."
-    body: "People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude."
+    body: "15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves."
     objective: "Separate useful economic measures from alarming but incomplete signals."
   objective: "Separate useful economic measures from alarming but incomplete signals."
-  stake: "People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude."
+  stake: "15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use the national count, not the loudest queue. Real output is 700 billion RATE. Prices rose 2.5%. The board now needs the production gap."
+  segue: "But Idris finds trades that do not belong in the output total; the headline must wait for his ledger."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Scarcity", def: "limited resources cannot satisfy every want, so every choice gives up an alternative."}
@@ -397,43 +398,48 @@ missions:
   - id: on-arrival-at-exchange-counter
     # On arrival at Exchange Counter | queue-board | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate useful economic measures from alarming but incomplete signals. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A queue bends past a shop window with fresh price stickers."
     panel: "Separate useful economic measures from alarming but incomplete signals."
+    # unlocks: Unlock Stop 1 at queue-board in Exchange Counter.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with signal or statistic. We need evidence the next decision can use."
   - id: after-stop-1
     # After Stop 1 | allocation-slate | automatic
     on: { after: [1] }
-    world: "The signal or statistic result remains visible while the counter tradeoff fixture lights."
+    world: "At queue-board, the dated accepted-result slip for Stop 1 reads: \"C. \"Count the nationwide transactions, date them, and state coverage.\"\". The slip remains in that fixture's evidence holder."
     panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    # unlocks: Unlock Stop 2 at allocation-slate in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. Count the nationwide transactions, date them, and state coverage."
   - id: after-stop-2
     # After Stop 2 | queue-board | automatic
     on: { after: [2] }
-    world: "The counter tradeoff result remains visible while the why did the street price rise? fixture lights."
+    world: "At allocation-slate, the dated accepted-result slip for Stop 2 reads: \"40 calls total, or 1 call per extra exchange. tolerance:0.\". The slip remains in that fixture's evidence holder."
     panel: "COUNTER"
+    # unlocks: Unlock Stop 3 at queue-board in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. Forty extra exchanges cost forty bank calls: one call per exchange."
   - id: after-stop-3
     # After Stop 3 | wage-notice-rail | automatic
     on: { after: [3] }
-    world: "The why did the street price rise? result remains visible while the page one standard fixture lights."
+    world: "At queue-board, the dated accepted-result slip for Stop 3 reads: \"Supply shifted left.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    # unlocks: Unlock Stop 4 at wage-notice-rail in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
-      say: "Exactly right. Use the Stop 3 result to settle page one standard."
+      say: "That check holds. The street diagnosis is ready, but the first official record still contains an unsupported shortage claim."
   - id: at-mission-end
     # At mission end | queue-board | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | COUNTER | automatic World state and dialogue: Feedback: A conclusion is not backed because it sounds urgent; State: Page 1 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At queue-board, Eli Voss clips the dated national figures beside the queue tally. The dated prop remains here on later visits."
     panel: "MISSION 1 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. We can shorten the line, but I will stop calling it a national shortage."
+      say: "I can count the line. I cannot call it the whole country. But Idris finds trades that do not belong in the output total; the headline must wait for his ledger."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -677,19 +683,20 @@ missions:
           critical: true
       checks: 3
 # ============================================================ MISSION 2
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Growth On Paper"
   card:
-    header: "14 DAYS TO CHANGEOVER"
+    header: "MISSION 2 - 14 DAYS UNTIL CHANGEOVER."
     title: "Growth on Paper"
     goNow: "Go to PRICES and meet Idris Pell, national accounts chief, at the output ledger."
-    body: "A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish."
+    body: "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed."
     objective: "Build GDP correctly and separate nominal growth from real growth."
   objective: "Build GDP correctly and separate nominal growth from real growth."
-  stake: "A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish."
+  stake: "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Publish real GDP of 685.2 billion base-year crowns with the nominal total shown only as context. Prices caused much of the apparent growth. The board corrects the headline. The next question is whether the street price jump is broad or built into the basket."
+  segue: "But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -698,43 +705,48 @@ missions:
   - id: on-arrival-at-prices
     # On arrival at PRICES | output-ledger | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Build GDP correctly and separate nominal growth from real growth. Idris Pell points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A stock-sale slip sits in the same tray as factory orders."
     panel: "Build GDP correctly and separate nominal growth from real growth."
+    # unlocks: Unlock Stop 5 at output-ledger in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Start with classify the ledger. We need evidence the next decision can use."
   - id: after-stop-5
     # After Stop 5 | calculating-desk | automatic
     on: { after: [1] }
-    world: "The classify the ledger result remains visible while the close the output identity fixture lights."
+    world: "At output-ledger, the dated accepted-result slip for Stop 5 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 5 RECORDED - STOP 6 OPEN"
+    # unlocks: Unlock Stop 6 at calculating-desk in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Nice work. Only purchases of current final output enter GDP; transfers and asset trades do not."
   - id: after-stop-6
     # After Stop 6 | price-history-board | automatic
     on: { after: [2] }
-    world: "The close the output identity result remains visible while the remove the price effect fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 6 reads: \"740 billion crowns, ±0.5.\". The slip remains in that fixture's evidence holder."
     panel: "PRICES"
+    # unlocks: Unlock Stop 7 at price-history-board in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Good thinking. Nominal GDP is 740 billion crowns."
   - id: after-stop-7
     # After Stop 7 | output-ledger | automatic
     on: { after: [3] }
-    world: "The remove the price effect result remains visible while the publish the output line fixture lights."
+    world: "At price-history-board, the dated accepted-result slip for Stop 7 reads: \"685.2, ±0.2.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 7 RECORDED - STOP 8 OPEN"
+    # unlocks: Unlock Stop 8 at output-ledger in PRICES.
     bubbles:
     - who: pell   # Idris Pell
       say: "Exactly right. Real GDP is about 685.2 billion base-year crowns."
   - id: at-mission-end
     # At mission end | output-ledger | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 2 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At output-ledger, Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION. The dated prop remains here on later visits."
     panel: "MISSION 2 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: pell   # Idris Pell
-      say: "Outstanding work. You solved the mission. The report was not false. Its growth claim was."
+      say: "The sum was right. Some of the rows were wrong. But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives."
 
   terms:
   - {name: "Gross domestic product (GDP)", def: "the market value of final goods and services produced inside a country during a stated period."}
@@ -989,19 +1001,20 @@ missions:
       - { id: transfers, label: "transfers", value: 35, countable: false }
       - { id: stocks, label: "stocks", value: 22, countable: false }
 # ============================================================ MISSION 3
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Basket"
   card:
-    header: "13 DAYS TO CHANGEOVER"
+    header: "MISSION 3 - 13 DAYS UNTIL CHANGEOVER."
     title: "The Basket"
     goNow: "Go to PRICES and meet Lina Saye, price statistics lead, at the basket table."
-    body: "The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision."
+    body: "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets."
     objective: "Test whether the fixed basket represents current household costs."
   objective: "Test whether the fixed basket represents current household costs."
-  stake: "The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision."
+  stake: "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: The gap is 34.8 billion RATE. Job data show weak demand. The fuel shock raised prices. Next, test how spending moves through the economy."
+  segue: "But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -1010,43 +1023,48 @@ missions:
   - id: on-arrival-at-prices
     # On arrival at PRICES | basket-table | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Test whether the fixed basket represents current household costs. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "An old basket sits beside a family's crossed-out shopping list."
     panel: "Test whether the fixed basket represents current household costs."
+    # unlocks: Unlock Stop 9 at basket-table in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Start with price the fixed basket. We need evidence the next decision can use."
   - id: after-stop-9
     # After Stop 9 | price-history-board | automatic
     on: { after: [1] }
-    world: "The price the fixed basket result remains visible while the calculate the printed inflation fixture lights."
+    world: "At basket-table, the dated accepted-result slip for Stop 9 reads: \"108 ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    # unlocks: Unlock Stop 10 at price-history-board in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Nice work. The fixed basket CPI is 108."
   - id: after-stop-10
     # After Stop 10 | basket-table | automatic
     on: { after: [2] }
-    world: "The calculate the printed inflation result remains visible while the does the basket represent families? fixture lights."
+    world: "At price-history-board, the dated accepted-result slip for Stop 10 reads: \"5.88%, ±0.05.\". The slip remains in that fixture's evidence holder."
     panel: "108−100"
+    # unlocks: Unlock Stop 11 at basket-table in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Good thinking. The official basket reports 5.88% inflation."
   - id: after-stop-11
     # After Stop 11 | basket-table | automatic
     on: { after: [3] }
-    world: "The does the basket represent families? result remains visible while the keep history and repair representation fixture lights."
+    world: "At basket-table, the dated accepted-result slip for Stop 11 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    # unlocks: Unlock Stop 12 at basket-table in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Exactly right. Inflation is positive, but 5.88% depends strongly on the stale energy weight."
   - id: at-mission-end
     # At mission end | basket-table | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 3 signed; port-energy clue logged; Stop the timer and keep the next unresolved consequence visible."
+    world: "At price-history-board, Lina Saye pins the companion price measure beside the unchanged historical series. The dated prop remains here on later visits."
     panel: "MISSION 3 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: saye   # Lina Saye
-      say: "Outstanding work. You solved the mission. The arithmetic stays. The claim gets narrower."
+      say: "Keep the old line. Put the change where people can see it. But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away."
 
   terms:
   - {name: "Consumer price index (CPI)", def: "the current cost of a fixed consumer basket relative to its base-year cost, times 100."}
@@ -1312,19 +1330,20 @@ missions:
       - { id: ads, label: "publicity", axis: "publicity", cost: 30 }
       - { id: erase, label: "replace history", axis: "replace history", cost: 25 }
 # ============================================================ MISSION 4
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Jobs Behind The Number"
   card:
-    header: "12 DAYS TO CHANGEOVER"
+    header: "MISSION 4 - 12 DAYS UNTIL CHANGEOVER."
     title: "Jobs Behind the Number"
     goNow: "Go to COUNTER and meet Eli Voss, counter operations lead, at the labor board."
-    body: "Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning."
+    body: "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action."
     objective: "Diagnose labor-market weakness without losing excluded workers."
   objective: "Diagnose labor-market weakness without losing excluded workers."
-  stake: "Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning."
+  stake: "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Treat the job data as a recession warning. The output gap is 34.8 billion. Job loss backs the need to act. The energy shock explains much of the price rise. Now test the new spending plan."
+  segue: "Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -1333,43 +1352,48 @@ missions:
   - id: on-arrival-at-counter
     # On arrival at COUNTER | wage-notice-rail | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Diagnose labor-market weakness without losing excluded workers. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A job notice curls over an empty search card."
     panel: "Diagnose labor-market weakness without losing excluded workers."
+    # unlocks: Unlock Stop 13 at wage-notice-rail in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with rebuild the denominator. We need evidence the next decision can use."
   - id: after-stop-13
     # After Stop 13 | queue-board | automatic
     on: { after: [1] }
-    world: "The rebuild the denominator result remains visible while the name the causes fixture lights."
+    world: "At wage-notice-rail, the dated accepted-result slip for Stop 13 reads: \"LF 10.0m and 8.0%, ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    # unlocks: Unlock Stop 14 at queue-board in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. The labor force is 10.0 million and unemployment is 8.0%; 0.5 million discouraged workers remain outside."
   - id: after-stop-14
     # After Stop 14 | allocation-slate | automatic
     on: { after: [2] }
-    world: "The name the causes result remains visible while the place the output gap fixture lights."
+    world: "At queue-board, the dated accepted-result slip for Stop 14 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "COUNTER"
+    # unlocks: Unlock Stop 15 at allocation-slate in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. Frictional and structural form the natural rate; recession layoffs are cyclical."
   - id: after-stop-15
     # After Stop 15 | wage-notice-rail | automatic
     on: { after: [3] }
-    world: "The place the output gap result remains visible while the transition or warning fixture lights."
+    world: "At allocation-slate, the dated accepted-result slip for Stop 15 reads: \"−34.8 billion, recessionary, ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    # unlocks: Unlock Stop 16 at wage-notice-rail in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. Halvern has a 34.8-billion recessionary gap."
   - id: at-mission-end
     # At mission end | wage-notice-rail | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | COUNTER | automatic State: Page 4 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At wage-notice-rail, Eli Voss clips the participation warning to the wage rail. The dated prop remains here on later visits."
     panel: "MISSION 4 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. The line is not only a changeover line. Some people have stopped looking for work."
+      say: "That blank card is a person the rate stopped counting. Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs."
 
   terms:
   - {name: "Labor force", def: "employed people plus unemployed people actively seeking work."}
@@ -1612,19 +1636,20 @@ missions:
     - "PL falling"
     answer: "recessionary gap plus adverse supply pressure"
 # ============================================================ MISSION 5
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The First Round"
   card:
-    header: "11 DAYS TO CHANGEOVER"
+    header: "MISSION 5 - 11 DAYS UNTIL CHANGEOVER."
     title: "The First Round"
     goNow: "Go to PRICES and meet Rhea Dane, finance minister, at the spending board."
-    body: "Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall."
+    body: "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap."
     objective: "Calculate the spending and tax changes that target the measured gap."
   objective: "Calculate the spending and tax changes that target the measured gap."
-  stake: "Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall."
+  stake: "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Prepare an 8.7-billion purchase increase. And keep the supply-shock review. With a multiplier of 4, that package closes the 34.8-billion demand gap. It does not by itself fix rising input costs. The board must now place both forces on one model."
+  segue: "But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -1633,43 +1658,48 @@ missions:
   - id: on-arrival-at-prices
     # On arrival at PRICES | calculating-desk | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Calculate the spending and tax changes that target the measured gap. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "An unsigned spending order sits under a press deadline."
     panel: "Calculate the spending and tax changes that target the measured gap."
+    # unlocks: Unlock Stop 17 at calculating-desk in PRICES.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Start with split the next crown. We need evidence the next decision can use."
   - id: after-stop-17
     # After Stop 17 | calculating-desk | automatic
     on: { after: [1] }
-    world: "The split the next crown result remains visible while the build both multipliers fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 17 reads: \"0.25.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    # unlocks: Unlock Stop 18 at calculating-desk in PRICES.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Nice work. MPS is 0.25, so one quarter leaks from each round."
   - id: after-stop-18
     # After Stop 18 | calculating-desk | automatic
     on: { after: [2] }
-    world: "The build both multipliers result remains visible while the size the alternatives fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 18 reads: \"(4,−3).\". The slip remains in that fixture's evidence holder."
     panel: "PRICES → RATE"
+    # unlocks: Unlock Stop 19 at calculating-desk in PRICES.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Good thinking. The spending multiplier is 4; the tax multiplier is −3."
   - id: after-stop-19
     # After Stop 19 | policy-wall | automatic
     on: { after: [3] }
-    world: "The size the alternatives result remains visible while the choose the first-round plan fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 19 reads: \"(8.7,11.6) billion, ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    # unlocks: Unlock Stop 20 at policy-wall in Rate Room.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Exactly right. Close the gap with 8.7 billion in purchases or an 11.6-billion tax cut."
   - id: at-mission-end
     # At mission end | calculating-desk | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | RATE | automatic World state and dialogue: State: Page 5 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At policy-wall, Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall. The dated prop remains here on later visits."
     panel: "MISSION 5 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: dane   # Rhea Dane
-      say: "Outstanding work. You solved the mission. You gave me a larger number and a slower announcement. Now prove the second test matters."
+      say: "I can fund demand. I cannot vote more fuel into the tank. But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order."
 
   terms:
   - {name: "Marginal propensity to consume (MPC)", def: "the fraction of an extra dollar of income consumed."}
@@ -1921,19 +1951,20 @@ missions:
       - { id: tax11_6, label: "tax alternative", axis: "tax alternative", cost: 80 }
       - { id: publicity, label: "message", axis: "message", cost: 25 }
 # ============================================================ MISSION 6
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Two Shifts"
   card:
-    header: "10 DAYS"
+    header: "MISSION 6 - 10 DAYS UNTIL CHANGEOVER."
     title: "Two Shifts"
     goNow: "Go to PRICES and meet Lina Saye, price statistics lead, at the AD-AS wall."
-    body: "The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response."
+    body: "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel."
     objective: "Separate weak demand from cost-push inflation."
   objective: "Separate weak demand from cost-push inflation."
-  stake: "The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response."
+  stake: "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Aim policy at the weak demand gap. Treat the energy shock on its own. More spending can raise output and prices. It cannot fix a fuel supply shock. The claim of broad price abuse does not hold."
+  segue: "But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -1942,43 +1973,48 @@ missions:
   - id: on-arrival-at-prices
     # On arrival at PRICES | ad-as-wall | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate weak demand from cost-push inflation. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "Two red pins pull the wall's price and output tracks apart."
     panel: "Separate weak demand from cost-push inflation."
+    # unlocks: Unlock Stop 21 at ad-as-wall in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Start with why ad slopes down. We need evidence the next decision can use."
   - id: after-stop-21
     # After Stop 21 | ad-as-wall | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Lina Saye says,, and Stop 22 unlocks."
+    world: "At ad-as-wall, the dated accepted-result slip for Stop 21 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    # unlocks: Unlock Stop 22 at ad-as-wall in Statistics Floor.
     bubbles:
     - who: saye   # Lina Saye
       say: "Nice work. Lower prices raise real wealth, reduce money demand and interest, and can depreciate the currency, increasing C, I, and NX."
   - id: after-stop-22
     # After Stop 22 | gap-calculator | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in PRICES → RATE only if the route requires travel, then."
+    world: "At ad-as-wall, the dated accepted-result slip for Stop 22 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "PRICES → RATE"
+    # unlocks: Unlock Stop 23 at gap-calculator in Rate Room.
     bubbles:
     - who: saye   # Lina Saye
       say: "Good thinking. The imported-energy shock shifts SRAS left."
   - id: after-stop-23
     # After Stop 23 | ad-as-wall | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 24 unlocks."
+    world: "At gap-calculator, the dated accepted-result slip for Stop 23 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    # unlocks: Unlock Stop 24 at ad-as-wall in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Exactly right. Halvern has a recessionary gap plus an adverse supply shock."
   - id: at-mission-end
     # At mission end | ad-as-wall | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At ad-as-wall, Rhea Dane pins the separate demand and supply responses to the model wall. The dated prop remains here on later visits."
     panel: "MISSION 6 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: saye   # Lina Saye
-      say: "Outstanding work. You solved the mission. Use fiscal policy to close the demand gap, not to promise lower supply-driven prices."
+    - who: dane   # Rhea Dane
+      say: "One lever cannot undo both shifts. But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went."
 
   terms:
   - {name: "Net exports (NX)", def: "exports minus imports."}
@@ -2237,19 +2273,20 @@ missions:
       robust: robust_plan
       optimiseOn: evidence_fit
 # ============================================================ MISSION 7
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Money That Moved"
   card:
-    header: "9 DAYS"
+    header: "MISSION 7 - 9 DAYS UNTIL CHANGEOVER."
     title: "Money That Moved"
     goNow: "Go to NOTES and meet Tomas Arendt, bank supervision lead, at the note scale."
-    body: "Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently."
+    body: "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply."
     objective: "Trace old cash into deposits and lending capacity."
   objective: "Trace old cash into deposits and lending capacity."
-  stake: "Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently."
+  stake: "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Returned notes moved into bank deposits. They did not vanish from the money supply. Banks still have spare reserves. Payments remain sound. The board must now set the real cost of loans."
+  segue: "Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -2258,43 +2295,48 @@ missions:
   - id: on-arrival-at-note-hall
     # On arrival at Note Hall | note-scale | automatic
     on: { enter: true, at: NOTES }
-    world: "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Trace old cash into deposits and lending capacity. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "Old-crown bundles fill a tray beside deposit receipts."
     panel: "Trace old cash into deposits and lending capacity."
+    # unlocks: Unlock Stop 25 at note-scale in Note Hall.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Start with count m1 and m2. We need evidence the next decision can use."
   - id: after-stop-25
     # After Stop 25 | custody-desk | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Tomas Arendt says,, and Stop 26 unlocks."
+    world: "At note-scale, the dated accepted-result slip for Stop 25 reads: \"(300,500), ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    # unlocks: Unlock Stop 26 at custody-desk in Note Hall.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Nice work. M1 is 300 and M2 is 500 billion crowns."
   - id: after-stop-26
     # After Stop 26 | balance-sheet-desk | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS only if the route requires travel, then."
+    world: "At custody-desk, the dated accepted-result slip for Stop 26 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "NOTES → BANKS"
+    # unlocks: Unlock Stop 27 at balance-sheet-desk in Bank Supervision.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Good thinking. Most returned cash migrated into deposits; payment failures did not rise."
   - id: after-stop-27
     # After Stop 27 | money-market-console | automatic
     on: { after: [3] }
-    world: "Preserve this result on the BANKS decision fixture; The character asks for the promised mission decision, and Stop 28 unlocks."
+    world: "At balance-sheet-desk, the dated accepted-result slip for Stop 27 reads: \"(10b,8b,10,80b), ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    # unlocks: Unlock Stop 28 at money-market-console in Bank Supervision.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Exactly right. Required reserves are 10, excess 8, multiplier 10, and maximum new money 80 billion."
   - id: at-mission-end
     # At mission end | note-scale | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At conversion-trays, Eli Voss seals the counted old-note bundle with its deposit receipt. The dated prop remains here on later visits."
     panel: "MISSION 7 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: arendt   # Tomas Arendt
-      say: "Outstanding work. You solved the mission. The returns show migration from cash into deposits, not a money-stock contraction."
+    - who: voss   # Eli Voss
+      say: "The notes came here. Their owners still have deposits. Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay."
 
   terms:
   - {name: "Narrow money (M1)", def: "cash plus checking deposits."}
@@ -2555,19 +2597,20 @@ missions:
     - "hyperinflation"
     answer: "cash-to-deposit migration"
 # ============================================================ MISSION 8
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Rate People Feel"
   card:
-    header: "8 DAYS"
+    header: "MISSION 8 - 8 DAYS UNTIL CHANGEOVER."
     title: "The Rate People Feel"
     goNow: "Go to BANKS and meet Tomas Arendt at the bond-and-money panel."
-    body: "Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now."
+    body: "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak."
     objective: "Distinguish nominal and real rates before tightening."
   objective: "Distinguish nominal and real rates before tightening."
-  stake: "Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now."
+  stake: "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not raise rates now. The real rate is already 1.5%. And a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk."
+  segue: "But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -2576,43 +2619,48 @@ missions:
   - id: on-arrival-at-banks
     # On arrival at BANKS | money-market-console | automatic
     on: { enter: true, at: BANKS }
-    world: "Arrival | BANKS | automatic after accepting the briefing World state and dialogue: The destination fixture displays Distinguish nominal and real rates before tightening. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A loan quote waits beside the expected-price sheet."
     panel: "Distinguish nominal and real rates before tightening."
+    # unlocks: Unlock Stop 29 at money-market-console in BANKS.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Start with clear money surplus. We need evidence the next decision can use."
   - id: after-stop-29
     # After Stop 29 | balance-sheet-desk | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Tomas Arendt says,, and Stop 30 unlocks."
+    world: "At money-market-console, the dated accepted-result slip for Stop 29 reads: \"A 30-billion money surplus causes bond buying, raises bond prices, and lowers the nominal rate from 5% to 4%.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    # unlocks: Unlock Stop 30 at balance-sheet-desk in Bank Supervision.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Nice work. A 30-billion surplus clears through bond buying and a rate fall to 4%."
   - id: after-stop-30
     # After Stop 30 | policy-wall | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in BANKS → RATE only if the route requires travel, then."
+    world: "At balance-sheet-desk, the dated accepted-result slip for Stop 30 reads: \"1.5%, +0.5 pp.\". The slip remains in that fixture's evidence holder."
     panel: "BANKS → RATE"
+    # unlocks: Unlock Stop 31 at policy-wall in Rate Room.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Good thinking. The real rate is 1.5%, already 0.5 point tighter."
   - id: after-stop-31
     # After Stop 31 | bond-panel | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 32 unlocks."
+    world: "At policy-wall, the dated accepted-result slip for Stop 31 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    # unlocks: Unlock Stop 32 at bond-panel in BANKS.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Exactly right. Sell bonds → Ms falls → i rises → I falls → AD shifts left → output and price level fall."
   - id: at-mission-end
     # At mission end | money-market-console | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At bond-panel, Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail. The dated prop remains here on later visits."
     panel: "MISSION 8 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: arendt   # Tomas Arendt
-      say: "Outstanding work. You solved the mission. Do not raise now; the hike tightens real borrowing conditions in every tested case."
+      say: "A high rate is not the same as a strong household. But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters."
 
   terms:
   - {name: "Money demand", def: "desired liquid balances, lower at higher nominal interest."}
@@ -2877,19 +2925,20 @@ missions:
       robust: robust_plan
       optimiseOn: evidence_fit
 # ============================================================ MISSION 9
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Two Accounts"
   card:
-    header: "7 DAYS"
+    header: "MISSION 9 - 7 DAYS UNTIL CHANGEOVER."
     title: "Two Accounts"
     goNow: "Go to TRADE and meet Nia Corren, open-economy analyst, at the payment wires."
-    body: "Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect."
+    body: "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds."
     objective: "Connect balance of payments, exchange rates, and net exports."
   objective: "Connect balance of payments, exchange rates, and net exports."
-  stake: "Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect."
+  stake: "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not call the cash inflow pure good news. It pays for the trade gap and lifts RATE. A stronger RATE cuts net exports. Export orders are now down. The output plan must change."
+  segue: "But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -2898,43 +2947,48 @@ missions:
   - id: on-arrival-at-open-economy-floor
     # On arrival at Open-Economy Floor | trade-ledger | automatic
     on: { enter: true, at: OPENEC }
-    world: "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Connect balance of payments, exchange rates, and net exports. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A payment lamp lights while an export order is crossed out."
     panel: "Connect balance of payments, exchange rates, and net exports."
+    # unlocks: Unlock Stop 33 at trade-ledger in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Start with close payments. We need evidence the next decision can use."
   - id: after-stop-33
     # After Stop 33 | forex-console | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Nia Corren says,, and Stop 34 unlocks."
+    world: "At trade-ledger, the dated accepted-result slip for Stop 33 reads: \"The current account is -17 billion and the financial account is +17 billion, so the simplified balance closes at zero.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    # unlocks: Unlock Stop 34 at forex-console in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Nice work. Current account −17 and financial account +17 billion close at zero."
   - id: after-stop-34
     # After Stop 34 | forex-console | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate RATE, then."
+    world: "At forex-console, the dated accepted-result slip for Stop 34 reads: \"Foreign bond demand raises demand for RATE, RATE appreciates, exports fall, imports rise, and net exports fall.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    # unlocks: Unlock Stop 35 at forex-console in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Good thinking. Foreign bond demand → demand for RATE shifts right → RATE appreciates → exports fall and imports rise → net exports fall."
   - id: after-stop-35
     # After Stop 35 | shipment-board | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 36 unlocks."
+    world: "At forex-console, the dated accepted-result slip for Stop 35 reads: \"Raising the quote from 1.00 to 1.10 lowers exports from 90 to 84 billion and raises imports from 108 to 112 billion; restoring 1.00 restores the baseline.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    # unlocks: Unlock Stop 36 at shipment-board in TRADE.
     bubbles:
     - who: corren   # Nia Corren
       say: "Exactly right. At fixed conditions, appreciation lowers exports and raises imports; restoration recovers baseline."
   - id: at-mission-end
     # At mission end | trade-ledger | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At payment-wires, Nia Corren pins the paired financing and export-cost entries beside the payment wires. The dated prop remains here on later visits."
     panel: "MISSION 9 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: corren   # Nia Corren
-      say: "Outstanding work. You solved the mission. The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand."
+      say: "Both wires belong in the story. But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens."
 
   terms:
   - {name: "Appreciation", def: "a currency buys more foreign currency."}
@@ -3198,19 +3252,20 @@ missions:
     - "The financial surplus finances the current-account deficit, so the inflow has a benefit."
     - "In the simplified AP model, current and financial accounts sum to zero."
 # ============================================================ MISSION 10
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Temporary Tradeoff"
   card:
-    header: "6 DAYS"
+    header: "MISSION 10 - 6 DAYS UNTIL CHANGEOVER."
     title: "The Temporary Tradeoff"
     goNow: "Go to RATE and meet Mara Venn at the Phillips wall."
-    body: "A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy."
+    body: "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy."
     objective: "Separate a short-run shock from long-run inflation policy."
   objective: "Separate a short-run shock from long-run inflation policy."
-  stake: "A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy."
+  stake: "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not tighten policy for a short price shock. New data support the supply-shock model. Slow money growth points to about 2% long-run inflation. Use set rules, not fear. Wage contracts will adjust later."
+  segue: "But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -3219,43 +3274,48 @@ missions:
   - id: on-arrival-at-rate
     # On arrival at RATE | policy-wall | automatic
     on: { enter: true, at: RATE }
-    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate a short-run shock from long-run inflation policy. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "The long money-growth strip lies beneath today's fuel alert."
     panel: "Separate a short-run shock from long-run inflation policy."
+    # unlocks: Unlock Stop 37 at policy-wall in RATE.
     bubbles:
     - who: venn   # Mara Venn
       say: "Start with move or shift. We need evidence the next decision can use."
   - id: after-stop-37
     # After Stop 37 | gap-calculator | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Mara Venn says,, and Stop 38 unlocks."
+    world: "At policy-wall, the dated accepted-result slip for Stop 37 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 37 RECORDED - STOP 38 OPEN"
+    # unlocks: Unlock Stop 38 at gap-calculator in Rate Room.
     bubbles:
     - who: venn   # Mara Venn
       say: "Nice work. The supply shock shifts SRPC right."
   - id: after-stop-38
     # After Stop 38 | price-history-board | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in RATE → PRICES only if the route requires travel, then."
+    world: "At gap-calculator, the dated accepted-result slip for Stop 38 reads: \"The quantity equation gives estimated long-run inflation of 2%.\". The slip remains in that fixture's evidence holder."
     panel: "RATE → PRICES"
+    # unlocks: Unlock Stop 39 at price-history-board in Statistics Floor.
     bubbles:
     - who: venn   # Mara Venn
       say: "Good thinking. Estimated long-run inflation is 2%, far below the temporary 5.88% basket print."
   - id: after-stop-39
     # After Stop 39 | forecast-table | automatic
     on: { after: [3] }
-    world: "Preserve this result on the PRICES decision fixture; The character asks for the promised mission decision, and Stop 40 unlocks."
+    world: "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    # unlocks: Unlock Stop 40 at forecast-table in RATE.
     bubbles:
     - who: venn   # Mara Venn
       say: "Exactly right. The temporary-supply model predicts the holdout; persistent monetary inflation does not."
   - id: at-mission-end
     # At mission end | policy-wall | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At price-history-board, Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record. The dated prop remains here on later visits."
     panel: "MISSION 10 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: venn   # Mara Venn
-      say: "Outstanding work. You solved the mission. Do not justify permanent tightening from this temporary print; commit a reversible trigger."
+    - who: saye   # Lina Saye
+      say: "A sharp rise today does not draw the whole future line. But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help."
 
   terms:
   - {name: "Short-run Phillips curve (SRPC)", def: "short-run inverse inflation-unemployment relation."}
@@ -3559,19 +3619,20 @@ missions:
       robust: robust_plan
       optimiseOn: evidence_fit
 # ============================================================ MISSION 11
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Too Late By Itself"
   card:
-    header: "5 DAYS"
+    header: "MISSION 11 - 5 DAYS UNTIL CHANGEOVER."
     title: "Too Late by Itself"
     goNow: "Go to COUNTER and meet Eli Voss at the wage notices."
-    body: "The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed."
+    body: "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time."
     objective: "Compare market adjustment with a temporary policy bridge."
   objective: "Compare market adjustment with a temporary policy bridge."
-  stake: "The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed."
+  stake: "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Self-correction is too slow. Use automatic stabilizers and a short bridge for capital and training. End the plan when its trigger is met. Bank ledgers now show that 4.15 works only when reserves arrive on time."
+  segue: "But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -3580,43 +3641,48 @@ missions:
   - id: on-arrival-at-exchange-counter
     # On arrival at Exchange Counter | queue-board | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Compare market adjustment with a temporary policy bridge. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A wage contract's six-week date extends past changeover day."
     panel: "Compare market adjustment with a temporary policy bridge."
+    # unlocks: Unlock Stop 41 at queue-board in Exchange Counter.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with adjustment order. We need evidence the next decision can use."
   - id: after-stop-41
     # After Stop 41 | ad-as-wall | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Eli Voss says,, and Stop 42 unlocks."
+    world: "At queue-board, the dated accepted-result slip for Stop 41 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 41 RECORDED - STOP 42 OPEN"
+    # unlocks: Unlock Stop 42 at ad-as-wall in Statistics Floor.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. Self-correction returns Y to Yf, but wage adjustment starts after launch."
   - id: after-stop-42
     # After Stop 42 | forecast-table | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in COUNTER → PRICES → RATE only if the route requires travel, then."
+    world: "At ad-as-wall, the dated accepted-result slip for Stop 42 reads: \"−7b ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "COUNTER → PRICES → RATE"
+    # unlocks: Unlock Stop 43 at forecast-table in Rate Room.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. Automatic stabilizers shrink the loss from 10 to 7 billion."
   - id: after-stop-43
     # After Stop 43 | allocation-slate | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 44 unlocks."
+    world: "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
+    # unlocks: Unlock Stop 44 at allocation-slate in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. Fund clearing, training, port repair, and reserve."
   - id: at-mission-end
     # At mission end | queue-board | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At threshold-rail, Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail. The dated prop remains here on later visits."
     panel: "MISSION 11 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. Use a temporary bridge with a sunset review; self-correction alone is too slow."
+    - who: dane   # Rhea Dane
+      say: "Then write the end of the bridge before its first payment. But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due."
 
   terms:
   - {name: "Self-correction", def: "wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium."}
@@ -3854,19 +3920,20 @@ missions:
       - { id: permanent_stimulus, label: "permanent demand expansion", axis: "permanent demand expansion", cost: 80 }
       - { id: wait, label: "no immediate support", axis: "no immediate support", cost: 0 }
 # ============================================================ MISSION 12
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "4.15 On The Clock"
   card:
-    header: "4 DAYS"
+    header: "MISSION 12 - 4 DAYS UNTIL CHANGEOVER."
     title: "4.15 on the Clock"
     goNow: "Go to NOTES and meet Eli Voss at the conversion trays."
-    body: "The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments."
+    body: "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time."
     objective: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
   objective: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
-  stake: "The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments."
+  stake: "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use the 4.15 exchange rate. Exact tray math, reserve timing, and customs data agree. The full test now works. Yet new state debt is pushing real rates up."
+  segue: "But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -3875,43 +3942,48 @@ missions:
   - id: on-arrival-at-note-hall
     # On arrival at Note Hall | conversion-trays | automatic
     on: { enter: true, at: NOTES }
-    world: "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Certify the conversion ratio with cash, bank, and foreign-market evidence. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "The reserve hands approach the payment mark from different sides."
     panel: "Certify the conversion ratio with cash, bank, and foreign-market evidence."
+    # unlocks: Unlock Stop 45 at conversion-trays in Note Hall.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with convert the tray. We need evidence the next decision can use."
   - id: after-stop-45
     # After Stop 45 | reserve-clock | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Eli Voss says,, and Stop 46 unlocks."
+    world: "At conversion-trays, the dated accepted-result slip for Stop 45 reads: \"10,000 ±0.01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    # unlocks: Unlock Stop 46 at reserve-clock in Bank Supervision.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. The tray becomes 10,000 RATE."
   - id: after-stop-46
     # After Stop 46 | payment-wires | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS → TRADE only if the route requires travel, then."
+    world: "At reserve-clock, the dated accepted-result slip for Stop 46 reads: \"The bank needs 1,000 RATE and has exactly 1,000 RATE at minute 6, so the inclusive rule permits clearing then.\". The slip remains in that fixture's evidence holder."
     panel: "NOTES → BANKS → TRADE"
+    # unlocks: Unlock Stop 47 at payment-wires in Open-Economy Floor.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. The reserve arrives exactly at the inclusive 1,000-RATE requirement."
   - id: after-stop-47
     # After Stop 47 | custody-desk | automatic
     on: { after: [3] }
-    world: "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 48 unlocks."
+    world: "At payment-wires, the dated accepted-result slip for Stop 47 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    # unlocks: Unlock Stop 48 at custody-desk in NOTES.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. Three channels share the 4.00 shortcut; independent customs supports 4.15."
   - id: at-mission-end
     # At mission end | conversion-trays | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At reserve-clock, Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock. The dated prop remains here on later visits."
     panel: "MISSION 12 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. Approve 4.15 after replacing every 4.00 shortcut."
+    - who: arendt   # Tomas Arendt
+      say: "The ratio passes only if the money arrives when the tray opens. But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice."
 
   terms:
   - {name: "Conversion ratio", def: "old currency units exchanged for one new unit."}
@@ -4172,19 +4244,20 @@ missions:
           critical: true
       checks: 3
 # ============================================================ MISSION 13
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Crowded Out Twice"
   card:
-    header: "3 DAYS"
+    header: "MISSION 13 - 3 DAYS UNTIL CHANGEOVER."
     title: "Crowded Out Twice"
     goNow: "Go to RATE and meet Rhea Dane at the loanable-funds board."
-    body: "The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it."
+    body: "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear."
     objective: "Measure domestic and foreign crowding out."
   objective: "Measure domestic and foreign crowding out."
-  stake: "The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it."
+  stake: "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Replace the full bridge with a smaller short-term plan. The full deficit raises real rates. It cuts private investment and net exports. The new plan protects both people and future growth."
+  segue: "But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -4193,43 +4266,48 @@ missions:
   - id: on-arrival-at-rate-room
     # On arrival at Rate Room | policy-wall | automatic
     on: { enter: true, at: RATE }
-    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Measure domestic and foreign crowding out. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "Loan refusals and lost export orders share the spending folder."
     panel: "Measure domestic and foreign crowding out."
+    # unlocks: Unlock Stop 49 at policy-wall in Rate Room.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Start with real-rate market. We need evidence the next decision can use."
   - id: after-stop-49
     # After Stop 49 | money-market-console | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Rhea Dane says,, and Stop 50 unlocks."
+    world: "At policy-wall, the dated accepted-result slip for Stop 49 reads: \"Adding 8.7 billion of borrowing raises the real rate by 0.6 percentage point and cuts private investment by 6 billion; restoration recovers the baseline.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    # unlocks: Unlock Stop 50 at money-market-console in Bank Supervision.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Nice work. Borrowing raises real i 0.6 point and reduces I 6 billion."
   - id: after-stop-50
     # After Stop 50 | payment-wires | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate TRADE, then."
+    world: "At money-market-console, the dated accepted-result slip for Stop 50 reads: \"A deficit raises loan demand and the real rate, crowds out private investment, slows capital growth, and reduces long-run growth.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    # unlocks: Unlock Stop 51 at payment-wires in Open-Economy Floor.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Good thinking. Deficit → loanable-funds demand right → real interest rises → private investment falls → capital accumulation slows → long-run growth slows."
   - id: after-stop-51
     # After Stop 51 | signing-desk | automatic
     on: { after: [3] }
-    world: "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 52 unlocks."
+    world: "At payment-wires, the dated accepted-result slip for Stop 51 reads: \"Fiscal expansion raises real rates, draws in capital, appreciates RATE, lowers net exports, and offsets part of the aggregate-demand gain.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    # unlocks: Unlock Stop 52 at signing-desk in RATE.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Exactly right. Fiscal expansion → real interest rises → capital inflow → demand for RATE right → appreciation → net exports fall → aggregate-demand offset."
   - id: at-mission-end
     # At mission end | policy-wall | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At policy-wall, Rhea Dane replaces the full bridge order with the smaller temporary plan. The dated prop remains here on later visits."
     panel: "MISSION 13 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: dane   # Rhea Dane
-      say: "Outstanding work. You solved the mission. Keep the narrower bridge with training and port repair; reject the full debt plan."
+      say: "That smaller order hurts to sign. The larger one would hurt twice. But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover."
 
   terms:
   - {name: "Budget deficit", def: "government spending above tax revenue."}
@@ -4525,19 +4603,20 @@ missions:
       - { id: full_bridge, label: "large fiscal expansion", axis: "large fiscal expansion", cost: 80 }
       - { id: publicity, label: "communications", axis: "communications", cost: 20 }
 # ============================================================ MISSION 14
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "First-Week Cover"
   card:
-    header: "2 DAYS"
+    header: "MISSION 14 - 2 DAYS UNTIL CHANGEOVER."
     title: "First-Week Cover"
     goNow: "Go to TRADE and meet Nia Corren at the port wire."
-    body: "An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week."
+    body: "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help."
     objective: "Protect launch without confusing a supply shock with a broken currency."
   objective: "Protect launch without confusing a supply shock with a broken currency."
-  stake: "An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week."
+  stake: "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not delay conversion. add temporary first-week cover. The fuel shock is real. But the 4.15 ratio and payments remain sound. The board posts joint action."
+  segue: "Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -4546,43 +4625,48 @@ missions:
   - id: on-arrival-at-open-economy-floor
     # On arrival at Open-Economy Floor | trade-ledger | automatic
     on: { enter: true, at: OPENEC }
-    world: "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Protect launch without confusing a supply shock with a broken currency. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A fuel bulletin lands beside a completed conversion test."
     panel: "Protect launch without confusing a supply shock with a broken currency."
+    # unlocks: Unlock Stop 53 at trade-ledger in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Start with shock identity. We need evidence the next decision can use."
   - id: after-stop-53
     # After Stop 53 | price-history-board | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Nia Corren says,, and Stop 54 unlocks."
+    world: "At trade-ledger, the dated accepted-result slip for Stop 53 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    # unlocks: Unlock Stop 54 at price-history-board in Statistics Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Nice work. The fuel disruption shifts SRAS left; 4.15 and payments remain sound."
   - id: after-stop-54
     # After Stop 54 | forecast-table | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in TRADE → PRICES → RATE only if the route requires travel, then."
+    world: "At price-history-board, the dated accepted-result slip for Stop 54 reads: \"The direct CPI effect is 2.4 percentage points; returning fuel to baseline returns the direct effect to zero.\". The slip remains in that fixture's evidence holder."
     panel: "TRADE → PRICES → RATE"
+    # unlocks: Unlock Stop 55 at forecast-table in Rate Room.
     bubbles:
     - who: corren   # Nia Corren
       say: "Good thinking. The direct basket effect is 2.4%; restoration returns baseline."
   - id: after-stop-55
     # After Stop 55 | threshold-rail | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 56 unlocks."
+    world: "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    # unlocks: Unlock Stop 56 at threshold-rail in Rate Room.
     bubbles:
     - who: corren   # Nia Corren
       say: "Exactly right. Proceed at 4.15 with temporary first-week cover."
   - id: at-mission-end
     # At mission end | trade-ledger | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At threshold-rail, Mara Venn pins the first-week cover card beside the emergency triggers. The dated prop remains here on later visits."
     panel: "MISSION 14 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: corren   # Nia Corren
-      say: "Outstanding work. You solved the mission. Proceed with cover; buy bonds only at the joint output/payment trigger and stop at the CPI limit."
+    - who: venn   # Mara Venn
+      say: "Keep the date. Keep the promise to review the cost. Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment."
 
   terms:
   - {name: "Policy lag", def: "delay between action and full economic effect."}
@@ -4857,19 +4941,20 @@ missions:
           value: 2.6
           hoursLeft: 6
 # ============================================================ MISSION 15
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Sign With Conditions"
   card:
-    header: "CHANGEOVER TOMORROW"
+    header: "MISSION 15 - 1 DAY UNTIL CHANGEOVER."
     title: "Sign with Conditions"
     goNow: "Go to COUNTER and meet Eli Voss at the live queue board."
-    body: "The first week's results are in, and the board must set the interest rate that households and businesses will face. Check production, prices, bank cash reserves, and foreign payments against your agreed rules. Sign the final rate decision and the conditions that would require it to change."
+    body: "One day remains. New notes wait under a cloth at the shut counter. Today you decide whether to open with the signed rules."
     objective: "Make the final integrated, reversible macroeconomic decision."
   objective: "Make the final integrated, reversible macroeconomic decision."
-  stake: "The first week's results are in, and the board must set the interest rate that households and businesses will face. Check production, prices, bank cash reserves, and foreign payments against your agreed rules. Sign the final rate decision and the conditions that would require it to change."
+  stake: "One day remains. New notes wait under a cloth at the shut counter. Today you decide whether to open with the signed rules."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Sign a 3.25% policy rate. And the 4.15 conversion with the posted conditions. The real rate is 1.00%, reserves stay positive. And neither emergency trigger has fired. Shops replace the last shortcut labels."
+  segue: "Therefore Eli can make the first exchange at 4.15 while the signed 3.25% policy rate and reversal rules stay on the wall."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -4878,43 +4963,48 @@ missions:
   - id: on-arrival-at-exchange-counter
     # On arrival at Exchange Counter | live-economy-panel | automatic
     on: { enter: true, at: COUNTER }
-    world: "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Make the final integrated, reversible macroeconomic decision. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "New notes wait under a cloth behind the closed counter."
     panel: "Make the final integrated, reversible macroeconomic decision."
+    # unlocks: Unlock Stop 57 at live-economy-panel in Exchange Counter.
     bubbles:
     - who: voss   # Eli Voss
       say: "Start with live economy panel. We need evidence the next decision can use."
   - id: after-stop-57
     # After Stop 57 | reserve-clock | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Mara Venn says,, and Stop 58 unlocks."
+    world: "At live-economy-panel, the dated accepted-result slip for Stop 57 reads: \"−38b; no trigger.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    # unlocks: Unlock Stop 58 at reserve-clock in Bank Supervision.
     bubbles:
     - who: voss   # Eli Voss
       say: "Nice work. The gap is −38 billion; payment failures 0.5% do not meet the 2% trigger."
   - id: after-stop-58
     # After Stop 58 | threshold-rail | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in RATE → BANKS → COUNTER only if the route requires travel, then."
+    world: "At reserve-clock, the dated accepted-result slip for Stop 58 reads: \"(1.00%,2b).\". The slip remains in that fixture's evidence holder."
     panel: "RATE → BANKS → COUNTER"
+    # unlocks: Unlock Stop 59 at threshold-rail in Rate Room.
     bubbles:
     - who: voss   # Eli Voss
       say: "Good thinking. At 3.25%, the real rate is 1.00% and banks retain 2 billion excess reserves."
   - id: after-stop-59
     # After Stop 59 | conversion-desk | automatic
     on: { after: [3] }
-    world: "Preserve this result on the COUNTER decision fixture; The character asks for the promised mission decision, and Stop 60 unlocks."
+    world: "At threshold-rail, the dated accepted-result slip for Stop 59 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    # unlocks: Unlock Stop 60 at conversion-desk in COUNTER.
     bubbles:
     - who: voss   # Eli Voss
       say: "Exactly right. The real rate links investment, AD, capital flows, currency, NX, and growth; CPI and payment limits independently govern reversal."
   - id: at-mission-end
     # At mission end | live-economy-panel | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | COUNTER | automatic Stop the timer and keep the next unresolved consequence visible."
+    world: "At conversion-desk, Mara Venn turns the counter-opening key. The final scene follows the completion gate below."
     panel: "MISSION 15 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Eli Voss
-      say: "Outstanding work. You solved the mission. The rate is not a promise that nothing will change. It is a promise that we know when we will."
+    - who: venn   # Mara Venn
+      say: "You gave us conditions we can live by after the cameras leave. Therefore Eli can make the first exchange at 4.15 while the signed 3.25% policy rate and reversal rules stay on the wall."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

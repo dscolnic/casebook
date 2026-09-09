@@ -1,17 +1,18 @@
 # ============================================================ MISSION 3
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Basket"
   card:
-    header: "13 DAYS TO CHANGEOVER"
+    header: "MISSION 3 - 13 DAYS UNTIL CHANGEOVER."
     title: "The Basket"
     goNow: "Go to PRICES and meet Lina Saye, price statistics lead, at the basket table."
-    body: "The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision."
+    body: "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets."
     objective: "Test whether the fixed basket represents current household costs."
   objective: "Test whether the fixed basket represents current household costs."
-  stake: "The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision."
+  stake: "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: The gap is 34.8 billion RATE. Job data show weak demand. The fuel shock raised prices. Next, test how spending moves through the economy."
+  segue: "But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-prices
     # On arrival at PRICES | basket-table | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Test whether the fixed basket represents current household costs. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "An old basket sits beside a family's crossed-out shopping list."
     panel: "Test whether the fixed basket represents current household costs."
+    # unlocks: Unlock Stop 9 at basket-table in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Start with price the fixed basket. We need evidence the next decision can use."
   - id: after-stop-9
     # After Stop 9 | price-history-board | automatic
     on: { after: [1] }
-    world: "The price the fixed basket result remains visible while the calculate the printed inflation fixture lights."
+    world: "At basket-table, the dated accepted-result slip for Stop 9 reads: \"108 ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    # unlocks: Unlock Stop 10 at price-history-board in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Nice work. The fixed basket CPI is 108."
   - id: after-stop-10
     # After Stop 10 | basket-table | automatic
     on: { after: [2] }
-    world: "The calculate the printed inflation result remains visible while the does the basket represent families? fixture lights."
+    world: "At price-history-board, the dated accepted-result slip for Stop 10 reads: \"5.88%, ±0.05.\". The slip remains in that fixture's evidence holder."
     panel: "108−100"
+    # unlocks: Unlock Stop 11 at basket-table in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Good thinking. The official basket reports 5.88% inflation."
   - id: after-stop-11
     # After Stop 11 | basket-table | automatic
     on: { after: [3] }
-    world: "The does the basket represent families? result remains visible while the keep history and repair representation fixture lights."
+    world: "At basket-table, the dated accepted-result slip for Stop 11 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    # unlocks: Unlock Stop 12 at basket-table in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Exactly right. Inflation is positive, but 5.88% depends strongly on the stale energy weight."
   - id: at-mission-end
     # At mission end | basket-table | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 3 signed; port-energy clue logged; Stop the timer and keep the next unresolved consequence visible."
+    world: "At price-history-board, Lina Saye pins the companion price measure beside the unchanged historical series. The dated prop remains here on later visits."
     panel: "MISSION 3 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: saye   # Lina Saye
-      say: "Outstanding work. You solved the mission. The arithmetic stays. The claim gets narrower."
+      say: "Keep the old line. Put the change where people can see it. But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away."
 
   terms:
   - {name: "Consumer price index (CPI)", def: "the current cost of a fixed consumer basket relative to its base-year cost, times 100."}
@@ -315,32 +321,9 @@
     # by its `axis`, so that phrase is the option's label as well; no wording of it
     # is changed. 45+15+30+25 = 115 against 60, and the two decisive ones cost 60.
     value:
-      budget:
-        amount: 60
-        unit: ""
-      decision: ""
+      budget: { amount: 60, unit: "evidence points" }
       options:
-        - id: parallel
-          label: ""
-          cost: 45
-          axis: fixed CPI plus current-weight companion
-          reveals: ""
-          decisive: true
-        - id: audit
-          label: ""
-          cost: 15
-          axis: weight audit
-          reveals: ""
-          decisive: true
-        - id: ads
-          label: ""
-          cost: 30
-          axis: publicity
-          reveals: ""
-        - id: erase
-          label: ""
-          cost: 25
-          axis: replace history
-          reveals: ""
-      commit: Commit the decision
-
+      - { id: parallel, label: "fixed CPI plus current-weight companion", axis: "fixed CPI plus current-weight companion", cost: 45, decisive: true }
+      - { id: audit, label: "weight audit", axis: "weight audit", cost: 15, decisive: true }
+      - { id: ads, label: "publicity", axis: "publicity", cost: 30 }
+      - { id: erase, label: "replace history", axis: "replace history", cost: 25 }

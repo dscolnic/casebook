@@ -1,17 +1,18 @@
 # ============================================================ MISSION 8
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Cold-Room Rate"
   card:
-    header: "DAY 8 - BOARD IN 8 DAYS"
+    header: "MISSION 8 - 8 DAYS UNTIL THE BOARD MEETS."
     title: "The Cold-Room Rate"
     goNow: "Go to the Kit Warehouse & Cold Room and meet Priya Shah, randomisation and blinding lead, at the exposure logger."
-    body: "Faulty treatment kits are turning up among supplies stored in one cold room. Estimate how common those failures are and compare the evidence with the safety limit. Decide whether supplies from that room must be set aside before more patients receive them."
+    body: "8 days until the board meets. The cold-room log shows a warm span beside a stack of sealed boxes. Today you decide whether the warm kit batch must be held."
     objective: "Estimate and test the exposed-kit failure rate."
   objective: "Estimate and test the exposed-kit failure rate."
-  stake: "Faulty treatment kits are turning up among supplies stored in one cold room. Estimate how common those failures are and compare the evidence with the safety limit. Decide whether supplies from that room must be set aside before more patients receive them."
+  stake: "8 days until the board meets. The cold-room log shows a warm span beside a stack of sealed boxes. Today you decide whether the warm kit batch must be held."
   takeaway: "Interpret intervals and tests in context."
-  segue: "Mission decision: Quarantine the exposed cohort. And require a 1,068-kit release audit. The estimated failure rate is 10.05% to 19.95%. And the one-sided test exceeds the safety benchmark. The pattern points to handling."
+  segue: "But Priya's guess survey differs between arms; she needs to test that claim without confusing it with handling."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Confidence interval", def: "a range from a method that captures the true parameter at a stated long-run rate."}
@@ -34,43 +35,48 @@
   - id: on-arrival-at-the-kit-warehouse-cold-room
     # On arrival at the Kit Warehouse & Cold Room | exposure-logger | automatic
     on: { enter: true, at: RAND }
-    world: "Arrival: KIT entry; exposure logger flashes COLD EXCURSION with text/icon; Priya says,; - After S1: conditions pass; sealed sample transfer appears; waypoint CARRY EXPOSURE SAMPLE TO STAT. - STAT arrival/after S2-S3: interval and p-value display; QUARANTINE READY control - Final: sample-size commit; exposed shelves gain QUARANTINED labels; binder 8 fills; outcome unlocks."
+    world: "The cold-room log shows a warm span beside a stack of sealed boxes."
     panel: "MISSION 8: CHECK BEFORE CALCULATING OPEN"
+    # unlocks: Unlock Stop 29 at exposure-logger in the Kit Warehouse & Cold Room.
     bubbles:
     - who: shah   # Priya Shah
       say: "Check the sample before the rate"
   - id: after-stop-29
     # After Stop 29 | cold-room-workbench | automatic
     on: { after: [1] }
-    world: "The check before calculating result remains visible while the build the interval fixture lights."
+    world: "At exposure-logger, the dated accepted-result slip for Stop 29 reads: \"All three conditions pass; use 30 and 170 for interval large counts.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    # unlocks: Unlock Stop 30 at cold-room-workbench in the Kit Warehouse & Cold Room.
     bubbles:
-    - who: shah   # Priya Shah
-      say: "Nice work. Use the Stop 29 result to settle build the interval."
+    - who: okafor   # Amina Okafor
+      say: "That check holds. The kit-sampling conditions pass, so the failure estimate can now carry quantified uncertainty."
   - id: after-stop-30
     # After Stop 30 | exposure-logger | automatic
     on: { after: [2] }
-    world: "The build the interval result remains visible while the test the benchmark fixture lights."
+    world: "At cold-room-workbench, the dated accepted-result slip for Stop 30 reads: \"endpoints 10.05%,19.95%, tolerance.1 percentage point.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 30 RECORDED - STOP 31 OPEN"
+    # unlocks: Unlock Stop 31 at exposure-logger in the Kit Warehouse & Cold Room.
     bubbles:
-    - who: shah   # Priya Shah
-      say: "Good thinking. Use the Stop 30 result to settle test the benchmark."
+    - who: okafor   # Amina Okafor
+      say: "That check holds. The kit-failure interval needs a direct comparison with the registered benchmark."
   - id: after-stop-31
     # After Stop 31 | cold-room-workbench | automatic
     on: { after: [3] }
-    world: "The test the benchmark result remains visible while the size the confirmation fixture lights."
+    world: "At exposure-logger, the dated accepted-result slip for Stop 31 reads: \"z 2.36 tolerance.01; p.0092 tolerance.001; reject.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    # unlocks: Unlock Stop 32 at cold-room-workbench in the Kit Warehouse & Cold Room.
     bubbles:
-    - who: shah   # Priya Shah
-      say: "Exactly right. Use the Stop 31 result to settle size the confirmation."
+    - who: okafor   # Amina Okafor
+      say: "That check holds. The benchmark result makes a sufficiently precise replacement-kit audit necessary before release."
   - id: at-mission-end
     # At mission end | exposure-logger | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At exposure-logger, Amina Okafor hangs a QUARANTINED COHORT tag on the kit release hook. The dated prop remains here on later visits."
     panel: "MISSION 8 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: shah   # Priya Shah
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: okafor   # Amina Okafor
+      say: "A sealed box can still hold a damaged kit. But Priya's guess survey differs between arms; she needs to test that claim without confusing it with handling."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -158,17 +164,14 @@
     # indices, so random->logger is 0, ten_percent->population is 1 and
     # large_counts->counts is 2.
     scenarios:
-      - random-selection condition
-      - 10% independence condition
-      - large-count condition
+    - "random-selection condition"
+    - "10% independence condition"
+    - "large-count condition"
     choices:
-      - warehouse logger randomly selected 200 kits
-      - 200 is no more than 10% of over 2,000 kits
-      - 30 failures and 170 nonfailures are both at least 10
-    mapping:
-      - 0
-      - 1
-      - 2
+    - "warehouse logger randomly selected 200 kits"
+    - "200 is no more than 10% of over 2,000 kits"
+    - "30 failures and 170 nonfailures are both at least 10"
+    mapping: [0, 1, 2]
     answerText: "The completed check shows all three conditions pass; use 30 and 170 for interval large counts."
     why: "Conditions connect the formula to a sampling process the board can trust."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -329,4 +332,3 @@
     #   minimum whole kits
     # correct result: Round up to 1,068 kits. Lower confidence or larger n changes margin of error; using .50 is conservative when p is unknown.
     # state/output: cohort quarantined; binder 8; M9.
-

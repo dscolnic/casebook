@@ -8,17 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Vellan Island must decide whether to add a second ferry before the council votes in "
-    +   "fifteen days. You will use environmental science to weigh how more crossings could keep "
-    +   "the school open while every visitor also uses scarce water, power, food, and waste "
-    +   "space. If the plan exceeds the island's limits, wells turn salty, the reef fails, and "
-    +   "families must leave. Island Resources Officer Mara Voss hands you the evidence ledger "
-    +   "and says, “The school, the reef, and every family on this island must share one future: "
-    +   "find the limits that keep them all here, then build the plan the council can defend.”",
+  "You are the island planning lead, which means you test what a second ferry would cost "
+    +   "the people who live here. At Vellan Island, you will use environmental science to make "
+    +   "the call. The council votes in fifteen days. More sailings could keep the school open. "
+    +   "Too much demand could ruin the wells and reef.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Approve the second "
-    +   "ferry only with firm limits. The ferry decision is now grounded in what Vellan can "
-    +   "actually sustain.",
+  "The second ferry ties up beside the posted limits. Tomas checks the cargo before the "
+    +   "ramp drops. Beyond the quay, cups dry by the school tap and the reef boats leave under "
+    +   "their catch cap. Vellan has room for another sailing, with rules to keep it home.",
 ];

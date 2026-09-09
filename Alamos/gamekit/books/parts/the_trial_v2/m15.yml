@@ -1,17 +1,18 @@
 # ============================================================ MISSION 15
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Board Pack"
   card:
-    header: "DAY 15 - BOARD TODAY"
+    header: "MISSION 15 - 1 DAY UNTIL THE BOARD MEETS."
     title: "The Board Pack"
     goNow: "Go to Regulatory & Registry and meet Mara Voss, trial director, at the delivery board."
-    body: "The final patient follow-up is complete. Check that every claimed benefit and risk matches the study records and the rules agreed before the results arrived. Recommend whether the trial should stop, change, or continue with safeguards that protect its patients."
+    body: "1 day until the board meets. Seven empty chairs face the complete pack and two paused-site cards. Today you decide whether the trial can continue with safeguards."
     objective: "Sign and deliver the Monitoring Board Pack."
   objective: "Sign and deliver the Monitoring Board Pack."
-  stake: "The final patient follow-up is complete. Check that every claimed benefit and risk matches the study records and the rules agreed before the results arrived. Recommend whether the trial should stop, change, or continue with safeguards that protect its patients."
+  stake: "1 day until the board meets. Seven empty chairs face the complete pack and two paused-site cards. Today you decide whether the trial can continue with safeguards."
   takeaway: "Use State-Plan-Do-Conclude for every inference argument. ---"
-  segue: "Mission decision: Continue with safeguards. The harm bound is below the written line. The benefit range stays above zero. The board signs the full statistical case."
+  segue: "Therefore Eli restarts only cleared work; site 19 stays paused pending its own release checks."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "State-Plan-Do-Conclude", def: "the four-part structure for a complete inference response."}
@@ -29,43 +30,48 @@
   - id: on-arrival-at-regulatory-registry
     # On arrival at Regulatory & Registry | records-wall | automatic
     on: { enter: true, at: REG }
-    world: "Arrival: REG entry; 14 binder slots lit; Mara says,; - After S1: method links illuminate; waypoint TAKE SOURCE CLAIMS TO ADJUDICATION. - ADJUD after S2: source/scope stamp appears; waypoint CARRY COMPLETE PACK TO MONITORING BOARD. - BOARD after S3: locked rule displays CONTINUE WITH SAFEGUARDS; - Final/outcome: signatures appear, binder slot15 fills, doors open, BOARD PACK ACCEPTED; timer remains paused; metric victory screen unlocks."
+    world: "Seven empty chairs face the complete pack and two paused-site cards."
     panel: "MISSION 15: RECONSTRUCT THE EVIDENCE CHAIN OPEN"
+    # unlocks: Unlock Stop 57 at records-wall in Regulatory & Registry.
     bubbles:
     - who: voss   # Mara Voss
       say: "Rebuild the chain before anyone signs"
   - id: after-stop-57
     # After Stop 57 | outcome-viewer | automatic
     on: { after: [1] }
-    world: "The reconstruct the evidence chain result remains visible while the state the reach fixture lights."
+    world: "At records-wall, the dated accepted-result slip for Stop 57 reads: \"Match procedure to variable type and design; formulas do not determine scope by themselves.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    # unlocks: Unlock Stop 58 at outcome-viewer in Endpoint Adjudication.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 57 result to settle state the reach."
+    - who: berg   # Jonas Berg
+      say: "That check holds. The reconstructed methods leave the final treatment claim's population reach to be stated."
   - id: after-stop-58
     # After Stop 58 | board-console | automatic
     on: { after: [2] }
-    world: "The state the reach result remains visible while the apply the trigger fixture lights."
+    world: "At outcome-viewer, the dated accepted-result slip for Stop 58 reads: \"Infer a causal treatment effect for patients like those enrolled, while limiting generalization to broader populations.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    # unlocks: Unlock Stop 59 at board-console in Monitoring Board Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 58 result to settle apply the trigger."
+    - who: berg   # Jonas Berg
+      say: "That check holds. The new follow-up evidence is ready to be judged against the locked harm rule."
   - id: after-stop-59
     # After Stop 59 | board-table | automatic
     on: { after: [3] }
-    world: "The apply the trigger result remains visible while the sign the statistical argument fixture lights."
+    world: "At board-console, the dated accepted-result slip for Stop 59 reads: \"Predicted and measured upper bound 1.80 events per 1,000 patients, tolerance 0.01 event per 1,000; conclusion continue under safeguards.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    # unlocks: Unlock Stop 60 at board-table in Monitoring Board Room.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 59 result to settle sign the statistical argument."
+    - who: berg   # Jonas Berg
+      say: "That check holds. The trigger decision needs a signed argument another statistician can audit from start to finish."
   - id: at-mission-end
     # At mission end | records-wall | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At board-table, Jonas Berg sets the signed continuation pack on the board table. The final scene follows the completion gate below."
     panel: "MISSION 15 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: berg   # Jonas Berg
+      say: "You kept a useful trial alive without asking patients to carry our doubt alone. Therefore Eli restarts only cleared work; site 19 stays paused pending its own release checks."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -190,7 +196,11 @@
     # subject as the payload names it, and `label` says only that the row is a
     # check. The payload's "pass" is a normal status, "absent" an alarm, and
     # "partial" the one in between.
-    readings: []
+    readings:
+    - { zone: "random assignment", label: "check", value: "pass", status: normal }
+    - { zone: "random population sample", label: "check", value: "absent", status: alarm }
+    - { zone: "rural repair", label: "check", value: "partial", status: low }
+    - { zone: "endpoint audit", label: "check", value: "pass", status: normal }
     choices:
     - "causation for trial-like patients with limited generalization"
     - "association only"
@@ -236,38 +246,19 @@
     # `measurements` row; the payload sets restore.required false, so nothing is
     # restored here.
     verify:
-      required_sequence:
-        - calculate_and_commit
-        - operate
-        - measure
-        - interpret
       prediction:
-        min: NaN
-        max: NaN
-        step: NaN
-      equipment_locked_until_prediction_commit: true
-      operation:
-        action: apply locked safety rule
-        fixed:
-          - continue below 2.0
-          - modify from 2.0 to below 4.0
-          - stop at or above 4.0
-      measurements:
-        upper_bound: 1.8
-        unit: events per 1,000 patients
-        benefit_interval: excludes zero
-      restore:
-        required: false
-        reason: rule application changes no equipment setting
-      correct_conclusion: continue under safeguards
-      answerText: The upper harm bound is 1.80 per 1,000, below 2.0, while benefit excludes zero; continue under safeguards.
-      truth: NaN
-      passRatio:
-        - 0.9
-        - 1.1
+        label: "Upper harm bound"
+        unit: "events per 1,000 patients"
+        min: 0
+        max: 4.0
+        step: 0.01
+      truth: 1.80
+      passRatio: [0.9944, 1.0056]
+      intervention:
+        label: "Apply the locked safety rule"
+        note: "Continue below 2.0; modify from 2.0 to below 4.0; stop at or above 4.0."
       measurement:
-        label: the measurement
-        cost: 1
+        label: "Final source calls: upper harm bound and benefit interval"
     answerText: "0.6+1.96(.612)=1.80 per 1,000, below 2.0; benefit interval excludes zero, so continue under safeguards."
     why: "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -294,15 +285,11 @@
     # The four cards are the prompt's own list, split at its semicolons and kept
     # word for word; "Exact order" is the order they are listed in.
     cards:
-      - Name the patient population and state the parameters and hypotheses.
-      - Choose the inference procedure and verify its conditions.
-      - Calculate the statistic and p-value or confidence interval.
-      - Compare with the decision rule and interpret the result for the patient population.
-    order:
-      - 0
-      - 1
-      - 2
-      - 3
+    - "State parameters/hypotheses in words/symbols"
+    - "Plan procedure/check conditions"
+    - "Do formula/statistic/p-value or interval"
+    - "Conclude compare p to alpha and interpret in context"
+    order: [0, 1, 2, 3]
     answerText: "The completed check shows state, Plan, Do, Conclude. Use patient variables and units; never say accept H0, prove H0, or omit context."
     why: "A reproducible argument lets future monitors challenge any step without rewriting the result."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -310,3 +297,17 @@
     # correct result: State, Plan, Do, Conclude. Use patient variables and units; never say accept H0, prove H0, or omit context.
     # state/output: signature applied; piece15; final payoff.
 
+copy:
+  RAND: <p>The kit warehouse and the cold room. 4000 boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>
+  ENDP: <p>The adjudication room. Two reading screens back to back, files with the arm and the site stripped out, and a definition on the wall that has not changed in four years.</p>
+  SAFE: <p>The monitoring board room. A table for 9, a closed-session sign, and the only meeting in this building that sees CLARION-3 by arm.</p>
+  STAT: <p>The statistics room. The analysis plan, the boundary for each look, and every version of both with the date it took effect.</p>
+  SITE: <p>The monitors&rsquo; room. Banker&rsquo;s boxes of couriered source documents, a verification table, and a queue of queries waiting on 31 hospitals.</p>
+  REG: <p>Regulatory and registry. What the trial promised, when it promised it, and what it still owes the people it reports to.</p>
+  SCREEN: <p>Screening and consent. Two chairs, a table and an eligibility checklist &mdash; where somebody becomes a participant, or does not.</p>
+  INFUSE: <p>The infusion bay. Six chairs, drip stands, a wall clock, and bags nobody in the room can tell apart.</p>
+  LAB: <p>The central lab and sample store. A &minus;80 freezer, racks of aliquots and a chain-of-custody sheet on a clipboard.</p>
+  DATA: "<p>The data management floor. Desks, the query board, and the enrolment wall: one card per site, filling as the trial recruits.</p>"
+  UNBLIND: <p>Unblinded statistics. One desk, one locked screen, printouts face down. The smallest room on the floor.</p>
+  RANDOM: <p>The randomisation office. The allocation server, its monitors facing the wall, and a cabinet of code-break envelopes with two entries in the log.</p>
+  ARCHIVE: <p>The trial master file. Every version of the protocol, every approval, and the dates that make the rest of it mean anything.</p>

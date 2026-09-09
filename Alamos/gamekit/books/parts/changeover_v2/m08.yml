@@ -1,17 +1,18 @@
 # ============================================================ MISSION 8
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Rate People Feel"
   card:
-    header: "8 DAYS"
+    header: "MISSION 8 - 8 DAYS UNTIL CHANGEOVER."
     title: "The Rate People Feel"
     goNow: "Go to BANKS and meet Tomas Arendt at the bond-and-money panel."
-    body: "Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now."
+    body: "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak."
     objective: "Distinguish nominal and real rates before tightening."
   objective: "Distinguish nominal and real rates before tightening."
-  stake: "Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now."
+  stake: "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not raise rates now. The real rate is already 1.5%. And a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk."
+  segue: "But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-banks
     # On arrival at BANKS | money-market-console | automatic
     on: { enter: true, at: BANKS }
-    world: "Arrival | BANKS | automatic after accepting the briefing World state and dialogue: The destination fixture displays Distinguish nominal and real rates before tightening. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A loan quote waits beside the expected-price sheet."
     panel: "Distinguish nominal and real rates before tightening."
+    # unlocks: Unlock Stop 29 at money-market-console in BANKS.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Start with clear money surplus. We need evidence the next decision can use."
   - id: after-stop-29
     # After Stop 29 | balance-sheet-desk | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Tomas Arendt says,, and Stop 30 unlocks."
+    world: "At money-market-console, the dated accepted-result slip for Stop 29 reads: \"A 30-billion money surplus causes bond buying, raises bond prices, and lowers the nominal rate from 5% to 4%.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 29 RECORDED - STOP 30 OPEN"
+    # unlocks: Unlock Stop 30 at balance-sheet-desk in Bank Supervision.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Nice work. A 30-billion surplus clears through bond buying and a rate fall to 4%."
   - id: after-stop-30
     # After Stop 30 | policy-wall | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in BANKS → RATE only if the route requires travel, then."
+    world: "At balance-sheet-desk, the dated accepted-result slip for Stop 30 reads: \"1.5%, +0.5 pp.\". The slip remains in that fixture's evidence holder."
     panel: "BANKS → RATE"
+    # unlocks: Unlock Stop 31 at policy-wall in Rate Room.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Good thinking. The real rate is 1.5%, already 0.5 point tighter."
   - id: after-stop-31
     # After Stop 31 | bond-panel | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 32 unlocks."
+    world: "At policy-wall, the dated accepted-result slip for Stop 31 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 31 RECORDED - STOP 32 OPEN"
+    # unlocks: Unlock Stop 32 at bond-panel in BANKS.
     bubbles:
     - who: arendt   # Tomas Arendt
       say: "Exactly right. Sell bonds → Ms falls → i rises → I falls → AD shifts left → output and price level fall."
   - id: at-mission-end
     # At mission end | money-market-console | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At bond-panel, Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail. The dated prop remains here on later visits."
     panel: "MISSION 8 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: arendt   # Tomas Arendt
-      say: "Outstanding work. You solved the mission. Do not raise now; the hike tightens real borrowing conditions in every tested case."
+      say: "A high rate is not the same as a strong household. But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters."
 
   terms:
   - {name: "Money demand", def: "desired liquid balances, lower at higher nominal interest."}
@@ -167,22 +173,20 @@
     relationship: "surplus = money supplied − money demanded, so 300 billion − 270 billion"
     verify:
       prediction:
-        min: NaN
-        max: NaN
-        step: NaN
-      lock: bond-market action stays locked until 30 billion is committed
-      action: run adjustment at the displayed 5% starting rate
-      measurements:
-        bond_price: rises
-        nominal_rate: falls from 5% to 4%
-      conclusion: surplus causes bond buying and a lower rate
-      truth: NaN
-      passRatio:
-        - 0.9
-        - 1.1
+        label: "Money surplus at 5%"
+        unit: "billion"
+        min: 0
+        max: 300
+        step: 1
+      truth: 30
+      passRatio: [0.9967, 1.0033]
+      intervention:
+        label: "Run adjustment at the displayed 5% starting rate"
+        note: "Bond-market action stays locked until 30 billion is committed."
       measurement:
-        label: the measurement
-        cost: 1
+        label: "Bond price and nominal rate"
+      moral: "A surplus causes bond buying and a lower rate."
+      commit: "Report the surplus"
 
   # --- Stop 30: Real burden
   #     Concept: Fisher; Keystone: inflation/rates; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L3; Story role: calculation.
@@ -255,8 +259,13 @@
     # A rename and an index: "order:same" is the cards as written, which the engine
     # states as the permutation 0..5. Every card is the bible's own wording.
     cards:
-      - "[sell bonds,Ms falls,nominal i rises,I falls,AD left,Y and PL fall]; order:same."
-    order: []
+    - "sell bonds"
+    - "Ms falls"
+    - "nominal i rises"
+    - "I falls"
+    - "AD left"
+    - "Y and PL fall"
+    order: [0, 1, 2, 3, 4, 5]
 
   # --- Stop 32: Raise now
   #     Concept: monetary choice; Keystone: AD-AS/Fisher; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -317,4 +326,3 @@
         step: 0.25
       robust: robust_plan
       optimiseOn: evidence_fit
-

@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Predict, Then Fire"
   card:
-    header: "4 DAYS;"
+    header: "MISSION 12 - 4 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "Predict, Then Fire"
     goNow: "Impulse Hall, Elise Strand at bank stages."
-    body: "A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test."
-    objective: "Verify the reroute with a committed quantitative prediction."
-  objective: "Verify the reroute with a committed quantitative prediction."
-  stake: "A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test."
+    body: "Four days remain in the storm window. A sealed forecast sits beside the small-test trace. Today you decide if the fixed route earns a full-shot test."
+    objective: "Verify the reroute with a committed quantitative prediction. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Verify the reroute with a committed quantitative prediction. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "Four days remain in the storm window. A sealed forecast sits beside the small-test trace. Today you decide if the fixed route earns a full-shot test."
   takeaway: "The reroute is safe for a full shot under the stated tolerance. ---"
-  segue: "Mission decision: The reroute is safe for a full shot under the stated tolerance. The reduced test measured 92 V against a 90 V prediction. And the worst allowed full-shot case is 224 V, below 250 V. The remaining question is whether the recorders can see the fastest pulse. Metric target 25:00."
+  segue: "But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-impulse-hall
     # On arrival at Impulse Hall | bank-stages | automatic
     on: { enter: true, at: BANK }
-    world: "accepted BANK/bubble/charge controls locked/→S1; S2 correct/panel/prediction seal 90 V/PREDICTION LOCKED→MAST; enter MAST/fixture/shot control enabled/25.0 kV STAGES • 8 mm GAP • REROUTE FIXED→S3; S3 complete/waypoint/measurements logged/Take 92 V to the trench tolerance board.→EARTH/S4; S4 correct/world/reroute tag green+PASS text/WORST CASE 224 V < 250 V→outcome."
+    world: "A sealed prediction sits beside the reduced-test recorder."
     panel: "Elise Strand, impulse engineer: \"Calculate first. The charger stays locked until the number is committed.\""
+    # unlocks: Unlock Stop 45 at bank-stages in Impulse Hall.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Calculate first. The charger stays locked until the number is committed."
   - id: after-stop-45
     # After Stop 45 | hall-board | automatic
     on: { after: [1] }
-    world: "The calculate reduced energy result remains visible while the predict reroute voltage fixture lights."
+    world: "At bank-stages, the dated accepted-result slip for Stop 45 reads: \"Reduced bank energy is 375 J. Halving V quarters U.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    # unlocks: Unlock Stop 46 at hall-board in Impulse Hall.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 45 result to settle predict reroute voltage."
+      say: "That check holds. The reduced-shot plan needs a new voltage prediction for the rerouted cable geometry."
   - id: after-stop-46
     # After Stop 46 | shunt-rack | automatic
     on: { after: [2] }
-    world: "The predict reroute voltage result remains visible while the fire the reduced test fixture lights."
+    world: "At hall-board, the dated accepted-result slip for Stop 46 reads: \"180 V at full derivative; 90 V at reduced derivative.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    # unlocks: Unlock Stop 47 at shunt-rack in Mast Base.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 46 result to settle fire the reduced test."
+      say: "That check holds. The reroute prediction is committed, so the crew can now collect an independent reduced-shot measurement."
   - id: after-stop-47
     # After Stop 47 | conduit-bond | automatic
     on: { after: [3] }
-    world: "The fire the reduced test result remains visible while the stress worst-case coupling fixture lights."
+    world: "At shunt-rack, the dated accepted-result slip for Stop 47 reads: \"Measured 92 V passes the committed 80–100 V band.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    # unlocks: Unlock Stop 48 at conduit-bond in Earthing Trench.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 47 result to settle stress worst-case coupling."
+      say: "That check holds. The reduced-shot success must still survive the stronger pulse and uncertain coupling of a full shot."
   - id: at-mission-end
     # At mission end | bank-stages | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At record-desk, Dr. Lena Ortiz clips the 90 V PREDICTED / 92 V MEASURED strip into the report. The dated prop remains here on later visits."
     panel: "MISSION 12 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The route earned a test. It has not earned blind trust. But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it."
 
   terms:
   - {name: "Mutual inductance", def: "flux linkage in one circuit per current in another."}

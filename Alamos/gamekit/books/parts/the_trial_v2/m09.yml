@@ -1,17 +1,18 @@
 # ============================================================ MISSION 9
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Could Anyone Tell"
   card:
-    header: "DAY 9 - BOARD IN 7 DAYS"
+    header: "MISSION 9 - 7 DAYS UNTIL THE BOARD MEETS."
     title: "Could Anyone Tell"
     goNow: "Go to the Kit Warehouse and meet Priya Shah, randomisation and blinding lead, at the blind-check kiosk."
-    body: "Staff were not supposed to know which patients received the treatment or the comparison treatment. Check whether they could tell anyway. Compare their guesses with the kit records and decide whether that knowledge could have compromised the trial's treatment comparisons."
+    body: "7 days until the board meets. An intact kit sequence lies beside two unequal survey columns. Today you decide what the guess survey proves about the hidden draw."
     objective: "Test the blinding survey by treatment arm."
   objective: "Test the blinding survey by treatment arm."
-  stake: "Staff were not supposed to know which patients received the treatment or the comparison treatment. Check whether they could tell anyway. Compare their guesses with the kit records and decide whether that knowledge could have compromised the trial's treatment comparisons."
+  stake: "7 days until the board meets. An intact kit sequence lies beside two unequal survey columns. Today you decide what the guess survey proves about the hidden draw."
   takeaway: "Random assignment and sampling control scope."
-  segue: "Mission decision: Report an arm difference in correct guesses. But do not declare that concealment failed. The interval is about 0.8 to 13.2 points. And the pooled test gives p=.028. The independent box audit stayed intact."
+  segue: "But Amina's verified outcomes shrink the benefit; an intact draw cannot save an inflated effect."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Single blind", def: "either subjects or researchers do not know assignments."}
@@ -32,43 +33,48 @@
   - id: on-arrival-at-the-kit-warehouse
     # On arrival at the Kit Warehouse | kit-sequence-rack | automatic
     on: { enter: true, at: RAND }
-    world: "Arrival: KIT entry; sealed sequence visible; Priya says,; - After S1: independent audit path lights; sealed survey appears; waypoint CARRY SEALED SURVEY TO STAT. - STAT arrival/after S2-S3: interval and pooled-test panels appear; nonresponse stress control - Final: claim label changes to UNEQUAL GUESSES, BLIND NOT PROVEN BROKEN; binder 9 and outcome unlock."
+    world: "An intact kit sequence lies beside two unequal survey columns."
     panel: "MISSION 9: REBUILD THE BLIND OPEN"
+    # unlocks: Unlock Stop 33 at kit-sequence-rack in the Kit Warehouse.
     bubbles:
     - who: shah   # Priya Shah
       say: "A failed refrigerator does not reveal the next box"
   - id: after-stop-33
     # After Stop 33 | analysis-board | automatic
     on: { after: [1] }
-    world: "The rebuild the blind result remains visible while the estimate the guessing difference fixture lights."
+    world: "At kit-sequence-rack, the dated accepted-result slip for Stop 33 reads: \"Three displays share the master file; only the sealed-box audit independently confirms concealment.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    # unlocks: Unlock Stop 34 at analysis-board in Statistics & Analysis.
     bubbles:
     - who: shah   # Priya Shah
-      say: "Nice work. Use the Stop 33 result to settle estimate the guessing difference."
+      say: "That check holds. The concealment audit needs comparison with how often patients in each arm guessed correctly."
   - id: after-stop-34
     # After Stop 34 | analysis-board | automatic
     on: { after: [2] }
-    world: "The estimate the guessing difference result remains visible while the pool only for the test fixture lights."
+    world: "At analysis-board, the dated accepted-result slip for Stop 34 reads: \".008 to.132 tolerance.002.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    # unlocks: Unlock Stop 35 at analysis-board in Statistics & Analysis.
     bubbles:
     - who: shah   # Priya Shah
-      say: "Good thinking. Use the Stop 34 result to settle pool only for the test."
+      say: "That check holds. The guessing interval needs the registered equal-proportions hypothesis tested with the appropriate null model."
   - id: after-stop-35
     # After Stop 35 | blind-audit-table | automatic
     on: { after: [3] }
-    world: "The pool only for the test result remains visible while the say what it means fixture lights."
+    world: "At analysis-board, the dated accepted-result slip for Stop 35 reads: \"z2.19 tol.01, p.028 tol.001, reject.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    # unlocks: Unlock Stop 36 at blind-audit-table in the Kit Warehouse.
     bubbles:
     - who: shah   # Priya Shah
-      say: "Exactly right. Use the Stop 35 result to settle say what it means."
+      say: "That check holds. The detectable guessing gap must be reconciled with intact concealment and uncertain survey response."
   - id: at-mission-end
     # At mission end | kit-sequence-rack | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At blind-ledger, Priya Shah clips the CONCEALMENT AUDIT INTACT seal beside the guess results. The dated prop remains here on later visits."
     panel: "MISSION 9 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: shah   # Priya Shah
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The difference belongs in the report. A broken blind does not follow from it. But Amina's verified outcomes shrink the benefit; an intact draw cannot save an inflated effect."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -360,4 +366,3 @@
         step: 1
       robust: robust_plan
       optimiseOn: evidence_fit
-

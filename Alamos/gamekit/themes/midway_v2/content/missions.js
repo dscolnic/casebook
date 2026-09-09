@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Three Clocks",
     "objective": "Decide whether matching stop records prove one common brake failure.",
     "briefing": "",
-    "stake": "Three amusement-park rides reportedly stopped beyond their expected marks during an October test. Did their brakes fail, or were the records wrong? Use physics to check the Ferris Wheel's motion and test its brake before deciding whether the park has one shared brake problem.",
+    "stake": "15 days until the park review. Three old traces lie beside a drum with one fresh stop mark. Today you decide whether the wheel brake explains all three bad stops.",
     "primer": [
       "Choose a positive direction before interpreting signs.",
       "Graph slope describes how one measured quantity changes with another.",
@@ -472,10 +472,10 @@ export const MISSIONS = [
     },
     "takeaway": "Matching records are not independent evidence until their measurement paths are known.",
     "card": {
-      "header": "15 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 1 - 15 DAYS UNTIL THE PARK REVIEW.",
       "title": "THREE CLOCKS",
       "goNow": "Go to the Ferris Wheel machine room and meet Maya Hart, the park operations lead, at the hub schedule.",
-      "body": "Three amusement-park rides reportedly stopped beyond their expected marks during an October test. Did their brakes fail, or were the records wrong? Use physics to check the Ferris Wheel's motion and test its brake before deciding whether the park has one shared brake problem.",
+      "body": "15 days until the park review. Three old traces lie beside a drum with one fresh stop mark. Today you decide whether the wheel brake explains all three bad stops.",
       "objective": "Decide whether matching stop records prove one common brake failure."
     },
     "beats": [
@@ -485,7 +485,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WHEEL"
         },
-        "world": "Hart removes the arming key.",
+        "world": "Three old traces lie beside a drum with one fresh stop mark.",
         "stage": {
           "wall": [
             {
@@ -509,7 +509,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The selected graph points illuminate.",
+        "world": "At hub-schedule, the dated accepted-result slip for Stop 1 reads: \"Interval 0.0-3.0 s; a ≈ -0.50 m/s²; no reversal.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -534,7 +534,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "A predicted stop trace appears beside the historical trace.",
+        "world": "At machine-room-board, the dated accepted-result slip for Stop 2 reads: \"Submit 1.4 m/s; accept 1.32-1.48 m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -558,7 +558,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The live test ends at 2.26 m.",
+        "world": "At hub-board, the dated accepted-result slip for Stop 3 reads: \"Order velocity → stop time → displacement → comparison; t=3.00 s, Δx=2.25 m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -580,7 +580,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The shared speed-wheel bracket receives a yellow evidence tag.",
+        "world": "At brake-drum, Maya Hart clips the predicted and measured stop strip to the brake drum. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -593,12 +593,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "hart",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "say": "That mark clears this test. It does not clear the park. But Chen finds the same test kit named on all three records; the park still needs the force checks."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The three records do not prove one brake fault. The Ferris Wheel stops at the predicted mark. Its brake still needs load and wind checks. The team must trace the shared test gear.",
+    "segue": "But Chen finds the same test kit named on all three records; the park still needs the force checks.",
     "stops": [
       {
         "group": "TOWER",
@@ -634,7 +634,7 @@ export const MISSIONS = [
     "title": "What Pushes Back",
     "objective": "Decide whether the pirate ship's supports fail under the required static load.",
     "briefing": "",
-    "stake": "The Ferris Wheel's brake passed, so the crew turns to the swinging pirate ship. Its supports must safely carry the ship and riders before it moves. Work out the forces and test the loaded frame, then decide whether a weak support explains the old incident.",
+    "stake": "14 days until the park review. A load bag rests on the trestles beside an old October photograph. Today you decide whether the ship support fits the measured load.",
     "primer": [
       "Draw forces acting on the chosen system, not forces it exerts on other objects.",
       "A stationary object may have several nonzero forces whose vector sum is zero.",
@@ -934,10 +934,10 @@ export const MISSIONS = [
     },
     "takeaway": "A static pass rules out a weak support under that load; it does not certify driven motion.",
     "card": {
-      "header": "14 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 2 - 14 DAYS UNTIL THE PARK REVIEW.",
       "title": "WHAT PUSHES BACK",
       "goNow": "Go to the Pirate Ship console and meet Luka Kovač, the mechanical lead, beside the seat frame.",
-      "body": "The Ferris Wheel's brake passed, so the crew turns to the swinging pirate ship. Its supports must safely carry the ship and riders before it moves. Work out the forces and test the loaded frame, then decide whether a weak support explains the old incident.",
+      "body": "14 days until the park review. A load bag rests on the trestles beside an old October photograph. Today you decide whether the ship support fits the measured load.",
       "objective": "Decide whether the pirate ship's supports fail under the required static load."
     },
     "beats": [
@@ -947,7 +947,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SHIP"
         },
-        "world": "Kovač checks the unloaded frame.",
+        "world": "A load bag rests on the trestles beside an old October photograph.",
         "stage": {
           "wall": [
             {
@@ -971,7 +971,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "A boundary appears around ship plus riders.",
+        "world": "At seat-frame, the dated accepted-result slip for Stop 5 reads: \"Choice 1 - ship plus all riders.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -996,7 +996,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Both support arrows illuminate at 79.4 kN.",
+        "world": "At arm-trestles, the dated accepted-result slip for Stop 6 reads: \"Order: isolate system → external forces → axis → component equation.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1020,7 +1020,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The loaded frame remains level and lateral gauges stay quiet.",
+        "world": "At ship-console-board, the dated accepted-result slip for Stop 7 reads: \"Total 162 kN; left support 81 kN; right support 81 kN.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1042,7 +1042,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The Carousel Drive House waypoint activates.",
+        "world": "At arm-trestles, Ruth Brennan pins the LOAD REMOVED: ZERO RETURNED record beside the support model. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1054,13 +1054,13 @@ export const MISSIONS = [
         "panel": "NEXT QUESTION: WHAT FORCE MAKES A RIDE TURN?",
         "bubbles": [
           {
-            "who": "kova",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "brennan",
+            "say": "The frame came back. Keep that fact separate from the October story. Therefore Idowu must test the turning ride next; a support that holds weight still has to turn it safely."
           }
         ]
       }
     ],
-    "segue": "Mission decision: A weak support did not cause the October stop. The loaded frame holds the expected weight. It returns to zero after the load is gone. The next test will study the force that turns a ride.",
+    "segue": "Therefore Idowu must test the turning ride next; a support that holds weight still has to turn it safely.",
     "stops": [
       {
         "group": "SHIP",
@@ -1098,7 +1098,7 @@ export const MISSIONS = [
     "title": "Turning Inward",
     "objective": "Set and test a safe carousel speed from the required inward force.",
     "briefing": "",
-    "stake": "The pirate ship can carry its load, but moving rides still need checking. The carousel's hanging chairs swing farther outward as speed increases. Compare speed, turning radius, and support forces, then set a shutdown rule that keeps the chairs within their safe angle.",
+    "stake": "13 days until the park review. The chair chain hangs beside a tilted platform mark. Today you decide which carousel speed stays inside the angle limit.",
     "primer": [
       "Constant speed does not mean zero acceleration when direction changes.",
       "\"Centripetal force\" is the name for the net inward force, not an additional force.",
@@ -1501,10 +1501,10 @@ export const MISSIONS = [
     },
     "takeaway": "A safety model becomes useful when it produces a threshold written before the test.",
     "card": {
-      "header": "13 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 3 - 13 DAYS UNTIL THE PARK REVIEW.",
       "title": "TURNING INWARD",
       "goNow": "Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, at the hanging-chair rig.",
-      "body": "The pirate ship can carry its load, but moving rides still need checking. The carousel's hanging chairs swing farther outward as speed increases. Compare speed, turning radius, and support forces, then set a shutdown rule that keeps the chairs within their safe angle.",
+      "body": "13 days until the park review. The chair chain hangs beside a tilted platform mark. Today you decide which carousel speed stays inside the angle limit.",
       "objective": "Set and test a safe carousel speed from the required inward force."
     },
     "beats": [
@@ -1514,7 +1514,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CAROUSEL"
         },
-        "world": "Idowu keeps the replacement-controller crate closed.",
+        "world": "The chair chain hangs beside a tilted platform mark.",
         "stage": {
           "wall": [
             {
@@ -1538,7 +1538,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Inward arrows appear around the carousel.",
+        "world": "At chain-rig, the dated accepted-result slip for Stop 9 reads: \"Order: radial acceleration → force balance → tangent relation; ac=v²/r inward.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1563,7 +1563,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The leveled platform removes the asymmetric chair angles.",
+        "world": "At drive-panel, the dated accepted-result slip for Stop 10 reads: \"Maximum 4.22 m/s; submit operator setting 4.20 m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1587,7 +1587,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The 4.20 m/s shutdown rule prints before the live value of 4.00 m/s appears.",
+        "world": "At platform-jacks, the dated accepted-result slip for Stop 11 reads: \"Select level/unlevel control; response changes 2.4° → 0.1° → 2.4°.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1609,7 +1609,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The controller replacement line on the service sheet flashes NO INSTALLATION SIGN-OFF.",
+        "world": "At chain-rig, Tunde Idowu clips the RUN 4.00 M/S / STOP 4.20 M/S card to the chain rig. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1622,12 +1622,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "idowu",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "say": "Level first. Then speed. Then sign. But Silva cannot find an install date for the new controller; the next evidence trail runs through the bumper stop and workshop."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 20 degrees. The platform is now level, and the stop rule is 4.20 m/s. The replacement controller has no signed install record.",
+    "segue": "But Silva cannot find an install date for the new controller; the next evidence trail runs through the bumper stop and workshop.",
     "stops": [
       {
         "group": "CAROUSEL",
@@ -1663,7 +1663,7 @@ export const MISSIONS = [
     "title": "Where the Energy Went",
     "objective": "Determine whether the bumper-car overrun came from inadequate floor friction.",
     "briefing": "",
-    "stake": "The carousel passes, but an October bumper car reportedly travelled too far after braking. A faster car has more energy for the floor and brakes to remove. Calculate the expected stopping distance and test it, then decide whether floor friction explains the report.",
+    "stake": "12 days until the park review. A dry-floor test mark stops before three copied speed strips. Today you decide whether floor friction explains the bumper stop.",
     "primer": [
       "Speed enters kinetic energy as v², so doubling speed quadruples energy.",
       "Friction can remove mechanical energy without removing total energy from the larger system.",
@@ -1962,10 +1962,10 @@ export const MISSIONS = [
     },
     "takeaway": "A model can explain one event without explaining a shared pattern.",
     "card": {
-      "header": "12 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 4 - 12 DAYS UNTIL THE PARK REVIEW.",
       "title": "WHERE THE ENERGY WENT",
       "goNow": "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the car on stands.",
-      "body": "The carousel passes, but an October bumper car reportedly travelled too far after braking. A faster car has more energy for the floor and brakes to remove. Calculate the expected stopping distance and test it, then decide whether floor friction explains the report.",
+      "body": "12 days until the park review. A dry-floor test mark stops before three copied speed strips. Today you decide whether floor friction explains the bumper stop.",
       "objective": "Determine whether the bumper-car overrun came from inadequate floor friction."
     },
     "beats": [
@@ -1975,7 +1975,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BUMPER"
         },
-        "world": "Chen points to the two accelerometers.",
+        "world": "A dry-floor test mark stops before three copied speed strips.",
         "stage": {
           "wall": [
             {
@@ -2000,7 +2000,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The energy ledger closes at 1.92 kJ.",
+        "world": "At car-on-stands, the dated accepted-result slip for Stop 13 reads: \"Submit 4 as the energy multiplier.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2024,7 +2024,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The car stops at 2.06 m.",
+        "world": "At pavilion-board, the dated accepted-result slip for Stop 14 reads: \"K=1920 J; fk=960 N; d=2.0 m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2048,7 +2048,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "Independent accelerometers are booked; duplicate speed-wheel time is canceled.",
+        "world": "At floor-console, the dated accepted-result slip for Stop 15 reads: \"Commit 2.0 m; measure 2.06 m; difference 0.06 m ≤ 0.08 m; local pass.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2070,7 +2070,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The Workshop door receives an OPENS TOMORROW marker.",
+        "world": "At floor-console, Linh Chen pins the DRY-FLOOR RESULT ONLY strip beside the floor console. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2083,12 +2083,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "say": "This floor explains this stop. Keep the other cases open. Therefore Silva opens the Workshop tomorrow; the tower cannot borrow a missing procedure from this bumper test."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Dry-floor friction explains the Bumper Car stop. It does not explain the other ride records. New sensors will replace another shared speed-wheel test. The Workshop opens next so the team can rebuild the Drop Tower test.",
+    "segue": "Therefore Silva opens the Workshop tomorrow; the tower cannot borrow a missing procedure from this bumper test.",
     "stops": [
       {
         "group": "COASTER",
@@ -2126,7 +2126,7 @@ export const MISSIONS = [
     "title": "The Missing Procedure",
     "objective": "Reconstruct and attest a safe limited drop-tower test.",
     "briefing": "",
-    "stake": "The bumper-car result fits the prediction, but the drop tower lacks a complete test procedure. Write the checks, expected speed, and conditions for stopping the test before anything is released. Decide whether the crew is ready to run one limited test safely.",
+    "stake": "Eleven days remain before review. Eleven books lie open, but none has a full test plan. Today you decide if one empty tower test may run.",
     "primer": [
       "Predict the car's speed before the braking zone.",
       "Write abort conditions before releasing the test mass.",
@@ -2462,10 +2462,10 @@ export const MISSIONS = [
     },
     "takeaway": "A calculation authorizes only the configuration and procedure actually verified.",
     "card": {
-      "header": "11 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 5 - 11 DAYS UNTIL THE PARK REVIEW.",
       "title": "THE MISSING PROCEDURE",
       "goNow": "Go to the Workshop and meet Ruth Brennan, the former chief engineer, at the eleven notebooks.",
-      "body": "The bumper-car result fits the prediction, but the drop tower lacks a complete test procedure. Write the checks, expected speed, and conditions for stopping the test before anything is released. Decide whether the crew is ready to run one limited test safely.",
+      "body": "Eleven days remain before review. Eleven books lie open, but none has a full test plan. Today you decide if one empty tower test may run.",
       "objective": "Reconstruct and attest a safe limited drop-tower test."
     },
     "beats": [
@@ -2475,7 +2475,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WORKSHOP"
         },
-        "world": "Brennan orders eleven notebooks by date.",
+        "world": "Eleven notebooks lie open without one complete test sequence.",
         "stage": {
           "wall": [
             {
@@ -2499,7 +2499,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The signed procedure prints.",
+        "world": "At bench-notebooks, the dated accepted-result slip for Stop 17 reads: \"Order: identity → brake check → posted prediction → clear-zone release → disarm/inspect.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2522,7 +2522,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "TOWER"
         },
-        "world": "Chen connects the named sensor and shows the 36 m release mark.",
+        "world": "At drop-log, the dated accepted-result slip for Stop 18 reads: \"Submit 26.6 m/s; accept 26.3-26.9 m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2546,7 +2546,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The low-energy brake sweep remains inside its response band.",
+        "world": "At brake-desk, the dated accepted-result slip for Stop 19 reads: \"Select monotonic response with no dead band; limited unmanned test may proceed.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2570,7 +2570,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The arming key turns to LIMITED UNMANNED TEST.",
+        "world": "At configuration-desk, Ana Silva clips the EMPTY TEST ONLY procedure into the configuration folder. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2582,13 +2582,13 @@ export const MISSIONS = [
         "panel": "LIMITED UNMANNED TEST",
         "bubbles": [
           {
-            "who": "brennan",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "silva",
+            "say": "Now another crew could repeat what we did. But Idowu's replacement crate is still sealed; the October controller claim needs a date check before the next test."
           }
         ]
       }
     ],
-    "segue": "Mission decision: One tower test may run with no riders. The speed mark, sensor, brake sweep, and clear zone all pass. Riders are not yet allowed. The team will now check the controller record and shared test tools.",
+    "segue": "But Idowu's replacement crate is still sealed; the October controller claim needs a date check before the next test.",
     "stops": [
       {
         "group": "WORKSHOP",
@@ -2626,7 +2626,7 @@ export const MISSIONS = [
     "title": "One Source, Three Readings",
     "objective": "Trace the agreeing records and test the common-controller explanation.",
     "briefing": "",
-    "stake": "Three old speed reports agree suspiciously closely. Separate displays can repeat one faulty measuring tool. Inspect the unopened replacement controller and trace where each old reading came from, then decide whether that controller could have caused the reported ride problems.",
+    "stake": "Ten days remain before review. A new control box is still in its sealed crate. Today you decide if it or the shared test kit explains the bad records.",
     "primer": [
       "Separate displays are not independent if they share one upstream measurement.",
       "A cause must exist and change before it can produce an effect.",
@@ -2911,10 +2911,10 @@ export const MISSIONS = [
     },
     "takeaway": "Agreement is not independent confirmation when every value comes from one measuring chain.",
     "card": {
-      "header": "10 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 6 - 10 DAYS UNTIL THE PARK REVIEW.",
       "title": "ONE SOURCE, THREE READINGS",
       "goNow": "Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, beside the replacement-controller crate.",
-      "body": "Three old speed reports agree suspiciously closely. Separate displays can repeat one faulty measuring tool. Inspect the unopened replacement controller and trace where each old reading came from, then decide whether that controller could have caused the reported ride problems.",
+      "body": "Ten days remain before review. A new control box is still in its sealed crate. Today you decide if it or the shared test kit explains the bad records.",
       "objective": "Trace the agreeing records and test the common-controller explanation."
     },
     "beats": [
@@ -2924,7 +2924,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CAROUSEL"
         },
-        "world": "Idowu shows the intact crate seal.",
+        "world": "A sealed controller crate sits under an October report.",
         "stage": {
           "wall": [
             {
@@ -2948,7 +2948,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The replacement controller is tagged NOT INSTALLED.",
+        "world": "At controller-crate, the dated accepted-result slip for Stop 21 reads: \"Choice 1 - command the sealed crate; observed ride response 0.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2971,7 +2971,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WORKSHOP"
         },
-        "world": "The speed wheel, three springs, bracket, and master clock appear on the bench.",
+        "world": "At controller-record, the dated accepted-result slip for Stop 22 reads: \"Submit evidence set [serial, delivered-after-event, never-powered].\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2995,7 +2995,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Three display lines merge into one upstream node; the independent accelerometer stays separate.",
+        "world": "At bench-notebooks, the dated accepted-result slip for Stop 23 reads: \"Shared dependency portable_speed_kit; independent channel seat_floor_accelerometers.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3019,7 +3019,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The common-controller card moves to REJECTED; the shared-calibration card moves to SUPPORTED.",
+        "world": "At workshop-diagnosis-board, Tunde Idowu pins the INSTALLED AFTER OCTOBER date strip beside the crate record. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3032,12 +3032,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "idowu",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "say": "The crate was not there. The old test kit was. But Hart's missing card has surfaced; Chen must test what her manual stop did to the rider load."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The new controller did not cause the October event. It came later and is still sealed. The three speed reports all used one test kit. Each ride now needs a test that does not use that kit.",
+    "segue": "But Hart's missing card has surfaced; Chen must test what her manual stop did to the rider load.",
     "stops": [
       {
         "group": "WORKSHOP",
@@ -3075,7 +3075,7 @@ export const MISSIONS = [
     "title": "The Card in Hart's Hand",
     "objective": "Use independent collision data to judge the effect of Hart's interruption.",
     "briefing": "",
-    "stake": "The old speed measurements are unreliable, so the bumper cars need an independent collision test. Calculate their motion after impact and the forces on a test rider. Compare the results with Hart's interrupted operating sequence to decide whether her action increased the danger.",
+    "stake": "9 days until the park review. A worn operator card lies beneath the padded-stop force trace. Today you decide what the padded stop proves about Hart's action.",
     "primer": [
       "Assign signs before adding momentum.",
       "Momentum can be conserved through a collision even when kinetic energy is not.",
@@ -3404,10 +3404,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence that proves an action does not automatically prove its effect or motive.",
     "card": {
-      "header": "9 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 7 - 9 DAYS UNTIL THE PARK REVIEW.",
       "title": "THE CARD IN HART'S HAND",
       "goNow": "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig.",
-      "body": "The old speed measurements are unreliable, so the bumper cars need an independent collision test. Calculate their motion after impact and the forces on a test rider. Compare the results with Hart's interrupted operating sequence to decide whether her action increased the danger.",
+      "body": "9 days until the park review. A worn operator card lies beneath the padded-stop force trace. Today you decide what the padded stop proves about Hart's action.",
       "objective": "Use independent collision data to judge the effect of Hart's interruption."
     },
     "beats": [
@@ -3417,7 +3417,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BUMPER"
         },
-        "world": "Chen taps the seat and floor sensors.",
+        "world": "A worn operator card lies beneath the padded-stop force trace.",
         "stage": {
           "wall": [
             {
@@ -3441,7 +3441,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The independent force trace posts BELOW TEST LIMIT.",
+        "world": "At car-on-stands, the dated accepted-result slip for Stop 25 reads: \"Submit +440 kg·m/s (right).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3464,7 +3464,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WORKSHOP"
         },
-        "world": "Hart places the card on the bench.",
+        "world": "At pavilion-board, the dated accepted-result slip for Stop 26 reads: \"Submit +0.88 m/s (right).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3488,7 +3488,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The interruption card is filed under ACTION VERIFIED / EFFECT NOT HARMFUL HERE.",
+        "world": "At dummy-rig, the dated accepted-result slip for Stop 27 reads: \"Commit 280 N; measure 291 N; both support a value below 350 N.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3510,7 +3510,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Pirate Ship timing trace unlocks for Mission 8.",
+        "world": "At casebook-table, Maya Hart places the recovered October card in the evidence sleeve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3522,13 +3522,13 @@ export const MISSIONS = [
         "panel": "MISSION 7 COMPLETE",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "hart",
+            "say": "I stopped it. Now we can show what that stop did. But Brennan's ship trace still sits near six seconds; it may explain why Hart stopped the test."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Hart did not raise the crash risk in the Bumper Car test. The long padded stop kept the mean force below the game limit. Her stop is real, but the card gives no reason. The Pirate Ship timing trace may show what she stopped.",
+    "segue": "But Brennan's ship trace still sits near six seconds; it may explain why Hart stopped the test.",
     "stops": [
       {
         "group": "BUMPER",
@@ -3566,7 +3566,7 @@ export const MISSIONS = [
     "title": "Six Seconds",
     "objective": "Determine the physical effect of Hart's pirate-ship override.",
     "briefing": "",
-    "stake": "Hart's interruption did not make the bumper-car collision more harmful, but its effect on the pirate ship is still unclear. Repeated pushes near the ship's natural swinging rhythm can make its motion grow. Test that timing and decide whether Hart caused the danger or interrupted it.",
+    "stake": "8 days until the park review. The drive ticks line up with the ship's free swing marks. Today you decide whether the drive timing made the swings grow.",
     "primer": [
       "Rider mass does not set the simple-pendulum period.",
       "Driving near the natural rhythm can add energy cycle after cycle.",
@@ -3870,10 +3870,10 @@ export const MISSIONS = [
     },
     "takeaway": "A disruptive action can be protective when it interrupts a growing physical instability.",
     "card": {
-      "header": "8 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 8 - 8 DAYS UNTIL THE PARK REVIEW.",
       "title": "SIX SECONDS",
       "goNow": "Go to the Pirate Ship console and meet Tunde Idowu, the controls engineer, at the timing trace.",
-      "body": "Hart's interruption did not make the bumper-car collision more harmful, but its effect on the pirate ship is still unclear. Repeated pushes near the ship's natural swinging rhythm can make its motion grow. Test that timing and decide whether Hart caused the danger or interrupted it.",
+      "body": "8 days until the park review. The drive ticks line up with the ship's free swing marks. Today you decide whether the drive timing made the swings grow.",
       "objective": "Determine the physical effect of Hart's pirate-ship override."
     },
     "beats": [
@@ -3883,7 +3883,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SHIP"
         },
-        "world": "The 6.15 s and 5.85 s traces appear together.",
+        "world": "The drive ticks line up with the ship's free swing marks.",
         "stage": {
           "wall": [
             {
@@ -3907,7 +3907,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Low-power amplitude rises near the programmed interval.",
+        "world": "At timing-trace, the dated accepted-result slip for Stop 29 reads: \"Submit 6.15 s; accept 6.10-6.20 s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3931,7 +3931,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "Hart's card moves from POSSIBLE CAUSE to PROTECTIVE OVERRIDE.",
+        "world": "At ship-console-board, the dated accepted-result slip for Stop 30 reads: \"Order model → substitute → solve → interpret; L≈9.39 m; mass cancels.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3955,7 +3955,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "Pirate Ship lights turn on; its control panel remains locked pending a new forbidden timing band.",
+        "world": "At drive-console, the dated accepted-result slip for Stop 31 reads: \"Choice 1 - change drive interval only, measure amplitude, restore and remeasure.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3977,7 +3977,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Arm-nine file appears at the Ferris Wheel.",
+        "world": "At timing-trace, Ruth Brennan pins the FORBIDDEN DRIVE BAND: 5.70 TO 6.30 S card to the trace. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3989,13 +3989,13 @@ export const MISSIONS = [
         "panel": "MISSION 8 COMPLETE",
         "bubbles": [
           {
-            "who": "idowu",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "brennan",
+            "say": "We had called it the usual rhythm. It was feeding the swing. Therefore Hart can clear the October accusation, but the mark on arm nine still needs an outside inspection."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to its free period, so each swing grew. The Bumper Car force stayed below its limit. The card now shows a safety act, not harm.",
+    "segue": "Therefore Hart can clear the October accusation, but the mark on arm nine still needs an outside inspection.",
     "stops": [
       {
         "group": "SHIP",
@@ -4031,7 +4031,7 @@ export const MISSIONS = [
     "title": "Arm Nine",
     "objective": "Set a defensible load-and-wind envelope for the Ferris Wheel.",
     "briefing": "",
-    "stake": "Hart stopped the growing swing, but a mark on one Ferris Wheel support arm still needs investigation. Uneven loads and wind can turn the wheel or strain its supports. Calculate those effects and decide whether the wheel can run with restrictions or must stay closed.",
+    "stake": "7 days until the park review. A barricade stays around arm nine beneath a chalked inspection mark. Today you decide which wheel limits still need an outside check.",
     "primer": [
       "Torque depends on force, angle, and lever arm.",
       "Equal forces at different radii do not produce equal torque.",
@@ -4339,10 +4339,10 @@ export const MISSIONS = [
     },
     "takeaway": "A load model can bound operation, but it cannot certify an unmeasured material condition.",
     "card": {
-      "header": "7 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 9 - 7 DAYS UNTIL THE PARK REVIEW.",
       "title": "ARM NINE",
       "goNow": "Go to the Ferris Wheel machine room and meet Luka Kovač, the mechanical lead, beside the arm-nine file.",
-      "body": "Hart stopped the growing swing, but a mark on one Ferris Wheel support arm still needs investigation. Uneven loads and wind can turn the wheel or strain its supports. Calculate those effects and decide whether the wheel can run with restrictions or must stay closed.",
+      "body": "7 days until the park review. A barricade stays around arm nine beneath a chalked inspection mark. Today you decide which wheel limits still need an outside check.",
       "objective": "Set a defensible load-and-wind envelope for the Ferris Wheel."
     },
     "beats": [
@@ -4352,7 +4352,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WHEEL"
         },
-        "world": "Kovač measures the indication instead of covering it.",
+        "world": "A barricade stays around arm nine beneath a chalked inspection mark.",
         "stage": {
           "wall": [
             {
@@ -4376,7 +4376,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Chen asks for the historical wind cases beside Brennan's load records.",
+        "world": "At hub-schedule, the dated accepted-result slip for Stop 33 reads: \"Submit -1.4 kN·m; accept within fictional ±2.0 kN·m tolerance.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4400,7 +4400,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Wind cases above the proposed envelope darken.",
+        "world": "At machine-room-board, the dated accepted-result slip for Stop 34 reads: \"Order torque → angular deceleration → stop time → stop angle; Δθ∝Iω₀²/τb.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4424,7 +4424,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "Wind and loading limits print; the crane barricade remains around arm nine.",
+        "world": "At bench-notebooks, the dated accepted-result slip for Stop 35 reads: \"Choice 2 - 8.0 m/s wind cap plus balanced loading and arm-nine inspection.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4446,7 +4446,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Coaster profile drawing becomes active.",
+        "world": "At arm-nine-file, Maya Hart clips the EXTERNAL INSPECTION REQUIRED card to the arm-nine sleeve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4458,13 +4458,13 @@ export const MISSIONS = [
         "panel": "MISSION 9 COMPLETE",
         "bubbles": [
           {
-            "who": "kova",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "hart",
+            "say": "Leave the barrier. A load model cannot inspect that mark. But Nair's coaster drawing has never faced the actual loop; one unresolved ride cannot borrow another's clearance."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The Ferris Wheel may run only after an outside check of arm nine. Its load must stay balanced, and wind must stay below 8.0 m/s. The model sets these limits but cannot clear the arm mark. The coaster is next.",
+    "segue": "But Nair's coaster drawing has never faced the actual loop; one unresolved ride cannot borrow another's clearance.",
     "stops": [
       {
         "group": "WHEEL",
@@ -4502,7 +4502,7 @@ export const MISSIONS = [
     "title": "The Loop on Paper",
     "objective": "Decide whether existing evidence supports a limited coaster measurement run.",
     "briefing": "",
-    "stake": "The roller coaster's approval rests on an old track drawing. At the top of its loop, the train needs enough speed to stay in contact with the rails. Compare the predicted speed, energy losses, and lift power before authorizing a measured test run.",
+    "stake": "Six days remain before review. An old track drawing lies beside a new speed gauge. Today you decide if one empty run can test the coaster model.",
     "primer": [
       "Use energy between locations and forces at one location.",
       "At the loop crown, gravity and any normal force point inward.",
@@ -4834,10 +4834,10 @@ export const MISSIONS = [
     },
     "takeaway": "Correct mathematics cannot certify an input that has not been physically verified.",
     "card": {
-      "header": "6 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 10 - 6 DAYS UNTIL THE PARK REVIEW.",
       "title": "THE LOOP ON PAPER",
       "goNow": "Go to the Coaster Station and meet Luka Kovač, the mechanical lead, at the 1974 profile drawing.",
-      "body": "The roller coaster's approval rests on an old track drawing. At the top of its loop, the train needs enough speed to stay in contact with the rails. Compare the predicted speed, energy losses, and lift power before authorizing a measured test run.",
+      "body": "Six days remain before review. An old track drawing lies beside a new speed gauge. Today you decide if one empty run can test the coaster model.",
       "objective": "Decide whether existing evidence supports a limited coaster measurement run."
     },
     "beats": [
@@ -4847,7 +4847,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COASTER"
         },
-        "world": "Kovač pins the 1974 profile beside the train.",
+        "world": "A taped-over track drawing rests beside the independent axle sensor.",
         "stage": {
           "wall": [
             {
@@ -4871,7 +4871,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Alternating residuals implicate the portable wheel bracket.",
+        "world": "At profile-drawing, the dated accepted-result slip for Stop 37 reads: \"Submit 10.84 m/s; accept 10.70-10.98 m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4894,7 +4894,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "PLANT"
         },
-        "world": "The door opens and the 55 kW motor plate illuminates.",
+        "world": "At station-board, the dated accepted-result slip for Stop 38 reads: \"Contact minimum 7.41 m/s; campaign-margin setting 8.41 m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4918,7 +4918,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "A limited empty-train run is authorized; passenger operation remains locked.",
+        "world": "At station-wheel, the dated accepted-result slip for Stop 39 reads: \"Select independent axle encoder; reject portable-wheel mean-only comparison.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4940,7 +4940,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The Flume header gauge begins diverging from its delivery record.",
+        "world": "At profile-drawing, Priya Nair pins the EMPTY TEST ONLY card over the passenger release line. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4952,13 +4952,13 @@ export const MISSIONS = [
         "panel": "MISSION 10 COMPLETE",
         "bubbles": [
           {
-            "who": "kova",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "nair",
+            "say": "No riders while the curve is still paper. But Ruiz's flume needs nearly the same shared power; the lift test cannot own the whole plant."
           }
         ]
       }
     ],
-    "segue": "Mission decision: One empty coaster run may test the old plan. The axle sensor will replace the portable wheel. The lift just fits the 55 kW plate. Riders are not cleared because the track shape has not been checked.",
+    "segue": "But Ruiz's flume needs nearly the same shared power; the lift test cannot own the whole plant.",
     "stops": [
       {
         "group": "COASTER",
@@ -4994,7 +4994,7 @@ export const MISSIONS = [
     "title": "Water Has a Budget",
     "objective": "Set a verified flume flow and power schedule.",
     "briefing": "",
-    "stake": "The water ride is delivering less water than its gauge predicts. Follow the water from intake to outlet and compare pressure, flow, and pump power. Use the arcade water cannon as a separate speed check, then decide what operating schedule the supply can support.",
+    "stake": "5 days until the park review. The flume header pulses beside the shared motor plate. Today you decide whether the flume fits its water and power budget.",
     "primer": [
       "Pressure depends on depth, not container width.",
       "A floating object's buoyant force equals its weight.",
@@ -5325,10 +5325,10 @@ export const MISSIONS = [
     },
     "takeaway": "A subsystem can meet its own requirement and still need a shared-resource schedule.",
     "card": {
-      "header": "5 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 11 - 5 DAYS UNTIL THE PARK REVIEW.",
       "title": "WATER HAS A BUDGET",
       "goNow": "Go to the Flume Pumphouse and meet Linh Chen, the instrumentation and test lead, at the header gauge.",
-      "body": "The water ride is delivering less water than its gauge predicts. Follow the water from intake to outlet and compare pressure, flow, and pump power. Use the arcade water cannon as a separate speed check, then decide what operating schedule the supply can support.",
+      "body": "5 days until the park review. The flume header pulses beside the shared motor plate. Today you decide whether the flume fits its water and power budget.",
       "objective": "Set a verified flume flow and power schedule."
     },
     "beats": [
@@ -5338,7 +5338,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "FLUME"
         },
-        "world": "Header and delivery indicators disagree.",
+        "world": "The flume header pulses beside the shared motor plate.",
         "stage": {
           "wall": [
             {
@@ -5362,7 +5362,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The required duty point posts.",
+        "world": "At header-gauge, the dated accepted-result slip for Stop 41 reads: \"Select first divergence station downstream_of_gate_valve.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5386,7 +5386,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "A schedule reserves 44.1 kW and forbids overlap with the coaster lift.",
+        "world": "At pumphouse-board, the dated accepted-result slip for Stop 42 reads: \"Submit 44.1 kW; accept 43.5-44.7 kW.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5409,7 +5409,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "ARCADE"
         },
-        "world": "The door opens; the stall cannon becomes an independent speed check.",
+        "world": "At motor-plate, the dated accepted-result slip for Stop 43 reads: \"Allocation {flume:44.1 kW, shutdown:5.0 kW, logging:3.0 kW, coaster:0 kW}.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5431,7 +5431,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Flume water begins circulating at restricted test flow; pump curve becomes visible.",
+        "world": "At pump-curve, Mateo Ruiz clips the 0.45 CUBIC METRES PER SECOND / 44.1 KW card to the pump curve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5443,13 +5443,13 @@ export const MISSIONS = [
         "panel": "MISSION 11 COMPLETE",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "ruiz",
+            "say": "The water fits. The shared power still needs a schedule. Therefore Chen must clear the rider-load tests while the lift stays off; the 55 kW supply cannot serve both demands."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate is clear. It cannot share power with the coaster lift test. Stop power must stay safe. The water arc backs the flow result.",
+    "segue": "Therefore Chen must clear the rider-load tests while the lift stays off; the 55 kW supply cannot serve both demands.",
     "stops": [
       {
         "group": "FLUME",
@@ -5485,7 +5485,7 @@ export const MISSIONS = [
     "title": "The Force a Rider Feels",
     "objective": "Verify the bumper-car and drop-tower rider-force limits.",
     "briefing": "",
-    "stake": "The water ride's supply is checked, but the bumper cars and drop tower still need final rider-force decisions. Compare how much each test dummy's motion changes and how quickly it stops. Decide whether the exact tested masses, restraints, and settings meet their force limits.",
+    "stake": "4 days until the park review. Two test dummies sit beside the signed parts list. Today you decide which tested setups meet the rider-load limits.",
     "primer": [
       "Momentum determines impulse; time shapes average force.",
       "Acceleration and apparent weight must use consistent directions.",
@@ -5831,10 +5831,10 @@ export const MISSIONS = [
     },
     "takeaway": "Certify the tested configuration, not a broader category suggested by an old record.",
     "card": {
-      "header": "4 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 12 - 4 DAYS UNTIL THE PARK REVIEW.",
       "title": "THE FORCE A RIDER FEELS",
       "goNow": "Go to the Bumper Car Pavilion and meet Linh Chen, the instrumentation and test lead, at the dummy rig.",
-      "body": "The water ride's supply is checked, but the bumper cars and drop tower still need final rider-force decisions. Compare how much each test dummy's motion changes and how quickly it stops. Decide whether the exact tested masses, restraints, and settings meet their force limits.",
+      "body": "4 days until the park review. Two test dummies sit beside the signed parts list. Today you decide which tested setups meet the rider-load limits.",
       "objective": "Verify the bumper-car and drop-tower rider-force limits."
     },
     "beats": [
@@ -5844,7 +5844,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BUMPER"
         },
-        "world": "Chen displays both average and peak force.",
+        "world": "Two test dummies sit beside the signed parts list.",
         "stage": {
           "wall": [
             {
@@ -5868,7 +5868,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The momentum result is sent to Drop Tower Control.",
+        "world": "At dummy-rig, the dated accepted-result slip for Stop 45 reads: \"Submit 61.6 kg·m/s; accept 60.4-62.8 kg·m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5892,7 +5892,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The 5.4 load-factor result survives uncertainty below 6.0.",
+        "world": "At brake-desk, the dated accepted-result slip for Stop 46 reads: \"Order motion evidence → momentum/kinematics → restraint force.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5916,7 +5916,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "Both configurations receive green test tags; restrictions remain printed beside them.",
+        "world": "At witness-sheet, the dated accepted-result slip for Stop 47 reads: \"Choice 1 - exact tested configuration remains below 6.0 over uncertainty.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5938,7 +5938,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The three rotating rides request a shared opening schedule.",
+        "world": "At witness-sheet, Linh Chen pins the TESTED CONFIGURATIONS ONLY clearance to the witness sheet. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5951,12 +5951,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "say": "These parts. These loads. These steps. That is what passed. But Hart has three moving rides asking for one reserve; separate passes do not make a park schedule."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Both tested ride setups meet the game force limits. The padded Bumper Car passes. The Drop Tower stays below 6.0 times weight across its test range. Only the tested loads, parts, sensors, and steps are cleared.",
+    "segue": "But Hart has three moving rides asking for one reserve; separate passes do not make a park schedule.",
     "stops": [
       {
         "group": "BUMPER",
@@ -5996,7 +5996,7 @@ export const MISSIONS = [
     "title": "One Park, Not Seven Machines",
     "objective": "Write one compatible operating plan for the three rotating rides.",
     "briefing": "",
-    "stake": "The individual ride tests pass, but the Carousel, Pirate Ship, and Ferris Wheel share power and staff. Running them together could break limits that each meets alone. Combine their requirements and choose operating settings and a schedule that remain safe together.",
+    "stake": "3 days until the park review. Three start requests hang under one 55 kW plate. Today you decide how the rides share power and stop reserve.",
     "primer": [
       "Rotational inertia depends on how mass is distributed.",
       "Two individually acceptable settings can conflict through shared resources.",
@@ -6276,10 +6276,10 @@ export const MISSIONS = [
     },
     "takeaway": "Individually safe machines may require a shared operating rule.",
     "card": {
-      "header": "3 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 13 - 3 DAYS UNTIL THE PARK REVIEW.",
       "title": "ONE PARK, NOT SEVEN MACHINES",
       "goNow": "Go to the Carousel Drive House and meet Tunde Idowu, the controls engineer, at the drive panel.",
-      "body": "The individual ride tests pass, but the Carousel, Pirate Ship, and Ferris Wheel share power and staff. Running them together could break limits that each meets alone. Combine their requirements and choose operating settings and a schedule that remain safe together.",
+      "body": "3 days until the park review. Three start requests hang under one 55 kW plate. Today you decide how the rides share power and stop reserve.",
       "objective": "Write one compatible operating plan for the three rotating rides."
     },
     "beats": [
@@ -6289,7 +6289,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "CAROUSEL"
         },
-        "world": "Idowu shows two settings that fit chair angle alone.",
+        "world": "Three start requests hang under one 55 kW plate.",
         "stage": {
           "wall": [
             {
@@ -6313,7 +6313,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The forbidden 5.70-6.30 s band appears; move to the Wheel after the timing plan is fixed.",
+        "world": "At joint-setting-board, the dated accepted-result slip for Stop 49 reads: \"Submit numerical pair (5.0 m, 4.0 m/s).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6337,7 +6337,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Rotational stopping demand posts beside the wind envelope.",
+        "world": "At machine-room-board, the dated accepted-result slip for Stop 50 reads: \"Order mass distribution → rotational inertia → angular momentum/energy → brake demand.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6361,7 +6361,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Shared capacity is allocated with shutdown reserve protected.",
+        "world": "At wheel-case-stand, the dated accepted-result slip for Stop 51 reads: \"Allocation: run Carousel and Pirate Ship; reserve Ferris Wheel for next block; protect shutdown reserve.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6383,7 +6383,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Three operating cards print and the corresponding midway lights switch on.",
+        "world": "At motor-plate, Maya Hart pins the joint operating schedule beneath the motor plate. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6395,13 +6395,13 @@ export const MISSIONS = [
         "panel": "MISSION 13 COMPLETE",
         "bubbles": [
           {
-            "who": "idowu",
-            "say": "Outstanding work. You solved the mission. Record exactly what this mission proved before we move on."
+            "who": "hart",
+            "say": "The reserve belongs to the stop before it belongs to a start. But Nair's new crown tape gives a different radius; the coaster's final margin must face the track itself."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The three rides need one shared work plan. Carousel speed stays below 4.20 m/s. Pirate Ship drive time stays outside 5.70 to 6.30 s. The wheel needs its check, wind below 8.0 m/s, and saved stop power.",
+    "segue": "But Nair's new crown tape gives a different radius; the coaster's final margin must face the track itself.",
     "stops": [
       {
         "group": "CAROUSEL",
@@ -6437,7 +6437,7 @@ export const MISSIONS = [
     "title": "The Wrong Radius",
     "objective": "Test the coaster model against the physically measured loop radius.",
     "briefing": "",
-    "stake": "The coaster calculation predicts enough speed, but it still relies on a drawing rather than the newly measured track. Record the prediction before revealing that measurement. Recalculate if necessary and decide whether the real loop leaves enough safety margin for the train.",
+    "stake": "2 days until the park review. The crown tape lies across a drawing whose curve no longer matches. Today you decide whether the real coaster loop has enough margin.",
     "primer": [
       "Freeze predictions before revealing holdout measurements.",
       "Recalculate from the physical machine when geometry disagrees with a drawing.",
@@ -6738,10 +6738,10 @@ export const MISSIONS = [
     },
     "takeaway": "Correct equations cannot rescue incorrect measured or assumed inputs.",
     "card": {
-      "header": "2 DAYS UNTIL COUNTY INSPECTION",
+      "header": "MISSION 14 - 2 DAYS UNTIL THE PARK REVIEW.",
       "title": "THE WRONG RADIUS",
       "goNow": "Go to the Coaster Station and meet Linh Chen, the instrumentation and test lead, at the profile drawing.",
-      "body": "The coaster calculation predicts enough speed, but it still relies on a drawing rather than the newly measured track. Record the prediction before revealing that measurement. Recalculate if necessary and decide whether the real loop leaves enough safety margin for the train.",
+      "body": "2 days until the park review. The crown tape lies across a drawing whose curve no longer matches. Today you decide whether the real coaster loop has enough margin.",
       "objective": "Test the coaster model against the physically measured loop radius."
     },
     "beats": [
@@ -6751,7 +6751,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COASTER"
         },
-        "world": "Chen covers the crown tape.",
+        "world": "The crown tape lies across a drawing whose curve no longer matches.",
         "stage": {
           "wall": [
             {
@@ -6775,7 +6775,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The 8.41 m/s requirement freezes.",
+        "world": "At profile-drawing, the dated accepted-result slip for Stop 53 reads: \"Commit requirement 8.41 m/s and provisional pass before radius unlock; reveal 7.4 m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6798,7 +6798,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "TOWER"
         },
-        "world": "Its direct geometry residuals remain unpatterned, establishing a comparison.",
+        "world": "At crown-tape, the dated accepted-result slip for Stop 54 reads: \"Real contact minimum 8.52 m/s; margin requirement 9.52 m/s; measured 9.40 m/s; fail by 0.12 m/s.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6821,7 +6821,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "FLUME"
         },
-        "world": "Direct depth and flow measurements also hold.",
+        "world": "At witness-sheet, the dated accepted-result slip for Stop 55 reads: \"Select Coaster: constant geometry residual +1.8 m; Tower and Flume unpatterned.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6845,7 +6845,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "Coaster certificate light turns red while the other six remain lit.",
+        "world": "At crown-tape, Priya Nair hangs a CLOSED: 9.40 M/S AVAILABLE / 9.52 M/S REQUIRED tag on the coaster release. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6857,13 +6857,13 @@ export const MISSIONS = [
         "panel": "MISSION 14 COMPLETE",
         "bubbles": [
           {
-            "who": "kova",
-            "say": "Outstanding work. You solved the mission. The equations did not fail. We measured the wrong ride on paper."
+            "who": "nair",
+            "say": "The calculation survived. The old drawing did not. Therefore Hart must sign tomorrow's opening with one ride dark; a full park is not worth a false certificate."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The coaster does not have enough loop margin. Its measured speed is 9.40 m/s, but the real loop needs 9.52 m/s. The math was right for the old plan. The plan used the wrong track shape, so the coaster stays shut.",
+    "segue": "Therefore Hart must sign tomorrow's opening with one ride dark; a full park is not worth a false certificate.",
     "stops": [
       {
         "group": "WORKSHOP",
@@ -6899,7 +6899,7 @@ export const MISSIONS = [
     "title": "The Name on the Certificate",
     "objective": "Sign seven defensible ride decisions and the shared operating plan.",
     "briefing": "",
-    "stake": "The coaster lacks its required safety margin, while six other rides have specific conditions for operation. Check every inspection, setting, and limit against the evidence. Spend the remaining work budget where it matters, then sign which rides can reopen and which must remain closed.",
+    "stake": "1 day until the park review. Families wait beyond a gate with seven unsigned ride rows. Today you decide which rides can reopen and which must stay shut.",
     "primer": [
       "No new major physics is introduced.",
       "Retrieve the correct model for each system and apply every binding condition.",
@@ -7154,10 +7154,10 @@ export const MISSIONS = [
     },
     "takeaway": "Good physics supports both approval and refusal by stating exactly what the evidence proves.",
     "card": {
-      "header": "COUNTY INSPECTION TOMORROW",
+      "header": "MISSION 15 - 1 DAY UNTIL THE PARK REVIEW.",
       "title": "THE NAME ON THE CERTIFICATE",
       "goNow": "Go to the Reopening Board and meet Maya Hart, the park operations lead, beside the seven blank ride decisions.",
-      "body": "The coaster lacks its required safety margin, while six other rides have specific conditions for operation. Check every inspection, setting, and limit against the evidence. Spend the remaining work budget where it matters, then sign which rides can reopen and which must remain closed.",
+      "body": "1 day until the park review. Families wait beyond a gate with seven unsigned ride rows. Today you decide which rides can reopen and which must stay shut.",
       "objective": "Sign seven defensible ride decisions and the shared operating plan."
     },
     "beats": [
@@ -7167,7 +7167,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "REOPENIN"
         },
-        "world": "Seven blank rows and the full Casebook appear.",
+        "world": "Families wait beyond a gate with seven unsigned ride rows.",
         "stage": {
           "wall": [
             {
@@ -7191,7 +7191,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Every clue receives one evidence label.",
+        "world": "At reopening-board, the dated accepted-result slip for Stop 57 reads: \"Submit one evidence label for every clue; preserve observations and replace unsupported interpretations.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -7214,7 +7214,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "WORKSHOP"
         },
-        "world": "The seven proposed decisions survive or fail their uncertainty ranges.",
+        "world": "At uncertainty-board, the dated accepted-result slip for Stop 58 reads: \"Choice 2 - three open, three conditional, Coaster closed across uncertainty.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -7238,7 +7238,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The funded inspection confirms arm nine within the fictional acceptance condition; no work is wasted on the failed coaster geometry.",
+        "world": "At work-allocation-board, the dated accepted-result slip for Stop 59 reads: \"Submit allocation {arm inspection:30, independent verification:25, operating cards:20, protected reserve:25, other:0}.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -7262,7 +7262,7 @@ export const MISSIONS = [
             4
           ]
         },
-        "world": "The player attests seven decisions.",
+        "world": "At certificate-table, Maya Hart turns the front-gate key. The final scene follows the completion gate below.",
         "stage": {
           "wall": [
             {
@@ -7275,7 +7275,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "hart",
-            "say": "Outstanding work. You solved the mission. This evidence changes what we test next, not more than that."
+            "say": "You gave this park a future we can sign our names to. Therefore the six cleared sections can run within their cards while the coaster keeps its closure; Hart's signature names both."
           }
         ]
       },
@@ -7302,7 +7302,7 @@ export const MISSIONS = [
         ]
       }
     ],
-    "segue": "Mission decision: Open the Carousel, Bumper Cars, and Drop Tower. Open the Pirate Ship, Ferris Wheel, and Log Flume only with their written limits. Keep the coaster shut because its real loop fails the margin test. The park has seven sound choices. Hart signs the safety form.",
+    "segue": "Therefore the six cleared sections can run within their cards while the coaster keeps its closure; Hart's signature names both.",
     "stops": [
       {
         "group": "WORKSHOP",

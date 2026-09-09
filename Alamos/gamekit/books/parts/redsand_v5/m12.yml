@@ -1,17 +1,18 @@
 # ============================================================ MISSION 12
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Loop"
   card:
-    header: "4 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 12 - 4 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE LOOP"
     goNow: "Go to the Ice Cut and meet Mei-Ling Cho, the water and cryogenics engineer, beside the raw-brine sampler."
-    body: "The safer reactor plan depends on recycled water returning to equipment that splits it into hydrogen and oxygen using electricity. Less water is returning than expected. Follow it through treatment and production, then find the missing return and calculate the hydrogen lost next shift."
+    body: "4 work shifts remain before launch. An 80 kmol gap sits in the water-return column. Today you decide where the missing hydrogen budget went."
     objective: "Find the failed recycling step and restore the whole-plant hydrogen balance."
   objective: "Find the failed recycling step and restore the whole-plant hydrogen balance."
-  stake: "The safer reactor plan depends on recycled water returning to equipment that splits it into hydrogen and oxygen using electricity. Less water is returning than expected. Follow it through treatment and production, then find the missing return and calculate the hydrogen lost next shift."
+  stake: "4 work shifts remain before launch. An 80 kmol gap sits in the water-return column. Today you decide where the missing hydrogen budget went."
   takeaway: "System boundaries and storage timing can create apparent missing material."
-  segue: "Mission decision: The next shift is short because 80 kmol of water did not return to the power cell. The full-plant hydrogen count now closes. Water treatment fixes the return line. The plant can make both gases again. It still needs enough power for every key load."
+  segue: "But Abiola's final production shift shares power with heat and air; Demir must protect those loads before startup."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Electrolysis", def: "uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen."}
@@ -34,7 +35,7 @@
   - id: on-arrival-at-ice-cut
     # On arrival at Ice Cut | automatic | 
     on: { enter: true, at: CUT }
-    world: "The player stands beside the raw-brine intake while a whole-plant map leaves the recycle return line dark."
+    world: "An 80 kmol gap sits in the water-return column."
     panel: "MISSION 12 - THE LOOP"
     # unlocks: Stop 45 at the Ice Cut loop board.
     bubbles:
@@ -43,7 +44,7 @@
   - id: after-stop-45
     # After Stop 45 | Ice Cut chain board | automatic response
     on: { after: [1] }
-    world: "The material chain locks, and ELECTROLYSIS receives an EXTERNAL ENERGY marker."
+    world: "At process-map, the dated accepted-result slip for Stop 45 reads: \"Correct order; electrolysis is the driven link.\". The slip remains in that fixture's evidence holder."
     panel: "MOVE TO WATER PLANT."
     # unlocks: The Water Plant waypoint and Stop 46; Stop 47 unlocks immediately after Stop 46.
     bubbles:
@@ -52,7 +53,7 @@
   - id: after-stops-46-and-47
     # After Stops 46 and 47 | Water Plant | automatic treatment verification
     on: { after: [2, 3] }
-    world: "The selected treatments remove particles and harmful dissolved ions; the commanded neutralization dose lands inside the predicted pH band."
+    world: "At columns, the dated accepted-result slip for Stop 46 reads: \"Map suspended regolith to the particle filter, dissolved ions to ion exchange, excess acid to measured base neutralization, and useful dissolved CO2 to retention.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 48: CLOSE HYDROGEN OVER THE WHOLE PLANT"
     # unlocks: The Electrolysis Hall waypoint and Stop 48.
     bubbles:
@@ -61,7 +62,7 @@
   - id: after-stop-48
     # After Stop 48 | Electrolysis Hall | automatic deeper reveal
     on: { after: [4] }
-    world: "The whole-plant ledger exposes water held or lost before the next shift, making the following hydrogen run short."
+    world: "At brinetank, the dated accepted-result slip for Stop 47 reads: \"initial H+ 0.00100 mol; OH- 0.000900 mol; excess H+ 0.000100 mol; total volume 0.1900 L; \\[H+\\]=5.26e-4 M; pH=3.28. Measured pH 3.30.\". The slip remains in that fixture's evidence holder."
     panel: "HYDROGEN DID NOT DISAPPEAR / RECYCLE WATER FAILED TO RETURN ON TIME."
     # unlocks: The Mission 12 outcome beat.
     bubbles:
@@ -70,14 +71,12 @@
   - id: at-mission-end
     # At mission end | Electrolysis Hall | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Cho reroutes recovered product water into the verified treatment-return line; Hydrogen and oxygen projections rise, then a dust-front warning drops available solar power."
+    world: "At stack-accounting-panel, Yusuf Demir clips the WATER RETURN: 80 KMOL RECOVERED entry into the stack ledger. The dated prop remains here on later visits."
     panel: "NEXT ROUTE - SOLAR ARRAY -\\> BATTERY GALLERY -\\> ELECTROLYSIS HALL."
     # unlocks: Mission 13 briefing and the Solar Array waypoint.
     bubbles:
-    - who: cho   # Cho
-      say: "Outstanding work. You solved the mission. The loop can close now."
-    - who: demir   # Demir
-      say: "If we can afford to run it. The dust front just cut the power budget."
+    - who: demir   # Yusuf Demir
+      say: "The water came back. Now we have to pay to split it. But Abiola's final production shift shares power with heat and air; Demir must protect those loads before startup."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -173,22 +172,15 @@
     # describes as the loop being "mistaken for an energy-free cycle".
     chain:
       links:
-        - id: mine
-          label: Ice and brine to Water Plant
-        - id: clean
-          label: Treatment to clean-water tank
-        - id: split
-          label: Electrolysis
-        - id: react
-          label: Sabatier reactor
-        - id: return
-          label: Condenser return
-      order:
-        - mine
-        - clean
-        - split
-        - react
-        - return
+      - { id: mine, label: "Ice and brine to Water Plant", transfers: "H2O plus dissolved material" }
+      - { id: clean, label: "Treatment to clean-water tank", transfers: "purified H2O" }
+      - { id: split, label: "Electrolysis", transfers: "2H2O -> 2H2 + O2; electrical energy enters" }
+      - { id: react, label: "Sabatier reactor", transfers: "CO2 + 4H2 -> CH4 + 2H2O" }
+      - { id: return, label: "Condenser return", transfers: "product H2O to recycle tank" }
+      order: [mine, clean, split, react, return]
+      governing: split
+      distractor: react
+      commit: "Name the governing transfer"
     question: "Build the closed material path and name the link that requires external energy."
     answerText: "Build ice/brine to clean water to electrolysis to Sabatier water return; electrolysis is the powered link."
     why: "Sabatier returns water, but electrolysis must spend electrical energy to split it. Recycle reduces fresh-water demand; it does not make the cycle energy-free."
@@ -228,20 +220,16 @@
     # CONVERTED from the payload below: the bible's contaminants on the left, its
     # treatments on the right, its keyed `mapping` as the permutation.
     scenarios:
-      - Suspended regolith fines
-      - Dissolved chloride and perchlorate ions
-      - Acidic recycle water with excess H+
-      - Dissolved CO2 intended for reactor feed
+    - "Suspended regolith fines"
+    - "Dissolved chloride and perchlorate ions"
+    - "Acidic recycle water with excess H+"
+    - "Dissolved CO2 intended for reactor feed"
     choices:
-      - Particle filter
-      - Ion-exchange column
-      - Measured base neutralization
-      - Do not spend polishing capacity solely on it
-    mapping:
-      - 0
-      - 1
-      - 2
-      - 3
+    - "Particle filter"
+    - "Ion-exchange column"
+    - "Measured base neutralization"
+    - "Do not spend polishing capacity solely on it"
+    mapping: [0, 1, 2, 3]
     answerText: "Filter solids, exchange dissolved ions, neutralize excess acid, and do not waste polishing capacity on useful CO2 feed."
     why: "Physical filters catch particles, not dissolved ions. Ion exchange targets charged solutes. Acid/base treatment is stoichiometric. Removing every measurable species is not automatically useful; treatment follows downstream consequence."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -281,23 +269,20 @@
     # ±0.05 said as a ratio. The dial range is the implementation's.
     verify:
       prediction:
-        min: NaN
-        max: NaN
-        step: NaN
-      action:
-        id: add_naoh
-        label: Add 90.0 mL of 0.0100 M NaOH
+        label: "Predicted pH after the addition"
+        unit: pH
+        min: 2.00
+        max: 5.00
+        step: 0.01
+      truth: 3.30
+      passRatio: [0.985, 1.015]
+      intervention:
+        label: "Add 90.0 mL of 0.0100 M NaOH"
+        note: "100.0 mL of 0.0100 M HCl in the tank; total volume 190.0 mL."
+        outcome: "Added and mixed."
       measurement:
-        label: the measurement
-        cost: 1
-      required_sequence:
-        - commit_prediction
-        - add_naoh
-        - measure_pH
-      truth: NaN
-      passRatio:
-        - 0.9
-        - 1.1
+        label: "pH meter reading"
+        note: "Resolution 0.02 pH units."
     question: "Predict final pH, command addition, then measure."
     answerText: "After neutralization, predict pH 3.28 and accept the measured pH 3.30."
     why: "Neutralization is a mole subtraction before a concentration or logarithm calculation. Equal molarities do not neutralize if volumes differ. The measurement agrees within instrument resolution."
@@ -339,52 +324,15 @@
     # NUMBER IS NOT THE BIBLE'S: it writes `tolerance: 0`, and the engine needs a
     # positive tolerance, so the closure is graded to half a kilomole.
     balance:
-      target:
-        label: Whole-plant hydrogen ledger
-        unit: kmol H2
+      total: { amount: 420, unit: "kmol H2", label: "Hydrogen available this shift" }
+      tolerance: 0.5
       streams:
-        - id: electrolysis
-          label: Electrolysis production
-          value: 400
-          side: available
-          count: true
-        - id: store_draw
-          label: Draw from storage
-          value: 20
-          side: available
-          count: true
-        - id: reactor_use
-          label: Reactor consumption
-          value: 360
-          side: use
-          count: true
-        - id: vents
-          label: Measured vents
-          value: 4
-          side: use
-          count: true
-        - id: line_fill
-          label: Increase in line inventory
-          value: 6
-          side: use
-          count: true
-        - id: oxygen_coproduct
-          label: Electrolysis oxygen coproduct
-          value: 200
-          unit: kmol O2
-          side: other
-          count: false
-      closure:
-        available: 420
-        uses: 370
-        reserve: 50
-        tolerance: 0
-      next_shift:
-        planned_h2: 480
-        actual_h2: 400
-        missing_return_water: 80
-        water_to_h2_ratio: 1:1 molar
-      correct_action: Close the current ledger, then identify an 80 kmol next-shift H2 deficit from missing return water.
+      - { id: reactor_use, label: "Reactor consumption", value: 360, unit: "kmol H2" }
+      - { id: vents, label: "Measured vents", value: 4, unit: "kmol H2" }
+      - { id: line_fill, label: "Increase in line inventory", value: 6, unit: "kmol H2" }
+      - { id: oxygen_coproduct, label: "Electrolysis oxygen coproduct", value: 200, unit: "kmol O2", countable: false }
+      - { id: reserve, label: "Left in reserve", value: 50, unit: "kmol H2", hidden: true }
+      commit: "Close the hydrogen ledger"
     question: "Reconcile produced hydrogen and inventory, then identify why next-shift production falls."
     answerText: "The current ledger closes with 50 kmol H2; missing 80 kmol return water causes an 80 kmol next-shift H2 deficit."
     why: "The \"missing hydrogen\" is a timing and boundary error. Each room closes locally while the return stream fails between shifts. Expand the system boundary and include storage/recycle."
@@ -407,4 +355,3 @@
     #     closure: {available: 420, uses: 370, reserve: 50, tolerance: 0}
     #     next_shift: {planned_h2: 480, actual_h2: 400, missing_return_water: 80, water_to_h2_ratio: "1:1 molar"}
     #     correct_action: "Close the current ledger, then identify an 80 kmol next-shift H2 deficit from missing return water."
-

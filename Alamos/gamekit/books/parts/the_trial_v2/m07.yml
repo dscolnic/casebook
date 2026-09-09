@@ -1,17 +1,18 @@
 # ============================================================ MISSION 7
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Missing Outcomes"
   card:
-    header: "DAY 7 - BOARD IN 9 DAYS"
+    header: "MISSION 7 - 9 DAYS UNTIL THE BOARD MEETS."
     title: "The Missing Outcomes"
     goNow: "Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the query map."
-    body: "Many patients have no recorded result at 30 days, especially those who travel farther to hospital. Their absence could change the apparent treatment benefit. Compare travel distance with recovery records and decide whether leaving out patients with missing results would give a misleading answer."
+    body: "9 days until the board meets. Unanswered query slips hang at the ends of the longest cords. Today you decide how to recover outcomes from patients far away."
     objective: "Set the missing-data rule."
   objective: "Set the missing-data rule."
-  stake: "Many patients have no recorded result at 30 days, especially those who travel farther to hospital. Their absence could change the apparent treatment benefit. Compare travel distance with recovery records and decide whether leaving out patients with missing results would give a misleading answer."
+  stake: "9 days until the board meets. Unanswered query slips hang at the ends of the longest cords. Today you decide how to recover outcomes from patients far away."
   takeaway: "Residual patterns test model form."
-  segue: "Mission decision: Do not use only patients with complete records. Recover results by travel band. Delay grows with travel distance. One fast site changes the fitted line. The fix needs four more days of follow-up."
+  segue: "But Amina's recovered records point to a cold-room cohort; the next test must check the kits it received."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Scatterplot", def: "a graph of paired quantitative values."}
@@ -34,43 +35,48 @@
   - id: on-arrival-at-monitors-room
     # On arrival at Monitors' Room | query-map | automatic
     on: { enter: true, at: SITE }
-    world: "Arrival: MONITOR entry; query map visible; Eli says,; timer pauses; - After S1-S2: fitted line appears; waypoint TAKE MODEL ID L7 TO DATA; travel unlocks. - DATA arrival/after S3: residual candidates render; selected field remains; - Final: restored influence control; panel reads DISTANCE-LINKED; binder 7 fills; outcome unlocks."
+    world: "Unanswered query slips hang at the ends of the longest cords."
     panel: "MISSION 7: DESCRIBE THE RELATIONSHIP OPEN"
+    # unlocks: Unlock Stop 25 at query-map in Monitors' Room.
     bubbles:
     - who: navarro   # Eli Navarro
       say: "The missing rows have addresses"
   - id: after-stop-25
     # After Stop 25 | monitor-desk | automatic
     on: { after: [1] }
-    world: "The describe the relationship result remains visible while the build and read the line fixture lights."
+    world: "At query-map, the dated accepted-result slip for Stop 25 reads: \"Strong positive, roughly linear association with a high-leverage point. Use correlation only for two quantitative variables.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 25 RECORDED - STOP 26 OPEN"
+    # unlocks: Unlock Stop 26 at monitor-desk in the Monitors' Room.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Nice work. Use the Stop 25 result to settle build and read the line."
+      say: "That check holds. The distance-delay pattern is ready to become a quantitative prediction rule."
   - id: after-stop-26
     # After Stop 26 | deletion-diagnostic | automatic
     on: { after: [2] }
-    world: "The build and read the line result remains visible while the read the residual fixture lights."
+    world: "At monitor-desk, the dated accepted-result slip for Stop 26 reads: \"Each additional kilometer predicts.16 more day of delay. The -2-day intercept at 0 km is not meaningful here; do not extrapolate beyond observed distances.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    # unlocks: Unlock Stop 27 at deletion-diagnostic in Data Management.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Good thinking. Use the Stop 26 result to settle read the residual."
+      say: "That check holds. The fitted line needs a residual check before it is used to adjust patient follow-up comparisons."
   - id: after-stop-27
     # After Stop 27 | site-comparison-board | automatic
     on: { after: [3] }
-    world: "The read the residual result remains visible while the test the fast-site point fixture lights."
+    world: "At deletion-diagnostic, the dated accepted-result slip for Stop 27 reads: \"Choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    # unlocks: Unlock Stop 28 at site-comparison-board in the Monitors' Room.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Exactly right. Use the Stop 27 result to settle test the fast-site point."
+      say: "That check holds. The acceptable residual field leaves one distant fast site needing an influence test."
   - id: at-mission-end
     # At mission end | query-map | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At query-map, Eli Navarro pins the distance-band follow-up rota to the query map. The dated prop remains here on later visits."
     panel: "MISSION 7 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: navarro   # Eli Navarro
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "Give me the routes. I will make the calls. But Amina's recovered records point to a cold-room cohort; the next test must check the kits it received."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -301,17 +307,19 @@
     # wants the signed change between them, so 0.10 - 0.16 = -0.06 day/km.
     # The restore step is the engine's own behaviour and needs no field.
     control:
+      observable: { label: "Slope", unit: "day/km" }
       variables:
-        - id: fast_site
-          label: fast-site point
-        - id: residual_outlier
-          label: ordinary residual-outlier point
-        - id: display_scale
-          label: display scale
-      held:
-        - all other records
-        - least-squares method
+      - { id: fast_site, label: "fast-site point" }
+      - { id: residual_outlier, label: "ordinary residual-outlier point" }
+      - { id: display_scale, label: "display scale" }
+      held: ["all other records", "least-squares method"]
       truth: fast_site
+      baseline: 0.16
+      response: -0.06
+      noise: 0.005
+      changeVerb: "Remove"
+      run: "Refit the line"
+      commit: "Name the influential control"
     answerText: "Removal changes slope from.16 to.10, a large change, so the point is influential. Complete cases overrepresent nearby patients."
     why: "A substantial line change makes the point influential and blocks an unqualified complete-case analysis."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -322,4 +330,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   control:{candidates:[{id:"fast_site",label:"fast-site point"},{id:"residual_outlier",label:"ordinary residual-outlier point"},{id:"display_scale",label:"display scale"}],correct_control:"fast_site",baseline:{slope:0.16,unit:"day/km"},response:{slope:0.10,unit:"day/km"},noise_band:{value:0.005,unit:"day/km"},fixed:["all other records","least-squares method"],measure_when:"after each refit",restore:{required:true,slope:0.16,unit:"day/km",remeasure:true},correct_conclusion:"influential point",answerText:"Removing the fast-site point changes slope from 0.16 to 0.10 day/km, far beyond noise; restoration recovers 0.16."}
-

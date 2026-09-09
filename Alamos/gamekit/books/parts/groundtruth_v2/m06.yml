@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Count the Bank's Energy"
   card:
-    header: "10 DAYS;"
+    header: "MISSION 6 - 10 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "Count the Bank's Energy"
     goNow: "Impulse Hall, Elise Strand at bank stages."
-    body: "The pulse generator can imitate the storm, but its wiring changes before it fires. A wrong connection could change how much energy it releases. Check both wiring arrangements and their timing, then decide whether the crew can safely run a lower-energy test."
-    objective: "Bound bank energy and authorize or reject the test."
-  objective: "Bound bank energy and authorize or reject the test."
-  stake: "The pulse generator can imitate the storm, but its wiring changes before it fires. A wrong connection could change how much energy it releases. Check both wiring arrangements and their timing, then decide whether the crew can safely run a lower-energy test."
+    body: "10 days until the last storm window closes. The earthing stick rests on the bank while the stage lamps stay dark. Today you decide whether the reduced-energy bank test can run."
+    objective: "Bound bank energy and authorize or reject the test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Bound bank energy and authorize or reject the test. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "10 days until the last storm window closes. The earthing stick rests on the bank while the stage lamps stay dark. Today you decide whether the reduced-energy bank test can run."
   takeaway: "Authorize one reduced-energy firing at the 8 mm first-gap setting. ---"
-  segue: "Mission decision: Authorize one reduced-energy firing at the 8 mm first-gap setting. The bank stores 1.50 kJ. And the selected front protects the test sensors. The timing log shows stage 7 fires late, so the pulse may not be as uniform as the total energy suggests. Metric target 22:00."
+  segue: "But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-impulse-hall
     # On arrival at Impulse Hall | hall-board | automatic
     on: { enter: true, at: BANK }
-    world: "accepted BANK/bubble/earthing stick on/→S1; S2 correct/panel/gap 8 tagged/8 mm: rise 115 ns; breakdown 56 kV.→S3; S3 correct/panel/shield zone text/39.8 J/m³ AT FICTIONAL WET-AIR LIMIT→S4; S4 correct/nearby bubble/earth stick remains until authorization/→SHOT waypoint; enter SHOT/record update/piece6/STAGE 7: LATE FIRING FLAG→outcome."
+    world: "The earthing stick rests on the bank while the stage lamps stay dark."
     panel: "Elise Strand, impulse engineer: \"Count energy before this stick moves.\""
+    # unlocks: Unlock Stop 21 at hall-board in Impulse Hall.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Count energy before this stick moves."
   - id: after-stop-21
     # After Stop 21 | gap-row | automatic
     on: { after: [1] }
-    world: "The derive stored bank energy result remains visible while the sweep gap timing fixture lights."
+    world: "At hall-board, the dated accepted-result slip for Stop 21 reads: \"Twelve stages store 1.50 kJ. Integrating V dq gives ½CV² per stage.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    # unlocks: Unlock Stop 22 at gap-row in Impulse Hall.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 21 result to settle sweep gap timing."
+    - who: strand   # Elise Strand
+      say: "That check holds. The energy budget is fixed, leaving gap spacing as the next control on discharge timing."
   - id: after-stop-22
     # After Stop 22 | hall-board | automatic
     on: { after: [2] }
-    world: "The sweep gap timing result remains visible while the derive electric energy density fixture lights."
+    world: "At gap-row, the dated accepted-result slip for Stop 22 reads: \"Choose 8 mm. It is the inspected setting meeting rise-time and breakdown bounds.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    # unlocks: Unlock Stop 23 at hall-board in Impulse Hall.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 22 result to settle derive electric energy density."
+    - who: strand   # Elise Strand
+      say: "That check holds. The selected gap still needs a local field-energy check for the shield review."
   - id: after-stop-23
     # After Stop 23 | record-desk | automatic
     on: { after: [3] }
-    world: "The derive electric energy density result remains visible while the authorize the reduced shot fixture lights."
+    world: "At hall-board, the dated accepted-result slip for Stop 23 reads: \"u_E=39.84 J/m³. Energy density scales with field squared.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    # unlocks: Unlock Stop 24 at record-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 23 result to settle authorize the reduced shot."
+    - who: strand   # Elise Strand
+      say: "That check holds. Passing energy and timing calculations does not yet establish that the physical hall is ready."
   - id: at-mission-end
     # At mission end | hall-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At gap-row, Elise Strand pins the 1.50 KJ TEST RECORD beside the first-gap scale. The dated prop remains here on later visits."
     panel: "MISSION 6 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: strand   # Elise Strand
+      say: "The bank answered. Stage seven answered late. But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse."
 
   terms:
   - {name: "Marx bank", def: "capacitors charged in parallel and discharged in series."}

@@ -1,17 +1,18 @@
 # ============================================================ MISSION 14
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "FULL"
   card:
-    header: "2 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 14 - 2 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "FULL"
     goNow: "Go to the Tank Farm and meet Rosalind Achebe, the analytical and electrochemistry lead, beside the newest sample vial."
-    body: "The fuel displays read full and launch preparations have begun, but a separate sample may contain the wrong gas mixture. Check how each display gets its information and test the sample independently. Decide whether the fuel is safe to use or must be isolated and cleaned."
+    body: "2 work shifts remain before launch. A fresh vial stands beneath a gauge that still says FULL. Today you decide whether full Batch C is fit for flight."
     objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
   objective: "Determine whether the full tanks meet the campaign's fictional flight-quality limits."
-  stake: "The fuel displays read full and launch preparations have begun, but a separate sample may contain the wrong gas mixture. Check how each display gets its information and test the sample independently. Decide whether the fuel is safe to use or must be isolated and cleaned."
+  stake: "2 work shifts remain before launch. A fresh vial stands beneath a gauge that still says FULL. Today you decide whether full Batch C is fit for flight."
   takeaway: "\"Enough\" and \"safe to use\" are separate scientific claims."
-  segue: "Mission decision: Stop the launch clock and hold Batch C. Its mass and pressure pass, but the new test finds too little methane and too much carbon dioxide and water. The batch fails the rule set before the test. One shift remains to make clean fuel without bringing back the heat risk."
+  segue: "Therefore Abiola has one shift to clean the fuel and replace the loss; the old hot setting remains forbidden."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Specification", def: "a measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit."}
@@ -30,7 +31,7 @@
   - id: on-arrival-at-tank-farm
     # On arrival at Tank Farm | automatic | 
     on: { enter: true, at: TANKS }
-    world: "Giant METHANE FULL and OXYGEN FULL indicators dominate the tank wall while Batch C is outlined in amber."
+    world: "A fresh vial stands beneath a gauge that still says FULL."
     panel: "MISSION 14 - FULL"
     # unlocks: Stop 53 at the Tank Farm dependency view.
     bubbles:
@@ -39,7 +40,7 @@
   - id: after-stop-53
     # After Stop 53 | Tank Farm dependency view | automatic discovery
     on: { after: [1] }
-    world: "Estimated mass, online composition, control-room quality, and READY trace back to shared Standard C; the independent vial remains separate; The READY light changes from green to amber."
+    world: "At farm-gauges, the dated accepted-result slip for Stop 53 reads: \"Pressure is independently real, but mass and quality are partly model-derived; two green quality channels share Standard C. The vial is the only independent composition check.\". The slip remains in that fixture's evidence holder."
     panel: "RESULT RECORDED"
     # unlocks: The Assay Lab waypoint and Stops 54-55.
     bubbles:
@@ -48,7 +49,7 @@
   - id: after-stops-54-and-55
     # After Stops 54 and 55 | Assay Lab | automatic Twist 3
     on: { after: [2, 3] }
-    world: "The frozen certification model fails on unseen Batch C; Composition appears as 91.6% methane, 8.0% carbon dioxide, and 0.40% water."
+    world: "At spec-bench, the dated accepted-result slip for Stop 54 reads: \"Model fails; quarantine Batch C.\". The slip remains in that fixture's evidence holder."
     panel: "AMOUNT AT TARGET / COMPOSITION OUT OF SPECIFICATION."
     # unlocks: The Ascent Pad office waypoint and Stop 56.
     bubbles:
@@ -57,7 +58,7 @@
   - id: after-stop-56
     # After Stop 56 | Pad Office | automatic crisis result
     on: { after: [4] }
-    world: "The player commits methane, carbon-dioxide, water, pressure, and abort limits before two blind resamples are revealed; Both confirm Batch C fails composition."
+    world: "At assay-review-board, the dated accepted-result slip for Stop 55 reads: \"Purification breakthrough hidden by shared Standard C bias is the only diagnosis that fits the full panel.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 14 outcome beat.
     bubbles:
@@ -68,12 +69,12 @@
   - id: at-mission-end
     # At mission end | Pad Office | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Abiola deletes FULL from the readiness display and replaces it with AMOUNT and SPECIFICATION; AMOUNT turns green; SPECIFICATION stays red; Four recovery plans appear with one shift remaining."
+    world: "At assay-review-board, Rosalind Achebe hangs a BATCH C: HOLD tag over the loading release. The dated prop remains here on later visits."
     panel: "FINAL MISSION - GO / NO-GO."
     # unlocks: Mission 15 briefing and the Plant Control waypoint.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. One shift. Enough total propellant. Not enough certified methane. Bring me the plan that gets us home without asking the rocket to trust a lie."
+    - who: achebe   # Rosalind Achebe
+      say: "The gauge tells the truth about mass. It cannot tell us what that mass is. Therefore Abiola has one shift to clean the fuel and replace the loss; the old hot setting remains forbidden."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -168,36 +169,22 @@
     # a channel the bible routes through another channel is declared against the
     # resources that channel inherits.
     trace:
-      channels:
-        - id: pressure
-          label: Tank pressure
-          reading: 19.1 bar / PASS
-          depends: []
-        - id: mass
-          label: Estimated methane mass
-          reading: FULL
-          depends: []
-        - id: online_quality
-          label: Online composition
-          reading: 97.4% CH4 / PASS
-          depends: []
-        - id: control_quality
-          label: Control-room quality
-          reading: PASS
-          depends: []
-        - id: ready_light
-          label: LOAD READY
-          reading: GREEN
-          depends: []
-        - id: vial
-          label: Independent Batch C vial
-          reading: pending
-          depends: []
       resources:
-        - id: standard_c
-          label: standard_c
-      independent: []
+      - { id: standard_c, label: "Cold-end Standard C" }
+      - { id: standard_a, label: "Assay Lab Standard A" }
+      - { id: pressure_transducer, label: "Pressure transducer" }
+      - { id: molar_mass_model, label: "Molar-mass model" }
+      - { id: cold_end_analyzer, label: "Cold-end analyzer" }
       target: standard_c
+      channels:
+      - { id: pressure, label: "Tank pressure", reading: "19.1 bar / PASS", depends: [pressure_transducer] }
+      - { id: mass, label: "Estimated methane mass", reading: "FULL", depends: [pressure_transducer, molar_mass_model] }
+      - { id: online_quality, label: "Online composition", reading: "97.4% CH4 / PASS", depends: [cold_end_analyzer, standard_c] }
+      - { id: control_quality, label: "Control-room quality", reading: "PASS", depends: [cold_end_analyzer, standard_c] }
+      - { id: ready_light, label: "LOAD READY", reading: "GREEN", depends: [pressure_transducer, molar_mass_model, cold_end_analyzer, standard_c] }
+      - { id: vial, label: "Independent Batch C vial", reading: "pending", depends: [standard_a] }
+      independent: [pressure, vial]
+      commit: "Name the shared source"
     question: "Open dependencies and identify which readiness claims are independently supported."
     answerText: "Pressure is independent, but mass and quality are derived; the vial is the only independent composition check."
     why: "A full gauge can be true while methane purity is false. Derived numbers are useful, not independent."
@@ -312,32 +299,20 @@
     question: "Which explanation fits the amount, pressure, composition, dryer, and calibration readings?"
     # CONVERTED from the payload below. `state: quiet` is the engine's
     # `status: normal`, and the keyed `answer` becomes the candidate's label.
-    headline: FULL BY MASS IS NOT FLIGHT-READY BY COMPOSITION
+    headline: "FULL BY MASS IS NOT FLIGHT-READY BY COMPOSITION"
     readings:
-      - zone: tank
-        label: Pressure
-        value: 19.1 bar
-      - zone: tank
-        label: Total loaded mass
-        value: target reached
-      - zone: assay
-        label: Methane
-        value: 91.6%
-      - zone: assay
-        label: Carbon dioxide
-        value: 8.0%
-      - zone: assay
-        label: Water
-        value: 0.40%
-      - zone: cold_end
-        label: Drier differential pressure
-        value: high
+    - {zone: tank, label: "Pressure", value: "19.1 bar", status: normal}
+    - {zone: tank, label: "Total loaded mass", value: "target reached", status: normal}
+    - {zone: assay, label: "Methane", value: "91.6%", status: alarm}
+    - {zone: assay, label: "Carbon dioxide", value: "8.0%", status: alarm}
+    - {zone: assay, label: "Water", value: "0.40%", status: alarm}
+    - {zone: cold_end, label: "Drier differential pressure", value: "high", status: alarm}
     choices:
-      - Insufficient total propellant
-      - Tank leak
-      - Purification breakthrough hidden by shared calibration
-      - Reactor rate still too low
-    answer: Purification breakthrough hidden by shared calibration
+    - {id: low_amount, label: "Insufficient total propellant", mechanism: "Contradicted by loaded mass and pressure."}
+    - {id: leak, label: "Tank leak", mechanism: "Contradicted by stable mass and pressure."}
+    - {id: breakthrough, label: "Purification breakthrough hidden by shared calibration", mechanism: "Explains high CO2/H2O, drier load, and false quality pass."}
+    - {id: slow_rate, label: "Reactor rate still too low", mechanism: "Cannot create contaminants after collection."}
+    answer: "Purification breakthrough hidden by shared calibration"
     answerText: "Batch C is off specification because purification broke through and Standard C hid the contamination."
     why: "Contaminants add mass and pressure, so quantity signals pass. Drier/purification breakthrough sends CO2/water into product; biased Standard C hides it."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -434,4 +409,3 @@
         - at: T-6 h
           value: 98.1
           hoursLeft: 6
-

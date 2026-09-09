@@ -1,17 +1,18 @@
 # ============================================================ MISSION 5
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The First Round"
   card:
-    header: "11 DAYS TO CHANGEOVER"
+    header: "MISSION 5 - 11 DAYS UNTIL CHANGEOVER."
     title: "The First Round"
     goNow: "Go to PRICES and meet Rhea Dane, finance minister, at the spending board."
-    body: "Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall."
+    body: "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap."
     objective: "Calculate the spending and tax changes that target the measured gap."
   objective: "Calculate the spending and tax changes that target the measured gap."
-  stake: "Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall."
+  stake: "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Prepare an 8.7-billion purchase increase. And keep the supply-shock review. With a multiplier of 4, that package closes the 34.8-billion demand gap. It does not by itself fix rising input costs. The board must now place both forces on one model."
+  segue: "But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-prices
     # On arrival at PRICES | calculating-desk | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Calculate the spending and tax changes that target the measured gap. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "An unsigned spending order sits under a press deadline."
     panel: "Calculate the spending and tax changes that target the measured gap."
+    # unlocks: Unlock Stop 17 at calculating-desk in PRICES.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Start with split the next crown. We need evidence the next decision can use."
   - id: after-stop-17
     # After Stop 17 | calculating-desk | automatic
     on: { after: [1] }
-    world: "The split the next crown result remains visible while the build both multipliers fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 17 reads: \"0.25.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 17 RECORDED - STOP 18 OPEN"
+    # unlocks: Unlock Stop 18 at calculating-desk in PRICES.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Nice work. MPS is 0.25, so one quarter leaks from each round."
   - id: after-stop-18
     # After Stop 18 | calculating-desk | automatic
     on: { after: [2] }
-    world: "The build both multipliers result remains visible while the size the alternatives fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 18 reads: \"(4,−3).\". The slip remains in that fixture's evidence holder."
     panel: "PRICES → RATE"
+    # unlocks: Unlock Stop 19 at calculating-desk in PRICES.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Good thinking. The spending multiplier is 4; the tax multiplier is −3."
   - id: after-stop-19
     # After Stop 19 | policy-wall | automatic
     on: { after: [3] }
-    world: "The size the alternatives result remains visible while the choose the first-round plan fixture lights."
+    world: "At calculating-desk, the dated accepted-result slip for Stop 19 reads: \"(8.7,11.6) billion, ±0.1.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 19 RECORDED - STOP 20 OPEN"
+    # unlocks: Unlock Stop 20 at policy-wall in Rate Room.
     bubbles:
     - who: dane   # Rhea Dane
       say: "Exactly right. Close the gap with 8.7 billion in purchases or an 11.6-billion tax cut."
   - id: at-mission-end
     # At mission end | calculating-desk | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | RATE | automatic World state and dialogue: State: Page 5 signed; Stop the timer and keep the next unresolved consequence visible."
+    world: "At policy-wall, Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall. The dated prop remains here on later visits."
     panel: "MISSION 5 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: dane   # Rhea Dane
-      say: "Outstanding work. You solved the mission. You gave me a larger number and a slower announcement. Now prove the second test matters."
+      say: "I can fund demand. I cannot vote more fuel into the tank. But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order."
 
   terms:
   - {name: "Marginal propensity to consume (MPC)", def: "the fraction of an extra dollar of income consumed."}
@@ -300,37 +306,10 @@
     # `axis`, so that phrase carries as the label too. 65+35+45+80+25 = 250 against
     # 100, and the two decisive ones cost exactly 100.
     value:
-      budget:
-        amount: 100
-        unit: ""
-      decision: ""
+      budget: { amount: 100, unit: "plan points" }
       options:
-        - id: G8_7
-          label: ""
-          cost: 65
-          axis: targeted purchases
-          reveals: ""
-          decisive: true
-        - id: supply_review
-          label: ""
-          cost: 35
-          axis: independent shock test
-          reveals: ""
-          decisive: true
-        - id: G6
-          label: ""
-          cost: 45
-          axis: fast announcement
-          reveals: ""
-        - id: tax11_6
-          label: ""
-          cost: 80
-          axis: tax alternative
-          reveals: ""
-        - id: publicity
-          label: ""
-          cost: 25
-          axis: message
-          reveals: ""
-      commit: Commit the decision
-
+      - { id: G8_7, label: "targeted purchases", axis: "targeted purchases", cost: 65, decisive: true }
+      - { id: supply_review, label: "independent shock test", axis: "independent shock test", cost: 35, decisive: true }
+      - { id: G6, label: "fast announcement", axis: "fast announcement", cost: 45 }
+      - { id: tax11_6, label: "tax alternative", axis: "tax alternative", cost: 80 }
+      - { id: publicity, label: "message", axis: "message", cost: 25 }

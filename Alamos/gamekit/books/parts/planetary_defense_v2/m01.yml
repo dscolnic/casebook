@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Moving Point"
   card:
-    header: "IMPACT WINDOW: 11 DAYS"
+    header: "MISSION 1 - 264 HOURS TO THE PREDICTED ENCOUNTER."
     title: "THE MOVING POINT"
     goNow: "Go to the Coordination Office and meet Lena Ortiz, survey and discovery lead, at the scopeboard."
-    body: "A telescope has photographed a faint dot moving against the stars. It could be an asteroid, a satellite, or an image defect. Use planetary science to check the six pictures and decide whether this possible asteroid deserves more observing time before it disappears from view."
+    body: "264 hours to the predicted encounter. Four star fields lie on the board with one displaced dot. Today you decide whether the moving point earns more telescope time."
     objective: "Decide whether the moving point is a credible asteroid detection."
   objective: "Decide whether the moving point is a credible asteroid detection."
-  stake: "A telescope has photographed a faint dot moving against the stars. It could be an asteroid, a satellite, or an image defect. Use planetary science to check the six pictures and decide whether this possible asteroid deserves more observing time before it disappears from view."
+  stake: "264 hours to the predicted encounter. Four star fields lie on the board with one displaced dot. Today you decide whether the moving point earns more telescope time."
   takeaway: "Verify the moving object before inferring its orbit, size, or danger. ---"
-  segue: "Mission decision: Spend follow-up time on the alert. Four clean images show one point moving while the stars stay fixed. The range accepts a real object but does not yet claim an impact or a size. The orbit team now has to learn where it is going."
+  segue: "Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Astrometry", def: "precise measurement of an object's sky position and the time of that measurement."}
@@ -31,7 +31,7 @@
   - id: on-arrival-at-coordination-office
     # On arrival at Coordination Office | automatic | 
     on: { enter: true, at: OPS }
-    world: "Lena Ortiz, survey and discovery lead, drags a satellite trail away from the candidate and says, \"Show me the pixels before anyone shows me a probability.\" Timer pauses; Continue unlocks Stop 1."
+    world: "Four star fields lie on the board with one displaced dot."
     panel: "THE MOVING POINT / MISSION ACTIVE"
     # unlocks: Stop 1.
     bubbles:
@@ -40,7 +40,7 @@
   - id: after-stop-1
     # After Stop 1 | automatic | 
     on: { after: [1] }
-    world: "The scopeboard labels four frames CONSISTENT MOTION and one frame CONTAMINATED, NOT DISCARDED."
+    world: "At scopeboard, the dated accepted-result slip for Stop 1 reads: \"Smooth motion in four frames against fixed stars.\". The slip remains in that fixture's evidence holder."
     panel: "THE MOVING POINT / FIRST RESULT LOGGED"
     # unlocks: Stop 2.
     bubbles:
@@ -49,7 +49,7 @@
   - id: after-stop-2
     # After Stop 2 | automatic | 
     on: { after: [2] }
-    world: "The pipeline path lights from calibrated image to linked tracklet; the plate archive drawer opens."
+    world: "At archive-bench, the dated accepted-result slip for Stop 2 reads: \"Calibration → detection → linking → catalog/artifact comparison → alert.\". The slip remains in that fixture's evidence holder."
     panel: "THE MOVING POINT / EVIDENCE HANDOFF READY"
     # unlocks: Stop 3.
     bubbles:
@@ -58,7 +58,7 @@
   - id: after-stop-3
     # After Stop 3 | automatic | 
     on: { after: [3] }
-    world: "The detector map marks the hot pixel elsewhere; the 0.7 s timestamp offset receives a yellow CHECK tag."
+    world: "At review-desk, the dated accepted-result slip for Stop 3 reads: \"Candidate→moving source; line→satellite; fixed point→hot pixel; stars→good registration.\". The slip remains in that fixture's evidence holder."
     panel: "THE MOVING POINT / DECISION EVIDENCE READY"
     # unlocks: Stop 4.
     bubbles:
@@ -67,12 +67,12 @@
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
-    world: "Mira Chen, International NEO Response Director, moves the alert from AUTOMATED to HUMAN-VERIFIED and opens the Orbit Determination call."
+    world: "At scopeboard, Lena Ortiz pins the REAL MOVING OBJECT strip beneath the four images. The dated prop remains here on later visits."
     panel: "THE MOVING POINT / MISSION DECISION LOGGED"
     # unlocks: Mission 1 outcome, metric screen, concept review, and Mission 2 briefing.
     bubbles:
     - who: ortiz   # Lena Ortiz
-      say: "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+      say: "There it is. That is all we know yet. Therefore Malik must fit the six positions before dawn; a real dot still has no trusted destination."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

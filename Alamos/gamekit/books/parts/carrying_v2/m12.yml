@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Leak and Turbine Case"
   card:
-    header: "4 DAYS."
+    header: "MISSION 12 - 4 DAYS UNTIL THE VOTE."
     title: "THE LEAK AND TURBINE CASE"
     goNow: "Turbine Yard, Elias Shaw at gearbox-crate."
-    body: "The wind turbine needs eleven weeks of repairs, leaving a gap in the ferry's power supply. Gas captured from the landfill could help, but escaping methane adds pollution. Verify the repair time and gas supply, then choose reliable temporary power with defensible emissions."
+    body: "4 days until the vote. The gearbox crate holds a delivery slip with its date crossed out. Today you decide how to keep key services powered while parts are late."
     objective: "Lock a feasible low-emission power bridge."
   objective: "Lock a feasible low-emission power bridge."
-  stake: "The wind turbine needs eleven weeks of repairs, leaving a gap in the ferry's power supply. Gas captured from the landfill could help, but escaping methane adds pollution. Verify the repair time and gas supply, then choose reliable temporary power with defensible emissions."
+  stake: "4 days until the vote. The gearbox crate holds a delivery slip with its date crossed out. Today you decide how to keep key services powered while parts are late."
   takeaway: "Record the enforceable environmental condition in the mission log."
-  segue: "Mission decision: Use stored gas, fixed pipes, key loads, and cells until the wind gear arrives. The 180-kilowatt plan keeps water, school, homes, and food safe. Backup power is ready."
+  segue: "But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Greenhouse gas", def: "gas that absorbs outgoing heat."}
@@ -31,50 +31,55 @@
   - id: on-arrival-at-chapel-council-room
     # On arrival at Chapel Council Room | council-table | automatic
     on: { enter: true, at: CHAPEL }
-    world: "Arrival: The named specialist identifies the immediate obstruction; Continue."
+    world: "The gearbox crate holds a delivery slip with its date crossed out."
     panel: "MISSION 12: AUDIT THE GEARBOX SCHEDULE OPEN"
+    # unlocks: Unlock Stop 45 at council-table in Chapel Council Room.
     bubbles:
     - who: voss   # Mara Voss
       say: "Start with audit the gearbox schedule. We need evidence the next decision can use."
   - id: after-stop-45
     # After Stop 45 | gas-rack | automatic
     on: { after: [1] }
-    world: "First result: The result remains on its equipment panel and."
+    world: "At council-table, the dated accepted-result slip for Stop 45 reads: \"Wind is not firm power before the vote\". The slip remains in that fixture's evidence holder."
     panel: "STOP 45 RECORDED - STOP 46 OPEN"
+    # unlocks: Unlock Stop 46 at gas-rack in Tip and Sorting Yard.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Nice work. Use the Stop 45 result to settle verify methane capture."
+    - who: shaw   # Elias Shaw
+      say: "That check holds. The unavailable wind supply makes captured landfill gas a possible temporary power source."
   - id: after-stop-46
     # After Stop 46 | tip-lab-bench | automatic
     on: { after: [2] }
-    world: "Evidence-led travel: The second result names and activates the next destination; required dialogue pauses the timer."
+    world: "At gas-rack, the dated accepted-result slip for Stop 46 reads: \"Prediction 176 m3/day; measurements 170 m3/day and 18% leakage pass\". The slip remains in that fixture's evidence holder."
     panel: "STOP 46 RECORDED - STOP 47 OPEN"
+    # unlocks: Unlock Stop 47 at tip-lab-bench in Tip and Sorting Yard.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Good thinking. Use the Stop 46 result to settle diagnose the engine-room alarm."
+    - who: shaw   # Elias Shaw
+      say: "That check holds. Passing methane capture does not explain the backup engine room's continuing alarm."
   - id: after-stop-47
     # After Stop 47 | load-board | automatic
     on: { after: [3] }
-    world: "Synthesis: Stop 47 changes the persistent board and unlocks the decision stop."
+    world: "At tip-lab-bench, the dated accepted-result slip for Stop 47 reads: \"Incomplete combustion plus the stuck damper caused the CO alarm\". The slip remains in that fixture's evidence holder."
     panel: "STOP 47 RECORDED - STOP 48 OPEN"
+    # unlocks: Unlock Stop 48 at load-board in Waterworks.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Exactly right. Use the Stop 47 result to settle allocate firm power."
+    - who: shaw   # Elias Shaw
+      say: "That check holds. The exhaust repair makes the backup source usable, but protected loads must fit its limited output."
   - id: at-mission-end
     # At mission end | council-table | automatic
     on: { missionEnd: true }
-    world: "Decision and hook: Stop 48 applies the world change, triggers the outcome, and names the next mission problem."
+    world: "At load-board, Elias Shaw pins the 180 KW ESSENTIAL-LOAD PLAN to the load board. The dated prop remains here on later visits."
     panel: "MISSION 12 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: voss   # Mara Voss
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: shaw   # Elias Shaw
+      say: "The crate is late. The school lights do not get to be late. But Tomas has cargo waiting for the new berth; one unwashed deck could bring a pest the reef cannot afford."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Leak and Turbine Case. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Crate Is Late. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Leak and Turbine Case, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?"
+    - prompt: "In a follow-up to The Crate Is Late, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?"
       hint: "Use the stated evidence and the conditions for Greenhouse gas; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -82,7 +87,7 @@
       - {key: "B", text: "Gas that absorbs outgoing heat.", why: "Correct. gas that absorbs outgoing heat."}
       - {key: "C", text: "Time for half a radioactive sample to decay.", why: "This describes Half-life, not Greenhouse gas. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Power available steadily.", why: "This describes Base load, not Greenhouse gas. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Leak and Turbine Case: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?"
+    - prompt: "the island council receives a second case related to The Crate Is Late: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?"
       hint: "Use the stated evidence and the conditions for Global warming potential; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -90,7 +95,7 @@
       - {key: "B", text: "Time for half a radioactive sample to decay.", why: "This describes Half-life, not Global warming potential. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Heat trapped relative to carbon dioxide.", why: "Correct. heat trapped relative to carbon dioxide."}
       - {key: "D", text: "Power available steadily.", why: "This describes Base load, not Global warming potential. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Leak and Turbine Case using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?"
+    - prompt: "A teammate rechecks The Crate Is Late using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?"
       hint: "Use the stated evidence and the conditions for Half-life; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -98,7 +103,7 @@
       - {key: "B", text: "Heat trapped relative to carbon dioxide.", why: "This describes Global warming potential, not Half-life. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Power available steadily.", why: "This describes Base load, not Half-life. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Time for half a radioactive sample to decay.", why: "Correct. time for half a radioactive sample to decay."}
-    - prompt: "An unseen case extends The Leak and Turbine Case: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?"
+    - prompt: "An unseen case extends The Crate Is Late: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?"
       hint: "Use the stated evidence and the conditions for Base load; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -114,7 +119,7 @@
       - {key: "B", text: "Audit the gearbox schedule connects the measured environmental mechanism to the next island condition.", why: "Correct. audit the gearbox schedule connects the measured environmental mechanism to the next island condition."}
       - {key: "C", text: "Heat trapped relative to carbon dioxide.", why: "This describes Global warming potential, not feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Time for half a radioactive sample to decay.", why: "This describes Half-life, not feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Leak and Turbine Case to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?"
+    - prompt: "the island council applies the lesson from The Crate Is Late to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?"
       hint: "Use the stated evidence and the conditions for methane capture | causality | D7 | RETRIEVE | L4 | evidence; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -238,7 +243,7 @@
     title: "Diagnose the engine-room alarm"
     concept: 27   # engine-room air | atmosphere | D11 | RETRIEVE | L4 | reveal
     reason: "Passing methane capture does not explain the backup engine room's continuing alarm."
-    scene: "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "The collector meets methane limits, but the backup engine-room alarm persists. Diagnose it using both alarms and quiet readings."
     motivation: "The gas and ventilation diagnosis determines which combustion and exhaust faults must be repaired before operation."
     format: DIAGNOSIS
     question: "Choose among outdoor inversion, carbon monoxide from incomplete combustion, radon, and photochemical ozone using high CO, normal oxygen and NOx, no daylight, and a stuck exhaust damper"
@@ -277,7 +282,7 @@
     title: "Allocate firm power"
     concept: 26   # firm critical loads | energy | 12
     reason: "The exhaust repair makes the backup source usable, but protected loads must fit its limited output."
-    scene: "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services, and the team needs this result before it acts, and this result will guide the next safe decision."
+    scene: "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services."
     motivation: "The power allocation determines whether every essential service can be supplied without exceeding the firm generation available."
     format: ALLOCATE
     question: "Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25"

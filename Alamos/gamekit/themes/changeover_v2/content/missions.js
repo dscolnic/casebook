@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What Counts",
     "objective": "Separate useful economic measures from alarming but incomplete signals.",
     "briefing": "",
-    "stake": "People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude.",
+    "stake": "15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves.",
     "primer": [
       "A bowed PPC shows rising opportunity cost; a straight PPC shows constant cost.",
       "A point inside a PPC means resources are underused; better resources, technology, or productivity shift it outward.",
@@ -489,10 +489,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "15 DAYS TO CHANGEOVER",
+      "header": "MISSION 1 - 15 DAYS UNTIL CHANGEOVER.",
       "title": "What Counts",
       "goNow": "Go to COUNTER and meet Eli Voss, counter operations lead, at the queue board.",
-      "body": "People are lining up to exchange Halvern's old money, and officials fear a national shortage. A crowded square alone cannot tell them what is wrong. Use macroeconomics to compare the evidence and the staffing choices, then decide what the currency board can honestly conclude.",
+      "body": "15 days until changeover. A queue bends past a shop window with fresh price stickers. Today you decide what the line at the counter really proves.",
       "objective": "Separate useful economic measures from alarming but incomplete signals."
     },
     "beats": [
@@ -502,7 +502,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COUNTER"
         },
-        "world": "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate useful economic measures from alarming but incomplete signals. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A queue bends past a shop window with fresh price stickers.",
         "stage": {
           "wall": [
             {
@@ -526,7 +526,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The signal or statistic result remains visible while the counter tradeoff fixture lights.",
+        "world": "At queue-board, the dated accepted-result slip for Stop 1 reads: \"C. \"Count the nationwide transactions, date them, and state coverage.\"\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -550,7 +550,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The counter tradeoff result remains visible while the why did the street price rise? fixture lights.",
+        "world": "At allocation-slate, the dated accepted-result slip for Stop 2 reads: \"40 calls total, or 1 call per extra exchange. tolerance:0.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -574,7 +574,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The why did the street price rise? result remains visible while the page one standard fixture lights.",
+        "world": "At queue-board, the dated accepted-result slip for Stop 3 reads: \"Supply shifted left.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -587,7 +587,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "voss",
-            "say": "Exactly right. Use the Stop 3 result to settle page one standard."
+            "say": "That check holds. The street diagnosis is ready, but the first official record still contains an unsupported shortage claim."
           }
         ]
       },
@@ -596,7 +596,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | COUNTER | automatic World state and dialogue: Feedback: A conclusion is not backed because it sounds urgent; State: Page 1 signed; Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At queue-board, Eli Voss clips the dated national figures beside the queue tally. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -609,12 +609,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "voss",
-            "say": "Outstanding work. You solved the mission. We can shorten the line, but I will stop calling it a national shortage."
+            "say": "I can count the line. I cannot call it the whole country. But Idris finds trades that do not belong in the output total; the headline must wait for his ledger."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the national count, not the loudest queue. Real output is 700 billion RATE. Prices rose 2.5%. The board now needs the production gap.",
+    "segue": "But Idris finds trades that do not belong in the output total; the headline must wait for his ledger.",
     "stops": [
       {
         "group": "RATE",
@@ -654,7 +654,7 @@ export const MISSIONS = [
     "title": "Growth On Paper",
     "objective": "Build GDP correctly and separate nominal growth from real growth.",
     "briefing": "",
-    "stake": "A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish.",
+    "stake": "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed.",
     "deeper": {
       "intro": "You completed Growth On Paper. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -981,10 +981,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "14 DAYS TO CHANGEOVER",
+      "header": "MISSION 2 - 14 DAYS UNTIL CHANGEOVER.",
       "title": "Growth on Paper",
       "goNow": "Go to PRICES and meet Idris Pell, national accounts chief, at the output ledger.",
-      "body": "A new report says Halvern's economy is growing, but higher sales totals may simply mean higher prices. Check which purchases count as new production and separate price changes from changes in output. Decide which national production figure the currency board should publish.",
+      "body": "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed.",
       "objective": "Build GDP correctly and separate nominal growth from real growth."
     },
     "beats": [
@@ -994,7 +994,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "PRICES"
         },
-        "world": "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Build GDP correctly and separate nominal growth from real growth. Idris Pell points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A stock-sale slip sits in the same tray as factory orders.",
         "stage": {
           "wall": [
             {
@@ -1018,7 +1018,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The classify the ledger result remains visible while the close the output identity fixture lights.",
+        "world": "At output-ledger, the dated accepted-result slip for Stop 5 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1042,7 +1042,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The close the output identity result remains visible while the remove the price effect fixture lights.",
+        "world": "At calculating-desk, the dated accepted-result slip for Stop 6 reads: \"740 billion crowns, ±0.5.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1066,7 +1066,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The remove the price effect result remains visible while the publish the output line fixture lights.",
+        "world": "At price-history-board, the dated accepted-result slip for Stop 7 reads: \"685.2, ±0.2.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1088,7 +1088,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 2 signed; Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At output-ledger, Idris Pell stamps the corrected output sheet REAL OUTPUT: 685.2 BILLION. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1101,12 +1101,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "pell",
-            "say": "Outstanding work. You solved the mission. The report was not false. Its growth claim was."
+            "say": "The sum was right. Some of the rows were wrong. But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Publish real GDP of 685.2 billion base-year crowns with the nominal total shown only as context. Prices caused much of the apparent growth. The board corrects the headline. The next question is whether the street price jump is broad or built into the basket.",
+    "segue": "But Lina's basket costs more at the street stalls; families need to know which price measure fits their lives.",
     "stops": [
       {
         "group": "STATS",
@@ -1142,7 +1142,7 @@ export const MISSIONS = [
     "title": "The Basket",
     "objective": "Test whether the fixed basket represents current household costs.",
     "briefing": "",
-    "stake": "The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision.",
+    "stake": "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets.",
     "deeper": {
       "intro": "You completed The Basket. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -1412,10 +1412,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "13 DAYS TO CHANGEOVER",
+      "header": "MISSION 3 - 13 DAYS UNTIL CHANGEOVER.",
       "title": "The Basket",
       "goNow": "Go to PRICES and meet Lina Saye, price statistics lead, at the basket table.",
-      "body": "The official inflation figure may not reflect what families actually buy. It follows a fixed shopping list whose spending shares may be out of date. Recalculate the price changes and test different household purchases, then decide whether the published measure needs a companion measure or revision.",
+      "body": "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets.",
       "objective": "Test whether the fixed basket represents current household costs."
     },
     "beats": [
@@ -1425,7 +1425,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "PRICES"
         },
-        "world": "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Test whether the fixed basket represents current household costs. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "An old basket sits beside a family's crossed-out shopping list.",
         "stage": {
           "wall": [
             {
@@ -1449,7 +1449,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The price the fixed basket result remains visible while the calculate the printed inflation fixture lights.",
+        "world": "At basket-table, the dated accepted-result slip for Stop 9 reads: \"108 ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1473,7 +1473,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The calculate the printed inflation result remains visible while the does the basket represent families? fixture lights.",
+        "world": "At price-history-board, the dated accepted-result slip for Stop 10 reads: \"5.88%, ±0.05.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1497,7 +1497,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The does the basket represent families? result remains visible while the keep history and repair representation fixture lights.",
+        "world": "At basket-table, the dated accepted-result slip for Stop 11 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1519,7 +1519,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | PRICES | automatic World state and dialogue: State: Page 3 signed; port-energy clue logged; Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At price-history-board, Lina Saye pins the companion price measure beside the unchanged historical series. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1532,12 +1532,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "saye",
-            "say": "Outstanding work. You solved the mission. The arithmetic stays. The claim gets narrower."
+            "say": "Keep the old line. Put the change where people can see it. But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away."
           }
         ]
       }
     ],
-    "segue": "Mission decision: The gap is 34.8 billion RATE. Job data show weak demand. The fuel shock raised prices. Next, test how spending moves through the economy.",
+    "segue": "But Eli's job sheets show people who have stopped looking for work; the price story cannot explain that away.",
     "stops": [
       {
         "group": "STATS",
@@ -1577,7 +1577,7 @@ export const MISSIONS = [
     "title": "Jobs Behind The Number",
     "objective": "Diagnose labor-market weakness without losing excluded workers.",
     "briefing": "",
-    "stake": "Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning.",
+    "stake": "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action.",
     "deeper": {
       "intro": "You completed Jobs Behind The Number. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -1827,10 +1827,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "12 DAYS TO CHANGEOVER",
+      "header": "MISSION 4 - 12 DAYS UNTIL CHANGEOVER.",
       "title": "Jobs Behind the Number",
       "goNow": "Go to COUNTER and meet Eli Voss, counter operations lead, at the labor board.",
-      "body": "Fewer people are finding work while prices keep rising. Some have stopped looking and no longer appear in the official unemployment count. Rebuild the jobs picture and compare actual production with what Halvern could produce, then decide whether the country needs a recession warning.",
+      "body": "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action.",
       "objective": "Diagnose labor-market weakness without losing excluded workers."
     },
     "beats": [
@@ -1840,7 +1840,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COUNTER"
         },
-        "world": "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Diagnose labor-market weakness without losing excluded workers. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A job notice curls over an empty search card.",
         "stage": {
           "wall": [
             {
@@ -1864,7 +1864,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The rebuild the denominator result remains visible while the name the causes fixture lights.",
+        "world": "At wage-notice-rail, the dated accepted-result slip for Stop 13 reads: \"LF 10.0m and 8.0%, ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1888,7 +1888,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The name the causes result remains visible while the place the output gap fixture lights.",
+        "world": "At queue-board, the dated accepted-result slip for Stop 14 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1912,7 +1912,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The place the output gap result remains visible while the transition or warning fixture lights.",
+        "world": "At allocation-slate, the dated accepted-result slip for Stop 15 reads: \"−34.8 billion, recessionary, ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1934,7 +1934,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | COUNTER | automatic State: Page 4 signed; Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At wage-notice-rail, Eli Voss clips the participation warning to the wage rail. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1947,12 +1947,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "voss",
-            "say": "Outstanding work. You solved the mission. The line is not only a changeover line. Some people have stopped looking for work."
+            "say": "That blank card is a person the rate stopped counting. Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Treat the job data as a recession warning. The output gap is 34.8 billion. Job loss backs the need to act. The energy shock explains much of the price rise. Now test the new spending plan.",
+    "segue": "Therefore Rhea must price a spending plan for the 34.8-billion gap; calling this normal churn costs jobs.",
     "stops": [
       {
         "group": "STATS",
@@ -1990,7 +1990,7 @@ export const MISSIONS = [
     "title": "The First Round",
     "objective": "Calculate the spending and tax changes that target the measured gap.",
     "briefing": "",
-    "stake": "Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall.",
+    "stake": "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap.",
     "deeper": {
       "intro": "You completed The First Round. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -2236,10 +2236,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "11 DAYS TO CHANGEOVER",
+      "header": "MISSION 5 - 11 DAYS UNTIL CHANGEOVER.",
       "title": "The First Round",
       "goNow": "Go to PRICES and meet Rhea Dane, finance minister, at the spending board.",
-      "body": "Halvern is producing less than it could, and the proposed spending package may be too small to help enough. Money paid to one person can become spending at another business. Calculate those further effects and choose a tax or spending change that addresses the shortfall.",
+      "body": "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap.",
       "objective": "Calculate the spending and tax changes that target the measured gap."
     },
     "beats": [
@@ -2249,7 +2249,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "PRICES"
         },
-        "world": "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Calculate the spending and tax changes that target the measured gap. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "An unsigned spending order sits under a press deadline.",
         "stage": {
           "wall": [
             {
@@ -2273,7 +2273,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "The split the next crown result remains visible while the build both multipliers fixture lights.",
+        "world": "At calculating-desk, the dated accepted-result slip for Stop 17 reads: \"0.25.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2297,7 +2297,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "The build both multipliers result remains visible while the size the alternatives fixture lights.",
+        "world": "At calculating-desk, the dated accepted-result slip for Stop 18 reads: \"(4,−3).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2321,7 +2321,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The size the alternatives result remains visible while the choose the first-round plan fixture lights.",
+        "world": "At calculating-desk, the dated accepted-result slip for Stop 19 reads: \"(8.7,11.6) billion, ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2343,7 +2343,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | RATE | automatic World state and dialogue: State: Page 5 signed; Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At policy-wall, Rhea Dane pins the 8.7-BILLION PURCHASE OPTION to the policy wall. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2356,12 +2356,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "dane",
-            "say": "Outstanding work. You solved the mission. You gave me a larger number and a slower announcement. Now prove the second test matters."
+            "say": "I can fund demand. I cannot vote more fuel into the tank. But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Prepare an 8.7-billion purchase increase. And keep the supply-shock review. With a multiplier of 4, that package closes the 34.8-billion demand gap. It does not by itself fix rising input costs. The board must now place both forces on one model.",
+    "segue": "But Lina's fuel shock can still raise prices; Rhea cannot promise cheaper fuel with the same spending order.",
     "stops": [
       {
         "group": "RATE",
@@ -2399,7 +2399,7 @@ export const MISSIONS = [
     "title": "Two Shifts",
     "objective": "Separate weak demand from cost-push inflation.",
     "briefing": "",
-    "stake": "The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response.",
+    "stake": "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel.",
     "deeper": {
       "intro": "You completed Two Shifts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [
@@ -2874,10 +2874,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "10 DAYS",
+      "header": "MISSION 6 - 10 DAYS UNTIL CHANGEOVER.",
       "title": "Two Shifts",
       "goNow": "Go to PRICES and meet Lina Saye, price statistics lead, at the AD-AS wall.",
-      "body": "The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response.",
+      "body": "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel.",
       "objective": "Separate weak demand from cost-push inflation."
     },
     "beats": [
@@ -2887,7 +2887,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "PRICES"
         },
-        "world": "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate weak demand from cost-push inflation. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "Two red pins pull the wall's price and output tracks apart.",
         "stage": {
           "wall": [
             {
@@ -2911,7 +2911,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Lina Saye says,, and Stop 22 unlocks.",
+        "world": "At ad-as-wall, the dated accepted-result slip for Stop 21 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2935,7 +2935,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in PRICES → RATE only if the route requires travel, then.",
+        "world": "At ad-as-wall, the dated accepted-result slip for Stop 22 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2959,7 +2959,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 24 unlocks.",
+        "world": "At gap-calculator, the dated accepted-result slip for Stop 23 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2981,7 +2981,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At ad-as-wall, Rhea Dane pins the separate demand and supply responses to the model wall. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2993,13 +2993,13 @@ export const MISSIONS = [
         "panel": "MISSION 6 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "saye",
-            "say": "Outstanding work. You solved the mission. Use fiscal policy to close the demand gap, not to promise lower supply-driven prices."
+            "who": "dane",
+            "say": "One lever cannot undo both shifts. But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Aim policy at the weak demand gap. Treat the energy shock on its own. More spending can raise output and prices. It cannot fix a fuel supply shock. The claim of broad price abuse does not hold.",
+    "segue": "But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went.",
     "stops": [
       {
         "group": "RATE",
@@ -3039,7 +3039,7 @@ export const MISSIONS = [
     "title": "Money That Moved",
     "objective": "Trace old cash into deposits and lending capacity.",
     "briefing": "",
-    "stake": "Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently.",
+    "stake": "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply.",
     "deeper": {
       "intro": "You completed Money That Moved. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -3289,10 +3289,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "9 DAYS",
+      "header": "MISSION 7 - 9 DAYS UNTIL CHANGEOVER.",
       "title": "Money That Moved",
       "goNow": "Go to NOTES and meet Tomas Arendt, bank supervision lead, at the note scale.",
-      "body": "Sacks of old banknotes are returning to banks, making it look as though money is disappearing. But cash can become money in bank accounts. Follow the deposits and lending records, then decide whether Halvern has less money available or is holding it differently.",
+      "body": "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply.",
       "objective": "Trace old cash into deposits and lending capacity."
     },
     "beats": [
@@ -3302,7 +3302,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "NOTES"
         },
-        "world": "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Trace old cash into deposits and lending capacity. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "Old-crown bundles fill a tray beside deposit receipts.",
         "stage": {
           "wall": [
             {
@@ -3326,7 +3326,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Tomas Arendt says,, and Stop 26 unlocks.",
+        "world": "At note-scale, the dated accepted-result slip for Stop 25 reads: \"(300,500), ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3350,7 +3350,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS only if the route requires travel, then.",
+        "world": "At custody-desk, the dated accepted-result slip for Stop 26 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3374,7 +3374,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the BANKS decision fixture; The character asks for the promised mission decision, and Stop 28 unlocks.",
+        "world": "At balance-sheet-desk, the dated accepted-result slip for Stop 27 reads: \"(10b,8b,10,80b), ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3396,7 +3396,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At conversion-trays, Eli Voss seals the counted old-note bundle with its deposit receipt. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3408,13 +3408,13 @@ export const MISSIONS = [
         "panel": "MISSION 7 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "arendt",
-            "say": "Outstanding work. You solved the mission. The returns show migration from cash into deposits, not a money-stock contraction."
+            "who": "voss",
+            "say": "The notes came here. Their owners still have deposits. Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Returned notes moved into bank deposits. They did not vanish from the money supply. Banks still have spare reserves. Payments remain sound. The board must now set the real cost of loans.",
+    "segue": "Therefore Tomas must set the real cost of credit; full trays do not tell him what borrowers pay.",
     "stops": [
       {
         "group": "RATE",
@@ -3450,7 +3450,7 @@ export const MISSIONS = [
     "title": "The Rate People Feel",
     "objective": "Distinguish nominal and real rates before tightening.",
     "briefing": "",
-    "stake": "Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now.",
+    "stake": "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak.",
     "deeper": {
       "intro": "You completed The Rate People Feel. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -3780,10 +3780,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "8 DAYS",
+      "header": "MISSION 8 - 8 DAYS UNTIL CHANGEOVER.",
       "title": "The Rate People Feel",
       "goNow": "Go to BANKS and meet Tomas Arendt at the bond-and-money panel.",
-      "body": "Bank deposits are stable, but higher interest rates could make borrowing harder during the currency change. Rising prices also affect what borrowers really repay. Compare the stated rate with the cost after expected inflation, then decide whether a rate increase is justified now.",
+      "body": "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak.",
       "objective": "Distinguish nominal and real rates before tightening."
     },
     "beats": [
@@ -3793,7 +3793,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "BANKS"
         },
-        "world": "Arrival | BANKS | automatic after accepting the briefing World state and dialogue: The destination fixture displays Distinguish nominal and real rates before tightening. Tomas Arendt points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A loan quote waits beside the expected-price sheet.",
         "stage": {
           "wall": [
             {
@@ -3817,7 +3817,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Tomas Arendt says,, and Stop 30 unlocks.",
+        "world": "At money-market-console, the dated accepted-result slip for Stop 29 reads: \"A 30-billion money surplus causes bond buying, raises bond prices, and lowers the nominal rate from 5% to 4%.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3841,7 +3841,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in BANKS → RATE only if the route requires travel, then.",
+        "world": "At balance-sheet-desk, the dated accepted-result slip for Stop 30 reads: \"1.5%, +0.5 pp.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3865,7 +3865,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 32 unlocks.",
+        "world": "At policy-wall, the dated accepted-result slip for Stop 31 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3887,7 +3887,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At bond-panel, Tomas Arendt clips the HOLD RATE decision beneath the bond-price rail. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3900,12 +3900,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "arendt",
-            "say": "Outstanding work. You solved the mission. Do not raise now; the hike tightens real borrowing conditions in every tested case."
+            "say": "A high rate is not the same as a strong household. But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Do not raise rates now. The real rate is already 1.5%. And a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk.",
+    "segue": "But Nia's foreign bond orders arrive before the ink dries; the stronger currency brings a cost to exporters.",
     "stops": [
       {
         "group": "BANKS",
@@ -3943,7 +3943,7 @@ export const MISSIONS = [
     "title": "Two Accounts",
     "objective": "Connect balance of payments, exchange rates, and net exports.",
     "briefing": "",
-    "stake": "Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect.",
+    "stake": "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds.",
     "deeper": {
       "intro": "You completed Two Accounts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -4222,10 +4222,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "7 DAYS",
+      "header": "MISSION 9 - 7 DAYS UNTIL CHANGEOVER.",
       "title": "Two Accounts",
       "goNow": "Go to TRADE and meet Nia Corren, open-economy analyst, at the payment wires.",
-      "body": "Foreign investors are buying Halvern's bonds, raising demand for its new currency, RATE. That helps finance the country but may make its exports more expensive abroad. Follow the payments and trade effects, then decide what benefits and costs the board should expect.",
+      "body": "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds.",
       "objective": "Connect balance of payments, exchange rates, and net exports."
     },
     "beats": [
@@ -4235,7 +4235,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPENEC"
         },
-        "world": "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Connect balance of payments, exchange rates, and net exports. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A payment lamp lights while an export order is crossed out.",
         "stage": {
           "wall": [
             {
@@ -4259,7 +4259,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Nia Corren says,, and Stop 34 unlocks.",
+        "world": "At trade-ledger, the dated accepted-result slip for Stop 33 reads: \"The current account is -17 billion and the financial account is +17 billion, so the simplified balance closes at zero.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4283,7 +4283,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate RATE, then.",
+        "world": "At forex-console, the dated accepted-result slip for Stop 34 reads: \"Foreign bond demand raises demand for RATE, RATE appreciates, exports fall, imports rise, and net exports fall.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4307,7 +4307,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 36 unlocks.",
+        "world": "At forex-console, the dated accepted-result slip for Stop 35 reads: \"Raising the quote from 1.00 to 1.10 lowers exports from 90 to 84 billion and raises imports from 108 to 112 billion; restoring 1.00 restores the baseline.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4329,7 +4329,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At payment-wires, Nia Corren pins the paired financing and export-cost entries beside the payment wires. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4342,12 +4342,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "corren",
-            "say": "Outstanding work. You solved the mission. The inflow finances the current deficit and appreciates RATE, but lower NX partly offsets demand."
+            "say": "Both wires belong in the story. But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Do not call the cash inflow pure good news. It pays for the trade gap and lifts RATE. A stronger RATE cuts net exports. Export orders are now down. The output plan must change.",
+    "segue": "But Mara sees prices rise as orders fall; the board must test the short-run tradeoff before it tightens.",
     "stops": [
       {
         "group": "RATE",
@@ -4385,7 +4385,7 @@ export const MISSIONS = [
     "title": "The Temporary Tradeoff",
     "objective": "Separate a short-run shock from long-run inflation policy.",
     "briefing": "",
-    "stake": "A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy.",
+    "stake": "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy.",
     "deeper": {
       "intro": "You completed The Temporary Tradeoff. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -4747,10 +4747,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "6 DAYS",
+      "header": "MISSION 10 - 6 DAYS UNTIL CHANGEOVER.",
       "title": "The Temporary Tradeoff",
       "goNow": "Go to RATE and meet Mara Venn at the Phillips wall.",
-      "body": "A stronger currency is hurting exports while expensive energy keeps prices rising. The board is considering keeping borrowing costs high indefinitely. Compare the short-term disruption with the longer-term evidence, then decide whether today's price rise justifies that lasting policy.",
+      "body": "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy.",
       "objective": "Separate a short-run shock from long-run inflation policy."
     },
     "beats": [
@@ -4760,7 +4760,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "RATE"
         },
-        "world": "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate a short-run shock from long-run inflation policy. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "The long money-growth strip lies beneath today's fuel alert.",
         "stage": {
           "wall": [
             {
@@ -4784,7 +4784,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Mara Venn says,, and Stop 38 unlocks.",
+        "world": "At policy-wall, the dated accepted-result slip for Stop 37 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4808,7 +4808,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in RATE → PRICES only if the route requires travel, then.",
+        "world": "At gap-calculator, the dated accepted-result slip for Stop 38 reads: \"The quantity equation gives estimated long-run inflation of 2%.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4832,7 +4832,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the PRICES decision fixture; The character asks for the promised mission decision, and Stop 40 unlocks.",
+        "world": "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4854,7 +4854,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At price-history-board, Lina Saye pins the 2% LONG-RUN INFLATION estimate beside the shock record. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4866,13 +4866,13 @@ export const MISSIONS = [
         "panel": "MISSION 10 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "venn",
-            "say": "Outstanding work. You solved the mission. Do not justify permanent tightening from this temporary print; commit a reversible trigger."
+            "who": "saye",
+            "say": "A sharp rise today does not draw the whole future line. But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Do not tighten policy for a short price shock. New data support the supply-shock model. Slow money growth points to about 2% long-run inflation. Use set rules, not fear. Wage contracts will adjust later.",
+    "segue": "But Eli's wage contracts cannot reset for six weeks; self-correction may arrive after the families need help.",
     "stops": [
       {
         "group": "STATS",
@@ -4912,7 +4912,7 @@ export const MISSIONS = [
     "title": "Too Late By Itself",
     "objective": "Compare market adjustment with a temporary policy bridge.",
     "briefing": "",
-    "stake": "The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed.",
+    "stake": "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time.",
     "deeper": {
       "intro": "You completed Too Late By Itself. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -5158,10 +5158,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "5 DAYS",
+      "header": "MISSION 11 - 5 DAYS UNTIL CHANGEOVER.",
       "title": "Too Late by Itself",
       "goNow": "Go to COUNTER and meet Eli Voss at the wage notices.",
-      "body": "The currency launch is days away, but wages may take weeks to adjust to the downturn. Families cannot wait indefinitely for work and income to recover. Compare the timing of wage changes, taxes, and benefits, then decide whether temporary government support is needed.",
+      "body": "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time.",
       "objective": "Compare market adjustment with a temporary policy bridge."
     },
     "beats": [
@@ -5171,7 +5171,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COUNTER"
         },
-        "world": "Arrival | COUNTER | automatic after accepting the briefing World state and dialogue: The destination fixture displays Compare market adjustment with a temporary policy bridge. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A wage contract's six-week date extends past changeover day.",
         "stage": {
           "wall": [
             {
@@ -5195,7 +5195,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Eli Voss says,, and Stop 42 unlocks.",
+        "world": "At queue-board, the dated accepted-result slip for Stop 41 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5219,7 +5219,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in COUNTER → PRICES → RATE only if the route requires travel, then.",
+        "world": "At ad-as-wall, the dated accepted-result slip for Stop 42 reads: \"−7b ±0.1.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5243,7 +5243,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 44 unlocks.",
+        "world": "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5265,7 +5265,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At threshold-rail, Rhea Dane clips the temporary bridge and expiry rule onto the threshold rail. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5277,13 +5277,13 @@ export const MISSIONS = [
         "panel": "MISSION 11 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. Use a temporary bridge with a sunset review; self-correction alone is too slow."
+            "who": "dane",
+            "say": "Then write the end of the bridge before its first payment. But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Self-correction is too slow. Use automatic stabilizers and a short bridge for capital and training. End the plan when its trigger is met. Bank ledgers now show that 4.15 works only when reserves arrive on time.",
+    "segue": "But Tomas's reserve clock exposes a timing condition for 4.15; the conversion must work at the hour cash is due.",
     "stops": [
       {
         "group": "RATE",
@@ -5321,7 +5321,7 @@ export const MISSIONS = [
     "title": "4.15 On The Clock",
     "objective": "Certify the conversion ratio with cash, bank, and foreign-market evidence.",
     "briefing": "",
-    "stake": "The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments.",
+    "stake": "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time.",
     "deeper": {
       "intro": "You completed 4.15 On The Clock. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -5563,10 +5563,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "4 DAYS",
+      "header": "MISSION 12 - 4 DAYS UNTIL CHANGEOVER.",
       "title": "4.15 on the Clock",
       "goNow": "Go to NOTES and meet Eli Voss at the conversion trays.",
-      "body": "The currency change is ready for a full rehearsal: 4.15 old crowns must become one new RATE. Check account balances and whether banks receive the required cash reserves in time. Decide whether the exchange can proceed without leaving customers unable to make payments.",
+      "body": "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time.",
       "objective": "Certify the conversion ratio with cash, bank, and foreign-market evidence."
     },
     "beats": [
@@ -5576,7 +5576,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "NOTES"
         },
-        "world": "Arrival | NOTES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Certify the conversion ratio with cash, bank, and foreign-market evidence. Eli Voss points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "The reserve hands approach the payment mark from different sides.",
         "stage": {
           "wall": [
             {
@@ -5600,7 +5600,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Eli Voss says,, and Stop 46 unlocks.",
+        "world": "At conversion-trays, the dated accepted-result slip for Stop 45 reads: \"10,000 ±0.01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5624,7 +5624,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in NOTES → BANKS → TRADE only if the route requires travel, then.",
+        "world": "At reserve-clock, the dated accepted-result slip for Stop 46 reads: \"The bank needs 1,000 RATE and has exactly 1,000 RATE at minute 6, so the inclusive rule permits clearing then.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5648,7 +5648,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 48 unlocks.",
+        "world": "At payment-wires, the dated accepted-result slip for Stop 47 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5670,7 +5670,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At reserve-clock, Tomas Arendt pins the verified 4.15 timing strip beneath the reserve clock. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5682,13 +5682,13 @@ export const MISSIONS = [
         "panel": "MISSION 12 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. Approve 4.15 after replacing every 4.00 shortcut."
+            "who": "arendt",
+            "say": "The ratio passes only if the money arrives when the tray opens. But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the 4.15 exchange rate. Exact tray math, reserve timing, and customs data agree. The full test now works. Yet new state debt is pushing real rates up.",
+    "segue": "But Soren brings lost export orders and refused loans; the full deficit may crowd out the recovery twice.",
     "stops": [
       {
         "group": "RATE",
@@ -5726,7 +5726,7 @@ export const MISSIONS = [
     "title": "Crowded Out Twice",
     "objective": "Measure domestic and foreign crowding out.",
     "briefing": "",
-    "stake": "The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it.",
+    "stake": "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear.",
     "deeper": {
       "intro": "You completed Crowded Out Twice. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -6005,10 +6005,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "3 DAYS",
+      "header": "MISSION 13 - 3 DAYS UNTIL CHANGEOVER.",
       "title": "Crowded Out Twice",
       "goNow": "Go to RATE and meet Rhea Dane at the loanable-funds board.",
-      "body": "The rehearsal passed, but the government must borrow to pay for temporary support. That borrowing could leave businesses facing higher loan costs and exporters facing a stronger currency. Trace both effects and decide whether to keep the full support package or reduce it.",
+      "body": "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear.",
       "objective": "Measure domestic and foreign crowding out."
     },
     "beats": [
@@ -6018,7 +6018,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "RATE"
         },
-        "world": "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Measure domestic and foreign crowding out. Rhea Dane points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "Loan refusals and lost export orders share the spending folder.",
         "stage": {
           "wall": [
             {
@@ -6042,7 +6042,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Rhea Dane says,, and Stop 50 unlocks.",
+        "world": "At policy-wall, the dated accepted-result slip for Stop 49 reads: \"Adding 8.7 billion of borrowing raises the real rate by 0.6 percentage point and cuts private investment by 6 billion; restoration recovers the baseline.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6066,7 +6066,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate TRADE, then.",
+        "world": "At money-market-console, the dated accepted-result slip for Stop 50 reads: \"A deficit raises loan demand and the real rate, crowds out private investment, slows capital growth, and reduces long-run growth.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6090,7 +6090,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the TRADE decision fixture; The character asks for the promised mission decision, and Stop 52 unlocks.",
+        "world": "At payment-wires, the dated accepted-result slip for Stop 51 reads: \"Fiscal expansion raises real rates, draws in capital, appreciates RATE, lowers net exports, and offsets part of the aggregate-demand gain.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6112,7 +6112,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At policy-wall, Rhea Dane replaces the full bridge order with the smaller temporary plan. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6125,12 +6125,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "dane",
-            "say": "Outstanding work. You solved the mission. Keep the narrower bridge with training and port repair; reject the full debt plan."
+            "say": "That smaller order hurts to sign. The larger one would hurt twice. But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Replace the full bridge with a smaller short-term plan. The full deficit raises real rates. It cuts private investment and net exports. The new plan protects both people and future growth.",
+    "segue": "But Nia's port call brings a fresh fuel shock before launch; the first week needs its own cover.",
     "stops": [
       {
         "group": "BANKS",
@@ -6168,7 +6168,7 @@ export const MISSIONS = [
     "title": "First-Week Cover",
     "objective": "Protect launch without confusing a supply shock with a broken currency.",
     "briefing": "",
-    "stake": "An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week.",
+    "stake": "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help.",
     "deeper": {
       "intro": "You completed First-Week Cover. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -6547,10 +6547,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "2 DAYS",
+      "header": "MISSION 14 - 2 DAYS UNTIL CHANGEOVER.",
       "title": "First-Week Cover",
       "goNow": "Go to TRADE and meet Nia Corren at the port wire.",
-      "body": "An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week.",
+      "body": "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help.",
       "objective": "Protect launch without confusing a supply shock with a broken currency."
     },
     "beats": [
@@ -6560,7 +6560,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "OPENEC"
         },
-        "world": "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Protect launch without confusing a supply shock with a broken currency. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "A fuel bulletin lands beside a completed conversion test.",
         "stage": {
           "wall": [
             {
@@ -6584,7 +6584,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Nia Corren says,, and Stop 54 unlocks.",
+        "world": "At trade-ledger, the dated accepted-result slip for Stop 53 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6608,7 +6608,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in TRADE → PRICES → RATE only if the route requires travel, then.",
+        "world": "At price-history-board, the dated accepted-result slip for Stop 54 reads: \"The direct CPI effect is 2.4 percentage points; returning fuel to baseline returns the direct effect to zero.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6632,7 +6632,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 56 unlocks.",
+        "world": "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6654,7 +6654,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At threshold-rail, Mara Venn pins the first-week cover card beside the emergency triggers. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6666,13 +6666,13 @@ export const MISSIONS = [
         "panel": "MISSION 14 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "corren",
-            "say": "Outstanding work. You solved the mission. Proceed with cover; buy bonds only at the joint output/payment trigger and stop at the CPI limit."
+            "who": "venn",
+            "say": "Keep the date. Keep the promise to review the cost. Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Do not delay conversion. add temporary first-week cover. The fuel shock is real. But the 4.15 ratio and payments remain sound. The board posts joint action.",
+    "segue": "Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment.",
     "stops": [
       {
         "group": "RATE",
@@ -6710,7 +6710,7 @@ export const MISSIONS = [
     "title": "Sign With Conditions",
     "objective": "Make the final integrated, reversible macroeconomic decision.",
     "briefing": "",
-    "stake": "The first week's results are in, and the board must set the interest rate that households and businesses will face. Check production, prices, bank cash reserves, and foreign payments against your agreed rules. Sign the final rate decision and the conditions that would require it to change.",
+    "stake": "One day remains. New notes wait under a cloth at the shut counter. Today you decide whether to open with the signed rules.",
     "deeper": {
       "intro": "You completed Sign With Conditions. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -6979,10 +6979,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits.",
     "card": {
-      "header": "CHANGEOVER TOMORROW",
+      "header": "MISSION 15 - 1 DAY UNTIL CHANGEOVER.",
       "title": "Sign with Conditions",
       "goNow": "Go to COUNTER and meet Eli Voss at the live queue board.",
-      "body": "The first week's results are in, and the board must set the interest rate that households and businesses will face. Check production, prices, bank cash reserves, and foreign payments against your agreed rules. Sign the final rate decision and the conditions that would require it to change.",
+      "body": "One day remains. New notes wait under a cloth at the shut counter. Today you decide whether to open with the signed rules.",
       "objective": "Make the final integrated, reversible macroeconomic decision."
     },
     "beats": [
@@ -6992,7 +6992,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "COUNTER"
         },
-        "world": "Arrival | RATE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Make the final integrated, reversible macroeconomic decision. Mara Venn points to the first unresolved reading and asks the player to establish the first defensible result.",
+        "world": "New notes wait under a cloth behind the closed counter.",
         "stage": {
           "wall": [
             {
@@ -7016,7 +7016,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Keep this labeled result visible; Mara Venn says,, and Stop 58 unlocks.",
+        "world": "At live-economy-panel, the dated accepted-result slip for Stop 57 reads: \"−38b; no trigger.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -7040,7 +7040,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Copy the result to the Rate Book; Activate the next named room in RATE → BANKS → COUNTER only if the route requires travel, then.",
+        "world": "At reserve-clock, the dated accepted-result slip for Stop 58 reads: \"(1.00%,2b).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -7064,7 +7064,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Preserve this result on the COUNTER decision fixture; The character asks for the promised mission decision, and Stop 60 unlocks.",
+        "world": "At threshold-rail, the dated accepted-result slip for Stop 59 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -7086,7 +7086,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "Mission outcome and hook | COUNTER | automatic Stop the timer and keep the next unresolved consequence visible.",
+        "world": "At conversion-desk, Mara Venn turns the counter-opening key. The final scene follows the completion gate below.",
         "stage": {
           "wall": [
             {
@@ -7098,13 +7098,13 @@ export const MISSIONS = [
         "panel": "MISSION 15 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "voss",
-            "say": "Outstanding work. You solved the mission. The rate is not a promise that nothing will change. It is a promise that we know when we will."
+            "who": "venn",
+            "say": "You gave us conditions we can live by after the cameras leave. Therefore Eli can make the first exchange at 4.15 while the signed 3.25% policy rate and reversal rules stay on the wall."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Sign a 3.25% policy rate. And the 4.15 conversion with the posted conditions. The real rate is 1.00%, reserves stay positive. And neither emergency trigger has fired. Shops replace the last shortcut labels.",
+    "segue": "Therefore Eli can make the first exchange at 4.15 while the signed 3.25% policy rate and reversal rules stay on the wall.",
     "stops": [
       {
         "group": "STATS",

@@ -8,17 +8,15 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Corbin Park has been closed since a full-park test ended with three rides stopping past "
-    +   "their marked positions. In fifteen days, county inspectors return and the park either "
-    +   "earns a new safety certificate or loses the season. You are the ride engineer "
-    +   "responsible for using physics to rebuild the missing proof behind every operating limit. "
-    +   "Maya Hart, the park operations lead, hands you the keys and says, “Every family at that "
-    +   "gate is trusting us with someone they love: prove which rides are safe, set the limits "
-    +   "that protect them, and give Corbin Park a future.”",
+  "You are the ride engineer, which means you prove which rides can carry people again. At "
+    +   "Corbin Park, you will use physics to make the call. The inspectors return in fifteen "
+    +   "days. The park has been shut since the October test. Families need proof behind each "
+    +   "ride limit.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Open the Carousel, "
-    +   "Bumper Cars, and Drop Tower. The certificate is stronger because every claim now matches "
-    +   "the physics.",
+  "The wheel turns above the lit midway. The ship swings within its posted timing rule, and "
+    +   "the carousel music starts. Beyond the crowd, the coaster gate stays shut beneath its "
+    +   "measured closure card. Corbin Park is open, with every promise on the certificate still "
+    +   "visible.",
 ];

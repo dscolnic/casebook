@@ -1,17 +1,18 @@
 # ============================================================ MISSION 10
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Error Carried Into Volume"
   card:
-    header: "6 SHIFTS UNTIL THE STORM"
+    header: "MISSION 10 - 6 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Settle or Grow"
     goNow: "Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the weir bench."
-    body: "A broken cable explains the silent gauges, but water leaking through the dam still needs watching. Compare predictions of how that seepage changes under continued pressure. Decide how much water the reservoir can safely hold without the leakage becoming dangerous."
+    body: "6 work shifts remain before the storm. Drops strike the weir bucket at a slowing pace. Today you decide whether seepage stays inside its limit."
     objective: "Select the seepage model and approve or reject the load limit."
   objective: "Select the seepage model and approve or reject the load limit."
-  stake: "A broken cable explains the silent gauges, but water leaking through the dam still needs watching. Compare predictions of how that seepage changes under continued pressure. Decide how much water the reservoir can safely hold without the leakage becoming dangerous."
+  stake: "6 work shifts remain before the storm. Drops strike the weir bucket at a slowing pace. Today you decide whether seepage stays inside its limit."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Approve the wall seepage limit. The extra flow falls with time. It stays below 5.0 litres per minute in every sound case. The wall check passes. A new lake survey now tests the storage chart."
+  segue: "But Imani's new lake survey has less space than the old chart; the release plan may be short again."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-seepage-uplift-bay
     # On arrival at Seepage & Uplift Bay | weir-bench | automatic
     on: { enter: true, at: STRUCT }
-    world: "Arrival Location: STRUCT."
+    world: "Drops strike the weir bucket at a slowing pace."
     panel: "STRUCT"
+    # unlocks: Unlock Stop 37 at weir-bench in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
       say: "Start with separate the seepage equation. We need evidence the next decision can use."
   - id: after-stop-37
     # After Stop 37 | weir-bench | automatic
     on: { after: [1] }
-    world: "After 10.2 Location: STRUCT."
+    world: "At weir-bench, the dated accepted-result slip for Stop 37 reads: \"3.614, tolerance .005.\". The slip remains in that fixture's evidence holder."
     panel: "STRUCT"
+    # unlocks: Unlock Stop 38 at weir-bench in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Nice work. Use the Stop 37 result to settle select the model."
+      say: "That check holds. The seepage prediction has a measured time series available for an independent model check."
   - id: after-stop-38
     # After Stop 38 | drain-console | automatic
     on: { after: [2] }
-    world: "Travel Location: STRUCT->STORE."
+    world: "At weir-bench, the dated accepted-result slip for Stop 38 reads: \"decay.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 38 RECORDED - STOP 39 OPEN"
+    # unlocks: Unlock Stop 39 at drain-console in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Good thinking. Use the Stop 38 result to settle transfer to cooling."
+      say: "That check holds. The decay model needs comparison with a process whose limiting value is not zero."
   - id: after-stop-39
     # After Stop 39 | uplift-wall | automatic
     on: { after: [3] }
-    world: "The transfer to cooling result remains visible while the approve the carrying limit fixture lights."
+    world: "At drain-console, the dated accepted-result slip for Stop 39 reads: \"ambient sets limit.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
+    # unlocks: Unlock Stop 40 at uplift-wall in Seepage & Uplift Bay.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Exactly right. Use the Stop 39 result to settle approve the carrying limit."
+      say: "That check holds. The observed seepage decay still carries rate uncertainty that could change load approval."
   - id: at-mission-end
     # At mission end | weir-bench | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At weir-bench, Arun Mehta clips the BELOW 5.0 LITRES PER MINUTE clearance to the weir notebook. The dated prop remains here on later visits."
     panel: "MISSION 10 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: mehta   # Arun Mehta
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The flow is easing. The empty space still needs proof. But Imani's new lake survey has less space than the old chart; the release plan may be short again."
 
   terms:
   - {name: "Differential equation", def: "an equation involving a function and its rate."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Error Carried Into Volume. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Flow That Eases. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Error Carried Into Volume, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?"
+    - prompt: "In a follow-up to The Flow That Eases, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Differential equation; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -75,7 +81,7 @@
       - {key: "B", text: "An equation involving a function and its rate.", why: "Correct. an equation involving a function and its rate."}
       - {key: "C", text: "Limiting level in a logistic model.", why: "This describes Carrying capacity, not Differential equation. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.", why: "This describes separation/initial condition, not Differential equation. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Error Carried Into Volume: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?"
+    - prompt: "Ashfell Dam receives a second case related to The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Initial condition; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -83,7 +89,7 @@
       - {key: "B", text: "Limiting level in a logistic model.", why: "This describes Carrying capacity, not Initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "One known point selecting a particular solution.", why: "Correct. one known point selecting a particular solution."}
       - {key: "D", text: "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.", why: "This describes separation/initial condition, not Initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Error Carried Into Volume using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?"
+    - prompt: "A teammate rechecks The Flow That Eases using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Carrying capacity; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -91,7 +97,7 @@
       - {key: "B", text: "One known point selecting a particular solution.", why: "This describes Initial condition, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.", why: "This describes separation/initial condition, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Limiting level in a logistic model.", why: "Correct. limiting level in a logistic model."}
-    - prompt: "An unseen case extends The Error Carried Into Volume: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?"
+    - prompt: "An unseen case extends The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?"
       hint: "Use the stated evidence and the conditions for separation/initial condition; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +113,7 @@
       - {key: "B", text: "Ratios are near e^-0.3; values approach zero. The correct mechanism determines whether continued head makes the wall safer or worse.", why: "Correct. ratios are near e^-0.3; values approach zero. The correct mechanism determines whether continued head makes the wall safer or worse."}
       - {key: "C", text: "One known point selecting a particular solution.", why: "This describes Initial condition, not exponential/logistic/Newton models. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Limiting level in a logistic model.", why: "This describes Carrying capacity, not exponential/logistic/Newton models. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Error Carried Into Volume to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?"
+    - prompt: "Ashfell Dam applies the lesson from The Flow That Eases to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Newton cooling; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -218,22 +224,18 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   diagnosis:{headline:"seepage model",readings:[{zone:"t0",value:12},{zone:"t1",value:8.9},{zone:"t2",value:6.6},{zone:"t4",value:3.6}],choices:[{label:"S'= -0.30S",mechanism:"exponential decay to 0"},{label:"S'=0.30S",mechanism:"unbounded growth"},{label:"S'=0.03S(20-S)",mechanism:"logistic toward 20"},{label:"S'=-.3(S-5)",mechanism:"Newton-type approach to 5"}],answer:"S'= -0.30S"}
-    headline: seepage model
+    headline: "seepage model"
     readings:
-      - zone: t0
-        value: "12"
-      - zone: t1
-        value: "8.9"
-      - zone: t2
-        value: "6.6"
-      - zone: t4
-        value: "3.6"
+    - {zone: "t0", value: 12}
+    - {zone: "t1", value: 8.9}
+    - {zone: "t2", value: 6.6}
+    - {zone: "t4", value: 3.6}
     choices:
-      - S'= -0.30S
-      - S'=0.30S
-      - S'=0.03S(20-S)
-      - S'=-.3(S-5)
-    answer: S'= -0.30S
+    - {label: "S'= -0.30S", mechanism: "exponential decay to 0"}
+    - {label: "S'=0.30S", mechanism: "unbounded growth"}
+    - {label: "S'=0.03S(20-S)", mechanism: "logistic toward 20"}
+    - {label: "S'=-.3(S-5)", mechanism: "Newton-type approach to 5"}
+    answer: "S'= -0.30S"
 
   # --- Stop 39: Transfer to cooling
   #     Concept: Newton cooling; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: TRANSFER; Difficulty: L4; Story role: check.
@@ -259,13 +261,14 @@
     #   control:{candidates:[{id:"ambient"},{id:"k"},{id:"initial"}],correct_control:"ambient",baseline:20,response:25,noise_band:.2,measurements:[20,25,20],restore:true,correct_conclusion:"ambient sets equilibrium"}
     control:
       variables:
-        - id: ambient
-        - id: k
-        - id: initial
+      - {id: ambient, label: "ambient"}
+      - {id: k, label: "k"}
+      - {id: initial, label: "initial"}
       truth: ambient
       baseline: 20
-      response: 25
+      response: 5
       noise: 0.2
+      moral: "ambient sets equilibrium"
 
   # --- Stop 40: Approve the carrying limit
   #     Concept: logistic stability/parameter uncertainty; Keystone: Differential equations; Area: Seepage & Uplift Bay; Learning role: COMBINE; Difficulty: L5; Story role: decision.
@@ -326,4 +329,3 @@
         step: 0.01
       robust: robust_plan
       optimiseOn: evidence_fit
-

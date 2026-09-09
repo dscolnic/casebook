@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Point on the Skyline"
   card:
-    header: "12 DAYS TO FINAL STORM WINDOW"
+    header: "MISSION 4 - 12 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "The Point on the Skyline"
     goNow: "Go to Mast Base and meet Marcus Tate, mast engineer, at the mast desk."
-    body: "The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong."
-    objective: "Separate local mast-tip breakdown from the remote failure."
-  objective: "Separate local mast-tip breakdown from the remote failure."
-  stake: "The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong."
+    body: "12 days until the last storm window closes. The copper tip model catches light beside a trailer damage photo. Today you decide whether the mast tip explains the remote damage."
+    objective: "Separate local mast-tip breakdown from the remote failure. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Separate local mast-tip breakdown from the remote failure. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "12 days until the last storm window closes. The copper tip model catches light beside a trailer damage photo. Today you decide whether the mast tip explains the remote damage."
   takeaway: "Tip enhancement did not by itself cause the outstation loss. ---"
-  segue: "Mission decision: Tip enhancement did not by itself cause the outstation loss. It explains why the mast launches a discharge. But the trailer evidence requires a conducted or induced path. The search now moves from voltage to stored charge. **Metric:** target 18:00."
+  segue: "Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-mast-base
     # On arrival at Mast Base | mast-desk | automatic
     on: { enter: true, at: MAST }
-    world: "| trigger | location | presentation | world_state | exact dialogue/panel copy | unlocks | |---|---|---|---|---|---| | briefing accepted | MAST/mast-desk | nearby_character_bubble | corona icon pulses at tip; cabinet normal | | M4S1 | | S2 correct | MAST/mast-desk | equipment_panel_update | tip label 50× BODY FIELD | The enhancement is local to the sharp tip. | M4S3 | | S3 correct | MAST/cabinet | persistent_world_change | closed cabinet reads 0.00 kV/m - SHIELDED | A closed conductor cancels the static interior field. | M4S4 | | S4 correct | MAST/cabinet | nearby_character_bubble | trailer photo gains | outcome | | outcome closes | MAST/mast-desk | system_banner | report piece 4 fixed in SHOT board remotely | TIP EFFECT LOCAL - SEARCH FOR A PATH | metric screen, M5 |."
+    world: "The copper tip model catches light beside a trailer damage photo."
     panel: "Marcus Tate, mast engineer: \"The tip is meant to start a strike. Show me whether that can reach the trailer.\""
+    # unlocks: Unlock Stop 13 at mast-desk in Mast Base.
     bubbles:
     - who: tate   # Marcus Tate
       say: "The tip is meant to start a strike. Show me whether that can reach the trailer."
   - id: after-stop-13
     # After Stop 13 | mast-desk | automatic
     on: { after: [1] }
-    world: "The conductor boundary result remains visible while the derive tip enhancement fixture lights."
+    world: "At mast-desk, the dated accepted-result slip for Stop 13 reads: \"A conductor at equilibrium has E=0 inside; outside E is normal. Mobile charge moves until tangential/interior fields vanish.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    # unlocks: Unlock Stop 14 at mast-desk in Mast Base.
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Nice work. Use the Stop 13 result to settle derive tip enhancement."
+      say: "That check holds. The conductor boundary check leaves the mast's sharp tip as a possible field-concentration site."
   - id: after-stop-14
     # After Stop 14 | cabinet | automatic
     on: { after: [2] }
-    world: "The derive tip enhancement result remains visible while the verify static shielding fixture lights."
+    world: "At mast-desk, the dated accepted-result slip for Stop 14 reads: \"50 exact.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 14 RECORDED - STOP 15 OPEN"
+    # unlocks: Unlock Stop 15 at cabinet in Mast Base.
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Good thinking. Use the Stop 14 result to settle verify static shielding."
+      say: "That check holds. Tip enhancement does not establish whether the nearby equipment cabinet shields its interior."
   - id: after-stop-15
     # After Stop 15 | cabinet | automatic
     on: { after: [3] }
-    world: "The verify static shielding result remains visible while the diagnose the remote path fixture lights."
+    world: "At cabinet, the dated accepted-result slip for Stop 15 reads: \"Closed reading 0.00 kV/m confirms static shielding. Surface charge cancels interior E.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    # unlocks: Unlock Stop 16 at cabinet in Mast Base.
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Exactly right. Use the Stop 15 result to settle diagnose the remote path."
+      say: "That check holds. The shielding result makes the damaged cable card harder to explain as direct static-field exposure."
   - id: at-mission-end
     # At mission end | mast-desk | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At mast-desk, Marcus Tate pins the TIP EFFECT INCOMPLETE finding beside the mast drawing. The dated prop remains here on later visits."
     panel: "MISSION 4 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: tate   # Marcus Tate
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The tip chose the strike point. It did not choose that card. Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case."
 
   terms:
   - {name: "Conductor", def: "material whose mobile charge rearranges easily."}

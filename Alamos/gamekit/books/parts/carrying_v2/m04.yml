@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Aquifer Warning"
   card:
-    header: "12 DAYS TO THE FERRY VOTE"
+    header: "MISSION 4 - 12 DAYS UNTIL THE VOTE."
     title: "Salt Before Summer"
     goNow: "Go to Waterworks and meet Nkemdi Okafor, waterworks technician, at the store gauges."
-    body: "Salt appeared in a well before the busiest visitor season. Heavy pumping may have drawn seawater into the underground freshwater supply. Compare the rocks, water levels, and timing of the salt increase, then decide what caused the warning and when pumping should be restricted."
+    body: "12 days until the vote. The well needle sits below yesterday's chalk mark. Today you decide when pumping must stop."
     objective: "Diagnose the salt pathway and set an aquifer warning."
   objective: "Diagnose the salt pathway and set an aquifer warning."
-  stake: "Salt appeared in a well before the busiest visitor season. Heavy pumping may have drawn seawater into the underground freshwater supply. Compare the rocks, water levels, and timing of the salt increase, then decide what caused the warning and when pumping should be restricted."
+  stake: "12 days until the vote. The well needle sits below yesterday's chalk mark. Today you decide when pumping must stop."
   takeaway: "Thresholds should be committed before new evidence arrives. ---"
-  segue: "Mission decision: The well is salty because pumping lowered fresh water pressure. Seawater then moved into the aquifer. Stop pumping at 1.0 metre or less. Next, test if steady fish catch hides loss."
+  segue: "Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Porosity", def: "the fraction of material made of open space."}
@@ -30,50 +30,55 @@
   - id: on-arrival-at-waterworks
     # On arrival at Waterworks | rain-bench | automatic
     on: { enter: true, at: WATER }
-    world: "Arrival: Nkemdi sets the aquifer core beside the synchronized well log; Continue."
+    world: "The well needle sits below yesterday's chalk mark."
     panel: "MISSION 4: READ THE GROUND OPEN"
+    # unlocks: Unlock Stop 13 at rain-bench in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
       say: "Start with read the ground. We need evidence the next decision can use."
   - id: after-stop-13
     # After Stop 13 | store-gauges | automatic
     on: { after: [1] }
-    world: "After Stop 13: The O-A-E-B-C-R core labels remain visible and the well probe unlocks."
+    world: "At rain-bench, the dated accepted-result slip for Stop 13 reads: \"The six mappings establish a sandy, permeable coastal path above a clay-rich storage layer.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 13 RECORDED - STOP 14 OPEN"
+    # unlocks: Unlock Stop 14 at store-gauges in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Nice work. Use the Stop 13 result to settle probe the salt front."
+      say: "That check holds. The permeable coastal layer needs a well-by-well check before the chloride warning is diagnosed."
   - id: after-stop-14
     # After Stop 14 | store-gauges | automatic
     on: { after: [2] }
-    world: "After Stop 14: W3-W5 receive persistent SALT FRONT tags and the combined diagnostic panel unlocks."
+    world: "At store-gauges, the dated accepted-result slip for Stop 14 reads: \"The break begins at W3; chloride rises toward shore while nitrate stays near 4 mg/L and freshwater head falls.\". The slip remains in that fixture's evidence holder."
     panel: "SALT FRONT"
+    # unlocks: Unlock Stop 15 at store-gauges in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Good thinking. Use the Stop 14 result to settle diagnose the early warning."
+      say: "That check holds. The well survey has located the salt front but has not yet explained why it advanced."
   - id: after-stop-15
     # After Stop 15 | store-gauges | automatic
     on: { after: [3] }
-    world: "After Stop 15: The pump control flashes beside the falling-head record and unlocks the trigger."
+    world: "At store-gauges, the dated accepted-result slip for Stop 15 reads: \"Continuous pumping under low recharge lowered freshwater head and pulled seawater inland.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 15 RECORDED - STOP 16 OPEN"
+    # unlocks: Unlock Stop 16 at store-gauges in Waterworks.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Exactly right. Use the Stop 15 result to settle write the aquifer trigger."
+      say: "That check holds. The drawdown diagnosis requires an action rule before the next well update arrives."
   - id: at-mission-end
     # At mission end | rain-bench | automatic
     on: { missionEnd: true }
-    world: "Outcome and hook: The pump stops on the third update, the 1.0 m plaque remains, and the landings record becomes the next waypoint; Required bubbles pause until Continue."
+    world: "At store-gauges, Nkemdi Okafor marks the gauge with STOP PUMPING AT 1.0 M OR BELOW. The dated prop remains here on later visits."
     panel: "MISSION 4 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: okafor   # Nkemdi Okafor
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "The pump can keep running long after the well stops being fresh. Therefore Tomas must check the fishing limit too; a steady catch can hide a stock being worked harder."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Aquifer Warning. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Salt Before Summer. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Aquifer Warning, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?"
+    - prompt: "In a follow-up to Salt Before Summer, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?"
       hint: "Use the stated evidence and the conditions for Porosity; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -81,7 +86,7 @@
       - {key: "B", text: "The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.", why: "Correct. the fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change."}
       - {key: "C", text: "Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.", why: "This describes aquifer profile, not Porosity. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.", why: "This describes coupled groundwater evidence, not Porosity. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to The Aquifer Warning: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?"
+    - prompt: "the island council receives a second case related to Salt Before Summer: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?"
       hint: "Use the stated evidence and the conditions for soil horizons/weathering/texture; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -89,7 +94,7 @@
       - {key: "B", text: "Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.", why: "This describes aquifer profile, not soil horizons/weathering/texture. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Weathering creates particles; texture and horizons govern water movement.", why: "Correct. weathering creates particles; texture and horizons govern water movement."}
       - {key: "D", text: "Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.", why: "This describes coupled groundwater evidence, not soil horizons/weathering/texture. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks The Aquifer Warning using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "A teammate rechecks Salt Before Summer using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "D"
       figure: {"kind":"line","xLabel":"Distance inland (km)","yLabel":"Chloride (mg/L)","caption":"Chloride decreases with distance from the coast.","series":[{"name":"Chloride","points":[[0,620],[2,410],[4,240],[6,130],[8,75]]}]}
@@ -98,7 +103,7 @@
       - {key: "B", text: "Weathering creates particles; texture and horizons govern water movement.", why: "This describes soil horizons/weathering/texture, not aquifer profile. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.", why: "This describes coupled groundwater evidence, not aquifer profile. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.", why: "Correct. different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series."}
-    - prompt: "An unseen case extends The Aquifer Warning: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?"
+    - prompt: "An unseen case extends Salt Before Summer: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?"
       hint: "Use the stated evidence and the conditions for coupled groundwater evidence; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -115,7 +120,7 @@
       - {key: "B", text: "Freshwater pressure holds seawater back; waiting below 1.0 m advances the front.", why: "Correct. freshwater pressure holds seawater back; waiting below 1.0 m advances the front."}
       - {key: "C", text: "Weathering creates particles; texture and horizons govern water movement.", why: "This describes soil horizons/weathering/texture, not environmental thresholds. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.", why: "This describes aquifer profile, not environmental thresholds. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from The Aquifer Warning to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?"
+    - prompt: "the island council applies the lesson from Salt Before Summer to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?"
       hint: "Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:

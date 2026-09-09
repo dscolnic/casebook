@@ -7,18 +7,18 @@ export const MISSIONS = [
     "title": "The Rate-Limit Rule",
     "objective": "Decide whether the water-height forecast can be trusted.",
     "briefing": "",
-    "stake": "Yesterday's record shows the water behind the dam suddenly jumping higher, then dropping back. Did the water really change, or is one measurement wrong? Use calculus to check the readings and decide whether the crew can trust the forecast before letting water flow toward the towns below.",
+    "stake": "15 work shifts remain before the storm. One ink dot sits high above the rest of the water trace. Today you decide whether the odd water reading can be fixed.",
     "primer": [
       "Substitute first; if 0/0 appears, simplify before evaluating.",
       "Left and right limits must agree.",
       "A hole can be repaired only when the surrounding limit exists."
     ],
     "deeper": {
-      "intro": "You completed The Rate-Limit Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Broken Trace. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Rate-Limit Rule, the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. What does the limit represent in this situation?",
+          "prompt": "In a follow-up to The Broken Trace, the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. What does the limit represent in this situation?",
           "hint": "Use the stated evidence and the conditions for Limit; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -45,7 +45,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Rate-Limit Rule: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which condition or conclusion correctly determines continuity here?",
+          "prompt": "Ashfell Dam receives a second case related to The Broken Trace: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which condition or conclusion correctly determines continuity here?",
           "hint": "Use the stated evidence and the conditions for Continuous; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -72,7 +72,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Rate-Limit Rule using new evidence: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which option correctly carries out the required rational limit reasoning?",
+          "prompt": "A teammate rechecks The Broken Trace using new evidence: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which option correctly carries out the required rational limit reasoning?",
           "hint": "Use the stated evidence and the conditions for rational limit; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -99,7 +99,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Rate-Limit Rule: with the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. Which option correctly carries out the required radical limit reasoning?",
+          "prompt": "An unseen case extends The Broken Trace: with the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. Which option correctly carries out the required radical limit reasoning?",
           "hint": "Use the stated evidence and the conditions for radical limit; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -153,7 +153,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Rate-Limit Rule to this follow-up: the left and right traces now both approach 4.20 m, while the logger stores 4.68 m at 09:06. Which condition or conclusion correctly determines continuity here?",
+          "prompt": "Ashfell Dam applies the lesson from The Broken Trace to this follow-up: the left and right traces now both approach 4.20 m, while the logger stores 4.68 m at 09:06. Which condition or conclusion correctly determines continuity here?",
           "hint": "Use the stated evidence and the conditions for piecewise continuity/IVT/discontinuities; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -279,10 +279,10 @@ export const MISSIONS = [
     },
     "takeaway": "Use limits to repair removable holes and asymptotes to reject models with impossible breaks. ---",
     "card": {
-      "header": "15 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 1 - 15 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Did the Water Really Rise?",
       "goNow": "Go to Storage & Level Board and meet Mara Vale, operations chief, at the desk showing reservoir water levels.",
-      "body": "Yesterday's record shows the water behind the dam suddenly jumping higher, then dropping back. Did the water really change, or is one measurement wrong? Use calculus to check the readings and decide whether the crew can trust the forecast before letting water flow toward the towns below.",
+      "body": "15 work shifts remain before the storm. One ink dot sits high above the rest of the water trace. Today you decide whether the odd water reading can be fixed.",
       "objective": "Decide whether the water-height forecast can be trusted."
     },
     "beats": [
@@ -292,7 +292,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "STORE"
         },
-        "world": "The cancel the false zero fixture wakes and the mission evidence opens.",
+        "world": "One ink dot sits high above the rest of the water trace.",
         "stage": {
           "wall": [
             {
@@ -316,7 +316,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 1.2 Location: STORE.",
+        "world": "At storage-board, the dated accepted-result slip for Stop 1 reads: \"12 cm, exact.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -328,8 +328,8 @@ export const MISSIONS = [
         "panel": "STOP 1 RECORDED - STOP 2 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Nice work. Use the Stop 1 result to settle rationalize the float transform."
+            "who": "okoro",
+            "say": "That check holds. The height-limit check leaves a second possible fault in the float sensor's conversion rule."
           }
         ]
       },
@@ -340,7 +340,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After 1.3 Location: STORE.",
+        "world": "At level-desk, the dated accepted-result slip for Stop 2 reads: \"0.125, tolerance 0.0005.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -352,8 +352,8 @@ export const MISSIONS = [
         "panel": "STOP 2 RECORDED - STOP 3 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Good thinking. Use the Stop 2 result to classify the rival forecast's asymptotes."
+            "who": "okoro",
+            "say": "That check holds. The sensor checks are not enough to establish that the rival rainfall forecast behaves sensibly."
           }
         ]
       },
@@ -364,7 +364,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The forecast-break classification remains visible while the certify continuity fixture lights.",
+        "world": "At storage-board, the dated accepted-result slip for Stop 3 reads: \"vertical asymptotes at t=-2 and t=2; horizontal asymptote R=3 mm/h.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -376,8 +376,8 @@ export const MISSIONS = [
         "panel": "STOP 3 RECORDED - STOP 4 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Exactly right. Use the Stop 3 result to settle certify continuity."
+            "who": "okoro",
+            "say": "That check holds. The crew has enough nearby evidence to decide whether the logged spike requires abandoning the local forecast."
           }
         ]
       },
@@ -386,7 +386,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At level-desk, Imani Okoro circles the repaired point marked 4.20 M on the trace. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -398,13 +398,13 @@ export const MISSIONS = [
         "panel": "MISSION 1 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "okoro",
+            "say": "The bad dot is gone. The rising water is real. But Mara sees the line still climb on both sides; the next alarm must watch how fast it rises."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the repaired local forecast. Both sides approach 4.20 m, so the lone high point is a fixable hole. The crew restores that point. And keeps the surrounding rise. The rise is smooth,.",
+    "segue": "But Mara sees the line still climb on both sides; the next alarm must watch how fast it rises.",
     "stops": [
       {
         "group": "STORE",
@@ -440,18 +440,18 @@ export const MISSIONS = [
     "title": "The Rising-Fast Rule",
     "objective": "Set a defensible reservoir-rise alarm.",
     "briefing": "",
-    "stake": "The water behind the dam is still below the alarm line, but it is rising faster. Waiting for the old alarm could leave the crew too little time to act. Calculate how quickly the water is rising and choose an earlier warning.",
+    "stake": "14 work shifts remain before the storm. The next tick on the level chart runs above the ruler. Today you decide when a faster rise needs an alarm.",
     "primer": [
       "The derivative is a limit of average rates.",
       "Positive slope means increasing; negative slope means decreasing.",
       "A tangent line gives a nearby linear estimate."
     ],
     "deeper": {
-      "intro": "You completed The Rising-Fast Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Faster Than the Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Rising-Fast Rule, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?",
+          "prompt": "In a follow-up to Faster Than the Line, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?",
           "hint": "Use the stated evidence and the conditions for Derivative; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -478,7 +478,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Rising-Fast Rule: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to Faster Than the Line: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Tangent line; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -505,7 +505,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Rising-Fast Rule using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?",
+          "prompt": "A teammate rechecks Faster Than the Line using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?",
           "hint": "Use the stated evidence and the conditions for derivative definition; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -532,7 +532,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Rising-Fast Rule: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?",
+          "prompt": "An unseen case extends Faster Than the Line: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?",
           "hint": "Use the stated evidence and the conditions for power/trig/exp/chain; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -586,7 +586,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Rising-Fast Rule to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?",
+          "prompt": "Ashfell Dam applies the lesson from Faster Than the Line to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for tangent line/linear approximation; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -727,10 +727,10 @@ export const MISSIONS = [
     },
     "takeaway": "Linear approximation uses a value and local slope. ---",
     "card": {
-      "header": "14 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 2 - 14 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Faster Than the Gauge",
       "goNow": "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the trace bench.",
-      "body": "The water behind the dam is still below the alarm line, but it is rising faster. Waiting for the old alarm could leave the crew too little time to act. Calculate how quickly the water is rising and choose an earlier warning.",
+      "body": "14 work shifts remain before the storm. The next tick on the level chart runs above the ruler. Today you decide when a faster rise needs an alarm.",
       "objective": "Set a defensible reservoir-rise alarm."
     },
     "beats": [
@@ -740,7 +740,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "INFLOW"
         },
-        "world": "Arrival Location: INFLOW.",
+        "world": "The next tick on the level chart runs above the ruler.",
         "stage": {
           "wall": [
             {
@@ -764,7 +764,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 2.1 Location: INFLOW.",
+        "world": "At trace-bench, the dated accepted-result slip for Stop 5 reads: \"0.12 m/h, tolerance 0.001.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -776,8 +776,8 @@ export const MISSIONS = [
         "panel": "INFLOW",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Nice work. Use the Stop 5 result to settle differentiate the forecast signal."
+            "who": "vale",
+            "say": "That check holds. The reservoir rise rate is known, but the incoming storm flow may itself be accelerating."
           }
         ]
       },
@@ -788,7 +788,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After 2.2 Location: INFLOW.",
+        "world": "At gauge-wall, the dated accepted-result slip for Stop 6 reads: \"89.509 (m^3/s)/h, tolerance 0.01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -800,8 +800,8 @@ export const MISSIONS = [
         "panel": "INFLOW",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Good thinking. Use the Stop 6 result to settle protect the net-rise calculation."
+            "who": "vale",
+            "say": "That check holds. The changing inflow must now be combined with discharge without mixing rates and stored amounts."
           }
         ]
       },
@@ -812,7 +812,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The protect the net-rise calculation result remains visible while the set the tangent alarm fixture lights.",
+        "world": "At trace-bench, the dated accepted-result slip for Stop 7 reads: \"exact pair.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -824,8 +824,8 @@ export const MISSIONS = [
         "panel": "INFLOW",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Exactly right. Use the Stop 7 result to settle set the tangent alarm."
+            "who": "vale",
+            "say": "That check holds. The verified height and rise rate are ready to support a near-term alarm commitment."
           }
         ]
       },
@@ -834,7 +834,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At storage-board, Mara Vale pins the rate-alarm card beside the water curve. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -846,13 +846,13 @@ export const MISSIONS = [
         "panel": "INFLOW",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "vale",
+            "say": "We bought time by watching the slope. Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Set the new rate alarm at the tangent prediction. The next reading is above 4.230 m, so the reservoir is rising faster than the current local trend. The crew starts an early watch. A gate chart must now turn level change into release change.",
+    "segue": "Therefore Tomas needs a gate chart that turns the rising level into a release; the old handle marks are not enough.",
     "stops": [
       {
         "group": "GATES",
@@ -888,13 +888,13 @@ export const MISSIONS = [
     "title": "The Inflow Accumulation",
     "objective": "Map and certify the gate's changing response.",
     "briefing": "",
-    "stake": "The crew needs to lower the water behind the dam, but opening a gate wider does not always release water at the same rate. Work out how water depth and gate position affect the flow. Choose a safe way to test the gate's controls.",
+    "stake": "13 work shifts remain before the storm. Fresh grease marks stop short of an old notch on the hoist scale. Today you decide which gate setting can be tested and restored.",
     "deeper": {
-      "intro": "You completed The Inflow Accumulation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Gate That Comes Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Inflow Accumulation, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?",
+          "prompt": "In a follow-up to The Gate That Comes Back, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Chain rule; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -921,7 +921,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Inflow Accumulation: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to The Gate That Comes Back: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Implicit relation; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -948,7 +948,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Inflow Accumulation using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?",
+          "prompt": "A teammate rechecks The Gate That Comes Back using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Inverse function; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -975,7 +975,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Inflow Accumulation: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?",
+          "prompt": "An unseen case extends The Gate That Comes Back: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for chain/exp/log; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -1029,7 +1029,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Inflow Accumulation to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?",
+          "prompt": "Ashfell Dam applies the lesson from The Gate That Comes Back to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?",
           "hint": "Use the stated evidence and the conditions for second implicit derivative; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1166,10 +1166,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "13 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 3 - 13 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "One Motion, Three Changes",
       "goNow": "Go to Gate House and meet Tomas Wilkes, gate mechanic, at the discharge board.",
-      "body": "The crew needs to lower the water behind the dam, but opening a gate wider does not always release water at the same rate. Work out how water depth and gate position affect the flow. Choose a safe way to test the gate's controls.",
+      "body": "13 work shifts remain before the storm. Fresh grease marks stop short of an old notch on the hoist scale. Today you decide which gate setting can be tested and restored.",
       "objective": "Map and certify the gate's changing response."
     },
     "beats": [
@@ -1179,7 +1179,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "GATES"
         },
-        "world": "The differentiate nested discharge fixture wakes and the mission evidence opens.",
+        "world": "Fresh grease marks stop short of an old notch on the hoist scale.",
         "stage": {
           "wall": [
             {
@@ -1203,7 +1203,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 3.1 Location: GATES.",
+        "world": "At discharge-board, the dated accepted-result slip for Stop 9 reads: \"exact.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1216,7 +1216,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "wilkes",
-            "say": "Nice work. Use the Stop 9 result to settle link opening and head."
+            "say": "That check holds. The discharge response must account for the mechanical linkage between gate opening and water head."
           }
         ]
       },
@@ -1227,7 +1227,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After 3.3 Location: GATES.",
+        "world": "At discharge-board, the dated accepted-result slip for Stop 10 reads: \"-0.6667, tolerance .001.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1240,7 +1240,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "wilkes",
-            "say": "Good thinking. Use the Stop 10 result to settle find linkage curvature."
+            "say": "That check holds. The linkage's current slope is known, but its change may narrow the safe range of gate motion."
           }
         ]
       },
@@ -1251,7 +1251,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The find linkage curvature result remains visible while the reverse the flow calibration fixture lights.",
+        "world": "At hoist-stand, the dated accepted-result slip for Stop 11 reads: \"-0.49383, tolerance .001.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1264,7 +1264,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "wilkes",
-            "say": "Exactly right. Use the Stop 11 result to settle reverse the flow calibration."
+            "say": "That check holds. The linkage analysis is ready for an independent test of the flow-command calibration."
           }
         ]
       },
@@ -1273,7 +1273,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At discharge-board, Tomas Wilkes clips the verified calibration strip to the discharge board. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1286,12 +1286,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "wilkes",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "It came back to the same mark. Now we can use the curve. But Elise needs to know when that water reaches the village; the gate result is only half a warning."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the staged calibration path. The chain, linkage. And inverse tests agree, and the gate returns to baseline. The crew can predict discharge without forcing the hoist. Now it must learn how that water moves downstream.",
+    "segue": "But Elise needs to know when that water reaches the village; the gate result is only half a warning.",
     "stops": [
       {
         "group": "ARCHIVE",
@@ -1327,9 +1327,9 @@ export const MISSIONS = [
     "title": "The Two-Day Cost Note",
     "objective": "Set a warning time that covers the first dangerous arrival.",
     "briefing": "",
-    "stake": "Opening the dam's gates sends water toward settlements downstream. The crew needs to know how soon it will arrive and how high it will rise. Calculate the water's motion and changing depth, then decide how much warning residents need before a release begins.",
+    "stake": "12 work shifts remain before the storm. A school pin sits just downstream of a road crossing. Today you decide how much warning the village needs.",
     "deeper": {
-      "intro": "You completed The Two-Day Cost Note. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Before the Water Arrives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [
         {
           "name": "Speed",
@@ -1338,7 +1338,7 @@ export const MISSIONS = [
       ],
       "questions": [
         {
-          "prompt": "In a follow-up to The Two-Day Cost Note, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?",
+          "prompt": "In a follow-up to Before the Water Arrives, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Speed; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -1365,7 +1365,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Two-Day Cost Note: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "Ashfell Dam receives a second case related to Before the Water Arrives: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "C",
           "figure": {
@@ -1425,7 +1425,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Two-Day Cost Note using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "A teammate rechecks Before the Water Arrives using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "D",
           "figure": {
@@ -1485,7 +1485,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Two-Day Cost Note: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?",
+          "prompt": "An unseen case extends Before the Water Arrives: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Displacement; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -1539,7 +1539,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Two-Day Cost Note to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?",
+          "prompt": "Ashfell Dam applies the lesson from Before the Water Arrives to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?",
           "hint": "Use the stated evidence and the conditions for motion derivatives; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1688,10 +1688,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "12 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 4 - 12 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Water in Motion",
       "goNow": "Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the arrival map.",
-      "body": "Opening the dam's gates sends water toward settlements downstream. The crew needs to know how soon it will arrive and how high it will rise. Calculate the water's motion and changing depth, then decide how much warning residents need before a release begins.",
+      "body": "12 work shifts remain before the storm. A school pin sits just downstream of a road crossing. Today you decide how much warning the village needs.",
       "objective": "Set a warning time that covers the first dangerous arrival."
     },
     "beats": [
@@ -1701,7 +1701,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SAFE"
         },
-        "world": "The differentiate the flood front fixture wakes and the mission evidence opens.",
+        "world": "A school pin sits just downstream of a road crossing.",
         "stage": {
           "wall": [
             {
@@ -1725,7 +1725,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 4.2 Location: SAFE.",
+        "world": "At arrival-map, the dated accepted-result slip for Stop 13 reads: \"exact.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1738,7 +1738,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Nice work. Use the Stop 13 result to settle distance is not displacement."
+            "say": "That check holds. The front's turning times mean net displacement may understate how far water has traveled."
           }
         ]
       },
@@ -1749,7 +1749,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After 4.3 Location: SAFE.",
+        "world": "At arrival-map, the dated accepted-result slip for Stop 14 reads: \"distance 11 km, displacement 9 km.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1762,7 +1762,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Good thinking. Use the Stop 14 result to settle relate depth and reach volume."
+            "say": "That check holds. The route calculation leaves the downstream water-height rise to be estimated."
           }
         ]
       },
@@ -1773,7 +1773,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The relate depth and reach volume result remains visible while the commit the warning fixture lights.",
+        "world": "At arrival-map, the dated accepted-result slip for Stop 15 reads: \".025 m/min, tolerance .0001.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -1786,7 +1786,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Exactly right. Use the Stop 15 result to settle commit the warning."
+            "say": "That check holds. The arrival and road-closure estimates are ready to become a dispatch deadline."
           }
         ]
       },
@@ -1795,7 +1795,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At arrival-map, Elise Baptiste pins the MINIMUM LEAD: 280 MINUTES card beside the village pin. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -1808,12 +1808,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "A call that comes after the water is not a warning. But Mara's two-day plan still hides a possible peak; an average cannot clear the release."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use a minimum warning lead of 280 minutes. It includes travel to the village. And the road's rise time. The warning rule is now tied to motion, not an average. The two-day release plan still needs a true peak test.",
+    "segue": "But Mara's two-day plan still hides a possible peak; an average cannot clear the release.",
     "stops": [
       {
         "group": "GATES",
@@ -1849,13 +1849,13 @@ export const MISSIONS = [
     "title": "The Last-Half-Metre Relation",
     "objective": "Accept or reject the average-based release plan.",
     "briefing": "",
-    "stake": "The old two-day plan checks water levels at the start and finish, but trouble could develop between those times. Find when the forecast reaches its highest and lowest values. Decide whether the plan can produce power while keeping enough room behind the dam.",
+    "stake": "11 work shifts remain before the storm. Two endpoint marks sit on opposite sides of a red line. Today you decide whether the level must cross the danger mark.",
     "deeper": {
-      "intro": "You completed The Last-Half-Metre Relation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Crossing We Can Prove. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Last-Half-Metre Relation, turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies Critical point to this follow-up case?",
+          "prompt": "In a follow-up to The Crossing We Can Prove, turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies Critical point to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Critical point; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -1882,7 +1882,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Last-Half-Metre Relation: with critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. Which option correctly applies Absolute maximum to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to The Crossing We Can Prove: with critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. Which option correctly applies Absolute maximum to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Absolute maximum; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -1909,7 +1909,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Last-Half-Metre Relation using new evidence: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Marginal value to this follow-up case?",
+          "prompt": "A teammate rechecks The Crossing We Can Prove using new evidence: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Marginal value to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Marginal value; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -1936,7 +1936,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Last-Half-Metre Relation: turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies critical points to this follow-up case?",
+          "prompt": "An unseen case extends The Crossing We Can Prove: turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies critical points to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for critical points; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -1990,7 +1990,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Last-Half-Metre Relation to this follow-up: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies optimization/marginal value to this follow-up case?",
+          "prompt": "Ashfell Dam applies the lesson from The Crossing We Can Prove to this follow-up: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies optimization/marginal value to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for optimization/marginal value; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -2124,10 +2124,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "11 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 5 - 11 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "The Peak Between Readings",
       "goNow": "Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board.",
-      "body": "The old two-day plan checks water levels at the start and finish, but trouble could develop between those times. Find when the forecast reaches its highest and lowest values. Decide whether the plan can produce power while keeping enough room behind the dam.",
+      "body": "11 work shifts remain before the storm. Two endpoint marks sit on opposite sides of a red line. Today you decide whether the level must cross the danger mark.",
       "objective": "Accept or reject the average-based release plan."
     },
     "beats": [
@@ -2137,7 +2137,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "POWER"
         },
-        "world": "The find critical turbine demand fixture wakes and the mission evidence opens.",
+        "world": "Two endpoint marks sit on opposite sides of a red line.",
         "stage": {
           "wall": [
             {
@@ -2161,7 +2161,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 5.2 Location: POWER.",
+        "world": "At machine-board, the dated accepted-result slip for Stop 17 reads: \"1,3 h.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2173,8 +2173,8 @@ export const MISSIONS = [
         "panel": "STOP 17 RECORDED - STOP 18 OPEN",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Nice work. Use the Stop 17 result to settle test the absolute peak."
+            "who": "vale",
+            "say": "That check holds. The interior demand checks are ready to be compared with the schedule endpoints."
           }
         ]
       },
@@ -2185,7 +2185,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel Location: POWER->STORE.",
+        "world": "At machine-board, the dated accepted-result slip for Stop 18 reads: \"40 MW at 5 h, unsafe; local max at 1 h is 24 MW.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2197,8 +2197,8 @@ export const MISSIONS = [
         "panel": "STOP 18 RECORDED - STOP 19 OPEN",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Good thinking. Use the Stop 18 result to settle optimize storage against value."
+            "who": "vale",
+            "say": "That check holds. The unsafe power peak forces the crew to reconsider how much release buys useful storage margin."
           }
         ]
       },
@@ -2209,7 +2209,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The optimize storage against value result remains visible while the prove an intermediate crossing fixture lights.",
+        "world": "At dispatch-console, the dated accepted-result slip for Stop 19 reads: \"causal; marginal gain .08/20=.004 million m^3 per (m^3/s).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2221,8 +2221,8 @@ export const MISSIONS = [
         "panel": "STOP 19 RECORDED - STOP 20 OPEN",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Exactly right. Use the Stop 19 result to settle prove an intermediate crossing."
+            "who": "vale",
+            "say": "That check holds. The revised release plan still needs to establish whether reservoir height crosses the warning level."
           }
         ]
       },
@@ -2231,7 +2231,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At storage-board, Mara Vale draws the MUST CROSS 4.6 M bracket between the endpoint marks. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2243,13 +2243,13 @@ export const MISSIONS = [
         "panel": "MISSION 5 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "vale",
+            "say": "It must cross. That does not tell us the hour. But Imani cannot say when the crest arrives from that proof; the forecast must face data it has not seen."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the safer release setting. The level must cross 4.6 metres. The theorem proves a crossing, not its exact time. Next, total the storm inflow.",
+    "segue": "But Imani cannot say when the crest arrives from that proof; the forecast must face data it has not seen.",
     "stops": [
       {
         "group": "POWER",
@@ -2287,13 +2287,13 @@ export const MISSIONS = [
     "title": "The Peak Test",
     "objective": "Select the forecast that survives unseen data.",
     "briefing": "",
-    "stake": "A rain gauge has found rainfall the weather radar missed, and two forecasts now disagree about the flood. Check how each forecast begins and compare its predictions with measurements. Choose which forecast the crew should use when lowering the reservoir before the storm.",
+    "stake": "10 work shifts remain before the storm. A sealed high-ground trace rests under the old forecast. Today you decide which forecast earns use for the storm.",
     "deeper": {
-      "intro": "You completed The Peak Test. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Crest We Missed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Peak Test, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
+          "prompt": "In a follow-up to The Crest We Missed, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "B",
           "figure": {
@@ -2361,7 +2361,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Peak Test: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
+          "prompt": "Ashfell Dam receives a second case related to The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "C",
           "figure": {
@@ -2433,7 +2433,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Peak Test using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
+          "prompt": "A teammate rechecks The Crest We Missed using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "D",
           "figure": {
@@ -2506,7 +2506,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Peak Test: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?",
+          "prompt": "An unseen case extends The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for the mission concept; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -2601,7 +2601,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Peak Test to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "Ashfell Dam applies the lesson from The Crest We Missed to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "C",
           "figure": {
@@ -2788,10 +2788,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "10 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 6 - 10 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Beyond the Old Horizon",
       "goNow": "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the high-ground gauge.",
-      "body": "A rain gauge has found rainfall the weather radar missed, and two forecasts now disagree about the flood. Check how each forecast begins and compare its predictions with measurements. Choose which forecast the crew should use when lowering the reservoir before the storm.",
+      "body": "10 work shifts remain before the storm. A sealed high-ground trace rests under the old forecast. Today you decide which forecast earns use for the storm.",
       "objective": "Select the forecast that survives unseen data."
     },
     "beats": [
@@ -2801,7 +2801,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "INFLOW"
         },
-        "world": "Arrival Location: INFLOW.",
+        "world": "A sealed high-ground trace rests under the old forecast.",
         "stage": {
           "wall": [
             {
@@ -2825,7 +2825,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 6.2 Location: INFLOW.",
+        "world": "At trace-bench, the dated accepted-result slip for Stop 21 reads: \"L=0.020 m/h.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2838,7 +2838,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okoro",
-            "say": "Nice work. Use the Stop 21 result to settle read inverse-shaped saturation."
+            "say": "That check holds. The failed rational forecast needs comparison with a bounded alternative across the full forecast window."
           }
         ]
       },
@@ -2849,7 +2849,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel Location: INFLOW->ARCHIVE.",
+        "world": "At high-ground-gauge, the dated accepted-result slip for Stop 22 reads: \"t=4, 36.850 mm/h, tolerance .01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2862,7 +2862,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okoro",
-            "say": "Good thinking. Use the Stop 22 result to settle freeze before revealing the crest."
+            "say": "That check holds. The alternative forecasts must be frozen before the archived crest is revealed."
           }
         ]
       },
@@ -2873,7 +2873,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The freeze before revealing the crest result remains visible while the diagnose the full curve fixture lights.",
+        "world": "At forecast-drawer, the dated accepted-result slip for Stop 23 reads: \"B.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -2886,7 +2886,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okoro",
-            "say": "Exactly right. Use the Stop 23 result to settle diagnose the full curve."
+            "say": "That check holds. The holdout result favors one forecast, but the crew still needs to understand the other's failure."
           }
         ]
       },
@@ -2895,7 +2895,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At forecast-drawer, Imani Okoro files the failed forecast under MISSED LATER CREST. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -2908,12 +2908,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "okoro",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "I wanted a shifted clock. The mountain sent more water. Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use Forecast B. It stays finite, predicts a later crest. And survives unseen high-ground data. The old model missed the peak rather than suffering a constant bias. More water is coming, so the crew must total the full storm volume.",
+    "segue": "Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time.",
     "stops": [
       {
         "group": "STORE",
@@ -2949,13 +2949,13 @@ export const MISSIONS = [
     "title": "The Wall's Carrying Limit",
     "objective": "Calculate storm inflow and required empty storage.",
     "briefing": "",
-    "stake": "The crew knows how fast floodwater may arrive, but not yet how much water will arrive altogether. Add up the predicted inflow over the storm. Decide how much water must leave the reservoir beforehand so the dam has room to hold the flood.",
+    "stake": "9 work shifts remain before the storm. The storm total fills a strip longer than the storage allowance. Today you decide how much room to clear before rain.",
     "deeper": {
-      "intro": "You completed The Wall's Carrying Limit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Room for the Storm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Wall's Carrying Limit, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?",
+          "prompt": "In a follow-up to Room for the Storm, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?",
           "hint": "Use the stated evidence and the conditions for Antiderivative; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -2982,7 +2982,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Wall's Carrying Limit: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?",
+          "prompt": "Ashfell Dam receives a second case related to Room for the Storm: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?",
           "hint": "Use the stated evidence and the conditions for Riemann sum; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3009,7 +3009,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Wall's Carrying Limit using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?",
+          "prompt": "A teammate rechecks Room for the Storm using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?",
           "hint": "Use the stated evidence and the conditions for Definite integral; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -3036,7 +3036,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Wall's Carrying Limit: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?",
+          "prompt": "An unseen case extends Room for the Storm: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for L/R/trapezoid sums; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -3090,7 +3090,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Wall's Carrying Limit to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?",
+          "prompt": "Ashfell Dam applies the lesson from Room for the Storm to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?",
           "hint": "Use the stated evidence and the conditions for accumulation derivative; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3256,10 +3256,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "9 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 7 - 9 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Count Every Cubic Metre",
       "goNow": "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall.",
-      "body": "The crew knows how fast floodwater may arrive, but not yet how much water will arrive altogether. Add up the predicted inflow over the storm. Decide how much water must leave the reservoir beforehand so the dam has room to hold the flood.",
+      "body": "9 work shifts remain before the storm. The storm total fills a strip longer than the storage allowance. Today you decide how much room to clear before rain.",
       "objective": "Calculate storm inflow and required empty storage."
     },
     "beats": [
@@ -3269,7 +3269,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "INFLOW"
         },
-        "world": "Arrival Location: INFLOW.",
+        "world": "The storm total fills a strip longer than the storage allowance.",
         "stage": {
           "wall": [
             {
@@ -3293,7 +3293,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 7.2 Location: INFLOW.",
+        "world": "At gauge-wall, the dated accepted-result slip for Stop 25 reads: \"L=12.6, R=16.2, T=14.4 million m^3.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3305,8 +3305,8 @@ export const MISSIONS = [
         "panel": "INFLOW",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Nice work. Use the Stop 25 result to settle build exact accumulation."
+            "who": "hassan",
+            "say": "That check holds. The numerical storm-volume estimate needs an exact check using the fitted inflow function."
           }
         ]
       },
@@ -3317,7 +3317,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel Location: INFLOW->STORE.",
+        "world": "At trace-bench, the dated accepted-result slip for Stop 26 reads: \"17,280,000 m^3, tolerance 1000.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3329,8 +3329,8 @@ export const MISSIONS = [
         "panel": "STOP 26 RECORDED - STOP 27 OPEN",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Good thinking. Use the Stop 26 result to settle verify ftc part 2."
+            "who": "hassan",
+            "say": "That check holds. The total-volume check must be reconciled with the live accumulator's changing display."
           }
         ]
       },
@@ -3341,7 +3341,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The verify ftc part 2 result remains visible while the separate signed change from physical volume fixture lights.",
+        "world": "At trace-bench, the dated accepted-result slip for Stop 27 reads: \"210; pass.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3353,8 +3353,8 @@ export const MISSIONS = [
         "panel": "STOP 27 RECORDED - STOP 28 OPEN",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Exactly right. Use the Stop 27 result to settle separate signed change from physical volume."
+            "who": "hassan",
+            "say": "That check holds. The storm volume is established, allowing the crew to compare it with available empty storage."
           }
         ]
       },
@@ -3363,7 +3363,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At water-ledger, Leila Hassan pins the DRAW DOWN 5.28 MILLION CUBIC METRES card to the ledger. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3375,13 +3375,13 @@ export const MISSIONS = [
         "panel": "MISSION 7 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "hassan",
+            "say": "Now the empty space has a number. But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Draw down 5.28 million m^3 before the storm. The integral gives 17.28 million m^3 of inflow. And the plan also keeps 2.00 million m^3 of campaign safety room. The next task is finding a release mix that clears this volume without flooding the valley.",
+    "segue": "But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley.",
     "stops": [
       {
         "group": "INFLOW",
@@ -3419,7 +3419,7 @@ export const MISSIONS = [
     "title": "The Just-Clears Release",
     "objective": "Select a release schedule meeting storage and downstream limits.",
     "briefing": "",
-    "stake": "The reservoir needs another 5.28 million cubic metres of room, but releasing that water too quickly could flood communities below. Compare how much water different gate and turbine schedules send downstream. Choose a schedule that makes enough room without exceeding the downstream safety limits.",
+    "stake": "8 work shifts remain before the storm. The hoist rests at its baseline mark above a dry spillway. Today you decide which release mix clears enough water.",
     "deeper": {
       "intro": "You completed The Just-Clears Release. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -3719,10 +3719,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "8 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 8 - 8 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Make Room Without Making a Flood",
       "goNow": "Go to Powerhouse and meet Nia Chen, power dispatcher, at the machine board.",
-      "body": "The reservoir needs another 5.28 million cubic metres of room, but releasing that water too quickly could flood communities below. Compare how much water different gate and turbine schedules send downstream. Choose a schedule that makes enough room without exceeding the downstream safety limits.",
+      "body": "8 work shifts remain before the storm. The hoist rests at its baseline mark above a dry spillway. Today you decide which release mix clears enough water.",
       "objective": "Select a release schedule meeting storage and downstream limits."
     },
     "beats": [
@@ -3732,7 +3732,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "POWER"
         },
-        "world": "The substitute the head term fixture wakes and the mission evidence opens.",
+        "world": "The hoist rests at its baseline mark above a dry spillway.",
         "stage": {
           "wall": [
             {
@@ -3756,7 +3756,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 8.2 Location: POWER.",
+        "world": "At machine-board, the dated accepted-result slip for Stop 29 reads: \"4133.333, tolerance .01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3768,8 +3768,8 @@ export const MISSIONS = [
         "panel": "STOP 29 RECORDED - STOP 30 OPEN",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Nice work. Use the Stop 29 result to settle verify turbine volume."
+            "who": "wilkes",
+            "say": "That check holds. The turbine-volume prediction is ready for comparison with the dispatch simulation."
           }
         ]
       },
@@ -3780,7 +3780,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel Location: POWER->SAFE.",
+        "world": "At machine-board, the dated accepted-result slip for Stop 30 reads: \"3.600 million m^3; pass.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3792,8 +3792,8 @@ export const MISSIONS = [
         "panel": "STOP 30 RECORDED - STOP 31 OPEN",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Good thinking. Use the Stop 30 result to settle total the signed surge."
+            "who": "wilkes",
+            "say": "That check holds. The remaining drawdown must be checked against a downstream flow that changes sign."
           }
         ]
       },
@@ -3804,7 +3804,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The total the signed surge result remains visible while the allocate the just-clears plan fixture lights.",
+        "world": "At machine-board, the dated accepted-result slip for Stop 31 reads: \"26.667,63.333, tolerance .01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -3816,8 +3816,8 @@ export const MISSIONS = [
         "panel": "STOP 31 RECORDED - STOP 32 OPEN",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Exactly right. Use the Stop 31 result to settle allocate the just-clears plan."
+            "who": "wilkes",
+            "say": "That check holds. The verified turbine contribution leaves a specific release deficit and supporting tasks to fund."
           }
         ]
       },
@@ -3826,7 +3826,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At hoist-stand, Tomas Wilkes turns the hoist to the signed test notch. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -3838,13 +3838,13 @@ export const MISSIONS = [
         "panel": "MISSION 8 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "chen",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "wilkes",
+            "say": "The gate has a share now. So does the warning crew. But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use the mixed turbine-and-gate plan. Turbines clear 3.60 million m^3. And the gate clears the remaining 1.68 million m^3 with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head.",
+    "segue": "But Arun's wall gauges fall silent during the change; the next test must tell a dead cable from a loaded wall.",
     "stops": [
       {
         "group": "ARCHIVE",
@@ -3880,13 +3880,13 @@ export const MISSIONS = [
     "title": "The Seepage Ledger Rule",
     "objective": "Reconstruct uplift pressure and authorize or stop testing.",
     "briefing": "",
-    "stake": "Two pressure gauges beneath the dam have stopped reporting just as the water load is changing. Use the remaining measurements to estimate the missing pressure changes. Decide whether the crew can continue controlled releases without putting the dam wall at risk.",
+    "stake": "7 work shifts remain before the storm. Two blank gauge faces sit beside a live independent trace. Today you decide whether the quiet gauges mean wall trouble.",
     "deeper": {
-      "intro": "You completed The Seepage Ledger Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Two Silent Gauges. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Seepage Ledger Rule, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?",
+          "prompt": "In a follow-up to Two Silent Gauges, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?",
           "hint": "Use the stated evidence and the conditions for Slope field; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -3913,7 +3913,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Seepage Ledger Rule: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Equilibrium solution; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -3940,7 +3940,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Seepage Ledger Rule using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?",
+          "prompt": "A teammate rechecks Two Silent Gauges using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?",
           "hint": "Use the stated evidence and the conditions for Euler's method; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -3967,7 +3967,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Seepage Ledger Rule: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?",
+          "prompt": "An unseen case extends Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?",
           "hint": "Use the stated evidence and the conditions for slope fields/equilibrium; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -4021,7 +4021,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Seepage Ledger Rule to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?",
+          "prompt": "Ashfell Dam applies the lesson from Two Silent Gauges to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?",
           "hint": "Use the stated evidence and the conditions for Euler error/control; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4143,10 +4143,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "7 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 9 - 7 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "The Silent Heads",
       "goNow": "Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the uplift wall.",
-      "body": "Two pressure gauges beneath the dam have stopped reporting just as the water load is changing. Use the remaining measurements to estimate the missing pressure changes. Decide whether the crew can continue controlled releases without putting the dam wall at risk.",
+      "body": "7 work shifts remain before the storm. Two blank gauge faces sit beside a live independent trace. Today you decide whether the quiet gauges mean wall trouble.",
       "objective": "Reconstruct uplift pressure and authorize or stop testing."
     },
     "beats": [
@@ -4156,7 +4156,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "STRUCT"
         },
-        "world": "Arrival Location: STRUCT.",
+        "world": "Two blank gauge faces sit beside a live independent trace.",
         "stage": {
           "wall": [
             {
@@ -4180,7 +4180,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 9.2 Location: STRUCT.",
+        "world": "At uplift-wall, the dated accepted-result slip for Stop 33 reads: \"toward 8; equilibrium P=8.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4193,7 +4193,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Nice work. Use the Stop 33 result to settle step through the gap."
+            "say": "That check holds. The pressure model must bridge the gap between the last live reading and the next measurement."
           }
         ]
       },
@@ -4204,7 +4204,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel Location: STRUCT->GATES.",
+        "world": "At uplift-wall, the dated accepted-result slip for Stop 34 reads: \"5.44, tolerance .001.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4217,7 +4217,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Good thinking. Use the Stop 34 result to settle test step-size sensitivity."
+            "say": "That check holds. The coarse pressure estimate needs a numerical-sensitivity check before it supports a load decision."
           }
         ]
       },
@@ -4228,7 +4228,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The test step-size sensitivity result remains visible while the diagnose silence fixture lights.",
+        "world": "At transect-rack, the dated accepted-result slip for Stop 35 reads: \"as stated.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4241,7 +4241,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Exactly right. Use the Stop 35 result to settle diagnose silence."
+            "say": "That check holds. Agreement with the model cannot explain why two pressure channels remain silent."
           }
         ]
       },
@@ -4250,7 +4250,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At uplift-wall, Arun Mehta ties a FAILED SHARED CABLE tag around the removed cable. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4263,12 +4263,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "Two silent faces. One cable. That is not two votes. But the weir still carries extra flow; Arun needs its time trend before he clears the wall."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Continue controlled release tests. Euler estimates agree with independent live readings. And the two silent gauges share one failed cable. The crew replaces that cable. And bounds the uplift load.",
+    "segue": "But the weir still carries extra flow; Arun needs its time trend before he clears the wall.",
     "stops": [
       {
         "group": "STRUCT",
@@ -4304,13 +4304,13 @@ export const MISSIONS = [
     "title": "The Error Carried Into Volume",
     "objective": "Select the seepage model and approve or reject the load limit.",
     "briefing": "",
-    "stake": "A broken cable explains the silent gauges, but water leaking through the dam still needs watching. Compare predictions of how that seepage changes under continued pressure. Decide how much water the reservoir can safely hold without the leakage becoming dangerous.",
+    "stake": "6 work shifts remain before the storm. Drops strike the weir bucket at a slowing pace. Today you decide whether seepage stays inside its limit.",
     "deeper": {
-      "intro": "You completed The Error Carried Into Volume. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Flow That Eases. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Error Carried Into Volume, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?",
+          "prompt": "In a follow-up to The Flow That Eases, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Differential equation; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -4337,7 +4337,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Error Carried Into Volume: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Initial condition; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4364,7 +4364,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Error Carried Into Volume using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?",
+          "prompt": "A teammate rechecks The Flow That Eases using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Carrying capacity; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -4391,7 +4391,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Error Carried Into Volume: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?",
+          "prompt": "An unseen case extends The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for separation/initial condition; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -4445,7 +4445,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Error Carried Into Volume to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?",
+          "prompt": "Ashfell Dam applies the lesson from The Flow That Eases to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Newton cooling; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4574,10 +4574,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "6 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 10 - 6 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Settle or Grow",
       "goNow": "Go to Seepage & Uplift Bay and meet Arun Mehta, structural engineer, at the weir bench.",
-      "body": "A broken cable explains the silent gauges, but water leaking through the dam still needs watching. Compare predictions of how that seepage changes under continued pressure. Decide how much water the reservoir can safely hold without the leakage becoming dangerous.",
+      "body": "6 work shifts remain before the storm. Drops strike the weir bucket at a slowing pace. Today you decide whether seepage stays inside its limit.",
       "objective": "Select the seepage model and approve or reject the load limit."
     },
     "beats": [
@@ -4587,7 +4587,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "STRUCT"
         },
-        "world": "Arrival Location: STRUCT.",
+        "world": "Drops strike the weir bucket at a slowing pace.",
         "stage": {
           "wall": [
             {
@@ -4611,7 +4611,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 10.2 Location: STRUCT.",
+        "world": "At weir-bench, the dated accepted-result slip for Stop 37 reads: \"3.614, tolerance .005.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4624,7 +4624,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Nice work. Use the Stop 37 result to settle select the model."
+            "say": "That check holds. The seepage prediction has a measured time series available for an independent model check."
           }
         ]
       },
@@ -4635,7 +4635,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel Location: STRUCT->STORE.",
+        "world": "At weir-bench, the dated accepted-result slip for Stop 38 reads: \"decay.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4648,7 +4648,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Good thinking. Use the Stop 38 result to settle transfer to cooling."
+            "say": "That check holds. The decay model needs comparison with a process whose limiting value is not zero."
           }
         ]
       },
@@ -4659,7 +4659,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "The transfer to cooling result remains visible while the approve the carrying limit fixture lights.",
+        "world": "At drain-console, the dated accepted-result slip for Stop 39 reads: \"ambient sets limit.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4672,7 +4672,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Exactly right. Use the Stop 39 result to settle approve the carrying limit."
+            "say": "That check holds. The observed seepage decay still carries rate uncertainty that could change load approval."
           }
         ]
       },
@@ -4681,7 +4681,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At weir-bench, Arun Mehta clips the BELOW 5.0 LITRES PER MINUTE clearance to the weir notebook. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -4694,12 +4694,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "mehta",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "The flow is easing. The empty space still needs proof. But Imani's new lake survey has less space than the old chart; the release plan may be short again."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Approve the wall seepage limit. The extra flow falls with time. It stays below 5.0 litres per minute in every sound case. The wall check passes. A new lake survey now tests the storage chart.",
+    "segue": "But Imani's new lake survey has less space than the old chart; the release plan may be short again.",
     "stops": [
       {
         "group": "STRUCT",
@@ -4737,13 +4737,13 @@ export const MISSIONS = [
     "title": "The Quiet-Day Check",
     "objective": "Certify the old or resurveyed stage-storage curve.",
     "briefing": "",
-    "stake": "New measurements show that the reservoir holds less water at a given height than the old chart claims. That could leave less room for the storm than the crew expects. Calculate the missing capacity and decide whether the official chart must be replaced.",
+    "stake": "5 work shifts remain before the storm. A fresh sonar roll crowds the old 2003 drawing. Today you decide which lake storage curve to use.",
     "deeper": {
-      "intro": "You completed The Quiet-Day Check. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Lake Lost Its Room. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Quiet-Day Check, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "In a follow-up to The Lake Lost Its Room, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "B",
           "figure": {
@@ -4828,7 +4828,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Quiet-Day Check: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to The Lake Lost Its Room: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Average value; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -4855,7 +4855,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Quiet-Day Check using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?",
+          "prompt": "A teammate rechecks The Lake Lost Its Room using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?",
           "hint": "Use the stated evidence and the conditions for Washer; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -4882,7 +4882,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Quiet-Day Check: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?",
+          "prompt": "An unseen case extends The Lake Lost Its Room: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?",
           "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
           "answer": "A",
           "figure": {
@@ -4994,7 +4994,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Quiet-Day Check to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?",
+          "prompt": "Ashfell Dam applies the lesson from The Lake Lost Its Room to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for evidence independence; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5150,10 +5150,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "5 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 11 - 5 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "The Reservoir Is Smaller",
       "goNow": "Go to Storage & Level Board and meet Mara Vale, operations chief, at the resurveyed curve.",
-      "body": "New measurements show that the reservoir holds less water at a given height than the old chart claims. That could leave less room for the storm than the crew expects. Calculate the missing capacity and decide whether the official chart must be replaced.",
+      "body": "5 work shifts remain before the storm. A fresh sonar roll crowds the old 2003 drawing. Today you decide which lake storage curve to use.",
       "objective": "Certify the old or resurveyed stage-storage curve."
     },
     "beats": [
@@ -5163,7 +5163,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "STORE"
         },
-        "world": "The integrate lost capacity fixture wakes and the mission evidence opens.",
+        "world": "A fresh sonar roll crowds the old 2003 drawing.",
         "stage": {
           "wall": [
             {
@@ -5187,7 +5187,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 11.2 Location: STORE.",
+        "world": "At storage-board, the dated accepted-result slip for Stop 41 reads: \"7.5 million m^3, tolerance .01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5199,8 +5199,8 @@ export const MISSIONS = [
         "panel": "STOP 41 RECORDED - STOP 42 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Nice work. Use the Stop 41 result to settle compute average loss."
+            "who": "okoro",
+            "say": "That check holds. The lost-capacity result needs a per-metre summary without erasing changes along the curve."
           }
         ]
       },
@@ -5211,7 +5211,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel1 Location: STORE->STRUCT.",
+        "world": "At level-desk, the dated accepted-result slip for Stop 42 reads: \"2.5 million m^3/m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5223,8 +5223,8 @@ export const MISSIONS = [
         "panel": "STOP 42 RECORDED - STOP 43 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Good thinking. Use the Stop 42 result to settle verify independent transects."
+            "who": "okoro",
+            "say": "That check holds. The storage discrepancy needs independent survey support before the old curve is replaced."
           }
         ]
       },
@@ -5235,7 +5235,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Travel2 Location: STRUCT->GATES.",
+        "world": "At survey-rack, the dated accepted-result slip for Stop 43 reads: \"three backed records.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5247,8 +5247,8 @@ export const MISSIONS = [
         "panel": "STOP 43 RECORDED - STOP 44 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Exactly right. Use the Stop 43 result to settle convert volume loss to level rate."
+            "who": "okoro",
+            "say": "That check holds. The supported capacity revision must also predict the level change observed during release."
           }
         ]
       },
@@ -5257,7 +5257,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At holdout-drawer, Imani Okoro opens the sealed independent survey drawer. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5269,13 +5269,13 @@ export const MISSIONS = [
         "panel": "MISSION 11 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "okoro",
+            "say": "I kept the old chart because we knew it. That was not enough. Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Replace the 2003 storage curve. New surveys show 7.5 million cubic metres of lost space. The new rate also matches the level drop. The old plan claimed too much room. Rebuild the release plan.",
+    "segue": "Therefore Nia must rebuild the plan with 7.5 million cubic metres less room; old storage cannot power a new promise.",
     "stops": [
       {
         "group": "INFLOW",
@@ -5313,13 +5313,13 @@ export const MISSIONS = [
     "title": "The Decay Constant, Scored",
     "objective": "Fit the corrected release inside machine and hoist limits.",
     "briefing": "",
-    "stake": "The smaller reservoir leaves less room for error, and one turbine wheel is unavailable. Calculate the space inside the remaining water passages and the energy needed to move water and open gates. Choose a release schedule the working machinery can actually carry out.",
+    "stake": "4 work shifts remain before the storm. A runner crate blocks one of the two machine bays. Today you decide which machines can repeat the release.",
     "deeper": {
-      "intro": "You completed The Decay Constant, Scored. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Runner in the Crate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Decay Constant, Scored, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?",
+          "prompt": "In a follow-up to The Runner in the Crate, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Disk; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -5346,7 +5346,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Decay Constant, Scored: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?",
+          "prompt": "Ashfell Dam receives a second case related to The Runner in the Crate: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?",
           "hint": "Use the stated evidence and the conditions for Washer; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5373,7 +5373,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Decay Constant, Scored using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?",
+          "prompt": "A teammate rechecks The Runner in the Crate using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?",
           "hint": "Use the stated evidence and the conditions for Shell; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -5400,7 +5400,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Decay Constant, Scored: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?",
+          "prompt": "An unseen case extends The Runner in the Crate: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Work; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -5454,7 +5454,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Decay Constant, Scored to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?",
+          "prompt": "Ashfell Dam applies the lesson from The Runner in the Crate to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?",
           "hint": "Use the stated evidence and the conditions for shell versus washer; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5603,10 +5603,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "4 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 12 - 4 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "What the Steel Can Do",
       "goNow": "Go to Powerhouse and meet Nia Chen, power dispatcher, at the crated runner.",
-      "body": "The smaller reservoir leaves less room for error, and one turbine wheel is unavailable. Calculate the space inside the remaining water passages and the energy needed to move water and open gates. Choose a release schedule the working machinery can actually carry out.",
+      "body": "4 work shifts remain before the storm. A runner crate blocks one of the two machine bays. Today you decide which machines can repeat the release.",
       "objective": "Fit the corrected release inside machine and hoist limits."
     },
     "beats": [
@@ -5616,7 +5616,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "POWER"
         },
-        "world": "The compute the missing runner volume fixture wakes and the mission evidence opens.",
+        "world": "A runner crate blocks one of the two machine bays.",
         "stage": {
           "wall": [
             {
@@ -5640,7 +5640,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Travel1 Location: POWER->GATES.",
+        "world": "At runner-crate, the dated accepted-result slip for Stop 45 reads: \"23.038 m^3, tolerance .01.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5653,7 +5653,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Nice work. Use the Stop 45 result to settle compare the shell setup."
+            "say": "That check holds. The passage calculation needs a second geometry check with the correct axis and integration bounds."
           }
         ]
       },
@@ -5664,7 +5664,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "After 12.3 Location: GATES.",
+        "world": "At runner-crate, the dated accepted-result slip for Stop 46 reads: \"2pi integral_0^3 x(3-x)dx=9pi m^3.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5677,7 +5677,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Good thinking. Use the Stop 46 result to settle measure hoist work."
+            "say": "That check holds. The alternative release route needs a hoist-work test before it can replace the runner."
           }
         ]
       },
@@ -5688,7 +5688,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Travel2 Location: GATES->STORE.",
+        "world": "At work-meter, the dated accepted-result slip for Stop 47 reads: \".5*8000*.09+1200*.3=720 J; pass.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5701,7 +5701,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Exactly right. Use the Stop 47 result to settle choose feasible schedule."
+            "say": "That check holds. One successful stroke does not establish a repeatable schedule with sufficient storage clearance and warning time."
           }
         ]
       },
@@ -5710,7 +5710,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At machine-board, Nia Chen hangs a RUNNER UNAVAILABLE card over the blocked machine slot. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -5723,12 +5723,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "chen",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "One runner. Real work. No power from the crate. But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Use one runner and move each gate in stages. The blocked runner no longer counts. Each gate move stays below 750 joules. The storage test still passes. Now test if measurement error can change the result.",
+    "segue": "But Mara needs the error carried into the smaller margin; a neat answer can still be too uncertain.",
     "stops": [
       {
         "group": "INFLOW",
@@ -5768,13 +5768,13 @@ export const MISSIONS = [
     "title": "The Three-Before-Nine Order",
     "objective": "Certify the model across supported measurement error.",
     "briefing": "",
-    "stake": "The revised release schedule looks safe, but every water-height and flow measurement has some error. Test how those errors change the predicted result and whether several sensors share one fault. Decide whether the crew has enough reliable evidence to approve the schedule.",
+    "stake": "3 work shifts remain before the storm. The new survey and old fit lie on separate hooks. Today you decide whether the corrected plan has enough margin.",
     "deeper": {
-      "intro": "You completed The Three-Before-Nine Order. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed The Margin That Survives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Three-Before-Nine Order, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?",
+          "prompt": "In a follow-up to The Margin That Survives, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?",
           "hint": "Use the stated evidence and the conditions for Linearization; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -5801,7 +5801,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Three-Before-Nine Order: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?",
+          "prompt": "Ashfell Dam receives a second case related to The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?",
           "hint": "Use the stated evidence and the conditions for Propagated error; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -5828,7 +5828,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Three-Before-Nine Order using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?",
+          "prompt": "A teammate rechecks The Margin That Survives using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Degeneracy; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -5855,7 +5855,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Three-Before-Nine Order: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?",
+          "prompt": "An unseen case extends The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?",
           "hint": "Use the stated evidence and the conditions for linear approximation/error budget; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -5909,7 +5909,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Three-Before-Nine Order to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?",
+          "prompt": "Ashfell Dam applies the lesson from The Margin That Survives to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for sensitivity/systematics; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -6031,10 +6031,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "3 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 13 - 3 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Carry the Error Honestly",
       "goNow": "Go to Storage & Level Board and meet Mara Vale, operations chief, at the level desk.",
-      "body": "The revised release schedule looks safe, but every water-height and flow measurement has some error. Test how those errors change the predicted result and whether several sensors share one fault. Decide whether the crew has enough reliable evidence to approve the schedule.",
+      "body": "3 work shifts remain before the storm. The new survey and old fit lie on separate hooks. Today you decide whether the corrected plan has enough margin.",
       "objective": "Certify the model across supported measurement error."
     },
     "beats": [
@@ -6044,7 +6044,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "STORE"
         },
-        "world": "The linearize level error fixture wakes and the mission evidence opens.",
+        "world": "The new survey and old fit lie on separate hooks.",
         "stage": {
           "wall": [
             {
@@ -6068,7 +6068,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 13.2 Location: STORE.",
+        "world": "At level-desk, the dated accepted-result slip for Stop 49 reads: \"+-0.030 million m^3; margin survives.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6080,8 +6080,8 @@ export const MISSIONS = [
         "panel": "STOP 49 RECORDED - STOP 50 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Nice work. Use the Stop 49 result to settle refuse the lowest rms."
+            "who": "okoro",
+            "say": "That check holds. Acceptable gauge uncertainty leaves the accumulation method itself to be checked against independent totals."
           }
         ]
       },
@@ -6092,7 +6092,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel1 Location: STORE->STRUCT.",
+        "world": "At storage-board, the dated accepted-result slip for Stop 50 reads: \"trapezoid.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6104,8 +6104,8 @@ export const MISSIONS = [
         "panel": "STOP 50 RECORDED - STOP 51 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Good thinking. Use the Stop 50 result to settle break the two-control degeneracy."
+            "who": "okoro",
+            "say": "That check holds. The accumulation check leaves offset and scale errors that can imitate each other in the level system."
           }
         ]
       },
@@ -6116,7 +6116,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Travel2 Location: STRUCT->INFLOW.",
+        "world": "At control-bench, the dated accepted-result slip for Stop 51 reads: \"(-.01 m,1.02).\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6128,8 +6128,8 @@ export const MISSIONS = [
         "panel": "STOP 51 RECORDED - STOP 52 OPEN",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Exactly right. Use the Stop 51 result to settle diagnose the signed rules."
+            "who": "okoro",
+            "say": "That check holds. The separated calibration errors allow the crew to reconcile the earlier findings into one release-rule set."
           }
         ]
       },
@@ -6138,7 +6138,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At residual-plot, Imani Okoro pins the independent clearance beside the corrected residual plot. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6150,13 +6150,13 @@ export const MISSIONS = [
         "panel": "INFLOW",
         "bubbles": [
           {
-            "who": "vale",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "okoro",
+            "say": "This time the check did not learn from our model. But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Sign the new release rules. Volume error stays below the safety margin. Model errors show no pattern. A separate survey breaks the last tie. Now test each valley warning line.",
+    "segue": "But Elise's test call gets no answer from two valley circuits; a sound plan still needs a heard warning.",
     "stops": [
       {
         "group": "ARCHIVE",
@@ -6192,13 +6192,13 @@ export const MISSIONS = [
     "title": "The Lead-Time Rule",
     "objective": "Repair and certify the warning chain.",
     "briefing": "",
-    "stake": "The dam and machinery checks pass, but four downstream communities did not receive the test alarm. Water cannot be released safely while those warnings fail. Choose which faults to repair first and estimate the delay, then decide whether every community will receive enough warning.",
+    "stake": "2 work shifts remain before the storm. Two acknowledgement boxes are empty beside a running clock. Today you decide which warning repairs must come first.",
     "deeper": {
-      "intro": "You completed The Lead-Time Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "You completed Four Voices Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Lead-Time Rule, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?",
+          "prompt": "In a follow-up to Four Voices Back, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Constraint; do not choose an option merely because it names a familiar term.",
           "answer": "B",
           "options": [
@@ -6225,7 +6225,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Lead-Time Rule: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?",
+          "prompt": "Ashfell Dam receives a second case related to Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Objective function; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -6252,7 +6252,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A teammate rechecks The Lead-Time Rule using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?",
+          "prompt": "A teammate rechecks Four Voices Back using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for Feasible point; do not choose an option merely because it names a familiar term.",
           "answer": "D",
           "options": [
@@ -6279,7 +6279,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "An unseen case extends The Lead-Time Rule: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?",
+          "prompt": "An unseen case extends Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?",
           "hint": "Use the stated evidence and the conditions for optimization/marginal value; do not choose an option merely because it names a familiar term.",
           "answer": "A",
           "options": [
@@ -6333,7 +6333,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Lead-Time Rule to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?",
+          "prompt": "Ashfell Dam applies the lesson from Four Voices Back to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?",
           "hint": "Use the stated evidence and the conditions for Euler/logistic delay; do not choose an option merely because it names a familiar term.",
           "answer": "C",
           "options": [
@@ -6459,10 +6459,10 @@ export const MISSIONS = [
     },
     "takeaway": "Evidence must match the mechanism, units, and stated limits. ---",
     "card": {
-      "header": "2 SHIFTS UNTIL THE STORM",
+      "header": "MISSION 14 - 2 WORK SHIFTS REMAIN BEFORE THE STORM.",
       "title": "Four Dark Sirens",
       "goNow": "Go to Downstream Warning Desk and meet Elise Baptiste, downstream safety lead, at the siren repeater panel.",
-      "body": "The dam and machinery checks pass, but four downstream communities did not receive the test alarm. Water cannot be released safely while those warnings fail. Choose which faults to repair first and estimate the delay, then decide whether every community will receive enough warning.",
+      "body": "2 work shifts remain before the storm. Two acknowledgement boxes are empty beside a running clock. Today you decide which warning repairs must come first.",
       "objective": "Repair and certify the warning chain."
     },
     "beats": [
@@ -6472,7 +6472,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "SAFE"
         },
-        "world": "The find the repair optimum fixture wakes and the mission evidence opens.",
+        "world": "Two acknowledgement boxes are empty beside a running clock.",
         "stage": {
           "wall": [
             {
@@ -6496,7 +6496,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "After 14.2 Location: SAFE.",
+        "world": "At arrival-map, the dated accepted-result slip for Stop 53 reads: \"x=6 at endpoint; P(6)=52, versus P(0)=-8.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6509,7 +6509,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Nice work. Use the Stop 53 result to settle order settlements by consequence."
+            "say": "That check holds. The crew allocation is fixed, leaving downstream repair order to be chosen by consequence."
           }
         ]
       },
@@ -6520,7 +6520,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel1 Location: SAFE->INFLOW.",
+        "world": "At settlement-circuits, the dated accepted-result slip for Stop 54 reads: \"Road and School.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6533,7 +6533,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Good thinking. Use the Stop 54 result to settle update the delayed forecast."
+            "say": "That check holds. The repairs delay release, so the reservoir forecast must be advanced to the new starting time."
           }
         ]
       },
@@ -6544,7 +6544,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "Travel2 Location: INFLOW->GATES.",
+        "world": "At arrival-map, the dated accepted-result slip for Stop 55 reads: \"4.36 m.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6557,7 +6557,7 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Exactly right. Use the Stop 55 result to settle commit repaired warning trigger."
+            "say": "That check holds. The repair schedule and delayed release time are ready for a warning-readiness commitment."
           }
         ]
       },
@@ -6566,7 +6566,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At warning-list, Elise Baptiste ticks the fourth warning acknowledgement box. The dated prop remains here on later visits.",
         "stage": {
           "wall": [
             {
@@ -6579,12 +6579,12 @@ export const MISSIONS = [
         "bubbles": [
           {
             "who": "baptiste",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "say": "Four voices back. We can finally act on the plan. Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Every reach below the dam is ready. The repair order restores all four lines. It leaves 15 minutes before the warning deadline. The final release must still save enough power for the last gate move.",
+    "segue": "Therefore Nia must save power for the last gate move; only 15 minutes remain before the warning deadline.",
     "stops": [
       {
         "group": "POWER",
@@ -6622,7 +6622,7 @@ export const MISSIONS = [
     "title": "The Corrected Release Rules, Signed",
     "objective": "Commit, execute, and verify the safe release.",
     "briefing": "",
-    "stake": "The dam, warning system, and machinery are ready, but a small change in water depth can now cause a large change in flow through the gates. Bring together your earlier calculations. Carry out the release in stages, checking that each one stays within the agreed safety limits.",
+    "stake": "1 work shift remains before the storm. The gate order lies beside four acknowledged warning slips. Today you decide whether to carry out the final staged release.",
     "deeper": {
       "intro": "You completed The Corrected Release Rules, Signed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
       "concepts": [],
@@ -6895,10 +6895,10 @@ export const MISSIONS = [
     },
     "takeaway": "Differential equations predict changing systems from rules and initial data. ---",
     "card": {
-      "header": "FINAL SHIFT - STORM EDGE ON THE RIDGE",
+      "header": "MISSION 15 - 1 WORK SHIFT REMAINS BEFORE THE STORM.",
       "title": "Open, Hold, Verify",
       "goNow": "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall.",
-      "body": "The dam, warning system, and machinery are ready, but a small change in water depth can now cause a large change in flow through the gates. Bring together your earlier calculations. Carry out the release in stages, checking that each one stays within the agreed safety limits.",
+      "body": "1 work shift remains before the storm. The gate order lies beside four acknowledged warning slips. Today you decide whether to carry out the final staged release.",
       "objective": "Commit, execute, and verify the safe release."
     },
     "beats": [
@@ -6908,7 +6908,7 @@ export const MISSIONS = [
           "enter": true,
           "at": "INFLOW"
         },
-        "world": "Arrival Location: INFLOW.",
+        "world": "The gate order lies beside four acknowledged warning slips.",
         "stage": {
           "wall": [
             {
@@ -6932,7 +6932,7 @@ export const MISSIONS = [
             1
           ]
         },
-        "world": "Travel1 Location: INFLOW->STORE.",
+        "world": "At gauge-wall, the dated accepted-result slip for Stop 57 reads: \".18 m/h, passes.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6944,8 +6944,8 @@ export const MISSIONS = [
         "panel": "STOP 57 RECORDED - STOP 58 OPEN",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Nice work. Use the Stop 57 result to settle close the final water ledger."
+            "who": "vale",
+            "say": "That check holds. The updated forecast and verified releases are ready to be combined into the final storage balance."
           }
         ]
       },
@@ -6956,7 +6956,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "Travel2 Location: STORE->GATES.",
+        "world": "At water-ledger, the dated accepted-result slip for Stop 58 reads: \"14+3.6+1.68-17.28-2=0; exact.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6968,8 +6968,8 @@ export const MISSIONS = [
         "panel": "STOP 58 RECORDED - STOP 59 OPEN",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Good thinking. Use the Stop 58 result to settle predict and operate the staged release."
+            "who": "vale",
+            "say": "That check holds. The water ledger closes on paper, but the staged gate response must agree during operation."
           }
         ]
       },
@@ -6980,7 +6980,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "After 15.3 Location: GATES.",
+        "world": "At staging-console, the dated accepted-result slip for Stop 59 reads: \"Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6992,8 +6992,8 @@ export const MISSIONS = [
         "panel": "STOP 59 RECORDED - STOP 60 OPEN",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Exactly right. Use the Stop 59 result to settle diagnose the final run."
+            "who": "vale",
+            "say": "That check holds. The final gate stage and independent dam readings are available for the completion decision."
           }
         ]
       },
@@ -7002,7 +7002,7 @@ export const MISSIONS = [
         "on": {
           "missionEnd": true
         },
-        "world": "The completed decision changes the mission world and locks into the campaign record.",
+        "world": "At trigger-board, Mara Vale unlatches the crest access gate. The final scene follows the completion gate below.",
         "stage": {
           "wall": [
             {
@@ -7014,13 +7014,13 @@ export const MISSIONS = [
         "panel": "MISSION 15 EVIDENCE: RECORDED",
         "bubbles": [
           {
-            "who": "okoro",
-            "say": "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+            "who": "vale",
+            "say": "You gave every stage a reason to stop. Now we can let it run. Therefore Elise keeps the warning watch as the level falls; the storm still has to pass through the valley."
           }
         ]
       }
     ],
-    "segue": "Mission decision: Complete the staged release. The forecast, water ledger, gate response, wall readings, machine work. And warning times all pass their signed limits. The reservoir reaches storm room before the crest. Ashfell holds the rain without sending an unsafe surge downstream.",
+    "segue": "Therefore Elise keeps the warning watch as the level falls; the storm still has to pass through the valley.",
     "stops": [
       {
         "group": "STORE",

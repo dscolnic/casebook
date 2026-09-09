@@ -6,7 +6,7 @@ AP Physics C: Electricity and Magnetism Campaign Implementation Bible
 
 **15 missions | 60 graded stops | Station 12 | Implementation-ready**
 
-**REVISION 10.2 - COMPACT GLOSSARY, BUILDABLE PANELS, AND ACTION-CLARITY VALIDATION**
+**REVISION - HANDBACK 1: SCENES, PERSISTENT WORLD, AND WALKABLE ENDINGS**
 
 ### Authored warm-up records
 
@@ -66,9 +66,8 @@ Implementation is linear at the evidence level. A wrong answer teaches, permits 
 
 ### Opening sequence - exact player copy, maximum five sentences
 
-Station 12 uses electricity-and-magnetism physics to make lightning on purpose so crews can learn how to survive it. One week-five shot disabled the remote outstation, and the season report must explain why before the final storm window closes in fifteen days. If the cause remains unknown, the station loses its operating certificate and future crews work without trusted warning data. Director Lena Ortiz hands you the report board and says, “The next crew will stand beneath a storm believing this station can protect them: find the true path of the strike, prove every repair, and make that trust deserved.”
+You are the station test lead, which means you trace what burned a remote circuit during a lightning shot. At Station 12, you will use electricity and magnetism to make the call. The last storm window closes in fifteen days. The next crew needs a station it can trust. A clean screen is no use if it missed the dangerous pulse.
 
-Opening quality answers: Station 12; explain and safely reproduce the failure; fifteen days; certification and future warning work are lost; the player owns the evidence chain and final report.
 
 ### Concrete stakes
 
@@ -140,6 +139,25 @@ Every `Area:` value below is the exact name of a place marked `yes`. A stop may 
 The remote outstation is not visited before Mission 8. Every waypoint is activated by evidence or a required operation; there are no greeting tours, scavenger races, or movement tasks unrelated to the physics.
 
 ---
+
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `storm-gallery` | Storm Gallery | A thick window looks across the salt flat to the mast. | Clouds approach through the season; after Stop 55 the shot trace remains on the glass-side display, and the final witnessed shot is seen here before certification. |
+| `crew-shelter` | Crew Shelter | Named helmets hang beside the crew-clear board. | For each authorized firing, the helmets are stored inside and the crew-clear lamps must pass before the shot. |
+| `season-wall` | Season Wall | An empty frame waits beside the damaged outstation photo. | After Stop 32, the bagged-card photo joins it; after Stop 60, the signed last report page fills the frame. |
+
+### Persistent prop and scene contract
+
+The report printer and stored final-shot display are scene components of `record-desk`; they never launch a fresh shot.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+Ortiz also owns the season deadline: she has promised the field crew a completed test before their last staffed window. At M12 she says, “If we hold, we may lose the season. Put both limits on the board anyway.” M12 is the reduced impulse-bank test, with stage lamps and a visible gap flash, not an invented outdoor rocket shot. M13 displays the missing fast peak against the slow trace. M14 runs the already-authored full shot in its safe sheltered view and reveals 188 V on the main probe beside 310 V at card E. Certification must follow the final witnessed data, so the last rocket fires before Stop 60 and its physical aftermath persists after acceptance. This deliberately resolves the handback’s suggested post-certification firing without certifying an unseen test.
 
 ## 4. Character bible
 
@@ -269,6 +287,27 @@ Values clamp at 100. The M8 reference path uses only the points needed to cap ba
 
 ---
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `launch-board` | Dr. Lena Ortiz clips the FIELD AND CHANNEL-SPREAD LIMITS card above the launch key. | At `storm-profile-board`, rain beads on a cloud-layer sketch beside the mill readings. |
+| 2 | `accepted_stop_8` | `storm-profile-board` | Ravi Sen pins the bounded charge-layer sketch beneath the measured field strip. | At `shunt-rack`, a voltage sketch lies beside three shunt leads and an empty fourth hook. |
+| 3 | `accepted_stop_12` | `shunt-rack` | Marcus Tate clips the 250 TO 378 MV model card to the shunt rack. | At `mast-desk`, the copper tip model catches light beside a trailer damage photo. |
+| 4 | `accepted_stop_16` | `mast-desk` | Marcus Tate pins the TIP EFFECT INCOMPLETE finding beside the mast drawing. | At `hall-board`, twelve numbered stages stand behind the rail below a cloud sketch. |
+| 5 | `accepted_stop_20` | `hall-board` | Elise Strand clips the ELECTRICAL MODEL ONLY card to the bank diagram. | At `gap-row`, the earthing stick rests on the bank while the stage lamps stay dark. |
+| 6 | `accepted_stop_24` | `gap-row` | Elise Strand pins the 1.50 KJ TEST RECORD beside the first-gap scale. | At `reference-panel`, four matching screen traces meet at one exposed reference wire. |
+| 7 | `accepted_stop_28` | `reference-panel` | Noor Haddad ties a SHARED REFERENCE tag around the common feed. | At `trailer-cards`, a burned card lies under glass beside an unmarked cable jacket. |
+| 8 | `accepted_stop_32` | `trailer-cards` | Owen Park bags the failed card with a NO CONTACT REQUIRED evidence label. | At `loop-bench`, a trench plan lies under a ruler laid along the hidden cable turn. |
+| 9 | `accepted_stop_36` | `loop-bench` | Saira Malik pins the -1.10 KV PREDICTED / -1.06 KV ARCHIVED strip to the loop plan. | At `earth-cert`, the April certificate hangs beside a new sharp voltage trace. |
+| 10 | `accepted_stop_40` | `earth-cert` | Saira Malik stamps the April certificate STEADY TEST ONLY. | At `strike-ledger`, two current totals leave a red gap on the strike ledger. |
+| 11 | `accepted_stop_44` | `strike-ledger` | Marcus Tate pins the CONDUIT: ABOUT ONE THIRD record into the missing branch. | At `record-desk`, a sealed prediction sits beside the reduced-test recorder. |
+| 12 | `accepted_stop_48` | `record-desk` | Dr. Lena Ortiz clips the 90 V PREDICTED / 92 V MEASURED strip into the report. | At `recorder-rack`, a narrow peak stands above a slow trace that barely moves. |
+| 13 | `accepted_stop_52` | `recorder-rack` | Noor Haddad ties a FINAL SHOT: FAST INDEPENDENT CHANNELS tag to the recorder rack. | At `trailer-cards`, a fresh strike trace ends at 188 V beside a second strip marked 310 V. |
+| 14 | `accepted_stop_56` | `trailer-cards` | Owen Park bags card E beneath a RACK LOOP: REPAIR REQUIRED label. | At `record-desk`, the repaired card rack waits beside the blank last report page. |
+| 15 | `accepted_stop_60` | `record-desk` | Dr. Lena Ortiz clips the witnessed final-shot record into the season report. | At `record-desk`, the signed operating conditions remain beside the final status. |
+
 ## 8. Mission content contract
 
 Every stop below includes its complete authored payload. Field spellings are canonical intent, not a claim about an unseen importer version. The implementer must map these blocks to the repository's current schema and run import/trap/lesson validation. Numerical tolerances are inclusive.
@@ -289,14 +328,27 @@ Define every technical term before a briefing, bubble, setup, or prompt assumes 
 
 Every mission below supplies its briefing promise, primer, story event, beat script, route, character beat, concepts, four globally numbered stops, outcome, exact metric screen, and quick review.
 
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The final report printer feeds its signed last page beside the live shot traces.
+
+**The next sixty seconds:** The final witnessed shot runs between accepted_stop_59 and activation of Stop 60 after every existing launch safeguard passes. From the sheltered gallery view, a rocket rises along its wire, the channel joins the mast tip, and the fast recorders light; all values are the authored Stop 60 evidence. After accepted_stop_60: 0–15 seconds, the report prints; 15–40 seconds, the player can walk to the gallery and inspect the same captured shot and storm; 40–60 seconds, Ortiz files the page and the ending card appears. No second launch is made for spectacle.
+
+**Ending card - exact player copy:** Thunder reaches the gallery after the flash. The final shot trace stays inside the posted limits. Ortiz clips the last page into the report, with the old burned-card photo beside it. The next crew has a tested station and a record of what once went wrong.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
 # Mission 1 - Write the Stop Rule
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** 15 DAYS TO FINAL STORM WINDOW  
+**Header:** MISSION 1 - 15 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** Write the Stop Rule  
 **Go now:** Go to Launch Control and meet Dr. Lena Ortiz, station director, at the launch board.  
-**Card body:** An electrical pulse damaged a remote test station even though its safety lights showed green. Today's launch is paused. Use physics to compare the sensors and decide what evidence the crew must demand before another test can put people or equipment at risk.
+**Card body:** 15 days until the last storm window closes. One crew-clear lamp disagrees with the others beneath the red hold bar. Today you decide which two checks permit a shot.
 **Objective:** Commit a numerical field threshold and a disagreement rule before launch data appear.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -389,7 +441,9 @@ The player finds two mills using the opposite sign convention, derives vector su
 
 **Beat 1 - On arrival at Launch Control | `radar-desk` | automatic**
 
-**World state:** The fix the signs fixture wakes and the mission evidence opens.
+**Trigger:** mission_1_arrival.
+
+**World state:** One crew-clear lamp disagrees with the others beneath the red hold bar.
 
 **Panel/HUD text:** MISSION 1: FIX THE SIGNS OPEN
 
@@ -399,27 +453,33 @@ The player finds two mills using the opposite sign convention, derives vector su
 
 **Beat 2 - After Stop 1 | `launch-board` | automatic**
 
-**World state:** The fix the signs result remains visible while the derive the net field fixture lights.
+**Trigger:** accepted_stop_1.
+
+**World state:** At `radar-desk`, the dated accepted-result slip for Stop 1 reads: "Mapping above, exact labels.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 1 RECORDED - STOP 2 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 1 result to settle derive the net field."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The normalized readings need an independent layer-model prediction before they can support a launch criterion."
 
 **Unlocks/waypoint:** Unlock Stop 2 at `launch-board` in Launch Control.
 
 **Beat 3 - After Stop 2 | `launch-board` | automatic**
 
-**World state:** (2) S2 complete, board update: `SIGNED FIELD = VECTOR SUM`.
+**Trigger:** accepted_stop_2.
+
+**World state:** At `launch-board`, the dated accepted-result slip for Stop 2 reads: "-4.5 kV/m, exact line/rule pairs.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** SIGNED FIELD = VECTOR SUM
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 2 result to settle bound the disagreement."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The layer prediction is ready, but calibration uncertainty could still explain the difference between channels."
 
 **Unlocks/waypoint:** Unlock Stop 3 at `launch-board` in Launch Control.
 
 **Beat 4 - After Stop 3 | `launch-board` | automatic**
 
-**World state:** The bound the disagreement result remains visible while the commit the criterion fixture lights.
+**Trigger:** accepted_stop_3.
+
+**World state:** At `launch-board`, the dated accepted-result slip for Stop 3 reads: "Single-field model survives; observed pair spread 0.20 kV/m ≤ 0.50 kV/m.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 3 RECORDED - STOP 4 OPEN
 
@@ -429,13 +489,23 @@ The player finds two mills using the opposite sign convention, derives vector su
 
 **Beat 5 - At mission end | `radar-desk` | automatic**
 
-**World state:** (4) S4 complete, launch cover remains closed and criterion appears on board; Outcome walk: player places report piece 1 in SHOT; metric screen unlocks.
+**Trigger:** accepted_stop_4.
+
+**World state:** At `launch-board`, Dr. Lena Ortiz clips the FIELD AND CHANNEL-SPREAD LIMITS card above the launch key. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 1 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Dr. Lena Ortiz: "A deadline does not get its own launch key. But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m01
+
+**Home:** `launch-board`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. One crew-clear lamp disagrees with the others beneath the red hold bar.
+**After — exact action:** Dr. Lena Ortiz clips the FIELD AND CHANNEL-SPREAD LIMITS card above the launch key.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `storm-profile-board`, rain beads on a cloud-layer sketch beside the mill readings.
+**Segue - exact player copy:** But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them.
 
 ## Location plan
 
@@ -492,6 +562,10 @@ Electric field is a vector. A signed component says direction, while its magnitu
 **Question card story setup - exact player copy:** At the sensor, the upper cloud layer contributes E_1y = -3.0 kV/m and the lower layer contributes E_2y = -1.5 kV/m. Both contributions point downward, the negative vertical direction.
 
 **Question card story-science connection - exact player copy:** The combined vertical field supplies the predicted crew-height exposure against which the field mills will be checked.
+
+**Fixture source panel - exact player copy:** At the sensor, the upper cloud layer contributes E_1y = -3.0 kV/m and the lower layer contributes E_2y = -1.5 kV/m. Both contributions point downward, the negative vertical direction. E_1y = -3.0 kV/m, upper-layer contribution at the sensor E_2y = -1.5 kV/m, lower-layer contribution at the sensor
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the signed field in kV/m.
 
@@ -676,11 +750,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Use both limits for every shot. Launch only when the field is at or below `5.0 kV/m` in size. And the channel spread is at or below `0.50 kV/m`. The present cell passes. The close agreement still needs an independence check.
+Mission decision: Use both limits for every shot. Launch only when the field is at or below 5.0 kV/m in size, and the channel spread is at or below 0.50 kV/m. The present cell passes. The close agreement still needs an independence check.
 
+**Segue - exact player copy:** But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: Use both limits for every shot. Station 12 can move forward without putting the crew at needless risk.
+**Happy ending card - exact player copy:** Your checks made the difference. Dr. Lena Ortiz clips the FIELD AND CHANNEL-SPREAD LIMITS card above the launch key. But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them.
 
 **Story event - exact player copy:** The launch board now blocks every pulse unless both electric-field safety limits pass.
 
@@ -913,10 +988,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 2 - Bound the Layer Charge
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 14 DAYS TO FINAL STORM WINDOW  
+**Header:** MISSION 2 - 14 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** Bound the Layer Charge  
 **Go now:** Go to the Field Station and meet Ravi Sen, field scientist, at the mill bench.  
-**Card body:** The sensors show a strong electrical influence from the storm above the range. Work out how much charge in the cloud could produce those readings. Decide whether the storm explanation fits before the team uses it to design another test.
+**Card body:** 14 days until the last storm window closes. Rain beads on a cloud-layer sketch beside the mill readings. Today you decide what charge the measured field can support.
 **Objective:** Infer the effective layer charge from the mill array.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1003,7 +1078,9 @@ Ravi uses a pillbox model to infer `σ`; the result supports, but does not prove
 
 **Beat 1 - On arrival at Field Station | `mill-array` | automatic**
 
-**World state:** The derive the sheet field fixture wakes and the mission evidence opens.
+**Trigger:** mission_2_arrival.
+
+**World state:** Rain beads on a cloud-layer sketch beside the mill readings.
 
 **Panel/HUD text:** MISSION 2: DERIVE THE SHEET FIELD OPEN
 
@@ -1013,43 +1090,59 @@ Ravi uses a pillbox model to infer `σ`; the result supports, but does not prove
 
 **Beat 2 - After Stop 5 | `mill-bench` | automatic**
 
-**World state:** The derive the sheet field result remains visible while the sort the flux faces fixture lights.
+**Trigger:** accepted_stop_5.
+
+**World state:** At `mill-array`, the dated accepted-result slip for Stop 5 reads: "exact symbolic result.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 5 RECORDED - STOP 6 OPEN
 
-**Dialogue bubbles -** Ravi Sen: "Nice work. Use the Stop 5 result to settle sort the flux faces."
+**Dialogue bubbles -** Ravi Sen: "That check holds. Ravi needs to confirm that the charge-layer calculation counts flux through the correct surfaces."
 
 **Unlocks/waypoint:** Unlock Stop 6 at `mill-bench` in Field Station.
 
 **Beat 3 - After Stop 6 | `mill-array` | automatic**
 
-**World state:** Stop 2 lights the contributing pillbox faces,.
+**Trigger:** accepted_stop_6.
+
+**World state:** At `mill-bench`, the dated accepted-result slip for Stop 6 reads: "as mapped.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 6 RECORDED - STOP 7 OPEN
 
-**Dialogue bubbles -** Ravi Sen: "Good thinking. Use the Stop 6 result to settle derive the effective charge density."
+**Dialogue bubbles -** Ravi Sen: "That check holds. The isolated-sheet calculation must now account for the conducting ground beneath the storm."
 
 **Unlocks/waypoint:** Unlock Stop 7 at `mill-array` in Field Station.
 
 **Beat 4 - After Stop 7 | `mill-array` | automatic**
 
-**World state:** Stop 3 posts `σ=-7.97×10^-8 C/m²`, and.
+**Trigger:** accepted_stop_7.
+
+**World state:** At `mill-array`, the dated accepted-result slip for Stop 7 reads: "-7.97×10^-8 C/m², tolerance ±0.04×10^-8.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** σ=-7.97×10^-8 C/m²
 
-**Dialogue bubbles -** Ravi Sen: "Exactly right. Use the Stop 7 result to settle test spatial consistency."
+**Dialogue bubbles -** Ravi Sen: "That check holds. The inferred charge density needs a spatial check before the crew accepts a uniform storm layer."
 
 **Unlocks/waypoint:** Unlock Stop 8 at `mill-array` in Field Station.
 
 **Beat 5 - At mission end | `mill-array` | automatic**
 
-**World state:** Stop 4 overlays all four mills and activates report piece 2.
+**Trigger:** accepted_stop_8.
+
+**World state:** At `storm-profile-board`, Ravi Sen pins the bounded charge-layer sketch beneath the measured field strip. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 2 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Ravi Sen: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Ravi Sen: "Put a bound on the sky before we put a story in it. Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m02
+
+**Home:** `storm-profile-board`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. Rain beads on a cloud-layer sketch beside the mill readings.
+**After — exact action:** Ravi Sen pins the bounded charge-layer sketch beneath the measured field strip.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `shunt-rack`, a voltage sketch lies beside three shunt leads and an empty fourth hook.
+**Segue - exact player copy:** Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage.
 
 ## Location plan
 
@@ -1078,6 +1171,10 @@ Gauss's law is useful only when symmetry makes the flux integral tractable. A co
 **Question card story setup - exact player copy:** Derive the field on either side from Gauss's law before inserting measurements.
 
 **Question card story-science connection - exact player copy:** The sheet-field expression links the cloud's charge density to the electric field on each side of the layer.
+
+**Fixture source panel - exact player copy:** Derive the field on either side from Gauss's law before inserting measurements. Build the two-line symbolic derivation and name Gauss's law with planar symmetry
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit E=σ/(2ε₀).
 
@@ -1161,6 +1258,10 @@ derive:
 **Question card story setup - exact player copy:** Because the conducting ground mirrors the layer field, the station model uses E_ground=σ/ε₀, not the isolated-sheet value. Use the measured E=-9.0 kV/m to derive the effective density.
 
 **Question card story-science connection - exact player copy:** The effective surface charge density sets the ground-level field used to assess the approaching layer.
+
+**Fixture source panel - exact player copy:** Because the conducting ground mirrors the layer field, the station model uses E_ground=σ/ε₀, not the isolated-sheet value. Use the measured E=-9.0 kV/m to derive the effective density. Vacuum permittivity: ε₀ = 8.854 × 10^-12 F/m.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit σ in C/m²; use ε₀=8.854×10^-12 C²/(N·m²) and E=-9.0×10³ N/C.
 
@@ -1282,9 +1383,10 @@ residual:
 
 Mission decision: Use the field map to mark the mast tip. The strongest field is near the close contours. The cabinet blocks the static field. Next, test the storm model.
 
+**Segue - exact player copy:** Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: Use the field map to mark the mast tip. The launch team now has a result it can safely act on.
+**Happy ending card - exact player copy:** Your checks made the difference. Ravi Sen pins the bounded charge-layer sketch beneath the measured field strip. Therefore Tate needs the voltage between cloud and ground; a field reading alone will not trace the damage.
 
 **Story event - exact player copy:** The field map links the measured charge layer to the strongest field at the mast.
 
@@ -1484,10 +1586,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 3 - From Field to Voltage
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 13 DAYS TO FINAL STORM WINDOW  
+**Header:** MISSION 3 - 13 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** From Field to Voltage  
 **Go now:** Go to the Field Station and meet Ravi Sen, field scientist, at the mill array.  
-**Card body:** The electrical reading near the ground does not tell the crew how much energy a charge could gain between cloud and ground. Combine measurements from different heights. Estimate that voltage difference so the team can judge how the storm could damage the station.
+**Card body:** 13 days until the last storm window closes. A voltage sketch lies beside three shunt leads and an empty fourth hook. Today you decide what voltage the field implies.
 **Objective:** Derive and validate the cloud-ground voltage.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1590,7 +1692,9 @@ Ravi derives `ΔV=+360 MV` from ground to cloud for `E_y=-9.0 kV/m` over `40 km`
 
 **Beat 1 - On arrival at Field Station | `mill-array` | automatic**
 
-**World state:** Arrival at FIELD unlocks the voltage board.
+**Trigger:** mission_3_arrival.
+
+**World state:** A voltage sketch lies beside three shunt leads and an empty fourth hook.
 
 **Panel/HUD text:** MISSION 3: DERIVE VOLTAGE FROM UNIFORM FIELD OPEN
 
@@ -1600,43 +1704,59 @@ Ravi derives `ΔV=+360 MV` from ground to cloud for `E_y=-9.0 kV/m` over `40 km`
 
 **Beat 2 - After Stop 9 | `mill-array` | automatic**
 
-**World state:** The derive voltage from uniform field result remains visible while the read the equipotentials fixture lights.
+**Trigger:** accepted_stop_9.
+
+**World state:** At `mill-array`, the dated accepted-result slip for Stop 9 reads: "+3.60×10^8 V=+360 MV, tolerance ±2 MV.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 9 RECORDED - STOP 10 OPEN
 
-**Dialogue bubbles -** Ravi Sen: "Nice work. Use the Stop 9 result to settle read the equipotentials."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The voltage estimate needs a geometric check before it is used to interpret the mast environment."
 
 **Unlocks/waypoint:** Unlock Stop 10 at `mill-array` in Field Station.
 
 **Beat 3 - After Stop 10 | `mill-bench` | automatic**
 
-**World state:** Stop 2 overlays equipotential contours,.
+**Trigger:** accepted_stop_10.
+
+**World state:** At `mill-array`, the dated accepted-result slip for Stop 10 reads: "A.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 10 RECORDED - STOP 11 OPEN
 
-**Dialogue bubbles -** Ravi Sen: "Good thinking. Use the Stop 10 result to settle derive a sampled-profile estimate."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The uniform-field voltage now needs comparison with the balloon's independently sampled altitude profile."
 
 **Unlocks/waypoint:** Unlock Stop 11 at `mill-bench` in Field Station.
 
 **Beat 4 - After Stop 11 | `mill-bench` | automatic**
 
-**World state:** Stop 3 animates the balloon-profile strips and records the independent `250 MV` estimate, and.
+**Trigger:** accepted_stop_11.
+
+**World state:** At `mill-bench`, the dated accepted-result slip for Stop 11 reads: "+250 MV, 30.6% lower, tolerances ±2 MV, ±0.5%.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** 250 MV
 
-**Dialogue bubbles -** Ravi Sen: "Exactly right. Use the Stop 11 result to settle choose the report value."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The two voltage estimates disagree enough that the report must carry altitude uncertainty explicitly."
 
 **Unlocks/waypoint:** Unlock Stop 12 at `mill-bench` in Field Station.
 
 **Beat 5 - At mission end | `mill-array` | automatic**
 
-**World state:** Stop 4 writes the bounded `250–378 MV` interval onto report piece 3.
+**Trigger:** accepted_stop_12.
+
+**World state:** At `shunt-rack`, Marcus Tate clips the 250 TO 378 MV model card to the shunt rack. The dated prop remains here on later visits.
 
 **Panel/HUD text:** 250–378 MV
 
-**Dialogue bubbles -** Ravi Sen: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Marcus Tate: "That is a large voltage. It still needs a path. But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m03
+
+**Home:** `shunt-rack`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. A voltage sketch lies beside three shunt leads and an empty fourth hook.
+**After — exact action:** Marcus Tate clips the 250 TO 378 MV model card to the shunt rack.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `mast-desk`, the copper tip model catches light beside a trailer damage photo.
+**Segue - exact player copy:** But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card.
 
 ## Location plan
 
@@ -1665,6 +1785,10 @@ Potential is scalar, but its spatial derivative gives the vector field. The lead
 **Question card story setup - exact player copy:** The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.
 
 **Question card story-science connection - exact player copy:** The cloud-to-ground potential difference sets the voltage scale the later test bank can represent only approximately.
+
+**Fixture source panel - exact player copy:** The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact. Build four lines and name each rule; use 1 km=1000 m
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit ΔV in volts and megavolts.
 
@@ -1770,6 +1894,10 @@ derive:
 **Question card story setup - exact player copy:** Because the contour test confirms the sign, integrate an independent balloon profile with fields -6,-8,-10,-8 kV/m across three 10 km layers. Compare the sampled voltage with the uniform model.
 
 **Question card story-science connection - exact player copy:** Integrating the sampled field estimates the cloud voltage without assuming that one ground reading holds at every altitude.
+
+**Fixture source panel - exact player copy:** Because the contour test confirms the sign, integrate an independent balloon profile with fields -6,-8,-10,-8 kV/m across three 10 km layers. Compare the sampled voltage with the uniform model. Build the three-line trapezoid derivation; use 1 (kV/m)(km)=1 MV
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit voltage in MV and percent difference from 360 MV.
 
@@ -1896,11 +2024,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: Use `250–378 MV` for the cloud-ground potential. Field direction makes the cloud positive relative to ground in this model. The voltage is large enough to matter. But it still does not explain why damage appeared only at the trailer.
+Mission decision: Use 250–378 MV for the cloud-ground potential. Field direction makes the cloud positive relative to ground in this model. The voltage is large enough to matter. But it still does not explain why damage appeared only at the trailer.
 
+**Segue - exact player copy:** But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: Use 250–378 MV for the cloud-ground potential. Your careful test protects the station and everyone working there.
+**Happy ending card - exact player copy:** Your checks made the difference. Marcus Tate clips the 250 TO 378 MV model card to the shunt rack. But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card.
 
 **Story event - exact player copy:** The failure model now uses the verified 250-to-378-megavolt cloud-to-ground range.
 
@@ -2049,10 +2178,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 4 - The Point on the Skyline
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 12 DAYS TO FINAL STORM WINDOW  
+**Header:** MISSION 4 - 12 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** The Point on the Skyline  
 **Go now:** Go to Mast Base and meet Marcus Tate, mast engineer, at the mast desk.  
-**Card body:** The storm could drive a discharge, but the damaged station has no direct lightning mark. Sharp metal tips can concentrate electrical charge. Check the mast's shape and the station records, then decide whether the mast tip alone explains what went wrong.
+**Card body:** 12 days until the last storm window closes. The copper tip model catches light beside a trailer damage photo. Today you decide whether the mast tip explains the remote damage.
 **Objective:** Separate local mast-tip breakdown from the remote failure.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -2142,7 +2271,9 @@ At Mast Base, Tate proves the tip can trigger a rocket but cannot create the tra
 
 **Beat 1 - On arrival at Mast Base | `mast-desk` | automatic**
 
-**World state:** | trigger | location | presentation | world_state | exact dialogue/panel copy | unlocks | |---|---|---|---|---|---| | briefing accepted | MAST/mast-desk | nearby_character_bubble | corona icon pulses at tip; cabinet normal | `` | M4S1 | | S2 correct | MAST/mast-desk | equipment_panel_update | tip label `50× BODY FIELD` | `The enhancement is local to the sharp tip.` | M4S3 | | S3 correct | MAST/cabinet | persistent_world_change | closed cabinet reads `0.00 kV/m - SHIELDED` | `A closed conductor cancels the static interior field.` | M4S4 | | S4 correct | MAST/cabinet | nearby_character_bubble | trailer photo gains `` | outcome | | outcome closes | MAST/mast-desk | system_banner | report piece 4 fixed in SHOT board remotely | `TIP EFFECT LOCAL - SEARCH FOR A PATH` | metric screen, M5 |.
+**Trigger:** mission_4_arrival.
+
+**World state:** The copper tip model catches light beside a trailer damage photo.
 
 **Panel/HUD text:** Marcus Tate, mast engineer: “The tip is meant to start a strike. Show me whether that can reach the trailer.”
 
@@ -2152,43 +2283,59 @@ At Mast Base, Tate proves the tip can trigger a rocket but cannot create the tra
 
 **Beat 2 - After Stop 13 | `mast-desk` | automatic**
 
-**World state:** The conductor boundary result remains visible while the derive tip enhancement fixture lights.
+**Trigger:** accepted_stop_13.
+
+**World state:** At `mast-desk`, the dated accepted-result slip for Stop 13 reads: "A conductor at equilibrium has E=0 inside; outside E is normal. Mobile charge moves until tangential/interior fields vanish.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 13 RECORDED - STOP 14 OPEN
 
-**Dialogue bubbles -** Marcus Tate: "Nice work. Use the Stop 13 result to settle derive tip enhancement."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The conductor boundary check leaves the mast's sharp tip as a possible field-concentration site."
 
 **Unlocks/waypoint:** Unlock Stop 14 at `mast-desk` in Mast Base.
 
 **Beat 3 - After Stop 14 | `cabinet` | automatic**
 
-**World state:** The derive tip enhancement result remains visible while the verify static shielding fixture lights.
+**Trigger:** accepted_stop_14.
+
+**World state:** At `mast-desk`, the dated accepted-result slip for Stop 14 reads: "50 exact.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 14 RECORDED - STOP 15 OPEN
 
-**Dialogue bubbles -** Marcus Tate: "Good thinking. Use the Stop 14 result to settle verify static shielding."
+**Dialogue bubbles -** Marcus Tate: "That check holds. Tip enhancement does not establish whether the nearby equipment cabinet shields its interior."
 
 **Unlocks/waypoint:** Unlock Stop 15 at `cabinet` in Mast Base.
 
 **Beat 4 - After Stop 15 | `cabinet` | automatic**
 
-**World state:** The verify static shielding result remains visible while the diagnose the remote path fixture lights.
+**Trigger:** accepted_stop_15.
+
+**World state:** At `cabinet`, the dated accepted-result slip for Stop 15 reads: "Closed reading 0.00 kV/m confirms static shielding. Surface charge cancels interior E.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 15 RECORDED - STOP 16 OPEN
 
-**Dialogue bubbles -** Marcus Tate: "Exactly right. Use the Stop 15 result to settle diagnose the remote path."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The shielding result makes the damaged cable card harder to explain as direct static-field exposure."
 
 **Unlocks/waypoint:** Unlock Stop 16 at `cabinet` in Mast Base.
 
 **Beat 5 - At mission end | `mast-desk` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_16.
+
+**World state:** At `mast-desk`, Marcus Tate pins the TIP EFFECT INCOMPLETE finding beside the mast drawing. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 4 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Marcus Tate: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Marcus Tate: "The tip chose the strike point. It did not choose that card. Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m04
+
+**Home:** `mast-desk`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. The copper tip model catches light beside a trailer damage photo.
+**After — exact action:** Marcus Tate pins the TIP EFFECT INCOMPLETE finding beside the mast drawing.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `hall-board`, twelve numbered stages stand behind the rail below a cloud sketch.
+**Segue - exact player copy:** Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case.
 
 ## Location plan
 
@@ -2254,6 +2401,10 @@ Tate wants to preserve the launch function; evidence moves him from defending th
 **Question card story setup - exact player copy:** With conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Derive their surface-field ratio.
 
 **Question card story-science connection - exact player copy:** The surface-field ratio establishes how strongly the tip can amplify the field relative to the broader mast body.
+
+**Fixture source panel - exact player copy:** With conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Derive their surface-field ratio.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the numerical ratio E_tip/E_body.
 
@@ -2413,11 +2564,12 @@ diagnosis:
 
 ## Mission outcome
 
-Mission decision: Tip enhancement did not by itself cause the outstation loss. It explains why the mast launches a discharge. But the trailer evidence requires a conducted or induced path. The search now moves from voltage to stored charge. **Metric:** target 18:00.
+Mission decision: Tip enhancement did not by itself cause the outstation loss. It explains why the mast launches a discharge. But the trailer evidence requires a conducted or induced path. The search now moves from voltage to stored charge. Metric: target 18:00.
 
+**Segue - exact player copy:** Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: Tip enhancement did not by itself cause the outstation loss. The crew is safer because the evidence now points to the real cause.
+**Happy ending card - exact player copy:** Your checks made the difference. Marcus Tate pins the TIP EFFECT INCOMPLETE finding beside the mast drawing. Therefore Strand must compare stored charge before she fires the bank; the tip is only the start of the case.
 
 **Header:** MISSION 4 COMPLETE
 
@@ -2586,9 +2738,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 5 - The Sky as a Capacitor
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 11 DAYS TO FINAL STORM WINDOW; **Go now:** Field Station, Ravi Sen at mill array.  
+**Header:** MISSION 5 - 11 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** The Sky as a Capacitor  
-**Card body:** The mast might start a strike, but the damage still needs an energy source and a route to the station. Calculate how much charge the cloud and ground can store. Choose a laboratory pulse setting that represents the storm without exaggerating it.
+**Card body:** 11 days until the last storm window closes. Twelve numbered stages stand behind the rail below a cloud sketch. Today you decide what the bank can model about the storm.
 **Objective:** Build a bounded cloud-ground capacitance and charge model.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -2678,7 +2830,9 @@ Field Station Stops 1–2 bound geometry; evidence sends the player to Impulse H
 
 **Beat 1 - On arrival at Field Station | `mill-array` | automatic**
 
-**World state:** | trigger | location | presentation | world_state | exact copy | unlocks | |---|---|---|---|---|---| | accepted | FIELD/mill-array | nearby_character_bubble | cloud footprint overlay visible | `` | S1 | | S2 correct | FIELD/mill-array | waypoint_notification | truth pair pinned | `Take A = 2.0×10^8 m² and κ = 1.00 to Impulse Hall.` | BANK travel/S3 | | enter BANK | BANK/hall-board | nearby_character_bubble | earthing stick on | `` | S3 | | S4 correct | BANK/bank-stages | equipment_panel_update | selected evidence labels appear | `MATCH: VOLTAGE • CHARGE • TIMING; GEOMETRY NOT MATCHED` | outcome | | outcome closes | BANK/hall-board | system_banner | report piece 5 appears | `CLOUD MODEL BOUNDED` | metric/M6 |.
+**Trigger:** mission_5_arrival.
+
+**World state:** Twelve numbered stages stand behind the rail below a cloud sketch.
 
 **Panel/HUD text:** Ravi Sen, field scientist: “Use geometry first. Voltage comes only after we know what can store charge.”
 
@@ -2688,43 +2842,59 @@ Field Station Stops 1–2 bound geometry; evidence sends the player to Impulse H
 
 **Beat 2 - After Stop 17 | `storm-profile-board` | automatic**
 
-**World state:** The derive cloud-ground capacitance result remains visible while the break the area-dielectric degeneracy fixture lights.
+**Trigger:** accepted_stop_17.
+
+**World state:** At `mill-array`, the dated accepted-result slip for Stop 17 reads: "C=ε₀A/d=44.3 nF. Gauss plus V=Ed cancels Q.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 17 RECORDED - STOP 18 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 17 result to settle break the area-dielectric degeneracy."
+**Dialogue bubbles -** Elise Strand: "That check holds. The capacitance alone leaves multiple combinations of cloud area and dielectric factor possible."
 
 **Unlocks/waypoint:** Unlock Stop 18 at `storm-profile-board` in Field Station.
 
 **Beat 3 - After Stop 18 | `hall-board` | automatic**
 
-**World state:** The break the area-dielectric degeneracy result remains visible while the derive marx topology fixture lights.
+**Trigger:** accepted_stop_18.
+
+**World state:** At `storm-profile-board`, the dated accepted-result slip for Stop 18 reads: "truth. State waypoint BANK.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 18 RECORDED - STOP 19 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 18 result to settle derive marx topology."
+**Dialogue bubbles -** Elise Strand: "That check holds. The storm estimate is ready for comparison with the bank's actual charging and discharge connections."
 
 **Unlocks/waypoint:** Unlock Stop 19 at `hall-board` in Impulse Hall.
 
 **Beat 4 - After Stop 19 | `trailer-cards` | automatic**
 
-**World state:** The derive marx topology result remains visible while the buy model evidence fixture lights.
+**Trigger:** accepted_stop_19.
+
+**World state:** At `hall-board`, the dated accepted-result slip for Stop 19 reads: "tolerances.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 19 RECORDED - STOP 20 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 19 result to settle buy model evidence."
+**Dialogue bubbles -** Elise Strand: "That check holds. The bank topology is known, but the shot model still lacks measurements needed for a defensible comparison."
 
 **Unlocks/waypoint:** Unlock Stop 20 at `trailer-cards` in Remote Outstation.
 
 **Beat 5 - At mission end | `mill-array` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_20.
+
+**World state:** At `hall-board`, Elise Strand clips the ELECTRICAL MODEL ONLY card to the bank diagram. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 5 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Elise Strand: "We can match an electrical pulse. We cannot build a cloud indoors. But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m05
+
+**Home:** `hall-board`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. Twelve numbered stages stand behind the rail below a cloud sketch.
+**After — exact action:** Elise Strand clips the ELECTRICAL MODEL ONLY card to the bank diagram.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `gap-row`, the earthing stick rests on the bank while the stage lamps stay dark.
+**Segue - exact player copy:** But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change.
 
 ## Location plan
 
@@ -2752,6 +2922,10 @@ Ravi protects model honesty; Strand protects operability.
 **Question card story setup - exact player copy:** The layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Derive cloud-ground capacitance before using any voltage.
 
 **Question card story-science connection - exact player copy:** Cloud-ground capacitance connects the measured layer geometry to the amount of charge stored at a given voltage.
+
+**Fixture source panel - exact player copy:** The layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Derive cloud-ground capacitance before using any voltage. Vacuum permittivity: ε₀ = 8.854 × 10^-12 F/m.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit capacitance in nF to the displayed tolerance.
 
@@ -2848,6 +3022,10 @@ derive:
 
 **Question card story-science connection - exact player copy:** The two equivalent capacitances explain why the bank can charge at one voltage arrangement and discharge at another.
 
+**Fixture source panel - exact player copy:** At Impulse Hall, Elise Strand, impulse engineer, shows twelve 100 nF stage capacitors. Derive the equivalent capacitance when they charge in parallel and discharge in series.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit both equivalent capacitances in μF and nF.
 
 **Complete format-specific interaction block:** lines `Ccharge=ΣC_i=12(100 nF)=1200 nF=1.20µF`(parallel), `1/Cdis=Σ1/C=12/C`(series), `Cdis=(100 nF)/12=8.33 nF`(algebra).
@@ -2927,9 +3105,10 @@ derive:
 
 Mission decision: Use the twelve-stage Marx bank only as an electrical model. Match voltage, charge, and timing. The storm capacitance is about 44.3 nF. The bank does not copy cloud shape. Next, calculate staged energy.
 
+**Segue - exact player copy:** But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: Use the twelve-stage Marx bank only as an electrical model. The next launch decision rests on measured physics, not a frightening guess.
+**Happy ending card - exact player copy:** Your checks made the difference. Elise Strand clips the ELECTRICAL MODEL ONLY card to the bank diagram. But Ortiz has one test window left today; Strand must bound the energy before the rail lamps can change.
 
 **Header:** MISSION 5 COMPLETE
 
@@ -3098,9 +3277,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 6 - Count the Bank's Energy
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 10 DAYS; **Go now:** Impulse Hall, Elise Strand at bank stages.  
+**Header:** MISSION 6 - 10 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** Count the Bank's Energy  
-**Card body:** The pulse generator can imitate the storm, but its wiring changes before it fires. A wrong connection could change how much energy it releases. Check both wiring arrangements and their timing, then decide whether the crew can safely run a lower-energy test.
+**Card body:** 10 days until the last storm window closes. The earthing stick rests on the bank while the stage lamps stay dark. Today you decide whether the reduced-energy bank test can run.
 **Objective:** Bound bank energy and authorize or reject the test.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -3198,7 +3377,9 @@ Impulse Hall derives energy and gap timing, then Launch Control records authoriz
 
 **Beat 1 - On arrival at Impulse Hall | `hall-board` | automatic**
 
-**World state:** accepted BANK/bubble/earthing stick on/``→S1; S2 correct/panel/gap 8 tagged/`8 mm: rise 115 ns; breakdown 56 kV.`→S3; S3 correct/panel/shield zone text/`39.8 J/m³ AT FICTIONAL WET-AIR LIMIT`→S4; S4 correct/nearby bubble/earth stick remains until authorization/``→SHOT waypoint; enter SHOT/record update/piece6/`STAGE 7: LATE FIRING FLAG`→outcome.
+**Trigger:** mission_6_arrival.
+
+**World state:** The earthing stick rests on the bank while the stage lamps stay dark.
 
 **Panel/HUD text:** Elise Strand, impulse engineer: “Count energy before this stick moves.”
 
@@ -3208,43 +3389,59 @@ Impulse Hall derives energy and gap timing, then Launch Control records authoriz
 
 **Beat 2 - After Stop 21 | `gap-row` | automatic**
 
-**World state:** The derive stored bank energy result remains visible while the sweep gap timing fixture lights.
+**Trigger:** accepted_stop_21.
+
+**World state:** At `hall-board`, the dated accepted-result slip for Stop 21 reads: "Twelve stages store 1.50 kJ. Integrating V dq gives ½CV² per stage.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 21 RECORDED - STOP 22 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 21 result to settle sweep gap timing."
+**Dialogue bubbles -** Elise Strand: "That check holds. The energy budget is fixed, leaving gap spacing as the next control on discharge timing."
 
 **Unlocks/waypoint:** Unlock Stop 22 at `gap-row` in Impulse Hall.
 
 **Beat 3 - After Stop 22 | `hall-board` | automatic**
 
-**World state:** The sweep gap timing result remains visible while the derive electric energy density fixture lights.
+**Trigger:** accepted_stop_22.
+
+**World state:** At `gap-row`, the dated accepted-result slip for Stop 22 reads: "Choose 8 mm. It is the inspected setting meeting rise-time and breakdown bounds.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 22 RECORDED - STOP 23 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 22 result to settle derive electric energy density."
+**Dialogue bubbles -** Elise Strand: "That check holds. The selected gap still needs a local field-energy check for the shield review."
 
 **Unlocks/waypoint:** Unlock Stop 23 at `hall-board` in Impulse Hall.
 
 **Beat 4 - After Stop 23 | `record-desk` | automatic**
 
-**World state:** The derive electric energy density result remains visible while the authorize the reduced shot fixture lights.
+**Trigger:** accepted_stop_23.
+
+**World state:** At `hall-board`, the dated accepted-result slip for Stop 23 reads: "u_E=39.84 J/m³. Energy density scales with field squared.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 23 RECORDED - STOP 24 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 23 result to settle authorize the reduced shot."
+**Dialogue bubbles -** Elise Strand: "That check holds. Passing energy and timing calculations does not yet establish that the physical hall is ready."
 
 **Unlocks/waypoint:** Unlock Stop 24 at `record-desk` in Launch Control.
 
 **Beat 5 - At mission end | `hall-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_24.
+
+**World state:** At `gap-row`, Elise Strand pins the 1.50 KJ TEST RECORD beside the first-gap scale. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 6 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Elise Strand: "The bank answered. Stage seven answered late. But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m06
+
+**Home:** `gap-row`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. The earthing stick rests on the bank while the stage lamps stay dark.
+**After — exact action:** Elise Strand pins the 1.50 KJ TEST RECORD beside the first-gap scale.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `reference-panel`, four matching screen traces meet at one exposed reference wire.
+**Segue - exact player copy:** But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse.
 
 ## Location plan
 
@@ -3272,6 +3469,10 @@ Strand values hardware realism; Ortiz requires identity and condition.
 **Question card story setup - exact player copy:** Each of twelve stages has C=100 nF and charges to V=50.0 kV. Derive the bank's total stored energy before anyone removes the earthing stick.
 
 **Question card story-science connection - exact player copy:** Total capacitor energy sets the exposure the hall's shields and reduced-shot authorization must accommodate.
+
+**Fixture source panel - exact player copy:** Each of twelve stages has C=100 nF and charges to V=50.0 kV. Derive the bank's total stored energy before anyone removes the earthing stick.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit total twelve-stage stored energy in joules.
 
@@ -3368,6 +3569,10 @@ derive:
 
 **Question card story-science connection - exact player copy:** Electric energy density translates the wet-air field limit into energy concentrated per unit volume near the shield.
 
+**Fixture source panel - exact player copy:** Because the 8 mm setting controls rise time, compute the local electric energy density at the fictional wet-air limit E=3.0 MV/m. Derive the result for the hall shield review. Vacuum permittivity: ε₀ = 8.854 × 10^-12 F/m.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit u_E in J/m³.
 
 **Complete format-specific interaction block:** lines `uE=½ε0E²`; substitution `½(8.854e-12)(3.0e6)²`; result `39.84 J/m³`. Prompt submit J/m³ tolerance.2.
@@ -3458,11 +3663,12 @@ attest:
 
 ## Mission outcome
 
-Mission decision: Authorize one reduced-energy firing at the `8 mm` first-gap setting. The bank stores `1.50 kJ`. And the selected front protects the test sensors. The timing log shows stage 7 fires late, so the pulse may not be as uniform as the total energy suggests. Metric target 22:00.
+Mission decision: Authorize one reduced-energy firing at the 8 mm first-gap setting. The bank stores 1.50 kJ, and the selected front protects the test sensors. The timing log shows stage 7 fires late, so the pulse may not be as uniform as the total energy suggests. Metric target 22:00.
 
+**Segue - exact player copy:** But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: Authorize one reduced-energy firing at the 8 mm first-gap setting. Station 12 can move forward without putting the crew at needless risk.
+**Happy ending card - exact player copy:** Your checks made the difference. Elise Strand pins the 1.50 KJ TEST RECORD beside the first-gap scale. But Noor's timing strip puts stage 7 late; one energy total cannot prove one clean pulse.
 
 **Header:** MISSION 6 COMPLETE
 
@@ -3631,9 +3837,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 7 - Four Screens, One Wire
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 9 DAYS; **Go now:** Field Station, Noor Haddad at mill array.  
+**Header:** MISSION 7 - 9 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** Four Screens, One Wire  
-**Card body:** All four sensors jumped at exactly the same moment during the test. They may be repeating a fault in their shared return wire rather than confirming a real change. Trace the connections and compare an independent sensor before deciding which readings to trust.
+**Card body:** Nine days remain in the storm window. Four screen traces meet at one wire. Today you decide which checks are truly separate.
 **Objective:** Test whether the four mill channels are independent.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -3735,7 +3941,9 @@ Field Station circuit work sends the player to the raw reference panel in Launch
 
 **Beat 1 - On arrival at Field Station | `mill-array` | automatic**
 
-**World state:** accepted FIELD/bubble/four traces aligned/``→S1; S1 correct/waypoint/trace dependency lights to SHOT/`ALL FOUR MILLS → SHOT GROUND REFERENCE`→travel; enter SHOT/bubble/hidden branch icon/`The trunk is short by 3.0 mA.`→S2; S3 correct/panel/jump disappears then returns/`ISOLATE: 0.03; RESTORE: 0.80 kV/m`→S4; S4 correct/world/report pieces 1-3 marked `SHARED REFERENCE - NOT INDEPENDENT`/`Evidence removed; layer model retained.`→outcome.
+**Trigger:** mission_7_arrival.
+
+**World state:** Four matching screen traces meet at one exposed reference wire.
 
 **Panel/HUD text:** Noor Haddad, data and safety analyst: “Independent of what?”
 
@@ -3745,43 +3953,59 @@ Field Station circuit work sends the player to the raw reference panel in Launch
 
 **Beat 2 - After Stop 25 | `radar-desk` | automatic**
 
-**World state:** The trace the shared reference result remains visible while the derive the missing branch current fixture lights.
+**Trigger:** accepted_stop_25.
+
+**World state:** At `mill-array`, the dated accepted-result slip for Stop 25 reads: "All four mills share SHOT ground; they are not independent.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 25 RECORDED - STOP 26 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 25 result to settle derive the missing branch current."
+**Dialogue bubbles -** Noor Haddad: "That check holds. The shared-reference finding requires the crew to account for current leaving the channel-return node."
 
 **Unlocks/waypoint:** Unlock Stop 26 at `radar-desk` in Launch Control.
 
 **Beat 3 - After Stop 26 | `radar-desk` | automatic**
 
-**World state:** The derive the missing branch current result remains visible while the isolate reference c fixture lights.
+**Trigger:** accepted_stop_26.
+
+**World state:** At `radar-desk`, the dated accepted-result slip for Stop 26 reads: "Missing current is 3.0 mA outward. KCL conserves charge.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 26 RECORDED - STOP 27 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 26 result to settle isolate reference c."
+**Dialogue bubbles -** Noor Haddad: "That check holds. The current balance points to a hidden return path, but its effect on channel C remains untested."
 
 **Unlocks/waypoint:** Unlock Stop 27 at `radar-desk` in Launch Control.
 
 **Beat 4 - After Stop 27 | `record-desk` | automatic**
 
-**World state:** The isolate reference c result remains visible while the quantify common-mode error fixture lights.
+**Trigger:** accepted_stop_27.
+
+**World state:** At `radar-desk`, the dated accepted-result slip for Stop 27 reads: "Isolation removes and restoration returns the jump. That reversal establishes reference causation.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 27 RECORDED - STOP 28 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 27 result to settle quantify common-mode error."
+**Dialogue bubbles -** Noor Haddad: "That check holds. The isolation reversal identifies a cause whose size must now be checked against the recorded voltage."
 
 **Unlocks/waypoint:** Unlock Stop 28 at `record-desk` in Launch Control.
 
 **Beat 5 - At mission end | `mill-array` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_28.
+
+**World state:** At `reference-panel`, Noor Haddad ties a SHARED REFERENCE tag around the common feed. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 7 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Noor Haddad: "Four screens. One wire. We had been counting the screens. But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m07
+
+**Home:** `reference-panel`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. Four matching screen traces meet at one exposed reference wire.
+**After — exact action:** Noor Haddad ties a SHARED REFERENCE tag around the common feed.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `trailer-cards`, a burned card lies under glass beside an unmarked cable jacket.
+**Segue - exact player copy:** But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it.
 
 ## Location plan
 
@@ -3866,6 +4090,10 @@ trace:
 **Question card story setup - exact player copy:** At Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Derive the missing branch current and its direction.
 
 **Question card story-science connection - exact player copy:** The missing branch current quantifies the undocumented return path that the isolation test must investigate.
+
+**Fixture source panel - exact player copy:** At Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Derive the missing branch current and its direction.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the missing current in mA with its direction.
 
@@ -4003,9 +4231,10 @@ estimate:
 
 Mission decision: The mills share one ground reference. The battery logger is separate. Isolating channel C removes the jump. The archive now points to the buried loop.
 
+**Segue - exact player copy:** But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: The mills share one ground reference. The launch team now has a result it can safely act on.
+**Happy ending card - exact player copy:** Your checks made the difference. Noor Haddad ties a SHARED REFERENCE tag around the common feed. But Owen's damaged trailer card has no contact scar; the team must test how a changing field could reach it.
 
 **Header:** MISSION 7 COMPLETE
 
@@ -4174,9 +4403,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 8 - A Field Without Contact
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 8 DAYS; **Go now:** Mast Base, Marcus Tate at shunt rack.  
+**Header:** MISSION 8 - 8 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** A Field Without Contact  
-**Card body:** A wire explains the sensor jump, and the damaged station may also have been affected without a direct lightning strike. Current produces a magnetic field around its path. Calculate that field and inspect the nearby cable loop to assess whether this route is plausible.
+**Card body:** Eight days remain in the storm window. A burned card sits beside a cable with no scar. Today you decide if a field could cause harm without touch.
 **Objective:** Determine whether strike current can influence the trailer cable without direct contact.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -4276,7 +4505,9 @@ The Mast Base field result predicts a measurable loop effect, causing travel to 
 
 **Beat 1 - On arrival at Mast Base | `shunt-rack` | automatic**
 
-**World state:** accepted MAST/bubble/shunts pulse/``→S1; S2 correct/waypoint/field rings extend/`Predicted B at 2.0 m: 3.00 mT; Inspect the outstation route.`→COUPLE; enter COUPLE/panel/no arc tag/`SHELL QUIET • CARD DAMAGED`→S3; S3 correct/panel/helix displayed/`MAGNETIC FORCE CHANGES DIRECTION, NOT SPEED`→S4; S4 correct/radio/loop highlighted/`No contact required; changing flux remains.`→outcome.
+**Trigger:** mission_8_arrival.
+
+**World state:** A burned card lies under glass beside an unmarked cable jacket.
 
 **Panel/HUD text:** Marcus Tate, mast engineer: “If a field reached the route, its direction must match the wiring.”
 
@@ -4286,43 +4517,59 @@ The Mast Base field result predicts a measurable loop effect, causing travel to 
 
 **Beat 2 - After Stop 29 | `mast-desk` | automatic**
 
-**World state:** The match magnetic rules result remains visible while the derive the down-conductor field fixture lights.
+**Trigger:** accepted_stop_29.
+
+**World state:** At `shunt-rack`, the dated accepted-result slip for Stop 29 reads: "Right-hand mappings and four source formulas are complete. Geometry fixes directions.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 29 RECORDED - STOP 30 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 29 result to settle derive the down-conductor field."
+**Dialogue bubbles -** Owen Park: "That check holds. The mast-current model needs a field prediction at the nearby equipment before damage mechanisms are compared."
 
 **Unlocks/waypoint:** Unlock Stop 30 at `mast-desk` in Mast Base.
 
 **Beat 3 - After Stop 30 | `cable-bay` | automatic**
 
-**World state:** The derive the down-conductor field result remains visible while the track a charged particle fixture lights.
+**Trigger:** accepted_stop_30.
+
+**World state:** At `mast-desk`, the dated accepted-result slip for Stop 30 reads: "B=μ₀I/(2πr)=3.00 mT. Circular symmetry makes B constant on the path.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 30 RECORDED - STOP 31 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 30 result to settle track a charged particle."
+**Dialogue bubbles -** Owen Park: "That check holds. The predicted magnetic field must be translated into particle motion before it is blamed for equipment damage."
 
 **Unlocks/waypoint:** Unlock Stop 31 at `cable-bay` in Remote Outstation.
 
 **Beat 4 - After Stop 31 | `trailer-cards` | automatic**
 
-**World state:** The track a charged particle result remains visible while the diagnose noncontact damage fixture lights.
+**Trigger:** accepted_stop_31.
+
+**World state:** At `cable-bay`, the dated accepted-result slip for Stop 31 reads: "r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 31 RECORDED - STOP 32 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 31 result to settle diagnose noncontact damage."
+**Dialogue bubbles -** Owen Park: "That check holds. The particle check leaves the cable-card damage and reversed voltage needing a common explanation."
 
 **Unlocks/waypoint:** Unlock Stop 32 at `trailer-cards` in Remote Outstation.
 
 **Beat 5 - At mission end | `shunt-rack` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_32.
+
+**World state:** At `trailer-cards`, Owen Park bags the failed card with a NO CONTACT REQUIRED evidence label. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 8 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Owen Park: "The jacket is clean. The card is not. Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m08
+
+**Home:** `trailer-cards`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. A burned card lies under glass beside an unmarked cable jacket.
+**After — exact action:** Owen Park bags the failed card with a NO CONTACT REQUIRED evidence label.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `loop-bench`, a trench plan lies under a ruler laid along the hidden cable turn.
+**Segue - exact player copy:** Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size.
 
 ## Location plan
 
@@ -4419,6 +4666,10 @@ protocol:
 **Question card story setup - exact player copy:** Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m.
 
 **Question card story-science connection - exact player copy:** The down-conductor field at the cabinet distance supplies the magnetic exposure for the following particle and induction checks.
+
+**Fixture source panel - exact player copy:** Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m. μ0 = 4π × 10^-7 T m/A, vacuum permeability. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit B at 2.0 m in mT.
 
@@ -4598,11 +4849,12 @@ diagnosis:
 
 ## Mission outcome
 
-Mission decision: No-contact coupling is physically plausible. A `30 kA` mast current makes about `3.0 mT` at the nearby route. And the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign. And size.
+Mission decision: No-contact coupling is physically plausible. A 30 kA mast current makes about 3.0 mT at the nearby route, and the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign, and size.
 
+**Segue - exact player copy:** Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: No-contact coupling is physically plausible. Your careful test protects the station and everyone working there.
+**Happy ending card - exact player copy:** Your checks made the difference. Owen Park bags the failed card with a NO CONTACT REQUIRED evidence label. Therefore Saira must trace the loop in the ground; its shape should predict the pulse sign and size.
 
 **Header:** MISSION 8 COMPLETE
 
@@ -4771,9 +5023,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 9 - The Buried Loop
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 7 DAYS; **Go now:** Earthing Compound, Marcus Tate at earth trench.  
+**Header:** MISSION 9 - 7 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** The Buried Loop  
-**Card body:** The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board.
+**Card body:** 7 days until the last storm window closes. A trench plan lies under a ruler laid along the hidden cable turn. Today you decide whether the buried loop predicts the old pulse.
 **Objective:** Predict the induced pulse from measured geometry and current rise.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -4871,7 +5123,9 @@ Earthing Trench geometry yields the predicted pulse and polarity; the waypoint l
 
 **Beat 1 - On arrival at Earthing Trench | `loop-bench` | automatic**
 
-**World state:** accepted EARTH/bubble/trench open/``→S1; S2 correct/waypoint/polarity arrow locked/`PREDICTION: NEGATIVE DURING CURRENT RISE; TAKE IT TO OUTSTATION.`→travel; enter COUPLE/panel/archive locked/`Commit magnitude before archive unlock.`→S3; S3 correct/panel/archive reveals -1.06 kV/`PREDICTED -1.10 kV • MEASURED -1.06 kV`→S4; S4 correct/world/second lead appears in trench photo/`Model passes; current path remains incomplete.`→outcome.
+**Trigger:** mission_9_arrival.
+
+**World state:** A trench plan lies under a ruler laid along the hidden cable turn.
 
 **Panel/HUD text:** Marcus Tate, mast engineer: “Draw the loop we built, not the cable we meant to build.”
 
@@ -4881,43 +5135,59 @@ Earthing Trench geometry yields the predicted pulse and polarity; the waypoint l
 
 **Beat 2 - After Stop 33 | `loop-bench` | automatic**
 
-**World state:** The derive the buried-loop emf result remains visible while the match induction sources fixture lights.
+**Trigger:** accepted_stop_33.
+
+**World state:** At `loop-bench`, the dated accepted-result slip for Stop 33 reads: "ε=-(μ₀ℓ/2π)ln(b/a)dI/dt. Integrate the 1/r field over loop width.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 33 RECORDED - STOP 34 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 33 result to settle match induction sources."
+**Dialogue bubbles -** Saira Malik: "That check holds. The loop prediction needs its polarity checked against changes in the mast current."
 
 **Unlocks/waypoint:** Unlock Stop 34 at `loop-bench` in Earthing Trench.
 
 **Beat 3 - After Stop 34 | `cable-bay` | automatic**
 
-**World state:** The match induction sources result remains visible while the calculate the archived emf fixture lights.
+**Trigger:** accepted_stop_34.
+
+**World state:** At `loop-bench`, the dated accepted-result slip for Stop 34 reads: "Rising opposes, steady gives zero, falling reverses; BLv, -A dB/dt, and rotating-loop form match.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 34 RECORDED - STOP 35 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 34 result to settle calculate the archived emf."
+**Dialogue bubbles -** Saira Malik: "That check holds. The symbolic loop model is ready to be tested using the archived event's measured geometry and current rise."
 
 **Unlocks/waypoint:** Unlock Stop 35 at `cable-bay` in Remote Outstation.
 
 **Beat 4 - After Stop 35 | `cable-bay` | automatic**
 
-**World state:** The calculate the archived emf result remains visible while the verify the loop model fixture lights.
+**Trigger:** accepted_stop_35.
+
+**World state:** At `cable-bay`, the dated accepted-result slip for Stop 35 reads: "Prediction is -1.10 kV. Visible substitution reproduces it.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 35 RECORDED - STOP 36 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 35 result to settle verify the loop model."
+**Dialogue bubbles -** Saira Malik: "That check holds. The archived pulse cannot confirm the model unless it also fits the uncertainty in loop geometry."
 
 **Unlocks/waypoint:** Unlock Stop 36 at `cable-bay` in Remote Outstation.
 
 **Beat 5 - At mission end | `loop-bench` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_36.
+
+**World state:** At `loop-bench`, Saira Malik pins the -1.10 KV PREDICTED / -1.06 KV ARCHIVED strip to the loop plan. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 9 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Saira Malik: "Close enough to pursue. Not enough to stop digging. But Tate finds another bonded lead across the trench; the current still has a path missing from the plan."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m09
+
+**Home:** `loop-bench`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. A trench plan lies under a ruler laid along the hidden cable turn.
+**After — exact action:** Saira Malik pins the -1.10 KV PREDICTED / -1.06 KV ARCHIVED strip to the loop plan.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `earth-cert`, the April certificate hangs beside a new sharp voltage trace.
+**Segue - exact player copy:** But Tate finds another bonded lead across the trench; the current still has a path missing from the plan.
 
 ## Location plan
 
@@ -4945,6 +5215,10 @@ Tate supplies construction truth; Noor enforces precommitment.
 **Question card story setup - exact player copy:** Derive induced emf from changing mast current before seeing the trailer trace.
 
 **Question card story-science connection - exact player copy:** The buried-loop expression connects mast-current rise rate and loop dimensions to the voltage the trailer should experience.
+
+**Fixture source panel - exact player copy:** Derive induced emf from changing mast current before seeing the trailer trace. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the symbolic emf.
 
@@ -5034,6 +5308,10 @@ derive:
 **Question card story setup - exact player copy:** Take the derived model to the outstation with loop dimensions ell=20 m, a=2.0 m, b=5.0 m, and current rise dI/dt=3.0×10^8 A/s. Calculate the predicted emf and record its physical justification.
 
 **Question card story-science connection - exact player copy:** The predicted loop voltage provides an independent value for comparison with the trailer's stored pulse trace.
+
+**Fixture source panel - exact player copy:** Take the derived model to the outstation with loop dimensions ell=20 m, a=2.0 m, b=5.0 m, and current rise dI/dt=3.0×10^8 A/s. Calculate the predicted emf and record its physical justification. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit predicted emf in kV with sign.
 
@@ -5125,9 +5403,10 @@ verify:
 
 Mission decision: The buried loop predicts the failed card. Its pulse is near -1.10 kV, close to the archived -1.06 kV peak. The trench reveals another bonded lead. The current path is still incomplete.
 
+**Segue - exact player copy:** But Tate finds another bonded lead across the trench; the current still has a path missing from the plan.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: The buried loop predicts the failed card. The crew is safer because the evidence now points to the real cause.
+**Happy ending card - exact player copy:** Your checks made the difference. Saira Malik pins the -1.10 KV PREDICTED / -1.06 KV ARCHIVED strip to the loop plan. But Tate finds another bonded lead across the trench; the current still has a path missing from the plan.
 
 **Header:** MISSION 9 COMPLETE
 
@@ -5296,9 +5575,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 10 - A Good Bond at the Wrong Speed
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 6 DAYS; **Go now:** Impulse Hall, Elise Strand at gap row.  
+**Header:** MISSION 10 - 6 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** A Good Bond at the Wrong Speed  
-**Card body:** The cable calculation matches the damaged station, but its grounding wire was checked only for slowly changing currents. Lightning changes much faster. Calculate the voltage produced during a fast pulse and decide whether the existing grounding connection provides the protection its certificate claims.
+**Card body:** 6 days until the last storm window closes. The April certificate hangs beside a new sharp voltage trace. Today you decide whether a slow bond test clears a fast pulse.
 **Objective:** Predict the bond's transient voltage and judge its certificate.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -5396,7 +5675,9 @@ Impulse Hall Stops 1–2 establish the pulse; travel to the Earthing Trench beca
 
 **Beat 1 - On arrival at Impulse Hall | `hall-board` | automatic**
 
-**World state:** accepted BANK/bubble/stage7 amber text/``→S1; S2 correct/waypoint/acceptable delay tag/`DELAY ≤ 50 ns; TAKE dI/dt TO TRENCH`→EARTH; enter EARTH/panel/certificate visible/`APRIL: 0.42 Ω DC`→S3; S4 correct/world/certificate relabeled/`VALID FOR STEADY CURRENT ONLY`→outcome; outcome/radio/conduit bond pulses/`A second path must be measured.`→M11.
+**Trigger:** mission_10_arrival.
+
+**World state:** The April certificate hangs beside a new sharp voltage trace.
 
 **Panel/HUD text:** Elise Strand, impulse engineer: “Same energy, different front. Watch the derivative.”
 
@@ -5406,43 +5687,59 @@ Impulse Hall Stops 1–2 establish the pulse; travel to the Earthing Trench beca
 
 **Beat 2 - After Stop 37 | `gap-row` | automatic**
 
-**World state:** The derive inductance result remains visible while the sweep stage-7 delay fixture lights.
+**Trigger:** accepted_stop_37.
+
+**World state:** At `hall-board`, the dated accepted-result slip for Stop 37 reads: "L=μ₀N²A/ℓ. Ampere field plus N flux linkages gives the result.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 37 RECORDED - STOP 38 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 37 result to settle sweep stage-7 delay."
+**Dialogue bubbles -** Saira Malik: "That check holds. The coil model is established, but a late bank stage could change both pulse slope and ringing."
 
 **Unlocks/waypoint:** Unlock Stop 38 at `gap-row` in Impulse Hall.
 
 **Beat 3 - After Stop 38 | `conduit-bond` | automatic**
 
-**World state:** The sweep stage-7 delay result remains visible while the derive bond voltage fixture lights.
+**Trigger:** accepted_stop_38.
+
+**World state:** At `gap-row`, the dated accepted-result slip for Stop 38 reads: "Delay must be ≤50 ns. Greater delay lowers derivative but raises ringing beyond the joint rule.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 38 RECORDED - STOP 39 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 38 result to settle derive bond voltage."
+**Dialogue bubbles -** Saira Malik: "That check holds. The timing check leaves the bond's voltage under a fast pulse to be quantified."
 
 **Unlocks/waypoint:** Unlock Stop 39 at `conduit-bond` in Earthing Trench.
 
 **Beat 4 - After Stop 39 | `earth-cert` | automatic**
 
-**World state:** The derive bond voltage result remains visible while the scope the april certificate fixture lights.
+**Trigger:** accepted_stop_39.
+
+**World state:** At `conduit-bond`, the dated accepted-result slip for Stop 39 reads: "VR=4.2 kV; VL=0.600 kV. Resistance and inductance are separate voltage terms.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 39 RECORDED - STOP 40 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 39 result to settle scope the april certificate."
+**Dialogue bubbles -** Saira Malik: "That check holds. The calculated pulse voltages exceed what the April resistance certificate was designed to describe."
 
 **Unlocks/waypoint:** Unlock Stop 40 at `earth-cert` in Earthing Trench.
 
 **Beat 5 - At mission end | `hall-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_40.
+
+**World state:** At `earth-cert`, Saira Malik stamps the April certificate STEADY TEST ONLY. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 10 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Saira Malik: "April's test was sound. Its promise was too large. Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m10
+
+**Home:** `earth-cert`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. The April certificate hangs beside a new sharp voltage trace.
+**After — exact action:** Saira Malik stamps the April certificate STEADY TEST ONLY.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `strike-ledger`, two current totals leave a red gap on the strike ledger.
+**Segue - exact player copy:** Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast.
 
 ## Location plan
 
@@ -5470,6 +5767,10 @@ Strand admits stage timing; Tate accepts certificate limits.
 **Question card story setup - exact player copy:** Model a wound calibration coil with N turns, length ℓ, and area A. Derive its inductance from Ampere's field and flux linkage before testing the bond pulse.
 
 **Question card story-science connection - exact player copy:** The coil's inductance expression links its turns and geometry to the voltage created by changing current.
+
+**Fixture source panel - exact player copy:** Model a wound calibration coil with N turns, length ℓ, and area A. Derive its inductance from Ampere's field and flux linkage before testing the bond pulse. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit L=μ₀N²A/ℓ.
 
@@ -5565,6 +5866,10 @@ derive:
 **Question card story setup - exact player copy:** At the trench, the bond has L=2.0 microH, R=0.42 ohm, current I=10 kA, and dI/dt=3.0×10^8 A/s. Derive the resistive and inductive voltage terms, then justify their physical meanings.
 
 **Question card story-science connection - exact player copy:** Separating resistive and inductive voltage shows which parts of the bond response a steady-resistance test cannot certify.
+
+**Fixture source panel - exact player copy:** At the trench, the bond has L=2.0 microH, R=0.42 ohm, current I=10 kA, and dI/dt=3.0×10^8 A/s. Derive the resistive and inductive voltage terms, then justify their physical meanings.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit V_R and |V_L| in kV.
 
@@ -5681,9 +5986,10 @@ diagnosis:
 
 Mission decision: Do not certify the bond lead for lightning. Its low-rate test is sound. A fast pulse adds voltage from the lead itself. Gap timing changes that voltage. Next, measure every current path.
 
+**Segue - exact player copy:** Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: Do not certify the bond lead for lightning. The next launch decision rests on measured physics, not a frightening guess.
+**Happy ending card - exact player copy:** Your checks made the difference. Saira Malik stamps the April certificate STEADY TEST ONLY. Therefore Tate must measure every current branch before Ortiz's next shot; the bond can pass slowly and fail fast.
 
 **Header:** MISSION 10 COMPLETE
 
@@ -5852,9 +6158,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 11 - The Missing Third
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 5 DAYS; **Go now:** Mast Base, Marcus Tate at shunt rack.  
+**Header:** MISSION 11 - 5 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** The Missing Third  
-**Card body:** More strike current passed the mast sensor than the three known wires can account for. Some current must have taken another route. Compare the currents and nearby magnetic fields, then inspect the buried connection to find the path missing from the drawings.
+**Card body:** 5 days until the last storm window closes. Two current totals leave a red gap on the strike ledger. Today you decide where the missing strike current went.
 **Objective:** Identify and quantify every current path.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -5952,7 +6258,9 @@ The Mast Base ledger points to the conduit; Earthing Trench inspection confirms 
 
 **Beat 1 - On arrival at Mast Base | `shunt-rack` | automatic**
 
-**World state:** accepted MAST/bubble/clamp and shunts side-by-side/``→S1; S2 correct/waypoint/conduit label `10 kA PREDICTED`/`Inspect its earth bond.`→EARTH; S3 correct/waypoint/test link restored/`ISOLATION REMOVES MISSING CURRENT; TAKE RESULT TO RECORDS.`→SHOT; S4 correct/panel/week-five records aligned/`ONE THIRD VIA CONDUIT`→outcome; outcome/world/conduit locked/tagged/`UNSAFE PATH ISOLATED`→metric.
+**Trigger:** mission_11_arrival.
+
+**World state:** Two current totals leave a red gap on the strike ledger.
 
 **Panel/HUD text:** Marcus Tate, mast engineer: “Thirty entered. Twenty is named. Find the path.”
 
@@ -5962,43 +6270,59 @@ The Mast Base ledger points to the conduit; Earthing Trench inspection confirms 
 
 **Beat 2 - After Stop 41 | `cable-bay` | automatic**
 
-**World state:** The close the strike-current ledger result remains visible while the derive field and wire force fixture lights.
+**Trigger:** accepted_stop_41.
+
+**World state:** At `shunt-rack`, the dated accepted-result slip for Stop 41 reads: "The unlisted branch carries 10 kA. A closed ledger enforces current conservation.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 41 RECORDED - STOP 42 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 41 result to settle derive field and wire force."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The missing-current estimate needs a magnetic and mechanical prediction along the suspected conduit."
 
 **Unlocks/waypoint:** Unlock Stop 42 at `cable-bay` in Remote Outstation.
 
 **Beat 3 - After Stop 42 | `conduit-bond` | automatic**
 
-**World state:** The derive field and wire force result remains visible while the isolate conduit current fixture lights.
+**Trigger:** accepted_stop_42.
+
+**World state:** At `cable-bay`, the dated accepted-result slip for Stop 42 reads: "B=1.00 mT; F/L=50 N/m; same-direction currents attract.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 42 RECORDED - STOP 43 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 42 result to settle isolate conduit current."
+**Dialogue bubbles -** Marcus Tate: "That check holds. The conduit prediction must be tested by changing its approved link without changing the bank pulse."
 
 **Unlocks/waypoint:** Unlock Stop 43 at `conduit-bond` in Earthing Trench.
 
 **Beat 4 - After Stop 43 | `record-desk` | automatic**
 
-**World state:** The isolate conduit current result remains visible while the verify the historical path fixture lights.
+**Trigger:** accepted_stop_43.
+
+**World state:** At `conduit-bond`, the dated accepted-result slip for Stop 43 reads: "Open removes the 10 kA difference; restore returns it.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 43 RECORDED - STOP 44 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 43 result to settle verify the historical path."
+**Dialogue bubbles -** Marcus Tate: "That check holds. A successful present-day conduit test does not automatically establish the path during the historical event."
 
 **Unlocks/waypoint:** Unlock Stop 44 at `record-desk` in Launch Control.
 
 **Beat 5 - At mission end | `shunt-rack` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_44.
+
+**World state:** At `strike-ledger`, Marcus Tate pins the CONDUIT: ABOUT ONE THIRD record into the missing branch. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 11 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Marcus Tate: "That was my conduit. Put it in the report. But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m11
+
+**Home:** `strike-ledger`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. Two current totals leave a red gap on the strike ledger.
+**After — exact action:** Marcus Tate pins the CONDUIT: ABOUT ONE THIRD record into the missing branch.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `record-desk`, a sealed prediction sits beside the reduced-test recorder.
+**Segue - exact player copy:** But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first.
 
 ## Location plan
 
@@ -6054,6 +6378,10 @@ KCL, current density, Ampere, force between wires, attestation.
 **Question card story setup - exact player copy:** Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away.
 
 **Question card story-science connection - exact player copy:** The conduit field and force per unit length establish the exposure and loading expected from the proposed current split.
+
+**Fixture source panel - exact player copy:** Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away. Start with B=μ₀I/(2πr) for the magnetic field around the conduit, then use F/L=μ₀I₁I₂/(2πd) for force per unit length between the parallel currents. μ0 = 4π × 10^-7 T m/A, vacuum permeability. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit B in mT, F/L in N/m, and whether the force attracts or repels.
 
@@ -6175,9 +6503,10 @@ attest:
 
 Mission decision: About one third of the strike used the bonded conduit. Current totals, field tests, and timing all agree. Mark the conduit unsafe for now. Test a new route before the next shot.
 
+**Segue - exact player copy:** But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: About one third of the strike used the bonded conduit. Station 12 can move forward without putting the crew at needless risk.
+**Happy ending card - exact player copy:** Your checks made the difference. Marcus Tate pins the CONDUIT: ABOUT ONE THIRD record into the missing branch. But Ortiz cannot fire through that route again; Strand needs a prediction for the repaired path first.
 
 **Header:** MISSION 11 COMPLETE
 
@@ -6346,9 +6675,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 12 - Predict, Then Fire
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 4 DAYS; **Go now:** Impulse Hall, Elise Strand at bank stages.  
+**Header:** MISSION 12 - 4 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** Predict, Then Fire  
-**Card body:** A temporary cable reroute is ready after the hidden current path was found. Predict its effect before running a reduced test pulse. Compare the measured currents and voltages with that prediction, then decide whether the repair is ready for a full-strength test.
+**Card body:** Four days remain in the storm window. A sealed forecast sits beside the small-test trace. Today you decide if the fixed route earns a full-shot test.
 **Objective:** Verify the reroute with a committed quantitative prediction.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -6438,7 +6767,9 @@ Impulse Hall calculate/commit→Mast Base operate/measure→Earthing Trench inte
 
 **Beat 1 - On arrival at Impulse Hall | `bank-stages` | automatic**
 
-**World state:** accepted BANK/bubble/charge controls locked/``→S1; S2 correct/panel/prediction seal `90 V`/`PREDICTION LOCKED`→MAST; enter MAST/fixture/shot control enabled/`25.0 kV STAGES • 8 mm GAP • REROUTE FIXED`→S3; S3 complete/waypoint/measurements logged/`Take 92 V to the trench tolerance board.`→EARTH/S4; S4 correct/world/reroute tag green+PASS text/`WORST CASE 224 V < 250 V`→outcome.
+**Trigger:** mission_12_arrival.
+
+**World state:** A sealed prediction sits beside the reduced-test recorder.
 
 **Panel/HUD text:** Elise Strand, impulse engineer: “Calculate first. The charger stays locked until the number is committed.”
 
@@ -6448,43 +6779,59 @@ Impulse Hall calculate/commit→Mast Base operate/measure→Earthing Trench inte
 
 **Beat 2 - After Stop 45 | `hall-board` | automatic**
 
-**World state:** The calculate reduced energy result remains visible while the predict reroute voltage fixture lights.
+**Trigger:** accepted_stop_45.
+
+**World state:** At `bank-stages`, the dated accepted-result slip for Stop 45 reads: "Reduced bank energy is 375 J. Halving V quarters U.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 45 RECORDED - STOP 46 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 45 result to settle predict reroute voltage."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The reduced-shot plan needs a new voltage prediction for the rerouted cable geometry."
 
 **Unlocks/waypoint:** Unlock Stop 46 at `hall-board` in Impulse Hall.
 
 **Beat 3 - After Stop 46 | `shunt-rack` | automatic**
 
-**World state:** The predict reroute voltage result remains visible while the fire the reduced test fixture lights.
+**Trigger:** accepted_stop_46.
+
+**World state:** At `hall-board`, the dated accepted-result slip for Stop 46 reads: "180 V at full derivative; 90 V at reduced derivative.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 46 RECORDED - STOP 47 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 46 result to settle fire the reduced test."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The reroute prediction is committed, so the crew can now collect an independent reduced-shot measurement."
 
 **Unlocks/waypoint:** Unlock Stop 47 at `shunt-rack` in Mast Base.
 
 **Beat 4 - After Stop 47 | `conduit-bond` | automatic**
 
-**World state:** The fire the reduced test result remains visible while the stress worst-case coupling fixture lights.
+**Trigger:** accepted_stop_47.
+
+**World state:** At `shunt-rack`, the dated accepted-result slip for Stop 47 reads: "Measured 92 V passes the committed 80–100 V band.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 47 RECORDED - STOP 48 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 47 result to settle stress worst-case coupling."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The reduced-shot success must still survive the stronger pulse and uncertain coupling of a full shot."
 
 **Unlocks/waypoint:** Unlock Stop 48 at `conduit-bond` in Earthing Trench.
 
 **Beat 5 - At mission end | `bank-stages` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_48.
+
+**World state:** At `record-desk`, Dr. Lena Ortiz clips the 90 V PREDICTED / 92 V MEASURED strip into the report. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 12 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Dr. Lena Ortiz: "The route earned a test. It has not earned blind trust. But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m12
+
+**Home:** `record-desk`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. A sealed prediction sits beside the reduced-test recorder.
+**After — exact action:** Dr. Lena Ortiz clips the 90 V PREDICTED / 92 V MEASURED strip into the report.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `recorder-rack`, a narrow peak stands above a slow trace that barely moves.
+**Segue - exact player copy:** But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it.
 
 ## Location plan
 
@@ -6540,6 +6887,10 @@ Strand owns source, Tate path, Noor tolerance.
 **Question card story setup - exact player copy:** The old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. The reroute lowers mutual inductance to 0.60 microH; derive its pulse prediction and justify the change.
 
 **Question card story-science connection - exact player copy:** The reroute's mutual inductance determines the expected trailer voltage at both full and reduced current-rise rates.
+
+**Fixture source panel - exact player copy:** The old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. The reroute lowers mutual inductance to 0.60 microH; derive its pulse prediction and justify the change. Build the mutual-emf calculation for M_new=0.60 μH, first at 3.0×10^8 A/s and then at half that rise rate
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit both voltages in volts and commit the reduced prediction.
 
@@ -6705,11 +7056,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: The reroute is safe for a full shot under the stated tolerance. The reduced test measured `92 V` against a `90 V` prediction. And the worst allowed full-shot case is `224 V`, below `250 V`. The remaining question is whether the recorders can see the fastest pulse. Metric target 25:00.
+Mission decision: The reroute is safe for a full shot under the stated tolerance. The reduced test measured 92 V against a 90 V prediction, and the worst allowed full-shot case is 224 V, below 250 V. The remaining question is whether the recorders can see the fastest pulse. Metric target 25:00.
 
+**Segue - exact player copy:** But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: The reroute is safe for a full shot under the stated tolerance. The launch team now has a result it can safely act on.
+**Happy ending card - exact player copy:** Your checks made the difference. Dr. Lena Ortiz clips the 90 V PREDICTED / 92 V MEASURED strip into the report. But Noor's fastest peak fits between the old recorder ticks; the final shot needs channels quick enough to see it.
 
 **Header:** MISSION 12 COMPLETE
 
@@ -6878,9 +7230,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 13 - The Missing Microsecond
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 3 DAYS; **Go now:** Screened Room, Noor Haddad at record budget board.  
+**Header:** MISSION 13 - 3 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** The Missing Microsecond  
-**Card body:** The rerouted cable passes, but the recorder may be too slow to catch the brief voltage peak. Compare how quickly the sensors respond and how often the recorder samples them. Decide which instruments can reliably judge the final test.
+**Card body:** 3 days until the last storm window closes. A narrow peak stands above a slow trace that barely moves. Today you decide which recorders can see the fastest pulse.
 **Objective:** Choose recorders fast enough for the relevant transient.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -6978,7 +7330,9 @@ Screened Room analysis→Launch Control raw-sample audit→Earthing Trench certi
 
 **Beat 1 - On arrival at Screened Room | `record-budget` | automatic**
 
-**World state:** accepted SCREEN/bubble/three traces/``→S1; S2 correct/panel/63.2% label/`ONE τ CAPTURES ONLY 63.2%`→S3; S3 correct/waypoint/channel slot moves/`FAST ISOLATED CHANNEL FUNDED; VERIFY RECORD AT SHOT.`→SHOT; record checked/waypoint/ringing trace/`Compare this transient with April’s DC certificate.`→EARTH/S4; S4 correct/world/certificate relabeled/`DC ONLY • TRANSIENT NOT CERTIFIED`→outcome.
+**Trigger:** mission_13_arrival.
+
+**World state:** A narrow peak stands above a slow trace that barely moves.
 
 **Panel/HUD text:** Noor Haddad, data and safety analyst: “A smooth line can be a slow instrument.”
 
@@ -6988,43 +7342,59 @@ Screened Room analysis→Launch Control raw-sample audit→Earthing Trench certi
 
 **Beat 2 - After Stop 49 | `recorder-rack` | automatic**
 
-**World state:** The find the fast recorder result remains visible while the derive rc response fixture lights.
+**Trigger:** accepted_stop_49.
+
+**World state:** At `record-budget`, the dated accepted-result slip for Stop 49 reads: "The fast isolated channel alone has structureless pulse residuals.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 49 RECORDED - STOP 50 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 49 result to settle derive rc response."
+**Dialogue bubbles -** Noor Haddad: "That check holds. The slow channel's smooth trace needs a response-time calculation before its peak reading is trusted."
 
 **Unlocks/waypoint:** Unlock Stop 50 at `recorder-rack` in Screened Room.
 
 **Beat 3 - After Stop 50 | `record-desk` | automatic**
 
-**World state:** The derive rc response result remains visible while the buy the recorder upgrade fixture lights.
+**Trigger:** accepted_stop_50.
+
+**World state:** At `recorder-rack`, the dated accepted-result slip for Stop 50 reads: "63.2% at τ; 99.33% at 5τ. Exponential response quantifies under-read.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 50 RECORDED - STOP 51 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 50 result to settle buy the recorder upgrade."
+**Dialogue bubbles -** Noor Haddad: "That check holds. The recorder response identifies a timing weakness that the remaining upgrade budget must address."
 
 **Unlocks/waypoint:** Unlock Stop 51 at `record-desk` in Launch Control.
 
 **Beat 4 - After Stop 51 | `earth-cert` | automatic**
 
-**World state:** The buy the recorder upgrade result remains visible while the diagnose frequency response fixture lights.
+**Trigger:** accepted_stop_51.
+
+**World state:** At `record-desk`, the dated accepted-result slip for Stop 51 reads: "Buy faster sampling; dominant uncertainty falls 18% to 4%.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 51 RECORDED - STOP 52 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 51 result to settle diagnose frequency response."
+**Dialogue bubbles -** Noor Haddad: "That check holds. The upgraded waveform shows ringing that the April steady-current test never measured."
 
 **Unlocks/waypoint:** Unlock Stop 52 at `earth-cert` in Earthing Trench.
 
 **Beat 5 - At mission end | `record-budget` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_52.
+
+**World state:** At `recorder-rack`, Noor Haddad ties a FINAL SHOT: FAST INDEPENDENT CHANNELS tag to the recorder rack. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 13 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Noor Haddad: "A calm screen can mean a slow screen. Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m13
+
+**Home:** `recorder-rack`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. A narrow peak stands above a slow trace that barely moves.
+**After — exact action:** Noor Haddad ties a FINAL SHOT: FAST INDEPENDENT CHANNELS tag to the recorder rack.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `trailer-cards`, a fresh strike trace ends at 188 V beside a second strip marked 310 V.
+**Segue - exact player copy:** Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station.
 
 ## Location plan
 
@@ -7115,6 +7485,10 @@ residual:
 **Question card story setup - exact player copy:** Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.
 
 **Question card story-science connection - exact player copy:** The charging fractions show how much a short pulse can be suppressed by the recorder's resistance-capacitance response.
+
+**Fixture source panel - exact player copy:** Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit both response percentages.
 
@@ -7292,9 +7666,10 @@ diagnosis:
 
 Mission decision: Use only the fast, separate channels for the final shot. A slow channel misses much of the peak. The old test still works for steady current. It does not prove safety during lightning.
 
+**Segue - exact player copy:** Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: Use only the fast, separate channels for the final shot. Your careful test protects the station and everyone working there.
+**Happy ending card - exact player copy:** Your checks made the difference. Noor Haddad ties a FINAL SHOT: FAST INDEPENDENT CHANNELS tag to the recorder rack. Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station.
 
 **Header:** MISSION 13 COMPLETE
 
@@ -7514,9 +7889,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 14 - The Shot That Almost Closed the Case
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** 2 DAYS; **Go now:** Launch Control, Dr. Lena Ortiz at launch board.  
+**Header:** MISSION 14 - 2 DAYS UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** The Shot That Almost Closed the Case  
-**Card body:** The new cable route and faster recorders are ready for a combined test. Set the safety limits before firing, then compare the measured fields, currents, and voltages with those limits. Decide whether the repair has removed the failure under the tested conditions.
+**Card body:** 2 days until the last storm window closes. A fresh strike trace ends at 188 V beside a second strip marked 310 V. Today you decide whether the full shot cleared every card.
 **Objective:** Run the integrated full-shot coupling test.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -7606,7 +7981,9 @@ Launch Control precommit/fire→Mast Base inspect paths→Remote Outstation comp
 
 **Beat 1 - On arrival at Launch Control | `launch-board` | automatic**
 
-**World state:** accepted SHOT/bubble/blank rule fields/``→S1; S2 correct/panel/Poynting arrow up/`ENERGY FLOW: 1.59×10^7 W/m² UP`→S3; S3 pass/waypoint/main probe PASS/`Main reroute passes; Inspect every rack position.`→COUPLE/S4; S4 correct/world/card E red+text/`CARD E 310 V - LIMIT 250 V`→outcome; outcome/radio/local loop highlighted/`Main path repaired; local loop remains.`→metric.
+**Trigger:** mission_14_arrival.
+
+**World state:** A fresh strike trace ends at 188 V beside a second strip marked 310 V.
 
 **Panel/HUD text:** Dr. Lena Ortiz, station director: “Write every stop condition before the cell arrives.”
 
@@ -7616,43 +7993,59 @@ Launch Control precommit/fire→Mast Base inspect paths→Remote Outstation comp
 
 **Beat 2 - After Stop 53 | `radar-desk` | automatic**
 
-**World state:** The freeze final thresholds result remains visible while the derive energy flow fixture lights.
+**Trigger:** accepted_stop_53.
+
+**World state:** At `launch-board`, the dated accepted-result slip for Stop 53 reads: "All four inclusive thresholds are frozen before data.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 53 RECORDED - STOP 54 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 53 result to settle derive energy flow."
+**Dialogue bubbles -** Owen Park: "That check holds. The final shot also needs a prediction of where electromagnetic energy crosses the probe location."
 
 **Unlocks/waypoint:** Unlock Stop 54 at `radar-desk` in Launch Control.
 
 **Beat 3 - After Stop 54 | `shunt-rack` | automatic**
 
-**World state:** The derive energy flow result remains visible while the fire the full shot fixture lights.
+**Trigger:** accepted_stop_54.
+
+**World state:** At `radar-desk`, the dated accepted-result slip for Stop 54 reads: "S=1.59×10^7 W/m² upward. East×north is up.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 54 RECORDED - STOP 55 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 54 result to settle fire the full shot."
+**Dialogue bubbles -** Owen Park: "That check holds. The incoming field passes the frozen criterion, allowing the full reroute test to proceed."
 
 **Unlocks/waypoint:** Unlock Stop 55 at `shunt-rack` in Mast Base.
 
 **Beat 4 - After Stop 55 | `probe-rack` | automatic**
 
-**World state:** The fire the full shot result remains visible while the probe the rack fixture lights.
+**Trigger:** accepted_stop_55.
+
+**World state:** At `shunt-rack`, the dated accepted-result slip for Stop 55 reads: "Main reroute passes: 188 V, 0.40 kA conduit, thresholds met.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 55 RECORDED - STOP 56 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 55 result to settle probe the rack."
+**Dialogue bubbles -** Owen Park: "That check holds. A passing main trailer probe cannot exclude a dangerous local peak elsewhere in the card rack."
 
 **Unlocks/waypoint:** Unlock Stop 56 at `probe-rack` in Remote Outstation.
 
 **Beat 5 - At mission end | `launch-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_56.
+
+**World state:** At `trailer-cards`, Owen Park bags card E beneath a RACK LOOP: REPAIR REQUIRED label. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 14 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Owen Park: "We fixed the long route. This short one still reaches me. But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m14
+
+**Home:** `trailer-cards`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. A fresh strike trace ends at 188 V beside a second strip marked 310 V.
+**After — exact action:** Owen Park bags card E beneath a RACK LOOP: REPAIR REQUIRED label.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `record-desk`, the repaired card rack waits beside the blank last report page.
+**Segue - exact player copy:** But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass.
 
 ## Location plan
 
@@ -7744,6 +8137,10 @@ trigger:
 **Question card story setup - exact player copy:** At one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Derive the Poynting-vector magnitude and direction before the shot trace appears.
 
 **Question card story-science connection - exact player copy:** The energy-flow magnitude and direction connect the local electric and magnetic fields to the shot's spatial energy path.
+
+**Fixture source panel - exact player copy:** At one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Derive the Poynting-vector magnitude and direction before the shot trace appears. Build three Poynting-vector lines using E=2.0×10^4 N/C, B=1.0×10^-3 T, and μ₀=4π×10^-7 T·m/A Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit W/m² and direction.
 
@@ -7867,11 +8264,12 @@ verify:
 
 ## Mission outcome
 
-Mission decision: The station reproduced. And removed the main cable failure, but it has not removed every hazard. The reroute holds the main probe to `188 V`, while card E reaches `310 V` because its rack wiring forms a smaller hidden loop. One repair remains before the report can be signed. Metric target 27:00.
+Mission decision: The station reproduced, and removed the main cable failure, but it has not removed every hazard. The reroute holds the main probe to 188 V, while card E reaches 310 V because its rack wiring forms a smaller hidden loop. One repair remains before the report can be signed. Metric target 27:00.
 
+**Segue - exact player copy:** But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: The station reproduced. The crew is safer because the evidence now points to the real cause.
+**Happy ending card - exact player copy:** Your checks made the difference. Owen Park bags card E beneath a RACK LOOP: REPAIR REQUIRED label. But Ortiz's last storm is nearly here; Owen must close the small loop before the final certificate can pass.
 
 **Header:** MISSION 14 COMPLETE
 
@@ -8040,9 +8438,9 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 15 - Sign the Ground Truth
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** FINAL STORM WINDOW TODAY; **Go now:** Launch Control, Dr. Lena Ortiz at record desk.  
+**Header:** MISSION 15 - 1 DAY UNTIL THE LAST STORM WINDOW CLOSES.
 **Card title:** Sign the Ground Truth  
-**Card body:** The main cable repair works, but a small wire loop on circuit board E still exceeds its voltage limit. Choose a repair and check it before the final witnessed test. Decide whether the complete station, including that last vulnerable board, is safe to certify.
+**Card body:** 1 day until the last storm window closes. The repaired card rack waits beside the blank last report page. Today you decide whether the complete station earns its certificate.
 **Objective:** Repair the local loop, execute the final rule, and sign or reject certification.  
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
 ### Worked examples - optional mission-card panel
@@ -8125,7 +8523,9 @@ SHOT plan approval→BANK dry-source check→COUPLE physical repair/final read. 
 
 **Beat 1 - On arrival at Remote Outstation | `repair-board` | automatic**
 
-**World state:** accepted SHOT/bubble/100-point board/``→S1; S1 correct/waypoint/plan pinned/`TWIST PAIR • ISOLATE RECORD • VERIFY TIMING • PROTECT INSPECTION`→BANK/S2; S2 correct/waypoint/dry checks PASS/`Dry source and law map pass; Repair card E.`→COUPLE/S3; S3 correct/world/pair permanently twisted/`TEMP 72 V • RESTORE 305 V • REPAIR 74 V`→S4; S4 correct/nearby bubbles then banner/report signed/`ALL LIMITS PASS • INDEPENDENT RECORDS COMPLETE`→outcome/victory.
+**Trigger:** mission_15_arrival.
+
+**World state:** The repaired card rack waits beside the blank last report page.
 
 **Panel/HUD text:** Dr. Lena Ortiz, station director: “Fund the cause, the witness, and the recovery.”
 
@@ -8135,43 +8535,59 @@ SHOT plan approval→BANK dry-source check→COUPLE physical repair/final read. 
 
 **Beat 2 - After Stop 57 | `bank-stages` | automatic**
 
-**World state:** The fund the final repair result remains visible while the map the final laws fixture lights.
+**Trigger:** accepted_stop_57.
+
+**World state:** At `repair-board`, the dated accepted-result slip for Stop 57 reads: "Fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 57 RECORDED - STOP 58 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Nice work. Use the Stop 57 result to settle map the final laws."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The repair plan is funded, but each final claim still needs the correct physical relationship behind it."
 
 **Unlocks/waypoint:** Unlock Stop 58 at `bank-stages` in Impulse Hall.
 
 **Beat 3 - After Stop 58 | `cable-bay` | automatic**
 
-**World state:** The map the final laws result remains visible while the reverse the loop geometry fixture lights.
+**Trigger:** accepted_stop_58.
+
+**World state:** At `bank-stages`, the dated accepted-result slip for Stop 58 reads: "All twelve law mappings are correct. Each equation has a defined physical job.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 58 RECORDED - STOP 59 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Good thinking. Use the Stop 58 result to settle reverse the loop geometry."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The proposed loop reduction needs a reversible test before the crew fastens the repair permanently."
 
 **Unlocks/waypoint:** Unlock Stop 59 at `cable-bay` in Remote Outstation.
 
 **Beat 4 - After Stop 59 | `repair-board` | automatic**
 
-**World state:** The reverse the loop geometry result remains visible while the certify station 12 fixture lights.
+**Trigger:** accepted_stop_59.
+
+**World state:** At `cable-bay`, the dated accepted-result slip for Stop 59 reads: "Twisting causes 310→72 V; reversal gives 305 V; final repair gives 74 V.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 59 RECORDED - STOP 60 OPEN
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Exactly right. Use the Stop 59 result to settle certify station 12."
+**Dialogue bubbles -** Dr. Lena Ortiz: "That check holds. The repaired card's final reading is available, but station-wide certification still requires every safeguard to agree."
 
 **Unlocks/waypoint:** Unlock Stop 60 at `repair-board` in Remote Outstation.
 
 **Beat 5 - At mission end | `repair-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_60.
+
+**World state:** At `record-desk`, Dr. Lena Ortiz clips the witnessed final-shot record into the season report. The final scene follows the completion gate below.
 
 **Panel/HUD text:** MISSION 15 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Dr. Lena Ortiz: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Dr. Lena Ortiz: "You found the path we missed, then proved it was gone. Therefore Noor leaves the fast recorders running for the next crew; the report closes with the limits still posted."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — groundtruth-m15
+
+**Home:** `record-desk`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. The repaired card rack waits beside the blank last report page.
+**After — exact action:** Dr. Lena Ortiz clips the witnessed final-shot record into the season report.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `record-desk`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore Noor leaves the fast recorders running for the next crew; the report closes with the limits still posted.
 
 ## Location plan
 
@@ -8313,11 +8729,12 @@ attest:
 
 ## Mission outcome
 
-Mission decision: Certify Station 12. The loop repair keeps card E below 250 volts. Every rule set before the shot now passes. Separate records confirm the result. The report names the bad path and the fix.
+Mission decision: Whether the complete station earns its certificate. Apply the existing final evidence and metric gates before the world payoff below.
 
+Thunder reaches the gallery after the flash. The final shot trace stays inside the posted limits. Ortiz clips the last page into the report, with the old burned-card photo beside it. The next crew has a tested station and a record of what once went wrong.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Certify Station 12. The next launch decision rests on measured physics, not a frightening guess.
+**Happy ending card - exact player copy:** Thunder reaches the gallery after the flash. The final shot trace stays inside the posted limits. Ortiz clips the last page into the report, with the old burned-card photo beside it. The next crew has a tested station and a record of what once went wrong.
 
 **Header:** MISSION 15 COMPLETE
 

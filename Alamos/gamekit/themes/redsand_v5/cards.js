@@ -8,17 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Mars is already making the fuel that will take you home. At Arcadia Rise, chemistry "
-    +   "turns thin carbon-dioxide air and buried water into methane and oxygen for the ascent "
-    +   "vehicle. Fifteen work shifts remain before the launch window closes; miss it, and the "
-    +   "crew stays on Mars without the supplies planned for another season. Commander Laila "
-    +   "Abiola gives you the plant key and says, \"Everyone on Mars is counting on this plant to "
-    +   "carry them home - find what is stopping the fuel, make it safe, and get this crew off "
-    +   "the planet.\"",
+  "You are the fuel plant lead, which means you must make clean fuel for the crew to leave "
+    +   "Mars. At Arcadia Rise, you will use chemistry to make the call. Fifteen work shifts "
+    +   "remain before launch. The plant turns air and ice into fuel. If it cannot finish safely, "
+    +   "the crew misses its ride home.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: GO after Batch C is "
-    +   "cleaned and the power cell makes up the lost hydrogen. Mars has one fewer hidden threat "
-    +   "between the crew and home.",
+  "From the cabin window, the pad lights shrink below. The full fuel gauge sits beside two "
+    +   "passed assay seals. The crew is strapped in, the safe plant is behind them, and Arcadia "
+    +   "Rise falls away into the red plain.",
 ];

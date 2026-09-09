@@ -1,17 +1,18 @@
 # ============================================================ MISSION 9
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Catalyst Bed"
   card:
-    header: "7 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 9 - 7 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE CATALYST BED"
     goNow: "Go to Catalyst Bay and meet Dr. Tomás Herrera, the reactor and safety engineer, at the bed-sampling rail."
-    body: "The reactor's catalyst, the material that speeds its reaction, is no longer working properly. Damage near the inlet could be hidden by a normal average temperature. Test samples along the reactor and decide whether contamination, missing feed, or overheating explains the loss of activity."
+    body: "7 work shifts remain before launch. An inlet sample lies beside a much cleaner outlet sample. Today you decide which part of the catalyst bed needs replacement."
     objective: "Locate the catalyst-bed failure and distinguish damage, reactant shortage, and overheating."
   objective: "Locate the catalyst-bed failure and distinguish damage, reactant shortage, and overheating."
-  stake: "The reactor's catalyst, the material that speeds its reaction, is no longer working properly. Damage near the inlet could be hidden by a normal average temperature. Test samples along the reactor and decide whether contamination, missing feed, or overheating explains the loss of activity."
+  stake: "7 work shifts remain before launch. An inlet sample lies beside a much cleaner outlet sample. Today you decide which part of the catalyst bed needs replacement."
   takeaway: "A correct immediate diagnosis can still leave a deeper causal or safety problem."
-  segue: "Mission decision: Halide damaged the catalyst most at the inlet. The surface test finds blocked nickel sites. Part of the bed must be replaced. Yet that damage does not explain the old 612 K hot spot. One hidden heat record will test whether the old setting was safe."
+  segue: "But Herrera's old 612 K record is hotter than this damage explains; the hidden run must decide if his override saved the plant."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Catalyst", def: "speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition."}
@@ -30,7 +31,7 @@
   - id: on-arrival-at-catalyst-bay
     # On arrival at Catalyst Bay | automatic | 
     on: { enter: true, at: KINET }
-    world: "The average reactor temperature glows green while unsampled inlet and outlet ports pulse gray."
+    world: "An inlet sample lies beside a much cleaner outlet sample."
     panel: "MISSION 9 - THE CATALYST BED"
     # unlocks: Stop 33 at the mechanism console; Stop 34 unlocks immediately after Stop 33.
     bubbles:
@@ -39,7 +40,7 @@
   - id: after-stops-33-and-34
     # After Stops 33 and 34 | mechanism console | automatic response
     on: { after: [1, 2] }
-    world: "The catalyst is shown being consumed and regenerated through the mechanism; equilibrium and enthalpy indicators remain unchanged."
+    world: "At charge-bench, the dated accepted-result slip for Stop 33 reads: \"First choice.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 35: SAMPLE THE BED FROM INLET TO OUTLET"
     # unlocks: Stop 35 at the bed sampling rail.
     bubbles:
@@ -48,7 +49,7 @@
   - id: after-stop-35
     # After Stop 35 | bed sampling rail | automatic spatial discovery
     on: { after: [3] }
-    world: "Inlet temperature and halide signal spike while conversion falls first at the front of the bed."
+    world: "At bed-log, the dated accepted-result slip for Stop 34 reads: \"Order as listed; Ni surface sites are catalyst, surface species are intermediates, slow conversion is rate-determining.\". The slip remains in that fixture's evidence holder."
     panel: "FAILURE IS NOT UNIFORM / INLET-FIRST DAMAGE."
     # unlocks: The Assay Lab waypoint and Stop 36.
     bubbles:
@@ -57,7 +58,7 @@
   - id: after-stop-36
     # After Stop 36 | Assay Lab | automatic diagnosis
     on: { after: [4] }
-    world: "The independent surface assay confirms halide contamination; A separate historic inlet reading of 612 K appears beside the result."
+    world: "At bed-ports, the dated accepted-result slip for Stop 35 reads: \"Inlet end: high temperature and halide exposure with depressed local activity; pattern is nonuniform.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 9 outcome beat.
     bubbles:
@@ -66,16 +67,12 @@
   - id: at-mission-end
     # At mission end | Assay Lab | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Sundqvist marks REPLACE CATALYST; Herrera marks EXPLAIN HIDDEN HOT SPOT; Abiola starts a final model review timer."
+    world: "At bed, Mei-Ling Cho places the damaged inlet cartridge in the HALIDE DAMAGE tray. The dated prop remains here on later visits."
     panel: "NEXT TEST - HOLDOUT THERMAL RUN."
     # unlocks: Mission 10 briefing and the Sabatier Reactor waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. We found the failure. Restore the old point after replacement."
-    - who: herrera   # Herrera
-      say: "Only if your model predicts the run you never showed."
-    - who: abiola   # Abiola
-      say: "Freeze the model. Reveal the hidden data."
+    - who: cho   # Mei-Ling Cho
+      say: "Replace what failed. Do not ask the new bed to survive an unsafe setting. But Herrera's old 612 K record is hotter than this damage explains; the hidden run must decide if his override saved the plant."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -221,31 +218,31 @@
     # CONVERTED from the payload below — a rename only. All four of the bible's
     # stations, with its readings, `expected` lines and `load` notes unchanged.
     probe:
-      chainLabel: Catalyst-bed station
-      stations:
-        - id: inlet
-          label: Inlet / 0 m
-          reading: 612 K; cumulative conversion 18%; halide high; local activity low
-          expected: Clean inlet should remain below 590 K with low halide and normal local activity
-          load: "First break: temperature exceeds the clean limit while halide is high and activity is depressed"
-        - id: inlet_shoulder
-          label: Inlet shoulder / 1 m
-          reading: 600 K; cumulative conversion 32%; halide medium-high; local activity low-medium
-          expected: A clean bed should remain below 590 K here, with low halide and conversion rising smoothly from the inlet
-          load: Confirms that the inlet-side disturbance persists downstream of the first break
-        - id: middle
-          label: Middle
-          reading: 585 K; cumulative conversion 48%; halide medium; local activity medium
-          expected: Temperature below 590 K with conversion rising smoothly and little halide contamination
-          load: Partly degraded downstream of the inlet-first failure
-        - id: outlet
-          label: Outlet
-          reading: 563 K; cumulative conversion 55%; halide low; local activity near normal
-          expected: Clean bed should finish near 70% cumulative conversion while remaining below 590 K
-          load: Temperature is acceptable, but total conversion remains below the clean-bed reference
-      target: inlet
+      chainLabel: "Catalyst-bed station"
+      commit: "Name the first station where the bed departs from the clean pattern"
       minReadings: 4
-      commit: Name the first station where the bed departs from the clean pattern
+      target: inlet
+      stations:
+      - id: inlet
+        label: "Inlet / 0 m"
+        reading: "612 K; cumulative conversion 18%; halide high; local activity low"
+        expected: "Clean inlet should remain below 590 K with low halide and normal local activity"
+        load: "First break: temperature exceeds the clean limit while halide is high and activity is depressed"
+      - id: inlet_shoulder
+        label: "Inlet shoulder / 1 m"
+        reading: "600 K; cumulative conversion 32%; halide medium-high; local activity low-medium"
+        expected: "A clean bed should remain below 590 K here, with low halide and conversion rising smoothly from the inlet"
+        load: "Confirms that the inlet-side disturbance persists downstream of the first break"
+      - id: middle
+        label: "Middle"
+        reading: "585 K; cumulative conversion 48%; halide medium; local activity medium"
+        expected: "Temperature below 590 K with conversion rising smoothly and little halide contamination"
+        load: "Partly degraded downstream of the inlet-first failure"
+      - id: outlet
+        label: "Outlet"
+        reading: "563 K; cumulative conversion 55%; halide low; local activity near normal"
+        expected: "Clean bed should finish near 70% cumulative conversion while remaining below 590 K"
+        load: "Temperature is acceptable, but total conversion remains below the clean-bed reference"
     answerText: "The first break is at the inlet, where heat and halide are high but activity is depressed."
     why: "Feed contaminant reaches the inlet first, so poisoning can start there. The inlet hot spot also matters: exothermic reaction and poorer heat removal can make the front hotter than the average. An average outlet reading hides it."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -296,29 +293,19 @@
     question: "Which diagnosis fits the spatial pattern and the independent surface assay?"
     # CONVERTED from the payload below. `state: quiet` is the engine's
     # `status: normal`, and the keyed `answer` becomes the candidate's label.
-    headline: WHERE DOES THE CATALYST BED FAIL FIRST?
+    headline: "WHERE DOES THE CATALYST BED FAIL FIRST?"
     readings:
-      - zone: surface_assay
-        label: Halide on nickel
-        value: high at inlet
-      - zone: surface_area
-        label: Fresh-reference surface area
-        value: normal
-      - zone: gas_feed
-        label: Hydrogen composition
-        value: restored for test
-      - zone: pressure
-        label: Loop pressure
-        value: normal
-      - zone: activity
-        label: Catalyst activity
-        value: inlet depressed
+    - {zone: surface_assay, label: "Halide on nickel", value: "high at inlet", status: alarm}
+    - {zone: surface_area, label: "Fresh-reference surface area", value: "normal", status: normal}
+    - {zone: gas_feed, label: "Hydrogen composition", value: "restored for test", status: normal}
+    - {zone: pressure, label: "Loop pressure", value: "normal", status: normal}
+    - {zone: activity, label: "Catalyst activity", value: "inlet depressed", status: alarm}
     choices:
-      - Halide poisoning concentrated at inlet
-      - Uniform thermal sintering
-      - Insufficient hydrogen during test
-      - Equilibrium pressure too low
-    answer: Halide poisoning concentrated at inlet
+    - {id: halide, label: "Halide poisoning concentrated at inlet", mechanism: "Matches surface assay and inlet-first loss."}
+    - {id: sintering, label: "Uniform thermal sintering", mechanism: "Would depress activity throughout bed."}
+    - {id: low_h2, label: "Insufficient hydrogen during test", mechanism: "Contradicted by controlled feed."}
+    - {id: low_pressure, label: "Equilibrium pressure too low", mechanism: "Contradicted by normal controlled pressure."}
+    answer: "Halide poisoning concentrated at inlet"
     answerText: "Halide poisoning concentrated at the inlet is the immediate catalyst failure."
     why: "The surface assay and inlet-first loss fit poisoning. Uniform sintering would reduce activity throughout; current H2 and pressure are controlled normal. The hot gradient is real but is not explained away - it becomes the safety question for Mission 10."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -341,4 +328,3 @@
     #     - {id: low_h2, label: "Insufficient hydrogen during test", mechanism: "Contradicted by controlled feed."}
     #     - {id: low_pressure, label: "Equilibrium pressure too low", mechanism: "Contradicted by normal controlled pressure."}
     #   answer: halide
-

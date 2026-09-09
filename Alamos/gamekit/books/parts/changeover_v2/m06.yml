@@ -1,17 +1,18 @@
 # ============================================================ MISSION 6
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Two Shifts"
   card:
-    header: "10 DAYS"
+    header: "MISSION 6 - 10 DAYS UNTIL CHANGEOVER."
     title: "Two Shifts"
     goNow: "Go to PRICES and meet Lina Saye, price statistics lead, at the AD-AS wall."
-    body: "The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response."
+    body: "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel."
     objective: "Separate weak demand from cost-push inflation."
   objective: "Separate weak demand from cost-push inflation."
-  stake: "The spending plan may help businesses sell more, but it cannot by itself explain why prices rose while production fell. Compare weak customer spending with rising production costs. Decide which problem government spending can address and which needs a different response."
+  stake: "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Aim policy at the weak demand gap. Treat the energy shock on its own. More spending can raise output and prices. It cannot fix a fuel supply shock. The claim of broad price abuse does not hold."
+  segue: "But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-prices
     # On arrival at PRICES | ad-as-wall | automatic
     on: { enter: true, at: PRICES }
-    world: "Arrival | PRICES | automatic after accepting the briefing World state and dialogue: The destination fixture displays Separate weak demand from cost-push inflation. Lina Saye points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "Two red pins pull the wall's price and output tracks apart."
     panel: "Separate weak demand from cost-push inflation."
+    # unlocks: Unlock Stop 21 at ad-as-wall in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Start with why ad slopes down. We need evidence the next decision can use."
   - id: after-stop-21
     # After Stop 21 | ad-as-wall | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Lina Saye says,, and Stop 22 unlocks."
+    world: "At ad-as-wall, the dated accepted-result slip for Stop 21 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 21 RECORDED - STOP 22 OPEN"
+    # unlocks: Unlock Stop 22 at ad-as-wall in Statistics Floor.
     bubbles:
     - who: saye   # Lina Saye
       say: "Nice work. Lower prices raise real wealth, reduce money demand and interest, and can depreciate the currency, increasing C, I, and NX."
   - id: after-stop-22
     # After Stop 22 | gap-calculator | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in PRICES → RATE only if the route requires travel, then."
+    world: "At ad-as-wall, the dated accepted-result slip for Stop 22 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "PRICES → RATE"
+    # unlocks: Unlock Stop 23 at gap-calculator in Rate Room.
     bubbles:
     - who: saye   # Lina Saye
       say: "Good thinking. The imported-energy shock shifts SRAS left."
   - id: after-stop-23
     # After Stop 23 | ad-as-wall | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 24 unlocks."
+    world: "At gap-calculator, the dated accepted-result slip for Stop 23 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 23 RECORDED - STOP 24 OPEN"
+    # unlocks: Unlock Stop 24 at ad-as-wall in PRICES.
     bubbles:
     - who: saye   # Lina Saye
       say: "Exactly right. Halvern has a recessionary gap plus an adverse supply shock."
   - id: at-mission-end
     # At mission end | ad-as-wall | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At ad-as-wall, Rhea Dane pins the separate demand and supply responses to the model wall. The dated prop remains here on later visits."
     panel: "MISSION 6 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: saye   # Lina Saye
-      say: "Outstanding work. You solved the mission. Use fiscal policy to close the demand gap, not to promise lower supply-driven prices."
+    - who: dane   # Rhea Dane
+      say: "One lever cannot undo both shifts. But Tomas hears that returned banknotes mean money has vanished; the Note Hall must show where it went."
 
   terms:
   - {name: "Net exports (NX)", def: "exports minus imports."}
@@ -153,7 +159,11 @@
     format: CHOICE
     question: "Select exactly one explanation from the four distinct choices below."
     figure: {"kind":"line","xLabel":"Real output","yLabel":"Price level","caption":"Aggregate demand slopes downward.","series":[{"name":"AD","points":[[20,95],[40,80],[60,64],[80,49],[100,35]]}]}
-    choices: []
+    choices:
+    - "Wealth, interest-rate, and exchange-rate effects."
+    - "Higher taxes."
+    - "Higher productivity."
+    - "Higher wages."
     answer: "Wealth, interest-rate, and exchange-rate effects."
     answerText: "\"Lower prices raise real wealth, reduce money demand and interest, and can depreciate the currency, increasing C, I, and NX.\""
     why: "A price-level change moves along AD; spending conditions shift AD."
@@ -196,7 +206,11 @@
     # arrow or quantity. The four candidates are bare ids in the payload and are
     # spelled out on this stop's own prompt — "AD right, AD left, SRAS right, or
     # SRAS left" — so those are the labels, and the grade compares labels.
-    readings: []
+    readings:
+    - { zone: "PL", value: "↑" }
+    - { zone: "Y", value: "↓" }
+    - { zone: "oil", value: "↑18%" }
+    - { zone: "G", value: "flat" }
     choices:
     - "AD right"
     - "AD left"
@@ -306,4 +320,3 @@
         step: 6
       robust: robust_plan
       optimiseOn: evidence_fit
-

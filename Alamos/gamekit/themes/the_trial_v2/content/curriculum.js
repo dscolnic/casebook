@@ -327,7 +327,8 @@ export const CURRICULUM = {
             "min": -5,
             "max": 5,
             "nominal": 0,
-            "step": 1
+            "step": 1,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",
@@ -3540,9 +3541,9 @@ export const CURRICULUM = {
         "type": "BALLPARK",
         "title": "How Long Until the First",
         "setup": "",
-        "play": "formula geometric mean=1/p; p=.20; target 5 candidates, tolerance.01; then select geometric. Include binomial mean np reminder.",
-        "task": "formula geometric mean=1/p; p=.20; target 5 candidates, tolerance.01; then select geometric. Include binomial mean np reminder.",
-        "question": "formula geometric mean=1/p; p=.20; target 5 candidates, tolerance.01; then select geometric. Include binomial mean np reminder.",
+        "play": "Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates.",
+        "task": "Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates.",
+        "question": "Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates.",
         "answer": "The completed check shows expected trials to first success=1/.20=5. The number of trials is not fixed, so the model is geometric.",
         "why": "The waiting-time estimate turns a statistical repair into a calendar cost.",
         "givens": [],
@@ -3972,7 +3973,8 @@ export const CURRICULUM = {
             "min": 0.01,
             "max": 0.05,
             "nominal": 0.030000000000000002,
-            "step": 0.005
+            "step": 0.005,
+            "worst": "min"
           },
           "robust": "robust_plan",
           "optimiseOn": "evidence_fit",

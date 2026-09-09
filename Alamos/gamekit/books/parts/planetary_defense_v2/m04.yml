@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Last Dark Window"
   card:
-    header: "IMPACT WINDOW: 10 DAYS"
+    header: "MISSION 4 - 216 HOURS TO THE PREDICTED ENCOUNTER."
     title: "THE LAST DARK WINDOW"
     goNow: "Go to Orbit Determination and meet Malik Rowan, orbit-determination lead, at the fit-board."
-    body: "The asteroid will soon disappear into the Sun's glare, and the remaining possible paths include both hits and misses. Compare what pictures, radar, and heat measurements could reveal tonight. Spend the remaining observing time on the measurements most likely to change the response decision."
+    body: "216 hours to the predicted encounter. A dawn line cuts through the remaining telescope blocks. Today you decide which observations are worth the last dark hours."
     objective: "Fund the observing plan most likely to change the impact decision."
   objective: "Fund the observing plan most likely to change the impact decision."
-  stake: "The asteroid will soon disappear into the Sun's glare, and the remaining possible paths include both hits and misses. Compare what pictures, radar, and heat measurements could reveal tonight. Spend the remaining observing time on the measurements most likely to change the response decision."
+  stake: "216 hours to the predicted encounter. A dawn line cuts through the remaining telescope blocks. Today you decide which observations are worth the last dark hours."
   takeaway: "Spend scarce observing time on complementary evidence, not repeated volume. ---"
-  segue: "Mission decision: Use the last dark window for dawn images, radar, and heat data. These tests may cut the path width to about 4,600 km. The range will guard the handoff. The summit system must pass its checks first."
+  segue: "But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Solar elongation", def: "the angle between an object and the Sun in the sky."}
@@ -29,7 +29,7 @@
   - id: on-arrival-at-orbit-determination-center
     # On arrival at Orbit Determination Center | automatic | 
     on: { enter: true, at: ORBIT }
-    world: "Malik Rowan, orbit-determination lead, points to a daylight gap on the fit-board: \"More points tonight or one point later - those are not the same.\""
+    world: "A dawn line cuts through the remaining telescope blocks."
     panel: "THE LAST DARK WINDOW / MISSION ACTIVE"
     # unlocks: Stop 13.
     bubbles:
@@ -38,7 +38,7 @@
   - id: after-stop-13
     # After Stop 13 | automatic | 
     on: { after: [1] }
-    world: "Low-value repeated exposures dim; later-baseline optical, radar, and thermal options remain bright."
+    world: "At fit-board, the dated accepted-result slip for Stop 13 reads: \"Late optical + radar + thermal = 90 credits.\". The slip remains in that fixture's evidence holder."
     panel: "THE LAST DARK WINDOW / FIRST RESULT LOGGED"
     # unlocks: Stop 14.
     bubbles:
@@ -47,7 +47,7 @@
   - id: after-stop-14
     # After Stop 14 | automatic | 
     on: { after: [2] }
-    world: "The chosen schedule appears on the scopeboard with protected handoff blocks."
+    world: "At scope-schedule, the dated accepted-result slip for Stop 14 reads: \"Validate/early optical → radar → thermal → dawn optical → refit.\". The slip remains in that fixture's evidence holder."
     panel: "THE LAST DARK WINDOW / EVIDENCE HANDOFF READY"
     # unlocks: Stop 15.
     bubbles:
@@ -56,7 +56,7 @@
   - id: after-stop-15
     # After Stop 15 | automatic | 
     on: { after: [3] }
-    world: "The error budget predicts orbit-width reduction from 17,000 km to 4,600 km."
+    world: "At fit-board, the dated accepted-result slip for Stop 15 reads: \"Radar plus dawn; 4,600 km forecast width.\". The slip remains in that fixture's evidence holder."
     panel: "THE LAST DARK WINDOW / DECISION EVIDENCE READY"
     # unlocks: Stop 16.
     bubbles:
@@ -65,12 +65,12 @@
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
-    world: "Mira authorizes the plan; the aircraft changes from HELD to SIGNED OUT FOR PHASE 5."
+    world: "At scope-schedule, Mira Chen pins the combined optical, radar, and thermal schedule to the board. The dated prop remains here on later visits."
     panel: "THE LAST DARK WINDOW / MISSION DECISION LOGGED"
     # unlocks: Mission 4 outcome, metric screen, concept review, and Mission 5 briefing.
     bubbles:
-    - who: rowan   # Malik Rowan
-      say: "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+    - who: chen   # Mira Chen
+      say: "We have hours to spend. Spend them on a different view. But Lena's summit pipeline has not passed its own checks; more bad points would only sharpen the wrong answer."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

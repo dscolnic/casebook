@@ -1,17 +1,18 @@
 # ============================================================ MISSION 15
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "GO / NO-GO"
   card:
-    header: "1 SHIFT UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 15 - 1 WORK SHIFT REMAINS BEFORE LAUNCH."
     title: "GO / NO-GO"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the final recovery board."
-    body: "The suspect fuel batch is isolated, and only one shift remains before the crew's launch opportunity closes. Choose the measurement that can settle its quality, compare recovery plans, and fund the necessary work. Recommend launch only if the fuel, oxygen, power, and safety checks all pass."
+    body: "1 work shift remains before launch. The crew's bags wait behind the dark pad door. Today you decide whether the crew can launch."
     objective: "Authorize launch only if all four campaign metrics and every chemistry threshold pass."
   objective: "Authorize launch only if all four campaign metrics and every chemistry threshold pass."
-  stake: "The suspect fuel batch is isolated, and only one shift remains before the crew's launch opportunity closes. Choose the measurement that can settle its quality, compare recovery plans, and fund the necessary work. Recommend launch only if the fuel, oxygen, power, and safety checks all pass."
+  stake: "1 work shift remains before launch. The crew's bags wait behind the dark pad door. Today you decide whether the crew can launch."
   takeaway: "GO means every precommitted requirement passes - not that one reassuring gauge is green."
-  segue: "Mission decision: GO after Batch C is cleaned and the power cell makes up the lost hydrogen. Keep the reactor at the safe point. Launch only after two separate tests pass. All four bars and every set limit now pass. The crew leaves Mars, and no new quiz begins."
+  segue: "Therefore Demir keeps the protected loads on through boarding; GO must hold through the last check."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Certified methane", def: "methane whose amount and composition have passed the fixed flight rules through independent testing. Gross tank mass does not count as certified methane by itself."}
@@ -31,7 +32,7 @@
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "The final board shows one shift remaining and four recovery plans; Each plan has time, power, thermal, amount, and composition consequences."
+    world: "The crew's bags wait behind the dark pad door."
     panel: "MISSION 15 - GO / NO-GO"
     # unlocks: Stop 57 at the final decision board.
     bubbles:
@@ -40,7 +41,7 @@
   - id: after-stop-57
     # After Stop 57 | decision board to Tank Farm | automatic evidence choice
     on: { after: [1] }
-    world: "The selected independent contaminant measurement receives the final sampling slot; duplicate mass and pressure readings gray out."
+    world: "At final-recovery-board, the dated accepted-result slip for Stop 57 reads: \"Independent Batch C contaminant assay.\". The slip remains in that fixture's evidence holder."
     panel: "FINAL SAMPLE AUTHORIZED - BATCH C INDEPENDENT ASSAY."
     # unlocks: The Tank Farm waypoint and Stop 58.
     bubbles:
@@ -49,7 +50,7 @@
   - id: after-stop-58
     # After Stop 58 | Tank Farm | automatic plan elimination
     on: { after: [2] }
-    world: "Certified methane, not total tank mass, is applied to both surviving plans; The non-reprocessing plan falls below the usable-fuel requirement."
+    world: "At tank-calculation-station, the dated accepted-result slip for Stop 58 reads: \"D. Plan B meets gross mass but not usable certified methane; it cannot erase contaminants. Plan D reprocesses Batch C while validated production replaces small losses.\". The slip remains in that fixture's evidence holder."
     panel: "ONLY REPROCESS-BATCH-C PLAN SATISFIES AMOUNT + COMPOSITION + HARDWARE LIMITS."
     # unlocks: Stop 59 at the integrated control board.
     bubbles:
@@ -58,7 +59,7 @@
   - id: after-stop-59
     # After Stop 59 | integrated control board | automatic resource commitment
     on: { after: [3] }
-    world: "One hundred decision points lock across reprocessing, electrolysis, reactor production, independent verification, and safety margin; Every required causal link turns green."
+    world: "At recovery-allocation-board, the dated accepted-result slip for Stop 59 reads: \"35 reprocessing, 25 independent verification, 15 electrolysis, 10 validated reactor, and 15 safety/habitat; total 100. Accept variants with at least 60 points across reprocessing + verification and no points to cosmetic recalibration, provided safety gets at least 10.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 60: COMMANDER'S RECOMMENDATION"
     # unlocks: The Ascent Pad waypoint and Stop 60.
     bubbles:
@@ -71,14 +72,12 @@
   - id: after-stop-60
     # After Stop 60 | Pad Office | automatic final result
     on: { after: [4] }
-    world: "The final panel shows independent composition, amount, pressure, reactor thermal margin, habitat reserve, and oxygen all passing; after the accepted recommendation the timer stops and the Mission 15 metric screen opens, and AUTHORIZE LAUNCH appears only when all four bars reach 100%."
+    world: "At certification-console, Commander Laila Abiola turns the final launch decision key. The final scene follows the completion gate below."
     panel: "FINAL GO / NO-GO - ALL BINDING CONDITIONS PASS"
     # unlocks: The epilogue beat; all graded interaction is complete.
     bubbles:
-    - who: abiola   # Abiola
-      say: "Outstanding work. You solved the mission. Commander needs your recommendation. What do we do?"
-    - who: abiola   # Abiola
-      say: "All four systems are ready. Authorize launch."
+    - who: abiola   # Commander Laila Abiola
+      say: "You brought us to the pad with fuel we can trust. Therefore Demir keeps the protected loads on through boarding; GO must hold through the last check."
   - id: at-mission-end
     # At mission end | Ascent Pad | automatic epilogue
     on: { missionEnd: true }
@@ -180,37 +179,15 @@
     # its `correct` — is the engine's `decisive`, the buy that can change the
     # decision, and its `decision_changed` line is what that buy reveals.
     value:
-      budget:
-        unit: ""
-      decision: ""
+      budget: { amount: 10, unit: test_points }
       options:
-        - id: pressure
-          label: Repeat total-pressure reading
-          cost: 6
-          axis: amount
-          reveals: ""
-        - id: mass
-          label: Duplicate tank mass
-          cost: 7
-          axis: amount
-          reveals: ""
-        - id: assay
-          label: Independent Batch C contaminant assay
-          cost: 10
-          axis: composition
-          reveals: ""
-          decisive: true
-        - id: catalyst_temp
-          label: Repeat average catalyst temperature
-          cost: 5
-          axis: thermal
-          reveals: ""
-        - id: valve
-          label: Visual valve inspection
-          cost: 4
-          axis: hardware
-          reveals: ""
-      commit: Commit the decision
+      - { id: pressure, label: "Repeat total-pressure reading", cost: 6, axis: amount }
+      - { id: mass, label: "Duplicate tank mass", cost: 7, axis: amount }
+      - { id: assay, label: "Independent Batch C contaminant assay", cost: 10, axis: composition,
+          decisive: true, reveals: "Confirms whether quarantine and reprocessing remain required." }
+      - { id: catalyst_temp, label: "Repeat average catalyst temperature", cost: 5, axis: thermal }
+      - { id: valve, label: "Visual valve inspection", cost: 4, axis: hardware }
+      commit: "Commit the decision"
     question: "Which measurement has the greatest chance to change the launch decision?"
     answerText: "Buy the independent Batch C contaminant assay."
     why: "Pressure and mass are already precise and are not the disputed claim. Average temperature cannot certify tank contents. A second independent assay determines whether quarantine/reprocessing remains necessary and directly controls GO/NO-GO."
@@ -376,15 +353,6 @@
     #   evidence:
     #     required_total: 100
     #     pass_rules: ["reprocess + independent_assay >= 60", "electrolysis >= 15", "validated_reactor >= 10", "safety >= 10", "cosmetic = 0", "total = 100"]
-    evidence:
-      required_total: 100
-      pass_rules:
-        - reprocess + independent_assay >= 60
-        - electrolysis >= 15
-        - validated_reactor >= 10
-        - safety >= 10
-        - cosmetic = 0
-        - total = 100
 
   # --- Stop 60: Commander's recommendation
   #     Concept: whole-campaign synthesis; Keystone: whole-campaign transfer; Area: Plant Control; Learning role: TRANSFER; Difficulty: L5; Story role: final commitment.
@@ -400,41 +368,23 @@
     question: "\"Commander needs your recommendation. What do we do?\""
     # CONVERTED from the payload below. `state: quiet` is the engine's
     # `status: normal`, and the keyed `answer` becomes the candidate's label.
-    headline: FINAL GO / NO-GO - EVERY BINDING CONDITION
+    headline: "FINAL GO / NO-GO - EVERY BINDING CONDITION"
     readings:
-      - zone: composition
-        label: Independent methane / CO2 / H2O
-        value: 98.1% / 1.8% / 0.08%
-      - zone: tank
-        label: Pressure
-        value: 19.0 bar
-      - zone: reactor
-        label: Operating point / inlet peak
-        value: 550 K, 12 bar / 584 K
-      - zone: hydrogen
-        label: Restart reserve
-        value: 16 kmol H2
-      - zone: oxygen
-        label: Ascent oxygen
-        value: 100% / VERIFIED
-      - zone: power
-        label: Habitat reserve
-        value: protected
-      - zone: evidence
-        label: Independent assay agreement
-        value: within 0.2%
-      - zone: prior_batch
-        label: Unprocessed Batch C
-        value: 91.8% CH4 / failed composition
-      - zone: prior_reactor
-        label: Old 575 K operating point
-        value: allowed sensor error crosses thermal limit
+    - {zone: composition, label: "Independent methane / CO2 / H2O", value: "98.1% / 1.8% / 0.08%", status: normal}
+    - {zone: tank, label: "Pressure", value: "19.0 bar", status: normal}
+    - {zone: reactor, label: "Operating point / inlet peak", value: "550 K, 12 bar / 584 K", status: normal}
+    - {zone: hydrogen, label: "Restart reserve", value: "16 kmol H2", status: normal}
+    - {zone: oxygen, label: "Ascent oxygen", value: "100% / VERIFIED", status: normal}
+    - {zone: power, label: "Habitat reserve", value: "protected", status: normal}
+    - {zone: evidence, label: "Independent assay agreement", value: "within 0.2%", status: normal}
+    - {zone: prior_batch, label: "Unprocessed Batch C", value: "91.8% CH4 / failed composition", status: alarm}
+    - {zone: prior_reactor, label: "Old 575 K operating point", value: "allowed sensor error crosses thermal limit", status: alarm}
     choices:
-      - Launch and ignore assay because mass is full
-      - Return to 575 K for more production
-      - Reprocess until contaminants are zero
-      - Accept the passing batch, hold the validated point, protect power, and authorize launch
-    answer: Accept the passing batch, hold the validated point, protect power, and authorize launch
+    - {id: ignore_assay, label: "Launch and ignore assay because mass is full", mechanism: "Repeats the false-ready error."}
+    - {id: restore_hot, label: "Return to 575 K for more production", mechanism: "Reopens the thermal and equilibrium failure."}
+    - {id: perfect_purity, label: "Reprocess until contaminants are zero", mechanism: "Unneeded perfection misses the window."}
+    - {id: complete_plan, label: "Accept the passing batch, hold the validated point, protect power, and authorize launch", mechanism: "All amount, composition, pressure, thermal, power, and independence limits pass."}
+    answer: "Accept the passing batch, hold the validated point, protect power, and authorize launch"
     answerText: "Choose the complete recovery plan and authorize GO only because every precommitted amount, composition, pressure, thermal, power, and verification limit passes."
     why: "D meets amount, composition, pressure, thermal, hydrogen, oxygen, and habitat constraints with independent verification. Zero contamination is not required; the specification defines acceptable limits."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -462,3 +412,25 @@
     #     - {id: complete_plan, label: "Accept the passing batch, hold the validated point, protect power, and authorize launch", mechanism: "All amount, composition, pressure, thermal, power, and independence limits pass."}
     #   answer: complete_plan
 
+copy:
+  KINET: <p>Catalyst Bay. Nickel on alumina, in a bed the size of a kitchen bin, doing the one job in this plant that 
+    nothing else can do.</p>
+  EQUIL: <p>The reactor hall. Carbon dioxide and hydrogen go in, methane and water come out, and the argument is about 
+    how much.</p>
+  PHASE: <p>The cold end. Where a gas nobody can store becomes a liquid the vehicle can fly, at 112 kelvin.</p>
+  ELEC: <p>The electrolysis hall. Water stacks make hydrogen and oxygen; one hot solid-oxide stack splits carbon dioxide
+    into oxygen and carbon monoxide.</p>
+  GIBBS: <p>Plant control. The energy ledger for everything on this plain, and the desk where the arguments about it 
+    end.</p>
+  SOIL: <p>The water plant. Frozen ground in at one end, and a brine that has to be cleaned before anything downstream 
+    can use it.</p>
+  HAB: <p>The habitat. 6 people, 19 °C, and the only room on the planet with a window somebody chose the view 
+    from.</p>
+  PAD: <p>The pad. The ascent vehicle stands on it, 4.3 tonnes of methane aboard and 6.6 needed.</p>
+  ARRAY: <p>The array shed. 1800 square metres of panel out there, and a sun sensor that says how much of the sun is 
+    reaching it.</p>
+  TANKS: <p>The tank farm. Everything the plant has made so far, held at its own boiling point and losing a little every
+    sol.</p>
+  GARAGE: <p>The garage. Two pressurised rovers, one drill rig, and the dust that comes back in with all of them.</p>
+  INTAKE: <p>The intake. 6 millibars of carbon dioxide compressed to 12 bar, which is most of the plant's power bill 
+    before any chemistry happens.</p>

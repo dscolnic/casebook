@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Sign the Ground Truth"
   card:
-    header: "FINAL STORM WINDOW TODAY;"
+    header: "MISSION 15 - 1 DAY UNTIL THE LAST STORM WINDOW CLOSES."
     title: "Sign the Ground Truth"
     goNow: "Launch Control, Dr. Lena Ortiz at record desk."
-    body: "The main cable repair works, but a small wire loop on circuit board E still exceeds its voltage limit. Choose a repair and check it before the final witnessed test. Decide whether the complete station, including that last vulnerable board, is safe to certify."
-    objective: "Repair the local loop, execute the final rule, and sign or reject certification."
-  objective: "Repair the local loop, execute the final rule, and sign or reject certification."
-  stake: "The main cable repair works, but a small wire loop on circuit board E still exceeds its voltage limit. Choose a repair and check it before the final witnessed test. Decide whether the complete station, including that last vulnerable board, is safe to certify."
+    body: "1 day until the last storm window closes. The repaired card rack waits beside the blank last report page. Today you decide whether the complete station earns its certificate."
+    objective: "Repair the local loop, execute the final rule, and sign or reject certification. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Repair the local loop, execute the final rule, and sign or reject certification. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "1 day until the last storm window closes. The repaired card rack waits beside the blank last report page. Today you decide whether the complete station earns its certificate."
   takeaway: "Certify Station 12. ---"
-  segue: "Mission decision: Certify Station 12. The loop repair keeps card E below 250 volts. Every rule set before the shot now passes. Separate records confirm the result. The report names the bad path and the fix."
+  segue: "Therefore Noor leaves the fast recorders running for the next crew; the report closes with the limits still posted."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-remote-outstation
     # On arrival at Remote Outstation | repair-board | automatic
     on: { enter: true, at: COUPLE }
-    world: "accepted SHOT/bubble/100-point board/→S1; S1 correct/waypoint/plan pinned/TWIST PAIR • ISOLATE RECORD • VERIFY TIMING • PROTECT INSPECTION→BANK/S2; S2 correct/waypoint/dry checks PASS/Dry source and law map pass; Repair card E.→COUPLE/S3; S3 correct/world/pair permanently twisted/TEMP 72 V • RESTORE 305 V • REPAIR 74 V→S4; S4 correct/nearby bubbles then banner/report signed/ALL LIMITS PASS • INDEPENDENT RECORDS COMPLETE→outcome/victory."
+    world: "The repaired card rack waits beside the blank last report page."
     panel: "Dr. Lena Ortiz, station director: \"Fund the cause, the witness, and the recovery.\""
+    # unlocks: Unlock Stop 57 at repair-board in Remote Outstation.
     bubbles:
     - who: ortiz   # Lena Ortiz
       say: "Fund the cause, the witness, and the recovery."
   - id: after-stop-57
     # After Stop 57 | bank-stages | automatic
     on: { after: [1] }
-    world: "The fund the final repair result remains visible while the map the final laws fixture lights."
+    world: "At repair-board, the dated accepted-result slip for Stop 57 reads: \"Fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 57 RECORDED - STOP 58 OPEN"
+    # unlocks: Unlock Stop 58 at bank-stages in Impulse Hall.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 57 result to settle map the final laws."
+      say: "That check holds. The repair plan is funded, but each final claim still needs the correct physical relationship behind it."
   - id: after-stop-58
     # After Stop 58 | cable-bay | automatic
     on: { after: [2] }
-    world: "The map the final laws result remains visible while the reverse the loop geometry fixture lights."
+    world: "At bank-stages, the dated accepted-result slip for Stop 58 reads: \"All twelve law mappings are correct. Each equation has a defined physical job.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
+    # unlocks: Unlock Stop 59 at cable-bay in Remote Outstation.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 58 result to settle reverse the loop geometry."
+      say: "That check holds. The proposed loop reduction needs a reversible test before the crew fastens the repair permanently."
   - id: after-stop-59
     # After Stop 59 | repair-board | automatic
     on: { after: [3] }
-    world: "The reverse the loop geometry result remains visible while the certify station 12 fixture lights."
+    world: "At cable-bay, the dated accepted-result slip for Stop 59 reads: \"Twisting causes 310→72 V; reversal gives 305 V; final repair gives 74 V.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 59 RECORDED - STOP 60 OPEN"
+    # unlocks: Unlock Stop 60 at repair-board in Remote Outstation.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 59 result to settle certify station 12."
+      say: "That check holds. The repaired card's final reading is available, but station-wide certification still requires every safeguard to agree."
   - id: at-mission-end
     # At mission end | repair-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At record-desk, Dr. Lena Ortiz clips the witnessed final-shot record into the season report. The final scene follows the completion gate below."
     panel: "MISSION 15 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "You found the path we missed, then proved it was gone. Therefore Noor leaves the fast recorders running for the next crew; the report closes with the limits still posted."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

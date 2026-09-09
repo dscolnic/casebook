@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Write the Stop Rule"
   card:
-    header: "15 DAYS TO FINAL STORM WINDOW"
+    header: "MISSION 1 - 15 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "Write the Stop Rule"
     goNow: "Go to Launch Control and meet Dr. Lena Ortiz, station director, at the launch board."
-    body: "An electrical pulse damaged a remote test station even though its safety lights showed green. Today's launch is paused. Use physics to compare the sensors and decide what evidence the crew must demand before another test can put people or equipment at risk."
+    body: "15 days until the last storm window closes. One crew-clear lamp disagrees with the others beneath the red hold bar. Today you decide which two checks permit a shot."
     objective: "Commit a numerical field threshold and a disagreement rule before launch data appear."
   objective: "Commit a numerical field threshold and a disagreement rule before launch data appear."
-  stake: "An electrical pulse damaged a remote test station even though its safety lights showed green. Today's launch is paused. Use physics to compare the sensors and decide what evidence the crew must demand before another test can put people or equipment at risk."
+  stake: "15 days until the last storm window closes. One crew-clear lamp disagrees with the others beneath the red hold bar. Today you decide which two checks permit a shot."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use both limits for every shot. Launch only when the field is at or below 5.0 kV/m in size. And the channel spread is at or below 0.50 kV/m. The present cell passes. The close agreement still needs an independence check."
+  segue: "But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Electric charge", def: "a property of matter that creates electric force; like signs repel and unlike signs attract."}
@@ -31,43 +31,48 @@
   - id: on-arrival-at-launch-control
     # On arrival at Launch Control | radar-desk | automatic
     on: { enter: true, at: SHOT }
-    world: "The fix the signs fixture wakes and the mission evidence opens."
+    world: "One crew-clear lamp disagrees with the others beneath the red hold bar."
     panel: "MISSION 1: FIX THE SIGNS OPEN"
+    # unlocks: Unlock Stop 1 at radar-desk in Launch Control.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "The green lights disagree about what upward means. Write one rule before the cell reaches us."
   - id: after-stop-1
     # After Stop 1 | launch-board | automatic
     on: { after: [1] }
-    world: "The fix the signs result remains visible while the derive the net field fixture lights."
+    world: "At radar-desk, the dated accepted-result slip for Stop 1 reads: \"Mapping above, exact labels.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    # unlocks: Unlock Stop 2 at launch-board in Launch Control.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 1 result to settle derive the net field."
+      say: "That check holds. The normalized readings need an independent layer-model prediction before they can support a launch criterion."
   - id: after-stop-2
     # After Stop 2 | launch-board | automatic
     on: { after: [2] }
-    world: "(2) S2 complete, board update: SIGNED FIELD = VECTOR SUM."
+    world: "At launch-board, the dated accepted-result slip for Stop 2 reads: \"-4.5 kV/m, exact line/rule pairs.\". The slip remains in that fixture's evidence holder."
     panel: "SIGNED FIELD = VECTOR SUM"
+    # unlocks: Unlock Stop 3 at launch-board in Launch Control.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 2 result to settle bound the disagreement."
+      say: "That check holds. The layer prediction is ready, but calibration uncertainty could still explain the difference between channels."
   - id: after-stop-3
     # After Stop 3 | launch-board | automatic
     on: { after: [3] }
-    world: "The bound the disagreement result remains visible while the commit the criterion fixture lights."
+    world: "At launch-board, the dated accepted-result slip for Stop 3 reads: \"Single-field model survives; observed pair spread 0.20 kV/m ≤ 0.50 kV/m.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    # unlocks: Unlock Stop 4 at launch-board in Launch Control.
     bubbles:
     - who: noor   # Noor Haddad
       say: "Exactly right. Agreement helps only if the channels are independent."
   - id: at-mission-end
     # At mission end | radar-desk | automatic
     on: { missionEnd: true }
-    world: "(4) S4 complete, launch cover remains closed and criterion appears on board; Outcome walk: player places report piece 1 in SHOT; metric screen unlocks."
+    world: "At launch-board, Dr. Lena Ortiz clips the FIELD AND CHANNEL-SPREAD LIMITS card above the launch key. The dated prop remains here on later visits."
     panel: "MISSION 1 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "A deadline does not get its own launch key. But Ravi's four mills agree too neatly; he must bound what the storm field actually says before Ortiz trusts them."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

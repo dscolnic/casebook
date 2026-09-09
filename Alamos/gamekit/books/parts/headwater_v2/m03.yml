@@ -1,17 +1,18 @@
 # ============================================================ MISSION 3
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Inflow Accumulation"
   card:
-    header: "13 SHIFTS UNTIL THE STORM"
+    header: "MISSION 3 - 13 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "One Motion, Three Changes"
     goNow: "Go to Gate House and meet Tomas Wilkes, gate mechanic, at the discharge board."
-    body: "The crew needs to lower the water behind the dam, but opening a gate wider does not always release water at the same rate. Work out how water depth and gate position affect the flow. Choose a safe way to test the gate's controls."
+    body: "13 work shifts remain before the storm. Fresh grease marks stop short of an old notch on the hoist scale. Today you decide which gate setting can be tested and restored."
     objective: "Map and certify the gate's changing response."
   objective: "Map and certify the gate's changing response."
-  stake: "The crew needs to lower the water behind the dam, but opening a gate wider does not always release water at the same rate. Work out how water depth and gate position affect the flow. Choose a safe way to test the gate's controls."
+  stake: "13 work shifts remain before the storm. Fresh grease marks stop short of an old notch on the hoist scale. Today you decide which gate setting can be tested and restored."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Use the staged calibration path. The chain, linkage. And inverse tests agree, and the gate returns to baseline. The crew can predict discharge without forcing the hoist. Now it must learn how that water moves downstream."
+  segue: "But Elise needs to know when that water reaches the village; the gate result is only half a warning."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-gate-house
     # On arrival at Gate House | discharge-board | automatic
     on: { enter: true, at: GATES }
-    world: "The differentiate nested discharge fixture wakes and the mission evidence opens."
+    world: "Fresh grease marks stop short of an old notch on the hoist scale."
     panel: "MISSION 3: DIFFERENTIATE NESTED DISCHARGE OPEN"
+    # unlocks: Unlock Stop 9 at discharge-board in Gate House.
     bubbles:
     - who: wilkes   # Tomas Wilkes
       say: "Start with differentiate nested discharge. We need evidence the next decision can use."
   - id: after-stop-9
     # After Stop 9 | discharge-board | automatic
     on: { after: [1] }
-    world: "After 3.1 Location: GATES."
+    world: "At discharge-board, the dated accepted-result slip for Stop 9 reads: \"exact.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    # unlocks: Unlock Stop 10 at discharge-board in Gate House.
     bubbles:
     - who: wilkes   # Tomas Wilkes
-      say: "Nice work. Use the Stop 9 result to settle link opening and head."
+      say: "That check holds. The discharge response must account for the mechanical linkage between gate opening and water head."
   - id: after-stop-10
     # After Stop 10 | hoist-stand | automatic
     on: { after: [2] }
-    world: "After 3.3 Location: GATES."
+    world: "At discharge-board, the dated accepted-result slip for Stop 10 reads: \"-0.6667, tolerance .001.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    # unlocks: Unlock Stop 11 at hoist-stand in Gate House.
     bubbles:
     - who: wilkes   # Tomas Wilkes
-      say: "Good thinking. Use the Stop 10 result to settle find linkage curvature."
+      say: "That check holds. The linkage's current slope is known, but its change may narrow the safe range of gate motion."
   - id: after-stop-11
     # After Stop 11 | hoist-stand | automatic
     on: { after: [3] }
-    world: "The find linkage curvature result remains visible while the reverse the flow calibration fixture lights."
+    world: "At hoist-stand, the dated accepted-result slip for Stop 11 reads: \"-0.49383, tolerance .001.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    # unlocks: Unlock Stop 12 at hoist-stand in Gate House.
     bubbles:
     - who: wilkes   # Tomas Wilkes
-      say: "Exactly right. Use the Stop 11 result to settle reverse the flow calibration."
+      say: "That check holds. The linkage analysis is ready for an independent test of the flow-command calibration."
   - id: at-mission-end
     # At mission end | discharge-board | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At discharge-board, Tomas Wilkes clips the verified calibration strip to the discharge board. The dated prop remains here on later visits."
     panel: "MISSION 3 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: wilkes   # Tomas Wilkes
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "It came back to the same mark. Now we can use the curve. But Elise needs to know when that water reaches the village; the gate result is only half a warning."
 
   terms:
   - {name: "Chain rule", def: "differentiate an outside function, then multiply by the derivative of its inside."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Inflow Accumulation. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Gate That Comes Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Inflow Accumulation, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?"
+    - prompt: "In a follow-up to The Gate That Comes Back, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Chain rule; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -75,7 +81,7 @@
       - {key: "B", text: "Differentiate an outside function, then multiply by the derivative of its inside.", why: "Correct. differentiate an outside function, then multiply by the derivative of its inside."}
       - {key: "C", text: "A function that reverses another function.", why: "This describes Inverse function, not Chain rule. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.", why: "This describes chain/exp/log, not Chain rule. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Inflow Accumulation: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?"
+    - prompt: "Ashfell Dam receives a second case related to The Gate That Comes Back: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Implicit relation; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -83,7 +89,7 @@
       - {key: "B", text: "A function that reverses another function.", why: "This describes Inverse function, not Implicit relation. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "An equation connecting variables without isolating one.", why: "Correct. an equation connecting variables without isolating one."}
       - {key: "D", text: "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.", why: "This describes chain/exp/log, not Implicit relation. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Inflow Accumulation using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?"
+    - prompt: "A teammate rechecks The Gate That Comes Back using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?"
       hint: "Use the stated evidence and the conditions for Inverse function; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -91,7 +97,7 @@
       - {key: "B", text: "An equation connecting variables without isolating one.", why: "This describes Implicit relation, not Inverse function. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.", why: "This describes chain/exp/log, not Inverse function. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "A function that reverses another function.", why: "Correct. a function that reverses another function."}
-    - prompt: "An unseen case extends The Inflow Accumulation: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?"
+    - prompt: "An unseen case extends The Gate That Comes Back: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?"
       hint: "Use the stated evidence and the conditions for chain/exp/log; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +113,7 @@
       - {key: "B", text: "Do/dh=-2/3. The linkage slope turns water-level motion into a required hoist correction.", why: "Correct. do/dh=-2/3. The linkage slope turns water-level motion into a required hoist correction."}
       - {key: "C", text: "An equation connecting variables without isolating one.", why: "This describes Implicit relation, not implicit differentiation. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "A function that reverses another function.", why: "This describes Inverse function, not implicit differentiation. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Inflow Accumulation to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?"
+    - prompt: "Ashfell Dam applies the lesson from The Gate That Comes Back to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?"
       hint: "Use the stated evidence and the conditions for second implicit derivative; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -319,4 +325,3 @@
         - 1.05
       measurement:
         label: independent measured value
-

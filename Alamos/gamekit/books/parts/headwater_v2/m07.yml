@@ -1,17 +1,18 @@
 # ============================================================ MISSION 7
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Wall's Carrying Limit"
   card:
-    header: "9 SHIFTS UNTIL THE STORM"
+    header: "MISSION 7 - 9 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Count Every Cubic Metre"
     goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the gauge wall."
-    body: "The crew knows how fast floodwater may arrive, but not yet how much water will arrive altogether. Add up the predicted inflow over the storm. Decide how much water must leave the reservoir beforehand so the dam has room to hold the flood."
+    body: "9 work shifts remain before the storm. The storm total fills a strip longer than the storage allowance. Today you decide how much room to clear before rain."
     objective: "Calculate storm inflow and required empty storage."
   objective: "Calculate storm inflow and required empty storage."
-  stake: "The crew knows how fast floodwater may arrive, but not yet how much water will arrive altogether. Add up the predicted inflow over the storm. Decide how much water must leave the reservoir beforehand so the dam has room to hold the flood."
+  stake: "9 work shifts remain before the storm. The storm total fills a strip longer than the storage allowance. Today you decide how much room to clear before rain."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Draw down 5.28 million m^3 before the storm. The integral gives 17.28 million m^3 of inflow. And the plan also keeps 2.00 million m^3 of campaign safety room. The next task is finding a release mix that clears this volume without flooding the valley."
+  segue: "But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-catchment-inflow-desk
     # On arrival at Catchment & Inflow Desk | gauge-wall | automatic
     on: { enter: true, at: INFLOW }
-    world: "Arrival Location: INFLOW."
+    world: "The storm total fills a strip longer than the storage allowance."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 25 at gauge-wall in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
       say: "Start with estimate sampled inflow. We need evidence the next decision can use."
   - id: after-stop-25
     # After Stop 25 | trace-bench | automatic
     on: { after: [1] }
-    world: "After 7.2 Location: INFLOW."
+    world: "At gauge-wall, the dated accepted-result slip for Stop 25 reads: \"L=12.6, R=16.2, T=14.4 million m^3.\". The slip remains in that fixture's evidence holder."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 26 at trace-bench in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Nice work. Use the Stop 25 result to settle build exact accumulation."
+    - who: hassan   # Leila Hassan
+      say: "That check holds. The numerical storm-volume estimate needs an exact check using the fitted inflow function."
   - id: after-stop-26
     # After Stop 26 | trace-bench | automatic
     on: { after: [2] }
-    world: "Travel Location: INFLOW->STORE."
+    world: "At trace-bench, the dated accepted-result slip for Stop 26 reads: \"17,280,000 m^3, tolerance 1000.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 26 RECORDED - STOP 27 OPEN"
+    # unlocks: Unlock Stop 27 at trace-bench in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Good thinking. Use the Stop 26 result to settle verify ftc part 2."
+    - who: hassan   # Leila Hassan
+      say: "That check holds. The total-volume check must be reconciled with the live accumulator's changing display."
   - id: after-stop-27
     # After Stop 27 | water-ledger | automatic
     on: { after: [3] }
-    world: "The verify ftc part 2 result remains visible while the separate signed change from physical volume fixture lights."
+    world: "At trace-bench, the dated accepted-result slip for Stop 27 reads: \"210; pass.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 27 RECORDED - STOP 28 OPEN"
+    # unlocks: Unlock Stop 28 at water-ledger in Catchment & Inflow Desk.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Exactly right. Use the Stop 27 result to settle separate signed change from physical volume."
+    - who: hassan   # Leila Hassan
+      say: "That check holds. The storm volume is established, allowing the crew to compare it with available empty storage."
   - id: at-mission-end
     # At mission end | gauge-wall | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At water-ledger, Leila Hassan pins the DRAW DOWN 5.28 MILLION CUBIC METRES card to the ledger. The dated prop remains here on later visits."
     panel: "MISSION 7 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: okoro   # Imani Okoro
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: hassan   # Leila Hassan
+      say: "Now the empty space has a number. But Nia's turbines cannot clear it all; the gates must take a share without flooding Elise's valley."
 
   terms:
   - {name: "Antiderivative", def: "a function whose derivative is the integrand."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Wall's Carrying Limit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed Room for the Storm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Wall's Carrying Limit, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?"
+    - prompt: "In a follow-up to Room for the Storm, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?"
       hint: "Use the stated evidence and the conditions for Antiderivative; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -75,7 +81,7 @@
       - {key: "B", text: "A function whose derivative is the integrand.", why: "Correct. a function whose derivative is the integrand."}
       - {key: "C", text: "Signed accumulation across bounds.", why: "This describes Definite integral, not Antiderivative. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.", why: "This describes L/R/trapezoid sums, not Antiderivative. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Wall's Carrying Limit: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?"
+    - prompt: "Ashfell Dam receives a second case related to Room for the Storm: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?"
       hint: "Use the stated evidence and the conditions for Riemann sum; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -83,7 +89,7 @@
       - {key: "B", text: "Signed accumulation across bounds.", why: "This describes Definite integral, not Riemann sum. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Rectangles approximating accumulated change.", why: "Correct. rectangles approximating accumulated change."}
       - {key: "D", text: "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.", why: "This describes L/R/trapezoid sums, not Riemann sum. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Wall's Carrying Limit using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?"
+    - prompt: "A teammate rechecks Room for the Storm using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?"
       hint: "Use the stated evidence and the conditions for Definite integral; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -91,7 +97,7 @@
       - {key: "B", text: "Rectangles approximating accumulated change.", why: "This describes Riemann sum, not Definite integral. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.", why: "This describes L/R/trapezoid sums, not Definite integral. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Signed accumulation across bounds.", why: "Correct. signed accumulation across bounds."}
-    - prompt: "An unseen case extends The Wall's Carrying Limit: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?"
+    - prompt: "An unseen case extends Room for the Storm: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?"
       hint: "Use the stated evidence and the conditions for L/R/trapezoid sums; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +113,7 @@
       - {key: "B", text: "The modeled storm adds 17,280,000 m^3. FTC converts the continuous forecast rate into total incoming volume.", why: "Correct. the modeled storm adds 17,280,000 m^3. FTC converts the continuous forecast rate into total incoming volume."}
       - {key: "C", text: "Rectangles approximating accumulated change.", why: "This describes Riemann sum, not antiderivatives/linearity/FTC/Riemann limit. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Signed accumulation across bounds.", why: "This describes Definite integral, not antiderivatives/linearity/FTC/Riemann limit. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Wall's Carrying Limit to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?"
+    - prompt: "Ashfell Dam applies the lesson from Room for the Storm to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?"
       hint: "Use the stated evidence and the conditions for accumulation derivative; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -273,7 +279,11 @@
     motivation: "The drawdown deficit determines how much additional water must leave before the storm while preserving the safety margin."
     format: CHOICE
     question: "Use drawdown = storm inflow + safety margin - current empty storage; select exactly one of four values and submit its label in million cubic metres."
-    choices: []
+    choices:
+    - "1.28 million m^3."
+    - "5.28 million m^3."
+    - "15.28 million m^3."
+    - "33.28 million m^3."
     answer: "5.28 million m^3."
     answerText: "The completed check shows 17.28+2.00-14.00=5.28 million m^3."
     why: "17.28+2.00-14.00=5.28 million m^3. A volume ledger, not peak flow, determines whether the reservoir can hold the storm."
@@ -285,4 +295,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   question:"What additional drawdown is required?"; choices:["5.28 million m^3","3.28 million m^3","19.28 million m^3","1.28 million m^3"]; answer:"5.28 million m^3"; why:"17.28+2.00-14.00=5.28 million m^3."; rebuttals:{"3.28 million m^3":"This omits the required 2.00 million m^3 safety margin.","19.28 million m^3":"This fails to subtract the 14.00 million m^3 already empty.","1.28 million m^3":"This subtracts the safety margin instead of reserving it."}
-

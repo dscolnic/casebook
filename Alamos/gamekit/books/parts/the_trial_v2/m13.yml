@@ -1,17 +1,18 @@
 # ============================================================ MISSION 13
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Too Many Wins"
   card:
-    header: "DAY 13 - BOARD IN 3 DAYS"
+    header: "MISSION 13 - 3 DAYS UNTIL THE BOARD MEETS."
     title: "Too Many Wins"
     goNow: "Go to Statistics and meet Tomas Reed, trial statistician, at the residual wall."
-    body: "Ten extra analyses seem to show treatment benefits, but trying many comparisons makes chance findings easier to uncover. Check which analyses were promised in advance and how strong the results remain after accounting for the extra tests. Decide which benefits the board can honestly claim."
+    body: "3 days until the board meets. Ten claim slips crowd the registered-test rail. Today you decide which findings survive the shared error limit."
     objective: "Correct the secondary claims and lock Evidence Strength."
   objective: "Correct the secondary claims and lock Evidence Strength."
-  stake: "Ten extra analyses seem to show treatment benefits, but trying many comparisons makes chance findings easier to uncover. Check which analyses were promised in advance and how strong the results remain after accounting for the extra tests. Decide which benefits the board can honestly claim."
+  stake: "3 days until the board meets. Ten claim slips crowd the registered-test rail. Today you decide which findings survive the shared error limit."
   takeaway: "Count every planned test, not only wins."
-  segue: "Mission decision: Keep only the two planned results with p at or below.005. The dose slope still has support. The marker result is now only a clue. Evidence strength is locked. A late harm range still crosses the stop line."
+  segue: "But Jonas's late harm interval crosses the stop line; two surviving results cannot buy a full restart."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Population slope", def: "the true change in mean response per unit x in the population."}
@@ -31,43 +32,48 @@
   - id: on-arrival-at-statistics-analysis
     # On arrival at Statistics & Analysis | residual-wall | automatic
     on: { enter: true, at: STAT }
-    world: "Arrival: STAT entry; residual wall visible; Tomas says,; - After S1-S2: slope report seals; waypoint TAKE SLOPE REPORT TO REGISTRY. - REG after S3: ten-test family prints; waypoint CARRY REGISTERED FAMILY TO BOARD. - BOARD final: threshold commits before p-values reveal; two survivors remain; binder 13 and outcome unlock."
+    world: "Ten claim slips crowd the registered-test rail."
     panel: "MISSION 13: PASS LINE OPEN"
+    # unlocks: Unlock Stop 49 at residual-wall in Statistics & Analysis.
     bubbles:
     - who: reed   # Tomas Reed
       say: "A small p-value waits until LINE passes"
   - id: after-stop-49
     # After Stop 49 | analysis-board | automatic
     on: { after: [1] }
-    world: "The pass line result remains visible while the infer the slope fixture lights."
+    world: "At residual-wall, the dated accepted-result slip for Stop 49 reads: \"A passes LINE: linear residual pattern, independent observations, Normal residuals, and equal variance.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    # unlocks: Unlock Stop 50 at analysis-board in Statistics & Analysis.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Nice work. Use the Stop 49 result to settle infer the slope."
+    - who: wu   # Lena Wu
+      say: "That check holds. The slope conditions pass, allowing the dose-response estimate to be tested and bounded."
   - id: after-stop-50
     # After Stop 50 | claim-ledger | automatic
     on: { after: [2] }
-    world: "The infer the slope result remains visible while the count the claims fixture lights."
+    world: "At analysis-board, the dated accepted-result slip for Stop 50 reads: \"values above, tolerances.01/.005.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    # unlocks: Unlock Stop 51 at claim-ledger in Regulatory & Registry.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Good thinking. Use the Stop 50 result to settle count the claims."
+    - who: wu   # Lena Wu
+      say: "That check holds. The slope finding joins several secondary analyses, so the correction family must be established."
   - id: after-stop-51
     # After Stop 51 | trigger-rail | automatic
     on: { after: [3] }
-    world: "The count the claims result remains visible while the correct before seeing fixture lights."
+    world: "At claim-ledger, the dated accepted-result slip for Stop 51 reads: \"The correction family contains ten pre-specified tests; the added biomarker is exploratory.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    # unlocks: Unlock Stop 52 at trigger-rail in Monitoring Board Room.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Exactly right. Use the Stop 51 result to settle correct before seeing."
+    - who: wu   # Lena Wu
+      say: "That check holds. The registered test family needs an error-control threshold before its p-values are revealed."
   - id: at-mission-end
     # At mission end | residual-wall | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At claim-ledger, Lena Wu stamps the unsupported marker claim EXPLORATORY. The dated prop remains here on later visits."
     panel: "MISSION 13 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: reed   # Tomas Reed
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: wu   # Lena Wu
+      say: "We lost a headline. We kept the evidence. But Jonas's late harm interval crosses the stop line; two surviving results cannot buy a full restart."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -275,65 +281,31 @@
     # registry timestamp, so each line reports only that, and the payload's
     # `signed: true` is attributed to the person the stop is asked by.
     attest:
-      verification_limit: 10
+      checks: 10
       claims:
-        - id: secondary_1
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_2
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_3
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_4
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_5
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_6
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_7
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_8
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_9
-          signed: true
-          backed: true
-          critical: true
-        - id: secondary_10
-          signed: true
-          backed: true
-          critical: true
-        - id: late_biomarker
-          signed: true
-          backed: false
-          critical: true
-      correct_verified:
-        - secondary_1
-        - secondary_2
-        - secondary_3
-        - secondary_4
-        - secondary_5
-        - secondary_6
-        - secondary_7
-        - secondary_8
-        - secondary_9
-        - secondary_10
-      critical_unbacked: late_biomarker
-      answerText: Count and verify all ten preregistered secondary claims; exclude the biomarker added after results appeared.
+      - { id: secondary_1, label: "Secondary test 1", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_2, label: "Secondary test 2", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_3, label: "Secondary test 3", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_4, label: "Secondary test 4", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_5, label: "Secondary test 5", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_6, label: "Secondary test 6", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_7, label: "Secondary test 7", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_8, label: "Secondary test 8", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_9, label: "Secondary test 9", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: secondary_10, label: "Secondary test 10", critical: true, backed: true,
+          signedBy: "Tomas Reed", evidence: "Registry timestamp recorded before results appeared." }
+      - { id: late_biomarker, label: "Late biomarker analysis", critical: true,
+          signedBy: "Tomas Reed", evidence: "No registry timestamp; the analysis was added after results appeared." }
+      commit: "Close the correction family"
     answerText: "The completed check shows the correction family contains ten pre-specified tests; the added biomarker is exploratory."
     why: "Counting only significant results would hide the number of chances that produced them."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -400,4 +372,3 @@
         - at: T-6 h
           value: 0.015
           hoursLeft: 6
-

@@ -8,17 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "Kesteven House holds Halvern's Currency Board, four floors above the crowds waiting to "
-    +   "exchange old crowns for the new RATE. In fifteen days, you must use macroeconomics to "
-    +   "switch shops, banks, wages, and foreign payments without cutting what families can buy. "
-    +   "If the conversion or interest policy is wrong, prices may jump, jobs may vanish, or "
-    +   "banks may run short of cash. Board Chair Mara Venn hands you the empty Rate Book and "
-    +   "says, “Fifteen days from now, every family in Halvern must wake to wages, savings, "
-    +   "prices, and payments they can trust: build the changeover that gets them there.”",
+  "You are the changeover analyst, which means you check the rules that turn old crowns "
+    +   "into new money. At Kesteven House, you will use macroeconomics to make the call. The new "
+    +   "currency starts in fifteen days. Families need wages that buy food. Shops and banks need "
+    +   "payments that clear.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Sign a 3.25% policy "
-    +   "rate. Halvern can move forward with clearer prices and fewer risks for ordinary "
-    +   "families.",
+  "The first customer slides old crowns across the counter. Eli counts out the new notes. "
+    +   "Outside, the shop boards turn to the new currency. The signed rate and its review rules "
+    +   "stay on the wall as the next person steps forward.",
 ];

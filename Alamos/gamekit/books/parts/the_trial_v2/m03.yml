@@ -1,17 +1,18 @@
 # ============================================================ MISSION 3
+# Split back out of books/the_trial_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/THE_TRIAL_AP_STATISTICS_Campaign_Implementation_Bible.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Two-Site Alarm"
   card:
-    header: "DAY 3 - BOARD IN 13 DAYS"
+    header: "MISSION 3 - 13 DAYS UNTIL THE BOARD MEETS."
     title: "The Two-Site Alarm"
     goNow: "Go to the Monitoring Board Room and meet Jonas Berg, safety monitoring chair, at the event console."
-    body: "Serious health problems are concentrated at two hospitals. Is this a chance pattern, or a warning that needs action now? Calculate how likely the pattern would be under the stated assumptions and decide whether those hospitals should stop accepting new trial patients."
+    body: "13 days until the board meets. Two hospital cards blink amber on the site display. Today you decide whether the two hospital alerts warrant a pause."
     objective: "Determine whether the two-site signal needs immediate action."
   objective: "Determine whether the two-site signal needs immediate action."
-  stake: "Serious health problems are concentrated at two hospitals. Is this a chance pattern, or a warning that needs action now? Calculate how likely the pattern would be under the stated assumptions and decide whether those hospitals should stop accepting new trial patients."
+  stake: "13 days until the board meets. Two hospital cards blink amber on the site display. Today you decide whether the two hospital alerts warrant a pause."
   takeaway: "Independence predicts a product; association does not prove cause."
-  segue: "Mission decision: Pause work at the two flagged hospitals. Check their drug shipments. The shared pattern is far above what chance predicts. It shows a link, not a cause. A hidden early analysis also needs review."
+  segue: "But Tomas finds an analysis opened before its planned date; the chance of a false alarm has changed."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Union", def: "the event that A or B or both occur."}
@@ -34,43 +35,48 @@
   - id: on-arrival-at-the-monitoring-board-room
     # On arrival at the Monitoring Board Room | event-console | automatic
     on: { enter: true, at: SITE }
-    world: "Arrival: BOARD entry; nearby bubble; event map shows two-site cluster; Jonas says,; - After S1-S2: correct commits; panel update; overlap becomes 11% and shipment subset 40%; player control restored; - After S3: model restore confirmed; persistent signs mark sites 12/19 PAUSED; - Final/outcome: S4 decision; early timestamp appears on console; binder 3 fills; metric screen unlocks."
+    world: "Two hospital cards blink amber on the site display."
     panel: "MISSION 3: COUNT THE OVERLAP ONCE OPEN"
+    # unlocks: Unlock Stop 9 at event-console in the Monitoring Board Room.
     bubbles:
     - who: berg   # Jonas Berg
       say: "Show me the denominator before I stop everyone"
   - id: after-stop-9
     # After Stop 9 | event-console | automatic
     on: { after: [1] }
-    world: "The count the overlap once result remains visible while the ask among the flagged fixture lights."
+    world: "At event-console, the dated accepted-result slip for Stop 9 reads: \"0.11 or 11%, tolerance 0.001.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    # unlocks: Unlock Stop 10 at event-console in the Monitoring Board Room.
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Nice work. Use the Stop 9 result to settle ask among the flagged."
+      say: "That check holds. The unique warning count leaves the shipment-flagged group needing its own risk estimate."
   - id: after-stop-10
     # After Stop 10 | event-console | automatic
     on: { after: [2] }
-    world: "The ask among the flagged result remains visible while the test independence fixture lights."
+    world: "At event-console, the dated accepted-result slip for Stop 10 reads: \"P(serious event | shipment flag)=0.02/0.05=0.40, so 40% of flagged shipments coincide with a serious event.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    # unlocks: Unlock Stop 11 at event-console in the Monitoring Board Room.
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Good thinking. Use the Stop 10 result to settle test independence."
+      say: "That check holds. The high conditional rate needs comparison with what unrelated warnings would produce."
   - id: after-stop-11
     # After Stop 11 | board-console | automatic
     on: { after: [3] }
-    world: "The test independence result remains visible while the pause the right places fixture lights."
+    world: "At event-console, the dated accepted-result slip for Stop 11 reads: \"Predicted independent overlap 0.4%; independent-model reading 0.4%; restored observed reading 2.0%; conclusion not independent; prediction tolerance 0.05 percentage point.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
+    # unlocks: Unlock Stop 12 at board-console in Monitoring Board Room.
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Exactly right. Use the Stop 11 result to settle pause the right places."
+      say: "That check holds. The warning overlap is established, but protective action must not outrun what the association proves."
   - id: at-mission-end
     # At mission end | event-console | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At event-console, Jonas Berg slides the SITE 12 AND SITE 19: PAUSED card into the console rail. The dated prop remains here on later visits."
     panel: "MISSION 3 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: berg   # Jonas Berg
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "Pause those sites. Keep the cause open. But Tomas finds an analysis opened before its planned date; the chance of a false alarm has changed."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -250,18 +256,19 @@
     # percentage points. `noise` is the bible's noise_band of 0.05 percentage
     # point, which -1.6 clears many times over.
     control:
+      observable: { label: "Flag/event overlap", unit: "percent" }
       variables:
-        - id: association_model
-          label: association model
-        - id: flag_rate
-          label: shipment-flag marginal rate
-        - id: event_rate
-          label: serious-event marginal rate
-      held:
-        - cohort
-        - marginal rates
-        - time window
+      - { id: association_model, label: "association model" }
+      - { id: flag_rate, label: "shipment-flag marginal rate" }
+      - { id: event_rate, label: "serious-event marginal rate" }
+      held: ["cohort", "marginal rates", "time window"]
       truth: association_model
+      baseline: 2.0
+      response: -1.6
+      noise: 0.05
+      changeVerb: "Switch to the independent model"
+      run: "Measure the overlap"
+      commit: "Name the model that moved it"
     answerText: "Independence predicts 0.08(0.05)=0.004=0.4%, far below the observed 2.0%. The events are associated, but this alone does not prove causation."
     why: "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -289,7 +296,11 @@
     # The four readings, their numbers and their alarm/quiet statuses are the
     # bible's. DERIVED: `zone`, which groups a reading with the display it comes
     # off — each is the bible's own name for that reading.
-    readings: []
+    readings:
+    - { zone: "Overall event rate", label: "Across the cohort", value: "8 percent", status: alarm }
+    - { zone: "Overlap", label: "Flagged shipments with a serious event", value: "2 percent", status: alarm }
+    - { zone: "Independence expectation", label: "Benchmark", value: "0.4 percent", status: normal }
+    - { zone: "29 other sites", label: "Enrollment and events", value: "stable", status: normal }
     # The four candidates are the bible's own choice list, in its order and its
     # words: "continue all; stop all; pause sites 12/19 and audit handling;
     # declare drug cause", answer the targeted pause and audit.
@@ -309,4 +320,3 @@
     # tools/import-book.mjs — some of these are a rename and some are a
     # model conversion. Do not paste it in as it stands.
     #   headline TWO-SITE SIGNAL; readings overall event rate 8 alarm, overlap 2 alarm, independence expectation 0.4 quiet benchmark, 29 other sites stable quiet. Choices: continue all; stop all; pause sites 12/19 and audit handling; declare drug cause. Answer targeted pause/audit.
-

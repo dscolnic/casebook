@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "Where It Lands"
   card:
-    header: "IMPACT WINDOW: 6 DAYS"
+    header: "MISSION 9 - 108 HOURS TO THE PREDICTED ENCOUNTER."
     title: "WHERE IT LANDS"
     goNow: "Go to Orbit Determination and meet Malik Rowan at the astro-bench, then carry the corridor to the Entry and Consequences Lab."
-    body: "The possible impact locations now form a long strip across Earth. A strike over ocean, desert, or a city would need different preparations. Estimate the impact energy and damage area, then decide where protective planning is warranted without pretending the exact location is known."
+    body: "108 hours remain to the close pass. The path still spans sea, coast, and dry land. Today you decide which places need plans before a local order."
     objective: "Define where protective planning is justified without drawing a false impact bullseye."
   objective: "Define where protective planning is justified without drawing a false impact bullseye."
-  stake: "The possible impact locations now form a long strip across Earth. A strike over ocean, desert, or a city would need different preparations. Estimate the impact energy and damage area, then decide where protective planning is warranted without pretending the exact location is known."
+  stake: "108 hours remain to the close pass. The path still spans sea, coast, and dry land. Today you decide which places need plans before a local order."
   takeaway: "Estimate the scale, preserve the corridor, and buy the observation that changes action. ---"
-  segue: "Mission decision: Start plans for the full path band. Do not order local action yet. New timing data must first split the ocean, desert, and coast cases."
+  segue: "But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Impact corridor", def: "the set of possible surface locations allowed by the current orbit uncertainty."}
@@ -33,7 +33,7 @@
   - id: on-arrival-at-orbit-determination-center
     # On arrival at Orbit Determination Center | automatic | 
     on: { enter: true, at: ORBIT }
-    world: "Malik transfers a corridor, not a point."
+    world: "Ocean, desert, and coast strips overlap under the same path band."
     panel: "WHERE IT LANDS / MISSION ACTIVE"
     # unlocks: Stop 33.
     bubbles:
@@ -42,7 +42,7 @@
   - id: after-stop-33
     # After Stop 33 | automatic | 
     on: { after: [1] }
-    world: "Evelyn forces a rough energy calculation before simulation."
+    world: "At astro-bench, the dated accepted-result slip for Stop 33 reads: \"About (1.66\\times10^{10}) kg, (3.0\\times10^{18}) J, or 715 megatons TNT.\". The slip remains in that fixture's evidence holder."
     panel: "WHERE IT LANDS / FIRST RESULT LOGGED"
     # unlocks: The Entry & Consequences Lab waypoint and Stop 34.
     bubbles:
@@ -51,7 +51,7 @@
   - id: after-stop-34
     # After Stop 34 | automatic | 
     on: { after: [2] }
-    world: "Outcome maps diverge over ocean and land."
+    world: "At energy-bench, the dated accepted-result slip for Stop 34 reads: \"Correct causal order; material strength or internal structure controls breakup behavior.\". The slip remains in that fixture's evidence holder."
     panel: "WHERE IT LANDS / EVIDENCE HANDOFF READY"
     # unlocks: Stop 35.
     bubbles:
@@ -60,7 +60,7 @@
   - id: after-stop-35
     # After Stop 35 | automatic | 
     on: { after: [3] }
-    world: "Jordan asks what observation can shrink the population under warning."
+    world: "At risk-display, the dated accepted-result slip for Stop 35 reads: \"Distinguish physical effects and exposed populations by segment.\". The slip remains in that fixture's evidence holder."
     panel: "WHERE IT LANDS / DECISION EVIDENCE READY"
     # unlocks: Stop 36.
     bubbles:
@@ -69,12 +69,12 @@
   - id: at-mission-end
     # At mission end | automatic | 
     on: { missionEnd: true }
-    world: "The final evidence product remains visible, the mission decision is delivered in character, and the next required location pulses on the map."
+    world: "At risk-display, Jordan Hale pins the PLAN WHOLE BAND / NO LOCAL ORDER YET card to the risk map. The dated prop remains here on later visits."
     panel: "WHERE IT LANDS / MISSION DECISION LOGGED"
     # unlocks: Mission 9 outcome, metric screen, concept review, and Mission 10 briefing.
     bubbles:
-    - who: park   # Evelyn Park
-      say: "Outstanding work. You solved the mission. The decision is logged. Carry this result into the next shift."
+    - who: hale   # Jordan Hale
+      say: "Give me places to prepare. Do not invent a place it will hit. But Sanaa's light curve still carries two motions; the physical body may change which harm model belongs here."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.

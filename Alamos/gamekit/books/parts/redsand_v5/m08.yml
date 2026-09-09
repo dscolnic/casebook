@@ -1,17 +1,18 @@
 # ============================================================ MISSION 8
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Override"
   card:
-    header: "8 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 8 - 8 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE OVERRIDE"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the initial-rate board."
-    body: "Cooling weakened before the temperature was lowered, but the lower setting did slow fuel production. Test how the reaction responds to a controlled temperature change and check the operating records. Decide who changed the setting and what effect the action actually had."
+    body: "8 work shifts remain before launch. Herrera's name appears on a sheet no one has put back in its folder. Today you decide what the signed setting change actually caused."
     objective: "Measure the effect of the temperature change and verify who made the override."
   objective: "Measure the effect of the temperature change and verify who made the override."
-  stake: "Cooling weakened before the temperature was lowered, but the lower setting did slow fuel production. Test how the reaction responds to a controlled temperature change and check the operating records. Decide who changed the setting and what effect the action actually had."
+  stake: "8 work shifts remain before launch. Herrera's name appears on a sheet no one has put back in its folder. Today you decide what the signed setting change actually caused."
   takeaway: "Verification may require separate evidence for identity, timing, and physical condition."
-  segue: "Mission decision: The signed change caused the fast rate drop. Its purpose is still not known. One test lowers and restores the rate while all other controls stay fixed. Separate records prove who made the change and when. The catalyst bed must be mapped before the old setting can return."
+  segue: "But Cho's bed sample carries halide; the damaged catalyst must be mapped before the old setting can return."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Reaction rate", def: "measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much."}
@@ -33,7 +34,7 @@
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "Three initial-rate trials appear beside Herrera's signed override."
+    world: "Herrera's name appears on a sheet no one has put back in its folder."
     panel: "MISSION 8 - THE OVERRIDE"
     # unlocks: Stop 29 at the rate board; Stop 30 unlocks immediately after Stop 29.
     bubbles:
@@ -42,7 +43,7 @@
   - id: after-stops-29-and-30
     # After Stops 29 and 30 | rate board | automatic response
     on: { after: [1, 2] }
-    world: "The rate law locks as rate = k\\[CO2\\]\\[H2\\]^2 and k displays as 0.300 M^-2 s^-1."
+    world: "At rate-board, the dated accepted-result slip for Stop 29 reads: \"First order in CO2 and second order in H2.\". The slip remains in that fixture's evidence holder."
     panel: "CONTROLLED REVERSAL AUTHORIZED."
     # unlocks: The Sabatier Reactor waypoint and Stop 31.
     bubbles:
@@ -51,7 +52,7 @@
   - id: after-stop-31
     # After Stop 31 | Sabatier Reactor | automatic causal result
     on: { after: [3] }
-    world: "Lower temperature reduces rate; restoring temperature restores the immediate rate response while feed, pressure, and flow remain fixed."
+    world: "At rate-board, the dated accepted-result slip for Stop 30 reads: \"0.300 M^-2 s^-1; tolerance +/-2%.\". The slip remains in that fixture's evidence holder."
     panel: "TEMPERATURE CHANGE CAUSES RATE CHANGE / RESPONSE REVERSIBLE."
     # unlocks: Stop 32 at the verification panel.
     bubbles:
@@ -60,7 +61,7 @@
   - id: after-stop-32
     # After Stop 32 | verification panel | automatic character beat
     on: { after: [4] }
-    world: "Badge record, controller log, and independent temperature sensor align; the handwritten note remains unverified."
+    world: "At skid, the dated accepted-result slip for Stop 31 reads: \"Lower temperature alone, observe rate fall, restore temperature, observe rate return.\". The slip remains in that fixture's evidence holder."
     panel: "MISSION DECISION READY"
     # unlocks: The Mission 8 outcome beat.
     bubbles:
@@ -71,14 +72,12 @@
   - id: at-mission-end
     # At mission end | Reactor Hall | automatic outcome and hook
     on: { missionEnd: true }
-    world: "A single average-temperature number splits into INLET, MIDDLE, and OUTLET blanks."
+    world: "At verification-panel, Ingrid Sundqvist pins the RATE DROP VERIFIED / MOTIVE UNRESOLVED strip beside the signature. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - CATALYST BAY."
     # unlocks: Mission 9 briefing and the Catalyst Bay waypoint.
     bubbles:
-    - who: herrera   # Herrera
-      say: "Outstanding work. You solved the mission. A catalyst bed does not have one temperature. An average can hide the point that destroys it."
-    - who: sundqvist   # Sundqvist
-      say: "Then we probe from front to back before restart."
+    - who: sundqvist   # Ingrid Sundqvist
+      say: "I can prove it slowed us. That is not the same as proving why. But Cho's bed sample carries halide; the damaged catalyst must be mapped before the old setting can return."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -232,17 +231,18 @@
     # cause: `response` is the signed change in the reading (72 - 100), `noise` is
     # the bible's noise band, and `truth` its `correct`.
     control:
+      observable: { label: "Rate index" }
       variables:
-        - id: temperature_K
-          label: Reactor temperature
-        - id: co2_M
-          label: CO2 concentration
-        - id: h2_M
-          label: H2 concentration
-        - id: pressure_bar
-          label: Pressure
-        - id: flow_index
-          label: Flow
+      - { id: temperature_K, label: "Reactor temperature" }
+      - { id: h2_M, label: "H2 concentration" }
+      - { id: pressure_bar, label: "Pressure" }
+      held: ["CO2 concentration", "Flow"]
+      truth: temperature_K
+      baseline: 100
+      response: -28
+      noise: 2
+      run: "Run the measurement"
+      commit: "Name the cause"
     answerText: "Lower only temperature, observe the rate fall, then restore temperature and observe the rate return."
     why: "Reversal makes drift less plausible. The result proves the lower set point reduced reaction rate. It does not prove whether lowering it was unnecessary, because the short test does not recreate the developing thermal condition."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -281,38 +281,14 @@
     # `backing` is the `evidence` a verification turns up; `backed` and `critical`
     # carry across unchanged.
     attest:
-      limit: 3
+      checks: 3
       claims:
-        - id: presence
-          label: Herrera was in Reactor Hall
-          backing: Badge log
-          backed: true
-          critical: false
-        - id: command
-          label: Herrera's authenticated account changed the set point
-          backing: Signed controller audit
-          backed: true
-          critical: true
-        - id: physical_change
-          label: Temperature changed at the same time
-          backing: Independent temperature historian
-          backed: true
-          critical: true
-        - id: written_note
-          label: The handwritten note was written before the change
-          backing: No verified timestamp
-          backed: false
-          critical: false
-        - id: sabotage_motive
-          label: The change was intended as sabotage
-          backing: No direct evidence
-          backed: false
-          critical: true
-      recommended_checks:
-        - command
-        - physical_change
-        - presence
-      correct: Action and time verified; sabotage motive remains unbacked.
+      - { id: presence, label: "Herrera was in Reactor Hall", evidence: "Badge log", backed: true }
+      - { id: command, label: "Herrera's authenticated account changed the set point", evidence: "Signed controller audit", backed: true, critical: true }
+      - { id: physical_change, label: "Temperature changed at the same time", evidence: "Independent temperature historian", backed: true, critical: true }
+      - { id: written_note, label: "The handwritten note was written before the change", evidence: "No verified timestamp" }
+      - { id: sabotage_motive, label: "The change was intended as sabotage", evidence: "No direct evidence", critical: true }
+      commit: "Close the list"
     answerText: "Use the controller audit, independent temperature history, and badge log; motive remains unverified."
     why: "A record of access is not a record of the physical condition, and a physical trace without identity does not name the actor. Independent identity and condition records together verify the claim."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -332,4 +308,3 @@
     #       - {id: sabotage_motive, label: "The change was intended as sabotage", backing: "No direct evidence", backed: false, critical: true}
     #     recommended_checks: [command, physical_change, presence]
     #     correct: "Action and time verified; sabotage motive remains unbacked."
-

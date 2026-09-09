@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Missing Microsecond"
   card:
-    header: "3 DAYS;"
+    header: "MISSION 13 - 3 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "The Missing Microsecond"
     goNow: "Screened Room, Noor Haddad at record budget board."
-    body: "The rerouted cable passes, but the recorder may be too slow to catch the brief voltage peak. Compare how quickly the sensors respond and how often the recorder samples them. Decide which instruments can reliably judge the final test."
-    objective: "Choose recorders fast enough for the relevant transient."
-  objective: "Choose recorders fast enough for the relevant transient."
-  stake: "The rerouted cable passes, but the recorder may be too slow to catch the brief voltage peak. Compare how quickly the sensors respond and how often the recorder samples them. Decide which instruments can reliably judge the final test."
+    body: "3 days until the last storm window closes. A narrow peak stands above a slow trace that barely moves. Today you decide which recorders can see the fastest pulse."
+    objective: "Choose recorders fast enough for the relevant transient. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Choose recorders fast enough for the relevant transient. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "3 days until the last storm window closes. A narrow peak stands above a slow trace that barely moves. Today you decide which recorders can see the fastest pulse."
   takeaway: "Only the fast isolated channels can certify the final shot. ---"
-  segue: "Mission decision: Use only the fast, separate channels for the final shot. A slow channel misses much of the peak. The old test still works for steady current. It does not prove safety during lightning."
+  segue: "Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-screened-room
     # On arrival at Screened Room | record-budget | automatic
     on: { enter: true, at: SCREEN }
-    world: "accepted SCREEN/bubble/three traces/→S1; S2 correct/panel/63.2% label/ONE τ CAPTURES ONLY 63.2%→S3; S3 correct/waypoint/channel slot moves/FAST ISOLATED CHANNEL FUNDED; VERIFY RECORD AT SHOT.→SHOT; record checked/waypoint/ringing trace/Compare this transient with April's DC certificate.→EARTH/S4; S4 correct/world/certificate relabeled/DC ONLY • TRANSIENT NOT CERTIFIED→outcome."
+    world: "A narrow peak stands above a slow trace that barely moves."
     panel: "Noor Haddad, data and safety analyst: \"A smooth line can be a slow instrument.\""
+    # unlocks: Unlock Stop 49 at record-budget in Screened Room.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "A smooth line can be a slow instrument."
   - id: after-stop-49
     # After Stop 49 | recorder-rack | automatic
     on: { after: [1] }
-    world: "The find the fast recorder result remains visible while the derive rc response fixture lights."
+    world: "At record-budget, the dated accepted-result slip for Stop 49 reads: \"The fast isolated channel alone has structureless pulse residuals.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 49 RECORDED - STOP 50 OPEN"
+    # unlocks: Unlock Stop 50 at recorder-rack in Screened Room.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 49 result to settle derive rc response."
+    - who: noor   # Noor Haddad
+      say: "That check holds. The slow channel's smooth trace needs a response-time calculation before its peak reading is trusted."
   - id: after-stop-50
     # After Stop 50 | record-desk | automatic
     on: { after: [2] }
-    world: "The derive rc response result remains visible while the buy the recorder upgrade fixture lights."
+    world: "At recorder-rack, the dated accepted-result slip for Stop 50 reads: \"63.2% at τ; 99.33% at 5τ. Exponential response quantifies under-read.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 50 RECORDED - STOP 51 OPEN"
+    # unlocks: Unlock Stop 51 at record-desk in Launch Control.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 50 result to settle buy the recorder upgrade."
+    - who: noor   # Noor Haddad
+      say: "That check holds. The recorder response identifies a timing weakness that the remaining upgrade budget must address."
   - id: after-stop-51
     # After Stop 51 | earth-cert | automatic
     on: { after: [3] }
-    world: "The buy the recorder upgrade result remains visible while the diagnose frequency response fixture lights."
+    world: "At record-desk, the dated accepted-result slip for Stop 51 reads: \"Buy faster sampling; dominant uncertainty falls 18% to 4%.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 51 RECORDED - STOP 52 OPEN"
+    # unlocks: Unlock Stop 52 at earth-cert in Earthing Trench.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 51 result to settle diagnose frequency response."
+    - who: noor   # Noor Haddad
+      say: "That check holds. The upgraded waveform shows ringing that the April steady-current test never measured."
   - id: at-mission-end
     # At mission end | record-budget | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At recorder-rack, Noor Haddad ties a FINAL SHOT: FAST INDEPENDENT CHANNELS tag to the recorder rack. The dated prop remains here on later visits."
     panel: "MISSION 13 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: noor   # Noor Haddad
+      say: "A calm screen can mean a slow screen. Therefore Ortiz must use those channels in the next storm window; the clean old trace cannot clear the repaired station."
 
   terms:
   - {name: "Bandwidth", def: "range of signal frequencies a channel can follow."}

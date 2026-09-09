@@ -1,17 +1,18 @@
 # ============================================================ MISSION 6
+# Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/HEADWATER_AP_CALCULUS_AB_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Peak Test"
   card:
-    header: "10 SHIFTS UNTIL THE STORM"
+    header: "MISSION 6 - 10 WORK SHIFTS REMAIN BEFORE THE STORM."
     title: "Beyond the Old Horizon"
     goNow: "Go to Catchment & Inflow Desk and meet Imani Okoro, catchment hydrologist, at the high-ground gauge."
-    body: "A rain gauge has found rainfall the weather radar missed, and two forecasts now disagree about the flood. Check how each forecast begins and compare its predictions with measurements. Choose which forecast the crew should use when lowering the reservoir before the storm."
+    body: "10 work shifts remain before the storm. A sealed high-ground trace rests under the old forecast. Today you decide which forecast earns use for the storm."
     objective: "Select the forecast that survives unseen data."
   objective: "Select the forecast that survives unseen data."
-  stake: "A rain gauge has found rainfall the weather radar missed, and two forecasts now disagree about the flood. Check how each forecast begins and compare its predictions with measurements. Choose which forecast the crew should use when lowering the reservoir before the storm."
+  stake: "10 work shifts remain before the storm. A sealed high-ground trace rests under the old forecast. Today you decide which forecast earns use for the storm."
   takeaway: "Evidence must match the mechanism, units, and stated limits. ---"
-  segue: "Mission decision: Use Forecast B. It stays finite, predicts a later crest. And survives unseen high-ground data. The old model missed the peak rather than suffering a constant bias. More water is coming, so the crew must total the full storm volume."
+  segue: "Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-catchment-inflow-desk
     # On arrival at Catchment & Inflow Desk | trace-bench | automatic
     on: { enter: true, at: INFLOW }
-    world: "Arrival Location: INFLOW."
+    world: "A sealed high-ground trace rests under the old forecast."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 21 at trace-bench in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
       say: "Start with the indeterminate-rate check. We now have the derivative tools to test the replacement forecast properly."
   - id: after-stop-21
     # After Stop 21 | high-ground-gauge | automatic
     on: { after: [1] }
-    world: "After 6.2 Location: INFLOW."
+    world: "At trace-bench, the dated accepted-result slip for Stop 21 reads: \"L=0.020 m/h.\". The slip remains in that fixture's evidence holder."
     panel: "INFLOW"
+    # unlocks: Unlock Stop 22 at high-ground-gauge in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
-      say: "Nice work. Use the Stop 21 result to settle read inverse-shaped saturation."
+      say: "That check holds. The failed rational forecast needs comparison with a bounded alternative across the full forecast window."
   - id: after-stop-22
     # After Stop 22 | forecast-drawer | automatic
     on: { after: [2] }
-    world: "Travel Location: INFLOW->ARCHIVE."
+    world: "At high-ground-gauge, the dated accepted-result slip for Stop 22 reads: \"t=4, 36.850 mm/h, tolerance .01.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 22 RECORDED - STOP 23 OPEN"
+    # unlocks: Unlock Stop 23 at forecast-drawer in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
-      say: "Good thinking. Use the Stop 22 result to settle freeze before revealing the crest."
+      say: "That check holds. The alternative forecasts must be frozen before the archived crest is revealed."
   - id: after-stop-23
     # After Stop 23 | gauge-wall | automatic
     on: { after: [3] }
-    world: "The freeze before revealing the crest result remains visible while the diagnose the full curve fixture lights."
+    world: "At forecast-drawer, the dated accepted-result slip for Stop 23 reads: \"B.\". The slip remains in that fixture's evidence holder."
     panel: "ARCHIVE"
+    # unlocks: Unlock Stop 24 at gauge-wall in Catchment & Inflow Desk.
     bubbles:
     - who: okoro   # Imani Okoro
-      say: "Exactly right. Use the Stop 23 result to settle diagnose the full curve."
+      say: "That check holds. The holdout result favors one forecast, but the crew still needs to understand the other's failure."
   - id: at-mission-end
     # At mission end | trace-bench | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At forecast-drawer, Imani Okoro files the failed forecast under MISSED LATER CREST. The dated prop remains here on later visits."
     panel: "ARCHIVE"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: okoro   # Imani Okoro
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+      say: "I wanted a shifted clock. The mountain sent more water. Therefore Leila must total the larger storm before Mara can set the drawdown; the later peak adds water, not just time."
 
   terms:
   - {name: "L'Hopital's rule", def: "when a limit has the indeterminate form 0/0 or infinity/infinity, differentiate the numerator and denominator separately and take the new limit, provided that new limit exists."}
@@ -65,9 +71,9 @@
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed The Peak Test. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Crest We Missed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to The Peak Test, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?"
+    - prompt: "In a follow-up to The Crest We Missed, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "B"
       figure: {"kind":"line","xLabel":"Time (h)","yLabel":"Reservoir response","caption":"The response approaches a horizontal limit.","series":[{"name":"Model","points":[[0,0],[1,5],[2,7.5],[3,8.8],[4,9.4],[5,9.7]]}],"limit":{"at":10,"label":"Long-run level"}}
@@ -76,7 +82,7 @@
       - {key: "B", text: "A line a graph approaches.", why: "Correct. a line a graph approaches."}
       - {key: "C", text: "Observations hidden until a model is frozen.", why: "This describes Holdout data, not Asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour.", why: "This describes asymptotes/L'Hopital, not Asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam receives a second case related to The Peak Test: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?"
+    - prompt: "Ashfell Dam receives a second case related to The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "C"
       figure: {"kind":"line","xLabel":"Ordered observation","yLabel":"Residual","caption":"Residuals reveal whether error is random or structured.","series":[{"name":"Residual","points":[[0,1.5],[1,-1.2],[2,1],[3,-0.8],[4,0.6],[5,-0.4],[6,0.2]]}],"limit":{"at":0,"label":"Zero residual"}}
@@ -85,7 +91,7 @@
       - {key: "B", text: "Observations hidden until a model is frozen.", why: "This describes Holdout data, not Residual. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Observed value minus model prediction.", why: "Correct. observed value minus model prediction."}
       - {key: "D", text: "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour.", why: "This describes asymptotes/L'Hopital, not Residual. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "A teammate rechecks The Peak Test using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?"
+    - prompt: "A teammate rechecks The Crest We Missed using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "D"
       figure: {"kind":"line","xLabel":"Time (h)","yLabel":"Water level (m)","caption":"A fitted model is compared with later holdout measurements.","series":[{"name":"Model","points":[[0,10],[1,12],[2,15],[3,19],[4,24]]},{"name":"Holdout","points":[[3,20],[4,27]]}]}
@@ -94,7 +100,7 @@
       - {key: "B", text: "Observed value minus model prediction.", why: "This describes Residual, not Holdout data. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "C", text: "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour.", why: "This describes asymptotes/L'Hopital, not Holdout data. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Observations hidden until a model is frozen.", why: "Correct. observations hidden until a model is frozen."}
-    - prompt: "An unseen case extends The Peak Test: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?"
+    - prompt: "An unseen case extends The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?"
       hint: "Use the stated evidence and the conditions for the mission concept; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -111,7 +117,7 @@
       - {key: "B", text: "S'=12/[1+(t-4)^2], largest at 4; arctan -> pi/2. A smooth saturating curve can represent a storm band without an artificial infinite spike.", why: "Correct. s'=12/[1+(t-4)^2], largest at 4; arctan -> pi/2. A smooth saturating curve can represent a storm band without an artificial infinite spike."}
       - {key: "C", text: "Observed value minus model prediction.", why: "This describes Residual, not arctan derivative/asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."}
       - {key: "D", text: "Observations hidden until a model is frozen.", why: "This describes Holdout data, not arctan derivative/asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."}
-    - prompt: "Ashfell Dam applies the lesson from The Peak Test to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?"
+    - prompt: "Ashfell Dam applies the lesson from The Crest We Missed to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?"
       hint: "Read the axes, units, direction, and any threshold before comparing the choices."
       answer: "C"
       figure: {"kind":"line","xLabel":"Time (h)","yLabel":"Water level (m)","caption":"A fitted model is compared with later holdout measurements.","series":[{"name":"Model","points":[[0,10],[1,12],[2,15],[3,19],[4,24]]},{"name":"Holdout","points":[[3,20],[4,27]]}]}
@@ -376,4 +382,3 @@
               y: 0.01
               value: 0.01
       accept: unpatterned_generalising
-

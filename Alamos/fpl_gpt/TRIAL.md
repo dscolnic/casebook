@@ -6,7 +6,7 @@ AP Statistics Campaign Implementation Bible
 
 **15 missions | 60 graded stops | Clinical trial | Implementation-ready**
 
-**REVISION 10.2 - COMPACT GLOSSARY, BUILDABLE PANELS, AND CUMULATIVE RETRIEVAL**
+**REVISION - HANDBACK 1: SCENES, PERSISTENT WORLD, AND WALKABLE ENDINGS**
 
 ## AP Statistics Campaign Implementation Bible
 
@@ -49,9 +49,9 @@ warmups:
 
 ### Opening sequence - no movie required, maximum five sentences
 
-Fenwick Coordinating Centre is using statistics in CLARION-3 to learn whether a new treatment helps patients without causing unacceptable harm. In 15 days, the independent monitoring board must decide whether the trial continues, changes, or stops. A weak pack could expose more patients to harm or bury a useful treatment. Director Mara Voss hands you the empty board binder. She says, "Patients need you to distinguish benefit from danger and give this board evidence it can trust."
+You are the trial evidence lead, which means you check what the patient records let the board claim. At Fenwick, you will use statistics to make the call. The trial board meets in fifteen days. A rushed choice could expose patients to harm. A bad stop could bury a useful treatment.
 
-**Delivery:** Show all five opening sentences together on one full-screen text card over the normal Regulatory & Registry view. The player dismisses the card once with Continue. When it clears, reveal the four-bar HUD, activate the Mission 1 briefing icon, and leave the player beside the commitment terminal on Level 1.
+**Delivery:** Show the opening sentences together on one full-screen text card over the normal Regulatory & Registry view. The player dismisses the card once with Continue. When it clears, reveal the four-bar HUD, activate the Mission 1 briefing icon, and leave the player beside the commitment terminal on Level 1.
 
 ### Concrete stakes
 
@@ -185,6 +185,25 @@ Every `Area:` value below is the exact name of a place marked `yes`. A stop may 
 
 The unblinded board controls remain locked until Mission 3. The Trial Master File is visible but cannot be sealed before Mission 11. The final board-signature console becomes interactable only after Stop 59.
 
+
+### Landmark-only spaces and visible scene objects
+
+These spaces are walkable and ungraded. They never add a required tour, question, or travel cost. Their access follows existing mission access; final routes open only after the completion gate below. Each object remains inspectable after its trigger.
+
+| Space ID | Place | Before | Visible change |
+|---|---|---|---|
+| `visitor-alcove` | Visitor Alcove | A travel bag rests beside a hospital visitor badge. | After Stop 16, Dr. Samira Holt arrives from the fast site; after Stop 20, her blank rural route map has a signed audit plan. |
+| `courier-bay` | Courier Bay | Sealed hospital cases wait on separate shelves. | After Stop 32, the exposed-kit shelf carries QUARANTINED; its boxes stay there until their own release checks pass. |
+| `board-antechamber` | Board Antechamber | Seven empty coat hooks face a shut meeting door. | After Stop 56, coats arrive and the lamps come on; after Stop 60, the door opens onto the meeting. |
+
+### Persistent prop and scene contract
+
+The board-room meeting door is a scene component of `board-table`. Opening it never changes site-release permissions.
+
+Each mission below declares one Physical aftermath with a home in the existing fixture table. Its dated prop occupies its own place on that fixture; later pages never erase earlier evidence. All scene actions fire once from the accepted stop, persist through revisits, and restore from the mission-start snapshot on failure. Replaying a completed stop never repeats an action or grants resources. Labels always include text, not color alone. New observations remain hidden until the relevant measurement; accepted-answer labels appear only after acceptance. No prop change substitutes for the existing grading, timing, or evidence checks.
+
+Extend enrollment-wall as the site wall, preserving its fixture ID. Hospital 12 and hospital 19 gain amber FLAGGED cards after Stop 12; both show PAUSED in text, with no reliance on color. Dr. Samira Holt, fast-site principal investigator (she/her), visits after Stop 16 and remains through Stop 20. Her line at the audit: “We enrolled quickly. Show me who never reached our door.” She owns a plausible conflict, not an extra graded stop. After Stop 56, site 12 shows LIMITED FOLLOW-UP AUTHORIZED; site 19 remains PAUSED. After Stop 60, site 12 shows CLEARED FOLLOW-UP / SAFEGUARDS ACTIVE and site 19 PAUSED / RELEASE CHECKS PENDING. The recommendation does not automatically reopen either site to unrestricted enrollment. The resealed envelope is the disclosed early analysis, not a treatment-allocation envelope; its witness signature is Lena Wu. Witness bubble occurs separately from Tomas’s action.
+
 ## 4. Character bible
 
 | Name | Pronouns | World role | Wants | Reasonable blind spot | Gameplay/domain | Verbal habit and arc |
@@ -196,6 +215,8 @@ The unblinded board controls remain locked until Mission 3. The Trial Master Fil
 | Amina Okafor | she/her | Endpoint adjudication lead | Count the same clinical event the same way everywhere | Precise rules can still measure the wrong construct | variables, measurement, missing data, categorical tables | "What exactly was counted?" She revises the endpoint rule. |
 | Lena Wu | she/her | `REG` division regulatory and registry lead | Keep every change transparent and reproducible | Documentation can verify a record without verifying a patient's condition | preregistration, attestations, multiplicity, reporting | "Was that promised before the data?" She distinguishes audit trail from truth. |
 | Jonas Berg | he/him | Safety monitoring chair | Prevent avoidable patient harm | Early clusters can tempt him to stop before accounting for chance and exposure | adverse-event probability, interim rules, final trade-off | "What would change the decision?" He accepts continuation only with enforceable triggers. |
+
+Dr. Samira Holt (she/her) is the fast-site principal investigator visiting Fenwick after Mission 4. She wants to keep the site working and initially mistakes recruitment speed for fair reach. She accepts the rural audit in Mission 5; her visitor scene adds no graded stop.
 
 Names, roles, pronouns, and short forms above are canonical everywhere.
 
@@ -311,6 +332,27 @@ Names, roles, pronouns, and short forms above are canonical everywhere.
 
 ---
 
+
+## 7.1 Persistent world-state ledger
+
+| Mission | Accepted trigger | Home fixture | State that persists | Next visible problem |
+|---|---|---|---|---|
+| 1 | `accepted_stop_4` | `records-wall` | Lena Wu clips the three registered claims to the first binder sleeve. | At `adjudication-desk`, two flagged patient packets sit apart from the ordinary files. |
+| 2 | `accepted_stop_8` | `adjudication-desk` | Amina Okafor clips the MEDIAN AND MIDDLE-HALF SPREAD summary to the verified records. | At `event-console`, two hospital cards blink amber on the site display. |
+| 3 | `accepted_stop_12` | `event-console` | Jonas Berg slides the SITE 12 AND SITE 19: PAUSED card into the console rail. | At `analysis-board`, a torn envelope lies beside the unplanned analysis timestamp. |
+| 4 | `accepted_stop_16` | `analysis-board` | Tomas Reed seals the opened analysis envelope with a signed DISCLOSED strip. | At `site-comparison-board`, a visiting investigator grips a travel roster beneath the site's green totals. |
+| 5 | `accepted_stop_20` | `site-comparison-board` | Eli Navarro pins the NARROW SAMPLE finding beside the fast-site card. | At `randomisation-board`, sealed kits wait beside a map of the missing rural routes. |
+| 6 | `accepted_stop_24` | `randomisation-board` | Priya Shah pins the revised within-group assignment plan beside the screening budget. | At `query-map`, unanswered query slips hang at the ends of the longest cords. |
+| 7 | `accepted_stop_28` | `query-map` | Eli Navarro pins the distance-band follow-up rota to the query map. | At `exposure-logger`, the cold-room log shows a warm span beside a stack of sealed boxes. |
+| 8 | `accepted_stop_32` | `exposure-logger` | Amina Okafor hangs a QUARANTINED COHORT tag on the kit release hook. | At `blind-ledger`, an intact kit sequence lies beside two unequal survey columns. |
+| 9 | `accepted_stop_36` | `blind-ledger` | Priya Shah clips the CONCEALMENT AUDIT INTACT seal beside the guess results. | At `analysis-board`, the old large benefit is still chalked above the new paired records. |
+| 10 | `accepted_stop_40` | `analysis-board` | Tomas Reed redraws the benefit line at FOUR UNITS. | At `evidence-locker`, three matching reports sit outside a cabinet beside an independent file hash. |
+| 11 | `accepted_stop_44` | `evidence-locker` | Lena Wu closes the evidence cabinet with its dated lock seal. | At `matched-record-table`, three trays hold three different kinds of record pairing. |
+| 12 | `accepted_stop_48` | `matched-record-table` | Amina Okafor places the three labeled test folders in separate trays. | At `claim-ledger`, ten claim slips crowd the registered-test rail. |
+| 13 | `accepted_stop_52` | `claim-ledger` | Lena Wu stamps the unsupported marker claim EXPLORATORY. | At `trigger-rail`, the benefit sheet passes while the harm band still touches the stop mark. |
+| 14 | `accepted_stop_56` | `trigger-rail` | Jonas Berg clips the bounded follow-up order onto the prewritten trigger rail. | At `board-table`, seven empty chairs face the complete pack and two paused-site cards. |
+| 15 | `accepted_stop_60` | `board-table` | Jonas Berg sets the signed continuation pack on the board table. | At `board-table`, the signed operating conditions remain beside the final status. |
+
 ## 8. Mission content contract
 
 Each mission uses four stops. After the final stop, provide 45-90 seconds of world response before the metric screen. Every completed dialogue, result, and destination is copied into the mission log. Required bubbles pause the timer and advance with one Continue. Color is paired with words and icons.
@@ -345,14 +387,27 @@ The repository importer and schema are authoritative first; `QUESTION_TYPES(3).m
 
 ---
 
+
+## 8.1 Final playable scene and ending card
+
+**Completion gate:** accepted_stop_60 AND every existing final scientific/evidence requirement AND the existing final metric target. Acceptance arms the scene; if metric allocation is still required, play it once that allocation passes. A wrong answer, missing proof, or failed check never starts the success animation.
+
+**One visible change:** The board-room door opens onto the assembled monitoring board.
+
+**The next sixty seconds:** 0–15 seconds: Jonas places the signed decision on the trigger board. 15–40 seconds: the player carries the completed pack through the open door to the existing board table. 40–60 seconds: the site wall updates and the player can return to inspect each status.
+
+**Ending card - exact player copy:** The pack lies open before the board. The decision reads CONTINUE WITH SAFEGUARDS. Site 12 shows its cleared follow-up; site 19 stays paused for its release checks. Down the hall, staff begin the next calls under the rule the board has signed.
+
+**Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
 # Mission 1 - What Was Promised
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** DAY 1 - BOARD IN 15 DAYS  
+**Header:** MISSION 1 - 15 DAYS UNTIL THE BOARD MEETS.
 **Card title:** What Was Promised  
 **Go now:** Go to Regulatory & Registry and meet Lena Wu, regulatory and registry lead, at the commitment terminal.  
-**Card body:** Two hospitals have reported possible harm from the treatment. Before judging it, use statistics to check what the researchers promised to measure before seeing any results. Identify the patient information and claims that belong in the report for the board deciding whether the trial continues.
+**Card body:** 15 days until the board meets. An empty board binder sits below the dated registry pages. Today you decide which claims were promised before the trial.
 **Objective:** Recover the trial's pre-specified claims.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -458,7 +513,9 @@ Teach variable type, graph choice, SOCS, outlier rules, parameter/statistic, and
 
 **Beat 1 - On arrival at Regulatory & Registry | `commitment-terminal` | automatic**
 
-**World state:** Arrival | REG | nearby bubble:  Terminal reads REGISTRATION LOCK: 14 MONTHS BEFORE FIRST PATIENT.
+**Trigger:** mission_1_arrival.
+
+**World state:** An empty board binder sits below the dated registry pages.
 
 **Panel/HUD text:** MISSION 1: NAME THE DATA OPEN
 
@@ -468,17 +525,21 @@ Teach variable type, graph choice, SOCS, outlier rules, parameter/statistic, and
 
 **Beat 2 - After Stop 1 | `records-wall` | automatic**
 
-**World state:** The name the data result remains visible while the describe before judging fixture lights.
+**Trigger:** accepted_stop_1.
+
+**World state:** At `commitment-terminal`, the dated accepted-result slip for Stop 1 reads: "Improved/not improved is categorical, so compare counts or proportions with a bar chart.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 1 RECORDED - STOP 2 OPEN
 
-**Dialogue bubbles -** Lena Wu: "Nice work. Use the Stop 1 result to settle describe before judging."
+**Dialogue bubbles -** Lena Wu: "That check holds. The first recovery-time display needs an honest description before the team selects a summary statistic."
 
 **Unlocks/waypoint:** Unlock Stop 2 at `records-wall` in Regulatory & Registry.
 
 **Beat 3 - After Stop 2 | `evidence-desk` | automatic**
 
-**World state:** After S1-S2 | REG | panel update.
+**Trigger:** accepted_stop_2.
+
+**World state:** At `records-wall`, the dated accepted-result slip for Stop 2 reads: "Describe shape, outliers, center, and spread, using recovery days and treatment arms in every statement.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** VARIABLES CLASSIFIED - DISPLAY CHECK PASSED
 
@@ -488,23 +549,35 @@ Teach variable type, graph choice, SOCS, outlier rules, parameter/statistic, and
 
 **Beat 4 - After Stop 3 | `claim-ledger` | automatic**
 
-**World state:** After S3 | REG | persistent world change: the primary-outcome tab illuminates with text and document icon.
+**Trigger:** accepted_stop_3.
+
+**World state:** At `evidence-desk`, the dated accepted-result slip for Stop 3 reads: "IQR = 8 days; upper fence = 18 + 1.5(8) = 30 days. Since 34 > 30, flag it and keep it pending review.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 3 RECORDED - STOP 4 OPEN
 
-**Dialogue bubbles -** Lena Wu: "Exactly right. Use the Stop 3 result to settle seal the claims."
+**Dialogue bubbles -** Lena Wu: "That check holds. The descriptive review is ready, but the board must separate registered claims from later discoveries."
 
 **Unlocks/waypoint:** Unlock Stop 4 at `claim-ledger` in Regulatory & Registry.
 
 **Beat 5 - At mission end | `commitment-terminal` | automatic**
 
-**World state:** Binder slot 1 fills; outcome unlocks.
+**Trigger:** accepted_stop_4.
+
+**World state:** At `records-wall`, Lena Wu clips the three registered claims to the first binder sleeve. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 1 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Lena Wu: "Outstanding work. You solved the mission. The safety pattern enters as monitoring evidence, not a pre-specified efficacy claim."
+**Dialogue bubbles -** Lena Wu: "The date stays beside the promise. But Amina finds two odd recovery records; the board needs to know whether the numbers describe real patients."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m01
+
+**Home:** `records-wall`. **Before:** The dated mission-1 evidence holder at this fixture has no accepted record. An empty board binder sits below the dated registry pages.
+**After — exact action:** Lena Wu clips the three registered claims to the first binder sleeve.
+**Trigger:** accepted_stop_4. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `adjudication-desk`, two flagged patient packets sit apart from the ordinary files.
+**Segue - exact player copy:** But Amina finds two odd recovery records; the board needs to know whether the numbers describe real patients.
 
 ## Location plan
 
@@ -663,9 +736,10 @@ Categorical values name groups, while quantitative values have meaningful numeri
 
 Mission decision: Put the three timed claims in the board pack. Mark the two-site pattern as a clue, not proof. The log shows when each claim was made. Two odd recovery records now need a full check.
 
+**Segue - exact player copy:** But Amina finds two odd recovery records; the board needs to know whether the numbers describe real patients.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Excellent judgment. You made the right call: Put the three timed claims in the board pack. Patients and the board now have a more trustworthy trial.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Wu clips the three registered claims to the first binder sleeve. But Amina finds two odd recovery records; the board needs to know whether the numbers describe real patients.
 
 **Story event - exact player copy:** The board pack now separates the three preregistered claims from the exploratory two-site pattern.
 
@@ -893,10 +967,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** DAY 2 - BOARD IN 14 DAYS  
+**Header:** MISSION 2 - 14 DAYS UNTIL THE BOARD MEETS.
 **Card title:** What Was Measured  
 **Go now:** Go to the Adjudication Room and meet Amina Okafor, endpoint adjudication lead, at the outcome viewer.  
-**Card body:** Two patients took unusually long to recover, and their records could change how helpful the treatment appears. Compare recovery times across patients and hospitals. Decide how to summarize the results fairly without hiding unusual cases or letting them tell the whole story.
+**Card body:** Fourteen days remain before the board meets. Two flagged files sit apart from the rest. Today you decide how to describe the time patients took to get well.
 **Objective:** Approve a defensible recovery-time procedure.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1004,7 +1078,9 @@ Make distribution shape control summary choice and normal-model use. Extreme val
 
 **Beat 1 - On arrival at the Adjudication Room | `outcome-viewer` | automatic**
 
-**World state:** Arrival: trigger room entry; location ADJUD; nearby bubble; outcome viewer shows two flagged scans; dialogue shown above;  - After S1: trigger correct commit; equipment update; player control restored; panel shows MEAN 8 / MEDIAN 5;  - After S2-S3: trigger measurement; persistent state; z tags and LIMITED FIT text appear;  - Final/outcome: trigger S4; character bubble then placard change; binder slot 2 fills; unlock metric screen.
+**Trigger:** mission_2_arrival.
+
+**World state:** Two flagged patient packets sit apart from the ordinary files.
 
 **Panel/HUD text:** MISSION 2: WHICH CENTER SURVIVES OPEN
 
@@ -1014,43 +1090,59 @@ Make distribution shape control summary choice and normal-model use. Extreme val
 
 **Beat 2 - After Stop 5 | `adjudication-desk` | automatic**
 
-**World state:** The which center survives result remains visible while the put hospitals on one scale fixture lights.
+**Trigger:** accepted_stop_5.
+
+**World state:** At `outcome-viewer`, the dated accepted-result slip for Stop 5 reads: "Mean = 40/5 = 8 days; median = 5 days. The high value pulls the mean above the median, matching right skew.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 5 RECORDED - STOP 6 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Nice work. Use the Stop 5 result to settle put hospitals on one scale."
+**Dialogue bubbles -** Amina Okafor: "That check holds. Raw delay hours cannot fairly compare hospitals with different usual processing times."
 
 **Unlocks/waypoint:** Unlock Stop 6 at `adjudication-desk` in the Adjudication Room.
 
 **Beat 3 - After Stop 6 | `outcome-viewer` | automatic**
 
-**World state:** The put hospitals on one scale result remains visible while the test the bell fixture lights.
+**Trigger:** accepted_stop_6.
+
+**World state:** At `adjudication-desk`, the dated accepted-result slip for Stop 6 reads: "z=2 exactly, tolerance 0.01.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 6 RECORDED - STOP 7 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Good thinking. Use the Stop 6 result to settle test the bell."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The standardized delay assumes a distribution whose adequacy must now be tested."
 
 **Unlocks/waypoint:** Unlock Stop 7 at `outcome-viewer` in the Adjudication Room.
 
 **Beat 4 - After Stop 7 | `outcome-viewer` | automatic**
 
-**World state:** The test the bell result remains visible while the approve the procedure fixture lights.
+**Trigger:** accepted_stop_7.
+
+**World state:** At `outcome-viewer`, the dated accepted-result slip for Stop 7 reads: "Prediction 95%; observed coverage 88%; conclusion inadequate Normal fit; prediction tolerance 1 percentage point.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 7 RECORDED - STOP 8 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Exactly right. Use the Stop 7 result to settle approve the procedure."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The center and coverage checks now need to become one defensible reporting procedure."
 
 **Unlocks/waypoint:** Unlock Stop 8 at `outcome-viewer` in the Adjudication Room.
 
 **Beat 5 - At mission end | `outcome-viewer` | automatic**
 
-**World state:** One location, ADJUD, because only its source images can distinguish rare verified outcomes from entry errors.
+**Trigger:** accepted_stop_8.
+
+**World state:** At `adjudication-desk`, Amina Okafor clips the MEDIAN AND MIDDLE-HALF SPREAD summary to the verified records. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 2 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Amina Okafor: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Amina Okafor: "An odd record gets checked. It does not get thrown away. But Jonas still has alerts from hospitals 12 and 19; a fair summary cannot settle the safety cluster."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m02
+
+**Home:** `adjudication-desk`. **Before:** The dated mission-2 evidence holder at this fixture has no accepted record. Two flagged patient packets sit apart from the ordinary files.
+**After — exact action:** Amina Okafor clips the MEDIAN AND MIDDLE-HALF SPREAD summary to the verified records.
+**Trigger:** accepted_stop_8. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `event-console`, two hospital cards blink amber on the site display.
+**Segue - exact player copy:** But Jonas still has alerts from hospitals 12 and 19; a fair summary cannot settle the safety cluster.
 
 ## Location plan
 
@@ -1104,6 +1196,10 @@ Mean, SD, and range are sensitive to extremes; median and IQR resist them. z exp
 **Question card story setup - exact player copy:** With the resistant center chosen, one hospital's delay must still be compared with its own baseline. Build the standardization from an observed 84 hours, mean 70 hours, and standard deviation 7 hours.
 
 **Question card story-science connection - exact player copy:** The standardized delay measures how unusual this hospital's observation is relative to its own baseline and variability.
+
+**Fixture source panel - exact player copy:** With the resistant center chosen, one hospital's delay must still be compared with its own baseline. Build the standardization from an observed 84 hours, mean 70 hours, and standard deviation 7 hours. x=84 h mean=70 h SD=7 h
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the standardized score with no unit.
 
@@ -1217,9 +1313,10 @@ verify:
 
 Mission decision: Use the median and IQR for the uneven recovery times. Check flagged records instead of deleting them. The Normal model misses the long tail. The method now fits most patients. Two hospitals still have safety alerts.
 
+**Segue - exact player copy:** But Jonas still has alerts from hospitals 12 and 19; a fair summary cannot settle the safety cluster.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a sharp decision. Your evidence supports a clear decision: Use the median and IQR for the uneven recovery times. The next trial decision can rest on evidence rather than a misleading pattern.
+**Happy ending card - exact player copy:** Your checks made the difference. Amina Okafor clips the MEDIAN AND MIDDLE-HALF SPREAD summary to the verified records. But Jonas still has alerts from hospitals 12 and 19; a fair summary cannot settle the safety cluster.
 
 **Story event - exact player copy:** The board report replaces the distorted mean with the median and interquartile range.
 
@@ -1409,10 +1506,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** DAY 3 - BOARD IN 13 DAYS  
+**Header:** MISSION 3 - 13 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Two-Site Alarm  
 **Go now:** Go to the Monitoring Board Room and meet Jonas Berg, safety monitoring chair, at the event console.  
-**Card body:** Serious health problems are concentrated at two hospitals. Is this a chance pattern, or a warning that needs action now? Calculate how likely the pattern would be under the stated assumptions and decide whether those hospitals should stop accepting new trial patients.
+**Card body:** 13 days until the board meets. Two hospital cards blink amber on the site display. Today you decide whether the two hospital alerts warrant a pause.
 **Objective:** Determine whether the two-site signal needs immediate action.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1518,7 +1615,9 @@ Use probability to convert alarming counts into disciplined targeted action whil
 
 **Beat 1 - On arrival at the Monitoring Board Room | `event-console` | automatic**
 
-**World state:** Arrival: BOARD entry; nearby bubble; event map shows two-site cluster; Jonas says,;  - After S1-S2: correct commits; panel update; overlap becomes 11% and shipment subset 40%; player control restored;  - After S3: model restore confirmed; persistent signs mark sites 12/19 PAUSED;  - Final/outcome: S4 decision; early timestamp appears on console; binder 3 fills; metric screen unlocks.
+**Trigger:** mission_3_arrival.
+
+**World state:** Two hospital cards blink amber on the site display.
 
 **Panel/HUD text:** MISSION 3: COUNT THE OVERLAP ONCE OPEN
 
@@ -1528,43 +1627,59 @@ Use probability to convert alarming counts into disciplined targeted action whil
 
 **Beat 2 - After Stop 9 | `event-console` | automatic**
 
-**World state:** The count the overlap once result remains visible while the ask among the flagged fixture lights.
+**Trigger:** accepted_stop_9.
+
+**World state:** At `event-console`, the dated accepted-result slip for Stop 9 reads: "0.11 or 11%, tolerance 0.001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 9 RECORDED - STOP 10 OPEN
 
-**Dialogue bubbles -** Jonas Berg: "Nice work. Use the Stop 9 result to settle ask among the flagged."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The unique warning count leaves the shipment-flagged group needing its own risk estimate."
 
 **Unlocks/waypoint:** Unlock Stop 10 at `event-console` in the Monitoring Board Room.
 
 **Beat 3 - After Stop 10 | `event-console` | automatic**
 
-**World state:** The ask among the flagged result remains visible while the test independence fixture lights.
+**Trigger:** accepted_stop_10.
+
+**World state:** At `event-console`, the dated accepted-result slip for Stop 10 reads: "P(serious event | shipment flag)=0.02/0.05=0.40, so 40% of flagged shipments coincide with a serious event.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 10 RECORDED - STOP 11 OPEN
 
-**Dialogue bubbles -** Jonas Berg: "Good thinking. Use the Stop 10 result to settle test independence."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The high conditional rate needs comparison with what unrelated warnings would produce."
 
 **Unlocks/waypoint:** Unlock Stop 11 at `event-console` in the Monitoring Board Room.
 
 **Beat 4 - After Stop 11 | `board-console` | automatic**
 
-**World state:** The test independence result remains visible while the pause the right places fixture lights.
+**Trigger:** accepted_stop_11.
+
+**World state:** At `event-console`, the dated accepted-result slip for Stop 11 reads: "Predicted independent overlap 0.4%; independent-model reading 0.4%; restored observed reading 2.0%; conclusion not independent; prediction tolerance 0.05 percentage point.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 11 RECORDED - STOP 12 OPEN
 
-**Dialogue bubbles -** Jonas Berg: "Exactly right. Use the Stop 11 result to settle pause the right places."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The warning overlap is established, but protective action must not outrun what the association proves."
 
 **Unlocks/waypoint:** Unlock Stop 12 at `board-console` in Monitoring Board Room.
 
 **Beat 5 - At mission end | `event-console` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_12.
+
+**World state:** At `event-console`, Jonas Berg slides the SITE 12 AND SITE 19: PAUSED card into the console rail. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 3 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Jonas Berg: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Jonas Berg: "Pause those sites. Keep the cause open. But Tomas finds an analysis opened before its planned date; the chance of a false alarm has changed."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m03
+
+**Home:** `event-console`. **Before:** The dated mission-3 evidence holder at this fixture has no accepted record. Two hospital cards blink amber on the site display.
+**After — exact action:** Jonas Berg slides the SITE 12 AND SITE 19: PAUSED card into the console rail.
+**Trigger:** accepted_stop_12. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `analysis-board`, a torn envelope lies beside the unplanned analysis timestamp.
+**Segue - exact player copy:** But Tomas finds an analysis opened before its planned date; the chance of a false alarm has changed.
 
 ## Location plan
 
@@ -1592,6 +1707,10 @@ The addition rule removes double-counted overlap; conditioning changes the denom
 **Question card story setup - exact player copy:** Build the union calculation to find the percent with at least one warning.
 
 **Question card story-science connection - exact player copy:** The union probability measures the fraction with at least one warning for the board's initial exposure assessment.
+
+**Fixture source panel - exact player copy:** Build the union calculation to find the percent with at least one warning. P(A)=0.08 P(B)=0.05 P(A and B)=0.02
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the probability of at least one warning.
 
@@ -1726,9 +1845,10 @@ derive:
 
 Mission decision: Pause work at the two flagged hospitals. Check their drug shipments. The shared pattern is far above what chance predicts. It shows a link, not a cause. A hidden early analysis also needs review.
 
+**Segue - exact player copy:** But Tomas finds an analysis opened before its planned date; the chance of a false alarm has changed.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Outstanding reasoning. The key result is now settled: Pause work at the two flagged hospitals. Your reasoning protects patients while preserving an honest test.
+**Happy ending card - exact player copy:** Your checks made the difference. Jonas Berg slides the SITE 12 AND SITE 19: PAUSED card into the console rail. But Tomas finds an analysis opened before its planned date; the chance of a false alarm has changed.
 
 **Story event - exact player copy:** Enrollment pauses at the two hospitals with the concentrated serious-event pattern.
 
@@ -1880,10 +2000,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
 
-**Header:** DAY 4 - BOARD IN 12 DAYS  
+**Header:** MISSION 4 - 12 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Opened Envelope  
 **Go now:** Go to Statistics & Analysis and meet Tomas Reed, trial statistician, at the interim-analysis board.  
-**Card body:** Someone examined treatment results before the scheduled review. Checking repeatedly can make an ordinary chance result look like a discovery. Calculate how the early look changes the risk of a false conclusion, then set rules for judging the later results fairly.
+**Card body:** Twelve days remain before the board meets. A torn results envelope lies beside its date stamp. Today you decide how to count that early look.
 **Objective:** Account for the unplanned interim analysis.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -1986,7 +2106,9 @@ Turn an audit breach into an authentic probability-and-decision sequence: quanti
 
 **Beat 1 - On arrival at Statistics & Analysis | `analysis-board` | automatic**
 
-**World state:** Arrival: trigger STAT entry; nearby bubble; folder timestamp visible; Tomas says,;  - After S1-S2: correct commits; equipment update; workload reads 0.35 and total SD 5; player control restored;  - After S3: simulation complete; persistent counter shows 55.8% AT LEAST ONE;  - Final: threshold committed; report stamped DISCLOSED; binder 4 fills; outcome and screen unlock.
+**Trigger:** mission_4_arrival.
+
+**World state:** A torn envelope lies beside the unplanned analysis timestamp.
 
 **Panel/HUD text:** MISSION 4: EXPECTED REPORTS OPEN
 
@@ -1996,43 +2118,59 @@ Turn an audit breach into an authentic probability-and-decision sequence: quanti
 
 **Beat 2 - After Stop 13 | `analysis-board` | automatic**
 
-**World state:** The expected reports result remains visible while the combine two streams fixture lights.
+**Trigger:** accepted_stop_13.
+
+**World state:** At `analysis-board`, the dated accepted-result slip for Stop 13 reads: "0.35 reports per site-day, tolerance 0.001.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 13 RECORDED - STOP 14 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Nice work. Use the Stop 13 result to settle combine two streams."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The expected workload must now include uncertainty from both incoming reporting streams."
 
 **Unlocks/waypoint:** Unlock Stop 14 at `analysis-board` in Statistics & Analysis.
 
 **Beat 3 - After Stop 14 | `simulation-console` | automatic**
 
-**World state:** The combine two streams result remains visible while the at least one event fixture lights.
+**Trigger:** accepted_stop_14.
+
+**World state:** At `analysis-board`, the dated accepted-result slip for Stop 14 reads: "Mean 18 reports and standard deviation 5 reports.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 14 RECORDED - STOP 15 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Good thinking. Use the Stop 14 result to settle at least one event."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The queue estimate leaves the board asking whether another event during review would be surprising."
 
 **Unlocks/waypoint:** Unlock Stop 15 at `simulation-console` in Statistics & Analysis.
 
 **Beat 4 - After Stop 15 | `uncertainty-console` | automatic**
 
-**World state:** The at least one event result remains visible while the price the errors fixture lights.
+**Trigger:** accepted_stop_15.
+
+**World state:** At `simulation-console`, the dated accepted-result slip for Stop 15 reads: "1-(1-0.20)^2 = 1-0.64 = 0.36, or 36%.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 15 RECORDED - STOP 16 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Exactly right. Use the Stop 15 result to settle price the errors."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The next hidden update needs a decision threshold fixed before its significance is known."
 
 **Unlocks/waypoint:** Unlock Stop 16 at `uncertainty-console` in Statistics & Analysis.
 
 **Beat 5 - At mission end | `analysis-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_16.
+
+**World state:** At `analysis-board`, Tomas Reed seals the opened analysis envelope with a signed DISCLOSED strip. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 4 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Reed: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Reed: "I cannot put the first look back. I can stop hiding it. But Eli's fastest hospital supplied that analysis; its proud recruitment figures now need a source check."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m04
+
+**Home:** `analysis-board`. **Before:** The dated mission-4 evidence holder at this fixture has no accepted record. A torn envelope lies beside the unplanned analysis timestamp.
+**After — exact action:** Tomas Reed seals the opened analysis envelope with a signed DISCLOSED strip.
+**Trigger:** accepted_stop_16. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `site-comparison-board`, a visiting investigator grips a travel roster beneath the site's green totals.
+**Segue - exact player copy:** But Eli's fastest hospital supplied that analysis; its proud recruitment figures now need a source check.
 
 ## Location plan
 
@@ -2060,6 +2198,10 @@ Expected value is a probability-weighted long-run mean. Independent variances ad
 **Question card story setup - exact player copy:** A site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Build the expected-value sum before assigning the limited overnight clinical patient-safety review shift.
 
 **Question card story-science connection - exact player copy:** Expected reports per site-day establish the long-run workload for the clinical patient-safety review shift.
+
+**Fixture source panel - exact player copy:** A site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Build the expected-value sum before assigning the limited overnight clinical patient-safety review shift. P(0)=0.70 P(1)=0.25 P(2)=0.05
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the expected reports per site-day.
 
@@ -2121,6 +2263,10 @@ derive:
 **Question card story setup - exact player copy:** Region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Combine their independent streams to size the queue without incorrectly adding standard deviations.
 
 **Question card story-science connection - exact player copy:** The combined mean and standard deviation determine the scale and variability of the overnight queue.
+
+**Fixture source panel - exact player copy:** Region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Combine their independent streams to size the queue without incorrectly adding standard deviations. Independent streams A and B have means 10 and 8 reports and standard deviations 3 and 4 reports.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the mean and standard deviation of their combined report total.
 
@@ -2321,11 +2467,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Count the unplanned look. And use the stricter prewritten threshold for later tests. The opened analysis changed the false-alarm risk. Its p-value does not cross the new line. The analyst who opened it worked with data from the fastest hospital.
+Mission decision: Count the unplanned look, and use the stricter prewritten threshold for later tests. The opened analysis changed the false-alarm risk. Its p-value does not cross the new line. The analyst who opened it worked with data from the fastest hospital.
 
+**Segue - exact player copy:** But Eli's fastest hospital supplied that analysis; its proud recruitment figures now need a source check.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You handled that beautifully. You gave the team its answer: Count the unplanned look. The Fenwick team can move forward without overstating what the data show.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Reed seals the opened analysis envelope with a signed DISCLOSED strip. But Eli's fastest hospital supplied that analysis; its proud recruitment figures now need a source check.
 
 **Story event - exact player copy:** The unplanned early analysis is logged and the later error rule is tightened.
 
@@ -2476,10 +2623,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 5 - The Fast Site
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 5 - BOARD IN 11 DAYS  
+**Header:** MISSION 5 - 11 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Fast Site  
 **Go now:** Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the enrollment wall.  
-**Card body:** Most early results came from the hospital that recruited patients fastest. Its patients may differ from the people treated elsewhere. Inspect who was included and who was missed, then decide whether this hospital's result can speak for the wider patient population.
+**Card body:** Eleven days remain before the board meets. The fast site sent its lead doctor and a list of missed roads. Today you decide whose results the site can speak for.
 **Objective:** Audit the fast site's patient sample.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -2572,7 +2719,9 @@ Make sampling bias visible as people missing from a pipeline, then separate caus
 
 **Beat 1 - On arrival at the Monitors' Room | `monitor-desk` | automatic**
 
-**World state:** Arrival: SITE entry; nearby bubble; fast enrollment dashboard visible; Eli says,;  - After S1-S2: sample and stratification committed; roster prints; waypoint TAKE THE AUDIT ROSTER TO DATA MANAGEMENT; unlock travel. - DATA arrival/after S3: probe reveals FRAME GAP; panel text and icon persist;  - Final: scope decision; dashboard changes to NARROW SAMPLE; Eli concedes; binder 5 and outcome unlock.
+**Trigger:** mission_5_arrival.
+
+**World state:** A visiting investigator grips a travel roster beneath the site's green totals.
 
 **Panel/HUD text:** MISSION 5: DRAW AN SRS OPEN
 
@@ -2582,43 +2731,59 @@ Make sampling bias visible as people missing from a pipeline, then separate caus
 
 **Beat 2 - After Stop 17 | `enrollment-wall` | automatic**
 
-**World state:** The draw an srs result remains visible while the preserve every region fixture lights.
+**Trigger:** accepted_stop_17.
+
+**World state:** At `monitor-desk`, the dated accepted-result slip for Stop 17 reads: "Record the seed, generate three-digit numbers, ignore repeats and 241-999, and stop after 12 unique charts.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 17 RECORDED - STOP 18 OPEN
 
-**Dialogue bubbles -** Eli Navarro: "Nice work. Use the Stop 17 result to settle preserve every region."
+**Dialogue bubbles -** Eli Navarro: "That check holds. The chart-sampling procedure does not guarantee enough rural patients for a useful access audit."
 
 **Unlocks/waypoint:** Unlock Stop 18 at `enrollment-wall` in Monitors' Room.
 
 **Beat 3 - After Stop 18 | `roster-wall` | automatic**
 
-**World state:** The preserve every region result remains visible while the find who never entered fixture lights.
+**Trigger:** accepted_stop_18.
+
+**World state:** At `enrollment-wall`, the dated accepted-result slip for Stop 18 reads: "Stratify by residence, then take an SRS within each stratum.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 18 RECORDED - STOP 19 OPEN
 
-**Dialogue bubbles -** Eli Navarro: "Good thinking. Use the Stop 18 result to settle find who never entered."
+**Dialogue bubbles -** Eli Navarro: "That check holds. The stratified plan reveals that some rural patients disappear before sampling even begins."
 
 **Unlocks/waypoint:** Unlock Stop 19 at `roster-wall` in Data Management.
 
 **Beat 4 - After Stop 19 | `extraction-console` | automatic**
 
-**World state:** The find who never entered result remains visible while the set the scope fixture lights.
+**Trigger:** accepted_stop_19.
+
+**World state:** At `roster-wall`, the dated accepted-result slip for Stop 19 reads: "Twenty-eight eligible rural patients never entered the frame, so this is undercoverage; later losses include nonresponse. Leading questions would instead create response bias.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 19 RECORDED - STOP 20 OPEN
 
-**Dialogue bubbles -** Eli Navarro: "Exactly right. Use the Stop 19 result to settle set the scope."
+**Dialogue bubbles -** Eli Navarro: "That check holds. The enrollment audit changes how broadly the trial's treatment comparison can be interpreted."
 
 **Unlocks/waypoint:** Unlock Stop 20 at `extraction-console` in Data Management.
 
 **Beat 5 - At mission end | `monitor-desk` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_20.
+
+**World state:** At `site-comparison-board`, Eli Navarro pins the NARROW SAMPLE finding beside the fast-site card. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 5 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Navarro: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Eli Navarro: "The speed was real. So were the people we missed. Therefore Priya must price an amendment that reaches rural patients; the missed names cost screens and staff time."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m05
+
+**Home:** `site-comparison-board`. **Before:** The dated mission-5 evidence holder at this fixture has no accepted record. A visiting investigator grips a travel roster beneath the site's green totals.
+**After — exact action:** Eli Navarro pins the NARROW SAMPLE finding beside the fast-site card.
+**Trigger:** accepted_stop_20. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `randomisation-board`, sealed kits wait beside a map of the missing rural routes.
+**Segue - exact player copy:** Therefore Priya must price an amendment that reaches rural patients; the missed names cost screens and staff time.
 
 ## Location plan
 
@@ -2757,9 +2922,10 @@ SRS makes every set of size n equally likely; strata guarantee representation; c
 
 Mission decision: Do not apply the fast site result to all patients. Random assignment still supports cause within the trial. Rural patients were missed before sampling. Fixing that gap will take more people and more time.
 
+**Segue - exact player copy:** Therefore Priya must price an amendment that reaches rural patients; the missed names cost screens and staff time.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Superb work. The record now supports this decision: Do not apply the fast site result to all patients. That careful conclusion keeps the trial fair, safe, and scientifically useful.
+**Happy ending card - exact player copy:** Your checks made the difference. Eli Navarro pins the NARROW SAMPLE finding beside the fast-site card. Therefore Priya must price an amendment that reaches rural patients; the missed names cost screens and staff time.
 
 **Story event - exact player copy:** The fast hospital's result is removed from claims about the full patient population.
 
@@ -2910,10 +3076,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 6 - The Amendment Price
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 6 - BOARD IN 10 DAYS  
+**Header:** MISSION 6 - 10 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Amendment Price  
 **Go now:** Go to Randomisation & Blinding and meet Priya Shah, randomisation and blinding lead, at the allocation reader.  
-**Card body:** The trial needs more rural patients, but changing recruitment must not make the treatment groups unfairly different. Compare ways to select patients and assign treatment. Choose a revised study plan that gives a real treatment effect a fair chance to be detected.
+**Card body:** 10 days until the board meets. Sealed kits wait beside a map of the missing rural routes. Today you decide how to assign patients fairly and fund the extra work.
 **Objective:** Approve the corrected enrollment and assignment design.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -2979,37 +3145,13 @@ worked_examples:
 <!-- END OPTIONAL WORKED EXAMPLES -->
 
 ### Worth knowing first - exact player copy
+
 #### Glossary terms
 
-Control: keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
+Random assignment: use chance to choose each patient's treatment.
+Blocking: group similar patients before the random draw.
 
-Central Limit Theorem (CLT): under appropriate independence conditions and a sufficiently large sample, a sampling distribution becomes approximately Normal even when the population is not Normal.
-
-Geometric random variable: the number of independent trials needed to obtain the first success when success probability stays constant.
-
-Binomial random variable: the number of successes in a fixed number of independent trials when success probability stays constant.
-
-#### Primer concepts
-
-- Larger samples reduce sampling spread without moving its center, and standard error estimates that spread. For a sample proportion, verify independence with the 10% condition; with large expected success and failure counts, the CLT supports a Normal approximation.
-- Matched pairs use paired units or give both treatments to one unit.
-- Use a geometric model when the stopping rule is the first success; use a binomial model when the number of trials is fixed in advance.
-
-#### Equations first needed today
-**Equation:** standard deviation (SD) of p-hat = sqrt[p(1-p)/n] and SD of x-bar = sigma/sqrt(n)
-**What it is for:** Describing sampling-distribution spread.
-**Symbols:** p is population proportion; n is sample size; sigma is the population standard deviation.
-**Why this campaign needs it:** The amendment must recover precision lost by fixing representation.
-
-**Equation:** For success probability `p`, geometric mean `μ_G=1/p`; for `n` fixed trials, binomial mean `μ_B=np`.
-
-**What it is for:** distinguishing expected waiting time from expected successes in a fixed count.
-
-**Symbols:** `p` is success probability and `n` is the fixed number of trials.
-
-**Why this campaign needs it:** the team must translate the amendment's enrollment probability into expected screening time.
-
-**Crew on this mission - mission log:** Priya Shah - randomisation and blinding lead; Tomas Reed - trial statistician.
+**Teaching delivery:** These are the two entry terms. Teach the remaining ideas on the source panels below, immediately before each stop; no eight-term list blocks the mission entrance. Full definitions remain available in the mission glossary and worked examples.
 
 ## Main story happening - designer summary
 
@@ -3023,7 +3165,9 @@ Separate design protections from precision, then make representation repair cons
 
 **Beat 1 - On arrival at Randomisation & Blinding | `allocation-reader` | automatic**
 
-**World state:** Arrival: RAND entry; nearby bubble; sealed kits visible; Priya says,;  - After S1-S2: amendment rail locks; waypoint TAKE THE AMENDMENT COUNTS TO STATISTICS; player control restored. - STAT arrival/after S3: precision gauge shows center.50, SD.025;  - Final: wait estimate accepted; staffing board adds five screens per success; binder 6 fills; outcome unlocks.
+**Trigger:** mission_6_arrival.
+
+**World state:** Sealed kits wait beside a map of the missing rural routes.
 
 **Panel/HUD text:** MISSION 6: BUILD THE EXPERIMENT OPEN
 
@@ -3033,43 +3177,59 @@ Separate design protections from precision, then make representation repair cons
 
 **Beat 2 - After Stop 21 | `allocation-reader` | automatic**
 
-**World state:** The build the experiment result remains visible while the choose matched or blocked fixture lights.
+**Trigger:** accepted_stop_21.
+
+**World state:** At `allocation-reader`, the dated accepted-result slip for Stop 21 reads: "Block similar patients first, randomize within blocks, conceal treatment, and use the same measurement.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 21 RECORDED - STOP 22 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Nice work. Use the Stop 21 result to settle choose matched or blocked."
+**Dialogue bubbles -** Priya Shah: "That check holds. The new assignment plan needs the right unit of comparison before a paired procedure is selected."
 
 **Unlocks/waypoint:** Unlock Stop 22 at `allocation-reader` in Randomisation & Blinding.
 
 **Beat 3 - After Stop 22 | `randomisation-board` | automatic**
 
-**World state:** The choose matched or blocked result remains visible while the price the precision fixture lights.
+**Trigger:** accepted_stop_22.
+
+**World state:** At `allocation-reader`, the dated accepted-result slip for Stop 22 reads: "Block by important traits and randomize within blocks; paired inference needs genuine paired observations or both treatments on one unit. Double blinding hides assignment from subjects and researchers.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 22 RECORDED - STOP 23 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Good thinking. Use the Stop 22 result to settle price the precision."
+**Dialogue bubbles -** Priya Shah: "That check holds. The repaired design needs a precision estimate before the amendment sets its sample size."
 
 **Unlocks/waypoint:** Unlock Stop 23 at `randomisation-board` in Randomisation & Blinding.
 
 **Beat 4 - After Stop 23 | `randomisation-board` | automatic**
 
-**World state:** The price the precision result remains visible while the how long until the first fixture lights.
+**Trigger:** accepted_stop_23.
+
+**World state:** At `randomisation-board`, the dated accepted-result slip for Stop 23 reads: "The distribution is centered at.50 with SD.025. Larger n narrows spread but does not change the center; large counts are 200 and 200.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 23 RECORDED - STOP 24 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Exactly right. Use the Stop 23 result to settle how long until the first."
+**Dialogue bubbles -** Priya Shah: "That check holds. The precision plan requires rural enrollment, whose screening workload remains uncertain."
 
 **Unlocks/waypoint:** Unlock Stop 24 at `randomisation-board` in Randomisation & Blinding.
 
 **Beat 5 - At mission end | `allocation-reader` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_24.
+
+**World state:** At `randomisation-board`, Priya Shah pins the revised within-group assignment plan beside the screening budget. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 6 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Priya Shah: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Priya Shah: "The groups change. The hidden draw stays hidden. But Eli's follow-up map has long blank roads; assigning patients fairly does not bring their outcomes home."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m06
+
+**Home:** `randomisation-board`. **Before:** The dated mission-6 evidence holder at this fixture has no accepted record. Sealed kits wait beside a map of the missing rural routes.
+**After — exact action:** Priya Shah pins the revised within-group assignment plan beside the screening budget.
+**Trigger:** accepted_stop_24. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `query-map`, unanswered query slips hang at the ends of the longest cords.
+**Segue - exact player copy:** But Eli's follow-up map has long blank roads; assigning patients fairly does not bring their outcomes home.
 
 ## Location plan
 
@@ -3085,6 +3245,10 @@ Control, random assignment, replication, blocking, and blinding protect experime
 
 
 ## Stop 21 - Build the Experiment
+
+**Learn here - exact player copy:** A control keeps conditions alike except for the treatment. Replication means using enough independent patients. Concealment means the next treatment choice cannot be known before the patient enters. Use the same outcome rule for each patient.
+
+**Teaching trigger:** arrival at this stop’s declared fixture, before its question opens. This panel is untimed and remains available during the question.
 
 **Format/placement:** SEQUENCE, at `allocation-reader`.
 
@@ -3114,6 +3278,10 @@ Control, random assignment, replication, blocking, and blinding protect experime
 
 ## Stop 22 - Choose Matched or Blocked
 
+**Learn here - exact player copy:** A matched pair is a real pair fixed by the design, such as two closely matched patients assigned to different treatments, or two measurements on the same patient. Loose similarity alone does not make paired data. Blinding keeps treatment identity hidden from people whose knowledge could bias the test.
+
+**Teaching trigger:** arrival at this stop’s declared fixture, before its question opens. This panel is untimed and remains available during the question.
+
 **Format/placement:** CHOICE, asked by Priya Shah beside `allocation-reader`.
 
 **Metadata:** Concept: 5 - matched pairs/blinding; Keystone: keystone design; Area: Monitoring Board Room; Learning role: PRACTICE; Difficulty: L3; Story role: character.
@@ -3132,7 +3300,7 @@ Control, random assignment, replication, blocking, and blinding protect experime
 
 1. Block by important traits and randomize treatments within each block. **(correct)**
 
-2. Call similar patients matched pairs even though each receives only one treatment.
+2. Call these patients matched pairs even though the design never formed pairs.
 
 3. Assign treatments without blocks because randomization removes all chance imbalance.
 
@@ -3150,6 +3318,10 @@ Control, random assignment, replication, blocking, and blinding protect experime
 
 ## Stop 23 - Price the Precision
 
+**Learn here - exact player copy:** A sample proportion is the fraction with the outcome in one sample. Its sampling distribution shows how that fraction varies across repeated samples. The mean is p and the standard deviation is sqrt[p(1-p)/n], where p is the outcome probability and n is the sample size. With independent draws and enough expected successes and failures, the shape is close to Normal. For sampling without replacement, the sample should be at most 10% of the population. The Central Limit Theorem explains the large-sample approximation; it does not fix biased sampling.
+
+**Teaching trigger:** arrival at this stop’s declared fixture, before its question opens. This panel is untimed and remains available during the question.
+
 **Format/placement:** DERIVE, at `randomisation-board`.
 
 **Metadata:** Concept: 14 - sampling distribution/CLT/10% idea; Keystone: keystone sampling distributions; Area: Endpoint Adjudication; Learning role: COMBINE; Difficulty: L3; Story role: reveal.
@@ -3161,6 +3333,10 @@ Control, random assignment, replication, blocking, and blinding protect experime
 **Question card story setup - exact player copy:** The corrected design expects improvement probability p=0.50 and needs n=400 independent patients from more than 4,000 eligible people. Derive the center and SD of the sampling distribution of p-hat.
 
 **Question card story-science connection - exact player copy:** The sampling-distribution center and spread show what the proposed sample size changes about the proportion estimate.
+
+**Fixture source panel - exact player copy:** The corrected design expects improvement probability p=0.50 and needs n=400 independent patients from more than 4,000 eligible people. Derive the center and SD of the sampling distribution of p-hat. population>4000
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the mean and standard deviation of the sampling distribution of the sample proportion.
 
@@ -3211,6 +3387,10 @@ derive:
 
 ## Stop 24 - How Long Until the First
 
+**Learn here - exact player copy:** A geometric count stops at the first success. If each independent screen has the same success chance p, the mean number of screens is 1/p. A binomial count instead fixes n trials in advance and counts successes; its mean is np. Here p=0.20 and the count stops at the first enrollment.
+
+**Teaching trigger:** arrival at this stop’s declared fixture, before its question opens. This panel is untimed and remains available during the question.
+
 **Format/placement:** BALLPARK, at `randomisation-board`.
 
 **Metadata:** Concept: 15 - geometric versus binomial; Keystone: keystone probability; Area: Statistics & Analysis; Learning role: RETRIEVE; Difficulty: L3; Story role: decision.
@@ -3223,7 +3403,7 @@ derive:
 
 **Question card story-science connection - exact player copy:** Expected trials to first enrollment determines the screening effort implied by the per-candidate success probability.
 
-**Question card prompt - exact player copy:** formula geometric mean=1/p; p=.20; target 5 candidates, tolerance.01; then select geometric. Include binomial mean np reminder.
+**Question card prompt - exact player copy:** Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates.
 
 **Correct result:** Expected trials to first success=1/.20=5. The number of trials is not fixed, so the model is geometric.
 
@@ -3239,9 +3419,10 @@ derive:
 
 Mission decision: Group patients by site and travel distance. Then randomize within each group. This keeps the cause test fair. At 400 patients, the sampling spread is 0.025. Each rural enrollment needs about five screens.
 
+**Segue - exact player copy:** But Eli's follow-up map has long blank roads; assigning patients fairly does not bring their outcomes home.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was exactly the insight the team needed. You resolved the central question: Group patients by site and travel distance. Patients and the board now have a more trustworthy trial.
+**Happy ending card - exact player copy:** Your checks made the difference. Priya Shah pins the revised within-group assignment plan beside the screening budget. But Eli's follow-up map has long blank roads; assigning patients fairly does not bring their outcomes home.
 
 **Story event - exact player copy:** The amended enrollment plan now groups patients by hospital and travel distance.
 
@@ -3473,10 +3654,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 7 - The Missing Outcomes
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 7 - BOARD IN 9 DAYS  
+**Header:** MISSION 7 - 9 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Missing Outcomes  
 **Go now:** Go to the Monitors' Room and meet Eli Navarro, site operations lead, at the query map.  
-**Card body:** Many patients have no recorded result at 30 days, especially those who travel farther to hospital. Their absence could change the apparent treatment benefit. Compare travel distance with recovery records and decide whether leaving out patients with missing results would give a misleading answer.
+**Card body:** 9 days until the board meets. Unanswered query slips hang at the ends of the longest cords. Today you decide how to recover outcomes from patients far away.
 **Objective:** Set the missing-data rule.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -3578,7 +3759,9 @@ Teach regression as diagnosis rather than prediction alone and pay off the fast-
 
 **Beat 1 - On arrival at Monitors' Room | `query-map` | automatic**
 
-**World state:** Arrival: MONITOR entry; query map visible; Eli says,; timer pauses;  - After S1-S2: fitted line appears; waypoint TAKE MODEL ID L7 TO DATA; travel unlocks. - DATA arrival/after S3: residual candidates render; selected field remains;  - Final: restored influence control; panel reads DISTANCE-LINKED; binder 7 fills; outcome unlocks.
+**Trigger:** mission_7_arrival.
+
+**World state:** Unanswered query slips hang at the ends of the longest cords.
 
 **Panel/HUD text:** MISSION 7: DESCRIBE THE RELATIONSHIP OPEN
 
@@ -3588,43 +3771,59 @@ Teach regression as diagnosis rather than prediction alone and pay off the fast-
 
 **Beat 2 - After Stop 25 | `monitor-desk` | automatic**
 
-**World state:** The describe the relationship result remains visible while the build and read the line fixture lights.
+**Trigger:** accepted_stop_25.
+
+**World state:** At `query-map`, the dated accepted-result slip for Stop 25 reads: "Strong positive, roughly linear association with a high-leverage point. Use correlation only for two quantitative variables.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 25 RECORDED - STOP 26 OPEN
 
-**Dialogue bubbles -** Eli Navarro: "Nice work. Use the Stop 25 result to settle build and read the line."
+**Dialogue bubbles -** Eli Navarro: "That check holds. The distance-delay pattern is ready to become a quantitative prediction rule."
 
 **Unlocks/waypoint:** Unlock Stop 26 at `monitor-desk` in the Monitors' Room.
 
 **Beat 3 - After Stop 26 | `deletion-diagnostic` | automatic**
 
-**World state:** The build and read the line result remains visible while the read the residual fixture lights.
+**Trigger:** accepted_stop_26.
+
+**World state:** At `monitor-desk`, the dated accepted-result slip for Stop 26 reads: "Each additional kilometer predicts.16 more day of delay. The -2-day intercept at 0 km is not meaningful here; do not extrapolate beyond observed distances.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 26 RECORDED - STOP 27 OPEN
 
-**Dialogue bubbles -** Eli Navarro: "Good thinking. Use the Stop 26 result to settle read the residual."
+**Dialogue bubbles -** Eli Navarro: "That check holds. The fitted line needs a residual check before it is used to adjust patient follow-up comparisons."
 
 **Unlocks/waypoint:** Unlock Stop 27 at `deletion-diagnostic` in Data Management.
 
 **Beat 4 - After Stop 27 | `site-comparison-board` | automatic**
 
-**World state:** The read the residual result remains visible while the test the fast-site point fixture lights.
+**Trigger:** accepted_stop_27.
+
+**World state:** At `deletion-diagnostic`, the dated accepted-result slip for Stop 27 reads: "Choose A. Residual=y-y-hat; positive means the model underpredicted. Pattern matters more than the smallest RMS.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 27 RECORDED - STOP 28 OPEN
 
-**Dialogue bubbles -** Eli Navarro: "Exactly right. Use the Stop 27 result to settle test the fast-site point."
+**Dialogue bubbles -** Eli Navarro: "That check holds. The acceptable residual field leaves one distant fast site needing an influence test."
 
 **Unlocks/waypoint:** Unlock Stop 28 at `site-comparison-board` in the Monitors' Room.
 
 **Beat 5 - At mission end | `query-map` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_28.
+
+**World state:** At `query-map`, Eli Navarro pins the distance-band follow-up rota to the query map. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 7 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Eli Navarro: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Eli Navarro: "Give me the routes. I will make the calls. But Amina's recovered records point to a cold-room cohort; the next test must check the kits it received."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m07
+
+**Home:** `query-map`. **Before:** The dated mission-7 evidence holder at this fixture has no accepted record. Unanswered query slips hang at the ends of the longest cords.
+**After — exact action:** Eli Navarro pins the distance-band follow-up rota to the query map.
+**Trigger:** accepted_stop_28. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `exposure-logger`, the cold-room log shows a warm span beside a stack of sealed boxes.
+**Segue - exact player copy:** But Amina's recovered records point to a cold-room cohort; the next test must check the kits it received.
 
 ## Location plan
 
@@ -3688,6 +3887,10 @@ Correlation is linear association for two quantitative variables, not causation.
 **Question card story setup - exact player copy:** The scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Derive slope and intercept, then interpret both values in patient follow-up context.
 
 **Question card story-science connection - exact player copy:** The fitted slope and intercept determine predicted delay within the observed distance range and expose meaningless extrapolation.
+
+**Fixture source panel - exact player copy:** The scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Derive slope and intercept, then interpret both values in patient follow-up context. xbar=50 km ybar=6 days
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the least-squares slope and intercept, with units.
 
@@ -3831,9 +4034,10 @@ residual:
 
 Mission decision: Do not use only patients with complete records. Recover results by travel band. Delay grows with travel distance. One fast site changes the fitted line. The fix needs four more days of follow-up.
 
+**Segue - exact player copy:** But Amina's recovered records point to a cold-room cohort; the next test must check the kits it received.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You saw through the trap. Your analysis established the point that matters: Do not use only patients with complete records. The next trial decision can rest on evidence rather than a misleading pattern.
+**Happy ending card - exact player copy:** Your checks made the difference. Eli Navarro pins the distance-band follow-up rota to the query map. But Amina's recovered records point to a cold-room cohort; the next test must check the kits it received.
 
 **Story event - exact player copy:** The analysis team rejects a complete-record-only result and repairs the missing-data plan.
 
@@ -4121,10 +4325,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 8 - The Cold-Room Rate
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 8 - BOARD IN 8 DAYS  
+**Header:** MISSION 8 - 8 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Cold-Room Rate  
 **Go now:** Go to the Kit Warehouse & Cold Room and meet Priya Shah, randomisation and blinding lead, at the exposure logger.  
-**Card body:** Faulty treatment kits are turning up among supplies stored in one cold room. Estimate how common those failures are and compare the evidence with the safety limit. Decide whether supplies from that room must be set aside before more patients receive them.
+**Card body:** 8 days until the board meets. The cold-room log shows a warm span beside a stack of sealed boxes. Today you decide whether the warm kit batch must be held.
 **Objective:** Estimate and test the exposed-kit failure rate.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -4226,7 +4430,9 @@ Use one-proportion inference to convert a handling clue into a bounded quarantin
 
 **Beat 1 - On arrival at the Kit Warehouse & Cold Room | `exposure-logger` | automatic**
 
-**World state:** Arrival: KIT entry; exposure logger flashes COLD EXCURSION with text/icon; Priya says,;  - After S1: conditions pass; sealed sample transfer appears; waypoint CARRY EXPOSURE SAMPLE TO STAT. - STAT arrival/after S2-S3: interval and p-value display; QUARANTINE READY control  - Final: sample-size commit; exposed shelves gain QUARANTINED labels; binder 8 fills; outcome unlocks.
+**Trigger:** mission_8_arrival.
+
+**World state:** The cold-room log shows a warm span beside a stack of sealed boxes.
 
 **Panel/HUD text:** MISSION 8: CHECK BEFORE CALCULATING OPEN
 
@@ -4236,43 +4442,59 @@ Use one-proportion inference to convert a handling clue into a bounded quarantin
 
 **Beat 2 - After Stop 29 | `cold-room-workbench` | automatic**
 
-**World state:** The check before calculating result remains visible while the build the interval fixture lights.
+**Trigger:** accepted_stop_29.
+
+**World state:** At `exposure-logger`, the dated accepted-result slip for Stop 29 reads: "All three conditions pass; use 30 and 170 for interval large counts.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 29 RECORDED - STOP 30 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Nice work. Use the Stop 29 result to settle build the interval."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The kit-sampling conditions pass, so the failure estimate can now carry quantified uncertainty."
 
 **Unlocks/waypoint:** Unlock Stop 30 at `cold-room-workbench` in the Kit Warehouse & Cold Room.
 
 **Beat 3 - After Stop 30 | `exposure-logger` | automatic**
 
-**World state:** The build the interval result remains visible while the test the benchmark fixture lights.
+**Trigger:** accepted_stop_30.
+
+**World state:** At `cold-room-workbench`, the dated accepted-result slip for Stop 30 reads: "endpoints 10.05%,19.95%, tolerance.1 percentage point.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 30 RECORDED - STOP 31 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Good thinking. Use the Stop 30 result to settle test the benchmark."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The kit-failure interval needs a direct comparison with the registered benchmark."
 
 **Unlocks/waypoint:** Unlock Stop 31 at `exposure-logger` in the Kit Warehouse & Cold Room.
 
 **Beat 4 - After Stop 31 | `cold-room-workbench` | automatic**
 
-**World state:** The test the benchmark result remains visible while the size the confirmation fixture lights.
+**Trigger:** accepted_stop_31.
+
+**World state:** At `exposure-logger`, the dated accepted-result slip for Stop 31 reads: "z 2.36 tolerance.01; p.0092 tolerance.001; reject.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 31 RECORDED - STOP 32 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Exactly right. Use the Stop 31 result to settle size the confirmation."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The benchmark result makes a sufficiently precise replacement-kit audit necessary before release."
 
 **Unlocks/waypoint:** Unlock Stop 32 at `cold-room-workbench` in the Kit Warehouse & Cold Room.
 
 **Beat 5 - At mission end | `exposure-logger` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_32.
+
+**World state:** At `exposure-logger`, Amina Okafor hangs a QUARANTINED COHORT tag on the kit release hook. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 8 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Priya Shah: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Amina Okafor: "A sealed box can still hold a damaged kit. But Priya's guess survey differs between arms; she needs to test that claim without confusing it with handling."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m08
+
+**Home:** `exposure-logger`. **Before:** The dated mission-8 evidence holder at this fixture has no accepted record. The cold-room log shows a warm span beside a stack of sealed boxes.
+**After — exact action:** Amina Okafor hangs a QUARANTINED COHORT tag on the kit release hook.
+**Trigger:** accepted_stop_32. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `blind-ledger`, an intact kit sequence lies beside two unequal survey columns.
+**Segue - exact player copy:** But Priya's guess survey differs between arms; she needs to test that claim without confusing it with handling.
 
 ## Location plan
 
@@ -4328,6 +4550,10 @@ One-proportion inference needs random selection, 10% independence, and large cou
 **Question card story setup - exact player copy:** The random, 10%, and large-count conditions all pass, and p-hat=30/200=0.15. Build the 95% confidence interval using z-star=1.960 and the sample proportion in the standard error, then submit both endpoints.
 
 **Question card story-science connection - exact player copy:** The confidence interval gives the plausible range of the exposed-kit failure proportion for the board's assessment.
+
+**Fixture source panel - exact player copy:** The random, 10%, and large-count conditions all pass, and p-hat=30/200=0.15. Build the 95% confidence interval using z-star=1.960 and the sample proportion in the standard error, then submit both endpoints. phat=30/200=0.15 n=200 z*=1.960
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the 95% confidence interval for the population failure proportion.
 
@@ -4389,6 +4615,10 @@ derive:
 **Question card story setup - exact player copy:** The interval barely clears the benchmark, so the registered test now asks whether the true failure rate exceeds 10%. State hypotheses, calculate z, and give a contextual decision at alpha=.05.
 
 **Question card story-science connection - exact player copy:** The null-based test determines whether the exposed cohort supplies evidence of a failure rate above that benchmark.
+
+**Fixture source panel - exact player copy:** The interval barely clears the benchmark, so the registered test now asks whether the true failure rate exceeds 10%. State hypotheses, calculate z, and give a contextual decision at alpha=.05. In a random sample, 30 of 200 shipments fail. Test whether the population failure proportion exceeds the 0.10 benchmark at alpha=0.05; state the hypotheses, calculate the z statistic and P-value, and give a contextual conclusion.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** In a random sample, 30 of 200 shipments fail. Test whether the population failure proportion exceeds the 0.10 benchmark at `alpha=0.05`; state the hypotheses, calculate the z statistic and P-value, and give a contextual conclusion.
 
@@ -4471,11 +4701,12 @@ derive:
 
 ## Mission outcome
 
-Mission decision: Quarantine the exposed cohort. And require a 1,068-kit release audit. The estimated failure rate is 10.05% to 19.95%. And the one-sided test exceeds the safety benchmark. The pattern points to handling.
+Mission decision: Quarantine the exposed cohort, and require a 1,068-kit release audit. The estimated failure rate is 10.05% to 19.95%, and the one-sided test exceeds the safety benchmark. The pattern points to handling.
 
+**Segue - exact player copy:** But Priya's guess survey differs between arms; she needs to test that claim without confusing it with handling.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Impressive work under pressure. The team can now act on a firm conclusion: Quarantine the exposed cohort. Your reasoning protects patients while preserving an honest test.
+**Happy ending card - exact player copy:** Your checks made the difference. Amina Okafor hangs a QUARANTINED COHORT tag on the kit release hook. But Priya's guess survey differs between arms; she needs to test that claim without confusing it with handling.
 
 **Story event - exact player copy:** The warehouse quarantines every kit exposed to the failing cold room.
 
@@ -4657,10 +4888,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 9 - Could Anyone Tell
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 9 - BOARD IN 7 DAYS  
+**Header:** MISSION 9 - 7 DAYS UNTIL THE BOARD MEETS.
 **Card title:** Could Anyone Tell  
 **Go now:** Go to the Kit Warehouse and meet Priya Shah, randomisation and blinding lead, at the blind-check kiosk.  
-**Card body:** Staff were not supposed to know which patients received the treatment or the comparison treatment. Check whether they could tell anyway. Compare their guesses with the kit records and decide whether that knowledge could have compromised the trial's treatment comparisons.
+**Card body:** 7 days until the board meets. An intact kit sequence lies beside two unequal survey columns. Today you decide what the guess survey proves about the hidden draw.
 **Objective:** Test the blinding survey by treatment arm.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -4756,7 +4987,9 @@ Teach two-proportion inference while separating a statistically detectable surve
 
 **Beat 1 - On arrival at the Kit Warehouse | `kit-sequence-rack` | automatic**
 
-**World state:** Arrival: KIT entry; sealed sequence visible; Priya says,;  - After S1: independent audit path lights; sealed survey appears; waypoint CARRY SEALED SURVEY TO STAT. - STAT arrival/after S2-S3: interval and pooled-test panels appear; nonresponse stress control  - Final: claim label changes to UNEQUAL GUESSES, BLIND NOT PROVEN BROKEN; binder 9 and outcome unlock.
+**Trigger:** mission_9_arrival.
+
+**World state:** An intact kit sequence lies beside two unequal survey columns.
 
 **Panel/HUD text:** MISSION 9: REBUILD THE BLIND OPEN
 
@@ -4766,43 +4999,59 @@ Teach two-proportion inference while separating a statistically detectable surve
 
 **Beat 2 - After Stop 33 | `analysis-board` | automatic**
 
-**World state:** The rebuild the blind result remains visible while the estimate the guessing difference fixture lights.
+**Trigger:** accepted_stop_33.
+
+**World state:** At `kit-sequence-rack`, the dated accepted-result slip for Stop 33 reads: "Three displays share the master file; only the sealed-box audit independently confirms concealment.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 33 RECORDED - STOP 34 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Nice work. Use the Stop 33 result to settle estimate the guessing difference."
+**Dialogue bubbles -** Priya Shah: "That check holds. The concealment audit needs comparison with how often patients in each arm guessed correctly."
 
 **Unlocks/waypoint:** Unlock Stop 34 at `analysis-board` in Statistics & Analysis.
 
 **Beat 3 - After Stop 34 | `analysis-board` | automatic**
 
-**World state:** The estimate the guessing difference result remains visible while the pool only for the test fixture lights.
+**Trigger:** accepted_stop_34.
+
+**World state:** At `analysis-board`, the dated accepted-result slip for Stop 34 reads: ".008 to.132 tolerance.002.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 34 RECORDED - STOP 35 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Good thinking. Use the Stop 34 result to settle pool only for the test."
+**Dialogue bubbles -** Priya Shah: "That check holds. The guessing interval needs the registered equal-proportions hypothesis tested with the appropriate null model."
 
 **Unlocks/waypoint:** Unlock Stop 35 at `analysis-board` in Statistics & Analysis.
 
 **Beat 4 - After Stop 35 | `blind-audit-table` | automatic**
 
-**World state:** The pool only for the test result remains visible while the say what it means fixture lights.
+**Trigger:** accepted_stop_35.
+
+**World state:** At `analysis-board`, the dated accepted-result slip for Stop 35 reads: "z2.19 tol.01, p.028 tol.001, reject.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 35 RECORDED - STOP 36 OPEN
 
-**Dialogue bubbles -** Priya Shah: "Exactly right. Use the Stop 35 result to settle say what it means."
+**Dialogue bubbles -** Priya Shah: "That check holds. The detectable guessing gap must be reconciled with intact concealment and uncertain survey response."
 
 **Unlocks/waypoint:** Unlock Stop 36 at `blind-audit-table` in the Kit Warehouse.
 
 **Beat 5 - At mission end | `kit-sequence-rack` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_36.
+
+**World state:** At `blind-ledger`, Priya Shah clips the CONCEALMENT AUDIT INTACT seal beside the guess results. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 9 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Priya Shah: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Priya Shah: "The difference belongs in the report. A broken blind does not follow from it. But Amina's verified outcomes shrink the benefit; an intact draw cannot save an inflated effect."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m09
+
+**Home:** `blind-ledger`. **Before:** The dated mission-9 evidence holder at this fixture has no accepted record. An intact kit sequence lies beside two unequal survey columns.
+**After — exact action:** Priya Shah clips the CONCEALMENT AUDIT INTACT seal beside the guess results.
+**Trigger:** accepted_stop_36. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `analysis-board`, the old large benefit is still chalked above the new paired records.
+**Segue - exact player copy:** But Amina's verified outcomes shrink the benefit; an intact draw cannot save an inflated effect.
 
 ## Location plan
 
@@ -4887,6 +5136,10 @@ trace:
 
 **Question card story-science connection - exact player copy:** The difference-in-proportions interval quantifies the guessing gap without by itself proving an allocation breach.
 
+**Fixture source panel - exact player copy:** The audit path is intact; the survey has 30 correct guesses among 200 treatment staff and 16 among 200 placebo staff. Check counts, then derive the 95% interval for treatment minus placebo. p1=0.15 p2=0.08 n1=n2=200 z*=1.96
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
+
 **Question card prompt - exact player copy:** Submit a 95% confidence interval for `p_treatment−p_placebo` using `z-star=1.960`.
 
 **Complete format-specific interaction block:** `derive:{left_side:"difference","goal":"two-proportion confidence interval","givens":["p1=0.15","p2=0.08","n1=n2=200","z*=1.96"],"lines":[{"id":"L1","expression":"difference=30/200-16/200=0.15-0.08=0.07","license":"state governing relationship"},{"id":"L2","expression":"SE=sqrt[0.15(0.85)/200+0.08(0.92)/200]=0.03171","license":"substitute displayed values"},{"id":"L3","expression":"ME=1.96(0.03171)=0.06215","license":"simplify with units"},{"id":"L4","expression":"CI=0.07±0.06215=[0.00785,0.13215]","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["pool proportions for a confidence interval","reverse only one endpoint"],"correct_result":"[0.00785,0.13215]","answerText":"The treatment-minus-control interval is about 0.008 to 0.132."}`
@@ -4953,6 +5206,10 @@ derive:
 **Question card story setup - exact player copy:** The confidence interval barely excludes zero, so test H0:p1=p2 against Ha:p1 not equal p2. Pool only for the test, calculate z and p, then state the result at alpha=.05.
 
 **Question card story-science connection - exact player copy:** The pooled test determines whether the arm difference is statistically detectable under equal population guessing rates.
+
+**Fixture source panel - exact player copy:** The confidence interval barely excludes zero, so test H0:p1=p2 against Ha:p1 not equal p2. Pool only for the test, calculate z and p, then state the result at alpha=.05. 30/200 versus 16/200
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit z, P-value, and conclusion.
 
@@ -5079,11 +5336,12 @@ stress:
 
 ## Mission outcome
 
-Mission decision: Report an arm difference in correct guesses. But do not declare that concealment failed. The interval is about 0.8 to 13.2 points. And the pooled test gives p=.028. The independent box audit stayed intact.
+Mission decision: Report an arm difference in correct guesses. But do not declare that concealment failed. The interval is about 0.8 to 13.2 points, and the pooled test gives p=.028. The independent box audit stayed intact.
 
+**Segue - exact player copy:** But Amina's verified outcomes shrink the benefit; an intact draw cannot save an inflated effect.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was a careful and clever call. You replaced uncertainty with a defensible result: Report an arm difference in correct guesses. The Fenwick team can move forward without overstating what the data show.
+**Happy ending card - exact player copy:** Your checks made the difference. Priya Shah clips the CONCEALMENT AUDIT INTACT seal beside the guess results. But Amina's verified outcomes shrink the benefit; an intact draw cannot save an inflated effect.
 
 **Story event - exact player copy:** The report records the difference in correct treatment guesses between the two groups.
 
@@ -5234,10 +5492,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 10 - The Smaller Benefit
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 10 - BOARD IN 6 DAYS  
+**Header:** MISSION 10 - 6 DAYS UNTIL THE BOARD MEETS.
 **Card title:** The Smaller Benefit  
 **Go now:** Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the matched-record table.  
-**Card body:** The fastest hospital's incomplete records made recovery look better than it was. Compare the corrected average recovery time, changes within patients, and differences between treatment groups. Decide how much benefit the evidence now supports and what the board should be told.
+**Card body:** 6 days until the board meets. The old large benefit is still chalked above the new paired records. Today you decide which treatment effect belongs in the board pack.
 **Objective:** Produce the bias-adjusted mean estimate.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -5333,7 +5591,9 @@ Force procedure choice from data structure and make a smaller, better estimate t
 
 **Beat 1 - On arrival at Endpoint Adjudication | `matched-record-table` | automatic**
 
-**World state:** Arrival: ADJUD entry; matched-record table visible; Amina says,;  - After S1-S2: benchmark dims and paired interval appears;  - After S3: adjusted table seals; waypoint TAKE ADJUSTED TABLE TO STAT. - STAT arrival/final: valid residual field remains; old headline dims; binder 10 and outcome unlock.
+**Trigger:** mission_10_arrival.
+
+**World state:** The old large benefit is still chalked above the new paired records.
 
 **Panel/HUD text:** MISSION 10: TEST THE ADJUSTED MEAN OPEN
 
@@ -5343,43 +5603,59 @@ Force procedure choice from data structure and make a smaller, better estimate t
 
 **Beat 2 - After Stop 37 | `matched-record-table` | automatic**
 
-**World state:** The test the adjusted mean result remains visible while the use the pairs fixture lights.
+**Trigger:** accepted_stop_37.
+
+**World state:** At `matched-record-table`, the dated accepted-result slip for Stop 37 reads: "t2.00 tol.01; df24; p.0568 tol.002; fail reject at.05.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 37 RECORDED - STOP 38 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Nice work. Use the Stop 37 result to settle use the pairs."
+**Dialogue bubbles -** Tomas Reed: "That check holds. Repeated observations on the same patients require a within-patient comparison."
 
 **Unlocks/waypoint:** Unlock Stop 38 at `matched-record-table` in Endpoint Adjudication.
 
 **Beat 3 - After Stop 38 | `table-wall` | automatic**
 
-**World state:** The use the pairs result remains visible while the keep groups independent fixture lights.
+**Trigger:** accepted_stop_38.
+
+**World state:** At `matched-record-table`, the dated accepted-result slip for Stop 38 reads: "t-3 tol.01; CI endpoints tol.02.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 38 RECORDED - STOP 39 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Good thinking. Use the Stop 38 result to settle keep groups independent."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The paired finding does not establish the treatment difference between independent groups."
 
 **Unlocks/waypoint:** Unlock Stop 39 at `table-wall` in Endpoint Adjudication.
 
 **Beat 4 - After Stop 39 | `residual-wall` | automatic**
 
-**World state:** The keep groups independent result remains visible while the stress the adjustment fixture lights.
+**Trigger:** accepted_stop_39.
+
+**World state:** At `table-wall`, the dated accepted-result slip for Stop 39 reads: "t2.03 tol.02; never pool variances.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 39 RECORDED - STOP 40 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Exactly right. Use the Stop 39 result to settle stress the adjustment."
+**Dialogue bubbles -** Tomas Reed: "That check holds. The analyses differ in apparent strength, so model adequacy must decide which estimate travels forward."
 
 **Unlocks/waypoint:** Unlock Stop 40 at `residual-wall` in Statistics & Analysis.
 
 **Beat 5 - At mission end | `matched-record-table` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_40.
+
+**World state:** At `analysis-board`, Tomas Reed redraws the benefit line at FOUR UNITS. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 10 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Amina Okafor: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Tomas Reed: "It is smaller. It is the number I can defend. Therefore Mara must lock the checked data before the board pack spreads; three copied reports could repeat one error."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m10
+
+**Home:** `analysis-board`. **Before:** The dated mission-10 evidence holder at this fixture has no accepted record. The old large benefit is still chalked above the new paired records.
+**After — exact action:** Tomas Reed redraws the benefit line at FOUR UNITS.
+**Trigger:** accepted_stop_40. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `evidence-locker`, three matching reports sit outside a cabinet beside an independent file hash.
+**Segue - exact player copy:** Therefore Mara must lock the checked data before the board pack spreads; three copied reports could repeat one error.
 
 ## Location plan
 
@@ -5407,6 +5683,10 @@ t procedures estimate means when sigma is unknown. One-sample, paired, and two-s
 **Question card story setup - exact player copy:** After recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Check independence and shape, then build the one-sample t statistic.
 
 **Question card story-science connection - exact player copy:** The one-sample mean test determines whether the adjusted sample supplies evidence against the registered mean value.
+
+**Fixture source panel - exact player copy:** After recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Check independence and shape, then build the one-sample t statistic. xbar=72 s=10 mu0=68
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit t, degrees of freedom, P-value, and conclusion.
 
@@ -5468,6 +5748,10 @@ derive:
 **Question card story setup - exact player copy:** The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Derive the paired significance test and 95% interval.
 
 **Question card story-science connection - exact player copy:** The paired test and interval quantify change while preserving the dependence between each patient's two measurements.
+
+**Fixture source panel - exact player copy:** The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Derive the paired significance test and 95% interval. For 16 paired observations, the after-minus-before differences have mean -3 hours and standard deviation 4 hours. Test H0:mu_difference=0 and construct a 95% confidence interval For a 95% interval with 15 degrees of freedom, t-star = 2.131.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit t, degrees of freedom, P-value, and interval.
 
@@ -5535,6 +5819,10 @@ derive:
 **Question card story setup - exact player copy:** The paired change is clear, while independent groups have n1=30, mean1=72, s1=8 and n2=28, mean2=68, s2=7. Derive the unpooled two-sample t statistic for treatment minus placebo before choosing the headline.
 
 **Question card story-science connection - exact player copy:** The unpooled two-sample statistic assesses the group-mean difference using each group's own variability.
+
+**Fixture source panel - exact player copy:** The paired change is clear, while independent groups have n1=30, mean1=72, s1=8 and n2=28, mean2=68, s2=7. Derive the unpooled two-sample t statistic for treatment minus placebo before choosing the headline. Group 1 has n=30, mean 72 hours, and standard deviation 8 hours; group 2 has n=28, mean 68 hours, and standard deviation 7 hours.
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Group 1 has `n=30`, mean 72 hours, and standard deviation 8 hours; group 2 has `n=28`, mean 68 hours, and standard deviation 7 hours. Calculate the unpooled two-sample t statistic and two-sided P-value.
 
@@ -5662,9 +5950,10 @@ residual:
 
 Mission decision: Put the adjusted four-unit treatment effect in the pack. It uses the two groups in the right way. The error check also passes. Paired records support a shorter recovery. The one-group test does not settle the claim.
 
+**Segue - exact player copy:** Therefore Mara must lock the checked data before the board pack spreads; three copied reports could repeat one error.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You gave the team the breakthrough it needed. The mission now has its answer: Put the adjusted four-unit treatment effect in the pack. That careful conclusion keeps the trial fair, safe, and scientifically useful.
+**Happy ending card - exact player copy:** Your checks made the difference. Tomas Reed redraws the benefit line at FOUR UNITS. Therefore Mara must lock the checked data before the board pack spreads; three copied reports could repeat one error.
 
 **Story event - exact player copy:** The adjusted four-unit treatment effect replaces the inflated recovery headline.
 
@@ -5862,10 +6151,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 11 - Lock the File
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 11 - BOARD IN 5 DAYS  
+**Header:** MISSION 11 - 5 DAYS UNTIL THE BOARD MEETS.
 **Card title:** Lock the File  
 **Go now:** Go to Data Management and meet Mara Voss, trial director, at the extraction console.  
-**Card body:** Three reports contain different tables, and the board needs one reliable final dataset. Trace each report back to its patient records and check why the numbers differ. Decide which version can be finalized without carrying a copied error into the treatment decision.
+**Card body:** 5 days until the board meets. Three matching reports sit outside a cabinet beside an independent file hash. Today you decide which data run is safe to lock.
 **Objective:** Validate and lock one analysis file.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -5961,7 +6250,9 @@ Retrieve sampling-distribution logic and use it to distinguish ordinary variabil
 
 **Beat 1 - On arrival at Data Management | `sampling-board` | automatic**
 
-**World state:** Arrival: DATA entry; three identical reports visible; Mara says,;  - After S1-S2: holdout hash prints; waypoint CARRY HOLDOUT HASH TO STAT. - STAT arrival/after S3: shared dependency lines appear; waypoint TAKE INDEPENDENT HASH TO TRIAL MASTER FILE. - ARCHIVE final: four attestations pass; archive becomes READ ONLY / LOCKED; binder 11 and outcome unlock.
+**Trigger:** mission_11_arrival.
+
+**World state:** Three matching reports sit outside a cabinet beside an independent file hash.
 
 **Panel/HUD text:** MISSION 11: PREDICT SAMPLING SPREAD OPEN
 
@@ -5971,43 +6262,59 @@ Retrieve sampling-distribution logic and use it to distinguish ordinary variabil
 
 **Beat 2 - After Stop 41 | `holdout-safe` | automatic**
 
-**World state:** The predict sampling spread result remains visible while the freeze before revealing fixture lights.
+**Trigger:** accepted_stop_41.
+
+**World state:** At `sampling-board`, the dated accepted-result slip for Stop 41 reads: "x-bar is approximately Normal with mean 70 and SD 2. Larger n narrows spread, not center. Use SE when sigma is estimated by s.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 41 RECORDED - STOP 42 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 41 result to settle freeze before revealing."
+**Dialogue bubbles -** Lena Wu: "That check holds. The expected extraction spread allows a fair test of cleaning rules on untouched records."
 
 **Unlocks/waypoint:** Unlock Stop 42 at `holdout-safe` in Data Management.
 
 **Beat 3 - After Stop 42 | `extraction-map` | automatic**
 
-**World state:** The freeze before revealing result remains visible while the trace the agreement fixture lights.
+**Trigger:** accepted_stop_42.
+
+**World state:** At `holdout-safe`, the dated accepted-result slip for Stop 42 reads: "Freeze B before reveal; it stays within expected error on unseen records.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 42 RECORDED - STOP 43 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 42 result to settle trace the agreement."
+**Dialogue bubbles -** Lena Wu: "That check holds. The independent holdout hash needs comparison with reports that agree suspiciously exactly."
 
 **Unlocks/waypoint:** Unlock Stop 43 at `extraction-map` in Statistics & Analysis.
 
 **Beat 4 - After Stop 43 | `archive-seal` | automatic**
 
-**World state:** The trace the agreement result remains visible while the make the lock real fixture lights.
+**Trigger:** accepted_stop_43.
+
+**World state:** At `extraction-map`, the dated accepted-result slip for Stop 43 reads: "The three matching reports are not independent confirmations; use the source rerun and held-out hash.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 43 RECORDED - STOP 44 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 43 result to settle make the lock real."
+**Dialogue bubbles -** Lena Wu: "That check holds. The independent rerun passes, but the final data lock still needs enforceable controls."
 
 **Unlocks/waypoint:** Unlock Stop 44 at `archive-seal` in Trial Master File.
 
 **Beat 5 - At mission end | `sampling-board` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_44.
+
+**World state:** At `evidence-locker`, Lena Wu closes the evidence cabinet with its dated lock seal. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 11 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Lena Wu: "The door closes on a checked run, not a vote among copies. But Amina's last tables ask three different questions; one test will not answer them all."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m11
+
+**Home:** `evidence-locker`. **Before:** The dated mission-11 evidence holder at this fixture has no accepted record. Three matching reports sit outside a cabinet beside an independent file hash.
+**After — exact action:** Lena Wu closes the evidence cabinet with its dated lock seal.
+**Trigger:** accepted_stop_44. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `matched-record-table`, three trays hold three different kinds of record pairing.
+**Segue - exact player copy:** But Amina's last tables ask three different questions; one test will not answer them all.
 
 ## Location plan
 
@@ -6035,6 +6342,10 @@ Sample statistics vary around fixed parameters. Unbiasedness concerns the sampli
 **Question card story setup - exact player copy:** The source population has mean 70, SD 12, and each extraction averages n=36 independent records. Derive the sampling distribution of x-bar and explain what increasing n changes in that distribution.
 
 **Question card story-science connection - exact player copy:** The sample-mean distribution distinguishes expected sampling spread from extraction differences too large for the model.
+
+**Fixture source panel - exact player copy:** The source population has mean 70, SD 12, and each extraction averages n=36 independent records. Derive the sampling distribution of x-bar and explain what increasing n changes in that distribution. mu=70 sigma=12
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Submit the sampling distribution's center and standard deviation.
 
@@ -6233,9 +6544,10 @@ trace:
 
 Mission decision: Lock the fresh data run, not the three copied reports. Its tests, holdout, file mark, and access log all pass. Trial data are now secure. The last table holds three different problems.
 
+**Segue - exact player copy:** But Amina's last tables ask three different questions; one test will not answer them all.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Brilliant analysis. You found the result the team needed: Lock the fresh data run, not the three copied reports. Patients and the board now have a more trustworthy trial.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Wu closes the evidence cabinet with its dated lock seal. But Amina's last tables ask three different questions; one test will not answer them all.
 
 **Story event - exact player copy:** The independently rebuilt dataset becomes the locked source for every final table.
 
@@ -6386,10 +6698,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 12 - Three Different Tables
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 12 - BOARD IN 4 DAYS  
+**Header:** MISSION 12 - 4 DAYS UNTIL THE BOARD MEETS.
 **Card title:** Three Different Tables  
 **Go now:** Go to Adjudication and meet Amina Okafor, endpoint adjudication lead, at the categorical-table wall.  
-**Card body:** The final records show differences among patient outcomes, treatment groups, and hospitals. These may have different explanations. Compare the observed patient counts with the counts each proposed explanation predicts, then decide whether one cause really accounts for all three patterns.
+**Card body:** 4 days until the board meets. Three trays hold three different kinds of record pairing. Today you decide which test belongs to each table.
 **Objective:** Separate the categorical findings.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -6485,7 +6797,9 @@ Teach all three chi-square procedures through the collection design, not merely 
 
 **Beat 1 - On arrival at Endpoint Adjudication | `table-wall` | automatic**
 
-**World state:** Arrival: ADJUD entry; categorical wall shows grade counts; Amina says,;  - After S1: GOF label locks; waypoint TAKE ARM/EVENT TABLE TO SITE OPERATIONS. - SITE after S2: design label INDEPENDENCE appears; waypoint CARRY VERIFIED TABLES TO BOARD. - BOARD after S3/final: association and site-difference labels appear; binder 12 and outcome unlock.
+**Trigger:** mission_12_arrival.
+
+**World state:** Three trays hold three different kinds of record pairing.
 
 **Panel/HUD text:** MISSION 12: FIT ONE DISTRIBUTION OPEN
 
@@ -6495,43 +6809,59 @@ Teach all three chi-square procedures through the collection design, not merely 
 
 **Beat 2 - After Stop 45 | `enrollment-wall` | automatic**
 
-**World state:** The fit one distribution result remains visible while the name the design fixture lights.
+**Trigger:** accepted_stop_45.
+
+**World state:** At `table-wall`, the dated accepted-result slip for Stop 45 reads: "5,df2,p.082; fail reject at.05.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 45 RECORDED - STOP 46 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Nice work. Use the Stop 45 result to settle name the design."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The next categorical analysis must distinguish one joint sample from independently sampled hospitals."
 
 **Unlocks/waypoint:** Unlock Stop 46 at `enrollment-wall` in Monitors' Room.
 
 **Beat 3 - After Stop 46 | `event-console` | automatic**
 
-**World state:** The name the design result remains visible while the test arm by event fixture lights.
+**Trigger:** accepted_stop_46.
+
+**World state:** At `enrollment-wall`, the dated accepted-result slip for Stop 46 reads: "Use independence for arm by event in one sample; homogeneity for comparing response distributions across site samples.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 46 RECORDED - STOP 47 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Good thinking. Use the Stop 46 result to settle test arm by event."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The design check allows treatment arm and event status to be tested within the trial sample."
 
 **Unlocks/waypoint:** Unlock Stop 47 at `event-console` in Monitoring Board Room.
 
 **Beat 4 - After Stop 47 | `board-console` | automatic**
 
-**World state:** The test arm by event result remains visible while the compare the sites fixture lights.
+**Trigger:** accepted_stop_47.
+
+**World state:** At `event-console`, the dated accepted-result slip for Stop 47 reads: "4.815 tol.01; reject independence.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 47 RECORDED - STOP 48 OPEN
 
-**Dialogue bubbles -** Amina Okafor: "Exactly right. Use the Stop 47 result to settle compare the sites."
+**Dialogue bubbles -** Amina Okafor: "That check holds. The board now has three categorical results that must remain distinct in the report."
 
 **Unlocks/waypoint:** Unlock Stop 48 at `board-console` in Monitoring Board Room.
 
 **Beat 5 - At mission end | `table-wall` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_48.
+
+**World state:** At `matched-record-table`, Amina Okafor places the three labeled test folders in separate trays. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 12 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Amina Okafor: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Amina Okafor: "Keep the rows with the people they came from. But Tomas has ten secondary claims asking to share one error budget; several small values may be too many chances."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m12
+
+**Home:** `matched-record-table`. **Before:** The dated mission-12 evidence holder at this fixture has no accepted record. Three trays hold three different kinds of record pairing.
+**After — exact action:** Amina Okafor places the three labeled test folders in separate trays.
+**Trigger:** accepted_stop_48. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `claim-ledger`, ten claim slips crowd the registered-test rail.
+**Segue - exact player copy:** But Tomas has ten secondary claims asking to share one error budget; several small values may be too many chances.
 
 ## Location plan
 
@@ -6559,6 +6889,10 @@ GOF compares one variable to fixed expected proportions. Independence uses two v
 **Question card story setup - exact player copy:** The locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Derive the goodness-of-fit statistic and degrees of freedom against the registered expected counts 40,40,20.
 
 **Question card story-science connection - exact player copy:** The goodness-of-fit statistic determines whether the observed grade mix differs detectably from the expected proportions.
+
+**Fixture source panel - exact player copy:** The locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Derive the goodness-of-fit statistic and degrees of freedom against the registered expected counts 40,40,20. observed counts differ by +10,+10,0 expected count=40 in each of three categories
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** The observed mild, moderate, and severe counts are 50, 30, and 20; the registered expected counts are 40, 40, and 20. Calculate the chi-square goodness-of-fit statistic, degrees of freedom, and supplied-tail P-value.
 
@@ -6654,6 +6988,10 @@ derive:
 **Question card story setup - exact player copy:** The table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Compute expected counts from row total times column total over 400, then calculate chi-square.
 
 **Question card story-science connection - exact player copy:** The expected counts and chi-square statistic determine whether arm and event status are associated.
+
+**Fixture source panel - exact player copy:** The table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Compute expected counts from row total times column total over 400, then calculate chi-square. event total=46 none total=354 n=400
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** Treatment records 30 events and 170 non-events; placebo records 16 events and 184 non-events. Calculate the expected counts, chi-square statistic, degrees of freedom, and P-value for association between treatment arm and event status.
 
@@ -6770,9 +7108,10 @@ derive:
 
 Mission decision: Do not force one cause onto all three tables. Event grades match the planned mix. Treatment arm and hospital do not. The study design calls for different tests. New side studies now compete for one error budget.
 
+**Segue - exact player copy:** But Tomas has ten secondary claims asking to share one error budget; several small values may be too many chances.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You turned a difficult clue into a clear decision. Your work produced a sound decision: Do not force one cause onto all three tables. The next trial decision can rest on evidence rather than a misleading pattern.
+**Happy ending card - exact player copy:** Your checks made the difference. Amina Okafor places the three labeled test folders in separate trays. But Tomas has ten secondary claims asking to share one error budget; several small values may be too many chances.
 
 **Story event - exact player copy:** The board keeps the three categorical findings separate instead of forcing one cause.
 
@@ -6949,10 +7288,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 13 - Too Many Wins
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 13 - BOARD IN 3 DAYS  
+**Header:** MISSION 13 - 3 DAYS UNTIL THE BOARD MEETS.
 **Card title:** Too Many Wins  
 **Go now:** Go to Statistics and meet Tomas Reed, trial statistician, at the residual wall.  
-**Card body:** Ten extra analyses seem to show treatment benefits, but trying many comparisons makes chance findings easier to uncover. Check which analyses were promised in advance and how strong the results remain after accounting for the extra tests. Decide which benefits the board can honestly claim.
+**Card body:** 3 days until the board meets. Ten claim slips crowd the registered-test rail. Today you decide which findings survive the shared error limit.
 **Objective:** Correct the secondary claims and lock Evidence Strength.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -7048,7 +7387,9 @@ Join regression-slope inference to the familywise false-positive problem and pay
 
 **Beat 1 - On arrival at Statistics & Analysis | `residual-wall` | automatic**
 
-**World state:** Arrival: STAT entry; residual wall visible; Tomas says,;  - After S1-S2: slope report seals; waypoint TAKE SLOPE REPORT TO REGISTRY. - REG after S3: ten-test family prints; waypoint CARRY REGISTERED FAMILY TO BOARD. - BOARD final: threshold commits before p-values reveal; two survivors remain; binder 13 and outcome unlock.
+**Trigger:** mission_13_arrival.
+
+**World state:** Ten claim slips crowd the registered-test rail.
 
 **Panel/HUD text:** MISSION 13: PASS LINE OPEN
 
@@ -7058,43 +7399,59 @@ Join regression-slope inference to the familywise false-positive problem and pay
 
 **Beat 2 - After Stop 49 | `analysis-board` | automatic**
 
-**World state:** The pass line result remains visible while the infer the slope fixture lights.
+**Trigger:** accepted_stop_49.
+
+**World state:** At `residual-wall`, the dated accepted-result slip for Stop 49 reads: "A passes LINE: linear residual pattern, independent observations, Normal residuals, and equal variance.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 49 RECORDED - STOP 50 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Nice work. Use the Stop 49 result to settle infer the slope."
+**Dialogue bubbles -** Lena Wu: "That check holds. The slope conditions pass, allowing the dose-response estimate to be tested and bounded."
 
 **Unlocks/waypoint:** Unlock Stop 50 at `analysis-board` in Statistics & Analysis.
 
 **Beat 3 - After Stop 50 | `claim-ledger` | automatic**
 
-**World state:** The infer the slope result remains visible while the count the claims fixture lights.
+**Trigger:** accepted_stop_50.
+
+**World state:** At `analysis-board`, the dated accepted-result slip for Stop 50 reads: "values above, tolerances.01/.005.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 50 RECORDED - STOP 51 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Good thinking. Use the Stop 50 result to settle count the claims."
+**Dialogue bubbles -** Lena Wu: "That check holds. The slope finding joins several secondary analyses, so the correction family must be established."
 
 **Unlocks/waypoint:** Unlock Stop 51 at `claim-ledger` in Regulatory & Registry.
 
 **Beat 4 - After Stop 51 | `trigger-rail` | automatic**
 
-**World state:** The count the claims result remains visible while the correct before seeing fixture lights.
+**Trigger:** accepted_stop_51.
+
+**World state:** At `claim-ledger`, the dated accepted-result slip for Stop 51 reads: "The correction family contains ten pre-specified tests; the added biomarker is exploratory.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 51 RECORDED - STOP 52 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Exactly right. Use the Stop 51 result to settle correct before seeing."
+**Dialogue bubbles -** Lena Wu: "That check holds. The registered test family needs an error-control threshold before its p-values are revealed."
 
 **Unlocks/waypoint:** Unlock Stop 52 at `trigger-rail` in Monitoring Board Room.
 
 **Beat 5 - At mission end | `residual-wall` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_52.
+
+**World state:** At `claim-ledger`, Lena Wu stamps the unsupported marker claim EXPLORATORY. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 13 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Reed: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Lena Wu: "We lost a headline. We kept the evidence. But Jonas's late harm interval crosses the stop line; two surviving results cannot buy a full restart."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m13
+
+**Home:** `claim-ledger`. **Before:** The dated mission-13 evidence holder at this fixture has no accepted record. Ten claim slips crowd the registered-test rail.
+**After — exact action:** Lena Wu stamps the unsupported marker claim EXPLORATORY.
+**Trigger:** accepted_stop_52. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `trigger-rail`, the benefit sheet passes while the harm band still touches the stop mark.
+**Segue - exact player copy:** But Jonas's late harm interval crosses the stop line; two surviving results cannot buy a full restart.
 
 ## Location plan
 
@@ -7185,6 +7542,10 @@ residual:
 **Question card story setup - exact player copy:** The model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Derive t, df, the 95% interval, and the correct one-sided p-value from the reported two-sided p=.0034.
 
 **Question card story-science connection - exact player copy:** The slope statistic, interval, and directional probability quantify evidence for changing recovery time with dose.
+
+**Fixture source panel - exact player copy:** The model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Derive t, df, the 95% interval, and the correct one-sided p-value from the reported two-sided p=.0034. b=-0.8 day/dose SEb=0.25 df=28 t*=2.048
+
+**Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** A regression with 30 patients gives slope `b=-0.80` recovery day per dose unit and `SE(b)=0.25`; use `t-star=2.048` and a reported two-sided `P=0.0034`. Calculate t, degrees of freedom, the 95% interval, and the one-sided P-value for a negative slope.
 
@@ -7327,11 +7688,12 @@ trigger:
 
 ## Mission outcome
 
-Mission decision: Keep only the two planned results with p at or below.005. The dose slope still has support. The marker result is now only a clue. Evidence strength is locked. A late harm range still crosses the stop line.
+Mission decision: Keep only the two planned results with p at or below 0.005. The dose slope still has support. The marker result is now only a clue. Evidence strength is locked. A late harm range still crosses the stop line.
 
+**Segue - exact player copy:** But Jonas's late harm interval crosses the stop line; two surviving results cannot buy a full restart.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** That was first-rate reasoning. You pinned down the governing result: Keep only the two planned results with p at or below.005. Your reasoning protects patients while preserving an honest test.
+**Happy ending card - exact player copy:** Your checks made the difference. Lena Wu stamps the unsupported marker claim EXPLORATORY. But Jonas's late harm interval crosses the stop line; two surviving results cannot buy a full restart.
 
 **Story event - exact player copy:** Multiplicity correction removes the unsupported secondary wins from the report.
 
@@ -7482,10 +7844,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 14 - Stop or Continue
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 14 - BOARD TOMORROW  
+**Header:** MISSION 14 - 2 DAYS UNTIL THE BOARD MEETS.
 **Card title:** Stop or Continue  
 **Go now:** Go to Statistics and meet Tomas Reed, trial statistician, at the uncertainty console.  
-**Card body:** The treatment still appears helpful, but later health problems could be serious enough to stop the trial. Test how uncertainty changes the balance between benefit and harm. Decide whether one more round of patient follow-up is justified, and set its safety rule first.
+**Card body:** 2 days until the board meets. The benefit sheet passes while the harm band still touches the stop mark. Today you decide whether a bounded follow-up is justified.
 **Objective:** Choose between stopping now and one bounded follow-up.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -7578,7 +7940,9 @@ Make uncertainty and asymmetric error costs produce a bounded action rather than
 
 **Beat 1 - On arrival at Statistics | `uncertainty-console` | automatic**
 
-**World state:** Arrival: STAT entry; harm interval crosses the line; Tomas says,;  - After S1: unconditional continuation darkens; waypoint TAKE LIVE UNCERTAINTY TO REGISTRY. - REG after S2: source calls and kit audit funded; waypoint CARRY EVIDENCE ORDER TO BOARD. - BOARD after S3/final: cloud narrows; trigger and 120-patient cap lock; binder 14 and outcome unlock.
+**Trigger:** mission_14_arrival.
+
+**World state:** The benefit sheet passes while the harm band still touches the stop mark.
 
 **Panel/HUD text:** MISSION 14: STRESS THE BOUNDARY OPEN
 
@@ -7588,43 +7952,59 @@ Make uncertainty and asymmetric error costs produce a bounded action rather than
 
 **Beat 2 - After Stop 53 | `evidence-budget-desk` | automatic**
 
-**World state:** The stress the boundary result remains visible while the buy decision-changing evidence fixture lights.
+**Trigger:** accepted_stop_53.
+
+**World state:** At `uncertainty-console`, the dated accepted-result slip for Stop 53 reads: "The data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 53 RECORDED - STOP 54 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Nice work. Use the Stop 53 result to settle buy decision-changing evidence."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The live decision now turns on unresolved harm rather than settled efficacy or file integrity."
 
 **Unlocks/waypoint:** Unlock Stop 54 at `evidence-budget-desk` in Statistics.
 
 **Beat 3 - After Stop 54 | `board-simulator` | automatic**
 
-**World state:** The buy decision-changing evidence result remains visible while the predict power direction fixture lights.
+**Trigger:** accepted_stop_54.
+
+**World state:** At `evidence-budget-desk`, the dated accepted-result slip for Stop 54 reads: "Fund source calls and the independent kit audit; they address the live harm boundary.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 54 RECORDED - STOP 55 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Good thinking. Use the Stop 54 result to settle predict power direction."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The funded follow-up changes sample size while leaving the test's effect target and threshold fixed."
 
 **Unlocks/waypoint:** Unlock Stop 55 at `board-simulator` in Monitoring Board Room.
 
 **Beat 4 - After Stop 55 | `trigger-rail` | automatic**
 
-**World state:** The predict power direction result remains visible while the write the rule fixture lights.
+**Trigger:** accepted_stop_55.
+
+**World state:** At `board-simulator`, the dated accepted-result slip for Stop 55 reads: "Increasing n narrows standard error and increases power; it does not move the expected center.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 55 RECORDED - STOP 56 OPEN
 
-**Dialogue bubbles -** Tomas Reed: "Exactly right. Use the Stop 55 result to settle write the rule."
+**Dialogue bubbles -** Jonas Berg: "That check holds. More evidence could help, but the board must limit patient exposure while waiting for it."
 
 **Unlocks/waypoint:** Unlock Stop 56 at `trigger-rail` in Monitoring Board Room.
 
 **Beat 5 - At mission end | `uncertainty-console` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_56.
+
+**World state:** At `trigger-rail`, Jonas Berg clips the bounded follow-up order onto the prewritten trigger rail. The dated prop remains here on later visits.
 
 **Panel/HUD text:** MISSION 14 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Tomas Reed: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Jonas Berg: "One bounded step. No quiet return to full speed. But Mara cannot carry an open harm question into tomorrow's board; source calls and a separate kit check must finish first."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m14
+
+**Home:** `trigger-rail`. **Before:** The dated mission-14 evidence holder at this fixture has no accepted record. The benefit sheet passes while the harm band still touches the stop mark.
+**After — exact action:** Jonas Berg clips the bounded follow-up order onto the prewritten trigger rail.
+**Trigger:** accepted_stop_56. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `board-table`, seven empty chairs face the complete pack and two paused-site cards.
+**Segue - exact player copy:** But Mara cannot carry an open harm question into tomorrow's board; source calls and a separate kit check must finish first.
 
 ## Location plan
 
@@ -7915,9 +8295,10 @@ trigger:
 
 Mission decision: Allow one small follow-up group under the safety rule. The benefit data support more study. The harm range blocks a full restart. Only source calls and a separate kit check can change that choice.
 
+**Segue - exact player copy:** But Mara cannot carry an open harm question into tomorrow's board; source calls and a separate kit check must finish first.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** You kept your head when the evidence became difficult. The evidence now points to one clear action: Allow one small follow-up group under the safety rule. The Fenwick team can move forward without overstating what the data show.
+**Happy ending card - exact player copy:** Your checks made the difference. Jonas Berg clips the bounded follow-up order onto the prewritten trigger rail. But Mara cannot carry an open harm question into tomorrow's board; source calls and a separate kit check must finish first.
 
 **Story event - exact player copy:** One small follow-up group opens under the prewritten patient-safety rule.
 
@@ -8111,10 +8492,10 @@ No additional prerequisite is required. These AP-style questions apply the missi
 # Mission 15 - The Board Pack
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
-**Header:** DAY 15 - BOARD TODAY  
+**Header:** MISSION 15 - 1 DAY UNTIL THE BOARD MEETS.
 **Card title:** The Board Pack  
 **Go now:** Go to Regulatory & Registry and meet Mara Voss, trial director, at the delivery board.  
-**Card body:** The final patient follow-up is complete. Check that every claimed benefit and risk matches the study records and the rules agreed before the results arrived. Recommend whether the trial should stop, change, or continue with safeguards that protect its patients.
+**Card body:** 1 day until the board meets. Seven empty chairs face the complete pack and two paused-site cards. Today you decide whether the trial can continue with safeguards.
 **Objective:** Sign and deliver the Monitoring Board Pack.
 
 <!-- BEGIN OPTIONAL WORKED EXAMPLES -->
@@ -8207,7 +8588,9 @@ Require complete transfer: method selection, scope, threshold execution, and con
 
 **Beat 1 - On arrival at Regulatory & Registry | `records-wall` | automatic**
 
-**World state:** Arrival: REG entry; 14 binder slots lit; Mara says,;  - After S1: method links illuminate; waypoint TAKE SOURCE CLAIMS TO ADJUDICATION. - ADJUD after S2: source/scope stamp appears; waypoint CARRY COMPLETE PACK TO MONITORING BOARD. - BOARD after S3: locked rule displays CONTINUE WITH SAFEGUARDS;  - Final/outcome: signatures appear, binder slot15 fills, doors open, BOARD PACK ACCEPTED; timer remains paused; metric victory screen unlocks.
+**Trigger:** mission_15_arrival.
+
+**World state:** Seven empty chairs face the complete pack and two paused-site cards.
 
 **Panel/HUD text:** MISSION 15: RECONSTRUCT THE EVIDENCE CHAIN OPEN
 
@@ -8217,43 +8600,59 @@ Require complete transfer: method selection, scope, threshold execution, and con
 
 **Beat 2 - After Stop 57 | `outcome-viewer` | automatic**
 
-**World state:** The reconstruct the evidence chain result remains visible while the state the reach fixture lights.
+**Trigger:** accepted_stop_57.
+
+**World state:** At `records-wall`, the dated accepted-result slip for Stop 57 reads: "Match procedure to variable type and design; formulas do not determine scope by themselves.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 57 RECORDED - STOP 58 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Nice work. Use the Stop 57 result to settle state the reach."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The reconstructed methods leave the final treatment claim's population reach to be stated."
 
 **Unlocks/waypoint:** Unlock Stop 58 at `outcome-viewer` in Endpoint Adjudication.
 
 **Beat 3 - After Stop 58 | `board-console` | automatic**
 
-**World state:** The state the reach result remains visible while the apply the trigger fixture lights.
+**Trigger:** accepted_stop_58.
+
+**World state:** At `outcome-viewer`, the dated accepted-result slip for Stop 58 reads: "Infer a causal treatment effect for patients like those enrolled, while limiting generalization to broader populations.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 58 RECORDED - STOP 59 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Good thinking. Use the Stop 58 result to settle apply the trigger."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The new follow-up evidence is ready to be judged against the locked harm rule."
 
 **Unlocks/waypoint:** Unlock Stop 59 at `board-console` in Monitoring Board Room.
 
 **Beat 4 - After Stop 59 | `board-table` | automatic**
 
-**World state:** The apply the trigger result remains visible while the sign the statistical argument fixture lights.
+**Trigger:** accepted_stop_59.
+
+**World state:** At `board-console`, the dated accepted-result slip for Stop 59 reads: "Predicted and measured upper bound 1.80 events per 1,000 patients, tolerance 0.01 event per 1,000; conclusion continue under safeguards.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 59 RECORDED - STOP 60 OPEN
 
-**Dialogue bubbles -** Mara Voss: "Exactly right. Use the Stop 59 result to settle sign the statistical argument."
+**Dialogue bubbles -** Jonas Berg: "That check holds. The trigger decision needs a signed argument another statistician can audit from start to finish."
 
 **Unlocks/waypoint:** Unlock Stop 60 at `board-table` in Monitoring Board Room.
 
 **Beat 5 - At mission end | `records-wall` | automatic**
 
-**World state:** The completed decision changes the mission world and locks into the campaign record.
+**Trigger:** accepted_stop_60.
+
+**World state:** At `board-table`, Jonas Berg sets the signed continuation pack on the board table. The final scene follows the completion gate below.
 
 **Panel/HUD text:** MISSION 15 EVIDENCE: RECORDED
 
-**Dialogue bubbles -** Mara Voss: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+**Dialogue bubbles -** Jonas Berg: "You kept a useful trial alive without asking patients to carry our doubt alone. Therefore Eli restarts only cleared work; site 19 stays paused pending its own release checks."
 
 **Unlocks/waypoint:** Open the mission outcome and metric screen.
+
+### Physical aftermath — trial-m15
+
+**Home:** `board-table`. **Before:** The dated mission-15 evidence holder at this fixture has no accepted record. Seven empty chairs face the complete pack and two paused-site cards.
+**After — exact action:** Jonas Berg sets the signed continuation pack on the board table.
+**Trigger:** accepted_stop_60; final scene requires the completion gate in section 8.1. **Persistence:** retain the changed prop at its home for later inspection; retries do not repeat the action.
+**The next problem, physically:** At `board-table`, the signed operating conditions remain beside the final status.
+**Segue - exact player copy:** Therefore Eli restarts only cleared work; site 19 stays paused pending its own release checks.
 
 ## Location plan
 
@@ -8381,11 +8780,12 @@ Procedure choice follows variable type and design. Conditions justify reference 
 
 ## Mission outcome and final payoff
 
-Mission decision: Continue with safeguards. The harm bound is below the written line. The benefit range stays above zero. The board signs the full statistical case.
+Mission decision: Whether the trial can continue with safeguards. Apply the existing final evidence and metric gates before the world payoff below.
 
+The pack lies open before the board. The decision reads CONTINUE WITH SAFEGUARDS. Site 12 shows its cleared follow-up; site 19 stays paused for its release checks. Down the hall, staff begin the next calls under the rule the board has signed.
 ### Post-mission metric screen - exact player copy
 
-**Happy ending card - exact player copy:** Exceptional work. You brought the campaign to a decisive conclusion: Continue with safeguards. That careful conclusion keeps the trial fair, safe, and scientifically useful.
+**Happy ending card - exact player copy:** The pack lies open before the board. The decision reads CONTINUE WITH SAFEGUARDS. Site 12 shows its cleared follow-up; site 19 stays paused for its release checks. Down the hall, staff begin the next calls under the rule the board has signed.
 
 **Story event - exact player copy:** The board continues the trial with the new safeguards and corrected claims in force.
 

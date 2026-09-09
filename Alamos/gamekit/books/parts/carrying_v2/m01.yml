@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "What the Island Depends On"
   card:
-    header: "15 DAYS TO THE FERRY VOTE"
+    header: "MISSION 1 - 15 DAYS UNTIL THE VOTE."
     title: "Nothing Leaves the Ledger"
     goNow: "Go to the Harbour Office and meet Tomas Reed, harbour and fishery lead, at the landings book."
-    body: "A warning about water from a school tap arrives while Vellan debates adding another ferry. More sailings could bring more people, supplies, and waste. Use environmental science to trace the island's resources and decide what the ferry plan must count before anyone calls it sustainable."
+    body: "15 days until the vote. A damp catch slip sticks out of the closed sales book. Today you decide which flows belong in the island count."
     objective: "Build the dependency ledger that defines the investigation."
   objective: "Build the dependency ledger that defines the investigation."
-  stake: "A warning about water from a school tap arrives while Vellan debates adding another ferry. More sailings could bring more people, supplies, and waste. Use environmental science to trace the island's resources and decide what the ferry plan must count before anyone calls it sustainable."
+  stake: "15 days until the vote. A damp catch slip sticks out of the closed sales book. Today you decide which flows belong in the island count."
   takeaway: "Independent evidence must not share the same hidden source. ---"
-  segue: "Mission decision: Count water, food, energy, materials, waste, people. And habitat in one linked island system. Matching records do not count twice when they share a source. The council opens the full resource review. Tomorrow, the first closed budget is freshwater."
+  segue: "But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "System", def: "a set of connected parts studied together."}
@@ -32,50 +32,55 @@
   - id: on-arrival-at-harbour-office
     # On arrival at Harbour Office | landings-book | automatic
     on: { enter: true, at: HARB }
-    world: "The draw the boundary fixture wakes and the mission evidence opens."
+    world: "A damp catch slip sticks out of the closed sales book."
     panel: "MISSION 1: DRAW THE BOUNDARY OPEN"
+    # unlocks: Unlock Stop 1 at landings-book in Harbour Office.
     bubbles:
     - who: reed   # Tomas Reed
       say: "The screen totals what was sold; the book also records what came back over the rail."
   - id: after-stop-1
     # After Stop 1 | landings-book | automatic
     on: { after: [1] }
-    world: "After Stop 1: Keep the new evidence visible and."
+    world: "At landings-book, the dated accepted-result slip for Stop 1 reads: \"C. Count the whole island, aquifer, coast, reef, atmosphere exchanges, imports, and exports.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 1 RECORDED - STOP 2 OPEN"
+    # unlocks: Unlock Stop 2 at landings-book in Harbour Office.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Nice work. Use the Stop 1 result to settle match the cycles."
+      say: "That check holds. The expanded island boundary leaves four material pathways needing identification."
   - id: after-stop-2
     # After Stop 2 | fee-desk | automatic
     on: { after: [2] }
-    world: "After Stop 2: a five-ledger wall diagram lights."
+    world: "At landings-book, the dated accepted-result slip for Stop 2 reads: \"Carbon, nitrogen, phosphorus, water in that order; nitrogen fixation and phosphorus weathering are important limiting steps.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 2 RECORDED - STOP 3 OPEN"
+    # unlocks: Unlock Stop 3 at fee-desk in Harbour Office.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Good thinking. Use the Stop 2 result to settle separate matter from energy."
+      say: "That check holds. The material pathways are mapped, but the grazing plan still risks counting energy as a recyclable resource."
   - id: after-stop-3
     # After Stop 3 | landings-book | automatic
     on: { after: [3] }
-    world: "The separate matter from energy result remains visible while the find the shared omission fixture lights."
+    world: "At fee-desk, the dated accepted-result slip for Stop 3 reads: \"Sunlight and heat flow; carbon dioxide, nitrate, phosphate, and water cycle.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 3 RECORDED - STOP 4 OPEN"
+    # unlocks: Unlock Stop 4 at landings-book in Harbour Office.
     bubbles:
     - who: reed   # Tomas Reed
       say: "Exactly right. REJECTED CATCH"
   - id: at-mission-end
     # At mission end | landings-book | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At landings-book, Tomas Reed clips the rejected-catch slip inside the landings book. The dated prop remains here on later visits."
     panel: "MISSION 1 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
     - who: reed   # Tomas Reed
-      say: "Outstanding work. You solved the mission. Now we know what every later number must connect to."
+      say: "That catch never reached the till. It still came out of the sea. But Tomas has already pencilled in the summer sailing; Nkemdi needs a water limit before he sells seats."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
   deeper:
-    intro: "You completed What the Island Depends On. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
+    intro: "You completed The Catch That Vanished. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission."
     questions:
-    - prompt: "In a follow-up to What the Island Depends On, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?"
+    - prompt: "In a follow-up to The Catch That Vanished, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?"
       hint: "Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -83,7 +88,7 @@
       - {key: "B", text: "A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.", why: "Correct. a set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body."}
       - {key: "C", text: "Matter changes form but remains in its cycle; feedback identifies the first mismatched process.", why: "This describes carbon/nitrogen/phosphorus/water cycles, not System. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.", why: "This describes energy flow versus matter cycling, not System. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council receives a second case related to What the Island Depends On: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?"
+    - prompt: "the island council receives a second case related to The Catch That Vanished: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?"
       hint: "Use the stated evidence and the conditions for system boundary; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:
@@ -91,7 +96,7 @@
       - {key: "B", text: "Matter changes form but remains in its cycle; feedback identifies the first mismatched process.", why: "This describes carbon/nitrogen/phosphorus/water cycles, not system boundary. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "System boundaries must include every materially affected store; retry after the omitted-store labels flash.", why: "Correct. system boundaries must include every materially affected store; retry after the omitted-store labels flash."}
       - {key: "D", text: "Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.", why: "This describes energy flow versus matter cycling, not system boundary. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "A teammate rechecks What the Island Depends On using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?"
+    - prompt: "A teammate rechecks The Catch That Vanished using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?"
       hint: "Use the stated evidence and the conditions for carbon/nitrogen/phosphorus/water cycles; do not choose an option merely because it names a familiar term."
       answer: "D"
       options:
@@ -99,7 +104,7 @@
       - {key: "B", text: "System boundaries must include every materially affected store; retry after the omitted-store labels flash.", why: "This describes system boundary, not carbon/nitrogen/phosphorus/water cycles. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.", why: "This describes energy flow versus matter cycling, not carbon/nitrogen/phosphorus/water cycles. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Matter changes form but remains in its cycle; feedback identifies the first mismatched process.", why: "Correct. matter changes form but remains in its cycle; feedback identifies the first mismatched process."}
-    - prompt: "An unseen case extends What the Island Depends On: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?"
+    - prompt: "An unseen case extends The Catch That Vanished: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?"
       hint: "Use the stated evidence and the conditions for energy flow versus matter cycling; do not choose an option merely because it names a familiar term."
       answer: "A"
       options:
@@ -107,7 +112,7 @@
       - {key: "B", text: "A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.", why: "This describes System, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "C", text: "System boundaries must include every materially affected store; retry after the omitted-store labels flash.", why: "This describes system boundary, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Matter changes form but remains in its cycle; feedback identifies the first mismatched process.", why: "This describes carbon/nitrogen/phosphorus/water cycles, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "Before another What the Island Depends On decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?"
+    - prompt: "Before another The Catch That Vanished decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?"
       hint: "Use the stated evidence and the conditions for dependent evidence; do not choose an option merely because it names a familiar term."
       answer: "B"
       options:
@@ -115,7 +120,7 @@
       - {key: "B", text: "Repeated outputs from one source are one line of evidence, not two; retry traces dependencies.", why: "Correct. repeated outputs from one source are one line of evidence, not two; retry traces dependencies."}
       - {key: "C", text: "System boundaries must include every materially affected store; retry after the omitted-store labels flash.", why: "This describes system boundary, not dependent evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
       - {key: "D", text: "Matter changes form but remains in its cycle; feedback identifies the first mismatched process.", why: "This describes carbon/nitrogen/phosphorus/water cycles, not dependent evidence. It does not account for the quantities, conditions, or evidence in this environmental science case."}
-    - prompt: "the island council applies the lesson from What the Island Depends On to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?"
+    - prompt: "the island council applies the lesson from The Catch That Vanished to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?"
       hint: "Use the stated evidence and the conditions for Infiltration; do not choose an option merely because it names a familiar term."
       answer: "C"
       options:

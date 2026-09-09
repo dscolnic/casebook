@@ -8,17 +8,14 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You are at the Cerro Alto planetary-defense range, where six teams must determine "
-    +   "whether a newly found asteroid will strike Earth. It may arrive in eleven days, and the "
-    +   "current path places nine million people under a warning that is too broad to act on. "
-    +   "Your job is to use astronomy to turn telescope images, radar echoes, and impact models "
-    +   "into one defensible response. Director Mira Chen closes the launch binder and says, "
-    +   "“Nine million people are waiting for an answer they can act on: find the true path, "
-    +   "prove it, and give them the warning that brings them home safe.”",
+  "You are the asteroid response lead, which means you turn sky measurements into a warning "
+    +   "people can use. At Cerro Alto, you will use astronomy to make the call. Eleven days "
+    +   "remain for fifteen work shifts. A new object may hit Earth. The broad path covers nine "
+    +   "million people, but it is too wide for a local order.",
 ];
 
 export const ENDING = [
-  "Exceptional work. You brought the campaign to a decisive conclusion: Send and carry out "
-    +   "the narrow safety order for 180,000 people. The planetary-defense plan now rests on a "
-    +   "result the whole network can trust.",
+  "The network wall fills with acknowledgements. Below the ridge, the first marked buses "
+    +   "leave for the narrow warning zone. Most town lights stay steady. The main-body "
+    +   "stand-down remains green, and the dish keeps tracking the smaller fragment.",
 ];

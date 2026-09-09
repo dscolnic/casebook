@@ -1,17 +1,18 @@
 # ============================================================ MISSION 1
+# Split back out of books/redsand_v5.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/Mars_AP_Chemistry_Campaign_Implementation_Bible_v10.5_Explicit_Build_Ownership.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Shortfall"
   card:
-    header: "15 SHIFTS UNTIL THE LAUNCH WINDOW CLOSES"
+    header: "MISSION 1 - 15 WORK SHIFTS REMAIN BEFORE LAUNCH."
     title: "THE SHORTFALL"
     goNow: "Go to Plant Control and meet Commander Laila Abiola, the mission commander, at the carbon ledger."
-    body: "The Mars crew does not have enough methane fuel to get home. They suspect a leak, but shutting the wrong valves would waste time and stop useful production. Use chemistry to compare samples and track the carbon, then decide whether a large leak explains the shortage."
+    body: "15 work shifts remain before launch. The fuel gauge glows above a tray of unused valve spanners. Today you decide whether a methane leak explains the missing fuel."
     objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
   objective: "Use the production records to decide whether a large methane leak can explain the fuel shortage."
-  stake: "The Mars crew does not have enough methane fuel to get home. They suspect a leak, but shutting the wrong valves would waste time and stop useful production. Use chemistry to compare samples and track the carbon, then decide whether a large leak explains the shortage."
+  stake: "15 work shifts remain before launch. The fuel gauge glows above a tray of unused valve spanners. Today you decide whether a methane leak explains the missing fuel."
   takeaway: "A nearly closed carbon ledger weakens a large methane-leak explanation; it does not identify the real cause."
-  segue: "Mission decision: A large methane leak cannot explain the fuel gap. The new count finds 99.8% of the carbon. Work on random valves stops. The plant still needs fuel. The next test asks if the air intake brings in enough carbon dioxide."
+  segue: "But Ingrid's next shift still lacks methane; the intake must prove it supplies enough carbon before another valve is blamed."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Particle", def: "one counted piece of matter. In this mission, a particle may be an atom, a molecule, or an ion."}
@@ -33,7 +34,7 @@
   - id: on-arrival-at-plant-control
     # On arrival at Plant Control | automatic | 
     on: { enter: true, at: GIBBS }
-    world: "The four-bar HUD opens at METHANE 82%, OXYGEN 88%, POWER 72%, and INTEGRITY 70%; Two technicians reach for different valve controls; Abiola steps between them and locks both panels."
+    world: "The fuel gauge glows above a tray of unused valve spanners."
     panel: "MISSION 1 - THE SHORTFALL"
     # unlocks: Stop 1 at the sample tray.
     bubbles:
@@ -42,7 +43,7 @@
   - id: after-stop-1
     # After Stop 1 | sample tray | automatic correct-answer response
     on: { after: [1] }
-    world: "The four sample labels separate into ATOM, MOLECULE, and ION columns."
+    world: "At sample-tray, the dated accepted-result slip for Stop 1 reads: \"Choice 1.\". The slip remains in that fixture's evidence holder."
     panel: "NEXT TASK - STOP 2: HOW MUCH METHANE IS MISSING?"
     # unlocks: Stop 2 at the conversion board; Stop 3 unlocks immediately after Stop 2.
     bubbles:
@@ -51,7 +52,7 @@
   - id: after-stops-2-and-3
     # After Stops 2 and 3 | conversion board | automatic transition
     on: { after: [2, 3] }
-    world: "The scale reading, moles, and molecule count connect with a continuous illuminated unit path."
+    world: "At conversion-board, the dated accepted-result slip for Stop 2 reads: \"6.01 x 10^28 CH4 molecules; target 6.0 x 10^28, tolerance ±6%.\". The slip remains in that fixture's evidence holder."
     panel: "MASS -\\> MOLES -\\> MOLECULES."
     # unlocks: Stop 4 at the carbon ledger.
     bubbles:
@@ -60,7 +61,7 @@
   - id: after-stop-4
     # After Stop 4 | carbon ledger | automatic discovery
     on: { after: [4] }
-    world: "The carbon streams close to within 0.2%; The red leak warning changes to amber, but the methane shortfall remains red."
+    world: "At conversion-board, the dated accepted-result slip for Stop 3 reads: \"As listed.\". The slip remains in that fixture's evidence holder."
     panel: "CARBON ACCOUNTED FOR: 99.8% / METHANE TARGET: NOT MET."
     # unlocks: The Mission 1 outcome beat.
     bubbles:
@@ -69,14 +70,12 @@
   - id: at-mission-end
     # At mission end | Plant Control | automatic outcome and hook
     on: { missionEnd: true }
-    world: "Sundqvist's static portrait appears in the radio-bubble HUD while the Atmosphere Intake waypoint pulses on the map."
+    world: "At ledger, Commander Laila Abiola clips the CARBON ACCOUNTED FOR: 99.8% sheet into the carbon ledger. The dated prop remains here on later visits."
     panel: "NEXT DESTINATION - ATMOSPHERE INTAKE."
     # unlocks: Mission 2 briefing and the Atmosphere Intake waypoint.
     bubbles:
-    - who: sundqvist   # Sundqvist
-      say: "Outstanding work. You solved the mission. Then the Martian air may never be reaching the reactor in the first place."
-    - who: abiola   # Abiola
-      say: "Do not increase compressor power. The Propellant Lead will test that claim first."
+    - who: abiola   # Commander Laila Abiola
+      say: "Put the spanners down. Follow what entered the plant. But Ingrid's next shift still lacks methane; the intake must prove it supplies enough carbon before another valve is blamed."
 
   # The optional review, offered when the mission is finished and graded
   # nowhere. GENERATED by tools/bible-deeper.mjs from the campaign bible.
@@ -262,37 +261,15 @@
     # `closure.tolerance` -> `tolerance`; `closure.residual` becomes the hidden
     # stream, which is what the engine's ledger is short by until it is found.
     balance:
-      target:
-        label: Carbon entering interval
-        value: 100
-        unit: kmol C
+      total: { amount: 100.0, unit: "kmol C", label: "Carbon entering interval" }
+      tolerance: 0.1
       streams:
-        - id: methane_product
-          label: Carbon in methane product
-          value: 81.6
-          unit: kmol C
-          count: true
-        - id: recycle_co2
-          label: Carbon in recycle CO2
-          value: 17.9
-          unit: kmol C
-          count: true
-        - id: sample_and_vents
-          label: Carbon in samples and measured vents
-          value: 0.3
-          unit: kmol C
-          count: true
-        - id: water
-          label: Water coproduct
-          value: 160
-          unit: kmol H2O
-          count: false
-      closure:
-        value: 99.8
-        unit: kmol C
-        residual: 0.2
-        tolerance: 0.1
-      correct_action: Count the three carbon-bearing streams; exclude water and the schedule gap.
+      - { id: methane_product, label: "Carbon in methane product", value: 81.6, unit: "kmol C" }
+      - { id: recycle_co2, label: "Carbon in recycle CO2", value: 17.9, unit: "kmol C" }
+      - { id: sample_and_vents, label: "Carbon in samples and measured vents", value: 0.3, unit: "kmol C" }
+      - { id: water, label: "Water coproduct", value: 160.0, unit: "kmol H2O", countable: false }
+      - { id: unassigned, label: "Carbon unassigned", value: 0.2, unit: "kmol C", hidden: true }
+      commit: "Report the total carbon"
     answerText: "The ledger accounts for 99.8 kmol C and leaves only 0.2 kmol C unassigned."
     why: "One mole of CO2 and one mole of CH4 each contain one mole of carbon atoms. Add carbon streams as carbon, not total molecular mass. A 0.2% residual can be measurement uncertainty; it cannot explain an 18% methane schedule shortfall. This does not yet prove there is no leak, but it makes a large carbon leak a poor explanation."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -312,4 +289,3 @@
     #       - {id: water, label: "Water coproduct", value: 160.0, unit: "kmol H2O", count: false}
     #     closure: {value: 99.8, unit: "kmol C", residual: 0.2, tolerance: 0.1}
     #     correct_action: "Count the three carbon-bearing streams; exclude water and the schedule gap."
-

@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "From Field to Voltage"
   card:
-    header: "13 DAYS TO FINAL STORM WINDOW"
+    header: "MISSION 3 - 13 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "From Field to Voltage"
     goNow: "Go to the Field Station and meet Ravi Sen, field scientist, at the mill array."
-    body: "The electrical reading near the ground does not tell the crew how much energy a charge could gain between cloud and ground. Combine measurements from different heights. Estimate that voltage difference so the team can judge how the storm could damage the station."
+    body: "13 days until the last storm window closes. A voltage sketch lies beside three shunt leads and an empty fourth hook. Today you decide what voltage the field implies."
     objective: "Derive and validate the cloud-ground voltage."
   objective: "Derive and validate the cloud-ground voltage."
-  stake: "The electrical reading near the ground does not tell the crew how much energy a charge could gain between cloud and ground. Combine measurements from different heights. Estimate that voltage difference so the team can judge how the storm could damage the station."
+  stake: "13 days until the last storm window closes. A voltage sketch lies beside three shunt leads and an empty fourth hook. Today you decide what voltage the field implies."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Use 250–378 MV for the cloud-ground potential. Field direction makes the cloud positive relative to ground in this model. The voltage is large enough to matter. But it still does not explain why damage appeared only at the trailer."
+  segue: "But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-field-station
     # On arrival at Field Station | mill-array | automatic
     on: { enter: true, at: FIELD }
-    world: "Arrival at FIELD unlocks the voltage board."
+    world: "A voltage sketch lies beside three shunt leads and an empty fourth hook."
     panel: "MISSION 3: DERIVE VOLTAGE FROM UNIFORM FIELD OPEN"
+    # unlocks: Unlock Stop 9 at mill-array in Field Station.
     bubbles:
     - who: ravi   # Ravi Sen
       say: "Start with derive voltage from uniform field. We need evidence the next decision can use."
   - id: after-stop-9
     # After Stop 9 | mill-array | automatic
     on: { after: [1] }
-    world: "The derive voltage from uniform field result remains visible while the read the equipotentials fixture lights."
+    world: "At mill-array, the dated accepted-result slip for Stop 9 reads: \"+3.60×10^8 V=+360 MV, tolerance ±2 MV.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 9 RECORDED - STOP 10 OPEN"
+    # unlocks: Unlock Stop 10 at mill-array in Field Station.
     bubbles:
-    - who: ravi   # Ravi Sen
-      say: "Nice work. Use the Stop 9 result to settle read the equipotentials."
+    - who: tate   # Marcus Tate
+      say: "That check holds. The voltage estimate needs a geometric check before it is used to interpret the mast environment."
   - id: after-stop-10
     # After Stop 10 | mill-bench | automatic
     on: { after: [2] }
-    world: "Stop 2 overlays equipotential contours,."
+    world: "At mill-array, the dated accepted-result slip for Stop 10 reads: \"A.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 10 RECORDED - STOP 11 OPEN"
+    # unlocks: Unlock Stop 11 at mill-bench in Field Station.
     bubbles:
-    - who: ravi   # Ravi Sen
-      say: "Good thinking. Use the Stop 10 result to settle derive a sampled-profile estimate."
+    - who: tate   # Marcus Tate
+      say: "That check holds. The uniform-field voltage now needs comparison with the balloon's independently sampled altitude profile."
   - id: after-stop-11
     # After Stop 11 | mill-bench | automatic
     on: { after: [3] }
-    world: "Stop 3 animates the balloon-profile strips and records the independent 250 MV estimate, and."
+    world: "At mill-bench, the dated accepted-result slip for Stop 11 reads: \"+250 MV, 30.6% lower, tolerances ±2 MV, ±0.5%.\". The slip remains in that fixture's evidence holder."
     panel: "250 MV"
+    # unlocks: Unlock Stop 12 at mill-bench in Field Station.
     bubbles:
-    - who: ravi   # Ravi Sen
-      say: "Exactly right. Use the Stop 11 result to settle choose the report value."
+    - who: tate   # Marcus Tate
+      say: "That check holds. The two voltage estimates disagree enough that the report must carry altitude uncertainty explicitly."
   - id: at-mission-end
     # At mission end | mill-array | automatic
     on: { missionEnd: true }
-    world: "Stop 4 writes the bounded 250–378 MV interval onto report piece 3."
+    world: "At shunt-rack, Marcus Tate clips the 250 TO 378 MV model card to the shunt rack. The dated prop remains here on later visits."
     panel: "250–378 MV"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ravi   # Ravi Sen
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: tate   # Marcus Tate
+      say: "That is a large voltage. It still needs a path. But Ortiz's damaged trailer sits far from the mast tip; high voltage alone does not explain its burned card."
 
   terms:
   - {name: "Electric potential", def: "electric potential energy per charge, measured in volts."}

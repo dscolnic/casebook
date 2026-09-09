@@ -3,15 +3,15 @@
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "The Buried Loop"
   card:
-    header: "7 DAYS;"
+    header: "MISSION 9 - 7 DAYS UNTIL THE LAST STORM WINDOW CLOSES."
     title: "The Buried Loop"
     goNow: "Earthing Compound, Marcus Tate at earth trench."
-    body: "The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board."
-    objective: "Predict the induced pulse from measured geometry and current rise."
-  objective: "Predict the induced pulse from measured geometry and current rise."
-  stake: "The magnetic field reaches the buried cable, but it must change to create a voltage in the cable loop. Calculate the voltage pulse and compare it with the damage record. Decide whether the cable route explains the station's failed circuit board."
+    body: "7 days until the last storm window closes. A trench plan lies under a ruler laid along the hidden cable turn. Today you decide whether the buried loop predicts the old pulse."
+    objective: "Predict the induced pulse from measured geometry and current rise. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  objective: "Predict the induced pulse from measured geometry and current rise. <!-- BEGIN OPTIONAL WORKED EXAMPLES -->"
+  stake: "7 days until the last storm window closes. A trench plan lies under a ruler laid along the hidden cable turn. Today you decide whether the buried loop predicts the old pulse."
   takeaway: "The buried loop predicts the failed card. ---"
-  segue: "Mission decision: The buried loop predicts the failed card. Its pulse is near -1.10 kV, close to the archived -1.06 kV peak. The trench reveals another bonded lead. The current path is still incomplete."
+  segue: "But Tate finds another bonded lead across the trench; the current still has a path missing from the plan."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +20,48 @@
   - id: on-arrival-at-earthing-trench
     # On arrival at Earthing Trench | loop-bench | automatic
     on: { enter: true, at: EARTH }
-    world: "accepted EARTH/bubble/trench open/→S1; S2 correct/waypoint/polarity arrow locked/PREDICTION: NEGATIVE DURING CURRENT RISE; TAKE IT TO OUTSTATION.→travel; enter COUPLE/panel/archive locked/Commit magnitude before archive unlock.→S3; S3 correct/panel/archive reveals -1.06 kV/PREDICTED -1.10 kV • MEASURED -1.06 kV→S4; S4 correct/world/second lead appears in trench photo/Model passes; current path remains incomplete.→outcome."
+    world: "A trench plan lies under a ruler laid along the hidden cable turn."
     panel: "Marcus Tate, mast engineer: \"Draw the loop we built, not the cable we meant to build.\""
+    # unlocks: Unlock Stop 33 at loop-bench in Earthing Trench.
     bubbles:
     - who: ortiz   # Dr. Lena Ortiz
       say: "Draw the loop we built, not the cable we meant to build."
   - id: after-stop-33
     # After Stop 33 | loop-bench | automatic
     on: { after: [1] }
-    world: "The derive the buried-loop emf result remains visible while the match induction sources fixture lights."
+    world: "At loop-bench, the dated accepted-result slip for Stop 33 reads: \"ε=-(μ₀ℓ/2π)ln(b/a)dI/dt. Integrate the 1/r field over loop width.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 33 RECORDED - STOP 34 OPEN"
+    # unlocks: Unlock Stop 34 at loop-bench in Earthing Trench.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Nice work. Use the Stop 33 result to settle match induction sources."
+    - who: saira   # Saira Malik
+      say: "That check holds. The loop prediction needs its polarity checked against changes in the mast current."
   - id: after-stop-34
     # After Stop 34 | cable-bay | automatic
     on: { after: [2] }
-    world: "The match induction sources result remains visible while the calculate the archived emf fixture lights."
+    world: "At loop-bench, the dated accepted-result slip for Stop 34 reads: \"Rising opposes, steady gives zero, falling reverses; BLv, -A dB/dt, and rotating-loop form match.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 34 RECORDED - STOP 35 OPEN"
+    # unlocks: Unlock Stop 35 at cable-bay in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Good thinking. Use the Stop 34 result to settle calculate the archived emf."
+    - who: saira   # Saira Malik
+      say: "That check holds. The symbolic loop model is ready to be tested using the archived event's measured geometry and current rise."
   - id: after-stop-35
     # After Stop 35 | cable-bay | automatic
     on: { after: [3] }
-    world: "The calculate the archived emf result remains visible while the verify the loop model fixture lights."
+    world: "At cable-bay, the dated accepted-result slip for Stop 35 reads: \"Prediction is -1.10 kV. Visible substitution reproduces it.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 35 RECORDED - STOP 36 OPEN"
+    # unlocks: Unlock Stop 36 at cable-bay in Remote Outstation.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Exactly right. Use the Stop 35 result to settle verify the loop model."
+    - who: saira   # Saira Malik
+      say: "That check holds. The archived pulse cannot confirm the model unless it also fits the uncertainty in loop geometry."
   - id: at-mission-end
     # At mission end | loop-bench | automatic
     on: { missionEnd: true }
-    world: "The completed decision changes the mission world and locks into the campaign record."
+    world: "At loop-bench, Saira Malik pins the -1.10 KV PREDICTED / -1.06 KV ARCHIVED strip to the loop plan. The dated prop remains here on later visits."
     panel: "MISSION 9 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: ortiz   # Dr. Lena Ortiz
-      say: "Outstanding work. You solved the mission. The mission decision is recorded. Carry it into the next briefing."
+    - who: saira   # Saira Malik
+      say: "Close enough to pursue. Not enough to stop digging. But Tate finds another bonded lead across the trench; the current still has a path missing from the plan."
 
   terms:
   - {name: "Magnetic flux", def: "magnetic field passing through a surface."}

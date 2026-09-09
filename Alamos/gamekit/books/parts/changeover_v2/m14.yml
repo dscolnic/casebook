@@ -1,17 +1,18 @@
 # ============================================================ MISSION 14
+# Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "First-Week Cover"
   card:
-    header: "2 DAYS"
+    header: "MISSION 14 - 2 DAYS UNTIL CHANGEOVER."
     title: "First-Week Cover"
     goNow: "Go to TRADE and meet Nia Corren at the port wire."
-    body: "An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week."
+    body: "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help."
     objective: "Protect launch without confusing a supply shock with a broken currency."
   objective: "Protect launch without confusing a supply shock with a broken currency."
-  stake: "An overnight fuel disruption has raised costs again, just as the currency launch approaches. The exchange arithmetic can be right while families and businesses still struggle. Test the updated forecast and decide whether to delay the change or add temporary protection for its first week."
+  stake: "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help."
   takeaway: "Evidence must match the mechanism, units, and stated limits."
-  segue: "Mission decision: Do not delay conversion. add temporary first-week cover. The fuel shock is real. But the 4.15 ratio and payments remain sound. The board posts joint action."
+  segue: "Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment."
 
   # The bible's beat script. `world` is its World state line, `panel` its
   # Panel/HUD text, `bubbles` its dialogue. `on:` and any `stage:` rows are
@@ -20,43 +21,48 @@
   - id: on-arrival-at-open-economy-floor
     # On arrival at Open-Economy Floor | trade-ledger | automatic
     on: { enter: true, at: OPENEC }
-    world: "Arrival | TRADE | automatic after accepting the briefing World state and dialogue: The destination fixture displays Protect launch without confusing a supply shock with a broken currency. Nia Corren points to the first unresolved reading and asks the player to establish the first defensible result."
+    world: "A fuel bulletin lands beside a completed conversion test."
     panel: "Protect launch without confusing a supply shock with a broken currency."
+    # unlocks: Unlock Stop 53 at trade-ledger in Open-Economy Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Start with shock identity. We need evidence the next decision can use."
   - id: after-stop-53
     # After Stop 53 | price-history-board | automatic
     on: { after: [1] }
-    world: "Keep this labeled result visible; Nia Corren says,, and Stop 54 unlocks."
+    world: "At trade-ledger, the dated accepted-result slip for Stop 53 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 53 RECORDED - STOP 54 OPEN"
+    # unlocks: Unlock Stop 54 at price-history-board in Statistics Floor.
     bubbles:
     - who: corren   # Nia Corren
       say: "Nice work. The fuel disruption shifts SRAS left; 4.15 and payments remain sound."
   - id: after-stop-54
     # After Stop 54 | forecast-table | automatic
     on: { after: [2] }
-    world: "Copy the result to the Rate Book; Activate the next named room in TRADE → PRICES → RATE only if the route requires travel, then."
+    world: "At price-history-board, the dated accepted-result slip for Stop 54 reads: \"The direct CPI effect is 2.4 percentage points; returning fuel to baseline returns the direct effect to zero.\". The slip remains in that fixture's evidence holder."
     panel: "TRADE → PRICES → RATE"
+    # unlocks: Unlock Stop 55 at forecast-table in Rate Room.
     bubbles:
     - who: corren   # Nia Corren
       say: "Good thinking. The direct basket effect is 2.4%; restoration returns baseline."
   - id: after-stop-55
     # After Stop 55 | threshold-rail | automatic
     on: { after: [3] }
-    world: "Preserve this result on the RATE decision fixture; The character asks for the promised mission decision, and Stop 56 unlocks."
+    world: "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
+    # unlocks: Unlock Stop 56 at threshold-rail in Rate Room.
     bubbles:
     - who: corren   # Nia Corren
       say: "Exactly right. Proceed at 4.15 with temporary first-week cover."
   - id: at-mission-end
     # At mission end | trade-ledger | automatic
     on: { missionEnd: true }
-    world: "Mission outcome and hook | Stop the timer and keep the next unresolved consequence visible."
+    world: "At threshold-rail, Mara Venn pins the first-week cover card beside the emergency triggers. The dated prop remains here on later visits."
     panel: "MISSION 14 EVIDENCE: RECORDED"
+    # unlocks: Open the mission outcome and metric screen.
     bubbles:
-    - who: corren   # Nia Corren
-      say: "Outstanding work. You solved the mission. Proceed with cover; buy bonds only at the joint output/payment trigger and stop at the CPI limit."
+    - who: venn   # Mara Venn
+      say: "Keep the date. Keep the promise to review the cost. Therefore Tomas must prove reserves once more before tomorrow's opening; the fuel shock cannot excuse a broken payment."
 
   terms:
   - {name: "Policy lag", def: "delay between action and full economic effect."}
@@ -165,8 +171,7 @@
     - "bad conversion ratio"
     - "aggregate-demand boom"
     - "money run"
-    answer: SRAS_left_real_shock; alternatives:[bad_ratio,AD_boom,money_run].
-    readings: []
+    answer: "real supply shock"
 
   # --- Stop 54: Pass-through test
   #     Concept: CPI/supply; Keystone: inflation; Area: Statistics Floor; Learning role: COMBINE; Difficulty: L4; Story role: L4.
@@ -201,23 +206,20 @@
     relationship: "direct CPI effect = fuel weight × fuel price change, so 0.20 × 12%"
     verify:
       prediction:
-        min: NaN
-        max: NaN
-        step: NaN
-      lock: basket reveal stays locked until 2.4 points is committed
-      action: reveal first-week basket with other prices fixed
+        label: "Direct CPI effect"
+        unit: "percentage points"
+        min: 0
+        max: 12
+        step: 0.1
+      truth: 2.4
+      passRatio: [0.9792, 1.0208]
+      intervention:
+        label: "Reveal first-week basket with other prices fixed"
+        note: "The basket reveal stays locked until 2.4 points is committed."
       measurement:
-        label: the measurement
-        cost: 1
-      restore:
-        fuel_price_change: 0
-        CPI_change: 0
-        remeasure: true
-      correct_conclusion: bounded relative-price shock
-      truth: NaN
-      passRatio:
-        - 0.9
-        - 1.1
+        label: "CPI change on the revealed basket"
+      moral: "A bounded relative-price shock."
+      commit: "Report the direct effect"
 
   # --- Stop 55: Full model stress
   #     Concept: integrated policy; Keystone: all keystones; Area: Rate Room; Learning role: TRANSFER; Difficulty: L5; Story role: L5.
@@ -334,4 +336,3 @@
         - at: T-6 h
           value: 2.6
           hoursLeft: 6
-
