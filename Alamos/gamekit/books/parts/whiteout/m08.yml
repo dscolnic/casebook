@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 22 HOURS REMAIN"
     title: "THE LOG THAT SKIPS EVERY SECOND LINE"
     goNow: "Go to Operations Module and meet Dr. Elena Park, station director, at the Shift Log Desk."
-    body: "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup."
-    objective: "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records."
-  objective: "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records."
-  stake: "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup."
+    body: "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them."
+    objective: "Today you decide whether the raw log is lost or list cleanup skips its records."
+  objective: "Today you decide whether the raw log is lost or list cleanup skips its records."
+  stake: "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them."
   takeaway: "The records were written; forward ArrayList removal skips shifted resolved entries, leaving an alternating survivor pattern. ---"
-  segue: "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. The rover map then moves a known crevasse to the next cell."
+  segue: "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. But Jonah finds the known crack in the next map cell."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "ArrayList", def: "a resizable indexed collection that can add and remove elements while a program runs. index: the numbered position used to access an element; Java arrays and lists start at index zero. edge case: an input at a boundary or unusual condition that can expose a hidden bug."}
@@ -41,7 +41,7 @@
     title: "Read the raw file"
     concept: 28   # Text files, wrapper classes, and data ingestion
     reason: "Park needs to know whether six recovery actions were ever written before anyone accuses the incident logger of losing them."
-    scene: "The raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed."
+    scene: "Elena Park checks: the raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed."
     motivation: "Raw-file evidence can distinguish missing source data from records that disappear only after a program transforms the file."
     format: CASEBOOK
     question: "Match the raw-file evidence to the conclusions it supports, then submit whether the missing records existed before processing."
@@ -89,7 +89,7 @@
     title: "Check the parsed records"
     concept: 36   # Data representation, precision, and data quality
     reason: "The raw file proves the records existed, so Park needs to know whether parsing changed their labels before list mutation is examined."
-    scene: "The parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison."
+    scene: "Elena Park checks the evidence: the parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison."
     motivation: "If parsed data match the raw file, the loss must occur in a later operation rather than during text conversion."
     format: CHOICE
     question: "Compare the raw and parsed states and submit what stage of the pipeline has been cleared."
@@ -133,7 +133,7 @@
     title: "Trace the skipped records"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The source and parser both preserve six records, leaving the forward cleanup loop as the first stage where B and E can disappear incorrectly."
-    scene: "The cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2."
+    scene: "Priya Nair checks the evidence: the cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2."
     motivation: "The exact survivor pattern can become a reusable clue if the same mutation mechanism appears elsewhere later."
     format: DERIVE
     question: "Build the forward-removal trace and select the final list produced by the buggy loop."
@@ -166,7 +166,7 @@
     #           - {line: "[A, C, D, F]", correct: true}
     #           - {line: "[A, D] — assumes every resolved record was removed", correct: false, survives: true, why: "That result assumes shifted neighbors are revisited; forward mutation skips C and F, leaving both resolved records behind."}
     derive:
-      start: records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved.
+      start: "Start with [A open, B resolved, C resolved, D open, E resolved, F resolved]. Indexes start at 0. The loop starts i at 0 and adds 1 after each pass; removal shifts later items left by 1. Source: records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved."
       goal: trace the actual survivors of forward removal as indexes shift
       steps:
         - ask: Choose the list immediately after removing B at index 1.
@@ -199,7 +199,7 @@
     title: "Recover the full timeline"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "The forward trace explains the omissions, so the crew needs a regression test that proves a safe cleanup removes every resolved record without losing unresolved ones."
-    scene: "The repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size."
+    scene: "Priya Nair checks the evidence: the repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size."
     motivation: "A regression test should fail the old forward loop and pass the new backward traversal on the same adjacent-resolved input."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the number of records the backward cleanup should retain. OPERATE: run the repaired cleanup. MEASURE: reveal the retained-record count. INTERPRET: inspect the retained labels and submit DEPLOY or HOLD."

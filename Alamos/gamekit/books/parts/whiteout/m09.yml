@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 20 HOURS REMAIN"
     title: "THE MAP THAT LIES BY ONE COLUMN"
     goNow: "Go to the Route Table in Vehicle Bay."
-    body: "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates."
-    objective: "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes."
-  objective: "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes."
-  stake: "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates."
+    body: "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two."
+    objective: "Today you decide whether to trust the survey and fix the map write."
+  objective: "Today you decide whether to trust the survey and fix the map write."
+  stake: "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two."
   takeaway: "The field survey is correct; one write uses [column][row], transposing the crevasse into the neighboring cell. ---"
-  segue: "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. A short satellite pass then makes the old search too slow."
+  segue: "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. Now Liv needs the right radio record before the next short pass ends."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "2D array", def: "an array of rows and columns accessed with two indexes. index: the numbered position used to access an element; Java arrays and lists start at index zero."}
@@ -41,7 +41,7 @@
     title: "Read the hazard grid"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "Jonah needs to know whether the field survey or the rover display moved the crevasse before Rover Three uses the map."
-    scene: "Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern."
+    scene: "Jonah Reyes checks the evidence: Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern."
     motivation: "A two-dimensional indexing error can transpose correct field data into a different map cell without changing the survey itself."
     format: PROBE
     question: "Probe all four cells, compare each reading with its explicit expected state, and submit whether the survey or display mapping is suspect."
@@ -102,7 +102,7 @@
     title: "Walk the grid in order"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "Stop 33 proved the survey grid is correct, so the crew now needs the exact row-major order used by the map-copy loop."
-    scene: "For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal."
+    scene: "Jonah Reyes checks the evidence: For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal."
     motivation: "A correct traversal order makes it easier to isolate whether the defect is in visiting cells or writing them to the destination."
     format: SEQUENCE
     question: "Place the four grid accesses in row-major order, then submit the sequence."
@@ -156,7 +156,7 @@
     title: "Find the transposed write"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "The visit order is correct, so the bug must occur when each surveyed cell is written into the rover display grid."
-    scene: "The copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value."
+    scene: "Priya Nair checks the evidence: the copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value."
     motivation: "The right explanation must account for correct traversal, correct source data, and a swapped destination coordinate."
     format: DIAGNOSIS
     question: "Read all four zones and submit the one write statement that produces the observed transpose."
@@ -234,7 +234,7 @@
     title: "Release Rover Three"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "The transposed write is identified, but the rover remains locked until the repaired map predicts the exact crevasse coordinate."
-    scene: "The corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map."
+    scene: "Jonah Reyes checks the evidence: the corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map."
     motivation: "A committed full-grid prediction can prove the repair fixes the coordinate mapping without inventing new survey data."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the crevasse's column index in row 0. OPERATE: rebuild the hazard grid with the corrected write. MEASURE: reveal the crevasse column. INTERPRET: confirm the remaining cells against the source and submit RELEASE or HOLD."

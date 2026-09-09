@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 15 OF 15"
     title: "THE TOWN THAT STAYS"
     goNow: "Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Lease Desk."
-    body: "The access retrofit survives review, but its funding and promises still need named owners. A defensible agreement must meet its conditions without counting the same benefit twice. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide which complete agreement the council can sign under its published rules."
+    body: "The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners."
     objective: "Decide which complete agreement the council can sign under its published rules."
   objective: "Decide which complete agreement the council can sign under its published rules."
-  stake: "The access retrofit survives review, but its funding and promises still need named owners. A defensible agreement must meet its conditions without counting the same benefit twice. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide which complete agreement the council can sign under its published rules."
+  stake: "The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners."
   takeaway: "The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review."
   segue: "Mission decision: Sign the access retrofit with funded housing support and the water-cost rule. All funds are confirmed and each promise has an owner. The final trial meets the corrected goal. The plan is ready for signing after the final resource check."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -42,7 +42,7 @@
     title: "Check the confirmed funding"
     concept: 21   # Robust comparison of competing plans
     reason: "Every promised service needs a confirmed source of funds."
-    scene: "The access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing."
+    scene: "Leila shows you the record: the access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing."
     motivation: "The hearing can promise only measures whose costs have a confirmed source."
     format: BALLPARK
     question: "Submit the total confirmed daily funding; then compare it with the visible $150 plan cost."
@@ -122,7 +122,7 @@
     title: "Give each condition an owner"
     concept: 21   # Robust comparison of competing plans
     reason: "Each funded promise needs an owner and a visible test."
-    scene: "The funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs."
+    scene: "Owen shows you the record: the funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs."
     motivation: "A promise becomes checkable when its condition has a record and an accountable institution."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -212,7 +212,7 @@
     title: "Commit the final flow forecast"
     concept: 18   # External costs and benefits
     reason: "The final trial must preserve the corrected freight rule."
-    scene: "The commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark."
+    scene: "Mara shows you the record: the commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark."
     motivation: "The final plan must preserve the lesson learned from water damage."
     format: VERIFY
     question: "First, calculate and commit the freight quantity consistent with the adopted social-cost rule. Then run the Hearing Table at the signed rule, measure the modeled flow, and select whether it matches; no restoration or second reading is required."
@@ -309,18 +309,18 @@
     title: "Sign the agreement"
     concept: 21   # Robust comparison of competing plans
     reason: "The council needs one complete recommendation before it signs."
-    scene: "The final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council's published conditions before the signatures make those commitments binding in the story."
+    scene: "Mara shows you the record: the final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council's published conditions before the signatures make those commitments binding in the story."
     motivation: "The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Sign the access retrofit with funded housing support and the water-cost rule
       - Sign the new line while relying on an unconfirmed grant
       - Sign access only and drop the water-cost rule
       - Keep the current monopoly and call the housing cap sufficient
     answer: Sign the access retrofit with funded housing support and the water-cost rule
-    answerText: The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town.
-    why: The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town. The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review. The new line fails the stress condition and its grant is unconfirmed.
+    answerText: "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town."
+    why: "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town. The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review. The new line fails the stress condition and its grant is unconfirmed."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The retrofit survives 40% overrun; confirmed funds cover $150 daily; housing support and access reporting are assigned; freight is governed by the measured $20 external-cost rule; the final flow trial matches 30. New line fails the stress rule; status quo leaves access unresolved. The council's published decision rule requires all these conditions, then the highest feasible net resource benefit. The retrofit replaces exclusive monopoly pricing with regulated equal access at private marginal cost plus the harm charge; its fixed-cost support is in the confirmed budget. A harm tax alone on the unchanged monopoly would not produce the efficient quantity. The earlier $30 wage and four-job schedule remain conditional on unchanged product receipts and productivity, and the cooperative must report whether qualified workers can actually take the jobs.

@@ -6,12 +6,12 @@
     header: "DAY 15 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "WHAT GOES HOME"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports."
+    body: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take."
     objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
   objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
-  stake: "Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports."
+  stake: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take."
   takeaway: "Authorize only the corrected monitored pilot, with a pause and return path. ---"
-  segue: "Mission decision: Authorize only the corrected monitored pilot, with a pause and return path. The corrected night test stays above the oxygen limit. The island keeps its reserve. The island keeps a reserve while the mainland pilot begins."
+  segue: "Mission decision: The small test is cleared. The night result meets the limit, and the plan says when to stop. Ada keeps seed families on the island as a reserve."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Pilot", def: "A limited test before a wider action."}
@@ -44,7 +44,7 @@
     title: "Carry forward the tested constraints"
     concept: 30   # Experimental inference and sampling
     reason: "The final stock list must retain each tested constraint."
-    scene: "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Match those findings to handling constraints before the final habitat and transport evidence is combined."
+    scene: "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Nell Shah asks: \"Match those findings to handling constraints before the final habitat and transport evidence is combined.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -119,7 +119,7 @@
     title: "Keep the habitat links intact"
     concept: 29   # Matter cycles and disturbance
     reason: "The final manifest must keep the tested habitat relationships."
-    scene: "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Carry those measured links into the final plan before checking the corrected night-time oxygen margin."
+    scene: "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Nell Shah asks: \"Carry those measured links into the final plan before checking the corrected night-time oxygen margin.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -194,11 +194,11 @@
     title: "Check the corrected night margin"
     concept: 9   # Respiration and chemiosmosis
     reason: "The final decision needs the corrected full-cycle oxygen margin."
-    scene: "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Calculate its ending oxygen level before the director commits the complete monitored plan."
+    scene: "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Tess Rowan asks: \"Calculate its ending oxygen level before the director commits the complete monitored plan.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate final oxygen using start minus net rate times duration; submit mg per litre, then compare with the recorded minimum."
-    answerText: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison."
+    answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison.
     why: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. The net rate already includes the tested oxygen-supply correction and community demand. This arithmetic agrees with the measured corrected trial recorded in Mission 14, but only for the stated conditions and interval. It clears the full-cycle component of the final plan while leaving family identity, screened partners, receiving-site preparation and monitoring as separate requirements for the director to integrate."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 is the threshold rather than the calculated final reading. 8.75 subtracts one hour of loss instead of eight. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -263,7 +263,7 @@
     title: "Sign the living manifest"
     concept: 30   # Experimental inference and sampling
     reason: "The waiting ship needs the final evidence-based release plan."
-    scene: "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Choose the complete plan that preserves those constraints and leaves a response to new failure."
+    scene: "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Ada Penn asks: \"Choose the complete plan that preserves those constraints and leaves a response to new failure.\""
     motivation: "Authorize only the corrected monitored pilot, with a pause and return path."
     format: CHOICE
     question: "Select one complete release plan; this is the final graded decision."

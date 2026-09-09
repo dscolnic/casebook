@@ -8,9 +8,9 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You are at Kerrow Mine No. 3, where forty-one miners ride a steel lift into the ground "
-    +   "each shift. Your physics work must explain why that lift kept moving after its winding "
-    +   "drum stopped. An inspector arrives in twelve days, and no faster passenger service can "
-    +   "open without your Safe Winding Plan. Ada Kerr, mine safety engineer, locks the fast "
-    +   "control and says, “The brake stops the drum—show me what stops the cage.”",
+  "Forty-one miners wait at Kerrow No. 3, and Ruth Bell’s brother rode the cage that would "
+    +   "not stop. The drum was still, but the cage passed its March landing. You have twelve "
+    +   "days to write a Safe Winding Plan, or passenger access stays shut for a longer review. "
+    +   "Ada Kerr puts her signed check beside you and says, “I trusted the drum lamp, so show me "
+    +   "what I missed.”",
 ];

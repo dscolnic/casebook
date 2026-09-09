@@ -6,12 +6,12 @@
     header: "DAY 14 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "GREEN UNTIL MORNING"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion."
+    body: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow."
     objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
   objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
-  stake: "The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion."
+  stake: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow."
   takeaway: "Hold expansion until the night oxygen problem is corrected. ---"
-  segue: "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit. The crew uses the plan just chosen. The final plan must keep a pause and return path."
+  segue: "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Net production", def: "Production remaining after the relevant consumption is subtracted."}
@@ -47,11 +47,11 @@
     title: "Project the dark interval"
     concept: 9   # Respiration and chemiosmosis
     reason: "The daylight pass needs a night-time oxygen calculation."
-    scene: "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand."
+    scene: "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Ivo Reed asks: \"Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate initial oxygen minus rate times time; submit final oxygen in mg per litre."
-    answerText: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison."
+    answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison.
     why: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This uses a measured net loss for the stated dark interval, so a separate respiration subtraction would count consumption twice. The linear model is limited to the supplied interval and does not describe every possible oxygen level. The calculation retrieves the sealed-pot lesson in a community with additional consumers. It identifies a night-time risk that the healthy daylight appearance cannot rule out, and the full-cycle measurements can now test it."
     # wrong-path feedback, one rebuttal per wrong option:
     #   8 ignores the eight-hour loss. 0 subtracts a full concentration each hour instead of the stated rate. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -116,11 +116,11 @@
     title: "Read the complete cycle"
     concept: 9   # Respiration and chemiosmosis
     reason: "The full-cycle comparison must locate the oxygen failure."
-    scene: "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Read every station before deciding whether the pilot design or the receiving water explains the failure."
+    scene: "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Ivo Reed asks: \"Read every station before deciding whether the pilot design or the receiving water explains the failure.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."
+    answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
     why: "Only the dawn reading from the standard pilot falls outside its expected range. The air-supply comparison remains within range, as does the independent receiving-water sample. The contrast supports insufficient oxygen replacement relative to community demand during the night in this design. It does not blame every receiving-site water source or invalidate the measured daylight success. The old sealed-pot clue now pays off at a larger scale: a community can pass a daytime inspection and still fail over its actual operating cycle."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The noon result lies in range but covers only daylight. The air-supply trial is inside the expected range. The independent water sample is normal and weakens a source-wide explanation. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -194,7 +194,7 @@
     title: "Choose what each test establishes"
     concept: 30   # Experimental inference and sampling
     reason: "The expansion decision needs the scope of each result."
-    scene: "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Match each result to the claim it supports before the director judges expansion."
+    scene: "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Tess Rowan asks: \"Match each result to the claim it supports before the director judges expansion.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -269,7 +269,7 @@
     title: "Stop the premature expansion"
     concept: 30   # Experimental inference and sampling
     reason: "The director must stop expansion until the corrected pilot is tested."
-    scene: "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Choose the expansion decision that carries this evidence into the final release plan."
+    scene: "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Ada Penn asks: \"Choose the expansion decision that carries this evidence into the final release plan.\""
     motivation: "Hold expansion until the night oxygen problem is corrected."
     format: CHOICE
     question: "Select the expansion decision supported by the complete-cycle evidence."

@@ -6,12 +6,12 @@
     header: "DAY 1 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FOOD THAT IS NOT ENOUGH"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed."
+    body: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed."
     objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
   objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
-  stake: "The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed."
+  stake: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed."
   takeaway: "Replace the feed with a complete nutrient mix. ---"
-  segue: "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth. The crew uses the plan just chosen. Root cells swell after a fresh-water rinse."
+  segue: "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Element", def: "A substance made of one kind of atom."}
@@ -58,9 +58,9 @@
   - group: CLINIC
     at: sample-bench
     title: "Read the feed ingredients"
-    concept: 2   # Macromolecules and hydrolysis
+    concept: 1   # Water and carbon chemistry
     reason: "The feed label must explain what the seedlings can build."
-    scene: "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. The clinic needs the ingredients connected to what cells build before it can decide which shortage to test."
+    scene: "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. Mara Vale asks: \"The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -135,7 +135,7 @@
     title: "Count the missing nitrogen"
     concept: 2   # Macromolecules and hydrolysis
     reason: "The replacement test needs the missing nitrogen amount."
-    scene: "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing."
+    scene: "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Mara Vale asks: \"Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the number tiles to calculate the daily nitrogen deficit in mg per day; submit need minus supply."
@@ -202,11 +202,11 @@
     title: "Check the stored mix"
     concept: 30   # Experimental inference and sampling
     reason: "The clinic needs a controlled test before changing feed."
-    scene: "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Compare the matched cultures and assay standard before the clinic replaces the stored mix."
+    scene: "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Mara Vale asks: \"Compare the matched cultures and assay standard before the clinic replaces the stored mix.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."
+    answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
     why: "Only the stored-feed tray lies outside its own expected range. Restoring nitrogen brings growth back into the complete-feed range, while the assay standard stays normal. The matched trays share seed line, light and water, so the comparison supports a nitrogen limitation under these conditions. It does not show that all pale plants everywhere need this treatment. The result gives the clinic a specific replacement decision and keeps the original feed label as a clue about outdated instructions."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The complete-feed control is within its range. The restored tray matches normal growth rather than causing the failure. The nitrate standard is within its own assay range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -260,7 +260,7 @@
           label: Nitrogen-restored tray
           reading: 8 mm growth/day
           expected: 7–9 mm/day
-          load: stored feed plus missing nitrogen
+          load: stored feed plus the nitrogen top-up
         - id: t4
           label: Assay standard
           reading: 10 mg/L nitrate
@@ -280,7 +280,7 @@
     title: "Change the nursery feed"
     concept: 2   # Macromolecules and hydrolysis
     reason: "The nursery is waiting for the feed decision."
-    scene: "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Choose the handling decision that addresses this evidence without discarding healthy genetic stock."
+    scene: "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Mara Vale asks: \"Choose the handling decision that addresses this evidence without discarding healthy genetic stock.\""
     motivation: "Replace the feed with a complete nutrient mix."
     format: CHOICE
     question: "Select the feed decision supported by the label calculation and controlled growth test."

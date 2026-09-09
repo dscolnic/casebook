@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 16 HOURS REMAIN"
     title: "THE CLASS THAT REMEMBERS TOO MUCH"
     goNow: "Go to Software Lab and meet Priya Nair, software architect, at the Version Rack."
-    body: "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state."
-    objective: "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level."
-  objective: "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level."
-  stake: "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state."
+    body: "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field."
+    objective: "Today you decide whether each unit needs its own warning field."
+  objective: "Today you decide whether each unit needs its own warning field."
+  stake: "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field."
   takeaway: "The controllers share one static warning field; changing H04 overwrites the value later read from P02 even though the objects are physically separate. ---"
-  segue: "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. The aircraft then allows only ten seconds for the next message."
+  segue: "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. Now Liv has just ten seconds to send the plane what it needs."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "static field", def: "one field shared by the class rather than stored separately in each object. instance field: state stored separately inside each object. reference: a value that points to an object rather than containing a separate copy of that object."}
@@ -41,7 +41,7 @@
     title: "Compare two controller objects"
     concept: 21   # Class anatomy: fields, encapsulation, and object state
     reason: "Priya needs to prove P02 and H04 are different objects before blaming a shared field for their identical warnings."
-    scene: "P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state."
+    scene: "Priya Nair checks the evidence: P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state."
     motivation: "Separate object identities make a class-level shared field more plausible than one physical controller somehow becoming the other."
     format: CASEBOOK
     question: "Match each record to the interpretation it supports, then submit whether the identical warning proves the objects are the same."
@@ -101,7 +101,7 @@
     title: "Inspect the static field"
     concept: 25   # Class variables, static methods, scope, access, and this
     reason: "Stop 41 proved the controllers are distinct, so the identical warning must come from code that stores state outside each individual object."
-    scene: "The class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot."
+    scene: "Priya Nair checks the evidence: the class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot."
     motivation: "Moving warning state into each object should let H04 change without overwriting P02's previously stored warning."
     format: DERIVE
     question: "Choose the field declaration and assignment that store warning state separately in each controller object."
@@ -129,7 +129,7 @@
     #           - {line: "this.lastWarning = value;", correct: true}
     #           - {line: "Controller.lastWarning = value;", correct: false, survives: true, why: "Writing through the class name targets shared class state instead of the receiving object's own field."}
     derive:
-      start: P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called.
+      start: "P02 warning starts at 3; H04 warning starts at 4. The replay calls H04.setWarning(7); value is the method parameter. Each object must keep its own warning. Source: P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called."
       goal: keep each object's warning state independent after one object changes
       steps:
         - ask: Choose the field declaration.
@@ -155,7 +155,7 @@
     title: "Probe independent warning state"
     concept: 23   # Writing instance methods
     reason: "The field is now instance state, but the team needs multiple controllers to show the repair is not accidentally hard-coded to P02."
-    scene: "Four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent."
+    scene: "Malik Okafor checks the evidence: four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent."
     motivation: "A station-wide fix should preserve each untouched object's warning while changing only the receiver of the method call."
     format: PROBE
     question: "Probe all four controllers, compare every observed warning with its station-specific expected value, and submit whether the state is independent."
@@ -216,7 +216,7 @@
     title: "Separate shared from local state"
     concept: 25   # Class variables, static methods, scope, access, and this
     reason: "The probe looks correct, but the original dangerous sequence must be replayed before both controller families can return to service."
-    scene: "P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it."
+    scene: "Mei Alvarez checks the evidence: P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it."
     motivation: "The repair passes only if H04 changes, P02 stays local, and the Boolean comparison proves the old cross-controller coupling is gone."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial P02's warning after H04 writes 7. OPERATE: replay the cross-controller sequence. MEASURE: reveal P02's final warning. INTERPRET: compare it with H04=7 and submit RETURN TO SERVICE or HOLD."

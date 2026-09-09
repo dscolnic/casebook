@@ -6,12 +6,12 @@
     header: "DAY 8 OF 12 — INSPECTION IN 5 DAYS"
     title: "POWER ARRIVES TOO LATE"
     goNow: "Go to Winder House and meet Ewan Price, winding engineer, at The winder desk."
-    body: "The weight table remains conservative, but the motor cannot deliver energy at any rate. Power measures how quickly a machine does work. At the Winder House and Tip, compare the loaded lift with a smaller drive under steady motion. By the end of the mission, decide which cruise speed fits the motor power limit."
+    body: "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit."
     objective: "Which cruise speed fits the motor power limit?"
   objective: "Which cruise speed fits the motor power limit?"
-  stake: "The weight table remains conservative, but the motor cannot deliver energy at any rate. Power measures how quickly a machine does work. At the Winder House and Tip, compare the loaded lift with a smaller drive under steady motion. By the end of the mission, decide which cruise speed fits the motor power limit."
+  stake: "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit."
   takeaway: "Power limits how fast usable energy can be delivered. ---"
-  segue: "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops."
+  segue: "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Power", def: "the rate of energy transfer."}
@@ -46,7 +46,7 @@
     title: "Recall the full-length pull"
     concept: 2   # Recall the full-length pull
     reason: "The cruise demand needs weight at the longest hanging length."
-    scene: "The conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation."
+    scene: "Ewan Price notes that the conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N."
@@ -108,12 +108,12 @@
     title: "Turn lift work into power"
     concept: 8   # Turn lift work into power
     reason: "The full trip's energy can still arrive too slowly."
-    scene: "The full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey."
+    scene: "Ewan Price sees that the full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey."
     motivation: "The largest work rate determines which cruise proposal the motor can sustain."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
     answerText: "At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended."
-    why: "At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended. dt/dy is the reciprocal speed, not dy/dt; it has the wrong units for power. At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt."
+    why: "Power is the work supplied each second. The chain rule gives dW/dt=(dW/dy)(dy/dt)=Tv, so dividing tension by speed cannot describe power. The hanging rope becomes shorter as the cage rises, which reduces the steady pull. The largest cruise demand therefore occurs with the full length hanging. Substituting the stated mass, length, gravity and speed gives 560000 W. This checks the motor's ability to sustain that cruise; it does not establish the distance needed for an emergency stop."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **1:** dt/dy is the reciprocal speed, not dy/dt; it has the wrong units for power. **2:** At the bottom the hanging rope is longest; the wrong expression reverses which end of the journey carries most rope.
     # correct result: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv. Acceptance: exact authored key.
@@ -145,7 +145,7 @@
     #         why: At the bottom the hanging rope is longest; the wrong expression reverses which end of the journey carries most rope.
     #     answerText: At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended.
     derive:
-      start: At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.
+      start: At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt; M=4000 kg, λ=10 kg/m, L=1200 m, g=10 m/s²; evaluate the full-length cruise at v=3.5 m/s.
       goal: Derive cruise power as a function of lift position and speed.
       steps:
         - ask: Apply the chain rule to work as position changes.
@@ -158,7 +158,7 @@
         - ask: Locate the greatest hanging weight during the cruise.
           answer: 0
           candidates:
-            - text: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv
+            - text: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv=(4000+10×1200)×10×3.5=560000 W
             - text: P(y)=[M+λy]gv; Pmax=P(y=0)=Mgv
               why: At the bottom the hanging rope is longest; the wrong expression reverses which end of the journey carries most rope.
               survives: true
@@ -171,7 +171,7 @@
     title: "Check a scaled steady drive"
     concept: 8   # Check a scaled steady drive
     reason: "The power relation needs an independent drive check."
-    scene: "The lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model."
+    scene: "Ivo Reed confirms that the lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model."
     motivation: "The largest work rate determines which cruise proposal the motor can sustain."
     format: VERIFY
     question: "First, calculate and commit useful power in W from the visible data. OPERATE: run the scaled drive at 2 m/s. Keep the 800 N drive force and load direction fixed. MEASURE: press READ once after the run and record useful power. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -224,7 +224,7 @@
     title: "Commit the day's plan"
     concept: 8   # Commit the day's plan
     reason: "The cruise choice must fit the available shaft power."
-    scene: "The smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan."
+    scene: "Ivo Reed finds that the smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan."
     motivation: "The largest work rate determines which cruise proposal the motor can sustain."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

@@ -6,12 +6,12 @@
     header: "DAY 1 OF 12 — INSPECTION IN 12 DAYS"
     title: "THE CAGE THAT KEPT GOING"
     goNow: "Go to The Bank and meet Ruth Bell, cage operator, at The profile desk."
-    body: "The March stop left the lift beyond its landing, and faster trips are now proposed. The lift carries people in a steel cage pulled by a rope. At the Bank, compare the planned motion with a small test before anyone rides. By the end of the mission, decide whether the proposed start can be used for passenger trips."
+    body: "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people."
     objective: "Can the proposed start be used for passenger trips?"
   objective: "Can the proposed start be used for passenger trips?"
-  stake: "The March stop left the lift beyond its landing, and faster trips are now proposed. The lift carries people in a steel cage pulled by a rope. At the Bank, compare the planned motion with a small test before anyone rides. By the end of the mission, decide whether the proposed start can be used for passenger trips."
+  stake: "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people."
   takeaway: "A correct motion calculation can still fail a safety limit. ---"
-  segue: "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk."
+  segue: "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk. Ruth takes the fast-start sheet off the shift board. Her brother Finn's tally stays on the hook with the other forty; no one boards for a test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Velocity", def: "speed with a direction."}
@@ -47,7 +47,7 @@
     title: "Read the motion record"
     concept: 1   # Read the motion record
     reason: "The March record must be understood before the fast start is restored."
-    scene: "The March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted."
+    scene: "Ruth Bell notes that the March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -103,7 +103,7 @@
     title: "Differentiate the proposed start"
     concept: 1   # Differentiate the proposed start
     reason: "The proposed start must meet the passenger acceleration limit."
-    scene: "The graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet."
+    scene: "Ruth Bell sees that the graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -157,6 +157,13 @@
             - text: a(t)=2t m/s²
               why: The derivative of 2t is constant; keeping t confuses velocity with acceleration.
               survives: true
+        - ask: Substitute t=4 s into the derived velocity.
+          answer: 0
+          candidates:
+            - text: v(4)=2×4=8 m/s
+            - text: v(4)=4²=16 m/s
+              why: Squaring time repeats the position rule instead of substituting into v=2t.
+              survives: true
 
   # --- Stop 3: Test the displacement
   #     Concept: 1 — Test the displacement; Keystone: Motion and derivatives, Models and evidence; Area: BANK; Prerequisites: Stop 2 result in the mission log; current mission primer; preceding numbered spine relationships used in the visible data; Learning role: COMBINE; Difficulty: L2; Story role: clue.
@@ -166,7 +173,7 @@
     title: "Test the displacement"
     concept: 1   # Test the displacement
     reason: "The planned travel needs a prediction before the replay can test it."
-    scene: "The derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance."
+    scene: "Ruth Bell confirms that the derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: VERIFY
     question: "First, calculate and commit upward displacement in m from the visible data. OPERATE: run the four-second encoder replay. Keep the time interval and velocity law fixed. MEASURE: press READ once after the run and record upward displacement. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -219,7 +226,7 @@
     title: "Commit the day's plan"
     concept: 1   # Commit the day's plan
     reason: "A matching replay still leaves the passenger limit to check."
-    scene: "The replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation."
+    scene: "Ruth Bell finds that the replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

@@ -191,10 +191,26 @@ const declared = new Map(bible.fixtures.map(f => [f.id, f]));
 // The places section 3 declares, which is the only thing `Area:` may name.
 const placeNames = new Set(bible.fixtures.map(f => norm(f.place)).filter(Boolean));
 const KINDS = new Set(['vessel', 'rack', 'bench', 'board']);
+// A TABLE THAT DECLARES NO KINDS AT ALL IS A DIFFERENT THING FROM A ROW THAT
+// FORGOT ONE. Boomtown's fixture table is `| Area | Place | Fixture | Caption |`
+// and its §3.1 says in prose what kind each office gets — "three
+// calculation/display objects and one operable terminal are sufficient in each
+// office" — so every one of its twenty objects came back with no kind and the
+// campaign was blocked twenty times for a column it deliberately does not have.
+// `tools/build-fixtures.mjs` falls back to `board`, which is the right shape for
+// a desk, a map or a terminal. One row missing its kind in a table that has the
+// column is still a defect; a table with no column is a note.
+const anyKind = bible.fixtures.some(f => KINDS.has(f.build));
 if(!only){
   for(const f of bible.fixtures){
-    if(!KINDS.has(f.build))
+    if(!KINDS.has(f.build)){
+      if(!anyKind){
+        warn(`fixture \`${f.id}\``, 'no `build` kind — the table declares none, so it is built as a'
+          + ' board. `vessel`, `rack`, `bench` or `board` per row would say what each object is');
+        continue;
+      }
       fail(`fixture \`${f.id}\``, `kind is "${f.build || 'missing'}" — it has to be one of vessel, rack, bench, board`);
+    }
     if(!f.place) fail(`fixture \`${f.id}\``, 'no place — which room does it stand in?');
     if(!f.caption) fail(`fixture \`${f.id}\``, 'no description — the caption is player-facing and has to be written here');
   }

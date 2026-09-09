@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 8 OF 15"
     title: "A STREET FULL OF SIGNS"
     goNow: "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk."
-    body: "The supplier stays open for now, and new food sellers are asking to enter town. Entry changes competitive pressure, while different products and plant sizes change costs. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should block new food sellers to protect current profits."
+    body: "The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules."
     objective: "Decide whether the town should block new food sellers to protect current profits."
   objective: "Decide whether the town should block new food sellers to protect current profits."
-  stake: "The supplier stays open for now, and new food sellers are asking to enter town. Entry changes competitive pressure, while different products and plant sizes change costs. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should block new food sellers to protect current profits."
+  stake: "The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules."
   takeaway: "The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument."
   segue: "Mission decision: Let the new food sellers enter under the same rules. They meet the health and space checks. New permits go up beside the old menus. Workers now ask what more jobs will pay."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -47,7 +47,7 @@
     title: "Which profit is at risk"
     concept: 7   # Cost measures and opportunity cost of ownership
     reason: "The entry dispute needs a clear measure of the profit at stake."
-    scene: "The supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner's alternatives before evaluating the protection claim."
+    scene: "Nico shows you the record: the supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner's alternatives before evaluating the protection claim."
     motivation: "An incumbent cannot count every accounting dollar as an excess return threatened by entry."
     format: BALLPARK
     question: "Submit economic profit after both cost types."
@@ -129,7 +129,7 @@
     title: "Tell four firm situations apart"
     concept: 13   # Differentiation and economies of scale
     reason: "The town needs the right firm model before using an entry forecast."
-    scene: "The profit calculation includes the owner's forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all."
+    scene: "Nico shows you the record: the profit calculation includes the owner's forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all."
     motivation: "The town should not promise every entrant identical costs or market power."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -219,7 +219,7 @@
     title: "What entry changes"
     concept: 12   # Entry, exit and long-run adjustment
     reason: "The forecast must connect entry to supply and prices."
-    scene: "The business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out."
+    scene: "Leila shows you the record: the business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out."
     motivation: "Entry can discipline prices while preserving payment for the owners' alternative uses."
     format: SEQUENCE
     question: "Arrange the four event cards in causal order and submit the complete sequence."
@@ -295,18 +295,18 @@
     title: "Let the new kitchens open"
     concept: 12   # Entry, exit and long-run adjustment
     reason: "The permit rule applies to new sellers as well as old ones."
-    scene: "The entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner's preference becomes an unsupported barrier to competitors."
+    scene: "Leila shows you the record: the entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner's preference becomes an unsupported barrier to competitors."
     motivation: "The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Allow the proposed food sellers to enter and review service quality separately
       - Block entry solely to preserve incumbent economic profit
       - Promise every entrant permanent economic profit
       - Declare all cafés price takers despite differentiated menus
     answer: Allow the proposed food sellers to enter and review service quality separately
-    answerText: The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café.
-    why: The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café. The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument. Protecting incumbent profit alone is not the adopted external-harm test. Entry can erode economic profit and does not guarantee returns.
+    answerText: "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café."
+    why: "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café. The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument. Protecting incumbent profit alone is not the adopted external-harm test. Entry can erode economic profit and does not guarantee returns."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The proposed vendors meet the same published health and space requirements as incumbents; they offer differentiated menus and use vacant permitted stalls. The council's rule is open entry unless a demonstrated external harm justifies a restriction.

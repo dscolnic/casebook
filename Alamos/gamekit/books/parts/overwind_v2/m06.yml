@@ -6,12 +6,12 @@
     header: "DAY 6 OF 12 — INSPECTION IN 7 DAYS"
     title: "THE STREAM HITS BACK"
     goNow: "Go to Tip and Conveyor and meet Ivo Reed, conveyor foreman, at The weightometer."
-    body: "The lift has enough energy, but the feed belt keeps stopping under small loads. A moving stream can push hard even when little material sits on the belt. At the Tip and brake house, compare steady flow with sudden impacts. By the end of the mission, choose the feed change that protects the belt and bin."
+    body: "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin."
     objective: "Which feed change protects the conveyor and bin?"
   objective: "Which feed change protects the conveyor and bin?"
-  stake: "The lift has enough energy, but the feed belt keeps stopping under small loads. A moving stream can push hard even when little material sits on the belt. At the Tip and brake house, compare steady flow with sudden impacts. By the end of the mission, choose the feed change that protects the belt and bin."
+  stake: "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin."
   takeaway: "Changing momentum over a longer time can reduce force. ---"
-  segue: "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree."
+  segue: "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Momentum", def: "mass multiplied by velocity."}
@@ -46,7 +46,7 @@
     title: "Explain the belt trips"
     concept: 6   # Explain the belt trips
     reason: "The belt trips while its standing load stays below the limit."
-    scene: "The energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply."
+    scene: "Ivo Reed notes that the energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal readings, and select the one cause consistent with the whole panel."
@@ -121,12 +121,12 @@
     title: "Derive the force of the stream"
     concept: 6   # Derive the force of the stream
     reason: "Incoming ore creates a force by gaining momentum."
-    scene: "The panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts."
+    scene: "Ivo Reed sees that the panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
     answerText: "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive."
-    why: "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading."
+    why: "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **1:** Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. **2:** Squaring speed gives energy per time units, not the force supplied by the belt.
     # correct result: F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s. Acceptance: exact authored key.
@@ -158,7 +158,7 @@
     #         why: Squaring speed gives energy per time units, not the force supplied by the belt.
     #     answerText: In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive.
     derive:
-      start: During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.
+      start: During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.
       goal: Obtain the steady horizontal force required to load the belt.
       steps:
         - ask: Count the momentum gained by mass entering during the interval.
@@ -171,7 +171,7 @@
         - ask: Divide momentum change by the interval.
           answer: 0
           candidates:
-            - text: F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s
+            - text: F=Δp/Δt=ṁv=200×5=1000 N
             - text: F=Δp/Δt=ṁv²=5000 N for ṁ=200 kg/s and v=5 m/s
               why: Squaring speed gives energy per time units, not the force supplied by the belt.
               survives: true
@@ -184,7 +184,7 @@
     title: "Mean bin impact force"
     concept: 6   # Mean bin impact force
     reason: "A short bin impact is different from a steady feed."
-    scene: "The continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand."
+    scene: "Ada Kerr confirms that the continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting mean bin impact force in N."
@@ -246,7 +246,7 @@
     title: "Commit the day's plan"
     concept: 6   # Commit the day's plan
     reason: "The bin needs a longer stop without losing the delivery target."
-    scene: "The short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage."
+    scene: "Ada Kerr finds that the short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

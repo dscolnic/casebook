@@ -6,12 +6,12 @@
     header: "DAY 5 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "FLOWERS WITH NO VISITORS"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule."
+    body: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps."
     objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
   objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
-  stake: "The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule."
+  stake: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps."
   takeaway: "Stop the wider reset and keep a mixed flowering schedule. ---"
-  segue: "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits. The crew uses the plan just chosen. One rapidly growing tissue tray has unusual division counts."
+  segue: "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Mutualism", def: "An interaction that benefits both participating species."}
@@ -47,7 +47,7 @@
     title: "Read what healthy leaves prove"
     concept: 8   # Photosynthesis and carbon fixation
     reason: "Healthy leaves do not settle the missing-visitor problem."
-    scene: "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure."
+    scene: "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Ivo Reed asks: \"Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -122,11 +122,11 @@
     title: "Find the shared flowering days"
     concept: 27   # Species interactions and niches
     reason: "The field visit needs the predicted flowering overlap."
-    scene: "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Calculate the shared active days before the field team compares trays along the dunes."
+    scene: "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Ivo Reed asks: \"Calculate the shared active days before the field team compares trays along the dunes.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "For the old program, use shared last day minus shared first day plus one; submit overlap in days."
-    answerText: "The overlap consists only of day 4. This result is now recorded for the next comparison."
+    answerText: The overlap consists only of day 4. This result is now recorded for the next comparison.
     why: "The overlap consists only of day 4. With inclusive endpoints, the count is 4 − 4 + 1 = 1 day. Counting the full flowering interval would include days when the recorded pollinators were absent; counting the entire insect interval would include days when those flowers were closed. This timing result provides a possible explanation for fewer visits, but the field comparison must still check whether visitors use flowers that remain open during their activity period."
     # wrong-path feedback, one rebuttal per wrong option:
     #   4 counts all flowering days rather than shared days. 6 counts all insect days rather than shared days. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -191,11 +191,11 @@
     title: "Compare field trays"
     concept: 27   # Species interactions and niches
     reason: "The bay comparison must separate timing mismatch from insect loss."
-    scene: "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Compare the matched field trays before deciding whether to expand the nursery lamp program."
+    scene: "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Tess Rowan asks: \"Compare the matched field trays before deciding whether to expand the nursery lamp program.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."
+    answerText: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
     why: "Only the old-program flower tray falls below its station-specific expected range. Staggered and unchanged flowers still receive visits, and the independent pollen observation is normal. The comparison therefore weakens a general insect disappearance explanation and supports a timing mismatch associated with the lamp program. These are teaching data from matched conditions, not a universal pollination threshold. The same intervention that improved leaf growth has reduced overlap with partners, so the field result changes how broadly the nursery should act."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Staggered flowers receive the expected number of visits. Unchanged flowers show that visitors are still present. The independent pollen check lies inside its expected range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -269,7 +269,7 @@
     title: "Keep flowers available"
     concept: 27   # Species interactions and niches
     reason: "The wider lamp reset waits on the field result."
-    scene: "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth."
+    scene: "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Tess Rowan asks: \"Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.\""
     motivation: "Stop the wider reset and keep a mixed flowering schedule."
     format: CHOICE
     question: "Choose the nursery action supported by both timing and field observations."

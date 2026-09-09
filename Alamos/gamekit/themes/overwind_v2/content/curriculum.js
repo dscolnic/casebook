@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the motion record",
-      "scene": "The March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted.",
+      "scene": "Ruth Bell notes that the March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted.",
       "place": "",
       "at": "profile-desk",
-      "story": "The March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted.",
+      "story": "Ruth Bell notes that the March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the motion record",
@@ -45,10 +45,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Differentiate the proposed start",
-      "scene": "The graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet.",
+      "scene": "Ruth Bell sees that the graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet.",
       "place": "",
       "at": "profile-desk",
-      "story": "The graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet.",
+      "story": "Ruth Bell sees that the graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet.",
       "game": {
         "type": "DERIVE",
         "title": "Differentiate the proposed start",
@@ -89,6 +89,20 @@ export const CURRICULUM = {
                   "survives": true
                 }
               ]
+            },
+            {
+              "ask": "Substitute t=4 s into the derived velocity.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "v(4)=2×4=8 m/s"
+                },
+                {
+                  "text": "v(4)=4²=16 m/s",
+                  "why": "Squaring time repeats the position rule instead of substituting into v=2t.",
+                  "survives": true
+                }
+              ]
             }
           ],
           "commit": "Commit the derivation"
@@ -103,10 +117,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Test the displacement",
-      "scene": "The derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance.",
+      "scene": "Ruth Bell confirms that the derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance.",
       "place": "",
       "at": "depth-dial",
-      "story": "The derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance.",
+      "story": "Ruth Bell confirms that the derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance.",
       "game": {
         "type": "VERIFY",
         "title": "Test the displacement",
@@ -155,10 +169,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Commit the day's plan",
-      "scene": "The replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation.",
+      "scene": "Ruth Bell finds that the replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation.",
       "place": "",
       "at": "signal-board",
-      "story": "The replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation.",
+      "story": "Ruth Bell finds that the replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -190,10 +204,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Read an independent period",
-      "scene": "The full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response.",
+      "scene": "Ruth Bell confirms that the full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response.",
       "place": "",
       "at": "depth-dial",
-      "story": "The full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response.",
+      "story": "Ruth Bell confirms that the full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response.",
       "game": {
         "type": "VERIFY",
         "title": "Read an independent period",
@@ -248,10 +262,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Commit the day's plan",
-      "scene": "The independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model.",
+      "scene": "Ruth Bell finds that the independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model.",
       "place": "",
       "at": "signal-board",
-      "story": "The independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model.",
+      "story": "Ruth Bell finds that the independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -289,10 +303,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Bound the stopping travel",
-      "scene": "The working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing.",
+      "scene": "Ruth Bell sees that the working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing.",
       "place": "",
       "at": "profile-desk",
-      "story": "The working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing.",
+      "story": "Ruth Bell sees that the working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing.",
       "game": {
         "type": "DERIVE",
         "title": "Bound the stopping travel",
@@ -303,7 +317,7 @@ export const CURRICULUM = {
         "answer": "The integral gives translational braking travel; adding the separately validated worst-phase modal excursion is a conservative envelope, not a claim that both peaks occur simultaneously. Its range is limited to the campaign's certified loads, lengths and response tests.",
         "why": "The integral gives translational braking travel; adding the separately validated worst-phase modal excursion is a conservative envelope, not a claim that both peaks occur simultaneously. Its range is limited to the campaign's certified loads, lengths and response tests. Integrating u gives u²/2; losing the square changes both dimensions and the speed dependence. A safety envelope must include an excursion in the same adverse direction; subtracting it assumes a favorable phase.",
         "derive": {
-          "start": "For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel.",
+          "start": "For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel. Evaluate the candidate v=2 m/s.",
           "goal": "Derive total conservative stopping excursion as a function of approach speed.",
           "steps": [
             {
@@ -325,7 +339,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v"
+                  "text": "d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v; at v=2, d_bound=2²/(2×1)+2/1.25=3.6 m"
                 },
                 {
                   "text": "d_bound=v²/(2bmin)−v/ωmin=0.5v²−0.8v",
@@ -353,10 +367,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Commit the empty acceptance prediction",
-      "scene": "The slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope.",
+      "scene": "Ruth Bell notes that the slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope.",
       "place": "",
       "at": "depth-dial",
-      "story": "The slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope.",
+      "story": "Ruth Bell notes that the slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope.",
       "game": {
         "type": "VERIFY",
         "title": "Commit the empty acceptance prediction",
@@ -407,10 +421,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Rope-contact radius",
-      "scene": "The rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk.",
+      "scene": "Ewan Price notes that the rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk.",
       "place": "",
       "at": "winder-desk",
-      "story": "The rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk.",
+      "story": "Ewan Price notes that the rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk.",
       "game": {
         "type": "BALLPARK",
         "title": "Rope-contact radius",
@@ -433,10 +447,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Integrate the ring",
-      "scene": "The speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome.",
+      "scene": "Ewan Price sees that the speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome.",
       "place": "",
       "at": "winder-desk",
-      "story": "The speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome.",
+      "story": "Ewan Price sees that the speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome.",
       "game": {
         "type": "DERIVE",
         "title": "Integrate the ring",
@@ -469,7 +483,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "I=M(A²+B²)/2=45000 kg m²"
+                  "text": "I=M(A²+B²)/2=18000×(1²+2²)/2=45000 kg m²"
                 },
                 {
                   "text": "I=MB²/2=18000(2²)/2=36000 kg m²",
@@ -494,10 +508,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Check the drum drawing",
-      "scene": "The annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew.",
+      "scene": "Ewan Price confirms that the annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew.",
       "place": "",
       "at": "drum",
-      "story": "The annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew.",
+      "story": "Ewan Price confirms that the annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew.",
       "game": {
         "type": "PROBE",
         "title": "Check the drum drawing",
@@ -556,10 +570,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Commit the day's plan",
-      "scene": "The bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here.",
+      "scene": "Ewan Price finds that the bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here.",
       "place": "",
       "at": "winder-desk",
-      "story": "The bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here.",
+      "story": "Ewan Price finds that the bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -594,10 +608,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Drum angular acceleration",
-      "scene": "The rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft.",
+      "scene": "Ewan Price notes that the rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft.",
       "place": "",
       "at": "winder-desk",
-      "story": "The rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft.",
+      "story": "Ewan Price notes that the rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft.",
       "game": {
         "type": "BALLPARK",
         "title": "Drum angular acceleration",
@@ -625,10 +639,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Add the two torque demands",
-      "scene": "The angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine.",
+      "scene": "Ewan Price sees that the angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine.",
       "place": "",
       "at": "winder-desk",
-      "story": "The angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine.",
+      "story": "Ewan Price sees that the angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine.",
       "game": {
         "type": "DERIVE",
         "title": "Add the two torque demands",
@@ -661,7 +675,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "τmotor=TR+Ia/R=374500 N m"
+                  "text": "τmotor=TR+Ia/R=176000×2+45000×1/2=374500 N m"
                 },
                 {
                   "text": "τmotor=TR−Ia/R=329500 N m",
@@ -688,10 +702,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Check the faster start",
-      "scene": "The slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly.",
+      "scene": "Ewan Price confirms that the slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly.",
       "place": "",
       "at": "drum",
-      "story": "The slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly.",
+      "story": "Ewan Price confirms that the slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly.",
       "game": {
         "type": "VERIFY",
         "title": "Check the faster start",
@@ -745,10 +759,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Commit the day's plan",
-      "scene": "The faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control.",
+      "scene": "Ewan Price finds that the faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control.",
       "place": "",
       "at": "winder-desk",
-      "story": "The faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control.",
+      "story": "Ewan Price finds that the faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -785,10 +799,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Drum motion energy",
-      "scene": "The lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb.",
+      "scene": "Ewan Price confirms that the lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb.",
       "place": "",
       "at": "winder-desk",
-      "story": "The lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb.",
+      "story": "Ewan Price confirms that the lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb.",
       "game": {
         "type": "BALLPARK",
         "title": "Drum motion energy",
@@ -816,10 +830,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Commit the day's plan",
-      "scene": "The lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested.",
+      "scene": "Ewan Price finds that the lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested.",
       "place": "",
       "at": "winder-desk",
-      "story": "The lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested.",
+      "story": "Ewan Price finds that the lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -856,10 +870,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Recall the full-length pull",
-      "scene": "The conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation.",
+      "scene": "Ewan Price notes that the conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation.",
       "place": "",
       "at": "winder-desk",
-      "story": "The conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation.",
+      "story": "Ewan Price notes that the conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation.",
       "game": {
         "type": "BALLPARK",
         "title": "Recall the full-length pull",
@@ -885,10 +899,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Turn lift work into power",
-      "scene": "The full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey.",
+      "scene": "Ewan Price sees that the full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey.",
       "place": "",
       "at": "winder-desk",
-      "story": "The full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey.",
+      "story": "Ewan Price sees that the full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey.",
       "game": {
         "type": "DERIVE",
         "title": "Turn lift work into power",
@@ -897,9 +911,9 @@ export const CURRICULUM = {
         "task": "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line.",
         "question": "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line.",
         "answer": "At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended.",
-        "why": "At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended. dt/dy is the reciprocal speed, not dy/dt; it has the wrong units for power. At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.",
+        "why": "Power is the work supplied each second. The chain rule gives dW/dt=(dW/dy)(dy/dt)=Tv, so dividing tension by speed cannot describe power. The hanging rope becomes shorter as the cage rises, which reduces the steady pull. The largest cruise demand therefore occurs with the full length hanging. Substituting the stated mass, length, gravity and speed gives 560000 W. This checks the motor's ability to sustain that cruise; it does not establish the distance needed for an emergency stop.",
         "derive": {
-          "start": "At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.",
+          "start": "At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt; M=4000 kg, λ=10 kg/m, L=1200 m, g=10 m/s²; evaluate the full-length cruise at v=3.5 m/s.",
           "goal": "Derive cruise power as a function of lift position and speed.",
           "steps": [
             {
@@ -921,7 +935,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv"
+                  "text": "P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv=(4000+10×1200)×10×3.5=560000 W"
                 },
                 {
                   "text": "P(y)=[M+λy]gv; Pmax=P(y=0)=Mgv",
@@ -948,10 +962,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Test a warm loaded surrogate",
-      "scene": "The stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions.",
+      "scene": "Ewan Price confirms that the stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions.",
       "place": "",
       "at": "test-trace",
-      "story": "The stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions.",
+      "story": "Ewan Price confirms that the stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions.",
       "game": {
         "type": "VERIFY",
         "title": "Test a warm loaded surrogate",
@@ -1006,10 +1020,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Commit the day's plan",
-      "scene": "The surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review.",
+      "scene": "Ewan Price finds that the surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review.",
       "place": "",
       "at": "winder-desk",
-      "story": "The surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review.",
+      "story": "Ewan Price finds that the surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -1047,10 +1061,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Check the independent safety margin",
-      "scene": "The combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand.",
+      "scene": "Ewan Price confirms that the combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand.",
       "place": "",
       "at": "test-trace",
-      "story": "The combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand.",
+      "story": "Ewan Price confirms that the combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand.",
       "game": {
         "type": "VERIFY",
         "title": "Check the independent safety margin",
@@ -1099,10 +1113,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Commit the day's plan",
-      "scene": "The independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered.",
+      "scene": "Ewan Price finds that the independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered.",
       "place": "",
       "at": "winder-desk",
-      "story": "The independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered.",
+      "story": "Ewan Price finds that the independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -1136,10 +1150,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Choose what the force acts on",
-      "scene": "The corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation.",
+      "scene": "Mara Shaw notes that the corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation.",
       "place": "",
       "at": "rope-bench",
-      "story": "The corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation.",
+      "story": "Mara Shaw notes that the corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation.",
       "game": {
         "type": "PROTOCOL",
         "title": "Choose what the force acts on",
@@ -1177,10 +1191,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Sum the moving rope",
-      "scene": "The force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test.",
+      "scene": "Mara Shaw sees that the force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test.",
       "place": "",
       "at": "rope-bench",
-      "story": "The force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test.",
+      "story": "Mara Shaw sees that the force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test.",
       "game": {
         "type": "DERIVE",
         "title": "Sum the moving rope",
@@ -1189,9 +1203,9 @@ export const CURRICULUM = {
         "task": "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line.",
         "question": "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line.",
         "answer": "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch.",
-        "why": "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.",
+        "why": "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.",
         "derive": {
-          "start": "M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.",
+          "start": "M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.",
           "goal": "Express tension at a cut and evaluate it at s=1200 m.",
           "steps": [
             {
@@ -1213,7 +1227,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "T=(M+λs)(g+a)=176000 N at s=1200 m"
+                  "text": "T=(M+λs)(g+a)=(4000+10×1200)×(10+1)=176000 N"
                 },
                 {
                   "text": "T=(M+λs)g+Ma=16000×10+4000×1=164000 N at s=1200 m",
@@ -1238,10 +1252,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Load the sample model",
-      "scene": "The full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard.",
+      "scene": "Mara Shaw confirms that the full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard.",
       "place": "",
       "at": "coil-rig",
-      "story": "The full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard.",
+      "story": "Mara Shaw confirms that the full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard.",
       "game": {
         "type": "VERIFY",
         "title": "Load the sample model",
@@ -1293,10 +1307,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Commit the day's plan",
-      "scene": "The smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation.",
+      "scene": "Mara Shaw finds that the smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation.",
       "place": "",
       "at": "rope-bench",
-      "story": "The smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation.",
+      "story": "Mara Shaw finds that the smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -1331,10 +1345,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Separate survey from assumption",
-      "scene": "The ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation.",
+      "scene": "Mara Shaw confirms that the ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation.",
       "place": "",
       "at": "rope-bench",
-      "story": "The ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation.",
+      "story": "Mara Shaw confirms that the ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation.",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate survey from assumption",
@@ -1373,10 +1387,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Commit the day's plan",
-      "scene": "The corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed.",
+      "scene": "Mara Shaw finds that the corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed.",
       "place": "",
       "at": "rope-bench",
-      "story": "The corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed.",
+      "story": "Mara Shaw finds that the corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -1412,10 +1426,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Distinguish mass from stiffness",
-      "scene": "The cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response.",
+      "scene": "Mara Shaw notes that the cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response.",
       "place": "",
       "at": "rope-bench",
-      "story": "The cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response.",
+      "story": "Mara Shaw notes that the cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response.",
       "game": {
         "type": "PROTOCOL",
         "title": "Distinguish mass from stiffness",
@@ -1456,10 +1470,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Derive the bounce period",
-      "scene": "The stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record.",
+      "scene": "Mara Shaw sees that the stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record.",
       "place": "",
       "at": "rope-bench",
-      "story": "The stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record.",
+      "story": "Mara Shaw sees that the stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record.",
       "game": {
         "type": "DERIVE",
         "title": "Derive the bounce period",
@@ -1492,7 +1506,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "ω=1.25 rad/s; Tperiod=2π/ω≈5.03 s"
+                  "text": "ω=√(12500/8000)=1.25 rad/s; Tperiod=2π/1.25≈5.03 s"
                 },
                 {
                   "text": "ω=1.25 rad/s; Tperiod=ω/(2π)≈0.20 s",
@@ -1520,10 +1534,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Keep the inquiry test honest",
-      "scene": "The calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance.",
+      "scene": "Mara Shaw confirms that the calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance.",
       "place": "",
       "at": "rope-bench",
-      "story": "The calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance.",
+      "story": "Mara Shaw confirms that the calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance.",
       "game": {
         "type": "SEQUENCE",
         "title": "Keep the inquiry test honest",
@@ -1555,10 +1569,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Commit the day's plan",
-      "scene": "The reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip.",
+      "scene": "Mara Shaw finds that the reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip.",
       "place": "",
       "at": "rope-bench",
-      "story": "The reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip.",
+      "story": "Mara Shaw finds that the reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -1596,10 +1610,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Combine the signed limits",
-      "scene": "The unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them.",
+      "scene": "Mara Shaw sees that the unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them.",
       "place": "",
       "at": "rope-bench",
-      "story": "The unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them.",
+      "story": "Mara Shaw sees that the unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them.",
       "game": {
         "type": "DERIVE",
         "title": "Combine the signed limits",
@@ -1632,7 +1646,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "v=2.0 m/s: P=320 kW and d_bound=3.6 m; faster listed speeds fail stopping"
+                  "text": "v=2.0 m/s: P=160×2=320 kW; d_bound=0.5×2²+0.8×2=3.6 m; at 2.5, d_bound=0.5×2.5²+0.8×2.5=5.125 m > 5 m"
                 },
                 {
                   "text": "v=3.5 m/s: P=560 kW and d_bound=8.925 m; passing power permits the plan",
@@ -1656,10 +1670,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Set the energy boundary",
-      "scene": "The slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum.",
+      "scene": "Ada Kerr notes that the slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum.",
       "place": "",
       "at": "body-bench",
-      "story": "The slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum.",
+      "story": "Ada Kerr notes that the slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum.",
       "game": {
         "type": "PROTOCOL",
         "title": "Set the energy boundary",
@@ -1699,10 +1713,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Lift a rope one piece at a time",
-      "scene": "The system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind.",
+      "scene": "Ada Kerr sees that the system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind.",
       "place": "",
       "at": "body-bench",
-      "story": "The system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind.",
+      "story": "Ada Kerr sees that the system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind.",
       "game": {
         "type": "DERIVE",
         "title": "Lift a rope one piece at a time",
@@ -1735,7 +1749,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "Wtotal=MgL+λgL²/2=120000000 J"
+                  "text": "Wtotal=MgL+λgL²/2=4000×10×1200+10×10×1200²/2=120000000 J"
                 },
                 {
                   "text": "Wtotal=MgL+λgL²=48000000+144000000=192000000 J",
@@ -1762,10 +1776,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Mean bin impact force",
-      "scene": "The continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand.",
+      "scene": "Ada Kerr confirms that the continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand.",
       "place": "",
       "at": "pad-bench",
-      "story": "The continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand.",
+      "story": "Ada Kerr confirms that the continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand.",
       "game": {
         "type": "BALLPARK",
         "title": "Mean bin impact force",
@@ -1792,10 +1806,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Commit the day's plan",
-      "scene": "The short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage.",
+      "scene": "Ada Kerr finds that the short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage.",
       "place": "",
       "at": "pad-bench",
-      "story": "The short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage.",
+      "story": "Ada Kerr finds that the short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -1831,10 +1845,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Read the three independent records",
-      "scene": "The measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories.",
+      "scene": "Ada Kerr notes that the measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories.",
       "place": "",
       "at": "march-board",
-      "story": "The measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories.",
+      "story": "Ada Kerr notes that the measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Read the three independent records",
@@ -1905,10 +1919,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Reconstruct the overshoot",
-      "scene": "The records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp.",
+      "scene": "Ada Kerr sees that the records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp.",
       "place": "",
       "at": "march-board",
-      "story": "The records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp.",
+      "story": "Ada Kerr sees that the records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp.",
       "game": {
         "type": "DERIVE",
         "title": "Reconstruct the overshoot",
@@ -1941,7 +1955,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "xmax=v0/ω=1.60 m at t=π/(2ω)≈1.26 s"
+                  "text": "xmax=v0/ω=2/1.25=1.60 m at t=π/(2×1.25)≈1.26 s"
                 },
                 {
                   "text": "xmax=v0ω=2.0×1.25=2.50 m at t=π/(2ω)≈1.26 s",
@@ -1969,10 +1983,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Read the certificate conditions",
-      "scene": "The March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift.",
+      "scene": "Ada Kerr notes that the March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift.",
       "place": "",
       "at": "pad-bench",
-      "story": "The March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift.",
+      "story": "Ada Kerr notes that the March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Read the certificate conditions",
@@ -2045,10 +2059,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Explain the belt trips",
-      "scene": "The energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply.",
+      "scene": "Ivo Reed notes that the energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply.",
       "place": "",
       "at": "weightometer",
-      "story": "The energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply.",
+      "story": "Ivo Reed notes that the energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Explain the belt trips",
@@ -2105,10 +2119,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Derive the force of the stream",
-      "scene": "The panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts.",
+      "scene": "Ivo Reed sees that the panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts.",
       "place": "",
       "at": "weightometer",
-      "story": "The panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts.",
+      "story": "Ivo Reed sees that the panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts.",
       "game": {
         "type": "DERIVE",
         "title": "Derive the force of the stream",
@@ -2117,9 +2131,9 @@ export const CURRICULUM = {
         "task": "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line.",
         "question": "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line.",
         "answer": "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive.",
-        "why": "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.",
+        "why": "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.",
         "derive": {
-          "start": "During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.",
+          "start": "During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.",
           "goal": "Obtain the steady horizontal force required to load the belt.",
           "steps": [
             {
@@ -2141,7 +2155,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s"
+                  "text": "F=Δp/Δt=ṁv=200×5=1000 N"
                 },
                 {
                   "text": "F=Δp/Δt=ṁv²=5000 N for ṁ=200 kg/s and v=5 m/s",
@@ -2167,10 +2181,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Check a scaled steady drive",
-      "scene": "The lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model.",
+      "scene": "Ivo Reed confirms that the lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model.",
       "place": "",
       "at": "belt-drive",
-      "story": "The lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model.",
+      "story": "Ivo Reed confirms that the lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model.",
       "game": {
         "type": "VERIFY",
         "title": "Check a scaled steady drive",
@@ -2224,10 +2238,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Commit the day's plan",
-      "scene": "The smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan.",
+      "scene": "Ivo Reed finds that the smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan.",
       "place": "",
       "at": "weightometer",
-      "story": "The smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan.",
+      "story": "Ivo Reed finds that the smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan.",
       "game": {
         "type": "CHOICE",
         "title": "Commit the day's plan",
@@ -2266,10 +2280,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Find the drifting reference",
-      "scene": "The chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction.",
+      "scene": "Nia Cole notes that the chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction.",
       "place": "",
       "at": "gravimeter",
-      "story": "The chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction.",
+      "story": "Nia Cole notes that the chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction.",
       "game": {
         "type": "PROBE",
         "title": "Find the drifting reference",
@@ -2329,10 +2343,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Derive the ideal depth trend",
-      "scene": "The repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey.",
+      "scene": "Nia Cole sees that the repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey.",
       "place": "",
       "at": "level-book",
-      "story": "The repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey.",
+      "story": "Nia Cole sees that the repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey.",
       "game": {
         "type": "DERIVE",
         "title": "Derive the ideal depth trend",
@@ -2365,7 +2379,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "g(R−d)=g0(1−d/R)=9.998 m/s²"
+                  "text": "g(R−d)=g0(1−d/R)=10×(1−1240/6200000)=9.998 m/s²"
                 },
                 {
                   "text": "g(R−d)=g0(1+d/R)=10.002 m/s²",

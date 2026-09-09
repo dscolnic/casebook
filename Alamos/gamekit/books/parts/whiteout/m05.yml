@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 28 HOURS REMAIN"
     title: "ONE NAME, TWO OBJECTS"
     goNow: "Go to Software Lab and meet Priya Nair, software architect, beside the Version Rack."
-    body: "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object."
-    objective: "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state."
-  objective: "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state."
-  stake: "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object."
+    body: "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit."
+    objective: "Today you decide whether the patch reaches live object P02."
+  objective: "Today you decide whether the patch reaches live object P02."
+  stake: "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit."
   takeaway: "The patch is modifying simulator object C17, not live controller P02; the live reference path must be corrected before the method call can matter. ---"
-  segue: "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. A rescue message then shows 08:0 while the raw packet shows 08:07."
+  segue: "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. Yet Liv sees 08:0 on screen and 08:07 in the raw note."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "reference", def: "a value that points to an object rather than containing a separate copy of that object. constructor: code that initializes a new object when it is created. instance field: state stored separately inside each object."}
@@ -41,7 +41,7 @@
     title: "Inspect object state"
     concept: 21   # Class anatomy: fields, encapsulation, and object state
     reason: "Priya needs to know why a patch changes the simulator but leaves live controller P02 untouched."
-    scene: "The software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values."
+    scene: "Priya Nair checks: the software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values."
     motivation: "Two objects can look alike while storing separate state, so the patch target must be identified by reference rather than appearance."
     format: CASEBOOK
     question: "Match each evidence row to the interpretation it supports, then submit whether C17 and P02 are the same object."
@@ -89,7 +89,7 @@
     title: "Check initialization"
     concept: 22   # Constructors and initialization
     reason: "Stop 17 proved the patch reached C17, so the team must verify how the live P02 object was constructed before following references further."
-    scene: "P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field."
+    scene: "Priya Nair checks the evidence: P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field."
     motivation: "A reference trace is only useful after the object itself has been initialized with the state the crew thinks it has."
     format: DERIVE
     question: "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70."
@@ -117,7 +117,7 @@
     #           - {line: "new PowerController(\"P02\", 70);", correct: true}
     #           - {line: "new PowerController(\"70\", 70 + 0);", correct: false, survives: true, why: "The first argument is the object ID, so passing \"70\" creates the wrong identity even though the numeric limit is 70."}
     derive:
-      start: class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }
+      start: "Construct live object P02 with limit 70. Constructor arguments are String id and int limit, in that order. The tempting hard-coded body uses P02 and 90; it must also work for other arguments. Source: class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }"
       goal: initialize an object from supplied constructor arguments
       steps:
         - ask: Choose the constructor body.
@@ -143,7 +143,7 @@
     title: "Follow the live reference"
     concept: 24   # Passing and returning object references
     reason: "P02 is constructed correctly, so the remaining question is which references flow into the patch method."
-    scene: "The build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller."
+    scene: "Priya Nair checks the evidence: the build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller."
     motivation: "The patch only changes the physical station if the method receives a reference to P02 rather than a simulation or backup object."
     format: TRACE
     question: "Open all four reference paths, identify the two aliases that reach C17, and submit the reference that reaches P02."
@@ -221,7 +221,7 @@
     title: "Patch the live controller"
     concept: 4   # Assignment, input, and reassignment
     reason: "The live reference is now known, but Malik will not accept the patch until the method's effect on P02 is predicted before operation."
-    scene: "P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed."
+    scene: "Malik Okafor checks the evidence: P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed."
     motivation: "A method call through the correct reference should change P02 while leaving the simulator object's state independent."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial P02's final limit. OPERATE: run the isolated patch through live. MEASURE: reveal P02's limit after the call. INTERPRET: compare it with C17's unchanged state and submit ACCEPT or REJECT."

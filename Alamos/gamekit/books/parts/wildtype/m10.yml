@@ -6,12 +6,12 @@
     header: "DAY 10 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE INSECTS THAT STAYED"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment."
+    body: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group."
     objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
   objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
-  stake: "Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment."
+  stake: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group."
   takeaway: "Record population selection and protect the surviving variation. ---"
-  segue: "Mission decision: Record population selection and protect the surviving variation. Inherited early types leave more offspring. The crew uses the plan just chosen. A small source group may already have lost rare alleles."
+  segue: "Mission decision: The old logs show a change across generations. Early types left more young in those conditions. Ada keeps the other forms too; a new coast may favor them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Natural selection", def: "Change driven by differences in survival and reproduction associated with inherited traits."}
@@ -46,7 +46,7 @@
     title: "Read the population histories"
     concept: 22   # Natural selection and fitness
     reason: "The insect archive needs a population-level explanation."
-    scene: "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Compare population histories before deciding whether the island record supports a change across generations."
+    scene: "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Tess Rowan asks: \"Compare population histories before deciding whether the island record supports a change across generations.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -121,11 +121,11 @@
     title: "Compare offspring contributions"
     concept: 22   # Natural selection and fitness
     reason: "The selection claim needs reproductive contribution, not survival alone."
-    scene: "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Calculate one group contribution before using the reproductive contrast to interpret the frequency record."
+    scene: "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Tess Rowan asks: \"Calculate one group contribution before using the reproductive contrast to interpret the frequency record.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate the early group contribution with adults times offspring per adult; submit surviving offspring."
-    answerText: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison."
+    answerText: The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison.
     why: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. The equal adult counts make the reproductive contrast easy to interpret. A single season alone would not prove a lasting genetic change, but the archive also tracks inherited emergence types across repeated generations. Together those records support selection in the stated environment. Fitness here means reproductive contribution under those conditions, not general superiority or an organism trying to meet the preserve plan."
     # wrong-path feedback, one rebuttal per wrong option:
     #   30 uses the late group reproductive rate. 6 reports offspring per adult rather than the whole group contribution. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -188,7 +188,7 @@
     title: "Choose the selection pattern"
     concept: 22   # Natural selection and fitness
     reason: "The archive needs the right selection pattern."
-    scene: "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority."
+    scene: "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Ada Penn asks: \"Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -263,7 +263,7 @@
     title: "State what changed"
     concept: 22   # Natural selection and fitness
     reason: "The stock decision must retain uncertainty about future conditions."
-    scene: "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Choose a claim that explains the archive without discarding variation that may matter after movement."
+    scene: "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Ada Penn asks: \"Choose a claim that explains the archive without discarding variation that may matter after movement.\""
     motivation: "Record population selection and protect the surviving variation."
     format: CHOICE
     question: "Select the supported population claim and handling decision."

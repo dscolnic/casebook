@@ -6,12 +6,12 @@
     header: "DAY 8 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "ONE LETTER IN THE RECIPE"
     goNow: "Go to Genetics Trailer and meet Nell Shah, conservation geneticist, at the DNA Bench."
-    body: "The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme."
+    body: "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain."
     objective: "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family."
   objective: "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family."
-  stake: "The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme."
+  stake: "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain."
   takeaway: "Treat the changed enzyme as a supported lead, not a complete diagnosis. ---"
-  segue: "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause. The crew uses the plan just chosen. Similar-looking plants respond differently in the same growth room."
+  segue: "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Transcription", def: "Making an RNA copy using a DNA template."}
@@ -51,7 +51,7 @@
     title: "Trace the enzyme message"
     concept: 18   # Transcription and translation
     reason: "The enzyme lead needs the path from sequence to function."
-    scene: "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Trace the message from DNA to folded enzyme before reading the changed sequence as a cause."
+    scene: "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Nell Shah asks: \"Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -103,6 +103,7 @@
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 30: Read the altered codons
   #     Concept: 20 — Mutations and biotechnology; Keystone: Information flow, Structure and function; Area: GENE; Prerequisites: Mission primer and Stop 29: Trace the enzyme message; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -112,7 +113,7 @@
     title: "Read the altered codons"
     concept: 20   # Mutations and biotechnology
     reason: "The changed codon needs a precise predicted effect."
-    scene: "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference."
+    scene: "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Nell Shah asks: \"Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -187,7 +188,7 @@
     title: "Compare sequence and function"
     concept: 3   # Protein structure and enzymes
     reason: "The sequence lead must meet measured enzyme activity."
-    scene: "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead."
+    scene: "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Mara Vale asks: \"Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -272,7 +273,7 @@
     title: "Keep the causal claim narrow"
     concept: 20   # Mutations and biotechnology
     reason: "The clinic needs a claim no broader than the evidence."
-    scene: "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Choose the claim and handling decision that preserve useful evidence without overstating what was proved."
+    scene: "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Mara Vale asks: \"Choose the claim and handling decision that preserve useful evidence without overstating what was proved.\""
     motivation: "Treat the changed enzyme as a supported lead, not a complete diagnosis."
     format: CHOICE
     question: "Select the claim the evidence supports and the next handling decision."

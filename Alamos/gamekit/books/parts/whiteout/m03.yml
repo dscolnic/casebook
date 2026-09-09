@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 32 HOURS REMAIN"
     title: "THE ROVER THAT NEVER ARRIVES"
     goNow: "Go to the Route Planning Board in Vehicle Bay."
-    body: "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate."
-    objective: "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state."
-  objective: "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state."
-  stake: "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate."
+    body: "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop."
+    objective: "Today you decide whether to repair the rover wheels or the loop that drives them."
+  objective: "Today you decide whether to repair the rover wheels or the loop that drives them."
+  stake: "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop."
   takeaway: "Rover Three is mechanically healthy; its loop never advances the route index, so the stopping condition can never become true. ---"
-  segue: "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. The incident log then links three failures to one software tool."
+  segue: "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. Now Priya finds the same code tool in all three fault traces."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "loop", def: "code that repeats while a condition or counter says more work remains. termination: the condition that makes repeated or recursive work stop. index: the numbered position used to access an element; Java arrays and lists start at index zero."}
@@ -41,7 +41,7 @@
     title: "Order one rover lap"
     concept: 1   # Algorithms, sequencing, and program execution
     reason: "Jonah needs the rover's intended four-step route separated from the code that is trapping it at the first marker."
-    scene: "Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace."
+    scene: "Jonah Reyes checks the evidence: Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace."
     motivation: "A correct sequence gives the loop a state change that can move the rover toward its stopping condition."
     format: SEQUENCE
     question: "Place the four route actions in the order one successful loop iteration should perform them, then submit the sequence."
@@ -87,7 +87,7 @@
     title: "Find the endless condition"
     concept: 15   # while loops and termination
     reason: "Stop 9 showed the route index must advance, but the live trace repeats index zero through every lap around the marker."
-    scene: "The current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever."
+    scene: "Jonah Reyes checks the evidence: the current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever."
     motivation: "A loop terminates only if repeated work changes state in a way that can eventually make its condition false."
     format: DERIVE
     question: "Choose the missing progress statement and the explanation that proves the loop can terminate."
@@ -115,7 +115,7 @@
     #           - {line: "index eventually reaches waypoints.length, making index < length false", correct: true}
     #           - {line: "steering changes, so the Java condition becomes false automatically", correct: false, survives: true, why: "The while condition reads index and the array length; changing unrelated state cannot make that Boolean expression false."}
     derive:
-      start: int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }
+      start: "index starts at 0; waypoints.length = 4. Each arrival must advance by one position. The loop tests index < waypoints.length. Source: int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }"
       goal: advance loop state until the waypoint condition becomes false
       steps:
         - ask: Choose the state update.
@@ -141,7 +141,7 @@
     title: "Advance the route index"
     concept: 6   # Compound assignment and increment/decrement
     reason: "Jonah wants the smallest repair that advances exactly one waypoint after each confirmed arrival without changing the loop condition."
-    scene: "The loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions."
+    scene: "Jonah Reyes checks the evidence: the loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions."
     motivation: "The correct update should produce indexes 0, 1, 2, and 3 before the length check stops a four-waypoint route."
     format: CHOICE
     question: "Select the one update that advances the stored route index by exactly one."
@@ -185,7 +185,7 @@
     title: "Send a bounded route"
     concept: 16   # for loops and loop tracing
     reason: "The rover may move only after the repaired loop predicts every index it will visit and the point where it must stop."
-    scene: "A four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state."
+    scene: "Jonah Reyes checks the evidence: a four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state."
     motivation: "A correct bounded trace can separate a software loop from a mechanical steering failure without sending the rover into the whiteout."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the final index after all four waypoints. OPERATE: run the route simulation. MEASURE: reveal the final route index. INTERPRET: use the bounded trace and clean steering response to submit SOFTWARE LOOP or MECHANICAL FAILURE."

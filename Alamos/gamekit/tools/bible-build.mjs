@@ -339,8 +339,19 @@ for(const theme of themes){
          * carrying no arithmetic. The board is the map; anything scalar beside
          * it belongs to the stop, which is where `answerText` goes anyway.
          */
+        // …AND THE MAP HAS TO BE THE BOARD. The rule above is "exactly one key is
+        // a map, everything beside it belongs to the stop", which is true of
+        // `estimate:` + `answerText:` and false of a PROTOCOL board: its four
+        // keys are `scenarios` (list), `choices` (list), `mapping` (map) and
+        // `answerText`, so the mapping was read as the board and the two columns
+        // as fields beside it — five boards came through with no options and no
+        // mapping at all. A board key is the format's own name, or the one name
+        // that differs from it.
+        const BOARD_KEY = { BALLPARK: 'estimate', SCIENCETANK: 'proposals' };
+        const boardKey = BOARD_KEY[fmt] ?? String(fmt).toLowerCase();
         const maps = keys.filter(k => isMap(authored[k]));
-        const wrapped = maps.length === 1 && keys.every(k => k === maps[0] || isScalar(authored[k]));
+        const wrapped = maps.length === 1 && maps[0] === boardKey
+          && keys.every(k => k === maps[0] || isScalar(authored[k]));
         key = wrapped ? maps[0] : String(fmt).toLowerCase();
         const body = wrapped ? authored[maps[0]] : authored;
         const beside = wrapped

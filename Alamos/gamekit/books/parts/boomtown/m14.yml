@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 14 OF 15"
     title: "THE LINE THAT PAYS FOR ITSELF"
     goNow: "Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk."
-    body: "The filter quote clears the water condition, and the second line looks ready to approve. A fee paid from one local group to another is a transfer rather than a resource saved. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the second line remains the best plan after correcting the cost comparison."
+    body: "The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote."
     objective: "Decide whether the second line remains the best plan after correcting the cost comparison."
   objective: "Decide whether the second line remains the best plan after correcting the cost comparison."
-  stake: "The filter quote clears the water condition, and the second line looks ready to approve. A fee paid from one local group to another is a transfer rather than a resource saved. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the second line remains the best plan after correcting the cost comparison."
+  stake: "The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote."
   takeaway: "The final hearing can now choose an agreement whose claims use one consistent accounting boundary."
   segue: "Mission decision: Drop the claim that the new line is best and keep the access retrofit. The claim counted a transfer as a saving. The line also fails the cost test. Its ribbon comes down before the vote."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -44,7 +44,7 @@
     title: "Remove the double count"
     concept: 21   # Robust comparison of competing plans
     reason: "The ribbon must wait until the benefit ledger counts each dollar once."
-    scene: "The cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves."
+    scene: "Ruth shows you the record: the cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves."
     motivation: "The apparent victory depended on counting a price transfer as a resource saving."
     format: BALLPARK
     question: "Submit the positive magnitude of the daily net resource loss, excluding the internal payment transfer."
@@ -124,7 +124,7 @@
     title: "Keep the ledgers separate"
     concept: 21   # Robust comparison of competing plans
     reason: "The competing plans need the same accounting boundary."
-    scene: "The corrected resource total weakens the new line's claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice."
+    scene: "Owen shows you the record: the corrected resource total weakens the new line's claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice."
     motivation: "The same dollar cannot serve as both a transfer and a new social benefit."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -214,7 +214,7 @@
     title: "Which plan survives the cost range"
     concept: 21   # Robust comparison of competing plans
     reason: "The hearing's stress rule applies before any plan is signed."
-    scene: "The two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate."
+    scene: "Mara shows you the record: the two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate."
     motivation: "The last complication changes the plan because of the criterion the town adopted, not a surprise new preference."
     format: STRESS
     question: "Move the construction-overrun control through 0–40%, inspect which plans remain feasible, then select the surviving plan with the greatest net resource benefit."
@@ -330,18 +330,18 @@
     title: "Reopen the apparent victory"
     concept: 21   # Robust comparison of competing plans
     reason: "The council must act on the revised evidence despite the public celebration."
-    scene: "The stress comparison leaves a feasible alternative after the new line's apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town's printed celebration becomes a reason to ignore its own evidence."
+    scene: "Mara shows you the record: the stress comparison leaves a feasible alternative after the new line's apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town's printed celebration becomes a reason to ignore its own evidence."
     motivation: "The final hearing can now choose an agreement whose claims use one consistent accounting boundary."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Reject the second line’s claimed dominance and retain the access retrofit
       - Approve the new line because its banner is already printed
       - Discard both plans because transfers never matter
       - Keep status quo because it avoids every possible risk
     answer: Reject the second line’s claimed dominance and retain the access retrofit
-    answerText: Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.
-    why: Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals.
+    answerText: "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice."
+    why: "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The initial new-line claim double-counted an internal $40 transfer; the independent stress table rejects it above 10% overrun. The retrofit meets the whole 0–40% range and outperforms status quo under the adopted net-resource rule.

@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 5 OF 15"
     title: "THE RENT PROMISE"
     goNow: "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk."
-    body: "The diner filled its job by drawing away a baker, and workers now ask for help with rent. A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed rent ceiling alone houses every applicant."
+    body: "A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply."
     objective: "Decide whether the proposed rent ceiling alone houses every applicant."
   objective: "Decide whether the proposed rent ceiling alone houses every applicant."
-  stake: "The diner filled its job by drawing away a baker, and workers now ask for help with rent. A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed rent ceiling alone houses every applicant."
+  stake: "A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply."
   takeaway: "The advice distinguishes a factual shortage from a value judgment about tenant protection."
   segue: "Mission decision: The rent cap alone will not house all who apply. Forty homes are still missing from the offers. The town keeps relief and access as two goals. The access plan still needs funds."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -46,7 +46,7 @@
     title: "Count homes the cap cannot promise"
     concept: 8   # Price controls and allocation
     reason: "The hearing must distinguish a cheaper rent from an available home."
-    scene: "The diner's new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution."
+    scene: "Mara shows you the record: the diner's new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution."
     motivation: "A cap can help successful tenants while leaving an allocation problem."
     format: BALLPARK
     question: "Submit the housing shortage at the proposed ceiling."
@@ -126,7 +126,7 @@
     title: "Who gets the benefit"
     concept: 8   # Price controls and allocation
     reason: "Residents need to know which households the cap actually helps."
-    scene: "The cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public."
+    scene: "Mara shows you the record: the cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public."
     motivation: "The public record must distinguish incumbent tenants from applicants."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -216,21 +216,17 @@
     title: "Why the advertised rooms are gone"
     concept: 8   # Price controls and allocation
     reason: "The housing explanation must fit the unchanged buildings too."
-    scene: "The household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office's full record before claiming that the cap has already created homes or destroyed buildings."
+    scene: "Leila shows you the record: the household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office's full record before claiming that the cap has already created homes or destroyed buildings."
     motivation: "The housing office can separate rationing now from possible construction changes later."
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - label: A binding cap leaves excess demand
-        mechanism: The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.
-      - label: A fire removed offered housing
-        mechanism: The destruction reading is zero.
-      - label: The ceiling is above market rent
-        mechanism: The ceiling is $200 below the market figure.
-      - label: Every applicant already has a home
-        mechanism: There are 40 more applicants than offered homes.
+      - A binding cap leaves excess demand
+      - A fire removed offered housing
+      - The ceiling is above market rent
+      - Every applicant already has a home
     answer: A binding cap leaves excess demand
-    answerText: The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.
+    answerText: "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional."
     why: "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
@@ -325,18 +321,18 @@
     title: "Keep the promise honest"
     concept: 8   # Price controls and allocation
     reason: "The public promise must not erase the excluded applicants."
-    scene: "The office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise."
+    scene: "Leila shows you the record: the office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise."
     motivation: "The advice distinguishes a factual shortage from a value judgment about tenant protection."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Reject the ceiling as a complete housing plan and retain a separate access measure
       - Certify the ceiling alone as housing every applicant
       - Reject all tenant relief because some people lose
       - Promise immediate construction without funds or permits
     answer: Reject the ceiling as a complete housing plan and retain a separate access measure
-    answerText: The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures.
-    why: The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures. The advice distinguishes a factual shortage from a value judgment about tenant protection. A lower legal rent does not fill the 40-unit quantity gap. Distributional benefits remain real even when a policy is incomplete.
+    answerText: "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures."
+    why: "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures. The advice distinguishes a factual shortage from a value judgment about tenant protection. A lower legal rent does not fill the 40-unit quantity gap. Distributional benefits remain real even when a policy is incomplete."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The cap creates a modeled 40-home shortage; incumbent tenants benefit, applicants can remain excluded, and the town's stated aim is access for every applicant. No new homes or rent aid are included in the cap proposal.

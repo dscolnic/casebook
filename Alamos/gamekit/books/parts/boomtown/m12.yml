@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 12 OF 15"
     title: "THE WATER BELOW"
     goNow: "Go to Water and Land Office and meet Owen Price, watershed engineer, at the Water Record Desk."
-    body: "The firms may expand freight, but water records show costs that their prices leave out. A transaction can harm people who are not buying or selling in that market. At Water and Land Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should use the uncorrected freight quantity as its efficiency target."
+    body: "The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count."
     objective: "Decide whether the town should use the uncorrected freight quantity as its efficiency target."
   objective: "Decide whether the town should use the uncorrected freight quantity as its efficiency target."
-  stake: "The firms may expand freight, but water records show costs that their prices leave out. A transaction can harm people who are not buying or selling in that market. At Water and Land Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should use the uncorrected freight quantity as its efficiency target."
+  stake: "The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count."
   takeaway: "The freight agreement now needs both access and a water-cost rule."
   segue: "Mission decision: Use thirty freight units as the goal once harm is counted. The old goal left out a water cost. The plan gains a water rule. A filter quote may cut the cost of that rule."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -48,7 +48,7 @@
     title: "Add the missing cost"
     concept: 18   # External costs and benefits
     reason: "Water users pay a cost absent from the freight invoice."
-    scene: "The firms' incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town's final target."
+    scene: "Owen shows you the record: the firms' incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town's final target."
     motivation: "Water users become part of the cost comparison even though they buy no freight."
     format: BALLPARK
     question: "Submit marginal social cost per freight unit."
@@ -128,7 +128,7 @@
     title: "Which shared problem is which"
     concept: 19   # Public goods and common resources
     reason: "The response depends on rivalry and exclusion rather than ownership labels."
-    scene: "The water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them."
+    scene: "Ruth shows you the record: the water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them."
     motivation: "Ownership alone does not identify the incentive problem."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -218,7 +218,7 @@
     title: "Test the corrected target"
     concept: 18   # External costs and benefits
     reason: "The freight benchmark must be recomputed with the measured harm."
-    scene: "The shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim."
+    scene: "Mara shows you the record: the shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim."
     motivation: "The player must revise an earlier benchmark when a previously unpriced cost is measured."
     format: VERIFY
     question: "First, calculate and commit the efficient freight quantity using marginal social benefit equals marginal social cost. Then run the Hearing Table, measure the welfare-maximizing quantity, and select whether it matches; no restoration or second reading is required."
@@ -315,18 +315,18 @@
     title: "Correct the freight goal"
     concept: 18   # External costs and benefits
     reason: "The agreement needs the social-cost target rather than either old benchmark."
-    scene: "The revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem."
+    scene: "Mara shows you the record: the revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem."
     motivation: "The freight agreement now needs both access and a water-cost rule."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Use 30 freight units as the corrected efficiency target in the stated model
       - Use 40 because competition always removes every inefficiency
       - Use 20 because any pollution means monopoly is efficient
       - Reject all public-good provision because some users free ride
     answer: Use 30 freight units as the corrected efficiency target in the stated model
-    answerText: The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services.
-    why: The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services. The freight agreement now needs both access and a water-cost rule. The 40-unit benchmark omitted $20 marginal external harm. The coincidence of lower output does not prove the monopoly selects the social optimum.
+    answerText: "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services."
+    why: "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services. The freight agreement now needs both access and a water-cost rule. The 40-unit benchmark omitted $20 marginal external harm. The coincidence of lower output does not prove the monopoly selects the social optimum."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: Private monopoly output was 20; the no-harm competitive benchmark was 40; with external harm the efficient quantity is 30. A $20-per-unit corrective charge exactly equals constant marginal harm in this model.

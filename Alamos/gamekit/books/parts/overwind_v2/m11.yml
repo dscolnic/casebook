@@ -6,12 +6,12 @@
     header: "DAY 11 OF 12 — INSPECTION IN 2 DAYS"
     title: "THE TEST THAT PASSED"
     goNow: "Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The pad bench."
-    body: "March is explained, and the empty cage now stops within the marked space. Warm brake pads and a heavier load can still change the stopping distance. At the brake house, Bank and Winder House, check the limits before anyone rides. By the end of the mission, decide whether the empty test authorizes the faster passenger profile."
+    body: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
     objective: "Does the empty test authorize the faster passenger profile?"
   objective: "Does the empty test authorize the faster passenger profile?"
-  stake: "March is explained, and the empty cage now stops within the marked space. Warm brake pads and a heavier load can still change the stopping distance. At the brake house, Bank and Winder House, check the limits before anyone rides. By the end of the mission, decide whether the empty test authorizes the faster passenger profile."
+  stake: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
   takeaway: "A test approves only the conditions it actually covers. ---"
-  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready."
+  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Braking deceleration", def: "the positive size of acceleration opposite motion."}
@@ -46,7 +46,7 @@
     title: "Read the certificate conditions"
     concept: 11   # Read the certificate conditions
     reason: "The empty test certificate does not cover every load or pad state."
-    scene: "The March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift."
+    scene: "Ada Kerr notes that the March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal readings, and select the one cause consistent with the whole panel."
@@ -137,7 +137,7 @@
     title: "Bound the stopping travel"
     concept: 11   # Bound the stopping travel
     reason: "The overhead allowance must cover adverse braking and residual motion."
-    scene: "The working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing."
+    scene: "Ruth Bell sees that the working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -174,7 +174,7 @@
     #         why: A safety envelope must include an excursion in the same adverse direction; subtracting it assumes a favorable phase.
     #     answerText: The integral gives translational braking travel; adding the separately validated worst-phase modal excursion is a conservative envelope, not a claim that both peaks occur simultaneously. Its range is limited to the campaign’s certified loads, lengths and response tests.
     derive:
-      start: For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel.
+      start: For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel. Evaluate the candidate v=2 m/s.
       goal: Derive total conservative stopping excursion as a function of approach speed.
       steps:
         - ask: Integrate the velocity-position form of acceleration.
@@ -187,7 +187,7 @@
         - ask: Add the adverse remaining oscillation bound.
           answer: 0
           candidates:
-            - text: d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v
+            - text: d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v; at v=2, d_bound=2²/(2×1)+2/1.25=3.6 m
             - text: d_bound=v²/(2bmin)−v/ωmin=0.5v²−0.8v
               why: A safety envelope must include an excursion in the same adverse direction; subtracting it assumes a favorable phase.
               survives: true
@@ -200,7 +200,7 @@
     title: "Test a warm loaded surrogate"
     concept: 11   # Test a warm loaded surrogate
     reason: "The loaded warm-pad braking term needs a direct surrogate check."
-    scene: "The stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions."
+    scene: "Ewan Price confirms that the stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: VERIFY
     question: "First, calculate and commit drum-equivalent braking travel in m from the visible data. OPERATE: run the loaded warm-pad surrogate. Keep the 2 m/s approach speed and pad temperature fixed. MEASURE: press READ once after the run and record drum-equivalent braking travel. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -253,7 +253,7 @@
     title: "Commit the day's plan"
     concept: 11   # Commit the day's plan
     reason: "The faster proposal exceeds the allowed stopping space."
-    scene: "The surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review."
+    scene: "Ewan Price finds that the surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

@@ -2,7 +2,7 @@
 
 ## AP Computer Science A Campaign Implementation Bible
 
-**Version:** 2.11 — Handback 4 final instrument repair + code-display preservation  
+**Version:** 2.12 — Handback 6: Recovery Record, ending, and card revision  
 **Campaign length:** 15 missions, 60 graded stops  
 **Setting:** Aster Station, Antarctica, during polar night  
 **Primary subject:** AP Computer Science A (Java)
@@ -11,7 +11,7 @@
 
 ## 0. Readiness boundary
 
-This bible is authored to the supplied Master Campaign Brief, `QUESTION_TYPES.md`, and Giant Campaign Gate Check. It contains concrete stop-specific boards rather than payload placeholders. **Importer/schema acceptance and runtime play remain NOT TESTED** because `engine/content/normalize.js`, the importer/schema, validators, and a playable repository were not supplied; `QUESTION_TYPES.md` itself says those code sources are authoritative over the markdown description.
+This bible is authored to the supplied Master Campaign Brief, `QUESTION_TYPES.md`, and Giant Campaign Gate Check. It contains concrete stop-specific boards rather than payload placeholders. **Build evidence:** Handback 6 reports that v2.11 imports and plays. **This v2.12 revision has not been re-imported or played here** because `engine/content/normalize.js`, the importer/schema, validators, and a playable repository were not supplied; `QUESTION_TYPES.md` itself says those code sources are authoritative over the markdown description.
 
 **Handback 1 resolution:** the twelve standard VERIFY stops identified by the build handback now use `predictionRange`, one numeric `truth`, and a costed `measurement` instead of a `readings` table. The Stop 11 CHOICE has one unambiguous key, the two equation-symbol lines use parser-safe symbol glosses, Mission 1's closing card is simplified, and Mission 15 explicitly opens the Runway Door and lands the rescue aircraft in the playable world.
 
@@ -35,13 +35,52 @@ The story begins with apparently unrelated hardware failures. The first major re
 
 ## Opening card — exact player copy
 
-You are at Aster Station in Antarctica, where a whiteout has cut off 28 people and left one rescue window about 36 hours away. Your AP Computer Science A skills are needed because Java software controls heat, air, vehicles, and communications. If those systems fail together, the station may become unsafe before aircraft can arrive. Station director Elena Park puts you in charge of proving what the code does before anyone changes a live system. “Do not trust a green light or a red light until you can explain why it is there.”
+You are at Aster Station, cut off by snow with 28 people. A rescue plane may reach you in 36 hours. The heat alarm is red, but the code may be wrong. Elena Park asks you to build The Recovery Record: fifteen tested findings that tell the next crew which faults were code and which fixes held. Prove each change before it goes live.
+
+### Station words — exact player copy
+
+- **scrubber:** the air cleaner that removes carbon dioxide from room air.
+- **ppm:** parts per million; a count of gas parts in a million parts of air.
+- **RMS (rms):** root mean square; square each error, find their mean, then take its square root. It shows error size but can hide a pattern.
+- **HAB (hab):** the habitat, where the crew lives; also the short label on its status bar.
+- **VENT (vent):** move air through a room; HIGH VENT asks for more airflow.
+- **LOCK (lock):** block use of a control until the stated test passes.
+- **SHUT (shut):** shut the named device down; SHUTDOWN is the full command label.
+- **DELAY (delay):** wait before the named action starts.
+- **ABORT (abort):** stop the current attempt and follow its stated recovery path.
+- **GO (go):** the stated checks pass, so the named action may start; it is not a claim that all faults are fixed.
 
 ### Opening implementation state
 
 The opening card appears over the normal playable spawn in the Operations Module, with all five sentences visible together and one Continue action. On Continue, the four campaign bars appear, the Mission 1 briefing activates, and normal first-person control returns immediately. WHITEOUT authors no pre-day sightseeing, greeting, or race warm-up; movement is learned inside Mission 1 while the player is already solving the heat alarm.
 
 ---
+## 1.1 Delivery — canonical build fields
+
+```yaml
+delivery:
+  name: "The Recovery Record"
+  what: "Fifteen tested findings tell the next crew which faults were code, what proves it, and which repairs passed new inputs."
+  pieces:
+    - "The integer arithmetic alarm" # M1
+    - "The two branches that fired" # M2
+    - "The loop that never advanced" # M3
+    - "The shared utility fault" # M4
+    - "The live object reference" # M5
+    - "The missing minute digit" # M6
+    - "The room sensor index" # M7
+    - "The skipped recovery records" # M8
+    - "The swapped map coordinates" # M9
+    - "The bounded frequency search" # M10
+    - "The separate warning fields" # M11
+    - "The private rescue queue" # M12
+    - "The terminating relay route" # M13
+    - "The failed rollback test" # M14
+    - "The staged station release" # M15
+```
+
+The existing incident board in the Operations Module shows all fifteen piece names from the opening. M1 through M15 each complete the piece at the same index when that mission's outcome unlocks. A pending piece shows its name and no finding; a completed piece shows its name and that mission's Decision delivered from §7. Do not use another campaign's delivery data. Pieces persist through a retry only when their mission was already complete; they grant no extra points or stops.
+
 # 2. Campaign metrics, timer, and recovery economy
 
 | Bar | Start | Player-facing meaning | Zero state | Lock condition |
@@ -166,6 +205,8 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 ---
 # 4. Canonical roster
 
+Each roster passage ends with a short recall question. The player answers aloud or thinks of an answer, then selects Reveal answer for feedback. This check is ungraded, costs no time or points, and changes no story state; it is not an added mission stop.
+
 ### Dr. Elena Park
 
 - **Display name:** Dr. Elena Park
@@ -181,6 +222,12 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 - **Verbal habit:** “What can we safely decide now?”
 - **Arc:** Moves from fast reversible action to requiring committed predictions and a staged canary release.
 - **Gameplay necessity:** Removing Park removes the authority constraint that turns technical results into station-wide GO/NO-GO decisions.
+
+**Passage question — exact player copy:** Which proof does Park require before a live change?
+
+**Reveal answer:** A tested prediction and a safe way to undo the change.
+
+**Feedback:** Speed alone does not show what the code will do.
 
 ### Malik Okafor
 
@@ -198,6 +245,12 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 - **Arc:** Learns to treat code traces as physical evidence when independent readings support them.
 - **Gameplay necessity:** Removing Okafor removes the hardware-first constraint that makes software evidence earn operational trust.
 
+**Passage question — exact player copy:** Why does Malik ask for fuel and exhaust readings?
+
+**Reveal answer:** They test the machine apart from the alarm code.
+
+**Feedback:** A red software light is not a second physical measurement.
+
 ### Priya Nair
 
 - **Display name:** Priya Nair
@@ -213,6 +266,12 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 - **Verbal habit:** “Which assumption does this method hide?”
 - **Arc:** Moves from interface trust to adversarial testing across legacy boundaries.
 - **Gameplay necessity:** Removing Nair removes the safe test environment and the viewpoint that turns bugs into testable software mechanisms.
+
+**Passage question — exact player copy:** Why does Priya replay a fault in the lab?
+
+**Reveal answer:** She can test its cause without changing live controls.
+
+**Feedback:** A clean interface does not prove the old code behind it works.
 
 ### Jonah Reyes
 
@@ -230,6 +289,12 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 - **Arc:** Shifts from replacing hardware to demanding repeatable software failure before touching parts.
 - **Gameplay necessity:** Removing Reyes removes the moving physical system that makes loops, grids, and recursion visible in the world.
 
+**Passage question — exact player copy:** What would make Jonah test code before replacing wheels?
+
+**Reveal answer:** The same route failure repeats with healthy hardware.
+
+**Feedback:** One repeatable software fault need not mean a broken wheel.
+
 ### Liv Andersen
 
 - **Display name:** Liv Andersen
@@ -245,6 +310,12 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 - **Verbal habit:** “Which path still works if this one disappears?”
 - **Arc:** Broadens redundancy from networking into whole-system release design.
 - **Gameplay necessity:** Removing Andersen removes the deadline and independent-path constraints that make search and fault tolerance operational.
+
+**Passage question — exact player copy:** What does Liv need from a backup path?
+
+**Reveal answer:** It must work when the main path fails.
+
+**Feedback:** Two channels through the same failed router are not independent.
 
 ### Mei Alvarez
 
@@ -263,6 +334,13 @@ No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves 
 - **Gameplay necessity:** Removing Alvarez removes the human consequence of bad indexing and branching in life-support control.
 
 ---
+
+**Passage question — exact player copy:** Why can two room displays agree and still be wrong?
+
+**Reveal answer:** Both can use the same faulty code upstream.
+
+**Feedback:** Agreement alone does not show that their evidence is independent.
+
 # 5. Authoritative numbered concept spine
 
 | # | Campaign concept | Source status |
@@ -642,9 +720,9 @@ Between the three major twists, the campaign deliberately changes the player's w
 
 **Go now:** Go to Power & Thermal Plant and meet Malik Okafor, power and thermal engineer, at the Load Board.
 
-**Card body (65 words; 4 sentences):** The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong.
+**Card body (54 words; 4 sentences):** The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix.
 
-**Objective:** Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly.
+**Objective:** Today you decide whether the heat alarm calls for an engine shutdown or a code fix.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -780,7 +858,7 @@ All four stops stay local so the early campaign teaches one subsystem without si
 
 **Stop reason — exact player copy:** Malik needs the displayed percentage explained before he shuts down a generator that still sounds normal.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The Load Board shows `delivered = 83`, `requested = 100`, and the alarm code `delivered / requested * 100`, while fuel flow and exhaust stay normal. Determine the integer expression's output before the crew decides whether the red percentage reflects the generator.
+**Question card story setup — exact player copy (45 words; 2 sentences):** Malik Okafor checks the evidence: the Load Board shows `delivered = 83`, `requested = 100`, and the alarm code `delivered / requested * 100`, while fuel flow and exhaust stay normal. Determine the integer expression's output to judge whether the red percentage reflects the generator.
 
 **Question card story-science connection — exact player copy:** If the arithmetic itself produces the alarm value, the physical generator should stay online while the software path is investigated.
 
@@ -841,14 +919,16 @@ rebuttals:
 
 **Stop reason — exact player copy:** Stop 1 proved the integer expression collapses before multiplication, so the crew needs a repair that preserves the 0.83 fraction.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** Stop 1 produced `0` even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Malik Okafor checks the evidence: Stop 1 produced `0` even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100.
 
 **Question card story-science connection — exact player copy:** A correct cast should predict 83.0 percent without changing any physical generator setting.
+
+**DERIVE givens — exact player copy:** delivered = 83 kW; requested = 100 kW; both inputs are int. A percent is a fraction times 100; use double to retain a fraction.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "int delivered = 83; int requested = 100;"
+  start: "delivered = 83 kW; requested = 100 kW; both inputs are int. A percent is a fraction times 100; use double to retain a fraction. Source: int delivered = 83; int requested = 100;"
   goal: "percent as a double, starting from integer inputs"
   steps:
     - id: cast
@@ -898,7 +978,7 @@ derive:
 
 **Stop reason — exact player copy:** Malik needs the corrected percentage stored without turning it back into an integer before the alarm comparison runs.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The repaired expression now produces `83.0`, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Malik Okafor checks the evidence: the repaired expression now produces `83.0`, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging.
 
 **Question card story-science connection — exact player copy:** The repaired arithmetic only matters if assignment preserves the type and value that the next alarm test will read.
 
@@ -955,7 +1035,7 @@ rebuttals:
 
 **Stop reason — exact player copy:** The generator may stay online only if the repaired percentage predicts the alarm state and a controlled run matches that prediction.
 
-**Question card story setup — exact player copy:** Stops 1–3 predict `percent = 83.0` from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Malik Okafor checks the evidence: Stops 1–3 predict `percent = 83.0` from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes.
 
 **Question card story-science connection — exact player copy:** Agreement between the committed Boolean prediction and the isolated run can clear the generator without pretending 83 percent is full output.
 
@@ -999,7 +1079,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. Habitat Control then shows two commands from one sensor reading.
+**Piece delivered:** The integer arithmetic alarm — part 1 of The Recovery Record.
+
+**Mission decision:** The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. But Mei now has two commands from one air reading.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 1 COMPLETE  
@@ -1019,6 +1101,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** But Mei now has two commands from one air reading.
 
 ## K. Quick concept review
 
@@ -1042,9 +1126,9 @@ verify:
 
 **Go now:** Go to Habitat Control and meet Mei Alvarez, habitat systems lead, at the Alarm Cabinet.
 
-**Card body (69 words; 4 sentences):** The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code.
+**Card body (49 words; 4 sentences):** The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches.
 
-**Objective:** Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire.
+**Objective:** Today you decide whether one sensor reading can make both branches fire.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -1173,7 +1257,7 @@ All four stops stay local so the early campaign teaches one subsystem without si
 
 **Stop reason — exact player copy:** Mei needs the first carbon-dioxide reading translated into true and false conditions before anyone blames the sensor.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading.
+**Question card story setup — exact player copy (45 words; 2 sentences):** Mei Alvarez checks the evidence: the scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading.
 
 **Question card story-science connection — exact player copy:** If both comparisons are true at 1050 ppm, duplicate output can come from control flow without any duplicate sensor packet.
 
@@ -1230,14 +1314,16 @@ rebuttals:
 
 **Stop reason — exact player copy:** Stop 5 proved one valid reading satisfies both thresholds, so the branch structure now determines whether one or two commands can run.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The current controller uses two independent `if` statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Mei Alvarez checks the evidence: the current controller uses two independent `if` statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response.
 
 **Question card story-science connection — exact player copy:** An exclusive structure should preserve the emergency response while preventing a second conflicting command from the same reading.
+
+**DERIVE givens — exact player copy:** reading = 1050 ppm; maintenanceMode = false. The rule is shutdown above 1000 ppm; otherwise use high vent above 900 and at most 1100 ppm. Only one command may run per reading.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "int co2 = reading; boolean maintenanceMode = false;"
+  start: "reading = 1050 ppm; maintenanceMode = false. The rule is shutdown above 1000 ppm; otherwise use high vent above 900 and at most 1100 ppm. Only one command may run per reading. Source: int co2 = reading; boolean maintenanceMode = false;"
   goal: "one mutually exclusive command from each CO2 reading"
   steps:
     - id: emergency
@@ -1287,7 +1373,7 @@ derive:
 
 **Stop reason — exact player copy:** The branch repair removes the duplicate action, but the controller also contains a nested maintenance lockout that could still suppress the wrong command.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** At 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Mei Alvarez checks the evidence: at 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair.
 
 **Question card story-science connection — exact player copy:** The correct explanation must account for both the emergency branch and the quiet maintenance control without inventing a second sensor event.
 
@@ -1348,7 +1434,7 @@ rebuttals:
 
 **Stop reason — exact player copy:** The repaired branch must also respect maintenance mode, so the crew needs a committed compound-logic prediction before live control unlocks.
 
-**Question card story setup — exact player copy:** The repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Mei Alvarez checks the evidence: the repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count.
 
 **Question card story-science connection — exact player copy:** Two planned cases can prove the emergency path and the lower-level path are exclusive without disabling a healthy scrubber.
 
@@ -1392,7 +1478,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The sensor is not duplicated; two separate `if` tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Rover Three then circles the same snow marker again.
+**Piece delivered:** The two branches that fired — part 2 of The Recovery Record.
+
+**Mission decision:** The sensor is not duplicated; two separate `if` tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Yet Jonah sees Rover Three circle the same snow marker again.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 2 COMPLETE  
@@ -1412,6 +1500,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Yet Jonah sees Rover Three circle the same snow marker again.
 
 ## K. Quick concept review
 
@@ -1435,9 +1525,9 @@ verify:
 
 **Go now:** Go to the Route Planning Board in Vehicle Bay.
 
-**Card body (65 words; 4 sentences):** The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate.
+**Card body (49 words; 4 sentences):** The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop.
 
-**Objective:** Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state.
+**Objective:** Today you decide whether to repair the rover wheels or the loop that drives them.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -1568,7 +1658,7 @@ All four stops stay local so the early campaign teaches one subsystem without si
 
 **Stop reason — exact player copy:** Jonah needs the rover's intended four-step route separated from the code that is trapping it at the first marker.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Jonah Reyes checks the evidence: Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace.
 
 **Question card story-science connection — exact player copy:** A correct sequence gives the loop a state change that can move the rover toward its stopping condition.
 
@@ -1627,14 +1717,16 @@ order:
 
 **Stop reason — exact player copy:** Stop 9 showed the route index must advance, but the live trace repeats index zero through every lap around the marker.
 
-**Question card story setup — exact player copy (34 words; 2 sentences):** The current `while` loop checks `index < waypoints.length`, reads `waypoints[index]`, and steers correctly, but its body never changes `index`. Choose the progress statement and explain why the condition can otherwise remain true forever.
+**Question card story setup — exact player copy (38 words; 2 sentences):** Jonah Reyes checks the evidence: the current `while` loop checks `index < waypoints.length`, reads `waypoints[index]`, and steers correctly, but its body never changes `index`. Choose the progress statement and explain why the condition can otherwise remain true forever.
 
 **Question card story-science connection — exact player copy:** A loop terminates only if repeated work changes state in a way that can eventually make its condition false.
+
+**DERIVE givens — exact player copy:** index starts at 0; waypoints.length = 4. Each arrival must advance by one position. The loop tests index < waypoints.length.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }"
+  start: "index starts at 0; waypoints.length = 4. Each arrival must advance by one position. The loop tests index < waypoints.length. Source: int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }"
   goal: "advance loop state until the waypoint condition becomes false"
   steps:
     - id: progress
@@ -1684,7 +1776,7 @@ derive:
 
 **Stop reason — exact player copy:** Jonah wants the smallest repair that advances exactly one waypoint after each confirmed arrival without changing the loop condition.
 
-**Question card story setup — exact player copy (35 words; 2 sentences):** The loop index is an `int` starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Jonah Reyes checks the evidence: the loop index is an `int` starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions.
 
 **Question card story-science connection — exact player copy:** The correct update should produce indexes 0, 1, 2, and 3 before the length check stops a four-waypoint route.
 
@@ -1741,7 +1833,7 @@ rebuttals:
 
 **Stop reason — exact player copy:** The rover may move only after the repaired loop predicts every index it will visit and the point where it must stop.
 
-**Question card story setup — exact player copy:** A four-waypoint simulation starts at `index = 0` and uses the repaired `while (index < 4)` loop with `index++` after each arrival. Commit the final index before the diagnostic cart reveals the stopping state.
+**Question card story setup — exact player copy (39 words; 2 sentences):** Jonah Reyes checks the evidence: a four-waypoint simulation starts at `index = 0` and uses the repaired `while (index < 4)` loop with `index++` after each arrival. Commit the final index before the diagnostic cart reveals the stopping state.
 
 **Question card story-science connection — exact player copy:** A correct bounded trace can separate a software loop from a mechanical steering failure without sending the rover into the whiteout.
 
@@ -1785,7 +1877,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. The incident log then links three failures to one software tool.
+**Piece delivered:** The loop that never advanced — part 3 of The Recovery Record.
+
+**Mission decision:** Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. Now Priya finds the same code tool in all three fault traces.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 3 COMPLETE  
@@ -1805,6 +1899,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Now Priya finds the same code tool in all three fault traces.
 
 ## K. Quick concept review
 
@@ -1828,9 +1924,9 @@ verify:
 
 **Go now:** Go to Software Lab and meet Priya Nair, software architect, at the Test Bench.
 
-**Card body (68 words; 4 sentences):** Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem.
+**Card body (48 words; 4 sentences):** Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault.
 
-**Objective:** Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility.
+**Objective:** Today you decide whether the three faults need one shared code test.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -1959,7 +2055,7 @@ All four stops stay local so the early campaign teaches one subsystem without si
 
 **Stop reason — exact player copy:** Priya will not patch the live station until one cheap test can tell whether the three failures share a software utility.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: the software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.
 
 **Question card story-science connection — exact player copy:** The best test is the one whose outcome changes which explanation survives, not simply the one that produces the most data.
 
@@ -2011,7 +2107,7 @@ value:
 
 **Stop reason — exact player copy:** The shared replay reproduces the ordinary failures, but Priya wants one boundary input that could expose whether the utility assumes nonempty data.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Priya Nair checks the evidence: the utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input.
 
 **Question card story-science connection — exact player copy:** A boundary case is useful when it exercises a condition the normal examples never reach.
 
@@ -2068,7 +2164,7 @@ rebuttals:
 
 **Stop reason — exact player copy:** Priya needs to separate what the utility's documentation actually promises from behaviors the station merely happened to rely on.
 
-**Question card story setup — exact player copy (42 words; 2 sentences):** The method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.
+**Question card story setup — exact player copy (45 words; 2 sentences):** Priya Nair checks: the method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.
 
 **Question card story-science connection — exact player copy:** A documented precondition can shift responsibility to callers, while an undocumented behavior cannot safely be treated as a contract.
 
@@ -2140,7 +2236,7 @@ attest:
 
 **Stop reason — exact player copy:** The test harness now has three reproduced failures, an empty-input result, and a verified method contract, enough to localize the common defect.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** Power percentage, scrubber branch state, and rover progress all pass through `normalizeState(int[] values)` before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Priya Nair checks the evidence: Power percentage, scrubber branch state, and rover progress all pass through `normalizeState(int[] values)` before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls.
 
 **Question card story-science connection — exact player copy:** The right diagnosis should explain shared software symptoms without requiring three unrelated pieces of hardware to fail at the same time.
 
@@ -2189,7 +2285,9 @@ rebuttals:
 
 ## I. Mission outcome
 
-**Mission decision:** Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. The first patch then changes C17 but not live controller P02.
+**Piece delivered:** The shared utility fault — part 4 of The Recovery Record.
+
+**Mission decision:** Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. But Malik sees the patch change C17 while P02 stays the same.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 4 COMPLETE  
@@ -2209,6 +2307,8 @@ rebuttals:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** But Malik sees the patch change C17 while P02 stays the same.
 
 ## K. Quick concept review
 
@@ -2232,9 +2332,9 @@ rebuttals:
 
 **Go now:** Go to Software Lab and meet Priya Nair, software architect, beside the Version Rack.
 
-**Card body (70 words; 4 sentences):** The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object.
+**Card body (48 words; 4 sentences):** The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit.
 
-**Objective:** Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state.
+**Objective:** Today you decide whether the patch reaches live object P02.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -2369,7 +2469,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Priya needs to know why a patch changes the simulator but leaves live controller P02 untouched.
 
-**Question card story setup — exact player copy (41 words; 2 sentences):** The software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks: the software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values.
 
 **Question card story-science connection — exact player copy:** Two objects can look alike while storing separate state, so the patch target must be identified by reference rather than appearance.
 
@@ -2423,14 +2523,16 @@ mapping: {c17_after_patch: patch_landed_c17, p02_after_patch: p02_unchanged, ide
 
 **Stop reason — exact player copy:** Stop 17 proved the patch reached C17, so the team must verify how the live P02 object was constructed before following references further.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** P02 should start with identifier `P02` and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: P02 should start with identifier `P02` and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field.
 
 **Question card story-science connection — exact player copy:** A reference trace is only useful after the object itself has been initialized with the state the crew thinks it has.
+
+**DERIVE givens — exact player copy:** Construct live object P02 with limit 70. Constructor arguments are String id and int limit, in that order. The tempting hard-coded body uses P02 and 90; it must also work for other arguments.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }"
+  start: "Construct live object P02 with limit 70. Constructor arguments are String id and int limit, in that order. The tempting hard-coded body uses P02 and 90; it must also work for other arguments. Source: class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }"
   goal: "initialize an object from supplied constructor arguments"
   steps:
     - id: constructor
@@ -2480,7 +2582,7 @@ derive:
 
 **Stop reason — exact player copy:** P02 is constructed correctly, so the remaining question is which references flow into the patch method.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The build graph shows four channels named `sim`, `live`, `active`, and `backup`; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: the build graph shows four channels named `sim`, `live`, `active`, and `backup`; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller.
 
 **Question card story-science connection — exact player copy:** The patch only changes the physical station if the method receives a reference to P02 rather than a simulation or backup object.
 
@@ -2538,7 +2640,7 @@ trace:
 
 **Stop reason — exact player copy:** The live reference is now known, but Malik will not accept the patch until the method's effect on P02 is predicted before operation.
 
-**Question card story setup — exact player copy:** P02 starts with limit 70 while C17 already holds 90, and `applyPatch(live)` calls `setLimit(90)` on the object referenced by `live`. Commit P02's final limit before the isolated patch reveals which live object changed.
+**Question card story setup — exact player copy (38 words; 2 sentences):** Malik Okafor checks the evidence: P02 starts with limit 70 while C17 already holds 90, and `applyPatch(live)` calls `setLimit(90)` on the object referenced by `live`. Commit P02's final limit before the isolated patch reveals which live object changed.
 
 **Question card story-science connection — exact player copy:** A method call through the correct reference should change P02 while leaving the simulator object's state independent.
 
@@ -2582,7 +2684,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The patch changed simulator C17, not live controller P02. The trace shows `active` points to C17 and `live` points to P02. The crew fixes the live reference and checks P02. A rescue message then shows `08:0` while the raw packet shows `08:07`.
+**Piece delivered:** The live object reference — part 5 of The Recovery Record.
+
+**Mission decision:** The patch changed simulator C17, not live controller P02. The trace shows `active` points to C17 and `live` points to P02. The crew fixes the live reference and checks P02. Yet Liv sees 08:0 on screen and 08:07 in the raw note.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 5 COMPLETE  
@@ -2602,6 +2706,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Yet Liv sees 08:0 on screen and 08:07 in the raw note.
 
 ## K. Quick concept review
 
@@ -2625,9 +2731,9 @@ verify:
 
 **Go now:** Go to the Packet Monitor in Communications & Weather.
 
-**Card body (63 words; 4 sentences):** The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong.
+**Card body (52 words; 4 sentences):** The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong.
 
-**Objective:** Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly.
+**Objective:** Today you decide whether to keep the rescue link and fix the time parser.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -2640,7 +2746,7 @@ verify:
 
 - **String:** an object that stores an ordered sequence of characters.
 
-- **substring:** a String method that returns characters from a chosen start index up to, but not including, an end index.
+- **substring:** copies part of a String. It includes the start index and stops before the end index.
 
 
 #### Primer concepts
@@ -2755,7 +2861,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Liv needs to know whether the apparent late message is already visible in the network path before software parsing is blamed.
 
-**Question card story setup — exact player copy (43 words; 2 sentences):** The rescue packet reaches the station through satellite hop S1 and router AR-2, while a local clock feed and rover radio use different upstream paths. Open all four dependencies and identify whether the delayed display shares a transport failure with the packet capture.
+**Question card story setup — exact player copy:** Liv Andersen tracks the packet through satellite hop S1 and router AR-2; the local clock and rover radio use other paths. Open all four dependencies and judge whether the display delay shares a transport fault with the packet capture.
 
 **Question card story-science connection — exact player copy:** Independent path evidence can separate network transport delay from a later display or parsing error.
 
@@ -2814,7 +2920,7 @@ trace:
 
 **Stop reason — exact player copy:** The packet is on time, so Liv needs the exact character positions of its timestamp before the parser can be traced.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The captured text is `2026-09-08 08:07`, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Liv Andersen checks the evidence: the captured text is `2026-09-08 08:07`, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary.
 
 **Question card story-science connection — exact player copy:** Correct indexing of the raw String tells the team whether the parser is cutting data before it ever reaches the display.
 
@@ -2867,14 +2973,16 @@ rebuttals:
 
 **Stop reason — exact player copy:** Stop 22 placed the final minute digit at index 15, so the current substring must include that character to display the full time.
 
-**Question card story setup — exact player copy (34 words; 2 sentences):** The parser currently calls `timestamp.substring(11, 15)`, which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's `08:07` value survives the parser unchanged.
+**Question card story setup — exact player copy (36 words; 2 sentences):** Priya Nair checks the evidence: the parser currently calls `timestamp.substring(11, 15)`, which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's `08:07` value survives the parser unchanged.
 
 **Question card story-science connection — exact player copy:** The display can only show the correct minute if the method's exclusive end index extends one position beyond the final character needed.
+
+**DERIVE givens — exact player copy:** timestamp = 2026-09-08 08:07. Java counts character indexes from 0; the time starts at index 11 and is five characters long. substring includes its start and excludes its end.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "String timestamp = \"2026-09-08 08:07\";"
+  start: "timestamp = 2026-09-08 08:07. Java counts character indexes from 0; the time starts at index 11 and is five characters long. substring includes its start and excludes its end. Source: String timestamp = \"2026-09-08 08:07\";"
   goal: "extract the five-character HH:MM field"
   steps:
     - id: end
@@ -2924,7 +3032,7 @@ derive:
 
 **Stop reason — exact player copy:** The parser call is repaired, but the rescue window depends on proving the method returns the same time already present in the packet.
 
-**Question card story setup — exact player copy:** The captured packet contains `2026-09-08 08:07`, and the corrected parser now uses `substring(11,16)`. Commit the numeric minute field the repaired display should show before the parser test reveals its measured output.
+**Question card story setup — exact player copy (36 words; 2 sentences):** Priya Nair checks the evidence: the captured packet contains `2026-09-08 08:07`, and the corrected parser now uses `substring(11,16)`. Commit the numeric minute field the repaired display should show before the parser test reveals its measured output.
 
 **Question card story-science connection — exact player copy:** Agreement after a frozen prediction can clear the network path and keep the rescue window open.
 
@@ -2966,7 +3074,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. Habitat Control then labels Room 7 as 4.1°C while a local reading shows 20.9°C.
+**Piece delivered:** The missing minute digit — part 6 of The Recovery Record.
+
+**Mission decision:** The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 6 COMPLETE  
@@ -2986,6 +3096,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C.
 
 ## K. Quick concept review
 
@@ -3009,9 +3121,9 @@ verify:
 
 **Go now:** Go to the Sensor Probe Rack in Habitat Control.
 
-**Card body (67 words; 4 sentences):** The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed.
+**Card body (52 words; 4 sentences):** The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item.
 
-**Objective:** Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element.
+**Objective:** Today you decide whether Room 7 needs to be cleared or its index needs a fix.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -3146,7 +3258,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Mei needs the physical room labels compared with the array entries before she evacuates anyone from a cold-room alarm.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** Four room stations each show an independent thermometer and the controller value read from `temps[index]`. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Mei Alvarez checks the evidence: four room stations each show an independent thermometer and the controller value read from `temps[index]`. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks.
 
 **Question card story-science connection — exact player copy:** Station-by-station expected values can reveal an indexing problem even when every numeric reading is individually plausible.
 
@@ -3198,14 +3310,16 @@ probe:
 
 **Stop reason — exact player copy:** Stop 25 proved the values are real but attached to the wrong room labels, so the loop that copies array entries into display rows is next.
 
-**Question card story setup — exact player copy (35 words; 2 sentences):** The display loop should pair `labels[i]` with `temps[i]` for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing.
+**Question card story setup — exact player copy (38 words; 2 sentences):** Mei Alvarez checks the evidence: the display loop should pair `labels[i]` with `temps[i]` for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing.
 
 **Question card story-science connection — exact player copy:** A correct traversal should keep Room 6's 4.1°C value at the same index as the Room 6 label.
+
+**DERIVE givens — exact player copy:** labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
+  start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
   goal: "visit every legal index once and pair each label with the value at that same index"
   steps:
     - id: header
@@ -3255,7 +3369,7 @@ derive:
 
 **Stop reason — exact player copy:** The correct traversal uses matching indexes, but the live display code contains one explicit `temps[i - 1]` access for Room 7.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** When the display row for Room 7 uses `i = 2`, the expression `temps[i - 1]` reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Mei Alvarez checks the evidence: When the display row for Room 7 uses `i = 2`, the expression `temps[i - 1]` reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display.
 
 **Question card story-science connection — exact player copy:** Computing the exact wrong index explains the alarm without changing or discarding any physical temperature measurement.
 
@@ -3312,7 +3426,7 @@ rebuttals:
 
 **Stop reason — exact player copy:** Room 7 should remain occupied only if the corrected traversal restores every room value and the safety check classifies the rooms correctly.
 
-**Question card story setup — exact player copy:** The repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains `temp >= 10.0`. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test.
+**Question card story setup — exact player copy (39 words; 2 sentences):** Priya Nair checks the evidence: the repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains `temp >= 10.0`. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test.
 
 **Question card story-science connection — exact player copy:** The final decision requires both the corrected array algorithm and a Boolean safety test on the value actually belonging to Room 7.
 
@@ -3356,7 +3470,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. The incident view then loses every second record.
+**Piece delivered:** The room sensor index — part 7 of The Recovery Record.
+
+**Mission decision:** Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. Now Park finds every second record gone from the incident view.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 7 COMPLETE  
@@ -3376,6 +3492,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Now Park finds every second record gone from the incident view.
 
 ## K. Quick concept review
 
@@ -3399,9 +3517,9 @@ verify:
 
 **Go now:** Go to Operations Module and meet Dr. Elena Park, station director, at the Shift Log Desk.
 
-**Card body (63 words; 4 sentences):** Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup.
+**Card body (45 words; 4 sentences):** Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them.
 
-**Objective:** Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records.
+**Objective:** Today you decide whether the raw log is lost or list cleanup skips its records.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -3529,7 +3647,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Park needs to know whether six recovery actions were ever written before anyone accuses the incident logger of losing them.
 
-**Question card story setup — exact player copy (41 words; 2 sentences):** The raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Elena Park checks: the raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed.
 
 **Question card story-science connection — exact player copy:** Raw-file evidence can distinguish missing source data from records that disappear only after a program transforms the file.
 
@@ -3583,7 +3701,7 @@ mapping: {raw_a: a_unresolved, raw_b: b_existed, raw_c: adjacent_resolved, proce
 
 **Stop reason — exact player copy:** The raw file proves the records existed, so Park needs to know whether parsing changed their labels before list mutation is examined.
 
-**Question card story setup — exact player copy (31 words; 2 sentences):** The parser creates `[A open, B resolved, C resolved, D open, E resolved, F resolved]`, matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison.
+**Question card story setup — exact player copy (36 words; 2 sentences):** Elena Park checks the evidence: the parser creates `[A open, B resolved, C resolved, D open, E resolved, F resolved]`, matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison.
 
 **Question card story-science connection — exact player copy:** If parsed data match the raw file, the loss must occur in a later operation rather than during text conversion.
 
@@ -3636,14 +3754,16 @@ rebuttals:
 
 **Stop reason — exact player copy:** The source and parser both preserve six records, leaving the forward cleanup loop as the first stage where B and E can disappear incorrectly.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The cleanup iterates from index zero upward and removes a record when `isResolved()` is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Priya Nair checks the evidence: the cleanup iterates from index zero upward and removes a record when `isResolved()` is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2.
 
 **Question card story-science connection — exact player copy:** The exact survivor pattern can become a reusable clue if the same mutation mechanism appears elsewhere later.
+
+**DERIVE givens — exact player copy:** Start with [A open, B resolved, C resolved, D open, E resolved, F resolved]. Indexes start at 0. The loop starts i at 0 and adds 1 after each pass; removal shifts later items left by 1.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved."
+  start: "Start with [A open, B resolved, C resolved, D open, E resolved, F resolved]. Indexes start at 0. The loop starts i at 0 and adds 1 after each pass; removal shifts later items left by 1. Source: records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved."
   goal: "trace the actual survivors of forward removal as indexes shift"
   steps:
     - id: afterB
@@ -3700,7 +3820,7 @@ derive:
 
 **Stop reason — exact player copy:** The forward trace explains the omissions, so the crew needs a regression test that proves a safe cleanup removes every resolved record without losing unresolved ones.
 
-**Question card story setup — exact player copy:** The repaired cleanup traverses `[A open, B resolved, C resolved, D open, E resolved, F resolved]` backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Priya Nair checks the evidence: the repaired cleanup traverses `[A open, B resolved, C resolved, D open, E resolved, F resolved]` backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size.
 
 **Question card story-science connection — exact player copy:** A regression test should fail the old forward loop and pass the new backward traversal on the same adjacent-resolved input.
 
@@ -3742,7 +3862,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. The rover map then moves a known crevasse to the next cell.
+**Piece delivered:** The skipped recovery records — part 8 of The Recovery Record.
+
+**Mission decision:** The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. But Jonah finds the known crack in the next map cell.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 8 COMPLETE  
@@ -3762,6 +3884,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** But Jonah finds the known crack in the next map cell.
 
 ## K. Quick concept review
 
@@ -3785,9 +3909,9 @@ verify:
 
 **Go now:** Go to the Route Table in Vehicle Bay.
 
-**Card body (65 words; 4 sentences):** The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates.
+**Card body (47 words; 4 sentences):** The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two.
 
-**Objective:** Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes.
+**Objective:** Today you decide whether to trust the survey and fix the map write.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -3920,7 +4044,7 @@ The mission is one causal investigation rather than four topic-matched questions
 
 **Stop reason — exact player copy:** Jonah needs to know whether the field survey or the rover display moved the crevasse before Rover Three uses the map.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Jonah Reyes checks the evidence: Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern.
 
 **Question card story-science connection — exact player copy:** A two-dimensional indexing error can transpose correct field data into a different map cell without changing the survey itself.
 
@@ -3972,7 +4096,7 @@ probe:
 
 **Stop reason — exact player copy:** Stop 33 proved the survey grid is correct, so the crew now needs the exact row-major order used by the map-copy loop.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** For a 2×2 grid, the copy loop should visit `[0][0]`, `[0][1]`, `[1][0]`, and `[1][1]` in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal.
+**Question card story setup — exact player copy (39 words; 2 sentences):** Jonah Reyes checks the evidence: For a 2×2 grid, the copy loop should visit `[0][0]`, `[0][1]`, `[1][0]`, and `[1][1]` in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal.
 
 **Question card story-science connection — exact player copy:** A correct traversal order makes it easier to isolate whether the defect is in visiting cells or writing them to the destination.
 
@@ -4033,7 +4157,7 @@ ends:
 
 **Stop reason — exact player copy:** The visit order is correct, so the bug must occur when each surveyed cell is written into the rover display grid.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The copy loop visits cells in row-major order, the source survey shows the crevasse at `[0][1]`, and the display shows it at `[1][0]`. Diagnose which write statement produces exactly that transpose while preserving every source value.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Priya Nair checks the evidence: the copy loop visits cells in row-major order, the source survey shows the crevasse at `[0][1]`, and the display shows it at `[1][0]`. Diagnose which write statement produces exactly that transpose while preserving every source value.
 
 **Question card story-science connection — exact player copy:** The right explanation must account for correct traversal, correct source data, and a swapped destination coordinate.
 
@@ -4094,7 +4218,7 @@ rebuttals:
 
 **Stop reason — exact player copy:** The transposed write is identified, but the rover remains locked until the repaired map predicts the exact crevasse coordinate.
 
-**Question card story setup — exact player copy:** The corrected copy uses `display[row][col] = survey[row][col]` on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map.
+**Question card story setup — exact player copy (38 words; 2 sentences):** Jonah Reyes checks the evidence: the corrected copy uses `display[row][col] = survey[row][col]` on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map.
 
 **Question card story-science connection — exact player copy:** A committed full-grid prediction can prove the repair fixes the coordinate mapping without inventing new survey data.
 
@@ -4136,7 +4260,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The field survey is right; the display swaps row and column. The source marks the crevasse at `[0][1]`, but the broken write shows `[1][0]`. The crew fixes the grid before releasing the rover. A short satellite pass then makes the old search too slow.
+**Piece delivered:** The swapped map coordinates — part 9 of The Recovery Record.
+
+**Mission decision:** The field survey is right; the display swaps row and column. The source marks the crevasse at `[0][1]`, but the broken write shows `[1][0]`. The crew fixes the grid before releasing the rover. Now Liv needs the right radio record before the next short pass ends.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 9 COMPLETE  
@@ -4156,6 +4282,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Now Liv needs the right radio record before the next short pass ends.
 
 ## K. Quick concept review
 
@@ -4179,9 +4307,9 @@ verify:
 
 **Go now:** Go to the Message Queue Board in Communications & Weather.
 
-**Card body (70 words; 4 sentences):** The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes.
+**Card body (50 words; 4 sentences):** The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time.
 
-**Objective:** Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window.
+**Objective:** Today you decide which search can reach the radio record before the link closes.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -4317,7 +4445,7 @@ The mission is one causal investigation rather than four topic-matched questions
 
 **Stop reason — exact player copy:** Liv needs a search strategy before the short satellite pass begins, and the table contains 1,024 sorted frequency records.
 
-**Question card story setup — exact player copy (43 words; 2 sentences):** A linear search may inspect all 1,024 records, while a halving search needs about one check per power of two in the table size. Estimate the maximum midpoint checks for binary search so the crew can compare the two methods before coding.
+**Question card story setup — exact player copy:** Liv Andersen compares a scan of 1,024 records with a search that halves the range at each check. Estimate the maximum midpoint checks for binary search so the crew can choose a method before the next short pass.
 
 **Question card story-science connection — exact player copy:** The rescue decision depends on choosing an algorithm whose work fits the time window, not merely one that eventually finds the record.
 
@@ -4371,7 +4499,7 @@ estimate:
 
 **Stop reason — exact player copy:** The estimate favors halving, but binary search is valid only if the rescue-frequency table is sorted by the same quantity being searched.
 
-**Question card story setup — exact player copy (35 words; 2 sentences):** The table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window.
+**Question card story setup — exact player copy (39 words; 2 sentences):** Liv Andersen checks the evidence: the table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window.
 
 **Question card story-science connection — exact player copy:** The fastest-looking method is only correct when its prerequisite about data order is actually satisfied.
 
@@ -4428,14 +4556,16 @@ rebuttals:
 
 **Stop reason — exact player copy:** The table is sorted and binary search is authorized, so Priya needs the exact low/high updates for the captured target.
 
-**Question card story setup — exact player copy (45 words; 2 sentences):** The eight displayed frequencies are `[118.0,119.4,120.2,121.6,122.3,123.1,124.5,126.0]`, with target 122.3. Build the midpoint trace from indexes 0–7 and choose the update after each comparison until index 4 is found.
+**Question card story setup — exact player copy:** Priya Nair shows `[118.1,119.4,120.8,121.6,122.3,123.1,124.7,126.0]` and target 122.3. Trace midpoints from bounds 0–7 and choose each new bound until the target is found.
 
 **Question card story-science connection — exact player copy:** Correct midpoint logic matters as much as choosing binary search; one reversed boundary update can discard the target half.
+
+**DERIVE givens — exact player copy:** low = 0; high = 7; target = 122.3. mid = (low + high) / 2 uses integer division. The sorted array is [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0].
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7."
+  start: "low = 0; high = 7; target = 122.3. mid = (low + high) / 2 uses integer division. The sorted array is [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]. Source: sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7."
   goal: "narrow binary-search bounds until the target index is identified"
   steps:
     - id: first
@@ -4490,7 +4620,7 @@ derive:
 
 **Stop reason — exact player copy:** The midpoint trace reaches 122.3 MHz in three checks, but the station must verify the live lookup returns the same record before the pass closes.
 
-**Question card story setup — exact player copy:** The sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Liv Andersen checks the evidence: the sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it.
 
 **Question card story-science connection — exact player copy:** A verified fast lookup protects the rescue link without replacing the independent path evidence needed later.
 
@@ -4532,7 +4662,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Two separate controllers then report the same last-warning value.
+**Piece delivered:** The bounded frequency search — part 10 of The Recovery Record.
+
+**Mission decision:** Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Yet Mei sees two separate units report the same last warning.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 10 COMPLETE  
@@ -4552,6 +4684,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Yet Mei sees two separate units report the same last warning.
 
 ## K. Quick concept review
 
@@ -4575,9 +4709,9 @@ verify:
 
 **Go now:** Go to Software Lab and meet Priya Nair, software architect, at the Version Rack.
 
-**Card body (70 words; 4 sentences):** The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state.
+**Card body (45 words; 4 sentences):** The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field.
 
-**Objective:** Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level.
+**Objective:** Today you decide whether each unit needs its own warning field.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -4720,7 +4854,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Priya needs to prove P02 and H04 are different objects before blaming a shared field for their identical warnings.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report `lastWarning = 7`. Match the evidence to what it says about object identity and unexpectedly shared state.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report `lastWarning = 7`. Match the evidence to what it says about object identity and unexpectedly shared state.
 
 **Question card story-science connection — exact player copy:** Separate object identities make a class-level shared field more plausible than one physical controller somehow becoming the other.
 
@@ -4786,14 +4920,16 @@ mapping:
 
 **Stop reason — exact player copy:** Stop 41 proved the controllers are distinct, so the identical warning must come from code that stores state outside each individual object.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The class currently declares `static int lastWarning;`, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Priya Nair checks the evidence: the class currently declares `static int lastWarning;`, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot.
 
 **Question card story-science connection — exact player copy:** Moving warning state into each object should let H04 change without overwriting P02's previously stored warning.
+
+**DERIVE givens — exact player copy:** P02 warning starts at 3; H04 warning starts at 4. The replay calls H04.setWarning(7); value is the method parameter. Each object must keep its own warning.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called."
+  start: "P02 warning starts at 3; H04 warning starts at 4. The replay calls H04.setWarning(7); value is the method parameter. Each object must keep its own warning. Source: P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called."
   goal: "keep each object's warning state independent after one object changes"
   steps:
     - id: field
@@ -4843,7 +4979,7 @@ derive:
 
 **Stop reason — exact player copy:** The field is now instance state, but the team needs multiple controllers to show the repair is not accidentally hard-coded to P02.
 
-**Question card story setup — exact player copy (32 words; 2 sentences):** Four controllers start with different warning values, then H04 alone receives `setWarning(7)`. Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent.
+**Question card story setup — exact player copy (36 words; 2 sentences):** Malik Okafor checks the evidence: four controllers start with different warning values, then H04 alone receives `setWarning(7)`. Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent.
 
 **Question card story-science connection — exact player copy:** A station-wide fix should preserve each untouched object's warning while changing only the receiver of the method call.
 
@@ -4895,7 +5031,7 @@ probe:
 
 **Stop reason — exact player copy:** The probe looks correct, but the original dangerous sequence must be replayed before both controller families can return to service.
 
-**Question card story setup — exact player copy:** P02 starts warning 3 and H04 starts warning 4; the replay then calls `H04.setWarning(7)` while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it.
+**Question card story setup — exact player copy (39 words; 2 sentences):** Mei Alvarez checks the evidence: P02 starts warning 3 and H04 starts warning 4; the replay then calls `H04.setWarning(7)` while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it.
 
 **Question card story-science connection — exact player copy:** The repair passes only if H04 changes, P02 stays local, and the Boolean comparison proves the old cross-controller coupling is gone.
 
@@ -4939,7 +5075,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** The controllers share one `static` warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. The aircraft then allows only ten seconds for the next message.
+**Piece delivered:** The separate warning fields — part 11 of The Recovery Record.
+
+**Mission decision:** The controllers share one `static` warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. Now Liv has just ten seconds to send the plane what it needs.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 11 COMPLETE  
@@ -4959,6 +5097,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Now Liv has just ten seconds to send the plane what it needs.
 
 ## K. Quick concept review
 
@@ -4982,9 +5122,9 @@ verify:
 
 **Go now:** Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board.
 
-**Card body (63 words; 4 sentences):** The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust.
+**Card body (45 words; 4 sentences):** The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send.
 
-**Objective:** Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII.
+**Objective:** Today you decide which facts the plane needs in its ten-second message.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -4997,7 +5137,7 @@ verify:
 
 - **selection sort:** a sorting algorithm that repeatedly selects the next smallest or largest remaining item.
 
-- **insertion sort:** a sorting algorithm that inserts each new item into the correct place in an already-sorted prefix.
+- **insertion sort:** puts each new item in its proper place among the items already sorted.
 
 
 #### Primer concepts
@@ -5128,7 +5268,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Park has ten transmission seconds and must send enough operational evidence for the aircraft to act without exposing information it does not need.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** Each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Elena Park checks the evidence: each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.
 
 **Question card story-science connection — exact player copy:** Useful computing decisions include both technical sufficiency and the human cost of collecting or transmitting unnecessary personal data.
 
@@ -5184,7 +5324,7 @@ value:
 
 **Stop reason — exact player copy:** The message set is fixed, but the queue must be sorted by priority without losing the original order of equal-priority safety items.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The four items enter as `POWER(2)`, `RUNWAY(2)`, `WEATHER(1)`, and `MEDICAL(3)`, where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative.
+**Question card story setup — exact player copy (39 words; 2 sentences):** Priya Nair checks the evidence: the four items enter as `POWER(2)`, `RUNWAY(2)`, `WEATHER(1)`, and `MEDICAL(3)`, where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative.
 
 **Question card story-science connection — exact player copy:** Sorting is not just cosmetic here because the aircraft acts on the earliest items before the burst is fully complete.
 
@@ -5241,14 +5381,16 @@ order:
 
 **Stop reason — exact player copy:** The selection-sort trace exposes an equal-priority pair, so Priya wants an insertion rule that never moves a later equal-priority item ahead of an earlier one.
 
-**Question card story setup — exact player copy (35 words; 2 sentences):** Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2.
 
 **Question card story-science connection — exact player copy:** A one-character comparison choice can change whether equal-priority rescue actions retain their original operational order.
+
+**DERIVE givens — exact player copy:** POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "The list already contains POWER before RUNWAY, and the current item has the same priority."
+  start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority."
   goal: "insert an item without reversing earlier equal-priority items"
   steps:
     - id: condition
@@ -5298,7 +5440,7 @@ derive:
 
 **Stop reason — exact player copy:** The four-item queue now fits the privacy and priority rules, but the aircraft must receive exactly that ordered list within the ten-second burst.
 
-**Question card story setup — exact player copy:** The committed queue is `WEATHER, POWER, RUNWAY, MEDICAL`, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Liv Andersen checks the evidence: the committed queue is `WEATHER, POWER, RUNWAY, MEDICAL`, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took.
 
 **Question card story-science connection — exact player copy:** The mission succeeds only if data selection, list order, and transmission budget all agree in one observable output.
 
@@ -5342,7 +5484,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. Icing then threatens the main antenna.
+**Piece delivered:** The private rescue queue — part 12 of The Recovery Record.
+
+**Mission decision:** Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. But Liv sees ice spread across the main antenna.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 12 COMPLETE  
@@ -5362,6 +5506,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** But Liv sees ice spread across the main antenna.
 
 ## K. Quick concept review
 
@@ -5385,9 +5531,9 @@ verify:
 
 **Go now:** Go to the Code Review Wall in Software Lab.
 
-**Card body (66 words; 4 sentences):** The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely.
+**Card body (50 words; 4 sentences):** The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay.
 
-**Objective:** Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay.
+**Objective:** Today you decide whether the route code can send Rover Three out and bring its calls to an end.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -5530,7 +5676,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Priya needs the relay-route call stack made visible before any recursive code is allowed to command a rover outside.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The route builder `build(n)` calls `build(n - 1)` until no waypoints remain, then adds one waypoint while calls return. Put the calls for `build(3)` in entry order so the crew can see exactly where recursion must stop.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Priya Nair checks the evidence: the route builder `build(n)` calls `build(n - 1)` until no waypoints remain, then adds one waypoint while calls return. Put the calls for `build(3)` in entry order so the crew can see exactly where recursion must stop.
 
 **Question card story-science connection — exact player copy:** The same progress idea used in loops now appears in recursive calls: each step must move toward a stopping state.
 
@@ -5587,14 +5733,16 @@ order:
 
 **Stop reason — exact player copy:** Stop 49 reaches `build(0)`, but the current code tests `n < 0`, so zero still attempts another recursive call and an invalid waypoint access.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The empty-route case should return before another call, while every nonzero call must reduce `n`. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce `n`. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start.
 
 **Question card story-science connection — exact player copy:** A correct base case is both a stopping rule and part of the method's promised behavior for empty input.
+
+**DERIVE givens — exact player copy:** n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
+  start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
   goal: "reach a terminating base case by reducing the remaining count"
   steps:
     - id: base
@@ -5644,7 +5792,7 @@ derive:
 
 **Stop reason — exact player copy:** The recursion now terminates, but Jonah needs expected outputs for boundary and ordinary inputs before the route can be trusted.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The repaired builder should return no waypoints for `build(0)`, one waypoint for `build(1)`, and four waypoints for `build(4)`. Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Jonah Reyes checks the evidence: the repaired builder should return no waypoints for `build(0)`, one waypoint for `build(1)`, and four waypoints for `build(4)`. Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea.
 
 **Question card story-science connection — exact player copy:** A recursive method is correct only when its outputs match the contract across boundary and ordinary cases, not merely when it stops.
 
@@ -5705,7 +5853,7 @@ mapping:
 
 **Stop reason — exact player copy:** The recursive contract is verified, but the relay route must still be derived from the safe-cell list rather than printed in advance.
 
-**Question card story setup — exact player copy:** The console shows safe waypoints in scrambled storage order: `W3`, `W1`, `W4`, `W2`, with next fields `W3→W4`, `W1→W2`, `W4→null`, and `W2→W3`. Starting at W1, commit the route length before the simulation reveals the recursive result.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Liv Andersen checks the evidence: the console shows safe waypoints in scrambled storage order: `W3`, `W1`, `W4`, `W2`, with next fields `W3→W4`, `W1→W2`, `W4→null`, and `W2→W3`. Starting at W1, commit the route length before the simulation reveals the recursive result.
 
 **Question card story-science connection — exact player copy:** The player must combine object/link data with recursion to produce the path instead of reading the answer from a prefilled route list.
 
@@ -5749,7 +5897,9 @@ verify:
 
 ## I. Mission outcome
 
-**Mission decision:** Rover Three can carry the backup relay on the fixed route. The code reaches `build(0)` and returns four safe points. The rover deploys and gives the station a second command path. All dashboards turn green, but rollback has not tested side-by-side resolved records.
+**Piece delivered:** The terminating relay route — part 13 of The Recovery Record.
+
+**Mission decision:** Rover Three can carry the backup relay on the fixed route. The code reaches `build(0)` and returns four safe points. The rover deploys and gives the station a second command path. Yet Priya has no test of two resolved records side by side.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 13 COMPLETE  
@@ -5769,6 +5919,8 @@ verify:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Yet Priya has no test of two resolved records side by side.
 
 ## K. Quick concept review
 
@@ -5792,9 +5944,9 @@ verify:
 
 **Go now:** Go to the Test Bench in Software Lab.
 
-**Card body (64 words; 4 sentences):** The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable.
+**Card body (50 words; 4 sentences):** The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now.
 
-**Objective:** Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure.
+**Objective:** Today you decide whether the green lights prove a safe recovery path.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -5938,7 +6090,7 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Every dashboard is green, but Priya refuses to trust rollback because its development cases never contained adjacent resolved records.
 
-**Question card story setup — exact player copy:** Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Priya Nair checks the evidence: Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens.
 
 **Question card story-science connection — exact player copy:** A held-out test asks whether a repair survives structure that did not shape the implementation, rather than rewarding success on development cases alone.
 
@@ -5988,7 +6140,7 @@ verify:
 
 **Stop reason — exact player copy:** The holdout failure appears only when resolved records are adjacent, so Malik needs the rollback algorithm that remains safe as adjacent runs become longer.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit.
+**Question card story setup — exact player copy (45 words; 2 sentences):** Malik Okafor checks the evidence: the holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit.
 
 **Question card story-science connection — exact player copy:** A robust algorithm must survive the plausible input range and every required criterion, not merely the nominal case that made the dashboard green.
 
@@ -6052,7 +6204,7 @@ stress:
 
 **Stop reason — exact player copy:** The stress test rejects forward removal, but the crew still needs to know whether today's failure is the old skip mechanism or a new defect.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** Eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Malik Okafor checks the evidence: eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject.
 
 **Question card story-science connection — exact player copy:** A systematic residual pattern can identify a wrong mechanism even when its aggregate error score looks slightly better.
 
@@ -6127,7 +6279,7 @@ residual:
 
 **Stop reason — exact player copy:** The holdout, stress, and residual tests all challenge ALL GREEN, but Park needs a station-level diagnosis that also respects the quiet live systems.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Elena Park checks the evidence: Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery.
 
 **Question card story-science connection — exact player copy:** The right diagnosis must explain both the quiet live controls and the failed recovery path without inventing a simultaneous hardware cascade.
 
@@ -6178,7 +6330,9 @@ rebuttals:
 
 ## I. Mission outcome
 
-**Mission decision:** The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. The aircraft then enters the last usable weather window.
+**Piece delivered:** The failed rollback test — part 14 of The Recovery Record.
+
+**Mission decision:** The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. Now Park must choose a release plan as the plane enters its last weather window.
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 14 COMPLETE  
@@ -6198,6 +6352,8 @@ rebuttals:
 
 **Lock result:** No permanent metric lock is earned in this mission.
 
+
+**Segue — exact player copy:** Now Park must choose a release plan as the plane enters its last weather window.
 
 ## K. Quick concept review
 
@@ -6221,9 +6377,9 @@ rebuttals:
 
 **Go now:** Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board.
 
-**Card body (70 words; 4 sentences):** ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade.
+**Card body (49 words; 4 sentences):** The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust.
 
-**Objective:** Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade.
+**Objective:** Today you decide which tested release plan can keep the rescue path open.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -6366,7 +6522,7 @@ The mission is one causal investigation rather than four topic-matched questions
 
 **Stop reason — exact player copy:** The aircraft is entering the last usable weather window, and Park must choose a release plan before any wider controller update begins.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Elena Park checks the evidence: the crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.
 
 **Question card story-science connection — exact player copy:** The final plan should integrate established evidence rather than buy every attractive action or trust one dramatic restart.
 
@@ -6434,14 +6590,16 @@ answerText: "Fund regression, backward rollback, relay, and canary monitoring; s
 
 **Stop reason — exact player copy:** The staged plan cannot start until backward ArrayList removal is encoded as the exact mechanism that survived the holdout and stress tests.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index.
 
 **Question card story-science connection — exact player copy:** The final code must express the proven mechanism, not merely carry a label saying backward traversal is safer.
+
+**DERIVE givens — exact player copy:** records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
+  start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
   goal: "remove every resolved record without skipping a neighbor that shifts after deletion"
   steps:
     - id: header
@@ -6498,7 +6656,7 @@ derive:
 
 **Stop reason — exact player copy:** The rollback mechanism is verified, but the canary release still needs a command path that does not share the primary router's single point of failure.
 
-**Question card story setup — exact player copy (41 words; 2 sentences):** Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Liv Andersen checks: Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment.
 
 **Question card story-science connection — exact player copy:** Redundancy only protects the release when the backup path is genuinely independent of the component that can remove the primary path.
 
@@ -6556,7 +6714,7 @@ trace:
 
 **Stop reason — exact player copy:** Every release gate is ready, but the remaining controllers stay locked until the player computes and commits five canary expectations from displayed code and state.
 
-**Question card story setup — exact player copy (44 words; 2 sentences):** P02 starts at limit 70 and warning 3; H04 is a separate controller, the packet time is `2026-09-08 08:07`, rollback starts `[P02 open, X resolved, H04 open]`, and AR-2 may fail. Use the displayed code and dependency rules to compute five canary expectations.
+**Question card story setup — exact player copy:** Elena Park checks P02 at limit 70 and warning 3; separate H04; packet time `2026-09-08 08:07`; rollback `[P02 open, X resolved, H04 open]`; and possible AR-2 failure. Use the displayed code and dependency rules to compute five canary expectations.
 
 **Question card story-science connection — exact player copy:** The final verification integrates established mechanisms without printing the answers before the player's commitment.
 
@@ -6604,6 +6762,8 @@ verify:
 
 ## I. Mission outcome
 
+**Piece delivered:** The staged station release — part 15 of The Recovery Record.
+
 **Mission decision:** Use a staged canary release with backward rollback and the rover command path. The canary checks match. The crew expands the release one stage at a time. The Runway Door opens. The player watches the rescue aircraft land and taxi to the station.
 ## J. Post-mission metric screen — exact player copy
 
@@ -6625,6 +6785,8 @@ verify:
 **Lock result:** All four bars lock only after Stop 60's five canary measurements match their committed predictions.
 
 
+**Segue — exact player copy:** Now Park hands the fifteen-part record to the next crew as you walk through the Runway Door.
+
 ## K. Quick concept review
 
 - Program design is the selection and composition of abstractions and tests that meet system constraints, not just writing one more line of code.
@@ -6637,6 +6799,18 @@ verify:
 
 
 ---
+## Ending card — exact player copy
+
+The plane lands. Its lights cross the snow, and the Runway Door opens. You step out while the crew keeps the heat on and the rover link clear. Park takes The Recovery Record with her: fifteen parts, each tied to a test the next crew can repeat.
+
+The record shows why the first alarms lied. It shows how a loop, a shared field, and a list that shifted could put lives at risk. The last page holds the small first release, the checks it passed, and the path used to undo a change. No one had to bet the whole station on one restart.
+
+The storm has not gone. Nor has the need to test what comes next. New inputs may still expose a fault. The next crew has the code, the raw traces, and the cases that broke the old fixes. As you reach the plane, the station lights stay on behind you.
+
+### Ending implementation state
+
+Use this card only for WHITEOUT. Show it once after Mission 15's canary gate and all four bars pass, the Runway Door opens, the aircraft lands and taxis, and the player walks through the door and completes the final metric screen. One Continue returns to the completed campaign. Reopening the record is state-neutral. Replace any inherited Ice Core ending; do not add an extra gate or alter the authored aircraft sequence.
+
 # 8. Implementation handoff boundary
 
 Every stop above has one canonical format named in `QUESTION_TYPES.md`, one stop-specific payload, exact player-facing prompt, exact grading truth, answer text distinct from the key, mechanism-specific wrong feedback, a visible state change, and an explicit unlock. DERIVE uses exactly two choices per step. The twelve standard VERIFY stops identified in Handback 1 use a visible numeric `predictionRange`, one hidden numeric `truth`, and a costed `measurement`; the player commits before the measurement is revealed. Every DERIVE has `start`, a non-answer-revealing `goal`, and a specific `why` for every wrong line. Every TRACE target resolves to a declared resource with at least two build-recognized target-dependent channels and an independent channel; every PROBE target resolves to a declared station. VALUE options carry label/axis/cost fields with multiple evidence axes; ATTEST has a numeric checks budget; CASEBOOK mappings cover every clue; STRESS criteria have score keys and a valid robust candidate; every VERIFY truth lies inside its prediction range and retains a genuine fail region. Every mission card exposes exactly five optional generic worked examples that are ungraded, story-neutral, and timer-pausing. The final graded stop is followed by a walkable runway-and-aircraft payoff, not another quiz.

@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 6 OF 15"
     title: "WHO PAYS THE FEE"
     goNow: "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk."
-    body: "The cap cannot house everyone, so the council needs to cost its separate access measure. A fee can be shared by buyers and sellers even when only one side sends the payment. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed market fee supplies enough revenue for the housing measure."
+    body: "The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost."
     objective: "Decide whether the proposed market fee supplies enough revenue for the housing measure."
   objective: "Decide whether the proposed market fee supplies enough revenue for the housing measure."
-  stake: "The cap cannot house everyone, so the council needs to cost its separate access measure. A fee can be shared by buyers and sellers even when only one side sends the payment. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed market fee supplies enough revenue for the housing measure."
+  stake: "The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost."
   takeaway: "The council owns the distribution choice while the player certifies the calculation."
   segue: "Mission decision: Use the $120 fee receipts and report the $40 loss in gains. The funds cover the chosen housing step. Buyers and sellers both bear costs. One supplier now wants to close."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -48,7 +48,7 @@
     title: "Reserve actual receipts"
     concept: 9   # Tax incidence and subsidies
     reason: "The measure needs receipts from real taxed trades."
-    scene: "The hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment."
+    scene: "Mara shows you the record: the hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment."
     motivation: "A budget cannot spend tax receipts from transactions that no longer occur."
     format: BALLPARK
     question: "Submit daily tax revenue as tax per delivery times deliveries still traded."
@@ -128,7 +128,7 @@
     title: "Follow the burden"
     concept: 9   # Tax incidence and subsidies
     reason: "The public budget must identify the burden on both market sides."
-    scene: "The fee's receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers' payments and sellers' receipts before the council describes who funds the housing measure."
+    scene: "Mara shows you the record: the fee's receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers' payments and sellers' receipts before the council describes who funds the housing measure."
     motivation: "The legal payer cannot be used as a shortcut for who loses purchasing power."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -218,7 +218,7 @@
     title: "Cost the vanished trades"
     concept: 10   # Surplus and efficiency
     reason: "The council must disclose the gains lost as trade shrinks."
-    scene: "The price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer."
+    scene: "Nico shows you the record: the price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer."
     motivation: "The recommendation must carry its efficiency cost alongside revenue."
     format: VERIFY
     question: "First, calculate and commit deadweight loss using half the tax wedge times lost deliveries. Then run the Order Terminal market trial, measure the surplus loss excluding transfers, and select whether it matches; no restoration or second reading is required."
@@ -315,18 +315,18 @@
     title: "Fund the promised measure"
     concept: 9   # Tax incidence and subsidies
     reason: "The budget vote needs revenue and efficiency on separate lines."
-    scene: "The record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost."
+    scene: "Nico shows you the record: the record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost."
     motivation: "The council owns the distribution choice while the player certifies the calculation."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost
       - Budget $200 because pre-tax sales were higher
       - Claim the fee has no cost because sellers remit it
       - Reject the revenue estimate because every tax destroys all trade
     answer: Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost
-    answerText: Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.
-    why: Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts.
+    answerText: "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable."
+    why: "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The housing measure costs $120 daily; fee receipts are $120, buyers bear $3 and sellers $1 per remaining delivery, and the undistorted linear-market deadweight loss is $40 daily. The council has explicitly chosen to fund this measure if receipts cover it.

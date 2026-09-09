@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 34 HOURS REMAIN"
     title: "THE ALARM THAT CALLS TWICE"
     goNow: "Go to Habitat Control and meet Mei Alvarez, habitat systems lead, at the Alarm Cabinet."
-    body: "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code."
-    objective: "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire."
-  objective: "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire."
-  stake: "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code."
+    body: "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches."
+    objective: "Today you decide whether one sensor reading can make both branches fire."
+  objective: "Today you decide whether one sensor reading can make both branches fire."
+  stake: "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches."
   takeaway: "The sensor is not duplicated; two independent if statements can both fire, and an exclusive branch structure removes the double command. ---"
-  segue: "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Rover Three then circles the same snow marker again."
+  segue: "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Yet Jonah sees Rover Three circle the same snow marker again."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Boolean expression", def: "a comparison or logical test whose value is true or false. branch: one path through conditional code that runs only when its condition is selected."}
@@ -41,7 +41,7 @@
     title: "Read the alarm condition"
     concept: 11   # Boolean expressions and relational operators
     reason: "Mei needs the first carbon-dioxide reading translated into true and false conditions before anyone blames the sensor."
-    scene: "The scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading."
+    scene: "Mei Alvarez checks the evidence: the scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading."
     motivation: "If both comparisons are true at 1050 ppm, duplicate output can come from control flow without any duplicate sensor packet."
     format: CHOICE
     question: "Evaluate both comparisons at 1050 ppm and submit the truth-value pair."
@@ -85,7 +85,7 @@
     title: "Separate the branches"
     concept: 12   # if / if-else selection
     reason: "Stop 5 proved one valid reading satisfies both thresholds, so the branch structure now determines whether one or two commands can run."
-    scene: "The current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response."
+    scene: "Mei Alvarez checks the evidence: the current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response."
     motivation: "An exclusive structure should preserve the emergency response while preventing a second conflicting command from the same reading."
     format: DERIVE
     question: "Choose the emergency branch and then the mutually exclusive lower-level branch."
@@ -113,7 +113,7 @@
     #           - {line: "else if (co2 > 900 && co2 <= 1100) highVent();", correct: true}
     #           - {line: "if (co2 > 900 && co2 <= 1100) highVent(); // second check", correct: false, survives: true, why: "A second independent if is checked even after shutdown runs, so one reading can still issue two commands."}
     derive:
-      start: int co2 = reading; boolean maintenanceMode = false;
+      start: "reading = 1050 ppm; maintenanceMode = false. The rule is shutdown above 1000 ppm; otherwise use high vent above 900 and at most 1100 ppm. Only one command may run per reading. Source: int co2 = reading; boolean maintenanceMode = false;"
       goal: one mutually exclusive command from each CO2 reading
       steps:
         - ask: Choose the first branch.
@@ -139,7 +139,7 @@
     title: "Trace the nested lockout"
     concept: 13   # Nested conditionals
     reason: "The branch repair removes the duplicate action, but the controller also contains a nested maintenance lockout that could still suppress the wrong command."
-    scene: "At 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair."
+    scene: "Mei Alvarez checks the evidence: at 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair."
     motivation: "The correct explanation must account for both the emergency branch and the quiet maintenance control without inventing a second sensor event."
     format: DIAGNOSIS
     question: "Read all four zones and select the one control-flow explanation that fits every reading."
@@ -217,7 +217,7 @@
     title: "Restore scrubber control"
     concept: 14   # Compound Boolean logic and De Morgan reasoning
     reason: "The repaired branch must also respect maintenance mode, so the crew needs a committed compound-logic prediction before live control unlocks."
-    scene: "The repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count."
+    scene: "Mei Alvarez checks the evidence: the repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count."
     motivation: "Two planned cases can prove the emergency path and the lower-level path are exclusive without disabling a healthy scrubber."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the maximum number of commands one reading should produce. OPERATE: run the 1050 ppm and 950 ppm cases. MEASURE: reveal the maximum command count. INTERPRET: submit KEEP ONLINE or LOCK OUT."

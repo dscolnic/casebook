@@ -6,12 +6,12 @@
     header: "DAY 9 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SAME SEED IN TWO ROOMS"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label."
+    body: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label."
     objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
   objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
-  stake: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label."
+  stake: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label."
   takeaway: "Keep ancestry records and test leaf shape under matched conditions. ---"
-  segue: "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light. The crew uses the plan just chosen. A short-lived insect population has changed across many generations."
+  segue: "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Common-garden test", def: "A comparison that raises organisms in the same conditions."}
@@ -52,7 +52,7 @@
     title: "Separate appearance from ancestry"
     concept: 19   # Regulation and differentiation
     reason: "The breeding labels must distinguish appearance from ancestry."
-    scene: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Compare the possible sources of those traits before the seed team changes its breeding records."
+    scene: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Ivo Reed asks: \"Compare the possible sources of those traits before the seed team changes its breeding records.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -127,11 +127,11 @@
     title: "Check the family marker distance"
     concept: 16   # Linkage and chi-square evidence
     reason: "The family record needs a measured linkage estimate."
-    scene: "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Calculate the marker recombination frequency before those records are used to keep families distinct."
+    scene: "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Ivo Reed asks: \"Calculate the marker recombination frequency before those records are used to keep families distinct.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate and submit recombination frequency as a percent."
-    answerText: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison."
+    answerText: The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison.
     why: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. It is useful evidence of linkage under the stated test-cross assumptions; it is not a direct physical distance in base pairs. Multiple crossovers can complicate map-distance estimates, especially over larger intervals. Keeping the genotype markers separate from leaf appearance lets the seed team follow family inheritance even when growth conditions change the visible form. The result therefore strengthens the record system without pretending that one marker determines every trait."
     # wrong-path feedback, one rebuttal per wrong option:
     #   64 counts nonrecombinant offspring rather than recombinants. 0.2 is the fraction before conversion to percent. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -196,7 +196,7 @@
     title: "Keep the lineage traceable"
     concept: 17   # DNA replication
     reason: "The copied sequence must stay distinct from its expressed appearance."
-    scene: "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Trace the copying process before deciding which labels the breeding stock should keep."
+    scene: "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Nell Shah asks: \"Trace the copying process before deciding which labels the breeding stock should keep.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -248,6 +248,7 @@
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 36: Retire the appearance label
   #     Concept: 19 — Regulation and differentiation; Keystone: Information flow, Inheritance and variation, Regulation and feedback; Area: SEED; Prerequisites: Mission primer and Stop 35: Keep the lineage traceable; Learning role: COMBINE; Difficulty: L4; Story role: decision.
@@ -257,7 +258,7 @@
     title: "Retire the appearance label"
     concept: 19   # Regulation and differentiation
     reason: "The seed team must retire a misleading appearance-only label."
-    scene: "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history."
+    scene: "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Nell Shah asks: \"Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.\""
     motivation: "Keep ancestry records and test leaf shape under matched conditions."
     format: CHOICE
     question: "Choose how to label breeding stock while investigating leaf shape."

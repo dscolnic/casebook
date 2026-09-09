@@ -6,12 +6,12 @@
     header: "DAY 7 OF 12 — INSPECTION IN 6 DAYS"
     title: "WHAT DEPTH CAN CHANGE"
     goNow: "Go to Gravity Station and meet Nia Cole, survey engineer, at The gravimeter."
-    body: "The feed fix works, but two gravity readings in the lift file disagree. A meter can drift with time even when the ground has not changed. At the Gravity Station and Rope Shop, separate that drift from the effect of depth. By the end of the mission, decide whether gravity can explain the March overrun."
+    body: "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun."
     objective: "Can the local gravity correction explain the March overrun?"
   objective: "Can the local gravity correction explain the March overrun?"
-  stake: "The feed fix works, but two gravity readings in the lift file disagree. A meter can drift with time even when the ground has not changed. At the Gravity Station and Rope Shop, separate that drift from the effect of depth. By the end of the mission, decide whether gravity can explain the March overrun."
+  stake: "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun."
   takeaway: "An ideal depth model is different from a measured gravity value. ---"
-  segue: "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise."
+  segue: "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Gravity", def: "the attraction between masses."}
@@ -46,7 +46,7 @@
     title: "Find the drifting reference"
     concept: 7   # Find the drifting reference
     reason: "Repeated reference readings disagree before the depth correction is trusted."
-    scene: "The chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction."
+    scene: "Nia Cole notes that the chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: PROBE
     question: "Select and read all four stations without changing their loads, then submit the station with a mismatch and its implication. No controls need restoration."
@@ -120,7 +120,7 @@
     title: "Derive the ideal depth trend"
     concept: 7   # Derive the ideal depth trend
     reason: "The ideal depth trend must stay separate from local evidence."
-    scene: "The repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey."
+    scene: "Nia Cole sees that the repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -170,7 +170,7 @@
         - ask: Substitute the interior radius and simplify.
           answer: 0
           candidates:
-            - text: g(R−d)=g0(1−d/R)=9.998 m/s²
+            - text: g(R−d)=g0(1−d/R)=10×(1−1240/6200000)=9.998 m/s²
             - text: g(R−d)=g0(1+d/R)=10.002 m/s²
               why: The interior radius is smaller, so the uniform-sphere model predicts a smaller gravity, not a larger one.
               survives: true
@@ -183,7 +183,7 @@
     title: "Separate survey from assumption"
     concept: 7   # Separate survey from assumption
     reason: "The rope table needs a corrected measurement, not an assumed planet."
-    scene: "The ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation."
+    scene: "Mara Shaw confirms that the ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -239,7 +239,7 @@
     title: "Commit the day's plan"
     concept: 7   # Commit the day's plan
     reason: "A small weight correction must explain the time history to close March."
-    scene: "The corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed."
+    scene: "Mara Shaw finds that the corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

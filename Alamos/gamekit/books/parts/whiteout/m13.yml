@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 12 HOURS REMAIN"
     title: "THE CALL THAT CALLS ITSELF"
     goNow: "Go to the Code Review Wall in Software Lab."
-    body: "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely."
-    objective: "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay."
-  objective: "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay."
-  stake: "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely."
+    body: "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay."
+    objective: "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
+  objective: "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
+  stake: "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay."
   takeaway: "The repaired recursion terminates at build(0) and returns exactly four safe waypoints, so Rover Three can deploy the backup relay. ---"
-  segue: "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. All dashboards turn green, but rollback has not tested side-by-side resolved records."
+  segue: "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. Yet Priya has no test of two resolved records side by side."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "recursion", def: "a method solving a problem by calling itself on a smaller version of that problem. base case: the input a recursive method can answer directly without another recursive call. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."}
@@ -41,7 +41,7 @@
     title: "Trace the recursive calls"
     concept: 33   # Recursion: base cases, recursive calls, and tracing
     reason: "Priya needs the relay-route call stack made visible before any recursive code is allowed to command a rover outside."
-    scene: "The route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop."
+    scene: "Priya Nair checks the evidence: the route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop."
     motivation: "The same progress idea used in loops now appears in recursive calls: each step must move toward a stopping state."
     format: SEQUENCE
     question: "Place the four calls in the order they are entered."
@@ -87,7 +87,7 @@
     title: "Repair the base case"
     concept: 33   # Recursion: base cases, recursive calls, and tracing
     reason: "Stop 49 reaches build(0), but the current code tests n < 0, so zero still attempts another recursive call and an invalid waypoint access."
-    scene: "The empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start."
+    scene: "Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start."
     motivation: "A correct base case is both a stopping rule and part of the method's promised behavior for empty input."
     format: DERIVE
     question: "Choose the base case and recursive call that guarantee termination."
@@ -115,7 +115,7 @@
     #           - {line: "build(n - 1);", correct: true}
     #           - {line: "build(n + 1);", correct: false, survives: true, why: "Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown."}
     derive:
-      start: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case.
+      start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
       goal: reach a terminating base case by reducing the remaining count
       steps:
         - ask: Choose the base case.
@@ -141,7 +141,7 @@
     title: "Test the recursive contract"
     concept: 34   # Recursive search/sort reasoning
     reason: "The recursion now terminates, but Jonah needs expected outputs for boundary and ordinary inputs before the route can be trusted."
-    scene: "The repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea."
+    scene: "Jonah Reyes checks the evidence: the repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea."
     motivation: "A recursive method is correct only when its outputs match the contract across boundary and ordinary cases, not merely when it stops."
     format: PROTOCOL
     question: "Match each recursive input to the number of waypoints it should return."
@@ -193,7 +193,7 @@
     title: "Build the relay route"
     concept: 33   # Recursion: base cases, recursive calls, and tracing
     reason: "The recursive contract is verified, but the relay route must still be derived from the safe-cell list rather than printed in advance."
-    scene: "The console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result."
+    scene: "Liv Andersen checks the evidence: the console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result."
     motivation: "The player must combine object/link data with recursion to produce the path instead of reading the answer from a prefilled route list."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the number of waypoints returned from W1. OPERATE: simulate the recursive builder. MEASURE: reveal the returned route length. INTERPRET: inspect the returned labels and base call, then submit DISPATCH or HOLD."

@@ -6,12 +6,12 @@
     header: "DAY 13 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SOIL ON THE OTHER SHORE"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot."
+    body: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant."
     objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
   objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
-  stake: "The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot."
+  stake: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant."
   takeaway: "Prepare the receiving soil and water before planting. ---"
-  segue: "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test. The crew uses the plan just chosen. A daytime pilot succeeds while its night record is still missing."
+  segue: "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Nitrogen fixation", def: "Conversion of nitrogen gas into biologically usable reduced nitrogen."}
@@ -50,7 +50,7 @@
     title: "Follow nitrogen to a leaf"
     concept: 29   # Matter cycles and disturbance
     reason: "The receiving soil needs a route from stored nitrogen to root uptake."
-    scene: "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting."
+    scene: "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Tess Rowan asks: \"Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Order the selected route from nitrogen gas through organic litter to nitrate uptake; other valid nitrogen-cycle routes are outside these cards. Submit all four cards."
@@ -102,6 +102,7 @@
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 50: Check room for growth
   #     Concept: 26 — Population growth and carrying capacity; Keystone: Population change, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 49: Follow nitrogen to a leaf; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
@@ -111,11 +112,11 @@
     title: "Check room for growth"
     concept: 26   # Population growth and carrying capacity
     reason: "The planting plan needs growth under its stated resource limit."
-    scene: "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Calculate expected growth before the crew uses that estimate to choose how many plants to establish."
+    scene: "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Tess Rowan asks: \"Calculate expected growth before the crew uses that estimate to choose how many plants to establish.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the tiles to calculate modeled net growth in plants per week."
-    answerText: "The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison."
+    answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison.
     why: "The unused-capacity factor is (80 − 40)/80 = 0.5. Multiplying rN by that factor gives 0.5 × 40 × 0.5 = 10 plants per week. The exponential value would be twenty, but the stated logistic model reduces growth as the population approaches the assumed carrying capacity. That capacity is a campaign estimate under prepared-site conditions, not an immutable property of the land. Water and nutrients must actually support those conditions before the number can justify stocking the pilot."
     # wrong-path feedback, one rebuttal per wrong option:
     #   20 omits the resource-limitation factor. 80 is the assumed capacity, not the rate of net growth. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -180,7 +181,7 @@
     title: "Separate site constraints"
     concept: 29   # Matter cycles and disturbance
     reason: "The plot needs both water and nutrient constraints resolved."
-    scene: "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Match those constraints before the director sets the order of habitat preparation and planting."
+    scene: "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Ivo Reed asks: \"Match those constraints before the director sets the order of habitat preparation and planting.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -255,7 +256,7 @@
     title: "Prepare before planting"
     concept: 29   # Matter cycles and disturbance
     reason: "The planting order must satisfy the model assumptions first."
-    scene: "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Choose the order of work that makes those conditions real before stocking the pilot."
+    scene: "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Ada Penn asks: \"Choose the order of work that makes those conditions real before stocking the pilot.\""
     motivation: "Prepare the receiving soil and water before planting."
     format: CHOICE
     question: "Choose the planting order justified by the site comparisons and growth model."

@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "THE FOOD THAT IS NOT ENOUGH",
     "objective": "Resolve whether to replace the failing seedling feed; the young plants may die before planting.",
     "briefing": "",
-    "stake": "The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed.",
+    "stake": "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed.",
     "primer": [
       "Carbon forms four bonds and can build diverse molecules.",
       "Calories alone do not provide all the elements needed to build new cells.",
@@ -126,10 +126,10 @@ export const MISSIONS = [
       "header": "DAY 1 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE FOOD THAT IS NOT ENOUGH",
       "goNow": "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.",
-      "body": "The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed.",
+      "body": "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed.",
       "objective": "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
     },
-    "segue": "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth. The crew uses the plan just chosen. Root cells swell after a fresh-water rinse.",
+    "segue": "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth.",
     "stops": [
       {
         "group": "CLINIC",
@@ -165,7 +165,7 @@ export const MISSIONS = [
     "title": "THE RINSE THAT HURTS",
     "objective": "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing.",
     "briefing": "",
-    "stake": "The new feed works, but rinsed shore seedlings now have swollen root cells. Water crosses cell membranes toward lower water potential. Compare cell structure and rinse conditions in the Field Clinic. By the end of the mission, decide whether the shore seedlings need fresh water or a matched salt rinse.",
+    "stake": "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need.",
     "primer": [
       "Water movement depends on both solute and pressure.",
       "A cell wall resists expansion but does not stop all water movement.",
@@ -286,10 +286,10 @@ export const MISSIONS = [
       "header": "DAY 2 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE RINSE THAT HURTS",
       "goNow": "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.",
-      "body": "The new feed works, but rinsed shore seedlings now have swollen root cells. Water crosses cell membranes toward lower water potential. Compare cell structure and rinse conditions in the Field Clinic. By the end of the mission, decide whether the shore seedlings need fresh water or a matched salt rinse.",
+      "body": "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need.",
       "objective": "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing."
     },
-    "segue": "Mission decision: Use the rinse that matches the root cells. The matched rinse keeps root cells alive. The crew uses the plan just chosen. Healthy roots still lose energy in sealed pots.",
+    "segue": "Mission decision: Use the rinse that matches the root cells. The matched rinse keeps root cells alive.",
     "stops": [
       {
         "group": "CLINIC",
@@ -325,7 +325,7 @@ export const MISSIONS = [
     "title": "THE POND AFTER DARK",
     "objective": "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival.",
     "briefing": "",
-    "stake": "The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply.",
+    "stake": "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air.",
     "primer": [
       "Plants respire in light and darkness.",
       "Light reactions supply ATP and NADPH; carbon fixation builds organic molecules.",
@@ -442,10 +442,10 @@ export const MISSIONS = [
       "header": "DAY 3 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE POND AFTER DARK",
       "goNow": "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.",
-      "body": "The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply.",
+      "body": "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air.",
       "objective": "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival."
     },
-    "segue": "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night. The crew uses the plan just chosen. The restored plants flower at an unexpected time.",
+    "segue": "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night.",
     "stops": [
       {
         "group": "GROW",
@@ -481,7 +481,7 @@ export const MISSIONS = [
     "title": "THE WRONG KIND OF RECOVERY",
     "objective": "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery.",
     "briefing": "",
-    "stake": "The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use.",
+    "stake": "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread.",
     "primer": [
       "Enzymes lower activation energy without changing the overall energy difference.",
       "Signal reception can alter gene expression through intermediate steps.",
@@ -565,10 +565,10 @@ export const MISSIONS = [
       "header": "DAY 4 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE WRONG KIND OF RECOVERY",
       "goNow": "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.",
-      "body": "The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use.",
+      "body": "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread.",
       "objective": "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery."
     },
-    "segue": "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested. The crew uses the plan just chosen. A flowering calendar no longer matches the insect log.",
+    "segue": "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested.",
     "stops": [
       {
         "group": "GROW",
@@ -604,7 +604,7 @@ export const MISSIONS = [
     "title": "FLOWERS WITH NO VISITORS",
     "objective": "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves.",
     "briefing": "",
-    "stake": "The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule.",
+    "stake": "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps.",
     "primer": [
       "Light reactions and carbon fixation have different jobs and locations.",
       "Species interactions depend on timing as well as presence.",
@@ -681,10 +681,10 @@ export const MISSIONS = [
       "header": "DAY 5 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "FLOWERS WITH NO VISITORS",
       "goNow": "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.",
-      "body": "The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule.",
+      "body": "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps.",
       "objective": "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
     },
-    "segue": "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits. The crew uses the plan just chosen. One rapidly growing tissue tray has unusual division counts.",
+    "segue": "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits.",
     "stops": [
       {
         "group": "GROW",
@@ -720,7 +720,7 @@ export const MISSIONS = [
     "title": "THE TRAY THAT WILL NOT STOP",
     "objective": "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock.",
     "briefing": "",
-    "stake": "The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock.",
+    "stake": "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip.",
     "primer": [
       "DNA is copied during S phase before division.",
       "Chromosomes must be attached correctly before sister chromatids separate.",
@@ -815,10 +815,10 @@ export const MISSIONS = [
       "header": "DAY 6 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE TRAY THAT WILL NOT STOP",
       "goNow": "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.",
-      "body": "The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock.",
+      "body": "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip.",
       "objective": "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
     },
-    "segue": "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed. The crew uses the plan just chosen. The held tray came from a small set of related parents.",
+    "segue": "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed.",
     "stops": [
       {
         "group": "CLINIC",
@@ -854,7 +854,7 @@ export const MISSIONS = [
     "title": "THE FAMILY IN THE JAR",
     "objective": "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation.",
     "briefing": "",
-    "stake": "The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait.",
+    "stake": "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form.",
     "primer": [
       "Alleles segregate during meiosis.",
       "Independent assortment applies to unlinked loci.",
@@ -975,10 +975,10 @@ export const MISSIONS = [
       "header": "DAY 7 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE FAMILY IN THE JAR",
       "goNow": "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.",
-      "body": "The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait.",
+      "body": "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form.",
       "objective": "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
     },
-    "segue": "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele. The crew uses the plan just chosen. The family trait leads to a changed enzyme sequence.",
+    "segue": "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele.",
     "stops": [
       {
         "group": "SEED",
@@ -1014,7 +1014,7 @@ export const MISSIONS = [
     "title": "ONE LETTER IN THE RECIPE",
     "objective": "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family.",
     "briefing": "",
-    "stake": "The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme.",
+    "stake": "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain.",
     "primer": [
       "DNA and RNA synthesis extend in the 5-prime to 3-prime direction.",
       "A sequence change can alter protein structure, but phenotype evidence is still needed.",
@@ -1098,10 +1098,10 @@ export const MISSIONS = [
       "header": "DAY 8 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "ONE LETTER IN THE RECIPE",
       "goNow": "Go to Genetics Trailer and meet Nell Shah, conservation geneticist, at the DNA Bench.",
-      "body": "The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme.",
+      "body": "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain.",
       "objective": "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family."
     },
-    "segue": "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause. The crew uses the plan just chosen. Similar-looking plants respond differently in the same growth room.",
+    "segue": "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause.",
     "stops": [
       {
         "group": "GENE",
@@ -1137,7 +1137,7 @@ export const MISSIONS = [
     "title": "THE SAME SEED IN TWO ROOMS",
     "objective": "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families.",
     "briefing": "",
-    "stake": "The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label.",
+    "stake": "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label.",
     "primer": [
       "Environment and genotype can both affect phenotype.",
       "Shared appearance does not prove shared ancestry.",
@@ -1230,10 +1230,10 @@ export const MISSIONS = [
       "header": "DAY 9 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE SAME SEED IN TWO ROOMS",
       "goNow": "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.",
-      "body": "The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label.",
+      "body": "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label.",
       "objective": "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
     },
-    "segue": "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light. The crew uses the plan just chosen. A short-lived insect population has changed across many generations.",
+    "segue": "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light.",
     "stops": [
       {
         "group": "GROW",
@@ -1269,7 +1269,7 @@ export const MISSIONS = [
     "title": "THE INSECTS THAT STAYED",
     "objective": "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock.",
     "briefing": "",
-    "stake": "Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment.",
+    "stake": "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group.",
     "primer": [
       "Individuals can acclimate, but evolution describes population change across generations.",
       "Selection needs heritable variation and differential reproductive success.",
@@ -1333,10 +1333,10 @@ export const MISSIONS = [
       "header": "DAY 10 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE INSECTS THAT STAYED",
       "goNow": "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.",
-      "body": "Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment.",
+      "body": "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group.",
       "objective": "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
     },
-    "segue": "Mission decision: Record population selection and protect the surviving variation. Inherited early types leave more offspring. The crew uses the plan just chosen. A small source group may already have lost rare alleles.",
+    "segue": "Mission decision: The old logs show a change across generations. Early types left more young in those conditions. Ada keeps the other forms too; a new coast may favor them.",
     "stops": [
       {
         "group": "MARSH",
@@ -1372,7 +1372,7 @@ export const MISSIONS = [
     "title": "THE SEEDS LEFT OUT",
     "objective": "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation.",
     "briefing": "",
-    "stake": "The insect history is clear, but the proposed seed shipment comes from one large family. A small sample can lose alleles even when its plants look healthy. Count family variation, check genetic tests, then revise the list at the Release Board. By the end of the mission, decide whether the largest seed family is enough for the pilot.",
+    "stake": "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test.",
     "primer": [
       "Hardy-Weinberg needs large population, random mating, no selection, mutation or gene flow.",
       "A model deviation does not name its cause alone.",
@@ -1465,10 +1465,10 @@ export const MISSIONS = [
       "header": "DAY 11 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE SEEDS LEFT OUT",
       "goNow": "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.",
-      "body": "The insect history is clear, but the proposed seed shipment comes from one large family. A small sample can lose alleles even when its plants look healthy. Count family variation, check genetic tests, then revise the list at the Release Board. By the end of the mission, decide whether the largest seed family is enough for the pilot.",
+      "body": "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test.",
       "objective": "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation."
     },
-    "segue": "Mission decision: Take several tested families and keep a reserve. The largest family lacks two rare alleles. The crew uses the plan just chosen. The chosen plants still depend on partners missing from the manifest.",
+    "segue": "Mission decision: Take several tested families and keep a reserve. The largest family lacks two rare alleles.",
     "stops": [
       {
         "group": "SEED",
@@ -1504,7 +1504,7 @@ export const MISSIONS = [
     "title": "THE SMALL THINGS ON THE LIST",
     "objective": "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting.",
     "briefing": "",
-    "stake": "The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone.",
+    "stake": "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone.",
     "primer": [
       "Energy is transferred and dissipated; matter can be reused.",
       "Positive and negative interaction signs describe measured effects.",
@@ -1605,10 +1605,10 @@ export const MISSIONS = [
       "header": "DAY 12 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE SMALL THINGS ON THE LIST",
       "goNow": "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.",
-      "body": "The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone.",
+      "body": "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone.",
       "objective": "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
     },
-    "segue": "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test. The crew uses the plan just chosen. The receiving soil may not cycle nutrients like island soil.",
+    "segue": "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test.",
     "stops": [
       {
         "group": "MARSH",
@@ -1644,7 +1644,7 @@ export const MISSIONS = [
     "title": "THE SOIL ON THE OTHER SHORE",
     "objective": "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground.",
     "briefing": "",
-    "stake": "The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot.",
+    "stake": "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant.",
     "primer": [
       "Carbon fixation and respiration move carbon in opposite directions through different pathways.",
       "Water, nutrient availability and organismal activity can constrain establishment together.",
@@ -1741,10 +1741,10 @@ export const MISSIONS = [
       "header": "DAY 13 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "THE SOIL ON THE OTHER SHORE",
       "goNow": "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.",
-      "body": "The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot.",
+      "body": "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant.",
       "objective": "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
     },
-    "segue": "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test. The crew uses the plan just chosen. A daytime pilot succeeds while its night record is still missing.",
+    "segue": "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test.",
     "stops": [
       {
         "group": "MARSH",
@@ -1780,7 +1780,7 @@ export const MISSIONS = [
     "title": "GREEN UNTIL MORNING",
     "objective": "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure.",
     "briefing": "",
-    "stake": "The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion.",
+    "stake": "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow.",
     "primer": [
       "A day measurement cannot certify a whole day-night cycle.",
       "Respiration, exchange and food-web demand must be considered together.",
@@ -1861,10 +1861,10 @@ export const MISSIONS = [
       "header": "DAY 14 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "GREEN UNTIL MORNING",
       "goNow": "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.",
-      "body": "The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion.",
+      "body": "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow.",
       "objective": "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
     },
-    "segue": "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit. The crew uses the plan just chosen. The final plan must keep a pause and return path.",
+    "segue": "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit.",
     "stops": [
       {
         "group": "GROW",
@@ -1900,7 +1900,7 @@ export const MISSIONS = [
     "title": "WHAT GOES HOME",
     "objective": "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat.",
     "briefing": "",
-    "stake": "Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports.",
+    "stake": "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take.",
     "primer": [
       "Retrieve family diversity, nutrient preparation, partner screening and full-cycle oxygen evidence.",
       "Authorize only what the observations and permit support.",
@@ -1956,10 +1956,10 @@ export const MISSIONS = [
       "header": "DAY 15 OF 15 — SHIP DEPARTS AFTER DAY 15",
       "title": "WHAT GOES HOME",
       "goNow": "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.",
-      "body": "Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports.",
+      "body": "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take.",
       "objective": "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
     },
-    "segue": "Mission decision: Authorize only the corrected monitored pilot, with a pause and return path. The corrected night test stays above the oxygen limit. The island keeps its reserve. The island keeps a reserve while the mainland pilot begins.",
+    "segue": "Mission decision: The small test is cleared. The night result meets the limit, and the plan says when to stop. Ada keeps seed families on the island as a reserve.",
     "stops": [
       {
         "group": "SEED",

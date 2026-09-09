@@ -23,7 +23,7 @@ import { FIXTURES } from './fixtures.js';
 import { site } from './site.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { decorate } from './props.js';
-import { OPENING } from './cards.js';
+import { OPENING, ENDING } from './cards.js';
 
 
 export default {
@@ -51,23 +51,8 @@ export default {
   // one either, which is what "Campaign complete" in the HUD amounted to after fifteen
   // stages. The technical work closes, the people go home, the physics stops being
   // secret, and the argument the scientists themselves started is handed on.
-  ending: [
-    'The wartime Evidence Chain closes in August 1945, but the questions do not. Trinity worked on '
-    + '16 July. People living near and downwind of the test had not been warned beforehand, and fallout '
-    + 'was measured beyond the site. Hiroshima was bombed on 6 August and Nagasaki on 9 August. The '
-    + 'Soviet Union entered the war against Japan on 8 August, and Japan announced its surrender on '
-    + '15 August. Los Alamos did not become an empty mesa again; it became a permanent laboratory.',
-    'The technical record is real, and so are its limits. A successful test did not validate every '
-    + 'model. Scientists across the Manhattan Project disagreed about demonstration, combat use, secrecy, '
-    + 'and postwar control. Those were not disagreements that one more detector could settle. The people '
-    + 'outside the fence who experienced displacement, secrecy, bombing, and fallout were part of the '
-    + 'history even when they were not part of the experiment.',
-    'You closed the Evidence Chain by signing a record rather than a victory report. You kept '
-    + 'measurement apart from inference, named the uncertainty instead of hiding it, preserved the '
-    + 'evidence that forced the laboratory to change course, and stated the consequences that technical '
-    + 'success does not erase. What you left later readers is a record they can test instead of a claim '
-    + 'they are asked to trust.',
-  ],
+  // The bible's own ending card, verbatim — see cards.js.
+  ending: ENDING,
 
   // NO WARM-UP RUNS. A run before mission 1 is a tutorial wedged between the
   // opening card and the first thing the campaign says, and the later ones cost
@@ -122,26 +107,27 @@ export default {
   // chain is only as good as its weakest link, which is why each piece carries
   // how well it is known rather than what it concluded.
   delivery: {
-    name: 'The Evidence Chain',
-    what: 'What the laboratory has to be able to show at the end: every claim from a counted '
-      + 'signal to a frozen design, and how well each one of them is known.',
+    name: 'The Town and Freight Agreement',
+    what:
+      'A public plan that the council, firms and housing co-op read to check each '
+      + 'promise, its cost and who pays.',
     where: 'T',
     pieces: [
-      'The counting notebook',
-      'The mass defect calculation',
-      'The decay curve sheet',
-      'The cross-section measurement',
-      'The neutron transport figures',
-      'The design pivot memorandum',
-      'The compression study',
-      'The symmetry metric',
-      'The mockup results',
-      'The timing survey',
-      'The uncertainty budget',
-      'The integrated trial plan',
-      'The Trinity prediction sheet',
-      'The design freeze record',
-      'The responsibility statement',
+      'The meal trade',
+      'The lunch price finding',
+      'The room price test',
+      'The cook hiring rule',
+      'The rent access count',
+      'The housing fee account',
+      'The supplier shift plan',
+      'The fair entry rule',
+      'The wage clause',
+      'The freight access finding',
+      'The pact risk forecast',
+      'The water cost rule',
+      'The filter cost account',
+      'The access retrofit choice',
+      'The signed town agreement',
     ],
   },
   // The bible's own opening sequence, verbatim — see themes/boomtown/cards.js.

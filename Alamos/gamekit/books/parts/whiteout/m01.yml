@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 36 HOURS REMAIN"
     title: "THE HEAT THAT ISN'T GONE"
     goNow: "Go to Power & Thermal Plant and meet Malik Okafor, power and thermal engineer, at the Load Board."
-    body: "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong."
-    objective: "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly."
-  objective: "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly."
-  stake: "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong."
+    body: "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix."
+    objective: "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
+  objective: "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
+  stake: "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix."
   takeaway: "The generator is healthy; integer arithmetic is collapsing 83/100 to zero and falsely creating the heat emergency. ---"
-  segue: "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. Habitat Control then shows two commands from one sensor reading."
+  segue: "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. But Mei now has two commands from one air reading."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "integer division", def: "division between two integers that discards the fractional part before any later conversion. cast: an explicit conversion that changes how Java treats a value for an expression."}
@@ -44,7 +44,7 @@
     title: "Trace the controller"
     concept: 3   # Expressions, arithmetic, precedence, and output
     reason: "Malik needs the displayed percentage explained before he shuts down a generator that still sounds normal."
-    scene: "The Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output before the crew decides whether the red percentage reflects the generator."
+    scene: "Malik Okafor checks the evidence: the Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output to judge whether the red percentage reflects the generator."
     motivation: "If the arithmetic itself produces the alarm value, the physical generator should stay online while the software path is investigated."
     format: CHOICE
     question: "Read the three displayed lines, trace the expression exactly as Java evaluates it, and submit the stored value of percent."
@@ -96,7 +96,7 @@
     title: "Preserve the fraction"
     concept: 5   # Casting, integer division, numeric range, and overflow awareness
     reason: "Stop 1 proved the integer expression collapses before multiplication, so the crew needs a repair that preserves the 0.83 fraction."
-    scene: "Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100."
+    scene: "Malik Okafor checks the evidence: Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100."
     motivation: "A correct cast should predict 83.0 percent without changing any physical generator setting."
     format: DERIVE
     question: "Build the repaired calculation one line at a time; choose exactly one line at each step."
@@ -124,7 +124,7 @@
     #           - {line: "double percent = fraction * 100.0;", correct: true}
     #           - {line: "double percent = (int) fraction * 100.0;", correct: false, survives: true, why: "Casting fraction back to int discards its fractional part before multiplying and recreates the whole-number loss."}
     derive:
-      start: int delivered = 83; int requested = 100;
+      start: "delivered = 83 kW; requested = 100 kW; both inputs are int. A percent is a fraction times 100; use double to retain a fraction. Source: int delivered = 83; int requested = 100;"
       goal: percent as a double, starting from integer inputs
       steps:
         - ask: Choose the division that preserves the fraction.
@@ -150,7 +150,7 @@
     title: "Store the repaired value"
     concept: 2   # Primitive variables and data types
     reason: "Malik needs the corrected percentage stored without turning it back into an integer before the alarm comparison runs."
-    scene: "The repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging."
+    scene: "Malik Okafor checks the evidence: the repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging."
     motivation: "The repaired arithmetic only matters if assignment preserves the type and value that the next alarm test will read."
     format: CHOICE
     question: "Select the declaration that stores the repaired numeric percentage for the alarm comparison."
@@ -194,7 +194,7 @@
     title: "Authorize the generator"
     concept: 11   # Boolean expressions and relational operators
     reason: "The generator may stay online only if the repaired percentage predicts the alarm state and a controlled run matches that prediction."
-    scene: "Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes."
+    scene: "Malik Okafor checks the evidence: Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes."
     motivation: "Agreement between the committed Boolean prediction and the isolated run can clear the generator without pretending 83 percent is full output."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the repaired calculated percentage. OPERATE: run the isolated controller calculation. MEASURE: reveal the calculated percent. INTERPRET: combine that measurement with the steady 83 kW delivery and submit KEEP ONLINE or SHUT DOWN."

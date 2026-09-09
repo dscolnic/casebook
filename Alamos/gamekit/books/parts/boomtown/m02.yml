@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 2 OF 15"
     title: "THE QUEUE THAT GREW"
     goNow: "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk."
-    body: "The meal exchange works, yet the lunch queue still stretches past the door. A price can rise because buyers want more or because sellers can offer less. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether demand or supply explains the lunch price rise."
+    body: "The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim."
     objective: "Decide whether demand or supply explains the lunch price rise."
   objective: "Decide whether demand or supply explains the lunch price rise."
-  stake: "The meal exchange works, yet the lunch queue still stretches past the door. A price can rise because buyers want more or because sellers can offer less. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether demand or supply explains the lunch price rise."
+  stake: "The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim."
   takeaway: "A documented cause lets the town respond to capacity rather than blame without evidence."
   segue: "Mission decision: More buyers caused the lunch price rise. Costs stayed fixed, but orders rose at the old price. The town posts the cause. The room desk now shows beds that no one will book."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -47,7 +47,7 @@
     title: "Count the unmatched orders"
     concept: 4   # Demand, supply and equilibrium
     reason: "The council needs the size of the queue before choosing a response."
-    scene: "The repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue."
+    scene: "Mara shows you the record: the repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue."
     motivation: "An unmet quantity explains the queue without yet explaining what moved."
     format: BALLPARK
     question: "Submit the daily lunch shortage using quantity demanded minus quantity supplied."
@@ -127,7 +127,7 @@
     title: "Separate four market changes"
     concept: 4   # Demand, supply and equilibrium
     reason: "A shortage is visible, but its cause is not yet established."
-    scene: "The old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner's actual order, price and input-cost records."
+    scene: "Mara shows you the record: the old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner's actual order, price and input-cost records."
     motivation: "Separate causes before blaming sellers for every price increase."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -217,21 +217,17 @@
     title: "Read the lunch record"
     concept: 4   # Demand, supply and equilibrium
     reason: "The quiet cost record can rule out the wrong accusation."
-    scene: "The change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price."
+    scene: "Mara shows you the record: the change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price."
     motivation: "The quiet cost reading rules out a tempting accusation."
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - label: More buyers at each price
-        mechanism: Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output.
-      - label: Higher cooking input costs
-        mechanism: Input cost is unchanged, contradicting the proposed cost shock.
-      - label: Fewer meals from each cook
-        mechanism: Lower productivity would constrain supply and reduce quantity, unlike the sales record.
-      - label: Fewer buyers at each price
-        mechanism: Fewer buyers contradicts the 90 orders at the old price.
+      - More buyers at each price
+      - Higher cooking input costs
+      - Fewer meals from each cook
+      - Fewer buyers at each price
     answer: More buyers at each price
-    answerText: Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output.
+    answerText: "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output."
     why: "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output. The quiet cost reading rules out a tempting accusation. Input cost is unchanged, contradicting the proposed cost shock. Lower productivity would constrain supply and reduce quantity, unlike the sales record. Fewer buyers contradicts the 90 orders at the old price."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
@@ -326,18 +322,18 @@
     title: "Explain the rise in public"
     concept: 4   # Demand, supply and equilibrium
     reason: "The council must post an explanation that matches both price and sales."
-    scene: "The lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents' complaints."
+    scene: "Mara shows you the record: the lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents' complaints."
     motivation: "A documented cause lets the town respond to capacity rather than blame without evidence."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Record higher demand as the cause of the lunch price rise
       - Record falling supply as the sole cause
       - Record a movement along unchanged demand only
       - Record a demand fall and a price fall
     answer: Record higher demand as the cause of the lunch price rise
-    answerText: Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation.
-    why: Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation. A documented cause lets the town respond to capacity rather than blame without evidence. A supply contraction predicts lower traded quantity with demand fixed. The old-price order comparison proves demand itself changed. The paid price rose rather than fell.
+    answerText: "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation."
+    why: "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation. A documented cause lets the town respond to capacity rather than blame without evidence. A supply contraction predicts lower traded quantity with demand fixed. The old-price order comparison proves demand itself changed. The paid price rose rather than fell."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: Orders at $6 rose from 60 to 90; input cost stayed $4; the new outcome is $8 and 75 lunches per day. Only one curve shifted.

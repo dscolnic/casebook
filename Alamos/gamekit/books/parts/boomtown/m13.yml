@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 13 OF 15"
     title: "THE CHEAPER FILTER"
     goNow: "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk."
-    body: "The water cost changes the freight goal, and imported filters may reduce that cost. A border charge can protect sellers while making a useful imported product cost more. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed filter tariff preserves the cheapest compliance option."
+    body: "The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax's costs and gains."
     objective: "Decide whether the proposed filter tariff preserves the cheapest compliance option."
   objective: "Decide whether the proposed filter tariff preserves the cheapest compliance option."
-  stake: "The water cost changes the freight goal, and imported filters may reduce that cost. A border charge can protect sellers while making a useful imported product cost more. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed filter tariff preserves the cheapest compliance option."
+  stake: "The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax's costs and gains."
   takeaway: "The town keeps both fiscal and resource accounts visible for the final agreement."
   segue: "Mission decision: Keep the untaxed filter quote and report who gains from the tariff. The same filter costs more with the fee. The town retains the cheaper quote. The new rail line now seems ready to sign."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -47,7 +47,7 @@
     title: "Count the imported filters"
     concept: 20   # Trade policy and distribution
     reason: "The filter comparison needs the foreign quantity as well as local output."
-    scene: "The freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan."
+    scene: "Nico shows you the record: the freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan."
     motivation: "The compliance budget needs the foreign quantity rather than total use alone."
     format: BALLPARK
     question: "Submit the imported quantity."
@@ -127,7 +127,7 @@
     title: "Track the tariff's effects"
     concept: 20   # Trade policy and distribution
     reason: "The tariff changes several groups' balances at once."
-    scene: "The import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain."
+    scene: "Owen shows you the record: the import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain."
     motivation: "A transfer between groups must not be mistaken for an equal change in total gains."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -217,21 +217,17 @@
     title: "Read the distribution claim"
     concept: 20   # Trade policy and distribution
     reason: "A bigger income share may hide a falling total."
-    scene: "The tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more."
+    scene: "Mara shows you the record: the tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more."
     motivation: "The hearing cannot sell a relative share change as a universal gain."
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - label: A larger share need not mean more income
-        mechanism: The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters.
-      - label: The bottom half’s cash income rose
-        mechanism: Both products equal $200.
-      - label: All households have equal incomes
-        mechanism: The bottom half receives only 25%, not 50%.
-      - label: The filter price fell after the tariff
-        mechanism: The price rose from $10 to $12.
+      - A larger share need not mean more income
+      - The bottom half’s cash income rose
+      - All households have equal incomes
+      - The filter price fell after the tariff
     answer: A larger share need not mean more income
-    answerText: The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters.
+    answerText: "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters."
     why: "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters. The hearing cannot sell a relative share change as a universal gain. Distribution must be read together with levels and prices; the same nominal income buys fewer of a product whose price rises, even when its income share improves."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
@@ -326,18 +322,18 @@
     title: "Keep the compliance comparison fair"
     concept: 20   # Trade policy and distribution
     reason: "The filter decision must preserve both the resource and distribution accounts."
-    scene: "The income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council's stated cost rule while making distributional effects explicit."
+    scene: "Mara shows you the record: the income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council's stated cost rule while making distributional effects explicit."
     motivation: "The town keeps both fiscal and resource accounts visible for the final agreement."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Keep the untaxed filter option in the comparison and disclose the tariff’s transfers
       - Declare the tariff free because government gets revenue
       - Award the tariff to domestic sellers without counting buyer losses
       - Treat quota receipts as public revenue without an auction rule
     answer: Keep the untaxed filter option in the comparison and disclose the tariff’s transfers
-    answerText: The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total.
-    why: The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total. The town keeps both fiscal and resource accounts visible for the final agreement. Revenue is a transfer and does not cancel every resource loss. Producer gains alone do not establish aggregate improvement.
+    answerText: "The tariff raises buyers' cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total."
+    why: "The tariff raises buyers' cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total. The town keeps both fiscal and resource accounts visible for the final agreement. Revenue is a transfer and does not cancel every resource loss. Producer gains alone do not establish aggregate improvement."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The same-quality imported filter costs $10 untaxed or $12 with tariff; imports fall 60 to 40, government receives $80 and local producers gain. The council's rule is least resource cost for the required water protection, with transfers disclosed separately.

@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the raw file",
-      "scene": "The raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed.",
+      "scene": "Elena Park checks: the raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed.",
       "place": "",
       "at": "shift-log-desk",
-      "story": "The raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed.",
+      "story": "Elena Park checks: the raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed.",
       "game": {
         "type": "CASEBOOK",
         "title": "Read the raw file",
@@ -48,10 +48,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Check the parsed records",
-      "scene": "The parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison.",
+      "scene": "Elena Park checks the evidence: the parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison.",
       "place": "",
       "at": "shift-log-desk",
-      "story": "The parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison.",
+      "story": "Elena Park checks the evidence: the parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison.",
       "game": {
         "type": "CHOICE",
         "title": "Check the parsed records",
@@ -83,10 +83,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Choose what the aircraft needs",
-      "scene": "Each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.",
+      "scene": "Elena Park checks the evidence: each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.",
       "place": "",
       "at": "rescue-board",
-      "story": "Each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.",
+      "story": "Elena Park checks the evidence: each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.",
       "game": {
         "type": "VALUE",
         "title": "Choose what the aircraft needs",
@@ -162,10 +162,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Decide whether green means safe",
-      "scene": "Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery.",
+      "scene": "Elena Park checks the evidence: Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery.",
       "place": "",
       "at": "incident-analysis-board",
-      "story": "Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery.",
+      "story": "Elena Park checks the evidence: Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Decide whether green means safe",
@@ -224,10 +224,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Choose the staged release",
-      "scene": "The crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.",
+      "scene": "Elena Park checks the evidence: the crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.",
       "place": "",
       "at": "rescue-board",
-      "story": "The crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.",
+      "story": "Elena Park checks the evidence: the crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Choose the staged release",
@@ -287,10 +287,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Commit the station recovery",
-      "scene": "P02 starts at limit 70 and warning 3; H04 is a separate controller, the packet time is 2026-09-08 08:07, rollback starts [P02 open, X resolved, H04 open], and AR-2 may fail. Use the displayed code and dependency rules to compute five canary expectations.",
+      "scene": "Elena Park checks P02 at limit 70 and warning 3; separate H04; packet time 2026-09-08 08:07; rollback [P02 open, X resolved, H04 open]; and possible AR-2 failure. Use the displayed code and dependency rules to compute five canary expectations.",
       "place": "",
       "at": "incident-console",
-      "story": "P02 starts at limit 70 and warning 3; H04 is a separate controller, the packet time is 2026-09-08 08:07, rollback starts [P02 open, X resolved, H04 open], and AR-2 may fail. Use the displayed code and dependency rules to compute five canary expectations.",
+      "story": "Elena Park checks P02 at limit 70 and warning 3; separate H04; packet time 2026-09-08 08:07; rollback [P02 open, X resolved, H04 open]; and possible AR-2 failure. Use the displayed code and dependency rules to compute five canary expectations.",
       "game": {
         "type": "VERIFY",
         "title": "Commit the station recovery",
@@ -341,10 +341,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Choose the first discriminating test",
-      "scene": "The software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.",
+      "scene": "Priya Nair checks the evidence: the software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.",
       "place": "",
       "at": "test-bench",
-      "story": "The software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.",
+      "story": "Priya Nair checks the evidence: the software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.",
       "game": {
         "type": "VALUE",
         "title": "Choose the first discriminating test",
@@ -404,10 +404,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Add the edge case",
-      "scene": "The utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input.",
+      "scene": "Priya Nair checks the evidence: the utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input.",
       "place": "",
       "at": "test-bench",
-      "story": "The utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input.",
+      "story": "Priya Nair checks the evidence: the utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input.",
       "game": {
         "type": "CHOICE",
         "title": "Add the edge case",
@@ -439,10 +439,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Verify the utility contract",
-      "scene": "The method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.",
+      "scene": "Priya Nair checks: the method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.",
+      "story": "Priya Nair checks: the method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.",
       "game": {
         "type": "ATTEST",
         "title": "Verify the utility contract",
@@ -497,10 +497,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Localize the shared utility",
-      "scene": "Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls.",
+      "scene": "Priya Nair checks the evidence: Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls.",
       "place": "",
       "at": "code-review-wall",
-      "story": "Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls.",
+      "story": "Priya Nair checks the evidence: Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Localize the shared utility",
@@ -559,10 +559,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Inspect object state",
-      "scene": "The software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values.",
+      "scene": "Priya Nair checks: the software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values.",
       "place": "",
       "at": "version-rack",
-      "story": "The software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values.",
+      "story": "Priya Nair checks: the software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values.",
       "game": {
         "type": "CASEBOOK",
         "title": "Inspect object state",
@@ -600,10 +600,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Check initialization",
-      "scene": "P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field.",
+      "scene": "Priya Nair checks the evidence: P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field.",
       "place": "",
       "at": "code-review-wall",
-      "story": "P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field.",
+      "story": "Priya Nair checks the evidence: P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field.",
       "game": {
         "type": "DERIVE",
         "title": "Check initialization",
@@ -614,7 +614,7 @@ export const CURRICULUM = {
         "answer": "The constructor copies each parameter into the corresponding instance field, producing the intended live state.",
         "why": "Constructors establish initial object state; this distinguishes the object's field from a parameter with the same name.",
         "derive": {
-          "start": "class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }",
+          "start": "Construct live object P02 with limit 70. Constructor arguments are String id and int limit, in that order. The tempting hard-coded body uses P02 and 90; it must also work for other arguments. Source: class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }",
           "goal": "initialize an object from supplied constructor arguments",
           "steps": [
             {
@@ -658,10 +658,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Follow the live reference",
-      "scene": "The build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller.",
+      "scene": "Priya Nair checks the evidence: the build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller.",
       "place": "",
       "at": "build-console",
-      "story": "The build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller.",
+      "story": "Priya Nair checks the evidence: the build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller.",
       "game": {
         "type": "TRACE",
         "title": "Follow the live reference",
@@ -737,10 +737,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Trace the substring",
-      "scene": "The parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged.",
+      "scene": "Priya Nair checks the evidence: the parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged.",
+      "story": "Priya Nair checks the evidence: the parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged.",
       "game": {
         "type": "DERIVE",
         "title": "Trace the substring",
@@ -751,7 +751,7 @@ export const CURRICULUM = {
         "answer": "Java includes the start index and excludes the end index, so end 16 is required to include character 15.",
         "why": "String traversal and slicing depend on index boundaries, and an exclusive endpoint is a common source of off-by-one bugs.",
         "derive": {
-          "start": "String timestamp = \"2026-09-08 08:07\";",
+          "start": "timestamp = 2026-09-08 08:07. Java counts character indexes from 0; the time starts at index 11 and is five characters long. substring includes its start and excludes its end. Source: String timestamp = \"2026-09-08 08:07\";",
           "goal": "extract the five-character HH:MM field",
           "steps": [
             {
@@ -795,10 +795,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Repair message parsing",
-      "scene": "The captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output.",
+      "scene": "Priya Nair checks the evidence: the captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output.",
       "place": "",
       "at": "build-console",
-      "story": "The captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output.",
+      "story": "Priya Nair checks the evidence: the captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output.",
       "game": {
         "type": "VERIFY",
         "title": "Repair message parsing",
@@ -847,10 +847,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Certify the room map",
-      "scene": "The repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test.",
+      "scene": "Priya Nair checks the evidence: the repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test.",
       "place": "",
       "at": "test-bench",
-      "story": "The repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test.",
+      "story": "Priya Nair checks the evidence: the repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test.",
       "game": {
         "type": "VERIFY",
         "title": "Certify the room map",
@@ -899,10 +899,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Trace the skipped records",
-      "scene": "The cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2.",
+      "scene": "Priya Nair checks the evidence: the cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2.",
+      "story": "Priya Nair checks the evidence: the cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2.",
       "game": {
         "type": "DERIVE",
         "title": "Trace the skipped records",
@@ -913,7 +913,7 @@ export const CURRICULUM = {
         "answer": "Removing from an ArrayList shifts every later element left, while the loop's increment advances the index again.",
         "why": "Mutating a list during forward index traversal can skip elements because structure changes under the traversal.",
         "derive": {
-          "start": "records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved.",
+          "start": "Start with [A open, B resolved, C resolved, D open, E resolved, F resolved]. Indexes start at 0. The loop starts i at 0 and adds 1 after each pass; removal shifts later items left by 1. Source: records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved.",
           "goal": "trace the actual survivors of forward removal as indexes shift",
           "steps": [
             {
@@ -971,10 +971,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Recover the full timeline",
-      "scene": "The repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size.",
+      "scene": "Priya Nair checks the evidence: the repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size.",
       "place": "",
       "at": "test-bench",
-      "story": "The repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size.",
+      "story": "Priya Nair checks the evidence: the repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size.",
       "game": {
         "type": "VERIFY",
         "title": "Recover the full timeline",
@@ -1023,10 +1023,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Find the transposed write",
-      "scene": "The copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value.",
+      "scene": "Priya Nair checks the evidence: the copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value.",
+      "story": "Priya Nair checks the evidence: the copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Find the transposed write",
@@ -1085,10 +1085,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Trace midpoint updates",
-      "scene": "The eight displayed frequencies are [118.0,119.4,120.2,121.6,122.3,123.1,124.5,126.0], with target 122.3. Build the midpoint trace from indexes 0–7 and choose the update after each comparison until index 4 is found.",
+      "scene": "Priya Nair shows [118.1,119.4,120.8,121.6,122.3,123.1,124.7,126.0] and target 122.3. Trace midpoints from bounds 0–7 and choose each new bound until the target is found.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The eight displayed frequencies are [118.0,119.4,120.2,121.6,122.3,123.1,124.5,126.0], with target 122.3. Build the midpoint trace from indexes 0–7 and choose the update after each comparison until index 4 is found.",
+      "story": "Priya Nair shows [118.1,119.4,120.8,121.6,122.3,123.1,124.7,126.0] and target 122.3. Trace midpoints from bounds 0–7 and choose each new bound until the target is found.",
       "game": {
         "type": "DERIVE",
         "title": "Trace midpoint updates",
@@ -1099,7 +1099,7 @@ export const CURRICULUM = {
         "answer": "Sorted order determines which half can be eliminated after each comparison.",
         "why": "Binary search combines iteration, midpoint calculation, and Boolean comparisons while maintaining an inclusive candidate interval.",
         "derive": {
-          "start": "sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7.",
+          "start": "low = 0; high = 7; target = 122.3. mid = (low + high) / 2 uses integer division. The sorted array is [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]. Source: sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7.",
           "goal": "narrow binary-search bounds until the target index is identified",
           "steps": [
             {
@@ -1157,10 +1157,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Compare two controller objects",
-      "scene": "P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state.",
+      "scene": "Priya Nair checks the evidence: P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state.",
       "place": "",
       "at": "version-rack",
-      "story": "P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state.",
+      "story": "Priya Nair checks the evidence: P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state.",
       "game": {
         "type": "CASEBOOK",
         "title": "Compare two controller objects",
@@ -1198,10 +1198,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Inspect the static field",
-      "scene": "The class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot.",
+      "scene": "Priya Nair checks the evidence: the class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot.",
+      "story": "Priya Nair checks the evidence: the class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot.",
       "game": {
         "type": "DERIVE",
         "title": "Inspect the static field",
@@ -1212,7 +1212,7 @@ export const CURRICULUM = {
         "answer": "Removing static gives every instance its own field, and this writes the receiver's copy.",
         "why": "Static fields belong to the class; instance fields belong to individual objects.",
         "derive": {
-          "start": "P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called.",
+          "start": "P02 warning starts at 3; H04 warning starts at 4. The replay calls H04.setWarning(7); value is the method parameter. Each object must keep its own warning. Source: P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called.",
           "goal": "keep each object's warning state independent after one object changes",
           "steps": [
             {
@@ -1256,10 +1256,10 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Order the priority passes",
-      "scene": "The four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative.",
+      "scene": "Priya Nair checks the evidence: the four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative.",
+      "story": "Priya Nair checks the evidence: the four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative.",
       "game": {
         "type": "SEQUENCE",
         "title": "Order the priority passes",
@@ -1291,10 +1291,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "Preserve equal-priority order",
-      "scene": "Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2.",
+      "scene": "Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2.",
       "place": "",
       "at": "code-review-wall",
-      "story": "Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2.",
+      "story": "Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2.",
       "game": {
         "type": "DERIVE",
         "title": "Preserve equal-priority order",
@@ -1305,7 +1305,7 @@ export const CURRICULUM = {
         "answer": "Strict > shifts only worse priorities, so an equal-priority earlier item is not moved behind the later one.",
         "why": "Sorting correctness can include a stability requirement in addition to numeric order.",
         "derive": {
-          "start": "The list already contains POWER before RUNWAY, and the current item has the same priority.",
+          "start": "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority.",
           "goal": "insert an item without reversing earlier equal-priority items",
           "steps": [
             {
@@ -1349,10 +1349,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Trace the recursive calls",
-      "scene": "The route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop.",
+      "scene": "Priya Nair checks the evidence: the route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop.",
+      "story": "Priya Nair checks the evidence: the route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop.",
       "game": {
         "type": "SEQUENCE",
         "title": "Trace the recursive calls",
@@ -1384,10 +1384,10 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Repair the base case",
-      "scene": "The empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start.",
+      "scene": "Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start.",
+      "story": "Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start.",
       "game": {
         "type": "DERIVE",
         "title": "Repair the base case",
@@ -1398,7 +1398,7 @@ export const CURRICULUM = {
         "answer": "Zero is the first input with no waypoints left to add, and subtracting one moves every positive input toward that case.",
         "why": "Recursive methods need a directly solvable base case and guaranteed progress toward it.",
         "derive": {
-          "start": "build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case.",
+          "start": "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case.",
           "goal": "reach a terminating base case by reducing the remaining count",
           "steps": [
             {
@@ -1442,10 +1442,10 @@ export const CURRICULUM = {
     {
       "day": 21,
       "title": "Test unseen rollback cases",
-      "scene": "Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens.",
+      "scene": "Priya Nair checks the evidence: Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens.",
       "place": "",
       "at": "test-bench",
-      "story": "Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens.",
+      "story": "Priya Nair checks the evidence: Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens.",
       "game": {
         "type": "VERIFY",
         "title": "Test unseen rollback cases",
@@ -1494,10 +1494,10 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "Prove the rollback traversal",
-      "scene": "The rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index.",
+      "scene": "Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index.",
       "place": "",
       "at": "code-review-wall",
-      "story": "The rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index.",
+      "story": "Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index.",
       "game": {
         "type": "DERIVE",
         "title": "Prove the rollback traversal",
@@ -1508,7 +1508,7 @@ export const CURRICULUM = {
         "answer": "Removal can shift higher positions, but those positions have already been processed; lower indexes still refer to the same unvisited records.",
         "why": "This is an algorithm proof over a class of list states rather than a memorized fix for one example.",
         "derive": {
-          "start": "records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index.",
+          "start": "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index.",
           "goal": "remove every resolved record without skipping a neighbor that shifts after deletion",
           "steps": [
             {
@@ -1568,10 +1568,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Trace the controller",
-      "scene": "The Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output before the crew decides whether the red percentage reflects the generator.",
+      "scene": "Malik Okafor checks the evidence: the Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output to judge whether the red percentage reflects the generator.",
       "place": "",
       "at": "load-board",
-      "story": "The Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output before the crew decides whether the red percentage reflects the generator.",
+      "story": "Malik Okafor checks the evidence: the Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output to judge whether the red percentage reflects the generator.",
       "game": {
         "type": "CHOICE",
         "title": "Trace the controller",
@@ -1604,10 +1604,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Preserve the fraction",
-      "scene": "Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100.",
+      "scene": "Malik Okafor checks the evidence: Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100.",
       "place": "",
       "at": "load-board",
-      "story": "Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100.",
+      "story": "Malik Okafor checks the evidence: Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100.",
       "game": {
         "type": "DERIVE",
         "title": "Preserve the fraction",
@@ -1618,7 +1618,7 @@ export const CURRICULUM = {
         "answer": "Casting one operand before division changes the operation to floating-point division, so 83/100 becomes 0.83 and then 83.0 percent.",
         "why": "The cast must occur before the division; casting the already-truncated result cannot recover discarded information.",
         "derive": {
-          "start": "int delivered = 83; int requested = 100;",
+          "start": "delivered = 83 kW; requested = 100 kW; both inputs are int. A percent is a fraction times 100; use double to retain a fraction. Source: int delivered = 83; int requested = 100;",
           "goal": "percent as a double, starting from integer inputs",
           "steps": [
             {
@@ -1662,10 +1662,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Store the repaired value",
-      "scene": "The repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging.",
+      "scene": "Malik Okafor checks the evidence: the repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging.",
       "place": "",
       "at": "load-board",
-      "story": "The repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging.",
+      "story": "Malik Okafor checks the evidence: the repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging.",
       "game": {
         "type": "CHOICE",
         "title": "Store the repaired value",
@@ -1697,10 +1697,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Authorize the generator",
-      "scene": "Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes.",
+      "scene": "Malik Okafor checks the evidence: Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes.",
       "place": "",
       "at": "generator-controller",
-      "story": "Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes.",
+      "story": "Malik Okafor checks the evidence: Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes.",
       "game": {
         "type": "VERIFY",
         "title": "Authorize the generator",
@@ -1749,10 +1749,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Patch the live controller",
-      "scene": "P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed.",
+      "scene": "Malik Okafor checks the evidence: P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed.",
       "place": "",
       "at": "generator-controller",
-      "story": "P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed.",
+      "story": "Malik Okafor checks the evidence: P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed.",
       "game": {
         "type": "VERIFY",
         "title": "Patch the live controller",
@@ -1801,10 +1801,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Probe independent warning state",
-      "scene": "Four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent.",
+      "scene": "Malik Okafor checks the evidence: four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent.",
       "place": "",
       "at": "generator-controller",
-      "story": "Four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent.",
+      "story": "Malik Okafor checks the evidence: four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent.",
       "game": {
         "type": "PROBE",
         "title": "Probe independent warning state",
@@ -1860,10 +1860,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Stress the adjacency assumption",
-      "scene": "The holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit.",
+      "scene": "Malik Okafor checks the evidence: the holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit.",
       "place": "",
       "at": "load-board",
-      "story": "The holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit.",
+      "story": "Malik Okafor checks the evidence: the holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit.",
       "game": {
         "type": "STRESS",
         "title": "Stress the adjacency assumption",
@@ -1942,10 +1942,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Audit the rollback pattern",
-      "scene": "Eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject.",
+      "scene": "Malik Okafor checks the evidence: eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject.",
       "place": "",
       "at": "generator-controller",
-      "story": "Eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject.",
+      "story": "Malik Okafor checks the evidence: eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject.",
       "game": {
         "type": "RESIDUAL",
         "title": "Audit the rollback pattern",
@@ -2069,10 +2069,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the alarm condition",
-      "scene": "The scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading.",
+      "scene": "Mei Alvarez checks the evidence: the scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading.",
       "place": "",
       "at": "alarm-cabinet",
-      "story": "The scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading.",
+      "story": "Mei Alvarez checks the evidence: the scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading.",
       "game": {
         "type": "CHOICE",
         "title": "Read the alarm condition",
@@ -2104,10 +2104,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Separate the branches",
-      "scene": "The current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response.",
+      "scene": "Mei Alvarez checks the evidence: the current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response.",
       "place": "",
       "at": "sensor-wall",
-      "story": "The current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response.",
+      "story": "Mei Alvarez checks the evidence: the current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response.",
       "game": {
         "type": "DERIVE",
         "title": "Separate the branches",
@@ -2118,7 +2118,7 @@ export const CURRICULUM = {
         "answer": "Once the first condition is true, else if prevents the second branch from running for the same reading.",
         "why": "Selection structure, not sensor count, determines whether multiple true conditions can produce multiple actions.",
         "derive": {
-          "start": "int co2 = reading; boolean maintenanceMode = false;",
+          "start": "reading = 1050 ppm; maintenanceMode = false. The rule is shutdown above 1000 ppm; otherwise use high vent above 900 and at most 1100 ppm. Only one command may run per reading. Source: int co2 = reading; boolean maintenanceMode = false;",
           "goal": "one mutually exclusive command from each CO2 reading",
           "steps": [
             {
@@ -2162,10 +2162,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Trace the nested lockout",
-      "scene": "At 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair.",
+      "scene": "Mei Alvarez checks the evidence: at 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair.",
       "place": "",
       "at": "habitat-analysis-board",
-      "story": "At 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair.",
+      "story": "Mei Alvarez checks the evidence: at 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Trace the nested lockout",
@@ -2224,10 +2224,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Restore scrubber control",
-      "scene": "The repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count.",
+      "scene": "Mei Alvarez checks the evidence: the repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count.",
       "place": "",
       "at": "scrubber-console",
-      "story": "The repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count.",
+      "story": "Mei Alvarez checks the evidence: the repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count.",
       "game": {
         "type": "VERIFY",
         "title": "Restore scrubber control",
@@ -2276,10 +2276,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Map sensor positions",
-      "scene": "Four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks.",
+      "scene": "Mei Alvarez checks the evidence: four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks.",
       "place": "",
       "at": "sensor-probe-rack",
-      "story": "Four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks.",
+      "story": "Mei Alvarez checks the evidence: four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks.",
       "game": {
         "type": "PROBE",
         "title": "Map sensor positions",
@@ -2335,10 +2335,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Trace the sensor loop",
-      "scene": "The display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing.",
+      "scene": "Mei Alvarez checks the evidence: the display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing.",
       "place": "",
       "at": "sensor-wall",
-      "story": "The display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing.",
+      "story": "Mei Alvarez checks the evidence: the display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing.",
       "game": {
         "type": "DERIVE",
         "title": "Trace the sensor loop",
@@ -2349,7 +2349,7 @@ export const CURRICULUM = {
         "answer": "Valid array indexes are zero through length minus one, and the same i must select the corresponding label and temperature.",
         "why": "Array traversal uses a loop variable as an index; bounds and same-index relationships are part of algorithm correctness.",
         "derive": {
-          "start": "String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length.",
+          "start": "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length.",
           "goal": "visit every legal index once and pair each label with the value at that same index",
           "steps": [
             {
@@ -2393,10 +2393,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Catch the shifted index",
-      "scene": "When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display.",
+      "scene": "Mei Alvarez checks the evidence: When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display.",
       "place": "",
       "at": "sensor-wall",
-      "story": "When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display.",
+      "story": "Mei Alvarez checks the evidence: When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display.",
       "game": {
         "type": "CHOICE",
         "title": "Catch the shifted index",
@@ -2428,10 +2428,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Separate shared from local state",
-      "scene": "P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it.",
+      "scene": "Mei Alvarez checks the evidence: P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it.",
       "place": "",
       "at": "scrubber-console",
-      "story": "P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it.",
+      "story": "Mei Alvarez checks the evidence: P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it.",
       "game": {
         "type": "VERIFY",
         "title": "Separate shared from local state",
@@ -2482,10 +2482,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Order one rover lap",
-      "scene": "Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace.",
+      "scene": "Jonah Reyes checks the evidence: Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace.",
       "place": "",
       "at": "route-planning-board",
-      "story": "Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace.",
+      "story": "Jonah Reyes checks the evidence: Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace.",
       "game": {
         "type": "SEQUENCE",
         "title": "Order one rover lap",
@@ -2517,10 +2517,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Find the endless condition",
-      "scene": "The current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever.",
+      "scene": "Jonah Reyes checks the evidence: the current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever.",
       "place": "",
       "at": "route-planning-board",
-      "story": "The current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever.",
+      "story": "Jonah Reyes checks the evidence: the current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever.",
       "game": {
         "type": "DERIVE",
         "title": "Find the endless condition",
@@ -2531,7 +2531,7 @@ export const CURRICULUM = {
         "answer": "Without changing index, the condition index < length remains true for the same stored value.",
         "why": "A while loop does not know that a physical action finished unless program state is updated explicitly.",
         "derive": {
-          "start": "int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }",
+          "start": "index starts at 0; waypoints.length = 4. Each arrival must advance by one position. The loop tests index < waypoints.length. Source: int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }",
           "goal": "advance loop state until the waypoint condition becomes false",
           "steps": [
             {
@@ -2575,10 +2575,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Advance the route index",
-      "scene": "The loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions.",
+      "scene": "Jonah Reyes checks the evidence: the loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions.",
       "place": "",
       "at": "route-planning-board",
-      "story": "The loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions.",
+      "story": "Jonah Reyes checks the evidence: the loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions.",
       "game": {
         "type": "CHOICE",
         "title": "Advance the route index",
@@ -2610,10 +2610,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Send a bounded route",
-      "scene": "A four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state.",
+      "scene": "Jonah Reyes checks the evidence: a four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state.",
       "place": "",
       "at": "rover-diagnostic-cart",
-      "story": "A four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state.",
+      "story": "Jonah Reyes checks the evidence: a four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state.",
       "game": {
         "type": "VERIFY",
         "title": "Send a bounded route",
@@ -2662,10 +2662,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Read the hazard grid",
-      "scene": "Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern.",
+      "scene": "Jonah Reyes checks the evidence: Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern.",
       "place": "",
       "at": "route-table",
-      "story": "Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern.",
+      "story": "Jonah Reyes checks the evidence: Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern.",
       "game": {
         "type": "PROBE",
         "title": "Read the hazard grid",
@@ -2721,10 +2721,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Walk the grid in order",
-      "scene": "For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal.",
+      "scene": "Jonah Reyes checks the evidence: For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal.",
       "place": "",
       "at": "route-planning-board",
-      "story": "For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal.",
+      "story": "Jonah Reyes checks the evidence: For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal.",
       "game": {
         "type": "SEQUENCE",
         "title": "Walk the grid in order",
@@ -2761,10 +2761,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Release Rover Three",
-      "scene": "The corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map.",
+      "scene": "Jonah Reyes checks the evidence: the corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map.",
       "place": "",
       "at": "rover-diagnostic-cart",
-      "story": "The corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map.",
+      "story": "Jonah Reyes checks the evidence: the corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map.",
       "game": {
         "type": "VERIFY",
         "title": "Release Rover Three",
@@ -2813,10 +2813,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Test the recursive contract",
-      "scene": "The repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea.",
+      "scene": "Jonah Reyes checks the evidence: the repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea.",
       "place": "",
       "at": "route-planning-board",
-      "story": "The repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea.",
+      "story": "Jonah Reyes checks the evidence: the repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea.",
       "game": {
         "type": "PROTOCOL",
         "title": "Test the recursive contract",
@@ -2853,10 +2853,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Check the network path",
-      "scene": "The rescue packet reaches the station through satellite hop S1 and router AR-2, while a local clock feed and rover radio use different upstream paths. Open all four dependencies and identify whether the delayed display shares a transport failure with the packet capture.",
+      "scene": "Liv Andersen tracks the packet through satellite hop S1 and router AR-2; the local clock and rover radio use other paths. Open all four dependencies and judge whether the display delay shares a transport fault with the packet capture.",
       "place": "",
       "at": "packet-monitor",
-      "story": "The rescue packet reaches the station through satellite hop S1 and router AR-2, while a local clock feed and rover radio use different upstream paths. Open all four dependencies and identify whether the delayed display shares a transport failure with the packet capture.",
+      "story": "Liv Andersen tracks the packet through satellite hop S1 and router AR-2; the local clock and rover radio use other paths. Open all four dependencies and judge whether the display delay shares a transport fault with the packet capture.",
       "game": {
         "type": "TRACE",
         "title": "Check the network path",
@@ -2937,10 +2937,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Read the timestamp String",
-      "scene": "The captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary.",
+      "scene": "Liv Andersen checks the evidence: the captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary.",
       "place": "",
       "at": "message-queue-board",
-      "story": "The captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary.",
+      "story": "Liv Andersen checks the evidence: the captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary.",
       "game": {
         "type": "CHOICE",
         "title": "Read the timestamp String",
@@ -2971,10 +2971,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Estimate the search work",
-      "scene": "A linear search may inspect all 1,024 records, while a halving search needs about one check per power of two in the table size. Estimate the maximum midpoint checks for binary search so the crew can compare the two methods before coding.",
+      "scene": "Liv Andersen compares a scan of 1,024 records with a search that halves the range at each check. Estimate the maximum midpoint checks for binary search so the crew can choose a method before the next short pass.",
       "place": "",
       "at": "message-queue-board",
-      "story": "A linear search may inspect all 1,024 records, while a halving search needs about one check per power of two in the table size. Estimate the maximum midpoint checks for binary search so the crew can compare the two methods before coding.",
+      "story": "Liv Andersen compares a scan of 1,024 records with a search that halves the range at each check. Estimate the maximum midpoint checks for binary search so the crew can choose a method before the next short pass.",
       "game": {
         "type": "BALLPARK",
         "title": "Estimate the search work",
@@ -2997,10 +2997,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Choose the search",
-      "scene": "The table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window.",
+      "scene": "Liv Andersen checks the evidence: the table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window.",
       "place": "",
       "at": "message-queue-board",
-      "story": "The table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window.",
+      "story": "Liv Andersen checks the evidence: the table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window.",
       "game": {
         "type": "CHOICE",
         "title": "Choose the search",
@@ -3032,10 +3032,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Lock the rescue frequency",
-      "scene": "The sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it.",
+      "scene": "Liv Andersen checks the evidence: the sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it.",
       "place": "",
       "at": "packet-monitor",
-      "story": "The sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it.",
+      "story": "Liv Andersen checks the evidence: the sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it.",
       "game": {
         "type": "VERIFY",
         "title": "Lock the rescue frequency",
@@ -3084,10 +3084,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Transmit the ordered plan",
-      "scene": "The committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took.",
+      "scene": "Liv Andersen checks the evidence: the committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took.",
       "place": "",
       "at": "link-console",
-      "story": "The committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took.",
+      "story": "Liv Andersen checks the evidence: the committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took.",
       "game": {
         "type": "VERIFY",
         "title": "Transmit the ordered plan",
@@ -3136,10 +3136,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Build the relay route",
-      "scene": "The console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result.",
+      "scene": "Liv Andersen checks the evidence: the console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result.",
       "place": "",
       "at": "link-console",
-      "story": "The console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result.",
+      "story": "Liv Andersen checks the evidence: the console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result.",
       "game": {
         "type": "VERIFY",
         "title": "Build the relay route",
@@ -3188,10 +3188,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Protect the rescue link",
-      "scene": "Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment.",
+      "scene": "Liv Andersen checks: Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment.",
       "place": "",
       "at": "packet-monitor",
-      "story": "Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment.",
+      "story": "Liv Andersen checks: Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment.",
       "game": {
         "type": "TRACE",
         "title": "Protect the rescue link",

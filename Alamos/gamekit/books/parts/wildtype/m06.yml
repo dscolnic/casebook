@@ -6,12 +6,12 @@
     header: "DAY 6 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE TRAY THAT WILL NOT STOP"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock."
+    body: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip."
     objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
   objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
-  stake: "The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock."
+  stake: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip."
   takeaway: "Hold the unusual tissue tray for further tests. ---"
-  segue: "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed. The crew uses the plan just chosen. The held tray came from a small set of related parents."
+  segue: "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Cell cycle", def: "The sequence of growth, DNA copying and cell division."}
@@ -54,7 +54,7 @@
     title: "Place the cell-cycle evidence"
     concept: 12   # Cell cycle and checkpoints
     reason: "The unusual growth needs a cell-cycle record."
-    scene: "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Put the cell-cycle stages in order before the clinic compares where the unusual line differs."
+    scene: "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Mara Vale asks: \"Put the cell-cycle stages in order before the clinic compares where the unusual line differs.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -106,6 +106,7 @@
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 22: Compare dividing fractions
   #     Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 21: Place the cell-cycle evidence; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -115,11 +116,11 @@
     title: "Compare dividing fractions"
     concept: 12   # Cell cycle and checkpoints
     reason: "The geneticist needs the dividing-cell fraction before the signal test."
-    scene: "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls."
+    scene: "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Mara Vale asks: \"Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use dividing cells divided by total cells times 100; submit the unusual tray fraction as a percent."
-    answerText: "The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison."
+    answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison.
     why: "The observed dividing fraction is 18/60 × 100 = 30 percent. This is a snapshot of sampled cells, not a direct measurement of the time required for one complete cell cycle. The normal comparison has fewer dividing cells under the same counting method, making the unusual tray worth investigating. Sampling and cell-cycle regulation both matter: the larger fraction identifies a difference, but a controlled response to signal removal is needed before attributing it to a specific regulatory failure."
     # wrong-path feedback, one rebuttal per wrong option:
     #   10 uses the normal tray count instead of the unusual tray count. 300 misplaces the percentage scale by a factor of ten. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -184,7 +185,7 @@
     title: "Test the growth signal"
     concept: 11   # Signals and feedback
     reason: "The tray needs a control test rather than a growth-rate label."
-    scene: "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Compare the response to signal removal before the crew makes a release-stock decision."
+    scene: "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Nell Shah asks: \"Compare the response to signal removal before the crew makes a release-stock decision.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -269,7 +270,7 @@
     title: "Hold one line"
     concept: 12   # Cell cycle and checkpoints
     reason: "The untested tissue line cannot enter release stock by default."
-    scene: "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Choose a handling decision that respects this specific failure without condemning every related family."
+    scene: "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Nell Shah asks: \"Choose a handling decision that respects this specific failure without condemning every related family.\""
     motivation: "Hold the unusual tissue tray for further tests."
     format: CHOICE
     question: "Choose the release-stock decision supported by these observations."

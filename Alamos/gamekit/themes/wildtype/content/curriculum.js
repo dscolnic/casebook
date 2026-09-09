@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the feed ingredients",
-      "scene": "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.",
+      "scene": "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. Mara Vale asks: \"The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.",
+      "story": "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. Mara Vale asks: \"The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the feed ingredients",
@@ -40,21 +40,18 @@ export const CURRICULUM = {
         ]
       },
       "concept": {
-        "n": 2,
-        "c": "Macromolecules and hydrolysis",
-        "of": 30,
-        "rests": [
-          "Water and carbon chemistry"
-        ]
+        "n": 1,
+        "c": "Water and carbon chemistry",
+        "of": 30
       }
     },
     {
       "day": 2,
       "title": "Count the missing nitrogen",
-      "scene": "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.",
+      "scene": "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Mara Vale asks: \"Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.",
+      "story": "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Mara Vale asks: \"Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Count the missing nitrogen",
@@ -80,10 +77,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Check the stored mix",
-      "scene": "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Compare the matched cultures and assay standard before the clinic replaces the stored mix.",
+      "scene": "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Mara Vale asks: \"Compare the matched cultures and assay standard before the clinic replaces the stored mix.\"",
       "place": "",
       "at": "culture-rack",
-      "story": "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Compare the matched cultures and assay standard before the clinic replaces the stored mix.",
+      "story": "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Mara Vale asks: \"Compare the matched cultures and assay standard before the clinic replaces the stored mix.\"",
       "game": {
         "type": "PROBE",
         "title": "Check the stored mix",
@@ -114,7 +111,7 @@ export const CURRICULUM = {
               "label": "Nitrogen-restored tray",
               "reading": "8 mm growth/day",
               "expected": "7–9 mm/day",
-              "load": "stored feed plus missing nitrogen"
+              "load": "stored feed plus the nitrogen top-up"
             },
             {
               "id": "t4",
@@ -139,10 +136,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Change the nursery feed",
-      "scene": "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Choose the handling decision that addresses this evidence without discarding healthy genetic stock.",
+      "scene": "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Mara Vale asks: \"Choose the handling decision that addresses this evidence without discarding healthy genetic stock.\"",
       "place": "",
       "at": "care-board",
-      "story": "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Choose the handling decision that addresses this evidence without discarding healthy genetic stock.",
+      "story": "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Mara Vale asks: \"Choose the handling decision that addresses this evidence without discarding healthy genetic stock.\"",
       "game": {
         "type": "CHOICE",
         "title": "Change the nursery feed",
@@ -177,10 +174,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Identify the damaged cells",
-      "scene": "The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.",
+      "scene": "The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Mara Vale asks: \"Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.",
+      "story": "The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Mara Vale asks: \"Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Identify the damaged cells",
@@ -221,10 +218,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Compare exchange surfaces",
-      "scene": "The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Compare exchange surface with cell volume before interpreting what a change in size actually means.",
+      "scene": "The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Mara Vale asks: \"Compare exchange surface with cell volume before interpreting what a change in size actually means.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Compare exchange surface with cell volume before interpreting what a change in size actually means.",
+      "story": "The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Mara Vale asks: \"Compare exchange surface with cell volume before interpreting what a change in size actually means.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Compare exchange surfaces",
@@ -250,10 +247,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Explain the swelling",
-      "scene": "The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.",
+      "scene": "The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Mara Vale asks: \"Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.",
+      "story": "The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Mara Vale asks: \"Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.\"",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Explain the swelling",
@@ -315,10 +312,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Set the packing rinse",
-      "scene": "The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Choose the packing treatment that follows those observations without claiming every species needs it.",
+      "scene": "The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Mara Vale asks: \"Choose the packing treatment that follows those observations without claiming every species needs it.\"",
       "place": "",
       "at": "care-board",
-      "story": "The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Choose the packing treatment that follows those observations without claiming every species needs it.",
+      "story": "The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Mara Vale asks: \"Choose the packing treatment that follows those observations without claiming every species needs it.\"",
       "game": {
         "type": "CHOICE",
         "title": "Set the packing rinse",
@@ -353,10 +350,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Place the cell-cycle evidence",
-      "scene": "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Put the cell-cycle stages in order before the clinic compares where the unusual line differs.",
+      "scene": "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Mara Vale asks: \"Put the cell-cycle stages in order before the clinic compares where the unusual line differs.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Put the cell-cycle stages in order before the clinic compares where the unusual line differs.",
+      "story": "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Mara Vale asks: \"Put the cell-cycle stages in order before the clinic compares where the unusual line differs.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Place the cell-cycle evidence",
@@ -396,10 +393,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Compare dividing fractions",
-      "scene": "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.",
+      "scene": "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Mara Vale asks: \"Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.",
+      "story": "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Mara Vale asks: \"Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Compare dividing fractions",
@@ -425,10 +422,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Compare sequence and function",
-      "scene": "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.",
+      "scene": "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Mara Vale asks: \"Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.",
+      "story": "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Mara Vale asks: \"Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.\"",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Compare sequence and function",
@@ -490,10 +487,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Keep the causal claim narrow",
-      "scene": "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Choose the claim and handling decision that preserve useful evidence without overstating what was proved.",
+      "scene": "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Mara Vale asks: \"Choose the claim and handling decision that preserve useful evidence without overstating what was proved.\"",
       "place": "",
       "at": "care-board",
-      "story": "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Choose the claim and handling decision that preserve useful evidence without overstating what was proved.",
+      "story": "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Mara Vale asks: \"Choose the claim and handling decision that preserve useful evidence without overstating what was proved.\"",
       "game": {
         "type": "CHOICE",
         "title": "Keep the causal claim narrow",
@@ -528,10 +525,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Interpret the partner screens",
-      "scene": "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Separate those observations before the director chooses which tested organisms can enter a contained pilot.",
+      "scene": "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Mara Vale asks: \"Separate those observations before the director chooses which tested organisms can enter a contained pilot.\"",
       "place": "",
       "at": "sample-bench",
-      "story": "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Separate those observations before the director chooses which tested organisms can enter a contained pilot.",
+      "story": "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Mara Vale asks: \"Separate those observations before the director chooses which tested organisms can enter a contained pilot.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Interpret the partner screens",
@@ -574,10 +571,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Follow oxygen-supported ATP production",
-      "scene": "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Trace how food supports cellular work before testing whether a full pot actually contains what roots need.",
+      "scene": "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Ivo Reed asks: \"Trace how food supports cellular work before testing whether a full pot actually contains what roots need.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Trace how food supports cellular work before testing whether a full pot actually contains what roots need.",
+      "story": "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Ivo Reed asks: \"Trace how food supports cellular work before testing whether a full pot actually contains what roots need.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Follow oxygen-supported ATP production",
@@ -606,8 +603,8 @@ export const CURRICULUM = {
         ]
       },
       "concept": {
-        "n": 9,
-        "c": "Respiration and chemiosmosis",
+        "n": 7,
+        "c": "ATP and energy coupling",
         "of": 30,
         "rests": [
           "Protein structure and enzymes"
@@ -617,10 +614,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Calculate the daylight balance",
-      "scene": "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.",
+      "scene": "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Ivo Reed asks: \"Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.",
+      "story": "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Ivo Reed asks: \"Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Calculate the daylight balance",
@@ -646,10 +643,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Check the night controls",
-      "scene": "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Compare the overnight pots and independent standard before choosing how the lids should exchange air.",
+      "scene": "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Ivo Reed asks: \"Compare the overnight pots and independent standard before choosing how the lids should exchange air.\"",
       "place": "",
       "at": "pond-tanks",
-      "story": "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Compare the overnight pots and independent standard before choosing how the lids should exchange air.",
+      "story": "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Ivo Reed asks: \"Compare the overnight pots and independent standard before choosing how the lids should exchange air.\"",
       "game": {
         "type": "PROBE",
         "title": "Check the night controls",
@@ -708,10 +705,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Approve the pot lids",
-      "scene": "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.",
+      "scene": "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Ivo Reed asks: \"Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.\"",
       "place": "",
       "at": "light-panel",
-      "story": "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.",
+      "story": "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Ivo Reed asks: \"Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.\"",
       "game": {
         "type": "CHOICE",
         "title": "Approve the pot lids",
@@ -746,10 +743,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Separate enzyme problems",
-      "scene": "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Separate possible enzyme effects before the staff treats every slow response as a shortage of light.",
+      "scene": "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Ivo Reed asks: \"Separate possible enzyme effects before the staff treats every slow response as a shortage of light.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Separate possible enzyme effects before the staff treats every slow response as a shortage of light.",
+      "story": "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Ivo Reed asks: \"Separate possible enzyme effects before the staff treats every slow response as a shortage of light.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate enzyme problems",
@@ -790,10 +787,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Follow the light response",
-      "scene": "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.",
+      "scene": "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Ivo Reed asks: \"Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.",
+      "story": "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Ivo Reed asks: \"Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Follow the light response",
@@ -833,10 +830,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Read the recovered leaves",
-      "scene": "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.",
+      "scene": "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Ivo Reed asks: \"Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.",
+      "story": "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Ivo Reed asks: \"Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.\"",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Read the recovered leaves",
@@ -898,10 +895,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Limit the reset",
-      "scene": "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Decide how widely to apply the program while those missing comparisons are still possible.",
+      "scene": "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Ivo Reed asks: \"Decide how widely to apply the program while those missing comparisons are still possible.\"",
       "place": "",
       "at": "light-panel",
-      "story": "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Decide how widely to apply the program while those missing comparisons are still possible.",
+      "story": "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Ivo Reed asks: \"Decide how widely to apply the program while those missing comparisons are still possible.\"",
       "game": {
         "type": "CHOICE",
         "title": "Limit the reset",
@@ -936,10 +933,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Read what healthy leaves prove",
-      "scene": "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.",
+      "scene": "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Ivo Reed asks: \"Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.",
+      "story": "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Ivo Reed asks: \"Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Read what healthy leaves prove",
@@ -980,10 +977,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Find the shared flowering days",
-      "scene": "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Calculate the shared active days before the field team compares trays along the dunes.",
+      "scene": "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Ivo Reed asks: \"Calculate the shared active days before the field team compares trays along the dunes.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Calculate the shared active days before the field team compares trays along the dunes.",
+      "story": "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Ivo Reed asks: \"Calculate the shared active days before the field team compares trays along the dunes.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Find the shared flowering days",
@@ -1009,10 +1006,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Separate appearance from ancestry",
-      "scene": "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Compare the possible sources of those traits before the seed team changes its breeding records.",
+      "scene": "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Ivo Reed asks: \"Compare the possible sources of those traits before the seed team changes its breeding records.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Compare the possible sources of those traits before the seed team changes its breeding records.",
+      "story": "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Ivo Reed asks: \"Compare the possible sources of those traits before the seed team changes its breeding records.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate appearance from ancestry",
@@ -1053,10 +1050,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Check the family marker distance",
-      "scene": "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Calculate the marker recombination frequency before those records are used to keep families distinct.",
+      "scene": "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Ivo Reed asks: \"Calculate the marker recombination frequency before those records are used to keep families distinct.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Calculate the marker recombination frequency before those records are used to keep families distinct.",
+      "story": "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Ivo Reed asks: \"Calculate the marker recombination frequency before those records are used to keep families distinct.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Check the family marker distance",
@@ -1082,10 +1079,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Separate site constraints",
-      "scene": "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Match those constraints before the director sets the order of habitat preparation and planting.",
+      "scene": "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Ivo Reed asks: \"Match those constraints before the director sets the order of habitat preparation and planting.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Match those constraints before the director sets the order of habitat preparation and planting.",
+      "story": "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Ivo Reed asks: \"Match those constraints before the director sets the order of habitat preparation and planting.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate site constraints",
@@ -1126,10 +1123,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Project the dark interval",
-      "scene": "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.",
+      "scene": "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Ivo Reed asks: \"Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.\"",
       "place": "",
       "at": "growth-bench",
-      "story": "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.",
+      "story": "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Ivo Reed asks: \"Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Project the dark interval",
@@ -1155,10 +1152,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Read the complete cycle",
-      "scene": "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Read every station before deciding whether the pilot design or the receiving water explains the failure.",
+      "scene": "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Ivo Reed asks: \"Read every station before deciding whether the pilot design or the receiving water explains the failure.\"",
       "place": "",
       "at": "pond-tanks",
-      "story": "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Read every station before deciding whether the pilot design or the receiving water explains the failure.",
+      "story": "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Ivo Reed asks: \"Read every station before deciding whether the pilot design or the receiving water explains the failure.\"",
       "game": {
         "type": "PROBE",
         "title": "Read the complete cycle",
@@ -1219,10 +1216,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Follow an allele into a gamete",
-      "scene": "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Follow allele separation into gametes before the seed team chooses a cross to test that possibility.",
+      "scene": "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Nell Shah asks: \"Follow allele separation into gametes before the seed team chooses a cross to test that possibility.\"",
       "place": "",
       "at": "seed-table",
-      "story": "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Follow allele separation into gametes before the seed team chooses a cross to test that possibility.",
+      "story": "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Nell Shah asks: \"Follow allele separation into gametes before the seed team chooses a cross to test that possibility.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Follow an allele into a gamete",
@@ -1262,10 +1259,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Predict the test family",
-      "scene": "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Predict the recessive offspring count for the proposed cross before the family test is scored.",
+      "scene": "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Nell Shah asks: \"Predict the recessive offspring count for the proposed cross before the family test is scored.\"",
       "place": "",
       "at": "seed-table",
-      "story": "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Predict the recessive offspring count for the proposed cross before the family test is scored.",
+      "story": "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Nell Shah asks: \"Predict the recessive offspring count for the proposed cross before the family test is scored.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Predict the test family",
@@ -1291,10 +1288,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Keep the lineage traceable",
-      "scene": "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Trace the copying process before deciding which labels the breeding stock should keep.",
+      "scene": "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Nell Shah asks: \"Trace the copying process before deciding which labels the breeding stock should keep.\"",
       "place": "",
       "at": "family-board",
-      "story": "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Trace the copying process before deciding which labels the breeding stock should keep.",
+      "story": "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Nell Shah asks: \"Trace the copying process before deciding which labels the breeding stock should keep.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Keep the lineage traceable",
@@ -1334,10 +1331,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Retire the appearance label",
-      "scene": "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.",
+      "scene": "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Nell Shah asks: \"Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.\"",
       "place": "",
       "at": "family-board",
-      "story": "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.",
+      "story": "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Nell Shah asks: \"Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.\"",
       "game": {
         "type": "CHOICE",
         "title": "Retire the appearance label",
@@ -1372,10 +1369,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Count the retained allele",
-      "scene": "The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.",
+      "scene": "The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Nell Shah asks: \"Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.\"",
       "place": "",
       "at": "seed-table",
-      "story": "The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.",
+      "story": "The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Nell Shah asks: \"Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Count the retained allele",
@@ -1401,10 +1398,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Separate population explanations",
-      "scene": "The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Separate founding, migration and reproductive barriers before comparing the shipment with a population model.",
+      "scene": "The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Nell Shah asks: \"Separate founding, migration and reproductive barriers before comparing the shipment with a population model.\"",
       "place": "",
       "at": "seed-table",
-      "story": "The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Separate founding, migration and reproductive barriers before comparing the shipment with a population model.",
+      "story": "The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Nell Shah asks: \"Separate founding, migration and reproductive barriers before comparing the shipment with a population model.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate population explanations",
@@ -1445,10 +1442,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Carry forward the tested constraints",
-      "scene": "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Match those findings to handling constraints before the final habitat and transport evidence is combined.",
+      "scene": "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Nell Shah asks: \"Match those findings to handling constraints before the final habitat and transport evidence is combined.\"",
       "place": "",
       "at": "seed-table",
-      "story": "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Match those findings to handling constraints before the final habitat and transport evidence is combined.",
+      "story": "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Nell Shah asks: \"Match those findings to handling constraints before the final habitat and transport evidence is combined.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Carry forward the tested constraints",
@@ -1486,10 +1483,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Keep the habitat links intact",
-      "scene": "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Carry those measured links into the final plan before checking the corrected night-time oxygen margin.",
+      "scene": "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Nell Shah asks: \"Carry those measured links into the final plan before checking the corrected night-time oxygen margin.\"",
       "place": "",
       "at": "seed-table",
-      "story": "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Carry those measured links into the final plan before checking the corrected night-time oxygen margin.",
+      "story": "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Nell Shah asks: \"Carry those measured links into the final plan before checking the corrected night-time oxygen margin.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Keep the habitat links intact",
@@ -1532,10 +1529,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Choose the selection pattern",
-      "scene": "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.",
+      "scene": "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Ada Penn asks: \"Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.\"",
       "place": "",
       "at": "survey-table",
-      "story": "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.",
+      "story": "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Ada Penn asks: \"Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Choose the selection pattern",
@@ -1576,10 +1573,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "State what changed",
-      "scene": "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Choose a claim that explains the archive without discarding variation that may matter after movement.",
+      "scene": "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Ada Penn asks: \"Choose a claim that explains the archive without discarding variation that may matter after movement.\"",
       "place": "",
       "at": "release-board",
-      "story": "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Choose a claim that explains the archive without discarding variation that may matter after movement.",
+      "story": "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Ada Penn asks: \"Choose a claim that explains the archive without discarding variation that may matter after movement.\"",
       "game": {
         "type": "CHOICE",
         "title": "State what changed",
@@ -1614,10 +1611,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Keep several families",
-      "scene": "The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Choose a shipment plan that preserves tested variation and a recoverable island reserve.",
+      "scene": "The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Ada Penn asks: \"Choose a shipment plan that preserves tested variation and a recoverable island reserve.\"",
       "place": "",
       "at": "release-board",
-      "story": "The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Choose a shipment plan that preserves tested variation and a recoverable island reserve.",
+      "story": "The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Ada Penn asks: \"Choose a shipment plan that preserves tested variation and a recoverable island reserve.\"",
       "game": {
         "type": "CHOICE",
         "title": "Keep several families",
@@ -1652,10 +1649,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Add the tested partners",
-      "scene": "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Choose the next pilot action without extending that result to every organism or an open release.",
+      "scene": "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Ada Penn asks: \"Choose the next pilot action without extending that result to every organism or an open release.\"",
       "place": "",
       "at": "release-board",
-      "story": "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Choose the next pilot action without extending that result to every organism or an open release.",
+      "story": "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Ada Penn asks: \"Choose the next pilot action without extending that result to every organism or an open release.\"",
       "game": {
         "type": "CHOICE",
         "title": "Add the tested partners",
@@ -1690,10 +1687,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Prepare before planting",
-      "scene": "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Choose the order of work that makes those conditions real before stocking the pilot.",
+      "scene": "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Ada Penn asks: \"Choose the order of work that makes those conditions real before stocking the pilot.\"",
       "place": "",
       "at": "release-board",
-      "story": "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Choose the order of work that makes those conditions real before stocking the pilot.",
+      "story": "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Ada Penn asks: \"Choose the order of work that makes those conditions real before stocking the pilot.\"",
       "game": {
         "type": "CHOICE",
         "title": "Prepare before planting",
@@ -1728,10 +1725,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Stop the premature expansion",
-      "scene": "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Choose the expansion decision that carries this evidence into the final release plan.",
+      "scene": "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Ada Penn asks: \"Choose the expansion decision that carries this evidence into the final release plan.\"",
       "place": "",
       "at": "release-board",
-      "story": "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Choose the expansion decision that carries this evidence into the final release plan.",
+      "story": "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Ada Penn asks: \"Choose the expansion decision that carries this evidence into the final release plan.\"",
       "game": {
         "type": "CHOICE",
         "title": "Stop the premature expansion",
@@ -1763,10 +1760,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Sign the living manifest",
-      "scene": "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Choose the complete plan that preserves those constraints and leaves a response to new failure.",
+      "scene": "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Ada Penn asks: \"Choose the complete plan that preserves those constraints and leaves a response to new failure.\"",
       "place": "",
       "at": "release-board",
-      "story": "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Choose the complete plan that preserves those constraints and leaves a response to new failure.",
+      "story": "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Ada Penn asks: \"Choose the complete plan that preserves those constraints and leaves a response to new failure.\"",
       "game": {
         "type": "CHOICE",
         "title": "Sign the living manifest",
@@ -1800,10 +1797,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Test the growth signal",
-      "scene": "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Compare the response to signal removal before the crew makes a release-stock decision.",
+      "scene": "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Nell Shah asks: \"Compare the response to signal removal before the crew makes a release-stock decision.\"",
       "place": "",
       "at": "records-board",
-      "story": "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Compare the response to signal removal before the crew makes a release-stock decision.",
+      "story": "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Nell Shah asks: \"Compare the response to signal removal before the crew makes a release-stock decision.\"",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Test the growth signal",
@@ -1865,10 +1862,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Hold one line",
-      "scene": "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Choose a handling decision that respects this specific failure without condemning every related family.",
+      "scene": "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Nell Shah asks: \"Choose a handling decision that respects this specific failure without condemning every related family.\"",
       "place": "",
       "at": "records-board",
-      "story": "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Choose a handling decision that respects this specific failure without condemning every related family.",
+      "story": "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Nell Shah asks: \"Choose a handling decision that respects this specific failure without condemning every related family.\"",
       "game": {
         "type": "CHOICE",
         "title": "Hold one line",
@@ -1903,10 +1900,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Interpret the family evidence",
-      "scene": "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Match those inheritance patterns before the team extends one result across unrelated family labels.",
+      "scene": "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Nell Shah asks: \"Match those inheritance patterns before the team extends one result across unrelated family labels.\"",
       "place": "",
       "at": "records-board",
-      "story": "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Match those inheritance patterns before the team extends one result across unrelated family labels.",
+      "story": "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Nell Shah asks: \"Match those inheritance patterns before the team extends one result across unrelated family labels.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Interpret the family evidence",
@@ -1947,10 +1944,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Choose the informative cross",
-      "scene": "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.",
+      "scene": "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Nell Shah asks: \"Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.\"",
       "place": "",
       "at": "records-board",
-      "story": "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.",
+      "story": "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Nell Shah asks: \"Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.\"",
       "game": {
         "type": "CHOICE",
         "title": "Choose the informative cross",
@@ -1985,10 +1982,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Trace the enzyme message",
-      "scene": "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.",
+      "scene": "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Nell Shah asks: \"Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.\"",
       "place": "",
       "at": "dna-bench",
-      "story": "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.",
+      "story": "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Nell Shah asks: \"Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Trace the enzyme message",
@@ -2028,10 +2025,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Read the altered codons",
-      "scene": "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.",
+      "scene": "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Nell Shah asks: \"Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.\"",
       "place": "",
       "at": "dna-bench",
-      "story": "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.",
+      "story": "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Nell Shah asks: \"Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the altered codons",
@@ -2072,10 +2069,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Check the reference model",
-      "scene": "The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.",
+      "scene": "The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Nell Shah asks: \"Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.\"",
       "place": "",
       "at": "dna-bench",
-      "story": "The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.",
+      "story": "The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Nell Shah asks: \"Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Check the reference model",
@@ -2103,10 +2100,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Compare field trays",
-      "scene": "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Compare the matched field trays before deciding whether to expand the nursery lamp program.",
+      "scene": "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Tess Rowan asks: \"Compare the matched field trays before deciding whether to expand the nursery lamp program.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Compare the matched field trays before deciding whether to expand the nursery lamp program.",
+      "story": "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Tess Rowan asks: \"Compare the matched field trays before deciding whether to expand the nursery lamp program.\"",
       "game": {
         "type": "PROBE",
         "title": "Compare field trays",
@@ -2165,10 +2162,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Keep flowers available",
-      "scene": "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.",
+      "scene": "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Tess Rowan asks: \"Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.\"",
       "place": "",
       "at": "habitat-board",
-      "story": "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.",
+      "story": "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Tess Rowan asks: \"Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.\"",
       "game": {
         "type": "CHOICE",
         "title": "Keep flowers available",
@@ -2203,10 +2200,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Read the population histories",
-      "scene": "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Compare population histories before deciding whether the island record supports a change across generations.",
+      "scene": "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Tess Rowan asks: \"Compare population histories before deciding whether the island record supports a change across generations.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Compare population histories before deciding whether the island record supports a change across generations.",
+      "story": "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Tess Rowan asks: \"Compare population histories before deciding whether the island record supports a change across generations.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the population histories",
@@ -2247,10 +2244,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Compare offspring contributions",
-      "scene": "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Calculate one group contribution before using the reproductive contrast to interpret the frequency record.",
+      "scene": "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Tess Rowan asks: \"Calculate one group contribution before using the reproductive contrast to interpret the frequency record.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Calculate one group contribution before using the reproductive contrast to interpret the frequency record.",
+      "story": "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Tess Rowan asks: \"Calculate one group contribution before using the reproductive contrast to interpret the frequency record.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Compare offspring contributions",
@@ -2276,10 +2273,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Name the observed links",
-      "scene": "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Match the observed field relationships before the team decides which partners need specific testing.",
+      "scene": "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Tess Rowan asks: \"Match the observed field relationships before the team decides which partners need specific testing.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Match the observed field relationships before the team decides which partners need specific testing.",
+      "story": "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Tess Rowan asks: \"Match the observed field relationships before the team decides which partners need specific testing.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Name the observed links",
@@ -2320,10 +2317,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Budget the food web",
-      "scene": "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.",
+      "scene": "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Tess Rowan asks: \"Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.",
+      "story": "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Tess Rowan asks: \"Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Budget the food web",
@@ -2349,10 +2346,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Follow nitrogen to a leaf",
-      "scene": "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.",
+      "scene": "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Tess Rowan asks: \"Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.",
+      "story": "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Tess Rowan asks: \"Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.\"",
       "game": {
         "type": "SEQUENCE",
         "title": "Follow nitrogen to a leaf",
@@ -2392,10 +2389,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Check room for growth",
-      "scene": "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Calculate expected growth before the crew uses that estimate to choose how many plants to establish.",
+      "scene": "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Tess Rowan asks: \"Calculate expected growth before the crew uses that estimate to choose how many plants to establish.\"",
       "place": "",
       "at": "water-rack",
-      "story": "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Calculate expected growth before the crew uses that estimate to choose how many plants to establish.",
+      "story": "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Tess Rowan asks: \"Calculate expected growth before the crew uses that estimate to choose how many plants to establish.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Check room for growth",
@@ -2421,10 +2418,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Choose what each test establishes",
-      "scene": "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Match each result to the claim it supports before the director judges expansion.",
+      "scene": "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Tess Rowan asks: \"Match each result to the claim it supports before the director judges expansion.\"",
       "place": "",
       "at": "field-bench",
-      "story": "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Match each result to the claim it supports before the director judges expansion.",
+      "story": "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Tess Rowan asks: \"Match each result to the claim it supports before the director judges expansion.\"",
       "game": {
         "type": "PROTOCOL",
         "title": "Choose what each test establishes",
@@ -2462,10 +2459,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Check the corrected night margin",
-      "scene": "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Calculate its ending oxygen level before the director commits the complete monitored plan.",
+      "scene": "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Tess Rowan asks: \"Calculate its ending oxygen level before the director commits the complete monitored plan.\"",
       "place": "",
       "at": "field-bench",
-      "story": "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Calculate its ending oxygen level before the director commits the complete monitored plan.",
+      "story": "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Tess Rowan asks: \"Calculate its ending oxygen level before the director commits the complete monitored plan.\"",
       "game": {
         "type": "BALLPARK",
         "title": "Check the corrected night margin",

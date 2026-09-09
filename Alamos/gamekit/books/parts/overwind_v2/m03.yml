@@ -6,12 +6,12 @@
     header: "DAY 3 OF 12 — INSPECTION IN 10 DAYS"
     title: "THE ROPE IS A LOAD"
     goNow: "Go to Rope Shop and meet Mara Shaw, rope technician, at The rope bench."
-    body: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull both the cage and all the steel hanging below it. At the Rope Shop, weigh a sample and test the predicted pull before approving a loaded rise. By the end of the mission, decide whether the proposed acceleration passes the rope limit."
+    body: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise."
     objective: "Does the proposed one-unit acceleration pass the rope pull limit?"
   objective: "Does the proposed one-unit acceleration pass the rope pull limit?"
-  stake: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull both the cage and all the steel hanging below it. At the Rope Shop, weigh a sample and test the predicted pull before approving a loaded rise. By the end of the mission, decide whether the proposed acceleration passes the rope limit."
+  stake: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise."
   takeaway: "A hanging rope is part of the load. ---"
-  segue: "Mission decision: The slower rise passes the mean rope-pull limit. The rope's own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum."
+  segue: "Mission decision: The slower rise passes the mean rope-pull limit. The rope's own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum. Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Tension", def: "the pulling force carried by a stretched rope."}
@@ -46,7 +46,7 @@
     title: "Choose what the force acts on"
     concept: 2   # Choose what the force acts on
     reason: "The upper rope must carry more than the cage alone."
-    scene: "The corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation."
+    scene: "Mara Shaw notes that the corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -102,12 +102,12 @@
     title: "Sum the moving rope"
     concept: 2   # Sum the moving rope
     reason: "The full hanging length must enter the mean-pull prediction."
-    scene: "The force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test."
+    scene: "Mara Shaw sees that the force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
     answerText: "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch."
-    why: "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only."
+    why: "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **1:** λ already has units kg/m; another factor u would give the wrong mass units. **2:** The second expression accelerates the cage but forgets to accelerate the hanging rope.
     # correct result: T=(M+λs)(g+a)=176000 N at s=1200 m. Acceptance: exact authored key.
@@ -139,7 +139,7 @@
     #         why: The second expression accelerates the cage but forgets to accelerate the hanging rope.
     #     answerText: The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch.
     derive:
-      start: M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
+      start: M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
       goal: Express tension at a cut and evaluate it at s=1200 m.
       steps:
         - ask: Accumulate the rope mass below the cut.
@@ -152,7 +152,7 @@
         - ask: Apply net upward force equals total mass times acceleration.
           answer: 0
           candidates:
-            - text: T=(M+λs)(g+a)=176000 N at s=1200 m
+            - text: T=(M+λs)(g+a)=(4000+10×1200)×(10+1)=176000 N
             - text: T=(M+λs)g+Ma=16000×10+4000×1=164000 N at s=1200 m
               why: The second expression accelerates the cage but forgets to accelerate the hanging rope.
               survives: true
@@ -165,7 +165,7 @@
     title: "Load the sample model"
     concept: 2   # Load the sample model
     reason: "A small rig can check the force relation without carrying passengers."
-    scene: "The full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard."
+    scene: "Mara Shaw confirms that the full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: VERIFY
     question: "First, calculate and commit support force in N from the visible data. OPERATE: run the upward acceleration test. Keep the supported mass and gravity setting fixed. MEASURE: press READ once after the run and record support force. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -218,7 +218,7 @@
     title: "Commit the day's plan"
     concept: 2   # Commit the day's plan
     reason: "The mean-pull pass must not erase the untested bounce."
-    scene: "The smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation."
+    scene: "Mara Shaw finds that the smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

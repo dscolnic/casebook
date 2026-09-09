@@ -2,7 +2,7 @@
 
 ## AP Physics C: Mechanics Campaign Implementation Bible
 
-**Version:** 1.0 — new authored campaign, static review edition
+**Version:** 1.1 — Handback 1 revision, static review edition
 
 **Campaign length:** 12 days, 48 graded stops, 12 DERIVE stops, 60 optional worked examples
 
@@ -12,7 +12,7 @@
 
 ## 0. Readiness boundary
 
-Canonical artifact: `OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.0.md`. This new bible follows Whiteout’s section order and A–K mission format. Static authored checks, remaining limitations and every exact Giant Gate ID are in the companion report; current importer, runtime and project readability checker were not supplied. No release-readiness claim is made.
+Canonical artifact: `OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.1.md`. This revision follows Whiteout’s section order and A–K mission format. OVERWIND_HANDBACK_CHECK.md records the current handback source checks and limitations. The v1.0 Giant Gate assessment and ledgers are historical, not a fresh full-gate assessment of v1.1. The handback reports that the original build played; current importer, runtime and project readability checker were not supplied for this revision. No release-readiness claim is made.
 
 | Source category | Expected | Supplied | Status | Authority/action |
 |---|---|---|---|---|
@@ -20,8 +20,8 @@ Canonical artifact: `OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bib
 | Place | Kerrow Mine No. 3 | overwind.txt | MATCH | Preserve six groups, coordinates, silhouette and persistent fixture IDs |
 | Format | Canonical interactions | QUESTION_TYPES(1).md | MATCH | Provisional supplied format and stopKind authority |
 | Master | Current campaign design | Campaign_Design_and_Implementation_Master_Brief_v3.3(1).md | MATCH | Authoring and copy authority |
-| Ledger | Current authoring ledger | FIRST_PERSON_LEARNING_AUTHORING_LEDGER_TEMPLATE_v1.3(1).md | MATCH | Filled companion and machine ledger |
-| Gate | Current static gate | FIRST_PERSON_LEARNING_GIANT_CAMPAIGN_GATE_CHECK_v2.3(1).md | MATCH | All exact IDs assessed in companion gate report |
+| Ledger | Current authoring ledger | FIRST_PERSON_LEARNING_AUTHORING_LEDGER_TEMPLATE_v1.3(1).md | MATCH | Original filled companion and machine ledger are historical; regenerate from v1.1 before import |
+| Gate | Current static gate | FIRST_PERSON_LEARNING_GIANT_CAMPAIGN_GATE_CHECK_v2.3(1).md | MATCH | Original exact-ID gate report is historical; current check covers the handback revision |
 | Format exemplar | Whiteout bible | WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.11_HAND_BACK_4(1).md | MATCH | Numbered front matter and mission A–K shape; no inherited handback claims |
 | Schema/importer | Current repository | Not supplied | MISSING | Importer/schema/render/runtime gates NOT TESTED |
 | World implementation | Referenced source modules | Place export only | PARTIAL | Source geometry preserved; runtime reachability NOT TESTED |
@@ -61,15 +61,42 @@ The synthetic engineering envelope is an authored campaign input supplied before
 
 # 1. Campaign premise and opening
 
-The mine wants faster trips before an inspector arrives. A March emergency stop left the cage moving after the drum had stopped. The player is a mine lift safety engineer responsible for a twelve-part Safe Winding Plan: explain the event, then specify the fastest supported candidate profile within an explicit operating range. Forty-one miners need dependable access, and a rushed approval or an unjustified closure both carry costs.
+Forty-one miners are waiting to return to the inspected winding route. Ruth Bell’s brother Finn was in the cage when it passed its March landing; he got out unhurt, but Ruth heard his voice on the cage phone while the drum-stop lamp was already lit. Ada Kerr signed the check that treated that lamp as proof of a stopped cage. Neither knows yet why the two records disagree.
+
+The inspector arrives in twelve days. In this fictional inspection order, passenger access stays closed unless a supported winding range is signed; missing the date sends the mine into an extended review, with underground shifts suspended. Ewan Price has promised management a faster schedule to recover lost production. He needs the mine to keep working, and the same miners who fear another overrun also need their shifts. Management has tied next week’s planned overtime to the faster timetable; a slower reopening saves regular access but will cost the crew that extra pay. His pressure comes through revised schedule sheets and requests for narrower evidence, never an instruction to test on people.
+
+You are the lift safety engineer who must write the twelve-part Safe Winding Plan. Every page can keep a useful part of the service alive, but no page alone can open the gate. The central conflict grows as correct calculations seem to support Ewan’s schedule, then reveal what that success leaves unproved. All tests remain unoccupied or use isolated rigs. No miner is trapped below for the player to rescue; the danger is authorizing the next loaded journey with the same incomplete model.
 
 ## Opening card — exact player copy
 
-You are at Kerrow Mine No. 3, where forty-one miners ride a steel lift into the ground each shift. Your physics work must explain why that lift kept moving after its winding drum stopped. An inspector arrives in twelve days, and no faster passenger service can open without your Safe Winding Plan. Ada Kerr, mine safety engineer, locks the fast control and says, “The brake stops the drum—show me what stops the cage.”
+Forty-one miners wait at Kerrow No. 3, and Ruth Bell’s brother rode the cage that would not stop. The drum was still, but the cage passed its March landing. You have twelve days to write a Safe Winding Plan, or passenger access stays shut for a longer review. Ada Kerr puts her signed check beside you and says, “I trusted the drum lamp, so show me what I missed.”
 
 ### Opening implementation state
 
 One card over normal spawn, all four sentences visible together, one Continue action. Dismissal reveals the four bars at the starts below, opens the Day 1 briefing icon and leaves the player in normal view. Movement is learned while following the Day 1 evidence to the Bank; no greeting list, race or map tour is scheduled.
+
+## 1.1 Safe Winding Plan — delivery contract
+
+The Winder House plan board shows all twelve names from arrival. Piece M1 belongs to Mission 1, and so on in order; each changes from pending to signed after that mission’s successful outcome. The names below replace any inherited delivery list. Ruth’s shift tally stays beside the board; Ewan’s proposed schedule remains pinned beneath it, visibly amended as the limits narrow. Existing stop slips, mission unlocks and the four bars keep their specified behavior.
+
+```yaml
+delivery:
+  name: "Safe Winding Plan"
+  what: "A twelve-part record explaining the March overrun and setting the fastest supported passenger profile within its tested range."
+  pieces:
+    - "The measured cage stop"
+    - "The drum’s true inertia"
+    - "The rope’s own weight"
+    - "The motor’s two demands"
+    - "The full lift energy"
+    - "The staged ore feed"
+    - "The corrected gravity record"
+    - "The steady cruise ceiling"
+    - "The rope’s own clock"
+    - "The March stop reconstruction"
+    - "The loaded stopping envelope"
+    - "The signed passenger range"
+```
 
 # 2. Campaign metrics, timer, and recovery economy
 
@@ -181,14 +208,31 @@ Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 - **Allowed short name:** Ruth
 - **Area ownership:** BANK
 - **First entrance:** refuses boarding when the fast control is locked.
-- **Wants:** Keep the shift moving without another landing overrun.
+- **Wants:** Her brother Finn rode the March cage and was unhurt. She wants his next shift to run, but she will not use the drum lamp as his safety check again.
 - **Blind spot:** The drum record has usually been a sufficient proxy for cage motion.
 - **Scientific domain:** motion and passenger access.
 - **Decision function:** receives the local day decision and signs the corresponding evidence page.
 - **Verbal habit:** “Which part is still moving?”
-- **Arc:** The independent cage record makes her require two motion histories.
+- **Arc:** She moves from privately asking for reassurance to publicly refusing to post a faster schedule without a cage trace.
 - **Changed greeting after relevant reveal:** “I want the cage trace beside the drum trace.”
 - **Gameplay necessity:** Removing this owner removes the independent motion and passenger access constraint from final sign-off.
+
+
+**Bio reading check — exact player copy:** Why does Ruth now ask for two motion traces?
+
+```yaml
+bioCheck:
+  prompt: "Why does Ruth now ask for two motion traces?"
+  choices:
+    - text: "The cage can keep moving after the drum stops."
+      correct: true
+      feedback: "The cage record showed motion that the drum record missed."
+    - text: "A drum trace always measures cage motion."
+      correct: false
+      feedback: "The cage record showed motion that the drum record missed."
+```
+
+**Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Ewan Price
 
@@ -198,14 +242,31 @@ Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 - **Allowed short name:** Ewan
 - **Area ownership:** WIND
 - **First entrance:** isolates the motor before opening the drum record.
-- **Wants:** Keep a usable winding service rather than shut the mine indefinitely.
+- **Wants:** He promised management a faster timetable before the inspection. A longer access closure means suspended underground shifts for the crew he works beside.
 - **Blind spot:** The old inertia drawing and a good empty test initially look adequate.
 - **Scientific domain:** rotation, torque, power and signed operation.
 - **Decision function:** receives the local day decision and signs the corresponding evidence page.
 - **Verbal habit:** “What else must this shaft turn?”
-- **Arc:** He accepts a slower tested range instead of the largest motor-feasible speed.
+- **Arc:** He first argues that each passed limit brings his promise within reach. At the warm-pad reversal he crosses out his own faster timetable and signs the slower supported range.
 - **Changed greeting after relevant reveal:** “Put the load and pad state beside that pass.”
 - **Gameplay necessity:** Removing this owner removes the independent rotation, torque, power and signed operation constraint from final sign-off.
+
+
+**Bio reading check — exact player copy:** What must Ewan attach to a passed stop test?
+
+```yaml
+bioCheck:
+  prompt: "What must Ewan attach to a passed stop test?"
+  choices:
+    - text: "The tested load and pad state."
+      correct: true
+      feedback: "A pass supports the conditions tested, not every load and brake state."
+    - text: "Only the fastest motor speed."
+      correct: false
+      feedback: "A pass supports the conditions tested, not every load and brake state."
+```
+
+**Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Mara Shaw
 
@@ -215,14 +276,31 @@ Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 - **Allowed short name:** Mara
 - **Area ownership:** ROPE
 - **First entrance:** clamps the test coil before weighing a cut sample.
-- **Wants:** Protect sound rope from replacement while identifying real motion limits.
+- **Wants:** Management wants a quick rope-replacement answer. She needs to show whether replacing sound steel would solve the motion problem or merely spend the remaining workshop reserve.
 - **Blind spot:** A passed mean-pull test can distract from rapidly changing stretch.
 - **Scientific domain:** mass distribution and elasticity.
 - **Decision function:** receives the local day decision and signs the corresponding evidence page.
 - **Verbal habit:** “What length was hanging?”
-- **Arc:** She makes rope length and residual state explicit in each accepted profile.
+- **Arc:** She defends measured rope condition without defending the old model, then insists that length and rebound limits appear on the signed plan.
 - **Changed greeting after relevant reveal:** “A pull limit needs a motion limit beside it.”
 - **Gameplay necessity:** Removing this owner removes the independent mass distribution and elasticity constraint from final sign-off.
+
+
+**Bio reading check — exact player copy:** Why does Mara ask what rope length was hanging?
+
+```yaml
+bioCheck:
+  prompt: "Why does Mara ask what rope length was hanging?"
+  choices:
+    - text: "Length changes both moving mass and stretch response."
+      correct: true
+      feedback: "More hanging rope adds mass and changes the fitted stiffness."
+    - text: "All lengths have the same mass and stiffness."
+      correct: false
+      feedback: "More hanging rope adds mass and changes the fitted stiffness."
+```
+
+**Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Ada Kerr
 
@@ -232,14 +310,31 @@ Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 - **Allowed short name:** Ada
 - **Area ownership:** CAGE
 - **First entrance:** locks the fast start control at the opening.
-- **Wants:** Explain March and protect the people who ride the cage.
+- **Wants:** Her signature is on the March drum-stop check. She gives you that page at arrival, with no attempt to hide it, but still hopes the new empty test will settle the inquiry.
 - **Blind spot:** An empty success initially seems close to full acceptance.
 - **Scientific domain:** brakes, impulse and evidence boundaries.
 - **Decision function:** receives the local day decision and signs the corresponding evidence page.
 - **Verbal habit:** “What did this test actually prove?”
-- **Arc:** She narrows the approved test scope after the warm-pad contradiction.
+- **Arc:** She explains her own mistaken inference in front of Ruth, then limits the empty-test claim even though the correction weakens the case for quick reopening.
 - **Changed greeting after relevant reveal:** “A good test earns its own conditions, no more.”
 - **Gameplay necessity:** Removing this owner removes the independent brakes, impulse and evidence boundaries constraint from final sign-off.
+
+
+**Bio reading check — exact player copy:** What does Ada ask before a test earns approval?
+
+```yaml
+bioCheck:
+  prompt: "What does Ada ask before a test earns approval?"
+  choices:
+    - text: "Which conditions the test actually proved."
+      correct: true
+      feedback: "Approval must stay within the evidence from the stated conditions."
+    - text: "Whether its display looked reassuring."
+      correct: false
+      feedback: "Approval must stay within the evidence from the stated conditions."
+```
+
+**Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Ivo Reed
 
@@ -249,14 +344,31 @@ Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 - **Allowed short name:** Ivo
 - **Area ownership:** TIP
 - **First entrance:** stops feed while collecting intact bolt fragments.
-- **Wants:** Restore steady ore delivery without breaking the bin again.
+- **Wants:** His broken bin has cut ore flow just as the lift is losing time. He fears that a feed cut will be treated as the crew failing to keep up.
 - **Blind spot:** Standing belt mass has been his familiar overload measure.
 - **Scientific domain:** momentum flux and mechanical power.
 - **Decision function:** receives the local day decision and signs the corresponding evidence page.
 - **Verbal habit:** “How much arrives each second?”
-- **Arc:** He separates stored load, arrival rate and impact duration.
+- **Arc:** He uses the staged chute to keep daily delivery while reducing impact, giving the crew a practical gain that does not require a faster passenger cage.
 - **Changed greeting after relevant reveal:** “The scale cannot tell us how hard it lands.”
 - **Gameplay necessity:** Removing this owner removes the independent momentum flux and mechanical power constraint from final sign-off.
+
+
+**Bio reading check — exact player copy:** Why can a lightly loaded belt still trip?
+
+```yaml
+bioCheck:
+  prompt: "Why can a lightly loaded belt still trip?"
+  choices:
+    - text: "Incoming ore must gain momentum each second."
+      correct: true
+      feedback: "A stream needs force to gain speed even when little mass sits on the belt."
+    - text: "Standing belt mass alone sets the drive force."
+      correct: false
+      feedback: "A stream needs force to gain speed even when little mass sits on the belt."
+```
+
+**Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Nia Cole
 
@@ -266,14 +378,31 @@ Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 - **Allowed short name:** Nia
 - **Area ownership:** GRAV
 - **First entrance:** levels the meter before accepting a reading.
-- **Wants:** Maintain a defensible survey tied to reference readings.
+- **Wants:** The repeated gravity readings were taken on her watch. She must own the drift correction without letting it become a convenient explanation for March.
 - **Blind spot:** A tidy spherical model can be easier to discuss than messy local evidence.
 - **Scientific domain:** gravitation, drift and uncertainty.
 - **Decision function:** receives the local day decision and signs the corresponding evidence page.
 - **Verbal habit:** “What did the reference do?”
-- **Arc:** She records local measurements separately from ideal depth predictions.
+- **Arc:** She signs the corrected survey and refuses to let a small weight change stand in for the missing account of delayed motion.
 - **Changed greeting after relevant reveal:** “Keep the model assumption with the number.”
 - **Gameplay necessity:** Removing this owner removes the independent gravitation, drift and uncertainty constraint from final sign-off.
+
+
+**Bio reading check — exact player copy:** Why does Nia repeat the reference reading?
+
+```yaml
+bioCheck:
+  prompt: "Why does Nia repeat the reference reading?"
+  choices:
+    - text: "To separate meter drift from a change with depth."
+      correct: true
+      feedback: "A repeat reference can reveal a time-dependent instrument offset."
+    - text: "To force local readings to match an ideal sphere."
+      correct: false
+      feedback: "A repeat reference can reveal a time-dependent instrument offset."
+```
+
+**Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 # 5. Authoritative numbered concept spine
 
@@ -398,22 +527,31 @@ The following completes the reference map without pretending that every cheat-sh
 
 | Day | Science | Mystery | Stakes |
 |---:|---|---|---|
-| 1 | Calculus kinematics and reference frames | Reject the proposed start; its acceleration exceeds the trial limit. | The fast start is removed from the passenger schedule. |
-| 2 | Mass distribution and rotational inertia | Use 45,000 kg m² and retire the old solid-disk value. | The old drum drawing receives a superseded tag. |
-| 3 | Newton laws and system boundaries | The one-unit acceleration passes the stated pull limit, with a massive-rope model. | The rope limit is written beside the measured length. |
-| 4 | Torque and angular acceleration | Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. | The start control gains a tested acceleration stop. |
-| 5 | Work and potential energy | The full lift energy budget passes, but it does not certify an emergency stop. | The energy page is accepted while the brake page stays open. |
-| 6 | Momentum, impulse and open systems | Spread the incoming momentum change over more time with the staged chute. | A staged chute is marked for installation beside the bin. |
-| 7 | Gravitation and measurement models (setting supplement) | Use the corrected survey value, but reject gravity as the explanation of the delayed overrun. | The drift correction is attached to the load table. |
-| 8 | Power and efficiency | Cap cruise at 3.5 m/s pending the emergency-stop test. | The cruise proposal is reduced while the brake restriction remains. |
-| 9 | Elasticity and simple harmonic motion | No; the rope and cage have their own oscillation period. | The drum-only stop prediction receives an incomplete-model tag. |
-| 10 | Elasticity and simple harmonic motion | The moving cage continued into an elastic oscillation after the drum stopped. | The March board replaces the sealed inquiry drawer. |
-| 11 | Stopping, friction and conservative limits | Reject that authorization; loaded warm-pad stopping needs the slower candidate. | The empty-test approval is narrowed to its tested load. |
-| 12 | Integrated model verification | Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied acceptance. | The signed range and unoccupied acceptance unlock the passenger gate. |
+| 1 | Calculus kinematics and reference frames | Reject the proposed start; its acceleration exceeds the trial limit. | Today you decide if Ruth can put the fast start on the shift sheet that includes her brother. |
+| 2 | Mass distribution and rotational inertia | Use 45,000 kg m² and retire the old solid-disk value. | Today you decide which drum record Ewan must use, even if it breaks the timetable he promised. |
+| 3 | Newton laws and system boundaries | The one-unit acceleration passes the stated pull limit, with a massive-rope model. | Today you decide what the rope test proves before Mara spends reserve on a fix that may miss the cause. |
+| 4 | Torque and angular acceleration | Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. | Today you decide which start Ewan can defend to the crew who need their shifts back. |
+| 5 | Work and potential energy | The full lift energy budget passes, but it does not certify an emergency stop. | Today you decide if Ada can close her brake page just because the lift has enough energy. |
+| 6 | Momentum, impulse and open systems | Spread the incoming momentum change over more time with the staged chute. | Today you choose how Ivo can protect the bin and keep ore moving without a faster passenger cage. |
+| 7 | Gravitation and measurement models (setting supplement) | Use the corrected survey value, but reject gravity as the explanation of the delayed overrun. | Today you decide if Nia’s corrected reading explains March or leaves Ada’s old check unanswered. |
+| 8 | Power and efficiency | Cap cruise at 3.5 m/s pending the emergency-stop test. | Today you choose what speed Ewan may list as a power-only proposal while Ruth keeps the gate shut. |
+| 9 | Elasticity and simple harmonic motion | No; the rope and cage have their own oscillation period. | Today you decide if Ruth can trust the lamp that was lit while her brother was still moving. |
+| 10 | Elasticity and simple harmonic motion | The moving cage continued into an elastic oscillation after the drum stopped. | Today you decide what Ada must put beside her signed March check when Ruth reads the inquiry. |
+| 11 | Stopping, friction and conservative limits | Reject that authorization; loaded warm-pad stopping needs the slower candidate. | Today you decide if a clean empty run lets Ewan keep his faster promise to the waiting shift. |
+| 12 | Integrated model verification | Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied acceptance. | Today you choose the full profile Ruth can use to open the gate for all forty-one miners. |
 
 ## 6.4 Smaller reversals and cadence
 
 The fast start is rejected despite its correct replay (D1); rope pull passes while motor torque fails (D3–4); a sufficient lift budget does not certify a stop (D5); the belt trips below its static mass limit (D6); corrected gravity changes the force table slightly without explaining the delay (D7); power passes before brake scope fails (D8–11). Correct work can narrow the available action rather than deliver an easy celebration.
+
+## 6.5 Human pressure and earned reversals
+
+- **Days 1–4 — A promise loses its supports.** Ruth’s family stake and Ewan’s timetable arrive together. Rejecting the start, replacing the drum model and separating rope pull from motor torque cost Ewan specific assumptions, while still preserving a usable slower start.
+- **Days 5–8 — Real wins invite the wrong conclusion.** The lift-energy page passes. Ivo’s feed fix protects throughput without speeding up the cage. Nia owns a survey error. Ewan finally earns a power-feasible cruise proposal, but Ruth writes its missing brake condition across the posted sheet. The player can see why the crew wants a yes and why this yes is too narrow.
+- **Days 9–10 — The old signature becomes evidence.** Rope dynamics explains why Ruth heard Finn while the drum lamp was lit. Ada’s original record remains visible beside the independent traces; she owns the inference it could not support. The sealed timestamp tests the model, so this confrontation follows physics rather than a confession that solves the mystery.
+- **Days 11–12 — Give up the promise to keep the service.** A clean empty run briefly looks like the answer, then the warm-pad limit breaks the faster timetable. Ewan must cross it out publicly. The final acceptance earns a bounded service the crew can actually use. The inspection does not erase March or promise that all future changes are safe.
+
+The pressure is persistent copy on the existing plan and shift boards. No extra mission, test passenger, hidden accident, arbitrary resource penalty or rescue clock is introduced. Finn is a named member of the shift and Ruth’s family connection. His March experience comes through Ruth’s account, and his return through the ending card. No new NPC, voice, character model, fixture or required conversation is needed; the six existing owners carry all interactions.
 
 # 7. Mission route overview
 
@@ -436,35 +574,35 @@ The fast start is rejected despite its correct replay (D1); rope pull passes whi
 
 | Day | Persists after successful completion | Next visible problem |
 |---:|---|---|
-| 1 | The fast start is removed from the passenger schedule. Every completed stop slip stays in the log. | The drum record lists a shape that no longer matches the drum. |
-| 2 | The old drum drawing receives a superseded tag. Every completed stop slip stays in the log. | The rope record lists more hanging steel than the cage and its load. |
-| 3 | The rope limit is written beside the measured length. Every completed stop slip stays in the log. | The motor must pull the rope and speed up the heavy drum together. |
-| 4 | The start control gains a tested acceleration stop. Every completed stop slip stays in the log. | The energy budget says a complete lift should still be possible. |
-| 5 | The energy page is accepted while the brake page stays open. Every completed stop slip stays in the log. | The conveyor trips even when the load on its belt is small. |
-| 6 | A staged chute is marked for installation beside the bin. Every completed stop slip stays in the log. | The survey book carries an unexplained change between repeated gravity readings. |
-| 7 | The drift correction is attached to the load table. Every completed stop slip stays in the log. | The fastest requested lift still exceeds the motor power budget. |
-| 8 | The cruise proposal is reduced while the brake restriction remains. Every completed stop slip stays in the log. | A hanging test mass keeps bouncing after the support is still. |
-| 9 | The drum-only stop prediction receives an incomplete-model tag. Every completed stop slip stays in the log. | The March tape is unsealed for comparison with the measured period. |
-| 10 | The March board replaces the sealed inquiry drawer. Every completed stop slip stays in the log. | The empty test looks safe, but the warm-pad certificate carries a lower braking limit. |
-| 11 | The empty-test approval is narrowed to its tested load. Every completed stop slip stays in the log. | The final plan now has a tested speed choice and a clear limit on what was proved. |
-| 12 | The signed range and unoccupied acceptance unlock the passenger gate. Every completed stop slip stays in the log. | The passenger gate opens and the completed plan remains available for review. |
+| 1 | The fast start is removed from the passenger schedule. Every completed stop slip stays in the log. | But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel. |
+| 2 | The old drum drawing receives a superseded tag. Every completed stop slip stays in the log. | Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage. |
+| 3 | The rope limit is written beside the measured length. Every completed stop slip stays in the log. | Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise. |
+| 4 | The start control gains a tested acceleration stop. Every completed stop slip stays in the log. | Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page. |
+| 5 | The energy page is accepted while the brake page stays open. Every completed stop slip stays in the log. | But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule. |
+| 6 | A staged chute is marked for installation beside the bin. Every completed stop slip stays in the log. | Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March. |
+| 7 | The drift correction is attached to the load table. Every completed stop slip stays in the log. | Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to. |
+| 8 | The cruise proposal is reduced while the brake restriction remains. Every completed stop slip stays in the log. | But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March. |
+| 9 | The drum-only stop prediction receives an incomplete-model tag. Every completed stop slip stays in the log. | Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed. |
+| 10 | The March board replaces the sealed inquiry drawer. Every completed stop slip stays in the log. | Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule. |
+| 11 | The empty-test approval is narrowed to its tested load. Every completed stop slip stays in the log. | Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access. |
+| 12 | The signed range and unoccupied acceptance unlock the passenger gate. Every completed stop slip stays in the log. | Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind. |
 
 ## 7.2 Mission answer ledger
 
 | Day | Question | Actual answer | Four-stop evidence chain | Visible consequence | Next problem |
 |---:|---|---|---|---|---|
-| 1 | Can the proposed start be used for passenger trips? | Reject the proposed start; its acceleration exceeds the trial limit. | Read the motion record → Differentiate the proposed start → Test the displacement → Commit the day’s plan | The fast start is removed from the passenger schedule. | The drum record lists a shape that no longer matches the drum. |
-| 2 | Which drum inertia belongs in the winding model? | Use 45,000 kg m² and retire the old solid-disk value. | Rope-contact radius → Integrate the ring → Check the drum drawing → Commit the day’s plan | The old drum drawing receives a superseded tag. | The rope record lists more hanging steel than the cage and its load. |
-| 3 | Does the proposed one-unit acceleration pass the rope pull limit? | The one-unit acceleration passes the stated pull limit, with a massive-rope model. | Choose what the force acts on → Sum the moving rope → Load the sample model → Commit the day’s plan | The rope limit is written beside the measured length. | The motor must pull the rope and speed up the heavy drum together. |
-| 4 | Which starting acceleration can the motor supply? | Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. | Drum angular acceleration → Add the two torque demands → Check the faster start → Commit the day’s plan | The start control gains a tested acceleration stop. | The energy budget says a complete lift should still be possible. |
-| 5 | Does the lift energy budget clear the emergency stop? | The full lift energy budget passes, but it does not certify an emergency stop. | Set the energy boundary → Lift a rope one piece at a time → Drum motion energy → Commit the day’s plan | The energy page is accepted while the brake page stays open. | The conveyor trips even when the load on its belt is small. |
-| 6 | Which feed change protects the conveyor and bin? | Spread the incoming momentum change over more time with the staged chute. | Explain the belt trips → Derive the force of the stream → Mean bin impact force → Commit the day’s plan | A staged chute is marked for installation beside the bin. | The survey book carries an unexplained change between repeated gravity readings. |
-| 7 | Can the local gravity correction explain the March overrun? | Use the corrected survey value, but reject gravity as the explanation of the delayed overrun. | Find the drifting reference → Derive the ideal depth trend → Separate survey from assumption → Commit the day’s plan | The drift correction is attached to the load table. | The fastest requested lift still exceeds the motor power budget. |
-| 8 | Which cruise speed fits the motor power limit? | Cap cruise at 3.5 m/s pending the emergency-stop test. | Recall the full-length pull → Turn lift work into power → Check a scaled steady drive → Commit the day’s plan | The cruise proposal is reduced while the brake restriction remains. | A hanging test mass keeps bouncing after the support is still. |
-| 9 | Can a drum stop time alone predict when the cage stops? | No; the rope and cage have their own oscillation period. | Distinguish mass from stiffness → Derive the bounce period → Read an independent period → Commit the day’s plan | The drum-only stop prediction receives an incomplete-model tag. | The March tape is unsealed for comparison with the measured period. |
-| 10 | What caused the cage to overrun its March landing? | The moving cage continued into an elastic oscillation after the drum stopped. | Read the three independent records → Reconstruct the overshoot → Keep the inquiry test honest → Commit the day’s plan | The March board replaces the sealed inquiry drawer. | The empty test looks safe, but the warm-pad certificate carries a lower braking limit. |
-| 11 | Does the empty test authorize the faster passenger profile? | Reject that authorization; loaded warm-pad stopping needs the slower candidate. | Read the certificate conditions → Bound the stopping travel → Test a warm loaded surrogate → Commit the day’s plan | The empty-test approval is narrowed to its tested load. | The final plan now has a tested speed choice and a clear limit on what was proved. |
-| 12 | Which complete profile can be signed for the defined operating range? | Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied acceptance. | Commit the empty acceptance prediction → Combine the signed limits → Check the independent safety margin → Commit the day’s plan | The signed range and unoccupied acceptance unlock the passenger gate. | The passenger gate opens and the completed plan remains available for review. |
+| 1 | Can the proposed start be used for passenger trips? | Reject the proposed start; its acceleration exceeds the trial limit. | Read the motion record → Differentiate the proposed start → Test the displacement → Commit the day’s plan | The fast start is removed from the passenger schedule. | But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel. |
+| 2 | Which drum inertia belongs in the winding model? | Use 45,000 kg m² and retire the old solid-disk value. | Rope-contact radius → Integrate the ring → Check the drum drawing → Commit the day’s plan | The old drum drawing receives a superseded tag. | Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage. |
+| 3 | Does the proposed one-unit acceleration pass the rope pull limit? | The one-unit acceleration passes the stated pull limit, with a massive-rope model. | Choose what the force acts on → Sum the moving rope → Load the sample model → Commit the day’s plan | The rope limit is written beside the measured length. | Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise. |
+| 4 | Which starting acceleration can the motor supply? | Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. | Drum angular acceleration → Add the two torque demands → Check the faster start → Commit the day’s plan | The start control gains a tested acceleration stop. | Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page. |
+| 5 | Does the lift energy budget clear the emergency stop? | The full lift energy budget passes, but it does not certify an emergency stop. | Set the energy boundary → Lift a rope one piece at a time → Drum motion energy → Commit the day’s plan | The energy page is accepted while the brake page stays open. | But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule. |
+| 6 | Which feed change protects the conveyor and bin? | Spread the incoming momentum change over more time with the staged chute. | Explain the belt trips → Derive the force of the stream → Mean bin impact force → Commit the day’s plan | A staged chute is marked for installation beside the bin. | Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March. |
+| 7 | Can the local gravity correction explain the March overrun? | Use the corrected survey value, but reject gravity as the explanation of the delayed overrun. | Find the drifting reference → Derive the ideal depth trend → Separate survey from assumption → Commit the day’s plan | The drift correction is attached to the load table. | Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to. |
+| 8 | Which cruise speed fits the motor power limit? | Cap cruise at 3.5 m/s pending the emergency-stop test. | Recall the full-length pull → Turn lift work into power → Check a scaled steady drive → Commit the day’s plan | The cruise proposal is reduced while the brake restriction remains. | But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March. |
+| 9 | Can a drum stop time alone predict when the cage stops? | No; the rope and cage have their own oscillation period. | Distinguish mass from stiffness → Derive the bounce period → Read an independent period → Commit the day’s plan | The drum-only stop prediction receives an incomplete-model tag. | Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed. |
+| 10 | What caused the cage to overrun its March landing? | The moving cage continued into an elastic oscillation after the drum stopped. | Read the three independent records → Reconstruct the overshoot → Keep the inquiry test honest → Commit the day’s plan | The March board replaces the sealed inquiry drawer. | Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule. |
+| 11 | Does the empty test authorize the faster passenger profile? | Reject that authorization; loaded warm-pad stopping needs the slower candidate. | Read the certificate conditions → Bound the stopping travel → Test a warm loaded surrogate → Commit the day’s plan | The empty-test approval is narrowed to its tested load. | Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access. |
+| 12 | Which complete profile can be signed for the defined operating range? | Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied acceptance. | Commit the empty acceptance prediction → Combine the signed limits → Check the independent safety margin → Commit the day’s plan | The signed range and unoccupied acceptance unlock the passenger gate. | Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind. |
 
 ## 7.3 Campaign-local format contract sheet
 
@@ -492,9 +630,13 @@ These contracts use supplied QUESTION_TYPES and Master Brief v3.3 provisionally;
 
 **Go now:** Go to The Bank and meet Ruth Bell, cage operator, at The profile desk.
 
-**Card body (58 words; 4 sentences):** The March stop left the lift beyond its landing, and faster trips are now proposed. The lift carries people in a steel cage pulled by a rope. At the Bank, compare the planned motion with a small test before anyone rides. By the end of the mission, decide whether the proposed start can be used for passenger trips.
+**Card body (51 words; 4 sentences):** The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people.
 
 **Objective:** Can the proposed start be used for passenger trips?
+
+**Stake — exact player copy:** Today you decide if Ruth can put the fast start on the shift sheet that includes her brother.
+
+**Segue — exact player copy:** But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel.
 
 ### Worth knowing first — exact player copy
 
@@ -544,7 +686,7 @@ Integral: an accumulated total found from a rate.
 
 ## B. Main story happening — designer summary
 
-The fast start is removed from the passenger schedule. The day moves from read the motion record through differentiate the proposed start and test the displacement to the owner’s signed decision. The drum record lists a shape that no longer matches the drum.
+The fast start is removed from the passenger schedule. The day moves from read the motion record through differentiate the proposed start and test the displacement to the owner’s signed decision. The drum record lists a shape that no longer matches the drum. Ruth takes the fast-start sheet off the shift board. Her brother Finn’s tally stays on the hook with the other forty; no one boards for a test.
 
 ## C. Designer intent — not shown to player
 
@@ -606,7 +748,7 @@ Reject the proposed start; its acceleration exceeds the trial limit. The four st
 
 **World state:** The fast start is removed from the passenger schedule. The drum record lists a shape that no longer matches the drum.
 
-**Panel text:** “The fast start is removed from the passenger schedule. The drum record lists a shape that no longer matches the drum.”
+**Panel text:** “Ruth takes the fast-start sheet off the shift board. Her brother Finn’s tally stays on the hook with the other forty; no one boards for a test. But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -645,7 +787,7 @@ Motion and derivatives distinguish a position from its rate and a rate from its 
 
 **Stop reason — exact player copy:** The March record must be understood before the fast start is restored.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ruth Bell notes that the March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted.
 
 **Question card story-science connection — exact player copy:** The meaning of a motion record determines which part of the passenger proposal can be approved.
 
@@ -703,7 +845,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which drum inertia belongs in the winding model?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 1 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 1 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 2 — Differentiate the proposed start
 
@@ -721,7 +863,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The proposed start must meet the passenger acceleration limit.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ruth Bell sees that the graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet.
 
 **Question card story-science connection — exact player copy:** The meaning of a motion record determines which part of the passenger proposal can be approved.
 
@@ -751,6 +893,15 @@ derive:
       correct: false
       survives: true
       why: The derivative of 2t is constant; keeping t confuses velocity with acceleration.
+  - id: line3
+    prompt: Substitute t=4 s into the derived velocity.
+    choices:
+    - line: v(4)=2×4=8 m/s
+      correct: true
+    - line: v(4)=4²=16 m/s
+      correct: false
+      survives: true
+      why: Squaring time repeats the position rule instead of substituting into v=2t.
   answerText: The power rule changes t² into 2t and then into 2; the proposed upward start therefore has constant acceleration, not constant speed.
 ```
 
@@ -768,6 +919,7 @@ derive:
 
 - **1:** Copying the position expression leaves the time dependence unchanged and does not calculate velocity.
 - **2:** The derivative of 2t is constant; keeping t confuses velocity with acceleration.
+- **3:** Squaring time repeats the position rule instead of substituting into v=2t.
 
 Retry: dismiss feedback, review the unchanged data, reset the unsolved board and commit again; the next stop stays locked until a correct submission. For matching, each wrong connection identifies the evidence row and explains why the selected response belongs to a different row; no credit comes from an incomplete mapping.
 
@@ -779,7 +931,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which drum inertia belongs in the winding model?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 2 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 2 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 3 — Test the displacement
 
@@ -797,7 +949,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The planned travel needs a prediction before the replay can test it.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Ruth Bell confirms that the derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance.
 
 **Question card story-science connection — exact player copy:** The meaning of a motion record determines which part of the passenger proposal can be approved.
 
@@ -847,7 +999,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which drum inertia belongs in the winding model?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 3 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 3 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 4 — Commit the day’s plan
 
@@ -865,7 +1017,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** A matching replay still leaves the passenger limit to check.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ruth Bell finds that the replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation.
 
 **Question card story-science connection — exact player copy:** The meaning of a motion record determines which part of the passenger proposal can be approved.
 
@@ -913,11 +1065,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which drum inertia belongs in the winding model?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 4 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 4 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk.
+Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk. Ruth takes the fast-start sheet off the shift board. Her brother Finn’s tally stays on the hook with the other forty; no one boards for a test.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -957,9 +1109,13 @@ Mission decision: Reject the fast start. Its speed grows too fast for the stated
 
 **Go now:** Go to Winder House and meet Ewan Price, winding engineer, at The winder desk.
 
-**Card body (55 words; 4 sentences):** The fast start is held, but the machine record may also be wrong. Steel farther from the turning shaft makes a drum harder to speed up. At the Winder House, inspect its shape and compare the turning resistance in the records. By the end of the mission, decide which drum model belongs in the plan.
+**Card body (51 words; 4 sentences):** The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan.
 
 **Objective:** Which drum inertia belongs in the winding model?
+
+**Stake — exact player copy:** Today you decide which drum record Ewan must use, even if it breaks the timetable he promised.
+
+**Segue — exact player copy:** Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage.
 
 ### Worth knowing first — exact player copy
 
@@ -1007,7 +1163,7 @@ Annulus: a ring with an inner and an outer radius.
 
 ## B. Main story happening — designer summary
 
-The old drum drawing receives a superseded tag. The day moves from rope-contact radius through integrate the ring and check the drum drawing to the owner’s signed decision. The rope record lists more hanging steel than the cage and its load.
+The old drum drawing receives a superseded tag. The day moves from rope-contact radius through integrate the ring and check the drum drawing to the owner’s signed decision. The rope record lists more hanging steel than the cage and its load. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check.
 
 ## C. Designer intent — not shown to player
 
@@ -1069,7 +1225,7 @@ Use 45,000 kg m² and retire the old solid-disk value. The four stops produce ev
 
 **World state:** The old drum drawing receives a superseded tag. The rope record lists more hanging steel than the cage and its load.
 
-**Panel text:** “The old drum drawing receives a superseded tag. The rope record lists more hanging steel than the cage and its load.”
+**Panel text:** “Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check. Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -1108,7 +1264,7 @@ Mass distribution matters because each mass element is weighted by its squared d
 
 **Stop reason — exact player copy:** The working radius must be known before the drum model is corrected.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ewan Price notes that the rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk.
 
 **Question card story-science connection — exact player copy:** The meaning of a motion record determines which part of the passenger proposal can be approved.
 
@@ -1164,7 +1320,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the proposed one-unit acceleration pass the rope pull limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 5 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 5 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 6 — Integrate the ring
 
@@ -1182,7 +1338,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The central hole changes how the drum’s mass resists turning.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ewan Price sees that the speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome.
 
 **Question card story-science connection — exact player copy:** A measured mass distribution changes the motor demand that the crew can safely authorize.
 
@@ -1206,7 +1362,7 @@ derive:
   - id: line2
     prompt: Integrate and factor B⁴−A⁴.
     choices:
-    - line: I=M(A²+B²)/2=45000 kg m²
+    - line: I=M(A²+B²)/2=18000×(1²+2²)/2=45000 kg m²
       correct: true
     - line: I=MB²/2=18000(2²)/2=36000 kg m²
       correct: false
@@ -1240,7 +1396,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the proposed one-unit acceleration pass the rope pull limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 6 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 6 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 7 — Check the drum drawing
 
@@ -1258,7 +1414,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The old drawing needs a physical dimension check.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ewan Price confirms that the annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew.
 
 **Question card story-science connection — exact player copy:** A measured mass distribution changes the motor demand that the crew can safely authorize.
 
@@ -1320,7 +1476,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the proposed one-unit acceleration pass the rope pull limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 7 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 7 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 8 — Commit the day’s plan
 
@@ -1338,7 +1494,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The next torque calculation needs the drum that is actually installed.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ewan Price finds that the bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here.
 
 **Question card story-science connection — exact player copy:** A measured mass distribution changes the motor demand that the crew can safely authorize.
 
@@ -1386,11 +1542,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the proposed one-unit acceleration pass the rope pull limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 8 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 8 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next.
+Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -1430,9 +1586,13 @@ Mission decision: Use the ring-shaped drum model. The measured hole changes how 
 
 **Go now:** Go to Rope Shop and meet Mara Shaw, rope technician, at The rope bench.
 
-**Card body (59 words; 4 sentences):** The drum model is fixed, but the rope adds its own weight. The upper rope must pull both the cage and all the steel hanging below it. At the Rope Shop, weigh a sample and test the predicted pull before approving a loaded rise. By the end of the mission, decide whether the proposed acceleration passes the rope limit.
+**Card body (52 words; 4 sentences):** The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise.
 
 **Objective:** Does the proposed one-unit acceleration pass the rope pull limit?
+
+**Stake — exact player copy:** Today you decide what the rope test proves before Mara spends reserve on a fix that may miss the cause.
+
+**Segue — exact player copy:** Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise.
 
 ### Worth knowing first — exact player copy
 
@@ -1480,7 +1640,7 @@ Free-body diagram: a drawing of the external forces acting on one chosen object.
 
 ## B. Main story happening — designer summary
 
-The rope limit is written beside the measured length. The day moves from choose what the force acts on through sum the moving rope and load the sample model to the owner’s signed decision. The motor must pull the rope and speed up the heavy drum together.
+The rope limit is written beside the measured length. The day moves from choose what the force acts on through sum the moving rope and load the sample model to the owner’s signed decision. The motor must pull the rope and speed up the heavy drum together. Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained.
 
 ## C. Designer intent — not shown to player
 
@@ -1542,7 +1702,7 @@ The one-unit acceleration passes the stated pull limit, with a massive-rope mode
 
 **World state:** The rope limit is written beside the measured length. The motor must pull the rope and speed up the heavy drum together.
 
-**Panel text:** “The rope limit is written beside the measured length. The motor must pull the rope and speed up the heavy drum together.”
+**Panel text:** “Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained. Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -1581,7 +1741,7 @@ Forces and boundaries require the external force sum and the mass to refer to th
 
 **Stop reason — exact player copy:** The upper rope must carry more than the cage alone.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Mara Shaw notes that the corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation.
 
 **Question card story-science connection — exact player copy:** The chosen system determines which load the next force limit must protect.
 
@@ -1639,7 +1799,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which starting acceleration can the motor supply?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 9 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 9 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 10 — Sum the moving rope
 
@@ -1657,16 +1817,16 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The full hanging length must enter the mean-pull prediction.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Mara Shaw sees that the force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test.
 
 **Question card story-science connection — exact player copy:** The chosen system determines which load the next force limit must protect.
 
-**Data/readings — exact player copy:** M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
+**Data/readings — exact player copy:** M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
+  start: M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
   goal: Express tension at a cut and evaluate it at s=1200 m.
   steps:
   - id: line1
@@ -1681,7 +1841,7 @@ derive:
   - id: line2
     prompt: Apply net upward force equals total mass times acceleration.
     choices:
-    - line: T=(M+λs)(g+a)=176000 N at s=1200 m
+    - line: T=(M+λs)(g+a)=(4000+10×1200)×(10+1)=176000 N
       correct: true
     - line: T=(M+λs)g+Ma=16000×10+4000×1=164000 N at s=1200 m
       correct: false
@@ -1696,7 +1856,7 @@ derive:
 
 **Answer text:** The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch.
 
-**Why/mechanism:** The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
+**Why/mechanism:** The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
 
 **Misconception:** 1.
 
@@ -1715,7 +1875,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which starting acceleration can the motor supply?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 10 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 10 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 11 — Load the sample model
 
@@ -1733,7 +1893,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** A small rig can check the force relation without carrying passengers.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Mara Shaw confirms that the full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard.
 
 **Question card story-science connection — exact player copy:** The chosen system determines which load the next force limit must protect.
 
@@ -1783,7 +1943,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which starting acceleration can the motor supply?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 11 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 11 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 12 — Commit the day’s plan
 
@@ -1801,7 +1961,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The mean-pull pass must not erase the untested bounce.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Mara Shaw finds that the smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation.
 
 **Question card story-science connection — exact player copy:** The chosen system determines which load the next force limit must protect.
 
@@ -1849,11 +2009,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which starting acceleration can the motor supply?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 12 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 12 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: The slower rise passes the mean rope-pull limit. The rope’s own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum.
+Mission decision: The slower rise passes the mean rope-pull limit. The rope’s own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum. Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -1893,9 +2053,13 @@ Mission decision: The slower rise passes the mean rope-pull limit. The rope’s 
 
 **Go now:** Go to Winder House and meet Ewan Price, winding engineer, at The winder desk.
 
-**Card body (51 words; 4 sentences):** The rope can take the slower rise, but the motor has two jobs. It must pull the hanging load and make the drum turn faster. At the Winder House, combine those demands before restoring the start control. By the end of the mission, decide which starting acceleration the motor can supply.
+**Card body (52 words; 4 sentences):** The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply.
 
 **Objective:** Which starting acceleration can the motor supply?
+
+**Stake — exact player copy:** Today you decide which start Ewan can defend to the crew who need their shifts back.
+
+**Segue — exact player copy:** Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page.
 
 ### Worth knowing first — exact player copy
 
@@ -1943,7 +2107,7 @@ Radian: the angle that spans an arc equal to its radius.
 
 ## B. Main story happening — designer summary
 
-The start control gains a tested acceleration stop. The day moves from drum angular acceleration through add the two torque demands and check the faster start to the owner’s signed decision. The energy budget says a complete lift should still be possible.
+The start control gains a tested acceleration stop. The day moves from drum angular acceleration through add the two torque demands and check the faster start to the owner’s signed decision. The energy budget says a complete lift should still be possible. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start.
 
 ## C. Designer intent — not shown to player
 
@@ -2005,7 +2169,7 @@ Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. The four stops pr
 
 **World state:** The start control gains a tested acceleration stop. The energy budget says a complete lift should still be possible.
 
-**Panel text:** “The start control gains a tested acceleration stop. The energy budget says a complete lift should still be possible.”
+**Panel text:** “Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start. Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -2044,7 +2208,7 @@ Torque and rotation link the motor to the moving load through the working radius
 
 **Stop reason — exact player copy:** The motor must accelerate the drum as well as lift the load.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ewan Price notes that the rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft.
 
 **Question card story-science connection — exact player copy:** The torque result decides which start the installed motor can actually supply.
 
@@ -2100,7 +2264,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the lift energy budget clear the emergency stop?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 13 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 13 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 14 — Add the two torque demands
 
@@ -2118,7 +2282,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The motor limit applies to both torque demands together.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Ewan Price sees that the angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine.
 
 **Question card story-science connection — exact player copy:** The torque result decides which start the installed motor can actually supply.
 
@@ -2142,7 +2306,7 @@ derive:
   - id: line2
     prompt: Solve for the torque the motor must provide.
     choices:
-    - line: τmotor=TR+Ia/R=374500 N m
+    - line: τmotor=TR+Ia/R=176000×2+45000×1/2=374500 N m
       correct: true
     - line: τmotor=TR−Ia/R=329500 N m
       correct: false
@@ -2176,7 +2340,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the lift energy budget clear the emergency stop?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 14 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 14 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 15 — Check the faster start
 
@@ -2194,7 +2358,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The faster proposal needs its own torque prediction.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ewan Price confirms that the slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly.
 
 **Question card story-science connection — exact player copy:** The torque result decides which start the installed motor can actually supply.
 
@@ -2244,7 +2408,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the lift energy budget clear the emergency stop?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 15 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 15 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 16 — Commit the day’s plan
 
@@ -2262,7 +2426,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** Only a start that passes both limits can return to the control.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Ewan Price finds that the faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control.
 
 **Question card story-science connection — exact player copy:** The torque result decides which start the installed motor can actually supply.
 
@@ -2310,11 +2474,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the lift energy budget clear the emergency stop?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 16 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 16 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check.
+Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -2354,9 +2518,13 @@ Mission decision: Use the slower start. The faster start asks too much of the mo
 
 **Go now:** Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The bench drawing.
 
-**Card body (58 words; 4 sentences):** The motor can start the load, but a full lift still needs enough energy. Work adds up the force applied over each part of a journey. At the brake house and Winder House, total the lift and stored motion before a trial. By the end of the mission, decide whether that energy budget also clears an emergency stop.
+**Card body (53 words; 4 sentences):** The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop.
 
 **Objective:** Does the lift energy budget clear the emergency stop?
+
+**Stake — exact player copy:** Today you decide if Ada can close her brake page just because the lift has enough energy.
+
+**Segue — exact player copy:** But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule.
 
 ### Worth knowing first — exact player copy
 
@@ -2406,7 +2574,7 @@ Conservative force: a force whose work depends only on start and end positions.
 
 ## B. Main story happening — designer summary
 
-The energy page is accepted while the brake page stays open. The day moves from set the energy boundary through lift a rope one piece at a time and drum motion energy to the owner’s signed decision. The conveyor trips even when the load on its belt is small.
+The energy page is accepted while the brake page stays open. The day moves from set the energy boundary through lift a rope one piece at a time and drum motion energy to the owner’s signed decision. The conveyor trips even when the load on its belt is small. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question.
 
 ## C. Designer intent — not shown to player
 
@@ -2468,7 +2636,7 @@ The full lift energy budget passes, but it does not certify an emergency stop. T
 
 **World state:** The energy page is accepted while the brake page stays open. The conveyor trips even when the load on its belt is small.
 
-**Panel text:** “The energy page is accepted while the brake page stays open. The conveyor trips even when the load on its belt is small.”
+**Panel text:** “Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question. But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -2509,7 +2677,7 @@ Energy accounting requires a declared system boundary and a destination for tran
 
 **Stop reason — exact player copy:** The energy page cannot count internal work twice.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ada Kerr notes that the slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum.
 
 **Question card story-science connection — exact player copy:** An energy account establishes one necessary condition without replacing the separate stopping limits.
 
@@ -2567,7 +2735,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which feed change protects the conveyor and bin?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 17 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 17 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 18 — Lift a rope one piece at a time
 
@@ -2585,7 +2753,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** Each rope piece travels a different vertical distance.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ada Kerr sees that the system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind.
 
 **Question card story-science connection — exact player copy:** An energy account establishes one necessary condition without replacing the separate stopping limits.
 
@@ -2609,7 +2777,7 @@ derive:
   - id: line2
     prompt: Add cage rise and distributed rope rise.
     choices:
-    - line: Wtotal=MgL+λgL²/2=120000000 J
+    - line: Wtotal=MgL+λgL²/2=4000×10×1200+10×10×1200²/2=120000000 J
       correct: true
     - line: Wtotal=MgL+λgL²=48000000+144000000=192000000 J
       correct: false
@@ -2643,7 +2811,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which feed change protects the conveyor and bin?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 18 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 18 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 19 — Drum motion energy
 
@@ -2661,7 +2829,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The moving drum stores energy that a brake must remove.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ewan Price confirms that the lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb.
 
 **Question card story-science connection — exact player copy:** Stored rotational energy remains part of the brake’s job even when the lift supply is sufficient.
 
@@ -2718,7 +2886,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which feed change protects the conveyor and bin?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 19 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 19 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 20 — Commit the day’s plan
 
@@ -2736,7 +2904,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** An energy supply does not certify a stopping trajectory.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ewan Price finds that the lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested.
 
 **Question card story-science connection — exact player copy:** An energy account establishes one necessary condition without replacing the separate stopping limits.
 
@@ -2784,11 +2952,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which feed change protects the conveyor and bin?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 20 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 20 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt.
+Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -2828,9 +2996,13 @@ Mission decision: The lift has enough energy, but the stop is not cleared. The d
 
 **Go now:** Go to Tip and Conveyor and meet Ivo Reed, conveyor foreman, at The weightometer.
 
-**Card body (56 words; 4 sentences):** The lift has enough energy, but the feed belt keeps stopping under small loads. A moving stream can push hard even when little material sits on the belt. At the Tip and brake house, compare steady flow with sudden impacts. By the end of the mission, choose the feed change that protects the belt and bin.
+**Card body (52 words; 4 sentences):** The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin.
 
 **Objective:** Which feed change protects the conveyor and bin?
+
+**Stake — exact player copy:** Today you choose how Ivo can protect the bin and keep ore moving without a faster passenger cage.
+
+**Segue — exact player copy:** Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March.
 
 ### Worth knowing first — exact player copy
 
@@ -2878,7 +3050,7 @@ Mass flow: the mass passing a point each second.
 
 ## B. Main story happening — designer summary
 
-A staged chute is marked for installation beside the bin. The day moves from explain the belt trips through derive the force of the stream and mean bin impact force to the owner’s signed decision. The survey book carries an unexplained change between repeated gravity readings.
+A staged chute is marked for installation beside the bin. The day moves from explain the belt trips through derive the force of the stream and mean bin impact force to the owner’s signed decision. The survey book carries an unexplained change between repeated gravity readings. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time.
 
 ## C. Designer intent — not shown to player
 
@@ -2940,7 +3112,7 @@ Spread the incoming momentum change over more time with the staged chute. The fo
 
 **World state:** A staged chute is marked for installation beside the bin. The survey book carries an unexplained change between repeated gravity readings.
 
-**Panel text:** “A staged chute is marked for installation beside the bin. The survey book carries an unexplained change between repeated gravity readings.”
+**Panel text:** “Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time. Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -2981,7 +3153,7 @@ Momentum and impulse track the change in directed motion over the actual time in
 
 **Stop reason — exact player copy:** The belt trips while its standing load stays below the limit.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ivo Reed notes that the energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply.
 
 **Question card story-science connection — exact player copy:** The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving.
 
@@ -3046,7 +3218,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can the local gravity correction explain the March overrun?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 21 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 21 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 22 — Derive the force of the stream
 
@@ -3064,16 +3236,16 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** Incoming ore creates a force by gaining momentum.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Ivo Reed sees that the panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts.
 
 **Question card story-science connection — exact player copy:** The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving.
 
-**Data/readings — exact player copy:** During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.
+**Data/readings — exact player copy:** During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.
+  start: During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.
   goal: Obtain the steady horizontal force required to load the belt.
   steps:
   - id: line1
@@ -3088,7 +3260,7 @@ derive:
   - id: line2
     prompt: Divide momentum change by the interval.
     choices:
-    - line: F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s
+    - line: F=Δp/Δt=ṁv=200×5=1000 N
       correct: true
     - line: F=Δp/Δt=ṁv²=5000 N for ṁ=200 kg/s and v=5 m/s
       correct: false
@@ -3103,7 +3275,7 @@ derive:
 
 **Answer text:** In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive.
 
-**Why/mechanism:** In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.
+**Why/mechanism:** In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.
 
 **Misconception:** 1.
 
@@ -3122,7 +3294,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can the local gravity correction explain the March overrun?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 22 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 22 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 23 — Mean bin impact force
 
@@ -3140,7 +3312,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** A short bin impact is different from a steady feed.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ada Kerr confirms that the continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand.
 
 **Question card story-science connection — exact player copy:** The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving.
 
@@ -3196,7 +3368,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can the local gravity correction explain the March overrun?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 23 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 23 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 24 — Commit the day’s plan
 
@@ -3214,7 +3386,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The bin needs a longer stop without losing the delivery target.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Ada Kerr finds that the short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage.
 
 **Question card story-science connection — exact player copy:** The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving.
 
@@ -3262,11 +3434,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can the local gravity correction explain the March overrun?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 24 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 24 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree.
+Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -3306,9 +3478,13 @@ Mission decision: Fit the staged chute. The longer stop lowers the force on the 
 
 **Go now:** Go to Gravity Station and meet Nia Cole, survey engineer, at The gravimeter.
 
-**Card body (55 words; 4 sentences):** The feed fix works, but two gravity readings in the lift file disagree. A meter can drift with time even when the ground has not changed. At the Gravity Station and Rope Shop, separate that drift from the effect of depth. By the end of the mission, decide whether gravity can explain the March overrun.
+**Card body (51 words; 4 sentences):** The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun.
 
 **Objective:** Can the local gravity correction explain the March overrun?
+
+**Stake — exact player copy:** Today you decide if Nia’s corrected reading explains March or leaves Ada’s old check unanswered.
+
+**Segue — exact player copy:** Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to.
 
 ### Worth knowing first — exact player copy
 
@@ -3356,7 +3532,7 @@ Spherical symmetry: mass distributed equally in every direction from a center.
 
 ## B. Main story happening — designer summary
 
-The drift correction is attached to the load table. The day moves from find the drifting reference through derive the ideal depth trend and separate survey from assumption to the owner’s signed decision. The fastest requested lift still exceeds the motor power budget.
+The drift correction is attached to the load table. The day moves from find the drifting reference through derive the ideal depth trend and separate survey from assumption to the owner’s signed decision. The fastest requested lift still exceeds the motor power budget. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage.
 
 ## C. Designer intent — not shown to player
 
@@ -3418,7 +3594,7 @@ Use the corrected survey value, but reject gravity as the explanation of the del
 
 **World state:** The drift correction is attached to the load table. The fastest requested lift still exceeds the motor power budget.
 
-**Panel text:** “The drift correction is attached to the load table. The fastest requested lift still exceeds the motor power budget.”
+**Panel text:** “Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage. Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -3459,7 +3635,7 @@ Models and evidence must preserve the distinction between a measurement and a re
 
 **Stop reason — exact player copy:** Repeated reference readings disagree before the depth correction is trusted.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Nia Cole notes that the chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction.
 
 **Question card story-science connection — exact player copy:** Separating a model from a measurement keeps the survey from becoming a false explanation of March.
 
@@ -3521,7 +3697,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which cruise speed fits the motor power limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 25 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 25 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 26 — Derive the ideal depth trend
 
@@ -3539,7 +3715,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The ideal depth trend must stay separate from local evidence.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Nia Cole sees that the repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey.
 
 **Question card story-science connection — exact player copy:** Separating a model from a measurement keeps the survey from becoming a false explanation of March.
 
@@ -3563,7 +3739,7 @@ derive:
   - id: line2
     prompt: Substitute the interior radius and simplify.
     choices:
-    - line: g(R−d)=g0(1−d/R)=9.998 m/s²
+    - line: g(R−d)=g0(1−d/R)=10×(1−1240/6200000)=9.998 m/s²
       correct: true
     - line: g(R−d)=g0(1+d/R)=10.002 m/s²
       correct: false
@@ -3597,7 +3773,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which cruise speed fits the motor power limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 26 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 26 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 27 — Separate survey from assumption
 
@@ -3615,7 +3791,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The rope table needs a corrected measurement, not an assumed planet.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Mara Shaw confirms that the ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation.
 
 **Question card story-science connection — exact player copy:** Separating a model from a measurement keeps the survey from becoming a false explanation of March.
 
@@ -3673,7 +3849,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which cruise speed fits the motor power limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 27 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 27 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 28 — Commit the day’s plan
 
@@ -3691,7 +3867,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** A small weight correction must explain the time history to close March.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Mara Shaw finds that the corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed.
 
 **Question card story-science connection — exact player copy:** Separating a model from a measurement keeps the survey from becoming a false explanation of March.
 
@@ -3739,11 +3915,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which cruise speed fits the motor power limit?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 28 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 28 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise.
+Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -3783,9 +3959,13 @@ Mission decision: Correct the survey, but do not blame gravity for March. The we
 
 **Go now:** Go to Winder House and meet Ewan Price, winding engineer, at The winder desk.
 
-**Card body (54 words; 4 sentences):** The weight table remains conservative, but the motor cannot deliver energy at any rate. Power measures how quickly a machine does work. At the Winder House and Tip, compare the loaded lift with a smaller drive under steady motion. By the end of the mission, decide which cruise speed fits the motor power limit.
+**Card body (52 words; 4 sentences):** The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit.
 
 **Objective:** Which cruise speed fits the motor power limit?
+
+**Stake — exact player copy:** Today you choose what speed Ewan may list as a power-only proposal while Ruth keeps the gate shut.
+
+**Segue — exact player copy:** But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March.
 
 ### Worth knowing first — exact player copy
 
@@ -3833,7 +4013,7 @@ Cruise: motion at a steady planned speed.
 
 ## B. Main story happening — designer summary
 
-The cruise proposal is reduced while the brake restriction remains. The day moves from recall the full-length pull through turn lift work into power and check a scaled steady drive to the owner’s signed decision. A hanging test mass keeps bouncing after the support is still.
+The cruise proposal is reduced while the brake restriction remains. The day moves from recall the full-length pull through turn lift work into power and check a scaled steady drive to the owner’s signed decision. A hanging test mass keeps bouncing after the support is still. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval.
 
 ## C. Designer intent — not shown to player
 
@@ -3895,7 +4075,7 @@ Cap cruise at 3.5 m/s pending the emergency-stop test. The four stops produce ev
 
 **World state:** The cruise proposal is reduced while the brake restriction remains. A hanging test mass keeps bouncing after the support is still.
 
-**Panel text:** “The cruise proposal is reduced while the brake restriction remains. A hanging test mass keeps bouncing after the support is still.”
+**Panel text:** “Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval. But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -3936,7 +4116,7 @@ Power and rate describe how quickly energy must move through the machine. The la
 
 **Stop reason — exact player copy:** The cruise demand needs weight at the longest hanging length.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ewan Price notes that the conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation.
 
 **Question card story-science connection — exact player copy:** The chosen system determines which load the next force limit must protect.
 
@@ -3992,7 +4172,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can a drum stop time alone predict when the cage stops?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 29 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 29 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 30 — Turn lift work into power
 
@@ -4010,16 +4190,16 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The full trip’s energy can still arrive too slowly.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ewan Price sees that the full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey.
 
 **Question card story-science connection — exact player copy:** The largest work rate determines which cruise proposal the motor can sustain.
 
-**Data/readings — exact player copy:** At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.
+**Data/readings — exact player copy:** At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt; M=4000 kg, λ=10 kg/m, L=1200 m, g=10 m/s²; evaluate the full-length cruise at v=3.5 m/s.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.
+  start: At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt; M=4000 kg, λ=10 kg/m, L=1200 m, g=10 m/s²; evaluate the full-length cruise at v=3.5 m/s.
   goal: Derive cruise power as a function of lift position and speed.
   steps:
   - id: line1
@@ -4034,7 +4214,7 @@ derive:
   - id: line2
     prompt: Locate the greatest hanging weight during the cruise.
     choices:
-    - line: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv
+    - line: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv=(4000+10×1200)×10×3.5=560000 W
       correct: true
     - line: P(y)=[M+λy]gv; Pmax=P(y=0)=Mgv
       correct: false
@@ -4049,7 +4229,7 @@ derive:
 
 **Answer text:** At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended.
 
-**Why/mechanism:** At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended. dt/dy is the reciprocal speed, not dy/dt; it has the wrong units for power. At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.
+**Why/mechanism:** Power is the work supplied each second. The chain rule gives dW/dt=(dW/dy)(dy/dt)=Tv, so dividing tension by speed cannot describe power. The hanging rope becomes shorter as the cage rises, which reduces the steady pull. The largest cruise demand therefore occurs with the full length hanging. Substituting the stated mass, length, gravity and speed gives 560000 W. This checks the motor’s ability to sustain that cruise; it does not establish the distance needed for an emergency stop.
 
 **Misconception:** 1.
 
@@ -4068,7 +4248,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can a drum stop time alone predict when the cage stops?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 30 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 30 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 31 — Check a scaled steady drive
 
@@ -4086,7 +4266,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The power relation needs an independent drive check.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ivo Reed confirms that the lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model.
 
 **Question card story-science connection — exact player copy:** The largest work rate determines which cruise proposal the motor can sustain.
 
@@ -4136,7 +4316,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can a drum stop time alone predict when the cage stops?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 31 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 31 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 32 — Commit the day’s plan
 
@@ -4154,7 +4334,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The cruise choice must fit the available shaft power.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Ivo Reed finds that the smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan.
 
 **Question card story-science connection — exact player copy:** The largest work rate determines which cruise proposal the motor can sustain.
 
@@ -4202,11 +4382,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Can a drum stop time alone predict when the cage stops?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 32 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 32 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops.
+Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -4246,9 +4426,13 @@ Mission decision: Cap cruise at three and a half metres per second for now. The 
 
 **Go now:** Go to Rope Shop and meet Mara Shaw, rope technician, at The rope bench.
 
-**Card body (57 words; 4 sentences):** The power limit is met, but the cage can still move after its support stops. A stretched rope can release stored energy and pull a load back toward rest. At the Rope Shop and Bank, compare stretch and bounce measurements. By the end of the mission, decide whether drum stop time alone predicts when the cage stops.
+**Card body (53 words; 4 sentences):** The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops.
 
 **Objective:** Can a drum stop time alone predict when the cage stops?
+
+**Stake — exact player copy:** Today you decide if Ruth can trust the lamp that was lit while her brother was still moving.
+
+**Segue — exact player copy:** Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed.
 
 ### Worth knowing first — exact player copy
 
@@ -4298,7 +4482,7 @@ Effective mass: the mass assigned to a simplified motion model to represent dist
 
 ## B. Main story happening — designer summary
 
-The drum-only stop prediction receives an incomplete-model tag. The day moves from distinguish mass from stiffness through derive the bounce period and read an independent period to the owner’s signed decision. The March tape is unsealed for comparison with the measured period.
+The drum-only stop prediction receives an incomplete-model tag. The day moves from distinguish mass from stiffness through derive the bounce period and read an independent period to the owner’s signed decision. The March tape is unsealed for comparison with the measured period. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone.
 
 ## C. Designer intent — not shown to player
 
@@ -4360,7 +4544,7 @@ No; the rope and cage have their own oscillation period. The four stops produce 
 
 **World state:** The drum-only stop prediction receives an incomplete-model tag. The March tape is unsealed for comparison with the measured period.
 
-**Panel text:** “The drum-only stop prediction receives an incomplete-model tag. The March tape is unsealed for comparison with the measured period.”
+**Panel text:** “Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone. Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -4401,7 +4585,7 @@ Oscillations are motion about a loaded equilibrium, with restoring force and ine
 
 **Stop reason — exact player copy:** The load keeps moving after the support is still.
 
-**Question card story setup — exact player copy (36 words; 2 sentences):** The cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response.
+**Question card story setup — exact player copy (40 words; 2 sentences):** Mara Shaw notes that the cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -4459,7 +4643,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** What caused the cage to overrun its March landing?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 33 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 33 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 34 — Derive the bounce period
 
@@ -4477,7 +4661,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The cage response needs a clock set by mass and stiffness.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Mara Shaw sees that the stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -4501,7 +4685,7 @@ derive:
   - id: line2
     prompt: Relate one full angular cycle to elapsed time.
     choices:
-    - line: ω=1.25 rad/s; Tperiod=2π/ω≈5.03 s
+    - line: ω=√(12500/8000)=1.25 rad/s; Tperiod=2π/1.25≈5.03 s
       correct: true
     - line: ω=1.25 rad/s; Tperiod=ω/(2π)≈0.20 s
       correct: false
@@ -4535,7 +4719,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** What caused the cage to overrun its March landing?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 34 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 34 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 35 — Read an independent period
 
@@ -4553,7 +4737,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The period needs a record independent of drum timing.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ruth Bell confirms that the full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -4603,7 +4787,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** What caused the cage to overrun its March landing?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 35 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 35 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 36 — Commit the day’s plan
 
@@ -4621,7 +4805,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** Passenger protection needs the motion of the cage itself.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ruth Bell finds that the independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -4669,11 +4853,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** What caused the cage to overrun its March landing?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 36 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 36 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read.
+Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -4713,9 +4897,13 @@ Mission decision: Keep separate records for drum and cage. The rope gives the ca
 
 **Go now:** Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The March board.
 
-**Card body (59 words; 4 sentences):** The cage has its own bounce period, and the sealed March tape can now be tested. A load can keep moving while a rope changes stretch around its resting length. At the brake house and Rope Shop, reconstruct the motion from the recorded stop. By the end of the mission, decide what caused the cage to overrun its landing.
+**Card body (52 words; 4 sentences):** The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing.
 
 **Objective:** What caused the cage to overrun its March landing?
+
+**Stake — exact player copy:** Today you decide what Ada must put beside her signed March check when Ruth reads the inquiry.
+
+**Segue — exact player copy:** Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule.
 
 ### Worth knowing first — exact player copy
 
@@ -4763,7 +4951,7 @@ Phase: the part of an oscillation’s cycle at a chosen time.
 
 ## B. Main story happening — designer summary
 
-The March board replaces the sealed inquiry drawer. The day moves from read the three independent records through reconstruct the overshoot and keep the inquiry test honest to the owner’s signed decision. The empty test looks safe, but the warm-pad certificate carries a lower braking limit.
+The March board replaces the sealed inquiry drawer. The day moves from read the three independent records through reconstruct the overshoot and keep the inquiry test honest to the owner’s signed decision. The empty test looks safe, but the warm-pad certificate carries a lower braking limit. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip.
 
 ## C. Designer intent — not shown to player
 
@@ -4825,7 +5013,7 @@ The moving cage continued into an elastic oscillation after the drum stopped. Th
 
 **World state:** The March board replaces the sealed inquiry drawer. The empty test looks safe, but the warm-pad certificate carries a lower braking limit.
 
-**Panel text:** “The March board replaces the sealed inquiry drawer. The empty test looks safe, but the warm-pad certificate carries a lower braking limit.”
+**Panel text:** “Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip. Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -4866,7 +5054,7 @@ Oscillations are motion about a loaded equilibrium, with restoring force and ine
 
 **Stop reason — exact player copy:** The opened March tape must be read as independent motion records.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Ada Kerr notes that the measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -4939,7 +5127,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the empty test authorize the faster passenger profile?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 37 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 37 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 38 — Reconstruct the overshoot
 
@@ -4957,7 +5145,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The measured initial state must predict the withheld peak.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Ada Kerr sees that the records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -4981,7 +5169,7 @@ derive:
   - id: line2
     prompt: Find the first zero velocity with positive displacement.
     choices:
-    - line: xmax=v0/ω=1.60 m at t=π/(2ω)≈1.26 s
+    - line: xmax=v0/ω=2/1.25=1.60 m at t=π/(2×1.25)≈1.26 s
       correct: true
     - line: xmax=v0ω=2.0×1.25=2.50 m at t=π/(2ω)≈1.26 s
       correct: false
@@ -5015,7 +5203,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the empty test authorize the faster passenger profile?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 38 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 38 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 39 — Keep the inquiry test honest
 
@@ -5033,7 +5221,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The inquiry must keep prediction separate from fitting the answer.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Mara Shaw confirms that the calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance.
 
 **Question card story-science connection — exact player copy:** The final approval is useful only when every tested limit remains attached to the signed profile.
 
@@ -5087,7 +5275,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the empty test authorize the faster passenger profile?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 39 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 39 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 40 — Commit the day’s plan
 
@@ -5105,7 +5293,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The signed account must explain both the peak and its delay.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Mara Shaw finds that the reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip.
 
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
@@ -5153,11 +5341,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Does the empty test authorize the faster passenger profile?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 40 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 40 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning.
+Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -5197,9 +5385,13 @@ Mission decision: The cage kept moving as the rope changed stretch. The model pr
 
 **Go now:** Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The pad bench.
 
-**Card body (56 words; 4 sentences):** March is explained, and the empty cage now stops within the marked space. Warm brake pads and a heavier load can still change the stopping distance. At the brake house, Bank and Winder House, check the limits before anyone rides. By the end of the mission, decide whether the empty test authorizes the faster passenger profile.
+**Card body (54 words; 4 sentences):** March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run.
 
 **Objective:** Does the empty test authorize the faster passenger profile?
+
+**Stake — exact player copy:** Today you decide if a clean empty run lets Ewan keep his faster promise to the waiting shift.
+
+**Segue — exact player copy:** Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access.
 
 ### Worth knowing first — exact player copy
 
@@ -5247,7 +5439,7 @@ Envelope: a bound that covers every case in a stated range.
 
 ## B. Main story happening — designer summary
 
-The empty-test approval is narrowed to its tested load. The day moves from read the certificate conditions through bound the stopping travel and test a warm loaded surrogate to the owner’s signed decision. The final plan now has a tested speed choice and a clear limit on what was proved.
+The empty-test approval is narrowed to its tested load. The day moves from read the certificate conditions through bound the stopping travel and test a warm loaded surrogate to the owner’s signed decision. The final plan now has a tested speed choice and a clear limit on what was proved. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review.
 
 ## C. Designer intent — not shown to player
 
@@ -5323,7 +5515,7 @@ Reject that authorization; loaded warm-pad stopping needs the slower candidate. 
 
 **World state:** The empty-test approval is narrowed to its tested load. The final plan now has a tested speed choice and a clear limit on what was proved.
 
-**Panel text:** “The empty-test approval is narrowed to its tested load. The final plan now has a tested speed choice and a clear limit on what was proved.”
+**Panel text:** “Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review. Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -5366,7 +5558,7 @@ Constraints and uncertainty require the least favorable conditions inside the st
 
 **Stop reason — exact player copy:** The empty test certificate does not cover every load or pad state.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Ada Kerr notes that the March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift.
 
 **Question card story-science connection — exact player copy:** The adverse stopping bound determines which speed fits the actual space above the landing.
 
@@ -5439,7 +5631,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which complete profile can be signed for the defined operating range?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 41 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 41 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 42 — Bound the stopping travel
 
@@ -5457,16 +5649,16 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The overhead allowance must cover adverse braking and residual motion.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ruth Bell sees that the working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing.
 
 **Question card story-science connection — exact player copy:** The adverse stopping bound determines which speed fits the actual space above the landing.
 
-**Data/readings — exact player copy:** For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel.
+**Data/readings — exact player copy:** For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel. Evaluate the candidate v=2 m/s.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel.
+  start: For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel. Evaluate the candidate v=2 m/s.
   goal: Derive total conservative stopping excursion as a function of approach speed.
   steps:
   - id: line1
@@ -5481,7 +5673,7 @@ derive:
   - id: line2
     prompt: Add the adverse remaining oscillation bound.
     choices:
-    - line: d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v
+    - line: d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v; at v=2, d_bound=2²/(2×1)+2/1.25=3.6 m
       correct: true
     - line: d_bound=v²/(2bmin)−v/ωmin=0.5v²−0.8v
       correct: false
@@ -5515,7 +5707,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which complete profile can be signed for the defined operating range?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 42 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 42 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 43 — Test a warm loaded surrogate
 
@@ -5533,7 +5725,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The loaded warm-pad braking term needs a direct surrogate check.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ewan Price confirms that the stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions.
 
 **Question card story-science connection — exact player copy:** The adverse stopping bound determines which speed fits the actual space above the landing.
 
@@ -5583,7 +5775,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which complete profile can be signed for the defined operating range?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 43 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 43 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 44 — Commit the day’s plan
 
@@ -5601,7 +5793,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The faster proposal exceeds the allowed stopping space.
 
-**Question card story setup — exact player copy (37 words; 2 sentences):** The surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review.
+**Question card story setup — exact player copy (41 words; 2 sentences):** Ewan Price finds that the surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review.
 
 **Question card story-science connection — exact player copy:** The adverse stopping bound determines which speed fits the actual space above the landing.
 
@@ -5649,11 +5841,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Which complete profile can be signed for the defined operating range?
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 44 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 44 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready.
+Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -5693,9 +5885,13 @@ Mission decision: The empty test does not clear the faster passenger trip. The l
 
 **Go now:** Go to The Bank and meet Ruth Bell, cage operator, at The depth indicator.
 
-**Card body (59 words; 4 sentences):** The slower candidate fits the worst stopping case, and the last test is ready. A safe plan must satisfy every limit at once for the loads it actually covers. At the Bank, Rope Shop and Winder House, check the final record before opening passenger access. By the end of the mission, choose the complete profile that can be signed.
+**Card body (52 words; 4 sentences):** The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access.
 
 **Objective:** Which complete profile can be signed for the defined operating range?
+
+**Stake — exact player copy:** Today you choose the full profile Ruth can use to open the gate for all forty-one miners.
+
+**Segue — exact player copy:** Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind.
 
 ### Worth knowing first — exact player copy
 
@@ -5737,7 +5933,7 @@ No new equation is introduced today; retrieve the force, torque, power, stopping
 
 ## B. Main story happening — designer summary
 
-The signed range and unoccupied acceptance unlock the passenger gate. The day moves from commit the empty acceptance prediction through combine the signed limits and check the independent safety margin to the owner’s signed decision. The passenger gate opens and the completed plan remains available for review.
+The signed range and unoccupied acceptance unlock the passenger gate. The day moves from commit the empty acceptance prediction through combine the signed limits and check the independent safety margin to the owner’s signed decision. The passenger gate opens and the completed plan remains available for review. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete.
 
 ## C. Designer intent — not shown to player
 
@@ -5813,7 +6009,7 @@ Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied 
 
 **World state:** The signed range and unoccupied acceptance unlock the passenger gate. The passenger gate opens and the completed plan remains available for review.
 
-**Panel text:** “The signed range and unoccupied acceptance unlock the passenger gate. The passenger gate opens and the completed plan remains available for review.”
+**Panel text:** “Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete. Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind.”
 
 **Unlocks:** metric screen after the changed-state inspection.
 
@@ -5856,7 +6052,7 @@ Models and evidence support a signed plan only over the conditions used to obtai
 
 **Stop reason — exact player copy:** The final empty acceptance needs a committed prediction.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ruth Bell notes that the slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope.
 
 **Question card story-science connection — exact player copy:** The final approval is useful only when every tested limit remains attached to the signed profile.
 
@@ -5906,7 +6102,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Passenger gate opens only after the signed operating range and four bars pass.
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 45 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 45 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H2. Stop 46 — Combine the signed limits
 
@@ -5924,7 +6120,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The signed speed must satisfy every limit at once.
 
-**Question card story setup — exact player copy (38 words; 2 sentences):** The unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them.
+**Question card story setup — exact player copy (42 words; 2 sentences):** Mara Shaw sees that the unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them.
 
 **Question card story-science connection — exact player copy:** The final approval is useful only when every tested limit remains attached to the signed profile.
 
@@ -5948,7 +6144,7 @@ derive:
   - id: line2
     prompt: Choose the fastest listed speed surviving the combined conditions.
     choices:
-    - line: 'v=2.0 m/s: P=320 kW and d_bound=3.6 m; faster listed speeds fail stopping'
+    - line: 'v=2.0 m/s: P=160×2=320 kW; d_bound=0.5×2²+0.8×2=3.6 m; at 2.5, d_bound=0.5×2.5²+0.8×2.5=5.125 m > 5 m'
       correct: true
     - line: 'v=3.5 m/s: P=560 kW and d_bound=8.925 m; passing power permits the plan'
       correct: false
@@ -5982,7 +6178,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Passenger gate opens only after the signed operating range and four bars pass.
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 46 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 46 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H3. Stop 47 — Check the independent safety margin
 
@@ -6000,7 +6196,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** The remaining stopping margin needs an independent arithmetic check.
 
-**Question card story setup — exact player copy (39 words; 2 sentences):** The combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand.
+**Question card story setup — exact player copy (43 words; 2 sentences):** Ewan Price confirms that the combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand.
 
 **Question card story-science connection — exact player copy:** The final approval is useful only when every tested limit remains attached to the signed profile.
 
@@ -6050,7 +6246,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Passenger gate opens only after the signed operating range and four bars pass.
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 47 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 47 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## H4. Stop 48 — Commit the day’s plan
 
@@ -6068,7 +6264,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Stop reason — exact player copy:** Passenger access needs a signed profile with explicit limits.
 
-**Question card story setup — exact player copy (40 words; 2 sentences):** The independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered.
+**Question card story setup — exact player copy (44 words; 2 sentences):** Ewan Price finds that the independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered.
 
 **Question card story-science connection — exact player copy:** The final approval is useful only when every tested limit remains attached to the signed profile.
 
@@ -6116,11 +6312,11 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Later payoff:** Passenger gate opens only after the signed operating range and four bars pass.
 
-**Stop kernel and numerical/data consistency bundle:** Complete machine-readable row 48 in the companion ledger; source data, exact key, feedback and follow-on references are the fields immediately above and are copied atomically into that row.
+**Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 48 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
 ## I. Mission outcome
 
-Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens.
+Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -6150,6 +6346,16 @@ Mission decision: Sign the two-metre-per-second plan within its tested range. Th
 - **Mission takeaway:** A signed profile must keep every constraint and its tested range.
 
 ---
+## Ending card — exact player copy
+
+The inspector has read all twelve pages. Ruth Bell opens the passenger gate, and her brother Finn takes his tally from the row of forty-one. Ada’s March check stays beside the new cage trace. You showed what it missed: the drum was still, but the cage rose on while the rope changed stretch.
+
+Ewan has crossed out his faster promise. The signed plan allows a 1 m/s² start and a 2 m/s cruise, the fastest listed choice that passed every limit. It covers loads from 1,000 to 4,000 kg and hanging rope from 40 to 1,200 m, with the stated brake and rope response bounds. The last empty wind passed its own check; the wider range rests on the full record.
+
+The mine has a service it can use, but the crew has lost the planned overtime and its pay. Ewan must defend the slower shift sheet when work falls behind. New loads, worn parts or changed brake response still need new evidence. Ruth leaves the plan on the board for the next shift. This time, the check has a place for what the cage does after the drum stops.
+
+**Ending display contract:** Show this single three-paragraph card after Mission 12’s outcome, final RP allocation and existing final gates have succeeded. The passenger gate opens under those same conditions. One Continue returns to free movement; the signed plan and this ending remain readable at the Winder House board. Replace inherited closing copy; add no new graded stop or gate.
+
 # 8. Implementation boundary and handoff
 
-This artifact specifies new content and world decisions; it is not an engine patch. Convert against the actual current importer, preserve all resolved build decisions and verify every rendered phase. Run import, schema, content, world parity, reachable fixtures, lessons, duplicate IDs, format mix, copy length, readability and both full playthroughs. The exact current project commands and version are unavailable, so no command completion or runtime PASS is asserted. The ledger, author script, numeric audit and complete Giant Gate assessment accompany this canonical bible.
+This artifact specifies new content and world decisions; it is not an engine patch. Convert against the actual current importer, preserve all resolved build decisions and verify every rendered phase. Run import, schema, content, world parity, reachable fixtures, lessons, duplicate IDs, format mix, copy length, readability and both full playthroughs. The exact current project commands and version are unavailable, so no command completion or runtime PASS is asserted. The v1.0 ledger, author script, numeric audit and Giant Gate assessment are historical. This revised bible and OVERWIND_HANDBACK_CHECK.md are the v1.1 handback; regenerate derived imports from this bible and rerun build checks against it.

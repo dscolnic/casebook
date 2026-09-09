@@ -6,16 +6,16 @@
     header: "RESCUE WINDOW — ABOUT 26 HOURS REMAIN"
     title: "THE MESSAGE WITH THE WRONG MINUTE"
     goNow: "Go to the Packet Monitor in Communications & Weather."
-    body: "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong."
-    objective: "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly."
-  objective: "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly."
-  stake: "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong."
+    body: "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong."
+    objective: "Today you decide whether to keep the rescue link and fix the time parser."
+  objective: "Today you decide whether to keep the rescue link and fix the time parser."
+  stake: "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong."
   takeaway: "The network is on time; the parser cuts the timestamp one character early, turning 08:07 into 08:0 on two displays. ---"
-  segue: "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. Habitat Control then labels Room 7 as 4.1°C while a local reading shows 20.9°C."
+  segue: "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "packet", def: "a chunk of network data routed independently before messages are reassembled."}
-  - {name: "String", def: "an object that stores an ordered sequence of characters. substring: a String method that returns characters from a chosen start index up to, but not including, an end index."}
+  - {name: "String", def: "an object that stores an ordered sequence of characters. substring: copies part of a String. It includes the start index and stops before the end index."}
   primer:
   - "Network delivery and local parsing are separate stages."
   - "Java String indexes start at zero, and substring(start,end) excludes the end index."
@@ -42,7 +42,7 @@
     title: "Check the network path"
     concept: 37   # Networks, packets, protocols, redundancy, and cybersecurity
     reason: "Liv needs to know whether the apparent late message is already visible in the network path before software parsing is blamed."
-    scene: "The rescue packet reaches the station through satellite hop S1 and router AR-2, while a local clock feed and rover radio use different upstream paths. Open all four dependencies and identify whether the delayed display shares a transport failure with the packet capture."
+    scene: "Liv Andersen tracks the packet through satellite hop S1 and router AR-2; the local clock and rover radio use other paths. Open all four dependencies and judge whether the display delay shares a transport fault with the packet capture."
     motivation: "Independent path evidence can separate network transport delay from a later display or parsing error."
     format: TRACE
     question: "Open all four dependency paths and submit whether the evidence points to network transport or downstream parsing."
@@ -125,7 +125,7 @@
     title: "Read the timestamp String"
     concept: 10   # String objects and common String methods
     reason: "The packet is on time, so Liv needs the exact character positions of its timestamp before the parser can be traced."
-    scene: "The captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary."
+    scene: "Liv Andersen checks the evidence: the captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary."
     motivation: "Correct indexing of the raw String tells the team whether the parser is cutting data before it ever reaches the display."
     format: CHOICE
     question: "Count from index zero and submit the character stored at String index 15."
@@ -168,7 +168,7 @@
     title: "Trace the substring"
     concept: 18   # String traversal and string algorithms
     reason: "Stop 22 placed the final minute digit at index 15, so the current substring must include that character to display the full time."
-    scene: "The parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged."
+    scene: "Priya Nair checks the evidence: the parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged."
     motivation: "The display can only show the correct minute if the method's exclusive end index extends one position beyond the final character needed."
     format: DERIVE
     question: "Choose the substring call and the exact String it returns."
@@ -196,7 +196,7 @@
     #           - {line: "\"08:07\"", correct: true}
     #           - {line: "\"08:0\" — end index 15 excludes index 15", correct: false, survives: true, why: "That truncated String is the old buggy output; it cannot be the result of the repaired call ending at 16."}
     derive:
-      start: String timestamp = "2026-09-08 08:07";
+      start: "timestamp = 2026-09-08 08:07. Java counts character indexes from 0; the time starts at index 11 and is five characters long. substring includes its start and excludes its end. Source: String timestamp = \"2026-09-08 08:07\";"
       goal: extract the five-character HH:MM field
       steps:
         - ask: Choose the substring call.
@@ -222,7 +222,7 @@
     title: "Repair message parsing"
     concept: 7   # APIs and library methods
     reason: "The parser call is repaired, but the rescue window depends on proving the method returns the same time already present in the packet."
-    scene: "The captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output."
+    scene: "Priya Nair checks the evidence: the captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output."
     motivation: "Agreement after a frozen prediction can clear the network path and keep the rescue window open."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the minute value the corrected parser should display. OPERATE: run the repaired method on the captured packet. MEASURE: reveal the parsed minute. INTERPRET: compare the full 08:07 display with the independent clocks and submit NETWORK DELAY or PARSER ERROR."

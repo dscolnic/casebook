@@ -381,12 +381,12 @@ missions:
     header: "DAY 1 OF 12 — INSPECTION IN 12 DAYS"
     title: "THE CAGE THAT KEPT GOING"
     goNow: "Go to The Bank and meet Ruth Bell, cage operator, at The profile desk."
-    body: "The March stop left the lift beyond its landing, and faster trips are now proposed. The lift carries people in a steel cage pulled by a rope. At the Bank, compare the planned motion with a small test before anyone rides. By the end of the mission, decide whether the proposed start can be used for passenger trips."
+    body: "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people."
     objective: "Can the proposed start be used for passenger trips?"
   objective: "Can the proposed start be used for passenger trips?"
-  stake: "The March stop left the lift beyond its landing, and faster trips are now proposed. The lift carries people in a steel cage pulled by a rope. At the Bank, compare the planned motion with a small test before anyone rides. By the end of the mission, decide whether the proposed start can be used for passenger trips."
+  stake: "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people."
   takeaway: "A correct motion calculation can still fail a safety limit. ---"
-  segue: "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk."
+  segue: "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk. Ruth takes the fast-start sheet off the shift board. Her brother Finn's tally stays on the hook with the other forty; no one boards for a test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Velocity", def: "speed with a direction."}
@@ -422,7 +422,7 @@ missions:
     title: "Read the motion record"
     concept: 1   # Read the motion record
     reason: "The March record must be understood before the fast start is restored."
-    scene: "The March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted."
+    scene: "Ruth Bell notes that the March record follows the drum, but the passenger cage passed its landing after the drum was still. Read what the motion graphs actually measure before deciding which parts of the proposed faster start can be trusted."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -478,7 +478,7 @@ missions:
     title: "Differentiate the proposed start"
     concept: 1   # Differentiate the proposed start
     reason: "The proposed start must meet the passenger acceleration limit."
-    scene: "The graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet."
+    scene: "Ruth Bell sees that the graph review separates a position curve from the speed it implies, so the start proposal can now be read correctly. Derive its changing motion before comparing the passenger acceleration with the limit on the trial sheet."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -532,6 +532,13 @@ missions:
             - text: a(t)=2t m/s²
               why: The derivative of 2t is constant; keeping t confuses velocity with acceleration.
               survives: true
+        - ask: Substitute t=4 s into the derived velocity.
+          answer: 0
+          candidates:
+            - text: v(4)=2×4=8 m/s
+            - text: v(4)=4²=16 m/s
+              why: Squaring time repeats the position rule instead of substituting into v=2t.
+              survives: true
 
   # --- Stop 3: Test the displacement
   #     Concept: 1 — Test the displacement; Keystone: Motion and derivatives, Models and evidence; Area: BANK; Prerequisites: Stop 2 result in the mission log; current mission primer; preceding numbered spine relationships used in the visible data; Learning role: COMBINE; Difficulty: L2; Story role: clue.
@@ -541,7 +548,7 @@ missions:
     title: "Test the displacement"
     concept: 1   # Test the displacement
     reason: "The planned travel needs a prediction before the replay can test it."
-    scene: "The derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance."
+    scene: "Ruth Bell confirms that the derived start rises faster each second, and its predicted travel must match a separate position record. Commit the distance before running the replay so an agreeable display cannot substitute for a prediction made in advance."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: VERIFY
     question: "First, calculate and commit upward displacement in m from the visible data. OPERATE: run the four-second encoder replay. Keep the time interval and velocity law fixed. MEASURE: press READ once after the run and record upward displacement. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -594,7 +601,7 @@ missions:
     title: "Commit the day's plan"
     concept: 1   # Commit the day's plan
     reason: "A matching replay still leaves the passenger limit to check."
-    scene: "The replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation."
+    scene: "Ruth Bell finds that the replay agrees with the calculated travel, but the passenger trial also has a separate acceleration limit. Use both results to tell the operator whether this particular start belongs on the schedule while the overrun remains under investigation."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -637,12 +644,12 @@ missions:
     header: "DAY 2 OF 12 — INSPECTION IN 11 DAYS"
     title: "STEEL OUTSIDE THE AXIS"
     goNow: "Go to Winder House and meet Ewan Price, winding engineer, at The winder desk."
-    body: "The fast start is held, but the machine record may also be wrong. Steel farther from the turning shaft makes a drum harder to speed up. At the Winder House, inspect its shape and compare the turning resistance in the records. By the end of the mission, decide which drum model belongs in the plan."
+    body: "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan."
     objective: "Which drum inertia belongs in the winding model?"
   objective: "Which drum inertia belongs in the winding model?"
-  stake: "The fast start is held, but the machine record may also be wrong. Steel farther from the turning shaft makes a drum harder to speed up. At the Winder House, inspect its shape and compare the turning resistance in the records. By the end of the mission, decide which drum model belongs in the plan."
+  stake: "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan."
   takeaway: "Where mass sits matters when a body turns. ---"
-  segue: "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next."
+  segue: "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Rotational inertia", def: "a measure of how mass distribution resists changes in turning speed."}
@@ -677,7 +684,7 @@ missions:
     title: "Rope-contact radius"
     concept: 1   # Rope-contact radius
     reason: "The working radius must be known before the drum model is corrected."
-    scene: "The rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk."
+    scene: "Ewan Price notes that the rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting rope-contact radius in m."
@@ -739,7 +746,7 @@ missions:
     title: "Integrate the ring"
     concept: 3   # Integrate the ring
     reason: "The central hole changes how the drum's mass resists turning."
-    scene: "The speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome."
+    scene: "Ewan Price sees that the speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome."
     motivation: "A measured mass distribution changes the motor demand that the crew can safely authorize."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -789,7 +796,7 @@ missions:
         - ask: Integrate and factor B⁴−A⁴.
           answer: 0
           candidates:
-            - text: I=M(A²+B²)/2=45000 kg m²
+            - text: I=M(A²+B²)/2=18000×(1²+2²)/2=45000 kg m²
             - text: I=MB²/2=18000(2²)/2=36000 kg m²
               why: The solid-disk expression assumes mass fills the missing central hole; the annular mass is farther out.
               survives: true
@@ -802,7 +809,7 @@ missions:
     title: "Check the drum drawing"
     concept: 3   # Check the drum drawing
     reason: "The old drawing needs a physical dimension check."
-    scene: "The annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew."
+    scene: "Ewan Price confirms that the annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew."
     motivation: "A measured mass distribution changes the motor demand that the crew can safely authorize."
     format: PROBE
     question: "Select and read all four stations without changing their loads, then submit the station with a mismatch and its implication. No controls need restoration."
@@ -876,7 +883,7 @@ missions:
     title: "Commit the day's plan"
     concept: 3   # Commit the day's plan
     reason: "The next torque calculation needs the drum that is actually installed."
-    scene: "The bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here."
+    scene: "Ewan Price finds that the bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here."
     motivation: "A measured mass distribution changes the motor demand that the crew can safely authorize."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -919,12 +926,12 @@ missions:
     header: "DAY 3 OF 12 — INSPECTION IN 10 DAYS"
     title: "THE ROPE IS A LOAD"
     goNow: "Go to Rope Shop and meet Mara Shaw, rope technician, at The rope bench."
-    body: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull both the cage and all the steel hanging below it. At the Rope Shop, weigh a sample and test the predicted pull before approving a loaded rise. By the end of the mission, decide whether the proposed acceleration passes the rope limit."
+    body: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise."
     objective: "Does the proposed one-unit acceleration pass the rope pull limit?"
   objective: "Does the proposed one-unit acceleration pass the rope pull limit?"
-  stake: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull both the cage and all the steel hanging below it. At the Rope Shop, weigh a sample and test the predicted pull before approving a loaded rise. By the end of the mission, decide whether the proposed acceleration passes the rope limit."
+  stake: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise."
   takeaway: "A hanging rope is part of the load. ---"
-  segue: "Mission decision: The slower rise passes the mean rope-pull limit. The rope's own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum."
+  segue: "Mission decision: The slower rise passes the mean rope-pull limit. The rope's own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum. Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Tension", def: "the pulling force carried by a stretched rope."}
@@ -959,7 +966,7 @@ missions:
     title: "Choose what the force acts on"
     concept: 2   # Choose what the force acts on
     reason: "The upper rope must carry more than the cage alone."
-    scene: "The corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation."
+    scene: "Mara Shaw notes that the corrected drum drawing settles one moving mass, but the rope shop record describes another large load above the cage. Separate the possible system boundaries before choosing which forces and masses belong together in the next pull calculation."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -1015,12 +1022,12 @@ missions:
     title: "Sum the moving rope"
     concept: 2   # Sum the moving rope
     reason: "The full hanging length must enter the mean-pull prediction."
-    scene: "The force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test."
+    scene: "Mara Shaw sees that the force drawings distinguish the cage alone from the cage with hanging rope, making the omitted mass visible. Accumulate that rope mass and derive the pull at the upper end before anyone proposes a loaded acceleration test."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
     answerText: "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch."
-    why: "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only."
+    why: "The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch. λ already has units kg/m; another factor u would give the wrong mass units. M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **1:** λ already has units kg/m; another factor u would give the wrong mass units. **2:** The second expression accelerates the cage but forgets to accelerate the hanging rope.
     # correct result: T=(M+λs)(g+a)=176000 N at s=1200 m. Acceptance: exact authored key.
@@ -1052,7 +1059,7 @@ missions:
     #         why: The second expression accelerates the cage but forgets to accelerate the hanging rope.
     #     answerText: The rope contributes 12000 kg and the cage with payload contributes 4000 kg; 16000(10+1)=176000 N. This mean-load approximation does not claim that the rope cannot stretch.
     derive:
-      start: M=4000 kg; λ=10 kg/m; hanging length s; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
+      start: M=4000 kg; λ=10 kg/m; hanging length s=1200 m at the upper cut; g=10 m/s²; upward a=1 m/s²; treat rope as inextensible for mean acceleration only.
       goal: Express tension at a cut and evaluate it at s=1200 m.
       steps:
         - ask: Accumulate the rope mass below the cut.
@@ -1065,7 +1072,7 @@ missions:
         - ask: Apply net upward force equals total mass times acceleration.
           answer: 0
           candidates:
-            - text: T=(M+λs)(g+a)=176000 N at s=1200 m
+            - text: T=(M+λs)(g+a)=(4000+10×1200)×(10+1)=176000 N
             - text: T=(M+λs)g+Ma=16000×10+4000×1=164000 N at s=1200 m
               why: The second expression accelerates the cage but forgets to accelerate the hanging rope.
               survives: true
@@ -1078,7 +1085,7 @@ missions:
     title: "Load the sample model"
     concept: 2   # Load the sample model
     reason: "A small rig can check the force relation without carrying passengers."
-    scene: "The full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard."
+    scene: "Mara Shaw confirms that the full-length calculation now counts the hanging steel as well as the cage, but the acceleration relation needs a check. Predict a smaller rig measurement before operating it so the pull model earns support without putting passengers aboard."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: VERIFY
     question: "First, calculate and commit support force in N from the visible data. OPERATE: run the upward acceleration test. Keep the supported mass and gravity setting fixed. MEASURE: press READ once after the run and record support force. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -1131,7 +1138,7 @@ missions:
     title: "Commit the day's plan"
     concept: 2   # Commit the day's plan
     reason: "The mean-pull pass must not erase the untested bounce."
-    scene: "The smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation."
+    scene: "Mara Shaw finds that the smaller rig supports the accelerating-load relation, and the full-length prediction can now be compared with the rope limit. Decide what this result permits while keeping the unresolved stretch response visible beside the accepted mean-load calculation."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -1174,12 +1181,12 @@ missions:
     header: "DAY 4 OF 12 — INSPECTION IN 9 DAYS"
     title: "ONE MOTOR, TWO JOBS"
     goNow: "Go to Winder House and meet Ewan Price, winding engineer, at The winder desk."
-    body: "The rope can take the slower rise, but the motor has two jobs. It must pull the hanging load and make the drum turn faster. At the Winder House, combine those demands before restoring the start control. By the end of the mission, decide which starting acceleration the motor can supply."
+    body: "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply."
     objective: "Which starting acceleration can the motor supply?"
   objective: "Which starting acceleration can the motor supply?"
-  stake: "The rope can take the slower rise, but the motor has two jobs. It must pull the hanging load and make the drum turn faster. At the Winder House, combine those demands before restoring the start control. By the end of the mission, decide which starting acceleration the motor can supply."
+  stake: "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply."
   takeaway: "The motor must supply load torque and acceleration torque. ---"
-  segue: "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check."
+  segue: "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Torque", def: "the turning effect of a force about an axis."}
@@ -1214,7 +1221,7 @@ missions:
     title: "Drum angular acceleration"
     concept: 4   # Drum angular acceleration
     reason: "The motor must accelerate the drum as well as lift the load."
-    scene: "The rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft."
+    scene: "Ewan Price notes that the rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting drum angular acceleration in rad/s²."
@@ -1276,7 +1283,7 @@ missions:
     title: "Add the two torque demands"
     concept: 4   # Add the two torque demands
     reason: "The motor limit applies to both torque demands together."
-    scene: "The angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine."
+    scene: "Ewan Price sees that the angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -1326,7 +1333,7 @@ missions:
         - ask: Solve for the torque the motor must provide.
           answer: 0
           candidates:
-            - text: τmotor=TR+Ia/R=374500 N m
+            - text: τmotor=TR+Ia/R=176000×2+45000×1/2=374500 N m
             - text: τmotor=TR−Ia/R=329500 N m
               why: The motor must add the inertia demand to the load torque, not use it as assistance.
               survives: true
@@ -1339,7 +1346,7 @@ missions:
     title: "Check the faster start"
     concept: 4   # Check the faster start
     reason: "The faster proposal needs its own torque prediction."
-    scene: "The slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly."
+    scene: "Ewan Price confirms that the slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: VERIFY
     question: "First, calculate and commit motor torque in N m from the visible data. OPERATE: run the simulated 2 m/s² start. Keep the mass, radius and rotational inertia fixed. MEASURE: press READ once after the run and record motor torque. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -1392,7 +1399,7 @@ missions:
     title: "Commit the day's plan"
     concept: 4   # Commit the day's plan
     reason: "Only a start that passes both limits can return to the control."
-    scene: "The faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control."
+    scene: "Ewan Price finds that the faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -1435,12 +1442,12 @@ missions:
     header: "DAY 5 OF 12 — INSPECTION IN 8 DAYS"
     title: "ENOUGH ENERGY IS NOT ENOUGH"
     goNow: "Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The bench drawing."
-    body: "The motor can start the load, but a full lift still needs enough energy. Work adds up the force applied over each part of a journey. At the brake house and Winder House, total the lift and stored motion before a trial. By the end of the mission, decide whether that energy budget also clears an emergency stop."
+    body: "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop."
     objective: "Does the lift energy budget clear the emergency stop?"
   objective: "Does the lift energy budget clear the emergency stop?"
-  stake: "The motor can start the load, but a full lift still needs enough energy. Work adds up the force applied over each part of a journey. At the brake house and Winder House, total the lift and stored motion before a trial. By the end of the mission, decide whether that energy budget also clears an emergency stop."
+  stake: "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop."
   takeaway: "Enough energy does not establish a safe stop. ---"
-  segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt."
+  segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Work", def: "energy transferred by a force through a displacement."}
@@ -1476,7 +1483,7 @@ missions:
     title: "Set the energy boundary"
     concept: 5   # Set the energy boundary
     reason: "The energy page cannot count internal work twice."
-    scene: "The slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum."
+    scene: "Ada Kerr notes that the slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum."
     motivation: "An energy account establishes one necessary condition without replacing the separate stopping limits."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -1532,7 +1539,7 @@ missions:
     title: "Lift a rope one piece at a time"
     concept: 5   # Lift a rope one piece at a time
     reason: "Each rope piece travels a different vertical distance."
-    scene: "The system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind."
+    scene: "Ada Kerr sees that the system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind."
     motivation: "An energy account establishes one necessary condition without replacing the separate stopping limits."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -1582,7 +1589,7 @@ missions:
         - ask: Add cage rise and distributed rope rise.
           answer: 0
           candidates:
-            - text: Wtotal=MgL+λgL²/2=120000000 J
+            - text: Wtotal=MgL+λgL²/2=4000×10×1200+10×10×1200²/2=120000000 J
             - text: Wtotal=MgL+λgL²=48000000+144000000=192000000 J
               why: The rope’s center of mass rises L/2, not L; omitting the half repeats the depth error.
               survives: true
@@ -1595,7 +1602,7 @@ missions:
     title: "Drum motion energy"
     concept: 10   # Drum motion energy
     reason: "The moving drum stores energy that a brake must remove."
-    scene: "The lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb."
+    scene: "Ewan Price confirms that the lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb."
     motivation: "Stored rotational energy remains part of the brake's job even when the lift supply is sufficient."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b*c*c; submit the resulting drum motion energy in J."
@@ -1659,7 +1666,7 @@ missions:
     title: "Commit the day's plan"
     concept: 5   # Commit the day's plan
     reason: "An energy supply does not certify a stopping trajectory."
-    scene: "The lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested."
+    scene: "Ewan Price finds that the lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested."
     motivation: "An energy account establishes one necessary condition without replacing the separate stopping limits."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -1702,12 +1709,12 @@ missions:
     header: "DAY 6 OF 12 — INSPECTION IN 7 DAYS"
     title: "THE STREAM HITS BACK"
     goNow: "Go to Tip and Conveyor and meet Ivo Reed, conveyor foreman, at The weightometer."
-    body: "The lift has enough energy, but the feed belt keeps stopping under small loads. A moving stream can push hard even when little material sits on the belt. At the Tip and brake house, compare steady flow with sudden impacts. By the end of the mission, choose the feed change that protects the belt and bin."
+    body: "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin."
     objective: "Which feed change protects the conveyor and bin?"
   objective: "Which feed change protects the conveyor and bin?"
-  stake: "The lift has enough energy, but the feed belt keeps stopping under small loads. A moving stream can push hard even when little material sits on the belt. At the Tip and brake house, compare steady flow with sudden impacts. By the end of the mission, choose the feed change that protects the belt and bin."
+  stake: "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin."
   takeaway: "Changing momentum over a longer time can reduce force. ---"
-  segue: "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree."
+  segue: "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Momentum", def: "mass multiplied by velocity."}
@@ -1742,7 +1749,7 @@ missions:
     title: "Explain the belt trips"
     concept: 6   # Explain the belt trips
     reason: "The belt trips while its standing load stays below the limit."
-    scene: "The energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply."
+    scene: "Ivo Reed notes that the energy page is accepted, but the conveyor keeps tripping even when its scale reports a modest standing load. Read the incoming flow and speed alongside the quiet mass reading to decide which missing force the drive must supply."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal readings, and select the one cause consistent with the whole panel."
@@ -1817,12 +1824,12 @@ missions:
     title: "Derive the force of the stream"
     concept: 6   # Derive the force of the stream
     reason: "Incoming ore creates a force by gaining momentum."
-    scene: "The panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts."
+    scene: "Ivo Reed sees that the panel points to incoming ore gaining speed, so the force depends on material entering rather than only material already present. Derive that momentum rate before using the belt result to investigate the broken bin bolts."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
     answerText: "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive."
-    why: "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading."
+    why: "In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive. Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. Squaring speed gives energy per time units, not the force supplied by the belt. During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **1:** Dividing by elapsed time when finding incoming mass reverses the definition of mass flow. **2:** Squaring speed gives energy per time units, not the force supplied by the belt.
     # correct result: F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s. Acceptance: exact authored key.
@@ -1854,7 +1861,7 @@ missions:
     #         why: Squaring speed gives energy per time units, not the force supplied by the belt.
     #     answerText: In each second 200 kg acquires 5 m/s of horizontal speed, so the belt supplies 1000 kg m/s of momentum per second; the equal opposite reaction loads the drive.
     derive:
-      start: During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ignore horizontal drag after loading.
+      start: During Δt, incoming mass Δm=ṁΔt gains horizontal speed from 0 to v; ṁ=200 kg/s and v=5 m/s; ignore horizontal drag after loading.
       goal: Obtain the steady horizontal force required to load the belt.
       steps:
         - ask: Count the momentum gained by mass entering during the interval.
@@ -1867,7 +1874,7 @@ missions:
         - ask: Divide momentum change by the interval.
           answer: 0
           candidates:
-            - text: F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s
+            - text: F=Δp/Δt=ṁv=200×5=1000 N
             - text: F=Δp/Δt=ṁv²=5000 N for ṁ=200 kg/s and v=5 m/s
               why: Squaring speed gives energy per time units, not the force supplied by the belt.
               survives: true
@@ -1880,7 +1887,7 @@ missions:
     title: "Mean bin impact force"
     concept: 6   # Mean bin impact force
     reason: "A short bin impact is different from a steady feed."
-    scene: "The continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand."
+    scene: "Ada Kerr confirms that the continuous loading force is understood, but the broken bolts belong to a short impact with a different time history. Use the transferred momentum and stopping interval at the test bench to check the force the bin must withstand."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting mean bin impact force in N."
@@ -1942,7 +1949,7 @@ missions:
     title: "Commit the day's plan"
     concept: 6   # Commit the day's plan
     reason: "The bin needs a longer stop without losing the delivery target."
-    scene: "The short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage."
+    scene: "Ada Kerr finds that the short impact exceeds the bin limit even though the steady belt force is acceptable under its own operating conditions. Compare the staged chute with the unchanged drop before choosing a feed arrangement that preserves delivery without repeating the damage."
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -1985,12 +1992,12 @@ missions:
     header: "DAY 7 OF 12 — INSPECTION IN 6 DAYS"
     title: "WHAT DEPTH CAN CHANGE"
     goNow: "Go to Gravity Station and meet Nia Cole, survey engineer, at The gravimeter."
-    body: "The feed fix works, but two gravity readings in the lift file disagree. A meter can drift with time even when the ground has not changed. At the Gravity Station and Rope Shop, separate that drift from the effect of depth. By the end of the mission, decide whether gravity can explain the March overrun."
+    body: "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun."
     objective: "Can the local gravity correction explain the March overrun?"
   objective: "Can the local gravity correction explain the March overrun?"
-  stake: "The feed fix works, but two gravity readings in the lift file disagree. A meter can drift with time even when the ground has not changed. At the Gravity Station and Rope Shop, separate that drift from the effect of depth. By the end of the mission, decide whether gravity can explain the March overrun."
+  stake: "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun."
   takeaway: "An ideal depth model is different from a measured gravity value. ---"
-  segue: "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise."
+  segue: "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Gravity", def: "the attraction between masses."}
@@ -2025,7 +2032,7 @@ missions:
     title: "Find the drifting reference"
     concept: 7   # Find the drifting reference
     reason: "Repeated reference readings disagree before the depth correction is trusted."
-    scene: "The chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction."
+    scene: "Nia Cole notes that the chute change solves the feed problem, but the lift file contains two different readings from the same gravity reference. Compare each station with its own expected value before deciding whether the survey needs a drift correction."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: PROBE
     question: "Select and read all four stations without changing their loads, then submit the station with a mismatch and its implication. No controls need restoration."
@@ -2099,7 +2106,7 @@ missions:
     title: "Derive the ideal depth trend"
     concept: 7   # Derive the ideal depth trend
     reason: "The ideal depth trend must stay separate from local evidence."
-    scene: "The repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey."
+    scene: "Nia Cole sees that the repeated reference reveals an instrument offset, which must be separated from any physical effect of going deeper underground. Derive the prediction for a deliberately simple spherical body before deciding what that ideal model can tell the local survey."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -2149,7 +2156,7 @@ missions:
         - ask: Substitute the interior radius and simplify.
           answer: 0
           candidates:
-            - text: g(R−d)=g0(1−d/R)=9.998 m/s²
+            - text: g(R−d)=g0(1−d/R)=10×(1−1240/6200000)=9.998 m/s²
             - text: g(R−d)=g0(1+d/R)=10.002 m/s²
               why: The interior radius is smaller, so the uniform-sphere model predicts a smaller gravity, not a larger one.
               survives: true
@@ -2162,7 +2169,7 @@ missions:
     title: "Separate survey from assumption"
     concept: 7   # Separate survey from assumption
     reason: "The rope table needs a corrected measurement, not an assumed planet."
-    scene: "The ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation."
+    scene: "Mara Shaw confirms that the ideal depth calculation supplies a useful comparison, but its assumed mass distribution is not a measurement of this mine. Apply the observed drift correction and separate the survey result from the model before returning to the overrun explanation."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -2218,7 +2225,7 @@ missions:
     title: "Commit the day's plan"
     concept: 7   # Commit the day's plan
     reason: "A small weight correction must explain the time history to close March."
-    scene: "The corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed."
+    scene: "Mara Shaw finds that the corrected survey slightly lowers the estimated weight, while the March record still shows delayed motion after the drum stopped. Decide whether a static force correction accounts for that time history or whether another physical model is needed."
     motivation: "Separating a model from a measurement keeps the survey from becoming a false explanation of March."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -2261,12 +2268,12 @@ missions:
     header: "DAY 8 OF 12 — INSPECTION IN 5 DAYS"
     title: "POWER ARRIVES TOO LATE"
     goNow: "Go to Winder House and meet Ewan Price, winding engineer, at The winder desk."
-    body: "The weight table remains conservative, but the motor cannot deliver energy at any rate. Power measures how quickly a machine does work. At the Winder House and Tip, compare the loaded lift with a smaller drive under steady motion. By the end of the mission, decide which cruise speed fits the motor power limit."
+    body: "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit."
     objective: "Which cruise speed fits the motor power limit?"
   objective: "Which cruise speed fits the motor power limit?"
-  stake: "The weight table remains conservative, but the motor cannot deliver energy at any rate. Power measures how quickly a machine does work. At the Winder House and Tip, compare the loaded lift with a smaller drive under steady motion. By the end of the mission, decide which cruise speed fits the motor power limit."
+  stake: "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit."
   takeaway: "Power limits how fast usable energy can be delivered. ---"
-  segue: "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops."
+  segue: "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Power", def: "the rate of energy transfer."}
@@ -2301,7 +2308,7 @@ missions:
     title: "Recall the full-length pull"
     concept: 2   # Recall the full-length pull
     reason: "The cruise demand needs weight at the longest hanging length."
-    scene: "The conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation."
+    scene: "Ewan Price notes that the conservative weight table survives the survey check, but the requested cruise may demand energy faster than the motor supplies it. Recover the full-length pull at steady speed before turning the accepted work account into a power calculation."
     motivation: "The chosen system determines which load the next force limit must protect."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N."
@@ -2363,12 +2370,12 @@ missions:
     title: "Turn lift work into power"
     concept: 8   # Turn lift work into power
     reason: "The full trip's energy can still arrive too slowly."
-    scene: "The full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey."
+    scene: "Ewan Price sees that the full-length steady pull is established, and the hanging rope becomes shorter as the cage climbs toward the surface. Derive how that changing load affects power so the speed decision uses the most demanding part of the journey."
     motivation: "The largest work rate determines which cruise proposal the motor can sustain."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
     answerText: "At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended."
-    why: "At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended. dt/dy is the reciprocal speed, not dy/dt; it has the wrong units for power. At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt."
+    why: "Power is the work supplied each second. The chain rule gives dW/dt=(dW/dy)(dy/dt)=Tv, so dividing tension by speed cannot describe power. The hanging rope becomes shorter as the cage rises, which reduces the steady pull. The largest cruise demand therefore occurs with the full length hanging. Substituting the stated mass, length, gravity and speed gives 560000 W. This checks the motor's ability to sustain that cruise; it does not establish the distance needed for an emergency stop."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **1:** dt/dy is the reciprocal speed, not dy/dt; it has the wrong units for power. **2:** At the bottom the hanging rope is longest; the wrong expression reverses which end of the journey carries most rope.
     # correct result: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv. Acceptance: exact authored key.
@@ -2400,7 +2407,7 @@ missions:
     #         why: At the bottom the hanging rope is longest; the wrong expression reverses which end of the journey carries most rope.
     #     answerText: At steady speed the tension work rate is Tv; the largest value occurs at the start of a full-length cruise because that is where the most rope remains suspended.
     derive:
-      start: At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt.
+      start: At constant speed v, lifted distance y leaves hanging length L−y; T(y)=[M+λ(L−y)]g; dW=T dy; v=dy/dt; M=4000 kg, λ=10 kg/m, L=1200 m, g=10 m/s²; evaluate the full-length cruise at v=3.5 m/s.
       goal: Derive cruise power as a function of lift position and speed.
       steps:
         - ask: Apply the chain rule to work as position changes.
@@ -2413,7 +2420,7 @@ missions:
         - ask: Locate the greatest hanging weight during the cruise.
           answer: 0
           candidates:
-            - text: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv
+            - text: P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv=(4000+10×1200)×10×3.5=560000 W
             - text: P(y)=[M+λy]gv; Pmax=P(y=0)=Mgv
               why: At the bottom the hanging rope is longest; the wrong expression reverses which end of the journey carries most rope.
               survives: true
@@ -2426,7 +2433,7 @@ missions:
     title: "Check a scaled steady drive"
     concept: 8   # Check a scaled steady drive
     reason: "The power relation needs an independent drive check."
-    scene: "The lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model."
+    scene: "Ivo Reed confirms that the lift calculation identifies where cruise power is largest, but its force-times-speed relation can also be checked on a smaller drive. Predict the useful output before operating that drive and compare the measured rate with the model."
     motivation: "The largest work rate determines which cruise proposal the motor can sustain."
     format: VERIFY
     question: "First, calculate and commit useful power in W from the visible data. OPERATE: run the scaled drive at 2 m/s. Keep the 800 N drive force and load direction fixed. MEASURE: press READ once after the run and record useful power. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -2479,7 +2486,7 @@ missions:
     title: "Commit the day's plan"
     concept: 8   # Commit the day's plan
     reason: "The cruise choice must fit the available shaft power."
-    scene: "The smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan."
+    scene: "Ivo Reed finds that the smaller drive confirms the work-rate relation, and the two cruise proposals can now be compared with available shaft power. Choose the speed that passes this limit while leaving the unresolved emergency-stop requirement on the plan."
     motivation: "The largest work rate determines which cruise proposal the motor can sustain."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -2522,12 +2529,12 @@ missions:
     header: "DAY 9 OF 12 — INSPECTION IN 4 DAYS"
     title: "THE ROPE HAS ITS OWN CLOCK"
     goNow: "Go to Rope Shop and meet Mara Shaw, rope technician, at The rope bench."
-    body: "The power limit is met, but the cage can still move after its support stops. A stretched rope can release stored energy and pull a load back toward rest. At the Rope Shop and Bank, compare stretch and bounce measurements. By the end of the mission, decide whether drum stop time alone predicts when the cage stops."
+    body: "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops."
     objective: "Can a drum stop time alone predict when the cage stops?"
   objective: "Can a drum stop time alone predict when the cage stops?"
-  stake: "The power limit is met, but the cage can still move after its support stops. A stretched rope can release stored energy and pull a load back toward rest. At the Rope Shop and Bank, compare stretch and bounce measurements. By the end of the mission, decide whether drum stop time alone predicts when the cage stops."
+  stake: "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops."
   takeaway: "A fixed support can hold a load that is still moving. ---"
-  segue: "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read."
+  segue: "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Elasticity", def: "the ability to store energy while stretched and return toward the original shape."}
@@ -2563,7 +2570,7 @@ missions:
     title: "Distinguish mass from stiffness"
     concept: 9   # Distinguish mass from stiffness
     reason: "The load keeps moving after the support is still."
-    scene: "The cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response."
+    scene: "Mara Shaw notes that the cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -2619,7 +2626,7 @@ missions:
     title: "Derive the bounce period"
     concept: 9   # Derive the bounce period
     reason: "The cage response needs a clock set by mass and stiffness."
-    scene: "The stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record."
+    scene: "Mara Shaw sees that the stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -2669,7 +2676,7 @@ missions:
         - ask: Relate one full angular cycle to elapsed time.
           answer: 0
           candidates:
-            - text: ω=1.25 rad/s; Tperiod=2π/ω≈5.03 s
+            - text: ω=√(12500/8000)=1.25 rad/s; Tperiod=2π/1.25≈5.03 s
             - text: ω=1.25 rad/s; Tperiod=ω/(2π)≈0.20 s
               why: ω/(2π) is frequency in cycles per second, not the period in seconds.
               survives: true
@@ -2682,7 +2689,7 @@ missions:
     title: "Read an independent period"
     concept: 9   # Read an independent period
     reason: "The period needs a record independent of drum timing."
-    scene: "The full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response."
+    scene: "Ruth Bell confirms that the full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: VERIFY
     question: "First, calculate and commit oscillation period in s from the visible data. OPERATE: release the test mass from a small displacement and run one cycle. Keep the mass, stiffness and fixed support fixed. MEASURE: press READ once after the run and record oscillation period. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -2735,7 +2742,7 @@ missions:
     title: "Commit the day's plan"
     concept: 9   # Commit the day's plan
     reason: "Passenger protection needs the motion of the cage itself."
-    scene: "The independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model."
+    scene: "Ruth Bell finds that the independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -2778,12 +2785,12 @@ missions:
     header: "DAY 10 OF 12 — INSPECTION IN 3 DAYS"
     title: "MARCH, SECOND BY SECOND"
     goNow: "Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The March board."
-    body: "The cage has its own bounce period, and the sealed March tape can now be tested. A load can keep moving while a rope changes stretch around its resting length. At the brake house and Rope Shop, reconstruct the motion from the recorded stop. By the end of the mission, decide what caused the cage to overrun its landing."
+    body: "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing."
     objective: "What caused the cage to overrun its March landing?"
   objective: "What caused the cage to overrun its March landing?"
-  stake: "The cage has its own bounce period, and the sealed March tape can now be tested. A load can keep moving while a rope changes stretch around its resting length. At the brake house and Rope Shop, reconstruct the motion from the recorded stop. By the end of the mission, decide what caused the cage to overrun its landing."
+  stake: "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing."
   takeaway: "Initial motion and restoring force can explain a delayed overrun. ---"
-  segue: "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning."
+  segue: "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Initial condition", def: "a measured starting position or velocity used to choose one motion from a family of solutions."}
@@ -2818,7 +2825,7 @@ missions:
     title: "Read the three independent records"
     concept: 9   # Read the three independent records
     reason: "The opened March tape must be read as independent motion records."
-    scene: "The measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories."
+    scene: "Ada Kerr notes that the measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal readings, and select the one cause consistent with the whole panel."
@@ -2909,7 +2916,7 @@ missions:
     title: "Reconstruct the overshoot"
     concept: 9   # Reconstruct the overshoot
     reason: "The measured initial state must predict the withheld peak."
-    scene: "The records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp."
+    scene: "Ada Kerr sees that the records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -2959,7 +2966,7 @@ missions:
         - ask: Find the first zero velocity with positive displacement.
           answer: 0
           candidates:
-            - text: xmax=v0/ω=1.60 m at t=π/(2ω)≈1.26 s
+            - text: xmax=v0/ω=2/1.25=1.60 m at t=π/(2×1.25)≈1.26 s
             - text: xmax=v0ω=2.0×1.25=2.50 m at t=π/(2ω)≈1.26 s
               why: Multiplying by frequency instead of dividing fails the initial-velocity relation vmax=Aω.
               survives: true
@@ -2972,7 +2979,7 @@ missions:
     title: "Keep the inquiry test honest"
     concept: 12   # Keep the inquiry test honest
     reason: "The inquiry must keep prediction separate from fitting the answer."
-    scene: "The calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance."
+    scene: "Mara Shaw confirms that the calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: SEQUENCE
     question: "Arrange the four evidence operations in the order that produces a prediction before its test; submit the ordered rail."
@@ -3022,7 +3029,7 @@ missions:
     title: "Commit the day's plan"
     concept: 9   # Commit the day's plan
     reason: "The signed account must explain both the peak and its delay."
-    scene: "The reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip."
+    scene: "Mara Shaw finds that the reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -3065,12 +3072,12 @@ missions:
     header: "DAY 11 OF 12 — INSPECTION IN 2 DAYS"
     title: "THE TEST THAT PASSED"
     goNow: "Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The pad bench."
-    body: "March is explained, and the empty cage now stops within the marked space. Warm brake pads and a heavier load can still change the stopping distance. At the brake house, Bank and Winder House, check the limits before anyone rides. By the end of the mission, decide whether the empty test authorizes the faster passenger profile."
+    body: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
     objective: "Does the empty test authorize the faster passenger profile?"
   objective: "Does the empty test authorize the faster passenger profile?"
-  stake: "March is explained, and the empty cage now stops within the marked space. Warm brake pads and a heavier load can still change the stopping distance. At the brake house, Bank and Winder House, check the limits before anyone rides. By the end of the mission, decide whether the empty test authorizes the faster passenger profile."
+  stake: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
   takeaway: "A test approves only the conditions it actually covers. ---"
-  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready."
+  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Braking deceleration", def: "the positive size of acceleration opposite motion."}
@@ -3105,7 +3112,7 @@ missions:
     title: "Read the certificate conditions"
     concept: 11   # Read the certificate conditions
     reason: "The empty test certificate does not cover every load or pad state."
-    scene: "The March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift."
+    scene: "Ada Kerr notes that the March explanation fits, and an empty wind now stops cleanly inside its test marks beside the shaft. Compare the test conditions with the working-pad record before the crew treats that visible success as permission to carry a full shift."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal readings, and select the one cause consistent with the whole panel."
@@ -3196,7 +3203,7 @@ missions:
     title: "Bound the stopping travel"
     concept: 11   # Bound the stopping travel
     reason: "The overhead allowance must cover adverse braking and residual motion."
-    scene: "The working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing."
+    scene: "Ruth Bell sees that the working-pad record gives less braking than the empty test, so the largest stopping travel must use the adverse condition. Combine that travel with the established rope-motion bound before comparing the candidate speeds with the space above the landing."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -3233,7 +3240,7 @@ missions:
     #         why: A safety envelope must include an excursion in the same adverse direction; subtracting it assumes a favorable phase.
     #     answerText: The integral gives translational braking travel; adding the separately validated worst-phase modal excursion is a conservative envelope, not a claim that both peaks occur simultaneously. Its range is limited to the campaign’s certified loads, lengths and response tests.
     derive:
-      start: For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel.
+      start: For constant braking size b>0, a=−b and v dv/dy=−b; for the full campaign length/load range use bmin=1 m/s² and ωmin=1.25 rad/s. A validated envelope supplies residual amplitude ≤v/ωmin beyond drum-equivalent travel. Evaluate the candidate v=2 m/s.
       goal: Derive total conservative stopping excursion as a function of approach speed.
       steps:
         - ask: Integrate the velocity-position form of acceleration.
@@ -3246,7 +3253,7 @@ missions:
         - ask: Add the adverse remaining oscillation bound.
           answer: 0
           candidates:
-            - text: d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v
+            - text: d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v; at v=2, d_bound=2²/(2×1)+2/1.25=3.6 m
             - text: d_bound=v²/(2bmin)−v/ωmin=0.5v²−0.8v
               why: A safety envelope must include an excursion in the same adverse direction; subtracting it assumes a favorable phase.
               survives: true
@@ -3259,7 +3266,7 @@ missions:
     title: "Test a warm loaded surrogate"
     concept: 11   # Test a warm loaded surrogate
     reason: "The loaded warm-pad braking term needs a direct surrogate check."
-    scene: "The stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions."
+    scene: "Ewan Price confirms that the stopping bound now uses the loaded warm-pad limit, but its braking term needs a separate instrumented check before sign-off. Carry that prediction to the winding trace and test the surrogate under the same stated load and pad conditions."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: VERIFY
     question: "First, calculate and commit drum-equivalent braking travel in m from the visible data. OPERATE: run the loaded warm-pad surrogate. Keep the 2 m/s approach speed and pad temperature fixed. MEASURE: press READ once after the run and record drum-equivalent braking travel. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -3312,7 +3319,7 @@ missions:
     title: "Commit the day's plan"
     concept: 11   # Commit the day's plan
     reason: "The faster proposal exceeds the allowed stopping space."
-    scene: "The surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review."
+    scene: "Ewan Price finds that the surrogate supports the adverse braking term, and the higher-speed proposal now fails the combined space allowance above the landing. Decide what the empty success actually permits before carrying a narrower candidate into the final plan review."
     motivation: "The adverse stopping bound determines which speed fits the actual space above the landing."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
@@ -3355,12 +3362,12 @@ missions:
     header: "DAY 12 OF 12 — INSPECTION IN 1 DAYS"
     title: "FORTY-ONE TALLIES"
     goNow: "Go to The Bank and meet Ruth Bell, cage operator, at The depth indicator."
-    body: "The slower candidate fits the worst stopping case, and the last test is ready. A safe plan must satisfy every limit at once for the loads it actually covers. At the Bank, Rope Shop and Winder House, check the final record before opening passenger access. By the end of the mission, choose the complete profile that can be signed."
+    body: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
     objective: "Which complete profile can be signed for the defined operating range?"
   objective: "Which complete profile can be signed for the defined operating range?"
-  stake: "The slower candidate fits the worst stopping case, and the last test is ready. A safe plan must satisfy every limit at once for the loads it actually covers. At the Bank, Rope Shop and Winder House, check the final record before opening passenger access. By the end of the mission, choose the complete profile that can be signed."
+  stake: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
   takeaway: "A signed profile must keep every constraint and its tested range. ---"
-  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens."
+  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth's ending account says Finn takes his tally only after the final checks are complete."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Operating range", def: "the loads, lengths and conditions for which a plan has been checked."}
@@ -3393,7 +3400,7 @@ missions:
     title: "Commit the empty acceptance prediction"
     concept: 12   # Commit the empty acceptance prediction
     reason: "The final empty acceptance needs a committed prediction."
-    scene: "The slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope."
+    scene: "Ruth Bell notes that the slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: VERIFY
     question: "First, calculate and commit drum-equivalent braking travel in m from the visible data. OPERATE: run the unoccupied 1 m/s acceptance wind. Keep the empty-cage mass, pad state and 1 m/s test speed fixed. MEASURE: press READ once after the run and record drum-equivalent braking travel. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -3446,7 +3453,7 @@ missions:
     title: "Combine the signed limits"
     concept: 12   # Combine the signed limits
     reason: "The signed speed must satisfy every limit at once."
-    scene: "The unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them."
+    scene: "Mara Shaw sees that the unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -3496,7 +3503,7 @@ missions:
         - ask: Choose the fastest listed speed surviving the combined conditions.
           answer: 0
           candidates:
-            - text: "v=2.0 m/s: P=320 kW and d_bound=3.6 m; faster listed speeds fail stopping"
+            - text: "v=2.0 m/s: P=160×2=320 kW; d_bound=0.5×2²+0.8×2=3.6 m; at 2.5, d_bound=0.5×2.5²+0.8×2.5=5.125 m > 5 m"
             - text: "v=3.5 m/s: P=560 kW and d_bound=8.925 m; passing power permits the plan"
               why: The higher-speed option passes power but exceeds the 5 m stopping allowance; a single pass cannot replace the conjunction.
               survives: true
@@ -3509,7 +3516,7 @@ missions:
     title: "Check the independent safety margin"
     concept: 12   # Check the independent safety margin
     reason: "The remaining stopping margin needs an independent arithmetic check."
-    scene: "The combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand."
+    scene: "Ewan Price confirms that the combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: VERIFY
     question: "First, calculate and commit remaining stopping margin in m from the visible data. OPERATE: run the independent signed-plan margin check. Keep the recorded allowance and adverse bound fixed. MEASURE: press READ once after the run and record remaining stopping margin. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -3562,7 +3569,7 @@ missions:
     title: "Commit the day's plan"
     concept: 12   # Commit the day's plan
     reason: "Passenger access needs a signed profile with explicit limits."
-    scene: "The independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered."
+    scene: "Ewan Price finds that the independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

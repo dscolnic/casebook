@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 11 OF 15"
     title: "TWO OFFERS, ONE GATE"
     goNow: "Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk."
-    body: "Unused freight space weakens the case for building at once, but two firms now bargain over access. When each firm's best move depends on its rival, the outcome can differ from a joint agreement. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the firms will keep their low-output pact without enforcement."
+    body: "The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm's best move."
     objective: "Decide whether the firms will keep their low-output pact without enforcement."
   objective: "Decide whether the firms will keep their low-output pact without enforcement."
-  stake: "Unused freight space weakens the case for building at once, but two firms now bargain over access. When each firm's best move depends on its rival, the outcome can differ from a joint agreement. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the firms will keep their low-output pact without enforcement."
+  stake: "The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm's best move."
   takeaway: "The town must not budget service on an unstable private promise."
   segue: "Mission decision: Expect both firms to expand in the one-round model. Each gains by expanding under either rival move. The pact loses its guarantee stamp. More freight may raise water costs."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -44,7 +44,7 @@
     title: "Read what the pact offers"
     concept: 17   # Oligopoly and strategic interaction
     reason: "The pact's joint gain must be separated from incentives to comply."
-    scene: "Unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement."
+    scene: "Ruth shows you the record: unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement."
     motivation: "A large joint profit is not evidence of individual stability."
     format: BALLPARK
     question: "Submit combined profit if both firms Restrict."
@@ -124,7 +124,7 @@
     title: "Read each incentive"
     concept: 17   # Oligopoly and strategic interaction
     reason: "Each firm must be checked against both actions its rival could take."
-    scene: "The pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies' joint statement as a reliable prediction of what they will do."
+    scene: "Nico shows you the record: the pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies' joint statement as a reliable prediction of what they will do."
     motivation: "Each firm's choice must be evaluated using its own payoff."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -214,7 +214,7 @@
     title: "Freeze the forecast"
     concept: 17   # Oligopoly and strategic interaction
     reason: "The service forecast must survive each firm's own incentive to change."
-    scene: "The reply comparisons now identify the firms' incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact's promised output in public service planning."
+    scene: "Mara shows you the record: the reply comparisons now identify the firms' incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact's promised output in public service planning."
     motivation: "A forecast that survives unilateral incentives is safer than the companies' joint promise."
     format: VERIFY
     question: "First, calculate and commit Firm A's payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A's payoff, and select whether it matches; no restoration or second reading is required."
@@ -311,18 +311,18 @@
     title: "Use a defensible service forecast"
     concept: 17   # Oligopoly and strategic interaction
     reason: "An unenforced pact cannot be treated as guaranteed supply."
-    scene: "The trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents."
+    scene: "Mara shows you the record: the trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents."
     motivation: "The town must not budget service on an unstable private promise."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Expect both firms to expand under the one-shot payoff table
       - Guarantee the pact because joint profit is higher
       - Predict only A expands despite symmetric incentives
       - Claim Nash equilibrium maximizes joint profit
     answer: Expect both firms to expand under the one-shot payoff table
-    answerText: The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.
-    why: The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization.
+    answerText: "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions."
+    why: "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: Both firms gain from Expand under either rival action; the only Nash equilibrium of this one-shot table is Expand/Expand, yielding (30,30), below the pact's joint (40,40).

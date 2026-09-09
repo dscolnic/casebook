@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 3 OF 15"
     title: "THE EMPTY ROOMS"
     goNow: "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk."
-    body: "The lunch rise came from more buyers, but higher room prices have left beds empty. How much buying changes when price changes determines whether a higher price raises receipts. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the tested rent increase raises room revenue."
+    body: "The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned."
     objective: "Decide whether the tested rent increase raises room revenue."
   objective: "Decide whether the tested rent increase raises room revenue."
-  stake: "The lunch rise came from more buyers, but higher room prices have left beds empty. How much buying changes when price changes determines whether a higher price raises receipts. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the tested rent increase raises room revenue."
+  stake: "The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned."
   takeaway: "Vacant beds can reopen without pretending every landlord faces identical demand."
   segue: "Mission decision: Do not keep the tested rent rise. Receipts fell by $100 a night. The owner puts the old rate back on the board. The diner still needs more meals from the same oven."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -47,7 +47,7 @@
     title: "Measure the lost receipts"
     concept: 5   # Elasticity and total revenue
     reason: "Empty beds make the owner's price claim testable today."
-    scene: "The lunch market grew because more buyers arrived, but the room owner's higher advertised rate has left beds empty. Compare receipts before assuming that the town's growing population makes every price rise profitable for every seller."
+    scene: "Mara shows you the record: the lunch market grew because more buyers arrived, but the room owner's higher advertised rate has left beds empty. Compare receipts before assuming that the town's growing population makes every price rise profitable for every seller."
     motivation: "The owner needs receipts rather than the price sign alone."
     format: BALLPARK
     question: "Submit the nightly revenue decrease as old revenue minus new revenue."
@@ -135,7 +135,7 @@
     title: "Read response evidence"
     concept: 5   # Elasticity and total revenue
     reason: "The owner needs the right response measure for this experiment."
-    scene: "The room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner's price decision."
+    scene: "Mara shows you the record: the room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner's price decision."
     motivation: "Different response measures answer different business questions."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -225,7 +225,7 @@
     title: "Check the midpoint claim"
     concept: 5   # Elasticity and total revenue
     reason: "The archive check must use the same rooms and the same averaging rule."
-    scene: "The response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts."
+    scene: "Mara shows you the record: the response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts."
     motivation: "The magnitude tests whether the revenue loss is consistent with the price response."
     format: VERIFY
     question: "First, calculate and commit absolute midpoint price elasticity from the two prices and quantities. Then run the Hearing Table archive check, measure its computed ratio, and select whether your prediction matches; no restoration or second measurement is required."
@@ -322,18 +322,18 @@
     title: "Reopen the vacant rooms"
     concept: 5   # Elasticity and total revenue
     reason: "Tonight's listing must use a rate the evidence supports."
-    scene: "The archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight's rooms are advertised at the desk."
+    scene: "Mara shows you the record: the archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight's rooms are advertised at the desk."
     motivation: "Vacant beds can reopen without pretending every landlord faces identical demand."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Reject the tested rent increase because room revenue falls
       - Keep the increase because each occupied room pays more
       - Keep the increase because demand must be inelastic
       - Reject the increase because every high price is illegal
     answer: Reject the tested rent increase because room revenue falls
-    answerText: The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality.
-    why: The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. No legal rule is given; the economic comparison alone supports the decision.
+    answerText: "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality."
+    why: "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. No legal rule is given; the economic comparison alone supports the decision."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The same-quality rooms yielded $400 before and $300 after the rise; demand elasticity over that comparison is 2.25. No other demand determinant changed.

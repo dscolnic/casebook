@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 24 HOURS REMAIN"
     title: "THE ARRAY WITH A HOLE"
     goNow: "Go to the Sensor Probe Rack in Habitat Control."
-    body: "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed."
-    objective: "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element."
-  objective: "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element."
-  stake: "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed."
+    body: "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item."
+    objective: "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
+  objective: "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
+  stake: "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item."
   takeaway: "Room 7 is safe; the controller maps Room 6 and Room 7 to the wrong indexes, producing a false 4.1°C emergency. ---"
-  segue: "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. The incident view then loses every second record."
+  segue: "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. Now Park finds every second record gone from the incident view."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "array", def: "a fixed-length indexed collection whose elements all use one declared type. index: the numbered position used to access an element; Java arrays and lists start at index zero."}
@@ -42,7 +42,7 @@
     title: "Map sensor positions"
     concept: 26   # Arrays: creation, access, default values, and bounds
     reason: "Mei needs the physical room labels compared with the array entries before she evacuates anyone from a cold-room alarm."
-    scene: "Four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks."
+    scene: "Mei Alvarez checks the evidence: four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks."
     motivation: "Station-by-station expected values can reveal an indexing problem even when every numeric reading is individually plausible."
     format: PROBE
     question: "Probe all four stations, compare each observed reading with its explicit expected value, and submit where the pattern breaks."
@@ -103,7 +103,7 @@
     title: "Trace the sensor loop"
     concept: 27   # Array traversals and array algorithms
     reason: "Stop 25 proved the values are real but attached to the wrong room labels, so the loop that copies array entries into display rows is next."
-    scene: "The display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing."
+    scene: "Mei Alvarez checks the evidence: the display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing."
     motivation: "A correct traversal should keep Room 6's 4.1°C value at the same index as the Room 6 label."
     format: DERIVE
     question: "Choose the loop header and element pairing that display every valid sensor once without shifting indexes."
@@ -131,7 +131,7 @@
     #           - {line: "show(labels[i], temps[i]);", correct: true}
     #           - {line: "show(labels[i], temps[i+1]);", correct: false, survives: true, why: "Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence."}
     derive:
-      start: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length.
+      start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
       goal: visit every legal index once and pair each label with the value at that same index
       steps:
         - ask: Choose the traversal header.
@@ -157,7 +157,7 @@
     title: "Catch the shifted index"
     concept: 26   # Arrays: creation, access, default values, and bounds
     reason: "The correct traversal uses matching indexes, but the live display code contains one explicit temps[i - 1] access for Room 7."
-    scene: "When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display."
+    scene: "Mei Alvarez checks the evidence: When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display."
     motivation: "Computing the exact wrong index explains the alarm without changing or discarding any physical temperature measurement."
     format: CHOICE
     question: "Evaluate i - 1 at i = 2 and submit the temperature the buggy display assigns to Room 7."
@@ -201,7 +201,7 @@
     title: "Certify the room map"
     concept: 17   # Selection-and-iteration algorithms: count, sum, min/max, search
     reason: "Room 7 should remain occupied only if the corrected traversal restores every room value and the safety check classifies the rooms correctly."
-    scene: "The repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test."
+    scene: "Priya Nair checks the evidence: the repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test."
     motivation: "The final decision requires both the corrected array algorithm and a Boolean safety test on the value actually belonging to Room 7."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial Room 7's mapped temperature. OPERATE: run the corrected array mapping. MEASURE: reveal the mapped Room 7 value. INTERPRET: apply the 10.0°C safety rule and submit EVACUATE ROOM 7 or KEEP OCCUPIED."

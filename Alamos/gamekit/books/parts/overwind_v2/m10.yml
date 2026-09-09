@@ -6,12 +6,12 @@
     header: "DAY 10 OF 12 — INSPECTION IN 3 DAYS"
     title: "MARCH, SECOND BY SECOND"
     goNow: "Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The March board."
-    body: "The cage has its own bounce period, and the sealed March tape can now be tested. A load can keep moving while a rope changes stretch around its resting length. At the brake house and Rope Shop, reconstruct the motion from the recorded stop. By the end of the mission, decide what caused the cage to overrun its landing."
+    body: "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing."
     objective: "What caused the cage to overrun its March landing?"
   objective: "What caused the cage to overrun its March landing?"
-  stake: "The cage has its own bounce period, and the sealed March tape can now be tested. A load can keep moving while a rope changes stretch around its resting length. At the brake house and Rope Shop, reconstruct the motion from the recorded stop. By the end of the mission, decide what caused the cage to overrun its landing."
+  stake: "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing."
   takeaway: "Initial motion and restoring force can explain a delayed overrun. ---"
-  segue: "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning."
+  segue: "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Initial condition", def: "a measured starting position or velocity used to choose one motion from a family of solutions."}
@@ -46,7 +46,7 @@
     title: "Read the three independent records"
     concept: 9   # Read the three independent records
     reason: "The opened March tape must be read as independent motion records."
-    scene: "The measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories."
+    scene: "Ada Kerr notes that the measured period gives the investigation a testable explanation, and the March drawer has now been opened under the inquiry seal. Read the independent drum and cage records together to identify which explanation survives their different motion histories."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal readings, and select the one cause consistent with the whole panel."
@@ -137,7 +137,7 @@
     title: "Reconstruct the overshoot"
     concept: 9   # Reconstruct the overshoot
     reason: "The measured initial state must predict the withheld peak."
-    scene: "The records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp."
+    scene: "Ada Kerr sees that the records show a stationary drum with the cage still moving upward, which fixes the start of a separate motion problem. Use the measured position and velocity to predict the first peak time before comparing it with the sealed timestamp."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -187,7 +187,7 @@
         - ask: Find the first zero velocity with positive displacement.
           answer: 0
           candidates:
-            - text: xmax=v0/ω=1.60 m at t=π/(2ω)≈1.26 s
+            - text: xmax=v0/ω=2/1.25=1.60 m at t=π/(2×1.25)≈1.26 s
             - text: xmax=v0ω=2.0×1.25=2.50 m at t=π/(2ω)≈1.26 s
               why: Multiplying by frequency instead of dividing fails the initial-velocity relation vmax=Aω.
               survives: true
@@ -200,7 +200,7 @@
     title: "Keep the inquiry test honest"
     concept: 12   # Keep the inquiry test honest
     reason: "The inquiry must keep prediction separate from fitting the answer."
-    scene: "The calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance."
+    scene: "Mara Shaw confirms that the calculated distance matches the known overrun, but the inquiry must preserve how that prediction was obtained from independent evidence. Order the reconstruction steps so another reviewer can distinguish the withheld timing test from fitting the already known distance."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: SEQUENCE
     question: "Arrange the four evidence operations in the order that produces a prediction before its test; submit the ordered rail."
@@ -250,7 +250,7 @@
     title: "Commit the day's plan"
     concept: 9   # Commit the day's plan
     reason: "The signed account must explain both the peak and its delay."
-    scene: "The reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip."
+    scene: "Mara Shaw finds that the reconstruction now links the measured initial motion, the rope period and the delayed peak without continued movement of the drum. Decide which explanation belongs in the inquiry while preserving the distinction between explaining March and approving every future trip."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

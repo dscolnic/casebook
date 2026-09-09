@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 1 OF 15"
     title: "THE MISSING BREAKFAST"
     goNow: "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk."
-    body: "The first delivery has arrived, but the diner cannot serve every new customer. A scarce work shift can be used for one task only, so each choice gives up another task. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the diner should trade packed meals for repairs."
+    body: "The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal."
     objective: "Decide whether the diner should trade packed meals for repairs."
   objective: "Decide whether the diner should trade packed meals for repairs."
-  stake: "The first delivery has arrived, but the diner cannot serve every new customer. A scarce work shift can be used for one task only, so each choice gives up another task. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the diner should trade packed meals for repairs."
+  stake: "The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal."
   takeaway: "The adviser can recommend the agreement without ordering either business to accept it."
   segue: "Mission decision: Trade two meal boxes for each hour of repairs. Both teams give up less than they would on their own. The bench is fixed and lunch can start. More people still join the queue."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -47,7 +47,7 @@
     title: "What the shift gives up"
     concept: 1   # Scarcity, factors and production possibilities
     reason: "The diner needs an internal repair cost before bargaining."
-    scene: "The diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange."
+    scene: "Nico shows you the record: the diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange."
     motivation: "The cost of doing repairs internally sets the highest meal payment the diner should accept."
     format: BALLPARK
     question: "Use forgone meal boxes divided by repair hours to submit the opportunity cost of one repair hour in meal boxes."
@@ -127,7 +127,7 @@
     title: "Who has the better tradeoff"
     concept: 2   # Opportunity cost, comparative advantage and trade
     reason: "The other team must gain too, or the exchange will fail."
-    scene: "The diner now knows its own repair cost, but a good trade also depends on the other team's alternatives. Compare both production records before deciding which work each side should offer in the agreement."
+    scene: "Nico shows you the record: the diner now knows its own repair cost, but a good trade also depends on the other team's alternatives. Compare both production records before deciding which work each side should offer in the agreement."
     motivation: "The two teams can gain from exchange even though neither is better at every task."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -217,7 +217,7 @@
     title: "Try the exchange on the ledger"
     concept: 2   # Opportunity cost, comparative advantage and trade
     reason: "Both teams need the trial payment checked before work starts."
-    scene: "The production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service."
+    scene: "Nico shows you the record: the production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service."
     motivation: "A trial invoice makes the promised exchange concrete before either team changes its work."
     format: VERIFY
     question: "First, calculate and commit the meal boxes due using boxes = boxes per hour × hours. Then set the Order Terminal to the four-hour trial, measure the invoice total, and select whether it matches your prediction; no restoration or second reading is required."
@@ -314,18 +314,18 @@
     title: "Keep the lunch service open"
     concept: 2   # Opportunity cost, comparative advantage and trade
     reason: "The diner must accept or reject the terms before lunch."
-    scene: "The invoice now agrees with the proposed rate, and both teams' production alternatives remain visible in the log. Choose the agreement that improves both sides' positions before the diner commits its next batch of meals."
+    scene: "Nico shows you the record: the invoice now agrees with the proposed rate, and both teams' production alternatives remain visible in the log. Choose the agreement that improves both sides' positions before the diner commits its next batch of meals."
     motivation: "The adviser can recommend the agreement without ordering either business to accept it."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Trade two meal boxes for one repair hour
       - Pay four meal boxes for one repair hour
       - Reject trade because repair productivity is tied
       - Assign both teams only to diner repairs
     answer: Trade two meal boxes for one repair hour
-    answerText: At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs.
-    why: At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs. The adviser can recommend the agreement without ordering either business to accept it. Four boxes exceeds the diner’s three-box internal cost. Comparative advantage depends on opportunity cost, not whether absolute productivity ties.
+    answerText: "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs."
+    why: "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs. The adviser can recommend the agreement without ordering either business to accept it. Four boxes exceeds the diner's three-box internal cost. Comparative advantage depends on opportunity cost, not whether absolute productivity ties."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The record contains opportunity costs of 3 boxes per repair hour for the diner and 1 for the crew; the trial invoice charges 8 boxes for 4 hours. Both teams can choose freely, and no other cost exists.

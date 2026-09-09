@@ -1,10 +1,10 @@
 # BOOMTOWN — AP Microeconomics Campaign Implementation Bible
 
-**Version 1.0 | 15 missions | 60 graded stops | contemporary Project Y adaptation**
+**Version 1.1 | 15 missions | 60 graded stops | contemporary Project Y adaptation**
 
 ## 0. Readiness boundary
 
-This is a complete authored campaign for static review, not a compiled release. The attached gate report distinguishes tested content from absent engine checks and records the authoring-process deviation.
+The supplied handback reports that version 1.0 was built, imported and playable. This version 1.1 applies that handback and has been checked as authored text; a new build has not been run here. The attached gate report distinguishes tested content from absent engine checks and records the authoring-process deviation.
 
 **Authority:** Master Brief v3.3, Giant Gate v2.3, Ledger v1.3, QUESTION_TYPES(1).md and Whiteout v2.11 structure. The supplied Albert Microeconomics sheet supplies Units 1–6. Course percentages and exam timings are source metadata, not verified current exam claims. Project Y supplies geography, not the old nuclear subject or historical cast. Schema/importer and executable world files are absent; engine checks remain NOT TESTED.
 
@@ -14,11 +14,37 @@ Six weeks after a mineral discovery, a small mesa town faces rapid population gr
 
 ## Opening card — exact player copy
 
-You are in a mesa town where a mineral discovery has brought more people than the shops and homes can serve. Your microeconomics work will help the town weigh who gains and who pays as it chooses a freight agreement. There are six weeks to agree, or businesses may commit to terms that leave homes and clean water out of reach. Mara Velez, the state's economic adviser, puts the competing offers on your desk and says, “Find what each promise costs.” The diner has just run out of breakfasts.
+You have come to a town on a mesa where a mine has brought a rush of new people. Shops need staff, homes cost more, and the taps serve long queues. You will build The Town and Freight Agreement, one piece each day, so the town can see who gains and who pays. Mara Velez gives you six weeks to check the plan before the firms sign their terms. First, the diner has run out of food.
 
 ## Opening implementation state
 
 One card, five sentences, one Continue, over normal spawn (0,14); no forced camera. Continue reveals four bars and Mission 1. First movement follows the diner dispute to the Business Workshop. No pre-day tour, race or greeting checklist is scheduled. Sound and color only reinforce exact text; all evidence and dialogue stay in the mission log.
+
+## 1.1 Named delivery and public board
+
+```yaml
+delivery:
+  name: "The Town and Freight Agreement"
+  what: "A public plan that the council, firms and housing co-op read to check each promise, its cost and who pays."
+  pieces:
+    - "The meal trade" # M1
+    - "The lunch price finding" # M2
+    - "The room price test" # M3
+    - "The cook hiring rule" # M4
+    - "The rent access count" # M5
+    - "The housing fee account" # M6
+    - "The supplier shift plan" # M7
+    - "The fair entry rule" # M8
+    - "The wage clause" # M9
+    - "The freight access finding" # M10
+    - "The pact risk forecast" # M11
+    - "The water cost rule" # M12
+    - "The filter cost account" # M13
+    - "The access retrofit choice" # M14
+    - "The signed town agreement" # M15
+```
+
+The existing public board in the Civic Advice Office displays all fifteen piece names from the start. Each mission outcome adds its named finding to the matching slot; slots preserve the findings and their later qualifications in order. The board replaces all Project Y delivery labels, including The Evidence Chain, without changing a room, collider or landmark. Piece 15 stays READY TO SIGN until Stop 60 is correct and the final resource check succeeds; only then does it become SIGNED and open the ending card. Pieces 1–14 remain visible in the log and on the board. No separate mission or graded stop is added.
 
 # 2. Campaign metrics, timer, and recovery economy
 
@@ -43,35 +69,35 @@ Starts replace preliminary values: Plan Evidence 80, Service Continuity 85, Fiel
 
 |---:|---|---|---|---|---:|
 
-| 1 | The diner posts a meal-for-repair agreement and reopens its lunch queue | [3, 2, -2, 2] | [0, 0, 0, 4] | [83, 87, 83, 76] | 0 |
+| 1 | The diner posts a meal-for-repair agreement and reopens its lunch queue | [] | [0, 0, 0, 4] | [83, 87, 83, 76] | 0 |
 
-| 2 | The notice board separates the lunch surge from the delivery cost dispute | [2, 1, -1, 2] | [0, 0, 0, 4] | [85, 88, 82, 82] | 0 |
+| 2 | The notice board separates the lunch surge from the delivery cost dispute | [1] | [0, 0, 0, 4] | [85, 88, 82, 82] | 0 |
 
-| 3 | The owner restores the lower advertised rate and opens the vacant rooms | [1, 3, -1, 2] | [0, 0, 4, 0] | [86, 91, 85, 84] | 0 |
+| 3 | The owner restores the lower advertised rate and opens the vacant rooms | [1] | [0, 0, 4, 0] | [86, 91, 85, 84] | 0 |
 
-| 4 | The diner posts one job and keeps the equipment upgrade on its list | [2, 2, -2, 1] | [0, 0, 3, 1] | [88, 93, 86, 86] | 0 |
+| 4 | The diner posts one job and keeps the equipment upgrade on its list | [1] | [0, 0, 3, 1] | [88, 93, 86, 86] | 0 |
 
-| 5 | The hearing labels the rent cap as tenant relief rather than a promise of a home for all | [-2, 2, -1, 4] | [2, 0, 2, 0] | [88, 95, 87, 90] | 0 |
+| 5 | The hearing labels the rent cap as tenant relief rather than a promise of a home for all | [4] | [2, 0, 2, 0] | [88, 95, 87, 90] | 0 |
 
-| 6 | The council reserves the measured fee proceeds for the housing measure | [3, 2, 2, 2] | [1, 0, 3, 0] | [92, 97, 92, 92] | 0 |
+| 6 | The council reserves the measured fee proceeds for the housing measure | [1] | [1, 0, 3, 0] | [92, 97, 92, 92] | 0 |
 
-| 7 | The supplier keeps its current shift and marks its lease for review | [1, 3, -1, 1] | [1, 0, 3, 0] | [94, 100, 94, 93] | 0 |
+| 7 | The supplier keeps its current shift and marks its lease for review | [1, 6] | [1, 0, 3, 0] | [94, 100, 94, 93] | 0 |
 
-| 8 | New vendor permits appear beside the diner’s old menu | [2, 1, 1, 2] | [1, 0, 2, 1] | [97, 100, 97, 96] | 0 |
+| 8 | New vendor permits appear beside the diner’s old menu | [4] | [1, 0, 2, 1] | [97, 100, 97, 96] | 0 |
 
-| 9 | The wage agreement adds a fourth job and posts the offer openly | [2, 2, -1, 3] | [1, 0, 3, 0] | [100, 100, 99, 99] | 0 |
+| 9 | The wage agreement adds a fourth job and posts the offer openly | [4, 5] | [1, 0, 3, 0] | [100, 100, 99, 99] | 0 |
 
-| 10 | The town posts the unused terminal slots beside the proposed second-line offer | [-3, 0, -1, 4] | [3, 0, 1, 0] | [100, 100, 99, 100] | 0 |
+| 10 | The town posts the unused terminal slots beside the proposed second-line offer | [4] | [3, 0, 1, 0] | [100, 100, 99, 100] | 0 |
 
-| 11 | The hearing removes the unenforced pact from its guaranteed service forecasts | [2, 1, -1, 2] | [0, 0, 2, 0] | [100, 100, 100, 100] | 2 |
+| 11 | The hearing removes the unenforced pact from its guaranteed service forecasts | [6, 7] | [0, 0, 2, 0] | [100, 100, 100, 100] | 2 |
 
-| 12 | The water notice adds the downstream cost to the freight comparison | [2, -2, -1, 3] | [0, 2, 1, 0] | [100, 100, 100, 100] | 3 |
+| 12 | The water notice adds the downstream cost to the freight comparison | [4, 11] | [0, 2, 1, 0] | [100, 100, 100, 100] | 3 |
 
-| 13 | The council retains the cheaper filter quote and publishes who would gain from the tariff | [2, 1, 2, 2] | [0, 0, 0, 0] | [100, 100, 100, 100] | 7 |
+| 13 | The council retains the cheaper filter quote and publishes who would gain from the tariff | [7, 11] | [0, 0, 0, 0] | [100, 100, 100, 100] | 7 |
 
-| 14 | The new-line ribbon is taken down and the access retrofit stays on the hearing board | [-4, -2, -2, -2] | [3, 1, 0, 0] | [99, 99, 98, 98] | 7 |
+| 14 | The new-line ribbon is taken down and the access retrofit stays on the hearing board | [6] | [3, 1, 0, 0] | [99, 99, 98, 98] | 7 |
 
-| 15 | The complete agreement is funded and prepared for the final resource check | [7, 4, 3, 7] | [0, 0, 0, 0] | [100, 100, 100, 100] | 11 |
+| 15 | The complete agreement is funded and prepared for the final resource check | [14] | [0, 0, 0, 0] | [100, 100, 100, 100] | 11 |
 
 Every reference mission assumes elapsed >125% of target and at least five committed wrong answers: clamp(4,12,11−2−5)=4. Thus the same row sequence is an explicit high-error successful route. A tested synthetic zero event sets Field Budget to zero before recovery and restores the stored snapshot rather than letting RP revive a failed attempt. Award claims remain simulated arithmetic, not runtime play. Players who allocate poorly can reopen the current allocation screen before Continue; previously spent points do not multiply. Final-stage assistance reassigns unspent bank points only; it does not waive four 100% bars. The reference path proves reachability, not every arbitrary spending policy.
 
@@ -152,6 +178,11 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 
 **Optional dialogue states:** Before evidence: “What claim would change our choice?” After the arc: “Keep both the gain and its cost in the record.” Final: “My signed part is ready for review.”
 
+
+**Bio question — optional, ungraded:** Which cost could a neat total hide from Mara?
+
+**Bio answer — reveal on request:** A gain for one group may be a bill paid by another. Mara must separate cash that changes hands from real resources saved, and name anyone left out of the total. The response stays ungraded and does not change campaign state.
+
 ### Nico Bell
 
 **Role:** diner owner. **Pronouns:** he/him. **Allowed short name:** Nico. **Area ownership:** CM.
@@ -165,6 +196,11 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 **Arc:** After M8 he accepts the entry rule he wanted applied to his suppliers. **Gameplay necessity:** The recurring small-firm viewpoint.
 
 **Optional dialogue states:** Before evidence: “What changes if I do one more?” After the arc: “Keep both the gain and its cost in the record.” Final: “My signed part is ready for review.”
+
+
+**Bio question — optional, ungraded:** Would Nico want the same entry rule for a new diner as for his suppliers?
+
+**Bio answer — reveal on request:** His interests pull both ways. Cheaper supplies help his diner, while new diners may cut his sales. A fair rule should apply to both; his own gain is not the whole town’s gain. The response stays ungraded and does not change campaign state.
 
 ### Ruth Sen
 
@@ -180,6 +216,11 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 
 **Optional dialogue states:** Before evidence: “Who covers the fixed bill?” After the arc: “Keep both the gain and its cost in the record.” Final: “My signed part is ready for review.”
 
+
+**Bio question — optional, ungraded:** How could Ruth pay the fixed bill while letting more firms use the gate?
+
+**Bio answer — reveal on request:** She could use open access terms with an explicit plan to cover fixed costs. The campaign tests that funded package; simply forcing a lower fee would not prove the terminal can pay its bills. The response stays ungraded and does not change campaign state.
+
 ### Leila Moss
 
 **Role:** housing cooperative organizer. **Pronouns:** she/her. **Allowed short name:** Leila. **Area ownership:** P.
@@ -193,6 +234,11 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 **Arc:** After M5 she retains tenant relief but demands a separate access count. **Gameplay necessity:** People omitted by averages and posted prices.
 
 **Optional dialogue states:** Before evidence: “Who is still outside?” After the arc: “Keep both the gain and its cost in the record.” Final: “My signed part is ready for review.”
+
+
+**Bio question — optional, ungraded:** Whose housing needs might Leila miss if she counts only signed leases?
+
+**Bio answer — reveal on request:** New workers and people whose requests were turned down can vanish from a count of signed leases. Leila keeps unmatched requests visible so lower rent for tenants is not mistaken for homes for all. The response stays ungraded and does not change campaign state.
 
 ### Owen Price
 
@@ -208,6 +254,11 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 
 **Optional dialogue states:** Before evidence: “Where did the cost go?” After the arc: “Keep both the gain and its cost in the record.” Final: “My signed part is ready for review.”
 
+
+**Bio question — optional, ungraded:** Who pays if Owen picks a filter the town cannot afford?
+
+**Bio answer — reveal on request:** The people who fund the plan must cover its price, and people down the stream may bear harm if the filter is never bought. Owen must check both how it works and how its purchase is funded. The response stays ungraded and does not change campaign state.
+
 No real historical speaker is retained. Unnamed workers, applicants, council members and company labels are groups represented by these canonical owners, not extra quiz identities. Document headings, including Optional worked examples, are excluded from roster parsing.
 
 # 5. Authoritative numbered concept spine
@@ -222,11 +273,11 @@ No real historical speaker is retained. Unnamed workers, applicants, council mem
 
 | 3 | Marginal choice and utility per dollar | [1] | Primer and optional worked-example coverage; not independently graded | Confuse total and marginal gain; treat an efficient production point as a universally preferred allocation |
 
-| 4 | Demand, supply and equilibrium | [1, 3] | Stop 5: Count the unmatched orders; Stop 6: Separate four market changes; Stop 7: Read the lunch record; Stop 8: Explain the rise in public | 60 is supplied quantity, not shortage. |
+| 4 | Demand, supply and equilibrium | [1] | Stop 5: Count the unmatched orders; Stop 6: Separate four market changes; Stop 7: Read the lunch record; Stop 8: Explain the rise in public | 60 is supplied quantity, not shortage. |
 
 | 5 | Elasticity and total revenue | [4] | Stop 9: Measure the lost receipts; Stop 10: Read response evidence; Stop 11: Check the midpoint claim; Stop 12: Reopen the vacant rooms | −100 is the signed new-minus-old change, not the requested decrease magnitude. |
 
-| 6 | Short-run production and marginal product | [1, 3] | Stop 13: Find the next worker’s output | 300 counts all output as the new worker’s contribution. |
+| 6 | Short-run production and marginal product | [1] | Stop 13: Find the next worker’s output | 300 counts all output as the new worker’s contribution. |
 
 | 7 | Cost measures and opportunity cost of ownership | [1, 6] | Stop 14: Separate the cost records; Stop 26: Read the avoidable costs; Stop 29: Which profit is at risk | An unavoidable current lease is fixed and paid out explicitly. |
 
@@ -234,29 +285,37 @@ No real historical speaker is retained. Unnamed workers, applicants, council mem
 
 | 9 | Tax incidence and subsidies | [4, 5] | Stop 21: Reserve actual receipts; Stop 22: Follow the burden; Stop 24: Fund the promised measure | 200 taxes the old quantity. |
 
-| 10 | Surplus and efficiency | [3, 4] | Stop 23: Cost the vanished trades | 120 is revenue, not deadweight loss. |
+| 10 | Surplus and efficiency | [4] | Stop 23: Cost the vanished trades | 120 is revenue, not deadweight loss. |
 
 | 11 | Competitive firm output and shutdown | [6, 7] | Stop 25: Measure the loss; Stop 27: Compare closing with staying open; Stop 28: Keep the shift or close it | −40 is signed profit, not the requested positive loss magnitude. |
 
 | 12 | Entry, exit and long-run adjustment | [4, 11] | Stop 31: What entry changes; Stop 32: Let the new kitchens open | Supply cannot expand from entry before firms enter. |
 
-| 13 | Differentiation and economies of scale | [7, 12] | Stop 30: Tell four firm situations apart | Homogeneity and price-taking motivate the competitive benchmark. |
+| 13 | Differentiation and economies of scale | [7, 11] | Stop 30: Tell four firm situations apart | Homogeneity and price-taking motivate the competitive benchmark. |
 
-| 14 | Factor demand and hiring | [3, 6] | Stop 15: Test the fifth place at the stove; Stop 16: Approve the vacancy; Stop 34: Read the source of labor demand | 40 omits the wage. |
+| 14 | Factor demand and hiring | [6] | Stop 15: Test the fifth place at the stove; Stop 16: Approve the vacancy; Stop 34: Read the source of labor demand | 40 omits the wage. |
 
 | 15 | Monopsony and minimum wages | [14] | Stop 33: The cost of one more hire; Stop 35: Test the wage floor; Stop 36: Set the agreement’s wage clause | 30 is the new wage, not the change in the whole bill. |
 
-| 16 | Monopoly price, output and surplus | [3, 7, 10] | Stop 37: Price the terminal’s chosen quantity; Stop 38: Separate firm and town benchmarks; Stop 39: Why space remains empty; Stop 40: Name the bottleneck accurately | 20 reads marginal revenue as the selling price. |
+| 16 | Monopoly price, output and surplus | [7, 10] | Stop 37: Price the terminal’s chosen quantity; Stop 38: Separate firm and town benchmarks; Stop 39: Why space remains empty; Stop 40: Name the bottleneck accurately | 20 reads marginal revenue as the selling price. |
 
-| 17 | Oligopoly and strategic interaction | [3, 16] | Stop 41: Read what the pact offers; Stop 42: Read each incentive; Stop 43: Freeze the forecast; Stop 44: Use a defensible service forecast | 40 counts only one firm. |
+| 17 | Oligopoly and strategic interaction | [16] | Stop 41: Read what the pact offers; Stop 42: Read each incentive; Stop 43: Freeze the forecast; Stop 44: Use a defensible service forecast | 40 counts only one firm. |
 
-| 18 | External costs and benefits | [3, 10] | Stop 45: Add the missing cost; Stop 47: Test the corrected target; Stop 48: Correct the freight goal; Stop 59: Commit the final flow forecast | 20 excludes the external harm. |
+| 18 | External costs and benefits | [10] | Stop 45: Add the missing cost; Stop 47: Test the corrected target; Stop 48: Correct the freight goal; Stop 59: Commit the final flow forecast | 20 excludes the external harm. |
 
 | 19 | Public goods and common resources | [1, 18] | Stop 46: Which shared problem is which | The cartridge is excludable and rival. |
 
 | 20 | Trade policy and distribution | [2, 4, 10] | Stop 49: Count the imported filters; Stop 50: Track the tariff’s effects; Stop 51: Read the distribution claim; Stop 52: Keep the compliance comparison fair | 100 ignores domestic supply. |
 
 | 21 | Robust comparison of competing plans | [7, 10, 18] | Stop 53: Remove the double count; Stop 54: Keep the ledgers separate; Stop 55: Which plan survives the cost range; Stop 56: Reopen the apparent victory; Stop 57: Check the confirmed funding; Stop 58: Give each condition an owner; Stop 60: Sign the agreement | 30 counts the internal transfer as a resource saving. |
+
+## 5.0 Prerequisite order and required preparation
+
+Prerequisites here mean concepts assessed at earlier graded stops, not every related idea in the course. Concept 3 remains honestly marked as primer and optional-example coverage; no stop claims to assess utility maximization. It is not a hard prerequisite for reading supplied demand schedules, subtracting output, reading a payoff matrix or computing a supplied surplus triangle. The required primers teach each local marginal comparison before its first use. This preserves marginal reasoning without treating optional help as completed learning.
+
+Concept 13 requires 7 and 11: cost measures and the competitive firm benchmark have already been assessed before Stop 30. Its classification board compares products and long-run average costs; it does not require the entry-adjustment sequence first taught at Stop 31. That distinction preserves the order of the four boards.
+
+Same-day dependencies are intentional and enforced through the existing one-stop-at-a-time unlocks: M1 Stop 1 precedes Stops 2–4 (concept 1 → 2); M4 Stop 13 precedes Stop 14 (6 → 7) and Stops 15–16 (6 → 14); M12 Stop 45 precedes Stop 46 (18 → 19). The earlier result and explanation remain in the log before the next stop opens. All other required concept introductions occur on earlier days. Day boundaries do not substitute for this stop-order check.
 
 ## 5.1 Course-sheet coverage and qualifications
 
@@ -526,9 +585,11 @@ Plant implementation: M5 Meeting Table carries an ungraded water-use complaint c
 
 **Go now:** Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.
 
-**Card body:** The first delivery has arrived, but the diner cannot serve every new customer. A scarce work shift can be used for one task only, so each choice gives up another task. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the diner should trade packed meals for repairs.
+**Card body:** The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal.
 
 **Objective:** Decide whether the diner should trade packed meals for repairs.
+
+**Stakes — exact player copy:** If the trade fails, Nico loses lunch sales. The crew may lose both meals and work time.
 
 ### Worth knowing first — exact player copy
 
@@ -709,7 +770,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Stop reason — exact player copy:** The diner needs an internal repair cost before bargaining.
 
-**Question card story setup — exact player copy:** The diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange.
+**Question card story setup — exact player copy:** Nico shows you the record: the diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -815,7 +876,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Stop reason — exact player copy:** The other team must gain too, or the exchange will fail.
 
-**Question card story setup — exact player copy:** The diner now knows its own repair cost, but a good trade also depends on the other team’s alternatives. Compare both production records before deciding which work each side should offer in the agreement.
+**Question card story setup — exact player copy:** Nico shows you the record: the diner now knows its own repair cost, but a good trade also depends on the other team’s alternatives. Compare both production records before deciding which work each side should offer in the agreement.
 
 **Prior result displayed in mission log:** The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour.
 
@@ -947,7 +1008,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Stop reason — exact player copy:** Both teams need the trial payment checked before work starts.
 
-**Question card story setup — exact player copy:** The production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service.
+**Question card story setup — exact player copy:** Nico shows you the record: the production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service.
 
 **Prior result displayed in mission log:** One box costs the diner 1/3 hour and the repair crew 1 hour, so meals belong with the diner. A repair hour costs the crew 1 box and the diner 3 boxes, so repair belongs with the crew. The diner makes 24 boxes against 8 in the same shift, establishing absolute advantage in meals. Both can make 8 repair hours per shift, so repair productivity is tied.
 
@@ -1061,7 +1122,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Stop reason — exact player copy:** The diner must accept or reject the terms before lunch.
 
-**Question card story setup — exact player copy:** The invoice now agrees with the proposed rate, and both teams’ production alternatives remain visible in the log. Choose the agreement that improves both sides’ positions before the diner commits its next batch of meals.
+**Question card story setup — exact player copy:** Nico shows you the record: the invoice now agrees with the proposed rate, and both teams’ production alternatives remain visible in the log. Choose the agreement that improves both sides’ positions before the diner commits its next batch of meals.
 
 **Prior result displayed in mission log:** The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner’s 12-box internal cost and above the crew’s 4-box internal cost.
 
@@ -1136,6 +1197,8 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 ## I. Mission outcome
 
+**Delivery piece 1:** The meal trade. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Nico Bell:** “The crew needs meals, and I need that bench repaired.”
 
 **Mission decision:** Trade two meal boxes for each hour of repairs. Both teams give up less than they would on their own. The bench is fixed and lunch can start. More people still join the queue.
@@ -1160,6 +1223,8 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** But the fixed bench cannot explain why the lunch queue still grows.
+
 ## K. Quick concept review
 
 - A scarce work shift can be used for one task only, so each choice gives up another task.
@@ -1180,9 +1245,11 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Go now:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.
 
-**Card body:** The meal exchange works, yet the lunch queue still stretches past the door. A price can rise because buyers want more or because sellers can offer less. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether demand or supply explains the lunch price rise.
+**Card body:** The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim.
 
 **Objective:** Decide whether demand or supply explains the lunch price rise.
+
+**Stakes — exact player copy:** If the town posts the wrong cause, it may back the wrong fix. Nico and the lunch queue need a claim they can trust.
 
 ### Worth knowing first — exact player copy
 
@@ -1199,6 +1266,8 @@ Substitute: A good that can be used in place of another.
 Complement: A good used together with another.
 
 #### Primer concepts
+
+**Required local preparation — read before Stop 5:** Read demand as how much people will buy at each price. Read supply as how much firms will sell. Compare the two amounts at the same price; the gap is not a change in the price itself.
 
 - A price can rise because buyers want more or because sellers can offer less.
 
@@ -1351,7 +1420,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Format/placement:** BALLPARK, Civic Advice Office — Budget Desk.
 
-**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Count the unmatched orders; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1, 3; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Count the unmatched orders; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Submit the daily lunch shortage using quantity demanded minus quantity supplied.
 
@@ -1363,7 +1432,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Stop reason — exact player copy:** The council needs the size of the queue before choosing a response.
 
-**Question card story setup — exact player copy:** The repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue.
+**Question card story setup — exact player copy:** Mara shows you the record: the repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -1457,7 +1526,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Format/placement:** PROTOCOL, Civic Advice Office — Town Map.
 
-**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Separate four market changes; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1, 3; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Separate four market changes; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Match each evidence card to one response; use each response once and submit all four links.
 
@@ -1469,7 +1538,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Stop reason — exact player copy:** A shortage is visible, but its cause is not yet established.
 
-**Question card story setup — exact player copy:** The old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner’s actual order, price and input-cost records.
+**Question card story setup — exact player copy:** Mara shows you the record: the old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner’s actual order, price and input-cost records.
 
 **Prior result displayed in mission log:** At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied.
 
@@ -1589,7 +1658,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Format/placement:** DIAGNOSIS, Civic Advice Office — Budget Desk.
 
-**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Read the lunch record; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1, 3; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Read the lunch record; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1; Learning role: PRACTICE; Difficulty: L2; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Read every zone and select the one explanation consistent with all observations.
 
@@ -1601,7 +1670,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Stop reason — exact player copy:** The quiet cost record can rule out the wrong accusation.
 
-**Question card story setup — exact player copy:** The change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price.
+**Question card story setup — exact player copy:** Mara shows you the record: the change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price.
 
 **Prior result displayed in mission log:** Additional buyers change demand at every price. The good’s own price changes quantity demanded along its curve. A dearer input raises production cost and shifts supply. A cheaper substitute draws buyers away from this lunch.
 
@@ -1715,7 +1784,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Format/placement:** CHOICE, Mara Velez at the Town Map in Civic Advice Office.
 
-**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Explain the rise in public; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1, 3; Learning role: COMBINE; Difficulty: L2; Story role: decision.
+**Metadata:** Concept: 4 — Demand, supply and equilibrium; Narrow concept: Explain the rise in public; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1; Learning role: COMBINE; Difficulty: L2; Story role: decision.
 
 **Required stop kind / player verb:** decision; Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
@@ -1727,7 +1796,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Stop reason — exact player copy:** The council must post an explanation that matches both price and sales.
 
-**Question card story setup — exact player copy:** The lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents’ complaints.
+**Question card story setup — exact player copy:** Mara shows you the record: the lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents’ complaints.
 
 **Prior result displayed in mission log:** Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output.
 
@@ -1802,6 +1871,8 @@ The public board displays the old-price order count beside the new sales receipt
 
 ## I. Mission outcome
 
+**Delivery piece 2:** The lunch price finding. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Mara Velez:** “People see the price first; I need the order book too.”
 
 **Mission decision:** More buyers caused the lunch price rise. Costs stayed fixed, but orders rose at the old price. The town posts the cause. The room desk now shows beds that no one will book.
@@ -1826,6 +1897,8 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Yet a higher room price has left beds empty, even as people arrive.
+
 ## K. Quick concept review
 
 - A price can rise because buyers want more or because sellers can offer less.
@@ -1846,9 +1919,11 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Go now:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.
 
-**Card body:** The lunch rise came from more buyers, but higher room prices have left beds empty. How much buying changes when price changes determines whether a higher price raises receipts. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the tested rent increase raises room revenue.
+**Card body:** The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned.
 
 **Objective:** Decide whether the tested rent increase raises room revenue.
+
+**Stakes — exact player copy:** High rent does not help the owner if rooms stay empty. Workers also lose a place they could have booked.
 
 ### Worth knowing first — exact player copy
 
@@ -2029,7 +2104,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Stop reason — exact player copy:** Empty beds make the owner’s price claim testable today.
 
-**Question card story setup — exact player copy:** The lunch market grew because more buyers arrived, but the room owner’s higher advertised rate has left beds empty. Compare receipts before assuming that the town’s growing population makes every price rise profitable for every seller.
+**Question card story setup — exact player copy:** Mara shows you the record: the lunch market grew because more buyers arrived, but the room owner’s higher advertised rate has left beds empty. Compare receipts before assuming that the town’s growing population makes every price rise profitable for every seller.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -2139,7 +2214,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Stop reason — exact player copy:** The owner needs the right response measure for this experiment.
 
-**Question card story setup — exact player copy:** The room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner’s price decision.
+**Question card story setup — exact player copy:** Mara shows you the record: the room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner’s price decision.
 
 **Prior result displayed in mission log:** Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night.
 
@@ -2271,7 +2346,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Stop reason — exact player copy:** The archive check must use the same rooms and the same averaging rule.
 
-**Question card story setup — exact player copy:** The response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts.
+**Question card story setup — exact player copy:** Mara shows you the record: the response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts.
 
 **Prior result displayed in mission log:** The absolute own-price ratio is 2, greater than one. The absolute own-price ratio is 0.5, below one. A negative income response identifies an inferior good, without judging quality. A negative cross-price response identifies complements.
 
@@ -2385,7 +2460,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Stop reason — exact player copy:** Tonight’s listing must use a rate the evidence supports.
 
-**Question card story setup — exact player copy:** The archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight’s rooms are advertised at the desk.
+**Question card story setup — exact player copy:** Mara shows you the record: the archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight’s rooms are advertised at the desk.
 
 **Prior result displayed in mission log:** Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel.
 
@@ -2460,6 +2535,8 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 ## I. Mission outcome
 
+**Delivery piece 3:** The room price test. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Mara Velez:** “A room nobody takes earns nothing tonight.”
 
 **Mission decision:** Do not keep the tested rent rise. Receipts fell by $100 a night. The owner puts the old rate back on the board. The diner still needs more meals from the same oven.
@@ -2484,6 +2561,8 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Now rooms fill, but Nico still needs more meals from one stove.
+
 ## K. Quick concept review
 
 - How much buying changes when price changes determines whether a higher price raises receipts.
@@ -2504,9 +2583,11 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Go now:** Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.
 
-**Card body:** Rooms are filling again, but the diner still cannot cook enough meals. More workers sharing fixed equipment eventually add less output per extra worker. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether another cook is worth hiring at the current wage.
+**Card body:** Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post.
 
 **Objective:** Decide whether another cook is worth hiring at the current wage.
+
+**Stakes — exact player copy:** An extra job helps a cook, but its wage can use cash Nico needs for food. A bad choice puts the whole shift at risk.
 
 ### Worth knowing first — exact player copy
 
@@ -2523,6 +2604,8 @@ Marginal revenue product: Extra revenue generated by one more unit of an input.
 Marginal utility: Extra satisfaction from one more unit consumed.
 
 #### Primer concepts
+
+**Required local preparation — read before Stop 13:** Marginal means the change from one more unit. Subtract the old output from the new output. To judge a hire, compare the value of that extra output with the extra wage bill, not with all sales.
 
 - More workers sharing fixed equipment eventually add less output per extra worker.
 
@@ -2675,7 +2758,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Format/placement:** BALLPARK, Business Workshop — Cost Ledger Desk.
 
-**Metadata:** Concept: 6 — Short-run production and marginal product; Narrow concept: Find the next worker’s output; Keystone: Factor demand, Marginal analysis; Area: CM; Prerequisites: 1, 3; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 6 — Short-run production and marginal product; Narrow concept: Find the next worker’s output; Keystone: Factor demand, Marginal analysis; Area: CM; Prerequisites: 1; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Submit the fourth cook’s marginal revenue product as added lunches times price.
 
@@ -2687,7 +2770,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Stop reason — exact player copy:** The vacancy must be costed before the owner posts it.
 
-**Question card story setup — exact player copy:** The room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook’s contribution before offering a wage that the added sales cannot cover.
+**Question card story setup — exact player copy:** Nico shows you the record: the room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook’s contribution before offering a wage that the added sales cannot cover.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -2794,7 +2877,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Stop reason — exact player copy:** The wage decision must count the costs that actually change.
 
-**Question card story setup — exact player copy:** The fourth cook’s extra receipts are now known, while the lease and the owner’s unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff.
+**Question card story setup — exact player copy:** Nico shows you the record: the fourth cook’s extra receipts are now known, while the lease and the owner’s unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff.
 
 **Prior result displayed in mission log:** The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift.
 
@@ -2914,7 +2997,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Format/placement:** VERIFY, Business Workshop — Order Terminal.
 
-**Metadata:** Concept: 14 — Factor demand and hiring; Narrow concept: Test the fifth place at the stove; Keystone: Factor demand, Marginal analysis; Area: CM; Prerequisites: 3, 6; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 14 — Factor demand and hiring; Narrow concept: Test the fifth place at the stove; Keystone: Factor demand, Marginal analysis; Area: CM; Prerequisites: 6; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Required stop kind / player verb:** operated; First, calculate and commit the fifth cook’s net addition to profit as added revenue minus wage. Then set the Order Terminal to five cooks, run one trial shift, measure the net change, and select whether it matches; restore the staffing simulation to four cooks after reading, with no second reading required.
 
@@ -2926,7 +3009,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Stop reason — exact player copy:** The fifth place at the stove may cost more than it earns.
 
-**Question card story setup — exact player copy:** The cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook’s contribution before assuming that more meals always mean more profit.
+**Question card story setup — exact player copy:** Nico shows you the record: the cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook’s contribution before assuming that more meals always mean more profit.
 
 **Prior result displayed in mission log:** An unavoidable current lease is fixed and paid out explicitly. The extra wage changes with hiring and is an explicit payment. Forgone owner earnings are a real opportunity cost without a cash payment. Dividing the total by workers gives average rather than marginal product.
 
@@ -3028,7 +3111,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Format/placement:** CHOICE, Nico Bell at the Kitchen Planning Table in Business Workshop.
 
-**Metadata:** Concept: 14 — Factor demand and hiring; Narrow concept: Approve the vacancy; Keystone: Factor demand, Marginal analysis; Area: CM; Prerequisites: 3, 6; Learning role: COMBINE; Difficulty: L2; Story role: decision.
+**Metadata:** Concept: 14 — Factor demand and hiring; Narrow concept: Approve the vacancy; Keystone: Factor demand, Marginal analysis; Area: CM; Prerequisites: 6; Learning role: COMBINE; Difficulty: L2; Story role: decision.
 
 **Required stop kind / player verb:** decision; Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
@@ -3040,7 +3123,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Stop reason — exact player copy:** The job notice must reflect the marginal evidence.
 
-**Question card story setup — exact player copy:** The trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support.
+**Question card story setup — exact player copy:** Nico shows you the record: the trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support.
 
 **Prior result displayed in mission log:** The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift.
 
@@ -3115,6 +3198,8 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 ## I. Mission outcome
 
+**Delivery piece 4:** The cook hiring rule. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Nico Bell:** “I can pay another cook if the oven can use another pair of hands.”
 
 **Mission decision:** Hire the fourth cook, but not the fifth. The fourth adds more sales than wage cost; the fifth does not. One job is posted. The bakery loses a worker to that offer.
@@ -3139,6 +3224,8 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** But the new cook came from a bakery, and workers still lack homes.
+
 ## K. Quick concept review
 
 - More workers sharing fixed equipment eventually add less output per extra worker.
@@ -3159,9 +3246,11 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Go now:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.
 
-**Card body:** The diner filled its job by drawing away a baker, and workers now ask for help with rent. A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed rent ceiling alone houses every applicant.
+**Card body:** A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply.
 
 **Objective:** Decide whether the proposed rent ceiling alone houses every applicant.
+
+**Stakes — exact player copy:** People who hold a lease may pay less. Those still in the queue need the town to count them too.
 
 ### Worth knowing first — exact player copy
 
@@ -3340,7 +3429,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Stop reason — exact player copy:** The hearing must distinguish a cheaper rent from an available home.
 
-**Question card story setup — exact player copy:** The diner’s new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution.
+**Question card story setup — exact player copy:** Mara shows you the record: the diner’s new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -3446,7 +3535,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Stop reason — exact player copy:** Residents need to know which households the cap actually helps.
 
-**Question card story setup — exact player copy:** The cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public.
+**Question card story setup — exact player copy:** Mara shows you the record: the cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public.
 
 **Prior result displayed in mission log:** The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model.
 
@@ -3578,7 +3667,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Stop reason — exact player copy:** The housing explanation must fit the unchanged buildings too.
 
-**Question card story setup — exact player copy:** The household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office’s full record before claiming that the cap has already created homes or destroyed buildings.
+**Question card story setup — exact player copy:** Leila shows you the record: the household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office’s full record before claiming that the cap has already created homes or destroyed buildings.
 
 **Prior result displayed in mission log:** A tenant who retains occupancy gains from the lower payment. A shortage leaves some willing applicants without housing. The lower rent transfers income away from this landlord. Construction responds over time and depends on costs, rules and expected returns.
 
@@ -3704,7 +3793,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Stop reason — exact player copy:** The public promise must not erase the excluded applicants.
 
-**Question card story setup — exact player copy:** The office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise.
+**Question card story setup — exact player copy:** Leila shows you the record: the office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise.
 
 **Prior result displayed in mission log:** The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.
 
@@ -3779,6 +3868,8 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 ## I. Mission outcome
 
+**Delivery piece 5:** The rent access count. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Leila Moss:** “A lower rent helps if you can get a key.”
 
 **Mission decision:** The rent cap alone will not house all who apply. Forty homes are still missing from the offers. The town keeps relief and access as two goals. The access plan still needs funds.
@@ -3803,6 +3894,8 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** So the town needs a separate housing plan, but who will pay for it?
+
 ## K. Quick concept review
 
 - A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes.
@@ -3823,9 +3916,11 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Go now:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.
 
-**Card body:** The cap cannot house everyone, so the council needs to cost its separate access measure. A fee can be shared by buyers and sellers even when only one side sends the payment. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed market fee supplies enough revenue for the housing measure.
+**Card body:** The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost.
 
 **Objective:** Decide whether the proposed market fee supplies enough revenue for the housing measure.
+
+**Stakes — exact player copy:** The fee can fund housing help. But both buyers and sellers may pay, and some trades may be lost.
 
 ### Worth knowing first — exact player copy
 
@@ -3844,6 +3939,8 @@ Deadweight loss: Net gains from trade lost rather than transferred to another pa
 Subsidy: A payment that lowers a recipient’s effective cost or raises its effective return.
 
 #### Primer concepts
+
+**Required local preparation — read before Stop 21:** A trade adds a gain when the buyer values it above the seller’s cost. A tax can stop some such trades. Their lost gain is separate from the cash the town collects.
 
 - A fee can be shared by buyers and sellers even when only one side sends the payment.
 
@@ -4012,7 +4109,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Stop reason — exact player copy:** The measure needs receipts from real taxed trades.
 
-**Question card story setup — exact player copy:** The hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment.
+**Question card story setup — exact player copy:** Mara shows you the record: the hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -4118,7 +4215,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Stop reason — exact player copy:** The public budget must identify the burden on both market sides.
 
-**Question card story setup — exact player copy:** The fee’s receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers’ payments and sellers’ receipts before the council describes who funds the housing measure.
+**Question card story setup — exact player copy:** Mara shows you the record: the fee’s receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers’ payments and sellers’ receipts before the council describes who funds the housing measure.
 
 **Prior result displayed in mission log:** Only taxed deliveries raise revenue: 4×30 = $120 per day; the 20 transactions that disappear raise none.
 
@@ -4238,7 +4335,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Format/placement:** VERIFY, Business Workshop — Order Terminal.
 
-**Metadata:** Concept: 10 — Surplus and efficiency; Narrow concept: Cost the vanished trades; Keystone: Surplus, Marginal analysis; Area: CM; Prerequisites: 3, 4; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 10 — Surplus and efficiency; Narrow concept: Cost the vanished trades; Keystone: Surplus, Marginal analysis; Area: CM; Prerequisites: 4; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** operated; First, calculate and commit deadweight loss using half the tax wedge times lost deliveries. Then run the Order Terminal market trial, measure the surplus loss excluding transfers, and select whether it matches; no restoration or second reading is required.
 
@@ -4250,7 +4347,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Stop reason — exact player copy:** The council must disclose the gains lost as trade shrinks.
 
-**Question card story setup — exact player copy:** The price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer.
+**Question card story setup — exact player copy:** Nico shows you the record: the price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer.
 
 **Prior result displayed in mission log:** Buyers pay three dollars more than before. Sellers receive one dollar less than before. Elastic responses determine price changes even when a seller sends the payment. The less responsive market side bears more of the wedge, so the larger buyer burden identifies relatively less elastic demand.
 
@@ -4364,7 +4461,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Stop reason — exact player copy:** The budget vote needs revenue and efficiency on separate lines.
 
-**Question card story setup — exact player copy:** The record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost.
+**Question card story setup — exact player copy:** Nico shows you the record: the record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost.
 
 **Prior result displayed in mission log:** Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains.
 
@@ -4439,6 +4536,8 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 ## I. Mission outcome
 
+**Delivery piece 6:** The housing fee account. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Nico Bell:** “The fee comes through my books, but customers see it too.”
 
 **Mission decision:** Use the $120 fee receipts and report the $40 loss in gains. The funds cover the chosen housing step. Buyers and sellers both bear costs. One supplier now wants to close.
@@ -4463,6 +4562,8 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Yet a supplier now wants to close; did the fee make that the best choice?
+
 ## K. Quick concept review
 
 - A fee can be shared by buyers and sellers even when only one side sends the payment.
@@ -4483,9 +4584,11 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Go now:** Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.
 
-**Card body:** The fee has a funded purpose, but a supplier now threatens to shut its doors. A firm may keep operating with a loss if sales cover the costs it can avoid today. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the supplier should operate during the current month.
+**Card body:** The fee funds help, but a supplier may close. A loss does not mean closing saves cash when some bills must still be paid. Today you decide if this shift should run. By the end of the mission, you will compare the two costs.
 
 **Objective:** Decide whether the supplier should operate during the current month.
+
+**Stakes — exact player copy:** Closing could save some bills and leave others due. The wrong choice could cost more cash and a whole shift of work.
 
 ### Worth knowing first — exact player copy
 
@@ -4672,7 +4775,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Stop reason — exact player copy:** The supplier needs a measured loss before it closes the shift.
 
-**Question card story setup — exact player copy:** The housing measure has a funding source, but a local supplier says its current losses require an immediate shutdown. Calculate the loss at its best output before comparing closure with the costs that remain either way.
+**Question card story setup — exact player copy:** Nico shows you the record: the housing measure has a funding source, but a local supplier says its current losses require an immediate shutdown. Calculate the loss at its best output before comparing closure with the costs that remain either way.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -4779,7 +4882,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Stop reason — exact player copy:** A shutdown choice changes some costs and leaves others intact.
 
-**Question card story setup — exact player copy:** The supplier’s loss is confirmed, yet the lease remains due even if no goods leave the workshop this month. Separate the avoidable costs from that commitment before deciding whether closure would improve the owner’s position.
+**Question card story setup — exact player copy:** Nico shows you the record: the supplier’s loss is confirmed, yet the lease remains due even if no goods leave the workshop this month. Separate the avoidable costs from that commitment before deciding whether closure would improve the owner’s position.
 
 **Prior result displayed in mission log:** Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day.
 
@@ -4911,7 +5014,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Stop reason — exact player copy:** The test compares closure with operation under the same lease.
 
-**Question card story setup — exact player copy:** The ledger now shows which payments disappear with production and which remain, making the two operating choices directly comparable. Test the advantage of staying open before the council accepts the supplier’s threatened loss of service.
+**Question card story setup — exact player copy:** Mara shows you the record: the ledger now shows which payments disappear with production and which remain, making the two operating choices directly comparable. Test the advantage of staying open before the council accepts the supplier’s threatened loss of service.
 
 **Prior result displayed in mission log:** 100/20 gives variable cost per unit. The other 100/20 is fixed cost per unit. Total cost is 200, so cost per unit is 10. Shutdown eliminates variable costs here but not the lease.
 
@@ -5025,7 +5128,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Stop reason — exact player copy:** The owner must choose today’s shift and preserve next month’s review.
 
-**Question card story setup — exact player copy:** The trial shows that continued production covers part of the unavoidable lease, even though total economic profit stays negative. Decide what the supplier should do this month before treating a temporary operating choice as a permanent commitment.
+**Question card story setup — exact player copy:** Mara shows you the record: the trial shows that continued production covers part of the unavoidable lease, even though total economic profit stays negative. Decide what the supplier should do this month before treating a temporary operating choice as a permanent commitment.
 
 **Prior result displayed in mission log:** Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown’s $100 loss.
 
@@ -5100,6 +5203,8 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 ## I. Mission outcome
 
+**Delivery piece 7:** The supplier shift plan. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Nico Bell:** “Closing saves ingredients, but the lease still lands on my desk.”
 
 **Mission decision:** Keep the supplier open this month and review exit next month. Staying open loses $40; closing loses $100. The shift goes ahead. New firms now want space to open.
@@ -5124,6 +5229,8 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** But new food stalls want to enter, and Nico wants them kept out.
+
 ## K. Quick concept review
 
 - A firm may keep operating with a loss if sales cover the costs it can avoid today.
@@ -5144,9 +5251,11 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Go now:** Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.
 
-**Card body:** The supplier stays open for now, and new food sellers are asking to enter town. Entry changes competitive pressure, while different products and plant sizes change costs. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should block new food sellers to protect current profits.
+**Card body:** The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules.
 
 **Objective:** Decide whether the town should block new food sellers to protect current profits.
+
+**Stakes — exact player copy:** New stalls may lower prices for diners. Nico may lose sales, so the entry rule must apply to old and new firms alike.
 
 ### Worth knowing first — exact player copy
 
@@ -5329,7 +5438,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Stop reason — exact player copy:** The entry dispute needs a clear measure of the profit at stake.
 
-**Question card story setup — exact player copy:** The supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner’s alternatives before evaluating the protection claim.
+**Question card story setup — exact player copy:** Nico shows you the record: the supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner’s alternatives before evaluating the protection claim.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -5424,7 +5533,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Format/placement:** PROTOCOL, Business Workshop — Kitchen Planning Table.
 
-**Metadata:** Concept: 13 — Differentiation and economies of scale; Narrow concept: Tell four firm situations apart; Keystone: Competition and entry, Cost structure; Area: CM; Prerequisites: 7, 12; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 13 — Differentiation and economies of scale; Narrow concept: Tell four firm situations apart; Keystone: Competition and entry, Cost structure; Area: CM; Prerequisites: 7, 11; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Match each evidence card to one response; use each response once and submit all four links.
 
@@ -5436,7 +5545,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Stop reason — exact player copy:** The town needs the right firm model before using an entry forecast.
 
-**Question card story setup — exact player copy:** The profit calculation includes the owner’s forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all.
+**Question card story setup — exact player copy:** Nico shows you the record: the profit calculation includes the owner’s forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all.
 
 **Prior result displayed in mission log:** 180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner’s forgone outside work.
 
@@ -5568,7 +5677,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Stop reason — exact player copy:** The forecast must connect entry to supply and prices.
 
-**Question card story setup — exact player copy:** The business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out.
+**Question card story setup — exact player copy:** Leila shows you the record: the business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out.
 
 **Prior result displayed in mission log:** Homogeneity and price-taking motivate the competitive benchmark. Product differences allow some price discretion despite entry. Falling long-run average cost defines economies of scale. Rising long-run average cost defines diseconomies, not short-run crowding.
 
@@ -5684,7 +5793,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Stop reason — exact player copy:** The permit rule applies to new sellers as well as old ones.
 
-**Question card story setup — exact player copy:** The entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner’s preference becomes an unsupported barrier to competitors.
+**Question card story setup — exact player copy:** Leila shows you the record: the entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner’s preference becomes an unsupported barrier to competitors.
 
 **Prior result displayed in mission log:** Positive economic profit attracts new firms; their entry increases market supply, which reduces market price and erodes economic profit toward zero. Normal profit still compensates opportunity costs.
 
@@ -5759,6 +5868,8 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 ## I. Mission outcome
 
+**Delivery piece 8:** The fair entry rule. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Leila Moss:** “The new stalls need workers; the old stalls need customers.”
 
 **Mission decision:** Let the new food sellers enter under the same rules. They meet the health and space checks. New permits go up beside the old menus. Workers now ask what more jobs will pay.
@@ -5783,6 +5894,8 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Yet the mine still buys most skilled work; more stalls do not end that power.
+
 ## K. Quick concept review
 
 - Entry changes competitive pressure, while different products and plant sizes change costs.
@@ -5803,9 +5916,11 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Go now:** Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Lease Desk.
 
-**Card body:** New vendors can enter, but the mine remains the only large buyer of skilled labor. One large employer may have to raise pay across its workforce to recruit another worker. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed wage floor can raise both pay and employment in the stated model.
+**Card body:** New stalls bring jobs, but the mine buys most skilled work. To hire one more worker, it may need to raise pay for all. Today you decide if a wage floor can raise pay and jobs here. By the end of the mission, you will test that claim.
 
 **Objective:** Decide whether the proposed wage floor can raise both pay and employment in the stated model.
+
+**Stakes — exact player copy:** A wage floor may help in this market. Set it without checking the model, and the town could promise jobs that do not come.
 
 ### Worth knowing first — exact player copy
 
@@ -5984,7 +6099,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Stop reason — exact player copy:** The printed wage may understate the employer’s extra hiring cost.
 
-**Question card story setup — exact player copy:** New food sellers can enter, but the mine still dominates skilled hiring and workers question the offers on its board. Measure the whole wage-bill change before comparing the cost of another hire with its contribution.
+**Question card story setup — exact player copy:** Leila shows you the record: new food sellers can enter, but the mine still dominates skilled hiring and workers question the offers on its board. Measure the whole wage-bill change before comparing the cost of another hire with its contribution.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -6082,7 +6197,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Format/placement:** PROTOCOL, Housing and Work Office — Job Board.
 
-**Metadata:** Concept: 14 — Factor demand and hiring; Narrow concept: Read the source of labor demand; Keystone: Factor demand, Marginal analysis, Price incentives, Equilibrium; Area: P; Prerequisites: 3, 6; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 14 — Factor demand and hiring; Narrow concept: Read the source of labor demand; Keystone: Factor demand, Marginal analysis, Price incentives, Equilibrium; Area: P; Prerequisites: 6; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Match each evidence card to one response; use each response once and submit all four links.
 
@@ -6094,7 +6209,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Stop reason — exact player copy:** The mine’s output market helps explain what labor is worth to it.
 
-**Question card story setup — exact player copy:** The wage-bill calculation shows why the next hire can cost more than its own pay, but labor demand has causes outside payroll. Trace the demand and productivity links before testing a wage rule against the hiring schedule.
+**Question card story setup — exact player copy:** Leila shows you the record: the wage-bill calculation shows why the next hire can cost more than its own pay, but labor demand has causes outside payroll. Trace the demand and productivity links before testing a wage rule against the hiring schedule.
 
 **Prior result displayed in mission log:** The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45.
 
@@ -6226,7 +6341,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Stop reason — exact player copy:** The proposed floor has to be tested against this employer’s schedule.
 
-**Question card story setup — exact player copy:** The input-market record links hiring to output receipts, and the proposed wage floor changes the cost of adding workers. Test the stated schedule before accepting either side’s blanket claim about what a minimum wage must do.
+**Question card story setup — exact player copy:** Nico shows you the record: the input-market record links hiring to output receipts, and the proposed wage floor changes the cost of adding workers. Test the stated schedule before accepting either side’s blanket claim about what a minimum wage must do.
 
 **Prior result displayed in mission log:** A higher output price raises receipts from an extra worker’s output. Greater productivity raises the worker’s marginal revenue product. Additional workers expand available labor at each wage. An own-wage change is a movement along existing schedules, not a determinant shift.
 
@@ -6340,7 +6455,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Stop reason — exact player copy:** The wage clause must name the model that supports it.
 
-**Question card story setup — exact player copy:** The hiring trial now shows what the proposed floor does under the stated supply and productivity conditions, and both sides can inspect it. Choose the wage clause before the agreement turns a conditional result into a universal promise.
+**Question card story setup — exact player copy:** Nico shows you the record: the hiring trial now shows what the proposed floor does under the stated supply and productivity conditions, and both sides can inspect it. Choose the wage clause before the agreement turns a conditional result into a universal promise.
 
 **Prior result displayed in mission log:** The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four.
 
@@ -6415,6 +6530,8 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 ## I. Mission outcome
 
+**Delivery piece 9:** The wage clause. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Leila Moss:** “If the offer changes, I want the jobs counted as well as the pay.”
 
 **Mission decision:** Support the $30 wage floor for this model. It raises jobs from three to four and raises pay. The offer goes on the board. The mine now points to high freight fees.
@@ -6439,6 +6556,8 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** But the mine says high freight fees will undo the new jobs.
+
 ## K. Quick concept review
 
 - One large employer may have to raise pay across its workforce to recruit another worker.
@@ -6459,9 +6578,11 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Go now:** Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk.
 
-**Card body:** The wage clause adds a job, but freight charges still restrict the mine’s orders. A sole seller may earn more by selling fewer services at a higher price. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the freight shortage is entirely a physical capacity problem.
+**Card body:** The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price.
 
 **Objective:** Decide whether the freight shortage is entirely a physical capacity problem.
+
+**Stakes — exact player copy:** A new line costs real land and work. The town needs to know if it can use the space it has first.
 
 ### Worth knowing first — exact player copy
 
@@ -6476,6 +6597,8 @@ Allocative efficiency: Output at which marginal social benefit equals marginal s
 Barrier to entry: A condition that prevents or discourages new sellers.
 
 #### Primer concepts
+
+**Required local preparation — read before Stop 37:** Marginal revenue is the extra revenue from selling one more unit. Compare it with the extra cost to choose output. Then use demand to find the price buyers will pay for that output.
 
 - A sole seller may earn more by selling fewer services at a higher price.
 
@@ -6628,7 +6751,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Format/placement:** BALLPARK, Freight Contract Office — Dispatch Desk.
 
-**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Price the terminal’s chosen quantity; Keystone: Competition and entry, Surplus, Marginal analysis; Area: E; Prerequisites: 3, 7, 10; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Price the terminal’s chosen quantity; Keystone: Competition and entry, Surplus, Marginal analysis; Area: E; Prerequisites: 7, 10; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Submit the price from the demand curve at 20 slots.
 
@@ -6640,7 +6763,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Stop reason — exact player copy:** The freight invoice must use the price buyers will pay at that volume.
 
-**Question card story setup — exact player copy:** The wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal’s demand schedule before deciding what price its chosen volume actually lets it charge.
+**Question card story setup — exact player copy:** Ruth shows you the record: the wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal’s demand schedule before deciding what price its chosen volume actually lets it charge.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -6735,7 +6858,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Format/placement:** PROTOCOL, Freight Contract Office — Booking Terminal.
 
-**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Separate firm and town benchmarks; Keystone: Competition and entry, Surplus, Marginal analysis; Area: E; Prerequisites: 3, 7, 10; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Separate firm and town benchmarks; Keystone: Competition and entry, Surplus, Marginal analysis; Area: E; Prerequisites: 7, 10; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Match each evidence card to one response; use each response once and submit all four links.
 
@@ -6747,7 +6870,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Stop reason — exact player copy:** The terminal’s profit target must be separated from physical capacity.
 
-**Question card story setup — exact player copy:** The terminal’s charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery.
+**Question card story setup — exact player copy:** Ruth shows you the record: the terminal’s charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery.
 
 **Prior result displayed in mission log:** Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price.
 
@@ -6867,7 +6990,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Format/placement:** DIAGNOSIS, Civic Advice Office — Budget Desk.
 
-**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Why space remains empty; Keystone: Competition and entry, Surplus, Marginal analysis; Area: T; Prerequisites: 3, 7, 10; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Why space remains empty; Keystone: Competition and entry, Surplus, Marginal analysis; Area: T; Prerequisites: 7, 10; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Read every zone and select the one explanation consistent with all observations.
 
@@ -6879,7 +7002,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Stop reason — exact player copy:** The usable-slot reading can disprove a purely physical bottleneck.
 
-**Question card story setup — exact player copy:** The benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment.
+**Question card story setup — exact player copy:** Mara shows you the record: the benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment.
 
 **Prior result displayed in mission log:** MR=MC gives 4Q=80 and Q=20. Price is taken from demand, yielding 60. With no externalities, P=MC gives Q=40. Capacity minus scheduled use is 50−20=30.
 
@@ -6993,7 +7116,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Format/placement:** CHOICE, Mara Velez at the Town Map in Civic Advice Office.
 
-**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Name the bottleneck accurately; Keystone: Competition and entry, Surplus, Marginal analysis; Area: T; Prerequisites: 3, 7, 10; Learning role: COMBINE; Difficulty: L3; Story role: decision.
+**Metadata:** Concept: 16 — Monopoly price, output and surplus; Narrow concept: Name the bottleneck accurately; Keystone: Competition and entry, Surplus, Marginal analysis; Area: T; Prerequisites: 7, 10; Learning role: COMBINE; Difficulty: L3; Story role: decision.
 
 **Required stop kind / player verb:** decision; Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
@@ -7005,7 +7128,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Stop reason — exact player copy:** The second-line proposal needs an accurate account of the existing bottleneck.
 
-**Question card story setup — exact player copy:** The dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy.
+**Question card story setup — exact player copy:** Mara shows you the record: the dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy.
 
 **Prior result displayed in mission log:** The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.
 
@@ -7080,6 +7203,8 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 ## I. Mission outcome
 
+**Delivery piece 10:** The freight access finding. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Ruth Sen:** “The slots are usable; the contract decides who can book them.”
 
 **Mission decision:** Market power is part of the freight problem. Only twenty of fifty usable slots are booked. The town keeps access changes in the plan. Two firms now offer a pact.
@@ -7104,6 +7229,8 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Now two firms offer a pact, but each may gain by breaking it.
+
 ## K. Quick concept review
 
 - A sole seller may earn more by selling fewer services at a higher price.
@@ -7124,9 +7251,11 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Go now:** Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk.
 
-**Card body:** Unused freight space weakens the case for building at once, but two firms now bargain over access. When each firm’s best move depends on its rival, the outcome can differ from a joint agreement. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the firms will keep their low-output pact without enforcement.
+**Card body:** The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm’s best move.
 
 **Objective:** Decide whether the firms will keep their low-output pact without enforcement.
+
+**Stakes — exact player copy:** A pact is not a sure freight service. Homes and firms could pay for a plan based on a promise each firm wants to break.
 
 ### Worth knowing first — exact player copy
 
@@ -7141,6 +7270,8 @@ Oligopoly: A market with a few interdependent sellers.
 Collusion: An agreement among firms to reduce competition.
 
 #### Primer concepts
+
+**Required local preparation — read before Stop 41:** Hold the other firm’s choice fixed. Compare your firm’s payoffs for its own two choices. Repeat for the other possible rival choice; a joint gain does not by itself make a pact stable.
 
 - When each firm’s best move depends on its rival, the outcome can differ from a joint agreement.
 
@@ -7292,7 +7423,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Format/placement:** BALLPARK, Freight Contract Office — Dispatch Desk.
 
-**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Read what the pact offers; Keystone: Competition and entry, Price incentives; Area: E; Prerequisites: 3, 16; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Read what the pact offers; Keystone: Competition and entry, Price incentives; Area: E; Prerequisites: 16; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Submit combined profit if both firms Restrict.
 
@@ -7304,7 +7435,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Stop reason — exact player copy:** The pact’s joint gain must be separated from incentives to comply.
 
-**Question card story setup — exact player copy:** Unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement.
+**Question card story setup — exact player copy:** Ruth shows you the record: unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -7398,7 +7529,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Format/placement:** PROTOCOL, Business Workshop — Kitchen Planning Table.
 
-**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Read each incentive; Keystone: Competition and entry, Price incentives; Area: CM; Prerequisites: 3, 16; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Read each incentive; Keystone: Competition and entry, Price incentives; Area: CM; Prerequisites: 16; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Match each evidence card to one response; use each response once and submit all four links.
 
@@ -7410,7 +7541,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Stop reason — exact player copy:** Each firm must be checked against both actions its rival could take.
 
-**Question card story setup — exact player copy:** The pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies’ joint statement as a reliable prediction of what they will do.
+**Question card story setup — exact player copy:** Nico shows you the record: the pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies’ joint statement as a reliable prediction of what they will do.
 
 **Prior result displayed in mission log:** The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply.
 
@@ -7530,7 +7661,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Format/placement:** VERIFY, Civic Advice Office — Hearing Table.
 
-**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Freeze the forecast; Keystone: Competition and entry, Price incentives; Area: T; Prerequisites: 3, 16; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Freeze the forecast; Keystone: Competition and entry, Price incentives; Area: T; Prerequisites: 16; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** operated; First, calculate and commit Firm A’s payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A’s payoff, and select whether it matches; no restoration or second reading is required.
 
@@ -7542,7 +7673,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Stop reason — exact player copy:** The service forecast must survive each firm’s own incentive to change.
 
-**Question card story setup — exact player copy:** The reply comparisons now identify the firms’ incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact’s promised output in public service planning.
+**Question card story setup — exact player copy:** Mara shows you the record: the reply comparisons now identify the firms’ incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact’s promised output in public service planning.
 
 **Prior result displayed in mission log:** Against restriction, expansion raises A’s own payoff from 40 to 60. Against expansion, expansion raises A’s payoff from 20 to 30. The symmetric table gives B the same gain of 20 against restriction. B gains 10 against expansion; compare its own coordinate.
 
@@ -7644,7 +7775,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Format/placement:** CHOICE, Mara Velez at the Town Map in Civic Advice Office.
 
-**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Use a defensible service forecast; Keystone: Competition and entry, Price incentives; Area: T; Prerequisites: 3, 16; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 17 — Oligopoly and strategic interaction; Narrow concept: Use a defensible service forecast; Keystone: Competition and entry, Price incentives; Area: T; Prerequisites: 16; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Required stop kind / player verb:** decision; Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
@@ -7656,7 +7787,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Stop reason — exact player copy:** An unenforced pact cannot be treated as guaranteed supply.
 
-**Question card story setup — exact player copy:** The trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents.
+**Question card story setup — exact player copy:** Mara shows you the record: the trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents.
 
 **Prior result displayed in mission log:** Expansion is each firm’s dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars.
 
@@ -7731,6 +7862,8 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 ## I. Mission outcome
 
+**Delivery piece 11:** The pact risk forecast. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Ruth Sen:** “Their joint promise is printed here; their separate payoffs are here.”
 
 **Mission decision:** Expect both firms to expand in the one-round model. Each gains by expanding under either rival move. The pact loses its guarantee stamp. More freight may raise water costs.
@@ -7755,6 +7888,8 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Yet more freight could send more costs down the stream.
+
 ## K. Quick concept review
 
 - When each firm’s best move depends on its rival, the outcome can differ from a joint agreement.
@@ -7775,9 +7910,11 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Go now:** Go to Water and Land Office and meet Owen Price, watershed engineer, at the Water Record Desk.
 
-**Card body:** The firms may expand freight, but water records show costs that their prices leave out. A transaction can harm people who are not buying or selling in that market. At Water and Land Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should use the uncorrected freight quantity as its efficiency target.
+**Card body:** The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count.
 
 **Objective:** Decide whether the town should use the uncorrected freight quantity as its efficiency target.
+
+**Stakes — exact player copy:** Cheap freight can leave a bill for people down the stream. Their cost must shape the plan even if they buy no freight.
 
 ### Worth knowing first — exact player copy
 
@@ -7796,6 +7933,8 @@ Common resource: A rival resource from which users are difficult to exclude.
 Free rider: Someone who benefits without contributing to provision.
 
 #### Primer concepts
+
+**Required local preparation — read before Stop 45:** Compare the benefit of one more freight unit with its whole extra cost. Add the private cost and the harm borne by others. Count each once.
 
 - A transaction can harm people who are not buying or selling in that market.
 
@@ -7954,7 +8093,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Format/placement:** BALLPARK, Water and Land Office — Water Record Desk.
 
-**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Add the missing cost; Keystone: Social effects, Marginal analysis, Surplus; Area: X; Prerequisites: 3, 10; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Add the missing cost; Keystone: Social effects, Marginal analysis, Surplus; Area: X; Prerequisites: 10; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** calculation; Submit marginal social cost per freight unit.
 
@@ -7966,7 +8105,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Stop reason — exact player copy:** Water users pay a cost absent from the freight invoice.
 
-**Question card story setup — exact player copy:** The firms’ incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town’s final target.
+**Question card story setup — exact player copy:** Owen shows you the record: the firms’ incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town’s final target.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -8072,7 +8211,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Stop reason — exact player copy:** The response depends on rivalry and exclusion rather than ownership labels.
 
-**Question card story setup — exact player copy:** The water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them.
+**Question card story setup — exact player copy:** Ruth shows you the record: the water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them.
 
 **Prior result displayed in mission log:** Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost.
 
@@ -8192,7 +8331,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Format/placement:** VERIFY, Civic Advice Office — Hearing Table.
 
-**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Test the corrected target; Keystone: Social effects, Marginal analysis, Surplus; Area: T; Prerequisites: 3, 10; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Test the corrected target; Keystone: Social effects, Marginal analysis, Surplus; Area: T; Prerequisites: 10; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** operated; First, calculate and commit the efficient freight quantity using marginal social benefit equals marginal social cost. Then run the Hearing Table, measure the welfare-maximizing quantity, and select whether it matches; no restoration or second reading is required.
 
@@ -8204,7 +8343,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Stop reason — exact player copy:** The freight benchmark must be recomputed with the measured harm.
 
-**Question card story setup — exact player copy:** The shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim.
+**Question card story setup — exact player copy:** Mara shows you the record: the shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim.
 
 **Prior result displayed in mission log:** The cartridge is excludable and rival. The feed is excludable but nonrival while uncrowded. The alert is nonexcludable and nonrival in the stated case. Water withdrawal is rival while exclusion is absent.
 
@@ -8306,7 +8445,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Format/placement:** CHOICE, Mara Velez at the Town Map in Civic Advice Office.
 
-**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Correct the freight goal; Keystone: Social effects, Marginal analysis, Surplus; Area: T; Prerequisites: 3, 10; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Correct the freight goal; Keystone: Social effects, Marginal analysis, Surplus; Area: T; Prerequisites: 10; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Required stop kind / player verb:** decision; Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
@@ -8318,7 +8457,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Stop reason — exact player copy:** The agreement needs the social-cost target rather than either old benchmark.
 
-**Question card story setup — exact player copy:** The revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem.
+**Question card story setup — exact player copy:** Mara shows you the record: the revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem.
 
 **Prior result displayed in mission log:** Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target.
 
@@ -8393,6 +8532,8 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 ## I. Mission outcome
 
+**Delivery piece 12:** The water cost rule. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Owen Price:** “No one downstream signed the freight invoice.”
 
 **Mission decision:** Use thirty freight units as the goal once harm is counted. The old goal left out a water cost. The plan gains a water rule. A filter quote may cut the cost of that rule.
@@ -8417,6 +8558,8 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** So the water rule needs a filter, but a border tax may raise its price.
+
 ## K. Quick concept review
 
 - A transaction can harm people who are not buying or selling in that market.
@@ -8437,9 +8580,11 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Go now:** Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.
 
-**Card body:** The water cost changes the freight goal, and imported filters may reduce that cost. A border charge can protect sellers while making a useful imported product cost more. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed filter tariff preserves the cheapest compliance option.
+**Card body:** The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax’s costs and gains.
 
 **Objective:** Decide whether the proposed filter tariff preserves the cheapest compliance option.
+
+**Stakes — exact player copy:** A tax can help local filter sellers. It can also make clean water cost more for everyone who needs the filter.
 
 ### Worth knowing first — exact player copy
 
@@ -8624,7 +8769,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Stop reason — exact player copy:** The filter comparison needs the foreign quantity as well as local output.
 
-**Question card story setup — exact player copy:** The freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan.
+**Question card story setup — exact player copy:** Nico shows you the record: the freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -8730,7 +8875,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Stop reason — exact player copy:** The tariff changes several groups’ balances at once.
 
-**Question card story setup — exact player copy:** The import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain.
+**Question card story setup — exact player copy:** Owen shows you the record: the import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain.
 
 **Prior result displayed in mission log:** Imports fill the gap: 100−40 = 60 filters per month. Domestic production remains part of total use.
 
@@ -8862,7 +9007,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Stop reason — exact player copy:** A bigger income share may hide a falling total.
 
-**Question card story setup — exact player copy:** The tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more.
+**Question card story setup — exact player copy:** Mara shows you the record: the tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more.
 
 **Prior result displayed in mission log:** A higher price and reduced use lower consumer surplus in this benchmark. Higher domestic price and output raise producer surplus. Imports are 90−50=40 and revenue is 2×40=80. Equivalent quantity restriction does not automatically send revenue to the government.
 
@@ -8988,7 +9133,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Stop reason — exact player copy:** The filter decision must preserve both the resource and distribution accounts.
 
-**Question card story setup — exact player copy:** The income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council’s stated cost rule while making distributional effects explicit.
+**Question card story setup — exact player copy:** Mara shows you the record: the income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council’s stated cost rule while making distributional effects explicit.
 
 **Prior result displayed in mission log:** The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters.
 
@@ -9063,6 +9208,8 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 ## I. Mission outcome
 
+**Delivery piece 13:** The filter cost account. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Owen Price:** “The same filter arrives in either case; follow the extra payment.”
 
 **Mission decision:** Keep the untaxed filter quote and report who gains from the tariff. The same filter costs more with the fee. The town retains the cheaper quote. The new rail line now seems ready to sign.
@@ -9087,6 +9234,8 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** Now the new line looks ready to sign, but its claimed savings need one last check.
+
 ## K. Quick concept review
 
 - A border charge can protect sellers while making a useful imported product cost more.
@@ -9107,9 +9256,11 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Go now:** Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk.
 
-**Card body:** The filter quote clears the water condition, and the second line looks ready to approve. A fee paid from one local group to another is a transfer rather than a resource saved. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the second line remains the best plan after correcting the cost comparison.
+**Card body:** The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote.
 
 **Objective:** Decide whether the second line remains the best plan after correcting the cost comparison.
+
+**Stakes — exact player copy:** The new line could use funds the town needs for homes. A false saving could win the vote and leave those homes unfunded.
 
 ### Worth knowing first — exact player copy
 
@@ -9287,7 +9438,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Stop reason — exact player copy:** The ribbon must wait until the benefit ledger counts each dollar once.
 
-**Question card story setup — exact player copy:** The cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves.
+**Question card story setup — exact player copy:** Ruth shows you the record: the cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -9393,7 +9544,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Stop reason — exact player copy:** The competing plans need the same accounting boundary.
 
-**Question card story setup — exact player copy:** The corrected resource total weakens the new line’s claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice.
+**Question card story setup — exact player copy:** Owen shows you the record: the corrected resource total weakens the new line’s claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice.
 
 **Prior result displayed in mission log:** Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving.
 
@@ -9525,7 +9676,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Stop reason — exact player copy:** The hearing’s stress rule applies before any plan is signed.
 
-**Question card story setup — exact player copy:** The two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate.
+**Question card story setup — exact player copy:** Mara shows you the record: the two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate.
 
 **Prior result displayed in mission log:** Avoiding inputs frees them for other uses. The payment reduction changes which local group holds money. The past bill cannot be recovered by choosing either plan. An application is not proof that funds are available.
 
@@ -9650,7 +9801,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Stop reason — exact player copy:** The council must act on the revised evidence despite the public celebration.
 
-**Question card story setup — exact player copy:** The stress comparison leaves a feasible alternative after the new line’s apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town’s printed celebration becomes a reason to ignore its own evidence.
+**Question card story setup — exact player copy:** Mara shows you the record: the stress comparison leaves a feasible alternative after the new line’s apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town’s printed celebration becomes a reason to ignore its own evidence.
 
 **Prior result displayed in mission log:** At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit’s net resource benefit score of 15 exceeds the status quo’s 0, so it is the robust choice under the explicit rule.
 
@@ -9725,6 +9876,8 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 ## I. Mission outcome
 
+**Delivery piece 14:** The access retrofit choice. Add this mission’s finding to its matching public-board slot.
+
 **Pre-card character beat — Mara Velez:** “Take the ribbon down until the same dollar appears only once.”
 
 **Mission decision:** Drop the claim that the new line is best and keep the access retrofit. The claim counted a transfer as a saving. The line also fails the cost test. Its ribbon comes down before the vote.
@@ -9749,6 +9902,8 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
+**Segue — exact player copy:** But the gate upgrade still needs real funds and people bound to keep its terms.
+
 ## K. Quick concept review
 
 - A fee paid from one local group to another is a transfer rather than a resource saved.
@@ -9769,9 +9924,11 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Go now:** Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Lease Desk.
 
-**Card body:** The access retrofit survives review, but its funding and promises still need named owners. A defensible agreement must meet its conditions without counting the same benefit twice. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide which complete agreement the council can sign under its published rules.
+**Card body:** The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners.
 
 **Objective:** Decide which complete agreement the council can sign under its published rules.
+
+**Stakes — exact player copy:** A signed promise still needs money and an owner. The town must see who gains, who pays and who still needs help.
 
 ### Worth knowing first — exact player copy
 
@@ -9811,7 +9968,7 @@ This mission retrieves the relationships already recorded in the mission log.
 
 ## B. Main story happening — designer summary
 
-The access retrofit survives review, but its funding and promises still need named owners. The four findings establish: Check the confirmed funding → Give each condition an owner → Commit the final flow forecast → Sign the agreement. The complete agreement is funded and prepared for the final resource check. The town reopens for free exploration with every signed commitment in the log.
+The access retrofit survives review, but its funding and promises still need named owners. The four findings establish: Check the confirmed funding → Give each condition an owner → Commit the final flow forecast → Sign the agreement. The complete agreement is funded and prepared for the final resource check. After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 ## C. Designer intent — not shown to player
 
@@ -9899,7 +10056,7 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **World state:** The public board holds the unsigned final agreement; lease support and water-review commitments are marked READY TO SIGN AFTER RESOURCE CHECK.
 
-**Panel/HUD text:** The public board holds the unsigned final agreement; lease support and water-review commitments are marked READY TO SIGN AFTER RESOURCE CHECK. The town reopens for free exploration with every signed commitment in the log.
+**Panel/HUD text:** The public board holds the unsigned final agreement; lease support and water-review commitments are marked READY TO SIGN AFTER RESOURCE CHECK. After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
 
@@ -9917,7 +10074,7 @@ Stop 57: Housing and Work Office / Lease Desk | Stop 58: Water and Land Office /
 
 **Mara Velez, state economic adviser:** owns the original records in Civic Advice Office and must explain the recommendation to the people affected.
 
-The public board holds the unsigned final agreement; lease support and water-review commitments are marked READY TO SIGN AFTER RESOURCE CHECK. The town reopens for free exploration with every signed commitment in the log.
+The public board holds the unsigned final agreement; lease support and water-review commitments are marked READY TO SIGN AFTER RESOURCE CHECK. After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 ## G. Key concepts, explained here
 
@@ -9941,7 +10098,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Stop reason — exact player copy:** Every promised service needs a confirmed source of funds.
 
-**Question card story setup — exact player copy:** The access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing.
+**Question card story setup — exact player copy:** Leila shows you the record: the access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing.
 
 **Prior result displayed in mission log:** Opening facts and mission primer
 
@@ -10010,7 +10167,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Retrieval:** Use the prior mission log and concepts [7, 10, 18]; the prior-result line states the immediate dependency.
 
-**Later payoff:** The town reopens for free exploration with every signed commitment in the log.
+**Later payoff:** After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 **Consistency bundle:**
 ```json
@@ -10047,7 +10204,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Stop reason — exact player copy:** Each funded promise needs an owner and a visible test.
 
-**Question card story setup — exact player copy:** The funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs.
+**Question card story setup — exact player copy:** Owen shows you the record: the funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs.
 
 **Prior result displayed in mission log:** Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted.
 
@@ -10136,7 +10293,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Retrieval:** Use the prior mission log and concepts [7, 10, 18]; the prior-result line states the immediate dependency.
 
-**Later payoff:** The town reopens for free exploration with every signed commitment in the log.
+**Later payoff:** After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 **Consistency bundle:**
 ```json
@@ -10167,7 +10324,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Format/placement:** VERIFY, Civic Advice Office — Hearing Table.
 
-**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Commit the final flow forecast; Keystone: Social effects, Marginal analysis, Surplus, Competition and entry; Area: T; Prerequisites: 3, 10; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 18 — External costs and benefits; Narrow concept: Commit the final flow forecast; Keystone: Social effects, Marginal analysis, Surplus, Competition and entry; Area: T; Prerequisites: 10; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Required stop kind / player verb:** operated; First, calculate and commit the freight quantity consistent with the adopted social-cost rule. Then run the Hearing Table at the signed rule, measure the modeled flow, and select whether it matches; no restoration or second reading is required.
 
@@ -10179,7 +10336,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Stop reason — exact player copy:** The final trial must preserve the corrected freight rule.
 
-**Question card story setup — exact player copy:** The commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark.
+**Question card story setup — exact player copy:** Mara shows you the record: the commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark.
 
 **Prior result displayed in mission log:** The wage trial required willing qualified workers; a funded housing measure helps those workers take jobs but does not prove the jobs will fill. An access rule needs a booking record that can reveal exclusion. The corrective rule depends on measured external harm. A conditional model must be revisited when its stated assumptions fail.
 
@@ -10256,7 +10413,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Retrieval:** Use the prior mission log and concepts [3, 10]; the prior-result line states the immediate dependency.
 
-**Later payoff:** The town reopens for free exploration with every signed commitment in the log.
+**Later payoff:** After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 **Consistency bundle:**
 ```json
@@ -10293,7 +10450,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Stop reason — exact player copy:** The council needs one complete recommendation before it signs.
 
-**Question card story setup — exact player copy:** The final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council’s published conditions before the signatures make those commitments binding in the story.
+**Question card story setup — exact player copy:** Mara shows you the record: the final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council’s published conditions before the signatures make those commitments binding in the story.
 
 **Prior result displayed in mission log:** The earlier corrected benchmark still applies: 100−2Q = 20+20 gives Q=30. Funding transfers are not an extra resource benefit and do not change this marginal equality.
 
@@ -10345,7 +10502,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Retrieval:** Use the prior mission log and concepts [7, 10, 18]; the prior-result line states the immediate dependency.
 
-**Later payoff:** The town reopens for free exploration with every signed commitment in the log.
+**Later payoff:** After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 **Consistency bundle:**
 ```json
@@ -10367,6 +10524,8 @@ The public board holds the unsigned final agreement; lease support and water-rev
 ```
 
 ## I. Mission outcome
+
+**Delivery piece 15:** The signed town agreement. Add this mission’s finding to its matching public-board slot; retain READY TO SIGN until the final resource check succeeds.
 
 **Pre-card character beat — Mara Velez:** “We can sign what is funded, measured and owned.”
 
@@ -10392,6 +10551,8 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars. After this allocation, when all four bars equal 100 and Stop 60 is passed, Mara Velez signs the council-authorized agreement, the public board changes to SIGNED, all bars lock, and the rent-support and water-review notices are posted; return to free exploration with no further quiz.
 
+**Segue — exact player copy:** Yet the signed plan cannot house every new arrival; the town must keep counting who is left out.
+
 ## K. Quick concept review
 
 - A defensible agreement must meet its conditions without counting the same benefit twice.
@@ -10401,6 +10562,16 @@ The public board holds the unsigned final agreement; lease support and water-rev
 - Use the earlier opportunity-cost test when a resource has another possible use.
 
 - **Mission takeaway:** The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review.
+
+## Ending card — exact player copy
+
+The Town and Freight Agreement is signed. At the public board, Mara puts the last piece beside the first meal trade. The gate will take more freight under new access terms. The wage clause adds a job in the model you checked. Housing help has funds, and the water rule has an owner. Outside, Nico serves lunch beside the new stalls he once tried to keep out.
+
+The gains have names, and so do the costs. New sellers get a chance to trade; Nico faces more rivals. The gate loses some power to hold back service, while the plan must still cover its fixed bill. Buyers and sellers share the housing fee. The filter stays cheaper without the proposed tax, so local filter sellers lose the extra price that tax would have given them. Freight users must now face the water cost once left to people down the stream.
+
+Leila leaves the unmatched home requests on the board. This deal does not give each new arrival a home, end every water risk or prove that trade will keep growing. Owen will check the water record, and the named owners must report back on their terms. The new line’s ribbon is gone. In its place is a plan the town can read, challenge and change when the facts change.
+
+**Ending trigger and presentation — implementation:** Show only after Stop 60 succeeds, the final RP allocation completes, all four bars read 100 and the commitments are signed. One Continue returns to free exploration; all fifteen pieces and their qualifications remain inspectable. This card does not add a reward or bypass a gate. Mission 15’s segue appears before this card; it points to an unresolved cost, not an extra mission.
 
 # 8. Implementation boundary and build decisions
 

@@ -8,10 +8,8 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You arrive at Pellow Head Island to help its plants and animals return to a damaged "
-    +   "mainland coast. Your biology work will decide which living things can travel and what "
-    +   "they will need when they arrive. The ship leaves in fifteen days, and a failed move "
-    +   "could cost the coast its best chance to recover. Preserve director Ada Penn stops a cart "
-    +   "of pale seedlings and says, “Check what they need now.” A bird pulls an insect from the "
-    +   "cart while the old release board still reads READY.",
+  "You reach Pellow Head as a bird picks bugs from a cart of pale plants. Ada Penn asks you "
+    +   "to build The Contained Pilot, a plan to test a small group of plants and their partners "
+    +   "on the coast. Each day adds one piece to the Release Board. The ship leaves in fifteen "
+    +   "days. You must learn what can go, what must stay, and when to stop the test.",
 ];

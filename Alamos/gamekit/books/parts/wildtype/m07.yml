@@ -6,12 +6,12 @@
     header: "DAY 7 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FAMILY IN THE JAR"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait."
+    body: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form."
     objective: "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
   objective: "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
-  stake: "The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait."
+  stake: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form."
   takeaway: "Use a test cross and keep each family separate. ---"
-  segue: "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele. The crew uses the plan just chosen. The family trait leads to a changed enzyme sequence."
+  segue: "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Allele", def: "An alternative DNA version at a gene locus."}
@@ -58,7 +58,7 @@
     title: "Follow an allele into a gamete"
     concept: 13   # Meiosis and variation
     reason: "The family investigation needs an inheritance model."
-    scene: "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Follow allele separation into gametes before the seed team chooses a cross to test that possibility."
+    scene: "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Nell Shah asks: \"Follow allele separation into gametes before the seed team chooses a cross to test that possibility.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -110,6 +110,7 @@
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 26: Predict the test family
   #     Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 25: Follow an allele into a gamete; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -119,11 +120,11 @@
     title: "Predict the test family"
     concept: 14   # Mendelian probability
     reason: "The test cross needs an expected offspring count."
-    scene: "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Predict the recessive offspring count for the proposed cross before the family test is scored."
+    scene: "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Nell Shah asks: \"Predict the recessive offspring count for the proposed cross before the family test is scored.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Multiply offspring count by recessive fraction; submit expected recessive offspring count."
-    answerText: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison."
+    answerText: The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison.
     why: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. Half the offspring are therefore expected to be tt: 24 × 1/2 = 12. This is an expectation, not a demand that every finite family contain exactly twelve recessive offspring. The calculation makes the proposed test cross informative because a TT parent would predict no recessive offspring under the same assumptions. The crew can now compare an observed family with these alternatives."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 uses a one-quarter probability from a different cross. 24 assumes the dominant-phenotype parent supplies only t. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -188,7 +189,7 @@
     title: "Interpret the family evidence"
     concept: 15   # Non-Mendelian inheritance
     reason: "The family labels must preserve which inheritance model was tested."
-    scene: "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Match those inheritance patterns before the team extends one result across unrelated family labels."
+    scene: "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Nell Shah asks: \"Match those inheritance patterns before the team extends one result across unrelated family labels.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -263,7 +264,7 @@
     title: "Choose the informative cross"
     concept: 14   # Mendelian probability
     reason: "The breeding decision must preserve the evidence it creates."
-    scene: "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry."
+    scene: "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Nell Shah asks: \"Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.\""
     motivation: "Use a test cross and keep each family separate."
     format: CHOICE
     question: "Select the cross and record-keeping plan that can reveal a hidden recessive allele."

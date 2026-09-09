@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 10 HOURS REMAIN"
     title: "ALL GREEN"
     goNow: "Go to the Test Bench in Software Lab."
-    body: "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable."
-    objective: "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure."
-  objective: "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure."
-  stake: "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable."
+    body: "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now."
+    objective: "Today you decide whether the green lights prove a safe recovery path."
+  objective: "Today you decide whether the green lights prove a safe recovery path."
+  stake: "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now."
   takeaway: "The live station is stable now, but ALL GREEN is false assurance because forward rollback fails unseen adjacent-record cases. ---"
-  segue: "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. The aircraft then enters the last usable weather window."
+  segue: "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. Now Park must choose a release plan as the plane enters its last weather window."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "holdout test", def: "a test on cases that were not used while choosing or tuning the solution. residual: the difference between an observed result and the result a model or program predicts."}
@@ -42,7 +42,7 @@
     title: "Test unseen rollback cases"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "Every dashboard is green, but Priya refuses to trust rollback because its development cases never contained adjacent resolved records."
-    scene: "Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens."
+    scene: "Priya Nair checks the evidence: Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens."
     motivation: "A held-out test asks whether a repair survives structure that did not shape the implementation, rather than rewarding success on development cases alone."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial how many of five held-out cases forward rollback will restore exactly. OPERATE: run the sealed suite. MEASURE: reveal the exact-restoration count. INTERPRET: compare it with the backward control's 5/5 and submit FORWARD or BACKWARD."
@@ -116,7 +116,7 @@
     title: "Stress the adjacency assumption"
     concept: 17   # Selection-and-iteration algorithms: count, sum, min/max, search
     reason: "The holdout failure appears only when resolved records are adjacent, so Malik needs the rollback algorithm that remains safe as adjacent runs become longer."
-    scene: "The holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit."
+    scene: "Malik Okafor checks the evidence: the holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit."
     motivation: "A robust algorithm must survive the plausible input range and every required criterion, not merely the nominal case that made the dashboard green."
     format: STRESS
     question: "Move the adjacent-run assumption from 1 through 4 and submit the one rollback strategy that meets both criteria everywhere."
@@ -192,7 +192,7 @@
     title: "Audit the rollback pattern"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The stress test rejects forward removal, but the crew still needs to know whether today's failure is the old skip mechanism or a new defect."
-    scene: "Eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject."
+    scene: "Malik Okafor checks the evidence: eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject."
     motivation: "A systematic residual pattern can identify a wrong mechanism even when its aggregate error score looks slightly better."
     format: RESIDUAL
     question: "Compare both residual fields and submit which rollback implementation must be rejected despite its lower RMS."
@@ -304,7 +304,7 @@
     title: "Decide whether green means safe"
     concept: 20   # Abstraction and program design
     reason: "The holdout, stress, and residual tests all challenge ALL GREEN, but Park needs a station-level diagnosis that also respects the quiet live systems."
-    scene: "Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery."
+    scene: "Elena Park checks the evidence: Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery."
     motivation: "The right diagnosis must explain both the quiet live controls and the failed recovery path without inventing a simultaneous hardware cascade."
     format: DIAGNOSIS
     question: "Read all four zones and submit the one diagnosis that fits both the current live state and the failed rollback evidence."

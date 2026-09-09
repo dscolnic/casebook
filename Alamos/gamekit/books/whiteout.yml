@@ -365,12 +365,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 36 HOURS REMAIN"
     title: "THE HEAT THAT ISN'T GONE"
     goNow: "Go to Power & Thermal Plant and meet Malik Okafor, power and thermal engineer, at the Load Board."
-    body: "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong."
-    objective: "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly."
-  objective: "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly."
-  stake: "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong."
+    body: "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix."
+    objective: "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
+  objective: "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
+  stake: "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix."
   takeaway: "The generator is healthy; integer arithmetic is collapsing 83/100 to zero and falsely creating the heat emergency. ---"
-  segue: "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. Habitat Control then shows two commands from one sensor reading."
+  segue: "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. But Mei now has two commands from one air reading."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "integer division", def: "division between two integers that discards the fractional part before any later conversion. cast: an explicit conversion that changes how Java treats a value for an expression."}
@@ -403,7 +403,7 @@ missions:
     title: "Trace the controller"
     concept: 3   # Expressions, arithmetic, precedence, and output
     reason: "Malik needs the displayed percentage explained before he shuts down a generator that still sounds normal."
-    scene: "The Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output before the crew decides whether the red percentage reflects the generator."
+    scene: "Malik Okafor checks the evidence: the Load Board shows delivered = 83, requested = 100, and the alarm code delivered / requested * 100, while fuel flow and exhaust stay normal. Determine the integer expression's output to judge whether the red percentage reflects the generator."
     motivation: "If the arithmetic itself produces the alarm value, the physical generator should stay online while the software path is investigated."
     format: CHOICE
     question: "Read the three displayed lines, trace the expression exactly as Java evaluates it, and submit the stored value of percent."
@@ -455,7 +455,7 @@ missions:
     title: "Preserve the fraction"
     concept: 5   # Casting, integer division, numeric range, and overflow awareness
     reason: "Stop 1 proved the integer expression collapses before multiplication, so the crew needs a repair that preserves the 0.83 fraction."
-    scene: "Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100."
+    scene: "Malik Okafor checks the evidence: Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100."
     motivation: "A correct cast should predict 83.0 percent without changing any physical generator setting."
     format: DERIVE
     question: "Build the repaired calculation one line at a time; choose exactly one line at each step."
@@ -483,7 +483,7 @@ missions:
     #           - {line: "double percent = fraction * 100.0;", correct: true}
     #           - {line: "double percent = (int) fraction * 100.0;", correct: false, survives: true, why: "Casting fraction back to int discards its fractional part before multiplying and recreates the whole-number loss."}
     derive:
-      start: int delivered = 83; int requested = 100;
+      start: "delivered = 83 kW; requested = 100 kW; both inputs are int. A percent is a fraction times 100; use double to retain a fraction. Source: int delivered = 83; int requested = 100;"
       goal: percent as a double, starting from integer inputs
       steps:
         - ask: Choose the division that preserves the fraction.
@@ -509,7 +509,7 @@ missions:
     title: "Store the repaired value"
     concept: 2   # Primitive variables and data types
     reason: "Malik needs the corrected percentage stored without turning it back into an integer before the alarm comparison runs."
-    scene: "The repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging."
+    scene: "Malik Okafor checks the evidence: the repaired expression now produces 83.0, but the controller field receiving it is still declared with the old whole-number type. Choose the declaration and assignment that keep the fractional-capable result intact for later comparisons and logging."
     motivation: "The repaired arithmetic only matters if assignment preserves the type and value that the next alarm test will read."
     format: CHOICE
     question: "Select the declaration that stores the repaired numeric percentage for the alarm comparison."
@@ -553,7 +553,7 @@ missions:
     title: "Authorize the generator"
     concept: 11   # Boolean expressions and relational operators
     reason: "The generator may stay online only if the repaired percentage predicts the alarm state and a controlled run matches that prediction."
-    scene: "Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes."
+    scene: "Malik Okafor checks the evidence: Stops 1–3 predict percent = 83.0 from unchanged 83 kW delivery and a 100 kW request, while the physical generator remains steady. Commit the repaired percentage before the isolated calculation reveals what the controller actually computes."
     motivation: "Agreement between the committed Boolean prediction and the isolated run can clear the generator without pretending 83 percent is full output."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the repaired calculated percentage. OPERATE: run the isolated controller calculation. MEASURE: reveal the calculated percent. INTERPRET: combine that measurement with the steady 83 kW delivery and submit KEEP ONLINE or SHUT DOWN."
@@ -599,12 +599,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 34 HOURS REMAIN"
     title: "THE ALARM THAT CALLS TWICE"
     goNow: "Go to Habitat Control and meet Mei Alvarez, habitat systems lead, at the Alarm Cabinet."
-    body: "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code."
-    objective: "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire."
-  objective: "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire."
-  stake: "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code."
+    body: "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches."
+    objective: "Today you decide whether one sensor reading can make both branches fire."
+  objective: "Today you decide whether one sensor reading can make both branches fire."
+  stake: "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches."
   takeaway: "The sensor is not duplicated; two independent if statements can both fire, and an exclusive branch structure removes the double command. ---"
-  segue: "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Rover Three then circles the same snow marker again."
+  segue: "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Yet Jonah sees Rover Three circle the same snow marker again."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Boolean expression", def: "a comparison or logical test whose value is true or false. branch: one path through conditional code that runs only when its condition is selected."}
@@ -634,7 +634,7 @@ missions:
     title: "Read the alarm condition"
     concept: 11   # Boolean expressions and relational operators
     reason: "Mei needs the first carbon-dioxide reading translated into true and false conditions before anyone blames the sensor."
-    scene: "The scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading."
+    scene: "Mei Alvarez checks the evidence: the scrubber log records one sensor value of 1050 ppm, and both shutdown and high-vent commands appear immediately afterward. Evaluate the two displayed comparisons so the crew can tell whether the duplicate actions are even possible from one valid reading."
     motivation: "If both comparisons are true at 1050 ppm, duplicate output can come from control flow without any duplicate sensor packet."
     format: CHOICE
     question: "Evaluate both comparisons at 1050 ppm and submit the truth-value pair."
@@ -678,7 +678,7 @@ missions:
     title: "Separate the branches"
     concept: 12   # if / if-else selection
     reason: "Stop 5 proved one valid reading satisfies both thresholds, so the branch structure now determines whether one or two commands can run."
-    scene: "The current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response."
+    scene: "Mei Alvarez checks the evidence: the current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response."
     motivation: "An exclusive structure should preserve the emergency response while preventing a second conflicting command from the same reading."
     format: DERIVE
     question: "Choose the emergency branch and then the mutually exclusive lower-level branch."
@@ -706,7 +706,7 @@ missions:
     #           - {line: "else if (co2 > 900 && co2 <= 1100) highVent();", correct: true}
     #           - {line: "if (co2 > 900 && co2 <= 1100) highVent(); // second check", correct: false, survives: true, why: "A second independent if is checked even after shutdown runs, so one reading can still issue two commands."}
     derive:
-      start: int co2 = reading; boolean maintenanceMode = false;
+      start: "reading = 1050 ppm; maintenanceMode = false. The rule is shutdown above 1000 ppm; otherwise use high vent above 900 and at most 1100 ppm. Only one command may run per reading. Source: int co2 = reading; boolean maintenanceMode = false;"
       goal: one mutually exclusive command from each CO2 reading
       steps:
         - ask: Choose the first branch.
@@ -732,7 +732,7 @@ missions:
     title: "Trace the nested lockout"
     concept: 13   # Nested conditionals
     reason: "The branch repair removes the duplicate action, but the controller also contains a nested maintenance lockout that could still suppress the wrong command."
-    scene: "At 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair."
+    scene: "Mei Alvarez checks the evidence: at 1050 ppm the outer emergency condition is true, maintenance mode is false, and the sensor packet count is exactly one. Diagnose the control path that fits those readings and the observed single shutdown after the branch repair."
     motivation: "The correct explanation must account for both the emergency branch and the quiet maintenance control without inventing a second sensor event."
     format: DIAGNOSIS
     question: "Read all four zones and select the one control-flow explanation that fits every reading."
@@ -810,7 +810,7 @@ missions:
     title: "Restore scrubber control"
     concept: 14   # Compound Boolean logic and De Morgan reasoning
     reason: "The repaired branch must also respect maintenance mode, so the crew needs a committed compound-logic prediction before live control unlocks."
-    scene: "The repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count."
+    scene: "Mei Alvarez checks the evidence: the repaired branch will run at 1050 ppm and 950 ppm with maintenance mode false in both cases. Commit the maximum number of commands one reading should produce before the scrubber reveals the measured command count."
     motivation: "Two planned cases can prove the emergency path and the lower-level path are exclusive without disabling a healthy scrubber."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the maximum number of commands one reading should produce. OPERATE: run the 1050 ppm and 950 ppm cases. MEASURE: reveal the maximum command count. INTERPRET: submit KEEP ONLINE or LOCK OUT."
@@ -856,12 +856,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 32 HOURS REMAIN"
     title: "THE ROVER THAT NEVER ARRIVES"
     goNow: "Go to the Route Planning Board in Vehicle Bay."
-    body: "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate."
-    objective: "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state."
-  objective: "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state."
-  stake: "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate."
+    body: "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop."
+    objective: "Today you decide whether to repair the rover wheels or the loop that drives them."
+  objective: "Today you decide whether to repair the rover wheels or the loop that drives them."
+  stake: "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop."
   takeaway: "Rover Three is mechanically healthy; its loop never advances the route index, so the stopping condition can never become true. ---"
-  segue: "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. The incident log then links three failures to one software tool."
+  segue: "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. Now Priya finds the same code tool in all three fault traces."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "loop", def: "code that repeats while a condition or counter says more work remains. termination: the condition that makes repeated or recursive work stop. index: the numbered position used to access an element; Java arrays and lists start at index zero."}
@@ -891,7 +891,7 @@ missions:
     title: "Order one rover lap"
     concept: 1   # Algorithms, sequencing, and program execution
     reason: "Jonah needs the rover's intended four-step route separated from the code that is trapping it at the first marker."
-    scene: "Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace."
+    scene: "Jonah Reyes checks the evidence: Rover Three should read a waypoint, steer toward it, confirm arrival, and then advance to the next route position. Put those four algorithm steps in execution order so the crew can compare intended behavior with the repeating field trace."
     motivation: "A correct sequence gives the loop a state change that can move the rover toward its stopping condition."
     format: SEQUENCE
     question: "Place the four route actions in the order one successful loop iteration should perform them, then submit the sequence."
@@ -937,7 +937,7 @@ missions:
     title: "Find the endless condition"
     concept: 15   # while loops and termination
     reason: "Stop 9 showed the route index must advance, but the live trace repeats index zero through every lap around the marker."
-    scene: "The current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever."
+    scene: "Jonah Reyes checks the evidence: the current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever."
     motivation: "A loop terminates only if repeated work changes state in a way that can eventually make its condition false."
     format: DERIVE
     question: "Choose the missing progress statement and the explanation that proves the loop can terminate."
@@ -965,7 +965,7 @@ missions:
     #           - {line: "index eventually reaches waypoints.length, making index < length false", correct: true}
     #           - {line: "steering changes, so the Java condition becomes false automatically", correct: false, survives: true, why: "The while condition reads index and the array length; changing unrelated state cannot make that Boolean expression false."}
     derive:
-      start: int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }
+      start: "index starts at 0; waypoints.length = 4. Each arrival must advance by one position. The loop tests index < waypoints.length. Source: int index = 0; while (index < waypoints.length) { goTo(waypoints[index]); ... }"
       goal: advance loop state until the waypoint condition becomes false
       steps:
         - ask: Choose the state update.
@@ -991,7 +991,7 @@ missions:
     title: "Advance the route index"
     concept: 6   # Compound assignment and increment/decrement
     reason: "Jonah wants the smallest repair that advances exactly one waypoint after each confirmed arrival without changing the loop condition."
-    scene: "The loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions."
+    scene: "Jonah Reyes checks the evidence: the loop index is an int starting at zero, and each completed waypoint must advance it by exactly one. Choose the update that changes the stored value once per iteration without resetting or skipping positions."
     motivation: "The correct update should produce indexes 0, 1, 2, and 3 before the length check stops a four-waypoint route."
     format: CHOICE
     question: "Select the one update that advances the stored route index by exactly one."
@@ -1035,7 +1035,7 @@ missions:
     title: "Send a bounded route"
     concept: 16   # for loops and loop tracing
     reason: "The rover may move only after the repaired loop predicts every index it will visit and the point where it must stop."
-    scene: "A four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state."
+    scene: "Jonah Reyes checks the evidence: a four-waypoint simulation starts at index = 0 and uses the repaired while (index < 4) loop with index++ after each arrival. Commit the final index before the diagnostic cart reveals the stopping state."
     motivation: "A correct bounded trace can separate a software loop from a mechanical steering failure without sending the rover into the whiteout."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the final index after all four waypoints. OPERATE: run the route simulation. MEASURE: reveal the final route index. INTERPRET: use the bounded trace and clean steering response to submit SOFTWARE LOOP or MECHANICAL FAILURE."
@@ -1081,12 +1081,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 30 HOURS REMAIN"
     title: "THE QUIET TEST"
     goNow: "Go to Software Lab and meet Priya Nair, software architect, at the Test Bench."
-    body: "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem."
-    objective: "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility."
-  objective: "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility."
-  stake: "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem."
+    body: "Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault."
+    objective: "Today you decide whether the three faults need one shared code test."
+  objective: "Today you decide whether the three faults need one shared code test."
+  stake: "Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault."
   takeaway: "The failures should be investigated together; all three reproduce through the same legacy utility layer while independent hardware controls stay quiet. ---"
-  segue: "Mission decision: Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. The first patch then changes C17 but not live controller P02."
+  segue: "Mission decision: Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. But Malik sees the patch change C17 while P02 stays the same."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "edge case", def: "an input at a boundary or unusual condition that can expose a hidden bug. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."}
@@ -1116,7 +1116,7 @@ missions:
     title: "Choose the first discriminating test"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "Priya will not patch the live station until one cheap test can tell whether the three failures share a software utility."
-    scene: "The software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures."
+    scene: "Priya Nair checks the evidence: the software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures."
     motivation: "The best test is the one whose outcome changes which explanation survives, not simply the one that produces the most data."
     format: VALUE
     question: "Spend at most four test minutes and submit the evidence package that tests two different kinds of evidence and can change the shared-cause decision."
@@ -1181,7 +1181,7 @@ missions:
     title: "Add the edge case"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "The shared replay reproduces the ordinary failures, but Priya wants one boundary input that could expose whether the utility assumes nonempty data."
-    scene: "The utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input."
+    scene: "Priya Nair checks the evidence: the utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input."
     motivation: "A boundary case is useful when it exercises a condition the normal examples never reach."
     format: CHOICE
     question: "Select the one input that directly tests the utility's lower-boundary behavior."
@@ -1225,7 +1225,7 @@ missions:
     title: "Verify the utility contract"
     concept: 8   # Comments, documentation, preconditions, and postconditions
     reason: "Priya needs to separate what the utility's documentation actually promises from behaviors the station merely happened to rely on."
-    scene: "The method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly."
+    scene: "Priya Nair checks: the method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly."
     motivation: "A documented precondition can shift responsibility to callers, while an undocumented behavior cannot safely be treated as a contract."
     format: ATTEST
     question: "You have two verification checks. Spend them on the unresolved claims whose failure would change whether this method is safe to reuse, then submit the two claims to verify."
@@ -1288,7 +1288,7 @@ missions:
     title: "Localize the shared utility"
     concept: 9   # Method signatures, parameters, return types, and calls
     reason: "The test harness now has three reproduced failures, an empty-input result, and a verified method contract, enough to localize the common defect."
-    scene: "Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls."
+    scene: "Priya Nair checks the evidence: Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls."
     motivation: "The right diagnosis should explain shared software symptoms without requiring three unrelated pieces of hardware to fail at the same time."
     format: DIAGNOSIS
     question: "Read all four zones and submit the smallest shared code location that explains every reproduced failure."
@@ -1365,12 +1365,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 28 HOURS REMAIN"
     title: "ONE NAME, TWO OBJECTS"
     goNow: "Go to Software Lab and meet Priya Nair, software architect, beside the Version Rack."
-    body: "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object."
-    objective: "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state."
-  objective: "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state."
-  stake: "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object."
+    body: "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit."
+    objective: "Today you decide whether the patch reaches live object P02."
+  objective: "Today you decide whether the patch reaches live object P02."
+  stake: "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit."
   takeaway: "The patch is modifying simulator object C17, not live controller P02; the live reference path must be corrected before the method call can matter. ---"
-  segue: "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. A rescue message then shows 08:0 while the raw packet shows 08:07."
+  segue: "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. Yet Liv sees 08:0 on screen and 08:07 in the raw note."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "reference", def: "a value that points to an object rather than containing a separate copy of that object. constructor: code that initializes a new object when it is created. instance field: state stored separately inside each object."}
@@ -1400,7 +1400,7 @@ missions:
     title: "Inspect object state"
     concept: 21   # Class anatomy: fields, encapsulation, and object state
     reason: "Priya needs to know why a patch changes the simulator but leaves live controller P02 untouched."
-    scene: "The software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values."
+    scene: "Priya Nair checks: the software mirror shows simulator controller C17 and live controller P02 with the same class and similar limits, yet only C17 changes after the patch. Match each evidence row to the interpretation that distinguishes object identity from merely matching field values."
     motivation: "Two objects can look alike while storing separate state, so the patch target must be identified by reference rather than appearance."
     format: CASEBOOK
     question: "Match each evidence row to the interpretation it supports, then submit whether C17 and P02 are the same object."
@@ -1448,7 +1448,7 @@ missions:
     title: "Check initialization"
     concept: 22   # Constructors and initialization
     reason: "Stop 17 proved the patch reached C17, so the team must verify how the live P02 object was constructed before following references further."
-    scene: "P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field."
+    scene: "Priya Nair checks the evidence: P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field."
     motivation: "A reference trace is only useful after the object itself has been initialized with the state the crew thinks it has."
     format: DERIVE
     question: "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70."
@@ -1476,7 +1476,7 @@ missions:
     #           - {line: "new PowerController(\"P02\", 70);", correct: true}
     #           - {line: "new PowerController(\"70\", 70 + 0);", correct: false, survives: true, why: "The first argument is the object ID, so passing \"70\" creates the wrong identity even though the numeric limit is 70."}
     derive:
-      start: class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }
+      start: "Construct live object P02 with limit 70. Constructor arguments are String id and int limit, in that order. The tempting hard-coded body uses P02 and 90; it must also work for other arguments. Source: class PowerController { String id; int limit; PowerController(String id, int limit) { ... } }"
       goal: initialize an object from supplied constructor arguments
       steps:
         - ask: Choose the constructor body.
@@ -1502,7 +1502,7 @@ missions:
     title: "Follow the live reference"
     concept: 24   # Passing and returning object references
     reason: "P02 is constructed correctly, so the remaining question is which references flow into the patch method."
-    scene: "The build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller."
+    scene: "Priya Nair checks the evidence: the build graph shows four channels named sim, live, active, and backup; two eventually reach C17 while one reaches P02 and one reaches B04. Open each dependency and identify which argument must be passed to patch the live controller."
     motivation: "The patch only changes the physical station if the method receives a reference to P02 rather than a simulation or backup object."
     format: TRACE
     question: "Open all four reference paths, identify the two aliases that reach C17, and submit the reference that reaches P02."
@@ -1580,7 +1580,7 @@ missions:
     title: "Patch the live controller"
     concept: 4   # Assignment, input, and reassignment
     reason: "The live reference is now known, but Malik will not accept the patch until the method's effect on P02 is predicted before operation."
-    scene: "P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed."
+    scene: "Malik Okafor checks the evidence: P02 starts with limit 70 while C17 already holds 90, and applyPatch(live) calls setLimit(90) on the object referenced by live. Commit P02's final limit before the isolated patch reveals which live object changed."
     motivation: "A method call through the correct reference should change P02 while leaving the simulator object's state independent."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial P02's final limit. OPERATE: run the isolated patch through live. MEASURE: reveal P02's limit after the call. INTERPRET: compare it with C17's unchanged state and submit ACCEPT or REJECT."
@@ -1626,16 +1626,16 @@ missions:
     header: "RESCUE WINDOW — ABOUT 26 HOURS REMAIN"
     title: "THE MESSAGE WITH THE WRONG MINUTE"
     goNow: "Go to the Packet Monitor in Communications & Weather."
-    body: "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong."
-    objective: "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly."
-  objective: "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly."
-  stake: "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong."
+    body: "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong."
+    objective: "Today you decide whether to keep the rescue link and fix the time parser."
+  objective: "Today you decide whether to keep the rescue link and fix the time parser."
+  stake: "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong."
   takeaway: "The network is on time; the parser cuts the timestamp one character early, turning 08:07 into 08:0 on two displays. ---"
-  segue: "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. Habitat Control then labels Room 7 as 4.1°C while a local reading shows 20.9°C."
+  segue: "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "packet", def: "a chunk of network data routed independently before messages are reassembled."}
-  - {name: "String", def: "an object that stores an ordered sequence of characters. substring: a String method that returns characters from a chosen start index up to, but not including, an end index."}
+  - {name: "String", def: "an object that stores an ordered sequence of characters. substring: copies part of a String. It includes the start index and stops before the end index."}
   primer:
   - "Network delivery and local parsing are separate stages."
   - "Java String indexes start at zero, and substring(start,end) excludes the end index."
@@ -1662,7 +1662,7 @@ missions:
     title: "Check the network path"
     concept: 37   # Networks, packets, protocols, redundancy, and cybersecurity
     reason: "Liv needs to know whether the apparent late message is already visible in the network path before software parsing is blamed."
-    scene: "The rescue packet reaches the station through satellite hop S1 and router AR-2, while a local clock feed and rover radio use different upstream paths. Open all four dependencies and identify whether the delayed display shares a transport failure with the packet capture."
+    scene: "Liv Andersen tracks the packet through satellite hop S1 and router AR-2; the local clock and rover radio use other paths. Open all four dependencies and judge whether the display delay shares a transport fault with the packet capture."
     motivation: "Independent path evidence can separate network transport delay from a later display or parsing error."
     format: TRACE
     question: "Open all four dependency paths and submit whether the evidence points to network transport or downstream parsing."
@@ -1745,7 +1745,7 @@ missions:
     title: "Read the timestamp String"
     concept: 10   # String objects and common String methods
     reason: "The packet is on time, so Liv needs the exact character positions of its timestamp before the parser can be traced."
-    scene: "The captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary."
+    scene: "Liv Andersen checks the evidence: the captured text is 2026-09-08 08:07, and Java indexes its String characters from zero. Choose the character at index 15 so the crew can verify where the final minute digit sits relative to the current substring boundary."
     motivation: "Correct indexing of the raw String tells the team whether the parser is cutting data before it ever reaches the display."
     format: CHOICE
     question: "Count from index zero and submit the character stored at String index 15."
@@ -1788,7 +1788,7 @@ missions:
     title: "Trace the substring"
     concept: 18   # String traversal and string algorithms
     reason: "Stop 22 placed the final minute digit at index 15, so the current substring must include that character to display the full time."
-    scene: "The parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged."
+    scene: "Priya Nair checks the evidence: the parser currently calls timestamp.substring(11, 15), which includes index 11 but stops before index 15. Build the correct call and resulting String so the packet's 08:07 value survives the parser unchanged."
     motivation: "The display can only show the correct minute if the method's exclusive end index extends one position beyond the final character needed."
     format: DERIVE
     question: "Choose the substring call and the exact String it returns."
@@ -1816,7 +1816,7 @@ missions:
     #           - {line: "\"08:07\"", correct: true}
     #           - {line: "\"08:0\" — end index 15 excludes index 15", correct: false, survives: true, why: "That truncated String is the old buggy output; it cannot be the result of the repaired call ending at 16."}
     derive:
-      start: String timestamp = "2026-09-08 08:07";
+      start: "timestamp = 2026-09-08 08:07. Java counts character indexes from 0; the time starts at index 11 and is five characters long. substring includes its start and excludes its end. Source: String timestamp = \"2026-09-08 08:07\";"
       goal: extract the five-character HH:MM field
       steps:
         - ask: Choose the substring call.
@@ -1842,7 +1842,7 @@ missions:
     title: "Repair message parsing"
     concept: 7   # APIs and library methods
     reason: "The parser call is repaired, but the rescue window depends on proving the method returns the same time already present in the packet."
-    scene: "The captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output."
+    scene: "Priya Nair checks the evidence: the captured packet contains 2026-09-08 08:07, and the corrected parser now uses substring(11,16). Commit the numeric minute field the repaired display should show before the parser test reveals its measured output."
     motivation: "Agreement after a frozen prediction can clear the network path and keep the rescue window open."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the minute value the corrected parser should display. OPERATE: run the repaired method on the captured packet. MEASURE: reveal the parsed minute. INTERPRET: compare the full 08:07 display with the independent clocks and submit NETWORK DELAY or PARSER ERROR."
@@ -1888,12 +1888,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 24 HOURS REMAIN"
     title: "THE ARRAY WITH A HOLE"
     goNow: "Go to the Sensor Probe Rack in Habitat Control."
-    body: "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed."
-    objective: "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element."
-  objective: "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element."
-  stake: "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed."
+    body: "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item."
+    objective: "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
+  objective: "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
+  stake: "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item."
   takeaway: "Room 7 is safe; the controller maps Room 6 and Room 7 to the wrong indexes, producing a false 4.1°C emergency. ---"
-  segue: "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. The incident view then loses every second record."
+  segue: "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. Now Park finds every second record gone from the incident view."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "array", def: "a fixed-length indexed collection whose elements all use one declared type. index: the numbered position used to access an element; Java arrays and lists start at index zero."}
@@ -1924,7 +1924,7 @@ missions:
     title: "Map sensor positions"
     concept: 26   # Arrays: creation, access, default values, and bounds
     reason: "Mei needs the physical room labels compared with the array entries before she evacuates anyone from a cold-room alarm."
-    scene: "Four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks."
+    scene: "Mei Alvarez checks the evidence: four room stations each show an independent thermometer and the controller value read from temps[index]. Probe every station and compare observed room temperature with the expected array mapping to find where the controller's position-to-room relationship first breaks."
     motivation: "Station-by-station expected values can reveal an indexing problem even when every numeric reading is individually plausible."
     format: PROBE
     question: "Probe all four stations, compare each observed reading with its explicit expected value, and submit where the pattern breaks."
@@ -1985,7 +1985,7 @@ missions:
     title: "Trace the sensor loop"
     concept: 27   # Array traversals and array algorithms
     reason: "Stop 25 proved the values are real but attached to the wrong room labels, so the loop that copies array entries into display rows is next."
-    scene: "The display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing."
+    scene: "Mei Alvarez checks the evidence: the display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing."
     motivation: "A correct traversal should keep Room 6's 4.1°C value at the same index as the Room 6 label."
     format: DERIVE
     question: "Choose the loop header and element pairing that display every valid sensor once without shifting indexes."
@@ -2013,7 +2013,7 @@ missions:
     #           - {line: "show(labels[i], temps[i]);", correct: true}
     #           - {line: "show(labels[i], temps[i+1]);", correct: false, survives: true, why: "Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence."}
     derive:
-      start: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length.
+      start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
       goal: visit every legal index once and pair each label with the value at that same index
       steps:
         - ask: Choose the traversal header.
@@ -2039,7 +2039,7 @@ missions:
     title: "Catch the shifted index"
     concept: 26   # Arrays: creation, access, default values, and bounds
     reason: "The correct traversal uses matching indexes, but the live display code contains one explicit temps[i - 1] access for Room 7."
-    scene: "When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display."
+    scene: "Mei Alvarez checks the evidence: When the display row for Room 7 uses i = 2, the expression temps[i - 1] reads array index 1, whose value is 4.1°C from Room 6. Choose the controller value Room 7 will falsely display."
     motivation: "Computing the exact wrong index explains the alarm without changing or discarding any physical temperature measurement."
     format: CHOICE
     question: "Evaluate i - 1 at i = 2 and submit the temperature the buggy display assigns to Room 7."
@@ -2083,7 +2083,7 @@ missions:
     title: "Certify the room map"
     concept: 17   # Selection-and-iteration algorithms: count, sum, min/max, search
     reason: "Room 7 should remain occupied only if the corrected traversal restores every room value and the safety check classifies the rooms correctly."
-    scene: "The repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test."
+    scene: "Priya Nair checks the evidence: the repaired map should place 20.9°C in Room 7, while the sleeping-room safety rule remains temp >= 10.0. Commit Room 7's mapped temperature before the mirror reveals the value used by the safety test."
     motivation: "The final decision requires both the corrected array algorithm and a Boolean safety test on the value actually belonging to Room 7."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial Room 7's mapped temperature. OPERATE: run the corrected array mapping. MEASURE: reveal the mapped Room 7 value. INTERPRET: apply the 10.0°C safety rule and submit EVACUATE ROOM 7 or KEEP OCCUPIED."
@@ -2129,12 +2129,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 22 HOURS REMAIN"
     title: "THE LOG THAT SKIPS EVERY SECOND LINE"
     goNow: "Go to Operations Module and meet Dr. Elena Park, station director, at the Shift Log Desk."
-    body: "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup."
-    objective: "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records."
-  objective: "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records."
-  stake: "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup."
+    body: "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them."
+    objective: "Today you decide whether the raw log is lost or list cleanup skips its records."
+  objective: "Today you decide whether the raw log is lost or list cleanup skips its records."
+  stake: "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them."
   takeaway: "The records were written; forward ArrayList removal skips shifted resolved entries, leaving an alternating survivor pattern. ---"
-  segue: "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. The rover map then moves a known crevasse to the next cell."
+  segue: "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. But Jonah finds the known crack in the next map cell."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "ArrayList", def: "a resizable indexed collection that can add and remove elements while a program runs. index: the numbered position used to access an element; Java arrays and lists start at index zero. edge case: an input at a boundary or unusual condition that can expose a hidden bug."}
@@ -2164,7 +2164,7 @@ missions:
     title: "Read the raw file"
     concept: 28   # Text files, wrapper classes, and data ingestion
     reason: "Park needs to know whether six recovery actions were ever written before anyone accuses the incident logger of losing them."
-    scene: "The raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed."
+    scene: "Elena Park checks: the raw text file contains records A through F with timestamps and status labels, while the processed incident view shows only A, C, D, and F. Match the raw evidence to the conclusions it supports before the processing code is blamed."
     motivation: "Raw-file evidence can distinguish missing source data from records that disappear only after a program transforms the file."
     format: CASEBOOK
     question: "Match the raw-file evidence to the conclusions it supports, then submit whether the missing records existed before processing."
@@ -2212,7 +2212,7 @@ missions:
     title: "Check the parsed records"
     concept: 36   # Data representation, precision, and data quality
     reason: "The raw file proves the records existed, so Park needs to know whether parsing changed their labels before list mutation is examined."
-    scene: "The parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison."
+    scene: "Elena Park checks the evidence: the parser creates [A open, B resolved, C resolved, D open, E resolved, F resolved], matching every raw status exactly before cleanup begins. Choose the conclusion supported by that before-and-after comparison."
     motivation: "If parsed data match the raw file, the loss must occur in a later operation rather than during text conversion."
     format: CHOICE
     question: "Compare the raw and parsed states and submit what stage of the pipeline has been cleared."
@@ -2256,7 +2256,7 @@ missions:
     title: "Trace the skipped records"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The source and parser both preserve six records, leaving the forward cleanup loop as the first stage where B and E can disappear incorrectly."
-    scene: "The cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2."
+    scene: "Priya Nair checks the evidence: the cleanup iterates from index zero upward and removes a record when isResolved() is true. Trace the mutation after B is removed, then choose why C shifts into index 1 while the loop advances to index 2."
     motivation: "The exact survivor pattern can become a reusable clue if the same mutation mechanism appears elsewhere later."
     format: DERIVE
     question: "Build the forward-removal trace and select the final list produced by the buggy loop."
@@ -2289,7 +2289,7 @@ missions:
     #           - {line: "[A, C, D, F]", correct: true}
     #           - {line: "[A, D] — assumes every resolved record was removed", correct: false, survives: true, why: "That result assumes shifted neighbors are revisited; forward mutation skips C and F, leaving both resolved records behind."}
     derive:
-      start: records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved.
+      start: "Start with [A open, B resolved, C resolved, D open, E resolved, F resolved]. Indexes start at 0. The loop starts i at 0 and adds 1 after each pass; removal shifts later items left by 1. Source: records = [A open, B resolved, C resolved, D open, E resolved, F resolved]; traverse i upward and remove records.get(i) when resolved."
       goal: trace the actual survivors of forward removal as indexes shift
       steps:
         - ask: Choose the list immediately after removing B at index 1.
@@ -2322,7 +2322,7 @@ missions:
     title: "Recover the full timeline"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "The forward trace explains the omissions, so the crew needs a regression test that proves a safe cleanup removes every resolved record without losing unresolved ones."
-    scene: "The repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size."
+    scene: "Priya Nair checks the evidence: the repaired cleanup traverses [A open, B resolved, C resolved, D open, E resolved, F resolved] backward from the final index. Commit how many records should remain before the Test Bench reveals the repaired list size."
     motivation: "A regression test should fail the old forward loop and pass the new backward traversal on the same adjacent-resolved input."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the number of records the backward cleanup should retain. OPERATE: run the repaired cleanup. MEASURE: reveal the retained-record count. INTERPRET: inspect the retained labels and submit DEPLOY or HOLD."
@@ -2368,12 +2368,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 20 HOURS REMAIN"
     title: "THE MAP THAT LIES BY ONE COLUMN"
     goNow: "Go to the Route Table in Vehicle Bay."
-    body: "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates."
-    objective: "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes."
-  objective: "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes."
-  stake: "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates."
+    body: "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two."
+    objective: "Today you decide whether to trust the survey and fix the map write."
+  objective: "Today you decide whether to trust the survey and fix the map write."
+  stake: "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two."
   takeaway: "The field survey is correct; one write uses [column][row], transposing the crevasse into the neighboring cell. ---"
-  segue: "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. A short satellite pass then makes the old search too slow."
+  segue: "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. Now Liv needs the right radio record before the next short pass ends."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "2D array", def: "an array of rows and columns accessed with two indexes. index: the numbered position used to access an element; Java arrays and lists start at index zero."}
@@ -2403,7 +2403,7 @@ missions:
     title: "Read the hazard grid"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "Jonah needs to know whether the field survey or the rover display moved the crevasse before Rover Three uses the map."
-    scene: "Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern."
+    scene: "Jonah Reyes checks the evidence: Survey stakes mark a crevasse at row 0, column 1, but the rover display highlights row 1, column 0. Probe four named cells and compare observed survey status with the expected stored grid value to locate the mismatch pattern."
     motivation: "A two-dimensional indexing error can transpose correct field data into a different map cell without changing the survey itself."
     format: PROBE
     question: "Probe all four cells, compare each reading with its explicit expected state, and submit whether the survey or display mapping is suspect."
@@ -2464,7 +2464,7 @@ missions:
     title: "Walk the grid in order"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "Stop 33 proved the survey grid is correct, so the crew now needs the exact row-major order used by the map-copy loop."
-    scene: "For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal."
+    scene: "Jonah Reyes checks the evidence: For a 2×2 grid, the copy loop should visit [0][0], [0][1], [1][0], and [1][1] in row-major order. Put those accesses on the rail so the later write can be compared with the intended traversal."
     motivation: "A correct traversal order makes it easier to isolate whether the defect is in visiting cells or writing them to the destination."
     format: SEQUENCE
     question: "Place the four grid accesses in row-major order, then submit the sequence."
@@ -2518,7 +2518,7 @@ missions:
     title: "Find the transposed write"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "The visit order is correct, so the bug must occur when each surveyed cell is written into the rover display grid."
-    scene: "The copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value."
+    scene: "Priya Nair checks the evidence: the copy loop visits cells in row-major order, the source survey shows the crevasse at [0][1], and the display shows it at [1][0]. Diagnose which write statement produces exactly that transpose while preserving every source value."
     motivation: "The right explanation must account for correct traversal, correct source data, and a swapped destination coordinate."
     format: DIAGNOSIS
     question: "Read all four zones and submit the one write statement that produces the observed transpose."
@@ -2596,7 +2596,7 @@ missions:
     title: "Release Rover Three"
     concept: 30   # 2D arrays: creation, access, traversal, and algorithms
     reason: "The transposed write is identified, but the rover remains locked until the repaired map predicts the exact crevasse coordinate."
-    scene: "The corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map."
+    scene: "Jonah Reyes checks the evidence: the corrected copy uses display[row][col] = survey[row][col] on the same 2×2 source grid. Commit the column index where the crevasse should appear in row 0 before the simulator reveals the rebuilt hazard map."
     motivation: "A committed full-grid prediction can prove the repair fixes the coordinate mapping without inventing new survey data."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the crevasse's column index in row 0. OPERATE: rebuild the hazard grid with the corrected write. MEASURE: reveal the crevasse column. INTERPRET: confirm the remaining cells against the source and submit RELEASE or HOLD."
@@ -2642,12 +2642,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 18 HOURS REMAIN"
     title: "THE FAST ANSWER"
     goNow: "Go to the Message Queue Board in Communications & Weather."
-    body: "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes."
-    objective: "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window."
-  objective: "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window."
-  stake: "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes."
+    body: "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time."
+    objective: "Today you decide which search can reach the radio record before the link closes."
+  objective: "Today you decide which search can reach the radio record before the link closes."
+  stake: "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time."
   takeaway: "Binary search is required; the sorted table lets the code cut the remaining range in half and reach 122.3 MHz in three midpoint checks. ---"
-  segue: "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Two separate controllers then report the same last-warning value."
+  segue: "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Yet Mei sees two separate units report the same last warning."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "binary search", def: "a search on sorted data that repeatedly discards half of the remaining range. loop: code that repeats while a condition or counter says more work remains."}
@@ -2679,7 +2679,7 @@ missions:
     title: "Estimate the search work"
     concept: 19   # Nested iteration and informal run-time reasoning
     reason: "Liv needs a search strategy before the short satellite pass begins, and the table contains 1,024 sorted frequency records."
-    scene: "A linear search may inspect all 1,024 records, while a halving search needs about one check per power of two in the table size. Estimate the maximum midpoint checks for binary search so the crew can compare the two methods before coding."
+    scene: "Liv Andersen compares a scan of 1,024 records with a search that halves the range at each check. Estimate the maximum midpoint checks for binary search so the crew can choose a method before the next short pass."
     motivation: "The rescue decision depends on choosing an algorithm whose work fits the time window, not merely one that eventually finds the record."
     format: BALLPARK
     question: "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number."
@@ -2727,7 +2727,7 @@ missions:
     title: "Choose the search"
     concept: 31   # Linear and binary search
     reason: "The estimate favors halving, but binary search is valid only if the rescue-frequency table is sorted by the same quantity being searched."
-    scene: "The table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window."
+    scene: "Liv Andersen checks the evidence: the table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window."
     motivation: "The fastest-looking method is only correct when its prerequisite about data order is actually satisfied."
     format: CHOICE
     question: "Select the search method justified by the table's existing order."
@@ -2771,7 +2771,7 @@ missions:
     title: "Trace midpoint updates"
     concept: 31   # Linear and binary search
     reason: "The table is sorted and binary search is authorized, so Priya needs the exact low/high updates for the captured target."
-    scene: "The eight displayed frequencies are [118.0,119.4,120.2,121.6,122.3,123.1,124.5,126.0], with target 122.3. Build the midpoint trace from indexes 0–7 and choose the update after each comparison until index 4 is found."
+    scene: "Priya Nair shows [118.1,119.4,120.8,121.6,122.3,123.1,124.7,126.0] and target 122.3. Trace midpoints from bounds 0–7 and choose each new bound until the target is found."
     motivation: "Correct midpoint logic matters as much as choosing binary search; one reversed boundary update can discard the target half."
     format: DERIVE
     question: "Choose the correct boundary update at each comparison and then the final search result."
@@ -2804,7 +2804,7 @@ missions:
     #           - {line: "mid=4 and value=122.3: found", correct: true}
     #           - {line: "mid=5 and value=123.1: not found", correct: false, survives: true, why: "After the bounds change, the midpoint must be recomputed as 4; reusing the prior midpoint ignores the current interval."}
     derive:
-      start: sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7.
+      start: "low = 0; high = 7; target = 122.3. mid = (low + high) / 2 uses integer division. The sorted array is [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]. Source: sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7."
       goal: narrow binary-search bounds until the target index is identified
       steps:
         - ask: At mid=3, value 121.6 < 122.3. Choose the update.
@@ -2837,7 +2837,7 @@ missions:
     title: "Lock the rescue frequency"
     concept: 31   # Linear and binary search
     reason: "The midpoint trace reaches 122.3 MHz in three checks, but the station must verify the live lookup returns the same record before the pass closes."
-    scene: "The sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it."
+    scene: "Liv Andersen checks the evidence: the sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it."
     motivation: "A verified fast lookup protects the rescue link without replacing the independent path evidence needed later."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the index binary search should return for 122.3 MHz. OPERATE: run the search on the live sorted table. MEASURE: reveal the returned index. INTERPRET: inspect the midpoint trace and acknowledgment, then submit LOCK or ABORT."
@@ -2883,12 +2883,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 16 HOURS REMAIN"
     title: "THE CLASS THAT REMEMBERS TOO MUCH"
     goNow: "Go to Software Lab and meet Priya Nair, software architect, at the Version Rack."
-    body: "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state."
-    objective: "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level."
-  objective: "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level."
-  stake: "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state."
+    body: "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field."
+    objective: "Today you decide whether each unit needs its own warning field."
+  objective: "Today you decide whether each unit needs its own warning field."
+  stake: "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field."
   takeaway: "The controllers share one static warning field; changing H04 overwrites the value later read from P02 even though the objects are physically separate. ---"
-  segue: "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. The aircraft then allows only ten seconds for the next message."
+  segue: "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. Now Liv has just ten seconds to send the plane what it needs."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "static field", def: "one field shared by the class rather than stored separately in each object. instance field: state stored separately inside each object. reference: a value that points to an object rather than containing a separate copy of that object."}
@@ -2918,7 +2918,7 @@ missions:
     title: "Compare two controller objects"
     concept: 21   # Class anatomy: fields, encapsulation, and object state
     reason: "Priya needs to prove P02 and H04 are different objects before blaming a shared field for their identical warnings."
-    scene: "P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state."
+    scene: "Priya Nair checks the evidence: P02 belongs to power, H04 belongs to habitat, their object identifiers differ, and each has a separate limit field, yet both report lastWarning = 7. Match the evidence to what it says about object identity and unexpectedly shared state."
     motivation: "Separate object identities make a class-level shared field more plausible than one physical controller somehow becoming the other."
     format: CASEBOOK
     question: "Match each record to the interpretation it supports, then submit whether the identical warning proves the objects are the same."
@@ -2978,7 +2978,7 @@ missions:
     title: "Inspect the static field"
     concept: 25   # Class variables, static methods, scope, access, and this
     reason: "Stop 41 proved the controllers are distinct, so the identical warning must come from code that stores state outside each individual object."
-    scene: "The class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot."
+    scene: "Priya Nair checks the evidence: the class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot."
     motivation: "Moving warning state into each object should let H04 change without overwriting P02's previously stored warning."
     format: DERIVE
     question: "Choose the field declaration and assignment that store warning state separately in each controller object."
@@ -3006,7 +3006,7 @@ missions:
     #           - {line: "this.lastWarning = value;", correct: true}
     #           - {line: "Controller.lastWarning = value;", correct: false, survives: true, why: "Writing through the class name targets shared class state instead of the receiving object's own field."}
     derive:
-      start: P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called.
+      start: "P02 warning starts at 3; H04 warning starts at 4. The replay calls H04.setWarning(7); value is the method parameter. Each object must keep its own warning. Source: P02.lastWarning = 3; H04.lastWarning = 4; then H04.setWarning(7) is called."
       goal: keep each object's warning state independent after one object changes
       steps:
         - ask: Choose the field declaration.
@@ -3032,7 +3032,7 @@ missions:
     title: "Probe independent warning state"
     concept: 23   # Writing instance methods
     reason: "The field is now instance state, but the team needs multiple controllers to show the repair is not accidentally hard-coded to P02."
-    scene: "Four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent."
+    scene: "Malik Okafor checks the evidence: four controllers start with different warning values, then H04 alone receives setWarning(7). Probe each controller and compare its observed warning with the explicit value expected if instance state is truly independent."
     motivation: "A station-wide fix should preserve each untouched object's warning while changing only the receiver of the method call."
     format: PROBE
     question: "Probe all four controllers, compare every observed warning with its station-specific expected value, and submit whether the state is independent."
@@ -3093,7 +3093,7 @@ missions:
     title: "Separate shared from local state"
     concept: 25   # Class variables, static methods, scope, access, and this
     reason: "The probe looks correct, but the original dangerous sequence must be replayed before both controller families can return to service."
-    scene: "P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it."
+    scene: "Mei Alvarez checks the evidence: P02 starts warning 3 and H04 starts warning 4; the replay then calls H04.setWarning(7) while warning is an instance field. Commit P02's final warning before the test reveals whether H04 can still overwrite it."
     motivation: "The repair passes only if H04 changes, P02 stays local, and the Boolean comparison proves the old cross-controller coupling is gone."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial P02's warning after H04 writes 7. OPERATE: replay the cross-controller sequence. MEASURE: reveal P02's final warning. INTERPRET: compare it with H04=7 and submit RETURN TO SERVICE or HOLD."
@@ -3139,15 +3139,15 @@ missions:
     header: "RESCUE WINDOW — ABOUT 14 HOURS REMAIN"
     title: "THE SORTED QUEUE"
     goNow: "Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board."
-    body: "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust."
-    objective: "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII."
-  objective: "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII."
-  stake: "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust."
+    body: "The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send."
+    objective: "Today you decide which facts the plane needs in its ten-second message."
+  objective: "Today you decide which facts the plane needs in its ten-second message."
+  stake: "The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send."
   takeaway: "Send runway, weather, power endurance, and medical count in stable priority order; omit names, birthdates, and the full debug dump. ---"
-  segue: "Mission decision: Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. Icing then threatens the main antenna."
+  segue: "Mission decision: Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. But Liv sees ice spread across the main antenna."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
-  - {name: "PII", def: "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: a sorting algorithm that inserts each new item into the correct place in an already-sorted prefix."}
+  - {name: "PII", def: "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: puts each new item in its proper place among the items already sorted."}
   primer:
   - "Sorting can have requirements beyond numeric order, including preserving equal-priority order."
   - "Collect and transmit only the data needed for the decision."
@@ -3174,7 +3174,7 @@ missions:
     title: "Choose what the aircraft needs"
     concept: 38   # Ethics, privacy, bias, and impact of computing
     reason: "Park has ten transmission seconds and must send enough operational evidence for the aircraft to act without exposing information it does not need."
-    scene: "Each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness."
+    scene: "Elena Park checks the evidence: each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness."
     motivation: "Useful computing decisions include both technical sufficiency and the human cost of collecting or transmitting unnecessary personal data."
     format: VALUE
     question: "Spend at most ten seconds and submit the evidence set the aircraft needs for the landing decision."
@@ -3255,7 +3255,7 @@ missions:
     title: "Order the priority passes"
     concept: 32   # Selection sort and insertion sort
     reason: "The message set is fixed, but the queue must be sorted by priority without losing the original order of equal-priority safety items."
-    scene: "The four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative."
+    scene: "Priya Nair checks the evidence: the four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative."
     motivation: "Sorting is not just cosmetic here because the aircraft acts on the earliest items before the burst is fully complete."
     format: SEQUENCE
     question: "Place the four selection-sort outcomes in the order produced by ascending priority, preserving the observed tie result."
@@ -3301,7 +3301,7 @@ missions:
     title: "Preserve equal-priority order"
     concept: 32   # Selection sort and insertion sort
     reason: "The selection-sort trace exposes an equal-priority pair, so Priya wants an insertion rule that never moves a later equal-priority item ahead of an earlier one."
-    scene: "Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2."
+    scene: "Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2."
     motivation: "A one-character comparison choice can change whether equal-priority rescue actions retain their original operational order."
     format: DERIVE
     question: "Choose the insertion-sort comparison and the resulting order for the equal-priority pair."
@@ -3329,7 +3329,7 @@ missions:
     #           - {line: "POWER stays before RUNWAY", correct: true}
     #           - {line: "RUNWAY may move ahead of POWER solely because priorities tie", correct: false, survives: true, why: "A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them."}
     derive:
-      start: The list already contains POWER before RUNWAY, and the current item has the same priority.
+      start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority."
       goal: insert an item without reversing earlier equal-priority items
       steps:
         - ask: Choose the stable shift condition.
@@ -3355,7 +3355,7 @@ missions:
     title: "Transmit the ordered plan"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The four-item queue now fits the privacy and priority rules, but the aircraft must receive exactly that ordered list within the ten-second burst."
-    scene: "The committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took."
+    scene: "Liv Andersen checks the evidence: the committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took."
     motivation: "The mission succeeds only if data selection, list order, and transmission budget all agree in one observable output."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the total transmission time for four two-second items. OPERATE: send the rescue queue. MEASURE: reveal the burst time. INTERPRET: verify the four-item order and zero-PII condition, then submit ACCEPT or ABORT."
@@ -3401,12 +3401,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 12 HOURS REMAIN"
     title: "THE CALL THAT CALLS ITSELF"
     goNow: "Go to the Code Review Wall in Software Lab."
-    body: "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely."
-    objective: "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay."
-  objective: "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay."
-  stake: "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely."
+    body: "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay."
+    objective: "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
+  objective: "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
+  stake: "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay."
   takeaway: "The repaired recursion terminates at build(0) and returns exactly four safe waypoints, so Rover Three can deploy the backup relay. ---"
-  segue: "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. All dashboards turn green, but rollback has not tested side-by-side resolved records."
+  segue: "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. Yet Priya has no test of two resolved records side by side."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "recursion", def: "a method solving a problem by calling itself on a smaller version of that problem. base case: the input a recursive method can answer directly without another recursive call. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."}
@@ -3436,7 +3436,7 @@ missions:
     title: "Trace the recursive calls"
     concept: 33   # Recursion: base cases, recursive calls, and tracing
     reason: "Priya needs the relay-route call stack made visible before any recursive code is allowed to command a rover outside."
-    scene: "The route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop."
+    scene: "Priya Nair checks the evidence: the route builder build(n) calls build(n - 1) until no waypoints remain, then adds one waypoint while calls return. Put the calls for build(3) in entry order so the crew can see exactly where recursion must stop."
     motivation: "The same progress idea used in loops now appears in recursive calls: each step must move toward a stopping state."
     format: SEQUENCE
     question: "Place the four calls in the order they are entered."
@@ -3482,7 +3482,7 @@ missions:
     title: "Repair the base case"
     concept: 33   # Recursion: base cases, recursive calls, and tracing
     reason: "Stop 49 reaches build(0), but the current code tests n < 0, so zero still attempts another recursive call and an invalid waypoint access."
-    scene: "The empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start."
+    scene: "Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start."
     motivation: "A correct base case is both a stopping rule and part of the method's promised behavior for empty input."
     format: DERIVE
     question: "Choose the base case and recursive call that guarantee termination."
@@ -3510,7 +3510,7 @@ missions:
     #           - {line: "build(n - 1);", correct: true}
     #           - {line: "build(n + 1);", correct: false, survives: true, why: "Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown."}
     derive:
-      start: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case.
+      start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
       goal: reach a terminating base case by reducing the remaining count
       steps:
         - ask: Choose the base case.
@@ -3536,7 +3536,7 @@ missions:
     title: "Test the recursive contract"
     concept: 34   # Recursive search/sort reasoning
     reason: "The recursion now terminates, but Jonah needs expected outputs for boundary and ordinary inputs before the route can be trusted."
-    scene: "The repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea."
+    scene: "Jonah Reyes checks the evidence: the repaired builder should return no waypoints for build(0), one waypoint for build(1), and four waypoints for build(4). Match each call to its expected route size, then compare the recursive pattern with the earlier halving-search idea."
     motivation: "A recursive method is correct only when its outputs match the contract across boundary and ordinary cases, not merely when it stops."
     format: PROTOCOL
     question: "Match each recursive input to the number of waypoints it should return."
@@ -3588,7 +3588,7 @@ missions:
     title: "Build the relay route"
     concept: 33   # Recursion: base cases, recursive calls, and tracing
     reason: "The recursive contract is verified, but the relay route must still be derived from the safe-cell list rather than printed in advance."
-    scene: "The console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result."
+    scene: "Liv Andersen checks the evidence: the console shows safe waypoints in scrambled storage order: W3, W1, W4, W2, with next fields W3→W4, W1→W2, W4→null, and W2→W3. Starting at W1, commit the route length before the simulation reveals the recursive result."
     motivation: "The player must combine object/link data with recursion to produce the path instead of reading the answer from a prefilled route list."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the number of waypoints returned from W1. OPERATE: simulate the recursive builder. MEASURE: reveal the returned route length. INTERPRET: inspect the returned labels and base call, then submit DISPATCH or HOLD."
@@ -3634,12 +3634,12 @@ missions:
     header: "RESCUE WINDOW — ABOUT 10 HOURS REMAIN"
     title: "ALL GREEN"
     goNow: "Go to the Test Bench in Software Lab."
-    body: "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable."
-    objective: "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure."
-  objective: "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure."
-  stake: "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable."
+    body: "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now."
+    objective: "Today you decide whether the green lights prove a safe recovery path."
+  objective: "Today you decide whether the green lights prove a safe recovery path."
+  stake: "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now."
   takeaway: "The live station is stable now, but ALL GREEN is false assurance because forward rollback fails unseen adjacent-record cases. ---"
-  segue: "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. The aircraft then enters the last usable weather window."
+  segue: "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. Now Park must choose a release plan as the plane enters its last weather window."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "holdout test", def: "a test on cases that were not used while choosing or tuning the solution. residual: the difference between an observed result and the result a model or program predicts."}
@@ -3670,7 +3670,7 @@ missions:
     title: "Test unseen rollback cases"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "Every dashboard is green, but Priya refuses to trust rollback because its development cases never contained adjacent resolved records."
-    scene: "Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens."
+    scene: "Priya Nair checks the evidence: Forward rollback passed five development cases with no adjacent resolved records, while a backward-traversal control already passes five held-out adjacency cases. Commit how many of five held-out cases forward rollback will restore exactly before the sealed suite opens."
     motivation: "A held-out test asks whether a repair survives structure that did not shape the implementation, rather than rewarding success on development cases alone."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial how many of five held-out cases forward rollback will restore exactly. OPERATE: run the sealed suite. MEASURE: reveal the exact-restoration count. INTERPRET: compare it with the backward control's 5/5 and submit FORWARD or BACKWARD."
@@ -3744,7 +3744,7 @@ missions:
     title: "Stress the adjacency assumption"
     concept: 17   # Selection-and-iteration algorithms: count, sum, min/max, search
     reason: "The holdout failure appears only when resolved records are adjacent, so Malik needs the rollback algorithm that remains safe as adjacent runs become longer."
-    scene: "The holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit."
+    scene: "Malik Okafor checks the evidence: the holdout failure appears only when resolved records are adjacent, so Malik now has the hidden stress variable. Move the maximum adjacent run from one through four and compare three rollback strategies against zero skipped records and a twelve-inspection limit."
     motivation: "A robust algorithm must survive the plausible input range and every required criterion, not merely the nominal case that made the dashboard green."
     format: STRESS
     question: "Move the adjacent-run assumption from 1 through 4 and submit the one rollback strategy that meets both criteria everywhere."
@@ -3820,7 +3820,7 @@ missions:
     title: "Audit the rollback pattern"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The stress test rejects forward removal, but the crew still needs to know whether today's failure is the old skip mechanism or a new defect."
-    scene: "Eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject."
+    scene: "Malik Okafor checks the evidence: eight controller records have restore-time residuals in milliseconds after rollback. Compare the lower-RMS forward routine's alternating residual pattern with the slightly higher-RMS backward routine's unstructured jitter, then decide which implementation the pattern forces the crew to reject."
     motivation: "A systematic residual pattern can identify a wrong mechanism even when its aggregate error score looks slightly better."
     format: RESIDUAL
     question: "Compare both residual fields and submit which rollback implementation must be rejected despite its lower RMS."
@@ -3932,7 +3932,7 @@ missions:
     title: "Decide whether green means safe"
     concept: 20   # Abstraction and program design
     reason: "The holdout, stress, and residual tests all challenge ALL GREEN, but Park needs a station-level diagnosis that also respects the quiet live systems."
-    scene: "Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery."
+    scene: "Elena Park checks the evidence: Heat, air, rover, and rescue link remain inside verified limits now, while forward rollback fails unseen adjacency cases and reproduces the alternating skip signature. Diagnose what the green dashboard actually proves about current state and future recovery."
     motivation: "The right diagnosis must explain both the quiet live controls and the failed recovery path without inventing a simultaneous hardware cascade."
     format: DIAGNOSIS
     question: "Read all four zones and submit the one diagnosis that fits both the current live state and the failed rollback evidence."
@@ -4009,10 +4009,10 @@ missions:
     header: "RESCUE WINDOW — ABOUT 8 HOURS REMAIN"
     title: "WHITEOUT"
     goNow: "Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board."
-    body: "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade."
-    objective: "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade."
-  objective: "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade."
-  stake: "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade."
+    body: "The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust."
+    objective: "Today you decide which tested release plan can keep the rescue path open."
+  objective: "Today you decide which tested release plan can keep the rescue path open."
+  stake: "The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust."
   takeaway: "Use a staged canary release with backward rollback, independent rover communications, and five committed checks before expanding to the remaining controllers. ---"
   segue: "Mission decision: Use a staged canary release with backward rollback and the rover command path. The canary checks match. The crew expands the release one stage at a time. The Runway Door opens. The player watches the rescue aircraft land and taxi to the station."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -4045,7 +4045,7 @@ missions:
     title: "Choose the staged release"
     concept: 20   # Abstraction and program design
     reason: "The aircraft is entering the last usable weather window, and Park must choose a release plan before any wider controller update begins."
-    scene: "The crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release."
+    scene: "Elena Park checks the evidence: the crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release."
     motivation: "The final plan should integrate established evidence rather than buy every attractive action or trust one dramatic restart."
     format: SCIENCETANK
     question: "Spend exactly 100 release points and submit the staged plan that satisfies every proven recovery constraint."
@@ -4128,7 +4128,7 @@ missions:
     title: "Prove the rollback traversal"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The staged plan cannot start until backward ArrayList removal is encoded as the exact mechanism that survived the holdout and stress tests."
-    scene: "The rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index."
+    scene: "Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index."
     motivation: "The final code must express the proven mechanism, not merely carry a label saying backward traversal is safer."
     format: DERIVE
     question: "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records."
@@ -4161,7 +4161,7 @@ missions:
     #           - {line: "removing i cannot change any lower index still to be visited", correct: true}
     #           - {line: "removing i preserves every higher index that has not been visited yet", correct: false, survives: true, why: "In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged."}
     derive:
-      start: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index.
+      start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
       goal: remove every resolved record without skipping a neighbor that shifts after deletion
       steps:
         - ask: Choose the loop header.
@@ -4194,7 +4194,7 @@ missions:
     title: "Protect the rescue link"
     concept: 37   # Networks, packets, protocols, redundancy, and cybersecurity
     reason: "The rollback mechanism is verified, but the canary release still needs a command path that does not share the primary router's single point of failure."
-    scene: "Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment."
+    scene: "Liv Andersen checks: Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment."
     motivation: "Redundancy only protects the release when the backup path is genuinely independent of the component that can remove the primary path."
     format: TRACE
     question: "Open all four dependencies, identify the shared single point, and submit the independent command path that must stay active."
@@ -4272,7 +4272,7 @@ missions:
     title: "Commit the station recovery"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "Every release gate is ready, but the remaining controllers stay locked until the player computes and commits five canary expectations from displayed code and state."
-    scene: "P02 starts at limit 70 and warning 3; H04 is a separate controller, the packet time is 2026-09-08 08:07, rollback starts [P02 open, X resolved, H04 open], and AR-2 may fail. Use the displayed code and dependency rules to compute five canary expectations."
+    scene: "Elena Park checks P02 at limit 70 and warning 3; separate H04; packet time 2026-09-08 08:07; rollback [P02 open, X resolved, H04 open]; and possible AR-2 failure. Use the displayed code and dependency rules to compute five canary expectations."
     motivation: "The final verification integrates established mechanisms without printing the answers before the player's commitment."
     format: VERIFY
     question: "First, calculate and commit P02's final limit after the displayed +20 patch. OPERATE: deploy only P02. MEASURE: reveal its final limit. INTERPRET: confirm the four previously established canary checks and submit GO or NO-GO."

@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "THE MISSING BREAKFAST",
     "objective": "Decide whether the diner should trade packed meals for repairs.",
     "briefing": "",
-    "stake": "The first delivery has arrived, but the diner cannot serve every new customer. A scarce work shift can be used for one task only, so each choice gives up another task. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the diner should trade packed meals for repairs.",
+    "stake": "The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal.",
     "primer": [
       "A scarce work shift can be used for one task only, so each choice gives up another task.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -87,7 +87,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 1 OF 15",
       "title": "THE MISSING BREAKFAST",
       "goNow": "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.",
-      "body": "The first delivery has arrived, but the diner cannot serve every new customer. A scarce work shift can be used for one task only, so each choice gives up another task. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the diner should trade packed meals for repairs.",
+      "body": "The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal.",
       "objective": "Decide whether the diner should trade packed meals for repairs."
     },
     "segue": "Mission decision: Trade two meal boxes for each hour of repairs. Both teams give up less than they would on their own. The bench is fixed and lunch can start. More people still join the queue.",
@@ -126,7 +126,7 @@ export const MISSIONS = [
     "title": "THE QUEUE THAT GREW",
     "objective": "Decide whether demand or supply explains the lunch price rise.",
     "briefing": "",
-    "stake": "The meal exchange works, yet the lunch queue still stretches past the door. A price can rise because buyers want more or because sellers can offer less. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether demand or supply explains the lunch price rise.",
+    "stake": "The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim.",
     "primer": [
       "A price can rise because buyers want more or because sellers can offer less.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -210,7 +210,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 2 OF 15",
       "title": "THE QUEUE THAT GREW",
       "goNow": "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.",
-      "body": "The meal exchange works, yet the lunch queue still stretches past the door. A price can rise because buyers want more or because sellers can offer less. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether demand or supply explains the lunch price rise.",
+      "body": "The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim.",
       "objective": "Decide whether demand or supply explains the lunch price rise."
     },
     "segue": "Mission decision: More buyers caused the lunch price rise. Costs stayed fixed, but orders rose at the old price. The town posts the cause. The room desk now shows beds that no one will book.",
@@ -249,7 +249,7 @@ export const MISSIONS = [
     "title": "THE EMPTY ROOMS",
     "objective": "Decide whether the tested rent increase raises room revenue.",
     "briefing": "",
-    "stake": "The lunch rise came from more buyers, but higher room prices have left beds empty. How much buying changes when price changes determines whether a higher price raises receipts. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the tested rent increase raises room revenue.",
+    "stake": "The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned.",
     "primer": [
       "How much buying changes when price changes determines whether a higher price raises receipts.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -333,7 +333,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 3 OF 15",
       "title": "THE EMPTY ROOMS",
       "goNow": "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.",
-      "body": "The lunch rise came from more buyers, but higher room prices have left beds empty. How much buying changes when price changes determines whether a higher price raises receipts. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the tested rent increase raises room revenue.",
+      "body": "The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned.",
       "objective": "Decide whether the tested rent increase raises room revenue."
     },
     "segue": "Mission decision: Do not keep the tested rent rise. Receipts fell by $100 a night. The owner puts the old rate back on the board. The diner still needs more meals from the same oven.",
@@ -372,7 +372,7 @@ export const MISSIONS = [
     "title": "TOO MANY HANDS",
     "objective": "Decide whether another cook is worth hiring at the current wage.",
     "briefing": "",
-    "stake": "Rooms are filling again, but the diner still cannot cook enough meals. More workers sharing fixed equipment eventually add less output per extra worker. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether another cook is worth hiring at the current wage.",
+    "stake": "Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post.",
     "primer": [
       "More workers sharing fixed equipment eventually add less output per extra worker.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -464,7 +464,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 4 OF 15",
       "title": "TOO MANY HANDS",
       "goNow": "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.",
-      "body": "Rooms are filling again, but the diner still cannot cook enough meals. More workers sharing fixed equipment eventually add less output per extra worker. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether another cook is worth hiring at the current wage.",
+      "body": "Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post.",
       "objective": "Decide whether another cook is worth hiring at the current wage."
     },
     "segue": "Mission decision: Hire the fourth cook, but not the fifth. The fourth adds more sales than wage cost; the fifth does not. One job is posted. The bakery loses a worker to that offer.",
@@ -503,7 +503,7 @@ export const MISSIONS = [
     "title": "THE RENT PROMISE",
     "objective": "Decide whether the proposed rent ceiling alone houses every applicant.",
     "briefing": "",
-    "stake": "The diner filled its job by drawing away a baker, and workers now ask for help with rent. A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed rent ceiling alone houses every applicant.",
+    "stake": "A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply.",
     "primer": [
       "A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -579,7 +579,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 5 OF 15",
       "title": "THE RENT PROMISE",
       "goNow": "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.",
-      "body": "The diner filled its job by drawing away a baker, and workers now ask for help with rent. A legal maximum can lower the rent paid by some tenants while leaving other people unable to find homes. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed rent ceiling alone houses every applicant.",
+      "body": "A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply.",
       "objective": "Decide whether the proposed rent ceiling alone houses every applicant."
     },
     "segue": "Mission decision: The rent cap alone will not house all who apply. Forty homes are still missing from the offers. The town keeps relief and access as two goals. The access plan still needs funds.",
@@ -618,7 +618,7 @@ export const MISSIONS = [
     "title": "WHO PAYS THE FEE",
     "objective": "Decide whether the proposed market fee supplies enough revenue for the housing measure.",
     "briefing": "",
-    "stake": "The cap cannot house everyone, so the council needs to cost its separate access measure. A fee can be shared by buyers and sellers even when only one side sends the payment. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed market fee supplies enough revenue for the housing measure.",
+    "stake": "The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost.",
     "primer": [
       "A fee can be shared by buyers and sellers even when only one side sends the payment.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -714,7 +714,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 6 OF 15",
       "title": "WHO PAYS THE FEE",
       "goNow": "Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Budget Desk.",
-      "body": "The cap cannot house everyone, so the council needs to cost its separate access measure. A fee can be shared by buyers and sellers even when only one side sends the payment. At Civic Advice Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed market fee supplies enough revenue for the housing measure.",
+      "body": "The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost.",
       "objective": "Decide whether the proposed market fee supplies enough revenue for the housing measure."
     },
     "segue": "Mission decision: Use the $120 fee receipts and report the $40 loss in gains. The funds cover the chosen housing step. Buyers and sellers both bear costs. One supplier now wants to close.",
@@ -753,7 +753,7 @@ export const MISSIONS = [
     "title": "THE SHUTTERED SUPPLIER",
     "objective": "Decide whether the supplier should operate during the current month.",
     "briefing": "",
-    "stake": "The fee has a funded purpose, but a supplier now threatens to shut its doors. A firm may keep operating with a loss if sales cover the costs it can avoid today. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the supplier should operate during the current month.",
+    "stake": "The fee funds help, but a supplier may close. A loss does not mean closing saves cash when some bills must still be paid. Today you decide if this shift should run. By the end of the mission, you will compare the two costs.",
     "primer": [
       "A firm may keep operating with a loss if sales cover the costs it can avoid today.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -845,7 +845,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 7 OF 15",
       "title": "THE SHUTTERED SUPPLIER",
       "goNow": "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.",
-      "body": "The fee has a funded purpose, but a supplier now threatens to shut its doors. A firm may keep operating with a loss if sales cover the costs it can avoid today. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the supplier should operate during the current month.",
+      "body": "The fee funds help, but a supplier may close. A loss does not mean closing saves cash when some bills must still be paid. Today you decide if this shift should run. By the end of the mission, you will compare the two costs.",
       "objective": "Decide whether the supplier should operate during the current month."
     },
     "segue": "Mission decision: Keep the supplier open this month and review exit next month. Staying open loses $40; closing loses $100. The shift goes ahead. New firms now want space to open.",
@@ -884,7 +884,7 @@ export const MISSIONS = [
     "title": "A STREET FULL OF SIGNS",
     "objective": "Decide whether the town should block new food sellers to protect current profits.",
     "briefing": "",
-    "stake": "The supplier stays open for now, and new food sellers are asking to enter town. Entry changes competitive pressure, while different products and plant sizes change costs. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should block new food sellers to protect current profits.",
+    "stake": "The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules.",
     "primer": [
       "Entry changes competitive pressure, while different products and plant sizes change costs.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -964,7 +964,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 8 OF 15",
       "title": "A STREET FULL OF SIGNS",
       "goNow": "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.",
-      "body": "The supplier stays open for now, and new food sellers are asking to enter town. Entry changes competitive pressure, while different products and plant sizes change costs. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should block new food sellers to protect current profits.",
+      "body": "The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules.",
       "objective": "Decide whether the town should block new food sellers to protect current profits."
     },
     "segue": "Mission decision: Let the new food sellers enter under the same rules. They meet the health and space checks. New permits go up beside the old menus. Workers now ask what more jobs will pay.",
@@ -1003,7 +1003,7 @@ export const MISSIONS = [
     "title": "THE ONLY BIG PAYROLL",
     "objective": "Decide whether the proposed wage floor can raise both pay and employment in the stated model.",
     "briefing": "",
-    "stake": "New vendors can enter, but the mine remains the only large buyer of skilled labor. One large employer may have to raise pay across its workforce to recruit another worker. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed wage floor can raise both pay and employment in the stated model.",
+    "stake": "New stalls bring jobs, but the mine buys most skilled work. To hire one more worker, it may need to raise pay for all. Today you decide if a wage floor can raise pay and jobs here. By the end of the mission, you will test that claim.",
     "primer": [
       "One large employer may have to raise pay across its workforce to recruit another worker.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1083,7 +1083,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 9 OF 15",
       "title": "THE ONLY BIG PAYROLL",
       "goNow": "Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Lease Desk.",
-      "body": "New vendors can enter, but the mine remains the only large buyer of skilled labor. One large employer may have to raise pay across its workforce to recruit another worker. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed wage floor can raise both pay and employment in the stated model.",
+      "body": "New stalls bring jobs, but the mine buys most skilled work. To hire one more worker, it may need to raise pay for all. Today you decide if a wage floor can raise pay and jobs here. By the end of the mission, you will test that claim.",
       "objective": "Decide whether the proposed wage floor can raise both pay and employment in the stated model."
     },
     "segue": "Mission decision: Support the $30 wage floor for this model. It raises jobs from three to four and raises pay. The offer goes on the board. The mine now points to high freight fees.",
@@ -1122,7 +1122,7 @@ export const MISSIONS = [
     "title": "THE EMPTY FREIGHT SLOT",
     "objective": "Decide whether the freight shortage is entirely a physical capacity problem.",
     "briefing": "",
-    "stake": "The wage clause adds a job, but freight charges still restrict the mine's orders. A sole seller may earn more by selling fewer services at a higher price. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the freight shortage is entirely a physical capacity problem.",
+    "stake": "The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price.",
     "primer": [
       "A sole seller may earn more by selling fewer services at a higher price.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1214,7 +1214,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 10 OF 15",
       "title": "THE EMPTY FREIGHT SLOT",
       "goNow": "Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk.",
-      "body": "The wage clause adds a job, but freight charges still restrict the mine's orders. A sole seller may earn more by selling fewer services at a higher price. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the freight shortage is entirely a physical capacity problem.",
+      "body": "The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price.",
       "objective": "Decide whether the freight shortage is entirely a physical capacity problem."
     },
     "segue": "Mission decision: Market power is part of the freight problem. Only twenty of fifty usable slots are booked. The town keeps access changes in the plan. Two firms now offer a pact.",
@@ -1253,7 +1253,7 @@ export const MISSIONS = [
     "title": "TWO OFFERS, ONE GATE",
     "objective": "Decide whether the firms will keep their low-output pact without enforcement.",
     "briefing": "",
-    "stake": "Unused freight space weakens the case for building at once, but two firms now bargain over access. When each firm's best move depends on its rival, the outcome can differ from a joint agreement. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the firms will keep their low-output pact without enforcement.",
+    "stake": "The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm's best move.",
     "primer": [
       "When each firm's best move depends on its rival, the outcome can differ from a joint agreement.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1312,7 +1312,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 11 OF 15",
       "title": "TWO OFFERS, ONE GATE",
       "goNow": "Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk.",
-      "body": "Unused freight space weakens the case for building at once, but two firms now bargain over access. When each firm's best move depends on its rival, the outcome can differ from a joint agreement. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the firms will keep their low-output pact without enforcement.",
+      "body": "The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm's best move.",
       "objective": "Decide whether the firms will keep their low-output pact without enforcement."
     },
     "segue": "Mission decision: Expect both firms to expand in the one-round model. Each gains by expanding under either rival move. The pact loses its guarantee stamp. More freight may raise water costs.",
@@ -1351,7 +1351,7 @@ export const MISSIONS = [
     "title": "THE WATER BELOW",
     "objective": "Decide whether the town should use the uncorrected freight quantity as its efficiency target.",
     "briefing": "",
-    "stake": "The firms may expand freight, but water records show costs that their prices leave out. A transaction can harm people who are not buying or selling in that market. At Water and Land Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should use the uncorrected freight quantity as its efficiency target.",
+    "stake": "The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count.",
     "primer": [
       "A transaction can harm people who are not buying or selling in that market.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1443,7 +1443,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 12 OF 15",
       "title": "THE WATER BELOW",
       "goNow": "Go to Water and Land Office and meet Owen Price, watershed engineer, at the Water Record Desk.",
-      "body": "The firms may expand freight, but water records show costs that their prices leave out. A transaction can harm people who are not buying or selling in that market. At Water and Land Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the town should use the uncorrected freight quantity as its efficiency target.",
+      "body": "The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count.",
       "objective": "Decide whether the town should use the uncorrected freight quantity as its efficiency target."
     },
     "segue": "Mission decision: Use thirty freight units as the goal once harm is counted. The old goal left out a water cost. The plan gains a water rule. A filter quote may cut the cost of that rule.",
@@ -1482,7 +1482,7 @@ export const MISSIONS = [
     "title": "THE CHEAPER FILTER",
     "objective": "Decide whether the proposed filter tariff preserves the cheapest compliance option.",
     "briefing": "",
-    "stake": "The water cost changes the freight goal, and imported filters may reduce that cost. A border charge can protect sellers while making a useful imported product cost more. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed filter tariff preserves the cheapest compliance option.",
+    "stake": "The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax's costs and gains.",
     "primer": [
       "A border charge can protect sellers while making a useful imported product cost more.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1562,7 +1562,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 13 OF 15",
       "title": "THE CHEAPER FILTER",
       "goNow": "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk.",
-      "body": "The water cost changes the freight goal, and imported filters may reduce that cost. A border charge can protect sellers while making a useful imported product cost more. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the proposed filter tariff preserves the cheapest compliance option.",
+      "body": "The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax's costs and gains.",
       "objective": "Decide whether the proposed filter tariff preserves the cheapest compliance option."
     },
     "segue": "Mission decision: Keep the untaxed filter quote and report who gains from the tariff. The same filter costs more with the fee. The town retains the cheaper quote. The new rail line now seems ready to sign.",
@@ -1601,7 +1601,7 @@ export const MISSIONS = [
     "title": "THE LINE THAT PAYS FOR ITSELF",
     "objective": "Decide whether the second line remains the best plan after correcting the cost comparison.",
     "briefing": "",
-    "stake": "The filter quote clears the water condition, and the second line looks ready to approve. A fee paid from one local group to another is a transfer rather than a resource saved. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the second line remains the best plan after correcting the cost comparison.",
+    "stake": "The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote.",
     "primer": [
       "A fee paid from one local group to another is a transfer rather than a resource saved.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1660,7 +1660,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 14 OF 15",
       "title": "THE LINE THAT PAYS FOR ITSELF",
       "goNow": "Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk.",
-      "body": "The filter quote clears the water condition, and the second line looks ready to approve. A fee paid from one local group to another is a transfer rather than a resource saved. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the second line remains the best plan after correcting the cost comparison.",
+      "body": "The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote.",
       "objective": "Decide whether the second line remains the best plan after correcting the cost comparison."
     },
     "segue": "Mission decision: Drop the claim that the new line is best and keep the access retrofit. The claim counted a transfer as a saving. The line also fails the cost test. Its ribbon comes down before the vote.",
@@ -1699,7 +1699,7 @@ export const MISSIONS = [
     "title": "THE TOWN THAT STAYS",
     "objective": "Decide which complete agreement the council can sign under its published rules.",
     "briefing": "",
-    "stake": "The access retrofit survives review, but its funding and promises still need named owners. A defensible agreement must meet its conditions without counting the same benefit twice. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide which complete agreement the council can sign under its published rules.",
+    "stake": "The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners.",
     "primer": [
       "A defensible agreement must meet its conditions without counting the same benefit twice.",
       "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -1750,7 +1750,7 @@ export const MISSIONS = [
       "header": "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 15 OF 15",
       "title": "THE TOWN THAT STAYS",
       "goNow": "Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Lease Desk.",
-      "body": "The access retrofit survives review, but its funding and promises still need named owners. A defensible agreement must meet its conditions without counting the same benefit twice. At Housing and Work Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide which complete agreement the council can sign under its published rules.",
+      "body": "The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners.",
       "objective": "Decide which complete agreement the council can sign under its published rules."
     },
     "segue": "Mission decision: Sign the access retrofit with funded housing support and the water-cost rule. All funds are confirmed and each promise has an owner. The final trial meets the corrected goal. The plan is ready for signing after the final resource check.",

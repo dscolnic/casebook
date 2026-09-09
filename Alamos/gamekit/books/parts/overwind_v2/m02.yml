@@ -6,12 +6,12 @@
     header: "DAY 2 OF 12 — INSPECTION IN 11 DAYS"
     title: "STEEL OUTSIDE THE AXIS"
     goNow: "Go to Winder House and meet Ewan Price, winding engineer, at The winder desk."
-    body: "The fast start is held, but the machine record may also be wrong. Steel farther from the turning shaft makes a drum harder to speed up. At the Winder House, inspect its shape and compare the turning resistance in the records. By the end of the mission, decide which drum model belongs in the plan."
+    body: "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan."
     objective: "Which drum inertia belongs in the winding model?"
   objective: "Which drum inertia belongs in the winding model?"
-  stake: "The fast start is held, but the machine record may also be wrong. Steel farther from the turning shaft makes a drum harder to speed up. At the Winder House, inspect its shape and compare the turning resistance in the records. By the end of the mission, decide which drum model belongs in the plan."
+  stake: "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan."
   takeaway: "Where mass sits matters when a body turns. ---"
-  segue: "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next."
+  segue: "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Rotational inertia", def: "a measure of how mass distribution resists changes in turning speed."}
@@ -46,7 +46,7 @@
     title: "Rope-contact radius"
     concept: 1   # Rope-contact radius
     reason: "The working radius must be known before the drum model is corrected."
-    scene: "The rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk."
+    scene: "Ewan Price notes that the rejected start puts the drum record under review, and its contact radius must be established before any torque calculation. Use the paired speed readings to identify the working radius rather than trusting the old drawing beside the desk."
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting rope-contact radius in m."
@@ -108,7 +108,7 @@
     title: "Integrate the ring"
     concept: 3   # Integrate the ring
     reason: "The central hole changes how the drum's mass resists turning."
-    scene: "The speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome."
+    scene: "Ewan Price sees that the speed readings establish the working radius, but the drum contains a central hole absent from its older drawing. Build the mass distribution into the inertia calculation before deciding how much turning resistance the motor must overcome."
     motivation: "A measured mass distribution changes the motor demand that the crew can safely authorize."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -158,7 +158,7 @@
         - ask: Integrate and factor B⁴−A⁴.
           answer: 0
           candidates:
-            - text: I=M(A²+B²)/2=45000 kg m²
+            - text: I=M(A²+B²)/2=18000×(1²+2²)/2=45000 kg m²
             - text: I=MB²/2=18000(2²)/2=36000 kg m²
               why: The solid-disk expression assumes mass fills the missing central hole; the annular mass is farther out.
               survives: true
@@ -171,7 +171,7 @@
     title: "Check the drum drawing"
     concept: 3   # Check the drum drawing
     reason: "The old drawing needs a physical dimension check."
-    scene: "The annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew."
+    scene: "Ewan Price confirms that the annular calculation disagrees with the old solid-disk record, so the drawing needs an independent check against the machine. Inspect its dimensions and mass to find which assumption changed before discarding a record that once served the crew."
     motivation: "A measured mass distribution changes the motor demand that the crew can safely authorize."
     format: PROBE
     question: "Select and read all four stations without changing their loads, then submit the station with a mismatch and its implication. No controls need restoration."
@@ -245,7 +245,7 @@
     title: "Commit the day's plan"
     concept: 3   # Commit the day's plan
     reason: "The next torque calculation needs the drum that is actually installed."
-    scene: "The bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here."
+    scene: "Ewan Price finds that the bore measurement supports the annular model while the whole mass and outer radius still match their records. Choose the inertia entry that follows all three observations so the next motor calculation starts from the drum actually standing here."
     motivation: "A measured mass distribution changes the motor demand that the crew can safely authorize."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

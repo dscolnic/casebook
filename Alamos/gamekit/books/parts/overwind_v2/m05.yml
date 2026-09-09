@@ -6,12 +6,12 @@
     header: "DAY 5 OF 12 — INSPECTION IN 8 DAYS"
     title: "ENOUGH ENERGY IS NOT ENOUGH"
     goNow: "Go to Shaft and Brake House and meet Ada Kerr, mine safety engineer, at The bench drawing."
-    body: "The motor can start the load, but a full lift still needs enough energy. Work adds up the force applied over each part of a journey. At the brake house and Winder House, total the lift and stored motion before a trial. By the end of the mission, decide whether that energy budget also clears an emergency stop."
+    body: "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop."
     objective: "Does the lift energy budget clear the emergency stop?"
   objective: "Does the lift energy budget clear the emergency stop?"
-  stake: "The motor can start the load, but a full lift still needs enough energy. Work adds up the force applied over each part of a journey. At the brake house and Winder House, total the lift and stored motion before a trial. By the end of the mission, decide whether that energy budget also clears an emergency stop."
+  stake: "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop."
   takeaway: "Enough energy does not establish a safe stop. ---"
-  segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt."
+  segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Work", def: "energy transferred by a force through a displacement."}
@@ -47,7 +47,7 @@
     title: "Set the energy boundary"
     concept: 5   # Set the energy boundary
     reason: "The energy page cannot count internal work twice."
-    scene: "The slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum."
+    scene: "Ada Kerr notes that the slower start is available, but the complete lift still needs an energy account that does not double-count internal transfers. Choose the system boundaries at the brake-house drawing before adding the work done on cage, rope and drum."
     motivation: "An energy account establishes one necessary condition without replacing the separate stopping limits."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -103,7 +103,7 @@
     title: "Lift a rope one piece at a time"
     concept: 5   # Lift a rope one piece at a time
     reason: "Each rope piece travels a different vertical distance."
-    scene: "The system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind."
+    scene: "Ada Kerr sees that the system review separates internal pulls from energy supplied to lift the load, and different rope pieces travel different distances. Integrate those rises before comparing the full journey with the energy reserved for the next trial wind."
     motivation: "An energy account establishes one necessary condition without replacing the separate stopping limits."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -153,7 +153,7 @@
         - ask: Add cage rise and distributed rope rise.
           answer: 0
           candidates:
-            - text: Wtotal=MgL+λgL²/2=120000000 J
+            - text: Wtotal=MgL+λgL²/2=4000×10×1200+10×10×1200²/2=120000000 J
             - text: Wtotal=MgL+λgL²=48000000+144000000=192000000 J
               why: The rope’s center of mass rises L/2, not L; omitting the half repeats the depth error.
               survives: true
@@ -166,7 +166,7 @@
     title: "Drum motion energy"
     concept: 10   # Drum motion energy
     reason: "The moving drum stores energy that a brake must remove."
-    scene: "The lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb."
+    scene: "Ewan Price confirms that the lift-work total fits the reserved energy, but the drum also stores motion energy whenever it is turning. Carry the accepted inertia to the winding desk and calculate that separate store before discussing what a brake must absorb."
     motivation: "Stored rotational energy remains part of the brake's job even when the lift supply is sufficient."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b*c*c; submit the resulting drum motion energy in J."
@@ -230,7 +230,7 @@
     title: "Commit the day's plan"
     concept: 5   # Commit the day's plan
     reason: "An energy supply does not certify a stopping trajectory."
-    scene: "The lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested."
+    scene: "Ewan Price finds that the lift work and the drum energy are now recorded as different quantities with different operational consequences for the crew. Decide whether the available lift supply settles the emergency-stop question or leaves the pad performance still to be tested."
     motivation: "An energy account establishes one necessary condition without replacing the separate stopping limits."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 4 OF 15"
     title: "TOO MANY HANDS"
     goNow: "Go to Business Workshop and meet Nico Bell, diner owner, at the Cost Ledger Desk."
-    body: "Rooms are filling again, but the diner still cannot cook enough meals. More workers sharing fixed equipment eventually add less output per extra worker. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether another cook is worth hiring at the current wage."
+    body: "Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post."
     objective: "Decide whether another cook is worth hiring at the current wage."
   objective: "Decide whether another cook is worth hiring at the current wage."
-  stake: "Rooms are filling again, but the diner still cannot cook enough meals. More workers sharing fixed equipment eventually add less output per extra worker. At Business Workshop, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether another cook is worth hiring at the current wage."
+  stake: "Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post."
   takeaway: "The diner fills one post while admitting that its offer may shift workers between local firms."
   segue: "Mission decision: Hire the fourth cook, but not the fifth. The fourth adds more sales than wage cost; the fifth does not. One job is posted. The bakery loses a worker to that offer."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -47,7 +47,7 @@
     title: "Find the next worker's output"
     concept: 6   # Short-run production and marginal product
     reason: "The vacancy must be costed before the owner posts it."
-    scene: "The room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook's contribution before offering a wage that the added sales cannot cover."
+    scene: "Nico shows you the record: the room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook's contribution before offering a wage that the added sales cannot cover."
     motivation: "Hiring depends on the contribution of the next worker, not average sales."
     format: BALLPARK
     question: "Submit the fourth cook's marginal revenue product as added lunches times price."
@@ -129,7 +129,7 @@
     title: "Separate the cost records"
     concept: 7   # Cost measures and opportunity cost of ownership
     reason: "The wage decision must count the costs that actually change."
-    scene: "The fourth cook's extra receipts are now known, while the lease and the owner's unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff."
+    scene: "Nico shows you the record: the fourth cook's extra receipts are now known, while the lease and the owner's unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff."
     motivation: "The hiring recommendation must not confuse cash flow, total cost and marginal contribution."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -219,7 +219,7 @@
     title: "Test the fifth place at the stove"
     concept: 14   # Factor demand and hiring
     reason: "The fifth place at the stove may cost more than it earns."
-    scene: "The cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook's contribution before assuming that more meals always mean more profit."
+    scene: "Nico shows you the record: the cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook's contribution before assuming that more meals always mean more profit."
     motivation: "A smaller contribution can make the next hire unprofitable while total output still rises."
     format: VERIFY
     question: "First, calculate and commit the fifth cook's net addition to profit as added revenue minus wage. Then set the Order Terminal to five cooks, run one trial shift, measure the net change, and select whether it matches; restore the staffing simulation to four cooks after reading, with no second reading required."
@@ -316,18 +316,18 @@
     title: "Approve the vacancy"
     concept: 14   # Factor demand and hiring
     reason: "The job notice must reflect the marginal evidence."
-    scene: "The trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support."
+    scene: "Nico shows you the record: the trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support."
     motivation: "The diner fills one post while admitting that its offer may shift workers between local firms."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Hire the fourth cook but not the fifth at the stated wage
       - Hire both because total output keeps rising
       - Hire neither because the lease is expensive
       - Hire the fifth because average output is positive
     answer: Hire the fourth cook but not the fifth at the stated wage
-    answerText: The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost.
-    why: The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost. The diner fills one post while admitting that its offer may shift workers between local firms. Rising output does not establish that revenue covers the next wage. The lease is unchanged across the available hiring choices.
+    answerText: "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost."
+    why: "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost. The diner fills one post while admitting that its offer may shift workers between local firms. Rising output does not establish that revenue covers the next wage. The lease is unchanged across the available hiring choices."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The fourth cook adds $60 receipts and the fifth adds $40; each costs $50. The firm can sell every added lunch at $5, and no other marginal costs change.

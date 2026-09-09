@@ -6,10 +6,10 @@
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 10 OF 15"
     title: "THE EMPTY FREIGHT SLOT"
     goNow: "Go to Freight Contract Office and meet Ruth Sen, terminal manager, at the Dispatch Desk."
-    body: "The wage clause adds a job, but freight charges still restrict the mine's orders. A sole seller may earn more by selling fewer services at a higher price. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the freight shortage is entirely a physical capacity problem."
+    body: "The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price."
     objective: "Decide whether the freight shortage is entirely a physical capacity problem."
   objective: "Decide whether the freight shortage is entirely a physical capacity problem."
-  stake: "The wage clause adds a job, but freight charges still restrict the mine's orders. A sole seller may earn more by selling fewer services at a higher price. At Freight Contract Office, compare the records before a wrong plan wastes scarce funds. By the end of the mission, decide whether the freight shortage is entirely a physical capacity problem."
+  stake: "The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price."
   takeaway: "The town can ask whether competition requires duplicate infrastructure or better access."
   segue: "Mission decision: Market power is part of the freight problem. Only twenty of fifty usable slots are booked. The town keeps access changes in the plan. Two firms now offer a pact."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -46,7 +46,7 @@
     title: "Price the terminal's chosen quantity"
     concept: 16   # Monopoly price, output and surplus
     reason: "The freight invoice must use the price buyers will pay at that volume."
-    scene: "The wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal's demand schedule before deciding what price its chosen volume actually lets it charge."
+    scene: "Ruth shows you the record: the wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal's demand schedule before deciding what price its chosen volume actually lets it charge."
     motivation: "A pricing claim needs the demand price at the chosen output."
     format: BALLPARK
     question: "Submit the price from the demand curve at 20 slots."
@@ -128,7 +128,7 @@
     title: "Separate firm and town benchmarks"
     concept: 16   # Monopoly price, output and surplus
     reason: "The terminal's profit target must be separated from physical capacity."
-    scene: "The terminal's charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery."
+    scene: "Ruth shows you the record: the terminal's charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery."
     motivation: "A profit-maximizing schedule and a physically full terminal are different states."
     format: PROTOCOL
     question: "Match each evidence card to one response; use each response once and submit all four links."
@@ -218,21 +218,17 @@
     title: "Why space remains empty"
     concept: 16   # Monopoly price, output and surplus
     reason: "The usable-slot reading can disprove a purely physical bottleneck."
-    scene: "The benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment."
+    scene: "Mara shows you the record: the benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment."
     motivation: "The capacity reading changes the meaning of the queue photographs planted earlier."
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - label: Pricing restricts the booked quantity
-        mechanism: The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.
-      - label: A fifty-slot mechanical breakdown
-        mechanism: All 50 slots are reported usable.
-      - label: Marginal cost rose above price
-        mechanism: Marginal cost is $20, below $60.
-      - label: Demand requires every slot at $60
-        mechanism: Demand at $60 is 20, not 50.
+      - Pricing restricts the booked quantity
+      - A fifty-slot mechanical breakdown
+      - Marginal cost rose above price
+      - Demand requires every slot at $60
     answer: Pricing restricts the booked quantity
-    answerText: The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.
+    answerText: "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse."
     why: "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable. Marginal cost is $20, below $60. Demand at $60 is 20, not 50."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
@@ -327,18 +323,18 @@
     title: "Name the bottleneck accurately"
     concept: 16   # Monopoly price, output and surplus
     reason: "The second-line proposal needs an accurate account of the existing bottleneck."
-    scene: "The dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy."
+    scene: "Mara shows you the record: the dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy."
     motivation: "The town can ask whether competition requires duplicate infrastructure or better access."
     format: CHOICE
-    question: Select the one recommendation supported by the recorded evidence and the stated decision rule.
+    question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
       - Record market power as part of the freight shortage
       - Certify that all 50 slots are physically full
       - Demand a $20 price without examining fixed costs
       - Say monopoly price equals marginal revenue
     answer: Record market power as part of the freight shortage
-    answerText: Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms.
-    why: Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms. The town can ask whether competition requires duplicate infrastructure or better access. Dispatch uses only 20 of 50 usable slots. Marginal-cost pricing may leave fixed costs uncovered. At the chosen output, price is 60 while marginal revenue is 20.
+    answerText: "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms."
+    why: "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms. The town can ask whether competition requires duplicate infrastructure or better access. Dispatch uses only 20 of 50 usable slots. Marginal-cost pricing may leave fixed costs uncovered. At the chosen output, price is 60 while marginal revenue is 20."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The single terminal chooses 20 of 50 usable slots at $60; MR=MC at 20, while P=MC at 40 in the no-externality benchmark. A legal barrier excludes rivals from the terminal.

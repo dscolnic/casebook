@@ -8,11 +8,8 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You are at Aster Station in Antarctica, where a whiteout has cut off 28 people and left "
-    +   "one rescue window about 36 hours away. Your AP Computer Science A skills are needed "
-    +   "because Java software controls heat, air, vehicles, and communications. If those systems "
-    +   "fail together, the station may become unsafe before aircraft can arrive. Station "
-    +   "director Elena Park puts you in charge of proving what the code does before anyone "
-    +   "changes a live system. “Do not trust a green light or a red light until you can explain "
-    +   "why it is there.”",
+  "You are at Aster Station, cut off by snow with 28 people. A rescue plane may reach you "
+    +   "in 36 hours. The heat alarm is red, but the code may be wrong. Elena Park asks you to "
+    +   "build The Recovery Record: fifteen tested findings that tell the next crew which faults "
+    +   "were code and which fixes held. Prove each change before it goes live.",
 ];

@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 18 HOURS REMAIN"
     title: "THE FAST ANSWER"
     goNow: "Go to the Message Queue Board in Communications & Weather."
-    body: "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes."
-    objective: "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window."
-  objective: "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window."
-  stake: "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes."
+    body: "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time."
+    objective: "Today you decide which search can reach the radio record before the link closes."
+  objective: "Today you decide which search can reach the radio record before the link closes."
+  stake: "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time."
   takeaway: "Binary search is required; the sorted table lets the code cut the remaining range in half and reach 122.3 MHz in three midpoint checks. ---"
-  segue: "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Two separate controllers then report the same last-warning value."
+  segue: "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Yet Mei sees two separate units report the same last warning."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "binary search", def: "a search on sorted data that repeatedly discards half of the remaining range. loop: code that repeats while a condition or counter says more work remains."}
@@ -43,7 +43,7 @@
     title: "Estimate the search work"
     concept: 19   # Nested iteration and informal run-time reasoning
     reason: "Liv needs a search strategy before the short satellite pass begins, and the table contains 1,024 sorted frequency records."
-    scene: "A linear search may inspect all 1,024 records, while a halving search needs about one check per power of two in the table size. Estimate the maximum midpoint checks for binary search so the crew can compare the two methods before coding."
+    scene: "Liv Andersen compares a scan of 1,024 records with a search that halves the range at each check. Estimate the maximum midpoint checks for binary search so the crew can choose a method before the next short pass."
     motivation: "The rescue decision depends on choosing an algorithm whose work fits the time window, not merely one that eventually finds the record."
     format: BALLPARK
     question: "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number."
@@ -91,7 +91,7 @@
     title: "Choose the search"
     concept: 31   # Linear and binary search
     reason: "The estimate favors halving, but binary search is valid only if the rescue-frequency table is sorted by the same quantity being searched."
-    scene: "The table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window."
+    scene: "Liv Andersen checks the evidence: the table is sorted ascending by frequency in megahertz, and the target record is 122.3 MHz. Choose the search method that can use that ordering without first rearranging the data during the satellite window."
     motivation: "The fastest-looking method is only correct when its prerequisite about data order is actually satisfied."
     format: CHOICE
     question: "Select the search method justified by the table's existing order."
@@ -135,7 +135,7 @@
     title: "Trace midpoint updates"
     concept: 31   # Linear and binary search
     reason: "The table is sorted and binary search is authorized, so Priya needs the exact low/high updates for the captured target."
-    scene: "The eight displayed frequencies are [118.0,119.4,120.2,121.6,122.3,123.1,124.5,126.0], with target 122.3. Build the midpoint trace from indexes 0–7 and choose the update after each comparison until index 4 is found."
+    scene: "Priya Nair shows [118.1,119.4,120.8,121.6,122.3,123.1,124.7,126.0] and target 122.3. Trace midpoints from bounds 0–7 and choose each new bound until the target is found."
     motivation: "Correct midpoint logic matters as much as choosing binary search; one reversed boundary update can discard the target half."
     format: DERIVE
     question: "Choose the correct boundary update at each comparison and then the final search result."
@@ -168,7 +168,7 @@
     #           - {line: "mid=4 and value=122.3: found", correct: true}
     #           - {line: "mid=5 and value=123.1: not found", correct: false, survives: true, why: "After the bounds change, the midpoint must be recomputed as 4; reusing the prior midpoint ignores the current interval."}
     derive:
-      start: sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7.
+      start: "low = 0; high = 7; target = 122.3. mid = (low + high) / 2 uses integer division. The sorted array is [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]. Source: sorted values = [118.1, 119.4, 120.8, 121.6, 122.3, 123.1, 124.7, 126.0]; target = 122.3; low = 0; high = 7."
       goal: narrow binary-search bounds until the target index is identified
       steps:
         - ask: At mid=3, value 121.6 < 122.3. Choose the update.
@@ -201,7 +201,7 @@
     title: "Lock the rescue frequency"
     concept: 31   # Linear and binary search
     reason: "The midpoint trace reaches 122.3 MHz in three checks, but the station must verify the live lookup returns the same record before the pass closes."
-    scene: "The sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it."
+    scene: "Liv Andersen checks the evidence: the sorted table still contains eight frequencies, and the live binary search begins with low 0 and high 7 while targeting 122.3 MHz. Commit the array index the search should return before the Packet Monitor reveals it."
     motivation: "A verified fast lookup protects the rescue link without replacing the independent path evidence needed later."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the index binary search should return for 122.3 MHz. OPERATE: run the search on the live sorted table. MEASURE: reveal the returned index. INTERPRET: inspect the midpoint trace and acknowledgment, then submit LOCK or ABORT."

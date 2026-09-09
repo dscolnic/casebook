@@ -6,10 +6,10 @@
     header: "RESCUE WINDOW — ABOUT 8 HOURS REMAIN"
     title: "WHITEOUT"
     goNow: "Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board."
-    body: "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade."
-    objective: "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade."
-  objective: "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade."
-  stake: "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade."
+    body: "The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust."
+    objective: "Today you decide which tested release plan can keep the rescue path open."
+  objective: "Today you decide which tested release plan can keep the rescue path open."
+  stake: "The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust."
   takeaway: "Use a staged canary release with backward rollback, independent rover communications, and five committed checks before expanding to the remaining controllers. ---"
   segue: "Mission decision: Use a staged canary release with backward rollback and the rover command path. The canary checks match. The crew expands the release one stage at a time. The Runway Door opens. The player watches the rescue aircraft land and taxi to the station."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -42,7 +42,7 @@
     title: "Choose the staged release"
     concept: 20   # Abstraction and program design
     reason: "The aircraft is entering the last usable weather window, and Park must choose a release plan before any wider controller update begins."
-    scene: "The crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release."
+    scene: "Elena Park checks the evidence: the crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release."
     motivation: "The final plan should integrate established evidence rather than buy every attractive action or trust one dramatic restart."
     format: SCIENCETANK
     question: "Spend exactly 100 release points and submit the staged plan that satisfies every proven recovery constraint."
@@ -125,7 +125,7 @@
     title: "Prove the rollback traversal"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The staged plan cannot start until backward ArrayList removal is encoded as the exact mechanism that survived the holdout and stress tests."
-    scene: "The rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index."
+    scene: "Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index."
     motivation: "The final code must express the proven mechanism, not merely carry a label saying backward traversal is safer."
     format: DERIVE
     question: "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records."
@@ -158,7 +158,7 @@
     #           - {line: "removing i cannot change any lower index still to be visited", correct: true}
     #           - {line: "removing i preserves every higher index that has not been visited yet", correct: false, survives: true, why: "In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged."}
     derive:
-      start: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index.
+      start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
       goal: remove every resolved record without skipping a neighbor that shifts after deletion
       steps:
         - ask: Choose the loop header.
@@ -191,7 +191,7 @@
     title: "Protect the rescue link"
     concept: 37   # Networks, packets, protocols, redundancy, and cybersecurity
     reason: "The rollback mechanism is verified, but the canary release still needs a command path that does not share the primary router's single point of failure."
-    scene: "Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment."
+    scene: "Liv Andersen checks: Primary satellite acknowledgments, outbound patch confirmation, Rover Three relay traffic, and local weather updates do not all depend on the same hardware. Open each dependency and identify the shared router plus the independent channel that must remain active during canary deployment."
     motivation: "Redundancy only protects the release when the backup path is genuinely independent of the component that can remove the primary path."
     format: TRACE
     question: "Open all four dependencies, identify the shared single point, and submit the independent command path that must stay active."
@@ -269,7 +269,7 @@
     title: "Commit the station recovery"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "Every release gate is ready, but the remaining controllers stay locked until the player computes and commits five canary expectations from displayed code and state."
-    scene: "P02 starts at limit 70 and warning 3; H04 is a separate controller, the packet time is 2026-09-08 08:07, rollback starts [P02 open, X resolved, H04 open], and AR-2 may fail. Use the displayed code and dependency rules to compute five canary expectations."
+    scene: "Elena Park checks P02 at limit 70 and warning 3; separate H04; packet time 2026-09-08 08:07; rollback [P02 open, X resolved, H04 open]; and possible AR-2 failure. Use the displayed code and dependency rules to compute five canary expectations."
     motivation: "The final verification integrates established mechanisms without printing the answers before the player's commitment."
     format: VERIFY
     question: "First, calculate and commit P02's final limit after the displayed +20 patch. OPERATE: deploy only P02. MEASURE: reveal its final limit. INTERPRET: confirm the four previously established canary checks and submit GO or NO-GO."

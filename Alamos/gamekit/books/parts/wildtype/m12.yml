@@ -6,12 +6,12 @@
     header: "DAY 12 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SMALL THINGS ON THE LIST"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone."
+    body: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone."
     objective: "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
   objective: "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
-  stake: "The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone."
+  stake: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone."
   takeaway: "Prepare the tested plant-partner combination in containment. ---"
-  segue: "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test. The crew uses the plan just chosen. The receiving soil may not cycle nutrients like island soil."
+  segue: "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Keystone species", def: "A species with a disproportionately large community effect relative to its abundance."}
@@ -53,7 +53,7 @@
     title: "Name the observed links"
     concept: 27   # Species interactions and niches
     reason: "The manifest must account for the measured living relationships."
-    scene: "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Match the observed field relationships before the team decides which partners need specific testing."
+    scene: "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Tess Rowan asks: \"Match the observed field relationships before the team decides which partners need specific testing.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -128,11 +128,11 @@
     title: "Budget the food web"
     concept: 28   # Energy flow and trophic levels
     reason: "The pilot food web needs an energy budget."
-    scene: "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Calculate the next feeding level before the clinic evaluates which partner combination the plants can support."
+    scene: "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Tess Rowan asks: \"Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use stored biomass energy times transfer fraction; submit primary-consumer energy in kJ."
-    answerText: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison."
+    answerText: Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison.
     why: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. The remainder is not transferred to that next trophic level as new biomass; energy supports metabolism, is dissipated as heat, or remains in material not eaten or assimilated. Actual efficiencies vary, so the result is a campaign estimate rather than a universal constant. It shows why adding consumers without supporting production cannot create a self-sustaining pilot from an energy shortage."
     # wrong-path feedback, one rebuttal per wrong option:
     #   50 applies the transfer twice and estimates the next level. 5,000 assumes all producer biomass energy becomes consumer biomass. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -195,7 +195,7 @@
     title: "Interpret the partner screens"
     concept: 21   # Viruses and host cells
     reason: "The partner list needs specific biological evidence and screening."
-    scene: "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Separate those observations before the director chooses which tested organisms can enter a contained pilot."
+    scene: "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Mara Vale asks: \"Separate those observations before the director chooses which tested organisms can enter a contained pilot.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -270,7 +270,7 @@
     title: "Add the tested partners"
     concept: 27   # Species interactions and niches
     reason: "The director must approve the tested pair within the permit."
-    scene: "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Choose the next pilot action without extending that result to every organism or an open release."
+    scene: "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Ada Penn asks: \"Choose the next pilot action without extending that result to every organism or an open release.\""
     motivation: "Prepare the tested plant-partner combination in containment."
     format: CHOICE
     question: "Choose the next pilot action within the evidence and permit."

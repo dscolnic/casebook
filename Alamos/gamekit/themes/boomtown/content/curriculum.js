@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Count the unmatched orders",
-      "scene": "The repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue.",
+      "scene": "Mara shows you the record: the repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue.",
       "place": "",
       "at": "budget-desk",
-      "story": "The repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue.",
+      "story": "Mara shows you the record: the repair agreement keeps lunch preparation running, yet customers still wait outside after the kitchen closes its order book. Count the unmet orders at the old price before deciding what information could explain the queue.",
       "game": {
         "type": "BALLPARK",
         "title": "Count the unmatched orders",
@@ -37,10 +37,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Separate four market changes",
-      "scene": "The old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner's actual order, price and input-cost records.",
+      "scene": "Mara shows you the record: the old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner's actual order, price and input-cost records.",
       "place": "",
       "at": "town-map",
-      "story": "The old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner's actual order, price and input-cost records.",
+      "story": "Mara shows you the record: the old-price order count confirms a shortage, but that count alone does not explain why the queue grew. Separate the possible market changes before comparing the diner's actual order, price and input-cost records.",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate four market changes",
@@ -82,10 +82,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Read the lunch record",
-      "scene": "The change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price.",
+      "scene": "Mara shows you the record: the change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price.",
       "place": "",
       "at": "budget-desk",
-      "story": "The change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price.",
+      "story": "Mara shows you the record: the change cards distinguish a shift in buying from a rise in production costs, so the competing explanations now predict different patterns. Read the complete lunch record before attaching a cause to the higher price.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Read the lunch record",
@@ -128,22 +128,10 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          {
-            "label": "More buyers at each price",
-            "mechanism": "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output."
-          },
-          {
-            "label": "Higher cooking input costs",
-            "mechanism": "Input cost is unchanged, contradicting the proposed cost shock."
-          },
-          {
-            "label": "Fewer meals from each cook",
-            "mechanism": "Lower productivity would constrain supply and reduce quantity, unlike the sales record."
-          },
-          {
-            "label": "Fewer buyers at each price",
-            "mechanism": "Fewer buyers contradicts the 90 orders at the old price."
-          }
+          "More buyers at each price",
+          "Higher cooking input costs",
+          "Fewer meals from each cook",
+          "Fewer buyers at each price"
         ],
         "correctChoice": "More buyers at each price"
       },
@@ -160,10 +148,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Explain the rise in public",
-      "scene": "The lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents' complaints.",
+      "scene": "Mara shows you the record: the lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents' complaints.",
       "place": "",
       "at": "town-map",
-      "story": "The lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents' complaints.",
+      "story": "Mara shows you the record: the lunch records now identify the pattern behind the price rise, including the unchanged cost of making each meal. Choose the public explanation that fits all those facts before the council responds to residents' complaints.",
       "game": {
         "type": "CHOICE",
         "title": "Explain the rise in public",
@@ -199,10 +187,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Measure the lost receipts",
-      "scene": "The lunch market grew because more buyers arrived, but the room owner's higher advertised rate has left beds empty. Compare receipts before assuming that the town's growing population makes every price rise profitable for every seller.",
+      "scene": "Mara shows you the record: the lunch market grew because more buyers arrived, but the room owner's higher advertised rate has left beds empty. Compare receipts before assuming that the town's growing population makes every price rise profitable for every seller.",
       "place": "",
       "at": "budget-desk",
-      "story": "The lunch market grew because more buyers arrived, but the room owner's higher advertised rate has left beds empty. Compare receipts before assuming that the town's growing population makes every price rise profitable for every seller.",
+      "story": "Mara shows you the record: the lunch market grew because more buyers arrived, but the room owner's higher advertised rate has left beds empty. Compare receipts before assuming that the town's growing population makes every price rise profitable for every seller.",
       "game": {
         "type": "BALLPARK",
         "title": "Measure the lost receipts",
@@ -228,10 +216,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Read response evidence",
-      "scene": "The room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner's price decision.",
+      "scene": "Mara shows you the record: the room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner's price decision.",
       "place": "",
       "at": "town-map",
-      "story": "The room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner's price decision.",
+      "story": "Mara shows you the record: the room ledger shows a revenue loss after the higher rate, which makes the size of the buying response matter. Distinguish the response measures before using the room experiment to judge the owner's price decision.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read response evidence",
@@ -272,10 +260,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Check the midpoint claim",
-      "scene": "The response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts.",
+      "scene": "Mara shows you the record: the response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts.",
       "place": "",
       "at": "hearing-table",
-      "story": "The response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts.",
+      "story": "Mara shows you the record: the response cards separate own-price effects from changes in income and related goods, and the room record holds those other conditions fixed. Test the midpoint calculation before using demand responsiveness to explain the lost receipts.",
       "game": {
         "type": "VERIFY",
         "title": "Check the midpoint claim",
@@ -327,10 +315,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Reopen the vacant rooms",
-      "scene": "The archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight's rooms are advertised at the desk.",
+      "scene": "Mara shows you the record: the archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight's rooms are advertised at the desk.",
       "place": "",
       "at": "town-map",
-      "story": "The archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight's rooms are advertised at the desk.",
+      "story": "Mara shows you the record: the archive check now agrees with an elastic response, and the lost bookings outweigh the extra payment on occupied rooms. Choose whether to keep the tested rate before tonight's rooms are advertised at the desk.",
       "game": {
         "type": "CHOICE",
         "title": "Reopen the vacant rooms",
@@ -365,10 +353,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Count homes the cap cannot promise",
-      "scene": "The diner's new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution.",
+      "scene": "Mara shows you the record: the diner's new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution.",
       "place": "",
       "at": "budget-desk",
-      "story": "The diner's new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution.",
+      "story": "Mara shows you the record: the diner's new cook came from the bakery, and workers say their rent now limits which jobs they can accept. Count the homes the proposed cap leaves unmatched before calling it a complete housing solution.",
       "game": {
         "type": "BALLPARK",
         "title": "Count homes the cap cannot promise",
@@ -394,10 +382,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Who gets the benefit",
-      "scene": "The cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public.",
+      "scene": "Mara shows you the record: the cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public.",
       "place": "",
       "at": "town-map",
-      "story": "The cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public.",
+      "story": "Mara shows you the record: the cap leaves more applicants than offered homes, but that total does not say who receives its benefits. Follow the affected tenants, applicants and owners before deciding what the town can honestly promise in public.",
       "game": {
         "type": "PROTOCOL",
         "title": "Who gets the benefit",
@@ -438,10 +426,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Reserve actual receipts",
-      "scene": "The hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment.",
+      "scene": "Mara shows you the record: the hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment.",
       "place": "",
       "at": "budget-desk",
-      "story": "The hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment.",
+      "story": "Mara shows you the record: the hearing kept tenant relief separate from its promise of access, leaving a housing measure that still needs funds. Count the fee receipts from trades that actually remain before reserving money for the new commitment.",
       "game": {
         "type": "BALLPARK",
         "title": "Reserve actual receipts",
@@ -468,10 +456,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Follow the burden",
-      "scene": "The fee's receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers' payments and sellers' receipts before the council describes who funds the housing measure.",
+      "scene": "Mara shows you the record: the fee's receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers' payments and sellers' receipts before the council describes who funds the housing measure.",
       "place": "",
       "at": "town-map",
-      "story": "The fee's receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers' payments and sellers' receipts before the council describes who funds the housing measure.",
+      "story": "Mara shows you the record: the fee's receipts are now recorded, but the group that sends the payment may not bear its full cost. Compare buyers' payments and sellers' receipts before the council describes who funds the housing measure.",
       "game": {
         "type": "PROTOCOL",
         "title": "Follow the burden",
@@ -513,10 +501,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Compare closing with staying open",
-      "scene": "The ledger now shows which payments disappear with production and which remain, making the two operating choices directly comparable. Test the advantage of staying open before the council accepts the supplier's threatened loss of service.",
+      "scene": "Mara shows you the record: the ledger now shows which payments disappear with production and which remain, making the two operating choices directly comparable. Test the advantage of staying open before the council accepts the supplier's threatened loss of service.",
       "place": "",
       "at": "hearing-table",
-      "story": "The ledger now shows which payments disappear with production and which remain, making the two operating choices directly comparable. Test the advantage of staying open before the council accepts the supplier's threatened loss of service.",
+      "story": "Mara shows you the record: the ledger now shows which payments disappear with production and which remain, making the two operating choices directly comparable. Test the advantage of staying open before the council accepts the supplier's threatened loss of service.",
       "game": {
         "type": "VERIFY",
         "title": "Compare closing with staying open",
@@ -569,10 +557,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Keep the shift or close it",
-      "scene": "The trial shows that continued production covers part of the unavoidable lease, even though total economic profit stays negative. Decide what the supplier should do this month before treating a temporary operating choice as a permanent commitment.",
+      "scene": "Mara shows you the record: the trial shows that continued production covers part of the unavoidable lease, even though total economic profit stays negative. Decide what the supplier should do this month before treating a temporary operating choice as a permanent commitment.",
       "place": "",
       "at": "town-map",
-      "story": "The trial shows that continued production covers part of the unavoidable lease, even though total economic profit stays negative. Decide what the supplier should do this month before treating a temporary operating choice as a permanent commitment.",
+      "story": "Mara shows you the record: the trial shows that continued production covers part of the unavoidable lease, even though total economic profit stays negative. Decide what the supplier should do this month before treating a temporary operating choice as a permanent commitment.",
       "game": {
         "type": "CHOICE",
         "title": "Keep the shift or close it",
@@ -581,7 +569,7 @@ export const CURRICULUM = {
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "answer": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses.",
-        "why": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses. Short-run continuity and long-run sustainability require different comparisons. Shutdown loses $100 rather than $40 this month. Positive revenue alone does not cover all opportunity costs. The lease is a cost; it is simply unchanged by today’s shutdown choice.",
+        "why": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses. Short-run continuity and long-run sustainability require different comparisons. Shutdown loses $100 rather than $40 this month. Positive revenue alone does not cover all opportunity costs. The lease is a cost; it is simply unchanged by today's shutdown choice.",
         "rebuttals": [
           "Shutdown loses $100 rather than $40 this month.",
           "Positive revenue alone does not cover all opportunity costs.",
@@ -608,10 +596,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Why space remains empty",
-      "scene": "The benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment.",
+      "scene": "Mara shows you the record: the benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment.",
       "place": "",
       "at": "budget-desk",
-      "story": "The benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment.",
+      "story": "Mara shows you the record: the benchmark comparison separates profitable output from available capacity, and the booking record can now test the competing explanations. Read every dispatch zone before deciding whether expensive freight comes only from broken or fully occupied equipment.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why space remains empty",
@@ -654,22 +642,10 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          {
-            "label": "Pricing restricts the booked quantity",
-            "mechanism": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse."
-          },
-          {
-            "label": "A fifty-slot mechanical breakdown",
-            "mechanism": "All 50 slots are reported usable."
-          },
-          {
-            "label": "Marginal cost rose above price",
-            "mechanism": "Marginal cost is $20, below $60."
-          },
-          {
-            "label": "Demand requires every slot at $60",
-            "mechanism": "Demand at $60 is 20, not 50."
-          }
+          "Pricing restricts the booked quantity",
+          "A fifty-slot mechanical breakdown",
+          "Marginal cost rose above price",
+          "Demand requires every slot at $60"
         ],
         "correctChoice": "Pricing restricts the booked quantity"
       },
@@ -687,10 +663,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Name the bottleneck accurately",
-      "scene": "The dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy.",
+      "scene": "Mara shows you the record: the dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy.",
       "place": "",
       "at": "town-map",
-      "story": "The dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy.",
+      "story": "Mara shows you the record: the dispatch record shows that bookings follow the price schedule while usable slots remain, and the entry barrier is documented. Choose what the town should record before committing to duplicate infrastructure as the only possible remedy.",
       "game": {
         "type": "CHOICE",
         "title": "Name the bottleneck accurately",
@@ -727,10 +703,10 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Freeze the forecast",
-      "scene": "The reply comparisons now identify the firms' incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact's promised output in public service planning.",
+      "scene": "Mara shows you the record: the reply comparisons now identify the firms' incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact's promised output in public service planning.",
       "place": "",
       "at": "hearing-table",
-      "story": "The reply comparisons now identify the firms' incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact's promised output in public service planning.",
+      "story": "Mara shows you the record: the reply comparisons now identify the firms' incentives under either rival choice, allowing a forecast that can be committed in advance. Run the unchanged one-round table before using the pact's promised output in public service planning.",
       "game": {
         "type": "VERIFY",
         "title": "Freeze the forecast",
@@ -783,10 +759,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "Use a defensible service forecast",
-      "scene": "The trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents.",
+      "scene": "Mara shows you the record: the trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents.",
       "place": "",
       "at": "town-map",
-      "story": "The trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents.",
+      "story": "Mara shows you the record: the trial follows the stable action pair rather than the larger joint payoff, and the pact has no enforcement mechanism. Choose the forecast the hearing may rely on before extra freight becomes a promise to residents.",
       "game": {
         "type": "CHOICE",
         "title": "Use a defensible service forecast",
@@ -794,8 +770,8 @@ export const CURRICULUM = {
         "play": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
-        "answer": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.",
-        "why": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization.",
+        "answer": "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.",
+        "why": "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization.",
         "rebuttals": [
           "Each firm can increase its own profit by leaving mutual restriction.",
           "The incentives are symmetric for B.",
@@ -822,10 +798,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Test the corrected target",
-      "scene": "The shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim.",
+      "scene": "Mara shows you the record: the shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim.",
       "place": "",
       "at": "hearing-table",
-      "story": "The shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim.",
+      "story": "Mara shows you the record: the shared-resource comparison explains why unpriced water use matters, and the freight benefit schedule is still available from the earlier review. Test the revised output target before the town authorizes expansion under an outdated efficiency claim.",
       "game": {
         "type": "VERIFY",
         "title": "Test the corrected target",
@@ -878,10 +854,10 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Correct the freight goal",
-      "scene": "The revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem.",
+      "scene": "Mara shows you the record: the revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem.",
       "place": "",
       "at": "town-map",
-      "story": "The revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem.",
+      "story": "Mara shows you the record: the revised trial includes the water cost and gives a different target from both private monopoly output and the no-harm benchmark. Choose the quantity rule before the access agreement confuses more competition with complete correction of every problem.",
       "game": {
         "type": "CHOICE",
         "title": "Correct the freight goal",
@@ -917,10 +893,10 @@ export const CURRICULUM = {
     {
       "day": 21,
       "title": "Read the distribution claim",
-      "scene": "The tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more.",
+      "scene": "Mara shows you the record: the tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more.",
       "place": "",
       "at": "budget-desk",
-      "story": "The tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more.",
+      "story": "Mara shows you the record: the tariff ledger separates resource effects from transfers, and advocates now point to an improved income share as proof of benefit. Check the underlying income levels before accepting a distribution chart as evidence that households can buy more.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Read the distribution claim",
@@ -963,22 +939,10 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          {
-            "label": "A larger share need not mean more income",
-            "mechanism": "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters."
-          },
-          {
-            "label": "The bottom half’s cash income rose",
-            "mechanism": "Both products equal $200."
-          },
-          {
-            "label": "All households have equal incomes",
-            "mechanism": "The bottom half receives only 25%, not 50%."
-          },
-          {
-            "label": "The filter price fell after the tariff",
-            "mechanism": "The price rose from $10 to $12."
-          }
+          "A larger share need not mean more income",
+          "The bottom half’s cash income rose",
+          "All households have equal incomes",
+          "The filter price fell after the tariff"
         ],
         "correctChoice": "A larger share need not mean more income"
       },
@@ -996,10 +960,10 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "Keep the compliance comparison fair",
-      "scene": "The income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council's stated cost rule while making distributional effects explicit.",
+      "scene": "Mara shows you the record: the income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council's stated cost rule while making distributional effects explicit.",
       "place": "",
       "at": "town-map",
-      "story": "The income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council's stated cost rule while making distributional effects explicit.",
+      "story": "Mara shows you the record: the income record shows why relative shares alone do not establish purchasing gains, and filter prices remain higher under the tariff. Choose the compliance comparison that follows the council's stated cost rule while making distributional effects explicit.",
       "game": {
         "type": "CHOICE",
         "title": "Keep the compliance comparison fair",
@@ -1007,8 +971,8 @@ export const CURRICULUM = {
         "play": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
-        "answer": "The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total.",
-        "why": "The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total. The town keeps both fiscal and resource accounts visible for the final agreement. Revenue is a transfer and does not cancel every resource loss. Producer gains alone do not establish aggregate improvement.",
+        "answer": "The tariff raises buyers' cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total.",
+        "why": "The tariff raises buyers' cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total. The town keeps both fiscal and resource accounts visible for the final agreement. Revenue is a transfer and does not cancel every resource loss. Producer gains alone do not establish aggregate improvement.",
         "rebuttals": [
           "Revenue is a transfer and does not cancel every resource loss.",
           "Producer gains alone do not establish aggregate improvement.",
@@ -1036,10 +1000,10 @@ export const CURRICULUM = {
     {
       "day": 23,
       "title": "Which plan survives the cost range",
-      "scene": "The two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate.",
+      "scene": "Mara shows you the record: the two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate.",
       "place": "",
       "at": "budget-desk",
-      "story": "The two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate.",
+      "story": "Mara shows you the record: the two ledgers now use the same boundary, and the retained plans still face different exposure to construction overruns. Test the full published range before relying on a plan that looks attractive only at its nominal estimate.",
       "game": {
         "type": "STRESS",
         "title": "Which plan survives the cost range",
@@ -1123,10 +1087,10 @@ export const CURRICULUM = {
     {
       "day": 24,
       "title": "Reopen the apparent victory",
-      "scene": "The stress comparison leaves a feasible alternative after the new line's apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town's printed celebration becomes a reason to ignore its own evidence.",
+      "scene": "Mara shows you the record: the stress comparison leaves a feasible alternative after the new line's apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town's printed celebration becomes a reason to ignore its own evidence.",
       "place": "",
       "at": "town-map",
-      "story": "The stress comparison leaves a feasible alternative after the new line's apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town's printed celebration becomes a reason to ignore its own evidence.",
+      "story": "Mara shows you the record: the stress comparison leaves a feasible alternative after the new line's apparent victory, and the corrected accounts remain on display. Choose whether to reopen the recommendation before the town's printed celebration becomes a reason to ignore its own evidence.",
       "game": {
         "type": "CHOICE",
         "title": "Reopen the apparent victory",
@@ -1134,8 +1098,8 @@ export const CURRICULUM = {
         "play": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
-        "answer": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.",
-        "why": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals.",
+        "answer": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.",
+        "why": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals.",
         "rebuttals": [
           "A printed banner is not evidence about resource use or feasibility.",
           "Transfers matter to distribution even when excluded from net-resource totals.",
@@ -1163,10 +1127,10 @@ export const CURRICULUM = {
     {
       "day": 25,
       "title": "Commit the final flow forecast",
-      "scene": "The commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark.",
+      "scene": "Mara shows you the record: the commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark.",
       "place": "",
       "at": "hearing-table",
-      "story": "The commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark.",
+      "story": "Mara shows you the record: the commitments now have owners, and the signed draft keeps the same social-cost rule that changed the freight target earlier. Commit and test the final flow forecast before a funding transfer quietly changes the economic benchmark.",
       "game": {
         "type": "VERIFY",
         "title": "Commit the final flow forecast",
@@ -1219,10 +1183,10 @@ export const CURRICULUM = {
     {
       "day": 26,
       "title": "Sign the agreement",
-      "scene": "The final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council's published conditions before the signatures make those commitments binding in the story.",
+      "scene": "Mara shows you the record: the final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council's published conditions before the signatures make those commitments binding in the story.",
       "place": "",
       "at": "town-map",
-      "story": "The final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council's published conditions before the signatures make those commitments binding in the story.",
+      "story": "Mara shows you the record: the final trial agrees with the corrected rule, while the funding, stress and responsibility records remain open for inspection. Choose the complete agreement that satisfies the council's published conditions before the signatures make those commitments binding in the story.",
       "game": {
         "type": "CHOICE",
         "title": "Sign the agreement",
@@ -1261,10 +1225,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the shift gives up",
-      "scene": "The diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange.",
+      "scene": "Nico shows you the record: the diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange.",
       "place": "",
       "at": "cost-ledger-desk",
-      "story": "The diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange.",
+      "story": "Nico shows you the record: the diner has a full queue and a broken preparation bench, while the repair crew needs meals for its shift. Work out what the diner gives up by doing repairs itself before comparing the offered exchange.",
       "game": {
         "type": "BALLPARK",
         "title": "What the shift gives up",
@@ -1287,10 +1251,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Who has the better tradeoff",
-      "scene": "The diner now knows its own repair cost, but a good trade also depends on the other team's alternatives. Compare both production records before deciding which work each side should offer in the agreement.",
+      "scene": "Nico shows you the record: the diner now knows its own repair cost, but a good trade also depends on the other team's alternatives. Compare both production records before deciding which work each side should offer in the agreement.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The diner now knows its own repair cost, but a good trade also depends on the other team's alternatives. Compare both production records before deciding which work each side should offer in the agreement.",
+      "story": "Nico shows you the record: the diner now knows its own repair cost, but a good trade also depends on the other team's alternatives. Compare both production records before deciding which work each side should offer in the agreement.",
       "game": {
         "type": "PROTOCOL",
         "title": "Who has the better tradeoff",
@@ -1331,10 +1295,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Try the exchange on the ledger",
-      "scene": "The production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service.",
+      "scene": "Nico shows you the record: the production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service.",
       "place": "",
       "at": "order-terminal",
-      "story": "The production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service.",
+      "story": "Nico shows you the record: the production records support specialization, and the teams have proposed a concrete exchange rate for a short trial. Check the invoice before anyone sends meals or starts the repairs that will reopen the lunch service.",
       "game": {
         "type": "VERIFY",
         "title": "Try the exchange on the ledger",
@@ -1386,10 +1350,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Keep the lunch service open",
-      "scene": "The invoice now agrees with the proposed rate, and both teams' production alternatives remain visible in the log. Choose the agreement that improves both sides' positions before the diner commits its next batch of meals.",
+      "scene": "Nico shows you the record: the invoice now agrees with the proposed rate, and both teams' production alternatives remain visible in the log. Choose the agreement that improves both sides' positions before the diner commits its next batch of meals.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The invoice now agrees with the proposed rate, and both teams' production alternatives remain visible in the log. Choose the agreement that improves both sides' positions before the diner commits its next batch of meals.",
+      "story": "Nico shows you the record: the invoice now agrees with the proposed rate, and both teams' production alternatives remain visible in the log. Choose the agreement that improves both sides' positions before the diner commits its next batch of meals.",
       "game": {
         "type": "CHOICE",
         "title": "Keep the lunch service open",
@@ -1398,7 +1362,7 @@ export const CURRICULUM = {
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "answer": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs.",
-        "why": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs. The adviser can recommend the agreement without ordering either business to accept it. Four boxes exceeds the diner’s three-box internal cost. Comparative advantage depends on opportunity cost, not whether absolute productivity ties.",
+        "why": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs. The adviser can recommend the agreement without ordering either business to accept it. Four boxes exceeds the diner's three-box internal cost. Comparative advantage depends on opportunity cost, not whether absolute productivity ties.",
         "rebuttals": [
           "Four boxes exceeds the diner’s three-box internal cost.",
           "Comparative advantage depends on opportunity cost, not whether absolute productivity ties.",
@@ -1424,10 +1388,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Find the next worker's output",
-      "scene": "The room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook's contribution before offering a wage that the added sales cannot cover.",
+      "scene": "Nico shows you the record: the room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook's contribution before offering a wage that the added sales cannot cover.",
       "place": "",
       "at": "cost-ledger-desk",
-      "story": "The room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook's contribution before offering a wage that the added sales cannot cover.",
+      "story": "Nico shows you the record: the room owner has reversed the failed price rise, but the diner cannot turn every new order into a meal. Measure the next cook's contribution before offering a wage that the added sales cannot cover.",
       "game": {
         "type": "BALLPARK",
         "title": "Find the next worker's output",
@@ -1454,10 +1418,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Separate the cost records",
-      "scene": "The fourth cook's extra receipts are now known, while the lease and the owner's unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff.",
+      "scene": "Nico shows you the record: the fourth cook's extra receipts are now known, while the lease and the owner's unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The fourth cook's extra receipts are now known, while the lease and the owner's unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff.",
+      "story": "Nico shows you the record: the fourth cook's extra receipts are now known, while the lease and the owner's unpaid work still appear on the ledger. Separate the cost types before comparing the hire with keeping the current staff.",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate the cost records",
@@ -1499,10 +1463,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Test the fifth place at the stove",
-      "scene": "The cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook's contribution before assuming that more meals always mean more profit.",
+      "scene": "Nico shows you the record: the cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook's contribution before assuming that more meals always mean more profit.",
       "place": "",
       "at": "order-terminal",
-      "story": "The cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook's contribution before assuming that more meals always mean more profit.",
+      "story": "Nico shows you the record: the cost records distinguish the extra wage from the existing lease, and the owner asks whether two hires would be even better. Test the fifth cook's contribution before assuming that more meals always mean more profit.",
       "game": {
         "type": "VERIFY",
         "title": "Test the fifth place at the stove",
@@ -1555,10 +1519,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Approve the vacancy",
-      "scene": "The trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support.",
+      "scene": "Nico shows you the record: the trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support.",
+      "story": "Nico shows you the record: the trial now separates a profitable extra hire from a further hire that would reduce earnings at the same wage. Choose the vacancy to post before the diner promises jobs its current oven cannot support.",
       "game": {
         "type": "CHOICE",
         "title": "Approve the vacancy",
@@ -1594,10 +1558,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Cost the vanished trades",
-      "scene": "The price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer.",
+      "scene": "Nico shows you the record: the price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer.",
       "place": "",
       "at": "order-terminal",
-      "story": "The price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer.",
+      "story": "Nico shows you the record: the price record divides the fee burden between buyers and sellers, while fewer deliveries now take place than before. Calculate the lost gains from those vanished trades before presenting the fee as merely a transfer.",
       "game": {
         "type": "VERIFY",
         "title": "Cost the vanished trades",
@@ -1650,10 +1614,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Fund the promised measure",
-      "scene": "The record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost.",
+      "scene": "Nico shows you the record: the record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost.",
+      "story": "Nico shows you the record: the record now separates tax receipts, burden shares and lost gains, so the council can compare funding with its stated commitment. Choose the budget statement that pays for the housing measure without hiding the economic cost.",
       "game": {
         "type": "CHOICE",
         "title": "Fund the promised measure",
@@ -1661,8 +1625,8 @@ export const CURRICULUM = {
         "play": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
-        "answer": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.",
-        "why": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts.",
+        "answer": "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.",
+        "why": "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts.",
         "rebuttals": [
           "The post-tax quantity is 30, not 50.",
           "Buyers bear most of the measured burden despite seller remittance.",
@@ -1689,10 +1653,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Measure the loss",
-      "scene": "The housing measure has a funding source, but a local supplier says its current losses require an immediate shutdown. Calculate the loss at its best output before comparing closure with the costs that remain either way.",
+      "scene": "Nico shows you the record: the housing measure has a funding source, but a local supplier says its current losses require an immediate shutdown. Calculate the loss at its best output before comparing closure with the costs that remain either way.",
       "place": "",
       "at": "cost-ledger-desk",
-      "story": "The housing measure has a funding source, but a local supplier says its current losses require an immediate shutdown. Calculate the loss at its best output before comparing closure with the costs that remain either way.",
+      "story": "Nico shows you the record: the housing measure has a funding source, but a local supplier says its current losses require an immediate shutdown. Calculate the loss at its best output before comparing closure with the costs that remain either way.",
       "game": {
         "type": "BALLPARK",
         "title": "Measure the loss",
@@ -1719,10 +1683,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Read the avoidable costs",
-      "scene": "The supplier's loss is confirmed, yet the lease remains due even if no goods leave the workshop this month. Separate the avoidable costs from that commitment before deciding whether closure would improve the owner's position.",
+      "scene": "Nico shows you the record: the supplier's loss is confirmed, yet the lease remains due even if no goods leave the workshop this month. Separate the avoidable costs from that commitment before deciding whether closure would improve the owner's position.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The supplier's loss is confirmed, yet the lease remains due even if no goods leave the workshop this month. Separate the avoidable costs from that commitment before deciding whether closure would improve the owner's position.",
+      "story": "Nico shows you the record: the supplier's loss is confirmed, yet the lease remains due even if no goods leave the workshop this month. Separate the avoidable costs from that commitment before deciding whether closure would improve the owner's position.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the avoidable costs",
@@ -1764,10 +1728,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Which profit is at risk",
-      "scene": "The supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner's alternatives before evaluating the protection claim.",
+      "scene": "Nico shows you the record: the supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner's alternatives before evaluating the protection claim.",
       "place": "",
       "at": "cost-ledger-desk",
-      "story": "The supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner's alternatives before evaluating the protection claim.",
+      "story": "Nico shows you the record: the supplier keeps its current shift, while new vendors request stalls and the diner owner asks the town to block them. Separate true economic profit from payment for the owner's alternatives before evaluating the protection claim.",
       "game": {
         "type": "BALLPARK",
         "title": "Which profit is at risk",
@@ -1794,10 +1758,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Tell four firm situations apart",
-      "scene": "The profit calculation includes the owner's forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all.",
+      "scene": "Nico shows you the record: the profit calculation includes the owner's forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The profit calculation includes the owner's forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all.",
+      "story": "Nico shows you the record: the profit calculation includes the owner's forgone earnings, but the proposed firms sell different goods with different equipment needs. Classify those business conditions before assuming that one market model or one cost pattern fits them all.",
       "game": {
         "type": "PROTOCOL",
         "title": "Tell four firm situations apart",
@@ -1839,10 +1803,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Test the wage floor",
-      "scene": "The input-market record links hiring to output receipts, and the proposed wage floor changes the cost of adding workers. Test the stated schedule before accepting either side's blanket claim about what a minimum wage must do.",
+      "scene": "Nico shows you the record: the input-market record links hiring to output receipts, and the proposed wage floor changes the cost of adding workers. Test the stated schedule before accepting either side's blanket claim about what a minimum wage must do.",
       "place": "",
       "at": "order-terminal",
-      "story": "The input-market record links hiring to output receipts, and the proposed wage floor changes the cost of adding workers. Test the stated schedule before accepting either side's blanket claim about what a minimum wage must do.",
+      "story": "Nico shows you the record: the input-market record links hiring to output receipts, and the proposed wage floor changes the cost of adding workers. Test the stated schedule before accepting either side's blanket claim about what a minimum wage must do.",
       "game": {
         "type": "VERIFY",
         "title": "Test the wage floor",
@@ -1894,10 +1858,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Set the agreement's wage clause",
-      "scene": "The hiring trial now shows what the proposed floor does under the stated supply and productivity conditions, and both sides can inspect it. Choose the wage clause before the agreement turns a conditional result into a universal promise.",
+      "scene": "Nico shows you the record: the hiring trial now shows what the proposed floor does under the stated supply and productivity conditions, and both sides can inspect it. Choose the wage clause before the agreement turns a conditional result into a universal promise.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The hiring trial now shows what the proposed floor does under the stated supply and productivity conditions, and both sides can inspect it. Choose the wage clause before the agreement turns a conditional result into a universal promise.",
+      "story": "Nico shows you the record: the hiring trial now shows what the proposed floor does under the stated supply and productivity conditions, and both sides can inspect it. Choose the wage clause before the agreement turns a conditional result into a universal promise.",
       "game": {
         "type": "CHOICE",
         "title": "Set the agreement's wage clause",
@@ -1906,7 +1870,7 @@ export const CURRICULUM = {
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "answer": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way.",
-        "why": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way. The worker agreement gains support from evidence rather than a blanket claim about regulation. The trial and schedules show four jobs instead of three. A floor above enough workers’ MRP can reduce hiring.",
+        "why": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way. The worker agreement gains support from evidence rather than a blanket claim about regulation. The trial and schedules show four jobs instead of three. A floor above enough workers' MRP can reduce hiring.",
         "rebuttals": [
           "The trial and schedules show four jobs instead of three.",
           "A floor above enough workers’ MRP can reduce hiring.",
@@ -1932,10 +1896,10 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Read each incentive",
-      "scene": "The pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies' joint statement as a reliable prediction of what they will do.",
+      "scene": "Nico shows you the record: the pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies' joint statement as a reliable prediction of what they will do.",
       "place": "",
       "at": "kitchen-planning-table",
-      "story": "The pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies' joint statement as a reliable prediction of what they will do.",
+      "story": "Nico shows you the record: the pact offers a higher combined profit than mutual expansion, but each firm controls only its own action. Compare each possible reply before treating the companies' joint statement as a reliable prediction of what they will do.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read each incentive",
@@ -1977,10 +1941,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "Count the imported filters",
-      "scene": "The freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan.",
+      "scene": "Nico shows you the record: the freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan.",
       "place": "",
       "at": "cost-ledger-desk",
-      "story": "The freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan.",
+      "story": "Nico shows you the record: the freight goal now includes water harm, and a filter quote offers a cheaper way to meet the protection requirement. Count the imports before comparing the border-charge proposal with the existing untaxed compliance plan.",
       "game": {
         "type": "BALLPARK",
         "title": "Count the imported filters",
@@ -2010,10 +1974,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Price the terminal's chosen quantity",
-      "scene": "The wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal's demand schedule before deciding what price its chosen volume actually lets it charge.",
+      "scene": "Ruth shows you the record: the wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal's demand schedule before deciding what price its chosen volume actually lets it charge.",
       "place": "",
       "at": "dispatch-desk",
-      "story": "The wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal's demand schedule before deciding what price its chosen volume actually lets it charge.",
+      "story": "Ruth shows you the record: the wage clause supports another job, but the employer says expensive freight still limits the orders it can fill. Read the terminal's demand schedule before deciding what price its chosen volume actually lets it charge.",
       "game": {
         "type": "BALLPARK",
         "title": "Price the terminal's chosen quantity",
@@ -2041,10 +2005,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Separate firm and town benchmarks",
-      "scene": "The terminal's charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery.",
+      "scene": "Ruth shows you the record: the terminal's charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery.",
       "place": "",
       "at": "booking-terminal",
-      "story": "The terminal's charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery.",
+      "story": "Ruth shows you the record: the terminal's charged price is now known, while its marginal revenue and physical capacity appear on separate records. Compare the private output choice with the no-harm efficiency benchmark before treating an empty slot as wasted machinery.",
       "game": {
         "type": "PROTOCOL",
         "title": "Separate firm and town benchmarks",
@@ -2087,10 +2051,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Read what the pact offers",
-      "scene": "Unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement.",
+      "scene": "Ruth shows you the record: unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement.",
       "place": "",
       "at": "dispatch-desk",
-      "story": "Unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement.",
+      "story": "Ruth shows you the record: unused terminal space has reopened the access debate, and two firms now offer a pact that promises orderly service. Read their joint payoff before checking whether either firm has a reason to leave the announced agreement.",
       "game": {
         "type": "BALLPARK",
         "title": "Read what the pact offers",
@@ -2117,10 +2081,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Which shared problem is which",
-      "scene": "The water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them.",
+      "scene": "Ruth shows you the record: the water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them.",
       "place": "",
       "at": "booking-terminal",
-      "story": "The water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them.",
+      "story": "Ruth shows you the record: the water record adds a cost outside the transaction, while several shared services now compete for the same attention. Classify their actual access and use conditions before choosing a response based only on who owns them.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which shared problem is which",
@@ -2162,10 +2126,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Remove the double count",
-      "scene": "The cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves.",
+      "scene": "Ruth shows you the record: the cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves.",
       "place": "",
       "at": "dispatch-desk",
-      "story": "The cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves.",
+      "story": "Ruth shows you the record: the cheaper filter quote clears the water condition, and a printed ribbon announces that the second line will pay for itself. Examine the claimed gains before letting a price transfer stand in for resources the town actually saves.",
       "game": {
         "type": "BALLPARK",
         "title": "Remove the double count",
@@ -2195,10 +2159,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the advertised rooms are gone",
-      "scene": "The household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office's full record before claiming that the cap has already created homes or destroyed buildings.",
+      "scene": "Leila shows you the record: the household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office's full record before claiming that the cap has already created homes or destroyed buildings.",
       "place": "",
       "at": "lease-desk",
-      "story": "The household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office's full record before claiming that the cap has already created homes or destroyed buildings.",
+      "story": "Leila shows you the record: the household comparison shows that current tenants and new applicants can face different outcomes under the same lower rent. Read the office's full record before claiming that the cap has already created homes or destroyed buildings.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why the advertised rooms are gone",
@@ -2241,22 +2205,10 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          {
-            "label": "A binding cap leaves excess demand",
-            "mechanism": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional."
-          },
-          {
-            "label": "A fire removed offered housing",
-            "mechanism": "The destruction reading is zero."
-          },
-          {
-            "label": "The ceiling is above market rent",
-            "mechanism": "The ceiling is $200 below the market figure."
-          },
-          {
-            "label": "Every applicant already has a home",
-            "mechanism": "There are 40 more applicants than offered homes."
-          }
+          "A binding cap leaves excess demand",
+          "A fire removed offered housing",
+          "The ceiling is above market rent",
+          "Every applicant already has a home"
         ],
         "correctChoice": "A binding cap leaves excess demand"
       },
@@ -2272,10 +2224,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Keep the promise honest",
-      "scene": "The office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise.",
+      "scene": "Leila shows you the record: the office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise.",
       "place": "",
       "at": "job-board",
-      "story": "The office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise.",
+      "story": "Leila shows you the record: the office record confirms an immediate allocation gap without a loss of physical buildings, and the council still wants every applicant housed. Decide what the cap can achieve before the hearing commits to its final promise.",
       "game": {
         "type": "CHOICE",
         "title": "Keep the promise honest",
@@ -2310,10 +2262,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What entry changes",
-      "scene": "The business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out.",
+      "scene": "Leila shows you the record: the business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out.",
       "place": "",
       "at": "lease-desk",
-      "story": "The business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out.",
+      "story": "Leila shows you the record: the business records separate identical products from distinctive menus, giving the town a clear competitive benchmark to use carefully. Reconstruct how entry changes that benchmark before deciding whether existing profits justify keeping qualified sellers out.",
       "game": {
         "type": "SEQUENCE",
         "title": "What entry changes",
@@ -2354,10 +2306,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Let the new kitchens open",
-      "scene": "The entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner's preference becomes an unsupported barrier to competitors.",
+      "scene": "Leila shows you the record: the entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner's preference becomes an unsupported barrier to competitors.",
       "place": "",
       "at": "job-board",
-      "story": "The entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner's preference becomes an unsupported barrier to competitors.",
+      "story": "Leila shows you the record: the entry forecast explains why above-normal returns can fall without owners working for nothing, and the proposed vendors meet the published conditions. Choose the permit response before the diner's preference becomes an unsupported barrier to competitors.",
       "game": {
         "type": "CHOICE",
         "title": "Let the new kitchens open",
@@ -2393,10 +2345,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The cost of one more hire",
-      "scene": "New food sellers can enter, but the mine still dominates skilled hiring and workers question the offers on its board. Measure the whole wage-bill change before comparing the cost of another hire with its contribution.",
+      "scene": "Leila shows you the record: new food sellers can enter, but the mine still dominates skilled hiring and workers question the offers on its board. Measure the whole wage-bill change before comparing the cost of another hire with its contribution.",
       "place": "",
       "at": "lease-desk",
-      "story": "New food sellers can enter, but the mine still dominates skilled hiring and workers question the offers on its board. Measure the whole wage-bill change before comparing the cost of another hire with its contribution.",
+      "story": "Leila shows you the record: new food sellers can enter, but the mine still dominates skilled hiring and workers question the offers on its board. Measure the whole wage-bill change before comparing the cost of another hire with its contribution.",
       "game": {
         "type": "BALLPARK",
         "title": "The cost of one more hire",
@@ -2422,10 +2374,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Read the source of labor demand",
-      "scene": "The wage-bill calculation shows why the next hire can cost more than its own pay, but labor demand has causes outside payroll. Trace the demand and productivity links before testing a wage rule against the hiring schedule.",
+      "scene": "Leila shows you the record: the wage-bill calculation shows why the next hire can cost more than its own pay, but labor demand has causes outside payroll. Trace the demand and productivity links before testing a wage rule against the hiring schedule.",
       "place": "",
       "at": "job-board",
-      "story": "The wage-bill calculation shows why the next hire can cost more than its own pay, but labor demand has causes outside payroll. Trace the demand and productivity links before testing a wage rule against the hiring schedule.",
+      "story": "Leila shows you the record: the wage-bill calculation shows why the next hire can cost more than its own pay, but labor demand has causes outside payroll. Trace the demand and productivity links before testing a wage rule against the hiring schedule.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the source of labor demand",
@@ -2467,10 +2419,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Check the confirmed funding",
-      "scene": "The access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing.",
+      "scene": "Leila shows you the record: the access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing.",
       "place": "",
       "at": "lease-desk",
-      "story": "The access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing.",
+      "story": "Leila shows you the record: the access retrofit survives the stated cost range, but the full agreement still includes housing and water commitments that must be paid. Check the confirmed funding before presenting those promises as ready for signatures at the hearing.",
       "game": {
         "type": "BALLPARK",
         "title": "Check the confirmed funding",
@@ -2500,10 +2452,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Add the missing cost",
-      "scene": "The firms' incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town's final target.",
+      "scene": "Owen shows you the record: the firms' incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town's final target.",
       "place": "",
       "at": "water-record-desk",
-      "story": "The firms' incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town's final target.",
+      "story": "Owen shows you the record: the firms' incentives point toward more freight, but downstream residents have brought water damage records to the hearing. Add the measured outside cost before treating the earlier no-harm output benchmark as the town's final target.",
       "game": {
         "type": "BALLPARK",
         "title": "Add the missing cost",
@@ -2530,10 +2482,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Track the tariff's effects",
-      "scene": "The import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain.",
+      "scene": "Owen shows you the record: the import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain.",
       "place": "",
       "at": "catchment-map",
-      "story": "The import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain.",
+      "story": "Owen shows you the record: the import count identifies the trade exposed to the proposed charge, while new prices change local buying and production. Follow the consumer, producer and treasury effects before calling the policy either a pure loss or a free gain.",
       "game": {
         "type": "PROTOCOL",
         "title": "Track the tariff's effects",
@@ -2576,10 +2528,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Keep the ledgers separate",
-      "scene": "The corrected resource total weakens the new line's claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice.",
+      "scene": "Owen shows you the record: the corrected resource total weakens the new line's claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice.",
       "place": "",
       "at": "catchment-map",
-      "story": "The corrected resource total weakens the new line's claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice.",
+      "story": "Owen shows you the record: the corrected resource total weakens the new line's claim, but several other payments still appear in the comparison. Separate transfers, past costs and uncertain financing before deciding which amounts belong in the current forward-looking choice.",
       "game": {
         "type": "PROTOCOL",
         "title": "Keep the ledgers separate",
@@ -2622,10 +2574,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Give each condition an owner",
-      "scene": "The funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs.",
+      "scene": "Owen shows you the record: the funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs.",
       "place": "",
       "at": "catchment-map",
-      "story": "The funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs.",
+      "story": "Owen shows you the record: the funding check covers the complete plan, yet money alone does not ensure that homes, bookings and water reports reach the people promised them. Match each remaining risk to its named institutional action before the council signs.",
       "game": {
         "type": "PROTOCOL",
         "title": "Give each condition an owner",

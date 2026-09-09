@@ -121,23 +121,24 @@ export default {
   // pieces: the rope's own period is found late and is what puts two limits
   // into the profile nobody would have written at the start.
   delivery: {
-    name: 'The Safe Winding Plan',
-    what: 'The operating rules the inspector will sign: how quickly the mine lift may accelerate, '
-      + 'how fast it may run, when the brake may be used, and the physics behind every limit.',
+    name: 'Safe Winding Plan',
+    what:
+      'A twelve-part record explaining the March overrun and setting the fastest '
+      + 'supported passenger profile within its tested range.',
     where: 'WIND',
     pieces: [
-      'What the faster trip actually does',
-      'The drum\'s true rotational inertia',
-      'The maximum pull on the rope',
-      'The motor torque required',
-      'The energy in one full lift',
-      'The force created by moving loads',
-      'The value of gravity at depth',
-      'The motor\'s peak power',
-      'The rope\'s natural bounce period',
-      'The March overshoot explained',
-      'The brake\'s emergency-stop limit',
-      'The signed safe profile',
+      'The measured cage stop',
+      'The drum’s true inertia',
+      'The rope’s own weight',
+      'The motor’s two demands',
+      'The full lift energy',
+      'The staged ore feed',
+      'The corrected gravity record',
+      'The steady cruise ceiling',
+      'The rope’s own clock',
+      'The March stop reconstruction',
+      'The loaded stopping envelope',
+      'The signed passenger range',
     ],
   },
   // Five sentences: what this place is, what happened in March, why the same

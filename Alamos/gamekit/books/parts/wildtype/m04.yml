@@ -6,12 +6,12 @@
     header: "DAY 4 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE WRONG KIND OF RECOVERY"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use."
+    body: "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread."
     objective: "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery."
   objective: "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery."
-  stake: "The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use."
+  stake: "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread."
   takeaway: "Keep the old lamp program in a small trial. ---"
-  segue: "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested. The crew uses the plan just chosen. A flowering calendar no longer matches the insect log."
+  segue: "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Signal", def: "A cue that a cell can detect and respond to."}
@@ -51,7 +51,7 @@
     title: "Separate enzyme problems"
     concept: 3   # Protein structure and enzymes
     reason: "The lamp trial must not hide an enzyme problem."
-    scene: "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Separate possible enzyme effects before the staff treats every slow response as a shortage of light."
+    scene: "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Ivo Reed asks: \"Separate possible enzyme effects before the staff treats every slow response as a shortage of light.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -126,7 +126,7 @@
     title: "Follow the light response"
     concept: 11   # Signals and feedback
     reason: "The trial needs a model for the changed growth timing."
-    scene: "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Trace the light-response pathway to decide what the lamps might alter beyond the energy supply."
+    scene: "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Ivo Reed asks: \"Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -178,6 +178,7 @@
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 15: Read the recovered leaves
   #     Concept: 19 — Regulation and differentiation; Keystone: Information flow, Regulation and feedback, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 14: Follow the light response; Learning role: INTRODUCE; Difficulty: L3; Story role: reversal.
@@ -187,7 +188,7 @@
     title: "Read the recovered leaves"
     concept: 19   # Regulation and differentiation
     reason: "The crew needs to distinguish changed gene use from changed DNA."
-    scene: "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment."
+    scene: "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Ivo Reed asks: \"Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -272,7 +273,7 @@
     title: "Limit the reset"
     concept: 11   # Signals and feedback
     reason: "A local growth result must set the scale of the reset."
-    scene: "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Decide how widely to apply the program while those missing comparisons are still possible."
+    scene: "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Ivo Reed asks: \"Decide how widely to apply the program while those missing comparisons are still possible.\""
     motivation: "Keep the old lamp program in a small trial."
     format: CHOICE
     question: "Choose how far the nursery should apply the old lamp program now."

@@ -6,12 +6,12 @@
     header: "DAY 3 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE POND AFTER DARK"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply."
+    body: "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air."
     objective: "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival."
   objective: "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival."
-  stake: "The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply."
+  stake: "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air."
   takeaway: "Keep the pots supplied with oxygen. ---"
-  segue: "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night. The crew uses the plan just chosen. The restored plants flower at an unexpected time."
+  segue: "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "ATP", def: "A molecule that couples energy-releasing reactions to cellular work."}
@@ -56,9 +56,9 @@
   - group: GROW
     at: growth-bench
     title: "Follow oxygen-supported ATP production"
-    concept: 9   # Respiration and chemiosmosis
+    concept: 7   # A test cross is approved and family labels stay attached to every sample
     reason: "The crew must explain why fed roots fail in sealed pots."
-    scene: "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Trace how food supports cellular work before testing whether a full pot actually contains what roots need."
+    scene: "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Ivo Reed asks: \"Trace how food supports cellular work before testing whether a full pot actually contains what roots need.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Arrange the cards as the supplied causal-dependency explanation from food electrons to ATP; this is not a timeline of nonoverlapping phases. Submit the whole order."
@@ -110,6 +110,7 @@
     ends:
       - initiating event
       - result
+    constraints: "Selected causal-dependency explanation, not exclusive chronological phases: electron supply enables sustained chain activity; terminal acceptance enables continued flow; ATP synthase uses the resulting gradient. These processes overlap."
 
   # --- Stop 10: Calculate the daylight balance
   #     Concept: 8 — Photosynthesis and carbon fixation; Keystone: Energy coupling, Matter conservation; Area: GROW; Prerequisites: Mission primer and Stop 9: Follow oxygen-supported ATP production; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
@@ -119,7 +120,7 @@
     title: "Calculate the daylight balance"
     concept: 8   # Photosynthesis and carbon fixation
     reason: "The afternoon inspection needs a net oxygen balance."
-    scene: "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish."
+    scene: "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Ivo Reed asks: \"Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use production minus consumption and submit net oxygen gain in mg per hour."
@@ -186,11 +187,11 @@
     title: "Check the night controls"
     concept: 9   # Respiration and chemiosmosis
     reason: "The shipping lids must pass the overnight comparison."
-    scene: "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Compare the overnight pots and independent standard before choosing how the lids should exchange air."
+    scene: "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Ivo Reed asks: \"Compare the overnight pots and independent standard before choosing how the lids should exchange air.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."
+    answerText: The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.
     why: "The sealed planted pot is the only station outside its expected oxygen range. The empty sealed pot and the standard remain normal, while ventilation keeps the planted comparison supplied with oxygen. The contrast supports organismal respiration as the relevant sink under these conditions. It does not show that darkness destroys oxygen or that all sealed containers behave identically. Together with the daylight balance, the result explains why an afternoon reading could miss the transport risk and justifies a supply route through the lids."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The ventilated planted pot is inside its expected range. The empty sealed pot rules out sealing alone as the observed oxygen sink. The standard is normal, so it does not support a meter failure. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -264,7 +265,7 @@
     title: "Approve the pot lids"
     concept: 9   # Respiration and chemiosmosis
     reason: "The pot lids must be chosen before packing continues."
-    scene: "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport."
+    scene: "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Ivo Reed asks: \"Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.\""
     motivation: "Keep the pots supplied with oxygen."
     format: CHOICE
     question: "Choose the packing plan supported by the full day-and-night evidence."

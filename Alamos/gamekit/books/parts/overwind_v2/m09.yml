@@ -6,12 +6,12 @@
     header: "DAY 9 OF 12 — INSPECTION IN 4 DAYS"
     title: "THE ROPE HAS ITS OWN CLOCK"
     goNow: "Go to Rope Shop and meet Mara Shaw, rope technician, at The rope bench."
-    body: "The power limit is met, but the cage can still move after its support stops. A stretched rope can release stored energy and pull a load back toward rest. At the Rope Shop and Bank, compare stretch and bounce measurements. By the end of the mission, decide whether drum stop time alone predicts when the cage stops."
+    body: "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops."
     objective: "Can a drum stop time alone predict when the cage stops?"
   objective: "Can a drum stop time alone predict when the cage stops?"
-  stake: "The power limit is met, but the cage can still move after its support stops. A stretched rope can release stored energy and pull a load back toward rest. At the Rope Shop and Bank, compare stretch and bounce measurements. By the end of the mission, decide whether drum stop time alone predicts when the cage stops."
+  stake: "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops."
   takeaway: "A fixed support can hold a load that is still moving. ---"
-  segue: "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read."
+  segue: "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Elasticity", def: "the ability to store energy while stretched and return toward the original shape."}
@@ -47,7 +47,7 @@
     title: "Distinguish mass from stiffness"
     concept: 9   # Distinguish mass from stiffness
     reason: "The load keeps moving after the support is still."
-    scene: "The cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response."
+    scene: "Mara Shaw notes that the cruise proposal meets the power ceiling, but a hanging test mass keeps moving after its support has stopped. Distinguish stored stretch energy from moving mass before using the rope measurements to predict the cage response."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: PROTOCOL
     question: "Match every evidence row to one response; use each response once and submit all connections."
@@ -103,7 +103,7 @@
     title: "Derive the bounce period"
     concept: 9   # Derive the bounce period
     reason: "The cage response needs a clock set by mass and stiffness."
-    scene: "The stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record."
+    scene: "Mara Shaw sees that the stretch test supports a restoring force, and the rope mass must participate in the model of the moving cage. Derive the period from the fitted stiffness and effective mass before comparing it with an independent position record."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -153,7 +153,7 @@
         - ask: Relate one full angular cycle to elapsed time.
           answer: 0
           candidates:
-            - text: ω=1.25 rad/s; Tperiod=2π/ω≈5.03 s
+            - text: ω=√(12500/8000)=1.25 rad/s; Tperiod=2π/1.25≈5.03 s
             - text: ω=1.25 rad/s; Tperiod=ω/(2π)≈0.20 s
               why: ω/(2π) is frequency in cycles per second, not the period in seconds.
               survives: true
@@ -166,7 +166,7 @@
     title: "Read an independent period"
     concept: 9   # Read an independent period
     reason: "The period needs a record independent of drum timing."
-    scene: "The full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response."
+    scene: "Ruth Bell confirms that the full-depth rope model predicts a period, but the clock relation can be checked without relying on the winding drum. Run the separate small oscillator after committing its cycle time so the measurement tests the predicted response."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: VERIFY
     question: "First, calculate and commit oscillation period in s from the visible data. OPERATE: release the test mass from a small displacement and run one cycle. Keep the mass, stiffness and fixed support fixed. MEASURE: press READ once after the run and record oscillation period. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -219,7 +219,7 @@
     title: "Commit the day's plan"
     concept: 9   # Commit the day's plan
     reason: "Passenger protection needs the motion of the cage itself."
-    scene: "The independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model."
+    scene: "Ruth Bell finds that the independent oscillator confirms that a suspended load has a motion timescale separate from the stopping time of its support. Decide which records the winding plan must retain before the sealed March tape is compared with this new model."
     motivation: "The cage's own motion must be bounded before a stationary drum can count as a safe stop."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

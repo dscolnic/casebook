@@ -6,12 +6,12 @@
     header: "RESCUE WINDOW — ABOUT 30 HOURS REMAIN"
     title: "THE QUIET TEST"
     goNow: "Go to Software Lab and meet Priya Nair, software architect, at the Test Bench."
-    body: "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem."
-    objective: "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility."
-  objective: "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility."
-  stake: "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem."
+    body: "Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault."
+    objective: "Today you decide whether the three faults need one shared code test."
+  objective: "Today you decide whether the three faults need one shared code test."
+  stake: "Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault."
   takeaway: "The failures should be investigated together; all three reproduce through the same legacy utility layer while independent hardware controls stay quiet. ---"
-  segue: "Mission decision: Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. The first patch then changes C17 but not live controller P02."
+  segue: "Mission decision: Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. But Malik sees the patch change C17 while P02 stays the same."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "edge case", def: "an input at a boundary or unusual condition that can expose a hidden bug. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."}
@@ -41,7 +41,7 @@
     title: "Choose the first discriminating test"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "Priya will not patch the live station until one cheap test can tell whether the three failures share a software utility."
-    scene: "The software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures."
+    scene: "Priya Nair checks the evidence: the software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures."
     motivation: "The best test is the one whose outcome changes which explanation survives, not simply the one that produces the most data."
     format: VALUE
     question: "Spend at most four test minutes and submit the evidence package that tests two different kinds of evidence and can change the shared-cause decision."
@@ -106,7 +106,7 @@
     title: "Add the edge case"
     concept: 35   # Testing, debugging, edge cases, and incremental development
     reason: "The shared replay reproduces the ordinary failures, but Priya wants one boundary input that could expose whether the utility assumes nonempty data."
-    scene: "The utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input."
+    scene: "Priya Nair checks the evidence: the utility receives lists of sensor values and normally processes at least one item, yet an outage can legitimately produce an empty list. Choose the edge case that tests this boundary directly instead of repeating another ordinary input."
     motivation: "A boundary case is useful when it exercises a condition the normal examples never reach."
     format: CHOICE
     question: "Select the one input that directly tests the utility's lower-boundary behavior."
@@ -150,7 +150,7 @@
     title: "Verify the utility contract"
     concept: 8   # Comments, documentation, preconditions, and postconditions
     reason: "Priya needs to separate what the utility's documentation actually promises from behaviors the station merely happened to rely on."
-    scene: "The method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly."
+    scene: "Priya Nair checks: the method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly."
     motivation: "A documented precondition can shift responsibility to callers, while an undocumented behavior cannot safely be treated as a contract."
     format: ATTEST
     question: "You have two verification checks. Spend them on the unresolved claims whose failure would change whether this method is safe to reuse, then submit the two claims to verify."
@@ -213,7 +213,7 @@
     title: "Localize the shared utility"
     concept: 9   # Method signatures, parameters, return types, and calls
     reason: "The test harness now has three reproduced failures, an empty-input result, and a verified method contract, enough to localize the common defect."
-    scene: "Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls."
+    scene: "Priya Nair checks the evidence: Power percentage, scrubber branch state, and rover progress all pass through normalizeState(int[] values) before separate controllers act, while independent hardware controls remain normal. Diagnose the smallest explanation that fits all reproduced software failures and the quiet physical controls."
     motivation: "The right diagnosis should explain shared software symptoms without requiring three unrelated pieces of hardware to fail at the same time."
     format: DIAGNOSIS
     question: "Read all four zones and submit the smallest shared code location that explains every reproduced failure."

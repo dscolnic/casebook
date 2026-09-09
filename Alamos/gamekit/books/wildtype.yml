@@ -380,12 +380,12 @@ missions:
     header: "DAY 1 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FOOD THAT IS NOT ENOUGH"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed."
+    body: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed."
     objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
   objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
-  stake: "The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed."
+  stake: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed."
   takeaway: "Replace the feed with a complete nutrient mix. ---"
-  segue: "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth. The crew uses the plan just chosen. Root cells swell after a fresh-water rinse."
+  segue: "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Element", def: "A substance made of one kind of atom."}
@@ -432,9 +432,9 @@ missions:
   - group: CLINIC
     at: sample-bench
     title: "Read the feed ingredients"
-    concept: 2   # Macromolecules and hydrolysis
+    concept: 1   # Water and carbon chemistry
     reason: "The feed label must explain what the seedlings can build."
-    scene: "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. The clinic needs the ingredients connected to what cells build before it can decide which shortage to test."
+    scene: "The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. Mara Vale asks: \"The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -509,7 +509,7 @@ missions:
     title: "Count the missing nitrogen"
     concept: 2   # Macromolecules and hydrolysis
     reason: "The replacement test needs the missing nitrogen amount."
-    scene: "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing."
+    scene: "The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Mara Vale asks: \"Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the number tiles to calculate the daily nitrogen deficit in mg per day; submit need minus supply."
@@ -576,11 +576,11 @@ missions:
     title: "Check the stored mix"
     concept: 30   # Experimental inference and sampling
     reason: "The clinic needs a controlled test before changing feed."
-    scene: "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Compare the matched cultures and assay standard before the clinic replaces the stored mix."
+    scene: "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Mara Vale asks: \"Compare the matched cultures and assay standard before the clinic replaces the stored mix.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."
+    answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
     why: "Only the stored-feed tray lies outside its own expected range. Restoring nitrogen brings growth back into the complete-feed range, while the assay standard stays normal. The matched trays share seed line, light and water, so the comparison supports a nitrogen limitation under these conditions. It does not show that all pale plants everywhere need this treatment. The result gives the clinic a specific replacement decision and keeps the original feed label as a clue about outdated instructions."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The complete-feed control is within its range. The restored tray matches normal growth rather than causing the failure. The nitrate standard is within its own assay range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -634,7 +634,7 @@ missions:
           label: Nitrogen-restored tray
           reading: 8 mm growth/day
           expected: 7–9 mm/day
-          load: stored feed plus missing nitrogen
+          load: stored feed plus the nitrogen top-up
         - id: t4
           label: Assay standard
           reading: 10 mg/L nitrate
@@ -654,7 +654,7 @@ missions:
     title: "Change the nursery feed"
     concept: 2   # Macromolecules and hydrolysis
     reason: "The nursery is waiting for the feed decision."
-    scene: "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Choose the handling decision that addresses this evidence without discarding healthy genetic stock."
+    scene: "The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Mara Vale asks: \"Choose the handling decision that addresses this evidence without discarding healthy genetic stock.\""
     motivation: "Replace the feed with a complete nutrient mix."
     format: CHOICE
     question: "Select the feed decision supported by the label calculation and controlled growth test."
@@ -699,12 +699,12 @@ missions:
     header: "DAY 2 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE RINSE THAT HURTS"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The new feed works, but rinsed shore seedlings now have swollen root cells. Water crosses cell membranes toward lower water potential. Compare cell structure and rinse conditions in the Field Clinic. By the end of the mission, decide whether the shore seedlings need fresh water or a matched salt rinse."
+    body: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need."
     objective: "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing."
   objective: "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing."
-  stake: "The new feed works, but rinsed shore seedlings now have swollen root cells. Water crosses cell membranes toward lower water potential. Compare cell structure and rinse conditions in the Field Clinic. By the end of the mission, decide whether the shore seedlings need fresh water or a matched salt rinse."
+  stake: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need."
   takeaway: "Use the rinse that matches the root cells. ---"
-  segue: "Mission decision: Use the rinse that matches the root cells. The matched rinse keeps root cells alive. The crew uses the plan just chosen. Healthy roots still lose energy in sealed pots."
+  segue: "Mission decision: Use the rinse that matches the root cells. The matched rinse keeps root cells alive."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Membrane", def: "A thin selective barrier around a cell."}
@@ -750,7 +750,7 @@ missions:
     title: "Identify the damaged cells"
     concept: 4   # Cells, organelles and endosymbiosis
     reason: "The rinse investigation needs the right cell model."
-    scene: "The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage."
+    scene: "The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Mara Vale asks: \"Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -825,11 +825,11 @@ missions:
     title: "Compare exchange surfaces"
     concept: 6   # Water potential and surface-area exchange
     reason: "Cell size must be separated from water-movement direction."
-    scene: "The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Compare exchange surface with cell volume before interpreting what a change in size actually means."
+    scene: "The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Mara Vale asks: \"Compare exchange surface with cell volume before interpreting what a change in size actually means.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Build the ratio 6 divided by side length from the tiles; submit surface-area-to-volume ratio in inverse micrometres."
-    answerText: "For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison."
+    answerText: For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison.
     why: "For a cube, surface area divided by volume is 6L²/L³ = 6/L. At L = 3 micrometres, the ratio is 2 inverse micrometres. The ratio describes available exchange surface per unit of cell volume, not the direction in which water moves. Smaller cells have a larger ratio, but water still follows the water-potential difference. The clinic can now distinguish an exchange-rate argument from the separate question of whether the rinse drives water into or out of roots."
     # wrong-path feedback, one rebuttal per wrong option:
     #   54 is surface area alone, not area divided by volume. 27 is volume, so it cannot have inverse-length units. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -892,7 +892,7 @@ missions:
     title: "Explain the swelling"
     concept: 5   # Membranes and transport
     reason: "The roots need a mechanism for the measured rinse injury."
-    scene: "The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired."
+    scene: "The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Mara Vale asks: \"Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -977,7 +977,7 @@ missions:
     title: "Set the packing rinse"
     concept: 5   # Membranes and transport
     reason: "Packing cannot resume with the damaging rinse."
-    scene: "The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Choose the packing treatment that follows those observations without claiming every species needs it."
+    scene: "The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Mara Vale asks: \"Choose the packing treatment that follows those observations without claiming every species needs it.\""
     motivation: "Use the rinse that matches the root cells."
     format: CHOICE
     question: "Choose the packing rinse for this tested seedling line."
@@ -1022,12 +1022,12 @@ missions:
     header: "DAY 3 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE POND AFTER DARK"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply."
+    body: "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air."
     objective: "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival."
   objective: "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival."
-  stake: "The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply."
+  stake: "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air."
   takeaway: "Keep the pots supplied with oxygen. ---"
-  segue: "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night. The crew uses the plan just chosen. The restored plants flower at an unexpected time."
+  segue: "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "ATP", def: "A molecule that couples energy-releasing reactions to cellular work."}
@@ -1072,9 +1072,9 @@ missions:
   - group: GROW
     at: growth-bench
     title: "Follow oxygen-supported ATP production"
-    concept: 9   # Respiration and chemiosmosis
+    concept: 7   # A test cross is approved and family labels stay attached to every sample
     reason: "The crew must explain why fed roots fail in sealed pots."
-    scene: "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Trace how food supports cellular work before testing whether a full pot actually contains what roots need."
+    scene: "The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Ivo Reed asks: \"Trace how food supports cellular work before testing whether a full pot actually contains what roots need.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Arrange the cards as the supplied causal-dependency explanation from food electrons to ATP; this is not a timeline of nonoverlapping phases. Submit the whole order."
@@ -1126,6 +1126,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: "Selected causal-dependency explanation, not exclusive chronological phases: electron supply enables sustained chain activity; terminal acceptance enables continued flow; ATP synthase uses the resulting gradient. These processes overlap."
 
   # --- Stop 10: Calculate the daylight balance
   #     Concept: 8 — Photosynthesis and carbon fixation; Keystone: Energy coupling, Matter conservation; Area: GROW; Prerequisites: Mission primer and Stop 9: Follow oxygen-supported ATP production; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
@@ -1135,7 +1136,7 @@ missions:
     title: "Calculate the daylight balance"
     concept: 8   # Photosynthesis and carbon fixation
     reason: "The afternoon inspection needs a net oxygen balance."
-    scene: "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish."
+    scene: "The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Ivo Reed asks: \"Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use production minus consumption and submit net oxygen gain in mg per hour."
@@ -1202,11 +1203,11 @@ missions:
     title: "Check the night controls"
     concept: 9   # Respiration and chemiosmosis
     reason: "The shipping lids must pass the overnight comparison."
-    scene: "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Compare the overnight pots and independent standard before choosing how the lids should exchange air."
+    scene: "The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Ivo Reed asks: \"Compare the overnight pots and independent standard before choosing how the lids should exchange air.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."
+    answerText: The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.
     why: "The sealed planted pot is the only station outside its expected oxygen range. The empty sealed pot and the standard remain normal, while ventilation keeps the planted comparison supplied with oxygen. The contrast supports organismal respiration as the relevant sink under these conditions. It does not show that darkness destroys oxygen or that all sealed containers behave identically. Together with the daylight balance, the result explains why an afternoon reading could miss the transport risk and justifies a supply route through the lids."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The ventilated planted pot is inside its expected range. The empty sealed pot rules out sealing alone as the observed oxygen sink. The standard is normal, so it does not support a meter failure. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -1280,7 +1281,7 @@ missions:
     title: "Approve the pot lids"
     concept: 9   # Respiration and chemiosmosis
     reason: "The pot lids must be chosen before packing continues."
-    scene: "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport."
+    scene: "The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Ivo Reed asks: \"Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.\""
     motivation: "Keep the pots supplied with oxygen."
     format: CHOICE
     question: "Choose the packing plan supported by the full day-and-night evidence."
@@ -1325,12 +1326,12 @@ missions:
     header: "DAY 4 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE WRONG KIND OF RECOVERY"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use."
+    body: "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread."
     objective: "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery."
   objective: "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery."
-  stake: "The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use."
+  stake: "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread."
   takeaway: "Keep the old lamp program in a small trial. ---"
-  segue: "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested. The crew uses the plan just chosen. A flowering calendar no longer matches the insect log."
+  segue: "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Signal", def: "A cue that a cell can detect and respond to."}
@@ -1370,7 +1371,7 @@ missions:
     title: "Separate enzyme problems"
     concept: 3   # Protein structure and enzymes
     reason: "The lamp trial must not hide an enzyme problem."
-    scene: "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Separate possible enzyme effects before the staff treats every slow response as a shortage of light."
+    scene: "The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Ivo Reed asks: \"Separate possible enzyme effects before the staff treats every slow response as a shortage of light.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -1445,7 +1446,7 @@ missions:
     title: "Follow the light response"
     concept: 11   # Signals and feedback
     reason: "The trial needs a model for the changed growth timing."
-    scene: "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Trace the light-response pathway to decide what the lamps might alter beyond the energy supply."
+    scene: "The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Ivo Reed asks: \"Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -1497,6 +1498,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 15: Read the recovered leaves
   #     Concept: 19 — Regulation and differentiation; Keystone: Information flow, Regulation and feedback, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 14: Follow the light response; Learning role: INTRODUCE; Difficulty: L3; Story role: reversal.
@@ -1506,7 +1508,7 @@ missions:
     title: "Read the recovered leaves"
     concept: 19   # Regulation and differentiation
     reason: "The crew needs to distinguish changed gene use from changed DNA."
-    scene: "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment."
+    scene: "The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Ivo Reed asks: \"Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -1591,7 +1593,7 @@ missions:
     title: "Limit the reset"
     concept: 11   # Signals and feedback
     reason: "A local growth result must set the scale of the reset."
-    scene: "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Decide how widely to apply the program while those missing comparisons are still possible."
+    scene: "The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Ivo Reed asks: \"Decide how widely to apply the program while those missing comparisons are still possible.\""
     motivation: "Keep the old lamp program in a small trial."
     format: CHOICE
     question: "Choose how far the nursery should apply the old lamp program now."
@@ -1636,12 +1638,12 @@ missions:
     header: "DAY 5 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "FLOWERS WITH NO VISITORS"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule."
+    body: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps."
     objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
   objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
-  stake: "The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule."
+  stake: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps."
   takeaway: "Stop the wider reset and keep a mixed flowering schedule. ---"
-  segue: "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits. The crew uses the plan just chosen. One rapidly growing tissue tray has unusual division counts."
+  segue: "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Mutualism", def: "An interaction that benefits both participating species."}
@@ -1677,7 +1679,7 @@ missions:
     title: "Read what healthy leaves prove"
     concept: 8   # Photosynthesis and carbon fixation
     reason: "Healthy leaves do not settle the missing-visitor problem."
-    scene: "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure."
+    scene: "The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Ivo Reed asks: \"Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -1752,11 +1754,11 @@ missions:
     title: "Find the shared flowering days"
     concept: 27   # Species interactions and niches
     reason: "The field visit needs the predicted flowering overlap."
-    scene: "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Calculate the shared active days before the field team compares trays along the dunes."
+    scene: "The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Ivo Reed asks: \"Calculate the shared active days before the field team compares trays along the dunes.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "For the old program, use shared last day minus shared first day plus one; submit overlap in days."
-    answerText: "The overlap consists only of day 4. This result is now recorded for the next comparison."
+    answerText: The overlap consists only of day 4. This result is now recorded for the next comparison.
     why: "The overlap consists only of day 4. With inclusive endpoints, the count is 4 − 4 + 1 = 1 day. Counting the full flowering interval would include days when the recorded pollinators were absent; counting the entire insect interval would include days when those flowers were closed. This timing result provides a possible explanation for fewer visits, but the field comparison must still check whether visitors use flowers that remain open during their activity period."
     # wrong-path feedback, one rebuttal per wrong option:
     #   4 counts all flowering days rather than shared days. 6 counts all insect days rather than shared days. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -1821,11 +1823,11 @@ missions:
     title: "Compare field trays"
     concept: 27   # Species interactions and niches
     reason: "The bay comparison must separate timing mismatch from insect loss."
-    scene: "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Compare the matched field trays before deciding whether to expand the nursery lamp program."
+    scene: "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Tess Rowan asks: \"Compare the matched field trays before deciding whether to expand the nursery lamp program.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."
+    answerText: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
     why: "Only the old-program flower tray falls below its station-specific expected range. Staggered and unchanged flowers still receive visits, and the independent pollen observation is normal. The comparison therefore weakens a general insect disappearance explanation and supports a timing mismatch associated with the lamp program. These are teaching data from matched conditions, not a universal pollination threshold. The same intervention that improved leaf growth has reduced overlap with partners, so the field result changes how broadly the nursery should act."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Staggered flowers receive the expected number of visits. Unchanged flowers show that visitors are still present. The independent pollen check lies inside its expected range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -1899,7 +1901,7 @@ missions:
     title: "Keep flowers available"
     concept: 27   # Species interactions and niches
     reason: "The wider lamp reset waits on the field result."
-    scene: "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth."
+    scene: "The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Tess Rowan asks: \"Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.\""
     motivation: "Stop the wider reset and keep a mixed flowering schedule."
     format: CHOICE
     question: "Choose the nursery action supported by both timing and field observations."
@@ -1944,12 +1946,12 @@ missions:
     header: "DAY 6 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE TRAY THAT WILL NOT STOP"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock."
+    body: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip."
     objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
   objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
-  stake: "The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock."
+  stake: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip."
   takeaway: "Hold the unusual tissue tray for further tests. ---"
-  segue: "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed. The crew uses the plan just chosen. The held tray came from a small set of related parents."
+  segue: "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Cell cycle", def: "The sequence of growth, DNA copying and cell division."}
@@ -1992,7 +1994,7 @@ missions:
     title: "Place the cell-cycle evidence"
     concept: 12   # Cell cycle and checkpoints
     reason: "The unusual growth needs a cell-cycle record."
-    scene: "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Put the cell-cycle stages in order before the clinic compares where the unusual line differs."
+    scene: "The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Mara Vale asks: \"Put the cell-cycle stages in order before the clinic compares where the unusual line differs.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -2044,6 +2046,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 22: Compare dividing fractions
   #     Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 21: Place the cell-cycle evidence; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -2053,11 +2056,11 @@ missions:
     title: "Compare dividing fractions"
     concept: 12   # Cell cycle and checkpoints
     reason: "The geneticist needs the dividing-cell fraction before the signal test."
-    scene: "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls."
+    scene: "The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Mara Vale asks: \"Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use dividing cells divided by total cells times 100; submit the unusual tray fraction as a percent."
-    answerText: "The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison."
+    answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison.
     why: "The observed dividing fraction is 18/60 × 100 = 30 percent. This is a snapshot of sampled cells, not a direct measurement of the time required for one complete cell cycle. The normal comparison has fewer dividing cells under the same counting method, making the unusual tray worth investigating. Sampling and cell-cycle regulation both matter: the larger fraction identifies a difference, but a controlled response to signal removal is needed before attributing it to a specific regulatory failure."
     # wrong-path feedback, one rebuttal per wrong option:
     #   10 uses the normal tray count instead of the unusual tray count. 300 misplaces the percentage scale by a factor of ten. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -2122,7 +2125,7 @@ missions:
     title: "Test the growth signal"
     concept: 11   # Signals and feedback
     reason: "The tray needs a control test rather than a growth-rate label."
-    scene: "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Compare the response to signal removal before the crew makes a release-stock decision."
+    scene: "The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Nell Shah asks: \"Compare the response to signal removal before the crew makes a release-stock decision.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -2207,7 +2210,7 @@ missions:
     title: "Hold one line"
     concept: 12   # Cell cycle and checkpoints
     reason: "The untested tissue line cannot enter release stock by default."
-    scene: "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Choose a handling decision that respects this specific failure without condemning every related family."
+    scene: "The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Nell Shah asks: \"Choose a handling decision that respects this specific failure without condemning every related family.\""
     motivation: "Hold the unusual tissue tray for further tests."
     format: CHOICE
     question: "Choose the release-stock decision supported by these observations."
@@ -2252,12 +2255,12 @@ missions:
     header: "DAY 7 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FAMILY IN THE JAR"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait."
+    body: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form."
     objective: "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
   objective: "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
-  stake: "The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait."
+  stake: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form."
   takeaway: "Use a test cross and keep each family separate. ---"
-  segue: "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele. The crew uses the plan just chosen. The family trait leads to a changed enzyme sequence."
+  segue: "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Allele", def: "An alternative DNA version at a gene locus."}
@@ -2304,7 +2307,7 @@ missions:
     title: "Follow an allele into a gamete"
     concept: 13   # Meiosis and variation
     reason: "The family investigation needs an inheritance model."
-    scene: "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Follow allele separation into gametes before the seed team chooses a cross to test that possibility."
+    scene: "The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Nell Shah asks: \"Follow allele separation into gametes before the seed team chooses a cross to test that possibility.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -2356,6 +2359,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 26: Predict the test family
   #     Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 25: Follow an allele into a gamete; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -2365,11 +2369,11 @@ missions:
     title: "Predict the test family"
     concept: 14   # Mendelian probability
     reason: "The test cross needs an expected offspring count."
-    scene: "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Predict the recessive offspring count for the proposed cross before the family test is scored."
+    scene: "The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Nell Shah asks: \"Predict the recessive offspring count for the proposed cross before the family test is scored.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Multiply offspring count by recessive fraction; submit expected recessive offspring count."
-    answerText: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison."
+    answerText: The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison.
     why: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. Half the offspring are therefore expected to be tt: 24 × 1/2 = 12. This is an expectation, not a demand that every finite family contain exactly twelve recessive offspring. The calculation makes the proposed test cross informative because a TT parent would predict no recessive offspring under the same assumptions. The crew can now compare an observed family with these alternatives."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 uses a one-quarter probability from a different cross. 24 assumes the dominant-phenotype parent supplies only t. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -2434,7 +2438,7 @@ missions:
     title: "Interpret the family evidence"
     concept: 15   # Non-Mendelian inheritance
     reason: "The family labels must preserve which inheritance model was tested."
-    scene: "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Match those inheritance patterns before the team extends one result across unrelated family labels."
+    scene: "The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Nell Shah asks: \"Match those inheritance patterns before the team extends one result across unrelated family labels.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -2509,7 +2513,7 @@ missions:
     title: "Choose the informative cross"
     concept: 14   # Mendelian probability
     reason: "The breeding decision must preserve the evidence it creates."
-    scene: "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry."
+    scene: "The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Nell Shah asks: \"Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.\""
     motivation: "Use a test cross and keep each family separate."
     format: CHOICE
     question: "Select the cross and record-keeping plan that can reveal a hidden recessive allele."
@@ -2554,12 +2558,12 @@ missions:
     header: "DAY 8 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "ONE LETTER IN THE RECIPE"
     goNow: "Go to Genetics Trailer and meet Nell Shah, conservation geneticist, at the DNA Bench."
-    body: "The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme."
+    body: "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain."
     objective: "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family."
   objective: "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family."
-  stake: "The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme."
+  stake: "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain."
   takeaway: "Treat the changed enzyme as a supported lead, not a complete diagnosis. ---"
-  segue: "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause. The crew uses the plan just chosen. Similar-looking plants respond differently in the same growth room."
+  segue: "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Transcription", def: "Making an RNA copy using a DNA template."}
@@ -2599,7 +2603,7 @@ missions:
     title: "Trace the enzyme message"
     concept: 18   # Transcription and translation
     reason: "The enzyme lead needs the path from sequence to function."
-    scene: "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Trace the message from DNA to folded enzyme before reading the changed sequence as a cause."
+    scene: "The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Nell Shah asks: \"Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -2651,6 +2655,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 30: Read the altered codons
   #     Concept: 20 — Mutations and biotechnology; Keystone: Information flow, Structure and function; Area: GENE; Prerequisites: Mission primer and Stop 29: Trace the enzyme message; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
@@ -2660,7 +2665,7 @@ missions:
     title: "Read the altered codons"
     concept: 20   # Mutations and biotechnology
     reason: "The changed codon needs a precise predicted effect."
-    scene: "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference."
+    scene: "The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Nell Shah asks: \"Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -2735,7 +2740,7 @@ missions:
     title: "Compare sequence and function"
     concept: 3   # Protein structure and enzymes
     reason: "The sequence lead must meet measured enzyme activity."
-    scene: "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead."
+    scene: "The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Mara Vale asks: \"Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.\""
     motivation: "An explanation must survive the normal controls before it can justify changing the release stock."
     format: DIAGNOSIS
     question: "Read every measurement, including the normal control, and submit the one explanation consistent with them all."
@@ -2820,7 +2825,7 @@ missions:
     title: "Keep the causal claim narrow"
     concept: 20   # Mutations and biotechnology
     reason: "The clinic needs a claim no broader than the evidence."
-    scene: "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Choose the claim and handling decision that preserve useful evidence without overstating what was proved."
+    scene: "The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Mara Vale asks: \"Choose the claim and handling decision that preserve useful evidence without overstating what was proved.\""
     motivation: "Treat the changed enzyme as a supported lead, not a complete diagnosis."
     format: CHOICE
     question: "Select the claim the evidence supports and the next handling decision."
@@ -2865,12 +2870,12 @@ missions:
     header: "DAY 9 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SAME SEED IN TWO ROOMS"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label."
+    body: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label."
     objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
   objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
-  stake: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label."
+  stake: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label."
   takeaway: "Keep ancestry records and test leaf shape under matched conditions. ---"
-  segue: "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light. The crew uses the plan just chosen. A short-lived insect population has changed across many generations."
+  segue: "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Common-garden test", def: "A comparison that raises organisms in the same conditions."}
@@ -2911,7 +2916,7 @@ missions:
     title: "Separate appearance from ancestry"
     concept: 19   # Regulation and differentiation
     reason: "The breeding labels must distinguish appearance from ancestry."
-    scene: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Compare the possible sources of those traits before the seed team changes its breeding records."
+    scene: "The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Ivo Reed asks: \"Compare the possible sources of those traits before the seed team changes its breeding records.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -2986,11 +2991,11 @@ missions:
     title: "Check the family marker distance"
     concept: 16   # Linkage and chi-square evidence
     reason: "The family record needs a measured linkage estimate."
-    scene: "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Calculate the marker recombination frequency before those records are used to keep families distinct."
+    scene: "The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Ivo Reed asks: \"Calculate the marker recombination frequency before those records are used to keep families distinct.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate and submit recombination frequency as a percent."
-    answerText: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison."
+    answerText: The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison.
     why: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. It is useful evidence of linkage under the stated test-cross assumptions; it is not a direct physical distance in base pairs. Multiple crossovers can complicate map-distance estimates, especially over larger intervals. Keeping the genotype markers separate from leaf appearance lets the seed team follow family inheritance even when growth conditions change the visible form. The result therefore strengthens the record system without pretending that one marker determines every trait."
     # wrong-path feedback, one rebuttal per wrong option:
     #   64 counts nonrecombinant offspring rather than recombinants. 0.2 is the fraction before conversion to percent. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3055,7 +3060,7 @@ missions:
     title: "Keep the lineage traceable"
     concept: 17   # DNA replication
     reason: "The copied sequence must stay distinct from its expressed appearance."
-    scene: "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Trace the copying process before deciding which labels the breeding stock should keep."
+    scene: "The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Nell Shah asks: \"Trace the copying process before deciding which labels the breeding stock should keep.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Place every card in the biological causal order; submit the whole order."
@@ -3107,6 +3112,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 36: Retire the appearance label
   #     Concept: 19 — Regulation and differentiation; Keystone: Information flow, Inheritance and variation, Regulation and feedback; Area: SEED; Prerequisites: Mission primer and Stop 35: Keep the lineage traceable; Learning role: COMBINE; Difficulty: L4; Story role: decision.
@@ -3116,7 +3122,7 @@ missions:
     title: "Retire the appearance label"
     concept: 19   # Regulation and differentiation
     reason: "The seed team must retire a misleading appearance-only label."
-    scene: "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history."
+    scene: "The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Nell Shah asks: \"Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.\""
     motivation: "Keep ancestry records and test leaf shape under matched conditions."
     format: CHOICE
     question: "Choose how to label breeding stock while investigating leaf shape."
@@ -3161,12 +3167,12 @@ missions:
     header: "DAY 10 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE INSECTS THAT STAYED"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment."
+    body: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group."
     objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
   objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
-  stake: "Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment."
+  stake: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group."
   takeaway: "Record population selection and protect the surviving variation. ---"
-  segue: "Mission decision: Record population selection and protect the surviving variation. Inherited early types leave more offspring. The crew uses the plan just chosen. A small source group may already have lost rare alleles."
+  segue: "Mission decision: The old logs show a change across generations. Early types left more young in those conditions. Ada keeps the other forms too; a new coast may favor them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Natural selection", def: "Change driven by differences in survival and reproduction associated with inherited traits."}
@@ -3201,7 +3207,7 @@ missions:
     title: "Read the population histories"
     concept: 22   # Natural selection and fitness
     reason: "The insect archive needs a population-level explanation."
-    scene: "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Compare population histories before deciding whether the island record supports a change across generations."
+    scene: "The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Tess Rowan asks: \"Compare population histories before deciding whether the island record supports a change across generations.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -3276,11 +3282,11 @@ missions:
     title: "Compare offspring contributions"
     concept: 22   # Natural selection and fitness
     reason: "The selection claim needs reproductive contribution, not survival alone."
-    scene: "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Calculate one group contribution before using the reproductive contrast to interpret the frequency record."
+    scene: "The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Tess Rowan asks: \"Calculate one group contribution before using the reproductive contrast to interpret the frequency record.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate the early group contribution with adults times offspring per adult; submit surviving offspring."
-    answerText: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison."
+    answerText: The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison.
     why: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. The equal adult counts make the reproductive contrast easy to interpret. A single season alone would not prove a lasting genetic change, but the archive also tracks inherited emergence types across repeated generations. Together those records support selection in the stated environment. Fitness here means reproductive contribution under those conditions, not general superiority or an organism trying to meet the preserve plan."
     # wrong-path feedback, one rebuttal per wrong option:
     #   30 uses the late group reproductive rate. 6 reports offspring per adult rather than the whole group contribution. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3343,7 +3349,7 @@ missions:
     title: "Choose the selection pattern"
     concept: 22   # Natural selection and fitness
     reason: "The archive needs the right selection pattern."
-    scene: "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority."
+    scene: "The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Ada Penn asks: \"Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -3418,7 +3424,7 @@ missions:
     title: "State what changed"
     concept: 22   # Natural selection and fitness
     reason: "The stock decision must retain uncertainty about future conditions."
-    scene: "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Choose a claim that explains the archive without discarding variation that may matter after movement."
+    scene: "The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Ada Penn asks: \"Choose a claim that explains the archive without discarding variation that may matter after movement.\""
     motivation: "Record population selection and protect the surviving variation."
     format: CHOICE
     question: "Select the supported population claim and handling decision."
@@ -3463,12 +3469,12 @@ missions:
     header: "DAY 11 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SEEDS LEFT OUT"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "The insect history is clear, but the proposed seed shipment comes from one large family. A small sample can lose alleles even when its plants look healthy. Count family variation, check genetic tests, then revise the list at the Release Board. By the end of the mission, decide whether the largest seed family is enough for the pilot."
+    body: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test."
     objective: "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation."
   objective: "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation."
-  stake: "The insect history is clear, but the proposed seed shipment comes from one large family. A small sample can lose alleles even when its plants look healthy. Count family variation, check genetic tests, then revise the list at the Release Board. By the end of the mission, decide whether the largest seed family is enough for the pilot."
+  stake: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test."
   takeaway: "Take several tested families and keep a reserve. ---"
-  segue: "Mission decision: Take several tested families and keep a reserve. The largest family lacks two rare alleles. The crew uses the plan just chosen. The chosen plants still depend on partners missing from the manifest."
+  segue: "Mission decision: Take several tested families and keep a reserve. The largest family lacks two rare alleles."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Hardy-Weinberg model", def: "A no-evolution reference model relating allele and genotype frequencies under stated assumptions."}
@@ -3507,11 +3513,11 @@ missions:
     title: "Count the retained allele"
     concept: 24   # Hardy-Weinberg models
     reason: "The largest family must be assessed for the variation it contains."
-    scene: "The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Count its allele copies before the team decides whether size alone preserves enough variation for founding a population."
+    scene: "The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Nell Shah asks: \"Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the tiles to calculate A allele frequency; submit the fraction from zero to one."
-    answerText: "There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. This result is now recorded for the next comparison."
+    answerText: There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. This result is now recorded for the next comparison.
     why: "There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. Counting plants with A would confuse genotype presence with allele copies. This frequency is an observed count and does not require Hardy-Weinberg equilibrium. It establishes what the sampled family contains before the team compares it with a no-evolution reference model. The distinction keeps a healthy-looking shipment from hiding how much genetic variation its selected families actually preserve."
     # wrong-path feedback, one rebuttal per wrong option:
     #   0.8 counts plants carrying A rather than copies of A. 1.2 divides allele copies by plants instead of total gene copies. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3574,7 +3580,7 @@ missions:
     title: "Separate population explanations"
     concept: 23   # Drift and gene flow
     reason: "The founding plan needs the right population mechanisms."
-    scene: "The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Separate founding, migration and reproductive barriers before comparing the shipment with a population model."
+    scene: "The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Nell Shah asks: \"Separate founding, migration and reproductive barriers before comparing the shipment with a population model.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -3649,11 +3655,11 @@ missions:
     title: "Check the reference model"
     concept: 24   # Hardy-Weinberg models
     reason: "The reference model needs its own expected genotype frequency."
-    scene: "The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Calculate the model value before the director treats any difference as proof of a particular evolutionary cause."
+    scene: "The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Nell Shah asks: \"Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Multiply the two allele frequencies and two; submit expected heterozygote percent."
-    answerText: "The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. This result is now recorded for the next comparison."
+    answerText: The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. This result is now recorded for the next comparison.
     why: "The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. The observed family has 8/20 = 40 percent, but a small difference in one sample does not by itself establish selection or another particular cause. The model rests on explicit assumptions and sampling variation still matters. The geneticist uses the comparison to frame further tests, while the director bases the shipment decision on preserving tested family diversity rather than forcing the collection to match a formula exactly."
     # wrong-path feedback, one rebuttal per wrong option:
     #   24 omits the two possible parental allele orders. 40 is the observed percentage rather than the model expectation. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3720,7 +3726,7 @@ missions:
     title: "Keep several families"
     concept: 23   # Drift and gene flow
     reason: "The manifest must preserve screened variation beyond one family."
-    scene: "The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Choose a shipment plan that preserves tested variation and a recoverable island reserve."
+    scene: "The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Ada Penn asks: \"Choose a shipment plan that preserves tested variation and a recoverable island reserve.\""
     motivation: "Take several tested families and keep a reserve."
     format: CHOICE
     question: "Select the founding-stock plan supported by the genetic and health evidence."
@@ -3765,12 +3771,12 @@ missions:
     header: "DAY 12 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SMALL THINGS ON THE LIST"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone."
+    body: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone."
     objective: "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
   objective: "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
-  stake: "The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone."
+  stake: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone."
   takeaway: "Prepare the tested plant-partner combination in containment. ---"
-  segue: "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test. The crew uses the plan just chosen. The receiving soil may not cycle nutrients like island soil."
+  segue: "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Keystone species", def: "A species with a disproportionately large community effect relative to its abundance."}
@@ -3812,7 +3818,7 @@ missions:
     title: "Name the observed links"
     concept: 27   # Species interactions and niches
     reason: "The manifest must account for the measured living relationships."
-    scene: "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Match the observed field relationships before the team decides which partners need specific testing."
+    scene: "The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Tess Rowan asks: \"Match the observed field relationships before the team decides which partners need specific testing.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -3887,11 +3893,11 @@ missions:
     title: "Budget the food web"
     concept: 28   # Energy flow and trophic levels
     reason: "The pilot food web needs an energy budget."
-    scene: "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Calculate the next feeding level before the clinic evaluates which partner combination the plants can support."
+    scene: "The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Tess Rowan asks: \"Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use stored biomass energy times transfer fraction; submit primary-consumer energy in kJ."
-    answerText: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison."
+    answerText: Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison.
     why: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. The remainder is not transferred to that next trophic level as new biomass; energy supports metabolism, is dissipated as heat, or remains in material not eaten or assimilated. Actual efficiencies vary, so the result is a campaign estimate rather than a universal constant. It shows why adding consumers without supporting production cannot create a self-sustaining pilot from an energy shortage."
     # wrong-path feedback, one rebuttal per wrong option:
     #   50 applies the transfer twice and estimates the next level. 5,000 assumes all producer biomass energy becomes consumer biomass. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3954,7 +3960,7 @@ missions:
     title: "Interpret the partner screens"
     concept: 21   # Viruses and host cells
     reason: "The partner list needs specific biological evidence and screening."
-    scene: "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Separate those observations before the director chooses which tested organisms can enter a contained pilot."
+    scene: "The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Mara Vale asks: \"Separate those observations before the director chooses which tested organisms can enter a contained pilot.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -4029,7 +4035,7 @@ missions:
     title: "Add the tested partners"
     concept: 27   # Species interactions and niches
     reason: "The director must approve the tested pair within the permit."
-    scene: "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Choose the next pilot action without extending that result to every organism or an open release."
+    scene: "The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Ada Penn asks: \"Choose the next pilot action without extending that result to every organism or an open release.\""
     motivation: "Prepare the tested plant-partner combination in containment."
     format: CHOICE
     question: "Choose the next pilot action within the evidence and permit."
@@ -4074,12 +4080,12 @@ missions:
     header: "DAY 13 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SOIL ON THE OTHER SHORE"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot."
+    body: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant."
     objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
   objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
-  stake: "The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot."
+  stake: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant."
   takeaway: "Prepare the receiving soil and water before planting. ---"
-  segue: "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test. The crew uses the plan just chosen. A daytime pilot succeeds while its night record is still missing."
+  segue: "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Nitrogen fixation", def: "Conversion of nitrogen gas into biologically usable reduced nitrogen."}
@@ -4118,7 +4124,7 @@ missions:
     title: "Follow nitrogen to a leaf"
     concept: 29   # Matter cycles and disturbance
     reason: "The receiving soil needs a route from stored nitrogen to root uptake."
-    scene: "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting."
+    scene: "The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Tess Rowan asks: \"Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.\""
     motivation: "The causal order identifies what the next test must preserve or challenge."
     format: SEQUENCE
     question: "Order the selected route from nitrogen gas through organic litter to nitrate uptake; other valid nitrogen-cycle routes are outside these cards. Submit all four cards."
@@ -4170,6 +4176,7 @@ missions:
     ends:
       - initiating event
       - result
+    constraints: Each upstream event supplies the condition required by the next.
 
   # --- Stop 50: Check room for growth
   #     Concept: 26 — Population growth and carrying capacity; Keystone: Population change, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 49: Follow nitrogen to a leaf; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
@@ -4179,11 +4186,11 @@ missions:
     title: "Check room for growth"
     concept: 26   # Population growth and carrying capacity
     reason: "The planting plan needs growth under its stated resource limit."
-    scene: "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Calculate expected growth before the crew uses that estimate to choose how many plants to establish."
+    scene: "The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Tess Rowan asks: \"Calculate expected growth before the crew uses that estimate to choose how many plants to establish.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the tiles to calculate modeled net growth in plants per week."
-    answerText: "The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison."
+    answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison.
     why: "The unused-capacity factor is (80 − 40)/80 = 0.5. Multiplying rN by that factor gives 0.5 × 40 × 0.5 = 10 plants per week. The exponential value would be twenty, but the stated logistic model reduces growth as the population approaches the assumed carrying capacity. That capacity is a campaign estimate under prepared-site conditions, not an immutable property of the land. Water and nutrients must actually support those conditions before the number can justify stocking the pilot."
     # wrong-path feedback, one rebuttal per wrong option:
     #   20 omits the resource-limitation factor. 80 is the assumed capacity, not the rate of net growth. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4248,7 +4255,7 @@ missions:
     title: "Separate site constraints"
     concept: 29   # Matter cycles and disturbance
     reason: "The plot needs both water and nutrient constraints resolved."
-    scene: "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Match those constraints before the director sets the order of habitat preparation and planting."
+    scene: "The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Ivo Reed asks: \"Match those constraints before the director sets the order of habitat preparation and planting.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -4323,7 +4330,7 @@ missions:
     title: "Prepare before planting"
     concept: 29   # Matter cycles and disturbance
     reason: "The planting order must satisfy the model assumptions first."
-    scene: "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Choose the order of work that makes those conditions real before stocking the pilot."
+    scene: "The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Ada Penn asks: \"Choose the order of work that makes those conditions real before stocking the pilot.\""
     motivation: "Prepare the receiving soil and water before planting."
     format: CHOICE
     question: "Choose the planting order justified by the site comparisons and growth model."
@@ -4368,12 +4375,12 @@ missions:
     header: "DAY 14 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "GREEN UNTIL MORNING"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion."
+    body: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow."
     objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
   objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
-  stake: "The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion."
+  stake: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow."
   takeaway: "Hold expansion until the night oxygen problem is corrected. ---"
-  segue: "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit. The crew uses the plan just chosen. The final plan must keep a pause and return path."
+  segue: "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Net production", def: "Production remaining after the relevant consumption is subtracted."}
@@ -4409,11 +4416,11 @@ missions:
     title: "Project the dark interval"
     concept: 9   # Respiration and chemiosmosis
     reason: "The daylight pass needs a night-time oxygen calculation."
-    scene: "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand."
+    scene: "The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Ivo Reed asks: \"Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate initial oxygen minus rate times time; submit final oxygen in mg per litre."
-    answerText: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison."
+    answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison.
     why: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This uses a measured net loss for the stated dark interval, so a separate respiration subtraction would count consumption twice. The linear model is limited to the supplied interval and does not describe every possible oxygen level. The calculation retrieves the sealed-pot lesson in a community with additional consumers. It identifies a night-time risk that the healthy daylight appearance cannot rule out, and the full-cycle measurements can now test it."
     # wrong-path feedback, one rebuttal per wrong option:
     #   8 ignores the eight-hour loss. 0 subtracts a full concentration each hour instead of the stated rate. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4478,11 +4485,11 @@ missions:
     title: "Read the complete cycle"
     concept: 9   # Respiration and chemiosmosis
     reason: "The full-cycle comparison must locate the oxygen failure."
-    scene: "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Read every station before deciding whether the pilot design or the receiving water explains the failure."
+    scene: "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Ivo Reed asks: \"Read every station before deciding whether the pilot design or the receiving water explains the failure.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."
+    answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
     why: "Only the dawn reading from the standard pilot falls outside its expected range. The air-supply comparison remains within range, as does the independent receiving-water sample. The contrast supports insufficient oxygen replacement relative to community demand during the night in this design. It does not blame every receiving-site water source or invalidate the measured daylight success. The old sealed-pot clue now pays off at a larger scale: a community can pass a daytime inspection and still fail over its actual operating cycle."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The noon result lies in range but covers only daylight. The air-supply trial is inside the expected range. The independent water sample is normal and weakens a source-wide explanation. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4556,7 +4563,7 @@ missions:
     title: "Choose what each test establishes"
     concept: 30   # Experimental inference and sampling
     reason: "The expansion decision needs the scope of each result."
-    scene: "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Match each result to the claim it supports before the director judges expansion."
+    scene: "The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Tess Rowan asks: \"Match each result to the claim it supports before the director judges expansion.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -4631,7 +4638,7 @@ missions:
     title: "Stop the premature expansion"
     concept: 30   # Experimental inference and sampling
     reason: "The director must stop expansion until the corrected pilot is tested."
-    scene: "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Choose the expansion decision that carries this evidence into the final release plan."
+    scene: "The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Ada Penn asks: \"Choose the expansion decision that carries this evidence into the final release plan.\""
     motivation: "Hold expansion until the night oxygen problem is corrected."
     format: CHOICE
     question: "Select the expansion decision supported by the complete-cycle evidence."
@@ -4676,12 +4683,12 @@ missions:
     header: "DAY 15 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "WHAT GOES HOME"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports."
+    body: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take."
     objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
   objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
-  stake: "Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports."
+  stake: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take."
   takeaway: "Authorize only the corrected monitored pilot, with a pause and return path. ---"
-  segue: "Mission decision: Authorize only the corrected monitored pilot, with a pause and return path. The corrected night test stays above the oxygen limit. The island keeps its reserve. The island keeps a reserve while the mainland pilot begins."
+  segue: "Mission decision: The small test is cleared. The night result meets the limit, and the plan says when to stop. Ada keeps seed families on the island as a reserve."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Pilot", def: "A limited test before a wider action."}
@@ -4714,7 +4721,7 @@ missions:
     title: "Carry forward the tested constraints"
     concept: 30   # Experimental inference and sampling
     reason: "The final stock list must retain each tested constraint."
-    scene: "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Match those findings to handling constraints before the final habitat and transport evidence is combined."
+    scene: "Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Nell Shah asks: \"Match those findings to handling constraints before the final habitat and transport evidence is combined.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -4789,7 +4796,7 @@ missions:
     title: "Keep the habitat links intact"
     concept: 29   # Matter cycles and disturbance
     reason: "The final manifest must keep the tested habitat relationships."
-    scene: "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Carry those measured links into the final plan before checking the corrected night-time oxygen margin."
+    scene: "The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Nell Shah asks: \"Carry those measured links into the final plan before checking the corrected night-time oxygen margin.\""
     motivation: "Distinguishing these mechanisms keeps the next handling decision tied to the evidence."
     format: PROTOCOL
     question: "Match each labeled observation to one explanation; submit all matches, using each explanation once."
@@ -4864,11 +4871,11 @@ missions:
     title: "Check the corrected night margin"
     concept: 9   # Respiration and chemiosmosis
     reason: "The final decision needs the corrected full-cycle oxygen margin."
-    scene: "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Calculate its ending oxygen level before the director commits the complete monitored plan."
+    scene: "The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Tess Rowan asks: \"Calculate its ending oxygen level before the director commits the complete monitored plan.\""
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate final oxygen using start minus net rate times duration; submit mg per litre, then compare with the recorded minimum."
-    answerText: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison."
+    answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison.
     why: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. The net rate already includes the tested oxygen-supply correction and community demand. This arithmetic agrees with the measured corrected trial recorded in Mission 14, but only for the stated conditions and interval. It clears the full-cycle component of the final plan while leaving family identity, screened partners, receiving-site preparation and monitoring as separate requirements for the director to integrate."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 is the threshold rather than the calculated final reading. 8.75 subtracts one hour of loss instead of eight. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4933,7 +4940,7 @@ missions:
     title: "Sign the living manifest"
     concept: 30   # Experimental inference and sampling
     reason: "The waiting ship needs the final evidence-based release plan."
-    scene: "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Choose the complete plan that preserves those constraints and leaves a response to new failure."
+    scene: "The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Ada Penn asks: \"Choose the complete plan that preserves those constraints and leaves a response to new failure.\""
     motivation: "Authorize only the corrected monitored pilot, with a pause and return path."
     format: CHOICE
     question: "Select one complete release plan; this is the final graded decision."

@@ -5,9 +5,9 @@
 export const MISSIONS = [
   {
     "title": "THE HEAT THAT ISN'T GONE",
-    "objective": "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly.",
+    "objective": "Today you decide whether the heat alarm calls for an engine shutdown or a code fix.",
     "briefing": "",
-    "stake": "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong.",
+    "stake": "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix.",
     "primer": [
       "Java evaluates arithmetic from the actual operand types, not from the type you wish the result had.",
       "A controller alarm is evidence only if its calculation agrees with an independent physical reading."
@@ -79,10 +79,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 36 HOURS REMAIN",
       "title": "THE HEAT THAT ISN'T GONE",
       "goNow": "Go to Power & Thermal Plant and meet Malik Okafor, power and thermal engineer, at the Load Board.",
-      "body": "The whiteout has cut Aster Station off, and the first heat alarm is red. The controller turns whole-number power readings into a percentage before deciding whether to warn the crew. At the Power & Thermal Plant, trace and test that calculation before anyone shuts down a healthy generator. By the end of the mission, decide whether the generator is failing or the percentage code is wrong.",
-      "objective": "Gather enough code and station evidence to decide whether the generator is actually under-delivering heat or the controller is calculating the percentage incorrectly."
+      "body": "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix.",
+      "objective": "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
     },
-    "segue": "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. Habitat Control then shows two commands from one sensor reading.",
+    "segue": "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. But Mei now has two commands from one air reading.",
     "stops": [
       {
         "group": "POWER",
@@ -116,9 +116,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE ALARM THAT CALLS TWICE",
-    "objective": "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire.",
+    "objective": "Today you decide whether one sensor reading can make both branches fire.",
     "briefing": "",
-    "stake": "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code.",
+    "stake": "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches.",
     "primer": [
       "More than one Boolean condition can be true for the same input.",
       "Two independent if statements may both run; an if / else if chain selects the first true branch."
@@ -165,10 +165,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 34 HOURS REMAIN",
       "title": "THE ALARM THAT CALLS TWICE",
       "goNow": "Go to Habitat Control and meet Mei Alvarez, habitat systems lead, at the Alarm Cabinet.",
-      "body": "The generator was healthy, but Habitat Control now sends two commands from one carbon-dioxide reading. Conditional branches decide which scrubber action runs when a Boolean test is true. At Habitat Control, trace and test the branch logic before a healthy scrubber is locked out or a real air alarm is ignored. By the end of the mission, decide whether the duplicate action comes from the sensor or the code.",
-      "objective": "Gather enough code and station evidence to decide whether the scrubber is receiving two shutdown commands because of duplicate sensor input or because both branches can fire."
+      "body": "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches.",
+      "objective": "Today you decide whether one sensor reading can make both branches fire."
     },
-    "segue": "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Rover Three then circles the same snow marker again.",
+    "segue": "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Yet Jonah sees Rover Three circle the same snow marker again.",
     "stops": [
       {
         "group": "HAB",
@@ -202,9 +202,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE ROVER THAT NEVER ARRIVES",
-    "objective": "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state.",
+    "objective": "Today you decide whether to repair the rover wheels or the loop that drives them.",
     "briefing": "",
-    "stake": "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate.",
+    "stake": "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop.",
     "primer": [
       "A loop needs both repeated work and a state change that can make its condition false.",
       "Trace the value of the loop variable after every iteration."
@@ -251,10 +251,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 32 HOURS REMAIN",
       "title": "THE ROVER THAT NEVER ARRIVES",
       "goNow": "Go to the Route Planning Board in Vehicle Bay.",
-      "body": "The scrubber sensors were healthy, but Rover Three keeps circling the same snow marker. A loop repeats while its condition stays true, so stored state must move toward a stopping value. In the Vehicle Bay, trace and repair the route loop before the rover wastes rescue time. By the end of the mission, decide whether the rover hardware is stuck or the code cannot terminate.",
-      "objective": "Gather enough code and station evidence to decide whether Rover Three is mechanically stuck or trapped in code that can never reach its stopping state."
+      "body": "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop.",
+      "objective": "Today you decide whether to repair the rover wheels or the loop that drives them."
     },
-    "segue": "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. The incident log then links three failures to one software tool.",
+    "segue": "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. Now Priya finds the same code tool in all three fault traces.",
     "stops": [
       {
         "group": "VEH",
@@ -288,9 +288,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE QUIET TEST",
-    "objective": "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility.",
+    "objective": "Today you decide whether the three faults need one shared code test.",
     "briefing": "",
-    "stake": "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem.",
+    "stake": "Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault.",
     "primer": [
       "A useful test has a known expected result and can distinguish competing explanations.",
       "Boundary cases such as empty input often expose assumptions hidden by ordinary examples."
@@ -337,10 +337,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 30 HOURS REMAIN",
       "title": "THE QUIET TEST",
       "goNow": "Go to Software Lab and meet Priya Nair, software architect, at the Test Bench.",
-      "body": "Three physical-looking failures have now been explained by code, but the station cannot safely patch each one by guesswork. A test harness can replay captured inputs without changing the live station. In the Software Lab, design tests and inspect the shared utility before three separate live patches create new faults. By the end of the mission, decide whether the three failures should be investigated as one software problem.",
-      "objective": "Gather enough code and station evidence to decide whether the station should keep treating each failure separately or investigate one shared software utility."
+      "body": "Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault.",
+      "objective": "Today you decide whether the three faults need one shared code test."
     },
-    "segue": "Mission decision: Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. The first patch then changes C17 but not live controller P02.",
+    "segue": "Mission decision: Treat the three failures as one software problem. All three bad inputs fail after the same utility, while hardware checks stay normal. The crew stops live patching and tests that utility in the lab. But Malik sees the patch change C17 while P02 stays the same.",
     "stops": [
       {
         "group": "CODE",
@@ -374,9 +374,9 @@ export const MISSIONS = [
   },
   {
     "title": "ONE NAME, TWO OBJECTS",
-    "objective": "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state.",
+    "objective": "Today you decide whether the patch reaches live object P02.",
     "briefing": "",
-    "stake": "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object.",
+    "stake": "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit.",
     "primer": [
       "Two variables can refer to the same object, and two similar objects can still be completely separate.",
       "Constructors establish initial object state; instance methods change the receiver object."
@@ -423,10 +423,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 28 HOURS REMAIN",
       "title": "ONE NAME, TWO OBJECTS",
       "goNow": "Go to Software Lab and meet Priya Nair, software architect, beside the Version Rack.",
-      "body": "The shared utility is suspect, but its first patch changes simulation and leaves live controller P02 untouched. Java variables can hold references to different objects even when those objects look similar. In the Software Lab and Power Plant, trace the live object path before the crew accepts a patch that never reaches P02. By the end of the mission, decide whether the patch reaches P02 or a different controller object.",
-      "objective": "Gather enough code and station evidence to decide whether the patch is modifying the intended live controller object or a different object with similar state."
+      "body": "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit.",
+      "objective": "Today you decide whether the patch reaches live object P02."
     },
-    "segue": "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. A rescue message then shows 08:0 while the raw packet shows 08:07.",
+    "segue": "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. Yet Liv sees 08:0 on screen and 08:07 in the raw note.",
     "stops": [
       {
         "group": "CODE",
@@ -460,9 +460,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE MESSAGE WITH THE WRONG MINUTE",
-    "objective": "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly.",
+    "objective": "Today you decide whether to keep the rescue link and fix the time parser.",
     "briefing": "",
-    "stake": "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong.",
+    "stake": "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong.",
     "primer": [
       "Network delivery and local parsing are separate stages.",
       "Java String indexes start at zero, and substring(start,end) excludes the end index."
@@ -474,7 +474,7 @@ export const MISSIONS = [
       },
       {
         "name": "String",
-        "def": "an object that stores an ordered sequence of characters. substring: a String method that returns characters from a chosen start index up to, but not including, an end index."
+        "def": "an object that stores an ordered sequence of characters. substring: copies part of a String. It includes the start index and stops before the end index."
       }
     ],
     "worked": {
@@ -513,10 +513,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 26 HOURS REMAIN",
       "title": "THE MESSAGE WITH THE WRONG MINUTE",
       "goNow": "Go to the Packet Monitor in Communications & Weather.",
-      "body": "The live power patch works, but rescue messages now appear late on station displays. Network transport and String parsing are separate stages that can disagree about the same message. At Communications and the Software Lab, trace both stages before abandoning a healthy satellite path. By the end of the mission, decide whether the rescue link is late or the timestamp parser is wrong.",
-      "objective": "Gather enough code and station evidence to decide whether rescue messages are actually arriving late or the station software is displaying the timestamp incorrectly."
+      "body": "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong.",
+      "objective": "Today you decide whether to keep the rescue link and fix the time parser."
     },
-    "segue": "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. Habitat Control then labels Room 7 as 4.1°C while a local reading shows 20.9°C.",
+    "segue": "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C.",
     "stops": [
       {
         "group": "COMMS",
@@ -550,9 +550,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE ARRAY WITH A HOLE",
-    "objective": "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element.",
+    "objective": "Today you decide whether Room 7 needs to be cleared or its index needs a fix.",
     "briefing": "",
-    "stake": "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed.",
+    "stake": "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item.",
     "primer": [
       "Java arrays use indexes from zero through length minus one.",
       "A value can be correct while its mapping to a real-world label is wrong."
@@ -603,10 +603,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 24 HOURS REMAIN",
       "title": "THE ARRAY WITH A HOLE",
       "goNow": "Go to the Sensor Probe Rack in Habitat Control.",
-      "body": "The rescue packet was on time, but Room 7 now appears dangerously cold while nearby readings disagree. The habitat controller stores room temperatures in an indexed array, so one shifted index can attach a real value to the wrong room. At Habitat Control and the Software Lab, trace the mapping before moving anyone. By the end of the mission, decide whether Room 7 is unsafe or misindexed.",
-      "objective": "Gather enough code and station evidence to decide whether Room 7 is truly cold enough to evacuate or the controller is reading another sensor's array element."
+      "body": "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item.",
+      "objective": "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
     },
-    "segue": "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. The incident view then loses every second record.",
+    "segue": "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. Now Park finds every second record gone from the incident view.",
     "stops": [
       {
         "group": "HAB",
@@ -640,9 +640,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE LOG THAT SKIPS EVERY SECOND LINE",
-    "objective": "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records.",
+    "objective": "Today you decide whether the raw log is lost or list cleanup skips its records.",
     "briefing": "",
-    "stake": "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup.",
+    "stake": "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them.",
     "primer": [
       "Removing an ArrayList element shifts later elements one index left.",
       "Compare raw input with each processed stage before deciding where data were lost."
@@ -689,10 +689,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 22 HOURS REMAIN",
       "title": "THE LOG THAT SKIPS EVERY SECOND LINE",
       "goNow": "Go to Operations Module and meet Dr. Elena Park, station director, at the Shift Log Desk.",
-      "body": "Room 7 was safe, but the incident view now omits every second recovery action. The logger reads text into an ArrayList whose indexes shift when an element is removed. At Operations and the Software Lab, compare raw and processed records before anyone treats existing records as lost. By the end of the mission, decide whether records were never written or skipped during cleanup.",
-      "objective": "Gather enough code and station evidence to decide whether recovery records were never written or the program is skipping entries while it removes resolved records."
+      "body": "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them.",
+      "objective": "Today you decide whether the raw log is lost or list cleanup skips its records."
     },
-    "segue": "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. The rover map then moves a known crevasse to the next cell.",
+    "segue": "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. But Jonah finds the known crack in the next map cell.",
     "stops": [
       {
         "group": "OPS",
@@ -726,9 +726,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE MAP THAT LIES BY ONE COLUMN",
-    "objective": "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes.",
+    "objective": "Today you decide whether to trust the survey and fix the map write.",
     "briefing": "",
-    "stake": "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates.",
+    "stake": "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two.",
     "primer": [
       "A 2D array access uses [row][column] in this campaign.",
       "Nested loops can traverse correctly even when a later read or write swaps the two indexes."
@@ -775,10 +775,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 20 HOURS REMAIN",
       "title": "THE MAP THAT LIES BY ONE COLUMN",
       "goNow": "Go to the Route Table in Vehicle Bay.",
-      "body": "The missing records came from list mutation, and now a rover map places one crevasse in the wrong cell. A two-dimensional array uses separate row and column indexes whose order matters. In the Vehicle Bay and Software Lab, trace the grid copy before Rover Three moves. By the end of the mission, decide whether the field survey is wrong or the display transposes its coordinates.",
-      "objective": "Gather enough code and station evidence to decide whether the field survey is wrong or the rover display is swapping row and column indexes."
+      "body": "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two.",
+      "objective": "Today you decide whether to trust the survey and fix the map write."
     },
-    "segue": "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. A short satellite pass then makes the old search too slow.",
+    "segue": "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. Now Liv needs the right radio record before the next short pass ends.",
     "stops": [
       {
         "group": "VEH",
@@ -812,9 +812,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE FAST ANSWER",
-    "objective": "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window.",
+    "objective": "Today you decide which search can reach the radio record before the link closes.",
     "briefing": "",
-    "stake": "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes.",
+    "stake": "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time.",
     "primer": [
       "Binary search requires sorted data.",
       "After each midpoint comparison, discard only the half that cannot contain the target."
@@ -874,10 +874,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 18 HOURS REMAIN",
       "title": "THE FAST ANSWER",
       "goNow": "Go to the Message Queue Board in Communications & Weather.",
-      "body": "The hazard map is repaired, but the next satellite pass is too short for a slow rescue-frequency lookup. A sorted table allows binary search to discard half the remaining records after each comparison. At Communications and the Software Lab, estimate and trace the search before the pass closes without the rescue frequency. By the end of the mission, decide which search can find 122.3 MHz before the link closes.",
-      "objective": "Gather enough code and station evidence to decide which search method can find the rescue-frequency record fast enough for the next satellite window."
+      "body": "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time.",
+      "objective": "Today you decide which search can reach the radio record before the link closes."
     },
-    "segue": "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Two separate controllers then report the same last-warning value.",
+    "segue": "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Yet Mei sees two separate units report the same last warning.",
     "stops": [
       {
         "group": "COMMS",
@@ -911,9 +911,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE CLASS THAT REMEMBERS TOO MUCH",
-    "objective": "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level.",
+    "objective": "Today you decide whether each unit needs its own warning field.",
     "briefing": "",
-    "stake": "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state.",
+    "stake": "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field.",
     "primer": [
       "A static field is shared by every instance of the class.",
       "An instance field changes only inside the object receiving the method call."
@@ -960,10 +960,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 16 HOURS REMAIN",
       "title": "THE CLASS THAT REMEMBERS TOO MUCH",
       "goNow": "Go to Software Lab and meet Priya Nair, software architect, at the Version Rack.",
-      "body": "The rescue frequency is locked, but two separate controllers now report the same last-warning value. A static field is shared by a class, while an instance field belongs to one object. Across Software, Power, and Habitat, test which kind of state the warning uses before one controller silently overwrites another during rescue. By the end of the mission, decide whether the controllers are overwriting one another through shared class state.",
-      "objective": "Gather enough code and station evidence to decide whether unrelated controllers are overwriting one another because their warning state is shared at the class level."
+      "body": "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field.",
+      "objective": "Today you decide whether each unit needs its own warning field."
     },
-    "segue": "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. The aircraft then allows only ten seconds for the next message.",
+    "segue": "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. Now Liv has just ten seconds to send the plane what it needs.",
     "stops": [
       {
         "group": "CODE",
@@ -997,9 +997,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE SORTED QUEUE",
-    "objective": "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII.",
+    "objective": "Today you decide which facts the plane needs in its ten-second message.",
     "briefing": "",
-    "stake": "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust.",
+    "stake": "The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send.",
     "primer": [
       "Sorting can have requirements beyond numeric order, including preserving equal-priority order.",
       "Collect and transmit only the data needed for the decision."
@@ -1007,7 +1007,7 @@ export const MISSIONS = [
     "primerTerms": [
       {
         "name": "PII",
-        "def": "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: a sorting algorithm that inserts each new item into the correct place in an already-sorted prefix."
+        "def": "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: puts each new item in its proper place among the items already sorted."
       }
     ],
     "worked": {
@@ -1046,10 +1046,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 14 HOURS REMAIN",
       "title": "THE SORTED QUEUE",
       "goNow": "Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board.",
-      "body": "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust.",
-      "objective": "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII."
+      "body": "The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send.",
+      "objective": "Today you decide which facts the plane needs in its ten-second message."
     },
-    "segue": "Mission decision: Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. Icing then threatens the main antenna.",
+    "segue": "Mission decision: Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. But Liv sees ice spread across the main antenna.",
     "stops": [
       {
         "group": "OPS",
@@ -1083,9 +1083,9 @@ export const MISSIONS = [
   },
   {
     "title": "THE CALL THAT CALLS ITSELF",
-    "objective": "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay.",
+    "objective": "Today you decide whether the route code can send Rover Three out and bring its calls to an end.",
     "briefing": "",
-    "stake": "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely.",
+    "stake": "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay.",
     "primer": [
       "Every recursive method needs a base case and progress toward it.",
       "Trace call entry separately from the order in which calls return."
@@ -1132,10 +1132,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 12 HOURS REMAIN",
       "title": "THE CALL THAT CALLS ITSELF",
       "goNow": "Go to the Code Review Wall in Software Lab.",
-      "body": "The rescue queue is ready, but icing may remove the primary antenna before the aircraft arrives. The backup rover route uses recursion: each call solves a smaller route until a base case stops the chain. Across Software, Vehicle, and Communications, prove the builder before Rover Three enters the whiteout. By the end of the mission, decide whether Rover Three can deploy a four-waypoint relay route safely.",
-      "objective": "Gather enough code and station evidence to decide whether the recursive route builder will terminate and produce a four-waypoint path safe enough for Rover Three to carry the backup relay."
+      "body": "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay.",
+      "objective": "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
     },
-    "segue": "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. All dashboards turn green, but rollback has not tested side-by-side resolved records.",
+    "segue": "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. Yet Priya has no test of two resolved records side by side.",
     "stops": [
       {
         "group": "CODE",
@@ -1169,9 +1169,9 @@ export const MISSIONS = [
   },
   {
     "title": "ALL GREEN",
-    "objective": "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure.",
+    "objective": "Today you decide whether the green lights prove a safe recovery path.",
     "briefing": "",
-    "stake": "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable.",
+    "stake": "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now.",
     "primer": [
       "Passing development examples does not prove a repair works on unseen structure.",
       "A patterned residual can be more diagnostic than a slightly better aggregate score."
@@ -1222,10 +1222,10 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 10 HOURS REMAIN",
       "title": "ALL GREEN",
       "goNow": "Go to the Test Bench in Software Lab.",
-      "body": "The relay is active and every dashboard is green, but rollback has never faced adjacent resolved records. Holdout and stress tests ask whether a repair survives inputs that did not shape it. Across Software, Power, and Operations, challenge the green state before anyone trusts the rollback path. By the end of the mission, decide whether the station is truly safe or only currently stable.",
-      "objective": "Gather enough code and station evidence to decide whether the station is truly safe to wait for rescue or the green dashboard is hiding an unverified rollback failure."
+      "body": "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now.",
+      "objective": "Today you decide whether the green lights prove a safe recovery path."
     },
-    "segue": "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. The aircraft then enters the last usable weather window.",
+    "segue": "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. Now Park must choose a release plan as the plane enters its last weather window.",
     "stops": [
       {
         "group": "CODE",
@@ -1259,9 +1259,9 @@ export const MISSIONS = [
   },
   {
     "title": "WHITEOUT",
-    "objective": "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade.",
+    "objective": "Today you decide which tested release plan can keep the rescue path open.",
     "briefing": "",
-    "stake": "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade.",
+    "stake": "The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust.",
     "primer": [
       "A canary release changes one limited target before the wider system.",
       "Final authorization requires committed predictions, measured results, and an independent recovery path."
@@ -1312,8 +1312,8 @@ export const MISSIONS = [
       "header": "RESCUE WINDOW — ABOUT 8 HOURS REMAIN",
       "title": "WHITEOUT",
       "goNow": "Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board.",
-      "body": "ALL GREEN was revoked, and the aircraft is entering the last usable weather window. A staged canary release limits the first change, preserves rollback, and keeps an independent command path alive. Across Operations, Software, and Communications, prove the release gates before a full restart can erase the verified recovery path. By the end of the mission, decide which software release and rescue plan can be committed without another hidden cascade.",
-      "objective": "Gather enough code and station evidence to decide which final software release and rescue plan can be committed without creating another hidden cascade."
+      "body": "The green claim is gone, and Park sees the last chance to land. A small first release lets the crew test a change and undo it. Keep the rover link on while the checks run. By the end of the mission, decide which release plan the crew can trust.",
+      "objective": "Today you decide which tested release plan can keep the rescue path open."
     },
     "segue": "Mission decision: Use a staged canary release with backward rollback and the rover command path. The canary checks match. The crew expands the release one stage at a time. The Runway Door opens. The player watches the rescue aircraft land and taxi to the station.",
     "stops": [

@@ -2,7 +2,7 @@
 
 ## AP Biology Campaign Implementation Bible
 
-**Version:** 1.0 — new campaign, source-authoring edition
+**Version:** 1.1 — Handback 1 revision
 
 **Campaign length:** 15 missions, 60 graded stops; fifteen field days before the charter ship departs.
 
@@ -10,7 +10,7 @@
 
 ## 0. Readiness boundary
 
-Canonical artifact: `WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md`. Master Brief v3.3, Giant Gate v2.3 and Authoring Ledger v1.3 govern this work. Whiteout supplies section order and A–K mission layout, not its old short explanations or handback history. No working repository, importer, renderer or project readability checker was supplied; schema conversion, rendering, full play and actual project readability are NOT TESTED. The payloads use the supplied format documentation provisionally. This is a complete authored bible for review, not a claim of release readiness.
+Canonical artifact: `WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.1.md`. Master Brief v3.3, Giant Gate v2.3 and Authoring Ledger v1.3 govern this work. Whiteout supplies section order and A–K mission layout, not its old short explanations or handback history. No working repository, importer, renderer or project readability checker was supplied; schema conversion, rendering, full play and actual project readability are NOT TESTED. The payloads use the supplied format documentation provisionally. This is a complete authored bible for review, not a claim of release readiness.
 
 ### Source-pack inventory
 | Source | Status | Authority/action |
@@ -44,11 +44,37 @@ The island once held a living backup for a damaged mainland coast. Thirty years 
 
 ## Opening card — exact player copy
 
-You arrive at Pellow Head Island to help its plants and animals return to a damaged mainland coast. Your biology work will decide which living things can travel and what they will need when they arrive. The ship leaves in fifteen days, and a failed move could cost the coast its best chance to recover. Preserve director Ada Penn stops a cart of pale seedlings and says, “Check what they need now.” A bird pulls an insect from the cart while the old release board still reads READY.
+You reach Pellow Head as a bird picks bugs from a cart of pale plants. Ada Penn asks you to build The Contained Pilot, a plan to test a small group of plants and their partners on the coast. Each day adds one piece to the Release Board. The ship leaves in fifteen days. You must learn what can go, what must stay, and when to stop the test.
 
 ### Opening implementation state
 
 One card shows all five sentences over normal spawn; one Continue reveals the four bars and Mission 1 icon. No percentage repeats the HUD. Movement stays under player control; the sample cart establishes the first meaningful route.
+
+## 1.1 Named delivery — authoritative build data
+
+```yaml
+delivery:
+  name: "The Contained Pilot"
+  what: "A fifteen-piece plan that Ada Penn and the mainland field crew read before a small, watched test of island plants and their tested partners."
+  pieces:
+    - "The feed correction"
+    - "The matched rinse"
+    - "The ventilated lids"
+    - "The small lamp trial"
+    - "The flower schedule"
+    - "The held tissue line"
+    - "The family test"
+    - "The enzyme lead"
+    - "The ancestry labels"
+    - "The insect history"
+    - "The varied seed stock"
+    - "The tested partners"
+    - "The prepared plots"
+    - "The night correction"
+    - "The signed stop rule"
+```
+
+The existing PLAN/release-board displays this title and all fifteen piece names in mission order from the opening. Each slot begins PENDING. Its mission outcome records the accepted evidence and changes that slot to READY; merely opening the board cannot award a piece. The final slot becomes SIGNED only after Mission 15 allocation and the existing scientific flags and four-bar gate. No cable order, repeater reference or twelve-piece fallback may appear. The log mirrors the board. Reopening it is ungraded and pauses the timer.
 
 # 2. Campaign metrics, timer, and recovery economy
 
@@ -125,7 +151,7 @@ The reference route earns only 4 RP every day, allocates to the lowest bar (ties
 
 | ID | Fixture | Build | Wall | Exact caption |
 |---|---|---|---|---|
-| release-board | Release Board | board | back | A map holds the proposed mainland planting sites. |
+| release-board | Release Board | board | back | The Contained Pilot board holds fifteen plan pieces beside the mainland plot map. |
 | survey-table | Survey Table | bench | right | Field notebooks lie open beside a scale map. |
 | sample-cart | Sample Cart | rack | left | A wheeled rack carries sealed samples between rooms. |
 
@@ -164,6 +190,14 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 ### Ada Penn
 
+**Bio — exact player copy:** Ada once judged the island by the list of things it could send. She now puts a limit beside each name. The ship crew needs her signature, but she needs your tests first.
+
+**Bio question — exact player copy:** “What does this result let us do, and where must we still wait?”
+
+**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+
+**Bio response — exact player copy:** A result clears only the tested step. Ada waits where the evidence does not yet cover the plan.
+
 - **Role:** preserve director. **Pronouns:** she/her. **Allowed short name:** Ada. **Area ownership:** PLAN.
 - **First entrance:** Stops the pale-seedling cart before loading.
 - **Wants:** Give the mainland a justified chance to recover.
@@ -175,6 +209,14 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 - **Gameplay necessity:** Removing this person removes the preserve director viewpoint and its owned evidence or authorization.
 
 ### Mara Vale
+
+**Bio — exact player copy:** Mara keeps a live control beside each suspect sample. She cares about each root and animal that passes through her room. A healthy plant once seemed ready to travel; now she asks what it needs around it.
+
+**Bio question — exact player copy:** “Which comparison stayed healthy, and what does that let us change?”
+
+**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+
+**Bio response — exact player copy:** The matched healthy control shows what stayed well. Mara compares it with the changed treatment before she changes care.
 
 - **Role:** veterinary biologist. **Pronouns:** she/her. **Allowed short name:** Mara. **Area ownership:** CLINIC.
 - **First entrance:** Checks root viability instead of accepting swelling as a diagnosis.
@@ -188,6 +230,14 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 ### Ivo Reed
 
+**Bio — exact player copy:** Ivo wants the nursery green again. His old lamp plan helps the leaves, but the flowers miss their visitors. He keeps the small trial lit so no one forgets what worked and what it failed to test.
+
+**Bio question — exact player copy:** “Can the leaves grow well while the flowers lose their visitors?”
+
+**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+
+**Bio response — exact player copy:** Yes. Leaves can grow while flower timing no longer matches the bugs that carry pollen.
+
 - **Role:** plant physiologist. **Pronouns:** he/him. **Allowed short name:** Ivo. **Area ownership:** GROW.
 - **First entrance:** Keeps the oxygen-supply trial running through the dark interval.
 - **Wants:** Restore vigorous nursery growth.
@@ -200,6 +250,14 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 ### Nell Shah
 
+**Bio — exact player copy:** Nell writes a family label before she fills a seed jar. She knows that two plants can look alike and still carry different gene forms. She also knows a changed code is a lead, not proof of the whole cause.
+
+**Bio question — exact player copy:** “Can we still trace that family after we sort these plants?”
+
+**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+
+**Bio response — exact player copy:** Yes, if its family label and source record stay with it. Leaf shape alone cannot keep that history.
+
 - **Role:** conservation geneticist. **Pronouns:** she/her. **Allowed short name:** Nell. **Area ownership:** SEED, GENE.
 - **First entrance:** Labels every parent sample before anyone pools seed.
 - **Wants:** Preserve variation and traceable families.
@@ -211,6 +269,14 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 - **Gameplay necessity:** Removing this person removes the conservation geneticist viewpoint and its owned evidence or authorization.
 
 ### Tess Rowan
+
+**Bio — exact player copy:** Tess walks the marsh before she reads the board. She counts the bugs on flowers and keeps clear of nesting birds. The island works through many small links; the new coast must be tested for its own needs.
+
+**Bio question — exact player copy:** “What else depends on that plant, and will the new site support the link?”
+
+**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+
+**Bio response — exact player copy:** A plant may depend on partners that move nutrients or pollen. The new site needs its own tests of those links.
 
 - **Role:** field ecologist. **Pronouns:** she/her. **Allowed short name:** Tess. **Area ownership:** MARSH.
 - **First entrance:** Closes a dune path around a nesting patch while preserving the sample route.
@@ -226,15 +292,15 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 | # | Concept | Sheet unit | Primary graded encounters |
 |---|---|---|---|
-| 1 | Water and carbon chemistry | 1 | Primer and worked examples; detailed mapping below |
-| 2 | Macromolecules and hydrolysis | 1 | 1, 2, 4 |
+| 1 | Water and carbon chemistry | 1 | S1 grades carbon and element roles; water properties are required primer support |
+| 2 | Macromolecules and hydrolysis | 1 | 2, 4; S1 prepares elemental requirements |
 | 3 | Protein structure and enzymes | 1 | 13, 31 |
 | 4 | Cells, organelles and endosymbiosis | 2 | 5 |
 | 5 | Membranes and transport | 2 | 7, 8 |
 | 6 | Water potential and surface-area exchange | 2 | 6 |
-| 7 | ATP and energy coupling | 3 | Primer and worked examples; detailed mapping below |
+| 7 | ATP and energy coupling | 3 | 9 |
 | 8 | Photosynthesis and carbon fixation | 3 | 10, 17 |
-| 9 | Respiration and chemiosmosis | 3 | 9, 11, 12, 53, 54, 59 |
+| 9 | Respiration and chemiosmosis | 3 | 11, 12, 53, 54, 59; S9 first establishes ATP coupling |
 | 10 | Fermentation | 3 | Primer and worked examples; detailed mapping below |
 | 11 | Signals and feedback | 4 | 14, 16, 23 |
 | 12 | Cell cycle and checkpoints | 4 | 21, 22, 24 |
@@ -274,41 +340,76 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 ## 5.2 Dependency graph
 
-1–3 → 4–6 → 7–10; 3–4 → 11–12; 4 and introductory DNA/allele primer → 13–16; 13 plus DNA primer → 17–20; 4 and 17–18 → 21; 13–16 plus explicit population primer → 22–25; 7–10 and 22–23 → 26–29; 30 is introduced through the matched-feed comparison and recurs throughout. Within each mission, the primer provides the definitions required for the first new concept; the four stops then create the evidence chain. Major ideas needed in M15 are all established by M14.
+The following table replaces the former broad unit-chain arrows. A prerequisite means an earlier graded encounter with the component used by this task. Stop 1 actually matches carbon skeletons and nitrogen/phosphorus sources, establishing concept 1’s elemental foundation before the feed calculation. Stop 9 actually orders the oxygen-supported ATP pathway, establishing concept 7 before the oxygen-balance and respiration comparisons. These are metadata corrections to existing boards, not extra stops or new answer keys. Water properties and full hydrolysis details remain explicitly taught in the required M1 primer; they are not falsely claimed as graded by the ingredient match.
+
+| Concept | Prerequisites | First graded evidence |
+|---|---|---|
+| 1 | None | Stop 1 |
+| 2 | 1 | Stop 2 |
+| 3 | 2 | Stop 13 |
+| 4 | 1 | Stop 5 |
+| 5 | 4 | Stop 7 |
+| 6 | 4 | Stop 6 |
+| 7 | 2, 4 | Stop 9 |
+| 8 | 7 | Stop 10 |
+| 9 | 7 | Stop 11 |
+| 10 | None | Supporting primer/help only; not a graded prerequisite |
+| 11 | 4 | Stop 14 |
+| 12 | 11 | Stop 21 |
+| 13 | 12 | Stop 25 |
+| 14 | 13 | Stop 26 |
+| 15 | 14 | Stop 27 |
+| 16 | 13, 14 | Stop 34 |
+| 17 | 13 | Stop 35 |
+| 18 | 2, 13 | Stop 29 |
+| 19 | 11 | Stop 15 |
+| 20 | 18 | Stop 30 |
+| 21 | 4, 18 | Stop 47 |
+| 22 | 13, 14 | Stop 37 |
+| 23 | 13 | Stop 42 |
+| 24 | 13, 14 | Stop 41 |
+| 25 | None | Supporting primer/help only; not a graded prerequisite |
+| 26 | 22 | Stop 50 |
+| 27 | 8 | Stop 18 |
+| 28 | 8, 27 | Stop 46 |
+| 29 | 1, 5, 27 | Stop 49 |
+| 30 | None | Stop 3 |
+
+Concept 19’s first lamp-response task needs signaling (11) and the required M4 definition of DNA/RNA/protein; it does not require the later full transcription sequence (18). Concept 27’s first pollinator task needs photosynthesis (8), not evolution or population genetics. The allele-count baseline (24) needs meiosis and probability, not the later drift classification (23). Nitrogen cycling (29) uses elemental requirements, transport and organism links; it does not require ungraded speciation (25). Fermentation (10) and speciation/phylogeny (25) remain supporting coverage without outgoing graded prerequisite claims. Primers remain visible and required before first tasks; optional worked examples are never counted as prerequisite completion.
 
 ## 5.3 Concept encounter matrix
 
 | Concept | Encounters |
 |---|---|
-| 1 | See §5.5 supporting sheet coverage |
-| 2 | M1 S1 INTRODUCE; M1 S2 INTRODUCE; M1 S4 COMBINE |
+| 1 | M1 S1 INTRODUCE |
+| 2 | M1 S2 INTRODUCE; M1 S4 COMBINE |
 | 3 | M4 S13 INTRODUCE; M8 S31 RETRIEVE |
 | 4 | M2 S5 INTRODUCE |
 | 5 | M2 S7 INTRODUCE; M2 S8 COMBINE |
 | 6 | M2 S6 INTRODUCE |
-| 7 | See §5.5 supporting sheet coverage |
+| 7 | M3 S9 INTRODUCE |
 | 8 | M3 S10 INTRODUCE; M5 S17 RETRIEVE |
-| 9 | M3 S9 INTRODUCE; M3 S11 INTRODUCE; M3 S12 COMBINE; M14 S53 RETRIEVE; M14 S54 PRACTICE; M15 S59 TRANSFER |
-| 10 | See §5.5 supporting sheet coverage |
+| 9 | M3 S11 INTRODUCE; M3 S12 COMBINE; M14 S53 RETRIEVE; M14 S54 PRACTICE; M15 S59 TRANSFER |
+| 10 | Required primer/help support; no graded claim |
 | 11 | M4 S14 INTRODUCE; M4 S16 COMBINE; M6 S23 PRACTICE |
-| 12 | M6 S21 PRACTICE; M6 S22 PRACTICE; M6 S24 COMBINE |
-| 13 | M7 S25 PRACTICE |
-| 14 | M7 S26 PRACTICE; M7 S28 COMBINE |
-| 15 | M7 S27 PRACTICE |
-| 16 | M9 S34 PRACTICE |
-| 17 | M9 S35 PRACTICE |
-| 18 | M8 S29 PRACTICE |
+| 12 | M6 S21 INTRODUCE; M6 S22 PRACTICE; M6 S24 COMBINE |
+| 13 | M7 S25 INTRODUCE |
+| 14 | M7 S26 INTRODUCE; M7 S28 COMBINE |
+| 15 | M7 S27 INTRODUCE |
+| 16 | M9 S34 INTRODUCE |
+| 17 | M9 S35 INTRODUCE |
+| 18 | M8 S29 INTRODUCE |
 | 19 | M4 S15 INTRODUCE; M9 S33 RETRIEVE; M9 S36 COMBINE |
-| 20 | M8 S30 PRACTICE; M8 S32 COMBINE |
-| 21 | M12 S47 PRACTICE |
-| 22 | M10 S37 PRACTICE; M10 S38 PRACTICE; M10 S39 PRACTICE; M10 S40 COMBINE |
-| 23 | M11 S42 PRACTICE; M11 S44 COMBINE |
+| 20 | M8 S30 INTRODUCE; M8 S32 COMBINE |
+| 21 | M12 S47 INTRODUCE |
+| 22 | M10 S37 INTRODUCE; M10 S38 PRACTICE; M10 S39 PRACTICE; M10 S40 COMBINE |
+| 23 | M11 S42 INTRODUCE; M11 S44 COMBINE |
 | 24 | M11 S41 INTRODUCE; M11 S43 PRACTICE |
-| 25 | See §5.5 supporting sheet coverage |
-| 26 | M13 S50 RETRIEVE |
-| 27 | M5 S18 PRACTICE; M5 S19 PRACTICE; M5 S20 COMBINE; M12 S45 RETRIEVE; M12 S48 COMBINE |
-| 28 | M12 S46 PRACTICE |
-| 29 | M13 S49 RETRIEVE; M13 S51 RETRIEVE; M13 S52 COMBINE; M15 S58 TRANSFER |
+| 25 | Required primer/help support; no graded claim |
+| 26 | M13 S50 INTRODUCE |
+| 27 | M5 S18 INTRODUCE; M5 S19 PRACTICE; M5 S20 COMBINE; M12 S45 RETRIEVE; M12 S48 COMBINE |
+| 28 | M12 S46 INTRODUCE |
+| 29 | M13 S49 INTRODUCE; M13 S51 RETRIEVE; M13 S52 COMBINE; M15 S58 TRANSFER |
 | 30 | M1 S3 INTRODUCE; M14 S55 RETRIEVE; M14 S56 COMBINE; M15 S57 TRANSFER; M15 S60 TRANSFER |
 
 ## 5.4 Keystone recurrence matrix
@@ -430,7 +531,7 @@ M2: the helpful-looking rinse causes measured injury in the tested line. M3: foo
 
 **Go now:** Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.
 
-**Card body:** The ship has been booked, but the first seedling trays have pale new leaves. Plants need small amounts of several elements as well as a source of energy. Compare feed labels and test the stored mix at the Sample Bench. By the end of the mission, decide whether to replace the failing seedling feed.
+**Card body:** The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed.
 
 **Objective:** Resolve whether to replace the failing seedling feed; the young plants may die before planting.
 
@@ -554,7 +655,7 @@ Mission question: whether to replace the failing seedling feed. Actual final ans
 
 **World state:** The incomplete feed is withdrawn and replacement nutrients reach the nursery. Root cells swell after a fresh-water rinse.
 
-**Dialogue bubble — Mara Vale, veterinary biologist:** “Root cells swell after a fresh-water rinse.”
+**Dialogue bubble — Mara Vale, veterinary biologist:** “But Mara finds swollen roots in the next tray. She needs the rinse checked before packing.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -593,7 +694,7 @@ Water molecules are polar; hydrogen bonds support cohesion, adhesion and surface
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 2 — Macromolecules and hydrolysis; Keystone: Structure and function, Matter conservation; Area: CLINIC; Prerequisites: Mission primer; no prior graded knowledge assumed.; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 1 — Water and carbon chemistry; Keystone: Structure and function, Matter conservation; Area: CLINIC; Prerequisites: Required mission primer; no prior graded concept required; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Briefing decision advanced:** whether to replace the failing seedling feed.
 
@@ -615,7 +716,7 @@ Water molecules are polar; hydrogen bonds support cohesion, adhesion and surface
 
 **Stop reason — exact player copy:** The feed label must explain what the seedlings can build.
 
-**Question card story setup — exact player copy:** The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.
+**Question card story setup — exact player copy:** The first shipment trays have pale new leaves, even though the feed label lists plenty of stored energy. Mara Vale asks: “The clinic needs the ingredients connected to what cells build before it can decide which shortage to test.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -697,7 +798,7 @@ answerText: The pale seedlings need materials as well as fuel. This result is no
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 2 — Macromolecules and hydrolysis; Keystone: Matter conservation; Area: CLINIC; Prerequisites: Mission primer and Stop 1: Read the feed ingredients; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+**Metadata:** Concept: 2 — Macromolecules and hydrolysis; Keystone: Matter conservation; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
 
 **Briefing decision advanced:** whether to replace the failing seedling feed.
 
@@ -719,7 +820,7 @@ answerText: The pale seedlings need materials as well as fuel. This result is no
 
 **Stop reason — exact player copy:** The replacement test needs the missing nitrogen amount.
 
-**Question card story setup — exact player copy:** The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.
+**Question card story setup — exact player copy:** The ingredient matches show that carbon-rich food cannot supply every element needed for new cells, and the stored mix contains little nitrogen. Mara Vale asks: “Calculate the shortfall so the clinic can prepare a measured comparison instead of guessing.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -786,7 +887,7 @@ answerText: 'The deficit is the daily requirement minus the nitrogen already sup
 
 **Required stop kind:** operated/fixture. **Player verb:** sample and compare stations.
 
-**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Structure and function; Area: CLINIC; Prerequisites: Mission primer and Stop 2: Count the missing nitrogen; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
+**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Structure and function; Area: CLINIC; Prerequisites: Required mission primer; no prior graded concept required; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
 
 **Briefing decision advanced:** whether to replace the failing seedling feed.
 
@@ -796,7 +897,7 @@ answerText: 'The deficit is the daily requirement minus the nitrogen already sup
 | Kernel field | Author-only value |
 |---|---|
 | player_knows | 9 |
-| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Complete-feed control", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t2", "label": "Stored-feed tray", "reading": "2 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t3", "label": "Nitrogen-restored tray", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "stored feed plus missing nitrogen"}, {"id": "t4", "label": "Assay standard", "reading": "10 mg/L nitrate", "expected": "9–11 mg/L", "load": "known solution"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.", "correctConclusion": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.", "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."}, "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."} |
+| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Complete-feed control", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t2", "label": "Stored-feed tray", "reading": "2 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t3", "label": "Nitrogen-restored tray", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "stored feed plus the nitrogen top-up"}, {"id": "t4", "label": "Assay standard", "reading": "10 mg/L nitrate", "expected": "9–11 mg/L", "load": "known solution"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.", "correctConclusion": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.", "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."}, "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."} |
 | player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed." |
 | correct_result | "t2" |
 | most_tempting_wrong_result | "The complete-feed control is within its range." |
@@ -808,7 +909,7 @@ answerText: 'The deficit is the daily requirement minus the nitrogen already sup
 
 **Stop reason — exact player copy:** The clinic needs a controlled test before changing feed.
 
-**Question card story setup — exact player copy:** The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Compare the matched cultures and assay standard before the clinic replaces the stored mix.
+**Question card story setup — exact player copy:** The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Mara Vale asks: “Compare the matched cultures and assay standard before the clinic replaces the stored mix.”
 
 **Question card story-science connection — exact player copy:** A station-specific failure identifies the comparison that must govern the next handling decision.
 
@@ -832,7 +933,7 @@ probe:
     label: Nitrogen-restored tray
     reading: 8 mm growth/day
     expected: 7–9 mm/day
-    load: stored feed plus missing nitrogen
+    load: stored feed plus the nitrogen top-up
   - id: t4
     label: Assay standard
     reading: 10 mg/L nitrate
@@ -881,7 +982,7 @@ answerText: Only the stored-feed tray lies outside its own expected range. This 
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 2 — Macromolecules and hydrolysis; Keystone: Structure and function, Matter conservation, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 3: Check the stored mix; Learning role: COMBINE; Difficulty: L2; Story role: decision.
+**Metadata:** Concept: 2 — Macromolecules and hydrolysis; Keystone: Structure and function, Matter conservation, Experimental evidence; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1; Learning role: COMBINE; Difficulty: L2; Story role: decision.
 
 **Briefing decision advanced:** whether to replace the failing seedling feed.
 
@@ -903,7 +1004,7 @@ answerText: Only the stored-feed tray lies outside its own expected range. This 
 
 **Stop reason — exact player copy:** The nursery is waiting for the feed decision.
 
-**Question card story setup — exact player copy:** The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Choose the handling decision that addresses this evidence without discarding healthy genetic stock.
+**Question card story setup — exact player copy:** The matched cultures now connect the feed shortage to poor growth, while the assay standard stays normal and the seed line can recover. Mara Vale asks: “Choose the handling decision that addresses this evidence without discarding healthy genetic stock.”
 
 **Question card story-science connection — exact player copy:** Replace the feed with a complete nutrient mix.
 
@@ -957,7 +1058,11 @@ why: 'The feed lacks nitrogen even though it contains an energy source. The grow
 
 ## I. Mission outcome
 
-**Mission decision:** Replace the feed with a complete nutrient mix. The nitrogen test restores growth. The crew uses the plan just chosen. Root cells swell after a fresh-water rinse.
+**Mission decision:** Replace the feed with a complete nutrient mix. The nitrogen test restores growth.
+
+**Delivery piece:** The feed correction — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Mara finds swollen roots in the next tray. She needs the rinse checked before packing.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -1001,7 +1106,7 @@ why: 'The feed lacks nitrogen even though it contains an energy source. The grow
 
 **Go now:** Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.
 
-**Card body:** The new feed works, but rinsed shore seedlings now have swollen root cells. Water crosses cell membranes toward lower water potential. Compare cell structure and rinse conditions in the Field Clinic. By the end of the mission, decide whether the shore seedlings need fresh water or a matched salt rinse.
+**Card body:** The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need.
 
 **Objective:** Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing.
 
@@ -1122,7 +1227,7 @@ Mission question: whether the shore seedlings need fresh water or a matched salt
 
 **World state:** The damaging rinse is stopped and matched rinse is issued. Healthy roots still lose energy in sealed pots.
 
-**Dialogue bubble — Mara Vale, veterinary biologist:** “Healthy roots still lose energy in sealed pots.”
+**Dialogue bubble — Mara Vale, veterinary biologist:** “Yet Ivo finds wilted plants in sealed pots. The new rinse has not solved the night loss.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -1161,7 +1266,7 @@ Nucleus stores DNA and supports transcription; rough ER bears ribosomes for prot
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 4 — Cells, organelles and endosymbiosis; Keystone: Structure and function, Selective exchange; Area: CLINIC; Prerequisites: Mission primer and Stop 4: Change the nursery feed; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 4 — Cells, organelles and endosymbiosis; Keystone: Structure and function, Selective exchange; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Briefing decision advanced:** whether the shore seedlings need fresh water or a matched salt rinse.
 
@@ -1183,7 +1288,7 @@ Nucleus stores DNA and supports transcription; rough ER bears ribosomes for prot
 
 **Stop reason — exact player copy:** The rinse investigation needs the right cell model.
 
-**Question card story setup — exact player copy:** The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.
+**Question card story setup — exact player copy:** The new feed has helped, but the salt-adapted seedlings lose root-cell viability after an abrupt fresh-water rinse during packing. Mara Vale asks: “Identify the cells and their barriers before the clinic decides which rinse comparison can explain the damage.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -1265,7 +1370,7 @@ answerText: The damaged sample contains cell walls and large vacuoles, identifyi
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 6 — Water potential and surface-area exchange; Keystone: Selective exchange, Structure and function; Area: CLINIC; Prerequisites: Mission primer and Stop 5: Identify the damaged cells; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+**Metadata:** Concept: 6 — Water potential and surface-area exchange; Keystone: Selective exchange, Structure and function; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
 
 **Briefing decision advanced:** whether the shore seedlings need fresh water or a matched salt rinse.
 
@@ -1287,7 +1392,7 @@ answerText: The damaged sample contains cell walls and large vacuoles, identifyi
 
 **Stop reason — exact player copy:** Cell size must be separated from water-movement direction.
 
-**Question card story setup — exact player copy:** The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Compare exchange surface with cell volume before interpreting what a change in size actually means.
+**Question card story setup — exact player copy:** The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Mara Vale asks: “Compare exchange surface with cell volume before interpreting what a change in size actually means.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -1354,7 +1459,7 @@ answerText: For a cube, surface area divided by volume is 6L²/L³ = 6/L. This r
 
 **Required stop kind:** calculation/room. **Player verb:** discriminate explanations from all readings.
 
-**Metadata:** Concept: 5 — Membranes and transport; Keystone: Selective exchange, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 6: Compare exchange surfaces; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
+**Metadata:** Concept: 5 — Membranes and transport; Keystone: Selective exchange, Experimental evidence; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
 
 **Briefing decision advanced:** whether the shore seedlings need fresh water or a matched salt rinse.
 
@@ -1376,7 +1481,7 @@ answerText: For a cube, surface area divided by volume is 6L²/L³ = 6/L. This r
 
 **Stop reason — exact player copy:** The roots need a mechanism for the measured rinse injury.
 
-**Question card story setup — exact player copy:** The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.
+**Question card story setup — exact player copy:** The surface calculation describes exchange capacity, but it does not say why the fresh-water group swells and loses viable cells. Mara Vale asks: “Read the matched rinse data to distinguish a water-movement problem from the feed problem already repaired.”
 
 **Question card story-science connection — exact player copy:** An explanation must survive the normal controls before it can justify changing the release stock.
 
@@ -1455,7 +1560,7 @@ why: At equal initial pressure, the more concentrated root-cell solution has low
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 5 — Membranes and transport; Keystone: Selective exchange, Structure and function; Area: CLINIC; Prerequisites: Mission primer and Stop 7: Explain the swelling; Learning role: COMBINE; Difficulty: L2; Story role: decision.
+**Metadata:** Concept: 5 — Membranes and transport; Keystone: Selective exchange, Structure and function; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5; Learning role: COMBINE; Difficulty: L2; Story role: decision.
 
 **Briefing decision advanced:** whether the shore seedlings need fresh water or a matched salt rinse.
 
@@ -1477,7 +1582,7 @@ why: At equal initial pressure, the more concentrated root-cell solution has low
 
 **Stop reason — exact player copy:** Packing cannot resume with the damaging rinse.
 
-**Question card story setup — exact player copy:** The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Choose the packing treatment that follows those observations without claiming every species needs it.
+**Question card story setup — exact player copy:** The rinse comparison now links abrupt fresh-water exposure to swelling and reduced viability in the tested salt-adapted line, while matched rinse preserves viability. Mara Vale asks: “Choose the packing treatment that follows those observations without claiming every species needs it.”
 
 **Question card story-science connection — exact player copy:** Use the rinse that matches the root cells.
 
@@ -1531,7 +1636,11 @@ why: The matched rinse prevents the net water movement associated with the damag
 
 ## I. Mission outcome
 
-**Mission decision:** Use the rinse that matches the root cells. The matched rinse keeps root cells alive. The crew uses the plan just chosen. Healthy roots still lose energy in sealed pots.
+**Mission decision:** Use the rinse that matches the root cells. The matched rinse keeps root cells alive.
+
+**Delivery piece:** The matched rinse — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Yet Ivo finds wilted plants in sealed pots. The new rinse has not solved the night loss.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -1575,7 +1684,7 @@ why: The matched rinse prevents the net water movement associated with the damag
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The roots now survive rinsing, but seedlings wilt in sealed transport pots. Cells use oxygen to release usable energy from food, even when leaves make oxygen in light. Compare day and night records at the Pond Tanks. By the end of the mission, decide whether sealed transport pots need an oxygen supply.
+**Card body:** The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air.
 
 **Objective:** Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival.
 
@@ -1698,7 +1807,7 @@ Mission question: whether sealed transport pots need an oxygen supply. Actual fi
 
 **World state:** Ventilated pot lids are fitted after the sealed-pot test. The restored plants flower at an unexpected time.
 
-**Dialogue bubble — Ivo Reed, plant physiologist:** “The restored plants flower at an unexpected time.”
+**Dialogue bubble — Ivo Reed, plant physiologist:** “But Ivo sees new flowers come out at the wrong time. The old lamp plan needs a test.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -1737,7 +1846,7 @@ In the qualitative energy model, exergonic reactions release usable free energy 
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Structure and function; Area: GROW; Prerequisites: Mission primer and Stop 8: Set the packing rinse; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 7 — A test cross is approved and family labels stay attached to every sample. Sampling and care consume the shown supplies.; Keystone: Energy coupling, Structure and function; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 2 at Stop 2, Concept 4 at Stop 5; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Briefing decision advanced:** whether sealed transport pots need an oxygen supply.
 
@@ -1759,7 +1868,7 @@ In the qualitative energy model, exergonic reactions release usable free energy 
 
 **Stop reason — exact player copy:** The crew must explain why fed roots fail in sealed pots.
 
-**Question card story setup — exact player copy:** The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Trace how food supports cellular work before testing whether a full pot actually contains what roots need.
+**Question card story setup — exact player copy:** The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Ivo Reed asks: “Trace how food supports cellular work before testing whether a full pot actually contains what roots need.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -1828,7 +1937,7 @@ answerText: Energy from food reaches electron carriers and then the mitochondria
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 8 — Photosynthesis and carbon fixation; Keystone: Energy coupling, Matter conservation; Area: GROW; Prerequisites: Mission primer and Stop 9: Follow oxygen-supported ATP production; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
+**Metadata:** Concept: 8 — Photosynthesis and carbon fixation; Keystone: Energy coupling, Matter conservation; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: INTRODUCE; Difficulty: L2; Story role: obstacle.
 
 **Briefing decision advanced:** whether sealed transport pots need an oxygen supply.
 
@@ -1850,7 +1959,7 @@ answerText: Energy from food reaches electron carriers and then the mitochondria
 
 **Stop reason — exact player copy:** The afternoon inspection needs a net oxygen balance.
 
-**Question card story setup — exact player copy:** The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.
+**Question card story setup — exact player copy:** The cellular pathway shows why the roots need oxygen as well as food, even while their leaves appear healthy under the lamps. Ivo Reed asks: “Calculate the daytime oxygen balance to find what the afternoon inspection does and does not establish.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -1917,7 +2026,7 @@ answerText: 'The net daylight oxygen gain is gross production minus respiratory 
 
 **Required stop kind:** operated/fixture. **Player verb:** sample and compare stations.
 
-**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 10: Calculate the daylight balance; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
+**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Experimental evidence; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
 
 **Briefing decision advanced:** whether sealed transport pots need an oxygen supply.
 
@@ -1939,7 +2048,7 @@ answerText: 'The net daylight oxygen gain is gross production minus respiratory 
 
 **Stop reason — exact player copy:** The shipping lids must pass the overnight comparison.
 
-**Question card story setup — exact player copy:** The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Compare the overnight pots and independent standard before choosing how the lids should exchange air.
+**Question card story setup — exact player copy:** The daylight calculation gives an oxygen gain, but that result does not cover the dark hours when the packed plants still respire. Ivo Reed asks: “Compare the overnight pots and independent standard before choosing how the lids should exchange air.”
 
 **Question card story-science connection — exact player copy:** A station-specific failure identifies the comparison that must govern the next handling decision.
 
@@ -2012,7 +2121,7 @@ answerText: The sealed planted pot is the only station outside its expected oxyg
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 11: Check the night controls; Learning role: COMBINE; Difficulty: L2; Story role: decision.
+**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: COMBINE; Difficulty: L2; Story role: decision.
 
 **Briefing decision advanced:** whether sealed transport pots need an oxygen supply.
 
@@ -2034,7 +2143,7 @@ answerText: The sealed planted pot is the only station outside its expected oxyg
 
 **Stop reason — exact player copy:** The pot lids must be chosen before packing continues.
 
-**Question card story setup — exact player copy:** The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.
+**Question card story setup — exact player copy:** The overnight comparison shows that the sealed planted pot behaves differently from both the ventilated pot and the empty control under matched conditions. Ivo Reed asks: “Decide which lid design can keep the shipment above its stated oxygen requirement throughout transport.”
 
 **Question card story-science connection — exact player copy:** Keep the pots supplied with oxygen.
 
@@ -2088,7 +2197,11 @@ why: The sealed pots fail the campaign oxygen specification overnight, while the
 
 ## I. Mission outcome
 
-**Mission decision:** Keep the pots supplied with oxygen. The sealed pot loses oxygen at night. The crew uses the plan just chosen. The restored plants flower at an unexpected time.
+**Mission decision:** Keep the pots supplied with oxygen. The sealed pot loses oxygen at night.
+
+**Delivery piece:** The ventilated lids — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Ivo sees new flowers come out at the wrong time. The old lamp plan needs a test.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -2132,7 +2245,7 @@ why: The sealed pots fail the campaign oxygen specification overnight, while the
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The pots now keep enough oxygen, and the nursery plants begin to recover. Light can change which genes a plant uses as well as how much food it makes. Compare enzyme tests and leaf responses at the Growth Bench. By the end of the mission, decide whether the old lamp program is ready for wider use.
+**Card body:** The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread.
 
 **Objective:** Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery.
 
@@ -2243,7 +2356,7 @@ Mission question: whether the old lamp program is ready for wider use. Actual fi
 
 **World state:** A limited lamp trial replaces the proposed full nursery reset. A flowering calendar no longer matches the insect log.
 
-**Dialogue bubble — Ivo Reed, plant physiologist:** “A flowering calendar no longer matches the insect log.”
+**Dialogue bubble — Ivo Reed, plant physiologist:** “Yet Tess finds that the flowers and insects miss each other. She brings both dated logs.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -2282,7 +2395,7 @@ Reception, transduction and response describe signal flow. Local paracrine signa
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 3 — Protein structure and enzymes; Keystone: Structure and function, Regulation and feedback; Area: GROW; Prerequisites: Mission primer and Stop 12: Approve the pot lids; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 3 — Protein structure and enzymes; Keystone: Structure and function, Regulation and feedback; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 2 at Stop 2; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the old lamp program is ready for wider use.
 
@@ -2304,7 +2417,7 @@ Reception, transduction and response describe signal flow. Local paracrine signa
 
 **Stop reason — exact player copy:** The lamp trial must not hide an enzyme problem.
 
-**Question card story setup — exact player copy:** The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Separate possible enzyme effects before the staff treats every slow response as a shortage of light.
+**Question card story setup — exact player copy:** The oxygen problem is controlled, and the nursery is considering an old lamp schedule to speed the recovery of its growing trays. Ivo Reed asks: “Separate possible enzyme effects before the staff treats every slow response as a shortage of light.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -2386,7 +2499,7 @@ answerText: The four observations distinguish mechanisms that can all lower a me
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 11 — Signals and feedback; Keystone: Regulation and feedback, Information flow; Area: GROW; Prerequisites: Mission primer and Stop 13: Separate enzyme problems; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 11 — Signals and feedback; Keystone: Regulation and feedback, Information flow; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the old lamp program is ready for wider use.
 
@@ -2408,7 +2521,7 @@ answerText: The four observations distinguish mechanisms that can all lower a me
 
 **Stop reason — exact player copy:** The trial needs a model for the changed growth timing.
 
-**Question card story setup — exact player copy:** The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.
+**Question card story setup — exact player copy:** The enzyme comparisons separate several ways that growth can slow, but the old lamps also change the timing of new leaf growth. Ivo Reed asks: “Trace the light-response pathway to decide what the lamps might alter beyond the energy supply.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -2477,7 +2590,7 @@ answerText: The lamp is an environmental cue as well as an energy source. This r
 
 **Required stop kind:** calculation/room. **Player verb:** discriminate explanations from all readings.
 
-**Metadata:** Concept: 19 — Regulation and differentiation; Keystone: Information flow, Regulation and feedback, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 14: Follow the light response; Learning role: INTRODUCE; Difficulty: L3; Story role: reversal.
+**Metadata:** Concept: 19 — Regulation and differentiation; Keystone: Information flow, Regulation and feedback, Experimental evidence; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 11 at Stop 14; Learning role: INTRODUCE; Difficulty: L3; Story role: reversal.
 
 **Briefing decision advanced:** whether the old lamp program is ready for wider use.
 
@@ -2499,7 +2612,7 @@ answerText: The lamp is an environmental cue as well as an energy source. This r
 
 **Stop reason — exact player copy:** The crew needs to distinguish changed gene use from changed DNA.
 
-**Question card story setup — exact player copy:** The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.
+**Question card story setup — exact player copy:** The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Ivo Reed asks: “Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.”
 
 **Question card story-science connection — exact player copy:** An explanation must survive the normal controls before it can justify changing the release stock.
 
@@ -2578,7 +2691,7 @@ why: The unchanged target DNA sequence rules out the proposed sequence rewrite i
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 11 — Signals and feedback; Keystone: Regulation and feedback, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 15: Read the recovered leaves; Learning role: COMBINE; Difficulty: L3; Story role: decision.
+**Metadata:** Concept: 11 — Signals and feedback; Keystone: Regulation and feedback, Experimental evidence; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5; Learning role: COMBINE; Difficulty: L3; Story role: decision.
 
 **Briefing decision advanced:** whether the old lamp program is ready for wider use.
 
@@ -2600,7 +2713,7 @@ why: The unchanged target DNA sequence rules out the proposed sequence rewrite i
 
 **Stop reason — exact player copy:** A local growth result must set the scale of the reset.
 
-**Question card story setup — exact player copy:** The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Decide how widely to apply the program while those missing comparisons are still possible.
+**Question card story setup — exact player copy:** The sequence and expression records now support a real response to the old lamp schedule, but the nursery has not measured its field consequences. Ivo Reed asks: “Decide how widely to apply the program while those missing comparisons are still possible.”
 
 **Question card story-science connection — exact player copy:** Keep the old lamp program in a small trial.
 
@@ -2654,7 +2767,11 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 
 ## I. Mission outcome
 
-**Mission decision:** Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested. The crew uses the plan just chosen. A flowering calendar no longer matches the insect log.
+**Mission decision:** Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested.
+
+**Delivery piece:** The small lamp trial — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Yet Tess finds that the flowers and insects miss each other. She brings both dated logs.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -2698,7 +2815,7 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The lamp trial restored growth, but fewer insects visit its flowers. A flower and its pollinator must be active at the same time for their partnership to work. Compare flowering records, then inspect field counts at the Marsh Research Bay. By the end of the mission, decide whether to expand the restored flowering schedule.
+**Card body:** The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps.
 
 **Objective:** Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves.
 
@@ -2809,7 +2926,7 @@ Mission question: whether to expand the restored flowering schedule. Actual fina
 
 **World state:** The wider lamp reset is halted and staggered flower trays are retained. One rapidly growing tissue tray has unusual division counts.
 
-**Dialogue bubble — Tess Rowan, field ecologist:** “One rapidly growing tissue tray has unusual division counts.”
+**Dialogue bubble — Tess Rowan, field ecologist:** “But Mara has one tray that will not stop growing. The next test must check its cells.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -2848,7 +2965,7 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 8 — Photosynthesis and carbon fixation; Keystone: Energy coupling, Matter conservation; Area: GROW; Prerequisites: Mission primer and Stop 16: Limit the reset; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 8 — Photosynthesis and carbon fixation; Keystone: Energy coupling, Matter conservation; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether to expand the restored flowering schedule.
 
@@ -2870,7 +2987,7 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Stop reason — exact player copy:** Healthy leaves do not settle the missing-visitor problem.
 
-**Question card story setup — exact player copy:** The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.
+**Question card story setup — exact player copy:** The limited lamp trial has improved leaf growth, yet its flowers attract fewer visitors than the unchanged plants outside the low blockhouse. Ivo Reed asks: “Separate the jobs of leaves and visitors before interpreting this apparent contradiction as another growth failure.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -2952,7 +3069,7 @@ answerText: Healthy photosynthetic leaves show that the plants can capture light
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 17: Read what healthy leaves prove; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 8 at Stop 10; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether to expand the restored flowering schedule.
 
@@ -2974,7 +3091,7 @@ answerText: Healthy photosynthetic leaves show that the plants can capture light
 
 **Stop reason — exact player copy:** The field visit needs the predicted flowering overlap.
 
-**Question card story setup — exact player copy:** The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Calculate the shared active days before the field team compares trays along the dunes.
+**Question card story setup — exact player copy:** The process matches show that healthy leaves do not establish successful pollen transfer, and the old flowering calendar no longer matches the visitor log. Ivo Reed asks: “Calculate the shared active days before the field team compares trays along the dunes.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -3042,7 +3159,7 @@ answerText: The overlap consists only of day 4. This result is now recorded for 
 
 **Required stop kind:** operated/fixture. **Player verb:** sample and compare stations.
 
-**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 18: Find the shared flowering days; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
+**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 8 at Stop 10; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
 
 **Briefing decision advanced:** whether to expand the restored flowering schedule.
 
@@ -3064,7 +3181,7 @@ answerText: The overlap consists only of day 4. This result is now recorded for 
 
 **Stop reason — exact player copy:** The bay comparison must separate timing mismatch from insect loss.
 
-**Question card story setup — exact player copy:** The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Compare the matched field trays before deciding whether to expand the nursery lamp program.
+**Question card story setup — exact player copy:** The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Tess Rowan asks: “Compare the matched field trays before deciding whether to expand the nursery lamp program.”
 
 **Question card story-science connection — exact player copy:** A station-specific failure identifies the comparison that must govern the next handling decision.
 
@@ -3137,7 +3254,7 @@ answerText: Only the old-program flower tray falls below its station-specific ex
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Regulation and feedback, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 19: Compare field trays; Learning role: COMBINE; Difficulty: L3; Story role: decision.
+**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Regulation and feedback, Experimental evidence; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 8 at Stop 10; Learning role: COMBINE; Difficulty: L3; Story role: decision.
 
 **Briefing decision advanced:** whether to expand the restored flowering schedule.
 
@@ -3159,7 +3276,7 @@ answerText: Only the old-program flower tray falls below its station-specific ex
 
 **Stop reason — exact player copy:** The wider lamp reset waits on the field result.
 
-**Question card story setup — exact player copy:** The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.
+**Question card story setup — exact player copy:** The field trays show that visitors still use staggered and unchanged flowers, while the old-program flowers receive far fewer visits under matched conditions. Tess Rowan asks: “Choose the nursery schedule that respects this evidence without denying the earlier improvement in leaf growth.”
 
 **Question card story-science connection — exact player copy:** Stop the wider reset and keep a mixed flowering schedule.
 
@@ -3213,7 +3330,11 @@ why: 'The plants recovered locally under the old lamps, but their flowering no l
 
 ## I. Mission outcome
 
-**Mission decision:** Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits. The crew uses the plan just chosen. One rapidly growing tissue tray has unusual division counts.
+**Mission decision:** Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits.
+
+**Delivery piece:** The flower schedule — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Mara has one tray that will not stop growing. The next test must check its cells.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -3257,7 +3378,7 @@ why: 'The plants recovered locally under the old lamps, but their flowering no l
 
 **Go now:** Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.
 
-**Card body:** The flower schedule is changing, but one tissue tray keeps growing after its neighbors stop. Cells use signals and checkpoints to control when they divide. Compare cell counts in the clinic, then inspect the tissue records in the Genetics Trailer. By the end of the mission, decide whether the unusual tissue tray can join the release stock.
+**Card body:** One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip.
 
 **Objective:** Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock.
 
@@ -3375,7 +3496,7 @@ Mission question: whether the unusual tissue tray can join the release stock. Ac
 
 **World state:** The unusual tissue line is separated and the healthy lines stay in care. The held tray came from a small set of related parents.
 
-**Dialogue bubble — Nell Shah, conservation geneticist:** “The held tray came from a small set of related parents.”
+**Dialogue bubble — Nell Shah, conservation geneticist:** “Now Nell must check the held line’s family. She cannot judge each parent by its looks.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -3414,7 +3535,7 @@ G0 is a nondividing state; G1 precedes DNA replication in S, G2 follows it, and 
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Information flow; Area: CLINIC; Prerequisites: Mission primer and Stop 20: Keep flowers available; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Information flow; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 11 at Stop 14; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the unusual tissue tray can join the release stock.
 
@@ -3436,7 +3557,7 @@ G0 is a nondividing state; G1 precedes DNA replication in S, G2 follows it, and 
 
 **Stop reason — exact player copy:** The unusual growth needs a cell-cycle record.
 
-**Question card story setup — exact player copy:** The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Put the cell-cycle stages in order before the clinic compares where the unusual line differs.
+**Question card story setup — exact player copy:** The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Mara Vale asks: “Put the cell-cycle stages in order before the clinic compares where the unusual line differs.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -3505,7 +3626,7 @@ answerText: The cell cycle provides an order for interpreting the tissue counts.
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 21: Place the cell-cycle evidence; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Experimental evidence; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 11 at Stop 14; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the unusual tissue tray can join the release stock.
 
@@ -3527,7 +3648,7 @@ answerText: The cell cycle provides an order for interpreting the tissue counts.
 
 **Stop reason — exact player copy:** The geneticist needs the dividing-cell fraction before the signal test.
 
-**Question card story setup — exact player copy:** The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.
+**Question card story setup — exact player copy:** The cell-cycle order gives the clinic a way to classify its observations, and the unusual tray now has many visibly dividing cells. Mara Vale asks: “Calculate the sampled fraction before the geneticist tests whether the tray still responds to growth controls.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -3595,7 +3716,7 @@ answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This re
 
 **Required stop kind:** calculation/room. **Player verb:** discriminate explanations from all readings.
 
-**Metadata:** Concept: 11 — Signals and feedback; Keystone: Regulation and feedback, Information flow, Experimental evidence; Area: GENE; Prerequisites: Mission primer and Stop 22: Compare dividing fractions; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
+**Metadata:** Concept: 11 — Signals and feedback; Keystone: Regulation and feedback, Information flow, Experimental evidence; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
 
 **Briefing decision advanced:** whether the unusual tissue tray can join the release stock.
 
@@ -3617,7 +3738,7 @@ answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This re
 
 **Stop reason — exact player copy:** The tray needs a control test rather than a growth-rate label.
 
-**Question card story setup — exact player copy:** The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Compare the response to signal removal before the crew makes a release-stock decision.
+**Question card story setup — exact player copy:** The dividing-cell fraction confirms a difference between the trays, but a snapshot cannot identify which control has changed or whether it is inherited. Nell Shah asks: “Compare the response to signal removal before the crew makes a release-stock decision.”
 
 **Question card story-science connection — exact player copy:** An explanation must survive the normal controls before it can justify changing the release stock.
 
@@ -3696,7 +3817,7 @@ why: 'The unusual tissue continues dividing when the same signal-removal treatme
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Experimental evidence; Area: GENE; Prerequisites: Mission primer and Stop 23: Test the growth signal; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+**Metadata:** Concept: 12 — Cell cycle and checkpoints; Keystone: Regulation and feedback, Experimental evidence; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 11 at Stop 14; Learning role: COMBINE; Difficulty: L4; Story role: decision.
 
 **Briefing decision advanced:** whether the unusual tissue tray can join the release stock.
 
@@ -3718,7 +3839,7 @@ why: 'The unusual tissue continues dividing when the same signal-removal treatme
 
 **Stop reason — exact player copy:** The untested tissue line cannot enter release stock by default.
 
-**Question card story setup — exact player copy:** The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Choose a handling decision that respects this specific failure without condemning every related family.
+**Question card story setup — exact player copy:** The signal-removal test leaves the unusual line dividing while the matched normal tissue stops, although the exact cause is still unresolved in the record. Nell Shah asks: “Choose a handling decision that respects this specific failure without condemning every related family.”
 
 **Question card story-science connection — exact player copy:** Hold the unusual tissue tray for further tests.
 
@@ -3772,7 +3893,11 @@ why: The controlled signal test gives a concrete reason to hold the unusual tiss
 
 ## I. Mission outcome
 
-**Mission decision:** Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed. The crew uses the plan just chosen. The held tray came from a small set of related parents.
+**Mission decision:** Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed.
+
+**Delivery piece:** The held tissue line — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Now Nell must check the held line’s family. She cannot judge each parent by its looks.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -3816,7 +3941,7 @@ why: The controlled signal test gives a concrete reason to hold the unusual tiss
 
 **Go now:** Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.
 
-**Card body:** The unusual tissue is held, and its seed family needs a closer check. A visible trait can hide an allele that appears in offspring. Read family records, then compare the cross results in the Genetics Trailer. By the end of the mission, decide which cross can test the hidden recessive trait.
+**Card body:** The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form.
 
 **Objective:** Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation.
 
@@ -3938,7 +4063,7 @@ Mission question: which cross can test the hidden recessive trait. Actual final 
 
 **World state:** A test cross is approved and family labels stay attached to every sample. The family trait leads to a changed enzyme sequence.
 
-**Dialogue bubble — Nell Shah, conservation geneticist:** “The family trait leads to a changed enzyme sequence.”
+**Dialogue bubble — Nell Shah, conservation geneticist:** “But Nell finds a changed code in one family. Mara needs an enzyme test before a diagnosis.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -3977,7 +4102,7 @@ Random fertilization and crossing over produce combinations of alleles. Nondisju
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 13 — Meiosis and variation; Keystone: Inheritance and variation, Information flow; Area: SEED; Prerequisites: Mission primer and Stop 24: Hold one line; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 13 — Meiosis and variation; Keystone: Inheritance and variation, Information flow; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 12 at Stop 21; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** which cross can test the hidden recessive trait.
 
@@ -3999,7 +4124,7 @@ Random fertilization and crossing over produce combinations of alleles. Nondisju
 
 **Stop reason — exact player copy:** The family investigation needs an inheritance model.
 
-**Question card story setup — exact player copy:** The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Follow allele separation into gametes before the seed team chooses a cross to test that possibility.
+**Question card story setup — exact player copy:** The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Nell Shah asks: “Follow allele separation into gametes before the seed team chooses a cross to test that possibility.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -4068,7 +4193,7 @@ answerText: Meiosis separates homologous chromosomes and then sister chromatids,
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 25: Follow an allele into a gamete; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** which cross can test the hidden recessive trait.
 
@@ -4090,7 +4215,7 @@ answerText: Meiosis separates homologous chromosomes and then sister chromatids,
 
 **Stop reason — exact player copy:** The test cross needs an expected offspring count.
 
-**Question card story setup — exact player copy:** The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Predict the recessive offspring count for the proposed cross before the family test is scored.
+**Question card story setup — exact player copy:** The meiosis model explains how a parent can pass either allele, even when only the dominant trait appears in its own leaves. Nell Shah asks: “Predict the recessive offspring count for the proposed cross before the family test is scored.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -4158,7 +4283,7 @@ answerText: The heterozygous parent supplies T or t with equal probability, whil
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 15 — Non-Mendelian inheritance; Keystone: Inheritance and variation, Experimental evidence; Area: GENE; Prerequisites: Mission primer and Stop 26: Predict the test family; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 15 — Non-Mendelian inheritance; Keystone: Inheritance and variation, Experimental evidence; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 14 at Stop 26; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** which cross can test the hidden recessive trait.
 
@@ -4180,7 +4305,7 @@ answerText: The heterozygous parent supplies T or t with equal probability, whil
 
 **Stop reason — exact player copy:** The family labels must preserve which inheritance model was tested.
 
-**Question card story setup — exact player copy:** The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Match those inheritance patterns before the team extends one result across unrelated family labels.
+**Question card story setup — exact player copy:** The predicted family count is ready, but the collection also contains traits that do not follow the same simple dominance pattern used in that calculation. Nell Shah asks: “Match those inheritance patterns before the team extends one result across unrelated family labels.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -4262,7 +4387,7 @@ answerText: Not every trait follows a simple dominant-recessive pattern. This re
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: GENE; Prerequisites: Mission primer and Stop 27: Interpret the family evidence; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+**Metadata:** Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25; Learning role: COMBINE; Difficulty: L4; Story role: decision.
 
 **Briefing decision advanced:** which cross can test the hidden recessive trait.
 
@@ -4284,7 +4409,7 @@ answerText: Not every trait follows a simple dominant-recessive pattern. This re
 
 **Stop reason — exact player copy:** The breeding decision must preserve the evidence it creates.
 
-**Question card story setup — exact player copy:** The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.
+**Question card story setup — exact player copy:** The family work now separates a simple test-cross prediction from other inheritance patterns, so a visible dominant trait no longer settles a parent genotype. Nell Shah asks: “Choose the cross and record-keeping plan that can reveal the hidden allele without erasing ancestry.”
 
 **Question card story-science connection — exact player copy:** Use a test cross and keep each family separate.
 
@@ -4338,7 +4463,11 @@ why: A homozygous recessive partner supplies only t, so recessive offspring reve
 
 ## I. Mission outcome
 
-**Mission decision:** Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele. The crew uses the plan just chosen. The family trait leads to a changed enzyme sequence.
+**Mission decision:** Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele.
+
+**Delivery piece:** The family test — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Nell finds a changed code in one family. Mara needs an enzyme test before a diagnosis.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -4382,7 +4511,7 @@ why: A homozygous recessive partner supplies only t, so recessive offspring reve
 
 **Go now:** Go to Genetics Trailer and meet Nell Shah, conservation geneticist, at the DNA Bench.
 
-**Card body:** The cross preserves the families, and one line has a weak digestive enzyme. Cells read DNA instructions through RNA to build proteins. Trace the sequence at the DNA Bench, then compare enzyme evidence in the clinic. By the end of the mission, decide whether the sequence change can explain the weak enzyme.
+**Card body:** The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain.
 
 **Objective:** Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family.
 
@@ -4495,7 +4624,7 @@ Mission question: whether the sequence change can explain the weak enzyme. Actua
 
 **World state:** The enzyme lead is recorded and an environmental comparison is requested. Similar-looking plants respond differently in the same growth room.
 
-**Dialogue bubble — Mara Vale, veterinary biologist:** “Similar-looking plants respond differently in the same growth room.”
+**Dialogue bubble — Mara Vale, veterinary biologist:** “Yet Ivo finds that leaf shapes shift between rooms. Nell needs a label that can survive that change.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -4534,7 +4663,7 @@ DNA polymerase extends at a 3-prime end; helicase separates strands, topoisomera
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 18 — Transcription and translation; Keystone: Information flow, Structure and function; Area: GENE; Prerequisites: Mission primer and Stop 28: Choose the informative cross; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 18 — Transcription and translation; Keystone: Information flow, Structure and function; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 2 at Stop 2, Concept 13 at Stop 25; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the sequence change can explain the weak enzyme.
 
@@ -4556,7 +4685,7 @@ DNA polymerase extends at a 3-prime end; helicase separates strands, topoisomera
 
 **Stop reason — exact player copy:** The enzyme lead needs the path from sequence to function.
 
-**Question card story setup — exact player copy:** The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.
+**Question card story setup — exact player copy:** The family test preserves the line, but a weak digestive enzyme raises a new question about the instructions used to make its protein. Nell Shah asks: “Trace the message from DNA to folded enzyme before reading the changed sequence as a cause.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -4625,7 +4754,7 @@ answerText: The enzyme message passes through transcription and translation befo
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 20 — Mutations and biotechnology; Keystone: Information flow, Structure and function; Area: GENE; Prerequisites: Mission primer and Stop 29: Trace the enzyme message; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 20 — Mutations and biotechnology; Keystone: Information flow, Structure and function; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 18 at Stop 29; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the sequence change can explain the weak enzyme.
 
@@ -4647,7 +4776,7 @@ answerText: The enzyme message passes through transcription and translation befo
 
 **Stop reason — exact player copy:** The changed codon needs a precise predicted effect.
 
-**Question card story setup — exact player copy:** The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.
+**Question card story setup — exact player copy:** The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Nell Shah asks: “Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -4729,7 +4858,7 @@ answerText: The supplied codon meanings make each classification answerable with
 
 **Required stop kind:** calculation/room. **Player verb:** discriminate explanations from all readings.
 
-**Metadata:** Concept: 3 — Protein structure and enzymes; Keystone: Structure and function, Information flow, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 30: Read the altered codons; Learning role: RETRIEVE; Difficulty: L3; Story role: reversal.
+**Metadata:** Concept: 3 — Protein structure and enzymes; Keystone: Structure and function, Information flow, Experimental evidence; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 2 at Stop 2; Learning role: RETRIEVE; Difficulty: L3; Story role: reversal.
 
 **Briefing decision advanced:** whether the sequence change can explain the weak enzyme.
 
@@ -4751,7 +4880,7 @@ answerText: The supplied codon meanings make each classification answerable with
 
 **Stop reason — exact player copy:** The sequence lead must meet measured enzyme activity.
 
-**Question card story setup — exact player copy:** The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.
+**Question card story setup — exact player copy:** The codon comparison identifies a possible early stop in the weak-enzyme line, but sequence alone does not measure how the protein works. Mara Vale asks: “Compare activity and normal controls before deciding how strongly the clinic can interpret this genetic lead.”
 
 **Question card story-science connection — exact player copy:** An explanation must survive the normal controls before it can justify changing the release stock.
 
@@ -4830,7 +4959,7 @@ why: The early stop can shorten the enzyme, and the activity comparison shows a 
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 20 — Mutations and biotechnology; Keystone: Information flow, Structure and function, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 31: Compare sequence and function; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+**Metadata:** Concept: 20 — Mutations and biotechnology; Keystone: Information flow, Structure and function, Experimental evidence; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 18 at Stop 29; Learning role: COMBINE; Difficulty: L4; Story role: decision.
 
 **Briefing decision advanced:** whether the sequence change can explain the weak enzyme.
 
@@ -4852,7 +4981,7 @@ why: The early stop can shorten the enzyme, and the activity comparison shows a 
 
 **Stop reason — exact player copy:** The clinic needs a claim no broader than the evidence.
 
-**Question card story setup — exact player copy:** The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Choose the claim and handling decision that preserve useful evidence without overstating what was proved.
+**Question card story setup — exact player copy:** The activity test supports the enzyme lead under matched conditions, while another enzyme stays normal and the full organismal cause remains unresolved in the record. Mara Vale asks: “Choose the claim and handling decision that preserve useful evidence without overstating what was proved.”
 
 **Question card story-science connection — exact player copy:** Treat the changed enzyme as a supported lead, not a complete diagnosis.
 
@@ -4906,7 +5035,11 @@ why: The sequence change offers a plausible mechanism for the specific enzyme de
 
 ## I. Mission outcome
 
-**Mission decision:** Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause. The crew uses the plan just chosen. Similar-looking plants respond differently in the same growth room.
+**Mission decision:** Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause.
+
+**Delivery piece:** The enzyme lead — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Yet Ivo finds that leaf shapes shift between rooms. Nell needs a label that can survive that change.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -4950,7 +5083,7 @@ why: The sequence change offers a plausible mechanism for the specific enzyme de
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The enzyme lead is preserved, but leaf shapes still give conflicting family labels. The same inherited instructions can produce different traits in different conditions. Compare paired seedlings in the Growth Hall, then read their family records. By the end of the mission, decide whether leaf shape alone is a reliable breeding label.
+**Card body:** The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label.
 
 **Objective:** Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families.
 
@@ -5066,7 +5199,7 @@ Mission question: whether leaf shape alone is a reliable breeding label. Actual 
 
 **World state:** Appearance-only labels are removed and ancestry labels remain. A short-lived insect population has changed across many generations.
 
-**Dialogue bubble — Nell Shah, conservation geneticist:** “A short-lived insect population has changed across many generations.”
+**Dialogue bubble — Nell Shah, conservation geneticist:** “But Tess has forty generations of insect records. A change in one plant cannot explain them.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -5105,7 +5238,7 @@ A simple recessive pedigree explanation requires assumptions about penetrance, n
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 19 — Regulation and differentiation; Keystone: Regulation and feedback, Information flow, Inheritance and variation; Area: GROW; Prerequisites: Mission primer and Stop 32: Keep the causal claim narrow; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 19 — Regulation and differentiation; Keystone: Regulation and feedback, Information flow, Inheritance and variation; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 11 at Stop 14; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether leaf shape alone is a reliable breeding label.
 
@@ -5127,7 +5260,7 @@ A simple recessive pedigree explanation requires assumptions about penetrance, n
 
 **Stop reason — exact player copy:** The breeding labels must distinguish appearance from ancestry.
 
-**Question card story setup — exact player copy:** The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Compare the possible sources of those traits before the seed team changes its breeding records.
+**Question card story setup — exact player copy:** The enzyme lead is preserved, but leaf shapes still give conflicting family labels when seedlings move between rooms with different light schedules. Ivo Reed asks: “Compare the possible sources of those traits before the seed team changes its breeding records.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -5209,7 +5342,7 @@ answerText: The comparisons distinguish several ways a leaf can look different. 
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 16 — Linkage and chi-square evidence; Keystone: Inheritance and variation, Information flow; Area: GROW; Prerequisites: Mission primer and Stop 33: Separate appearance from ancestry; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 16 — Linkage and chi-square evidence; Keystone: Inheritance and variation, Information flow; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether leaf shape alone is a reliable breeding label.
 
@@ -5231,7 +5364,7 @@ answerText: The comparisons distinguish several ways a leaf can look different. 
 
 **Stop reason — exact player copy:** The family record needs a measured linkage estimate.
 
-**Question card story setup — exact player copy:** The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Calculate the marker recombination frequency before those records are used to keep families distinct.
+**Question card story setup — exact player copy:** The trait comparisons show why a leaf label can shift with conditions, so the team turns to inherited markers that remain traceable across environments. Ivo Reed asks: “Calculate the marker recombination frequency before those records are used to keep families distinct.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -5299,7 +5432,7 @@ answerText: The recombinant fraction is 16/80, so the estimated recombination fr
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 17 — DNA replication; Keystone: Information flow, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 34: Check the family marker distance; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 17 — DNA replication; Keystone: Information flow, Inheritance and variation; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether leaf shape alone is a reliable breeding label.
 
@@ -5321,7 +5454,7 @@ answerText: The recombinant fraction is 16/80, so the estimated recombination fr
 
 **Stop reason — exact player copy:** The copied sequence must stay distinct from its expressed appearance.
 
-**Question card story setup — exact player copy:** The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Trace the copying process before deciding which labels the breeding stock should keep.
+**Question card story setup — exact player copy:** The marker calculation gives the seed team a usable inheritance record, but copied DNA and changing leaf appearance are still being treated as the same thing. Nell Shah asks: “Trace the copying process before deciding which labels the breeding stock should keep.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -5390,7 +5523,7 @@ answerText: Semiconservative replication preserves a template strand in each dau
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 19 — Regulation and differentiation; Keystone: Information flow, Inheritance and variation, Regulation and feedback; Area: SEED; Prerequisites: Mission primer and Stop 35: Keep the lineage traceable; Learning role: COMBINE; Difficulty: L4; Story role: decision.
+**Metadata:** Concept: 19 — Regulation and differentiation; Keystone: Information flow, Inheritance and variation, Regulation and feedback; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 11 at Stop 14; Learning role: COMBINE; Difficulty: L4; Story role: decision.
 
 **Briefing decision advanced:** whether leaf shape alone is a reliable breeding label.
 
@@ -5412,7 +5545,7 @@ answerText: Semiconservative replication preserves a template strand in each dau
 
 **Stop reason — exact player copy:** The seed team must retire a misleading appearance-only label.
 
-**Question card story setup — exact player copy:** The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.
+**Question card story setup — exact player copy:** The copying model preserves the meaning of the marker records, while the clone comparison shows that leaf shape can change with the growing environment. Nell Shah asks: “Choose the breeding labels that keep ancestry available without pretending appearance contains the whole history.”
 
 **Question card story-science connection — exact player copy:** Keep ancestry records and test leaf shape under matched conditions.
 
@@ -5466,7 +5599,11 @@ why: 'Leaf appearance responds to environment and can reflect several genetic co
 
 ## I. Mission outcome
 
-**Mission decision:** Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light. The crew uses the plan just chosen. A short-lived insect population has changed across many generations.
+**Mission decision:** Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light.
+
+**Delivery piece:** The ancestry labels — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Tess has forty generations of insect records. A change in one plant cannot explain them.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -5510,7 +5647,7 @@ why: 'Leaf appearance responds to environment and can reflect several genetic co
 
 **Go now:** Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.
 
-**Card body:** Leaf shape proved unreliable, but insect records show a change across many generations. Inherited traits can become more common when their carriers leave more offspring. Compare the field records, then test the population claim in the Field Planning Room. By the end of the mission, decide whether the insect change reflects selection or individual adjustment.
+**Card body:** Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group.
 
 **Objective:** Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock.
 
@@ -5616,7 +5753,7 @@ Mission question: whether the insect change reflects selection or individual adj
 
 **World state:** The insect change is recorded as population-level selection under the measured conditions. A small source group may already have lost rare alleles.
 
-**Dialogue bubble — Ada Penn, preserve director:** “A small source group may already have lost rare alleles.”
+**Dialogue bubble — Ada Penn, preserve director:** “Now Nell checks the seed list. Its largest family may leave rare gene forms behind.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -5655,7 +5792,7 @@ Evidence for common ancestry includes fossil order, biogeography, homologous str
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Mission primer and Stop 36: Retire the appearance label; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the insect change reflects selection or individual adjustment.
 
@@ -5677,7 +5814,7 @@ Evidence for common ancestry includes fossil order, biogeography, homologous str
 
 **Stop reason — exact player copy:** The insect archive needs a population-level explanation.
 
-**Question card story setup — exact player copy:** The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Compare population histories before deciding whether the island record supports a change across generations.
+**Question card story setup — exact player copy:** The seed labels now preserve ancestry, but decades of insect records show an emergence shift that cannot be explained by one plant changing shape. Tess Rowan asks: “Compare population histories before deciding whether the island record supports a change across generations.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -5759,7 +5896,7 @@ answerText: The histories separate population evolution from an individual respo
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Mission primer and Stop 37: Read the population histories; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the insect change reflects selection or individual adjustment.
 
@@ -5781,7 +5918,7 @@ answerText: The histories separate population evolution from an individual respo
 
 **Stop reason — exact player copy:** The selection claim needs reproductive contribution, not survival alone.
 
-**Question card story setup — exact player copy:** The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Calculate one group contribution before using the reproductive contrast to interpret the frequency record.
+**Question card story setup — exact player copy:** The population histories separate lifetime adjustment from inherited change, and the archive includes offspring counts for early and late emergence types in the same season. Tess Rowan asks: “Calculate one group contribution before using the reproductive contrast to interpret the frequency record.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -5848,7 +5985,7 @@ answerText: The early group contributes 10 × 6 = 60 surviving offspring, compar
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Experimental evidence; Area: PLAN; Prerequisites: Mission primer and Stop 38: Compare offspring contributions; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Experimental evidence; Area: PLAN; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the insect change reflects selection or individual adjustment.
 
@@ -5870,7 +6007,7 @@ answerText: The early group contributes 10 × 6 = 60 surviving offspring, compar
 
 **Stop reason — exact player copy:** The archive needs the right selection pattern.
 
-**Question card story setup — exact player copy:** The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.
+**Question card story setup — exact player copy:** The offspring calculation reveals different reproductive contributions, but the director needs the pattern described precisely before it shapes a release-stock recommendation for the mainland. Ada Penn asks: “Match the alternative selection patterns to keep a current advantage from becoming a claim of universal superiority.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -5952,7 +6089,7 @@ answerText: Selection patterns describe which phenotypes have higher reproductiv
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation, Experimental evidence; Area: PLAN; Prerequisites: Mission primer and Stop 39: Choose the selection pattern; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation, Experimental evidence; Area: PLAN; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Briefing decision advanced:** whether the insect change reflects selection or individual adjustment.
 
@@ -5974,7 +6111,7 @@ answerText: Selection patterns describe which phenotypes have higher reproductiv
 
 **Stop reason — exact player copy:** The stock decision must retain uncertainty about future conditions.
 
-**Question card story setup — exact player copy:** The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Choose a claim that explains the archive without discarding variation that may matter after movement.
+**Question card story setup — exact player copy:** The breeding tests, offspring counts and repeated-generation record now support one population explanation, while the receiving environment remains uncertain in important ways for the insects. Ada Penn asks: “Choose a claim that explains the archive without discarding variation that may matter after movement.”
 
 **Question card story-science connection — exact player copy:** Record population selection and protect the surviving variation.
 
@@ -6028,7 +6165,11 @@ why: The record links inherited emergence timing to differential reproductive su
 
 ## I. Mission outcome
 
-**Mission decision:** Record population selection and protect the surviving variation. Inherited early types leave more offspring. The crew uses the plan just chosen. A small source group may already have lost rare alleles.
+**Mission decision:** The old logs show a change across generations. Early types left more young in those conditions. Ada keeps the other forms too; a new coast may favor them.
+
+**Delivery piece:** The insect history — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Now Nell checks the seed list. Its largest family may leave rare gene forms behind.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -6072,7 +6213,7 @@ why: The record links inherited emergence timing to differential reproductive su
 
 **Go now:** Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.
 
-**Card body:** The insect history is clear, but the proposed seed shipment comes from one large family. A small sample can lose alleles even when its plants look healthy. Count family variation, check genetic tests, then revise the list at the Release Board. By the end of the mission, decide whether the largest seed family is enough for the pilot.
+**Card body:** The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test.
 
 **Objective:** Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation.
 
@@ -6200,7 +6341,7 @@ Mission question: whether the largest seed family is enough for the pilot. Actua
 
 **World state:** Several screened families replace the single-family shipment. The chosen plants still depend on partners missing from the manifest.
 
-**Dialogue bubble — Ada Penn, preserve director:** “The chosen plants still depend on partners missing from the manifest.”
+**Dialogue bubble — Ada Penn, preserve director:** “But Tess spots living partners absent from the list. Healthy plants may still fail without them.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -6239,7 +6380,7 @@ Hardy-Weinberg is a reference under stated assumptions, not a mechanism causing 
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 24 — Hardy-Weinberg models; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 40: State what changed; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 24 — Hardy-Weinberg models; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the largest seed family is enough for the pilot.
 
@@ -6261,7 +6402,7 @@ Hardy-Weinberg is a reference under stated assumptions, not a mechanism causing 
 
 **Stop reason — exact player copy:** The largest family must be assessed for the variation it contains.
 
-**Question card story setup — exact player copy:** The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.
+**Question card story setup — exact player copy:** The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Nell Shah asks: “Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -6328,7 +6469,7 @@ answerText: There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, 
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 23 — Drift and gene flow; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 41: Count the retained allele; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 23 — Drift and gene flow; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the largest seed family is enough for the pilot.
 
@@ -6350,7 +6491,7 @@ answerText: There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, 
 
 **Stop reason — exact player copy:** The founding plan needs the right population mechanisms.
 
-**Question card story setup — exact player copy:** The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Separate founding, migration and reproductive barriers before comparing the shipment with a population model.
+**Question card story setup — exact player copy:** The allele count describes the selected family, but it does not explain what might be lost when only a small part of the collection travels. Nell Shah asks: “Separate founding, migration and reproductive barriers before comparing the shipment with a population model.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -6432,7 +6573,7 @@ answerText: A small founding sample can omit alleles by chance even when every s
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 24 — Hardy-Weinberg models; Keystone: Population change, Experimental evidence; Area: GENE; Prerequisites: Mission primer and Stop 42: Separate population explanations; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 24 — Hardy-Weinberg models; Keystone: Population change, Experimental evidence; Area: GENE; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25, Concept 14 at Stop 26; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the largest seed family is enough for the pilot.
 
@@ -6454,7 +6595,7 @@ answerText: A small founding sample can omit alleles by chance even when every s
 
 **Stop reason — exact player copy:** The reference model needs its own expected genotype frequency.
 
-**Question card story setup — exact player copy:** The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.
+**Question card story setup — exact player copy:** The population mechanisms show why a shipment can lose variation by chance, and the measured allele frequencies now define a useful reference expectation. Nell Shah asks: “Calculate the model value before the director treats any difference as proof of a particular evolutionary cause.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -6523,7 +6664,7 @@ answerText: The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 per
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 23 — Drift and gene flow; Keystone: Population change, Inheritance and variation, Experimental evidence; Area: PLAN; Prerequisites: Mission primer and Stop 43: Check the reference model; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 23 — Drift and gene flow; Keystone: Population change, Inheritance and variation, Experimental evidence; Area: PLAN; Prerequisites: Required mission primer; graded foundations Concept 13 at Stop 25; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Briefing decision advanced:** whether the largest seed family is enough for the pilot.
 
@@ -6545,7 +6686,7 @@ answerText: The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 per
 
 **Stop reason — exact player copy:** The manifest must preserve screened variation beyond one family.
 
-**Question card story setup — exact player copy:** The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Choose a shipment plan that preserves tested variation and a recoverable island reserve.
+**Question card story setup — exact player copy:** The reference calculation cannot identify a cause by itself, but the screened-family records show that the largest family omits alleles retained elsewhere in the collection. Ada Penn asks: “Choose a shipment plan that preserves tested variation and a recoverable island reserve.”
 
 **Question card story-science connection — exact player copy:** Take several tested families and keep a reserve.
 
@@ -6599,7 +6740,11 @@ why: Several screened families preserve variation that the largest family lacks,
 
 ## I. Mission outcome
 
-**Mission decision:** Take several tested families and keep a reserve. The largest family lacks two rare alleles. The crew uses the plan just chosen. The chosen plants still depend on partners missing from the manifest.
+**Mission decision:** Take several tested families and keep a reserve. The largest family lacks two rare alleles.
+
+**Delivery piece:** The varied seed stock — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Tess spots living partners absent from the list. Healthy plants may still fail without them.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -6643,7 +6788,7 @@ why: Several screened families preserve variation that the largest family lacks,
 
 **Go now:** Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.
 
-**Card body:** The seed families are chosen, but their list omits the organisms that support them. Living things can supply one another with food, nutrients and protection. Trace field links, examine partner tests, then revise the pilot at the Release Board. By the end of the mission, decide whether the pilot can use plants alone.
+**Card body:** The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone.
 
 **Objective:** Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting.
 
@@ -6774,7 +6919,7 @@ Mission question: whether the pilot can use plants alone. Actual final answer: P
 
 **World state:** The contained pilot gains tested partners while untested field soil stays on the island. The receiving soil may not cycle nutrients like island soil.
 
-**Dialogue bubble — Ada Penn, preserve director:** “The receiving soil may not cycle nutrients like island soil.”
+**Dialogue bubble — Ada Penn, preserve director:** “Yet Tess finds little usable nitrogen in the new soil. The partner test has not cleared the whole site.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -6813,7 +6958,7 @@ A species can have a disproportionately large effect without being abundant. Com
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 44: Keep several families; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Matter conservation; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 8 at Stop 10; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the pilot can use plants alone.
 
@@ -6835,7 +6980,7 @@ A species can have a disproportionately large effect without being abundant. Com
 
 **Stop reason — exact player copy:** The manifest must account for the measured living relationships.
 
-**Question card story setup — exact player copy:** The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Match the observed field relationships before the team decides which partners need specific testing.
+**Question card story setup — exact player copy:** The selected families preserve more variation, but their shipment list still leaves out organisms that share nutrients and food with them on the island. Tess Rowan asks: “Match the observed field relationships before the team decides which partners need specific testing.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -6917,7 +7062,7 @@ answerText: The interaction signs describe effects on the organisms in the suppl
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 28 — Energy flow and trophic levels; Keystone: Energy coupling, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 45: Name the observed links; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 28 — Energy flow and trophic levels; Keystone: Energy coupling, Species interactions; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 8 at Stop 10, Concept 27 at Stop 18; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the pilot can use plants alone.
 
@@ -6939,7 +7084,7 @@ answerText: The interaction signs describe effects on the organisms in the suppl
 
 **Stop reason — exact player copy:** The pilot food web needs an energy budget.
 
-**Question card story setup — exact player copy:** The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.
+**Question card story setup — exact player copy:** The field matches identify useful and harmful interactions, yet adding organisms to a pilot also adds demands on its limited food supply. Tess Rowan asks: “Calculate the next feeding level before the clinic evaluates which partner combination the plants can support.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -7006,7 +7151,7 @@ answerText: Under the explicitly simplified ten-percent model, primary consumers
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 21 — Viruses and host cells; Keystone: Information flow, Species interactions, Experimental evidence; Area: CLINIC; Prerequisites: Mission primer and Stop 46: Budget the food web; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 21 — Viruses and host cells; Keystone: Information flow, Species interactions, Experimental evidence; Area: CLINIC; Prerequisites: Required mission primer; graded foundations Concept 4 at Stop 5, Concept 18 at Stop 29; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the pilot can use plants alone.
 
@@ -7028,7 +7173,7 @@ answerText: Under the explicitly simplified ten-percent model, primary consumers
 
 **Stop reason — exact player copy:** The partner list needs specific biological evidence and screening.
 
-**Question card story setup — exact player copy:** The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Separate those observations before the director chooses which tested organisms can enter a contained pilot.
+**Question card story setup — exact player copy:** The energy budget limits the proposed community, while the partner samples include both useful nutrient effects and viral records that require careful interpretation. Mara Vale asks: “Separate those observations before the director chooses which tested organisms can enter a contained pilot.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -7110,7 +7255,7 @@ answerText: The clinic separates viral life-cycle evidence from a measured benef
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence, Matter conservation; Area: PLAN; Prerequisites: Mission primer and Stop 47: Interpret the partner screens; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence, Matter conservation; Area: PLAN; Prerequisites: Required mission primer; graded foundations Concept 8 at Stop 10; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Briefing decision advanced:** whether the pilot can use plants alone.
 
@@ -7132,7 +7277,7 @@ answerText: The clinic separates viral life-cycle evidence from a measured benef
 
 **Stop reason — exact player copy:** The director must approve the tested pair within the permit.
 
-**Question card story setup — exact player copy:** The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Choose the next pilot action without extending that result to every organism or an open release.
+**Question card story setup — exact player copy:** The clinic separates the screened useful isolate from unscreened material, and the contained plant comparison now supports one particular nutrient partnership in receiving-site soil. Ada Penn asks: “Choose the next pilot action without extending that result to every organism or an open release.”
 
 **Question card story-science connection — exact player copy:** Prepare the tested plant-partner combination in containment.
 
@@ -7186,7 +7331,11 @@ why: The contained comparison supports a useful relationship between the tested 
 
 ## I. Mission outcome
 
-**Mission decision:** Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test. The crew uses the plan just chosen. The receiving soil may not cycle nutrients like island soil.
+**Mission decision:** Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test.
+
+**Delivery piece:** The tested partners — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Yet Tess finds little usable nitrogen in the new soil. The partner test has not cleared the whole site.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -7230,7 +7379,7 @@ why: The contained comparison supports a useful relationship between the tested 
 
 **Go now:** Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.
 
-**Card body:** The pilot includes tested partners, but receiving-site soil holds less usable nitrogen. Nutrients must move through soil and organisms before roots can use them. Compare site samples, test plant uptake, then set the preparation order at the Release Board. By the end of the mission, decide whether the receiving plot is ready for the pilot.
+**Card body:** The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant.
 
 **Objective:** Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground.
 
@@ -7358,7 +7507,7 @@ Mission question: whether the receiving plot is ready for the pilot. Actual fina
 
 **World state:** Receiving plots are prepared and only the instrumented contained pilot proceeds. A daytime pilot succeeds while its night record is still missing.
 
-**Dialogue bubble — Ada Penn, preserve director:** “A daytime pilot succeeds while its night record is still missing.”
+**Dialogue bubble — Ada Penn, preserve director:** “But Ivo has no dawn pass yet. A bright noon cannot clear the whole day.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -7397,7 +7546,7 @@ Exponential growth uses rN under a simplified unlimited-resource model; logistic
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 48: Add the tested partners; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1, Concept 5 at Stop 7, Concept 27 at Stop 18; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the receiving plot is ready for the pilot.
 
@@ -7419,7 +7568,7 @@ Exponential growth uses rN under a simplified unlimited-resource model; logistic
 
 **Stop reason — exact player copy:** The receiving soil needs a route from stored nitrogen to root uptake.
 
-**Question card story setup — exact player copy:** The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.
+**Question card story setup — exact player copy:** The contained pilot includes a tested partner, but receiving-site soil still has little usable nitrogen despite holding plenty of dead plant material. Tess Rowan asks: “Trace a selected nitrogen route before deciding which habitat condition must change ahead of planting.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
@@ -7488,7 +7637,7 @@ answerText: This sequence is a simplified selected route through the nitrogen cy
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 26 — Population growth and carrying capacity; Keystone: Population change, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 49: Follow nitrogen to a leaf; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 26 — Population growth and carrying capacity; Keystone: Population change, Matter conservation; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 22 at Stop 37; Learning role: INTRODUCE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the receiving plot is ready for the pilot.
 
@@ -7510,7 +7659,7 @@ answerText: This sequence is a simplified selected route through the nitrogen cy
 
 **Stop reason — exact player copy:** The planting plan needs growth under its stated resource limit.
 
-**Question card story setup — exact player copy:** The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Calculate expected growth before the crew uses that estimate to choose how many plants to establish.
+**Question card story setup — exact player copy:** The nitrogen route explains why total soil material does not guarantee usable nutrients, and the prepared plot now has a conditional population-capacity estimate. Tess Rowan asks: “Calculate expected growth before the crew uses that estimate to choose how many plants to establish.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -7578,7 +7727,7 @@ answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is n
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Selective exchange, Energy coupling; Area: GROW; Prerequisites: Mission primer and Stop 50: Check room for growth; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Selective exchange, Energy coupling; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1, Concept 5 at Stop 7, Concept 27 at Stop 18; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the receiving plot is ready for the pilot.
 
@@ -7600,7 +7749,7 @@ answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is n
 
 **Stop reason — exact player copy:** The plot needs both water and nutrient constraints resolved.
 
-**Question card story setup — exact player copy:** The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Match those constraints before the director sets the order of habitat preparation and planting.
+**Question card story setup — exact player copy:** The growth calculation depends on prepared-site resources, but the receiving samples show that water and nutrient conditions can fail for different reasons in the same plot. Ivo Reed asks: “Match those constraints before the director sets the order of habitat preparation and planting.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -7682,7 +7831,7 @@ answerText: The site constraints operate through different mechanisms. This resu
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Population change, Selective exchange, Species interactions; Area: PLAN; Prerequisites: Mission primer and Stop 51: Separate site constraints; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Population change, Selective exchange, Species interactions; Area: PLAN; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1, Concept 5 at Stop 7, Concept 27 at Stop 18; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Briefing decision advanced:** whether the receiving plot is ready for the pilot.
 
@@ -7704,7 +7853,7 @@ answerText: The site constraints operate through different mechanisms. This resu
 
 **Stop reason — exact player copy:** The planting order must satisfy the model assumptions first.
 
-**Question card story setup — exact player copy:** The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Choose the order of work that makes those conditions real before stocking the pilot.
+**Question card story setup — exact player copy:** The site comparisons now connect the growth estimate to actual water and nutrient preparation, while the runoff test limits effects beyond the intended planting plot. Ada Penn asks: “Choose the order of work that makes those conditions real before stocking the pilot.”
 
 **Question card story-science connection — exact player copy:** Prepare the receiving soil and water before planting.
 
@@ -7758,7 +7907,11 @@ why: The growth model assumes a prepared environment, so its carrying-capacity e
 
 ## I. Mission outcome
 
-**Mission decision:** Prepare the receiving soil and water before planting. The dry soil fails the plant test. The crew uses the plan just chosen. A daytime pilot succeeds while its night record is still missing.
+**Mission decision:** Prepare the receiving soil and water before planting. The dry soil fails the plant test.
+
+**Delivery piece:** The prepared plots — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** But Ivo has no dawn pass yet. A bright noon cannot clear the whole day.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -7802,7 +7955,7 @@ why: The growth model assumes a prepared environment, so its carrying-capacity e
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The prepared pilot looks healthy in daylight, but its dawn animals gather at the surface. An enclosed community can use more oxygen at night than its water supply replaces. Check the pond record, inspect the receiving-water sample, then judge expansion at the Release Board. By the end of the mission, decide whether the full-day pilot clears expansion.
+**Card body:** The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow.
 
 **Objective:** Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure.
 
@@ -7927,7 +8080,7 @@ Mission question: whether the full-day pilot clears expansion. Actual final answ
 
 **World state:** Expansion is halted and the tested oxygen-supply correction is added to the final plan. The final plan must keep a pause and return path.
 
-**Dialogue bubble — Ada Penn, preserve director:** “The final plan must keep a pause and return path.”
+**Dialogue bubble — Ada Penn, preserve director:** “Now Ada needs a stop rule before the ship leaves. A corrected test cannot promise every future result.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -7966,7 +8119,7 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange; Area: GROW; Prerequisites: Mission primer and Stop 52: Prepare before planting; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** whether the full-day pilot clears expansion.
 
@@ -7988,7 +8141,7 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Stop reason — exact player copy:** The daylight pass needs a night-time oxygen calculation.
 
-**Question card story setup — exact player copy:** The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.
+**Question card story setup — exact player copy:** The prepared pilot looks healthy in daylight, but animals gather near the surface at dawn and the night record has not yet been cleared. Ivo Reed asks: “Project the dark-interval oxygen balance before the crew treats the daylight result as permission to expand.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -8056,7 +8209,7 @@ answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This r
 
 **Required stop kind:** operated/fixture. **Player verb:** sample and compare stations.
 
-**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: GROW; Prerequisites: Mission primer and Stop 53: Project the dark interval; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
+**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
 
 **Briefing decision advanced:** whether the full-day pilot clears expansion.
 
@@ -8078,7 +8231,7 @@ answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This r
 
 **Stop reason — exact player copy:** The full-cycle comparison must locate the oxygen failure.
 
-**Question card story setup — exact player copy:** The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Read every station before deciding whether the pilot design or the receiving water explains the failure.
+**Question card story setup — exact player copy:** The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Ivo Reed asks: “Read every station before deciding whether the pilot design or the receiving water explains the failure.”
 
 **Question card story-science connection — exact player copy:** A station-specific failure identifies the comparison that must govern the next handling decision.
 
@@ -8151,7 +8304,7 @@ answerText: Only the dawn reading from the standard pilot falls outside its expe
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Energy coupling, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 54: Read the complete cycle; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Energy coupling, Species interactions; Area: MARSH; Prerequisites: Required mission primer; no prior graded concept required; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** whether the full-day pilot clears expansion.
 
@@ -8173,7 +8326,7 @@ answerText: Only the dawn reading from the standard pilot falls outside its expe
 
 **Stop reason — exact player copy:** The expansion decision needs the scope of each result.
 
-**Question card story setup — exact player copy:** The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Match each result to the claim it supports before the director judges expansion.
+**Question card story setup — exact player copy:** The complete-cycle comparison isolates a dawn problem in the standard design, while the air-supply trial and independent water sample remain within their expected ranges. Tess Rowan asks: “Match each result to the claim it supports before the director judges expansion.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -8255,7 +8408,7 @@ answerText: Each result supports a different scope of claim. This result is now 
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Energy coupling, Selective exchange, Species interactions; Area: PLAN; Prerequisites: Mission primer and Stop 55: Choose what each test establishes; Learning role: COMBINE; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Energy coupling, Selective exchange, Species interactions; Area: PLAN; Prerequisites: Required mission primer; no prior graded concept required; Learning role: COMBINE; Difficulty: L5; Story role: decision.
 
 **Briefing decision advanced:** whether the full-day pilot clears expansion.
 
@@ -8277,7 +8430,7 @@ answerText: Each result supports a different scope of claim. This result is now 
 
 **Stop reason — exact player copy:** The director must stop expansion until the corrected pilot is tested.
 
-**Question card story setup — exact player copy:** The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Choose the expansion decision that carries this evidence into the final release plan.
+**Question card story setup — exact player copy:** The claim matches preserve the daylight success but show that it cannot certify the night, and a matched correction has now passed the dawn comparison. Ada Penn asks: “Choose the expansion decision that carries this evidence into the final release plan.”
 
 **Question card story-science connection — exact player copy:** Hold expansion until the night oxygen problem is corrected.
 
@@ -8331,7 +8484,11 @@ why: The standard design fails the explicit minimum oxygen requirement at dawn, 
 
 ## I. Mission outcome
 
-**Mission decision:** Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit. The crew uses the plan just chosen. The final plan must keep a pause and return path.
+**Mission decision:** Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit.
+
+**Delivery piece:** The night correction — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Now Ada needs a stop rule before the ship leaves. A corrected test cannot promise every future result.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -8375,7 +8532,7 @@ why: The standard design fails the explicit minimum oxygen requirement at dawn, 
 
 **Go now:** Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.
 
-**Card body:** Expansion is on hold, and the ship waits for a plan that covers the whole day. A release must preserve tested relationships while leaving room to stop when evidence changes. Check the selected families, review the corrected cycle, then commit the plan at the Release Board. By the end of the mission, decide which release plan the evidence now supports.
+**Card body:** The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take.
 
 **Objective:** Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat.
 
@@ -8493,7 +8650,7 @@ Mission question: which release plan the evidence now supports. Actual final ans
 
 **World state:** The corrected pilot is approved and the first covered sample cart reaches the waiting ship. The island keeps a reserve while the mainland pilot begins.
 
-**Dialogue bubble — Ada Penn, preserve director:** “The island keeps a reserve while the mainland pilot begins.”
+**Dialogue bubble — Ada Penn, preserve director:** “Now Ada can send the small test. The crew must watch it and stop if the recorded limits fail.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -8532,7 +8689,7 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Inheritance and variation, Regulation and feedback, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 56: Stop the premature expansion; Learning role: TRANSFER; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Inheritance and variation, Regulation and feedback, Experimental evidence; Area: SEED; Prerequisites: Required mission primer; no prior graded concept required; Learning role: TRANSFER; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** which release plan the evidence now supports.
 
@@ -8554,7 +8711,7 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Stop reason — exact player copy:** The final stock list must retain each tested constraint.
 
-**Question card story setup — exact player copy:** Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Match those findings to handling constraints before the final habitat and transport evidence is combined.
+**Question card story setup — exact player copy:** Expansion is on hold, and the waiting ship needs a stock list that keeps every earlier family and health finding connected to the organisms selected. Nell Shah asks: “Match those findings to handling constraints before the final habitat and transport evidence is combined.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -8636,7 +8793,7 @@ answerText: The final seed decision retrieves distinctions established across th
 
 **Required stop kind:** calculation/room. **Player verb:** match mechanisms to observations.
 
-**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions, Population change; Area: SEED; Prerequisites: Mission primer and Stop 57: Carry forward the tested constraints; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions, Population change; Area: SEED; Prerequisites: Required mission primer; graded foundations Concept 1 at Stop 1, Concept 5 at Stop 7, Concept 27 at Stop 18; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** which release plan the evidence now supports.
 
@@ -8658,7 +8815,7 @@ answerText: The final seed decision retrieves distinctions established across th
 
 **Stop reason — exact player copy:** The final manifest must keep the tested habitat relationships.
 
-**Question card story setup — exact player copy:** The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Carry those measured links into the final plan before checking the corrected night-time oxygen margin.
+**Question card story setup — exact player copy:** The stock matches preserve ancestry and the held-line boundary, but the selected families still need the habitat relationships tested during the pilot work. Nell Shah asks: “Carry those measured links into the final plan before checking the corrected night-time oxygen margin.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
@@ -8740,7 +8897,7 @@ answerText: The habitat plan depends on measured relationships rather than the v
 
 **Required stop kind:** calculation/room. **Player verb:** assemble and calculate from number tiles.
 
-**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 58: Keep the habitat links intact; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
+**Metadata:** Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: MARSH; Prerequisites: Required mission primer; graded foundations Concept 7 at Stop 9; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
 
 **Briefing decision advanced:** which release plan the evidence now supports.
 
@@ -8762,7 +8919,7 @@ answerText: The habitat plan depends on measured relationships rather than the v
 
 **Stop reason — exact player copy:** The final decision needs the corrected full-cycle oxygen margin.
 
-**Question card story setup — exact player copy:** The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Calculate its ending oxygen level before the director commits the complete monitored plan.
+**Question card story setup — exact player copy:** The stock and habitat constraints are now recorded, and the corrected pilot has a full dark-interval rate measured under the proposed conditions for transport and care. Tess Rowan asks: “Calculate its ending oxygen level before the director commits the complete monitored plan.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
@@ -8830,7 +8987,7 @@ answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of 
 
 **Required stop kind:** decision/person. **Player verb:** select a consequential plan.
 
-**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Inheritance and variation, Population change, Species interactions, Matter conservation, Energy coupling, Selective exchange, Regulation and feedback, Information flow, Structure and function; Area: PLAN; Prerequisites: Mission primer and Stop 59: Check the corrected night margin; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
+**Metadata:** Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Inheritance and variation, Population change, Species interactions, Matter conservation, Energy coupling, Selective exchange, Regulation and feedback, Information flow, Structure and function; Area: PLAN; Prerequisites: Required mission primer; no prior graded concept required; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
 
 **Briefing decision advanced:** which release plan the evidence now supports.
 
@@ -8852,7 +9009,7 @@ answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of 
 
 **Stop reason — exact player copy:** The waiting ship needs the final evidence-based release plan.
 
-**Question card story setup — exact player copy:** The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Choose the complete plan that preserves those constraints and leaves a response to new failure.
+**Question card story setup — exact player copy:** The corrected night calculation meets the recorded limit, and the stock, partner and receiving-site evidence now sit together on the release board for the first time. Ada Penn asks: “Choose the complete plan that preserves those constraints and leaves a response to new failure.”
 
 **Question card story-science connection — exact player copy:** Authorize only the corrected monitored pilot, with a pause and return path.
 
@@ -8906,7 +9063,11 @@ why: 'Only the corrected monitored pilot carries forward every established requi
 
 ## I. Mission outcome
 
-**Mission decision:** Authorize only the corrected monitored pilot, with a pause and return path. The corrected night test stays above the oxygen limit. The island keeps its reserve. The island keeps a reserve while the mainland pilot begins.
+**Mission decision:** The small test is cleared. The night result meets the limit, and the plan says when to stop. Ada keeps seed families on the island as a reserve.
+
+**Delivery piece:** The signed stop rule — record the evidence from this mission on The Contained Pilot board.
+
+**Segue — exact player copy:** Now Ada can send the small test. The crew must watch it and stop if the recorded limits fail.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -8939,6 +9100,16 @@ why: 'Only the corrected monitored pilot carries forward every established requi
 
 ---
 
+## Ending card — exact player copy
+
+The ship leaves with the covered cart. It holds screened seed families, plants and their tested partners, each with its care record. Ada gives the crew The Contained Pilot. The new plots are ready, and the plan sets checks for day and night.
+
+Nell keeps a reserve of each chosen family on the island. The held tissue line and untested field soil stay here too. No one has cleared them for the trip. Beyond the shed, bugs still visit the flowers that Tess and Ivo kept in bloom.
+
+The mainland trial has begun; its long-term fate is still unknown. If oxygen drops below 6 mg/L or a new health failure appears, the crew must pause and use the return plan. For now, the birds keep feeding beside the empty cart space.
+
+**Ending trigger:** Only after Mission 15 RP allocation, all four bars reach 100, all scientific flags pass and the loading gate opens. Show these three paragraphs in place of all inherited Dark Fibre ending copy. Do not add a graded stop. The log retains the plan and ending for review.
+
 # 8. Implementation boundary and resolved handoff
 
-This new bible is the canonical content source. No live implementation was modified. Importer/schema and world conversion must preserve the authored source blocks, named people, IDs, exact stopKind placements, units, explicit grading data, route locks, timer pauses, recovery order and visible ship/loading-gate ending. Keys in kernel/ledger sections are author-only and must never be rendered as pre-answer evidence. The companion audit lists every supplied gate requirement and distinguishes static evidence from missing project/runtime checks.
+This revised bible is the canonical content source. Earlier v1.0 companion ledgers are not revised by this handback and must not override its delivery, cast copy or concept assignments; regenerate imported metadata from this v1.1 source. No live implementation was modified. Importer/schema and world conversion must preserve the authored source blocks, named people, IDs, exact stopKind placements, units, explicit grading data, route locks, timer pauses, recovery order and visible ship/loading-gate ending. Keys in kernel/ledger sections are author-only and must never be rendered as pre-answer evidence. The companion audit lists every supplied gate requirement and distinguishes static evidence from missing project/runtime checks.

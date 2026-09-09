@@ -6,12 +6,12 @@
     header: "DAY 12 OF 12 — INSPECTION IN 1 DAYS"
     title: "FORTY-ONE TALLIES"
     goNow: "Go to The Bank and meet Ruth Bell, cage operator, at The depth indicator."
-    body: "The slower candidate fits the worst stopping case, and the last test is ready. A safe plan must satisfy every limit at once for the loads it actually covers. At the Bank, Rope Shop and Winder House, check the final record before opening passenger access. By the end of the mission, choose the complete profile that can be signed."
+    body: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
     objective: "Which complete profile can be signed for the defined operating range?"
   objective: "Which complete profile can be signed for the defined operating range?"
-  stake: "The slower candidate fits the worst stopping case, and the last test is ready. A safe plan must satisfy every limit at once for the loads it actually covers. At the Bank, Rope Shop and Winder House, check the final record before opening passenger access. By the end of the mission, choose the complete profile that can be signed."
+  stake: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
   takeaway: "A signed profile must keep every constraint and its tested range. ---"
-  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens."
+  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth's ending account says Finn takes his tally only after the final checks are complete."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Operating range", def: "the loads, lengths and conditions for which a plan has been checked."}
@@ -44,7 +44,7 @@
     title: "Commit the empty acceptance prediction"
     concept: 12   # Commit the empty acceptance prediction
     reason: "The final empty acceptance needs a committed prediction."
-    scene: "The slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope."
+    scene: "Ruth Bell notes that the slower candidate survives the adverse envelope, but the final unoccupied acceptance still needs a prediction committed before the wind. Check its own measured conditions at the Bank so a successful empty run is recorded without overstating its scope."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: VERIFY
     question: "First, calculate and commit drum-equivalent braking travel in m from the visible data. OPERATE: run the unoccupied 1 m/s acceptance wind. Keep the empty-cage mass, pad state and 1 m/s test speed fixed. MEASURE: press READ once after the run and record drum-equivalent braking travel. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -97,7 +97,7 @@
     title: "Combine the signed limits"
     concept: 12   # Combine the signed limits
     reason: "The signed speed must satisfy every limit at once."
-    scene: "The unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them."
+    scene: "Mara Shaw sees that the unoccupied acceptance matches its prediction, and every earlier constraint can now be applied to the final speed menu together. Carry the signed records to the rope bench and select the fastest candidate that satisfies all of them."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -147,7 +147,7 @@
         - ask: Choose the fastest listed speed surviving the combined conditions.
           answer: 0
           candidates:
-            - text: "v=2.0 m/s: P=320 kW and d_bound=3.6 m; faster listed speeds fail stopping"
+            - text: "v=2.0 m/s: P=160×2=320 kW; d_bound=0.5×2²+0.8×2=3.6 m; at 2.5, d_bound=0.5×2.5²+0.8×2.5=5.125 m > 5 m"
             - text: "v=3.5 m/s: P=560 kW and d_bound=8.925 m; passing power permits the plan"
               why: The higher-speed option passes power but exceeds the 5 m stopping allowance; a single pass cannot replace the conjunction.
               survives: true
@@ -160,7 +160,7 @@
     title: "Check the independent safety margin"
     concept: 12   # Check the independent safety margin
     reason: "The remaining stopping margin needs an independent arithmetic check."
-    scene: "The combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand."
+    scene: "Ewan Price confirms that the combined limits leave one fastest listed candidate, but the remaining space needs an independent arithmetic check before the plan is signed. Commit that margin at the winding trace and verify the calculation against the locked allowance and demand."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: VERIFY
     question: "First, calculate and commit remaining stopping margin in m from the visible data. OPERATE: run the independent signed-plan margin check. Keep the recorded allowance and adverse bound fixed. MEASURE: press READ once after the run and record remaining stopping margin. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -213,7 +213,7 @@
     title: "Commit the day's plan"
     concept: 12   # Commit the day's plan
     reason: "Passenger access needs a signed profile with explicit limits."
-    scene: "The independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered."
+    scene: "Ewan Price finds that the independent check confirms the remaining margin, and the unoccupied acceptance record is complete beside the twelve-page winding plan. Give the winding engineer the final profile and its tested limits so passenger access opens only for the conditions actually covered."
     motivation: "The final approval is useful only when every tested limit remains attached to the signed profile."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."

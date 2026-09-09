@@ -6,15 +6,15 @@
     header: "RESCUE WINDOW — ABOUT 14 HOURS REMAIN"
     title: "THE SORTED QUEUE"
     goNow: "Go to Operations Module and meet Dr. Elena Park, station director, at the Rescue Board."
-    body: "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust."
-    objective: "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII."
-  objective: "Gather enough code and station evidence to decide which ordered rescue message gives the aircraft the information it needs without wasting the limited burst or exposing unnecessary PII."
-  stake: "The controller state is separated, but the aircraft can receive only a short rescue burst before weather cuts the link. The queue must fit the time limit, preserve operational priority, and avoid unnecessary personal data. Across Operations, Software, and Communications, choose and order the message before the burst closes. By the end of the mission, decide which transmitted queue the aircraft should trust."
+    body: "The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send."
+    objective: "Today you decide which facts the plane needs in its ten-second message."
+  objective: "Today you decide which facts the plane needs in its ten-second message."
+  stake: "The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send."
   takeaway: "Send runway, weather, power endurance, and medical count in stable priority order; omit names, birthdates, and the full debug dump. ---"
-  segue: "Mission decision: Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. Icing then threatens the main antenna."
+  segue: "Mission decision: Send runway, weather, power time, and medical count; keep tied items in their old order. Those four items fit the ten-second burst, while names and the debug dump do not. The aircraft accepts the short queue. But Liv sees ice spread across the main antenna."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
-  - {name: "PII", def: "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: a sorting algorithm that inserts each new item into the correct place in an already-sorted prefix."}
+  - {name: "PII", def: "personally identifiable information that can identify or strongly distinguish a person. selection sort: a sorting algorithm that repeatedly selects the next smallest or largest remaining item. insertion sort: puts each new item in its proper place among the items already sorted."}
   primer:
   - "Sorting can have requirements beyond numeric order, including preserving equal-priority order."
   - "Collect and transmit only the data needed for the decision."
@@ -41,7 +41,7 @@
     title: "Choose what the aircraft needs"
     concept: 38   # Ethics, privacy, bias, and impact of computing
     reason: "Park has ten transmission seconds and must send enough operational evidence for the aircraft to act without exposing information it does not need."
-    scene: "Each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness."
+    scene: "Elena Park checks the evidence: each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness."
     motivation: "Useful computing decisions include both technical sufficiency and the human cost of collecting or transmitting unnecessary personal data."
     format: VALUE
     question: "Spend at most ten seconds and submit the evidence set the aircraft needs for the landing decision."
@@ -122,7 +122,7 @@
     title: "Order the priority passes"
     concept: 32   # Selection sort and insertion sort
     reason: "The message set is fixed, but the queue must be sorted by priority without losing the original order of equal-priority safety items."
-    scene: "The four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative."
+    scene: "Priya Nair checks the evidence: the four items enter as POWER(2), RUNWAY(2), WEATHER(1), and MEDICAL(3), where smaller numbers mean higher priority. Put the first two selection-sort placements on the rail so Priya can compare them with a stable alternative."
     motivation: "Sorting is not just cosmetic here because the aircraft acts on the earliest items before the burst is fully complete."
     format: SEQUENCE
     question: "Place the four selection-sort outcomes in the order produced by ascending priority, preserving the observed tie result."
@@ -168,7 +168,7 @@
     title: "Preserve equal-priority order"
     concept: 32   # Selection sort and insertion sort
     reason: "The selection-sort trace exposes an equal-priority pair, so Priya wants an insertion rule that never moves a later equal-priority item ahead of an earlier one."
-    scene: "Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2."
+    scene: "Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2."
     motivation: "A one-character comparison choice can change whether equal-priority rescue actions retain their original operational order."
     format: DERIVE
     question: "Choose the insertion-sort comparison and the resulting order for the equal-priority pair."
@@ -196,7 +196,7 @@
     #           - {line: "POWER stays before RUNWAY", correct: true}
     #           - {line: "RUNWAY may move ahead of POWER solely because priorities tie", correct: false, survives: true, why: "A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them."}
     derive:
-      start: The list already contains POWER before RUNWAY, and the current item has the same priority.
+      start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority."
       goal: insert an item without reversing earlier equal-priority items
       steps:
         - ask: Choose the stable shift condition.
@@ -222,7 +222,7 @@
     title: "Transmit the ordered plan"
     concept: 29   # ArrayList methods, traversals, mutation, and algorithms
     reason: "The four-item queue now fits the privacy and priority rules, but the aircraft must receive exactly that ordered list within the ten-second burst."
-    scene: "The committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took."
+    scene: "Liv Andersen checks the evidence: the committed queue is WEATHER, POWER, RUNWAY, MEDICAL, each item costs two seconds, and no PII item should enter the transmitted ArrayList. Commit the total burst time before the live queue reveals how long transmission actually took."
     motivation: "The mission succeeds only if data selection, list order, and transmission budget all agree in one observable output."
     format: VERIFY
     question: "PREDICT AND COMMIT: dial the total transmission time for four two-second items. OPERATE: send the rescue queue. MEASURE: reveal the burst time. INTERPRET: verify the four-item order and zero-PII condition, then submit ACCEPT or ABORT."

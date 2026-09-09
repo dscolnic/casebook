@@ -6,12 +6,12 @@
     header: "DAY 4 OF 12 — INSPECTION IN 9 DAYS"
     title: "ONE MOTOR, TWO JOBS"
     goNow: "Go to Winder House and meet Ewan Price, winding engineer, at The winder desk."
-    body: "The rope can take the slower rise, but the motor has two jobs. It must pull the hanging load and make the drum turn faster. At the Winder House, combine those demands before restoring the start control. By the end of the mission, decide which starting acceleration the motor can supply."
+    body: "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply."
     objective: "Which starting acceleration can the motor supply?"
   objective: "Which starting acceleration can the motor supply?"
-  stake: "The rope can take the slower rise, but the motor has two jobs. It must pull the hanging load and make the drum turn faster. At the Winder House, combine those demands before restoring the start control. By the end of the mission, decide which starting acceleration the motor can supply."
+  stake: "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply."
   takeaway: "The motor must supply load torque and acceleration torque. ---"
-  segue: "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check."
+  segue: "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Torque", def: "the turning effect of a force about an axis."}
@@ -46,7 +46,7 @@
     title: "Drum angular acceleration"
     concept: 4   # Drum angular acceleration
     reason: "The motor must accelerate the drum as well as lift the load."
-    scene: "The rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft."
+    scene: "Ewan Price notes that the rope passes the slower mean pull, but the motor must also change the speed of the corrected heavy drum. Recover the relation between linear and angular acceleration before adding the two demands on the winding shaft."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting drum angular acceleration in rad/s²."
@@ -108,7 +108,7 @@
     title: "Add the two torque demands"
     concept: 4   # Add the two torque demands
     reason: "The motor limit applies to both torque demands together."
-    scene: "The angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine."
+    scene: "Ewan Price sees that the angular acceleration is now fixed by the rope motion, and the measured rope pull acts against the motor. Put those effects into one torque equation before deciding whether the slower start fits the installed machine."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: DERIVE
     question: "Build the derivation by selecting one expression at each step; inspect the stated physical reason before committing each line."
@@ -158,7 +158,7 @@
         - ask: Solve for the torque the motor must provide.
           answer: 0
           candidates:
-            - text: τmotor=TR+Ia/R=374500 N m
+            - text: τmotor=TR+Ia/R=176000×2+45000×1/2=374500 N m
             - text: τmotor=TR−Ia/R=329500 N m
               why: The motor must add the inertia demand to the load torque, not use it as assistance.
               survives: true
@@ -171,7 +171,7 @@
     title: "Check the faster start"
     concept: 4   # Check the faster start
     reason: "The faster proposal needs its own torque prediction."
-    scene: "The slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly."
+    scene: "Ewan Price confirms that the slower start fits the calculated motor demand, but the proposed faster start changes both the rope pull and drum acceleration. Commit its total torque before running the isolated model so the two limits can be compared fairly."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: VERIFY
     question: "First, calculate and commit motor torque in N m from the visible data. OPERATE: run the simulated 2 m/s² start. Keep the mass, radius and rotational inertia fixed. MEASURE: press READ once after the run and record motor torque. INTERPRET: compare with your prediction and submit SUPPORTS MODEL or REJECTS MODEL. No restoration or second reading is required; this isolated test resets on retry."
@@ -224,7 +224,7 @@
     title: "Commit the day's plan"
     concept: 4   # Commit the day's plan
     reason: "Only a start that passes both limits can return to the control."
-    scene: "The faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control."
+    scene: "Ewan Price finds that the faster-start run confirms the larger torque demand, even though the rope itself can still withstand that mean pull. Decide which start survives both limits before the operator restores any acceleration setting on the live control."
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: CHOICE
     question: "Read the recorded evidence and select one operating decision."
