@@ -54,7 +54,7 @@
   #     Concept: 13 — Meiosis and variation; Keystone: Inheritance and variation, Information flow; Area: SEED; Prerequisites: Mission primer and Stop 24: Hold one line; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
   #     placement: SEQUENCE, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Follow an allele into a gamete"
     concept: 13   # Meiosis and variation
     reason: "The family investigation needs an inheritance model."
@@ -115,7 +115,7 @@
   #     Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 25: Follow an allele into a gamete; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Predict the test family"
     concept: 14   # Mendelian probability
     reason: "The test cross needs an expected offspring count."

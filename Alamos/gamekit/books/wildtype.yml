@@ -375,7 +375,7 @@ missions:
 # ============================================================ MISSION 1
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 1 — THE FOOD THAT IS NOT ENOUGH"
+- title: "THE FOOD THAT IS NOT ENOUGH"
   card:
     header: "DAY 1 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FOOD THAT IS NOT ENOUGH"
@@ -572,7 +572,7 @@ missions:
   #     Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Structure and function; Area: CLINIC; Prerequisites: Mission primer and Stop 2: Count the missing nitrogen; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
   #     placement: PROBE, Field Clinic — Culture Rack.
   - group: CLINIC
-    at: offcut-rack
+    at: culture-rack
     title: "Check the stored mix"
     concept: 30   # Experimental inference and sampling
     reason: "The clinic needs a controlled test before changing feed."
@@ -694,7 +694,7 @@ missions:
 # ============================================================ MISSION 2
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 2 — THE RINSE THAT HURTS"
+- title: "THE RINSE THAT HURTS"
   card:
     header: "DAY 2 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE RINSE THAT HURTS"
@@ -1017,7 +1017,7 @@ missions:
 # ============================================================ MISSION 3
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 3 — THE POND AFTER DARK"
+- title: "THE POND AFTER DARK"
   card:
     header: "DAY 3 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE POND AFTER DARK"
@@ -1320,7 +1320,7 @@ missions:
 # ============================================================ MISSION 4
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 4 — THE WRONG KIND OF RECOVERY"
+- title: "THE WRONG KIND OF RECOVERY"
   card:
     header: "DAY 4 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE WRONG KIND OF RECOVERY"
@@ -1631,7 +1631,7 @@ missions:
 # ============================================================ MISSION 5
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 5 — FLOWERS WITH NO VISITORS"
+- title: "FLOWERS WITH NO VISITORS"
   card:
     header: "DAY 5 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "FLOWERS WITH NO VISITORS"
@@ -1817,7 +1817,7 @@ missions:
   #     Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 18: Find the shared flowering days; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
   #     placement: PROBE, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Compare field trays"
     concept: 27   # Species interactions and niches
     reason: "The bay comparison must separate timing mismatch from insect loss."
@@ -1895,7 +1895,7 @@ missions:
   #     Concept: 27 — Species interactions and niches; Keystone: Species interactions, Regulation and feedback, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 19: Compare field trays; Learning role: COMBINE; Difficulty: L3; Story role: decision.
   #     placement: CHOICE, Tess Rowan at Marsh Research Bay — Habitat Board.
   - group: MARSH
-    at: bay-bench
+    at: habitat-board
     title: "Keep flowers available"
     concept: 27   # Species interactions and niches
     reason: "The wider lamp reset waits on the field result."
@@ -1939,7 +1939,7 @@ missions:
 # ============================================================ MISSION 6
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 6 — THE TRAY THAT WILL NOT STOP"
+- title: "THE TRAY THAT WILL NOT STOP"
   card:
     header: "DAY 6 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE TRAY THAT WILL NOT STOP"
@@ -2247,7 +2247,7 @@ missions:
 # ============================================================ MISSION 7
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 7 — THE FAMILY IN THE JAR"
+- title: "THE FAMILY IN THE JAR"
   card:
     header: "DAY 7 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FAMILY IN THE JAR"
@@ -2300,7 +2300,7 @@ missions:
   #     Concept: 13 — Meiosis and variation; Keystone: Inheritance and variation, Information flow; Area: SEED; Prerequisites: Mission primer and Stop 24: Hold one line; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
   #     placement: SEQUENCE, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Follow an allele into a gamete"
     concept: 13   # Meiosis and variation
     reason: "The family investigation needs an inheritance model."
@@ -2361,7 +2361,7 @@ missions:
   #     Concept: 14 — Mendelian probability; Keystone: Inheritance and variation, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 25: Follow an allele into a gamete; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Predict the test family"
     concept: 14   # Mendelian probability
     reason: "The test cross needs an expected offspring count."
@@ -2549,7 +2549,7 @@ missions:
 # ============================================================ MISSION 8
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 8 — ONE LETTER IN THE RECIPE"
+- title: "ONE LETTER IN THE RECIPE"
   card:
     header: "DAY 8 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "ONE LETTER IN THE RECIPE"
@@ -2860,7 +2860,7 @@ missions:
 # ============================================================ MISSION 9
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 9 — THE SAME SEED IN TWO ROOMS"
+- title: "THE SAME SEED IN TWO ROOMS"
   card:
     header: "DAY 9 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SAME SEED IN TWO ROOMS"
@@ -3156,7 +3156,7 @@ missions:
 # ============================================================ MISSION 10
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 10 — THE INSECTS THAT STAYED"
+- title: "THE INSECTS THAT STAYED"
   card:
     header: "DAY 10 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE INSECTS THAT STAYED"
@@ -3197,7 +3197,7 @@ missions:
   #     Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Mission primer and Stop 36: Retire the appearance label; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
   #     placement: PROTOCOL, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Read the population histories"
     concept: 22   # Natural selection and fitness
     reason: "The insect archive needs a population-level explanation."
@@ -3272,7 +3272,7 @@ missions:
   #     Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Mission primer and Stop 37: Read the population histories; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Compare offspring contributions"
     concept: 22   # Natural selection and fitness
     reason: "The selection claim needs reproductive contribution, not survival alone."
@@ -3339,7 +3339,7 @@ missions:
   #     Concept: 22 — Natural selection and fitness; Keystone: Population change, Experimental evidence; Area: PLAN; Prerequisites: Mission primer and Stop 38: Compare offspring contributions; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Field Planning Room — Survey Table.
   - group: PLAN
-    at: trace-table
+    at: survey-table
     title: "Choose the selection pattern"
     concept: 22   # Natural selection and fitness
     reason: "The archive needs the right selection pattern."
@@ -3458,7 +3458,7 @@ missions:
 # ============================================================ MISSION 11
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 11 — THE SEEDS LEFT OUT"
+- title: "THE SEEDS LEFT OUT"
   card:
     header: "DAY 11 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SEEDS LEFT OUT"
@@ -3503,7 +3503,7 @@ missions:
   #     Concept: 24 — Hardy-Weinberg models; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 40: State what changed; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
   #     placement: BALLPARK, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Count the retained allele"
     concept: 24   # Hardy-Weinberg models
     reason: "The largest family must be assessed for the variation it contains."
@@ -3570,7 +3570,7 @@ missions:
   #     Concept: 23 — Drift and gene flow; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 41: Count the retained allele; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Separate population explanations"
     concept: 23   # Drift and gene flow
     reason: "The founding plan needs the right population mechanisms."
@@ -3760,7 +3760,7 @@ missions:
 # ============================================================ MISSION 12
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 12 — THE SMALL THINGS ON THE LIST"
+- title: "THE SMALL THINGS ON THE LIST"
   card:
     header: "DAY 12 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SMALL THINGS ON THE LIST"
@@ -3808,7 +3808,7 @@ missions:
   #     Concept: 27 — Species interactions and niches; Keystone: Species interactions, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 44: Keep several families; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
   #     placement: PROTOCOL, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Name the observed links"
     concept: 27   # Species interactions and niches
     reason: "The manifest must account for the measured living relationships."
@@ -3883,7 +3883,7 @@ missions:
   #     Concept: 28 — Energy flow and trophic levels; Keystone: Energy coupling, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 45: Name the observed links; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Budget the food web"
     concept: 28   # Energy flow and trophic levels
     reason: "The pilot food web needs an energy budget."
@@ -4069,7 +4069,7 @@ missions:
 # ============================================================ MISSION 13
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 13 — THE SOIL ON THE OTHER SHORE"
+- title: "THE SOIL ON THE OTHER SHORE"
   card:
     header: "DAY 13 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SOIL ON THE OTHER SHORE"
@@ -4114,7 +4114,7 @@ missions:
   #     Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 48: Add the tested partners; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
   #     placement: SEQUENCE, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Follow nitrogen to a leaf"
     concept: 29   # Matter cycles and disturbance
     reason: "The receiving soil needs a route from stored nitrogen to root uptake."
@@ -4175,7 +4175,7 @@ missions:
   #     Concept: 26 — Population growth and carrying capacity; Keystone: Population change, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 49: Follow nitrogen to a leaf; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Check room for growth"
     concept: 26   # Population growth and carrying capacity
     reason: "The planting plan needs growth under its stated resource limit."
@@ -4363,7 +4363,7 @@ missions:
 # ============================================================ MISSION 14
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 14 — GREEN UNTIL MORNING"
+- title: "GREEN UNTIL MORNING"
   card:
     header: "DAY 14 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "GREEN UNTIL MORNING"
@@ -4552,7 +4552,7 @@ missions:
   #     Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Energy coupling, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 54: Read the complete cycle; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Marsh Research Bay — Field Bench.
   - group: MARSH
-    at: bay-bench
+    at: field-bench
     title: "Choose what each test establishes"
     concept: 30   # Experimental inference and sampling
     reason: "The expansion decision needs the scope of each result."
@@ -4671,7 +4671,7 @@ missions:
 # ============================================================ MISSION 15
 # Lifted from ../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 15 — WHAT GOES HOME"
+- title: "WHAT GOES HOME"
   card:
     header: "DAY 15 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "WHAT GOES HOME"
@@ -4710,7 +4710,7 @@ missions:
   #     Concept: 30 — Experimental inference and sampling; Keystone: Inheritance and variation, Regulation and feedback, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 56: Stop the premature expansion; Learning role: TRANSFER; Difficulty: L3; Story role: clue.
   #     placement: PROTOCOL, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Carry forward the tested constraints"
     concept: 30   # Experimental inference and sampling
     reason: "The final stock list must retain each tested constraint."
@@ -4785,7 +4785,7 @@ missions:
   #     Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions, Population change; Area: SEED; Prerequisites: Mission primer and Stop 57: Carry forward the tested constraints; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Keep the habitat links intact"
     concept: 29   # Matter cycles and disturbance
     reason: "The final manifest must keep the tested habitat relationships."
@@ -4860,7 +4860,7 @@ missions:
   #     Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 58: Keep the habitat links intact; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Field Bench.
   - group: MARSH
-    at: bay-bench
+    at: field-bench
     title: "Check the corrected night margin"
     concept: 9   # Respiration and chemiosmosis
     reason: "The final decision needs the corrected full-cycle oxygen margin."
@@ -4972,144 +4972,31 @@ missions:
       - Untested organisms and no pause rule violate the evidence and movement limits.
 
 interiors:
-  TERM:
-    caption: Where the sea cable becomes glass you can put light into.
-    standLine: The armour off, the conductor to the feed, and every fibre out to a connector.
-    station:
-      kind: panel
-      title: Termination bench
-      rows:
-        - {label: Core index, value: 1.4682, status: normal}
-        - {label: Numerical aperture, value: 0.125, status: normal}
-        - {label: Acceptance cone, value: 7.2°, status: high}
-  TEST:
-    caption: A pulse, a delay and a logarithm.
-    standLine: Eleven years of traces in the drawer, each with its settings on the corner.
-    station:
-      kind: panel
-      title: Reflectometer
-      rows:
-        - {label: Step in the trace, value: 4.1 dB, status: alarm}
-        - {label: Round-trip delay, value: 828.6 µs, status: normal}
-        - {label: 'Distance, corrected', value: 82.9 km, status: high}
-  SPLICE:
-    caption: Two ends of glass, and the step between them.
-    standLine: Eleven mechanical joints on the shore end, all as old as the cable.
-    station:
-      kind: panel
-      title: Splice bench
-      rows:
-        - {label: 'Reflection, dry end', value: −14.4 dB, status: alarm}
-        - {label: 'Reflection, in gel', value: −51 dB, status: normal}
-        - {label: Coating thickness, value: 320 nm, status: normal}
-  AMP:
-    caption: Erbium in a coil of glass, and a laser holding it excited.
-    standLine: Repeater 6's telemetry, four years of it, every reading inside limits.
-    station:
-      kind: panel
-      title: Amplifier desk
-      rows:
-        - {label: 'Pump, as logged', value: 118 mW, status: normal}
-        - {label: 'Ceiling on added signal', value: 74.6 mW, status: high}
-        - {label: 'Pump now, inferred', value: 46 mW, status: alarm}
-  RECV:
-    caption: Where photons become charges, and where the counting starts.
-    standLine: A diode measured at 82 conversions in a hundred, against a sheet claiming ninety.
-    station:
-      kind: panel
-      title: Receiver bench
-      rows:
-        - {label: Photon energy at 1550 nm, value: 0.80 eV, status: normal}
-        - {label: Responsivity, value: 1.03 A/W, status: normal}
-        - {label: Arrivals per bit, value: 6200, status: high}
-  RAD:
-    caption: Where the replacement repeater housing is X-rayed before it can go to sea.
-    standLine: The source is eight months old, so every exposure takes longer than it did when the source 
-      was new.
-    station:
-      kind: panel
-      title: Radiography bay
-      rows:
-        - {label: Through 40 mm of steel, value: 7 %, status: high}
-        - {label: Activity left, value: 10 %, status: alarm}
-        - {label: Barrier distance, value: 18.5 m, status: normal}
-
-warmups:
-  trial-near:
-    title: Learn the island station before the repair countdown starts
-    # One sentence, and purely functional: who is here and what the ground is.
-    # Mandate 4b of THREE_PASS_BRIEF.md — the reason for the mission-1 run is
-    # orientation itself, on a morning the player has met nobody yet.
-    why: >-
-      Five buildings, a duct trench and a beach manhole, all of it on sand, and the splice
-      trailer is not parked where the drawing puts it.
-  trial-far:
-    title: The dune track out to the bay
-    why: >-
-      The radiography bay is three hundred metres out in the dunes because of what is in the pot, and
-      the track shifts with the sand. Take it once before you have to, because Nadia Farouk, the
-      radiographer, will be waiting on a film and the exposure cannot be interrupted half way.
-  greet:
-    title: Meet the people who disagree about what failed
-    why: >-
-      Gerald Okonkwo, the station chief and cable engineer, distrusts turning an optical distance directly
-      into a seabed position. Ines Sarraf, the chief transmission engineer, trusts the trace but knows the
-      weather deadline is real. You will need both of them, and the rest of the crew,
-      before you can tell the ship what to repair.
-  follow:
-    title: The duct route, walked by the man who terminated it
-    why: >-
-      Halvard Nilsen, the cable termination technician, walks the duct from the beach manhole to the
-      termination room the same way every week and the route is not on the drawing at the accuracy
-      that matters. Stay with him along it. Where he stops is where the duct is shallow.
-  hunt:
-    title: Six spare pump modules, and the store lists four
-    item: {name: pump module, plural: pump modules}
-    why: >-
-      Every amplifier on this station has a spare pump module and two of them are not in the store where the book
-      says. A spare nobody can find is a repeater with no redundancy, which is exactly what repeater 6 became
-      after the spare-pump test.
-  canvass:
-    title: Who else saw the loss arrive on the night
-    why: >-
-      The span lost four decibels between two o'clock and four in the morning and only one instrument
-      recorded it. Ask round the crew and the night shift until enough accounts agree on when it
-      began, because a single trace is not yet a measurement of when anything happened.
-  evade:
-    title: The maker's engineer who wants the trace re-run his way
-    why: >-
-      He has driven from the mainland with a settings sheet and wants the span traced with a long
-      pulse, which would blur the very thing that is being looked at. The argument belongs to Ines
-      Sarraf, the chief transmission engineer.
-      Keep clear of him and get your round done rather than spending the afternoon in the test room.
-  tag:
-    title: Catch Whitlock before he signs the bay out
-    why: >-
-      Joe Whitlock, the radiation safety officer, signs the radiography bay closed at six and today's
-      exposure runs for more than two hours.
-      The replacement housing cannot sail without that inspection, so the safe barrier has to be set before he
-      leaves.
-
+  CLINIC:
+    caption: "Field Clinic."
+    standLine: "Sealed samples wait beside a microscope."
+  GROW:
+    caption: "Growth Hall."
+    standLine: "Potted dune plants sit beneath timed lamps."
+  SEED:
+    caption: "Seed Room."
+    standLine: "Seed packets lie beside their family records."
+  PLAN:
+    caption: "Field Planning Room."
+    standLine: "A map holds the proposed mainland planting sites."
+  GENE:
+    caption: "Genetics Trailer."
+    standLine: "Sample tubes stand beside a printed sequence reader."
+  MARSH:
+    caption: "Marsh Research Bay."
+    standLine: "Water bottles hold samples from the shore pools."
 copy:
-  TERM: <p>The cable termination room. The armour comes off here, the conductor goes to the power feed, and 
-    every fibre in the cable is brought out to a connector somebody made by hand.</p>
-  TEST: <p>The test room. One instrument, eleven years of traces in a drawer with their settings written on 
-    the corners, and a step nineteen days old that nobody has explained.</p>
-  SPLICE: <p>The splice trailer, parked against the duct trench. A fusion splicer, a microscope, and eleven 
-    mechanical joints' worth of history on the shore end.</p>
-  AMP: <p>The amplifier and power hall. Several thousand volts on the cable's single conductor, and a coil 
-    of glass with a rare-earth metal in it that does the work nothing electrical could.</p>
-  RECV: <p>The receiver lab. A diode, an amplifier and a decision about whether a bit was a one, made six 
-    thousand photons at a time.</p>
-  RAD: <p>The radiography bay, three hundred metres out in the dunes. A pot, a crank handle, a barrier rope 
-    and a film cassette, and a source that is a tenth of what it was in the spring.</p>
-  MANHOLE: <p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two 
-    hundred metres up the dune from the low-water mark.</p>
-  GEN: <p>The generator house. Two sets, one running, because a landing station that loses power stops 
-    feeding the repeaters and every one of them is on the seabed.</p>
-  STORE: <p>The ship's store. Replacement housings, spare pumps and jointing kits are staged here for the 
-    one-day weather window when the cable can be lifted safely.</p>
-
+  CLINIC: "<p>Field Clinic.</p>"
+  GROW: "<p>Growth Hall.</p>"
+  SEED: "<p>Seed Room.</p>"
+  PLAN: "<p>Field Planning Room.</p>"
+  GENE: "<p>Genetics Trailer.</p>"
+  MARSH: "<p>Marsh Research Bay.</p>"
 # --------------------------------------------------------------- review variants
 #
 # Four lessons no mission stop points at. From day 3 every day carries a callback,

@@ -42,7 +42,7 @@
   #     Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Mission primer and Stop 36: Retire the appearance label; Learning role: PRACTICE; Difficulty: L3; Story role: clue.
   #     placement: PROTOCOL, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Read the population histories"
     concept: 22   # Natural selection and fitness
     reason: "The insect archive needs a population-level explanation."
@@ -117,7 +117,7 @@
   #     Concept: 22 — Natural selection and fitness; Keystone: Population change, Inheritance and variation; Area: MARSH; Prerequisites: Mission primer and Stop 37: Read the population histories; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Compare offspring contributions"
     concept: 22   # Natural selection and fitness
     reason: "The selection claim needs reproductive contribution, not survival alone."
@@ -184,7 +184,7 @@
   #     Concept: 22 — Natural selection and fitness; Keystone: Population change, Experimental evidence; Area: PLAN; Prerequisites: Mission primer and Stop 38: Compare offspring contributions; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Field Planning Room — Survey Table.
   - group: PLAN
-    at: trace-table
+    at: survey-table
     title: "Choose the selection pattern"
     concept: 22   # Natural selection and fitness
     reason: "The archive needs the right selection pattern."

@@ -1738,8 +1738,17 @@ function gameFor(s, at, group, day){
     // hunt: the player reads six rows, finds the one that says "unclamped", and
     // never looks at the temperatures. The cause belongs in the verdict.
     const CAUSE = /\b(unclamped|not clamped|no clamp|missing|bypass\w*|loose|unanchored|not heat[- ]sunk)\b/i;
-    need(!stations.some(x => CAUSE.test(String(x.load ?? '') + ' ' + String(x.detail ?? ''))),
-      'a probe station names the cause in its own readings — put it in `why`, or the pattern'
+    // ON THE ANSWER'S OWN ROW. A probe is graded on which station the pattern
+    // breaks at, so a cause written into THAT station's detail is the answer in
+    // words — which is the scavenger hunt above. A cause named on any OTHER row
+    // is a station describing its own treatment and cannot hand over an answer
+    // it is not: Wildtype's nitrogen-restored tray reads "stored feed plus
+    // missing nitrogen", which is what that tray IS, and the stop asks which of
+    // the four is outside its range. Read as any row, the rule refused a board
+    // whose graded comparison it does not touch.
+    const targetRow = stations.find(x => String(x.id ?? x.label) === String(p.target));
+    need(!CAUSE.test(String(targetRow?.load ?? '') + ' ' + String(targetRow?.detail ?? '')),
+      'the probe target names the cause in its own readings — put it in `why`, or the pattern'
       + ' never gets read');
     need(String(s.answerText ?? '').trim(), 'a probe needs `answerText`');
     return { ...base, probe: {

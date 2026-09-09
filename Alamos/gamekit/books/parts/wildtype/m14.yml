@@ -190,7 +190,7 @@
   #     Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Energy coupling, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 54: Read the complete cycle; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Marsh Research Bay — Field Bench.
   - group: MARSH
-    at: bay-bench
+    at: field-bench
     title: "Choose what each test establishes"
     concept: 30   # Experimental inference and sampling
     reason: "The expansion decision needs the scope of each result."

@@ -46,7 +46,7 @@
   #     Concept: 24 — Hardy-Weinberg models; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 40: State what changed; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
   #     placement: BALLPARK, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Count the retained allele"
     concept: 24   # Hardy-Weinberg models
     reason: "The largest family must be assessed for the variation it contains."
@@ -113,7 +113,7 @@
   #     Concept: 23 — Drift and gene flow; Keystone: Population change, Inheritance and variation; Area: SEED; Prerequisites: Mission primer and Stop 41: Count the retained allele; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Separate population explanations"
     concept: 23   # Drift and gene flow
     reason: "The founding plan needs the right population mechanisms."

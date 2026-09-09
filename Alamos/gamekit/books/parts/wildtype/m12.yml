@@ -49,7 +49,7 @@
   #     Concept: 27 — Species interactions and niches; Keystone: Species interactions, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 44: Keep several families; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
   #     placement: PROTOCOL, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Name the observed links"
     concept: 27   # Species interactions and niches
     reason: "The manifest must account for the measured living relationships."
@@ -124,7 +124,7 @@
   #     Concept: 28 — Energy flow and trophic levels; Keystone: Energy coupling, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 45: Name the observed links; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Budget the food web"
     concept: 28   # Energy flow and trophic levels
     reason: "The pilot food web needs an energy budget."

@@ -374,88 +374,31 @@ missions:
 # <<< MISSIONS >>>
 
 interiors:
-  TERM:
-    caption: Where the sea cable becomes glass you can put light into.
-    standLine: The armour off, the conductor to the feed, and every fibre out to a connector.
-    station:
-      kind: panel
-      title: Termination bench
-      rows:
-        - {label: Core index, value: 1.4682, status: normal}
-        - {label: Numerical aperture, value: 0.125, status: normal}
-        - {label: Acceptance cone, value: 7.2°, status: high}
-  TEST:
-    caption: A pulse, a delay and a logarithm.
-    standLine: Eleven years of traces in the drawer, each with its settings on the corner.
-    station:
-      kind: panel
-      title: Reflectometer
-      rows:
-        - {label: Step in the trace, value: 4.1 dB, status: alarm}
-        - {label: Round-trip delay, value: 828.6 µs, status: normal}
-        - {label: 'Distance, corrected', value: 82.9 km, status: high}
-  SPLICE:
-    caption: Two ends of glass, and the step between them.
-    standLine: Eleven mechanical joints on the shore end, all as old as the cable.
-    station:
-      kind: panel
-      title: Splice bench
-      rows:
-        - {label: 'Reflection, dry end', value: −14.4 dB, status: alarm}
-        - {label: 'Reflection, in gel', value: −51 dB, status: normal}
-        - {label: Coating thickness, value: 320 nm, status: normal}
-  AMP:
-    caption: Erbium in a coil of glass, and a laser holding it excited.
-    standLine: Repeater 6's telemetry, four years of it, every reading inside limits.
-    station:
-      kind: panel
-      title: Amplifier desk
-      rows:
-        - {label: 'Pump, as logged', value: 118 mW, status: normal}
-        - {label: 'Ceiling on added signal', value: 74.6 mW, status: high}
-        - {label: 'Pump now, inferred', value: 46 mW, status: alarm}
-  RECV:
-    caption: Where photons become charges, and where the counting starts.
-    standLine: A diode measured at 82 conversions in a hundred, against a sheet claiming ninety.
-    station:
-      kind: panel
-      title: Receiver bench
-      rows:
-        - {label: Photon energy at 1550 nm, value: 0.80 eV, status: normal}
-        - {label: Responsivity, value: 1.03 A/W, status: normal}
-        - {label: Arrivals per bit, value: 6200, status: high}
-  RAD:
-    caption: Where the replacement repeater housing is X-rayed before it can go to sea.
-    standLine: The source is eight months old, so every exposure takes longer than it did when the source 
-      was new.
-    station:
-      kind: panel
-      title: Radiography bay
-      rows:
-        - {label: Through 40 mm of steel, value: 7 %, status: high}
-        - {label: Activity left, value: 10 %, status: alarm}
-        - {label: Barrier distance, value: 18.5 m, status: normal}
-
+  CLINIC:
+    caption: "Field Clinic."
+    standLine: "Sealed samples wait beside a microscope."
+  GROW:
+    caption: "Growth Hall."
+    standLine: "Potted dune plants sit beneath timed lamps."
+  SEED:
+    caption: "Seed Room."
+    standLine: "Seed packets lie beside their family records."
+  PLAN:
+    caption: "Field Planning Room."
+    standLine: "A map holds the proposed mainland planting sites."
+  GENE:
+    caption: "Genetics Trailer."
+    standLine: "Sample tubes stand beside a printed sequence reader."
+  MARSH:
+    caption: "Marsh Research Bay."
+    standLine: "Water bottles hold samples from the shore pools."
 copy:
-  TERM: <p>The cable termination room. The armour comes off here, the conductor goes to the power feed, and 
-    every fibre in the cable is brought out to a connector somebody made by hand.</p>
-  TEST: <p>The test room. One instrument, eleven years of traces in a drawer with their settings written on 
-    the corners, and a step nineteen days old that nobody has explained.</p>
-  SPLICE: <p>The splice trailer, parked against the duct trench. A fusion splicer, a microscope, and eleven 
-    mechanical joints' worth of history on the shore end.</p>
-  AMP: <p>The amplifier and power hall. Several thousand volts on the cable's single conductor, and a coil 
-    of glass with a rare-earth metal in it that does the work nothing electrical could.</p>
-  RECV: <p>The receiver lab. A diode, an amplifier and a decision about whether a bit was a one, made six 
-    thousand photons at a time.</p>
-  RAD: <p>The radiography bay, three hundred metres out in the dunes. A pot, a crank handle, a barrier rope 
-    and a film cassette, and a source that is a tenth of what it was in the spring.</p>
-  MANHOLE: <p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two 
-    hundred metres up the dune from the low-water mark.</p>
-  GEN: <p>The generator house. Two sets, one running, because a landing station that loses power stops 
-    feeding the repeaters and every one of them is on the seabed.</p>
-  STORE: <p>The ship's store. Replacement housings, spare pumps and jointing kits are staged here for the 
-    one-day weather window when the cable can be lifted safely.</p>
-
+  CLINIC: "<p>Field Clinic.</p>"
+  GROW: "<p>Growth Hall.</p>"
+  SEED: "<p>Seed Room.</p>"
+  PLAN: "<p>Field Planning Room.</p>"
+  GENE: "<p>Genetics Trailer.</p>"
+  MARSH: "<p>Marsh Research Bay.</p>"
 # --------------------------------------------------------------- review variants
 #
 # Four lessons no mission stop points at. From day 3 every day carries a callback,

@@ -46,7 +46,7 @@
   #     Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions; Area: MARSH; Prerequisites: Mission primer and Stop 48: Add the tested partners; Learning role: RETRIEVE; Difficulty: L3; Story role: clue.
   #     placement: SEQUENCE, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Follow nitrogen to a leaf"
     concept: 29   # Matter cycles and disturbance
     reason: "The receiving soil needs a route from stored nitrogen to root uptake."
@@ -107,7 +107,7 @@
   #     Concept: 26 — Population growth and carrying capacity; Keystone: Population change, Matter conservation; Area: MARSH; Prerequisites: Mission primer and Stop 49: Follow nitrogen to a leaf; Learning role: RETRIEVE; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Check room for growth"
     concept: 26   # Population growth and carrying capacity
     reason: "The planting plan needs growth under its stated resource limit."

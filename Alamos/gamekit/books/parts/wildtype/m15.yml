@@ -40,7 +40,7 @@
   #     Concept: 30 — Experimental inference and sampling; Keystone: Inheritance and variation, Regulation and feedback, Experimental evidence; Area: SEED; Prerequisites: Mission primer and Stop 56: Stop the premature expansion; Learning role: TRANSFER; Difficulty: L3; Story role: clue.
   #     placement: PROTOCOL, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Carry forward the tested constraints"
     concept: 30   # Experimental inference and sampling
     reason: "The final stock list must retain each tested constraint."
@@ -115,7 +115,7 @@
   #     Concept: 29 — Matter cycles and disturbance; Keystone: Matter conservation, Species interactions, Population change; Area: SEED; Prerequisites: Mission primer and Stop 57: Carry forward the tested constraints; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
   #     placement: PROTOCOL, Seed Room — Seed Table.
   - group: SEED
-    at: trace-table
+    at: seed-table
     title: "Keep the habitat links intact"
     concept: 29   # Matter cycles and disturbance
     reason: "The final manifest must keep the tested habitat relationships."
@@ -190,7 +190,7 @@
   #     Concept: 9 — Respiration and chemiosmosis; Keystone: Energy coupling, Selective exchange, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 58: Keep the habitat links intact; Learning role: TRANSFER; Difficulty: L3; Story role: obstacle.
   #     placement: BALLPARK, Marsh Research Bay — Field Bench.
   - group: MARSH
-    at: bay-bench
+    at: field-bench
     title: "Check the corrected night margin"
     concept: 9   # Respiration and chemiosmosis
     reason: "The final decision needs the corrected full-cycle oxygen margin."

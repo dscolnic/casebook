@@ -187,7 +187,7 @@
   #     Concept: 27 — Species interactions and niches; Keystone: Species interactions, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 18: Find the shared flowering days; Learning role: PRACTICE; Difficulty: L3; Story role: reversal.
   #     placement: PROBE, Marsh Research Bay — Water Rack.
   - group: MARSH
-    at: bay-bench
+    at: water-rack
     title: "Compare field trays"
     concept: 27   # Species interactions and niches
     reason: "The bay comparison must separate timing mismatch from insect loss."
@@ -265,7 +265,7 @@
   #     Concept: 27 — Species interactions and niches; Keystone: Species interactions, Regulation and feedback, Experimental evidence; Area: MARSH; Prerequisites: Mission primer and Stop 19: Compare field trays; Learning role: COMBINE; Difficulty: L3; Story role: decision.
   #     placement: CHOICE, Tess Rowan at Marsh Research Bay — Habitat Board.
   - group: MARSH
-    at: bay-bench
+    at: habitat-board
     title: "Keep flowers available"
     concept: 27   # Species interactions and niches
     reason: "The wider lamp reset waits on the field result."

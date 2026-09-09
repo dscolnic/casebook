@@ -141,5 +141,36 @@ console.log(`${theme.padEnd(16)} ${list.length} area(s) from the bible: `
 const dropped = [...furniture.keys()].filter(id => !areas.has(id));
 if(dropped.length) console.log(`  the base's own areas, dropped: ${dropped.join(', ')}`);
 if(!write){ console.log('  (dry run — pass --write)'); process.exit(0); }
-writeFileSync(headPath, src.slice(0, from) + '\n' + out.join('\n') + src.slice(to));
-console.log(`  written to books/parts/${theme}/_book.yml`);
+/**
+ * AND WHAT IS INSIDE EACH ROOM, for the same reason the areas themselves are
+ * here: the base book's `interiors:` and `copy:` are keyed to the BASE game's
+ * areas, so a campaign on somebody else's ground inherits a set of rooms whose
+ * ids its stops never name. Wildtype's six rooms came through as Dark Fibre's
+ * TERM/TEST/SPLICE/AMP/RECV/RAD — a cable landing station's drums and OTDR
+ * panels, in a biology campaign, keyed so that `delivery.where` pointed at a
+ * room with nowhere to stand.
+ *
+ * The caption is the bible's own sentence for the area. The stand line is the
+ * first thing the bible says is in the room, which is its first fixture's
+ * caption. Neither is composed here.
+ */
+const roomLines = ['interiors:'];
+const copyLines = ['copy:'];
+for(const a of list){
+  const mine = bible.fixtures.filter(f => String(f.place ?? '').toUpperCase() === a.id);
+  const said = a.desc || `${a.name}.`;
+  roomLines.push(`  ${a.id}:`, `    caption: ${JSON.stringify(said.slice(0, 180))}`);
+  if(mine[0]?.caption) roomLines.push(`    standLine: ${JSON.stringify(mine[0].caption)}`);
+  copyLines.push(`  ${a.id}: ${JSON.stringify(`<p>${said}</p>`)}`);
+}
+
+let text = src.slice(0, from) + '\n' + out.join('\n') + src.slice(to);
+// Each block replaced where it stands, or appended when the base had none.
+for(const [key, block] of [['interiors', roomLines], ['copy', copyLines]]){
+  const re = new RegExp(`\\n${key}:\\n(?:(?: {2}|\\t).*\\n|\\n)*`);
+  const body = '\n' + block.join('\n') + '\n';
+  text = re.test(text) ? text.replace(re, body) : text.trimEnd() + '\n' + body;
+}
+writeFileSync(headPath, text);
+console.log(`  written to books/parts/${theme}/_book.yml`
+  + ` — ${list.length} area(s), ${list.length} room(s)`);

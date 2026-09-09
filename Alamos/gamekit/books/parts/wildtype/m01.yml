@@ -198,7 +198,7 @@
   #     Concept: 30 — Experimental inference and sampling; Keystone: Experimental evidence, Structure and function; Area: CLINIC; Prerequisites: Mission primer and Stop 2: Count the missing nitrogen; Learning role: INTRODUCE; Difficulty: L2; Story role: reversal.
   #     placement: PROBE, Field Clinic — Culture Rack.
   - group: CLINIC
-    at: offcut-rack
+    at: culture-rack
     title: "Check the stored mix"
     concept: 30   # Experimental inference and sampling
     reason: "The clinic needs a controlled test before changing feed."
