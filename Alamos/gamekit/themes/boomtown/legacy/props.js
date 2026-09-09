@@ -11,7 +11,14 @@ const M = {
   wood:      new THREE.MeshStandardMaterial({ color: 0x6b5844, roughness: 0.93 }),
   woodDark:  new THREE.MeshStandardMaterial({ color: 0x4a3a2a, roughness: 0.94 }),
   weathered: new THREE.MeshStandardMaterial({ color: 0x8b8375, roughness: 0.95 }),
-  olive:     new THREE.MeshStandardMaterial({ color: 0x4a5136, roughness: 0.62, metalness: 0.28 }),
+  // Boomtown is this place today, not in 1944: the bible asks for "modern
+  // utility pickups replace jeep styling within identical colliders". Same
+  // geometry envelope, same collision, a working truck's paint rather than
+  // Army olive. `olive` is kept as the key because thirty call sites use it.
+  //
+  // Two stops darker than the red it looks like: at 0x9c3f2e under this sky the
+  // truck rendered salmon and was the brightest object on the mesa. House rule 6.
+  olive:     new THREE.MeshStandardMaterial({ color: 0x6e2a1e, roughness: 0.5, metalness: 0.3 }),
   oliveDark: new THREE.MeshStandardMaterial({ color: 0x353b26, roughness: 0.7, metalness: 0.2 }),
   rubber:    new THREE.MeshStandardMaterial({ color: 0x1c1c1c, roughness: 0.9 }),
   steel:     new THREE.MeshStandardMaterial({ color: 0x6e6e6e, roughness: 0.42, metalness: 0.8 }),
@@ -430,6 +437,24 @@ function jeep(scene, x, z, ry, { drive = false, label = 'jeep', id = null } = {}
   // hood and grille
   const hood = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.46, 1.5), M.olive);
   hood.position.set(1.35, 1.02, 0); g.add(hood);
+  // A CAB AND A BED. The tub above is the chassis; what makes this read as a
+  // pickup rather than a jeep is a closed cab over the front of it and a
+  // dropped bed behind, with a roll of something in the bed. Nothing here is
+  // wider or longer than the tub, so the collider is untouched.
+  const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.78, 1.56), M.olive);
+  cabin.position.set(0.5, 1.47, 0); g.add(cabin);
+  const cabGlass = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.5, 1.6), M.glassDark);
+  cabGlass.position.set(0.5, 1.56, 0); g.add(cabGlass);
+  const bedSide = new THREE.BoxGeometry(1.5, 0.42, 0.08);
+  for(const dz of [-0.77, 0.77]){
+    const side = new THREE.Mesh(bedSide, M.olive);
+    side.position.set(-0.72, 1.29, dz); g.add(side);
+  }
+  const tail = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.42, 1.56), M.olive);
+  tail.position.set(-1.48, 1.29, 0); g.add(tail);
+  const load = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 1.3, 10), M.rubber);
+  load.rotation.x = Math.PI / 2;
+  load.position.set(-0.9, 1.32, 0.3); g.add(load);
   const grille = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.55, 1.4), M.oliveDark);
   grille.position.set(1.92, 0.82, 0); g.add(grille);
   for(let i = 0; i < 7; i++){
@@ -446,6 +471,8 @@ function jeep(scene, x, z, ry, { drive = false, label = 'jeep', id = null } = {}
   // Hill's windows use: from the driver's seat that panel is forty centimetres
   // from your face and fills most of the screen, which is what "I get in and
   // cannot see anything" looks like.
+  // Kept, but inside the cab now: it is the windscreen the driver looks through
+  // rather than a folded flat one on the bonnet.
   const ws = new THREE.Mesh(new THREE.PlaneGeometry(1.42, 0.62), M.windscreen);
   ws.position.set(0.72, 1.42, 0);
   ws.rotation.set(0, Math.PI / 2, -0.22); g.add(ws);
